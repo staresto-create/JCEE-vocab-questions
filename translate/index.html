@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>歷屆中譯英翻譯練習</title>
+<style>
+  :root{
+    --paper:#faf7f0;
+    --ink:#1f2a24;
+    --rule:#c9c0ab;
+    --seal:#8a2e2e;
+    --seal-dark:#6e2222;
+    --stamp:#2f5233;
+    --stamp-light:#e8efe6;
+    --gold:#a97c34;
+    --muted:#6b6459;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:"Noto Serif TC","Georgia",serif;
+    background:var(--paper);
+    background-image:
+      radial-gradient(circle at 100% 0%, rgba(138,46,46,0.05), transparent 40%),
+      radial-gradient(circle at 0% 100%, rgba(47,82,51,0.05), transparent 40%);
+    color:var(--ink);
+    min-height:100vh;
+  }
+  header{
+    padding:28px 20px 18px;
+    text-align:center;
+    border-bottom:3px double var(--rule);
+  }
+  header h1{
+    margin:0;
+    font-size:28px;
+    letter-spacing:4px;
+    font-weight:700;
+  }
+  header .sub{
+    margin-top:6px;
+    font-size:13px;
+    color:var(--muted);
+    letter-spacing:2px;
+  }
+  nav.tabs{
+    display:flex;
+    justify-content:center;
+    gap:0;
+    margin-top:16px;
+    flex-wrap:wrap;
+  }
+  nav.tabs button{
+    font-family:inherit;
+    font-size:14px;
+    padding:9px 22px;
+    background:none;
+    border:1px solid var(--rule);
+    border-bottom:none;
+    color:var(--muted);
+    cursor:pointer;
+    letter-spacing:1px;
+    margin:0 2px;
+    border-radius:6px 6px 0 0;
+  }
+  nav.tabs button.active{
+    background:var(--paper);
+    color:var(--seal);
+    font-weight:700;
+    border-color:var(--seal);
+  }
+  main{
+    max-width:760px;
+    margin:0 auto;
+    padding:24px 18px 80px;
+  }
+  section.view{display:none;}
+  section.view.active{display:block;}
+
+  /* --- setup screen --- */
+  .card{
+    background:#fff;
+    border:1px solid var(--rule);
+    border-radius:10px;
+    padding:22px 24px;
+    margin-bottom:18px;
+    box-shadow:0 1px 3px rgba(0,0,0,0.04);
+  }
+  .card h2{
+    margin:0 0 14px;
+    font-size:17px;
+    color:var(--stamp);
+    border-left:4px solid var(--stamp);
+    padding-left:10px;
+  }
+  .year-grid{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+  .year-chip{
+    padding:7px 13px;
+    border:1px solid var(--rule);
+    border-radius:20px;
+    font-size:13px;
+    cursor:pointer;
+    background:#fff;
+    user-select:none;
+    transition:.15s;
+  }
+  .year-chip.selected{
+    background:var(--stamp);
+    border-color:var(--stamp);
+    color:#fff;
+  }
+  .range-actions{
+    margin-top:12px;
+    display:flex;
+    gap:10px;
+    font-size:13px;
+  }
+  .range-actions a{
+    color:var(--gold);
+    cursor:pointer;
+    text-decoration:underline;
+  }
+  .start-btn{
+    display:block;
+    width:100%;
+    margin-top:20px;
+    padding:14px;
+    background:var(--seal);
+    color:#fff;
+    border:none;
+    border-radius:8px;
+    font-size:17px;
+    letter-spacing:3px;
+    cursor:pointer;
+    font-family:inherit;
+  }
+  .start-btn:disabled{background:#c8b9b9;cursor:not-allowed;}
+  .start-btn.secondary{background:var(--stamp);}
+
+  .stats-strip{
+    display:flex;
+    justify-content:space-between;
+    font-size:13px;
+    color:var(--muted);
+    margin-bottom:10px;
+    padding:0 4px;
+  }
+
+  /* --- quiz screen --- */
+  .progress{
+    text-align:center;
+    font-size:13px;
+    color:var(--muted);
+    letter-spacing:2px;
+    margin-bottom:10px;
+  }
+  .question-card{
+    background:#fff;
+    border:1px solid var(--rule);
+    border-radius:10px;
+    padding:28px 26px;
+    position:relative;
+  }
+  .question-card::before{
+    content:attr(data-tag);
+    position:absolute;
+    top:-11px;
+    left:22px;
+    background:var(--seal);
+    color:#fff;
+    font-size:11px;
+    padding:3px 12px;
+    border-radius:12px;
+    letter-spacing:2px;
+  }
+  .zh-text{
+    font-size:21px;
+    line-height:1.9;
+    margin:14px 0 20px;
+    color:var(--ink);
+  }
+  textarea{
+    width:100%;
+    min-height:90px;
+    font-family:inherit;
+    font-size:15px;
+    padding:12px 14px;
+    border:1px solid var(--rule);
+    border-radius:8px;
+    resize:vertical;
+    background:#fffdf8;
+  }
+  textarea:focus{outline:2px solid var(--stamp);outline-offset:1px;}
+  .btn-row{
+    display:flex;
+    gap:12px;
+    margin-top:16px;
+  }
+  .btn{
+    flex:1;
+    padding:13px;
+    border-radius:8px;
+    border:none;
+    font-size:15px;
+    font-family:inherit;
+    cursor:pointer;
+    letter-spacing:1px;
+  }
+  .btn-reveal{background:var(--stamp);color:#fff;}
+  .btn-skip{background:#fff;color:var(--muted);border:1px solid var(--rule);flex:0 0 90px;}
+
+  .reveal-box{
+    margin-top:20px;
+    padding:18px 18px;
+    background:var(--stamp-light);
+    border-left:4px solid var(--stamp);
+    border-radius:6px;
+    display:none;
+  }
+  .reveal-box.show{display:block;}
+  .reveal-box .label{
+    font-size:12px;
+    color:var(--stamp);
+    letter-spacing:2px;
+    margin-bottom:6px;
+    font-weight:700;
+  }
+  .reveal-box .en-model{
+    font-size:16px;
+    line-height:1.7;
+  }
+  .your-answer{
+    margin-top:14px;
+    font-size:13px;
+    color:var(--muted);
+    padding-top:10px;
+    border-top:1px dashed var(--rule);
+  }
+  .self-grade{
+    display:none;
+    gap:12px;
+    margin-top:18px;
+  }
+  .self-grade.show{display:flex;}
+  .grade-btn{
+    flex:1;
+    padding:14px;
+    border-radius:8px;
+    border:2px solid;
+    font-size:15px;
+    font-family:inherit;
+    cursor:pointer;
+    background:#fff;
+  }
+  .grade-good{border-color:var(--stamp);color:var(--stamp);}
+  .grade-good:hover{background:var(--stamp);color:#fff;}
+  .grade-bad{border-color:var(--seal);color:var(--seal);}
+  .grade-bad:hover{background:var(--seal);color:#fff;}
+
+  .finish-card{
+    text-align:center;
+    padding:40px 24px;
+  }
+  .finish-card .big{
+    font-size:44px;
+    color:var(--seal);
+    font-weight:700;
+  }
+  .finish-card .sub{color:var(--muted);margin-top:6px;}
+
+  /* --- review / history list --- */
+  .review-item{
+    background:#fff;
+    border:1px solid var(--rule);
+    border-radius:8px;
+    padding:16px 18px;
+    margin-bottom:12px;
+  }
+  .review-item .meta{
+    font-size:11px;
+    color:var(--gold);
+    letter-spacing:1px;
+    margin-bottom:6px;
+  }
+  .review-item .zh{font-size:16px;margin-bottom:8px;}
+  .review-item .yours{
+    font-size:13px;
+    color:var(--seal);
+    background:#fbf0f0;
+    padding:8px 10px;
+    border-radius:6px;
+    margin-bottom:6px;
+  }
+  .review-item .model{
+    font-size:13px;
+    color:var(--stamp);
+    background:var(--stamp-light);
+    padding:8px 10px;
+    border-radius:6px;
+  }
+  .empty-note{
+    text-align:center;
+    color:var(--muted);
+    padding:50px 20px;
+    font-size:14px;
+    line-height:1.9;
+  }
+  .history-row{
+    display:flex;
+    justify-content:space-between;
+    padding:10px 4px;
+    border-bottom:1px solid var(--rule);
+    font-size:13px;
+  }
+  .history-row:last-child{border-bottom:none;}
+  .clear-link{
+    text-align:right;
+    font-size:12px;
+    color:var(--muted);
+    cursor:pointer;
+    text-decoration:underline;
+    margin-top:10px;
+  }
+  footer{
+    text-align:center;
+    font-size:12px;
+    color:var(--muted);
+    padding:20px;
+  }
+  @media (max-width:480px){
+    header h1{font-size:22px;letter-spacing:2px;}
+    .zh-text{font-size:18px;}
+    .question-card{padding:20px 16px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>歷屆中譯英翻譯練習</h1>
+  <div class="sub">GSAT / 指考 歷屆考古題 · 73–115 學年度</div>
+  <nav class="tabs">
+    <button data-view="setup" class="active">練習</button>
+    <button data-view="review">錯題本</button>
+    <button data-view="history">學習歷程</button>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ============ SETUP VIEW ============ -->
+  <section id="view-setup" class="view active">
+    <div class="card">
+      <h2>選擇練習範圍</h2>
+      <div style="font-size:12px;color:var(--muted);margin-bottom:10px;">點擊年度即可選取（可複選），再次點擊取消</div>
+      <div class="year-grid" id="yearGrid"></div>
+      <div class="range-actions">
+        <a id="selAll">全選</a>
+        <a id="selNone">全部取消</a>
+        <a id="selWrongOnly">只練錯題本內的年度</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>練習模式</h2>
+      <div class="year-grid">
+        <div class="year-chip selected" data-mode="order">依原順序</div>
+        <div class="year-chip" data-mode="shuffle">隨機出題</div>
+      </div>
+    </div>
+
+    <button class="start-btn" id="startBtn">開始練習</button>
+  </section>
+
+  <!-- ============ QUIZ VIEW ============ -->
+  <section id="view-quiz" class="view">
+    <div class="stats-strip">
+      <span id="quizRangeLabel"></span>
+      <span id="quizScoreLabel">答對 0 / 已練 0</span>
+    </div>
+    <div class="progress" id="progressLabel"></div>
+
+    <div class="question-card" id="questionCard" data-tag="">
+      <div class="zh-text" id="zhText"></div>
+      <textarea id="userInput" placeholder="請輸入你的英文翻譯……"></textarea>
+      <div class="btn-row">
+        <button class="btn btn-reveal" id="revealBtn">看範文</button>
+        <button class="btn btn-skip" id="skipBtn">跳過</button>
+      </div>
+
+      <div class="reveal-box" id="revealBox">
+        <div class="label">官方範文</div>
+        <div class="en-model" id="enModel"></div>
+        <div class="your-answer" id="yourAnswerEcho"></div>
+      </div>
+
+      <div class="self-grade" id="selfGrade">
+        <button class="grade-btn grade-good" id="gradeGood">我答對了 / 差不多 ✓</button>
+        <button class="grade-btn grade-bad" id="gradeBad">我需要加強 ✗</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FINISH VIEW ============ -->
+  <section id="view-finish" class="view">
+    <div class="card finish-card">
+      <div class="big" id="finishScore">0 / 0</div>
+      <div class="sub">本次練習完成！錯題已自動存入錯題本。</div>
+      <button class="start-btn" id="backToSetup" style="margin-top:24px;">回到練習設定</button>
+      <button class="start-btn secondary" id="reviewWrongNow" style="margin-top:10px;">立即複習本次錯題</button>
+    </div>
+  </section>
+
+  <!-- ============ REVIEW (WRONG BOOK) VIEW ============ -->
+  <section id="view-review" class="view">
+    <div class="card" style="padding:16px 20px;">
+      <h2 style="margin-bottom:6px;">錯題本</h2>
+      <div id="reviewCount" style="font-size:13px;color:var(--muted);"></div>
+    </div>
+    <div id="reviewList"></div>
+    <div class="clear-link" id="clearWrongLink">清空錯題本</div>
+  </section>
+
+  <!-- ============ HISTORY VIEW ============ -->
+  <section id="view-history" class="view">
+    <div class="card">
+      <h2>學習歷程</h2>
+      <div id="historyList"></div>
+      <div class="clear-link" id="clearHistoryLink">清除歷程紀錄</div>
+    </div>
+  </section>
+
+</main>
+
+<footer>本站題目與範文僅供個人練習使用，內容整理自歷屆學測／指考中譯英考古題。</footer>
+
+<script>
+let ALL_ITEMS = [];
+let queue = [];
+let qIndex = 0;
+let correctCount = 0;
+let attemptedCount = 0;
+let sessionWrong = [];
+let currentRangeLabel = "";
+
+const LS_WRONG = "translate_wrongbook_v1";
+const LS_HISTORY = "translate_history_v1";
+
+async function loadItems(){
+  const res = await fetch("quiz_items.json");
+  ALL_ITEMS = await res.json();
+  buildYearGrid();
+}
+
+function buildYearGrid(){
+  const years = [...new Set(ALL_ITEMS.map(i => i.year))].sort((a,b)=>a-b);
+  const grid = document.getElementById("yearGrid");
+  grid.innerHTML = "";
+  years.forEach(y => {
+    const chip = document.createElement("div");
+    chip.className = "year-chip";
+    chip.textContent = y + "年";
+    chip.dataset.year = y;
+    chip.addEventListener("click", () => chip.classList.toggle("selected"));
+    grid.appendChild(chip);
+  });
+}
+
+document.getElementById("selAll").addEventListener("click", ()=>{
+  document.querySelectorAll("#yearGrid .year-chip").forEach(c=>c.classList.add("selected"));
+});
+document.getElementById("selNone").addEventListener("click", ()=>{
+  document.querySelectorAll("#yearGrid .year-chip").forEach(c=>c.classList.remove("selected"));
+});
+document.getElementById("selWrongOnly").addEventListener("click", ()=>{
+  const wrong = getWrongBook();
+  const wrongYears = new Set(wrong.map(w=>w.year));
+  document.querySelectorAll("#yearGrid .year-chip").forEach(c=>{
+    if(wrongYears.has(Number(c.dataset.year))) c.classList.add("selected");
+    else c.classList.remove("selected");
+  });
+});
+
+document.querySelectorAll('[data-mode]').forEach(el=>{
+  el.addEventListener("click", ()=>{
+    document.querySelectorAll('[data-mode]').forEach(x=>x.classList.remove("selected"));
+    el.classList.add("selected");
+  });
+});
+
+function getMode(){
+  const active = document.querySelector('[data-mode].selected');
+  return active ? active.dataset.mode : "order";
+}
+
+document.getElementById("startBtn").addEventListener("click", ()=>{
+  const selectedYears = [...document.querySelectorAll("#yearGrid .year-chip.selected")]
+      .map(c => Number(c.dataset.year));
+  if(selectedYears.length === 0){ alert("請至少選擇一個年度"); return; }
+  queue = ALL_ITEMS.filter(i => selectedYears.includes(i.year));
+  if(getMode() === "shuffle"){
+    queue = queue.slice().sort(()=>Math.random()-0.5);
+  }
+  currentRangeLabel = selectedYears.length === [...new Set(ALL_ITEMS.map(i=>i.year))].length
+      ? "全部年度" : (selectedYears[0] + "–" + selectedYears[selectedYears.length-1] + " 等 " + selectedYears.length + " 個年度");
+  qIndex = 0; correctCount = 0; attemptedCount = 0; sessionWrong = [];
+  showView("quiz");
+  renderQuestion();
+});
+
+function showView(name){
+  document.querySelectorAll("section.view").forEach(s=>s.classList.remove("active"));
+  document.getElementById("view-"+name).classList.add("active");
+  document.querySelectorAll("nav.tabs button").forEach(b=>b.classList.remove("active"));
+  const navBtn = document.querySelector(`nav.tabs button[data-view="${name}"]`);
+  if(navBtn) navBtn.classList.add("active");
+  if(name === "review") renderReview();
+  if(name === "history") renderHistory();
+}
+
+document.querySelectorAll("nav.tabs button").forEach(btn=>{
+  btn.addEventListener("click", ()=> showView(btn.dataset.view));
+});
+
+function renderQuestion(){
+  if(qIndex >= queue.length){
+    finishSession();
+    return;
+  }
+  const item = queue[qIndex];
+  document.getElementById("questionCard").dataset.tag = item.yearLabel;
+  document.getElementById("zhText").textContent = item.zh;
+  document.getElementById("userInput").value = "";
+  document.getElementById("revealBox").classList.remove("show");
+  document.getElementById("selfGrade").classList.remove("show");
+  document.getElementById("progressLabel").textContent = `第 ${qIndex+1} 題 / 共 ${queue.length} 題`;
+  document.getElementById("quizRangeLabel").textContent = currentRangeLabel;
+  document.getElementById("quizScoreLabel").textContent = `答對 ${correctCount} / 已練 ${attemptedCount}`;
+  document.getElementById("userInput").focus();
+}
+
+document.getElementById("revealBtn").addEventListener("click", ()=>{
+  const item = queue[qIndex];
+  document.getElementById("enModel").textContent = item.en;
+  const yourText = document.getElementById("userInput").value.trim();
+  document.getElementById("yourAnswerEcho").textContent = yourText
+      ? "你的翻譯：" + yourText
+      : "（本題未輸入答案）";
+  document.getElementById("revealBox").classList.add("show");
+  document.getElementById("selfGrade").classList.add("show");
+});
+
+document.getElementById("skipBtn").addEventListener("click", ()=>{
+  qIndex++;
+  renderQuestion();
+});
+
+document.getElementById("gradeGood").addEventListener("click", ()=>{
+  attemptedCount++; correctCount++;
+  removeFromWrongBook(queue[qIndex].id);
+  qIndex++;
+  renderQuestion();
+});
+
+document.getElementById("gradeBad").addEventListener("click", ()=>{
+  attemptedCount++;
+  const item = queue[qIndex];
+  const yourAnswer = document.getElementById("userInput").value.trim();
+  addToWrongBook(item, yourAnswer);
+  sessionWrong.push(item.id);
+  qIndex++;
+  renderQuestion();
+});
+
+function finishSession(){
+  document.getElementById("finishScore").textContent = `${correctCount} / ${attemptedCount}`;
+  logHistory(currentRangeLabel, attemptedCount, correctCount);
+  showView("finish");
+}
+
+document.getElementById("backToSetup").addEventListener("click", ()=> showView("setup"));
+document.getElementById("reviewWrongNow").addEventListener("click", ()=>{
+  if(sessionWrong.length === 0){ showView("review"); return; }
+  queue = ALL_ITEMS.filter(i => sessionWrong.includes(i.id));
+  qIndex = 0; correctCount = 0; attemptedCount = 0; sessionWrong = [];
+  currentRangeLabel = "本次錯題複習";
+  showView("quiz");
+  renderQuestion();
+});
+
+/* ---------- localStorage: 錯題本 ---------- */
+function getWrongBook(){
+  try{ return JSON.parse(localStorage.getItem(LS_WRONG)) || []; }catch(e){ return []; }
+}
+function saveWrongBook(list){
+  localStorage.setItem(LS_WRONG, JSON.stringify(list));
+}
+function addToWrongBook(item, yourAnswer){
+  const list = getWrongBook();
+  const idx = list.findIndex(w => w.id === item.id);
+  const entry = {
+    id: item.id, year: item.year, yearLabel: item.yearLabel,
+    zh: item.zh, en: item.en, yourAnswer: yourAnswer,
+    date: new Date().toISOString().slice(0,10)
+  };
+  if(idx >= 0) list[idx] = entry; else list.push(entry);
+  saveWrongBook(list);
+}
+function removeFromWrongBook(id){
+  saveWrongBook(getWrongBook().filter(w => w.id !== id));
+}
+
+function renderReview(){
+  const list = getWrongBook();
+  document.getElementById("reviewCount").textContent = `目前共 ${list.length} 題`;
+  const box = document.getElementById("reviewList");
+  if(list.length === 0){
+    box.innerHTML = `<div class="empty-note">錯題本目前是空的。<br>練習時選「我需要加強」的題目會自動存到這裡。</div>`;
+    return;
+  }
+  box.innerHTML = list.slice().reverse().map(w => `
+    <div class="review-item">
+      <div class="meta">${w.yearLabel} · 存入日期 ${w.date}</div>
+      <div class="zh">${w.zh}</div>
+      ${w.yourAnswer ? `<div class="yours">你的翻譯：${escapeHtml(w.yourAnswer)}</div>` : ""}
+      <div class="model">官方範文：${escapeHtml(w.en)}</div>
+    </div>
+  `).join("");
+}
+
+document.getElementById("clearWrongLink").addEventListener("click", ()=>{
+  if(confirm("確定要清空整個錯題本嗎？此動作無法復原。")){
+    saveWrongBook([]);
+    renderReview();
+  }
+});
+
+/* ---------- localStorage: 學習歷程 ---------- */
+function getHistory(){
+  try{ return JSON.parse(localStorage.getItem(LS_HISTORY)) || []; }catch(e){ return []; }
+}
+function logHistory(rangeLabel, attempted, correct){
+  const list = getHistory();
+  list.push({
+    date: new Date().toISOString().slice(0,10),
+    time: new Date().toTimeString().slice(0,5),
+    range: rangeLabel, attempted, correct
+  });
+  localStorage.setItem(LS_HISTORY, JSON.stringify(list));
+}
+function renderHistory(){
+  const list = getHistory().slice().reverse();
+  const box = document.getElementById("historyList");
+  if(list.length === 0){
+    box.innerHTML = `<div class="empty-note">目前還沒有練習紀錄。</div>`;
+    return;
+  }
+  box.innerHTML = list.map(h => `
+    <div class="history-row">
+      <span>${h.date} ${h.time}　${h.range}</span>
+      <span>${h.correct} / ${h.attempted}</span>
+    </div>
+  `).join("");
+}
+document.getElementById("clearHistoryLink").addEventListener("click", ()=>{
+  if(confirm("確定要清除所有學習歷程紀錄嗎？")){
+    localStorage.setItem(LS_HISTORY, "[]");
+    renderHistory();
+  }
+});
+
+function escapeHtml(s){
+  return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+}
+
+loadItems();
+</script>
+</body>
+</html>
