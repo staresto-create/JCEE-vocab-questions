@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>學測英文詞彙題庫 · 83–115年</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F6F1E4;
+    --paper-card:#FFFDF7;
+    --ink:#221F1A;
+    --ink-soft:#5B5648;
+    --rule:#DCD3BB;
+    --crimson:#AE3626;
+    --crimson-soft:#D8C6BE;
+    --sage:#3E6E52;
+    --sage-soft:#CBD9C9;
+    --gold:#A9812E;
+    --shadow: 0 1px 0 rgba(34,31,26,.06), 0 8px 24px rgba(34,31,26,.08);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background: var(--paper);
+    background-image:
+      radial-gradient(circle at 100% 0%, rgba(174,54,38,.05), transparent 40%),
+      repeating-linear-gradient(0deg, rgba(34,31,26,0.025) 0px, rgba(34,31,26,0.025) 1px, transparent 1px, transparent 34px);
+    color: var(--ink);
+    font-family: 'Noto Sans TC', sans-serif;
+    min-height: 100vh;
+    padding: 32px 16px 80px;
+  }
+  .wrap{max-width:720px;margin:0 auto;}
+  header.top{
+    display:flex; align-items:baseline; justify-content:space-between;
+    border-bottom: 3px double var(--ink);
+    padding-bottom:14px; margin-bottom: 22px;
+  }
+  header.top .title{
+    font-family:'Noto Serif TC',serif; font-weight:900; font-size:26px; letter-spacing:.02em;
+  }
+  header.top .sub{
+    font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-soft);
+  }
+  .card{
+    background: var(--paper-card);
+    border:1px solid var(--rule);
+    border-radius: 3px;
+    box-shadow: var(--shadow);
+    position:relative;
+  }
+  .card::before{
+    content:"";
+    position:absolute; left:0; top:14px; bottom:14px; width:3px;
+    background: repeating-linear-gradient(0deg, var(--crimson-soft) 0 6px, transparent 6px 13px);
+    opacity:.6;
+  }
+
+  /* ---- HOME ---- */
+  #home .card{padding:28px 26px 26px;margin-bottom:18px;}
+  .home-lead{
+    font-family:'Noto Serif TC',serif; font-weight:700; font-size:19px; margin: 0 0 4px;
+  }
+  .home-desc{color:var(--ink-soft); font-size:14px; line-height:1.7; margin:0 0 20px;}
+  .big-btn{
+    display:block; width:100%; text-align:center; cursor:pointer;
+    background: var(--ink); color: var(--paper-card);
+    font-family:'Noto Serif TC',serif; font-weight:700; font-size:20px;
+    padding:18px; border:none; border-radius:3px; letter-spacing:.06em;
+    transition: transform .12s ease, background .15s ease;
+  }
+  .big-btn:hover{background:#000; transform: translateY(-1px);}
+  .big-btn:active{transform: translateY(0);}
+  .row{display:flex; gap:12px; flex-wrap:wrap; margin-top:16px;}
+  .field{flex:1; min-width:120px;}
+  .field label{display:block; font-size:12px; color:var(--ink-soft); margin-bottom:5px; font-family:'IBM Plex Mono',monospace;}
+  select, input[type=number]{
+    width:100%; padding:9px 10px; font-size:14px; font-family:'Noto Sans TC',sans-serif;
+    border:1px solid var(--rule); border-radius:2px; background:#fff; color:var(--ink);
+  }
+  .sec-title{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.12em;
+    color:var(--crimson); text-transform:uppercase; margin: 26px 0 10px; display:flex; align-items:center; gap:8px;
+  }
+  .sec-title::after{content:""; flex:1; height:1px; background:var(--rule);}
+  .ghost-btn{
+    cursor:pointer; background:transparent; border:1.5px solid var(--ink);
+    color:var(--ink); font-family:'Noto Serif TC',serif; font-weight:700; font-size:15px;
+    padding:10px 16px; border-radius:2px; transition:.15s;
+  }
+  .ghost-btn:hover{background:var(--ink); color:var(--paper-card);}
+  .stat-line{display:flex; justify-content:space-between; font-size:13px; padding:9px 0; border-bottom:1px dashed var(--rule); font-family:'IBM Plex Mono',monospace;}
+  .stat-line:last-child{border-bottom:none;}
+  .stat-badge{background:var(--gold); color:#fff; font-size:11px; padding:1px 7px; border-radius:9px; font-family:'IBM Plex Mono',monospace;}
+  .empty-note{color:var(--ink-soft); font-size:13px; font-style:italic;}
+
+  /* ---- QUIZ ---- */
+  #quiz{display:none;}
+  .quiz-meta{
+    display:flex; justify-content:space-between; align-items:center;
+    font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-soft); margin-bottom:10px;
+  }
+  .progress-bar{height:4px; background:var(--rule); border-radius:2px; overflow:hidden; margin-bottom:20px;}
+  .progress-fill{height:100%; background:var(--crimson); transition:width .25s ease;}
+  .q-card{padding:26px 26px 22px;}
+  .q-tag{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--ink-soft);
+    border:1px solid var(--rule); display:inline-block; padding:2px 8px; border-radius:10px; margin-bottom:14px;
+  }
+  .q-sentence{
+    font-family:'IBM Plex Mono',monospace; font-size:17px; line-height:1.75;
+    letter-spacing:.01em; margin-bottom:22px;
+  }
+  .blank{color:var(--crimson); font-weight:600;}
+  .underline-target{text-decoration: underline; text-decoration-color: var(--crimson); text-decoration-thickness: 2px; text-underline-offset: 3px; font-weight:600;}
+  .options{display:grid; gap:10px;}
+  .opt{
+    display:flex; align-items:center; gap:12px; text-align:left;
+    padding:13px 16px; border:1.5px solid var(--rule); border-radius:3px;
+    background:#fff; cursor:pointer; font-size:15px; font-family:'IBM Plex Mono',monospace;
+    transition: border-color .12s, background .12s;
+    position:relative;
+  }
+  .opt:hover:not(.locked){border-color: var(--ink);}
+  .opt .letter{
+    width:24px; height:24px; border-radius:50%; border:1.5px solid var(--ink-soft);
+    display:flex; align-items:center; justify-content:center; font-size:12px; flex-shrink:0;
+  }
+  .opt.correct{border-color:var(--sage); background:#F2F7F1;}
+  .opt.correct .letter{background:var(--sage); border-color:var(--sage); color:#fff;}
+  .opt.wrong{border-color:var(--crimson); background:#FBF1EE;}
+  .opt.wrong .letter{background:var(--crimson); border-color:var(--crimson); color:#fff;}
+  .opt .mark{
+    position:absolute; right:14px; font-family:'Noto Serif TC',serif; font-weight:900; font-size:22px;
+    opacity:0; transform: scale(.5) rotate(-8deg); transition: all .25s cubic-bezier(.34,1.56,.64,1);
+  }
+  .opt.correct .mark, .opt.wrong .mark{opacity:1; transform: scale(1) rotate(-8deg);}
+  .opt.correct .mark{color:var(--sage);}
+  .opt.wrong .mark{color:var(--crimson);}
+
+  .explain{
+    margin-top:20px; padding-top:18px; border-top:1px dashed var(--rule);
+    display:none;
+  }
+  .explain.show{display:block;}
+  .explain .zh{font-size:15px; line-height:1.8; margin-bottom:14px; color:var(--ink);}
+  .explain .zh::before{content:"譯　"; color:var(--crimson); font-family:'Noto Serif TC',serif; font-weight:700;}
+  .gloss-line{
+    display:grid; grid-template-columns:22px 88px 44px 1fr; gap:10px; align-items:baseline;
+    font-size:13px; padding:6px 0; font-family:'IBM Plex Mono',monospace;
+  }
+  .gloss-line .g-word{font-weight:600;}
+  .gloss-line.is-answer{color:var(--crimson);}
+  .gloss-line .g-level{color:var(--gold); font-size:11px;}
+  .gloss-line .g-zh{color:var(--ink-soft); font-family:'Noto Sans TC',sans-serif;}
+  .next-row{margin-top:22px; display:flex; justify-content:flex-end; gap:10px;}
+
+  /* ---- RESULT ---- */
+  #result{display:none;}
+  .result-score{
+    font-family:'Noto Serif TC',serif; font-weight:900; font-size:52px; text-align:center;
+    padding:26px 0 6px; color:var(--ink);
+  }
+  .result-score span{font-size:22px; color:var(--ink-soft);}
+  .result-sub{text-align:center; color:var(--ink-soft); font-size:13px; margin-bottom:20px; font-family:'IBM Plex Mono',monospace;}
+  .wrong-list-item{
+    display:flex; justify-content:space-between; padding:10px 0; border-bottom:1px dashed var(--rule);
+    font-size:13px; font-family:'IBM Plex Mono',monospace;
+  }
+  .result-actions{display:flex; gap:10px; margin-top:20px; flex-wrap:wrap;}
+
+  footer{text-align:center; margin-top:40px; color:var(--ink-soft); font-size:11px; font-family:'IBM Plex Mono',monospace;}
+
+  @media (max-width:480px){
+    .q-sentence{font-size:15px;}
+    .gloss-line{grid-template-columns:18px 74px 36px 1fr; font-size:12px;}
+    .result-score{font-size:40px;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <div>
+      <div class="title">學測英文詞彙題庫</div>
+      <div class="sub">83–115年 · 500題 · 免費練習</div>
+    </div>
+    <div class="sub" id="bankCount"></div>
+  </header>
+
+  <!-- HOME -->
+  <div id="home">
+    <div class="card">
+      <p class="home-lead">今天，先寫十題。</p>
+      <p class="home-desc">不用設定，按下去就開始。每題附中文詳解與選項單字分級（大考中心六級）。</p>
+      <button class="big-btn" onclick="startQuiz(randomTen())">立即開始 · 隨機10題</button>
+    </div>
+
+    <div class="card" style="padding:24px 26px;">
+      <div class="sec-title">依範圍練習</div>
+      <div class="row">
+        <div class="field">
+          <label>年份（起）</label>
+          <select id="yFrom"></select>
+        </div>
+        <div class="field">
+          <label>年份（迄）</label>
+          <select id="yTo"></select>
+        </div>
+        <div class="field">
+          <label>題數</label>
+          <input type="number" id="numQ" value="10" min="1" max="60">
+        </div>
+      </div>
+      <div class="row" style="margin-top:12px;">
+        <button class="ghost-btn" onclick="startRangePractice()" style="flex:1;">開始練習</button>
+      </div>
+
+      <div class="sec-title">歷屆試題</div>
+      <div class="row">
+        <div class="field">
+          <label>選擇年份／考試</label>
+          <select id="mockYear"></select>
+        </div>
+        <div class="field" style="display:flex; align-items:flex-end;">
+          <button class="ghost-btn" onclick="startMock()" style="width:100%;">開始作答這份試題</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="padding:24px 26px;">
+      <div class="sec-title">錯題本</div>
+      <div id="wrongBookBox"></div>
+      <div class="row" style="margin-top:14px;">
+        <button class="ghost-btn" id="reviewWrongBtn" style="flex:1;" onclick="reviewWrongBook()">複習錯題本</button>
+      </div>
+    </div>
+
+    <div class="card" style="padding:24px 26px;">
+      <div class="sec-title">學習歷程</div>
+      <div id="historyBox"></div>
+    </div>
+  </div>
+
+  <!-- QUIZ -->
+  <div id="quiz">
+    <div class="quiz-meta">
+      <span id="quizModeLabel"></span>
+      <span id="quizProgress"></span>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="card q-card">
+      <div class="q-tag" id="qTag"></div>
+      <div class="q-sentence" id="qSentence"></div>
+      <div class="options" id="qOptions"></div>
+      <div class="explain" id="qExplain">
+        <div class="zh" id="explainZh"></div>
+        <div id="explainGloss"></div>
+      </div>
+      <div class="next-row">
+        <button class="ghost-btn" id="nextBtn" style="display:none;" onclick="nextQuestion()">下一題 →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESULT -->
+  <div id="result">
+    <div class="card" style="padding:30px 26px;">
+      <div class="result-score" id="resultScore">0<span> / 0</span></div>
+      <div class="result-sub" id="resultSub"></div>
+      <div id="wrongListWrap"></div>
+      <div class="result-actions">
+        <button class="ghost-btn" onclick="goHome()" style="flex:1;">回首頁</button>
+        <button class="big-btn" style="flex:1;" id="retryWrongBtn" onclick="retryWrongFromResult()">只練這回錯題</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>資料來源：83–115年學測 / 推薦甄選 詞彙題 · 分級依大考中心「高中英文參考詞彙表」<br>© 2026 staresto-create ZZSH 版權所有。誠摯歡迎學生自由使用、分享本題庫進行練習；惟請勿用於商業用途；如需轉載，敬請註明出處，勿逕行據為己作。</footer>
+</div>
+
+<script src="data.js"></script>
+<script>
+/* ---------- State ---------- */
+let session = { list: [], idx: 0, correctCount: 0, wrongIds: [], mode: '', timerId: null, startTime: 0 };
+const LS_WRONG = 'gswVocabWrongBook';
+const LS_HISTORY = 'gswVocabHistory';
+
+function getWrongBook(){ try{ return JSON.parse(localStorage.getItem(LS_WRONG)) || []; }catch(e){ return []; } }
+function setWrongBook(arr){ localStorage.setItem(LS_WRONG, JSON.stringify(arr)); }
+function getHistory(){ try{ return JSON.parse(localStorage.getItem(LS_HISTORY)) || []; }catch(e){ return []; } }
+function pushHistory(entry){ const h = getHistory(); h.unshift(entry); localStorage.setItem(LS_HISTORY, JSON.stringify(h.slice(0,20))); }
+
+const byId = id => QUESTIONS.find(q => q.id === id);
+function shuffle(arr){ const a=[...arr]; for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]];} return a; }
+
+/* ---------- Home setup ---------- */
+function initHome(){
+  document.getElementById('bankCount').textContent = QUESTIONS.length + ' 題已建檔';
+  const years = [...new Set(QUESTIONS.map(q=>q.y))].sort((a,b)=>a-b);
+  const yFrom = document.getElementById('yFrom'), yTo = document.getElementById('yTo'), mockYear = document.getElementById('mockYear');
+  years.forEach(y=>{
+    yFrom.appendChild(new Option(y+'年', y));
+    yTo.appendChild(new Option(y+'年', y));
+  });
+  yFrom.value = years[0]; yTo.value = years[years.length-1];
+
+  // Build year+exam-type combos so years with a makeup exam (91, 92) don't get merged together
+  const comboMap = new Map(); // key "y|t" -> {y,t}
+  QUESTIONS.forEach(q=>{
+    const key = q.y+'|'+q.t;
+    if(!comboMap.has(key)) comboMap.set(key, {y:q.y, t:q.t});
+  });
+  const combos = [...comboMap.values()].sort((a,b)=> a.y-b.y || a.t.localeCompare(b.t));
+  combos.forEach(c=>{
+    mockYear.appendChild(new Option(c.y+'年 '+c.t, c.y+'|'+c.t));
+  });
+  mockYear.value = combos[combos.length-1].y+'|'+combos[combos.length-1].t;
+  renderWrongBook();
+  renderHistory();
+}
+
+function renderWrongBook(){
+  const wb = getWrongBook();
+  const box = document.getElementById('wrongBookBox');
+  const btn = document.getElementById('reviewWrongBtn');
+  if(wb.length === 0){
+    box.innerHTML = '<p class="empty-note">目前沒有錯題，寫題目答錯時會自動加進來。</p>';
+    btn.style.display = 'none';
+  } else {
+    box.innerHTML = '<div class="stat-line"><span>累積錯題數</span><span class="stat-badge">'+wb.length+'</span></div>';
+    btn.style.display = 'block';
+  }
+}
+
+function renderHistory(){
+  const h = getHistory();
+  const box = document.getElementById('historyBox');
+  if(h.length === 0){ box.innerHTML = '<p class="empty-note">還沒有練習紀錄。寫完一輪就會出現在這裡。</p>'; return; }
+  box.innerHTML = h.slice(0,8).map(e=>{
+    const d = new Date(e.date);
+    const ds = (d.getMonth()+1)+'/'+d.getDate()+' '+String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0');
+    return '<div class="stat-line"><span>'+ds+' · '+e.mode+'</span><span>'+e.correct+' / '+e.total+'</span></div>';
+  }).join('');
+}
+
+/* ---------- Question selection ---------- */
+function randomTen(){ return shuffle(QUESTIONS).slice(0,10).map(q=>q.id); }
+
+function startRangePractice(){
+  const yFrom = +document.getElementById('yFrom').value;
+  const yTo = +document.getElementById('yTo').value;
+  const n = Math.max(1, Math.min(60, +document.getElementById('numQ').value || 10));
+  const pool = QUESTIONS.filter(q => q.y >= Math.min(yFrom,yTo) && q.y <= Math.max(yFrom,yTo));
+  if(pool.length === 0){ alert('這個範圍沒有題目'); return; }
+  startQuiz(shuffle(pool).slice(0,n).map(q=>q.id), '範圍練習 '+yFrom+'–'+yTo);
+}
+
+function startMock(){
+  const [yStr, t] = document.getElementById('mockYear').value.split('|');
+  const y = +yStr;
+  const pool = QUESTIONS.filter(q=>q.y===y && q.t===t).sort((a,b)=>a.q-b.q);
+  startQuiz(pool.map(q=>q.id), y+'年 '+t+' 歷屆試題');
+}
+
+function reviewWrongBook(){
+  const wb = getWrongBook();
+  if(wb.length===0) return;
+  startQuiz(shuffle(wb), '錯題本複習');
+}
+
+function retryWrongFromResult(){
+  if(session.wrongIds.length===0){ goHome(); return; }
+  startQuiz(shuffle(session.wrongIds), '本回錯題重練');
+}
+
+/* ---------- Quiz flow ---------- */
+function startQuiz(ids, label){
+  if(!ids || ids.length===0){ alert('沒有可用題目'); return; }
+  session = { list: ids, idx: 0, correctCount: 0, wrongIds: [], mode: label || '隨機練習' };
+  document.getElementById('home').style.display='none';
+  document.getElementById('result').style.display='none';
+  document.getElementById('quiz').style.display='block';
+  document.getElementById('quizModeLabel').textContent = session.mode;
+  renderQuestion();
+}
+
+function renderQuestion(){
+  const q = byId(session.list[session.idx]);
+  document.getElementById('quizProgress').textContent = (session.idx+1)+' / '+session.list.length;
+  document.getElementById('progressFill').style.width = ((session.idx)/session.list.length*100)+'%';
+  document.getElementById('qTag').textContent = q.y+'年 '+q.t+' · 第'+q.q+'題' + (q.hf ? '  ★高頻重複字' : '');
+  document.getElementById('qSentence').innerHTML = q.s
+    .replace(/_{3,}/g, '<span class="blank">______</span>')
+    .replace(/@@(.+?)@@/g, '<span class="underline-target">$1</span>');
+
+  const optsBox = document.getElementById('qOptions');
+  optsBox.innerHTML = '';
+  ['A','B','C','D'].forEach(letter=>{
+    if(!q.o[letter]) return;
+    const div = document.createElement('div');
+    div.className = 'opt';
+    div.innerHTML = '<span class="letter">'+letter+'</span><span>'+q.o[letter]+'</span><span class="mark"></span>';
+    div.onclick = ()=>selectAnswer(letter, q);
+    optsBox.appendChild(div);
+  });
+
+  document.getElementById('qExplain').classList.remove('show');
+  document.getElementById('nextBtn').style.display = 'none';
+}
+
+function selectAnswer(letter, q){
+  const opts = document.querySelectorAll('#qOptions .opt');
+  if(opts[0].classList.contains('locked')) return; // already answered
+  opts.forEach(o=>o.classList.add('locked'));
+
+  const correct = letter === q.a;
+  opts.forEach((o,i)=>{
+    const L = ['A','B','C','D'][i];
+    if(L === q.a){ o.classList.add('correct'); o.querySelector('.mark').textContent = '○'; }
+    else if(L === letter && !correct){ o.classList.add('wrong'); o.querySelector('.mark').textContent = '✕'; }
+  });
+
+  if(correct){ session.correctCount++; }
+  else { session.wrongIds.push(q.id); const wb = getWrongBook(); if(!wb.includes(q.id)){ wb.push(q.id); setWrongBook(wb); } }
+
+  if(correct){
+    const wb = getWrongBook();
+    const idx = wb.indexOf(q.id);
+    if(idx > -1){ wb.splice(idx,1); setWrongBook(wb); }
+  }
+
+  document.getElementById('explainZh').textContent = q.sz || '（無中譯）';
+  const gloss = document.getElementById('explainGloss');
+  gloss.innerHTML = ['A','B','C','D'].filter(L=>q.o[L]).map(L=>{
+    const isAns = L === q.a;
+    return '<div class="gloss-line'+(isAns?' is-answer':'')+'">'+
+      '<span>'+L+'</span><span class="g-word">'+q.o[L]+'</span>'+
+      '<span class="g-level">'+(q.l[L] ? '['+q.l[L]+']' : '') +'</span>'+
+      '<span class="g-zh">'+(q.g[L] || '（查無中譯）')+'</span></div>';
+  }).join('');
+
+  document.getElementById('qExplain').classList.add('show');
+  document.getElementById('nextBtn').style.display = 'inline-block';
+  document.getElementById('nextBtn').textContent = (session.idx < session.list.length-1) ? '下一題 →' : '看結果 →';
+}
+
+function nextQuestion(){
+  session.idx++;
+  if(session.idx >= session.list.length){ finishQuiz(); return; }
+  renderQuestion();
+}
+
+function finishQuiz(){
+  document.getElementById('quiz').style.display='none';
+  document.getElementById('result').style.display='block';
+  const total = session.list.length;
+  document.getElementById('resultScore').innerHTML = session.correctCount + '<span> / '+total+'</span>';
+  document.getElementById('resultSub').textContent = session.mode + ' · 正確率 ' + Math.round(session.correctCount/total*100) + '%';
+
+  const wrapWrong = document.getElementById('wrongListWrap');
+  if(session.wrongIds.length===0){
+    wrapWrong.innerHTML = '<p class="empty-note" style="text-align:center;">這回全對，太扎實了。</p>';
+  } else {
+    wrapWrong.innerHTML = '<div class="sec-title">本回錯題</div>' + session.wrongIds.map(id=>{
+      const q = byId(id);
+      return '<div class="wrong-list-item"><span>'+q.y+'年·第'+q.q+'題</span><span>答案 '+q.a+') '+q.o[q.a]+'</span></div>';
+    }).join('');
+  }
+
+  const retryBtn = document.getElementById('retryWrongBtn');
+  retryBtn.style.display = session.wrongIds.length ? 'block' : 'none';
+
+  pushHistory({ date: Date.now(), mode: session.mode, correct: session.correctCount, total: total });
+  renderWrongBook();
+  renderHistory();
+}
+
+function goHome(){
+  document.getElementById('result').style.display='none';
+  document.getElementById('quiz').style.display='none';
+  document.getElementById('home').style.display='block';
+  renderWrongBook();
+  renderHistory();
+}
+
+initHome();
+</script>
+</body>
+</html>
