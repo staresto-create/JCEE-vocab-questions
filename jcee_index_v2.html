@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>英文詞彙考古題庫</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F6F1E4;
+    --paper-card:#FFFDF7;
+    --ink:#221F1A;
+    --ink-soft:#5B5648;
+    --rule:#DCD3BB;
+    --crimson:#AE3626;
+    --sage:#3E6E52;
+    --gold:#A9812E;
+    --shadow: 0 1px 0 rgba(34,31,26,.06), 0 8px 24px rgba(34,31,26,.08);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background: var(--paper);
+    background-image:
+      radial-gradient(circle at 100% 0%, rgba(174,54,38,.05), transparent 40%),
+      repeating-linear-gradient(0deg, rgba(34,31,26,0.025) 0px, rgba(34,31,26,0.025) 1px, transparent 1px, transparent 34px);
+    color: var(--ink);
+    font-family: 'Noto Sans TC', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 16px;
+  }
+  .wrap{max-width:720px; width:100%;}
+  header.top{
+    text-align:center;
+    border-bottom: 3px double var(--ink);
+    padding-bottom:18px; margin-bottom: 30px;
+  }
+  header.top .title{
+    font-family:'Noto Serif TC',serif; font-weight:900; font-size:30px; letter-spacing:.02em;
+  }
+  header.top .sub{
+    font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--ink-soft); margin-top:6px;
+  }
+  .cards{display:grid; grid-template-columns:1fr 1fr; gap:22px;}
+  @media (max-width:600px){ .cards{grid-template-columns:1fr;} }
+  a.card{
+    display:block;
+    background: var(--paper-card);
+    border:1px solid var(--rule);
+    border-radius: 4px;
+    box-shadow: var(--shadow);
+    padding: 30px 24px;
+    text-decoration:none;
+    color: inherit;
+    position:relative;
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  a.card:hover{ transform: translateY(-3px); box-shadow: 0 4px 0 rgba(34,31,26,.08), 0 14px 30px rgba(34,31,26,.12); }
+  a.card::before{
+    content:"";
+    position:absolute; left:0; top:14px; bottom:14px; width:3px;
+    background: repeating-linear-gradient(0deg, var(--crimson) 0 6px, transparent 6px 13px);
+    opacity:.55;
+  }
+  .card .tag{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.1em;
+    color:var(--crimson); text-transform:uppercase; margin-bottom:10px;
+  }
+  .card .name{
+    font-family:'Noto Serif TC',serif; font-weight:900; font-size:24px; margin-bottom:8px;
+  }
+  .card .desc{
+    color:var(--ink-soft); font-size:13.5px; line-height:1.7;
+  }
+  .card .count{
+    margin-top:14px; font-family:'IBM Plex Mono',monospace; font-size:12px;
+    display:inline-block; border:1px solid var(--rule); border-radius:10px; padding:2px 10px;
+  }
+  footer{text-align:center; margin-top:32px; color:var(--ink-soft); font-size:11px; font-family:'IBM Plex Mono',monospace;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="title">英文詞彙考古題庫</div>
+    <div class="sub">歷屆大考詞彙練習 · 隨機測驗 · 自動批改</div>
+  </header>
+
+  <div class="cards">
+    <a class="card" href="gsat/">
+      <div class="tag">GSAT</div>
+      <div class="name">學測單字題庫</div>
+      <div class="desc">83–115年學測／推薦甄選詞彙題，含中譯與選項分級，可隨機練習或依年份整回作答。</div>
+      <div class="count">497 題</div>
+    </a>
+
+    <a class="card" href="zhikao/">
+      <div class="tag">聯考 · 指考</div>
+      <div class="name">指考單字題庫</div>
+      <div class="desc">81–110年指考詞彙題（含2次補考），含中譯與選項分級，可隨機練習或依年份整回作答。</div>
+      <div class="count">333 題</div>
+    </a>       
+    <a class="card" href="translate/">
+        <div class="tag">翻譯</div>
+        <div class="name">中譯英翻譯練習</div>
+        <div class="desc">73–115年學測／指考歷屆中譯英，自己打英文後看官方範文，錯題自動存進錯題本。</div>
+        <div class="count">145 句</div>
+      </a>
+
+    <a class="card" href="https://staresto-create.github.io/grammar-cloze-test/" target="_blank" rel="noopener">
+        <div class="tag">克漏字 · 持續更新中</div>
+        <div class="name">文法克漏字練習</div>
+        <div class="desc">83–115年學測克漏字題庫，含完整段落原文、中譯與詳解。指考部分尚未上線，內容仍在持續修訂中，如發現疑似錯誤歡迎回報。</div>
+        <div class="count">550 題</div>
+      </a>
+  </div>
+
+  <footer>分級依大考中心「高中英文參考詞彙表」<br>© 2026 staresto-create ZZSH 版權所有。誠摯歡迎學生自由使用、分享本題庫進行練習；惟請勿用於商業用途；如需轉載，敬請註明出處，勿逕行據為己作。</footer>
+</div>
+</body>
+</html>
