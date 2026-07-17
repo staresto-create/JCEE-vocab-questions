@@ -377,8 +377,10 @@ function startMock(){
 
 function reviewWrongBook(){
   const wb = getWrongBook();
-  if(wb.length===0) return;
-  startQuiz(shuffle(wb), '錯題本複習');
+  const valid = wb.filter(id => byId(id));
+  if(valid.length !== wb.length){ setWrongBook(valid); renderWrongBook(); }
+  if(valid.length===0){ alert('錯題本裡的題目已不存在（可能是題庫更新過），已自動清除。'); return; }
+  startQuiz(shuffle(valid), '錯題本複習');
 }
 
 function retryWrongFromResult(){
@@ -398,7 +400,12 @@ function startQuiz(ids, label){
 }
 
 function renderQuestion(){
-  const q = byId(session.list[session.idx]);
+  let q = byId(session.list[session.idx]);
+  while(!q && session.idx < session.list.length){
+    session.list.splice(session.idx,1);
+    q = byId(session.list[session.idx]);
+  }
+  if(!q){ alert('這回合的題目已不存在，回到首頁'); goHome(); return; }
   document.getElementById('quizProgress').textContent = (session.idx+1)+' / '+session.list.length;
   document.getElementById('progressFill').style.width = ((session.idx)/session.list.length*100)+'%';
   document.getElementById('qTag').textContent = q.y+'年 '+q.t+' · 第'+q.q+'題' + (q.hf ? '  ★高頻重複字' : '');
@@ -478,7 +485,7 @@ function finishQuiz(){
   if(session.wrongIds.length===0){
     wrapWrong.innerHTML = '<p class="empty-note" style="text-align:center;">這回全對，太扎實了。</p>';
   } else {
-    wrapWrong.innerHTML = '<div class="sec-title">本回錯題</div>' + session.wrongIds.map(id=>{
+    wrapWrong.innerHTML = '<div class="sec-title">本回錯題</div>' + session.wrongIds.filter(id=>byId(id)).map(id=>{
       const q = byId(id);
       return '<div class="wrong-list-item"><span>'+q.y+'年·第'+q.q+'題</span><span>答案 '+q.a+') '+q.o[q.a]+'</span></div>';
     }).join('');
