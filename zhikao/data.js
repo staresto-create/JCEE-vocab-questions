@@ -332,7 +332,7 @@ const QUESTIONS = [
  {
   "id": "ZK0011",
   "y": 109,
-  "t": "(補考)",
+  "t": "109年指考補考",
   "q": 1,
   "s": "On cold winter nights, a bowl of ______ and spicy beef noodle soup is much more popular than any other food served in this restaurant.",
   "sz": "在寒冷的冬夜裡，一碗____又辣的牛肉麵湯比這家餐廳供應的任何其他食物都更受歡迎。",
@@ -365,7 +365,7 @@ const QUESTIONS = [
  {
   "id": "ZK0012",
   "y": 109,
-  "t": "(補考)",
+  "t": "109年指考補考",
   "q": 2,
   "s": "The government official gave some shocking examples to ______ the seriousness of the traffic problem.",
   "sz": "政府官員舉了一些驚人的例子來____交通問題的嚴重性。",
@@ -398,7 +398,7 @@ const QUESTIONS = [
  {
   "id": "ZK0013",
   "y": 109,
-  "t": "(補考)",
+  "t": "109年指考補考",
   "q": 3,
   "s": "Jenny lost her parents at the age of five. Despite this ______, she managed to become a leading scholar in computer science.",
   "sz": "珍妮五歲時失去了父母。儘管有此____，她還是成功地成為了一位頂尖的電腦科學學者。",
@@ -431,7 +431,7 @@ const QUESTIONS = [
  {
   "id": "ZK0014",
   "y": 109,
-  "t": "(補考)",
+  "t": "109年指考補考",
   "q": 4,
   "s": "The newspaper apologized for releasing false information that had ______ the public to believe toilet paper was in short supply and caused panic buying.",
   "sz": "該報為發布不實資訊而道歉，該資訊____公眾相信衛生紙短缺並引發了恐慌性搶購。",
@@ -464,7 +464,7 @@ const QUESTIONS = [
  {
   "id": "ZK0015",
   "y": 109,
-  "t": "(補考)",
+  "t": "109年指考補考",
   "q": 5,
   "s": "The glass lid of the pot is ______, and the cook can clearly observe how well the food is prepared.",
   "sz": "鍋子的玻璃蓋是____的，廚師可以清楚地觀察食物的烹煮情況。",
@@ -497,7 +497,7 @@ const QUESTIONS = [
  {
   "id": "ZK0016",
   "y": 109,
-  "t": "(補考)",
+  "t": "109年指考補考",
   "q": 6,
   "s": "Many people ______ Christopher Columbus with the discovery of America, but others question this honor because Native Americans had lived there long before his arrival.",
   "sz": "許多人將發現美洲的____歸功於哥倫布，但其他人對此榮譽提出質疑，因為在他抵達之前，美洲原住民早已居住在那裡。",
@@ -530,7 +530,7 @@ const QUESTIONS = [
  {
   "id": "ZK0017",
   "y": 109,
-  "t": "(補考)",
+  "t": "109年指考補考",
   "q": 7,
   "s": "To prevent the spread of disease, we should take the ______ of washing our hands frequently.",
   "sz": "為防止疾病傳播，我們應該採取勤洗手的____。",
@@ -563,7 +563,7 @@ const QUESTIONS = [
  {
   "id": "ZK0018",
   "y": 109,
-  "t": "(補考)",
+  "t": "109年指考補考",
   "q": 8,
   "s": "Sharing profits with employees is an effective way to improve their ______ and thus increase productivity in a company.",
   "sz": "與員工分享利潤是提高他們____從而增加公司生產力的有效方法。",
@@ -596,7 +596,7 @@ const QUESTIONS = [
  {
   "id": "ZK0019",
   "y": 109,
-  "t": "(補考)",
+  "t": "109年指考補考",
   "q": 9,
   "s": "As he pulled out of the parking lot, Mr. Chuang drove so ______ that he hit several vehicles and almost knocked down a small girl.",
   "sz": "當莊先生駛出停車場時，他開車如此____，以致於撞了好幾輛車，還差點撞倒一個小女孩。",
@@ -629,7 +629,7 @@ const QUESTIONS = [
  {
   "id": "ZK0020",
   "y": 109,
-  "t": "(補考)",
+  "t": "109年指考補考",
   "q": 10,
   "s": "When the culture center was seriously damaged in a fire, all its prescheduled activities came to an ______ halt.",
   "sz": "當文化中心在火災中嚴重受損時，所有預定的活動都____停止了。",
@@ -2971,7 +2971,7 @@ const QUESTIONS = [
  },
  {
   "id": "ZK0091",
-  "y": 103,
+  "y": 93,
   "t": "敏督利颱風受災地區考生補救考試",
   "q": 1,
   "s": "Ms. Lin is a loving and caring teacher, but so far her students have shown little ____ for what she has done for them.",
@@ -3004,7 +3004,7 @@ const QUESTIONS = [
  },
  {
   "id": "ZK0092",
-  "y": 103,
+  "y": 93,
   "t": "敏督利颱風受災地區考生補救考試",
   "q": 2,
   "s": "The university Susan is admitted to has been noted for making research in science and technology a high ________.",
@@ -3037,7 +3037,7 @@ const QUESTIONS = [
  },
  {
   "id": "ZK0093",
-  "y": 103,
+  "y": 93,
   "t": "敏督利颱風受災地區考生補救考試",
   "q": 3,
   "s": "Many countries have been in recession for a long time; therefore, a lot of people look forward to economic ________ in the coming year.",
@@ -3070,7 +3070,7 @@ const QUESTIONS = [
  },
  {
   "id": "ZK0094",
-  "y": 103,
+  "y": 93,
   "t": "敏督利颱風受災地區考生補救考試",
   "q": 4,
   "s": "The coast guard last night successfully ________ boats which were trying to smuggle drugs and other illegal items from a neighboring country.",
@@ -3103,7 +3103,7 @@ const QUESTIONS = [
  },
  {
   "id": "ZK0095",
-  "y": 103,
+  "y": 93,
   "t": "敏督利颱風受災地區考生補救考試",
   "q": 5,
   "s": "The scientists have focused all their attention on _____ industrial waste into valuable materials.",
@@ -3136,7 +3136,7 @@ const QUESTIONS = [
  },
  {
   "id": "ZK0096",
-  "y": 103,
+  "y": 93,
   "t": "敏督利颱風受災地區考生補救考試",
   "q": 6,
   "s": "Because of the tragic accident, traffic on the highway was ________ for over two hours.",
@@ -3169,7 +3169,7 @@ const QUESTIONS = [
  },
  {
   "id": "ZK0097",
-  "y": 103,
+  "y": 93,
   "t": "敏督利颱風受災地區考生補救考試",
   "q": 7,
   "s": "This new type of surgery is popular because the recovery time is much shorter than that required in _____ surgeries.",
@@ -3202,7 +3202,7 @@ const QUESTIONS = [
  },
  {
   "id": "ZK0098",
-  "y": 103,
+  "y": 93,
   "t": "敏督利颱風受災地區考生補救考試",
   "q": 8,
   "s": "With the pale-white walls and bed sheets, hospitals always look very ___ to me.",
@@ -3235,7 +3235,7 @@ const QUESTIONS = [
  },
  {
   "id": "ZK0099",
-  "y": 103,
+  "y": 93,
   "t": "敏督利颱風受災地區考生補救考試",
   "q": 9,
   "s": "I just cannot figure out why John did such a stupid thing! He must have gone totally ________.",
@@ -3268,7 +3268,7 @@ const QUESTIONS = [
  },
  {
   "id": "ZK0100",
-  "y": 103,
+  "y": 93,
   "t": "敏督利颱風受災地區考生補救考試",
   "q": 10,
   "s": "Smoking, as proven in many medical studies, is likely to damage the human body _____ .",
@@ -3301,7 +3301,7 @@ const QUESTIONS = [
  },
  {
   "id": "ZK0101",
-  "y": 103,
+  "y": 93,
   "t": "敏督利颱風受災地區考生補救考試",
   "q": 11,
   "s": "We must be extremely careful about what we read in the newspaper because the reports are not ________ true and accurate.",
@@ -3334,7 +3334,7 @@ const QUESTIONS = [
  },
  {
   "id": "ZK0102",
-  "y": 103,
+  "y": 93,
   "t": "敏督利颱風受災地區考生補救考試",
   "q": 12,
   "s": "After graduation, Mr. Chang worked very hard and won several cases. He ________ built up a reputation as a successful lawyer.",
@@ -7393,7 +7393,7 @@ const QUESTIONS = [
  {
   "id": "ZK0225",
   "y": 90,
-  "t": "指考",
+  "t": "聯考",
   "q": 1,
   "s": "Many students like to watch that talk show because the ______ is brilliant at entertaining young people.",
   "sz": "許多學生喜歡看那個脫口秀，因為____非常擅長娛樂年輕人。",
@@ -7426,7 +7426,7 @@ const QUESTIONS = [
  {
   "id": "ZK0226",
   "y": 90,
-  "t": "指考",
+  "t": "聯考",
   "q": 2,
   "s": "When he took office, the president ______ swore to protect the country and work for peace.",
   "sz": "當他上任時，總統____宣誓保護國家並為和平而努力。",
@@ -7459,35 +7459,28 @@ const QUESTIONS = [
  {
   "id": "ZK0227",
   "y": 90,
-  "t": "指考",
+  "t": "聯考",
   "q": 3,
   "s": "You will have to ______ if you want to swim faster than other swimmers in our country.",
   "sz": "如果你想游得比我們國家其他游泳選手快，你將必須____。",
   "o": {
    "A": "keep it up",
    "B": "look it up",
-   "C": "apeak it up",
+   "C": "speak it up",
    "D": "being it up"
   },
   "a": "A",
   "g": {
    "A": "片語　繼續保持努力",
    "B": "片語　查閱（字典、資料等）",
-   "C": "片語　（無意義的錯誤選項）",
-   "D": "片語　（無意義的錯誤選項）"
-  },
-  "l": {
-   "A": "",
-   "B": "",
-   "C": "",
-   "D": ""
-  },
-  "p": {}
+   "C": "片語　大聲說出來",
+   "D": "片語　（語法錯誤選項，being 不能直接用於此片語動詞形式）"
+  }
  },
  {
   "id": "ZK0228",
   "y": 90,
-  "t": "指考",
+  "t": "聯考",
   "q": 4,
   "s": "After years of hard work, Mandy finally became the first female ______ on the staff of the City Hospital.",
   "sz": "經過多年努力，曼蒂終於成為市立醫院員工中的第一位女性____。",
@@ -7520,7 +7513,7 @@ const QUESTIONS = [
  {
   "id": "ZK0229",
   "y": 90,
-  "t": "指考",
+  "t": "聯考",
   "q": 5,
   "s": "A person who hesitates a lot cannot make ______ even about trivial matters.",
   "sz": "一個經常猶豫的人即使對瑣碎的事情也無法做出____。",
@@ -7553,7 +7546,7 @@ const QUESTIONS = [
  {
   "id": "ZK0230",
   "y": 90,
-  "t": "指考",
+  "t": "聯考",
   "q": 6,
   "s": "The goals of our educational system are ______ the development of our society.",
   "sz": "我們教育體系的目標與我們社會的發展____。",
@@ -7581,7 +7574,7 @@ const QUESTIONS = [
  {
   "id": "ZK0231",
   "y": 90,
-  "t": "指考",
+  "t": "聯考",
   "q": 7,
   "s": "If you climb up to the peak of Mt. Jade, you will find a ______ view up there.",
   "sz": "如果你爬到玉山頂，你會在那裡發現一個____的景色。",
@@ -7614,7 +7607,7 @@ const QUESTIONS = [
  {
   "id": "ZK0232",
   "y": 90,
-  "t": "指考",
+  "t": "聯考",
   "q": 8,
   "s": "If you can ______ this crisis, you will have a good chance of success.",
   "sz": "如果你能____這次危機，你將有很好的成功機會。",
@@ -7642,7 +7635,7 @@ const QUESTIONS = [
  {
   "id": "ZK0233",
   "y": 90,
-  "t": "指考",
+  "t": "聯考",
   "q": 9,
   "s": "Jenny ______ when she was praised by her teacher for writing an excellent English composition.",
   "sz": "當珍妮因寫了一篇優秀的英語作文而被老師稱讚時，她____了。",
@@ -7675,7 +7668,7 @@ const QUESTIONS = [
  {
   "id": "ZK0234",
   "y": 90,
-  "t": "指考",
+  "t": "聯考",
   "q": 10,
   "s": "At this meeting, we shall focus ______ on the profits our company has made this year.",
   "sz": "在這次會議上，我們將____關注我們公司今年的利潤。",
@@ -7708,7 +7701,7 @@ const QUESTIONS = [
  {
   "id": "ZK0235",
   "y": 90,
-  "t": "指考",
+  "t": "聯考",
   "q": 11,
   "s": "This TV program, ______, will introduce you to different species of animals in Africa.",
   "sz": "這個電視節目，____，將向您介紹非洲不同的動物物種。",
@@ -7736,7 +7729,7 @@ const QUESTIONS = [
  {
   "id": "ZK0236",
   "y": 90,
-  "t": "指考",
+  "t": "聯考",
   "q": 12,
   "s": "Faced with a problem, you have to ______ it first, and then try to find a solution.",
   "sz": "面對問題，你必須先____它，然後再嘗試找到解決方案。",
@@ -7769,7 +7762,7 @@ const QUESTIONS = [
  {
   "id": "ZK0237",
   "y": 90,
-  "t": "指考",
+  "t": "聯考",
   "q": 13,
   "s": "What the elderly people need is ______ exercise, not those sports requiring great physical effort.",
   "sz": "老年人需要的是____的運動，而不是那些需要巨大體力的運動。",
@@ -7802,7 +7795,7 @@ const QUESTIONS = [
  {
   "id": "ZK0238",
   "y": 90,
-  "t": "指考",
+  "t": "聯考",
   "q": 14,
   "s": "The environmentalist ______ the whole world to protect that ozone layer.",
   "sz": "這位環保主義者____全世界保護臭氧層。",
@@ -7830,7 +7823,7 @@ const QUESTIONS = [
  {
   "id": "ZK0239",
   "y": 90,
-  "t": "指考",
+  "t": "聯考",
   "q": 15,
   "s": "The study of characteristics of these two plants shows that they are ______ only in appearance.",
   "sz": "對這兩種植物特性的研究表明，它們僅在外觀上是____的。",
@@ -7863,7 +7856,7 @@ const QUESTIONS = [
  {
   "id": "ZK0240",
   "y": 89,
-  "t": "指考",
+  "t": "聯考",
   "q": 1,
   "s": "It was obvious that this young artist's latest work was ______ much better than any other work in the exhibition.",
   "sz": "很明顯，這位年輕藝術家最新的作品____比展覽中任何其他作品都好得多。",
@@ -7896,7 +7889,7 @@ const QUESTIONS = [
  {
   "id": "ZK0241",
   "y": 89,
-  "t": "指考",
+  "t": "聯考",
   "q": 2,
   "s": "After a lengthy discussion, the experts finally ______ with suggestions for resolving the economic crisis.",
   "sz": "經過長時間的討論，專家們終於____了解決經濟危機的建議。",
@@ -7924,7 +7917,7 @@ const QUESTIONS = [
  {
   "id": "ZK0242",
   "y": 89,
-  "t": "指考",
+  "t": "聯考",
   "q": 3,
   "s": "Although Martha had been away from home for a long time, when she came near her house, everything suddenly became ______.",
   "sz": "雖然瑪莎離家很久了，但當她走近她的房子時，一切突然變得____。",
@@ -7957,7 +7950,7 @@ const QUESTIONS = [
  {
   "id": "ZK0243",
   "y": 89,
-  "t": "指考",
+  "t": "聯考",
   "q": 4,
   "s": "The owner was demanding. He expected nothing but ______ from his employees.",
   "sz": "老闆要求很高。他對員工的期望除了____之外別無他物。",
@@ -7990,7 +7983,7 @@ const QUESTIONS = [
  {
   "id": "ZK0244",
   "y": 89,
-  "t": "指考",
+  "t": "聯考",
   "q": 5,
   "s": "Einstein was considered one of the greatest scientists of the 20th century ______ his influence on the study of physics.",
   "sz": "愛因斯坦被認為是20世紀最偉大的科學家之一，____他在物理學研究上的影響。",
@@ -8018,7 +8011,7 @@ const QUESTIONS = [
  {
   "id": "ZK0245",
   "y": 89,
-  "t": "指考",
+  "t": "聯考",
   "q": 6,
   "s": "The company decided to put the plan into operation because it was the most ______ one.",
   "sz": "公司決定將該計劃付諸實施，因為它是最____的方案。",
@@ -8051,7 +8044,7 @@ const QUESTIONS = [
  {
   "id": "ZK0246",
   "y": 89,
-  "t": "指考",
+  "t": "聯考",
   "q": 7,
   "s": "Among the high-risk group of heart disease are people with a ______ for fat-rich foods.",
   "sz": "心臟病的高風險群體中包括對富含脂肪的食物有____的人。",
@@ -8084,7 +8077,7 @@ const QUESTIONS = [
  {
   "id": "ZK0247",
   "y": 89,
-  "t": "指考",
+  "t": "聯考",
   "q": 8,
   "s": "In many novels and films, step-mothers are often ______ as wicked women.",
   "sz": "在許多小說和電影中，繼母常被____為邪惡的女人。",
@@ -8117,7 +8110,7 @@ const QUESTIONS = [
  {
   "id": "ZK0248",
   "y": 89,
-  "t": "指考",
+  "t": "聯考",
   "q": 9,
   "s": "Technological changes will ______ lead to a change in human relationships.",
   "sz": "技術變革將____導致人際關係的改變。",
@@ -8150,7 +8143,7 @@ const QUESTIONS = [
  {
   "id": "ZK0249",
   "y": 89,
-  "t": "指考",
+  "t": "聯考",
   "q": 10,
   "s": "The sale of the company's new product is overwhelmingly good. It has ______ two million dollars so far.",
   "sz": "公司新產品的銷售非常好。到目前為止，它已經____了兩百萬美元。",
@@ -8178,7 +8171,7 @@ const QUESTIONS = [
  {
   "id": "ZK0250",
   "y": 89,
-  "t": "指考",
+  "t": "聯考",
   "q": 11,
   "s": "These batteries are not good. ______ they will last only for two months.",
   "sz": "這些電池不好。____它們只能用兩個月。",
@@ -8206,7 +8199,7 @@ const QUESTIONS = [
  {
   "id": "ZK0251",
   "y": 89,
-  "t": "指考",
+  "t": "聯考",
   "q": 12,
   "s": "When the landlord opened the door, he looked me ______ before asking who I was.",
   "sz": "當房東打開門時，他在問我是誰之前____打量了我一番。",
@@ -8234,7 +8227,7 @@ const QUESTIONS = [
  {
   "id": "ZK0252",
   "y": 89,
-  "t": "指考",
+  "t": "聯考",
   "q": 13,
   "s": "Since the contestants were all very good, the competition for the first prize was ______.",
   "sz": "由於參賽者都非常優秀，爭奪一等獎的競爭非常____。",
@@ -8267,7 +8260,7 @@ const QUESTIONS = [
  {
   "id": "ZK0253",
   "y": 89,
-  "t": "指考",
+  "t": "聯考",
   "q": 14,
   "s": "The reason for designing the special bus lane is to ______ the traffic flow, not to slow it down.",
   "sz": "設計公車專用道的原因是為了____交通流量，而不是減慢它。",
@@ -8300,7 +8293,7 @@ const QUESTIONS = [
  {
   "id": "ZK0254",
   "y": 88,
-  "t": "指考",
+  "t": "聯考",
   "q": 1,
   "s": "A person of great ______ usually can achieve his goal.",
   "sz": "一個有偉大____的人通常能實現他的目標。",
@@ -8333,7 +8326,7 @@ const QUESTIONS = [
  {
   "id": "ZK0255",
   "y": 88,
-  "t": "指考",
+  "t": "聯考",
   "q": 2,
   "s": "I am in a hurry, so I can only discuss this matter with you ______.",
   "sz": "我很著急，所以我只能____地和你討論這件事。",
@@ -8366,7 +8359,7 @@ const QUESTIONS = [
  {
   "id": "ZK0256",
   "y": 88,
-  "t": "指考",
+  "t": "聯考",
   "q": 3,
   "s": "We need your help in order to have ______ funds to promote this social welfare program.",
   "sz": "我們需要您的幫助，以便有____的資金來推廣這個社會福利計畫。",
@@ -8399,7 +8392,7 @@ const QUESTIONS = [
  {
   "id": "ZK0257",
   "y": 88,
-  "t": "指考",
+  "t": "聯考",
   "q": 4,
   "s": "These questions are ______ easy. I am sure you can answer them.",
   "sz": "這些問題____容易。我相信你能回答它們。",
@@ -8432,7 +8425,7 @@ const QUESTIONS = [
  {
   "id": "ZK0258",
   "y": 88,
-  "t": "指考",
+  "t": "聯考",
   "q": 5,
   "s": "Recent studies on whales have ______ that, they, like humans, also have emotions.",
   "sz": "最近對鯨魚的研究____，牠們和人類一樣，也有情緒。",
@@ -8465,7 +8458,7 @@ const QUESTIONS = [
  {
   "id": "ZK0259",
   "y": 88,
-  "t": "指考",
+  "t": "聯考",
   "q": 6,
   "s": "Discrimination against women is a ______ of human rights.",
   "sz": "對女性的歧視是對人權的____。",
@@ -8498,7 +8491,7 @@ const QUESTIONS = [
  {
   "id": "ZK0260",
   "y": 88,
-  "t": "指考",
+  "t": "聯考",
   "q": 7,
   "s": "For our family to make both ends meet, it is important to ______ living expenses.",
   "sz": "為了我們家收支平衡，____生活開支很重要。",
@@ -8531,7 +8524,7 @@ const QUESTIONS = [
  {
   "id": "ZK0261",
   "y": 88,
-  "t": "指考",
+  "t": "聯考",
   "q": 8,
   "s": "This couple went to Paris to celebrate their tenth wedding ______ last month.",
   "sz": "這對夫婦上個月去巴黎慶祝他們的第十個結婚____。",
@@ -8564,7 +8557,7 @@ const QUESTIONS = [
  {
   "id": "ZK0262",
   "y": 88,
-  "t": "指考",
+  "t": "聯考",
   "q": 9,
   "s": "John is a very ______ person. He often tries to give others the impression that he is a VIP.",
   "sz": "約翰是個非常____的人。他常試圖給人留下他是重要人物的印象。",
@@ -8597,7 +8590,7 @@ const QUESTIONS = [
  {
   "id": "ZK0263",
   "y": 88,
-  "t": "指考",
+  "t": "聯考",
   "q": 10,
   "s": "This scientist is very ______. His original experiments are widely admired.",
   "sz": "這位科學家非常____。他獨創的實驗受到廣泛欽佩。",
@@ -8630,7 +8623,7 @@ const QUESTIONS = [
  {
   "id": "ZK0264",
   "y": 87,
-  "t": "指考",
+  "t": "聯考",
   "q": 1,
   "s": "This hotel is quite reasonable. It ______ only NT$800 for single room per night.",
   "sz": "這家旅館相當合理。單人房每晚只____新台幣800元。",
@@ -8663,7 +8656,7 @@ const QUESTIONS = [
  {
   "id": "ZK0265",
   "y": 87,
-  "t": "指考",
+  "t": "聯考",
   "q": 2,
   "s": "An average person ______ sleeps eight hours a day.",
   "sz": "一個普通人____每天睡八個小時。",
@@ -8696,7 +8689,7 @@ const QUESTIONS = [
  {
   "id": "ZK0266",
   "y": 87,
-  "t": "指考",
+  "t": "聯考",
   "q": 3,
   "s": "Our country has become hi-tech by ______ heavily in electronic industry.",
   "sz": "我們的國家通過在電子工業上大量____而變得高科技。",
@@ -8729,7 +8722,7 @@ const QUESTIONS = [
  {
   "id": "ZK0267",
   "y": 87,
-  "t": "指考",
+  "t": "聯考",
   "q": 4,
   "s": "History has had many surprises for us. How events will turn out is often not ______.",
   "sz": "歷史給了我們許多驚喜。事情將如何發展通常是無法____的。",
@@ -8762,7 +8755,7 @@ const QUESTIONS = [
  {
   "id": "ZK0268",
   "y": 87,
-  "t": "指考",
+  "t": "聯考",
   "q": 5,
   "s": "The economic crisis we having in Asia now is certainly very ______ to many of us.",
   "sz": "我們現在在亞洲經歷的經濟危機對我們許多人來說當然非常____。",
@@ -8795,7 +8788,7 @@ const QUESTIONS = [
  {
   "id": "ZK0269",
   "y": 87,
-  "t": "指考",
+  "t": "聯考",
   "q": 6,
   "s": "A doctor has to ______ your illness before giving you a prescription.",
   "sz": "醫生在給你開處方之前必須____你的疾病。",
@@ -8828,7 +8821,7 @@ const QUESTIONS = [
  {
   "id": "ZK0270",
   "y": 87,
-  "t": "指考",
+  "t": "聯考",
   "q": 7,
   "s": "We are grateful for his ______ in giving a large contribution to our educational foundation.",
   "sz": "我們感謝他對我們的教育基金會做出巨大貢獻的____。",
@@ -8861,7 +8854,7 @@ const QUESTIONS = [
  {
   "id": "ZK0271",
   "y": 87,
-  "t": "指考",
+  "t": "聯考",
   "q": 8,
   "s": "At this historic site, you can see some ______ magnificent palaces.",
   "sz": "在這個歷史遺址，你可以看到一些____宏偉的宮殿。",
@@ -8894,7 +8887,7 @@ const QUESTIONS = [
  {
   "id": "ZK0272",
   "y": 87,
-  "t": "指考",
+  "t": "聯考",
   "q": 9,
   "s": "He has made a good plan in ______ with marketing strategies.",
   "sz": "他制定了一個與行銷策略____的好計劃。",
@@ -8927,7 +8920,7 @@ const QUESTIONS = [
  {
   "id": "ZK0273",
   "y": 87,
-  "t": "指考",
+  "t": "聯考",
   "q": 10,
   "s": "All of us should be concerned with public ______ to make our society a better place.",
   "sz": "我們所有人都應該關心公共____，使我們的社會成為一個更好的地方。",
@@ -8960,7 +8953,7 @@ const QUESTIONS = [
  {
   "id": "ZK0274",
   "y": 86,
-  "t": "指考",
+  "t": "聯考",
   "q": 1,
   "s": "______, the drowning boy was saved from the river by a soldier.",
   "sz": "____，溺水的男孩被一名士兵從河中救了出來。",
@@ -8993,7 +8986,7 @@ const QUESTIONS = [
  {
   "id": "ZK0275",
   "y": 86,
-  "t": "指考",
+  "t": "聯考",
   "q": 2,
   "s": "Many businessmen are under great ______ to gain the largest market share possible.",
   "sz": "許多商人為了獲得盡可能大的市場份額而承受著巨大的____。",
@@ -9026,7 +9019,7 @@ const QUESTIONS = [
  {
   "id": "ZK0276",
   "y": 86,
-  "t": "指考",
+  "t": "聯考",
   "q": 3,
   "s": "I know you've been waiting for a long time. Don't be ______. The train will arrive on time.",
   "sz": "我知道你等了很久。別____。火車會準時到達。",
@@ -9059,7 +9052,7 @@ const QUESTIONS = [
  {
   "id": "ZK0277",
   "y": 86,
-  "t": "指考",
+  "t": "聯考",
   "q": 4,
   "s": "The performance of the musicians has really ______ all of us.",
   "sz": "音樂家們的表演真的____了我們所有人。",
@@ -9092,7 +9085,7 @@ const QUESTIONS = [
  {
   "id": "ZK0278",
   "y": 86,
-  "t": "指考",
+  "t": "聯考",
   "q": 5,
   "s": "The ______ of this empire led to many wars with its neighboring countries.",
   "sz": "這個帝國的____導致了與鄰國的多次戰爭。",
@@ -9125,7 +9118,7 @@ const QUESTIONS = [
  {
   "id": "ZK0279",
   "y": 86,
-  "t": "指考",
+  "t": "聯考",
   "q": 6,
   "s": "Susan has ______ canceled her plan to study abroad, because she is now preparing for the college entrance exam.",
   "sz": "蘇珊____取消了她的留學計畫，因為她現在正在準備大學入學考試。",
@@ -9158,7 +9151,7 @@ const QUESTIONS = [
  {
   "id": "ZK0280",
   "y": 86,
-  "t": "指考",
+  "t": "聯考",
   "q": 7,
   "s": "His personality makes it very difficult to ______ and reach an agreement with him.",
   "sz": "他的個性使得很難與他____並達成協議。",
@@ -9191,7 +9184,7 @@ const QUESTIONS = [
  {
   "id": "ZK0281",
   "y": 86,
-  "t": "指考",
+  "t": "聯考",
   "q": 8,
   "s": "If you want to speak English without a foreigner's accent, you have to learn correct ______.",
   "sz": "如果你想說英語沒有外國口音，你必須學習正確的____。",
@@ -9224,7 +9217,7 @@ const QUESTIONS = [
  {
   "id": "ZK0282",
   "y": 86,
-  "t": "指考",
+  "t": "聯考",
   "q": 9,
   "s": "A ______ person usually can get along with other people well, because he does not insist on his own opinion.",
   "sz": "一個____的人通常能和別人相處得很好，因為他不堅持自己的意見。",
@@ -9257,7 +9250,7 @@ const QUESTIONS = [
  {
   "id": "ZK0283",
   "y": 86,
-  "t": "指考",
+  "t": "聯考",
   "q": 10,
   "s": "In a democratic society, we have to ______ different opinions.",
   "sz": "在民主社會中，我們必須____不同的意見。",
@@ -9290,7 +9283,7 @@ const QUESTIONS = [
  {
   "id": "ZK0284",
   "y": 85,
-  "t": "指考",
+  "t": "聯考",
   "q": 1,
   "s": "The functions of this machine are described ______ in the handbook.",
   "sz": "這台機器的功能在手冊中被____描述。",
@@ -9323,7 +9316,7 @@ const QUESTIONS = [
  {
   "id": "ZK0285",
   "y": 85,
-  "t": "指考",
+  "t": "聯考",
   "q": 2,
   "s": "His ______ for power led him into a tragedy.",
   "sz": "他對權力的____使他陷入悲劇。",
@@ -9356,7 +9349,7 @@ const QUESTIONS = [
  {
   "id": "ZK0286",
   "y": 85,
-  "t": "指考",
+  "t": "聯考",
   "q": 3,
   "s": "The candidate found every way to ______ her election materials to the voters.",
   "sz": "候選人想盡一切辦法將她的選舉資料____給選民。",
@@ -9389,7 +9382,7 @@ const QUESTIONS = [
  {
   "id": "ZK0287",
   "y": 85,
-  "t": "指考",
+  "t": "聯考",
   "q": 4,
   "s": "John is so ______ that he does not accept others' opinions.",
   "sz": "約翰如此____，以致他不接受別人的意見。",
@@ -9422,7 +9415,7 @@ const QUESTIONS = [
  {
   "id": "ZK0288",
   "y": 85,
-  "t": "指考",
+  "t": "聯考",
   "q": 5,
   "s": "Every country needs strong national ______ against enemy invasions.",
   "sz": "每個國家都需要強大的國家____來對抗敵人的入侵。",
@@ -9455,7 +9448,7 @@ const QUESTIONS = [
  {
   "id": "ZK0289",
   "y": 85,
-  "t": "指考",
+  "t": "聯考",
   "q": 6,
   "s": "At the finish, the winner of the race raised her arms ______.",
   "sz": "在終點，比賽的獲勝者____地舉起了雙臂。",
@@ -9488,7 +9481,7 @@ const QUESTIONS = [
  {
   "id": "ZK0290",
   "y": 85,
-  "t": "指考",
+  "t": "聯考",
   "q": 7,
   "s": "He can ______ a motorcycle if he is given all the parts.",
   "sz": "如果給他所有零件，他就能____一輛摩托車。",
@@ -9521,7 +9514,7 @@ const QUESTIONS = [
  {
   "id": "ZK0291",
   "y": 85,
-  "t": "指考",
+  "t": "聯考",
   "q": 8,
   "s": "He told me in ______ that he would do everything to help me.",
   "sz": "他____地告訴我他會盡一切努力幫助我。",
@@ -9554,7 +9547,7 @@ const QUESTIONS = [
  {
   "id": "ZK0292",
   "y": 85,
-  "t": "指考",
+  "t": "聯考",
   "q": 9,
   "s": "This exhibition of Chinese paintings is ______. Indeed, it's the best in ten years.",
   "sz": "這次中國畫展覽是____的。的確，這是十年來最好的。",
@@ -9587,7 +9580,7 @@ const QUESTIONS = [
  {
   "id": "ZK0293",
   "y": 85,
-  "t": "指考",
+  "t": "聯考",
   "q": 10,
   "s": "Each of these bottles ______ 1,000 cc of mineral water, and it sells for NT$50.",
   "sz": "這些瓶子每瓶____ 1,000 cc 的礦泉水，售價為新台幣50元。",
@@ -9620,7 +9613,7 @@ const QUESTIONS = [
  {
   "id": "ZK0294",
   "y": 84,
-  "t": "指考",
+  "t": "聯考",
   "q": 1,
   "s": "My recent trip to Europe has left a ______ impression on me.",
   "sz": "我最近的歐洲之行給我留下了____的印象。",
@@ -9653,7 +9646,7 @@ const QUESTIONS = [
  {
   "id": "ZK0295",
   "y": 84,
-  "t": "指考",
+  "t": "聯考",
   "q": 2,
   "s": "A ______ of migrant birds flew to our island yesterday.",
   "sz": "昨天一群遷徙的鳥飛到了我們的島上。",
@@ -9686,7 +9679,7 @@ const QUESTIONS = [
  {
   "id": "ZK0296",
   "y": 84,
-  "t": "指考",
+  "t": "聯考",
   "q": 3,
   "s": "Jack fell down while playing tennis and ______ his ankle very badly.",
   "sz": "傑克打網球時摔倒了，並嚴重____了他的腳踝。",
@@ -9719,7 +9712,7 @@ const QUESTIONS = [
  {
   "id": "ZK0297",
   "y": 84,
-  "t": "指考",
+  "t": "聯考",
   "q": 4,
   "s": "These two photographs are too small. Let's have them ______.",
   "sz": "這兩張照片太小了。讓我們把它們____。",
@@ -9752,7 +9745,7 @@ const QUESTIONS = [
  {
   "id": "ZK0298",
   "y": 84,
-  "t": "指考",
+  "t": "聯考",
   "q": 5,
   "s": "This museum is famous for its ______ of modern paintings.",
   "sz": "這家博物館以其現代繪畫的____而聞名。",
@@ -9785,7 +9778,7 @@ const QUESTIONS = [
  {
   "id": "ZK0299",
   "y": 84,
-  "t": "指考",
+  "t": "聯考",
   "q": 6,
   "s": "The professor did his best to ______ the students with new ideas.",
   "sz": "教授盡力讓學生____新思想。",
@@ -9818,7 +9811,7 @@ const QUESTIONS = [
  {
   "id": "ZK0300",
   "y": 84,
-  "t": "指考",
+  "t": "聯考",
   "q": 7,
   "s": "Their determination to fight to the last man was really ______.",
   "sz": "他們奮戰到最後一人的決心真的很____。",
@@ -9851,7 +9844,7 @@ const QUESTIONS = [
  {
   "id": "ZK0301",
   "y": 84,
-  "t": "指考",
+  "t": "聯考",
   "q": 8,
   "s": "All of us must have the ______ that there is no free lunch.",
   "sz": "我們所有人都必須有「天下沒有免費午餐」的____。",
@@ -9884,7 +9877,7 @@ const QUESTIONS = [
  {
   "id": "ZK0302",
   "y": 84,
-  "t": "指考",
+  "t": "聯考",
   "q": 9,
   "s": "A large poster in beautiful colors ______ the attention of many people.",
   "sz": "一張色彩美麗的大海報____了許多人的注意。",
@@ -9917,7 +9910,7 @@ const QUESTIONS = [
  {
   "id": "ZK0303",
   "y": 84,
-  "t": "指考",
+  "t": "聯考",
   "q": 10,
   "s": "It rains ______ this summer. The water we've got is not enough for this area.",
   "sz": "今年夏天____下雨。我們得到的水對這個地區來說是不夠的。",
@@ -9950,7 +9943,7 @@ const QUESTIONS = [
  {
   "id": "ZK0304",
   "y": 83,
-  "t": "指考",
+  "t": "聯考",
   "q": 1,
   "s": "The ______ of 18, 13 and 14 is 15.",
   "sz": "18、13和14的____是15。",
@@ -9983,7 +9976,7 @@ const QUESTIONS = [
  {
   "id": "ZK0305",
   "y": 83,
-  "t": "指考",
+  "t": "聯考",
   "q": 2,
   "s": "There are many ______ that the economy will recover from a recession.",
   "sz": "有很多____表明經濟將從衰退中復甦。",
@@ -10016,7 +10009,7 @@ const QUESTIONS = [
  {
   "id": "ZK0306",
   "y": 83,
-  "t": "指考",
+  "t": "聯考",
   "q": 3,
   "s": "Intelligence does not ______ mean success. You need diligence as well.",
   "sz": "聰明並不____意味著成功。你也需要勤奮。",
@@ -10049,7 +10042,7 @@ const QUESTIONS = [
  {
   "id": "ZK0307",
   "y": 83,
-  "t": "指考",
+  "t": "聯考",
   "q": 4,
   "s": "The report says that ______ driving has killed more than 20 persons since June.",
   "sz": "報告稱，自六月以來，____駕駛已造成超過20人死亡。",
@@ -10082,7 +10075,7 @@ const QUESTIONS = [
  {
   "id": "ZK0308",
   "y": 83,
-  "t": "指考",
+  "t": "聯考",
   "q": 5,
   "s": "How can you expect me to ______ exactly what happened twelve years ago ?",
   "sz": "你怎麼能期望我____十二年前確切發生的事情？",
@@ -10115,7 +10108,7 @@ const QUESTIONS = [
  {
   "id": "ZK0309",
   "y": 83,
-  "t": "指考",
+  "t": "聯考",
   "q": 6,
   "s": "The man made a ______ effort to look happy, though deep in his heart he was very sad.",
   "sz": "這個人____努力地裝出高興的樣子，儘管內心深處他非常悲傷。",
@@ -10148,7 +10141,7 @@ const QUESTIONS = [
  {
   "id": "ZK0310",
   "y": 83,
-  "t": "指考",
+  "t": "聯考",
   "q": 7,
   "s": "Most children find it difficult to ______ the temptation of ice cream, especially on a hot summer day.",
   "sz": "大多數孩子發現很難____冰淇淋的誘惑，尤其是在炎熱的夏天。",
@@ -10179,7 +10172,7 @@ const QUESTIONS = [
  {
   "id": "ZK0311",
   "y": 83,
-  "t": "指考",
+  "t": "聯考",
   "q": 8,
   "s": "We cannot give you a ______ answer now; there are still many uncertainties on this issue.",
   "sz": "我們現在不能給你一個____的答案；在這個問題上還有很多不確定性。",
@@ -10212,7 +10205,7 @@ const QUESTIONS = [
  {
   "id": "ZK0312",
   "y": 83,
-  "t": "指考",
+  "t": "聯考",
   "q": 9,
   "s": "The report is much too long—you must ______ it, using as few words as possible.",
   "sz": "這份報告太長了——你必須____它，用盡可能少的詞。",
@@ -10245,7 +10238,7 @@ const QUESTIONS = [
  {
   "id": "ZK0313",
   "y": 83,
-  "t": "指考",
+  "t": "聯考",
   "q": 10,
   "s": "Mary is having a tough time deciding whether to dress ______ or formally for the party tonight.",
   "sz": "瑪麗很難決定今晚的派對要穿得____還是正式。",
@@ -10278,7 +10271,7 @@ const QUESTIONS = [
  {
   "id": "ZK0314",
   "y": 82,
-  "t": "指考",
+  "t": "聯考",
   "q": 1,
   "s": "When a public official is found involved in a ______, he usually has to resign.",
   "sz": "當一位公職人員被發現捲入____時，他通常必須辭職。",
@@ -10311,7 +10304,7 @@ const QUESTIONS = [
  {
   "id": "ZK0315",
   "y": 82,
-  "t": "指考",
+  "t": "聯考",
   "q": 2,
   "s": "The transportation in this city is terrible and people have many ______ about it.",
   "sz": "這個城市的交通很糟糕，人們對此有很多____。",
@@ -10344,7 +10337,7 @@ const QUESTIONS = [
  {
   "id": "ZK0316",
   "y": 82,
-  "t": "指考",
+  "t": "聯考",
   "q": 3,
   "s": "Movies, sports and reading are forms of ______. They help us relax.",
   "sz": "電影、運動和閱讀是____的形式。它們幫助我們放鬆。",
@@ -10377,7 +10370,7 @@ const QUESTIONS = [
  {
   "id": "ZK0317",
   "y": 82,
-  "t": "指考",
+  "t": "聯考",
   "q": 4,
   "s": "After reading for nearly two hours, Carol felt ______ to go out for some fresh air.",
   "sz": "讀了將近兩個小時的書後，卡羅感到____想出去透透氣。",
@@ -10410,7 +10403,7 @@ const QUESTIONS = [
  {
   "id": "ZK0318",
   "y": 82,
-  "t": "指考",
+  "t": "聯考",
   "q": 5,
   "s": "A polite person never ______ others while they are discussing important matters.",
   "sz": "一個有禮貌的人從不在別人討論重要事情時____他們。",
@@ -10443,7 +10436,7 @@ const QUESTIONS = [
  {
   "id": "ZK0319",
   "y": 82,
-  "t": "指考",
+  "t": "聯考",
   "q": 6,
   "s": "Some students get ______ aid from the government to support their education.",
   "sz": "一些學生從政府獲得____援助以支持他們的教育。",
@@ -10476,7 +10469,7 @@ const QUESTIONS = [
  {
   "id": "ZK0320",
   "y": 82,
-  "t": "指考",
+  "t": "聯考",
   "q": 7,
   "s": "Henry, my old classmate, has ______ a true friend of mine all over the years.",
   "sz": "亨利，我的老同學，這些年來一直____是我的摯友。",
@@ -10509,7 +10502,7 @@ const QUESTIONS = [
  {
   "id": "ZK0321",
   "y": 82,
-  "t": "指考",
+  "t": "聯考",
   "q": 8,
   "s": "He was very shy, so his smile was barely (=hardly=scarcely) ______ when he met his teacher.",
   "sz": "他非常害羞，所以他見到老師時的微笑幾乎不____。",
@@ -10542,7 +10535,7 @@ const QUESTIONS = [
  {
   "id": "ZK0322",
   "y": 82,
-  "t": "指考",
+  "t": "聯考",
   "q": 9,
   "s": "They had not seen each other for years until they met ______ in Taipei last week.",
   "sz": "他們多年未見，直到上週在台北____相遇。",
@@ -10575,7 +10568,7 @@ const QUESTIONS = [
  {
   "id": "ZK0323",
   "y": 82,
-  "t": "指考",
+  "t": "聯考",
   "q": 10,
   "s": "The king was ______ for all his cruelties to the people.",
   "sz": "這位國王因他對人民的所有殘酷行為而____。",
@@ -10608,7 +10601,7 @@ const QUESTIONS = [
  {
   "id": "ZK0324",
   "y": 81,
-  "t": "指考",
+  "t": "聯考",
   "q": 1,
   "s": "Two important secrets of long life are regular exercise and ______ from worry.",
   "sz": "長壽的兩個重要秘訣是規律運動和____憂慮。",
@@ -10641,7 +10634,7 @@ const QUESTIONS = [
  {
   "id": "ZK0325",
   "y": 81,
-  "t": "指考",
+  "t": "聯考",
   "q": 2,
   "s": "The policemen have ______ the whole area but haven't found the criminal yet.",
   "sz": "警察已經____了整個區域，但還沒找到罪犯。",
@@ -10674,7 +10667,7 @@ const QUESTIONS = [
  {
   "id": "ZK0326",
   "y": 81,
-  "t": "指考",
+  "t": "聯考",
   "q": 3,
   "s": "If you want to become a good tennis player, you have to ______ your skill.",
   "sz": "如果你想成為一名優秀的網球運動員，你必須____你的技巧。",
@@ -10707,7 +10700,7 @@ const QUESTIONS = [
  {
   "id": "ZK0327",
   "y": 81,
-  "t": "指考",
+  "t": "聯考",
   "q": 4,
   "s": "Newspapers are ______ with advertisements for all kinds of consumer goods.",
   "sz": "報紙上____了各種消費品的廣告。",
@@ -10740,7 +10733,7 @@ const QUESTIONS = [
  {
   "id": "ZK0328",
   "y": 81,
-  "t": "指考",
+  "t": "聯考",
   "q": 5,
   "s": "After spending one hour on this math problem, John still could not ______ it.",
   "sz": "花了一個小時解這道數學題後，約翰仍然無法____它。",
@@ -10773,7 +10766,7 @@ const QUESTIONS = [
  {
   "id": "ZK0329",
   "y": 81,
-  "t": "指考",
+  "t": "聯考",
   "q": 6,
   "s": "The ______ of the story was when the dog saved the little girl from the bad man.",
   "sz": "故事的____是當狗從壞人手中救了小女孩的時候。",
@@ -10806,7 +10799,7 @@ const QUESTIONS = [
  {
   "id": "ZK0330",
   "y": 81,
-  "t": "指考",
+  "t": "聯考",
   "q": 7,
   "s": "Tell me what happened at the end of the game. Don't keep me in ______.",
   "sz": "告訴我比賽最後發生了什麼。別讓我____。",
@@ -10839,7 +10832,7 @@ const QUESTIONS = [
  {
   "id": "ZK0331",
   "y": 81,
-  "t": "指考",
+  "t": "聯考",
   "q": 8,
   "s": "My poor test score does not ______ how much I know about this subject.",
   "sz": "我差勁的考試成績並不能____我對這個科目了解多少。",
@@ -10872,7 +10865,7 @@ const QUESTIONS = [
  {
   "id": "ZK0332",
   "y": 81,
-  "t": "指考",
+  "t": "聯考",
   "q": 9,
   "s": "The ______ I have of the principal is that of a very kind and gentle person.",
   "sz": "我對校長的____是一位非常和藹可親的人。",
@@ -10905,7 +10898,7 @@ const QUESTIONS = [
  {
   "id": "ZK0333",
   "y": 81,
-  "t": "指考",
+  "t": "聯考",
   "q": 10,
   "s": "My apartment has one ______ I like. It has a fireplace in the living room.",
   "sz": "我的公寓有一個我喜歡的____。它客廳裡有一個壁爐。",
