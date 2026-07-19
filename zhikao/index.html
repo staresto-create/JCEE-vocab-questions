@@ -210,7 +210,7 @@
   <div id="home">
     <div class="card">
       <p class="home-lead">今天，先寫十題。</p>
-      <p class="home-desc">不用設定，按下去就開始。每題附中文詳解與選項單字分級（大考中心六級）。</p>
+      <p class="home-desc">不用設定，按下去就開始。每題附中文詳解、選項單字分級（大考中心六級），部分題目更附上<b>大考中心官方逐題答對率</b>，讓你知道哪些題目連高分群考生都容易答錯。</p>
       <button class="big-btn" onclick="startQuiz(randomTen())">立即開始 · 隨機10題</button>
     </div>
 
@@ -484,7 +484,7 @@ function selectAnswer(letter, q){
   if(typeof q.accuracyRate === 'number'){
     const isLow = q.accuracyRate < 35;
     accTag.innerHTML = '本題全體考生答對率：<span class="acc-num">'+q.accuracyRate+'%</span>'
-      + (isLow ? '　<span class="acc-warn">⚠ 陷阱題，連高分同學也常答錯</span>' : '');
+      + (isLow ? '　<span class="acc-warn">⚠ 陷阱題，連高分群考生也常答錯</span>' : '');
     accTag.classList.toggle('low', isLow);
     accTag.classList.add('show');
   } else {
