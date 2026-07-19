@@ -156,6 +156,17 @@
   .gloss-line .g-level{color:var(--gold); font-size:11px;}
   .gloss-line .g-zh{color:var(--ink-soft); font-family:'Noto Sans TC',sans-serif;}
   .level-note{margin-top:14px; padding-top:10px; border-top:1px dashed var(--rule); font-size:11px; color:var(--ink-soft); line-height:1.6;}
+  .acc-tag{margin-top:10px; font-size:12.5px; color:var(--ink-soft); font-family:'IBM Plex Mono',monospace; display:none;}
+  .acc-tag.show{display:block;}
+  .acc-tag .acc-num{color:var(--sage); font-weight:600;}
+  .acc-tag.low .acc-num{color:var(--crimson); font-weight:700;}
+  .acc-tag .acc-warn{color:var(--crimson);}
+  .note-box{
+    margin-top:10px; padding:12px 14px; background:#EFF3ED; border-radius:3px; border:1px solid var(--rule);
+    font-size:13px; line-height:1.8; color:var(--ink-soft); display:none; white-space:pre-line;
+  }
+  .note-box.show{display:block;}
+  .note-box::before{content:"常見誤區　"; color:var(--sage); font-family:'Noto Serif TC',serif; font-weight:700;}
   .report-row{margin-top:16px; padding-top:12px; border-top:1px dashed var(--rule); font-size:12px; color:var(--ink-soft);}
   .report-row a.report-link{color:var(--crimson); text-decoration:underline; font-family:'IBM Plex Mono',monospace;}
   #qReportId{display:block; margin-bottom:4px; font-family:'IBM Plex Mono',monospace;}
@@ -263,7 +274,9 @@
       <div class="explain" id="qExplain">
         <div class="zh" id="explainZh"></div>
         <div id="explainGloss"></div>
-        <div class="level-note">＊部分單字/片語未標示難度級別 [ ]，代表該字超出大考中心《高中英文參考詞彙表》6級範圍（屬於進階或罕用字），非資料缺漏。</div>
+        <div class="level-note">＊部分單字/片語未標示難度級別 [ ]，代表該字超出大考中心《高中英文參考詞彙表》6級範圍（屬於進階或罕用字），非資料缺漏。<br>＊部分題目未顯示答對率，是因為該年度大考中心未公布逐題答對率統計，並非資料缺漏。</div>
+        <div class="acc-tag" id="qAccTag"></div>
+        <div class="note-box" id="qNoteBox"></div>
         <div class="report-row">
           <span id="qReportId"></span>
           <a href="https://forms.gle/VDNSJUywjKSBptjU9" target="_blank" rel="noopener" class="report-link" id="reportLink">🚩 回報這題有問題</a>
@@ -424,6 +437,10 @@ function renderQuestion(){
 
   document.getElementById('qExplain').classList.remove('show');
   document.getElementById('nextBtn').style.display = 'none';
+  document.getElementById('qAccTag').classList.remove('show','low');
+  document.getElementById('qAccTag').innerHTML = '';
+  document.getElementById('qNoteBox').classList.remove('show');
+  document.getElementById('qNoteBox').innerHTML = '';
 }
 
 function selectAnswer(letter, q){
@@ -462,6 +479,27 @@ function selectAnswer(letter, q){
   document.getElementById('reportLink').href =
     'https://docs.google.com/forms/d/e/1FAIpQLSd6P1s7HqjvOmGqOzNDWcBQQ3F539SifSNiAfXvi6NqD2YP-Q/viewform?usp=pp_url&entry.1257494378='
     + encodeURIComponent(q.id);
+
+  const accTag = document.getElementById('qAccTag');
+  if(typeof q.accuracyRate === 'number'){
+    const isLow = q.accuracyRate < 35;
+    accTag.innerHTML = '本題全體考生答對率：<span class="acc-num">'+q.accuracyRate+'%</span>'
+      + (isLow ? '　<span class="acc-warn">⚠ 陷阱題，連高分同學也常答錯</span>' : '');
+    accTag.classList.toggle('low', isLow);
+    accTag.classList.add('show');
+  } else {
+    accTag.innerHTML = '';
+    accTag.classList.remove('show','low');
+  }
+
+  const noteBox = document.getElementById('qNoteBox');
+  if(q.note){
+    noteBox.innerHTML = q.note.replace(/\n/g,'<br>');
+    noteBox.classList.add('show');
+  } else {
+    noteBox.innerHTML = '';
+    noteBox.classList.remove('show');
+  }
 
   document.getElementById('qExplain').classList.add('show');
   document.getElementById('nextBtn').style.display = 'inline-block';
