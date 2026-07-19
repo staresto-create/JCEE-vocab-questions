@@ -84,6 +84,23 @@
     font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.12em;
     color:var(--crimson); text-transform:uppercase; margin: 26px 0 10px; display:flex; align-items:center; gap:8px;
   }
+  .cat-grid{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:6px;}
+  .cat-chip{
+    font-family:'IBM Plex Mono',monospace; font-size:12px; padding:6px 12px; border-radius:14px;
+    border:1.5px solid var(--rule); cursor:pointer; user-select:none; background:#fff; color:var(--ink-soft);
+    transition:.12s;
+  }
+  .cat-chip.on{border-color:var(--sage); background:#F2F7F1; color:var(--sage); font-weight:600;}
+  .cat-chip[data-diff="hard"].on{border-color:var(--crimson); background:#FBF1EE; color:var(--crimson);}
+  .cat-chip[data-diff="special"].on{border-color:var(--gold); background:#FBF6E9; color:#8a6d00;}
+  .cat-chip .chip-count{font-size:10px; color:var(--ink-soft); opacity:.7;}
+  .cat-chip.on .chip-count{color:inherit;}
+  .diff-hint{font-size:11px; font-weight:400; color:var(--ink-soft); margin-left:6px; text-transform:none; letter-spacing:0;}
+  .diff-note{
+    font-size:11.5px; color:var(--ink-soft); line-height:1.8; margin:10px 0 4px;
+    padding:10px 12px; background:#F7F5F0; border-radius:3px; border:1px solid var(--rule);
+  }
+  .diff-note a{color:var(--sage); text-decoration:underline;}
   .sec-title::after{content:""; flex:1; height:1px; background:var(--rule);}
   .ghost-btn{
     cursor:pointer; background:transparent; border:1.5px solid var(--ink);
@@ -167,6 +184,12 @@
   }
   .note-box.show{display:block;}
   .note-box::before{content:"常見誤區　"; color:var(--sage); font-family:'Noto Serif TC',serif; font-weight:700;}
+  .disc-box{
+    margin-top:10px; padding:12px 14px; background:#FBF6E9; border-radius:3px; border:1px solid #E8DCA8;
+    font-size:13px; line-height:1.8; color:var(--ink-soft); display:none; white-space:pre-line;
+  }
+  .disc-box.show{display:block;}
+  .disc-box::before{content:"鑑別度分析　"; color:#8a6d00; font-family:'Noto Serif TC',serif; font-weight:700;}
   .report-row{margin-top:16px; padding-top:12px; border-top:1px dashed var(--rule); font-size:12px; color:var(--ink-soft);}
   .report-row a.report-link{color:var(--crimson); text-decoration:underline; font-family:'IBM Plex Mono',monospace;}
   #qReportId{display:block; margin-bottom:4px; font-family:'IBM Plex Mono',monospace;}
@@ -234,6 +257,13 @@
         <button class="ghost-btn" onclick="startRangePractice()" style="flex:1;">開始練習</button>
       </div>
 
+      <div class="sec-title">依難易度篩選<span class="diff-hint">（選填，可複選，跟上方範圍條件一起套用；不選則不限難易度）</span></div>
+      <div class="cat-grid" id="diffGrid"></div>
+      <div class="diff-note">
+        難易度依大考中心公布的「全體考生答對率」（P值）分成三級：<b>難</b>（答對率≤25%）／<b>中</b>（25~75%，難易適中，此區間刻意設得較寬，因為難易適中的題目最能區分學生程度）／<b>易</b>（＞75%），為教育測驗學界通用切法，大考中心本身未明訂切點百分比。<b>特殊</b>指鑑別度（D值＝高分群答對率－低分群答對率）為負值的題目——大考中心官方說明指出「良好試題的鑑別度應大於0」，若為負值，代表低分群考生答對率反而高於高分群，是官方標準認定設計有瑕疵的題目，特別適合拿來討論、練習。<br>
+        資料來源：<a href="https://www.ceec.edu.tw/xcepaper/cont?xsmsid=0J066588036013658199&qunit=0J066614378153514816&sid=0K042343829406896328" target="_blank" rel="noopener">大考中心《一起來認識學測與指考的試題答對率》↗</a>、<a href="https://www.ceec.edu.tw/xcepaper/cont?xsmsid=0J066588036013658199&qunit=0J066614378153514816&sid=0K073687789378174143" target="_blank" rel="noopener">《一起來認識學測與指考的試題鑑別度》↗</a>
+      </div>
+
       <div class="sec-title">歷屆試題</div>
       <div class="row">
         <div class="field">
@@ -277,6 +307,7 @@
         <div class="level-note">＊部分單字/片語未標示難度級別 [ ]，代表該字超出大考中心《高中英文參考詞彙表》6級範圍（屬於進階或罕用字），非資料缺漏。<br>＊部分題目未顯示答對率，是因為該年度大考中心未公布逐題答對率統計，並非資料缺漏。</div>
         <div class="acc-tag" id="qAccTag"></div>
         <div class="note-box" id="qNoteBox"></div>
+        <div class="disc-box" id="qDiscBox"></div>
         <div class="report-row">
           <span id="qReportId"></span>
           <a href="https://forms.gle/VDNSJUywjKSBptjU9" target="_blank" rel="noopener" class="report-link" id="reportLink">🚩 回報這題有問題</a>
@@ -341,6 +372,7 @@ function initHome(){
     mockYear.appendChild(new Option(c.y+'年 '+c.t, c.y+'|'+c.t));
   });
   mockYear.value = combos[combos.length-1].y+'|'+combos[combos.length-1].t;
+  buildDiffChips();
   renderWrongBook();
   renderHistory();
 }
@@ -370,14 +402,39 @@ function renderHistory(){
 }
 
 /* ---------- Question selection ---------- */
+function getDiffTier(q){
+  if(q.discrimination !== undefined && q.discrimination < 0) return 'special';
+  if(typeof q.accuracyRate !== 'number') return null;
+  if(q.accuracyRate <= 25) return 'hard';
+  if(q.accuracyRate <= 75) return 'mid';
+  return 'easy';
+}
+let selectedDiffs = new Set();
+function buildDiffChips(){
+  const labels = {hard:'難（≤25%）', mid:'中（25~75%）', easy:'易（＞75%）', special:'特殊（鑑別度為負）'};
+  const counts = {hard:0, mid:0, easy:0, special:0};
+  QUESTIONS.forEach(q => { const t = getDiffTier(q); if(t) counts[t]++; });
+  const grid = document.getElementById('diffGrid');
+  selectedDiffs = new Set();
+  grid.innerHTML = ['hard','mid','easy','special'].map(t =>
+    `<div class="cat-chip" data-diff="${t}" onclick="toggleDiff(this)">${labels[t]} <span class="chip-count">(${counts[t]})</span></div>`
+  ).join('');
+}
+function toggleDiff(el){
+  const t = el.dataset.diff;
+  if(selectedDiffs.has(t)){ selectedDiffs.delete(t); el.classList.remove('on'); }
+  else{ selectedDiffs.add(t); el.classList.add('on'); }
+}
+
 function randomTen(){ return shuffle(QUESTIONS).slice(0,10).map(q=>q.id); }
 
 function startRangePractice(){
   const yFrom = +document.getElementById('yFrom').value;
   const yTo = +document.getElementById('yTo').value;
   const n = Math.max(1, Math.min(60, +document.getElementById('numQ').value || 10));
-  const pool = QUESTIONS.filter(q => q.y >= Math.min(yFrom,yTo) && q.y <= Math.max(yFrom,yTo));
-  if(pool.length === 0){ alert('這個範圍沒有題目'); return; }
+  const diffOk = q => selectedDiffs.size===0 || selectedDiffs.has(getDiffTier(q));
+  const pool = QUESTIONS.filter(q => q.y >= Math.min(yFrom,yTo) && q.y <= Math.max(yFrom,yTo) && diffOk(q));
+  if(pool.length === 0){ alert('這個範圍或難易度篩選條件下沒有題目'); return; }
   startQuiz(shuffle(pool).slice(0,n).map(q=>q.id), '範圍練習 '+yFrom+'–'+yTo);
 }
 
@@ -441,6 +498,8 @@ function renderQuestion(){
   document.getElementById('qAccTag').innerHTML = '';
   document.getElementById('qNoteBox').classList.remove('show');
   document.getElementById('qNoteBox').innerHTML = '';
+  document.getElementById('qDiscBox').classList.remove('show');
+  document.getElementById('qDiscBox').innerHTML = '';
 }
 
 function selectAnswer(letter, q){
@@ -499,6 +558,15 @@ function selectAnswer(letter, q){
   } else {
     noteBox.innerHTML = '';
     noteBox.classList.remove('show');
+  }
+
+  const discBox = document.getElementById('qDiscBox');
+  if(q.discriminationNote){
+    discBox.innerHTML = q.discriminationNote.replace(/\n/g,'<br>');
+    discBox.classList.add('show');
+  } else {
+    discBox.innerHTML = '';
+    discBox.classList.remove('show');
   }
 
   document.getElementById('qExplain').classList.add('show');
