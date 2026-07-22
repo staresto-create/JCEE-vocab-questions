@@ -233,7 +233,7 @@
   <div id="home">
     <div class="card">
       <p class="home-lead">今天，先寫十題。</p>
-      <p class="home-desc">不用設定，按下去就開始。每題附中文詳解、選項單字分級（大考中心六級），部分題目更附上<b>大考中心官方逐題答對率</b>，讓你知道哪些題目連高分群考生都容易答錯。</p>
+      <p class="home-desc">不用設定，按下去就開始。每題附中文詳解、選項單字分級（大考中心六級），並收錄<b>大考中心公布的官方逐題答對率</b>，讓你知道哪些題目連高分群考生都容易答錯。</p>
       <button class="big-btn" onclick="startQuiz(randomTen())">立即開始 · 隨機10題</button>
     </div>
 
@@ -282,11 +282,13 @@
       <div class="row" style="margin-top:14px;">
         <button class="ghost-btn" id="reviewWrongBtn" style="flex:1;" onclick="reviewWrongBook()">複習錯題本</button>
       </div>
+      <button class="ghost-btn" style="margin-top:8px; width:100%;" onclick="if(confirm('確定要清除錯題本嗎？此動作無法復原（學習歷程統計不會被清除）。')){localStorage.removeItem(LS_WRONG);location.reload();}">清除錯題本</button>
     </div>
 
     <div class="card" style="padding:24px 26px;">
       <div class="sec-title">學習歷程</div>
       <div id="historyBox"></div>
+      <button class="ghost-btn" style="margin-top:12px;" onclick="if(confirm('確定要清除學習歷程統計嗎？此動作無法復原（錯題本不會被清除）。')){localStorage.removeItem(LS_HISTORY);location.reload();}">清除學習歷程統計</button>
     </div>
   </div>
 
