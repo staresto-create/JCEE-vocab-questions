@@ -178,6 +178,31 @@
   .acc-tag .acc-num{color:var(--sage); font-weight:600;}
   .acc-tag.low .acc-num{color:var(--crimson); font-weight:700;}
   .acc-tag .acc-warn{color:var(--crimson);}
+  .span-tag{
+    display:none; margin-top:8px; font-family:'IBM Plex Mono',monospace; font-size:11px;
+    color:var(--ink-soft); border:1px solid var(--rule); border-radius:10px;
+    padding:2px 8px; white-space:nowrap;
+    }
+    .span-tag.show{display:inline-block;}
+    .span-tag.cross{color:var(--crimson); border-color:var(--crimson);}
+    .ctx-box{
+    margin-top:8px; padding:12px 14px; background:#F7F2E3; border-radius:3px;
+    border:1px solid var(--rule); font-size:13px; line-height:1.8;
+    color:var(--ink-soft); display:none;
+    }
+    .ctx-box.show{display:block;}
+    .ctx-box::before{content:"線索在哪裡　"; color:var(--crimson); font-weight:700;}
+    .note-body{margin-top:2px;}
+    .note-body.clamped{
+    display:-webkit-box; -webkit-line-clamp:4; line-clamp:4;
+    -webkit-box-orient:vertical; overflow:hidden;
+    }
+    .note-toggle{
+    display:inline-block; margin-top:8px; cursor:pointer; user-select:none;
+    font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-soft);
+    border-bottom:1px dotted var(--rule); padding-bottom:1px;
+    }
+    .note-toggle:hover{color:var(--crimson); border-color:var(--crimson);}
   .note-box{
     margin-top:10px; padding:12px 14px; background:#EFF3ED; border-radius:3px; border:1px solid var(--rule);
     font-size:13px; line-height:1.8; color:var(--ink-soft); display:none; white-space:pre-line;
@@ -308,7 +333,9 @@
         <div id="explainGloss"></div>
         <div class="level-note">＊部分單字/片語未標示難度級別 [ ]，代表該字超出大考中心《高中英文參考詞彙表》6級範圍（屬於進階或罕用字），非資料缺漏。<br>＊部分題目未顯示答對率，是因為該年度大考中心未公布逐題答對率統計，並非資料缺漏。</div>
         <div class="acc-tag" id="qAccTag"></div>
+        <div class="span-tag" id="qSpanTag"></div>
         <div class="note-box" id="qNoteBox"></div>
+        <div class="ctx-box" id="qCtxBox"></div>
         <div class="disc-box" id="qDiscBox"></div>
         <div class="report-row">
           <span id="qReportId"></span>
@@ -339,6 +366,12 @@
 
 <script src="data.js"></script>
 <script>
+function toggleClamp(el){
+  const target = el.previousElementSibling;
+  if(!target) return;
+  const clamped = target.classList.toggle('clamped');
+  el.textContent = clamped ? '展開全文 ▾' : '收合 ▴';
+}
 /* ---------- State ---------- */
 let session = { list: [], idx: 0, correctCount: 0, wrongIds: [], mode: '', timerId: null, startTime: 0 };
 const LS_WRONG = 'gswVocabWrongBook';
@@ -498,6 +531,8 @@ function renderQuestion(){
   document.getElementById('nextBtn').style.display = 'none';
   document.getElementById('qAccTag').classList.remove('show','low');
   document.getElementById('qAccTag').innerHTML = '';
+  document.getElementById('qSpanTag').classList.remove('show','cross');
+  document.getElementById('qCtxBox').classList.remove('show');
   document.getElementById('qNoteBox').classList.remove('show');
   document.getElementById('qNoteBox').innerHTML = '';
   document.getElementById('qDiscBox').classList.remove('show');
@@ -553,9 +588,35 @@ function selectAnswer(letter, q){
     accTag.classList.remove('show','low');
   }
 
+  const spanTag = document.getElementById('qSpanTag');
+  if(q.contextSpan){
+    spanTag.textContent = '線索：'+q.contextSpan;
+    spanTag.classList.toggle('cross', q.contextSpan !== '句內');
+    spanTag.classList.add('show');
+  } else {
+    spanTag.textContent = '';
+    spanTag.classList.remove('show','cross');
+  }
+
+  const ctxBox = document.getElementById('qCtxBox');
+  if(q.contextNote){
+    ctxBox.textContent = q.contextNote;
+    ctxBox.classList.add('show');
+  } else if(q.contextSpan === '句內'){
+    ctxBox.textContent = '這一題屬於「句內」：只要讀懂空格所在的那一句就足以作答。答錯的話，問題多半出在字義辨析或字詞搭配。';
+    ctxBox.classList.add('show');
+  } else {
+    ctxBox.textContent = '';
+    ctxBox.classList.remove('show');
+  }
+
   const noteBox = document.getElementById('qNoteBox');
   if(q.note){
-    noteBox.innerHTML = q.note.replace(/\n/g,'<br>');
+    const noteHtml = q.note.replace(/\n/g,'<br>');
+    noteBox.innerHTML = q.note.length > 160
+    ? '<div class="note-body clamped">'+noteHtml+'</div>'
+        + '<span class="note-toggle" onclick="toggleClamp(this)">展開全文 ▾</span>'
+    : '<div class="note-body">'+noteHtml+'</div>';
     noteBox.classList.add('show');
   } else {
     noteBox.innerHTML = '';
