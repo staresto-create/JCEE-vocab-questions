@@ -44,6 +44,17 @@
   header.top .sub{
     font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-soft);
   }
+  .sk-title{font-family:'Noto Serif TC',serif; font-weight:700; font-size:17px; margin:0 0 6px;}
+  .sk-intro{color:var(--ink-soft); font-size:13.5px; line-height:1.8; margin:0 0 4px;}
+  .sk-ex{margin:16px 0 0; padding-left:11px; border-left:2px solid var(--sage);}
+  .sk-ex .sk-src{font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:.08em; color:var(--sage); display:block; margin-bottom:3px;}
+  .sk-ex .sk-en{color:var(--ink); font-size:13.5px; line-height:1.75; margin:0 0 2px;}
+  .sk-ex .sk-zh{font-size:12.5px; color:var(--ink-soft); margin:0 0 6px;}
+  .sk-ex .sk-core{color:var(--crimson); font-weight:700; font-size:13.5px; line-height:1.7; margin:0;}
+  .sk-ex .sk-core em{color:var(--ink-soft); font-weight:400; font-style:normal; font-size:12.5px;}
+  .sk-ex .sk-tip{margin:6px 0 0; font-size:12.5px; color:var(--ink-soft); background:#F1EADA; border-radius:3px; padding:7px 10px; line-height:1.8;}
+  .sk-more{margin-top:14px; padding-top:12px; border-top:1px dashed var(--rule); font-size:12.5px; color:var(--ink-soft); line-height:1.8;}
+  .sk-toggle{font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--crimson); cursor:pointer; text-decoration:underline; margin-top:14px; display:inline-block;}
   .card{
     background: var(--paper-card);
     border:1px solid var(--rule);
@@ -299,6 +310,65 @@
           <button class="ghost-btn" onclick="startMock()" style="width:100%;">開始作答這份試題</button>
         </div>
       </div>
+    </div>
+
+    <div class="card" style="padding:24px 26px;">
+      <div class="sk-title">🔍 讀句子的第一步：先找「什麼」和「怎麼了」</div>
+      <p class="sk-intro">主詞不一定是人，可以是一個動作、一種物質、一個現象。找到主詞和動詞就抓到<b>骨幹</b>了，其餘的介系詞片語、分詞片語、關係子句、同位語，都是掛在骨幹上的修飾。指考單字題的句子比學測長，插入語和分詞構句特別常見——先抓骨幹，空格該填什麼詞性就清楚了。</p>
+        <div class="sk-ex">
+          <span class="sk-src">103年 · 指考單字</span>
+          <p class="sk-en">Smoking, as proven in many medical studies, is likely to damage the human body permanently.</p>
+          <p class="sk-zh">（正如許多醫學研究所證明的，吸菸很可能對人體造成永久性的損害。）</p>
+          <p class="sk-core">➜ Smoking is likely to damage the human body. <em>（吸菸很可能損害人體。）</em></p>
+          <p class="sk-tip">💡 主詞是 Smoking，一個動作。<b>主詞不一定是人。</b></p>
+        </div>
+        <div class="sk-ex">
+          <span class="sk-src">89年 · 指考單字</span>
+          <p class="sk-en">It was obvious that this young artist's latest work was definitely much better than any other work in the exhibition.</p>
+          <p class="sk-zh">（很明顯，這位年輕藝術家最新的作品比展覽中其他任何作品都好得多。）</p>
+          <p class="sk-core">➜ It was obvious that ... <em>（很明顯……）</em></p>
+          <p class="sk-tip">💡 開頭的 It 不是「它」，只是先占著主詞的位置，真正的內容在 that 後面。</p>
+        </div>
+      <div id="skelMore" style="display:none;">
+        <div class="sk-more">再看五句，涵蓋修飾語會出現的各種位置。你可以先蓋住每一句下面那一行，自己試著把骨幹找出來。</div>
+        <div class="sk-ex">
+          <span class="sk-src">82年</span>
+          <p class="sk-en">Henry, my old classmate, has remained a true friend of mine all over the years.</p>
+          <p class="sk-zh">（亨利是我的老同學，這些年來一直是我真正的朋友。）</p>
+          <p class="sk-core">➜ Henry has remained a true friend. <em>（亨利一直是真正的朋友。）</em></p>
+          <p class="sk-tip">💡 my old classmate 是同位語，在說明 Henry 是誰。</p>
+        </div>
+        <div class="sk-ex">
+          <span class="sk-src">102年</span>
+          <p class="sk-en">In the desert, a huge mall with art galleries, theaters, and museums will be constructed to shelter visitors from the heat outside.</p>
+          <p class="sk-zh">（沙漠中將興建一座大型購物中心，裡面有美術館、劇院和博物館，用來讓遊客躲避外頭的酷熱。）</p>
+          <p class="sk-core">➜ A huge mall will be constructed. <em>（一座大型購物中心將被興建。）</em></p>
+          <p class="sk-tip">💡 主詞是 a huge mall，後面 with 那一串在講「裡面有什麼」，動詞被推到第 14 個字。</p>
+        </div>
+        <div class="sk-ex">
+          <span class="sk-src">95年</span>
+          <p class="sk-en">Identical twins have almost all of their genes in common, so any variation between them is in large part due to the effects of the environment.</p>
+          <p class="sk-zh">（同卵雙胞胎幾乎共有全部的基因，所以他們之間的任何差異，很大一部分要歸因於環境的影響。）</p>
+          <p class="sk-core">➜ Any variation is due to the effects of the environment. <em>（任何差異都要歸因於環境的影響。）</em></p>
+          <p class="sk-tip">💡 so 後面才是重點。主詞是 any variation，between them 掛在它後面。</p>
+        </div>
+        <div class="sk-ex">
+          <span class="sk-src">108年</span>
+          <p class="sk-en">Suffering from a serious financial crisis, the car company is now on the edge of bankruptcy, especially with the recent sharp decrease in its new car sales.</p>
+          <p class="sk-zh">（這家汽車公司正深陷嚴重的財務危機，如今瀕臨破產邊緣，尤其近來新車銷量大幅下滑。）</p>
+          <p class="sk-core">➜ The car company is on the edge of bankruptcy. <em>（這家汽車公司瀕臨破產邊緣。）</em></p>
+          <p class="sk-tip">💡 句首的 Suffering from... 是分詞構句，主詞還沒出現。看到 -ing 開頭又跟著逗號，先往後找真正的主詞。</p>
+        </div>
+        <div class="sk-ex">
+          <span class="sk-src">106年</span>
+          <p class="sk-en">Having worked five years as a data processor in a small town, Alice is tired of the routine of her job and the monotony of her life.</p>
+          <p class="sk-zh">（在小鎮上當了五年的資料處理員之後，愛麗絲厭倦了工作的一成不變，也厭倦了生活的單調。）</p>
+          <p class="sk-core">➜ Alice is tired of the routine and the monotony. <em>（愛麗絲厭倦了一成不變與單調。）</em></p>
+          <p class="sk-tip">💡 Having worked... 是完成式分詞構句，表示這件事發生在前。同樣要先跳過它去找主詞。</p>
+        </div>
+        <div class="sk-more">這種長句在每一種題型裡都會遇到——克漏字、文意選填、中翻英，一個也躲不掉。完整說明和其他題庫的例句在<a href="https://staresto-create.github.io/JCEE-vocab-questions/" target="_blank" rel="noopener">題庫入口頁</a>。</div>
+      </div>
+      <span class="sk-toggle" onclick="var m=document.getElementById('skelMore'); m.style.display = m.style.display==='none' ? 'block' : 'none';">🔍 展開／收合：再看五句</span>
     </div>
 
     <div class="card" style="padding:24px 26px;">
