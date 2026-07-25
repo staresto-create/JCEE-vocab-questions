@@ -79,6 +79,16 @@
   section.view.active{display:block;}
 
   /* --- setup screen --- */
+  .sk-intro{color:var(--muted); font-size:13.5px; line-height:1.85; margin:0 0 4px;}
+  .sk-ex{margin:16px 0 0; padding-left:11px; border-left:2px solid var(--stamp);}
+  .sk-ex .sk-src{font-family:monospace; font-size:10.5px; letter-spacing:.08em; color:var(--stamp); display:block; margin-bottom:3px;}
+  .sk-ex .sk-en{color:var(--ink); font-size:13.5px; line-height:1.75; margin:0 0 2px;}
+  .sk-ex .sk-zh{font-size:12.5px; color:var(--muted); margin:0 0 6px;}
+  .sk-ex .sk-core{color:var(--seal); font-weight:700; font-size:13.5px; line-height:1.7; margin:0;}
+  .sk-ex .sk-core em{color:var(--muted); font-weight:400; font-style:normal; font-size:12.5px;}
+  .sk-ex .sk-tip{margin:6px 0 0; font-size:12.5px; color:var(--muted); background:var(--stamp-light); border-radius:6px; padding:8px 10px; line-height:1.8;}
+  .sk-more{margin-top:14px; padding-top:12px; border-top:1px dashed var(--rule); font-size:12.5px; color:var(--muted); line-height:1.8;}
+  .sk-toggle{font-size:12px; color:var(--seal); cursor:pointer; text-decoration:underline; margin-top:14px; display:inline-block;}
   .card{
     background:#fff;
     border:1px solid var(--rule);
@@ -375,6 +385,58 @@
     </div>
 
     <button class="start-btn" id="startBtn">開始練習</button>
+
+    <div class="card">
+      <h2>🔍 讀句子的第一步：先找「什麼」和「怎麼了」</h2>
+      <p class="sk-intro">主詞不一定是人，可以是一個動作、一種物質、一個現象。找到主詞和動詞就抓到<b>骨幹</b>了，其餘的介系詞片語、分詞片語、關係子句、同位語，都是掛在骨幹上的修飾。中譯英尤其需要這一步：先想清楚中文那一句的「什麼」和「怎麼了」，英文的主詞和動詞就定下來了，其餘的細節再一層一層掛上去。</p>
+        <div class="sk-ex">
+          <span class="sk-src">110年 · 中翻英</span>
+          <p class="sk-en">Many people are curious about whether the record-breaking low temperatures in the United States at the beginning of this year are related to global warming.</p>
+          <p class="sk-zh">（很多人好奇今年年初在美國破紀錄的低溫是否與全球暖化有關。）</p>
+          <p class="sk-core">➜ Many people are curious. <em>（很多人感到好奇。）</em></p>
+          <p class="sk-tip">💡 這一句有兩層。外層是 Many people are curious；whether 帶出來的那一整塊裡面還有一個小句子，它的主詞是 the temperatures、動詞是 are related——中間又隔了 11 個字。長句常常是這樣一層套一層。</p>
+        </div>
+        <div class="sk-ex">
+          <span class="sk-src">108年 · 中翻英</span>
+          <p class="sk-en">Since its operation in 2007, the High Speed Rail has become one of the most convenient and fastest means of transportation in Taiwan.</p>
+          <p class="sk-zh">（自2007年營運以來，高鐵已成為臺灣最便利、最快速的交通工具之一。）</p>
+          <p class="sk-core">➜ The High Speed Rail has become one of the most convenient and fastest means of transportation. <em>（高鐵已成為最便利、最快速的交通工具之一。）</em></p>
+          <p class="sk-tip">💡 這一句是提醒：能拿掉的只有句首的時間片語和句尾的 in Taiwan。<b>become 後面那一整塊是補語，拿掉就不成句了</b>——不是所有長的東西都是修飾語。</p>
+        </div>
+      <div id="skelMore" style="display:none;">
+        <div class="sk-more">再看四句，涵蓋修飾語會出現的各種位置。你可以先蓋住每一句下面那一行，自己試著把骨幹找出來。</div>
+        <div class="sk-ex">
+          <span class="sk-src">107年</span>
+          <p class="sk-en">When a typhoon strikes, we should prepare enough food, stay indoors, and if necessary, quickly move to a safe place.</p>
+          <p class="sk-zh">（颱風來襲時，我們應準備足夠的食物，並待在室內，若有必要，應迅速移動至安全的地方。）</p>
+          <p class="sk-core">➜ We should prepare food, stay indoors, and move to a safe place. <em>（我們應準備食物、待在室內、移動到安全的地方。）</em></p>
+          <p class="sk-tip">💡 一個主詞配三個並列動詞。找到 we 之後，要把三個動詞都找齊，句子才算讀完。</p>
+        </div>
+        <div class="sk-ex">
+          <span class="sk-src">84年</span>
+          <p class="sk-en">Seeing her crying so bitterly, I stayed with her and waited for her mother to come back.</p>
+          <p class="sk-zh">（看到她哭得那麼傷心，我就陪她等媽媽回來。）</p>
+          <p class="sk-core">➜ I stayed with her and waited. <em>（我陪著她，等著。）</em></p>
+          <p class="sk-tip">💡 Seeing... 是分詞構句，主詞 I 在逗號後面才出現。</p>
+        </div>
+        <div class="sk-ex">
+          <span class="sk-src">79年</span>
+          <p class="sk-en">Though I got back home earlier than usual in the evening, I still felt slightly under the weather.</p>
+          <p class="sk-zh">（雖然晚上比往常早回家，我還是覺得有點不舒服。）</p>
+          <p class="sk-core">➜ I felt slightly under the weather. <em>（我覺得有點不舒服。）</em></p>
+          <p class="sk-tip">💡 Though 帶的是副詞子句，主要子句在逗號之後。</p>
+        </div>
+        <div class="sk-ex">
+          <span class="sk-src">76年</span>
+          <p class="sk-en">Don't read articles which are too difficult for you and don't look up a new word in a dictionary the moment you see it, either.</p>
+          <p class="sk-zh">（不要讀太難的文章，也不要遇到生字就立刻查字典。）</p>
+          <p class="sk-core">➜ Don't read articles and don't look up a new word. <em>（不要讀文章，也不要查生字。）</em></p>
+          <p class="sk-tip">💡 祈使句沒有寫出主詞，被省略的主詞是 you。which are too difficult for you 修飾 articles，the moment you see it 是時間副詞子句，兩塊都是修飾。</p>
+        </div>
+        <div class="sk-more">這種長句在每一種題型裡都會遇到——克漏字、文意選填、單字題，一個也躲不掉。完整說明和其他題庫的例句在<a href="https://staresto-create.github.io/JCEE-vocab-questions/" target="_blank" rel="noopener">題庫入口頁</a>。</div>
+      </div>
+      <span class="sk-toggle" onclick="var m=document.getElementById('skelMore'); m.style.display = m.style.display==='none' ? 'block' : 'none';">🔍 展開／收合：再看四句</span>
+    </div>
   </section>
 
   <!-- ============ QUIZ VIEW ============ -->
