@@ -355,9 +355,12 @@
   }
 
 /* 骨幹說明區改為摺疊（2026-07-31），標示與 hub 一致 */
-details.skill > summary{cursor:pointer; list-style:none;}
+details.skill > summary{cursor:pointer; list-style:none; display:flex;
+  justify-content:space-between; align-items:baseline; gap:12px;}
+details.skill > summary > *{margin-bottom:0;}
 details.skill > summary::-webkit-details-marker{display:none;}
-details.skill > summary::after{content:'＋ 展開'; float:right; color:var(--crimson,#AE3626); font-weight:700;}
+details.skill > summary::after{content:'＋ 展開'; white-space:nowrap;
+  color:var(--crimson,#AE3626); font-weight:700; font-size:13px;}
 details.skill[open] > summary::after{content:'－ 收合';}
 </style>
 </head>
@@ -399,7 +402,7 @@ details.skill[open] > summary::after{content:'－ 收合';}
     <button class="start-btn" id="startBtn">開始練習</button>
 
     <details class="skill card">
-      <summary>🔍 讀句子的第一步：先找「什麼」和「怎麼了」</summary>
+      <summary><h2>🔍 讀句子的第一步：先找「什麼」和「怎麼了」</h2></summary>
       <p class="sk-intro">主詞不一定是人，可以是一個動作、一種物質、一個現象。找到主詞和動詞就抓到<b>骨幹</b>了，其餘的介系詞片語、分詞片語、關係子句、同位語，都是掛在骨幹上的修飾。中譯英尤其需要這一步：先想清楚中文那一句的「什麼」和「怎麼了」，英文的主詞和動詞就定下來了，其餘的細節再一層一層掛上去。</p>
         <div class="sk-ex">
           <span class="sk-src">110年 · 中翻英</span>
