@@ -113,8 +113,8 @@
     font-family:'Noto Serif TC',serif; font-weight:700; font-size:15.5px; color:var(--ink);
   }
   details.skill > summary::-webkit-details-marker{display:none;}
-  details.skill > summary::after{content:'\FF0B'; float:right; color:var(--crimson); font-weight:700;}
-  details.skill[open] > summary::after{content:'\FF0D';}
+  details.skill > summary::after{content:'\FF0B 展開'; float:right; color:var(--crimson); font-weight:700;}
+  details.skill[open] > summary::after{content:'\FF0D 收合';}
   details.skill[open] > summary{border-bottom:1px solid var(--rule);}
   .skill-body{padding:6px 20px 24px; font-size:13.5px; line-height:1.85; color:var(--ink-soft);}
   .skill-body p{margin:14px 0;}
