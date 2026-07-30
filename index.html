@@ -110,10 +110,11 @@
   }
   details.skill > summary{
     cursor:pointer; list-style:none; padding:16px 20px;
+    display:flex; justify-content:space-between; align-items:baseline; gap:12px;
     font-family:'Noto Serif TC',serif; font-weight:700; font-size:15.5px; color:var(--ink);
   }
   details.skill > summary::-webkit-details-marker{display:none;}
-  details.skill > summary::after{content:'\FF0B 展開'; float:right; color:var(--crimson); font-weight:700;}
+  details.skill > summary::after{content:'\FF0B 展開'; white-space:nowrap; font-size:13px; color:var(--crimson); font-weight:700;}
   details.skill[open] > summary::after{content:'\FF0D 收合';}
   details.skill[open] > summary{border-bottom:1px solid var(--rule);}
   .skill-body{padding:6px 20px 24px; font-size:13.5px; line-height:1.85; color:var(--ink-soft);}
