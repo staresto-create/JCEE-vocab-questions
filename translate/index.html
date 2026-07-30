@@ -142,7 +142,7 @@
     width:100%;
     margin-top:20px;
     padding:16px;
-    background:var(--seal);
+    background:var(--ink);
     color:#fff;
     border:none;
     border-radius:3px;
@@ -151,8 +151,10 @@
     cursor:pointer;
     font-family:'Noto Serif TC',serif;
     font-weight:700;
+    transition: transform .12s ease, background .15s ease;
   }
-  .start-btn:disabled{background:#c8b9b9;cursor:not-allowed;}
+  .start-btn:disabled{opacity:.4;cursor:not-allowed;transform:none;}
+  .start-btn:hover{background:#000; transform: translateY(-1px);}
   .start-btn.secondary{background:var(--stamp);}
   #backToSetup, #reviewWrongNow{font-size:15px; padding:12px;}
 
