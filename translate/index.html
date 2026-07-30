@@ -354,11 +354,11 @@
     .question-card{padding:20px 16px;}
   }
 
-/* 骨幹說明區改為摺疊（2026-07-31） */
-details.skillfold > summary{cursor:pointer; list-style:none;}
-details.skillfold > summary::-webkit-details-marker{display:none;}
-details.skillfold > summary::after{content:"＋"; float:right; font-weight:400; color:var(--ink-soft);}
-details.skillfold[open] > summary::after{content:"－";}
+/* 骨幹說明區改為摺疊（2026-07-31），標示與 hub 一致 */
+details.skill > summary{cursor:pointer; list-style:none;}
+details.skill > summary::-webkit-details-marker{display:none;}
+details.skill > summary::after{content:'＋ 展開'; float:right; color:var(--crimson,#AE3626); font-weight:700;}
+details.skill[open] > summary::after{content:'－ 收合';}
 </style>
 </head>
 <body>
@@ -398,7 +398,7 @@ details.skillfold[open] > summary::after{content:"－";}
 
     <button class="start-btn" id="startBtn">開始練習</button>
 
-    <details class="skillfold card">
+    <details class="skill card">
       <summary>🔍 讀句子的第一步：先找「什麼」和「怎麼了」</summary>
       <p class="sk-intro">主詞不一定是人，可以是一個動作、一種物質、一個現象。找到主詞和動詞就抓到<b>骨幹</b>了，其餘的介系詞片語、分詞片語、關係子句、同位語，都是掛在骨幹上的修飾。中譯英尤其需要這一步：先想清楚中文那一句的「什麼」和「怎麼了」，英文的主詞和動詞就定下來了，其餘的細節再一層一層掛上去。</p>
         <div class="sk-ex">
