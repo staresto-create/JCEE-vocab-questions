@@ -56,20 +56,30 @@ button.act{font-family:'Noto Sans TC',sans-serif; font-size:14px; font-weight:70
   border-radius:3px; padding:9px 20px; cursor:pointer;}
 button.act[disabled]{opacity:.4; cursor:default;}
 button.ghost{border-color:var(--rule); background:var(--paper-card); color:var(--ink-soft);}
-.hook{color:inherit; text-decoration-line:underline; text-decoration-thickness:2px;
-  text-underline-offset:3px;}
-.hook sup{font-size:.66em; color:var(--ink-soft); margin-left:1px;}
+.hook{color:inherit; text-decoration-line:underline; text-decoration-thickness:3px;
+  text-underline-offset:4px; border-radius:2px;}
+.hook sup{font-size:.8em; font-weight:700; margin-left:1px;}
 .hook[data-t="同"]{text-decoration-color:var(--hook-syn);}
-.hook[data-t="上"]{text-decoration-color:var(--hook-syn); text-decoration-style:dashed;}
+.hook[data-t="同"] sup{color:var(--hook-syn);}
+.hook[data-t="上"]{text-decoration-color:var(--hook-syn); text-decoration-style:double;}
+.hook[data-t="上"] sup{color:var(--hook-syn);}
 .hook[data-t="標"]{text-decoration-color:var(--hook-ref);}
+.hook[data-t="標"] sup{color:var(--hook-ref);}
 .hook[data-t="邏"]{text-decoration-color:var(--hook-logic);}
+.hook[data-t="邏"] sup{color:var(--hook-logic);}
+@keyframes hookflash{
+  0%{background:transparent;}
+  25%{background:rgba(169,129,46,.28);}
+  100%{background:transparent;}
+}
+.flash .hook{animation:hookflash .6s ease-out 1;}
 .syn-off .hook[data-t="同"],.syn-off .hook[data-t="上"]{text-decoration-line:none;}
 .syn-off .hook[data-t="同"] sup,.syn-off .hook[data-t="上"] sup{display:none;}
 .log-off .hook[data-t="邏"]{text-decoration-line:none;}
 .log-off .hook[data-t="邏"] sup{display:none;}
 .legend{display:flex; flex-wrap:wrap; gap:18px; font-size:13px; margin-top:14px;
   padding-top:12px; border-top:1px solid var(--rule); color:var(--ink-soft);}
-.legend u{text-decoration-thickness:2px; text-underline-offset:3px; color:var(--ink);
+.legend u{text-decoration-thickness:3px; text-underline-offset:4px; color:var(--ink);
   font-family:Georgia,serif;}
 .official{border-left:3px solid var(--sage); background:#F2F7F1; padding:11px 14px;
   font-size:13px; line-height:1.85; border-radius:0 3px 3px 0; margin:12px 0;}
@@ -94,7 +104,7 @@ button.ghost{border-color:var(--rule); background:var(--paper-card); color:var(-
     <div id="legendBox" class="hidden">
       <div class="legend">
         <span><u style="text-decoration-color:#2F6D9E;">helmet</u>　同義勾環</span>
-        <span><u style="text-decoration:underline dashed; text-decoration-color:#2F6D9E; text-decoration-thickness:2px;">headgear</u>　上位詞</span>
+        <span><u style="text-decoration:underline double; text-decoration-color:#2F6D9E; text-decoration-thickness:3px;">headgear</u>　上位詞</span>
         <span><u style="text-decoration-color:#6A4B7C;">Recently</u>　邏輯勾環</span>
       </div>
       <p class="legend-note">號碼相同的是同一組線索；號碼不同，指的就不是同一件事。</p>
@@ -219,6 +229,11 @@ function render(src){
 }
 
 const box = document.getElementById('passageBox');
+function flash(){
+  box.classList.remove('flash');
+  void box.offsetWidth;
+  box.classList.add('flash');
+}
 PARAS.forEach(function(t){
   const p = document.createElement('p');
   try{ p.appendChild(render(t)); }
@@ -254,6 +269,7 @@ document.getElementById('submit40').onclick=function(){
   document.getElementById('reveal40').classList.remove('hidden');
   document.getElementById('legendBox').classList.remove('hidden');
   box.classList.remove('log-off');
+  flash();
   document.getElementById('reveal40').scrollIntoView({behavior:'smooth',block:'start'});
 };
 document.getElementById('tog40').onclick=function(){
@@ -290,6 +306,7 @@ document.getElementById('submitBtn').onclick = function(){
                        : '正確答案是 (B)。現在看文章裡這四個字分別在哪裡。';
   document.getElementById('revealCard').classList.remove('hidden');
   box.classList.remove('syn-off');
+  flash();
   document.getElementById('revealCard').scrollIntoView({behavior:'smooth', block:'start'});
 };
 
