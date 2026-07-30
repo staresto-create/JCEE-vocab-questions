@@ -256,9 +256,12 @@
   }
 
 /* 骨幹說明區改為摺疊（2026-07-31），標示與 hub 一致 */
-details.skill > summary{cursor:pointer; list-style:none;}
+details.skill > summary{cursor:pointer; list-style:none; display:flex;
+  justify-content:space-between; align-items:baseline; gap:12px;}
+details.skill > summary > *{margin-bottom:0;}
 details.skill > summary::-webkit-details-marker{display:none;}
-details.skill > summary::after{content:'＋ 展開'; float:right; color:var(--crimson,#AE3626); font-weight:700;}
+details.skill > summary::after{content:'＋ 展開'; white-space:nowrap;
+  color:var(--crimson,#AE3626); font-weight:700; font-size:13px;}
 details.skill[open] > summary::after{content:'－ 收合';}
 </style>
 </head>
@@ -321,7 +324,7 @@ details.skill[open] > summary::after{content:'－ 收合';}
     </div>
 
     <details class="skill card" style="padding:24px 26px;">
-      <summary>🔍 讀句子的第一步：先找「什麼」和「怎麼了」</summary>
+      <summary><div class="sk-title">🔍 讀句子的第一步：先找「什麼」和「怎麼了」</div></summary>
       <p class="sk-intro">主詞不一定是人，可以是一個動作、一種物質、一個現象。找到主詞和動詞就抓到<b>骨幹</b>了，其餘的介系詞片語、分詞片語、關係子句、同位語，都是掛在骨幹上的修飾。單字題的句子雖然只有一句，修飾語照樣會把主詞和動詞推開——先抓骨幹，空格該填什麼詞性就清楚了。</p>
         <div id="skelMore" style="display:none;">
         <div class="sk-ex">
