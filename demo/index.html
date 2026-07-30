@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>勾環示範頁 · 111 學測英文閱讀測驗第 39–42 題組</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#221F1A; --ink-soft:#5B5648; --paper:#F6F1E4; --paper-card:#FFFDF7;
+  --rule:#DCD3BB; --sage:#3E6E52; --crimson:#AE3626; --gold:#A9812E;
+  --hook-syn:#2F6D9E; --hook-ref:#AE3626; --hook-topic:#8A6D00; --hook-logic:#6A4B7C;
+}
+*{box-sizing:border-box;}
+body{margin:0; background:var(--paper); color:var(--ink);
+  font-family:'Noto Sans TC',system-ui,sans-serif; font-size:15px; line-height:1.8;}
+.wrap{max-width:720px; margin:0 auto; padding:28px 18px 64px;}
+.eyebrow{font-size:12px; letter-spacing:.14em; color:var(--crimson); font-weight:700; margin:0;}
+h1{font-family:'Noto Serif TC',serif; font-weight:900; font-size:23px; margin:6px 0 4px; line-height:1.5;}
+.sub{font-size:13px; color:var(--ink-soft); margin:0 0 22px;}
+.card{background:var(--paper-card); border:1px solid var(--rule); border-radius:4px;
+  padding:20px 22px; margin-bottom:18px;}
+.step{font-size:12px; letter-spacing:.1em; color:var(--sage); font-weight:700; margin-bottom:8px;}
+.talk{font-size:15px; line-height:1.95; margin:12px 0 0;}
+.talk p{margin:0 0 10px;}
+.talk p:last-child{margin-bottom:0;}
+.sites{list-style:none; margin:14px 0 0; padding:0; font-size:14px; line-height:1.8;}
+.sites li{padding:9px 0; border-top:1px solid var(--rule);}
+.sites a{color:var(--sage); font-weight:700; text-decoration:none;
+  border-bottom:1px solid var(--sage);}
+.legend-note{font-size:13px; color:var(--ink-soft); margin:8px 0 0;}
+details.zh{margin:14px 0 0; border-top:1px solid var(--rule); padding-top:12px;}
+details.zh summary{cursor:pointer; font-size:13px; font-weight:700; color:var(--crimson);
+  list-style:none;}
+details.zh summary::-webkit-details-marker{display:none;}
+details.zh summary::before{content:"＋ 展開　"; }
+details.zh[open] summary::before{content:"－ 收合　"; }
+details.zh .zh-body{font-size:14px; line-height:1.95; color:var(--ink); margin-top:10px;}
+details.zh .zh-body p{margin:0 0 10px;}
+details.zh .zh-body p:last-child{margin-bottom:0;}
+footer{font-size:12px; color:var(--ink-soft); border-top:1px solid var(--rule);
+  margin-top:22px; padding-top:14px; line-height:1.85;}
+.passage{font-family:Georgia,'Times New Roman',serif; font-size:16px; line-height:2.05;}
+.passage p{margin:0 0 14px;}
+.qstem{margin:0 0 4px;}
+.opts{margin:14px 0 0; padding:0; list-style:none;}
+.opt{display:block; width:100%; text-align:left; border:1px solid var(--rule);
+  background:var(--paper-card); border-radius:3px; padding:9px 14px; font-size:15px;
+  font-family:Georgia,serif; cursor:pointer; margin-bottom:8px;}
+.opt[aria-pressed="true"]{border-color:var(--sage); background:#EFF3ED; font-weight:700;}
+.opt:disabled{cursor:default;}
+.opt.right{border-color:var(--sage); background:#EFF3ED; font-weight:700;}
+.opt.wrong{border-color:var(--crimson); background:#FBF1EE;}
+button.act{font-family:'Noto Sans TC',sans-serif; font-size:14px; font-weight:700;
+  border:1px solid var(--sage); background:var(--sage); color:#fff;
+  border-radius:3px; padding:9px 20px; cursor:pointer;}
+button.act[disabled]{opacity:.4; cursor:default;}
+button.ghost{border-color:var(--rule); background:var(--paper-card); color:var(--ink-soft);}
+.hook{color:inherit; text-decoration-line:underline; text-decoration-thickness:2px;
+  text-underline-offset:3px;}
+.hook sup{font-size:.66em; color:var(--ink-soft); margin-left:1px;}
+.hook[data-t="同"]{text-decoration-color:var(--hook-syn);}
+.hook[data-t="上"]{text-decoration-color:var(--hook-syn); text-decoration-style:dashed;}
+.hook[data-t="標"]{text-decoration-color:var(--hook-ref);}
+.hook[data-t="邏"]{text-decoration-color:var(--hook-logic);}
+.syn-off .hook[data-t="同"],.syn-off .hook[data-t="上"]{text-decoration-line:none;}
+.syn-off .hook[data-t="同"] sup,.syn-off .hook[data-t="上"] sup{display:none;}
+.log-off .hook[data-t="邏"]{text-decoration-line:none;}
+.log-off .hook[data-t="邏"] sup{display:none;}
+.legend{display:flex; flex-wrap:wrap; gap:18px; font-size:13px; margin-top:14px;
+  padding-top:12px; border-top:1px solid var(--rule); color:var(--ink-soft);}
+.legend u{text-decoration-thickness:2px; text-underline-offset:3px; color:var(--ink);
+  font-family:Georgia,serif;}
+.official{border-left:3px solid var(--sage); background:#F2F7F1; padding:11px 14px;
+  font-size:13px; line-height:1.85; border-radius:0 3px 3px 0; margin:12px 0;}
+.official b{color:var(--sage);}
+.pd{font-family:Georgia,serif; color:var(--ink);}
+.hidden{display:none;}
+.src{font-size:12px; color:var(--ink-soft); border-top:1px dashed var(--rule);
+  padding-top:14px; margin-top:26px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <p class="eyebrow">111 學測英文 · 閱讀測驗第 39–42 題組</p>
+  <h1>同一篇文章，兩種勾環</h1>
+  <p class="sub">勾環示範頁 · 第 40 題看時間軸，第 42 題看詞彙鏈</p>
+
+  <div class="card">
+    <div class="step">第一步　先讀</div>
+    <div class="talk"><p>先整篇讀過一遍，不要停下來查生字。讀的時候只做兩件事：記住每一段在講什麼，以及留意哪些字反覆出現、換了說法卻還在講同一個東西。等一下兩題的答案都在這篇裡，也都不需要你看懂每一個字。</p></div>
+    <div id="passageBox" class="passage syn-off log-off"></div>
+    <div id="legendBox" class="hidden">
+      <div class="legend">
+        <span><u style="text-decoration-color:#2F6D9E;">helmet</u>　同義勾環</span>
+        <span><u style="text-decoration:underline dashed; text-decoration-color:#2F6D9E; text-decoration-thickness:2px;">headgear</u>　上位詞</span>
+        <span><u style="text-decoration-color:#6A4B7C;">Recently</u>　邏輯勾環</span>
+      </div>
+      <p class="legend-note">號碼相同的是同一組線索；號碼不同，指的就不是同一件事。</p>
+    </div>
+    <details class="zh">
+      <summary>中文翻譯</summary>
+      <div class="zh-body">
+        <p>工地帽是一種主要在工地使用的頭盔，用來保護頭部不受掉落物砸傷。自二十世紀初問世以來，這種頭部護具已經救了無數人的性命，也被視為營建工人的第一號安全工具。</p>
+        <p>工地帽是 1919 年由剛從第一次世界大戰返鄉的 Edward W. Bullard 發明的。戰前，工人習慣在帽子上塗抹煤焦油來保護頭部。Bullard 在戰場上親眼見識到鋼盔的救命效果，於是決定做出一種頭部防護裝置：價格每個工人都負擔得起，重量也輕到可以整天戴著。Hard Boiled Hat 就這樣誕生了：以蒸製過的帆布與皮革製成，外層塗上黑漆，並裝有可以減緩衝擊的懸吊系統。工地帽很快就普及開來。後來在一些重大工程的工地上，這種頭部護具更成為強制配戴的裝備，例如 1931 年的胡佛水壩與 1933 年的金門大橋。</p>
+        <p>過去這一百年間，工地帽有相當大的進步，材質從帆布與皮革，一路發展到鋁、玻璃纖維，最後是熱塑性塑膠。近年來則推出新款式並加上各種配件，以因應不同工地的工人需求。舉例來說，有人開發出通風式工地帽，讓配戴者比較涼爽；也有加裝透明面罩的款式，能更清楚看見上方潛藏的危險。今天可加掛的配件包括無線電、感測器、攝影機等等，種類繁多。此外還發展出一套通用的顏色代碼，用來辨識工地上的人員與職務：黃色是一般工人與承包商，白色（有時是黑色）是主管與經理，綠色則是檢查人員與新進工人。</p>
+        <p>新產品持續擴大市場規模。全球工地帽銷售額在 2016 年達 21 億美元，預計 2025 年將成長到 31.9 億美元。</p>
+      </div>
+    </details>
+
+  </div>
+
+
+  <div class="card">
+    <div class="step">第二步　先做第 40 題（篇章結構）</div>
+    <p class="qstem">40. In what order did the following protective hats appear?</p>
+    <p style="font-family:Georgia,serif; margin:2px 0 0; line-height:1.9;">
+      a. fiberglass hats<br>b. hats with see-through shields<br>
+      c. hats with canvas and leather<br>d. hats with tar over them</p>
+    <ul class="opts" id="opts40"></ul>
+    <p style="margin:14px 0 0;"><button class="act" id="submit40">送出答案</button></p>
+  </div>
+
+  <div class="card hidden" id="reveal40">
+    <div class="step">第 40 題　邏輯勾環（時間軸）</div>
+    <p id="score40" style="margin:0 0 10px; font-weight:700;"></p>
+    <div class="official"><b>官方評量目標</b>　大考中心說明本題評量考生能否掌握文章主旨與細節的關係，
+      並將不同訊息歸類、比較與排序；作答線索在第二、三段，必須瀏覽全文，<b>依時間順序</b>找出答案。<br>
+      <span class="pd">難度屬於中偏易（P=69%），高鑑別度（D=0.61）。</span></div>
+    <div class="talk">
+      <p>這一題問四種帽子出現的先後。你不需要知道帆布和玻璃纖維哪個先發明，第二、三段已經按時間排好了，靠的是四個時間說法：Before the war、in 1919、Over the past century、Recently。找到這四個位置，各往後讀一句，材質就跟著出來——塗焦油、帆布加皮革、玻璃纖維、透明面罩，順序就是 (A) dcab。</p>
+      <p>官方對這一題的評量目標寫的是掌握文章主旨與細節的關係，並把不同訊息歸類、比較與排序；線索在第二、三段，要瀏覽全文、依時間順序找答案。難度官方列為中偏易（P=69%），鑑別度高（D=0.61）。排序題是 111 年新加的題型，但新題型不等於難題。</p>
+    </div>
+    <p style="margin:12px 0 0;"><button class="act ghost" id="tog40">隱藏時間軸</button></p>
+  </div>
+
+  <div class="card">
+    <div class="step">第三步　再做第 42 題（詞彙鏈）</div>
+    <p class="qstem">42. Which of the following words are used in the passage to refer to the hard hat?</p>
+    <p style="font-family:Georgia,serif; margin:2px 0 0;">a. tool　b. code　c. device　d. helmet　e. accessory　f. headgear</p>
+    <ul class="opts" id="opts"></ul>
+    <p style="margin:14px 0 0;"><button class="act" id="submitBtn">送出答案</button></p>
+  </div>
+
+  <div class="card hidden" id="revealCard">
+    <div class="step">第 42 題　同義勾環與上位詞</div>
+    <p id="scoreLine" style="margin:0 0 10px; font-weight:700;"></p>
+    <div class="official"><b>官方評量目標</b>　大考中心說明本題評量考生能否整合篇章全文
+      <b>指稱詞（reference）</b>的連貫用法，作答線索遍及全文各段落，考生必須從上下文推敲解讀文中指稱的對象。<br>
+      <span class="pd">難度屬中偏易（P=51%），中等鑑別，但對前 20% 的高分組考生最具鑑別度（D1=0.24）。</span></div>
+    <div class="talk">
+      <p>這一題問文章用了哪些字指工地帽。全篇只有 helmet 是同義字；headgear、safety tool、head protection device 是把它歸到更大的一類，指的仍然是同一頂帽子。答案是 (B) a, c, d, f。</p>
+      <p>有兩個地方要小心。第二段的 the metal helmet in the War 指的是一戰的鋼盔，雖然是同一個字，但這裡不是工地帽。accessory 和 code 在第三段確實出現過，但一個是後來加掛的配件，一個是顏色代碼，都不是帽子本身。</p>
+      <p>官方對這一題的評量目標寫的是整合全文指代詞的連貫用法，線索遍及各段，要從上下文推敲文中指的是什麼。難度官方列為中偏易（P=51%），整體鑑別度中等，對前 20% 的高分群考生最具鑑別度（D1=0.24）。</p>
+    </div>
+    <p style="margin:12px 0 0;"><button class="act ghost" id="toggleBtn">隱藏詞彙鏈</button></p>
+  </div>
+
+  <div class="card">
+    <div class="step">整套題庫</div>
+    <div class="talk"><p>這頁只示範了一件事——線索長什麼樣子。真正能練的在下面，六個題庫全部免費、免註冊、沒有廣告。克漏字兩站的每一篇原文都標好了主題句與轉承語，點進去就看得到。</p></div>
+    <ul class="sites">
+      <li><a href="https://staresto-create.github.io/grammar-cloze-test/">學測克漏字</a>　83–115 年歷屆，565 題全部附深入解析，含官方答對率與難易度篩選。</li>
+      <li><a href="https://staresto-create.github.io/zhikao-cloze-test/">指考克漏字</a>　91–110 年文法與轉承語克漏字，含補考與參考試卷，305 題。</li>
+      <li><a href="https://staresto-create.github.io/gsat-passage-completion/">學測文意選填</a>　90–115 年歷屆，含逐段中譯、逐格解析、單題模式七大分類。</li>
+      <li><a href="https://staresto-create.github.io/JCEE-vocab-questions/gsat/">學測單字題庫</a>　83–115 年歷屆單字題，附中文詳解與單字分級。</li>
+      <li><a href="https://staresto-create.github.io/JCEE-vocab-questions/zhikao/">指考單字題庫</a>　81–110 年聯考／指考單字題，附中文詳解與單字分級。</li>
+      <li><a href="https://staresto-create.github.io/JCEE-vocab-questions/translate/">中翻英練習</a>　歷屆中翻英題目整理，逐句對照練習。</li>
+    </ul>
+  </div>
+
+  <p class="src">
+    資料來源：財團法人大學入學考試中心基金會 111 學年度學科能力測驗英文考科試題，閱讀測驗第 39–42 題組（第 40 題答案 (A)、第 42 題答案 (B)）；官方評量目標、難度與鑑別度引自《選才電子報》第 330 期〈111 年學科能力測驗試題特色－【英文】〉，111-04-15，林秀娟、林秀慧撰。著作權屬該基金會所有，載明供非營利目的使用並註明出處；本站為免費、無廣告之自學題庫。
+  </p>
+
+  <footer>
+    這幾個網站都是老師自己土法煉鋼做的，介面陽春、可能還有錯誤，請多包涵🙏<br>
+    發現問題歡迎透過各站內的 Google 表單回報，會盡量修正。<br><br>
+    © 2026 staresto-create ZZSH 版權所有。誠摯歡迎學生自由使用、分享本題庫進行練習；惟請勿用於商業用途；如需轉載，敬請註明出處，勿逕行據為己作。
+  </footer>
+
+</div>
+
+<script>
+const PARAS = [
+`A hard hat is a ⟦同1:helmet⟧ used mostly at worksites to protect the head from injuries due to falling objects. Since its introduction in the early 20th century, the ⟦上1:headgear⟧ has saved countless lives and is considered the number one ⟦上1:safety tool⟧ for construction workers.`,
+`The hard hat was invented ⟦邏2:in 1919⟧ by Edward W. Bullard, who had just returned from World War I. ⟦邏2:Before the war⟧, workers used to smear their hats with coal tar for protection of their head. Bullard, having witnessed the life-saving power of the metal helmet in the War, decided to produce a ⟦上1:head protection device⟧ that was affordable for every worker and lightweight enough to be worn all day long. The Hard Boiled Hat was thus born, using steamed canvas and leather, covered with black paint, and featuring a suspension system to reduce impact. Soon, hard hats became widely used. The ⟦上1:headgear⟧ was later made mandatory at construction sites in major construction projects, such as the Hoover Dam in 1931 and the Golden Gate Bridge in 1933.`,
+`⟦邏2:Over the past century⟧, hard hats have advanced considerably, evolving from canvas and leather to aluminum, fiberglass, and, eventually, to thermoplastic. ⟦邏2:Recently⟧, new models have been introduced and accessories added to meet the needs of laborers working on various job sites. For instance, a ventilated hard hat was developed to keep wearers cooler, and see-through face shields were attached to better see the hazards lurking above. Today, attachments include radios, sensors, cameras, and a lot more. A common color code has also been developed for recognizing people and their roles on site. Yellow is used for general laborers and contractors, white (or sometimes black) for supervisors and managers, and green for inspectors and new workers.`,
+`New products continue to expand the market. Global sales of hard hats totaled USD 2.1 billion in 2016, and are expected to reach USD 3.19 billion in 2025.`
+];
+
+const CHOICES = [
+  {k:'(A)', t:'a, b, d, e'},
+  {k:'(B)', t:'a, c, d, f'},
+  {k:'(C)', t:'c, d, e, f'},
+  {k:'(D)', t:'a, d, e, f'}
+];
+const CORRECT = 1;
+
+function render(src){
+  const frag = document.createDocumentFragment();
+  const re = /⟦([同上標題邏])(\d+):([^⟧]+)⟧/g;
+  let last = 0, m;
+  while((m = re.exec(src)) !== null){
+    if(m.index > last) frag.appendChild(document.createTextNode(src.slice(last, m.index)));
+    const s = document.createElement('span');
+    s.className = 'hook';
+    s.dataset.t = m[1];
+    s.appendChild(document.createTextNode(m[3]));
+    const sup = document.createElement('sup');
+    sup.textContent = m[2];
+    s.appendChild(sup);
+    frag.appendChild(s);
+    last = re.lastIndex;
+  }
+  if(last < src.length) frag.appendChild(document.createTextNode(src.slice(last)));
+  return frag;
+}
+
+const box = document.getElementById('passageBox');
+PARAS.forEach(function(t){
+  const p = document.createElement('p');
+  try{ p.appendChild(render(t)); }
+  catch(e){ p.textContent = t.replace(/⟦[^:]*:([^⟧]+)⟧/g, '$1'); }
+  box.appendChild(p);
+});
+
+const C40 = [{k:'(A)',t:'dcab'},{k:'(B)',t:'cdba'},{k:'(C)',t:'cbad'},{k:'(D)',t:'dcba'}];
+const RIGHT40 = 0;
+let pick40 = -1;
+const ul40 = document.getElementById('opts40');
+C40.forEach(function(c,i){
+  const li=document.createElement('li');
+  const b=document.createElement('button');
+  b.className='opt'; b.type='button'; b.textContent=c.k+'\u3000'+c.t;
+  b.setAttribute('aria-pressed','false');
+  b.onclick=function(){ pick40=i;
+    ul40.querySelectorAll('.opt').forEach(function(x){x.setAttribute('aria-pressed','false');});
+    b.setAttribute('aria-pressed','true'); };
+  li.appendChild(b); ul40.appendChild(li);
+});
+document.getElementById('submit40').onclick=function(){
+  if(pick40<0) return;
+  this.disabled=true;
+  ul40.querySelectorAll('.opt').forEach(function(b,i){
+    b.disabled=true;
+    if(i===RIGHT40) b.classList.add('right');
+    else if(i===pick40) b.classList.add('wrong');
+  });
+  document.getElementById('score40').textContent =
+    (pick40===RIGHT40) ? '答對了。四個時間標記現在亮起來了。'
+                       : '正確答案是 (A) dcab。看看四個時間標記在哪裡。';
+  document.getElementById('reveal40').classList.remove('hidden');
+  document.getElementById('legendBox').classList.remove('hidden');
+  box.classList.remove('log-off');
+  document.getElementById('reveal40').scrollIntoView({behavior:'smooth',block:'start'});
+};
+document.getElementById('tog40').onclick=function(){
+  const off=box.classList.toggle('log-off');
+  this.textContent = off ? '顯示時間軸' : '隱藏時間軸';
+};
+
+let pick = -1;
+const ul = document.getElementById('opts');
+CHOICES.forEach(function(c, i){
+  const li = document.createElement('li');
+  const b = document.createElement('button');
+  b.className = 'opt'; b.type = 'button';
+  b.textContent = c.k + '　' + c.t;
+  b.setAttribute('aria-pressed','false');
+  b.onclick = function(){
+    pick = i;
+    ul.querySelectorAll('.opt').forEach(function(x){ x.setAttribute('aria-pressed','false'); });
+    b.setAttribute('aria-pressed','true');
+  };
+  li.appendChild(b); ul.appendChild(li);
+});
+
+document.getElementById('submitBtn').onclick = function(){
+  if(pick < 0) return;
+  this.disabled = true;
+  ul.querySelectorAll('.opt').forEach(function(b, i){
+    b.disabled = true;
+    if(i === CORRECT) b.classList.add('right');
+    else if(i === pick) b.classList.add('wrong');
+  });
+  document.getElementById('scoreLine').textContent =
+    (pick === CORRECT) ? '答對了。現在看文章裡這四個字分別在哪裡。'
+                       : '正確答案是 (B)。現在看文章裡這四個字分別在哪裡。';
+  document.getElementById('revealCard').classList.remove('hidden');
+  box.classList.remove('syn-off');
+  document.getElementById('revealCard').scrollIntoView({behavior:'smooth', block:'start'});
+};
+
+document.getElementById('toggleBtn').onclick = function(){
+  const off = box.classList.toggle('syn-off');
+  this.textContent = off ? '顯示詞彙鏈' : '隱藏詞彙鏈';
+};
+</script>
+</body>
+</html>
