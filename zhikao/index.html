@@ -696,21 +696,12 @@ function selectAnswer(letter, q){
   }
 
   const spanTag = document.getElementById('qSpanTag');
-  if(q.contextSpan){
-    spanTag.textContent = '線索：'+q.contextSpan;
-    spanTag.classList.toggle('cross', q.contextSpan !== '句內');
-    spanTag.classList.add('show');
-  } else {
-    spanTag.textContent = '';
-    spanTag.classList.remove('show','cross');
-  }
+  spanTag.textContent = '';
+  spanTag.classList.remove('show','cross');
 
   const ctxBox = document.getElementById('qCtxBox');
   if(q.contextNote){
     ctxBox.textContent = q.contextNote;
-    ctxBox.classList.add('show');
-  } else if(q.contextSpan === '句內'){
-    ctxBox.textContent = '這一題屬於「句內」：只要讀懂空格所在的那一句就足以作答。答錯的話，問題多半出在字義辨析或字詞搭配。';
     ctxBox.classList.add('show');
   } else {
     ctxBox.textContent = '';
