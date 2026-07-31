@@ -157,12 +157,13 @@
   .recent .rx span{font-size:11.5px; color:var(--ink-soft);}
   .recent .rn-emoji{width:auto; height:auto; border-radius:0; background:none; font-size:16px; line-height:1.4;}
   .recent .rr.hot{background:#FFF8F6; border-radius:5px; margin:0 -8px; padding:11px 8px;}
-  .recent .newdot{display:inline-block; background:#FFE9A0; color:#9C2C1E; border:1.5px solid #AE3626;
+  /* 徽章：外觀完全一致，只有文字不同 */
+  .recent .newdot, .recent .infodot{
+    display:inline-block; box-sizing:border-box; min-width:52px; text-align:center;
     font-family:'Noto Sans TC',sans-serif; font-size:13px; font-weight:700; letter-spacing:.04em;
-    padding:1px 8px; border-radius:3px; vertical-align:middle; margin-left:6px;}
-  .recent .infodot{display:inline-block; background:#EDE6D3; color:var(--ink); border:1.5px solid var(--rule);
-    font-family:'Noto Sans TC',sans-serif; font-size:13px; font-weight:700; letter-spacing:.04em;
-    padding:1px 8px; border-radius:3px; vertical-align:middle; margin-left:6px;}
+    line-height:1.5; padding:1px 8px; border-radius:3px;
+    background:#FFE9A0; color:#9C2C1E; border:1.5px solid #AE3626;
+    vertical-align:middle; margin-left:6px;}
   .card-title .cemoji{margin-right:6px; font-size:15px;}
   .quicknav{font-family:'Noto Sans TC',sans-serif; font-size:14px; line-height:2.1; text-align:center;
     margin:0 0 18px; padding:11px 12px; background:#FFFDF7; border:1px solid var(--rule); border-radius:6px;}
