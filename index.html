@@ -387,7 +387,7 @@
 <p>下面五個詞是拼圖的規則。這幾個詞你上大學修英文寫作還會再遇到。</p>
 
 <h4 id="collocation">字詞搭配　collocation</h4>
-<p>跟中文的成語或詞語類似，字跟字的組合是固定的。</p>
+<p>跟中文的成語或詞語類似，字跟字的組合是固定的。台大寫作教學中心的教材把它列為「寫作十大重點」的單元 6，稱為<b>搭配詞</b>。<a href="https://awec.ntu.edu.tw/%e6%95%99%e5%ad%b8%e8%b3%87%e6%ba%90/%e5%af%ab%e4%bd%9c%e5%8d%81%e5%a4%a7%e9%87%8d%e9%bb%9e-2/%e5%af%ab%e4%bd%9c%e5%8d%81%e5%a4%a7%e9%87%8d%e9%bb%9e-%e5%96%ae%e5%85%836-%e6%90%ad%e9%85%8d%e8%a9%9e-collocations/" target="_blank" rel="noopener">台大寫作教學中心 · 單元6 搭配詞 ↗</a></p>
 <div class="ex zk">
 <span class="src">90年 · 指考單字</span>
 <p class="en">A person who hesitates a lot cannot make ______ even about trivial matters.</p>
@@ -438,7 +438,7 @@
 
 <h4 id="coherence">連貫　coherence</h4>
 <p>全部拼完是不是一幅看得懂的圖，前後句子文意是否連貫。</p>
-<p>台大寫作教學中心的英文寫作教材用拼圖說明這兩個詞：每個句子是一片拼圖，拼片怎麼接合是 cohesion，拼起來能不能形成一幅完整的圖是 coherence。<a href="https://awec.ntu.edu.tw/unit-5-cohesion-coherence/" target="_blank" rel="noopener">台大寫作教學中心 ↗</a></p>
+<p>台大寫作教學中心的英文寫作教材用拼圖說明這兩個詞：每個句子是一片拼圖，拼片怎麼接合是 cohesion，拼起來能不能形成一幅完整的圖是 coherence。<a href="https://awec.ntu.edu.tw/%e6%95%99%e5%ad%b8%e8%b3%87%e6%ba%90/%e5%af%ab%e4%bd%9c%e5%8d%81%e5%a4%a7%e9%87%8d%e9%bb%9e-2/%e5%af%ab%e4%bd%9c%e5%8d%81%e5%a4%a7%e9%87%8d%e9%bb%9e-%e5%96%ae%e5%85%835-%e9%8a%9c%e6%8e%a5%e9%80%a3%e8%b2%ab-cohesion-coherence/" target="_blank" rel="noopener">台大寫作教學中心 · 寫作十大重點 單元5 銜接連貫 ↗</a></p>
 <p class="caution"><b>要注意的是，拼片都接得上，不代表拼出一幅畫。</b>每句都有轉折語、代名詞接得好好的，整段還是可能不知所云。</p>
 <p class="closing">銜接的分類出自 Halliday &amp; Hasan《Cohesion in English》，1976。例句皆取自本站題庫的歷屆真題。</p>
 </div>
@@ -467,6 +467,23 @@
   } else {
     document.getElementById('countdownBox').style.display = 'none';
   }
+})();
+
+/* 從外站帶錨點進來時，自動展開對應的摺疊區並捲到定位 */
+(function(){
+  function openFromHash(){
+    var hash = location.hash;
+    if(!hash || hash.length < 2) return;
+    var el;
+    try { el = document.querySelector(hash); } catch(e){ return; }
+    if(!el) return;
+    var d = el.closest ? el.closest('details') : null;
+    if(!d && el.tagName && el.tagName.toLowerCase() === 'details') d = el;
+    if(d) d.open = true;
+    setTimeout(function(){ el.scrollIntoView({block:'start'}); }, 0);
+  }
+  openFromHash();
+  window.addEventListener('hashchange', openFromHash);
 })();
 </script>
 
