@@ -559,7 +559,7 @@ async function loadItems(){
 }
 
 function buildYearGrid(){
-  const years = [...new Set(ALL_ITEMS.map(i => i.year))].sort((a,b)=>a-b);
+  const years = [...new Set(ALL_ITEMS.map(i => i.year))].sort((a,b)=>b-a);   // 年度新→舊
   const grid = document.getElementById("yearGrid");
   grid.innerHTML = "";
   years.forEach(y => {
