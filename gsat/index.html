@@ -495,7 +495,7 @@ function shuffle(arr){ const a=[...arr]; for(let i=a.length-1;i>0;i--){const j=M
 /* ---------- Home setup ---------- */
 function initHome(){
   document.getElementById('bankCount').textContent = QUESTIONS.length + ' 題已建檔';
-  const years = [...new Set(QUESTIONS.map(q=>q.y))].sort((a,b)=>a-b);
+  const years = [...new Set(QUESTIONS.map(q=>q.y))].sort((a,b)=>b-a);   // 年度新→舊
   const yFrom = document.getElementById('yFrom'), yTo = document.getElementById('yTo'), mockYear = document.getElementById('mockYear');
   years.forEach(y=>{
     yFrom.appendChild(new Option(y+'年', y));
@@ -509,11 +509,11 @@ function initHome(){
     const key = q.y+'|'+q.t;
     if(!comboMap.has(key)) comboMap.set(key, {y:q.y, t:q.t});
   });
-  const combos = [...comboMap.values()].sort((a,b)=> a.y-b.y || a.t.localeCompare(b.t));
+  const combos = [...comboMap.values()].sort((a,b)=> b.y-a.y || a.t.localeCompare(b.t));   // 年度新→舊
   combos.forEach(c=>{
     mockYear.appendChild(new Option(c.y+'年 '+c.t, c.y+'|'+c.t));
   });
-  mockYear.value = combos[combos.length-1].y+'|'+combos[combos.length-1].t;
+  mockYear.value = combos[0].y+'|'+combos[0].t;   // 預設最新年度
   buildDiffChips();
   renderWrongBook();
   renderHistory();
@@ -577,7 +577,7 @@ function startRangePractice(){
   const diffOk = q => selectedDiffs.size===0 || selectedDiffs.has(getDiffTier(q));
   const pool = QUESTIONS.filter(q => q.y >= Math.min(yFrom,yTo) && q.y <= Math.max(yFrom,yTo) && diffOk(q));
   if(pool.length === 0){ alert('這個範圍或難易度篩選條件下沒有題目'); return; }
-  startQuiz(shuffle(pool).slice(0,n).map(q=>q.id), '範圍練習 '+yFrom+'–'+yTo);
+  startQuiz(shuffle(pool).slice(0,n).map(q=>q.id), '範圍練習 '+Math.min(yFrom,yTo)+'–'+Math.max(yFrom,yTo)+'年');
 }
 
 function startMock(){
