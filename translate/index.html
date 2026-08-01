@@ -250,6 +250,50 @@
     font-size:16px;
     line-height:1.7;
   }
+  .ctx-box{
+    display:none;
+    font-size:14px;
+    line-height:1.8;
+    background:var(--paper2, #faf7f0);
+    border:1px dashed var(--rule);
+    border-radius:6px;
+    padding:10px 12px;
+    margin-bottom:12px;
+  }
+  .ctx-box.show{display:block;}
+  .ctx-box .ctx-label{
+    font-size:12px;
+    color:var(--muted);
+    letter-spacing:1px;
+    margin-bottom:6px;
+  }
+  .ctx-box .ctx-blank{
+    font-weight:700;
+    color:var(--stamp);
+  }
+  .ans-source{
+    display:none;
+    margin-top:8px;
+    font-size:12px;
+    color:var(--muted);
+  }
+  .ans-source.show{display:block;}
+  .alt-answers{
+    display:none;
+    margin-top:12px;
+    padding-top:10px;
+    border-top:1px dashed var(--rule);
+    font-size:14px;
+    line-height:1.7;
+  }
+  .alt-answers.show{display:block;}
+  .alt-answers .alt-label{
+    font-size:12px;
+    color:var(--muted);
+    letter-spacing:1px;
+    margin-bottom:6px;
+  }
+  .alt-answers ul{margin:0;padding-left:18px;}
   .your-answer{
     margin-top:14px;
     font-size:13px;
@@ -468,6 +512,7 @@ details.skill[open] > summary::after{content:'－ 收合';}
         <div class="sk-more">本站收錄 73–115 年；73–101 年為聯考時期或無對應的公開考試說明。<br>資料來源：財團法人大學入學考試中心基金會《學科能力測驗英文考科考試說明》（113 年 7 月公告）與《指定科目考試英文考科考試說明》（105 年 9 月公告）。著作權屬該基金會所有，載明供非營利目的使用並註明出處；本站為免費、無廣告之自學題庫。</div>
       </div>
       <span class="sk-toggle" onclick="var m=document.getElementById('ceecGoalBody'); m.style.display = m.style.display==='none' ? 'block' : 'none';">📋 展開／收合：看官方測驗目標</span>
+      <div class="sk-more" style="margin-top:14px;"><b>【題目與譯文說明】</b><br>中文題目照大考中心歷屆原卷收錄。<br>英文是本站整理的參考譯法，<b>不是大考中心公布的答案</b>——早年的中譯英，官方並沒有公布參考答案。少數查得到官方版本的題目，看範文時會標示「大考中心公布之參考答案」並註明出處。<br><br>中譯英沒有標準答案。範文跟你寫的不一樣，先看句型有沒有用對、字詞搭配（collocation）有沒有配錯。<b>勿逐字翻譯。</b></div>
     </div>
   </section>
 
@@ -480,6 +525,10 @@ details.skill[open] > summary::after{content:'－ 收合';}
     <div class="progress" id="progressLabel"></div>
 
     <div class="question-card" id="questionCard" data-tag="">
+      <div class="ctx-box" id="ctxBox">
+        <div class="ctx-label">這一題是短文挖空，請依上下文作答</div>
+        <div id="ctxText"></div>
+      </div>
       <div class="zh-text" id="zhText"></div>
       <textarea id="userInput" placeholder="請輸入你的英文翻譯……"></textarea>
       <div class="btn-row">
@@ -488,8 +537,13 @@ details.skill[open] > summary::after{content:'－ 收合';}
       </div>
 
       <div class="reveal-box" id="revealBox">
-        <div class="label">官方範文</div>
+        <div class="label" id="revealLabel">參考譯法</div>
         <div class="en-model" id="enModel"></div>
+        <div class="ans-source" id="ansSource"></div>
+        <div class="alt-answers" id="altAnswers">
+          <div class="alt-label">也可以這樣寫</div>
+          <ul id="altList"></ul>
+        </div>
         <div class="your-answer" id="yourAnswerEcho"></div>
       </div>
 
@@ -636,6 +690,14 @@ function renderQuestion(){
   const item = queue[qIndex];
   document.getElementById("questionCard").dataset.tag = item.yearLabel;
   document.getElementById("zhText").textContent = item.zh;
+  const ctxBox = document.getElementById("ctxBox");
+  if(item.context){
+    document.getElementById("ctxText").innerHTML =
+      escapeHtml(item.context).replace(/＿＿＿/g, '<span class="ctx-blank">［作答處］</span>');
+    ctxBox.classList.add("show");
+  }else{
+    ctxBox.classList.remove("show");
+  }
   document.getElementById("userInput").value = "";
   document.getElementById("revealBox").classList.remove("show");
   document.getElementById("selfGrade").classList.remove("show");
@@ -648,6 +710,28 @@ function renderQuestion(){
 document.getElementById("revealBtn").addEventListener("click", ()=>{
   const item = queue[qIndex];
   document.getElementById("enModel").textContent = item.en;
+
+  const srcBox = document.getElementById("ansSource");
+  if(item.answerSource){
+    document.getElementById("revealLabel").textContent = "大考中心公布之參考答案";
+    srcBox.textContent = "出處：" + item.answerSource;
+    srcBox.classList.add("show");
+  }else{
+    document.getElementById("revealLabel").textContent = "參考譯法（本站整理）";
+    srcBox.textContent = "";
+    srcBox.classList.remove("show");
+  }
+
+  const altBox = document.getElementById("altAnswers");
+  const altList = document.getElementById("altList");
+  if(Array.isArray(item.altAnswers) && item.altAnswers.length){
+    altList.innerHTML = item.altAnswers.map(a => `<li>${escapeHtml(a)}</li>`).join("");
+    altBox.classList.add("show");
+  }else{
+    altList.innerHTML = "";
+    altBox.classList.remove("show");
+  }
+
   const yourText = document.getElementById("userInput").value.trim();
   document.getElementById("yourAnswerEcho").textContent = yourText
       ? "你的翻譯：" + yourText
@@ -729,7 +813,7 @@ function renderReview(){
       <div class="meta">${w.yearLabel} · 存入日期 ${w.date}</div>
       <div class="zh">${w.zh}</div>
       ${w.yourAnswer ? `<div class="yours">你的翻譯：${escapeHtml(w.yourAnswer)}</div>` : ""}
-      <div class="model">官方範文：${escapeHtml(w.en)}</div>
+      <div class="model">參考譯法：${escapeHtml(w.en)}</div>
     </div>
   `).join("");
 }
