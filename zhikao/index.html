@@ -278,7 +278,7 @@ details.skill[open] > summary::after{content:'－ 收合';}
   <div id="home">
     <div class="card">
       <p class="home-lead">今天，先寫十題。</p>
-      <p class="home-desc">不用設定，按下去就開始。每題附中文詳解、選項單字分級（大考中心六級），並收錄<b>大考中心公布的官方逐題答對率</b>，讓你知道哪些題目連高分群考生都容易答錯。</p>
+      <p class="home-desc">不用設定，按下去就開始。每題附句子與選項中譯、選項單字分級（大考中心六級），並收錄<b>大考中心公布的官方逐題答對率</b>，讓你看到當年全體考生答對的比例。部分題目另有深入解析。</p>
       <button class="big-btn" onclick="startQuiz(randomTen())">立即開始 · 隨機 10 題</button>
     </div>
 
@@ -463,7 +463,7 @@ details.skill[open] > summary::after{content:'－ 收合';}
   
   <div style="background:#FFFDF7; border:1px solid #DCD3BB; border-radius:4px; padding:13px 15px; margin:22px 0 6px; font-size:12.5px; line-height:1.8; color:#5B5648;">
     <b style="font-family:'Noto Serif TC',serif; font-size:13.5px; color:#221F1A;">關於本站的資料</b><br>
-    答對率（P 值）與鑑別度（D 值）取自大考中心公布的官方統計（81–90 年聯考與非正式施測的試卷，大考中心未公布逐題統計，這些題目不會顯示數據）；選項的單字分級依大考中心六級詞彙表。轉錄與逐題比對由老師使用 AI 協作完成，可能有疏漏。中文詳解目前只有部分題目有，會陸續補上。<br>
+    答對率（P 值）與鑑別度（D 值）取自大考中心公布的官方統計，選項的單字分級依大考中心六級詞彙表；轉錄與逐題比對由老師使用 AI 協作完成，可能有疏漏。深入解析目前只有部分題目有，會陸續補上。<br>
     <b>錯誤仍然可能存在</b>，發現任何問題歡迎回報，我會逐筆核對更正。本站完全免費、不用註冊、沒有廣告，歡迎自由分享。
   </div>
 
@@ -685,7 +685,8 @@ function selectAnswer(letter, q){
   const accTag = document.getElementById('qAccTag');
   if(typeof q.accuracyRate === 'number'){
     const isLow = q.accuracyRate < 35;
-    accTag.innerHTML = '本題全體考生答對率：<span class="acc-num">'+q.accuracyRate+'%</span>';
+    accTag.innerHTML = '本題全體考生答對率：<span class="acc-num">'+q.accuracyRate+'%</span>'
+      + '　鑑別度：'+q.discrimination;
     accTag.classList.toggle('low', isLow);
     accTag.classList.add('show');
   } else {
