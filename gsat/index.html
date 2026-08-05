@@ -189,7 +189,6 @@
   .acc-tag.show{display:block;}
   .acc-tag .acc-num{color:var(--sage); font-weight:600;}
   .acc-tag.low .acc-num{color:var(--crimson); font-weight:700;}
-  .acc-tag .acc-warn{color:var(--crimson);}
   .span-tag{
     display:none; margin-top:8px; font-family:'IBM Plex Mono',monospace; font-size:11px;
     color:var(--ink-soft); border:1px solid var(--rule); border-radius:10px;
@@ -220,7 +219,7 @@
     font-size:13px; line-height:1.8; color:var(--ink-soft); display:none; white-space:pre-line;
   }
   .note-box.show{display:block;}
-  .note-box::before{content:"答題陷阱　"; color:var(--sage); font-family:'Noto Serif TC',serif; font-weight:700;}
+  .note-box::before{content:"深入解析　"; color:var(--sage); font-family:'Noto Serif TC',serif; font-weight:700;}
   .disc-box{
     margin-top:10px; padding:12px 14px; background:#FBF6E9; border-radius:3px; border:1px solid #E8DCA8;
     font-size:13px; line-height:1.8; color:var(--ink-soft); display:none; white-space:pre-line;
@@ -431,7 +430,7 @@ details.skill[open] > summary::after{content:'－ 收合';}
       <div class="explain" id="qExplain">
         <div class="zh" id="explainZh"></div>
         <div id="explainGloss"></div>
-        <div class="level-note">＊部分單字/片語未標示難度級別 [ ]，代表該字超出大考中心《高中英文參考詞彙表》6 級範圍（屬於進階或罕用字），非資料缺漏。<br>＊部分題目未顯示答對率，是因為該年度（83–90 年）大考中心未公布逐題答對率統計，並非資料缺漏。</div>
+        <div class="level-note">＊部分單字／片語未標示難度級別 [ ]，代表該字超出大考中心《高中英文參考詞彙表》6 級範圍（屬於進階或罕用字），非資料缺漏。<br>＊83–90 年與 91、92 學年度學測補考未顯示答對率，是因為大考中心未公布這些場次的逐題答對率統計，並非資料缺漏。</div>
         <div class="acc-tag" id="qAccTag"></div>
         <div class="span-tag" id="qSpanTag"></div>
         <div class="note-box" id="qNoteBox"></div>
@@ -468,7 +467,7 @@ details.skill[open] > summary::after{content:'－ 收合';}
     <b>錯誤仍然可能存在</b>，發現任何問題歡迎回報，我會逐筆核對更正。本站完全免費、不用註冊、沒有廣告，歡迎自由分享。
   </div>
 
-  <footer><div style="font-family:'Noto Sans TC',sans-serif; font-size:13px; line-height:2; margin-bottom:12px;"><a href="https://staresto-create.github.io/JCEE-vocab-questions/" style="color:#9C2C1E; font-weight:700; text-decoration:none; white-space:nowrap;">← 回總站</a><span style="padding:0 8px; opacity:.5;">·</span><a href="https://staresto-create.github.io/JCEE-vocab-questions/#rules" style="color:#9C2C1E; font-weight:700; text-decoration:none; white-space:nowrap;">🧩 五個詞：拼圖的規則</a></div>資料來源：83–115 年學測 / 推薦甄選 詞彙題 · 分級依大考中心「高中英文參考詞彙表」<br>© 2026 staresto-create ZZSH 版權所有。誠摯歡迎學生自由使用、分享本題庫進行練習；惟請勿用於商業用途；如需轉載，敬請註明出處，勿逕行據為己作。</footer>
+  <footer><div style="font-family:'Noto Sans TC',sans-serif; font-size:13px; line-height:2; margin-bottom:12px;"><a href="https://staresto-create.github.io/JCEE-vocab-questions/" style="color:#9C2C1E; font-weight:700; text-decoration:none; white-space:nowrap;">← 回總站</a><span style="padding:0 8px; opacity:.5;">·</span><a href="https://staresto-create.github.io/JCEE-vocab-questions/#rules" style="color:#9C2C1E; font-weight:700; text-decoration:none; white-space:nowrap;">🧩 五個詞：拼圖的規則</a></div>資料來源：83–115 年學測、推薦甄選、學測補考 詞彙題 · 分級依大考中心《高中英文參考詞彙表》<br>© 2026 staresto-create ZZSH 版權所有。誠摯歡迎學生自由使用、分享本題庫進行練習；惟請勿用於商業用途；如需轉載，敬請註明出處，勿逕行據為己作。</footer>
 </div>
 
 <script src="data.js"></script>
@@ -620,7 +619,7 @@ function renderQuestion(){
   if(!q){ alert('這回合的題目已不存在，回到首頁'); goHome(); return; }
   document.getElementById('quizProgress').textContent = (session.idx+1)+' / '+session.list.length;
   document.getElementById('progressFill').style.width = ((session.idx)/session.list.length*100)+'%';
-  document.getElementById('qTag').textContent = q.y+'年 '+q.t+' · 第'+q.q+'題' + (q.hf ? '  ★高頻重複字' : '');
+  document.getElementById('qTag').textContent = q.y+'年 '+q.t+' · 第'+q.q+'題';
   document.getElementById('qSentence').innerHTML = q.s
     .replace(/_{3,}/g, '<span class="blank">______</span>')
     .replace(/@@(.+?)@@/g, '<span class="underline-target">$1</span>');
@@ -688,8 +687,7 @@ function selectAnswer(letter, q){
   const accTag = document.getElementById('qAccTag');
   if(typeof q.accuracyRate === 'number'){
     const isLow = q.accuracyRate < 35;
-    accTag.innerHTML = '本題全體考生答對率：<span class="acc-num">'+q.accuracyRate+'%</span>'
-      + (isLow ? '　<span class="acc-warn">⚠ 陷阱題，連高分群考生也常答錯</span>' : '');
+    accTag.innerHTML = '本題全體考生答對率：<span class="acc-num">'+q.accuracyRate+'%</span>';
     accTag.classList.toggle('low', isLow);
     accTag.classList.add('show');
   } else {
