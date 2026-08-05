@@ -302,8 +302,10 @@ details.skill[open] > summary::after{content:'－ 收合';}
       <div class="sec-title">依難易度篩選<span class="diff-hint">（選填，可複選，跟上方範圍條件一起套用；不選則不限難易度）</span></div>
       <div class="cat-grid" id="diffGrid"></div>
       <div class="diff-note">
-        難易度依大考中心公布的「全體考生答對率」（P 值）分成三級：<b>難</b>（答對率≤25%）／<b>中</b>（25~75%，難易適中，此區間刻意設得較寬，因為難易適中的題目最能區分學生程度）／<b>易</b>（＞75%），為教育測驗學界通用切法，大考中心本身未明訂切點百分比。<b>特殊</b>指鑑別度（D 值＝高分群答對率－低分群答對率）為負值的題目——大考中心官方說明指出「良好試題的鑑別度應大於 0」，若為負值，代表低分群考生答對率反而高於高分群，是官方標準認定設計有瑕疵的題目，特別適合拿來討論、練習。<br>
-        資料來源：大考中心<a href="https://www.ceec.edu.tw/xcepaper/cont?xsmsid=0J066588036013658199&amp;qunit=0J066614378153514816&amp;sid=0K042343829406896328" target="_blank" rel="noopener">《一起來認識學測與指考的試題答對率》↗</a>、<a href="https://www.ceec.edu.tw/xcepaper/cont?xsmsid=0J066588036013658199&amp;qunit=0J066614378153514816&amp;sid=0K073687789378174143" target="_blank" rel="noopener">《一起來認識學測與指考的試題鑑別度》↗</a>，皆收錄於「選才電子報 → 數字真相」專欄。
+        <b>難易度</b>依大考中心公布的「全體考生答對率」（P 值）分成三級：<b>難</b>（≤25%）／<b>中</b>（25~75%）／<b>易</b>（＞75%）。切點取 25% 與 75%，是因為四選一的題目就算完全用猜的，期望答對率也有 25%；低於這條線，代表全體考生的表現並不比亂猜好，75% 則取對稱的另一端。大考中心未公布分級的切點百分比，官方評述各年試題時用的是「難、中偏難、中偏易、易」四級用語，與本站的三級不是同一套，不宜互相對照。<br>
+        <b>特殊</b>量的不是難易度，而是<b>鑑別度</b>（D 值）。大考中心把原始得分前三分之一的考生定為高分組、後三分之一定為低分組，D 值就是兩組答對率的差；官方說明指出「良好試題的鑑別度應大於 0」，若為負值，代表低分群考生答對率反而高於高分群。這類題目特別適合拿來討論、練習。<b>「特殊」與「難」互斥</b>：D 為負的題目一律歸入「特殊」，即使答對率也在 25% 以下，也不會出現在「難」裡面。<br>
+        兩點提醒：本站 497 題中有 150 題沒有官方答對率（原因見作答頁說明），<b>只要勾選任何一個難易度，這 150 題就會被排除</b>；另外，作答頁把答對率低於 35% 的數字標成紅色，那是提醒「這題偏難」的另一條線，與上面的 25／75 分級是兩回事。<br>
+        資料來源：逐題答對率與鑑別度取自大考中心<a href="https://www.ceec.edu.tw/xmdoc?xsmsid=0J018604485538810196" target="_blank" rel="noopener">學科能力測驗統計資料↗</a>各年度統計圖表；名詞說明見<a href="https://www.ceec.edu.tw/xcepaper/cont?xsmsid=0J066588036013658199&amp;qunit=0J066614378153514816&amp;sid=0K073687789378174143" target="_blank" rel="noopener">《一起來認識學測與指考的試題鑑別度》↗</a>（選才電子報「數字真相」專欄）。
       </div>
 
       <div class="row" style="margin-top:12px;">
@@ -329,7 +331,7 @@ details.skill[open] > summary::after{content:'－ 收合';}
         <div class="sk-ex">
           <span class="sk-src">106 年 · 學測單字</span>
           <p class="sk-en">Sherlock Holmes, a detective in a popular fiction series, has impressed readers with his amazing powers of observation and his knowledge of trivial facts.</p>
-          <p class="sk-zh">（福爾摩斯──知名小說系列中的偵探──以其驚人的觀察力和對瑣碎細節的博學，讓讀者印象深刻。）</p>
+          <p class="sk-zh">（福爾摩斯——知名小說系列中的偵探——以其驚人的觀察力和對瑣碎細節的博學，讓讀者印象深刻。）</p>
           <p class="sk-core">➜ Sherlock Holmes has impressed readers. <em>（福爾摩斯讓讀者印象深刻。）</em></p>
         </div>
         <div class="sk-ex">
@@ -376,7 +378,7 @@ details.skill[open] > summary::after{content:'－ 收合';}
           <p class="sk-core">➜ I look at the table of contents. <em>（我看目錄。）</em></p>
           <p class="sk-tip">💡 動詞後面兩個 to 不定詞都是在講「為了什麼」，拿掉不影響「誰做了什麼」。</p>
         </div>
-        <div class="sk-more">這種長句在每一種題型裡都會遇到——克漏字、文意選填、中翻英，一個也躲不掉。完整說明和其他題庫的例句在<a href="https://staresto-create.github.io/JCEE-vocab-questions/" target="_blank" rel="noopener">題庫入口頁</a>。</div>
+        <div class="sk-more">碰到長句時可以照三步走：先用手遮住逗號之間的插入語，把剩下的部分念成一句「誰＋怎麼了」，確認主詞和動詞真的接得起來，最後把空格放回原句，看它掛在骨幹上還是掛在修飾語裡，該填什麼詞性就清楚了。這種長句在克漏字、文意選填、中翻英都會遇到。完整說明和其他題庫的例句在<a href="https://staresto-create.github.io/JCEE-vocab-questions/" target="_blank" rel="noopener">題庫入口頁</a>。</div>
       </div>
       <span class="sk-toggle" onclick="var m=document.getElementById('skelMore'); m.style.display = m.style.display==='none' ? 'block' : 'none';">🔍 展開／收合：看七個例句</span>
     </details>
@@ -390,11 +392,11 @@ details.skill[open] > summary::after{content:'－ 收合';}
           <p class="sk-en">對高中常用實詞詞彙（content words）的構詞、語意、搭配詞（collocation）的了解與運用能力。</p>
         </div>
         <div class="sk-ex">
-          <span class="sk-src">111 學年度起適用 · 115 學年度起適用</span>
+          <span class="sk-src">111 學年度起適用 · 115 學年度起適用 · 兩份文件文字相同</span>
           <p class="sk-en">對高中常用實詞詞彙（content words）的構詞、語意、字詞搭配（collocation）的理解與運用能力。</p>
         </div>
-        <p class="sk-core" style="margin-top:14px;">➜ 同一個 collocation，早期官方譯為「搭配詞」，111 學年度起改譯為「字詞搭配」。本站統一稱「字詞搭配」。</p>
-        <div class="home-desc" style="margin-top:14px;">詞彙題考的從來不只是「這個字什麼意思」。官方把構詞與字詞搭配並列寫進測驗目標，本站每題解析裡的字詞搭配說明，對應的就是這一項。</div>
+        <p class="sk-core" style="margin-top:14px;">➜ collocation 的中文，官方兩個詞都在用，各有各的位置：講這個現象、這個題型時寫「字詞搭配」，講與某個字搭在一起的那一個字時寫「搭配詞」——115 學年度參考試卷的官方解析裡，同一份文件兩者並用。本站解析中的「常考搭配」欄位，收的就是這一類資訊。</p>
+        <div class="home-desc" style="margin-top:14px;">詞彙題考的從來不只是「這個字什麼意思」。四個選項都認得的時候，不要急著比字義：先看空格前後那一個字，問自己「哪一個選項是它的老搭檔」，再回頭確認整句語意通不通。解析下方的「常考搭配」欄位就是為了這一步而寫的，答完題順手看一遍。</div>
         <div class="diff-note">本站收錄 83–115 年；83–101 年沒有對應的公開考試說明。<br>資料來源：財團法人大學入學考試中心基金會《學科能力測驗英文考科考試說明》三種版本（100 年 9 月、108 年 9 月、113 年 7 月公告）。著作權屬該基金會所有，載明供非營利目的使用並註明出處；本站為免費、無廣告之自學題庫。</div>
       </div>
       <span class="sk-toggle" onclick="var m=document.getElementById('ceecGoalBody'); m.style.display = m.style.display==='none' ? 'block' : 'none';">📋 展開／收合：看官方測驗目標</span>
@@ -467,7 +469,7 @@ details.skill[open] > summary::after{content:'－ 收合';}
     <b>錯誤仍然可能存在</b>，發現任何問題歡迎回報，我會逐筆核對更正。本站完全免費、不用註冊、沒有廣告，歡迎自由分享。
   </div>
 
-  <footer><div style="font-family:'Noto Sans TC',sans-serif; font-size:13px; line-height:2; margin-bottom:12px;"><a href="https://staresto-create.github.io/JCEE-vocab-questions/" style="color:#9C2C1E; font-weight:700; text-decoration:none; white-space:nowrap;">← 回總站</a><span style="padding:0 8px; opacity:.5;">·</span><a href="https://staresto-create.github.io/JCEE-vocab-questions/#rules" style="color:#9C2C1E; font-weight:700; text-decoration:none; white-space:nowrap;">🧩 五個詞：拼圖的規則</a></div>資料來源：83–115 年學測、推薦甄選、學測補考 詞彙題 · 分級依大考中心《高中英文參考詞彙表》<br>© 2026 staresto-create ZZSH 版權所有。誠摯歡迎學生自由使用、分享本題庫進行練習；惟請勿用於商業用途；如需轉載，敬請註明出處，勿逕行據為己作。</footer>
+  <footer><div style="font-family:'Noto Sans TC',sans-serif; font-size:13px; line-height:2; margin-bottom:12px;"><a href="https://staresto-create.github.io/JCEE-vocab-questions/" style="color:#9C2C1E; font-weight:700; text-decoration:none; white-space:nowrap;">← 回總站</a><span style="padding:0 8px; opacity:.5;">·</span><a href="https://staresto-create.github.io/JCEE-vocab-questions/#rules" style="color:#9C2C1E; font-weight:700; text-decoration:none; white-space:nowrap;">🧩 五個詞：拼圖的規則</a></div>資料來源：83–115 年學測、推薦甄選、學測補考 詞彙題 · 分級依大考中心《高中英文參考詞彙表》<br>© 2026 staresto-create ZZSH 版權所有。誠摯歡迎學子自由使用、分享本題庫進行練習；惟請勿用於商業用途；如需轉載，敬請註明出處，勿逕行據為己作。</footer>
 </div>
 
 <script src="data.js"></script>
