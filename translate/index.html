@@ -622,6 +622,8 @@ let currentRangeLabel = "";
 const LS_WRONG = "translate_wrongbook_v1";
 const LS_HISTORY = "translate_history_v1";
 
+function shuffle(arr){ const a=[...arr]; for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]];} return a; }
+
 async function loadItems(){
   const res = await fetch("quiz_items.json");
   ALL_ITEMS = await res.json();
@@ -675,7 +677,7 @@ document.getElementById("startBtn").addEventListener("click", ()=>{
   if(selectedYears.length === 0){ alert("請至少選擇一個年度"); return; }
   queue = ALL_ITEMS.filter(i => selectedYears.includes(i.year));
   if(getMode() === "shuffle"){
-    queue = queue.slice().sort(()=>Math.random()-0.5);
+    queue = shuffle(queue);
   }
   currentRangeLabel = selectedYears.length === [...new Set(ALL_ITEMS.map(i=>i.year))].length
       ? "全部年度" : (selectedYears[0] + "–" + selectedYears[selectedYears.length-1] + " 等 " + selectedYears.length + " 個年度");
