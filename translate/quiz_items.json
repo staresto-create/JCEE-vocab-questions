@@ -445,7 +445,10 @@
     "label": "大學聯考",
     "yearLabel": "83 (大學聯考)",
     "zh": "是他的高中老師發現了他的潛力，並且不斷地鼓勵他。",
-    "en": "It was his high school teacher that/who discovered his potential and kept encouraging him."
+    "en": "It was his high school teacher that discovered his potential and kept encouraging him.",
+    "altAnswers": [
+      "that / who"
+    ]
   },
   {
     "id": 57,
@@ -877,7 +880,13 @@
     "label": "指考",
     "yearLabel": "102 (指考)",
     "zh": "對現今的許多學生而言，在課業與課外活動間取得平衡是一大挑戰。",
-    "en": "For many students today, balancing academics and extracurricular activities/striking a balance between academic and extracurricular activities is a major challenge."
+    "en": "For many students today, striking a balance between schoolwork and extracurricular activities is a great challenge.",
+    "altAnswers": [
+      "today, / nowadays,",
+      "schoolwork / academic work",
+      "great / big"
+    ],
+    "answerSource": "大考中心 102 學年度指定科目考試英文考科非選擇題評分標準說明"
   },
   {
     "id": 111,
@@ -885,7 +894,8 @@
     "label": "指考",
     "yearLabel": "102 (指考)",
     "zh": "有效的時間管理是每位有責任感的學生必須學習的首要課題。",
-    "en": "Effective time management is the primary skill that every responsible student must learn."
+    "en": "Effective time management is the primary concern for every responsible student.",
+    "answerSource": "大考中心 102 學年度指定科目考試英文考科非選擇題評分標準說明"
   },
   {
     "id": 112,
@@ -941,7 +951,12 @@
     "label": "指考",
     "yearLabel": "107 (指考)",
     "zh": "快速時尚以速度與低價為特色，讓人們可以用負擔得起的價格買到流行的服飾。",
-    "en": "Fast fashion is characterized by speed and low prices, allowing people to buy trendy clothes at affordable prices."
+    "en": "Fast fashion is characterized by speed and low prices, allowing people to buy trendy clothes at affordable prices.",
+    "officialWords": [
+      "「流行的」trendy / fashionable",
+      "「用負擔得起的價格買到流行的服飾」buy trendy clothing at affordable prices"
+    ],
+    "officialWordsSource": "大考中心 107 學年度指定科目考試英文考科非選擇題閱卷評分原則說明"
   },
   {
     "id": 119,
@@ -949,7 +964,11 @@
     "label": "指考",
     "yearLabel": "107 (指考)",
     "zh": "然而，它所鼓勵的「快速消費」卻製造了大量的廢棄物，造成巨大的污染問題。",
-    "en": "However, the \"rapid consumption\" it encourages creates a large amount of waste, causing significant pollution problems."
+    "en": "However, the \"rapid consumption\" it encourages creates a large amount of waste, causing significant pollution problems.",
+    "officialWords": [
+      "「快速消費」fast consumption"
+    ],
+    "officialWordsSource": "大考中心 107 學年度指定科目考試英文考科非選擇題閱卷評分原則說明"
   },
   {
     "id": 120,
@@ -973,7 +992,12 @@
     "label": "指考",
     "yearLabel": "108 (指考)",
     "zh": "創意布條最近在夜市成了有效的廣告工具，也刺激了買氣的成長。",
-    "en": "Creative banners have recently become effective advertising tools in night markets, stimulating growth in sales."
+    "en": "Creative banners have recently become effective advertising tools in night markets, stimulating growth in sales.",
+    "officialWords": [
+      "「布條」banners",
+      "「買氣」sales"
+    ],
+    "officialWordsSource": "大考中心 108 學年度指定科目考試英文考科非選擇題閱卷評分原則說明"
   },
   {
     "id": 123,
@@ -981,7 +1005,12 @@
     "label": "指考",
     "yearLabel": "108 (指考)",
     "zh": "其中有些看似無意義，但卻相當引人注目，且常能帶給人們會心的一笑。",
-    "en": "Some of these seem meaningless, but they are quite eye-catching and often bring a knowing smile to people's faces."
+    "en": "Some of these seem meaningless, but they are quite eye-catching and often bring a knowing smile to people's faces.",
+    "officialWords": [
+      "「引人注目」eye-catching",
+      "「會心的一笑」a knowing smile / an understanding smile"
+    ],
+    "officialWordsSource": "大考中心 108 學年度指定科目考試英文考科非選擇題閱卷評分原則說明"
   },
   {
     "id": 124,
@@ -1021,7 +1050,14 @@
     "label": "指考補考",
     "yearLabel": "109 (指考補考)",
     "zh": "學習不再侷限於學校內的正規教育，非正式學習已開始扮演重要的角色。",
-    "en": "Learning is no longer confined to formal education in schools; informal learning has begun to play an important role."
+    "en": "Learning is no longer confined to formal education in schools; informal learning has begun to play an important role.",
+    "officialWords": [
+      "「不再」no longer",
+      "「侷限於」limited to",
+      "「正規教育」formal education / regular education",
+      "「非正式學習」non-formal learning / informal learning"
+    ],
+    "officialWordsSource": "大考中心 109 學年度指定科目考試（補考）英文考科非選擇題評分原則"
   },
   {
     "id": 129,
@@ -1029,7 +1065,13 @@
     "label": "指考補考",
     "yearLabel": "109 (指考補考)",
     "zh": "例如，志工服務讓學生學到如何與不同背景及不同年齡層的人互動。",
-    "en": "For example, volunteer service allows students to learn how to interact with people from different backgrounds and age groups."
+    "en": "For example, volunteer service allows students to learn how to interact with people from different backgrounds and age groups.",
+    "officialWords": [
+      "「志工服務」volunteer services / voluntary services / voluntary work",
+      "「不同背景及不同年齡層」different backgrounds and ages",
+      "「互動」interact with"
+    ],
+    "officialWordsSource": "大考中心 109 學年度指定科目考試（補考）英文考科非選擇題評分原則"
   },
   {
     "id": 130,
@@ -1053,7 +1095,15 @@
     "label": "指考",
     "yearLabel": "110 (指考)",
     "zh": "很多人好奇今年年初在美國破紀錄的低溫是否與全球暖化有關。",
-    "en": "Many people are curious about whether the record-breaking low temperatures in the United States at the beginning of this year are related to global warming."
+    "en": "Many people are curious about whether the record-breaking low temperatures in the United States at the beginning of this year are related to global warming.",
+    "officialWords": [
+      "「好奇」wonder",
+      "「是否」whether",
+      "「破紀錄的」record-breaking",
+      "「全球暖化」global warming",
+      "「有關」(be) related to"
+    ],
+    "officialWordsSource": "大考中心 110 學年度指定科目考試英文考科非選擇題閱卷評分原則說明"
   },
   {
     "id": 133,
@@ -1061,7 +1111,14 @@
     "label": "指考",
     "yearLabel": "110 (指考)",
     "zh": "不論答案為何，氣候專家預告這種不正常的天氣將會變成新的常態。",
-    "en": "Regardless of the answer, climate experts predict that this kind of abnormal weather will become the new normal."
+    "en": "Regardless of the answer, climate experts predict that this kind of abnormal weather will become the new normal.",
+    "officialWords": [
+      "「不論」no matter what / whatever",
+      "「氣候專家」climate experts",
+      "「預告」predict / forecast",
+      "「新的常態」the new normal"
+    ],
+    "officialWordsSource": "大考中心 110 學年度指定科目考試英文考科非選擇題閱卷評分原則說明"
   },
   {
     "id": 134,
@@ -1069,7 +1126,12 @@
     "label": "試辦考試",
     "yearLabel": "110 (試辦考試)",
     "zh": "很多人害怕公開演講，常在上台之前發抖、覺得頭昏。",
-    "en": "Many people are afraid of/are scared of/are fearful of public speaking, often trembling/shivering and feeling dizzy before going/getting on stage."
+    "en": "Many people are afraid of public speaking, often trembling and feeling dizzy before going on stage.",
+    "altAnswers": [
+      "are afraid of / are scared of / are fearful of",
+      "trembling / shivering",
+      "going on stage / getting on stage"
+    ]
   },
   {
     "id": 135,
@@ -1077,7 +1139,12 @@
     "label": "試辦考試",
     "yearLabel": "110 (試辦考試)",
     "zh": "只要我們對自己有信心，並持續練習，就可以克服怯場的問題。",
-    "en": "As long as we have confidence/faith/we are confident in ourselves and keep (on)/continue practicing, we can overcome/conquer/beat the problem of stage fright."
+    "en": "As long as we have confidence in ourselves and keep practicing, we can overcome the problem of stage fright.",
+    "altAnswers": [
+      "have confidence / have faith / are confident",
+      "keep practicing / keep on practicing / continue practicing",
+      "overcome / conquer / beat"
+    ]
   },
   {
     "id": 136,
@@ -1085,7 +1152,14 @@
     "label": "學測",
     "yearLabel": "111 (學測)",
     "zh": "飼養寵物並非一項短暫的人生體驗，而是一個對動物的終生承諾。",
-    "en": "Keeping/Raising a pet/pets is not a short-term/temporary life experience, but a lifelong commitment/promise to an animal/animals."
+    "en": "Keeping a pet is not a short-term life experience, but a lifelong commitment to an animal.",
+    "altAnswers": [
+      "Keeping / Raising",
+      "a pet / pets",
+      "short-term / temporary",
+      "commitment / promise",
+      "an animal / animals"
+    ]
   },
   {
     "id": 137,
@@ -1093,7 +1167,14 @@
     "label": "學測",
     "yearLabel": "111 (學測)",
     "zh": "在享受寵物所帶來的歡樂時，我們不該忽略要善盡照顧他們的責任。",
-    "en": "When we enjoy/When enjoying/While enjoying the joy/fun/pleasure they/pets bring (to) us, we should not ignore/neglect/overlook the responsibility of/to taking/take good care of them."
+    "en": "When we enjoy the joy pets bring us, we should not ignore the responsibility of taking good care of them.",
+    "altAnswers": [
+      "When we enjoy / When enjoying / While enjoying",
+      "the joy / the fun / the pleasure",
+      "pets bring us / they bring us / bring to us",
+      "ignore / neglect / overlook",
+      "the responsibility of taking / the responsibility to take"
+    ]
   },
   {
     "id": 138,
@@ -1101,7 +1182,12 @@
     "label": "學測",
     "yearLabel": "112 (學測)",
     "zh": "歷史一再證明，戰爭會造成極為可怕的災難。",
-    "en": "History proves/has proven/proved time and again that wars will/would cause extremely terrible/horrible disasters."
+    "en": "History proves time and again that wars will cause extremely terrible disasters.",
+    "altAnswers": [
+      "proves / has proven / proved",
+      "will / would",
+      "terrible / horrible"
+    ]
   },
   {
     "id": 139,
@@ -1109,7 +1195,10 @@
     "label": "學測",
     "yearLabel": "112 (學測)",
     "zh": "避免衝突、確保世界和平應該是所有人類追求的目標。",
-    "en": "To avoid/Avoiding conflicts and ensure/ensuring world peace should be the goal pursued by all human beings."
+    "en": "To avoid conflicts and ensure world peace should be the goal pursued by all human beings.",
+    "altAnswers": [
+      "To avoid conflicts and ensure / Avoiding conflicts and ensuring"
+    ]
   },
   {
     "id": 140,
@@ -1117,7 +1206,12 @@
     "label": "學測",
     "yearLabel": "113 (學測)",
     "zh": "每逢選舉季節，總會看到政治人物造訪各地著名廟宇。",
-    "en": "Every/During election season, politicians can/will be seen visiting famous temples in different places/areas."
+    "en": "Every election season, politicians can be seen visiting famous temples in different places.",
+    "altAnswers": [
+      "Every election season / During election season",
+      "can / will",
+      "places / areas"
+    ]
   },
   {
     "id": 141,
@@ -1125,7 +1219,11 @@
     "label": "學測",
     "yearLabel": "113 (學測)",
     "zh": "除了祈求好的選舉結果，他們也希望展現對在地文化與習俗的尊重。",
-    "en": "Besides/Aside from/Apart from praying for good luck/election results, they also hope to show respect to local culture and customs."
+    "en": "Besides praying for good luck, they also hope to show respect to local culture and customs.",
+    "altAnswers": [
+      "Besides / Aside from / Apart from",
+      "good luck / election results"
+    ]
   },
   {
     "id": 142,
@@ -1133,7 +1231,14 @@
     "label": "學測",
     "yearLabel": "114 (學測)",
     "zh": "人類的想像和創意是科技進步最大的驅動力。",
-    "en": "Human's/Human/Mankind's imagination and creativity is the biggest/strongest driving force/power for technological advancement/advances/advance."
+    "en": "Human's imagination and creativity is the biggest driving force for technological advancement.",
+    "altAnswers": [
+      "Human's / Human / Mankind's",
+      "biggest / strongest",
+      "force / power",
+      "advancement / advances / advance"
+    ],
+    "answerSource": "大考中心 114 學年度學科能力測驗英文考科非選擇題評分原則"
   },
   {
     "id": 143,
@@ -1141,7 +1246,15 @@
     "label": "學測",
     "yearLabel": "114 (學測)",
     "zh": "過去在科幻電影中出現的神奇物件，現在正逐一成真。",
-    "en": "Amazing/Fantastic things/objects that appeared in science-fiction/sci-fi movies in the past are now becoming reality/real one by one."
+    "en": "Amazing things that appeared in science-fiction movies in the past are now becoming reality one by one.",
+    "altAnswers": [
+      "Amazing / Fantastic",
+      "things / objects",
+      "science-fiction / sci-fi",
+      "movies / films",
+      "reality / real"
+    ],
+    "answerSource": "大考中心 114 學年度學科能力測驗英文考科非選擇題評分原則"
   },
   {
     "id": 144,
@@ -1149,7 +1262,12 @@
     "label": "學測",
     "yearLabel": "115 (學測)",
     "zh": "現在越來越多高中英文老師已經增加在課堂上使用英文的百分比。",
-    "en": "{Now/Nowadays,} more and more senior high school English teachers have increased the percentage of {English use/using English} in class."
+    "en": "Now, more and more senior high school English teachers have increased the percentage of English use in class.",
+    "altAnswers": [
+      "Now, / Nowadays,",
+      "English use / using English"
+    ],
+    "answerSource": "大考中心 115 學年度學科能力測驗英文考科非選擇題滿分參考答案與評分原則"
   },
   {
     "id": 145,
@@ -1157,7 +1275,12 @@
     "label": "學測",
     "yearLabel": "115 (學測)",
     "zh": "他們將學生依英語能力分成不同組別，進行多樣的聽、說活動。",
-    "en": "They divide students into different groups based on their English {ability/proficiency} and conduct {various/diverse/a variety of} listening and speaking activities."
+    "en": "They divide students into different groups based on their English ability and conduct various listening and speaking activities.",
+    "altAnswers": [
+      "ability / proficiency",
+      "various / diverse / a variety of"
+    ],
+    "answerSource": "大考中心 115 學年度學科能力測驗英文考科非選擇題滿分參考答案與評分原則"
   },
   {
     "id": 146,
@@ -1249,7 +1372,10 @@
     "label": "指考",
     "yearLabel": "94 (指考)",
     "zh": "身為地球村的成員，我們不應把自己侷限在這個小島上。",
-    "en": "As members of the global village, we should not confine/limit ourselves to this small island."
+    "en": "As members of the global village, we should not confine ourselves to this small island.",
+    "altAnswers": [
+      "confine / limit"
+    ]
   },
   {
     "id": 157,
@@ -1257,7 +1383,10 @@
     "label": "指考",
     "yearLabel": "94 (指考)",
     "zh": "我們不但應該參與國際性的活動，並且應該展現我們自己的文化特色。",
-    "en": "We should not only participate in international affairs but also exhibit/showcase our distinctive cultural characteristics."
+    "en": "We should not only participate in international affairs but also exhibit our distinctive cultural characteristics.",
+    "altAnswers": [
+      "exhibit / showcase"
+    ]
   },
   {
     "id": 158,
