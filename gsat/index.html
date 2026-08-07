@@ -176,14 +176,15 @@
   .explain .zh{font-size:15px; line-height:1.8; margin-bottom:14px; color:var(--ink);}
   .explain .zh::before{content:"譯　"; color:var(--crimson); font-family:'Noto Serif TC',serif; font-weight:700;}
   .gloss-line{
-    display:grid; grid-template-columns:22px 88px 96px 44px 1fr; gap:10px; align-items:baseline;
+    display:grid; grid-template-columns:22px 122px 96px 44px 1fr; gap:10px; align-items:baseline;
     font-size:13px; padding:6px 0; font-family:'IBM Plex Mono',monospace;
   }
-  .gloss-line .g-word{font-weight:600;}
+  .gloss-line > span{min-width:0;}
+  .gloss-line .g-word{font-weight:600; overflow-wrap:anywhere;}
   .gloss-line.is-answer{color:var(--crimson);}
   .gloss-line .g-pron{color:var(--ink-soft); font-size:12px; opacity:.75;}
   .gloss-line .g-level{color:var(--gold); font-size:11px;}
-  .gloss-line .g-zh{color:var(--ink-soft); font-family:'Noto Sans TC',sans-serif;}
+  .gloss-line .g-zh{color:var(--ink-soft); font-family:'Noto Sans TC',sans-serif; overflow-wrap:anywhere;}
   .level-note{margin-top:14px; padding-top:10px; border-top:1px dashed var(--rule); font-size:11px; color:var(--ink-soft); line-height:1.6;}
   .acc-tag{margin-top:10px; font-size:12.5px; color:var(--ink-soft); font-family:'IBM Plex Mono',monospace; display:none;}
   .acc-tag.show{display:block;}
@@ -250,7 +251,17 @@
   @media (max-width:480px){
     header.top{flex-wrap:wrap; row-gap:2px;}
     .q-sentence{font-size:15px;}
-    .gloss-line{grid-template-columns:18px 74px 68px 36px 1fr; font-size:12px;}
+    .gloss-line{
+      grid-template-columns:18px 1fr auto; gap:2px 8px; font-size:12px; padding:8px 0;
+      grid-template-areas:"letter word level"
+                          ".      pron pron"
+                          ".      zh   zh";
+    }
+    .gloss-line > span:first-child{grid-area:letter;}
+    .gloss-line .g-word{grid-area:word;}
+    .gloss-line .g-level{grid-area:level;}
+    .gloss-line .g-pron{grid-area:pron;}
+    .gloss-line .g-zh{grid-area:zh;}
     .result-score{font-size:40px;}
   }
 
