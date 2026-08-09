@@ -204,9 +204,12 @@
     }
     .ctx-box.show{display:block;}
     .ctx-box::before{content:"作答線索在哪裡　"; color:var(--crimson); font-weight:700;}
-    .note-sec{margin-top:7px;}
+    /* 2026-08-10 第三十四場：小標改為獨立一行，與 grammar-cloze-test 的 .sec h3、
+       passage-completion 的 .exp-h 一致。原為行內粗體加全形空格，小標與內文分不開。 */
+    .note-sec{margin-top:13px;}
     .note-sec:first-child{margin-top:0;}
-    .note-sec b{color:var(--sage);}
+    .note-sec b{display:block; font-family:'Noto Serif TC',serif; font-weight:700;
+      font-size:14.5px; color:var(--sage); margin:0 0 5px; line-height:1.55;}
     .note-body{margin-top:2px;}
     .note-body.clamped{
     display:-webkit-box; -webkit-line-clamp:4; line-clamp:4;
@@ -492,7 +495,8 @@ function escNote(s){
   return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }
 function noteSecHtml(str){
-  // 依【小標】切段：小標粗體、每段各佔一行。
+  // 依【小標】切段：小標獨立一行、每段各自一個區塊。
+  // 2026-08-10 第三十四場：小標由行內粗體加全形空格改為獨立一行（CSS .note-sec b）。
   // 2026-08-09 第三十三場補入。起因與 passage-completion 第三十二場同型——
   // 原本 note 整則直出（只做換行處理），寫長了會擠成一整團文字，
   // 且未做 HTML 逸出。克漏字站有 render_note、文意選填站有 expSplit，
@@ -503,7 +507,7 @@ function noteSecHtml(str){
   if(lead) out.push('<div class="note-sec">'+escNote(lead).replace(/\n/g,'<br>')+'</div>');
   for(let i=1;i<parts.length;i+=2){
     const body = (parts[i+1]||'').trim();
-    if(body) out.push('<div class="note-sec"><b>'+escNote(parts[i])+'</b>　'
+    if(body) out.push('<div class="note-sec"><b>'+escNote(parts[i])+'</b>'
                       +escNote(body).replace(/\n/g,'<br>')+'</div>');
   }
   return out.join('');
