@@ -203,6 +203,9 @@
     }
     .ctx-box.show{display:block;}
     .ctx-box::before{content:"作答線索在哪裡　"; color:var(--crimson); font-weight:700;}
+    .note-sec{margin-top:7px;}
+    .note-sec:first-child{margin-top:0;}
+    .note-sec b{color:var(--sage);}
     .note-body{margin-top:2px;}
     .note-body.clamped{
     display:-webkit-box; -webkit-line-clamp:4; line-clamp:4;
@@ -485,6 +488,26 @@ details.skill[open] > summary::after{content:'－ 收合';}
 
 <script src="data.js"></script>
 <script>
+function escNote(s){
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+function noteSecHtml(str){
+  // 依【小標】切段：小標粗體、每段各佔一行。
+  // 2026-08-09 第三十三場補入。起因與 passage-completion 第三十二場同型——
+  // 原本 note 整則直出（只做換行處理），寫長了會擠成一整團文字，
+  // 且未做 HTML 逸出。克漏字站有 render_note、文意選填站有 expSplit，
+  // 只有本站沒有，128 則 note 一直是一團。
+  const parts = String(str).split(/【(.+?)】/);
+  const out = [];
+  const lead = parts[0].trim();
+  if(lead) out.push('<div class="note-sec">'+escNote(lead).replace(/\n/g,'<br>')+'</div>');
+  for(let i=1;i<parts.length;i+=2){
+    const body = (parts[i+1]||'').trim();
+    if(body) out.push('<div class="note-sec"><b>'+escNote(parts[i])+'</b>　'
+                      +escNote(body).replace(/\n/g,'<br>')+'</div>');
+  }
+  return out.join('');
+}
 function toggleClamp(el){
   const target = el.previousElementSibling;
   if(!target) return;
@@ -722,7 +745,7 @@ function selectAnswer(letter, q){
 
   const noteBox = document.getElementById('qNoteBox');
   if(q.note){
-    const noteHtml = q.note.replace(/\n/g,'<br>');
+    const noteHtml = noteSecHtml(q.note);
     noteBox.innerHTML = q.note.length > 160
     ? '<div class="note-body clamped">'+noteHtml+'</div>'
         + '<span class="note-toggle" onclick="toggleClamp(this)">展開全文 ▾</span>'
