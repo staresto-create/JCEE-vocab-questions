@@ -2709,6 +2709,18 @@
    }
   ]
  },
+ "Z105_17": {
+  "sourceSite": "zhikao-cloze-test",
+  "refs": [
+   {
+    "site": "zhikao-cloze-test",
+    "id": "Z107參_17",
+    "surface": "107 學年度起適用的指考參考試卷沿用，同一格在那份卷子上是第 17 題",
+    "kind": "A",
+    "offset": 604
+   }
+  ]
+ },
  "Z107參_17": {
   "sourceSite": "zhikao-cloze-test",
   "refs": [
@@ -2766,6 +2778,18 @@
     "surface": "91 年第 23 題",
     "kind": "B",
     "offset": 1309
+   }
+  ]
+ },
+ "Z101_11": {
+  "sourceSite": "zhikao-cloze-test",
+  "refs": [
+   {
+    "site": "zhikao-cloze-test",
+    "id": "Z107參_11",
+    "surface": "107 學年度起適用的指考參考試卷沿用，同一格在那份卷子上是第 11 題",
+    "kind": "A",
+    "offset": 502
    }
   ]
  },
@@ -3262,30 +3286,6 @@
     "surface": "107 學年度起適用參考試卷第 19 題",
     "kind": "A",
     "offset": 1100
-   }
-  ]
- },
- "Z105_16": {
-  "sourceSite": "zhikao-cloze-test",
-  "refs": [
-   {
-    "site": "zhikao-cloze-test",
-    "id": "Z107參_16",
-    "surface": "107 學年度起適用的指考參考試卷",
-    "kind": "A",
-    "offset": 350
-   }
-  ]
- },
- "Z107參_16": {
-  "sourceSite": "zhikao-cloze-test",
-  "refs": [
-   {
-    "site": "zhikao-cloze-test",
-    "id": "Z105_16",
-    "surface": "105 年指考",
-    "kind": "A",
-    "offset": 528
    }
   ]
  },
