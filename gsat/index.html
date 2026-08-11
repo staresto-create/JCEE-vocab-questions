@@ -204,6 +204,16 @@
     }
     .ctx-box.show{display:block;}
     .ctx-box::before{content:"作答線索在哪裡　"; color:var(--crimson); font-weight:700;}
+    /* 2026-08-11 第五十場：字詞搭配欄。欄名與文意選填兩站的 collocation 一致，
+       標籤用字取自該站複習模式的「字詞搭配：」。無內容則整格不顯示（規範第七節
+       「收錄判準：替換測試」末條）。置於深入解析之前，因本欄的覆蓋題數遠多於 note。 */
+    .coll-box{
+    margin-top:10px; padding:12px 14px; background:var(--paper-card); border-radius:3px;
+    border:1px solid var(--rule); font-size:13px; line-height:1.8;
+    color:var(--ink-soft); display:none; white-space:pre-line;
+    }
+    .coll-box.show{display:block;}
+    .coll-box::before{content:"字詞搭配　"; color:var(--gold); font-family:'Noto Serif TC',serif; font-weight:700;}
     /* 2026-08-10 第三十四場：小標改為獨立一行，與 grammar-cloze-test 的 .sec h3、
        passage-completion 的 .exp-h 一致。原為行內粗體加全形空格，小標與內文分不開。 */
     .note-sec{margin-top:13px;}
@@ -452,6 +462,7 @@ details.skill[open] > summary::after{content:'－ 收合';}
         <div class="level-note">＊部分單字／片語未標示難度級別 [ ]，代表該字超出大考中心《高中英文參考詞彙表》6 級範圍（屬於進階或罕用字），非資料缺漏。<br>＊83–90 年與 91、92 學年度學測補考未顯示答對率，是因為大考中心未公布這些場次的逐題答對率統計，並非資料缺漏。</div>
         <div class="acc-tag" id="qAccTag"></div>
         <div class="span-tag" id="qSpanTag"></div>
+        <div class="coll-box" id="qCollBox"></div>
         <div class="note-box" id="qNoteBox"></div>
         <div class="ctx-box" id="qCtxBox"></div>
         <div class="disc-box" id="qDiscBox"></div>
@@ -681,6 +692,8 @@ function renderQuestion(){
   document.getElementById('qAccTag').innerHTML = '';
   document.getElementById('qSpanTag').classList.remove('show','cross');
   document.getElementById('qCtxBox').classList.remove('show');
+  document.getElementById('qCollBox').classList.remove('show');
+  document.getElementById('qCollBox').textContent = '';
   document.getElementById('qNoteBox').classList.remove('show');
   document.getElementById('qNoteBox').innerHTML = '';
   document.getElementById('qDiscBox').classList.remove('show');
@@ -747,6 +760,15 @@ function selectAnswer(letter, q){
   } else {
     ctxBox.textContent = '';
     ctxBox.classList.remove('show');
+  }
+
+  const collBox = document.getElementById('qCollBox');
+  if(q.collocation){
+    collBox.textContent = q.collocation;
+    collBox.classList.add('show');
+  } else {
+    collBox.textContent = '';
+    collBox.classList.remove('show');
   }
 
   const noteBox = document.getElementById('qNoteBox');
