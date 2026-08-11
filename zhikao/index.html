@@ -213,6 +213,12 @@
     }
     .coll-box.show{display:block;}
     .coll-box::before{content:"字詞搭配　"; color:var(--gold); font-family:'Noto Serif TC',serif; font-weight:700;}
+    /* 2026-08-12 第五十三場（待辦 12-1）：公式被換行從中間切開。分號後整段包
+       inline-block，寬度不足時整段落到下一行；英文頭再包一層，萬一整段寬過容器，
+       斷點落在全形括號而非英文詞組內部。不用 white-space:nowrap——長公式會橫向
+       溢出，窄螢幕更糟。 */
+    .coll-box .coll-seg{display:inline-block;}
+    .coll-box .coll-chunk{display:inline-block;}
     /* 2026-08-10 第三十四場：小標改為獨立一行，與 grammar-cloze-test 的 .sec h3、
        passage-completion 的 .exp-h 一致。原為行內粗體加全形空格，小標與內文分不開。 */
     .note-sec{margin-top:13px;}
@@ -762,7 +768,30 @@ function selectAnswer(letter, q){
 
   const collBox = document.getElementById('qCollBox');
   if(q.collocation){
-    collBox.textContent = q.collocation;
+    /* 2026-08-12 第五十三場（待辦 12-1）：拆成「片段；」＋公式兩節掛樣式，讓公式
+       整段換行而不從詞組中間切開。全程 textContent／createTextNode，不經 innerHTML，
+       維持規範第七節「欄位為 textContent 不做處理」之旨。 */
+    collBox.textContent = '';
+    const ci = q.collocation.indexOf('；');
+    if(ci < 0){
+      collBox.textContent = q.collocation;
+    } else {
+      collBox.appendChild(document.createTextNode(q.collocation.slice(0, ci + 1)));
+      const seg = document.createElement('span');
+      seg.className = 'coll-seg';
+      const rest = q.collocation.slice(ci + 1);
+      const pi = rest.indexOf('（');
+      if(pi < 0){
+        seg.textContent = rest;
+      } else {
+        const head = document.createElement('span');
+        head.className = 'coll-chunk';
+        head.textContent = rest.slice(0, pi);
+        seg.appendChild(head);
+        seg.appendChild(document.createTextNode(rest.slice(pi)));
+      }
+      collBox.appendChild(seg);
+    }
     collBox.classList.add('show');
   } else {
     collBox.textContent = '';
