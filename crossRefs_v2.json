@@ -3443,5 +3443,99 @@
    }
   ],
   "sourceField": "explanation"
+ },
+ "Vy112_23": {
+  "sourceSite": "passage-completion/gsat",
+  "sourceField": "explanation",
+  "refs": [
+   {
+    "site": "passage-completion/gsat",
+    "id": "Vy92_38",
+    "surface": "92 年學測文意選填",
+    "kind": "A",
+    "offset": 1018
+   },
+   {
+    "site": "passage-completion/zhikao",
+    "id": "Vz94_34",
+    "surface": "94 年指考文意選填",
+    "kind": "A",
+    "offset": 1043
+   },
+   {
+    "site": "passage-completion/gsat",
+    "id": "Vy92b_36",
+    "surface": "92 年學測補考文意選填",
+    "kind": "A",
+    "offset": 1075
+   },
+   {
+    "site": "JCEE-vocab-questions/gsat",
+    "id": "V0433",
+    "surface": "109 年學測字彙第 13 題",
+    "kind": "A",
+    "offset": 1108
+   }
+  ]
+ },
+ "Vy92_38": {
+  "sourceSite": "passage-completion/gsat",
+  "sourceField": "explanation",
+  "refs": [
+   {
+    "site": "passage-completion/gsat",
+    "id": "Vy112_23",
+    "surface": "112 年學測文意選填",
+    "kind": "A",
+    "offset": 522
+   }
+  ]
+ },
+ "Vy92b_36": {
+  "sourceSite": "passage-completion/gsat",
+  "sourceField": "explanation",
+  "refs": [
+   {
+    "site": "passage-completion/gsat",
+    "id": "Vy112_23",
+    "surface": "112 年學測文意選填",
+    "kind": "A",
+    "offset": 125
+   },
+   {
+    "site": "passage-completion/gsat",
+    "id": "Vy92_38",
+    "surface": "92 年學測",
+    "kind": "A",
+    "offset": 185
+   },
+   {
+    "site": "passage-completion/zhikao",
+    "id": "Vz94_34",
+    "surface": "94 年指考文意選填",
+    "kind": "A",
+    "offset": 193
+   }
+  ]
+ },
+ "Vz94_34": {
+  "sourceSite": "passage-completion/zhikao",
+  "sourceField": "explanation",
+  "refs": [
+   {
+    "site": "passage-completion/gsat",
+    "id": "Vy92b_36",
+    "surface": "92 年學測補考文意選填",
+    "kind": "A",
+    "offset": 276
+   },
+   {
+    "site": "passage-completion/gsat",
+    "id": "Vy112_23",
+    "surface": "112 年學測文意選填",
+    "kind": "A",
+    "offset": 298
+   }
+  ]
  }
 }
