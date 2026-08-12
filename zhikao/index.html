@@ -340,6 +340,15 @@ details.skill[open] > summary::after{content:'－ 收合';}
         資料來源：逐題答對率與鑑別度取自大考中心<a href="https://www.ceec.edu.tw/xmdoc?xsmsid=0J018611000723433352" target="_blank" rel="noopener">分科測驗（110 前指考）統計資料↗</a>各年度統計圖表；名詞說明見<a href="https://www.ceec.edu.tw/xcepaper/cont?xsmsid=0J066588036013658199&amp;qunit=0J066614378153514816&amp;sid=0K073687789378174143" target="_blank" rel="noopener">《一起來認識學測與指考的試題鑑別度》↗</a>（選才電子報「數字真相」專欄）。
       </div>
 
+      <div class="sec-title">依字級篩選<span class="diff-hint">（選填，可複選，與上方條件一起套用；不選則不限字級）</span></div>
+      <div class="cat-grid" id="levelGrid"></div>
+      <div class="diff-note">
+        這裡的級數看的是<b>該題答案字</b>的級別，不是四個選項。你按下「只練 3–4 級」，要的是「答案落在這個範圍」的題目；四個選項各有各的級數，一起算等於每一題都被選中。<br>
+        分級出自大考中心《<a href="https://www.ceec.edu.tw/xmdoc?xsmsid=0K213553204833715309" target="_blank" rel="noopener">高中英文參考詞彙表（111 學年度起適用）↗</a>》，本站所有題目一律依此版標示。110 學年度以前的考題當年適用的是 91 年版，部分字兩版級數不同（如 <code>individual</code> 舊版第 3 級、現行版第 2 級），<a href="https://www.ceec.edu.tw/SourceUse/ce37/ce37.htm" target="_blank" rel="noopener">91 年版↗</a>亦可在大考中心網站查閱。<br>
+        級數旁的 <b>＊</b> 表示詞彙表未單獨收錄該形式，級數另有依據（字根或 91 年版）；篩選時併入同一級。<br>
+        <b>片語</b>與<b>未收錄</b>兩格另外列出，是因為詞彙表不收片語、也不另收變化形，它們沒有級數與難易無關。只勾選 1–6 級時，這兩格的題目會被排除。
+      </div>
+
       <div class="row" style="margin-top:12px;">
         <button class="ghost-btn" onclick="startRangePractice()" style="flex:1;">開始練習</button>
       </div>
@@ -467,7 +476,7 @@ details.skill[open] > summary::after{content:'－ 收合';}
       <div class="explain" id="qExplain">
         <div class="zh" id="explainZh"></div>
         <div id="explainGloss"></div>
-        <div class="level-note">＊部分單字／片語未標示難度級別 [ ]，代表該字超出大考中心《高中英文參考詞彙表》6 級範圍（屬於進階或罕用字），非資料缺漏。<br>＊81–90 年大學聯考，以及 93 年敏督利颱風受災地區考生補救考試、98 指考參考試卷、109 年補考未顯示答對率，是因為大考中心未公布這些場次的逐題答對率統計，並非資料缺漏。</div>
+        <div class="level-note">＊未標示級別 [ ] 的有三類，<b>沒有級數不等於這個字很難</b>：<b>片語</b>（詞彙表只收單詞，不收片語，<code>at least</code>、<code>come across</code> 都在這一類）、<b>單字的變化形</b>（如 -ly 副詞、-ed 形容詞，詞彙表因變化規則固定而不另收，<code>bankruptcy</code> 未收，但 <code>bankrupt</code> 是第 4 級），以及<b>確實未收錄的字</b>。三類皆非資料缺漏。<br>＊81–90 年大學聯考，以及 93 年敏督利颱風受災地區考生補救考試、98 指考參考試卷、109 年補考未顯示答對率，是因為大考中心未公布這些場次的逐題答對率統計，並非資料缺漏。</div>
         <div class="acc-tag" id="qAccTag"></div>
         <div class="span-tag" id="qSpanTag"></div>
         <div class="coll-box" id="qCollBox"></div>
@@ -573,6 +582,7 @@ function initHome(){
   });
   mockYear.value = combos[0].y+'|'+combos[0].t;   // 預設最新年度
   buildDiffChips();
+  buildLevelChips();
   renderWrongBook();
   renderHistory();
 }
@@ -626,6 +636,32 @@ function toggleDiff(el){
   else{ selectedDiffs.add(t); el.classList.add('on'); }
 }
 
+function getLevelTier(q){
+  const v = ((q.l||{})[q.a]||'').trim();
+  const m = /^([1-6])\*?$/.exec(v);
+  if(m) return m[1];                                  // 星號併入同一級
+  const w = (q.o[q.a]||'').trim();
+  return (w.includes(' ') || w.includes('-')) ? 'phrase' : 'unlisted';
+}
+let selectedLevels = new Set();
+function buildLevelChips(){
+  const order = ['1','2','3','4','5','6','phrase','unlisted'];
+  const labels = {'1':'第 1 級','2':'第 2 級','3':'第 3 級','4':'第 4 級',
+                  '5':'第 5 級','6':'第 6 級',phrase:'片語（無級數）',unlisted:'未收錄'};
+  const counts = {};
+  order.forEach(k => counts[k]=0);
+  QUESTIONS.forEach(q => { counts[getLevelTier(q)]++; });
+  document.getElementById('levelGrid').innerHTML = order.map(k =>
+    `<div class="cat-chip" data-level="${k}" onclick="toggleLevel(this)">${labels[k]} <span class="chip-count">(${counts[k]})</span></div>`
+  ).join('');
+  selectedLevels = new Set();
+}
+function toggleLevel(el){
+  const k = el.dataset.level;
+  if(selectedLevels.has(k)){ selectedLevels.delete(k); el.classList.remove('on'); }
+  else{ selectedLevels.add(k); el.classList.add('on'); }
+}
+
 function randomTen(){ return shuffle(QUESTIONS).slice(0,10).map(q=>q.id); }
 
 function startRangePractice(){
@@ -633,8 +669,9 @@ function startRangePractice(){
   const yTo = +document.getElementById('yTo').value;
   const n = Math.max(1, Math.min(60, +document.getElementById('numQ').value || 10));
   const diffOk = q => selectedDiffs.size===0 || selectedDiffs.has(getDiffTier(q));
-  const pool = QUESTIONS.filter(q => q.y >= Math.min(yFrom,yTo) && q.y <= Math.max(yFrom,yTo) && diffOk(q));
-  if(pool.length === 0){ alert('這個範圍或難易度篩選條件下沒有題目'); return; }
+  const levelOk = q => selectedLevels.size===0 || selectedLevels.has(getLevelTier(q));
+  const pool = QUESTIONS.filter(q => q.y >= Math.min(yFrom,yTo) && q.y <= Math.max(yFrom,yTo) && diffOk(q) && levelOk(q));
+  if(pool.length === 0){ alert('這個範圍、難易度或字級篩選條件下沒有題目'); return; }
   startQuiz(shuffle(pool).slice(0,n).map(q=>q.id), '範圍練習 '+Math.min(yFrom,yTo)+'–'+Math.max(yFrom,yTo)+'年');
 }
 
