@@ -346,7 +346,7 @@ details.skill[open] > summary::after{content:'－ 收合';}
         這裡的級數看的是<b>該題答案字</b>的級別，不是四個選項。你按下「只練 3–4 級」，要的是「答案落在這個範圍」的題目；四個選項各有各的級數，一起算等於每一題都被選中。<br>
         分級出自大考中心《<a href="https://www.ceec.edu.tw/xmdoc?xsmsid=0K213553204833715309" target="_blank" rel="noopener">高中英文參考詞彙表（111 學年度起適用）↗</a>》，本站所有題目一律依此版標示。110 學年度以前的考題當年適用的是 91 年版，部分字兩版級數不同（如 <code>individual</code> 舊版第 3 級、現行版第 2 級），<a href="https://www.ceec.edu.tw/SourceUse/ce37/ce37.htm" target="_blank" rel="noopener">91 年版↗</a>亦可在大考中心網站查閱。<br>
         級數旁的 <b>＊</b> 表示詞彙表未單獨收錄該形式，級數另有依據（字根或 91 年版）；篩選時併入同一級。<br>
-        <b>片語</b>與<b>未收錄</b>兩格另外列出，是因為詞彙表不收片語、也不另收變化形，它們沒有級數與難易無關。只勾選 1–6 級時，這兩格的題目會被排除。
+        <b>片語</b>與<b>無級數的單字</b>兩格另外列出，是因為詞彙表不收片語、也不另收變化形——本站這一格多為變化形（<code>bankruptcy</code> 未收，但 <code>bankrupt</code> 是第 4 級），<b>它們沒有級數與難易無關</b>。只勾選 1–6 級時，這兩格的題目會被排除。
       </div>
 
       <div class="row" style="margin-top:12px;">
@@ -647,7 +647,7 @@ let selectedLevels = new Set();
 function buildLevelChips(){
   const order = ['1','2','3','4','5','6','phrase','unlisted'];
   const labels = {'1':'第 1 級','2':'第 2 級','3':'第 3 級','4':'第 4 級',
-                  '5':'第 5 級','6':'第 6 級',phrase:'片語（無級數）',unlisted:'未收錄'};
+                  '5':'第 5 級','6':'第 6 級',phrase:'片語（無級數）',unlisted:'無級數的單字'};
   const counts = {};
   order.forEach(k => counts[k]=0);
   QUESTIONS.forEach(q => { counts[getLevelTier(q)]++; });
