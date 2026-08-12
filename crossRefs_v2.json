@@ -3537,5 +3537,51 @@
     "offset": 298
    }
   ]
+ },
+ "Vz98_27": {
+  "sourceSite": "passage-completion/zhikao",
+  "sourceField": "explanation",
+  "refs": [
+   {
+    "site": "passage-completion/zhikao",
+    "id": "Vz101_27",
+    "surface": "101 年指考文意選填",
+    "kind": "A",
+    "offset": 254
+   },
+   {
+    "site": "JCEE-vocab-questions/gsat",
+    "id": "V0038",
+    "surface": "85 年學測字彙",
+    "kind": "A",
+    "offset": 346
+   }
+  ]
+ },
+ "Vz101_27": {
+  "sourceSite": "passage-completion/zhikao",
+  "sourceField": "explanation",
+  "refs": [
+   {
+    "site": "passage-completion/zhikao",
+    "id": "Vz98_27",
+    "surface": "98 年指考文意選填",
+    "kind": "A",
+    "offset": 776
+   }
+  ]
+ },
+ "Vzref107_27": {
+  "sourceSite": "passage-completion/zhikao",
+  "sourceField": "explanation",
+  "refs": [
+   {
+    "site": "passage-completion/zhikao",
+    "id": "Vz98_27",
+    "surface": "98 年指考文意選填",
+    "kind": "A",
+    "offset": 744
+   }
+  ]
  }
 }
