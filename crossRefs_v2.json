@@ -3603,5 +3603,38 @@
     "offset": 744
    }
   ]
+ },
+ "Vz95_39": {
+  "sourceSite": "passage-completion/zhikao",
+  "sourceField": "explanation",
+  "refs": [
+   {
+    "site": "grammar-cloze-test",
+    "id": "G94_23_2",
+    "surface": "學測克漏字 94 年第 23 題",
+    "kind": "A",
+    "offset": 85
+   },
+   {
+    "site": "passage-completion/zhikao",
+    "id": "Vz96_37",
+    "surface": "96 年指考文意選填",
+    "kind": "A",
+    "offset": 208
+   }
+  ]
+ },
+ "Vz96_37": {
+  "sourceSite": "passage-completion/zhikao",
+  "sourceField": "explanation",
+  "refs": [
+   {
+    "site": "passage-completion/zhikao",
+    "id": "Vz95_39",
+    "surface": "95 年指考文意選填",
+    "kind": "A",
+    "offset": 155
+   }
+  ]
  }
 }
