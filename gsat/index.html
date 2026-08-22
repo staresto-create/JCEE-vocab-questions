@@ -48,6 +48,10 @@
   .sk-intro{color:var(--ink-soft); font-size:13.5px; line-height:1.8; margin:0 0 4px;}
   .sk-ex{margin:16px 0 0; padding-left:11px; border-left:2px solid var(--sage);}
   .sk-ex .sk-src{font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:.08em; color:var(--sage); display:block; margin-bottom:3px;}
+    /* 2026-08-22 第一百四十場：窄螢幕上標頭換行時，間隔號被推到次行行首。
+       每一段連同其後的間隔號包 inline-block，斷點只能落在段與段之間，
+       間隔號因此落在行末。做法同第五十三場的 .coll-seg；不用 white-space:nowrap。 */
+    .sk-ex .sk-src .sk-seg{display:inline-block;}
   .sk-ex .sk-en{color:var(--ink); font-size:13.5px; line-height:1.75; margin:0 0 2px;}
   .sk-ex .sk-zh{font-size:12.5px; color:var(--ink-soft); margin:0 0 6px;}
   .sk-ex .sk-core{color:var(--crimson); font-weight:700; font-size:13.5px; line-height:1.7; margin:0;}
@@ -321,19 +325,19 @@ details.skill[open] > summary::after{content:'－ 收合';}
       <div class="home-desc" style="margin-bottom:14px;">大考中心考試說明把詞彙題的測驗目標寫成「構詞、語意、<b>字詞搭配</b>（collocation）的理解與運用能力」——三個考點之一，卻是課堂上最少單獨教到的一個。<b>最近三年學測詞彙題答對率最低的那一題，三題都是搭配題。</b></div>
 
       <div class="sk-ex">
-        <span class="sk-src">113 學測第 8 題 · 答案 promises · 答對率 15% · 鑑別度 -13</span>
+        <span class="sk-src"><span class="sk-seg">113 學測第 8 題 ·</span> <span class="sk-seg">答案 promises ·</span> <span class="sk-seg">答對率 15% ·</span> <span class="sk-seg">鑑別度 -13</span></span>
         <p class="home-desc" style="margin:0 0 4px;">Located at the center of the city, the business hotel ______ not only good service but also convenient public transport.</p>
         <p class="home-desc" style="margin:0 0 4px;">飯店「有」好服務又「有」便利交通，中文說得通，很自然會選 contains；但 contains 是中性的「內含」（This bottle contains 500 ml.），撐不起 not only... but also... 的推銷語氣。<b>promise + N（保證提供…）</b>才是文宣的口吻。</p>
         <p class="home-desc" style="margin:0;">鑑別度是負的，代表<b>高分群答對率反而低於低分群</b>——誘答專門騙讀得懂的人。</p>
       </div>
 
       <div class="sk-ex">
-        <span class="sk-src">114 學測第 9 題 · 答案 graced · 答對率 23%</span>
+        <span class="sk-src"><span class="sk-seg">114 學測第 9 題 ·</span> <span class="sk-seg">答案 graced ·</span> <span class="sk-seg">答對率 23%</span></span>
         <p class="home-desc" style="margin:0;">句尾有 a heartwarming speech，容易讓人選 addressed；線索是 <b>with his presence</b>——<b>grace sth with one's presence（蒞臨、賞光出席）</b>。</p>
       </div>
 
       <div class="sk-ex">
-        <span class="sk-src">115 學測第 10 題 · 答案 grave · 答對率 24%</span>
+        <span class="sk-src"><span class="sk-seg">115 學測第 10 題 ·</span> <span class="sk-seg">答案 grave ·</span> <span class="sk-seg">答對率 24%</span></span>
         <p class="home-desc" style="margin:0;">四個選項都是形容詞，只有 grave 可以修飾 concerns——<b>grave concerns（嚴重的憂慮）</b>。</p>
       </div>
 
@@ -402,13 +406,13 @@ details.skill[open] > summary::after{content:'－ 收合';}
       <p class="sk-intro">主詞不一定是人，可以是一個動作、一種物質、一個現象。找到主詞和動詞就抓到<b>骨幹</b>了，其餘的介系詞片語、分詞片語、關係子句、同位語，都是掛在骨幹上的修飾。單字題的句子雖然只有一句，修飾語照樣會把主詞和動詞推開——先抓骨幹，空格該填什麼詞性就清楚了。</p>
         <div id="skelMore" style="display:none;">
         <div class="sk-ex">
-          <span class="sk-src">106 年 · 學測單字</span>
+          <span class="sk-src"><span class="sk-seg">106 年 ·</span> <span class="sk-seg">學測單字</span></span>
           <p class="sk-en">Sherlock Holmes, a detective in a popular fiction series, has impressed readers with his amazing powers of observation and his knowledge of trivial facts.</p>
           <p class="sk-zh">（福爾摩斯——知名小說系列中的偵探——以其驚人的觀察力和對瑣碎細節的博學，讓讀者印象深刻。）</p>
           <p class="sk-core">➜ Sherlock Holmes has impressed readers. <em>（福爾摩斯讓讀者印象深刻。）</em></p>
         </div>
         <div class="sk-ex">
-          <span class="sk-src">109 年 · 學測單字</span>
+          <span class="sk-src"><span class="sk-seg">109 年 ·</span> <span class="sk-seg">學測單字</span></span>
           <p class="sk-en">Ancient Athens, famous for its early development of the democratic system, is often said to be the cradle of democracy.</p>
           <p class="sk-zh">（古雅典因其早期發展民主制度而聞名，常被稱為民主的搖籃。）</p>
           <p class="sk-core">➜ Ancient Athens is said to be the cradle of democracy. <em>（古雅典常被稱為民主的搖籃。）</em></p>
@@ -461,11 +465,11 @@ details.skill[open] > summary::after{content:'－ 收合';}
       <div class="home-desc">詞彙題的測驗目標，大考中心在三份考試說明裡都把構詞、語意與字詞搭配並列。</div>
       <div id="ceecGoalBody" style="display:none;">
         <div class="sk-ex">
-          <span class="sk-src">99 課綱版 · 適用 102–110 年施測</span>
+          <span class="sk-src"><span class="sk-seg">99 課綱版 ·</span> <span class="sk-seg">適用 102–110 年施測</span></span>
           <p class="sk-en">對高中常用實詞詞彙（content words）的構詞、語意、搭配詞（collocation）的了解與運用能力。</p>
         </div>
         <div class="sk-ex">
-          <span class="sk-src">111 學年度起適用 · 115 學年度起適用 · 兩份文件文字相同</span>
+          <span class="sk-src"><span class="sk-seg">111 學年度起適用 ·</span> <span class="sk-seg">115 學年度起適用 ·</span> <span class="sk-seg">兩份文件文字相同</span></span>
           <p class="sk-en">對高中常用實詞詞彙（content words）的構詞、語意、字詞搭配（collocation）的理解與運用能力。</p>
         </div>
         <p class="sk-core" style="margin-top:14px;">➜ collocation 的中文，官方兩個詞都在用，各有各的位置：講這個現象、這個題型時寫「字詞搭配」，講與某個字搭在一起的那一個字時寫「搭配詞」——115 學年度參考試卷的官方解析裡，同一份文件兩者並用。本站的「字詞搭配」欄，收的就是這一類資訊。</p>
