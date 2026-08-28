@@ -304,6 +304,33 @@
     margin-bottom:6px;
   }
   .alt-answers ul{margin:0;padding-left:18px;}
+  .official-words{
+    display:none;
+    margin-top:12px;
+    padding-top:10px;
+    border-top:1px dashed var(--rule);
+    font-size:14px;
+    line-height:1.7;
+  }
+  .official-words.show{display:block;}
+  .official-words .ow-label{
+    font-size:12px;
+    color:var(--muted);
+    letter-spacing:1px;
+    margin-bottom:2px;
+  }
+  .official-words .ow-note{
+    font-size:12px;
+    color:var(--muted);
+    opacity:.85;
+    margin-bottom:6px;
+  }
+  .official-words ul{margin:0;padding-left:18px;}
+  .official-words .ow-source{
+    margin-top:6px;
+    font-size:12px;
+    color:var(--muted);
+  }
   .your-answer{
     margin-top:14px;
     font-size:13px;
@@ -466,10 +493,10 @@ details.skill[open] > summary::after{content:'－ 收合';}
       <p class="sk-intro">主詞不一定是人，可以是一個動作、一種物質、一個現象。找到主詞和動詞就抓到<b>骨幹</b>了，其餘的介系詞片語、分詞片語、關係子句、同位語，都是掛在骨幹上的修飾。中譯英尤其需要這一步：先想清楚中文那一句的「什麼」和「怎麼了」，英文的主詞和動詞就定下來了，其餘的細節再一層一層掛上去。</p>
         <div class="sk-ex">
           <span class="sk-src">110 年 · 中譯英</span>
-          <p class="sk-en">Many people are curious about whether the record-breaking low temperatures in the United States at the beginning of this year are related to global warming.</p>
+          <p class="sk-en">Many people are curious about whether the record-breaking low temperatures at the beginning of this year in the US were related to global warming.</p>
           <p class="sk-zh">（很多人好奇今年年初在美國破紀錄的低溫是否與全球暖化有關。）</p>
           <p class="sk-core">➜ Many people are curious. <em>（很多人感到好奇。）</em></p>
-          <p class="sk-tip">💡 這一句有兩層。外層是 Many people are curious；whether 帶出來的那一整塊裡面還有一個小句子，它的主詞是 the temperatures、動詞是 are related——中間又隔了 11 個字。長句常常是這樣一層套一層。</p>
+          <p class="sk-tip">💡 這一句有兩層。外層是 Many people are curious；whether 帶出來的那一整塊裡面還有一個小句子，它的主詞是 the temperatures、動詞是 were related——中間又隔了 9 個字。長句常常是這樣一層套一層。</p>
         </div>
         <div class="sk-ex">
           <span class="sk-src">108 年 · 中譯英</span>
@@ -528,7 +555,7 @@ details.skill[open] > summary::after{content:'－ 收合';}
         <div class="sk-more">本站收錄 73–115 年；73–101 年為聯考時期或無對應的公開考試說明。<br>資料來源：財團法人大學入學考試中心基金會《學科能力測驗英文考科考試說明》三種版本（100 年 9 月、108 年 9 月、113 年 7 月公告）與《指定科目考試英文考科考試說明》兩種版本（100 年 9 月、105 年 9 月公告）。著作權屬該基金會所有，載明供非營利目的使用並註明出處；本站為免費、無廣告之自學題庫。</div>
       </div>
       <span class="sk-toggle" onclick="var m=document.getElementById('ceecGoalBody'); m.style.display = m.style.display==='none' ? 'block' : 'none';">📋 展開／收合：看官方測驗目標</span>
-      <div class="sk-more" style="margin-top:14px;"><b>【題目與譯文說明】</b><br>中文題目照大考中心歷屆原卷收錄。<br>英文是本站整理的參考譯法，<b>不是大考中心公布的答案</b>——早年的中譯英，官方並沒有公布參考答案。少數查得到官方版本的題目，看範文時會標示「大考中心公布之參考答案」並註明出處。<br><br>中譯英沒有標準答案。範文跟你寫的不一樣，先看句型有沒有搭對、字詞搭配（collocation）有沒有配錯。再看一層：<b>這個字後面習慣接什麼</b>（colligation）。像上面 110 年那句的 be curious about whether…，about 後面接 whether 子句是 curious 這個字自己的用法，換成別的字就不成立了。<b>勿逐字翻譯</b>，順著英文的習慣寫。<br><br><b>【91 年那 6 題是什麼】</b><br>那 6 題來自大考中心 91 學年度的「英文寫作能力研究用試卷」。當年大考中心曾規劃把英文寫作從大考裡獨立出來，開發了十種題型（句子合併、造句、單句翻譯、簡函寫作、閱讀問答、連貫式翻譯、引導式寫作、摘要寫作、讀後感、圖表寫作），依年級分成六卷實際施測。這條路線沒有再往下走，這種寫作測驗只出現過這一次。<br>這批試卷確實施測過，但屬研究性質，成績不採計入學。站上收錄的是卷二（對象高一）的單句翻譯 5 句，以及卷三（對象高二）的連貫式翻譯 1 段。連貫式翻譯那一段，原卷組卷表記為 5 題，但原文以句號斷只有四句，計數依據不明，本站整段收錄為 1 題。原卷沒有官方參考答案，這 6 題的英文都是本站整理的參考譯法。</div>
+      <div class="sk-more" style="margin-top:14px;"><b>【題目與譯文說明】</b><br>中文題目照大考中心歷屆原卷收錄。<br>多數題目的英文是本站整理的參考譯法，<b>不是大考中心公布的答案</b>——早年的中譯英，官方並沒有公布參考答案。查得到官方版本的題目，看範文時會依官方實際公布的內容標示：公布過參考答案的，標示「大考中心公布之參考答案」並註明出處；公布過評量字詞的，另列「大考中心公布之評量字詞」並註明出處。兩者不一定同時具備。<br><br>中譯英沒有標準答案。範文跟你寫的不一樣，先看句型有沒有搭對、字詞搭配（collocation）有沒有配錯。再看一層：<b>這個字後面習慣接什麼</b>（colligation）。像上面 110 年那句的 be curious about whether…，about 後面接 whether 子句是 curious 這個字自己的用法，換成別的字就不成立了。<b>勿逐字翻譯</b>，順著英文的習慣寫。<br><br><b>【91 年那 6 題是什麼】</b><br>那 6 題來自大考中心 91 學年度的「英文寫作能力研究用試卷」。當年大考中心曾規劃把英文寫作從大考裡獨立出來，開發了十種題型（句子合併、造句、單句翻譯、簡函寫作、閱讀問答、連貫式翻譯、引導式寫作、摘要寫作、讀後感、圖表寫作），依年級分成六卷實際施測。這條路線沒有再往下走，這種寫作測驗只出現過這一次。<br>這批試卷確實施測過，但屬研究性質，成績不採計入學。站上收錄的是卷二（對象高一）的單句翻譯 5 句，以及卷三（對象高二）的連貫式翻譯 1 段。連貫式翻譯那一段，原卷組卷表記為 5 題，但原文以句號斷只有四句，計數依據不明，本站整段收錄為 1 題。原卷沒有官方參考答案，這 6 題的英文都是本站整理的參考譯法。</div>
     </div>
   </section>
 
@@ -559,6 +586,12 @@ details.skill[open] > summary::after{content:'－ 收合';}
         <div class="alt-answers" id="altAnswers">
           <div class="alt-label">也可以這樣寫</div>
           <ul id="altList"></ul>
+        </div>
+        <div class="official-words" id="officialWords">
+          <div class="ow-label">大考中心公布之評量字詞</div>
+          <div class="ow-note">以下為大考中心在該份文件中列出的字詞</div>
+          <ul id="owList"></ul>
+          <div class="ow-source" id="owSource"></div>
         </div>
         <div class="your-answer" id="yourAnswerEcho"></div>
       </div>
@@ -748,6 +781,19 @@ document.getElementById("revealBtn").addEventListener("click", ()=>{
   }else{
     altList.innerHTML = "";
     altBox.classList.remove("show");
+  }
+
+  const owBox = document.getElementById("officialWords");
+  const owList = document.getElementById("owList");
+  const owSrc = document.getElementById("owSource");
+  if(Array.isArray(item.officialWords) && item.officialWords.length){
+    owList.innerHTML = item.officialWords.map(w => `<li>${escapeHtml(w)}</li>`).join("");
+    owSrc.textContent = item.officialWordsSource ? "出處：" + item.officialWordsSource : "";
+    owBox.classList.add("show");
+  }else{
+    owList.innerHTML = "";
+    owSrc.textContent = "";
+    owBox.classList.remove("show");
   }
 
   const yourText = document.getElementById("userInput").value.trim();
