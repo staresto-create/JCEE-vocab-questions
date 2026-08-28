@@ -803,7 +803,8 @@
     "en": "The little girl said that she had rung the doorbell several times, but nobody came to open the door.",
     "explanation": {
       "pattern": [
-        "S + said (that) + S + had + p.p.——主要子句用過去式時，從屬子句的動作若發生得更早，時態要往前推一個時態。",
+        "兩件事都在過去，句子裡又沒有 before、after 這類表示先後的字，光看時態分不出誰先誰後——所以把先發生的那一件退一個時態，用過去完成式標出來：按門鈴在前，用 had rung；說在後，用 said。",
+        "反過來說，先後已經清楚時就不必動用它：After he finished his homework, he went to bed. 有 after 表明先後，兩邊都用過去式就夠。",
         "He told me that he had already finished the report.",
         "She explained that she had left her keys at home."
       ],
@@ -969,7 +970,25 @@
     "label": "學測",
     "yearLabel": "107 (學測)",
     "zh": "近年來，有越來越多超級颱風，通常造成嚴重災害。",
-    "en": "In recent years, there have been an increasing number of super typhoons, which usually cause severe damage."
+    "en": "In recent years, there have been an increasing number of super typhoons, which usually cause severe damage.",
+    "explanation": {
+      "pattern": [
+        "There + be + 主詞：中文的「有…」沒有主詞，英文得用 there be 起頭；be 動詞的單複數看後面那個真主詞，這裡是 typhoons，所以用複數。",
+        "In recent years 這類「近年來、到目前為止」的時間副詞，配的是現在完成式，寫 there have been，不寫 there were。",
+        "逗號 + which 為非限定關係子句，補充說明前面的先行詞；本句的 which 指 super typhoons，所以動詞用複數 cause。",
+        "還原成完整寫法是 …super typhoons, and they usually cause severe damage."
+      ],
+      "collocation": [
+        "cause damage（造成災害）——本題要用的這一組。同一個 damage 往外延伸：cause severe / serious / widespread damage、do damage to（對…造成損害）、damage caused by the typhoon。",
+        "「越來越多的」用 an increasing number of 或 a growing number of，後面接複數名詞；more and more 較口語，正式的行文多用前兩者。",
+        "in recent years（近年來）常與現在完成式連用，同型的時間副詞還有 over the past few years、so far、up to the present、up to now 等。"
+      ],
+      "mustHave": [
+        "中文「有越來越多超級颱風」整句沒有主詞，英文一定要有一個主詞——there have been 的 there 就是補上去的那個。",
+        "沒有主詞的「有」→ there + be",
+        "另外三處中文不必寫、英文非寫不可：typhoons 要用複數；「近年來」帶出的時間跨度在英文得靠時態說出來，也就是現在完成式；「通常造成嚴重災害」在中文可以直接用逗號接下去，英文必須把兩件事接起來，本句用的是關係子句。"
+      ]
+    }
   },
   {
     "id": 117,
@@ -977,7 +996,24 @@
     "label": "學測",
     "yearLabel": "107 (學測)",
     "zh": "颱風來襲時，我們應準備足夠的食物，並待在室內，若有必要，應迅速移動至安全的地方。",
-    "en": "When a typhoon strikes, we should prepare enough food, stay indoors, and if necessary, quickly move to a safe place."
+    "en": "When a typhoon strikes, we should prepare enough food, stay indoors, and if necessary, quickly move to a safe place.",
+    "explanation": {
+      "pattern": [
+        "時間副詞子句 When + S + V：整句講的是未來，但時間副詞子句習慣用現在式代替未來式，所以寫成 When a typhoon strikes，而非 When a typhoon will strike。先後已由 when 表明，未來的意思由主要子句的 should 表示。同一條規則也管 if、before、after、until、as soon as。",
+        "三個動作並列共用一個 should：should + V1, V2, and V3——第二、三個動詞維持原形、不再重複 should，最後一項前面要有 and。",
+        "if necessary 是 if it is necessary 省略主詞與 be 動詞之後的形式，同型的還有 if possible、if any、when necessary、if convenient。"
+      ],
+      "collocation": [
+        "a typhoon strikes（颱風來襲）——本題要用的這一組。同一個 typhoon 往外延伸：a typhoon hits（侵襲）、make landfall（登陸）、be hit by a typhoon、typhoon warning / typhoon alert（颱風警報）。",
+        "strike 用在疾病、災難時是「突然發作、突然侵襲」，學測克漏字 114 年第 16 題也考過這個用法：motion sickness can strike suddenly（暈車可能突然發作）。",
+        "「待在室內」是 stay indoors，indoors 本身就是副詞，不寫 stay in indoors；相對的是 outdoors。「準備足夠的食物」除 prepare enough food 外，另有 stock up on food（囤糧）；「移動至安全的地方」另有 head for / evacuate to a safe place。"
+      ],
+      "mustHave": [
+        "中文的「颱風」沒有單複數，也沒有冠詞，英文得選一個：這裡指的是任何一次颱風，所以用單數加不定冠詞 a typhoon。",
+        "泛指任何一次 → a + 單數名詞",
+        "另外兩處中文不必寫、英文非寫不可：中文可以一路用逗號把三件事串到底，英文的並列在最後一項前面必須放 and；「若有必要」是英文長話短說的一種——if it is necessary 省略掉主詞 it 與 be 動詞 is，只留下 if necessary。看不懂時就還原，把省略掉的補回去唸一遍。"
+      ]
+    }
   },
   {
     "id": 118,
@@ -999,7 +1035,24 @@
       "「流行的」trendy / fashionable",
       "「用負擔得起的價格買到流行的服飾」buy trendy clothing at affordable prices"
     ],
-    "officialWordsSource": "大考中心 107 學年度指定科目考試英文考科非選擇題閱卷評分原則說明"
+    "officialWordsSource": "大考中心 107 學年度指定科目考試英文考科非選擇題閱卷評分原則說明",
+    "explanation": {
+      "pattern": [
+        "be characterized by + N（以…為特色）：主詞是被描述的那一方，所以用被動；主動的寫法是 sth characterizes sth，也可以直接用 feature——Fast fashion features speed and low prices.",
+        "對等子句簡化為分詞構句：S + V…, and + V… → S + V…, V-ing…。兩個子句的主詞相同時，去掉 and 與重複的主詞，動詞改為分詞（主動用 V-ing、被動用 p.p.）；擺在句尾逗號之後的分詞構句，多半表示前面那件事所造成的結果。",
+        "還原成完整寫法是 Fast fashion is characterized by speed and low prices and allows people to buy…；要把因果講得更明白，也可以寫成 so that people can buy…。"
+      ],
+      "collocation": [
+        "allow sb to V（讓某人可以做某事）——本題要用的這一組。往外延伸：enable sb to V（使某人有能力做）、make sth possible for sb，三者都可以用來翻譯「讓人們可以」，語氣由弱到強。",
+        "價格：at a low / high price、at an affordable price、sell at a discount——「用某個價格」的介系詞固定是 at，不是 with，也不是 by。",
+        "服飾：clothing 是不可數的集合名詞，要算數量得寫 a piece of clothing、an item of clothing；clothes 恆為複數、沒有單數形。兩個字都不能寫成 a clothing。"
+      ],
+      "mustHave": [
+        "中文的「低價」沒有單複數，英文的 price 在這裡指的是各種價格，用複數 low prices；後半的 at affordable prices 同理。中翻英 102 年學測第 1 題也考過同一件事：「都會地區的高房價」對到 high housing prices in urban areas。",
+        "泛指多種價格 → 複數 prices",
+        "另外兩處中文不必寫、英文非寫不可：「服飾」在英文得先決定可數性，clothing 不可數、不加 s；「讓人們可以…」在中文只靠一個逗號接在後面，英文必須用分詞或連接詞把前後的因果接起來。"
+      ]
+    }
   },
   {
     "id": 119,
@@ -1016,7 +1069,25 @@
     "officialWords": [
       "「快速消費」fast consumption"
     ],
-    "officialWordsSource": "大考中心 107 學年度指定科目考試英文考科非選擇題閱卷評分原則說明"
+    "officialWordsSource": "大考中心 107 學年度指定科目考試英文考科非選擇題閱卷評分原則說明",
+    "explanation": {
+      "pattern": [
+        "the \"fast consumption\" it encourages 是省略關係代名詞的關係子句，修飾前面那個先行詞；還原成完整寫法是 the \"fast consumption\" that it encourages。關係代名詞在子句裡當受詞時才可以省略，當主詞時不能省略。",
+        "主詞是 consumption，不可數、視為單數，所以動詞是 has produced，不是 have produced——中間隔了一整個子句，容易看著緊鄰的 encourages 就寫成 have produced。",
+        "對等子句簡化為分詞構句：S + V…, and + V… → S + V…, V-ing…。兩個子句的主詞相同時，去掉 and 與重複的主詞，動詞改為分詞（主動用 V-ing、被動用 p.p.）；擺在句尾逗號之後的分詞構句，多半表示前面那件事所造成的結果。",
+        "還原成完整寫法是 …has produced huge amounts of waste and has resulted in enormous pollution problems."
+      ],
+      "collocation": [
+        "result in（造成、導致）——本題要用的這一組。往外延伸：lead to、give rise to、bring about 後面都接結果；方向相反的是 result from、stem from（起因於）。",
+        "廢棄物：produce / generate waste（製造廢棄物）、reduce waste、food waste（廚餘）、waste disposal（廢棄物處理）。",
+        "「大量的」要看後面那個名詞可不可數：不可數用 huge / large amounts of，可數則用 large numbers of。"
+      ],
+      "mustHave": [
+        "中文的「製造了」沒有時態，英文得選一個：這件事從過去做到現在、影響還在，所以用現在完成式 has produced。",
+        "影響延續到現在 → 現在完成式",
+        "另外兩處中文不必寫、英文非寫不可：waste 是不可數名詞，「大量的廢棄物」不能寫成 huge wastes，得用 amounts of 把量說出來；「它所鼓勵的」在中文只用一個「的」字帶過，英文必須用關係子句把這層修飾關係做出來，本句還把關係代名詞省略掉了。"
+      ]
+    }
   },
   {
     "id": 120,
@@ -1159,8 +1230,8 @@
     "officialWords": [
       "「不再」no longer",
       "「侷限於」limited to",
-      "「正規教育」formal education / regular education",
-      "「非正式學習」non-formal learning / informal learning"
+      "「正規教育」formal/regular education",
+      "「非正式學習」non-formal/informal learning"
     ],
     "officialWordsSource": "大考中心 109 學年度指定科目考試（補考）英文考科非選擇題評分原則"
   },
@@ -1172,7 +1243,7 @@
     "zh": "例如，志工服務讓學生學到如何與不同背景及不同年齡層的人互動。",
     "en": "For example, volunteer service allows students to learn how to interact with people from different backgrounds and age groups.",
     "officialWords": [
-      "「志工服務」volunteer services / voluntary services / voluntary work",
+      "「志工服務」volunteer/voluntary services/work",
       "「不同背景及不同年齡層」different backgrounds and ages",
       "「互動」interact with"
     ],
