@@ -1233,7 +1233,12 @@
       "「正規教育」formal/regular education",
       "「非正式學習」non-formal/informal learning"
     ],
-    "officialWordsSource": "大考中心 109 學年度指定科目考試（補考）英文考科非選擇題評分原則"
+    "officialWordsSource": "大考中心 109 學年度指定科目考試（補考）英文考科非選擇題評分原則",
+    "altAnswers": [
+      "limited to / confined to",
+      "formal education / regular education",
+      "non-formal learning / informal learning"
+    ]
   },
   {
     "id": 129,
@@ -1247,7 +1252,11 @@
       "「不同背景及不同年齡層」different backgrounds and ages",
       "「互動」interact with"
     ],
-    "officialWordsSource": "大考中心 109 學年度指定科目考試（補考）英文考科非選擇題評分原則"
+    "officialWordsSource": "大考中心 109 學年度指定科目考試（補考）英文考科非選擇題評分原則",
+    "altAnswers": [
+      "volunteer service / volunteer work / voluntary services",
+      "different backgrounds and ages / different backgrounds and age groups"
+    ]
   },
   {
     "id": 130,
@@ -1255,7 +1264,34 @@
     "label": "學測",
     "yearLabel": "110 (學測)",
     "zh": "根據新聞報導，每年全球有超過百萬人在道路事故中喪失性命。",
-    "en": "According to news reports, over a million people lose their lives in road accidents globally each year."
+    "en": "According to news reports, over a million people lose their lives in road accidents globally each year.",
+    "explanation": {
+      "pattern": [
+        "According to + 名詞（根據…）：引述的是別人或別處的說法，後面接名詞，不接子句。這一組不用在自己身上——講自己的看法要寫 in my opinion、in our view。",
+        "主詞 over a million people 是複數，動詞用原形 lose，後面的所有格與名詞也跟著用複數：lose their lives。",
+        "每年反覆發生的事實用現在簡單式，句尾的 each year 就是那個標記。先找標記，再決定時態，比憑語感可靠得多。"
+      ],
+      "collocation": [
+        "lose one's life（喪生）——本題要用的這一組。往外延伸：lose one's life in an accident／a fire、be killed in a car crash、claim lives（奪走性命，主詞是災難本身）。",
+        "according to（根據）——學測克漏字 87 年第 32 題與 93 年第 30 題的【常考字詞與句型】都收過這一組用法；同型的還有 according to a recent study／survey／report。",
+        "「道路事故」是 road accidents，也可以寫 traffic accidents——學測 87 年推薦甄選第 12 題與指考 98 年第 5 題的題幹用的都是 traffic accident。"
+      ],
+      "mustHave": [
+        "中文的「新聞報導」沒有單複數，英文得選一個：這裡泛指各家的報導，用複數 news reports；特指某一則才寫 a news report。",
+        "泛指多則 → 複數 reports",
+        "另外兩處中文不必寫、英文非寫不可：「超過百萬人」的 a million 要有冠詞 a（或寫 one million），不能只寫 million；「喪失性命」的所有格與名詞都跟著主詞變複數，是 lose their lives。"
+      ],
+      "refs": [
+        {
+          "label": "87 年學測克漏字第 32 題",
+          "url": "https://staresto-create.github.io/grammar-cloze-test/q/g87-32-2/"
+        },
+        {
+          "label": "93 年學測克漏字第 30 題",
+          "url": "https://staresto-create.github.io/grammar-cloze-test/q/g93-30-3/"
+        }
+      ]
+    }
   },
   {
     "id": 131,
@@ -1263,7 +1299,24 @@
     "label": "學測",
     "yearLabel": "110 (學測)",
     "zh": "因此，交通法規必須嚴格執行，以確保所有用路人的安全。",
-    "en": "Therefore, traffic regulations must be strictly enforced to ensure the safety of all road users."
+    "en": "Therefore, traffic regulations must be strictly enforced to ensure the safety of all road users.",
+    "explanation": {
+      "pattern": [
+        "中文的「必須嚴格執行」沒有「被」字，看不出主動還是被動。要用哪一個，看的是這一句在談誰——這一句談的是交通法規，而法規由誰執行，這裡不必說也不重要，所以主詞放 traffic regulations，動詞寫成被動 must be strictly enforced。",
+        "to + 原形動詞表示目的（＝ in order to）。中文的「以…」「為了…」就是這個訊號。",
+        "Therefore 是轉承語，不是連接詞。它只能擺在句首或句中，不能拿它把兩個句子用逗號連起來——那樣就變成兩個句子沒有連接詞連接。"
+      ],
+      "collocation": [
+        "enforce the law／regulations（執行法規）——本題要用的這一組。往外延伸：strictly／rigorously enforce、enforce a ban／a rule、law enforcement（執法，名詞）。指考 110 年第 8 題的誘答選項就是 enforcement。",
+        "ensure the safety of（確保…的安全）——指考 99 年第 7 題的題幹逐字收過這一組用法：…the water supply regularly to ensure the safety of our drinking water。往外延伸：ensure that + 子句、make sure、guarantee。",
+        "中文都叫「安全」，分辨只問一句：防止意外，還是防護入侵？防止意外用 safety（road safety、food safety、safety belt）；防護入侵用 security（national security、security measures、a security guard）。security 另作「保障」解——job security 工作保障、food security 糧食安全，講的是會不會失去。本題是道路事故，屬防止意外，所以寫 the safety of all road users。字根看得更清楚：security 拆開是 se-（分開） + cur（掛心） + -ity（狀態），把掛心的事拿開。同一個 cur 還有 cure、accurate（ac-（朝向） + cur + -ate，用心才會準）、manicure、pedicure。"
+      ],
+      "mustHave": [
+        "中文的「交通法規」沒有單複數，英文得選一個：法規是一條一條的，泛指整套時用複數 traffic regulations；單數 regulation 指某一條特定的規定。",
+        "泛指整套規定 → 複數 regulations",
+        "另外兩處中文不必寫、英文非寫不可：「安全」寫成 the safety of + 人，定冠詞不能省；「所有用路人」的 road users 要用複數。"
+      ]
+    }
   },
   {
     "id": 132,
@@ -1287,7 +1340,34 @@
       "「全球暖化」global warming",
       "「有關」(be) related to"
     ],
-    "officialWordsSource": "大考中心 110 學年度指定科目考試英文考科非選擇題閱卷評分原則說明"
+    "officialWordsSource": "大考中心 110 學年度指定科目考試英文考科非選擇題閱卷評分原則說明",
+    "explanation": {
+      "pattern": [
+        "whether 引導的名詞子句在這裡當介系詞 about 的受詞。介系詞後面只能用 whether，不能用 if。官方參考答案用的 wonder 是及物動詞，後面直接接子句，不加 about。",
+        "子句裡的動詞用過去式 were related：「今年年初」那一段低溫已經結束，是明確而且過去的時間。先找標記，再決定時態。",
+        "主詞與動詞中間隔了一長串修飾語。先把中間那一串遮起來，真正的主詞是 temperatures，複數，所以動詞用 were。"
+      ],
+      "collocation": [
+        "be related to（與…有關）——本題要用的這一組。學測克漏字 86 年第 39 題考過，答案就是 is related to；那一題的另一個選項 have a lot to do with，正是官方在本題所列的另一種寫法。",
+        "be curious about（對…感到好奇）——學測 84 年推薦甄選第 1 題與學測克漏字 109 年第 25 題都收過這一組用法，兩處都是誘答選項。往外延伸：be curious to V、out of curiosity（出於好奇）、arouse one's curiosity。",
+        "「破紀錄的」是 record-breaking；同一組還有 a record high／low（新高／新低）、break a record（打破紀錄）、set a record（創下紀錄）。"
+      ],
+      "mustHave": [
+        "中文的「低溫」沒有單複數，英文得選一個：那一段期間各地各日的低溫不只一個，用複數 temperatures，動詞才會是 were。",
+        "泛指一段期間的多筆低溫 → 複數 temperatures",
+        "另外兩處中文不必寫、英文非寫不可：「在美國」的 US 前面要有定冠詞 the；「今年年初」的 the beginning 也要有 the。"
+      ],
+      "refs": [
+        {
+          "label": "86 年學測克漏字第 39 題（相隔 24 年）",
+          "url": "https://staresto-create.github.io/grammar-cloze-test/q/g86-39-3/"
+        },
+        {
+          "label": "109 年學測克漏字第 25 題",
+          "url": "https://staresto-create.github.io/grammar-cloze-test/q/g109-25-2/"
+        }
+      ]
+    }
   },
   {
     "id": 133,
@@ -1311,7 +1391,34 @@
       "「預告」predict / forecast",
       "「新的常態」the new normal"
     ],
-    "officialWordsSource": "大考中心 110 學年度指定科目考試英文考科非選擇題閱卷評分原則說明"
+    "officialWordsSource": "大考中心 110 學年度指定科目考試英文考科非選擇題閱卷評分原則說明",
+    "explanation": {
+      "pattern": [
+        "No matter what 引導讓步子句（不論…）。把它換成 Whatever 讀一次，語意完全成立——指考 107 年第 19 題考的正是這一組。",
+        "predict that + 子句。主要子句用現在完成式 have predicted，說的是專家已經提出、到現在仍然成立的判斷。",
+        "that 子句講的是還沒發生的事，所以用 will become。主要子句是現在完成式時，that 子句不必跟著往回退。"
+      ],
+      "collocation": [
+        "predict that + 子句（預測…）——本題要用的這一組。學測 108 年第 3 題考過，答案就是 predicted，題幹是 The weather bureau ___ that the typhoon would…。拆開是 pre-（在……之前） + dict（說），說在前面就是預測；同一個 dict 還有 dictionary、dictate、contradict、verdict。",
+        "abnormal（不正常的）——拆開是 ab-（離開） + norm（標準） + -al。norm 這個字根本來指木工用的角尺，量直角的那一把，所以引申成「標準」。往外延伸：abnormal weather／behavior、an abnormality。",
+        "the new normal（新的常態）——normal 在這裡是名詞，回到 norm 那把尺的本義：標準。所以 the new normal 就是「新的那把尺」。同型的說法還有 become the norm、be here to stay。"
+      ],
+      "mustHave": [
+        "中文的「氣候專家」沒有單複數，英文得選一個：這裡泛指這一行的專家，用複數 climate experts，動詞跟著用 have。",
+        "泛指一群人 → 複數 experts",
+        "另外三處中文不必寫、英文非寫不可：「不論答案為何」要把主詞與動詞補回來，寫成 the answer is；「新的常態」的 the 不能省；「這種天氣」的 kind 是單數，寫 this kind of。"
+      ],
+      "refs": [
+        {
+          "label": "107 年指考克漏字第 19 題",
+          "url": "https://staresto-create.github.io/zhikao-cloze-test/q/z107-19/"
+        },
+        {
+          "label": "114 年學測文意選填第 27 題（the + 形容詞）",
+          "url": "https://staresto-create.github.io/passage-completion/#hard-Vy114_27"
+        }
+      ]
+    }
   },
   {
     "id": 134,
