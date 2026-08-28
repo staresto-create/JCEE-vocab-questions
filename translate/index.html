@@ -331,6 +331,25 @@
     font-size:12px;
     color:var(--muted);
   }
+  .explanation{
+    display:none;
+    margin-top:12px;
+    padding-top:10px;
+    border-top:1px dashed var(--rule);
+    font-size:14px;
+    line-height:1.8;
+  }
+  .explanation.show{display:block;}
+  .explanation .ex-label{
+    font-size:12px;
+    color:var(--muted);
+    letter-spacing:1px;
+    margin-bottom:6px;
+  }
+  .explanation .ex-sec{margin-bottom:10px;}
+  .explanation .ex-sec:last-child{margin-bottom:0;}
+  .explanation .ex-h{font-weight:700; margin-bottom:2px;}
+  .explanation .ex-p{margin:0 0 2px 0;}
   .your-answer{
     margin-top:14px;
     font-size:13px;
@@ -593,6 +612,10 @@ details.skill[open] > summary::after{content:'－ 收合';}
           <ul id="owList"></ul>
           <div class="ow-source" id="owSource"></div>
         </div>
+        <div class="explanation" id="explanation">
+          <div class="ex-label">解析</div>
+          <div id="exBody"></div>
+        </div>
         <div class="your-answer" id="yourAnswerEcho"></div>
       </div>
 
@@ -758,6 +781,12 @@ function renderQuestion(){
   document.getElementById("userInput").focus();
 }
 
+const EX_SECTIONS = [
+  ["pattern",     "【句型】"],
+  ["collocation", "【延伸的字詞搭配】"],
+  ["mustHave",    "【中文沒有、英文必須有的】"]
+];
+
 document.getElementById("revealBtn").addEventListener("click", ()=>{
   const item = queue[qIndex];
   document.getElementById("enModel").textContent = item.en;
@@ -794,6 +823,29 @@ document.getElementById("revealBtn").addEventListener("click", ()=>{
     owList.innerHTML = "";
     owSrc.textContent = "";
     owBox.classList.remove("show");
+  }
+
+  const exBox  = document.getElementById("explanation");
+  const exBody = document.getElementById("exBody");
+  const ex = item.explanation;
+  let exHtml = "";
+  if(ex && typeof ex === "object"){
+    EX_SECTIONS.forEach(sec => {
+      const v = ex[sec[0]];
+      const lines = Array.isArray(v) ? v.filter(x => x && x.trim())
+                                     : (v && v.trim() ? [v] : []);
+      if(!lines.length) return;
+      exHtml += '<div class="ex-sec"><div class="ex-h">' + escapeHtml(sec[1]) + '</div>'
+              + lines.map(t => '<div class="ex-p">' + escapeHtml(t) + '</div>').join("")
+              + '</div>';
+    });
+  }
+  if(exHtml){
+    exBody.innerHTML = exHtml;
+    exBox.classList.add("show");
+  }else{
+    exBody.innerHTML = "";
+    exBox.classList.remove("show");
   }
 
   const yourText = document.getElementById("userInput").value.trim();

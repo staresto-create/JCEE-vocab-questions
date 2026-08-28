@@ -800,7 +800,23 @@
     "label": "學測",
     "yearLabel": "84 (學測)",
     "zh": "小女孩說她按了好幾次門鈴，卻沒有人來開門。",
-    "en": "The little girl said that she had rung the doorbell several times, but nobody came to open the door."
+    "en": "The little girl said that she had rung the doorbell several times, but nobody came to open the door.",
+    "explanation": {
+      "pattern": [
+        "S + said (that) + S + had + p.p.——主要子句用過去式時，從屬子句的動作若發生得更早，時態要往前推一個時態。",
+        "He told me that he had already finished the report.",
+        "She explained that she had left her keys at home."
+      ],
+      "collocation": [
+        "ring the doorbell（按門鈴）——本題要用的這一組。同一個 ring 往外延伸：ring a bell（按鈴；也指「聽起來耳熟」）、the phone rings（電話響）。",
+        "「來開門」這一端另有現成講法 answer the door，比 come to open the door 更常見：I knocked, but nobody answered the door."
+      ],
+      "mustHave": [
+        "中文只寫「按了好幾次」，沒有標時間先後；英文一定要選一個時態。這裡有兩層過去——「說」在後、「按門鈴」在前——所以前面那層退到過去完成式 had rung，後面那層維持過去式 came。",
+        "按門鈴（更早）→ had rung；說（過去）→ said",
+        "另外兩處中文不必寫、英文非寫不可：門鈴要加冠詞 the doorbell；nobody 當主詞時動詞用單數，是 nobody came，不是 nobody come。"
+      ]
+    }
   },
   {
     "id": 101,
@@ -808,7 +824,25 @@
     "label": "學測",
     "yearLabel": "84 (學測)",
     "zh": "看到她哭得那麼傷心，我就陪她等媽媽回來。",
-    "en": "Seeing her crying so bitterly, I stayed with her and waited for her mother to come back."
+    "en": "Seeing her crying so bitterly, I stayed with her and waited for her mother to come back.",
+    "explanation": {
+      "pattern": [
+        "副詞子句簡化為分詞構句：兩個子句的主詞相同時，去掉從屬連接詞與副詞子句的主詞，動詞改為分詞。",
+        "連接詞 + S + V…, S + V… → V-ing…, S + V…（兩個 S 必須相同）",
+        "還原成完整的說法是 When I saw her crying so bitterly, I stayed with her.",
+        "Because he didn't know what to say, he just nodded. → Not knowing what to say, he just nodded.（否定寫成 Not + V-ing）",
+        "被動則保留過去分詞：Because she was surrounded by reporters, she said nothing. → Surrounded by reporters, she said nothing."
+      ],
+      "collocation": [
+        "stay with someone（陪某人）——本題要用的這一組。往外延伸：keep someone company 也是「陪」，但語氣較正式；wait for someone to V（等某人做某事）與本句後半接得起來。",
+        "哭的程度用 cry bitterly（哭得很傷心）、cry one's eyes out（哭得很慘），不用 cry sadly。"
+      ],
+      "mustHave": [
+        "中文的「看到她哭」沒有交代「哭」是哪一種形態，英文得選：see + O + V-ing 表示看到正在進行的動作（see her crying），see + O + 原形則是看到整件事從頭到尾（see her cry）。本句要的是前者。",
+        "看到 + 正在進行 → see + O + V-ing",
+        "另外，中文「陪她等媽媽」的「媽媽」不必說是誰的，英文必須補所有格 her mother；而「我就陪她」的主詞在中文可以省，英文的 I 不能省。"
+      ]
+    }
   },
   {
     "id": 102,
