@@ -845,7 +845,7 @@ document.getElementById("revealBtn").addEventListener("click", ()=>{
     if(Array.isArray(ex.refs) && ex.refs.length){
       exHtml += '<div class="ex-sec ex-refs"><div class="ex-h">【還在哪裡出現】</div>'
               + '<div class="ex-p">'
-              + ex.refs.map(r => '<a class="xref" href="' + escapeHtml(r.url).replace(/"/g, "&quot;")
+              + ex.refs.map(r => '<a class="xref" href="' + escapeHtml(r.url)
                   + '" target="_blank" rel="noopener">' + escapeHtml(r.label) + ' &rarr;</a>').join("、")
               + '</div></div>';
     }
@@ -986,7 +986,8 @@ document.getElementById("clearHistoryLink").addEventListener("click", ()=>{
 });
 
 function escapeHtml(s){
-  return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+  return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")
+          .replace(/"/g,"&quot;").replace(/'/g,"&#39;");
 }
 
 loadItems();
