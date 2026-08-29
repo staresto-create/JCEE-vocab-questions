@@ -1604,7 +1604,46 @@
       "time and again / repeatedly",
       "cause / lead to",
       "terrible / horrible"
-    ]
+    ],
+    "explanation": {
+      "pattern": [
+        "S + prove (that) + S + V：prove 後面接 that 引導的子句當受詞，that 可以省略。History proves (that) wars cause disasters.",
+        "先找標記，再決定時態。「一再」就是那個標記——現在簡單式講的是通常如此、反覆如此的事，所以用 proves。官方另收 has proven / has proved，把「從過去到現在一直如此」表示出來，兩式都成立。",
+        "主要子句與 that 子句的時態各自決定：主要子句是 proves，that 子句用 will cause，講的是只要有戰爭就會有的結果。"
+      ],
+      "collocation": [
+        "cause a disaster / lead to a disaster（造成災難）——官方兩式都收。cause 是及物動詞，後面直接接受詞；lead to 的 to 是介系詞，後面接名詞或動名詞。99 年學測第 27 題答案就是 cause，四個選項正是 cause 的四種形態；92 年指考第 25 題答案是 leads to。111 年學測第 19 題另收過 spell disaster（招致災難）。往外延伸：a natural disaster（天災）、disaster relief（賑災）、a disaster area（災區）。",
+        "time and again（一再、再三）——固定說法，中間不加冠詞、time 不加 s。官方另收 repeatedly。同型的說法還有 again and again、over and over、time after time（一次又一次）。",
+        "terrible / horrible（可怕的）——這個意思上官方兩式都收。103 年學測第 23 題把 horrible 放進誘答選項。往外延伸：a terrible mistake（嚴重的錯誤）、terrible weather（很差的天氣）。"
+      ],
+      "mustHave": [
+        "中文的「戰爭」與「災難」都沒有單複數，英文得各選一個：兩個都是泛指，用複數 wars 與 disasters。",
+        "泛指 → 複數 wars、disasters",
+        "另外兩處中文不必寫、英文非寫不可：中文「歷史一再證明，戰爭會…」用一個逗號就接下去，英文必須用 that 把後半接成 prove 的受詞；「會造成」的時間關係在中文看不出來，英文得靠 will 把它表示出來。"
+      ],
+      "refs": [
+        {
+          "label": "111 年學測第 19 題",
+          "url": "https://staresto-create.github.io/grammar-cloze-test/q/g111-19-2/"
+        },
+        {
+          "label": "99 年學測第 13 題",
+          "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0283"
+        },
+        {
+          "label": "99 年學測第 27 題",
+          "url": "https://staresto-create.github.io/grammar-cloze-test/q/g99-27-3/"
+        },
+        {
+          "label": "92 年指考第 25 題",
+          "url": "https://staresto-create.github.io/zhikao-cloze-test/q/z92-25/"
+        },
+        {
+          "label": "103 年學測第 23 題",
+          "url": "https://staresto-create.github.io/grammar-cloze-test/q/g103-23-2/"
+        }
+      ]
+    }
   },
   {
     "id": 139,
@@ -1617,7 +1656,60 @@
     "altAnswers": [
       "To avoid / Avoiding",
       "ensure / ensuring"
-    ]
+    ],
+    "explanation": {
+      "pattern": [
+        "這一句先切範圍：To 管到哪裡。兩種切法只有一種成立—— To (avoid conflicts + ensure world peace) 是一個 To 帶兩個動作，整串是一個主詞；(To avoid conflicts) + (ensure world peace) 的後半成了原形動詞，接不上前面。and 連接的是 avoid 與（to）ensure，第二個 to 依慣例省略。93 年學測第 25 題考的正是這個結構：To contribute to this campaign and save three lives for only $5, send your donation to…（為了盡一份心力、只花五美元救三條命，請把捐款寄到…），該題的誘答選項還有 Contributing，與本題官方另收的 Avoiding 是同一組對照。",
+        "切好之後，整串 To avoid conflicts and ensure world peace 就是主詞。不定詞當主詞的句型：To V … + 動詞。例：To say is one thing; to do is another.（說是一回事，做是另一回事）。官方另收 Avoiding conflicts and ensuring world peace…，動名詞當主詞同樣成立，兩式都寫得。",
+        "the goal pursued by all human beings：過去分詞片語擺在名詞後面當修飾語，與 a book written by him（他寫的書）是同一個結構。並排看最清楚——the goal（目標）／the goal pursued by all human beings（所有人類追求的目標）：中文的修飾語擺在名詞前面，英文這一串擺在後面。"
+      ],
+      "collocation": [
+        "avoid conflicts（避免衝突）——avoid 後面接名詞或動名詞，不接不定詞。106 年指考第 1 題答案就是 avoid，同一題的誘答選項還有 pursue，兩個字本題都用得到；95 年指考第 24 題答案也是 avoid。87 年推薦甄選第 3 題考的是 Conflicts，題幹寫 Conflicts between good friends should be resolved, not ignored.（好朋友之間的衝突應該解決，不該視而不見）。往外延伸：a conflict of interest（利益衝突）、come into conflict with…（與…起衝突）、resolve a conflict（化解衝突）。",
+        "ensure world peace（確保世界和平）——ensure 後面接名詞，也接 that 子句。108 年學測第 14 題的題幹就用過 to ensure that we have someone to talk to（確保我們有人可以說說話）。往外延伸：ensure safety（確保安全）、maintain world peace（維持世界和平）、a peace treaty（和平條約）。",
+        "pursue a goal（追求目標）——106 年學測第 2 題答案就是 pursue，題幹是 pursue a career in physics（投身物理這一行）。108 年學測第 6 題的題幹另有 the goal of + 動名詞（…的目標）。往外延伸：achieve a goal（達成目標）、set a goal（訂目標）、in pursuit of…（追求…）。",
+        "all human beings（全人類）——human being 是可數名詞，泛指全人類時用複數。106 年學測第 3 題的題幹就寫 might not meet another human being for days（好幾天可能遇不到另一個人）。往外延伸：human rights（人權）、human nature（人性）。",
+        "goal／aim／objective（目標）——三個字中文都翻成「目標」，光看中文分不出來。先從你本來就有的那個 goal 進去：足球場上的 goal 是球門，是要把球送進去的那一個定點。抽象的 goal 也是同一件事——它是你要抵達的那一個點，所以帶著「為了達到某個結果」這一層。aim 你腦中本來的意思是瞄準，講的是對準哪個方向，用得最一般。objective 多用在工作與商務場合，指的是看得見、近期做得到的那一種。當場做得到的檢查：這個目標量得出來、近期做得到嗎——是的話就用 objective；只是一個方向、一個長期的期望，就用 goal 或 aim。本題講的是全人類長久追求的事，不是工作上的指標，所以官方用 goal。站上兩個字都考過：101 年學測第 29 題答案是 aim（活動的宗旨），該題解析就寫過 aim 當名詞與 objective、purpose、goal 屬於同一組；85 年推薦甄選第 1 題答案是 objective，題幹是 The main objective of this test is to find out how much you have learned in high school.（這份測驗的主要目標是了解你在高中學到多少）。"
+      ],
+      "mustHave": [
+        "中文的「衝突」看不出單複數，英文得選一個：泛指各種衝突，用複數 conflicts。",
+        "泛指 → 複數 conflicts、human beings",
+        "另外三處中文不必寫、英文非寫不可：「目標」指的是那一個特定的目標，前面要有定冠詞，寫 the goal；「世界和平」的 world peace 前面不加冠詞；「所有人類追求的」在中文只用一個「的」字帶過，英文必須把 pursued by all human beings 整串擺到 the goal 後面。"
+      ],
+      "refs": [
+        {
+          "label": "106 年指考第 1 題",
+          "url": "https://staresto-create.github.io/JCEE-vocab-questions/zhikao/#q-ZK0051"
+        },
+        {
+          "label": "95 年指考第 24 題",
+          "url": "https://staresto-create.github.io/zhikao-cloze-test/q/z95-24/"
+        },
+        {
+          "label": "87 年推薦甄選第 3 題",
+          "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0063"
+        },
+        {
+          "label": "106 年學測第 2 題",
+          "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0377"
+        },
+        {
+          "label": "108 年學測第 14 題",
+          "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0419"
+        },
+        {
+          "label": "108 年學測第 6 題",
+          "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0411"
+        },
+        {
+          "label": "106 年學測第 3 題",
+          "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0378"
+        },
+        {
+          "label": "93 年學測第 25 題",
+          "url": "https://staresto-create.github.io/grammar-cloze-test/q/g93-25-2/"
+        }
+      ]
+    }
   },
   {
     "id": 140,
@@ -1796,7 +1888,7 @@
     "explanation": {
       "pattern": [
         "評分原則明寫這一句要用關係子句，而且要用過去式，主要子句則看現在進行式用得對不對。中文把「過去在科幻電影中出現的」擺在「神奇物件」前面，只用一個「的」字帶過；英文必須用關係子句把這層修飾關係表示出來，後位修飾前面的名詞：Amazing things that appeared in science-fiction movies in the past。",
-        "關代用哪一個、什麼格，把名詞代進關係子句就看得出來：Amazing things +（things）appeared in science-fiction movies in the past。代進去以後 things 是這個子句的主詞，所以用主格關代 that 或 which。",
+        "關代用哪一個、什麼格，把名詞代進關係子句就看得出來：Amazing things + （things）appeared in science-fiction movies in the past。代進去以後 things 是這個子句的主詞，所以用主格關代 that 或 which。",
         "先找標記，再決定時態。這一句兩個標記都在句子裡：關係子句的標記是 in the past，動詞用過去式 appeared；主要子句的標記是 now，講的是現在正在發生而且還在進行，用現在進行式 are becoming。中文靠「過去」「現在正」兩個詞把時間交代完，動詞本身不變化；英文則必須靠每一個子句的動詞形式，各自把時間表示出來。"
       ],
       "collocation": [
