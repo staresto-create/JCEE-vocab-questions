@@ -1024,7 +1024,7 @@
       "mustHave": [
         "中文「有越來越多超級颱風」整句沒有主詞，英文一定要有一個主詞——there have been 的 there 就是補上去的那個。",
         "沒有主詞的「有」→ there + be",
-        "另外三處中文不必寫、英文非寫不可：typhoons 要用複數；「近年來」帶出的時間跨度在英文得靠時態說出來，也就是現在完成式；「通常造成嚴重災害」在中文可以直接用逗號接下去，英文必須把兩件事接起來，本句用的是關係子句。"
+        "另外三處中文不必寫、英文非寫不可：typhoons 要用複數；「近年來」帶出的時間跨度在英文得靠時態表示出來，也就是現在完成式；「通常造成嚴重災害」在中文可以直接用逗號接下去，英文必須把兩件事接起來，本句用的是關係子句。"
       ]
     }
   },
@@ -1123,7 +1123,7 @@
       "mustHave": [
         "中文的「製造了」沒有時態，英文得選一個：這件事從過去做到現在、影響還在，所以用現在完成式 has produced。",
         "影響延續到現在 → 現在完成式",
-        "另外兩處中文不必寫、英文非寫不可：waste 是不可數名詞，「大量的廢棄物」不能寫成 huge wastes，得用 amounts of 把量說出來；「它所鼓勵的」在中文只用一個「的」字帶過，英文必須用關係子句把這層修飾關係做出來，本句還把關係代名詞省略掉了。"
+        "另外兩處中文不必寫、英文非寫不可：waste 是不可數名詞，「大量的廢棄物」不能寫成 huge wastes，得用 amounts of 把量表示出來；「它所鼓勵的」在中文只用一個「的」字帶過，英文必須用關係子句把這層修飾關係表示出來，本句還把關係代名詞省略掉了。"
       ]
     }
   },
@@ -1660,7 +1660,34 @@
       "force / power",
       "advancement / advances / advance"
     ],
-    "answerSource": "大考中心 114 學年度學科能力測驗英文考科非選擇題評分原則"
+    "answerSource": "大考中心 114 學年度學科能力測驗英文考科非選擇題評分原則",
+    "explanation": {
+      "pattern": [
+        "評分原則與參考答案這一次不一致，先講清楚。大考中心公布的評分原則寫「第一句要使用比較級」，但同一份文件給的參考答案是最高級——the biggest／the strongest。中文題目說的是「最大的」，寫最高級才對應得上，考生照參考答案寫最高級即可。",
+        "整句的骨架是 S＋be＋補語：主詞（人類的想像和創意）＋is＋the biggest driving force＋for technological advancement。中文把「科技進步」與「最大的」都擺在「驅動力」前面，英文只留形容詞在名詞前面；「科技進步」這一段改用介系詞片語 for technological advancement 後位修飾，掛在 driving force 後面。"
+      ],
+      "collocation": [
+        "driving force（推動力、原動力、主要推手）——本題要用的這一組。劍橋詞典把 driving force 收為獨立詞條，釋義是「促使某事發生的強大人物或事物」；Collins 的說明是「造成某事發生的主要因素」。drive 除了「駕駛」，更核心的意思是驅動、推動——drive the economy（帶動經濟）、drive change（推動改變），driving force 用的正是這個意思。105 年學測第 30 題都收過這一組用法：那一題的四個選項 driving、pulling、riding、bringing 都是 -ing 形，填進去在文法上都說得通，考的不是文法，是字詞搭配。官方另收 driving power。往外延伸：the driving force behind…（…背後的推手）、a driving factor（推動因素）、a major force in…（…的一大力量）。",
+        "technological advancement（科技進步）——官方三式都收，advancement、advances、advance，而且前面都不加冠詞。查辭典可以看到原因：牛津把 advancement 標成不可數與可數兩用；advance 當「進展」講時同樣兩用，該詞條一邊有 We live in an age of rapid technological advance.（我們身處科技快速進展的時代），一邊有 The design incorporates the most recent technological advances.（這項設計納入了最新的科技進展）。單數不加冠詞是把它當不可數看，複數 advances 則是把一項一項的進展分開算。三式都成立，不必猶豫。往外延伸：make advances in…（在…方面有進展）、a technological breakthrough（科技突破）、scientific progress（科學進展，progress 只有不可數用法，前面不加 a）。"
+      ],
+      "mustHave": [
+        "中文的動詞不會因為主詞而變化，「是」就是「是」；英文得決定單數還是複數。官方參考答案用 is，判斷的方法見下一段。",
+        "「人類的」→ Human's／Human／Mankind's，官方三式都收",
+        "另外一處中文不必寫、英文非寫不可：「最大的驅動力」的 the 不能省。劍橋文法說明最高級形容詞前面通常要加 the，舉的例句正是 the biggest；driving force 又是單數可數名詞，前面本來就要有限定詞。"
+      ],
+      "usage": [
+        "主詞是 A and B，動詞用單數還是複數，這是本題最值得談的地方。通則是：and 連接兩個單數主詞，動詞用複數；但如果這兩個部分講的是同一個人、同一件事，就當單數看。判斷方法很簡單——問這兩個詞拆不拆得開。",
+        "拆不開、動詞用單數的例子：Macaroni and cheese is my favorite comfort food.（焗烤通心粉是我最愛的療癒食物）／Trial and error is a common method used in scientific research.（試誤法是科學研究常用的方法）／Law and order is the foundation of a stable society.（法律與秩序是穩定社會的基礎）／Supply and demand is the key factor in determining market prices.（供需是決定市場價格的關鍵）。這幾組都是一個概念，拆開來就不是原來那個意思了。",
+        "那麼 imagination and creativity 拆不拆得開？臺大外文系退休教師奚永慧在 2025 年 4 月 2 日的公開貼文裡認為，想像與創意是兩個相關但不同的概念，應該當兩回事看，後面接複數動詞；他徵詢兩位臺大外文系的美籍退休教授，兩位都表示會用 are 而不是 is。他也指出想像力可以天馬行空、不切實際，創造力則與落實、做出成果比較有關聯。他自述不是權威，不敢說 is…force 一定錯，但用 are…forces 絕對可以給分，而且應該比 is 更自然些。",
+        "考試照參考答案寫 is 不會扣分；自己寫作文時，把想像與創意當成兩件事、寫 are…forces，讀起來更自然。「拿分」與「寫得好」本來就是兩回事。"
+      ],
+      "refs": [
+        {
+          "label": "105 年學測第 30 題",
+          "url": "https://staresto-create.github.io/grammar-cloze-test/q/g105-30-3/"
+        }
+      ]
+    }
   },
   {
     "id": 143,
@@ -1676,7 +1703,35 @@
       "movies / films",
       "reality / real"
     ],
-    "answerSource": "大考中心 114 學年度學科能力測驗英文考科非選擇題評分原則"
+    "answerSource": "大考中心 114 學年度學科能力測驗英文考科非選擇題評分原則",
+    "explanation": {
+      "pattern": [
+        "評分原則明寫這一句要用關係子句，而且要用過去式，主要子句則看現在進行式用得對不對。中文把「過去在科幻電影中出現的」擺在「神奇物件」前面，只用一個「的」字帶過；英文必須用關係子句把這層修飾關係表示出來，後位修飾前面的名詞：Amazing things that appeared in science-fiction movies in the past。",
+        "關代用哪一個、什麼格，把名詞代進關係子句就看得出來：Amazing things ＋（things）appeared in science-fiction movies in the past。代進去以後 things 是這個子句的主詞，所以用主格關代 that 或 which。",
+        "先找標記，再決定時態。這一句兩個標記都在句子裡：關係子句的標記是 in the past，動詞用過去式 appeared；主要子句的標記是 now，講的是現在正在發生而且還在進行，用現在進行式 are becoming。中文靠「過去」「現在正」兩個詞把時間交代完，動詞本身不變化；英文則必須靠每一個子句的動詞形式，各自把時間表示出來。"
+      ],
+      "collocation": [
+        "become reality／become a reality（成真、成為現實）——兩式都有實據，不是只有一種對。劍橋在 reality 詞條下收這個搭配，例句 Her childhood ambition became a reality when she was made a judge.（她童年的志向在她獲任命為法官時成真）；Collins 的釋義是「某件事實際存在或實際發生了」，同一個詞條一邊有加冠詞的 it will be some years before the potential becomes a reality（這個潛力要成為現實還要好幾年），一邊有不加冠詞的 Quite a few of the inventions in Star Trek are becoming reality.（《星艦迷航記》裡不少發明正在成真）。詞性上，Longman 把 reality 標成可數與不可數兩用，Collins 則不可數、可數分列。大考中心的參考答案用的是不加冠詞的 becoming reality，加不加都可以。往外延伸：make something a reality（讓某件事成真）、turn dreams into reality（把夢想化為現實）。",
+        "come true 與 become reality 的分工，差別在主詞。劍橋說明 come true 的主詞是 hope、wish、dream 這一類原本不太有把握會發生的期望；Longman 另外收了 prediction（預測、預言），例句 The prediction seems to have come true.（那項預測似乎成真了）。本題的主詞是「物件」，物件本身不會 come true，所以要用 become reality 或 become real。中文如果改成「兒時的夢想成真了」，那就要用 come true。",
+        "science-fiction movies（科幻電影）——官方四式都收：science-fiction 與 sci-fi、movies 與 films。連字號加不加都可以：牛津英語詞典把 science fiction 同時收為名詞與形容詞，形容詞用法主要就是擺在名詞前面修飾；韋氏詞典的實例句也有不加連字號的 a science fiction movie。sci-fi 是縮短說法，韋氏另收為形容詞，例 a sci-fi film。往外延伸：a sci-fi novel（科幻小說）、a documentary（紀錄片）、special effects（特效）。",
+        "one by one（一個接一個、逐一）——劍橋把 one by one 收為獨立詞條，釋義是「分開地、一個接一個」。同一型的還有 step by step（一步一步）與 side by side（並排、肩並肩），劍橋也各自收成獨立詞條。這一類說法中間都不加冠詞，是有道理的：the 的作用是指認，讀者看到 the 就要能回答「哪一個」；而 one by one 講的不是哪一個物件，step by step 講的不是哪一步，side by side 講的不是哪一邊，句子裡沒有特定對象可指，the 就沒有東西可以指認。並排看最清楚——one by one（逐一）對上 the one on the left（左邊那一個）；step by step（一步一步）對上 the first step（第一步）；side by side（並排）對上 the other side（另一邊）。左邊那一欄都沒有指定是哪一個，所以不加；右邊那一欄都指定了，所以要加。這個道理一通，from beginning to end、face to face、hand in hand 都可以自己判斷，不必一組一組背。"
+      ],
+      "mustHave": [
+        "中文的「物件」看不出單複數，英文得選一個：官方用複數 things 或 objects，動詞跟著用 are。",
+        "「正…成真」→ 現在進行式 are becoming",
+        "另外兩處中文不必寫、英文非寫不可：「過去」除了 in the past 這個副詞片語，關係子句的動詞要用過去式 appeared；「過去在科幻電影中出現的」在中文只用一個「的」字帶過，英文必須用關係子句把這層修飾關係表示出來。"
+      ],
+      "usage": [
+        "這一題的主詞與動詞中間隔了一長串修飾語。先把中間那一串遮起來，真正的主詞是 things，複數，所以動詞用 are。中譯英碰到長主詞，先把修飾語遮起來找核心名詞，句子的骨架就出來了。",
+        "fiction 這個字，站上 91 年指考第一篇整篇都在講它——選文〈虛構與非虛構（Fiction and Nonfiction）〉，一邊是編出來的故事，一邊是全部都是真的。該篇的選項句 But your trip through space would be fiction.（但你的太空之旅會是虛構的）與 Nothing is made up.（沒有任何東西是編的）正好可以拿來對照本題的 science-fiction movies。對 fiction 沒把握的話，連過去看整篇最清楚。"
+      ],
+      "refs": [
+        {
+          "label": "91 年指考第一篇第 41 題",
+          "url": "https://staresto-create.github.io/discourse-structure/q/dz91p1-41/"
+        }
+      ]
+    }
   },
   {
     "id": 144,
@@ -1704,14 +1759,14 @@
       "mustHave": [
         "中文的「高中英文老師」沒有單複數，英文得選一個：more and more 後面接可數名詞的複數，所以是 teachers，動詞跟著用 have。",
         "more and more 之後 → 複數 teachers",
-        "另外兩處中文不必寫、英文非寫不可：「百分比」前面的 the 不能省；「已經」在中文只是一個副詞，英文沒有這個字可以擺，必須靠現在完成式把它做出來。"
+        "另外兩處中文不必寫、英文非寫不可：「百分比」前面的 the 不能省；「已經」在中文只是一個副詞，英文沒有這個字可以擺，必須靠現在完成式把它表示出來。"
       ],
       "usage": [
         "參考答案寫的是 senior high school，但英美日常講的是 high school——只有國中才加 junior，說成 junior high school。senior high school 是早期台灣教育體系沿用下來的譯法。國家教育研究院的中英雙語詞彙審譯會已經決議修正，樂詞網公告「XX 高中」對應的英文就是 XX High School。",
         "站上的歷屆試題原文也看得到這條線：85 年推薦甄選第 1 題寫 in high school、94 年學測第 10 題寫 a high school student、103 年學測第 9 題寫 a high school diploma、114 年學測第 7 題寫 The high school student、115 年學測第 3 題寫 at the famous high school——同一份 115 學測考卷，字彙題寫 high school，中譯英的參考答案卻寫 senior high school。",
         "考試照參考答案寫不會扣分；自己寫作文時，寫 high school 才合英文習慣。",
-        "臺大外文系退休教師奚永慧在 2 月 18 日的公開貼文裡提到，nowadays 表趨勢、more and more 也表趨勢、have increased 表完成，三者擠在一句裡語意會打架；他也認為 the percentage of English use 與 the percentage of using English 都不是自然的英文。他自己的譯法是 An increasing number of high school English teachers are now using more English in their classrooms.",
-        "任教於臺師大翻譯研究所的蘇正隆在 2 月 12 日的公開貼文裡指出，senior high school 不合英文習慣，the percentage of the use of 也太累贅。他請母語顧問看過之後給的譯法是 High school teachers are using more English in their classrooms these days.",
+        "臺大外文系退休教師奚永慧在 2026 年 2 月 18 日的公開貼文裡提到，nowadays 表趨勢、more and more 也表趨勢、have increased 表完成，三者擠在一句裡語意會打架；他也認為 the percentage of English use 與 the percentage of using English 都不是自然的英文。他自己的譯法是 An increasing number of high school English teachers are now using more English in their classrooms.",
+        "任教於臺師大翻譯研究所的蘇正隆在 2026 年 2 月 12 日的公開貼文裡指出，senior high school 不合英文習慣，the percentage of the use of 也太累贅。他請母語顧問看過之後給的譯法是 High school teachers are using more English in their classrooms these days.",
         "兩位各自寫、各自請教母語人士，卻收斂到幾乎同一句：都不寫 senior，都把名詞化拆回動詞。這正說明「拿分」與「寫得好」是兩回事。"
       ],
       "refs": [
