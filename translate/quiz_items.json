@@ -1632,7 +1632,56 @@
       "can / will",
       "making visits to / making a visit to / visiting",
       "places. / areas."
-    ]
+    ],
+    "explanation": {
+      "pattern": [
+        "整句的骨架是「時間副詞片語 + S + can be seen + V-ing」：Every election season, + politicians + can be seen + visiting famous temples in different places. 中文把「各地」與「著名」都擺在「廟宇」前面；英文只留形容詞 famous 在名詞前面，「各地」改用介系詞片語 in different places 後位修飾，放在 temples 後面。",
+        "can be seen 後面的 visiting 是現在分詞當主詞補語，說明主詞正在做什麼。主動與被動並排看最清楚：主動是 see + O + V-ing——People can see politicians visiting famous temples.（人們看得到政治人物正在造訪著名廟宇）；被動是 S + be seen + V-ing——Politicians can be seen visiting famous temples.（看得到政治人物正在造訪著名廟宇）。句子的重點是 politicians，所以原本的受詞 politicians 移到主詞的位置，動詞改為被動形態。",
+        "句首的時間詞官方收兩式，並排列出：Every election season, politicians can be seen…／During election season, politicians can be seen…。助動詞官方也收兩式：can be seen 與 will be seen。"
+      ],
+      "collocation": [
+        "election season（選舉季）——本題要用的這一組，是複合名詞。同一類的還有 flu season（流感季，102 年學測第 12 題的題幹）、the rainy season（雨季）。Collins 把 season 標成可數名詞，例句 The plum season is about to begin.（李子的產季就要開始了）。往外延伸：the holiday season（假期旺季）、the peak season（旺季）、the baseball season（棒球球季）。",
+        "中文的「季節」是名詞，英文要看擺在哪個位置決定形態，三種並排：複合名詞 election season、flu season；形容詞 seasonal——107 年學測第 1 題的答案，Mangoes are a seasonal fruit here in Taiwan.（芒果在台灣是季節性水果），114 年學測第 2 題題幹的 fresh seasonal produce（新鮮的當令農產品）也是；片語 in season（當令）、out of season（非當令）——92 年學測補考第 12 題把 in season 放在誘答選項裡，劍橋例句 Fruit is cheaper when it's in season.（水果當令的時候比較便宜）。",
+        "visit（造訪）——官方三式都收：visiting、making visits to、making a visit to，後兩式是把 visit 當名詞用。動詞的 visit 是及物動詞，後面直接接地方——visit famous temples；名詞用法則要有 to 把地方接上來——make a visit to a famous temple／make visits to famous temples。名詞用法正是 95 年學測文意選填第 31 題的考點：nor can you get it back with a quick ___ to a doctor（健康也不是看醫生一趟就能拿回來的），空格前面是 a quick、後面是 to，要填的是名詞，答對率 60。往外延伸：pay a visit to…（拜訪、造訪，Collins 的例句是 pay a visit to your doc 去看個醫生）。",
+        "temples（廟宇）——牛津高階的 temple 詞條例句 They went to pray in the temple.（他們到廟裡祈求）正好接得上下一題的 pray。廟宇這個場景站上考過兩題：111 年學測第 3 題的廟宇辦媽祖誕辰慶典、布袋戲與歌仔戲，93 年指考第 1 題的寺廟每年演歌仔戲，表達對觀音菩薩的感激。往外延伸：a Buddhist temple（佛寺）、go to temple（上廟裡去）。"
+      ],
+      "mustHave": [
+        "中文的「政治人物」「廟宇」「各地」都看不出單複數，英文得各選一個：三個都是泛指，所以用複數 politicians、temples、places（官方另收 areas）。",
+        "「總會看到」→ can be seen（官方另收 will be seen）",
+        "「造訪」接在 be seen 後面 → 現在分詞 visiting",
+        "另外兩處中文不必寫、英文非寫不可：中文「總會看到」沒有「被」字，也沒說是誰在看，英文得選一個講法——這一句談的是政治人物，看的人是誰不必說也不重要，所以主詞放 politicians、動詞寫成被動 can be seen；「各地著名廟宇」在中文一路擺在名詞前面，英文的「各地」必須用介系詞 in 接在 temples 後面，寫成 famous temples in different places。"
+      ],
+      "refs": [
+        {
+          "label": "107 年學測第 1 題",
+          "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0391"
+        },
+        {
+          "label": "114 年學測第 2 題",
+          "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0482"
+        },
+        {
+          "label": "102 年學測第 12 題",
+          "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0327"
+        },
+        {
+          "label": "92 年學測補考第 12 題",
+          "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0177"
+        },
+        {
+          "label": "95 年學測文意選填第 31 題",
+          "url": "https://staresto-create.github.io/passage-completion/#hard-Vy95_31"
+        },
+        {
+          "label": "111 年學測第 3 題",
+          "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0453"
+        },
+        {
+          "label": "93 年指考第 1 題",
+          "url": "https://staresto-create.github.io/JCEE-vocab-questions/zhikao/#q-ZK0193"
+        }
+      ]
+    }
   },
   {
     "id": 141,
@@ -1645,7 +1694,47 @@
     "altAnswers": [
       "Besides / Aside from / Apart from / In addition to",
       "election / voting"
-    ]
+    ],
+    "explanation": {
+      "pattern": [
+        "整句的骨架是「Besides + V-ing, S + also + V…」：Besides praying for good election results, + they + also hope to show respect to local culture and customs. Besides 是介系詞，後面接名詞或動名詞，所以「祈求」要寫成 praying。前半是介系詞片語，用逗號與後面隔開；後半才是主要子句，主詞 they 不能省。劍橋的例句與本句同型，後面同樣有 also：Besides looking after the children, she also runs a successful business.（除了照顧孩子，她還經營一家很成功的公司）。",
+        "句首官方收四式，意思都是「除了…之外還有」：Besides praying…／Aside from praying…／Apart from praying…／In addition to praying…。四個都是介系詞，後面一律接動名詞；In addition to 的 to 是介系詞，不是不定詞的 to。",
+        "hope to show 的 hope 後面接不定詞。三種形態並排：hope for + 名詞（盼望某事）／hope to + 原形（希望做某事）／hope that 子句（希望…）；hope 不能寫成 hope somebody to do，這一點與 want 不同。"
+      ],
+      "collocation": [
+        "pray for（祈求）——本題要用的這一組。並排：pray to + 神明（向…祈求）／pray for + 所求之事（祈求…），兩個也可以接在一起，pray to the gods for good election results（向神明祈求好的選舉結果）。牛津高階把「向神明祈求」這一義列為 pray for sb/sth 與 pray to sb for sth，另一義「非常希望某事發生」同為 pray for something；劍橋則把 pray for 與 pray to 各收成一個形態。往外延伸：pray for rain（祈雨）、pray for peace（祈求和平）、say a prayer（做一次禱告，prayer 是名詞）。",
+        "show respect to／show respect for（展現尊重）——兩式都寫得，差別在講的是哪一件事。for 是心裡的敬重：牛津高階把名詞形態收為 respect for somebody/something，人與事物都收；103 年學測文意選填第 31 題考的正是 show respect for，答對率 59、鑑別度 81。to 是把敬意表達出來的那個動作，常見的說法是 pay one's respects to（向…致敬，多用複數），受詞可以是人，也可以是先人、神明、傳統：pay respect to our ancestors（向先人致敬）、pay respect to the traditions of our culture（對我們文化的傳統表達敬意）。本題「展現對在地文化與習俗的尊重」講的是做出來的動作，官方參考答案用 to。往外延伸：have great respect for somebody（十分敬重某人）、out of respect for…（出於對…的尊重）、win someone's respect（贏得某人的敬重）。",
+        "local culture and customs（在地文化與習俗）——custom 指一個群體長久以來的做法，習俗不只一項，所以用複數 customs。牛津高階的例句整組看最清楚：She grew up with Chinese customs and traditions.（她從小接觸中國的習俗與傳統）／They were unfamiliar with local customs and culture.（他們不熟悉當地的習俗與文化）／in accordance with local custom（依照當地習俗）。留意 customs 另有「海關」的意思，那是另一個詞條，例 go through customs（通關）。local 這個字 114 年學測第 2 題的題幹也用過，The local farmers' market…（當地的農夫市集）。往外延伸：local customs（當地習俗）、a local specialty（在地特產）、cultural heritage（文化資產）。",
+        "election results（選舉結果）——官方另收 voting results。往外延伸：the outcome of the election（選舉結果）、an election campaign（競選活動）、the forthcoming election（即將到來的選舉）。"
+      ],
+      "mustHave": [
+        "中文的「選舉結果」與「習俗」看不出單複數，英文得各選一個：官方用複數 results 與 customs。",
+        "「除了…也…」→ Besides + V-ing, S + also + V",
+        "另外兩處中文不必寫、英文非寫不可：中文的「祈求」不變形，英文接在介系詞 Besides 後面必須改成動名詞 praying；「對在地文化與習俗的尊重」在中文只用一個「的」字帶過，英文必須用介系詞把 respect 與後面的名詞接起來，寫成 respect to（或 for）local culture and customs。"
+      ],
+      "refs": [
+        {
+          "label": "103 年學測文意選填第 31 題",
+          "url": "https://staresto-create.github.io/passage-completion/#hard-Vy103_31"
+        },
+        {
+          "label": "89 年學測第 1 題",
+          "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0091"
+        },
+        {
+          "label": "110 年試辦考試文意選填第 24 題",
+          "url": "https://staresto-create.github.io/passage-completion/#hard-Vy110t_24"
+        },
+        {
+          "label": "86 年推薦甄選第 10 題",
+          "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0050"
+        },
+        {
+          "label": "114 年學測第 2 題",
+          "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0482"
+        }
+      ]
+    }
   },
   {
     "id": 142,
@@ -1664,7 +1753,7 @@
     "explanation": {
       "pattern": [
         "評分原則與參考答案這一次不一致，先講清楚。大考中心公布的評分原則寫「第一句要使用比較級」，但同一份文件給的參考答案是最高級——the biggest／the strongest。中文題目說的是「最大的」，寫最高級才對應得上，考生照參考答案寫最高級即可。",
-        "整句的骨架是 S＋be＋補語：主詞（人類的想像和創意）＋is＋the biggest driving force＋for technological advancement。中文把「科技進步」與「最大的」都擺在「驅動力」前面，英文只留形容詞在名詞前面；「科技進步」這一段改用介系詞片語 for technological advancement 後位修飾，掛在 driving force 後面。"
+        "整句的骨架是 S + be + 補語：主詞（人類的想像和創意） + is + the biggest driving force + for technological advancement。中文把「科技進步」與「最大的」都擺在「驅動力」前面，英文只留形容詞在名詞前面；「科技進步」這一段改用介系詞片語 for technological advancement 後位修飾，放在 driving force 後面。"
       ],
       "collocation": [
         "driving force（推動力、原動力、主要推手）——本題要用的這一組。劍橋詞典把 driving force 收為獨立詞條，釋義是「促使某事發生的強大人物或事物」；Collins 的說明是「造成某事發生的主要因素」。drive 除了「駕駛」，更核心的意思是驅動、推動——drive the economy（帶動經濟）、drive change（推動改變），driving force 用的正是這個意思。105 年學測第 30 題都收過這一組用法：那一題的四個選項 driving、pulling、riding、bringing 都是 -ing 形，填進去在文法上都說得通，考的不是文法，是字詞搭配。官方另收 driving power。往外延伸：the driving force behind…（…背後的推手）、a driving factor（推動因素）、a major force in…（…的一大力量）。",
@@ -1707,7 +1796,7 @@
     "explanation": {
       "pattern": [
         "評分原則明寫這一句要用關係子句，而且要用過去式，主要子句則看現在進行式用得對不對。中文把「過去在科幻電影中出現的」擺在「神奇物件」前面，只用一個「的」字帶過；英文必須用關係子句把這層修飾關係表示出來，後位修飾前面的名詞：Amazing things that appeared in science-fiction movies in the past。",
-        "關代用哪一個、什麼格，把名詞代進關係子句就看得出來：Amazing things ＋（things）appeared in science-fiction movies in the past。代進去以後 things 是這個子句的主詞，所以用主格關代 that 或 which。",
+        "關代用哪一個、什麼格，把名詞代進關係子句就看得出來：Amazing things +（things）appeared in science-fiction movies in the past。代進去以後 things 是這個子句的主詞，所以用主格關代 that 或 which。",
         "先找標記，再決定時態。這一句兩個標記都在句子裡：關係子句的標記是 in the past，動詞用過去式 appeared；主要子句的標記是 now，講的是現在正在發生而且還在進行，用現在進行式 are becoming。中文靠「過去」「現在正」兩個詞把時間交代完，動詞本身不變化；英文則必須靠每一個子句的動詞形式，各自把時間表示出來。"
       ],
       "collocation": [
