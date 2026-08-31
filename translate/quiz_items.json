@@ -1296,7 +1296,36 @@
     "label": "學測",
     "yearLabel": "109 (學測)",
     "zh": "我們有時會違背自己的意願去做某些事情，就只為了要取悅朋友。",
-    "en": "We sometimes do things against our will just to please our friends."
+    "en": "We sometimes do things against our will just to please our friends.",
+    "explanation": {
+      "pattern": [
+        "against one's will（違背意願）裡的 will 是名詞「意願」，不是助動詞。分辨只問一句：前面有沒有所有格或冠詞。our will、a strong will 是名詞；we will go 是助動詞。",
+        "just to + 原形動詞表示目的（＝ only in order to）。中文的「就只為了要…」就是這個訊號，just 擺在 to 之前，用來限定「只有這一個理由」。",
+        "sometimes 是頻率副詞，位置有兩式，兩式都成立：擺一般動詞之前——We sometimes do things…；擺句首並用逗號隔開——Sometimes, we do things…。擺句首那一式語氣較重。"
+      ],
+      "collocation": [
+        "against one's will（違背意願）——本題要用的這一組。所有格取決於主詞是誰：主詞是 we，就寫 against our will。往外延伸：of one's own free will（出於自願）、a strong will（堅強的意志）、willpower（意志力）。106 年學測克漏字第 20 題的【常考字詞與句型】收的就是這一組。",
+        "please（取悅）——本題要用的這一組：please one's parents／friends（取悅父母／朋友）、be pleased with（對…感到滿意）。90 年學測克漏字第 18 題考的 hard to please（很難討好）用的也是這個 please。往外延伸：a pleasant surprise（令人愉快的驚喜）、to my pleasure（令我高興的是）。"
+      ],
+      "confusable": [
+        "please、pleased、pleasant 三個並排看：please 是動詞，後面直接接被取悅的人——The show pleased the audience.（那場表演取悅了觀眾。）；pleased 是形容詞，講人的感受，後面接 with——I am pleased with the result.（我對結果很滿意。）；pleasant 也是形容詞，講事物給人的感覺——a pleasant evening（愉快的夜晚）。"
+      ],
+      "mustHave": [
+        "中文的「某些事情」沒有單複數，英文得選一個：泛指不特定的幾件事，用複數 things；單數 a thing 指某一件特定的事。",
+        "泛指不特定 → 複數 things",
+        "另外兩處中文不必寫、英文非寫不可：「自己的意願」的所有格 our 不能省，不能只寫 against will；「朋友」用複數 our friends，前面同樣要有所有格。"
+      ],
+      "refs": [
+        {
+          "label": "106 年學測克漏字第 20 題",
+          "url": "https://staresto-create.github.io/grammar-cloze-test/q/g106-20-1/"
+        },
+        {
+          "label": "90 年學測克漏字第 18 題",
+          "url": "https://staresto-create.github.io/grammar-cloze-test/q/g90-18-1/"
+        }
+      ]
+    }
   },
   {
     "id": 125,
@@ -1304,7 +1333,37 @@
     "label": "學測",
     "yearLabel": "109 (學測)",
     "zh": "其實，在面對同儕壓力的時候，我們應該學習堅持自己的原則。",
-    "en": "In fact, when facing peer pressure, we should learn to stick to our principles."
+    "en": "In fact, when facing peer pressure, we should learn to stick to our principles.",
+    "explanation": {
+      "pattern": [
+        "時間副詞子句與它的簡化。完整的說法是 when we face peer pressure；簡化的做法是把子句的主詞 we 省略、動詞改成 V-ing，連接詞 when 留著，把「在…的時候」表示出來。兩個子句的主詞必須相同才能這樣簡化——這一句前後都是 we，所以可以省略。（英國文化協會 LearnEnglish〈Participle clauses〉明列 when、while、before、after 等連接詞後面可以直接接分詞片語，並載明分詞與主要子句的主詞必須相同。）",
+        "In fact 是轉承語，不是連接詞。它只能擺在句首或句中，不能拿它把兩個句子用逗號連起來——那樣就變成兩個句子沒有連接詞連接。",
+        "learn to + 原形動詞（學會做某事）：後面接不定詞，不接動名詞。"
+      ],
+      "collocation": [
+        "stick to（堅持、遵守）——本題要用的這一組：stick to one's principles（堅持原則）、stick to a plan／a budget（照計畫／預算走）。104 年學測第 3 題的題幹就是 To stick to a tight budget（為了守住吃緊的預算）。110 年學測文意選填第 33 題的字詞搭配欄把 stick to 與 abide by the rules（遵守規則）、comply with（遵守）並列。往外延伸：live up to one's principles（實踐自己的原則）。",
+        "peer pressure（同儕壓力）——複合名詞。往外延伸：peer group（同儕團體）、under pressure（承受壓力）、give in to peer pressure（屈服於同儕壓力）、resist peer pressure（抵抗同儕壓力）。"
+      ],
+      "confusable": [
+        "principle 與 principal 只差一個字母，容易混淆。並排看：stick to one's principles（堅持原則）／the school principal（學校校長）／the principal reason（主要的原因）。記法是把字尾對起來——princip-le 對 ru-le（規則），講的都是規則那一邊。",
+        "in fact 與 in effect 意思不同。in fact（其實、事實上）用來補一句與前面印象相反的事實；in effect（實際上）講的是就結果而言等於什麼。並排看：In fact, he never called.（其實他根本沒打來。）／The new rule is, in effect, a ban.（這條新規定實際上等於禁令。）"
+      ],
+      "mustHave": [
+        "中文的「原則」沒有單複數，英文得選一個：一個人立身處事的原則不只一條，泛指整套時用複數 principles；單數 a principle 指某一條特定的原則。",
+        "泛指整套 → 複數 principles",
+        "另外兩處中文不必寫、英文非寫不可：「自己的」要寫成所有格 our；「應該」用助動詞 should，後面接原形 learn。"
+      ],
+      "refs": [
+        {
+          "label": "104 年學測第 3 題",
+          "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0348"
+        },
+        {
+          "label": "110 年學測文意選填第 33 題",
+          "url": "https://staresto-create.github.io/passage-completion/#hard-Vy110_33"
+        }
+      ]
+    }
   },
   {
     "id": 126,
@@ -1331,7 +1390,48 @@
       "「申請」apply for",
       "「進入許可」admission/entry permit"
     ],
-    "officialWordsSource": "大考中心 109 學年度指考非選擇題評分標準說明－英文（選才電子報第 312 期）"
+    "officialWordsSource": "大考中心 109 學年度指考非選擇題評分標準說明－英文（選才電子報第 312 期）",
+    "explanation": {
+      "pattern": [
+        "be open to + 對象（對…開放）：介系詞用的是 to。94 年指考克漏字第 22 題考的就是這一格，四個選項裡 with、by、among 都不是 open 用來表示「對誰開放」的介系詞。官方另收 be accessible to（可進入、可使用），兩式都成立。",
+        "and 連接兩個對等的子句，兩邊各有自己的主詞與動詞：The early museums were…, and visitors had to…。整句講的都是過去的事，動詞一律用過去式。",
+        "had to 是 must 的過去式。must 沒有過去式形態，講過去的義務一律寫 had to。"
+      ],
+      "collocation": [
+        "apply for（申請）——本題要用的這一組：apply for admission（申請入場許可）、apply for a job／a visa（應徵工作／申請簽證）。官方另收 ask for（要求、索取）。要小心的是 apply to（適用於）是另一個用法——95 年學測克漏字第 17 題就是拿 apply to 對 apply for 當誘答。",
+        "in advance（事先）——本題要用的這一組。官方另收 beforehand（事先），兩式都成立：兩個都是副詞，多半放句尾。97 年指考克漏字第 28 題把這一群並排講過——prior to（在…之前）只能當介系詞，後面接名詞或動名詞；before 既是介系詞也是連接詞。90 年學測第 14 題的答案就是 in advance。",
+        "admission（入場許可；入學許可）——往外延伸：an admission fee（入場費）、admission to a university（大學的入學許可）、free admission（免費入場）。官方另收 entry permit（進入許可）。"
+      ],
+      "confusable": [
+        "「中上階層」官方兩式都成立，形態不同要一起換：單數寫 the upper-middle class，複數寫 middle and upper classes。並排看——the upper-middle class（社會階層名詞前面加 the，泛指那一群人）／middle and upper classes（兩個階層並列，用複數）。同型的還有 the middle class（中產階級）、the working class（勞工階級）。"
+      ],
+      "mustHave": [
+        "中文的「參觀者」沒有單複數，英文得選一個：泛指來參觀的人，用複數 visitors；單數 a visitor 指某一位特定的人。",
+        "泛指 → 複數 visitors",
+        "另外兩處中文不必寫、英文非寫不可：「早期的博物館」的 the 不能省，它指涉的是當年那一批博物館；「必須」講的是過去的義務，英文非把時態表示出來不可，寫 had to。"
+      ],
+      "usage": [
+        "官方公布的評量字詞裡「開放」列了 were open／opened to，兩式都成立，差別在詞性。並排看：were open to 的 open 是形容詞，說的是「當年就是那個狀態」；were opened to 的 opened 是過去分詞，說的是「被開放」這個動作。本題描述的是當年博物館的狀態，所以參考答案寫 were only open to。"
+      ],
+      "refs": [
+        {
+          "label": "94 年指考克漏字第 22 題",
+          "url": "https://staresto-create.github.io/zhikao-cloze-test/q/z94-22/"
+        },
+        {
+          "label": "97 年指考克漏字第 28 題",
+          "url": "https://staresto-create.github.io/zhikao-cloze-test/q/z97-28/"
+        },
+        {
+          "label": "95 年學測克漏字第 17 題",
+          "url": "https://staresto-create.github.io/grammar-cloze-test/q/g95-17-1/"
+        },
+        {
+          "label": "90 年學測第 14 題",
+          "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0119"
+        }
+      ]
+    }
   },
   {
     "id": 127,
@@ -1356,7 +1456,41 @@
       "「文化珍寶」cultural treasures",
       "「樂趣」fun/pleasure"
     ],
-    "officialWordsSource": "大考中心 109 學年度指考非選擇題評分標準說明－英文（選才電子報第 312 期）"
+    "officialWordsSource": "大考中心 109 學年度指考非選擇題評分標準說明－英文（選才電子報第 312 期）",
+    "explanation": {
+      "pattern": [
+        "這一句被 enjoy 的不是「探索」，是 the fun（那份樂趣）；「探索文化珍寶」是用介系詞 of 接上去修飾 fun 的。公式：enjoy + N；the fun of + V-ing。of 是介系詞，後面一律接動名詞。",
+        "most people 泛指「多數人」，前面不加冠詞。官方另收 most of the people，形態不同要一起換：加了 the 就必須寫成 most of the，而且指涉的是某一群特定的人。兩式都成立。",
+        "官方另列的那一種寫法換掉了句子的骨架：主要動詞由 enjoy 改成 visit，把「享受樂趣」降成表示目的的不定詞——…can visit museums in person or via online tour to enjoy the fun of exploring cultural treasures. 兩式都成立，差別在哪一件事當主要動詞。"
+      ],
+      "collocation": [
+        "explore（探索）——本題要用的這一組：explore cultural treasures（探索文化珍寶）、explore different cultures（探索不同的文化）。101 年學測第 3 題的題幹就是 Traveling is a good way to explore different cultures and broaden our horizons.（旅行是探索不同文化、開闊視野的好方法。）往外延伸：an explorer（探險家）、exploration（探索）。",
+        "in person（親自、當面）——本題要用的這一組，指的是人真的到場，不是透過電話或網路。112 年學測第 5 題的題幹就是 said “Sorry!” to me in person（當面向我說對不起）。往外延伸：meet sb in person（當面見到某人）、an in-person meeting（實體會議）。",
+        "via（透過、經由）——介系詞，後面接名詞。官方另收 through（透過），兩式都成立。往外延伸：via email（透過電子郵件）、travel via Tokyo（經由東京轉機）。"
+      ],
+      "confusable": [
+        "fun 與 funny 容易混淆。並排看：a fun trip（好玩的旅程）／a funny story（好笑的故事）。fun 說的是好玩，funny 說的是好笑。",
+        "官方的「樂趣」兩式都成立，但形態要留意：fun 只有不可數的用法，寫 the fun of V-ing、have fun（玩得開心）；pleasure 兩種都有，the pleasure of V-ing（那份愉悅，不可數）與 It's a pleasure.（一件令人愉快的事，可數）。"
+      ],
+      "mustHave": [
+        "中文的「文化珍寶」沒有單複數，英文得選一個：泛指各式各樣的珍寶，用複數 cultural treasures；單數 a cultural treasure 指某一件特定的珍寶。",
+        "泛指多件 → 複數 treasures",
+        "另外兩處中文不必寫、英文非寫不可：「樂趣」前面的 the 不能省，它指涉的是探索文化珍寶帶來的那一份；「可以」要用助動詞 can 表示出來。"
+      ],
+      "usage": [
+        "官方公布的評量字詞裡「現今」列了 nowadays／now／at present 三個，三式都成立，位置一樣擺句首並用逗號隔開。並排看：Nowadays, ／ Now, ／ At present, 。"
+      ],
+      "refs": [
+        {
+          "label": "101 年學測第 3 題",
+          "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0303"
+        },
+        {
+          "label": "112 年學測第 5 題",
+          "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0465"
+        }
+      ]
+    }
   },
   {
     "id": 128,
@@ -1376,7 +1510,48 @@
       "limited to / confined to",
       "formal education / regular education",
       "non-formal learning / informal learning"
-    ]
+    ],
+    "explanation": {
+      "pattern": [
+        "分號連接兩個關係緊密、各自完整的句子。中文用逗號一路連下去很順，英文不行——這兩段各有主詞與動詞，中間要嘛用分號，要嘛加一個連接詞，只放逗號就變成兩個句子沒有連接詞連接。",
+        "be confined to（被侷限於）用的是被動：侷限這件事是外界加在「學習」身上的，主詞 learning 是承受的一方，所以寫 is confined to。官方另收 be limited to，兩式都成立。no longer（不再）擺在 be 動詞之後、過去分詞之前：is no longer confined to。",
+        "中文的「已開始」是時態的訊號：這件事從過去開始、狀態延續到現在，所以用現在完成式 has begun to play。"
+      ],
+      "collocation": [
+        "be confined／limited to（侷限於）——本題要用的這一組，官方兩式都收。105 年學測第 4 題的字詞搭配欄收的是 be confined to a wheelchair／bed（行動限於輪椅／臥床不起）與 confine sth to（把…侷限在）。101 年學測克漏字第 29 題的原文也有 be confined to one day a year（侷限於一年一天）。往外延伸：a confined space（密閉空間）。",
+        "play a role（扮演角色）——本題要用的這一組：play an important／key／vital role in（在…扮演重要／關鍵／不可或缺的角色）。90 年學測第 7 題的字詞搭配欄收的就是 play a vital role in。106 年學測文意選填第 37 題另外註明一件事：這個「扮演」的動詞只能用 play，不能寫成 function a role。",
+        "formal education（正規教育）與 informal learning（非正式學習）是一組對照。往外延伸：higher education（高等教育）、compulsory education（義務教育）、lifelong learning（終身學習）。"
+      ],
+      "confusable": [
+        "confine 與 define 只差一個字母，意思差很遠，並排看：confine sth to（把…侷限在某個範圍內）／define sth as（把…定義為）。"
+      ],
+      "mustHave": [
+        "中文的「學校內的正規教育」沒有交代是哪一所學校，英文得選一個：泛指學校體系，用複數 in schools；單數 in the school 指某一所特定的學校。",
+        "泛指整個體系 → 複數 schools",
+        "另外兩處中文不必寫、英文非寫不可：「學習」與「非正式學習」在這裡都是不可數名詞，前面不加冠詞、也不加複數；「已開始」在中文只是一個副詞，英文沒有這個字可以擺，必須靠現在完成式把它表示出來。"
+      ],
+      "usage": [
+        "官方公布的評量字詞裡「非正式學習」列了 non-formal／informal learning 兩個。這兩個在教育領域其實分得很細：依聯合國教科文組織的分類，non-formal 指的是學校體制之外、但仍有規劃有組織的學習（社區課程、工作坊那一類），informal 指的是日常生活裡自然發生、沒有課程規劃的學習。本題只要求把「非正式」譯出來，兩式都可以得分；自己寫作文時，想講的若是有人開課、有安排的那一種，寫 non-formal 比較準。"
+      ],
+      "refs": [
+        {
+          "label": "105 年學測第 4 題",
+          "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0364"
+        },
+        {
+          "label": "101 年學測克漏字第 29 題",
+          "url": "https://staresto-create.github.io/grammar-cloze-test/q/g101-29-3/"
+        },
+        {
+          "label": "90 年學測第 7 題",
+          "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0112"
+        },
+        {
+          "label": "106 年學測文意選填第 37 題",
+          "url": "https://staresto-create.github.io/passage-completion/#hard-Vy106_37"
+        }
+      ]
+    }
   },
   {
     "id": 129,
@@ -1394,7 +1569,33 @@
     "altAnswers": [
       "volunteer service / volunteer work / voluntary services",
       "different backgrounds and ages / different backgrounds and age groups"
-    ]
+    ],
+    "explanation": {
+      "pattern": [
+        "allow sb to V（讓某人可以做某事）：主詞是 volunteer service（一件事），受詞是 students，後面接不定詞 to learn。",
+        "how to + 原形動詞（如何做某事）：疑問詞加不定詞，整串當名詞用，這裡當 learn 的受詞。同型的還有 what to do（該做什麼）、where to go（該去哪裡）。",
+        "For example 擺句首並用逗號隔開，後面接一個完整的句子。要接名詞的時候用的是 such as。並排看：For example, volunteer service allows students to…（後面是句子）／activities such as volunteer service（後面是名詞）。"
+      ],
+      "collocation": [
+        "interact with（與…互動）——本題要用的這一組。104 年學測第 14 題的字詞搭配欄收的就是 interact with sb（與某人互動）、interact with each other（彼此互動）、social interaction（社會互動）。往外延伸：interaction between A and B（雙方之間的互動）。",
+        "volunteer service（志工服務）——複合名詞。官方另收 volunteer work、voluntary services。往外延伸：do volunteer work（做志工）、volunteer to V（自願做某事）、a volunteer（一位志工）。",
+        "people from different backgrounds（來自不同背景的人）——講出身、來歷的介系詞用 from。往外延伸：come from a similar background（來自相近的背景）、a diverse background（多元的背景）、people of all ages（各個年齡層的人）。"
+      ],
+      "confusable": [
+        "volunteer 與 voluntary 並排看：volunteer 是名詞「志工」、也是動詞「自願」——a volunteer（一位志工）／volunteer to help（自願幫忙）；voluntary 是形容詞「自願的」——voluntary work（自願性的工作）。官方的 volunteer service 與 voluntary services 兩式都成立。"
+      ],
+      "mustHave": [
+        "中文的「學生」沒有單複數，英文得選一個：泛指參加志工服務的學生，用複數 students；單數 a student 指某一位特定的學生。",
+        "泛指 → 複數 students",
+        "另外兩處中文不必寫、英文非寫不可：「不同年齡層」的 age groups 要用複數，與前面的 backgrounds 一致；「與…互動」的介系詞 with 不能省，interact 後面要接人就一定帶 with。"
+      ],
+      "refs": [
+        {
+          "label": "104 年學測第 14 題",
+          "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0359"
+        }
+      ]
+    }
   },
   {
     "id": 130,
@@ -1674,7 +1875,7 @@
     ],
     "explanation": {
       "pattern": [
-        "動名詞當主詞：Keeping a pet 一整串是主詞，後面的動詞用單數，所以應寫成 is。官方另收 Raising，兩式都成立。站上同一個結構還有 97 年學測中譯英第 3 題：Listening to music is a hobby you can enjoy for a lifetime.（聽音樂是一個你可以終生享受的嗜好）。",
+        "動名詞當主詞：Keeping a pet 一整串是主詞，後面的動詞用單數，所以應寫成 is。官方另收 Raising，兩式都成立。站上同一個結構還有 97 年學測中譯英第 1 題：Listening to music is a hobby you can enjoy for a lifetime.（聽音樂是一個你可以終生享受的嗜好）。",
         "not A but B（不是 A，而是 B）：A 與 B 的形態要一樣。並排看最清楚——not a short-term life experience（a + 形容詞 + 名詞）／but a lifelong commitment（a + 形容詞 + 名詞）。兩邊都是名詞片語。當主詞時重點在 B，動詞視 B 而定：Not the volunteers but the budget is the real problem at the animal shelter.（真正的問題不在志工，而在動物收容所的預算。）",
         "commitment to + N：這個 to 是介系詞，後面接名詞，不接原形動詞，所以寫 commitment to an animal（對動物的承諾）。96 年指考第 9 題的答案就是 commitment。"
       ],
@@ -1699,6 +1900,10 @@
         {
           "label": "92 年指考篇章結構第 41 題",
           "url": "https://staresto-create.github.io/discourse-structure/q/dz92-41/"
+        },
+        {
+          "label": "97 年學測第 1 題",
+          "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-168"
         }
       ]
     }
