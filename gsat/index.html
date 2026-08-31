@@ -945,6 +945,26 @@ function goHome(){
    讀者按「下一題」即順著走，與本站其他入口一致。
    隊列取該題所屬那一卷（同年同卷別、依題號排序），即 startMock() 既有的母體與名稱，
    不另立池子、不另造畫面用語。 */
+/* #set- 深連結入口：老師指定一組題目當作業。
+   形狀比照 startFromHash()——只讀 hash、不寫 hash，站內操作與既有分享網址皆不受影響。
+   與 #q- 的差別：#q- 落在整份試卷之中，#set- 走的是指定的那一組，順序照網址給的順序，
+   不套用任何篩選、不打散，讓作業的題序可預期。
+   網址形狀：#set-<題目ID以半形逗號或句點分隔>[|<題組名稱>]
+   例：#set-V0321,V0455,V0777|115上第3週U5 */
+function startFromSetHash(){
+  const raw = decodeURIComponent(location.hash || '');
+  const m = raw.match(/^#set-([^|]+)(?:\|(.*))?$/);
+  if(!m) return false;
+  const ids = m[1].split(/[.,]/).map(s => s.trim()).filter(Boolean);
+  const valid = ids.filter(id => byId(id));
+  if(valid.length === 0){ alert('這條作業連結裡的題目都不存在，可能是題庫更新過。'); return false; }
+  const label = (m[2] || '').trim() || '指定練習';
+  const miss = ids.length - valid.length;
+  startQuiz(valid, label + '（' + valid.length + ' 題）');
+  if(miss > 0) alert('這條作業連結有 ' + miss + ' 題已不存在，已自動略過，其餘 ' + valid.length + ' 題照常作答。');
+  return true;
+}
+
 function startFromHash(){
   const m = (location.hash || '').match(/^#q-([A-Za-z0-9_]+)$/);
   if(!m) return false;
@@ -958,7 +978,7 @@ function startFromHash(){
 }
 
 initHome();
-startFromHash();
+startFromSetHash() || startFromHash();
 </script>
 </body>
 </html>
