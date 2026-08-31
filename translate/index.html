@@ -684,10 +684,35 @@ const LS_HISTORY = "translate_history_v1";
 
 function shuffle(arr){ const a=[...arr]; for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]];} return a; }
 
+/* #set- 深連結入口：老師指定一組題目當作業。
+   只讀 hash、不寫 hash，站內操作與既有網址皆不受影響。
+   順序照網址給的順序，不套用年度篩選、不打散，讓作業的題序可預期。
+   網址形狀：#set-<題目ID以半形逗號或句點分隔>[|<題組名稱>]
+   例：#set-12,45,78|115上第3週U5 */
+function startFromSetHash(){
+  const raw = decodeURIComponent(location.hash || '');
+  const m = raw.match(/^#set-([^|]+)(?:\|(.*))?$/);
+  if(!m) return false;
+  const ids = m[1].split(/[.,]/).map(s => s.trim()).filter(Boolean);
+  const byId = {};
+  ALL_ITEMS.forEach(it => { byId[String(it.id)] = it; });
+  const picked = ids.map(id => byId[id]).filter(Boolean);
+  if(picked.length === 0){ alert('這條作業連結裡的題目都不存在，可能是題庫更新過。'); return false; }
+  const miss = ids.length - picked.length;
+  queue = picked;
+  currentRangeLabel = ((m[2] || '').trim() || '指定練習') + '（' + picked.length + ' 題）';
+  qIndex = 0; correctCount = 0; attemptedCount = 0; sessionWrong = [];
+  showView('quiz');
+  renderQuestion();
+  if(miss > 0) alert('這條作業連結有 ' + miss + ' 題已不存在，已自動略過，其餘 ' + picked.length + ' 題照常作答。');
+  return true;
+}
+
 async function loadItems(){
   const res = await fetch("quiz_items.json");
   ALL_ITEMS = await res.json();
   buildYearGrid();
+  startFromSetHash();
 }
 
 function buildYearGrid(){
