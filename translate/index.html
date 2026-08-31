@@ -303,6 +303,15 @@
     letter-spacing:1px;
     margin-bottom:6px;
   }
+  .alt-answers .alt-note{
+    display:none;
+    font-size:12px;
+    color:var(--muted);
+    opacity:.85;
+    margin-bottom:6px;
+  }
+  .alt-answers.has-note .alt-note{display:block;}
+  .alt-answers.has-note .alt-label{margin-bottom:2px;}
   .alt-answers ul{margin:0;padding-left:18px;}
   .official-words{
     display:none;
@@ -608,6 +617,7 @@ details.skill[open] > summary::after{content:'－ 收合';}
         <div class="ans-source" id="ansSource"></div>
         <div class="alt-answers" id="altAnswers">
           <div class="alt-label">也可以這樣寫</div>
+          <div class="alt-note">大括弧 { } 之內用斜線隔開的寫法，擇一即可。</div>
           <ul id="altList"></ul>
         </div>
         <div class="official-words" id="officialWords">
@@ -708,11 +718,35 @@ function startFromSetHash(){
   return true;
 }
 
+/* refs 深連結入口：只讀 hash、不寫 hash，站內操作與既有分享網址皆不受影響。
+   形狀比照字彙站 startFromHash()——落在被點的那一題，且定位在一個隊列之中，
+   讀者按「下一題」即順著走，與本站其他入口一致。
+   隊列取該題所屬那一卷（同年同卷別），依題號排序；本站同一卷之內 id 即依題號遞增，
+   故以 id 遞增排序。畫面名稱直接用該卷既有的 yearLabel，不另造用語。
+   與 #set- 的差別：#q- 落在整份試卷之中，#set- 走的是指定的那一組。
+   網址形狀：#q-<題目ID>　例：#q-127 */
+function startFromHash(){
+  const m = (location.hash || '').match(/^#q-(\d+)$/);
+  if(!m) return false;
+  const target = ALL_ITEMS.find(it => String(it.id) === m[1]);
+  if(!target) return false;
+  const pool = ALL_ITEMS.filter(it => it.year === target.year && it.label === target.label)
+                        .sort((a, b) => Number(a.id) - Number(b.id));
+  const idx = pool.findIndex(it => String(it.id) === String(target.id));
+  queue = pool;
+  currentRangeLabel = target.yearLabel;
+  qIndex = idx > 0 ? idx : 0;
+  correctCount = 0; attemptedCount = 0; sessionWrong = [];
+  showView('quiz');
+  renderQuestion();
+  return true;
+}
+
 async function loadItems(){
   const res = await fetch("quiz_items.json");
   ALL_ITEMS = await res.json();
   buildYearGrid();
-  startFromSetHash();
+  startFromSetHash() || startFromHash();
 }
 
 function buildYearGrid(){
@@ -838,9 +872,13 @@ document.getElementById("revealBtn").addEventListener("click", ()=>{
   if(Array.isArray(item.altAnswers) && item.altAnswers.length){
     altList.innerHTML = item.altAnswers.map(a => `<li>${escapeHtml(a)}</li>`).join("");
     altBox.classList.add("show");
+    /* 大括弧註記：只有這一題的 altAnswers 真的用到大括弧時才出現。
+       沒有大括弧的題目不必多讀一行看不懂的話。判斷只讀既有字串，不新增欄位。 */
+    altBox.classList.toggle("has-note", item.altAnswers.some(a => String(a).includes("{")));
   }else{
     altList.innerHTML = "";
     altBox.classList.remove("show");
+    altBox.classList.remove("has-note");
   }
 
   const owBox = document.getElementById("officialWords");
