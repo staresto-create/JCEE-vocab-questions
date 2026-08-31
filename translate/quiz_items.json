@@ -1133,7 +1133,40 @@
     "label": "學測",
     "yearLabel": "108 (學測)",
     "zh": "自2007年營運以來，高鐵（the High Speed Rail）已成為臺灣最便利、最快速的交通工具之一。",
-    "en": "Since its operation in 2007, the High Speed Rail has become one of the most convenient and fastest means of transportation in Taiwan."
+    "en": "Since its operation in 2007, the High Speed Rail has become one of the most convenient and fastest means of transportation in Taiwan.",
+      "explanation": {
+        "pattern": [
+          "Since + 時間起點, S + have/has + p.p.。劍橋 since 條目載明 since 當介系詞可以接日期、時間或名詞片語，主要子句用現在完成式。本句 since 後面接的是名詞片語 its operation in 2007；改寫成子句也成立：Since it began operation in 2007, …。",
+          "先找標記，再決定時態。這一句的標記就在句首——since 一出現，主要子句的時態就定了。",
+          "one of + 最高級 + 複數名詞。中文「交通工具之一」的「之一」在英文寫成 one of，而 one of 後面的名詞一律要用複數。同型的說法在作文裡很常用到：one of the most convenient ways、one of the biggest challenges。",
+          "這一句本站首頁的〈讀句子的第一步〉已經拆過骨幹：能省略的只有句首的時間片語和句尾的 in Taiwan，become 後面那一整塊是主詞補語，拿掉就不成句——句子裡長的那一塊不一定是修飾語，也可能是不能省略的補語。"
+        ],
+        "collocation": [
+          "means of transportation（交通工具）——本題要用的這一組。往外延伸：public transportation（大眾運輸）、a means of communication（一種溝通的方式）、a means of payment（一種支付方式）、by means of（藉由）。要小心 traffic 指的是車流量，不是交通工具，95 年學測第 11 題就拿它當誘答選項。",
+          "「營運」的三種寫法都成立：since its operation in 2007、since it began operation in 2007、since it went into operation in 2007。",
+          "convenient（便利的）：convenient for + N、It is convenient (for sb) to V。往外延伸：convenience store（便利商店）、at your convenience（在你方便的時候）。"
+        ],
+        "mustHave": [
+          "中文的「已成為」沒有時態，英文得選一個：這件事從 2007 年到現在、狀態還在，所以用現在完成式 has become。",
+          "從過去延續到現在 → 現在完成式",
+          "means 這個字把單複數藏起來了。one of 後面的名詞一律要用複數，但 means 作「方法、工具」解時單複數同形——Collins 明載這個用法的單數與複數是同一個形。同一份考卷的字彙題（108 年學測第 2 題）考的正是這個字。",
+          "另外一處中文不必寫、英文非寫不可：「營運」在中文是動詞，接在 since 後面要改成名詞 operation，前面還得加所有格 its。"
+        ],
+        "refs": [
+          {
+            "label": "108 年學測第 2 題（同一份考卷，means 單複數同形）",
+            "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0407"
+          },
+          {
+            "label": "95 年學測第 11 題（transportation 對 traffic）",
+            "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0221"
+          },
+          {
+            "label": "110 年學測文意選填第 39 題（a means 的單數用法）",
+            "url": "https://staresto-create.github.io/passage-completion/#hard-Vy110_39"
+          }
+        ]
+      }
   },
   {
     "id": 121,
@@ -1141,7 +1174,36 @@
     "label": "學測",
     "yearLabel": "108 (學測)",
     "zh": "對於強調職場效率的人而言，高鐵當然是商務旅行的首選。",
-    "en": "For those who emphasize workplace efficiency, the High Speed Rail is certainly the first choice for business travel."
+    "en": "For those who emphasize workplace efficiency, the High Speed Rail is certainly the first choice for business travel.",
+      "explanation": {
+        "pattern": [
+          "「…的人」用 those who + 複數動詞：For those who emphasize workplace efficiency, …。those 是複數，關係子句的動詞就用複數的 emphasize。關代用哪一個、什麼格，把名詞代進關係子句就看得出來：those + （those）emphasize workplace efficiency。代進去以後 those 是這個子句的主詞，所以用主格關代 who。"
+        ],
+        "collocation": [
+          "emphasize（強調）——本題要用的這一組。emphasize 是及物動詞，後面直接接受詞，不加介系詞 on；Collins 詞典即標為 transitive verb。要用介系詞得換一個說法：put／lay／place emphasis on + N。93 年指考第 10 題的題幹正是 emphasizes the importance of…。",
+          "同一組意思的及物動詞還有 stress、highlight、underline，接法相同：95 年指考第 9 題考的就是 highlight the need for…（凸顯…的必要）。",
+          "首選：the first choice for + N。往外延伸：a top choice、the obvious choice（不作第二人想的選擇）。「商務旅行」寫 business travel（不可數，指這件事）或 business trips（可數，指一趟一趟的行程）都成立。"
+        ],
+        "confusable": [
+          "efficiency（效率）與 effectiveness（成效）——中文都可能翻成「有效」，英文分工不同。Collins 的用法說明講得最直接：effective 是把事情做對，efficient 是把事情做得又快又省力。並排：an efficient way to learn English（省時省力的學法）／an effective way to learn English（真的學得起來的學法）。本題中文是「職場效率」，講的是省時省力，所以用 efficiency。"
+        ],
+        "mustHave": [
+          "中文的「首選」沒有冠詞，英文非加 the 不可：一件事的首選只有一個，序數詞 first 前面本來就要有限定詞，所以是 the first choice。",
+          "只有一個 → the",
+          "「職場效率」與「商務旅行」都是複合名詞：workplace efficiency、business travel。",
+          "另外一處中文不必寫、英文非寫不可：「對於強調職場效率的人而言」在中文只用一個「的」字把整串修飾語接到「人」上面，英文必須用關係子句把這層修飾關係表示出來：For those／people who + V…"
+        ],
+        "refs": [
+          {
+            "label": "93 年指考第 10 題（emphasize 直接接受詞）",
+            "url": "https://staresto-create.github.io/JCEE-vocab-questions/zhikao/#q-ZK0202"
+          },
+          {
+            "label": "95 年指考第 9 題（highlight the need for）",
+            "url": "https://staresto-create.github.io/JCEE-vocab-questions/zhikao/#q-ZK0181"
+          }
+        ]
+      }
   },
   {
     "id": 122,
@@ -1163,7 +1225,28 @@
       "「布條」banners",
       "「買氣」sales"
     ],
-    "officialWordsSource": "大考中心 108 學年度指定科目考試英文考科非選擇題閱卷評分原則說明"
+    "officialWordsSource": "大考中心 108 學年度指定科目考試英文考科非選擇題閱卷評分原則說明",
+      "explanation": {
+        "pattern": [
+          "recently 搭配現在完成式，副詞擺在助動詞與過去分詞中間：have recently become。官方把 recently 與 lately 都列為可用，兩個都成立。",
+          "and 連接兩個對等的動詞片語，主詞只寫一次：Creative banners have recently become… and have stimulated…。",
+          "對等子句簡化為分詞構句：S + V…, and + V… → S + V…, V-ing…。兩個子句的主詞相同時，省略 and 與重複的主詞，動詞改為分詞（主動用 V-ing、被動用 p.p.）；擺在句尾逗號之後的分詞構句，多半表示前面那件事所造成的結果。官方另收的 , stimulating the growth of sales 用的就是這一式。"
+        ],
+        "collocation": [
+          "stimulate（刺激）——本題要用的這一組：stimulate sales、stimulate the economy、stimulate demand。往外延伸：boost sales、increase sales、promote sales，官方四個字都收。拼字要小心：stimulation（刺激）與 simulation（模擬）只差一個 t，看錯就從刺激變成模擬。simulation 不在大考中心公布的參考詞彙表裡，不必背，但要認得出來才不會看錯意思。",
+          "廣告：an advertising tool（廣告工具）、an advertising campaign（廣告活動）、an eye-catching banner（引人注目的布條）。advertising 是不可數名詞、指廣告這件事，一則廣告要寫 an advertisement 或 an ad。",
+          "夜市：at a night market 與 in night markets 官方兩個介系詞都收——指某一個特定的夜市用 at，泛指這個場所這一類用 in。"
+        ],
+        "confusable": [
+          "sales（銷售量）與 sale（一次銷售、特價）——本題「買氣」官方給的是 sales，恆用複數。單數的 sale 意思不同：on sale（特價中）、for sale（出售中）、a garage sale（車庫拍賣）。寫成 stimulate the sale，意思會變成去刺激那一場特價活動或那一次的成交本身，不是刺激買氣。"
+        ],
+        "mustHave": [
+          "中文的「成了」「刺激了」都沒有時態，英文得選一個：「最近」是標記，這件事到現在還發生著作用，所以兩個動詞都用現在完成式 have become、have stimulated。",
+          "最近開始、到現在還在 → 現在完成式",
+          "「布條」與「廣告工具」在中文看不出單複數，英文得選一個：這一句講的是一般現象、不是特定哪一條布條，所以用複數 banners、tools。",
+          "另外一處中文不必寫、英文非寫不可：「創意布條」的「創意」在這裡要用形容詞 creative 修飾 banner。比較：102 年指考英文作文題目的隱形披風是物品名稱，所以用複合名詞 invisibility cloak；隱形人是你看不到他，為 invisible man。"
+        ]
+      }
   },
   {
     "id": 123,
@@ -1188,7 +1271,24 @@
       "「引人注目」eye-catching",
       "「會心的一笑」a knowing smile / an understanding smile"
     ],
-    "officialWordsSource": "大考中心 108 學年度指定科目考試英文考科非選擇題閱卷評分原則說明"
+    "officialWordsSource": "大考中心 108 學年度指定科目考試英文考科非選擇題閱卷評分原則說明",
+      "explanation": {
+        "pattern": [
+          "Some of them 是「其中有些」。some of + 限定詞 + 複數名詞，動詞視 them 而定，用複數 seem。官方另收只寫 Some，不寫 of them。",
+          "seem + 形容詞（看似…）：seem meaningless。官方另收 appear (to be) meaningless 與 look meaningless，三式都成立。",
+          "bring 是授與動詞，接法是 bring sb sth 或 bring sth to sb，本句用的是前者：bring people a knowing smile。官方另收 cause／make people smile knowingly——把名詞 smile 改回動詞，整句就從授與動詞改成使役動詞。"
+        ],
+        "collocation": [
+          "eye-catching（引人注目的）：複合形容詞，中間的連字號不能省略。往外延伸：an eye-catching design、catch sb's eye（吸引某人的目光）、attract attention（引起注意）。",
+          "a knowing smile（會心的一笑）——官方另收 an understanding smile。往外延伸：a knowing look（會意的眼神）、smile knowingly（會心地笑）。",
+          "meaningless（無意義的）：字尾 -less 表示沒有。往外延伸：meaningful（有意義的）、pointless（白費工夫的）、make sense（說得通）。"
+        ],
+        "mustHave": [
+          "中文的「其中」兩個字沒有說是誰，英文得寫出來：Some of them 的 them 指涉的是前一句的 creative banners。",
+          "「但卻」在中文可以連用兩個轉折詞，英文一個就夠——寫了 but 就不再寫 however。兩個子句要有連接詞連接，但一個就夠了。",
+          "另外兩處中文不必寫、英文非寫不可：「看似無意義」的「無意義」在中文是一個詞，英文要選一個形容詞 meaningless 當 seem 的補語；「會心的一笑」在中文是名詞片語，英文有兩個寫法——名詞寫成 bring people a knowing smile，動詞寫成 make people smile knowingly。"
+        ]
+      }
   },
   {
     "id": 124,
@@ -2027,7 +2127,7 @@
         "參考答案寫的是 senior high school，但英美日常講的是 high school——只有國中才加 junior，說成 junior high school。senior high school 是早期台灣教育體系沿用下來的譯法。國家教育研究院的中英雙語詞彙審譯會已經決議修正，樂詞網公告「XX 高中」對應的英文就是 XX High School。",
         "站上的歷屆試題原文也看得到這條線：85 年推薦甄選第 1 題寫 in high school、94 年學測第 10 題寫 a high school student、103 年學測第 9 題寫 a high school diploma、114 年學測第 7 題寫 The high school student、115 年學測第 3 題寫 at the famous high school——同一份 115 學測考卷，字彙題寫 high school，中譯英的參考答案卻寫 senior high school。",
         "考試照參考答案寫不會扣分；自己寫作文時，寫 high school 才合英文習慣。",
-        "臺大外文系退休教師奚永慧在 2026 年 2 月 18 日的公開貼文裡提到，nowadays 表趨勢、more and more 也表趨勢、have increased 表完成，三者擠在一句裡語意會打架；他也認為 the percentage of English use 與 the percentage of using English 都不是自然的英文。他自己的譯法是 An increasing number of high school English teachers are now using more English in their classrooms.",
+        "臺大外文系退休教師奚永慧在 2026 年 2 月 18 日的公開貼文裡提到，nowadays 表趨勢、more and more 也表趨勢、have increased 表完成，三者擠在一句裡語意會矛盾；他也認為 the percentage of English use 與 the percentage of using English 都不是自然的英文。他自己的譯法是 An increasing number of high school English teachers are now using more English in their classrooms.",
         "任教於臺師大翻譯研究所的蘇正隆在 2026 年 2 月 12 日的公開貼文裡指出，senior high school 不合英文習慣，the percentage of the use of 也太累贅。他請母語顧問看過之後給的譯法是 High school teachers are using more English in their classrooms these days.",
         "兩位各自寫、各自請教母語人士，卻收斂到幾乎同一句：都不寫 senior，都把名詞化拆回動詞。這正說明「拿分」與「寫得好」是兩回事。"
       ],
