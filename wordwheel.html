@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>單字輪｜115 上第一次段考</title>
+<meta name="description" content="把段考單字按字首、字尾、字根排成輪狀，拆開來看每個字為什麼是這個意思。">
+<meta property="og:title" content="單字輪｜115 上第一次段考">
+<meta property="og:description" content="12 個字首字尾，96 個字，拆開來記。橘色是段考範圍，灰色是大考中心參考詞彙表補充。">
+<style>
+:root{
+  --ground:#f1f3f2; --ink:#17282f; --teal:#1f6f6a; --teal-soft:#dfeceb;
+  --muted:#77878d; --line:#cdd6d6; --exam:#b4661c; --exam-soft:#fdf4e7;
+  --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+  --sans:"PingFang TC","Noto Sans TC","Microsoft JhengHei","Helvetica Neue",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);
+     line-height:1.6;-webkit-text-size-adjust:100%}
+.wrap{max-width:44rem;margin:0 auto;padding:1.6rem 1.1rem 4rem}
+h1{font-family:var(--serif);font-weight:600;font-size:1.72rem;line-height:1.25;margin:0 0 .5rem}
+h1 em{font-style:normal;color:var(--teal)}
+.lede{margin:0 0 1.1rem;color:#3d5059;font-size:.96rem}
+.legend{display:flex;gap:1rem;flex-wrap:wrap;font-size:.8rem;color:var(--muted);
+        border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:.55rem 0;margin-bottom:1.2rem}
+.legend b{font-weight:600}
+.swatch{display:inline-block;width:.62rem;height:.62rem;border-radius:.16rem;margin-right:.34rem;
+        vertical-align:baseline;border:1.5px solid var(--exam);background:var(--exam-soft)}
+.swatch.sup{border-color:var(--line);background:#fff}
+
+nav{display:flex;gap:.4rem;overflow-x:auto;padding-bottom:.7rem;margin-bottom:1.1rem;
+    scrollbar-width:thin;-webkit-overflow-scrolling:touch}
+nav button{flex:0 0 auto;font:inherit;font-size:.86rem;font-family:var(--serif);
+    background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:999px;
+    padding:.34rem .82rem;cursor:pointer}
+nav button[aria-selected="true"]{background:var(--teal);border-color:var(--teal);color:#fff}
+nav button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+
+.hub{margin:0 0 .35rem;font-family:var(--serif);font-size:1.3rem;color:var(--teal)}
+.hub span{font-family:var(--sans);font-size:.92rem;color:var(--ink);margin-left:.5rem}
+.note{margin:0 0 1.15rem;font-size:.88rem;color:#3d5059}
+
+svg{display:block;width:100%;height:auto;margin:0 auto 1.3rem;max-width:30rem}
+.spoke{stroke:var(--line);stroke-width:1.4}
+.node{cursor:pointer}
+.node circle{fill:#fff;stroke:var(--line);stroke-width:1.6}
+.node.exam circle{fill:var(--exam-soft);stroke:var(--exam)}
+.node text{font-family:Georgia,serif;font-size:11px;fill:var(--ink);text-anchor:middle;dominant-baseline:middle}
+.node.on circle{fill:var(--teal);stroke:var(--teal)}
+.node.on text{fill:#fff}
+.core circle{fill:var(--teal-soft);stroke:var(--teal);stroke-width:2.2}
+.core text{text-anchor:middle;font-family:Georgia,serif;font-size:15px;fill:var(--teal)}
+
+ol{list-style:none;margin:0;padding:0}
+li{border-top:1px solid var(--line);padding:.72rem .1rem}
+li:last-child{border-bottom:1px solid var(--line)}
+li.on{background:#fff;border-radius:.3rem;box-shadow:inset 3px 0 0 var(--teal);padding-left:.65rem}
+.w{font-family:var(--serif);font-size:1.08rem;font-weight:600}
+.tag{float:right;font-size:.72rem;font-weight:600;color:var(--exam);
+     background:var(--exam-soft);border:1px solid var(--exam);border-radius:.22rem;padding:.02rem .34rem}
+.tag.sup{color:var(--muted);background:#fff;border-color:var(--line);font-weight:400}
+.p{color:var(--teal);font-size:.84rem;margin-top:.08rem}
+.g{color:#3d5059;font-size:.9rem}
+footer{margin-top:2.2rem;padding-top:1rem;border-top:1px solid var(--line);
+       font-size:.82rem;color:var(--muted)}
+@media (prefers-reduced-motion:no-preference){
+  .node circle,.node text{transition:fill .18s ease,stroke .18s ease}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>單字輪</h1>
+  <p class="lede">115 上第一次段考的字，按共同的字首、字尾、字根排成輪狀。點輪子上的字，下面會標出來——每個字都拆開講，看得出來它為什麼是這個意思。</p>
+  <p class="legend">
+    <span><span class="swatch"></span><b>段考範圍</b>　標來源：L1–L3 課本、U9–U12 核心字彙、9/X 雜誌單字表日期</span>
+    <span><span class="swatch sup"></span>大考中心參考詞彙表補充，標第幾級</span>
+  </p>
+
+  <nav id="tabs" role="tablist" aria-label="選擇字首字尾"></nav>
+  <h2 class="hub" id="hub"></h2>
+  <p class="note" id="note"></p>
+  <div id="chart"></div>
+  <ol id="list"></ol>
+
+  <footer>12 個構詞、96 個字。排序依大考題庫（學測與指考字彙、克漏字共 1713 題）答案字的出現題數，多的排前面。</footer>
+</div>
+
+<script>
+const DATA = [{"k": "re-", "zh": "再一次、往回", "note": "拉丁文 re-「回頭、再來一次」。動作重做一遍，或往原來的方向退回去。", "items": [{"w": "refuse", "p": "re 往回＋fus 倒", "g": "v. 把倒過來的推回去→拒絕", "t": "L1"}, {"w": "refusal", "p": "refuse＋-al 名詞", "g": "n. 拒絕這件事", "t": "L1"}, {"w": "reform", "p": "re 再＋form 形狀", "g": "v. 重新塑形→改革", "t": "U10"}, {"w": "recovery", "p": "re 回＋cover 蓋", "g": "n. 重新蓋回去→復原", "t": "U12"}, {"w": "restore", "p": "re 回＋stor 儲存", "g": "v. 放回原來的地方→恢復", "t": "U11"}, {"w": "reunion", "p": "re 再＋union 結合", "g": "n. 再度聚在一起→團圓", "t": "U12"}, {"w": "reminder", "p": "re 再＋mind 心思＋-er", "g": "n. 讓你再想起來的東西→提醒物", "t": "9/16"}, {"w": "revise", "p": "re 再＋vis 看", "g": "v. 再看一次→修訂", "t": "9/21"}]}, {"k": "-tion / -sion", "zh": "動作變成名詞", "note": "拉丁文 -tio。動詞加上去就變成「這個動作」或「動作的結果」。", "items": [{"w": "construction", "p": "construct 建造＋-ion", "g": "n. 蓋的過程→施工", "t": "L2"}, {"w": "exploration", "p": "explore 探索＋-ation", "g": "n. 探索這件事→勘查", "t": "L2"}, {"w": "innovation", "p": "innovate 創新＋-ion", "g": "n. 創新的成果→革新", "t": "L2"}, {"w": "graduation", "p": "graduate 畢業＋-ion", "g": "n. 畢業這件事→畢業典禮", "t": "L2"}, {"w": "hesitation", "p": "hesitate 猶豫＋-ion", "g": "n. 猶豫的狀態→遲疑", "t": "L1"}, {"w": "distribution", "p": "distribute 分配＋-ion", "g": "n. 分配的結果→分布", "t": "L3"}, {"w": "civilization", "p": "civilize 開化＋-ation", "g": "n. 開化的結果→文明", "t": "L3"}, {"w": "collaboration", "p": "collaborate 合作＋-ion", "g": "n. 合作這件事→協作", "t": "L2"}]}, {"k": "con- / com-", "zh": "一起、全部", "note": "拉丁文 com-「與……一起」。把分散的東西合到一處，或表示「徹底」。", "items": [{"w": "construct", "p": "con 一起＋struct 建造", "g": "v. 把材料組在一起→建造", "t": "L2"}, {"w": "collaborate", "p": "col 一起＋labor 勞動", "g": "v. 一起出力→合作", "t": "L2"}, {"w": "colleague", "p": "col 一起＋leg 選派", "g": "n. 被派在一起做事的人→同事", "t": "9/22"}, {"w": "combination", "p": "com 一起＋bin 兩個＋-ation", "g": "n. 把兩樣併在一起→組合", "t": "9/4"}, {"w": "compromise", "p": "com 一起＋promise 承諾", "g": "n. 雙方各讓一步的承諾→妥協", "t": "9/30"}, {"w": "conflict", "p": "con 一起＋flict 撞擊", "g": "n. 互相撞上→衝突", "t": "L3"}, {"w": "consume", "p": "con 完全＋sum 拿取", "g": "v. 全部拿光→消耗", "t": "U9"}, {"w": "conscience", "p": "con 一起＋sci 知道", "g": "n. 心裡跟你一起知道的聲音→良心", "t": "U10"}]}, {"k": "in- / im-", "zh": "進入，或表示不", "note": "拉丁文 in- 有兩個身分：一是「進到裡面」，二是「不」。看字義判斷是哪一個。", "items": [{"w": "innovate", "p": "in 進入＋nov 新", "g": "v. 把新東西放進來→創新", "t": "L2"}, {"w": "inspire", "p": "in 進入＋spir 呼吸", "g": "v. 把氣吹進去→激勵", "t": "U11"}, {"w": "insight", "p": "in 裡面＋sight 看", "g": "n. 看進事情裡面→洞察力", "t": "9/8"}, {"w": "invest", "p": "in 進入＋vest 衣服", "g": "v. 把錢投進去→投資", "t": "U9"}, {"w": "invade", "p": "in 進入＋vad 走", "g": "v. 走進別人的地方→侵略", "t": "9/15"}, {"w": "imaginative", "p": "imagine 想像＋-ative", "g": "a. 腦中造得出畫面的→有想像力的", "t": "9/11"}, {"w": "incredible", "p": "in 不＋cred 相信＋-ible", "g": "a. 沒辦法相信的→難以置信的", "t": "第4級"}, {"w": "independent", "p": "in 不＋depend 依賴＋-ent", "g": "a. 不靠別人的→獨立的", "t": "第2級"}]}, {"k": "de-", "zh": "往下、去掉", "note": "拉丁文 de-「離開、往下」。把東西拿掉、拆掉，或往下走。", "items": [{"w": "depart", "p": "de 離開＋part 部分", "g": "v. 從原地離開→出發", "t": "U11"}, {"w": "departure", "p": "depart＋-ure 名詞", "g": "n. 離開這件事→啟程", "t": "U11"}, {"w": "dependent", "p": "de 往下＋pend 懸掛＋-ent", "g": "a. 掛在別人身上的→依賴的", "t": "U10"}, {"w": "demonstrate", "p": "de 完全＋monstr 展示", "g": "v. 完整攤開給人看→示範", "t": "9/9"}, {"w": "destination", "p": "de 往下＋stin 定位＋-ation", "g": "n. 事先定好要落腳的點→目的地", "t": "9/30"}, {"w": "delicate", "p": "de 去掉＋lic 引誘", "g": "a. 經不起碰的→精緻脆弱的", "t": "U11"}, {"w": "decrease", "p": "de 往下＋creas 增長", "g": "v. 往下長→減少", "t": "第3級"}, {"w": "destruction", "p": "de 去掉＋struct 建造＋-ion", "g": "n. 把蓋好的拆掉→破壞", "t": "第4級"}]}, {"k": "-al", "zh": "名詞變形容詞", "note": "拉丁文 -alis「與……有關的」。名詞加上去就變成「跟這個有關的」。", "items": [{"w": "essential", "p": "essence 本質＋-ial", "g": "a. 跟本質有關的→必要的", "t": "9/3"}, {"w": "material", "p": "mater 母體＋-ial", "g": "a./n. 構成東西的底料→材料", "t": "L2"}, {"w": "universal", "p": "universe 宇宙＋-al", "g": "a. 跟整個宇宙有關的→普遍的", "t": "L3"}, {"w": "logical", "p": "logic 邏輯＋-al", "g": "a. 合乎邏輯的→合理的", "t": "U10"}, {"w": "mechanical", "p": "mechanic 機械＋-al", "g": "a. 跟機械有關的→機械式的", "t": "U9"}, {"w": "professional", "p": "profession 專業＋-al", "g": "a. 跟本行有關的→專業的", "t": "9/11"}, {"w": "beneficial", "p": "benefit 好處＋-ial", "g": "a. 帶來好處的→有益的", "t": "L3"}, {"w": "psychological", "p": "psychology 心理學＋-al", "g": "a. 跟心理有關的→心理上的", "t": "U11"}]}, {"k": "-ive", "zh": "傾向於做某事", "note": "拉丁文 -ivus。動詞加上去，表示「有這種性質、傾向這樣做」。", "items": [{"w": "constructive", "p": "construct 建造＋-ive", "g": "a. 傾向把事情蓋起來→有建設性的", "t": "L2"}, {"w": "innovative", "p": "innovate 創新＋-ive", "g": "a. 傾向創新的→創新的", "t": "L2"}, {"w": "imaginative", "p": "imagine 想像＋-ive", "g": "a. 傾向想像的→有想像力的", "t": "9/11"}, {"w": "primitive", "p": "prim 最早＋-itive", "g": "a. 停在最早階段的→原始的", "t": "U9"}, {"w": "massive", "p": "mass 大量＋-ive", "g": "a. 具有大量特性的→巨大的", "t": "9/29"}, {"w": "attractive", "p": "attract 吸引＋-ive", "g": "a. 會吸引人的→有魅力的", "t": "第3級"}, {"w": "competitive", "p": "compete 競爭＋-itive", "g": "a. 傾向競爭的→有競爭力的", "t": "第4級"}, {"w": "sensitive", "p": "sens 感覺＋-itive", "g": "a. 容易有感覺的→敏感的", "t": "第2級"}]}, {"k": "ex- / e-", "zh": "向外", "note": "拉丁文 ex-「出去」。從裡面走到外面，或把東西拿出來。", "items": [{"w": "explore", "p": "ex 向外＋plor 呼喊尋找", "g": "v. 往外找→探索", "t": "L2"}, {"w": "exploration", "p": "explore＋-ation", "g": "n. 往外找這件事→勘查", "t": "L2"}, {"w": "exceed", "p": "ex 向外＋ceed 走", "g": "v. 走出界線→超過", "t": "9/3"}, {"w": "exhibit", "p": "ex 向外＋hibit 拿住", "g": "v. 拿出來給人看→展出", "t": "U12"}, {"w": "extraordinary", "p": "extra 之外＋ordinary 普通", "g": "a. 在普通之外的→非凡的", "t": "9/25"}, {"w": "export", "p": "ex 向外＋port 搬", "g": "v. 把貨搬出國→出口", "t": "第3級"}, {"w": "expand", "p": "ex 向外＋pand 展開", "g": "v. 往外攤開→擴張", "t": "第4級"}, {"w": "exclude", "p": "ex 向外＋clud 關閉", "g": "v. 關在門外→排除", "t": "第5級"}]}, {"k": "-able / -ible", "zh": "可以被……的", "note": "拉丁文 -abilis「有能力的」。動詞加上去，表示「可以被這樣做」。", "items": [{"w": "reliable", "p": "rely 依靠＋-able", "g": "a. 可以被依靠的→可靠的", "t": "L2"}, {"w": "capable", "p": "cap 拿取＋-able", "g": "a. 拿得動的→有能力的", "t": "L2"}, {"w": "dependable", "p": "depend 依賴＋-able", "g": "a. 可以被依賴的→靠得住的", "t": "U10"}, {"w": "accessible", "p": "access 進入＋-ible", "g": "a. 進得去的→容易取得的", "t": "9/18"}, {"w": "flexible", "p": "flex 彎曲＋-ible", "g": "a. 彎得動的→有彈性的", "t": "9/9"}, {"w": "favorable", "p": "favor 恩惠＋-able", "g": "a. 給得出好處的→有利的", "t": "U11"}, {"w": "miserable", "p": "miser 悲慘＋-able", "g": "a. 慘得起來的→悲慘的", "t": "L3"}, {"w": "available", "p": "avail 有用＋-able", "g": "a. 用得上的→可取得的", "t": "第2級"}]}, {"k": "dis-", "zh": "不、分開", "note": "拉丁文 dis-「分開、相反」。把原本合在一起的拆開，或把意思反過來。", "items": [{"w": "distribute", "p": "dis 分開＋tribut 給予", "g": "v. 分開發給大家→分配", "t": "L3"}, {"w": "dismiss", "p": "dis 分開＋miss 送", "g": "v. 把人送走→解散、駁回", "t": "U12"}, {"w": "dispute", "p": "dis 分開＋put 思考", "g": "v. 想法分岔→爭論", "t": "U12"}, {"w": "disturb", "p": "dis 分開＋turb 攪動", "g": "v. 把安定攪散→打擾", "t": "U10"}, {"w": "distinct", "p": "dis 分開＋tinct 刺記號", "g": "a. 被畫開來的→明顯不同的", "t": "9/16"}, {"w": "disqualify", "p": "dis 相反＋qualify 取得資格", "g": "v. 把資格拿掉→取消資格", "t": "9/21"}, {"w": "discipline", "p": "disc 學習＋-ipline", "g": "n. 學習養成的規矩→紀律", "t": "U12"}, {"w": "discover", "p": "dis 相反＋cover 蓋住", "g": "v. 把蓋子掀開→發現", "t": "第2級"}]}, {"k": "-ance / -ence", "zh": "狀態或性質", "note": "拉丁文 -antia。動詞或形容詞加上去，變成「這個狀態、這件事」。", "items": [{"w": "dependence", "p": "depend 依賴＋-ence", "g": "n. 依賴的狀態→依賴", "t": "U10"}, {"w": "insurance", "p": "insure 保險＋-ance", "g": "n. 保障這件事→保險", "t": "U11"}, {"w": "allowance", "p": "allow 允許＋-ance", "g": "n. 被允許的額度→零用錢", "t": "U11"}, {"w": "preference", "p": "prefer 偏好＋-ence", "g": "n. 偏好的狀態→偏愛", "t": "9/23"}, {"w": "coincidence", "p": "co 一起＋incid 落下＋-ence", "g": "n. 剛好一起發生→巧合", "t": "9/15"}, {"w": "conscience", "p": "con 一起＋sci 知道＋-ence", "g": "n. 心裡一起知道→良心", "t": "U10"}, {"w": "difference", "p": "differ 相異＋-ence", "g": "n. 不一樣的地方→差別", "t": "第2級"}, {"w": "performance", "p": "perform 表演＋-ance", "g": "n. 表演這件事→表現", "t": "第3級"}]}, {"k": "fac / fect / fic", "zh": "做、造", "note": "拉丁文 facere「做」。字中間看到 fac、fect、fic，通常跟「做出來」有關。", "items": [{"w": "satisfaction", "p": "satis 足夠＋fac 做＋-tion", "g": "n. 做到夠了→滿足", "t": "U9"}, {"w": "dissatisfaction", "p": "dis 不＋satisfaction", "g": "n. 沒做到夠→不滿", "t": "U9"}, {"w": "beneficial", "p": "bene 好＋fic 做＋-ial", "g": "a. 做出好處的→有益的", "t": "L3"}, {"w": "magnificent", "p": "magni 大＋fic 做＋-ent", "g": "a. 做得很大器的→壯麗的", "t": "U12"}, {"w": "effect", "p": "ef 向外＋fect 做", "g": "n. 做出來的結果→效果", "t": "第2級"}, {"w": "efficient", "p": "ef 向外＋fic 做＋-ient", "g": "a. 做得出東西的→有效率的", "t": "第3級"}, {"w": "manufacture", "p": "manu 手＋fact 做＋-ure", "g": "v. 用手做出來→製造", "t": "第4級"}, {"w": "sufficient", "p": "suf 底下＋fic 做＋-ient", "g": "a. 做得夠墊底的→足夠的", "t": "第3級"}]}];
+const tabs = document.getElementById('tabs'), hub = document.getElementById('hub'),
+      note = document.getElementById('note'), chart = document.getElementById('chart'),
+      list = document.getElementById('list');
+let cur = 0, sel = -1;
+
+DATA.forEach((d, i) => {
+  const b = document.createElement('button');
+  b.textContent = d.k; b.setAttribute('role','tab');
+  b.onclick = () => { cur = i; sel = -1; draw(); };
+  tabs.appendChild(b);
+});
+
+function draw(){
+  [...tabs.children].forEach((b,i)=>b.setAttribute('aria-selected', i===cur));
+  const d = DATA[cur];
+  hub.innerHTML = d.k + '<span>' + d.zh + '</span>';
+  note.textContent = d.note;
+
+  const n = d.items.length, R = 128, S = 340, c = S/2, NR = 34;
+  let s = `<svg viewBox="0 0 ${S} ${S}" role="img" aria-label="${d.k} 的單字輪">`;
+  d.items.forEach((it,i)=>{
+    const a = -Math.PI/2 + i*2*Math.PI/n;
+    const x = c + R*Math.cos(a), y = c + R*Math.sin(a);
+    s += `<line class="spoke" x1="${c+46*Math.cos(a)}" y1="${c+46*Math.sin(a)}" x2="${x}" y2="${y}"/>`;
+  });
+  d.items.forEach((it,i)=>{
+    const a = -Math.PI/2 + i*2*Math.PI/n;
+    const x = c + R*Math.cos(a), y = c + R*Math.sin(a);
+    const exam = !it.t.startsWith('第');
+    const short = it.w.length > 9 ? it.w.slice(0,8)+'…' : it.w;
+    s += `<g class="node ${exam?'exam':''} ${sel===i?'on':''}" data-i="${i}" tabindex="0" role="button" aria-label="${it.w}">`
+       + `<circle cx="${x}" cy="${y}" r="${NR}"/><text x="${x}" y="${y}">${short}</text></g>`;
+  });
+  s += `<g class="core"><circle cx="${c}" cy="${c}" r="44"/>`
+     + `<text x="${c}" y="${c+5}">${d.k.replace(' / ','/')}</text></g></svg>`;
+  chart.innerHTML = s;
+  chart.querySelectorAll('.node').forEach(g=>{
+    const go = ()=>{ sel = +g.dataset.i; draw();
+      list.children[sel].scrollIntoView({block:'center', behavior:'smooth'}); };
+    g.onclick = go;
+    g.onkeydown = e => { if(e.key==='Enter'||e.key===' '){ e.preventDefault(); go(); } };
+  });
+
+  list.innerHTML = d.items.map((it,i)=>{
+    const exam = !it.t.startsWith('第');
+    return `<li class="${sel===i?'on':''}"><span class="tag ${exam?'':'sup'}">${it.t}</span>`
+         + `<div class="w">${it.w}</div><div class="p">${it.p}</div><div class="g">${it.g}</div></li>`;
+  }).join('');
+}
+draw();
+</script>
+</body>
+</html>
