@@ -61,6 +61,32 @@ li.on{background:#fff;border-radius:.3rem;box-shadow:inset 3px 0 0 var(--teal);p
 .tag.sup{color:var(--muted);background:#fff;border-color:var(--line);font-weight:400}
 .p{color:var(--teal);font-size:.84rem;margin-top:.08rem}
 .g{color:#3d5059;font-size:.9rem}
+
+.modes{display:flex;gap:.4rem;margin:0 0 1.1rem}
+.modes button{font:inherit;font-size:.86rem;background:#fff;color:var(--ink);
+  border:1px solid var(--line);border-radius:.3rem;padding:.32rem .9rem;cursor:pointer}
+.modes button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.modes button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+
+.quiz{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:1rem 1rem 1.1rem;margin-bottom:1.1rem}
+.qhint{font-size:.8rem;color:var(--muted);margin:0 0 .3rem}
+.qparse{font-family:var(--serif);font-size:1.24rem;color:var(--teal);margin:0 0 .2rem;line-height:1.35}
+.qgloss{font-size:.94rem;color:#3d5059;margin:0 0 .9rem}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:.45rem}
+@media(max-width:24rem){.opts{grid-template-columns:1fr}}
+.opts button{font:inherit;font-family:var(--serif);font-size:.98rem;background:#fff;color:var(--ink);
+  border:1px solid var(--line);border-radius:.3rem;padding:.5rem .4rem;cursor:pointer;text-align:center}
+.opts button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.opts button.right{background:var(--teal);border-color:var(--teal);color:#fff}
+.opts button.wrong{background:#fdeceb;border-color:#c0554a;color:#8c342c}
+.opts button:disabled{cursor:default}
+.after{margin:.85rem 0 0;font-size:.9rem;color:#3d5059;display:none}
+.after.show{display:block}
+.after b{font-family:var(--serif)}
+.score{font-size:.82rem;color:var(--muted);margin:.7rem 0 0}
+.next{margin-top:.8rem;font:inherit;font-size:.9rem;background:var(--teal);color:#fff;
+  border:0;border-radius:.3rem;padding:.45rem 1.1rem;cursor:pointer;display:none}
+.next.show{display:inline-block}
 footer{margin-top:2.2rem;padding-top:1rem;border-top:1px solid var(--line);
        font-size:.82rem;color:var(--muted)}
 @media (prefers-reduced-motion:no-preference){
@@ -77,13 +103,26 @@ footer{margin-top:2.2rem;padding-top:1rem;border-top:1px solid var(--line);
     <span><span class="swatch sup"></span>大考中心參考詞彙表補充，標第幾級</span>
   </p>
 
+  <div class="modes">
+    <button id="mLearn" aria-pressed="true">看輪子</button>
+    <button id="mQuiz" aria-pressed="false">考自己</button>
+  </div>
   <nav id="tabs" role="tablist" aria-label="選擇字首字尾"></nav>
   <h2 class="hub" id="hub"></h2>
   <p class="note" id="note"></p>
   <div id="chart"></div>
+  <div class="quiz" id="quiz" hidden>
+    <p class="qhint">這個拆法是哪個字？</p>
+    <p class="qparse" id="qparse"></p>
+    <p class="qgloss" id="qgloss"></p>
+    <div class="opts" id="opts"></div>
+    <p class="after" id="after"></p>
+    <button class="next" id="next">下一題</button>
+    <p class="score" id="score"></p>
+  </div>
   <ol id="list"></ol>
 
-  <footer>12 個構詞、96 個字。排序依大考題庫（學測與指考字彙、克漏字共 1713 題）答案字的出現題數，多的排前面。</footer>
+  <footer>看輪子是把整個字族攤開來比較；考自己是遮住單字、只看拆法回想。想不出來再翻答案，比從頭讀一遍有用。<br>12 個構詞、96 個字。排序依大考題庫（學測與指考字彙、克漏字共 1713 題）答案字的出現題數，多的排前面。</footer>
 </div>
 
 <script>
@@ -137,6 +176,75 @@ function draw(){
          + `<div class="w">${it.w}</div><div class="p">${it.p}</div><div class="g">${it.g}</div></li>`;
   }).join('');
 }
+
+// ---- 考自己 ----
+const mLearn=document.getElementById('mLearn'), mQuiz=document.getElementById('mQuiz'),
+      quiz=document.getElementById('quiz'), optsEl=document.getElementById('opts'),
+      afterEl=document.getElementById('after'), nextEl=document.getElementById('next'),
+      scoreEl=document.getElementById('score');
+let mode='learn', pool=[], qi=0, right=0, done=0;
+
+const ALL=[]; DATA.forEach((d,di)=>d.items.forEach((it,ii)=>ALL.push({...it,di,ii,k:d.k})));
+const shuffle=a=>{for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;};
+
+function setMode(m){
+  mode=m;
+  mLearn.setAttribute('aria-pressed', m==='learn');
+  mQuiz.setAttribute('aria-pressed', m==='quiz');
+  chart.hidden = m!=='learn';
+  list.hidden = m!=='learn';
+  quiz.hidden = m!=='quiz';
+  if(m==='quiz'){ pool=shuffle(DATA[cur].items.map((x,i)=>i)); qi=0; right=0; done=0; ask(); }
+  else draw();
+}
+mLearn.onclick=()=>setMode('learn');
+mQuiz.onclick=()=>setMode('quiz');
+
+function ask(){
+  const d=DATA[cur];
+  if(qi>=pool.length){
+    document.getElementById('qparse').textContent='這一輪做完了';
+    document.getElementById('qgloss').textContent=`${d.k} 共 ${pool.length} 題，一次答對 ${right} 題。`;
+    optsEl.innerHTML=''; afterEl.className='after'; nextEl.className='next show';
+    nextEl.textContent='再做一次'; nextEl.onclick=()=>setMode('quiz');
+    scoreEl.textContent=''; return;
+  }
+  const it=d.items[pool[qi]];
+  document.getElementById('qparse').textContent=it.p;
+  document.getElementById('qgloss').textContent=it.g;
+  afterEl.className='after'; nextEl.className='next';
+  scoreEl.textContent=`${d.k}　第 ${qi+1} / ${pool.length} 題　答對 ${right}`;
+
+  const wrong=shuffle(ALL.filter(x=>x.w!==it.w)).slice(0,3);
+  const choices=shuffle([it, ...wrong]);
+  optsEl.innerHTML='';
+  choices.forEach(c=>{
+    const b=document.createElement('button');
+    b.textContent=c.w;
+    b.onclick=()=>{
+      [...optsEl.children].forEach(x=>x.disabled=true);
+      const ok=c.w===it.w;
+      if(ok){ b.className='right'; right++; }
+      else{
+        b.className='wrong';
+        [...optsEl.children].find(x=>x.textContent===it.w).className='right';
+      }
+      done++;
+      afterEl.innerHTML=`<b>${it.w}</b>　${it.p}<br>${it.g}　　<span style="color:var(--muted)">出處 ${it.t}</span>`;
+      afterEl.className='after show';
+      scoreEl.textContent=`${d.k}　第 ${qi+1} / ${pool.length} 題　答對 ${right}`;
+      nextEl.className='next show'; nextEl.textContent = qi+1>=pool.length ? '看結果' : '下一題';
+      nextEl.onclick=()=>{ qi++; ask(); };
+      nextEl.focus();
+    };
+    optsEl.appendChild(b);
+  });
+}
+
+const origDraw=draw;
+draw=function(){ origDraw(); if(mode==='quiz'){ pool=shuffle(DATA[cur].items.map((x,i)=>i)); qi=0; right=0; ask(); } };
+[...tabs.children].forEach(b=>{ const o=b.onclick; b.onclick=()=>{ o(); if(mode==='quiz') setMode('quiz'); }; });
+
 draw();
 </script>
 </body>
