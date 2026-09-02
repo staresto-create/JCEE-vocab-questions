@@ -1,0 +1,1094 @@
+{
+ "schema": 1,
+ "note": "單字輪字源庫。每筆記錄一個字的拆解與意思；exams 記錄它在哪幾次段考出現過與出處。",
+ "affixes": [
+  {
+   "key": "re-",
+   "zh": "再一次、往回",
+   "note": "拉丁文 re-「回頭、再來一次」。動作重做一遍，或往原來的方向退回去。",
+   "words": [
+    "refuse",
+    "refusal",
+    "reform",
+    "recovery",
+    "restore",
+    "reunion",
+    "reminder",
+    "revise"
+   ]
+  },
+  {
+   "key": "-tion / -sion",
+   "zh": "動作變成名詞",
+   "note": "拉丁文 -tio。動詞加上去就變成「這個動作」或「動作的結果」。",
+   "words": [
+    "construction",
+    "exploration",
+    "innovation",
+    "graduation",
+    "hesitation",
+    "distribution",
+    "civilization",
+    "collaboration"
+   ]
+  },
+  {
+   "key": "con- / com-",
+   "zh": "一起、全部",
+   "note": "拉丁文 com-「與……一起」。把分散的東西合到一處，或表示「徹底」。",
+   "words": [
+    "construct",
+    "collaborate",
+    "colleague",
+    "combination",
+    "compromise",
+    "conflict",
+    "consume",
+    "conscience"
+   ]
+  },
+  {
+   "key": "in- / im-",
+   "zh": "進入，或表示不",
+   "note": "拉丁文 in- 有兩個身分：一是「進到裡面」，二是「不」。看字義判斷是哪一個。",
+   "words": [
+    "innovate",
+    "inspire",
+    "insight",
+    "invest",
+    "invade",
+    "imaginative",
+    "incredible",
+    "independent"
+   ]
+  },
+  {
+   "key": "de-",
+   "zh": "往下、去掉",
+   "note": "拉丁文 de-「離開、往下」。把東西拿掉、拆掉，或往下走。",
+   "words": [
+    "depart",
+    "departure",
+    "dependent",
+    "demonstrate",
+    "destination",
+    "delicate",
+    "decrease",
+    "destruction"
+   ]
+  },
+  {
+   "key": "-al",
+   "zh": "名詞變形容詞",
+   "note": "拉丁文 -alis「與……有關的」。名詞加上去就變成「跟這個有關的」。",
+   "words": [
+    "essential",
+    "material",
+    "universal",
+    "logical",
+    "mechanical",
+    "professional",
+    "beneficial",
+    "psychological"
+   ]
+  },
+  {
+   "key": "-ive",
+   "zh": "傾向於做某事",
+   "note": "拉丁文 -ivus。動詞加上去，表示「有這種性質、傾向這樣做」。",
+   "words": [
+    "constructive",
+    "innovative",
+    "imaginative",
+    "primitive",
+    "massive",
+    "attractive",
+    "competitive",
+    "sensitive"
+   ]
+  },
+  {
+   "key": "ex- / e-",
+   "zh": "向外",
+   "note": "拉丁文 ex-「出去」。從裡面走到外面，或把東西拿出來。",
+   "words": [
+    "explore",
+    "exploration",
+    "exceed",
+    "exhibit",
+    "extraordinary",
+    "export",
+    "expand",
+    "exclude"
+   ]
+  },
+  {
+   "key": "-able / -ible",
+   "zh": "可以被……的",
+   "note": "拉丁文 -abilis「有能力的」。動詞加上去，表示「可以被這樣做」。",
+   "words": [
+    "reliable",
+    "capable",
+    "dependable",
+    "accessible",
+    "flexible",
+    "favorable",
+    "miserable",
+    "available"
+   ]
+  },
+  {
+   "key": "dis-",
+   "zh": "不、分開",
+   "note": "拉丁文 dis-「分開、相反」。把原本合在一起的拆開，或把意思反過來。",
+   "words": [
+    "distribute",
+    "dismiss",
+    "dispute",
+    "disturb",
+    "distinct",
+    "disqualify",
+    "discipline",
+    "discover"
+   ]
+  },
+  {
+   "key": "-ance / -ence",
+   "zh": "狀態或性質",
+   "note": "拉丁文 -antia。動詞或形容詞加上去，變成「這個狀態、這件事」。",
+   "words": [
+    "dependence",
+    "insurance",
+    "allowance",
+    "preference",
+    "coincidence",
+    "conscience",
+    "difference",
+    "performance"
+   ]
+  },
+  {
+   "key": "fac / fect / fic",
+   "zh": "做、造",
+   "note": "拉丁文 facere「做」。字中間看到 fac、fect、fic，通常跟「做出來」有關。",
+   "words": [
+    "satisfaction",
+    "dissatisfaction",
+    "beneficial",
+    "magnificent",
+    "effect",
+    "efficient",
+    "manufacture",
+    "sufficient"
+   ]
+  }
+ ],
+ "words": {
+  "refuse": {
+   "parse": "re 往回＋fus 倒",
+   "gloss": "v. 把倒過來的推回去→拒絕",
+   "affixes": [
+    "re-"
+   ],
+   "exams": {
+    "115-1": "L1"
+   }
+  },
+  "refusal": {
+   "parse": "refuse＋-al 名詞",
+   "gloss": "n. 拒絕這件事",
+   "affixes": [
+    "re-"
+   ],
+   "exams": {
+    "115-1": "L1"
+   }
+  },
+  "reform": {
+   "parse": "re 再＋form 形狀",
+   "gloss": "v. 重新塑形→改革",
+   "affixes": [
+    "re-"
+   ],
+   "exams": {
+    "115-1": "U10"
+   }
+  },
+  "recovery": {
+   "parse": "re 回＋cover 蓋",
+   "gloss": "n. 重新蓋回去→復原",
+   "affixes": [
+    "re-"
+   ],
+   "exams": {
+    "115-1": "U12"
+   }
+  },
+  "restore": {
+   "parse": "re 回＋stor 儲存",
+   "gloss": "v. 放回原來的地方→恢復",
+   "affixes": [
+    "re-"
+   ],
+   "exams": {
+    "115-1": "U11"
+   }
+  },
+  "reunion": {
+   "parse": "re 再＋union 結合",
+   "gloss": "n. 再度聚在一起→團圓",
+   "affixes": [
+    "re-"
+   ],
+   "exams": {
+    "115-1": "U12"
+   }
+  },
+  "reminder": {
+   "parse": "re 再＋mind 心思＋-er",
+   "gloss": "n. 讓你再想起來的東西→提醒物",
+   "affixes": [
+    "re-"
+   ],
+   "exams": {
+    "115-1": "9/16"
+   }
+  },
+  "revise": {
+   "parse": "re 再＋vis 看",
+   "gloss": "v. 再看一次→修訂",
+   "affixes": [
+    "re-"
+   ],
+   "exams": {
+    "115-1": "9/21"
+   }
+  },
+  "construction": {
+   "parse": "construct 建造＋-ion",
+   "gloss": "n. 蓋的過程→施工",
+   "affixes": [
+    "-tion / -sion"
+   ],
+   "exams": {
+    "115-1": "L2"
+   }
+  },
+  "exploration": {
+   "parse": "explore 探索＋-ation",
+   "gloss": "n. 探索這件事→勘查",
+   "affixes": [
+    "-tion / -sion",
+    "ex- / e-"
+   ],
+   "exams": {
+    "115-1": "L2"
+   }
+  },
+  "innovation": {
+   "parse": "innovate 創新＋-ion",
+   "gloss": "n. 創新的成果→革新",
+   "affixes": [
+    "-tion / -sion"
+   ],
+   "exams": {
+    "115-1": "L2"
+   }
+  },
+  "graduation": {
+   "parse": "graduate 畢業＋-ion",
+   "gloss": "n. 畢業這件事→畢業典禮",
+   "affixes": [
+    "-tion / -sion"
+   ],
+   "exams": {
+    "115-1": "L2"
+   }
+  },
+  "hesitation": {
+   "parse": "hesitate 猶豫＋-ion",
+   "gloss": "n. 猶豫的狀態→遲疑",
+   "affixes": [
+    "-tion / -sion"
+   ],
+   "exams": {
+    "115-1": "L1"
+   }
+  },
+  "distribution": {
+   "parse": "distribute 分配＋-ion",
+   "gloss": "n. 分配的結果→分布",
+   "affixes": [
+    "-tion / -sion"
+   ],
+   "exams": {
+    "115-1": "L3"
+   }
+  },
+  "civilization": {
+   "parse": "civilize 開化＋-ation",
+   "gloss": "n. 開化的結果→文明",
+   "affixes": [
+    "-tion / -sion"
+   ],
+   "exams": {
+    "115-1": "L3"
+   }
+  },
+  "collaboration": {
+   "parse": "collaborate 合作＋-ion",
+   "gloss": "n. 合作這件事→協作",
+   "affixes": [
+    "-tion / -sion"
+   ],
+   "exams": {
+    "115-1": "L2"
+   }
+  },
+  "construct": {
+   "parse": "con 一起＋struct 建造",
+   "gloss": "v. 把材料組在一起→建造",
+   "affixes": [
+    "con- / com-"
+   ],
+   "exams": {
+    "115-1": "L2"
+   }
+  },
+  "collaborate": {
+   "parse": "col 一起＋labor 勞動",
+   "gloss": "v. 一起出力→合作",
+   "affixes": [
+    "con- / com-"
+   ],
+   "exams": {
+    "115-1": "L2"
+   }
+  },
+  "colleague": {
+   "parse": "col 一起＋leg 選派",
+   "gloss": "n. 被派在一起做事的人→同事",
+   "affixes": [
+    "con- / com-"
+   ],
+   "exams": {
+    "115-1": "9/22"
+   }
+  },
+  "combination": {
+   "parse": "com 一起＋bin 兩個＋-ation",
+   "gloss": "n. 把兩樣併在一起→組合",
+   "affixes": [
+    "con- / com-"
+   ],
+   "exams": {
+    "115-1": "9/4"
+   }
+  },
+  "compromise": {
+   "parse": "com 一起＋promise 承諾",
+   "gloss": "n. 雙方各讓一步的承諾→妥協",
+   "affixes": [
+    "con- / com-"
+   ],
+   "exams": {
+    "115-1": "9/30"
+   }
+  },
+  "conflict": {
+   "parse": "con 一起＋flict 撞擊",
+   "gloss": "n. 互相撞上→衝突",
+   "affixes": [
+    "con- / com-"
+   ],
+   "exams": {
+    "115-1": "L3"
+   }
+  },
+  "consume": {
+   "parse": "con 完全＋sum 拿取",
+   "gloss": "v. 全部拿光→消耗",
+   "affixes": [
+    "con- / com-"
+   ],
+   "exams": {
+    "115-1": "U9"
+   }
+  },
+  "conscience": {
+   "parse": "con 一起＋sci 知道",
+   "gloss": "n. 心裡跟你一起知道的聲音→良心",
+   "affixes": [
+    "con- / com-",
+    "-ance / -ence"
+   ],
+   "exams": {
+    "115-1": "U10"
+   }
+  },
+  "innovate": {
+   "parse": "in 進入＋nov 新",
+   "gloss": "v. 把新東西放進來→創新",
+   "affixes": [
+    "in- / im-"
+   ],
+   "exams": {
+    "115-1": "L2"
+   }
+  },
+  "inspire": {
+   "parse": "in 進入＋spir 呼吸",
+   "gloss": "v. 把氣吹進去→激勵",
+   "affixes": [
+    "in- / im-"
+   ],
+   "exams": {
+    "115-1": "U11"
+   }
+  },
+  "insight": {
+   "parse": "in 裡面＋sight 看",
+   "gloss": "n. 看進事情裡面→洞察力",
+   "affixes": [
+    "in- / im-"
+   ],
+   "exams": {
+    "115-1": "9/8"
+   }
+  },
+  "invest": {
+   "parse": "in 進入＋vest 衣服",
+   "gloss": "v. 把錢投進去→投資",
+   "affixes": [
+    "in- / im-"
+   ],
+   "exams": {
+    "115-1": "U9"
+   }
+  },
+  "invade": {
+   "parse": "in 進入＋vad 走",
+   "gloss": "v. 走進別人的地方→侵略",
+   "affixes": [
+    "in- / im-"
+   ],
+   "exams": {
+    "115-1": "9/15"
+   }
+  },
+  "imaginative": {
+   "parse": "imagine 想像＋-ative",
+   "gloss": "a. 腦中造得出畫面的→有想像力的",
+   "affixes": [
+    "in- / im-",
+    "-ive"
+   ],
+   "exams": {
+    "115-1": "9/11"
+   }
+  },
+  "incredible": {
+   "parse": "in 不＋cred 相信＋-ible",
+   "gloss": "a. 沒辦法相信的→難以置信的",
+   "affixes": [
+    "in- / im-"
+   ],
+   "exams": {},
+   "level": 4
+  },
+  "independent": {
+   "parse": "in 不＋depend 依賴＋-ent",
+   "gloss": "a. 不靠別人的→獨立的",
+   "affixes": [
+    "in- / im-"
+   ],
+   "exams": {},
+   "level": 2
+  },
+  "depart": {
+   "parse": "de 離開＋part 部分",
+   "gloss": "v. 從原地離開→出發",
+   "affixes": [
+    "de-"
+   ],
+   "exams": {
+    "115-1": "U11"
+   }
+  },
+  "departure": {
+   "parse": "depart＋-ure 名詞",
+   "gloss": "n. 離開這件事→啟程",
+   "affixes": [
+    "de-"
+   ],
+   "exams": {
+    "115-1": "U11"
+   }
+  },
+  "dependent": {
+   "parse": "de 往下＋pend 懸掛＋-ent",
+   "gloss": "a. 掛在別人身上的→依賴的",
+   "affixes": [
+    "de-"
+   ],
+   "exams": {
+    "115-1": "U10"
+   }
+  },
+  "demonstrate": {
+   "parse": "de 完全＋monstr 展示",
+   "gloss": "v. 完整攤開給人看→示範",
+   "affixes": [
+    "de-"
+   ],
+   "exams": {
+    "115-1": "9/9"
+   }
+  },
+  "destination": {
+   "parse": "de 往下＋stin 定位＋-ation",
+   "gloss": "n. 事先定好要落腳的點→目的地",
+   "affixes": [
+    "de-"
+   ],
+   "exams": {
+    "115-1": "9/30"
+   }
+  },
+  "delicate": {
+   "parse": "de 去掉＋lic 引誘",
+   "gloss": "a. 經不起碰的→精緻脆弱的",
+   "affixes": [
+    "de-"
+   ],
+   "exams": {
+    "115-1": "U11"
+   }
+  },
+  "decrease": {
+   "parse": "de 往下＋creas 增長",
+   "gloss": "v. 往下長→減少",
+   "affixes": [
+    "de-"
+   ],
+   "exams": {},
+   "level": 3
+  },
+  "destruction": {
+   "parse": "de 去掉＋struct 建造＋-ion",
+   "gloss": "n. 把蓋好的拆掉→破壞",
+   "affixes": [
+    "de-"
+   ],
+   "exams": {},
+   "level": 4
+  },
+  "essential": {
+   "parse": "essence 本質＋-ial",
+   "gloss": "a. 跟本質有關的→必要的",
+   "affixes": [
+    "-al"
+   ],
+   "exams": {
+    "115-1": "9/3"
+   }
+  },
+  "material": {
+   "parse": "mater 母體＋-ial",
+   "gloss": "a./n. 構成東西的底料→材料",
+   "affixes": [
+    "-al"
+   ],
+   "exams": {
+    "115-1": "L2"
+   }
+  },
+  "universal": {
+   "parse": "universe 宇宙＋-al",
+   "gloss": "a. 跟整個宇宙有關的→普遍的",
+   "affixes": [
+    "-al"
+   ],
+   "exams": {
+    "115-1": "L3"
+   }
+  },
+  "logical": {
+   "parse": "logic 邏輯＋-al",
+   "gloss": "a. 合乎邏輯的→合理的",
+   "affixes": [
+    "-al"
+   ],
+   "exams": {
+    "115-1": "U10"
+   }
+  },
+  "mechanical": {
+   "parse": "mechanic 機械＋-al",
+   "gloss": "a. 跟機械有關的→機械式的",
+   "affixes": [
+    "-al"
+   ],
+   "exams": {
+    "115-1": "U9"
+   }
+  },
+  "professional": {
+   "parse": "profession 專業＋-al",
+   "gloss": "a. 跟本行有關的→專業的",
+   "affixes": [
+    "-al"
+   ],
+   "exams": {
+    "115-1": "9/11"
+   }
+  },
+  "beneficial": {
+   "parse": "benefit 好處＋-ial",
+   "gloss": "a. 帶來好處的→有益的",
+   "affixes": [
+    "-al",
+    "fac / fect / fic"
+   ],
+   "exams": {
+    "115-1": "L3"
+   }
+  },
+  "psychological": {
+   "parse": "psychology 心理學＋-al",
+   "gloss": "a. 跟心理有關的→心理上的",
+   "affixes": [
+    "-al"
+   ],
+   "exams": {
+    "115-1": "U11"
+   }
+  },
+  "constructive": {
+   "parse": "construct 建造＋-ive",
+   "gloss": "a. 傾向把事情蓋起來→有建設性的",
+   "affixes": [
+    "-ive"
+   ],
+   "exams": {
+    "115-1": "L2"
+   }
+  },
+  "innovative": {
+   "parse": "innovate 創新＋-ive",
+   "gloss": "a. 傾向創新的→創新的",
+   "affixes": [
+    "-ive"
+   ],
+   "exams": {
+    "115-1": "L2"
+   }
+  },
+  "primitive": {
+   "parse": "prim 最早＋-itive",
+   "gloss": "a. 停在最早階段的→原始的",
+   "affixes": [
+    "-ive"
+   ],
+   "exams": {
+    "115-1": "U9"
+   }
+  },
+  "massive": {
+   "parse": "mass 大量＋-ive",
+   "gloss": "a. 具有大量特性的→巨大的",
+   "affixes": [
+    "-ive"
+   ],
+   "exams": {
+    "115-1": "9/29"
+   }
+  },
+  "attractive": {
+   "parse": "attract 吸引＋-ive",
+   "gloss": "a. 會吸引人的→有魅力的",
+   "affixes": [
+    "-ive"
+   ],
+   "exams": {},
+   "level": 3
+  },
+  "competitive": {
+   "parse": "compete 競爭＋-itive",
+   "gloss": "a. 傾向競爭的→有競爭力的",
+   "affixes": [
+    "-ive"
+   ],
+   "exams": {},
+   "level": 4
+  },
+  "sensitive": {
+   "parse": "sens 感覺＋-itive",
+   "gloss": "a. 容易有感覺的→敏感的",
+   "affixes": [
+    "-ive"
+   ],
+   "exams": {},
+   "level": 2
+  },
+  "explore": {
+   "parse": "ex 向外＋plor 呼喊尋找",
+   "gloss": "v. 往外找→探索",
+   "affixes": [
+    "ex- / e-"
+   ],
+   "exams": {
+    "115-1": "L2"
+   }
+  },
+  "exceed": {
+   "parse": "ex 向外＋ceed 走",
+   "gloss": "v. 走出界線→超過",
+   "affixes": [
+    "ex- / e-"
+   ],
+   "exams": {
+    "115-1": "9/3"
+   }
+  },
+  "exhibit": {
+   "parse": "ex 向外＋hibit 拿住",
+   "gloss": "v. 拿出來給人看→展出",
+   "affixes": [
+    "ex- / e-"
+   ],
+   "exams": {
+    "115-1": "U12"
+   }
+  },
+  "extraordinary": {
+   "parse": "extra 之外＋ordinary 普通",
+   "gloss": "a. 在普通之外的→非凡的",
+   "affixes": [
+    "ex- / e-"
+   ],
+   "exams": {
+    "115-1": "9/25"
+   }
+  },
+  "export": {
+   "parse": "ex 向外＋port 搬",
+   "gloss": "v. 把貨搬出國→出口",
+   "affixes": [
+    "ex- / e-"
+   ],
+   "exams": {},
+   "level": 3
+  },
+  "expand": {
+   "parse": "ex 向外＋pand 展開",
+   "gloss": "v. 往外攤開→擴張",
+   "affixes": [
+    "ex- / e-"
+   ],
+   "exams": {},
+   "level": 4
+  },
+  "exclude": {
+   "parse": "ex 向外＋clud 關閉",
+   "gloss": "v. 關在門外→排除",
+   "affixes": [
+    "ex- / e-"
+   ],
+   "exams": {},
+   "level": 5
+  },
+  "reliable": {
+   "parse": "rely 依靠＋-able",
+   "gloss": "a. 可以被依靠的→可靠的",
+   "affixes": [
+    "-able / -ible"
+   ],
+   "exams": {
+    "115-1": "L2"
+   }
+  },
+  "capable": {
+   "parse": "cap 拿取＋-able",
+   "gloss": "a. 拿得動的→有能力的",
+   "affixes": [
+    "-able / -ible"
+   ],
+   "exams": {
+    "115-1": "L2"
+   }
+  },
+  "dependable": {
+   "parse": "depend 依賴＋-able",
+   "gloss": "a. 可以被依賴的→靠得住的",
+   "affixes": [
+    "-able / -ible"
+   ],
+   "exams": {
+    "115-1": "U10"
+   }
+  },
+  "accessible": {
+   "parse": "access 進入＋-ible",
+   "gloss": "a. 進得去的→容易取得的",
+   "affixes": [
+    "-able / -ible"
+   ],
+   "exams": {
+    "115-1": "9/18"
+   }
+  },
+  "flexible": {
+   "parse": "flex 彎曲＋-ible",
+   "gloss": "a. 彎得動的→有彈性的",
+   "affixes": [
+    "-able / -ible"
+   ],
+   "exams": {
+    "115-1": "9/9"
+   }
+  },
+  "favorable": {
+   "parse": "favor 恩惠＋-able",
+   "gloss": "a. 給得出好處的→有利的",
+   "affixes": [
+    "-able / -ible"
+   ],
+   "exams": {
+    "115-1": "U11"
+   }
+  },
+  "miserable": {
+   "parse": "miser 悲慘＋-able",
+   "gloss": "a. 慘得起來的→悲慘的",
+   "affixes": [
+    "-able / -ible"
+   ],
+   "exams": {
+    "115-1": "L3"
+   }
+  },
+  "available": {
+   "parse": "avail 有用＋-able",
+   "gloss": "a. 用得上的→可取得的",
+   "affixes": [
+    "-able / -ible"
+   ],
+   "exams": {},
+   "level": 2
+  },
+  "distribute": {
+   "parse": "dis 分開＋tribut 給予",
+   "gloss": "v. 分開發給大家→分配",
+   "affixes": [
+    "dis-"
+   ],
+   "exams": {
+    "115-1": "L3"
+   }
+  },
+  "dismiss": {
+   "parse": "dis 分開＋miss 送",
+   "gloss": "v. 把人送走→解散、駁回",
+   "affixes": [
+    "dis-"
+   ],
+   "exams": {
+    "115-1": "U12"
+   }
+  },
+  "dispute": {
+   "parse": "dis 分開＋put 思考",
+   "gloss": "v. 想法分岔→爭論",
+   "affixes": [
+    "dis-"
+   ],
+   "exams": {
+    "115-1": "U12"
+   }
+  },
+  "disturb": {
+   "parse": "dis 分開＋turb 攪動",
+   "gloss": "v. 把安定攪散→打擾",
+   "affixes": [
+    "dis-"
+   ],
+   "exams": {
+    "115-1": "U10"
+   }
+  },
+  "distinct": {
+   "parse": "dis 分開＋tinct 刺記號",
+   "gloss": "a. 被畫開來的→明顯不同的",
+   "affixes": [
+    "dis-"
+   ],
+   "exams": {
+    "115-1": "9/16"
+   }
+  },
+  "disqualify": {
+   "parse": "dis 相反＋qualify 取得資格",
+   "gloss": "v. 把資格拿掉→取消資格",
+   "affixes": [
+    "dis-"
+   ],
+   "exams": {
+    "115-1": "9/21"
+   }
+  },
+  "discipline": {
+   "parse": "disc 學習＋-ipline",
+   "gloss": "n. 學習養成的規矩→紀律",
+   "affixes": [
+    "dis-"
+   ],
+   "exams": {
+    "115-1": "U12"
+   }
+  },
+  "discover": {
+   "parse": "dis 相反＋cover 蓋住",
+   "gloss": "v. 把蓋子掀開→發現",
+   "affixes": [
+    "dis-"
+   ],
+   "exams": {},
+   "level": 2
+  },
+  "dependence": {
+   "parse": "depend 依賴＋-ence",
+   "gloss": "n. 依賴的狀態→依賴",
+   "affixes": [
+    "-ance / -ence"
+   ],
+   "exams": {
+    "115-1": "U10"
+   }
+  },
+  "insurance": {
+   "parse": "insure 保險＋-ance",
+   "gloss": "n. 保障這件事→保險",
+   "affixes": [
+    "-ance / -ence"
+   ],
+   "exams": {
+    "115-1": "U11"
+   }
+  },
+  "allowance": {
+   "parse": "allow 允許＋-ance",
+   "gloss": "n. 被允許的額度→零用錢",
+   "affixes": [
+    "-ance / -ence"
+   ],
+   "exams": {
+    "115-1": "U11"
+   }
+  },
+  "preference": {
+   "parse": "prefer 偏好＋-ence",
+   "gloss": "n. 偏好的狀態→偏愛",
+   "affixes": [
+    "-ance / -ence"
+   ],
+   "exams": {
+    "115-1": "9/23"
+   }
+  },
+  "coincidence": {
+   "parse": "co 一起＋incid 落下＋-ence",
+   "gloss": "n. 剛好一起發生→巧合",
+   "affixes": [
+    "-ance / -ence"
+   ],
+   "exams": {
+    "115-1": "9/15"
+   }
+  },
+  "difference": {
+   "parse": "differ 相異＋-ence",
+   "gloss": "n. 不一樣的地方→差別",
+   "affixes": [
+    "-ance / -ence"
+   ],
+   "exams": {},
+   "level": 2
+  },
+  "performance": {
+   "parse": "perform 表演＋-ance",
+   "gloss": "n. 表演這件事→表現",
+   "affixes": [
+    "-ance / -ence"
+   ],
+   "exams": {},
+   "level": 3
+  },
+  "satisfaction": {
+   "parse": "satis 足夠＋fac 做＋-tion",
+   "gloss": "n. 做到夠了→滿足",
+   "affixes": [
+    "fac / fect / fic"
+   ],
+   "exams": {
+    "115-1": "U9"
+   }
+  },
+  "dissatisfaction": {
+   "parse": "dis 不＋satisfaction",
+   "gloss": "n. 沒做到夠→不滿",
+   "affixes": [
+    "fac / fect / fic"
+   ],
+   "exams": {
+    "115-1": "U9"
+   }
+  },
+  "magnificent": {
+   "parse": "magni 大＋fic 做＋-ent",
+   "gloss": "a. 做得很大器的→壯麗的",
+   "affixes": [
+    "fac / fect / fic"
+   ],
+   "exams": {
+    "115-1": "U12"
+   }
+  },
+  "effect": {
+   "parse": "ef 向外＋fect 做",
+   "gloss": "n. 做出來的結果→效果",
+   "affixes": [
+    "fac / fect / fic"
+   ],
+   "exams": {},
+   "level": 2
+  },
+  "efficient": {
+   "parse": "ef 向外＋fic 做＋-ient",
+   "gloss": "a. 做得出東西的→有效率的",
+   "affixes": [
+    "fac / fect / fic"
+   ],
+   "exams": {},
+   "level": 3
+  },
+  "manufacture": {
+   "parse": "manu 手＋fact 做＋-ure",
+   "gloss": "v. 用手做出來→製造",
+   "affixes": [
+    "fac / fect / fic"
+   ],
+   "exams": {},
+   "level": 4
+  },
+  "sufficient": {
+   "parse": "suf 底下＋fic 做＋-ient",
+   "gloss": "a. 做得夠墊底的→足夠的",
+   "affixes": [
+    "fac / fect / fic"
+   ],
+   "exams": {},
+   "level": 3
+  }
+ }
+}
