@@ -1,0 +1,1728 @@
+{
+ "schema": 1,
+ "note": "字根家族表。母體為大考中心《高中英文參考詞彙表》（111 學年度起適用）5,992 詞；先定字根，再把整家收齊，不分級別。lv 為詞彙表級別，僅供排序。",
+ "updated": "2026-09-03",
+ "groups": [
+  {
+   "key": "tain / ten",
+   "zh": "握住、保持",
+   "note": "拉丁文 tenere「握住、抓著不放」。字首決定握的方向：往回握、從底下握、朝目標握。特別注意 attain 不是這一家——它來自 attingere＝ad 朝向＋tangere 觸碰，跟 contact、tangible、intact 同源，是最像的假朋友。另外 -en 結尾的 shorten、tighten、soften、frighten 那一批也與本字根無關，那是把形容詞變動詞的字尾。",
+   "items": [
+    {
+     "w": "contain",
+     "lv": 2,
+     "p": "con 一起＋tain 握",
+     "g": "v. 把東西一起握在裡面→包含、容納"
+    },
+    {
+     "w": "maintain",
+     "lv": 2,
+     "p": "main（manu）手＋tain 握",
+     "g": "v. 用手一直握著不放→維持、保養；主張"
+    },
+    {
+     "w": "container",
+     "lv": 4,
+     "p": "contain 容納＋-er 物",
+     "g": "n. 用來裝東西的→容器；貨櫃"
+    },
+    {
+     "w": "content",
+     "lv": 4,
+     "p": "con 一起＋tent 握",
+     "g": "n. 握在裡面的東西→內容、目次；adj. 心裡裝得夠了→滿足的"
+    },
+    {
+     "w": "content(ment)",
+     "lv": 4,
+     "p": "content 滿足的＋-ment",
+     "g": "v. 使滿足；n. 心裡裝得夠了的狀態→滿足、滿意"
+    },
+    {
+     "w": "entertain(ment)",
+     "lv": 4,
+     "p": "enter（inter）在…之間＋tain 握",
+     "g": "v. 把客人的心思握在中間不讓它跑掉→娛樂、招待；n. 娛樂、表演節目"
+    },
+    {
+     "w": "obtain",
+     "lv": 4,
+     "p": "ob 朝向＋tain 握",
+     "g": "v. 朝著目標握到手→獲得、取得"
+    },
+    {
+     "w": "retain",
+     "lv": 4,
+     "p": "re 往回＋tain 握",
+     "g": "v. 握著不放回去→保留、保有"
+    },
+    {
+     "w": "maintenance",
+     "lv": 5,
+     "p": "main（manu）手＋ten 握＋-ance",
+     "g": "n. 用手一直握著這件事→維護、保養（注意不是 maintainance）"
+    },
+    {
+     "w": "sustain",
+     "lv": 5,
+     "p": "sus（sub）在下＋tain 握",
+     "g": "v. 從底下托住不讓它垮→支撐、維持"
+    },
+    {
+     "w": "sustainable",
+     "lv": 5,
+     "p": "sustain 支撐＋-able",
+     "g": "adj. 撐得住的→可持續的"
+    },
+    {
+     "w": "detain",
+     "lv": 6,
+     "p": "de 離開＋tain 握",
+     "g": "v. 抓著不讓走→拘留；耽擱"
+    },
+    {
+     "w": "detention",
+     "lv": 6,
+     "p": "de 離開＋tent 握＋-ion",
+     "g": "n. 抓著不讓離開的行為→拘留；留校察看"
+    },
+    {
+     "w": "tenant",
+     "lv": 6,
+     "p": "ten 握、佔有＋-ant 人",
+     "g": "n. 握有房屋使用權的人→房客、承租人"
+    },
+    {
+     "w": "lieutenant",
+     "lv": 6,
+     "p": "lieu 位置＋tenant 承租人、佔有者",
+     "g": "n. 代替長官握住那個位置的人→中尉、副手"
+    }
+   ],
+   "dropped": [
+    {
+     "why": "-en 字尾，與本字根無關",
+     "list": "listen　often　shorten　tighten　soften　straighten　lighten　heighten　enlighten　frighten　threaten　fasten　hasten　rotten"
+    },
+    {
+     "why": "字串巧合",
+     "list": "sentence　tennis　mountain　mountainous　curtain　fountain　captain　kindergarten　certain　certainty　stain　utensil　patent　potent　potential"
+    },
+    {
+     "why": "屬於 tendere「伸展」那一家，見第二批",
+     "list": "attend　attention　intend　intense　intensity　intensive　intention　extend　extent　extension　extensive　intensify　intent　tendency　tender　tense　tension　contend　contention　attendance　attendant　pretend　superintendent　tentative　competence　competent　consistent　persistent　insistence　persistence　existence"
+    },
+    {
+     "why": "假朋友，來自 tangere「觸碰」",
+     "list": "attain(ment)"
+    },
+    {
+     "why": "外部審訂建議救回但詞彙表未收，故不列入",
+     "list": "tenacity　tenacious　tenure（三字字源確屬 tenere，但《高中英文參考詞彙表》5,992 筆中皆無）"
+    },
+    {
+     "why": "外部審訂建議救回，經查證不屬本字根",
+     "list": "utensil（Etymonline 與 Merriam-Webster 一致：來自 utensilia，僅出自 uti「使用」，與 tenere 無關）"
+    }
+   ]
+  },
+  {
+   "key": "pon / pos",
+   "zh": "放",
+   "note": "拉丁文 ponere「放置」。把東西放在哪個位置，意思就跟著變：往前放、放對面、壓在上面放、放到後面。",
+   "items": [
+    {
+     "w": "position",
+     "lv": 2,
+     "p": "pos 放＋-ition",
+     "g": "n. 被放的地方→位置；職位、立場"
+    },
+    {
+     "w": "positive",
+     "lv": 2,
+     "p": "pos 放＋-itive",
+     "g": "adj. 已經放定、講死了的→肯定的、正面的"
+    },
+    {
+     "w": "propose",
+     "lv": 2,
+     "p": "pro 向前＋pos 放",
+     "g": "v. 把想法往前放出來→提議；求婚"
+    },
+    {
+     "w": "purpose",
+     "lv": 2,
+     "p": "pur（pro）向前＋pos 放",
+     "g": "n. 事先往前放好的那個目標→目的"
+    },
+    {
+     "w": "suppose",
+     "lv": 2,
+     "p": "sup（sub）在下＋pos 放",
+     "g": "v. 先在底下擺一個假設→假設、認為"
+    },
+    {
+     "w": "deposit",
+     "lv": 3,
+     "p": "de 往下＋pos 放＋-it",
+     "g": "v./n. 把東西放下來擱著→存入；存款、押金"
+    },
+    {
+     "w": "opposite",
+     "lv": 3,
+     "p": "op（ob）對面＋pos 放＋-ite",
+     "g": "adj. 放在對面的→相反的、對面的"
+    },
+    {
+     "w": "postpone",
+     "lv": 3,
+     "p": "post 之後＋pon 放",
+     "g": "v. 放到後面去→延期"
+    },
+    {
+     "w": "compose",
+     "lv": 4,
+     "p": "com 一起＋pos 放",
+     "g": "v. 把素材放在一起→組成；作曲"
+    },
+    {
+     "w": "composer",
+     "lv": 4,
+     "p": "compose 作曲＋-er 人",
+     "g": "n. 把音符放在一起的人→作曲家"
+    },
+    {
+     "w": "composition",
+     "lv": 4,
+     "p": "compose 組成＋-ition",
+     "g": "n. 放在一起的結果→作文、作品；成分"
+    },
+    {
+     "w": "expose",
+     "lv": 4,
+     "p": "ex 向外＋pos 放",
+     "g": "v. 放到外面去→使暴露；揭發"
+    },
+    {
+     "w": "exposure",
+     "lv": 4,
+     "p": "expose 暴露＋-ure",
+     "g": "n. 暴露這件事→曝光；接觸、暴露量"
+    },
+    {
+     "w": "impose",
+     "lv": 4,
+     "p": "im（in）在上＋pos 放",
+     "g": "v. 壓在別人身上放下去→強加；課徵"
+    },
+    {
+     "w": "oppose",
+     "lv": 4,
+     "p": "op（ob）對面＋pos 放",
+     "g": "v. 站到對面去→反對"
+    },
+    {
+     "w": "proposal",
+     "lv": 4,
+     "p": "propose 提議＋-al",
+     "g": "n. 往前放出來的東西→提案；求婚"
+    },
+    {
+     "w": "component",
+     "lv": 5,
+     "p": "com 一起＋pon 放＋-ent",
+     "g": "n. 放在一起才成一個東西的那些→組成部分"
+    },
+    {
+     "w": "opponent",
+     "lv": 5,
+     "p": "op（ob）對面＋pon 放＋-ent 人",
+     "g": "n. 被放在你對面的人→對手"
+    },
+    {
+     "w": "opposition",
+     "lv": 5,
+     "p": "op（ob）對面＋pos 放＋-ition",
+     "g": "n. 放在對面→反對；在野黨"
+    },
+    {
+     "w": "supposedly",
+     "lv": 5,
+     "p": "suppose 假設＋-ed＋-ly",
+     "g": "adv. 照假設來說→據說、按理說"
+    },
+    {
+     "w": "dispose",
+     "lv": 6,
+     "p": "dis 分開＋pos 放",
+     "g": "v. 一件件分開放好→處置；（of）丟棄"
+    },
+    {
+     "w": "disposable",
+     "lv": 6,
+     "p": "dispose 處置＋-able",
+     "g": "adj. 可以直接處理掉的→用完即丟的"
+    },
+    {
+     "w": "disposal",
+     "lv": 6,
+     "p": "dispose 處置＋-al",
+     "g": "n. 處理掉這件事→清運、處置"
+    },
+    {
+     "w": "imposing",
+     "lv": 6,
+     "p": "impose 強加＋-ing",
+     "g": "adj. 壓過來的→氣勢逼人的"
+    },
+    {
+     "w": "posture",
+     "lv": 6,
+     "p": "pos 放＋-ture",
+     "g": "n. 身體擺放的樣子→姿勢；（對事情的）姿態"
+    }
+   ],
+   "dropped": [
+    {
+     "why": "假朋友一：來自 posse／potis「能夠」，不是 ponere「放」",
+     "list": "possible（1）　possibility（2）　possess（4）　possession（4）——這一組講的是「有能力、握有」，跟放置無關。possess 是 potis 能夠＋sedere 坐，坐得住那樣東西就是持有。"
+    },
+    {
+     "why": "假朋友二：英文的 post「郵政」",
+     "list": "postcard（2）　postage（4）　poster（3）——這些學生會直覺當成「郵」，不必回拉丁層。postpone 才是 post 之後＋pon 放，已收入。"
+    },
+    {
+     "why": "字串巧合",
+     "list": "weapon（2）　coupon（6）　sponge（5）　ponder（6，來自 pondus 重量，是「掂量」不是「放」）　spontaneous（6，來自 sponte 自願，與 spondere 不同源）"
+    }
+   ]
+  },
+  {
+   "key": "spond / spons",
+   "zh": "鄭重承諾",
+   "note": "拉丁文 spondere「鄭重承諾、保證」。respond、correspond 看起來像上一家的 pon「放」，其實不是——這是拆字最容易錯的一處。判斷方法：意思跟「回話、擔保」有關的是這一家，跟「放位置」有關的是上一家。",
+   "items": [
+    {
+     "w": "respond",
+     "lv": 2,
+     "p": "re 回＋spond 承諾",
+     "g": "v. 回話給對方→回應、反應"
+    },
+    {
+     "w": "responsible",
+     "lv": 2,
+     "p": "re 回＋spons 承諾＋-ible",
+     "g": "adj. 答得出來、扛得起的→負責的"
+    },
+    {
+     "w": "response",
+     "lv": 3,
+     "p": "re 回＋spons 承諾",
+     "g": "n. 回過去的那句話→回話、回應、反應"
+    },
+    {
+     "w": "responsibility",
+     "lv": 3,
+     "p": "responsible 負責的＋-ity",
+     "g": "n. 扛得起的那一部分→責任（-ble 接 -ity 時要變 -bil）"
+    },
+    {
+     "w": "correspond",
+     "lv": 4,
+     "p": "cor（com）互相＋spond 承諾",
+     "g": "v. 互相回話→通信；相符"
+    },
+    {
+     "w": "correspondent",
+     "lv": 5,
+     "p": "correspond 通信＋-ent 人",
+     "g": "n. 在遠方持續回報的人→通訊記者"
+    },
+    {
+     "w": "respondent",
+     "lv": 5,
+     "p": "respond 回應＋-ent 人",
+     "g": "n. 回話的人→答辯人、受訪者"
+    },
+    {
+     "w": "sponsor",
+     "lv": 5,
+     "p": "spons 承諾＋-or 人",
+     "g": "n. 承諾出錢撐著的人→贊助者、保證人"
+    },
+    {
+     "w": "sponsorship",
+     "lv": 5,
+     "p": "sponsor 贊助者＋-ship 身分",
+     "g": "n. 贊助這件事→贊助"
+    },
+    {
+     "w": "correspondence",
+     "lv": 6,
+     "p": "correspond 通信＋-ence",
+     "g": "n. 互相回話→通信；相符"
+    }
+   ]
+  },
+  {
+   "key": "vers / vert",
+   "zh": "轉",
+   "note": "拉丁文 vertere「轉」。字首決定轉的方向：轉回來、轉開、轉到對面、全部轉成一個。這一家最漂亮的一條是 verse——原意是犁田犁到田頭轉回來的那一道，一道就是一行，所以成了詩行。",
+   "items": [
+    {
+     "w": "conversation",
+     "lv": 2,
+     "p": "con 一起＋vers 轉＋-ation",
+     "g": "n. 話輪流轉來轉去→交談、對話"
+    },
+    {
+     "w": "universe",
+     "lv": 3,
+     "p": "uni 一＋vers 轉",
+     "g": "n. 全部轉成一個整體→宇宙"
+    },
+    {
+     "w": "university",
+     "lv": 3,
+     "p": "uni 一＋vers 轉＋-ity",
+     "g": "n. 各科聚成一個整體的地方→大學"
+    },
+    {
+     "w": "verse",
+     "lv": 3,
+     "p": "vers 轉",
+     "g": "n. 犁到田頭轉回來的那一道→詩行、韻文"
+    },
+    {
+     "w": "anniversary",
+     "lv": 4,
+     "p": "anni 年＋vers 轉＋-ary",
+     "g": "n. 一年轉回原點的那一天→週年紀念"
+    },
+    {
+     "w": "converse",
+     "lv": 4,
+     "p": "con 一起＋vers 轉",
+     "g": "v. 話轉來轉去→交談"
+    },
+    {
+     "w": "diverse",
+     "lv": 4,
+     "p": "di 分開＋vers 轉",
+     "g": "adj. 各自轉向不同方向的→多樣的"
+    },
+    {
+     "w": "diversity",
+     "lv": 4,
+     "p": "diverse 多樣的＋-ity",
+     "g": "n. 各自轉向不同方向→多樣性"
+    },
+    {
+     "w": "adverse",
+     "lv": 5,
+     "p": "ad 朝向＋vers 轉",
+     "g": "adj. 轉過來對著你的→不利的、逆向的"
+    },
+    {
+     "w": "controversial",
+     "lv": 5,
+     "p": "controversy 爭議＋-ial",
+     "g": "adj. 有爭議的（-y 接 -ial 時要變 -i）"
+    },
+    {
+     "w": "controversy",
+     "lv": 5,
+     "p": "contro 相反＋vers 轉＋-y",
+     "g": "n. 兩邊轉向相反→爭議"
+    },
+    {
+     "w": "conversion",
+     "lv": 5,
+     "p": "con 完全＋vers 轉＋-ion",
+     "g": "n. 整個轉過去→轉換；改信"
+    },
+    {
+     "w": "convert",
+     "lv": 5,
+     "p": "con 完全＋vert 轉",
+     "g": "v. 整個轉過去→使轉變；改信"
+    },
+    {
+     "w": "reverse",
+     "lv": 5,
+     "p": "re 往回＋vers 轉",
+     "g": "v. 轉回去→倒轉、推翻；adj. 相反的"
+    },
+    {
+     "w": "version",
+     "lv": 5,
+     "p": "vers 轉＋-ion",
+     "g": "n. 轉成另一種說法→版本、說法"
+    },
+    {
+     "w": "versus",
+     "lv": 5,
+     "p": "vers 轉＋-us",
+     "g": "prep. 轉過來面對面→對抗、對上"
+    },
+    {
+     "w": "vertical",
+     "lv": 5,
+     "p": "vert 轉＋-ical",
+     "g": "adj. 轉到最頂點那一線的→垂直的"
+    },
+    {
+     "w": "universal",
+     "lv": 5,
+     "p": "universe 宇宙＋-al",
+     "g": "adj. 跟整個宇宙有關的→普遍的"
+    },
+    {
+     "w": "avert",
+     "lv": 6,
+     "p": "a（ab）離開＋vert 轉",
+     "g": "v. 把臉轉開、把災難轉開→避開、轉移目光"
+    },
+    {
+     "w": "divert",
+     "lv": 6,
+     "p": "di 分開＋vert 轉",
+     "g": "v. 轉到別的方向→轉移、使分心"
+    },
+    {
+     "w": "diversion",
+     "lv": 6,
+     "p": "di 分開＋vers 轉＋-ion",
+     "g": "n. 轉到別的方向→改道；消遣"
+    },
+    {
+     "w": "diversify",
+     "lv": 6,
+     "p": "diverse 多樣的＋-ify 使",
+     "g": "v. 讓它們轉向不同方向→多元化"
+    },
+    {
+     "w": "versatile",
+     "lv": 6,
+     "p": "vers 轉＋-atile",
+     "g": "adj. 轉得動、換得了方向的→多才多藝的"
+    }
+   ],
+   "dropped": [
+    {
+     "why": "假朋友：英文 over- 加原生動詞，與 vertere 無關",
+     "list": "oversee（5）　overtake（5）　overturn（5）　overthrow（4）　overseas（3）——這一組最容易誤判，因為 overturn 的意思正好是「翻轉」、overthrow 是「推翻」，語意上跟「轉」很接近，但構詞上是 over 加 turn、加 throw，是英文自己組出來的複合詞，不必回拉丁層。"
+    },
+    {
+     "why": "字串巧合",
+     "list": "poverty（3，來自 pauper 貧窮）　nevertheless（4，never＋the＋less）　evergreen（6，ever＋green）"
+    }
+   ]
+  },
+  {
+   "key": "fer",
+   "zh": "帶、生產",
+   "note": "拉丁文 ferre「帶、承載」。把東西從一處帶到另一處，字首決定帶去哪裡：帶到前面、帶回去、帶到底下扛著。土地把作物帶出來，就轉成「生產」那一支（fertile 一系）。這一家的假朋友特別多，而且特別像，見文件後半。",
+   "items": [
+    {
+     "w": "different",
+     "lv": 1,
+     "p": "dif 分開＋fer 帶＋-ent",
+     "g": "adj. 被帶開來的→不同的"
+    },
+    {
+     "w": "difference",
+     "lv": 2,
+     "p": "dif 分開＋fer 帶＋-ence",
+     "g": "n. 被帶開的那段距離→差別"
+    },
+    {
+     "w": "offer",
+     "lv": 2,
+     "p": "of（ob）朝向＋fer 帶",
+     "g": "v. 把東西帶到對方面前→提供、出價"
+    },
+    {
+     "w": "prefer",
+     "lv": 2,
+     "p": "pre 在前＋fer 帶",
+     "g": "v. 把某一個帶到前面→偏好"
+    },
+    {
+     "w": "suffer",
+     "lv": 3,
+     "p": "suf（sub）在下＋fer 帶",
+     "g": "v. 在底下扛著→受苦、遭受"
+    },
+    {
+     "w": "conference",
+     "lv": 4,
+     "p": "con 一起＋fer 帶＋-ence",
+     "g": "n. 把意見帶到一起→會議、會談"
+    },
+    {
+     "w": "differ",
+     "lv": 4,
+     "p": "dif 分開＋fer 帶",
+     "g": "v. 各自帶開→不同、相異"
+    },
+    {
+     "w": "fertile",
+     "lv": 4,
+     "p": "fer 生產＋-ile",
+     "g": "adj. 生得出東西的→肥沃的；能生育的"
+    },
+    {
+     "w": "refer",
+     "lv": 4,
+     "p": "re 回＋fer 帶",
+     "g": "v. 把問題帶回去、把人帶去別處→提及；轉介；參考"
+    },
+    {
+     "w": "reference",
+     "lv": 4,
+     "p": "refer 參考＋-ence",
+     "g": "n. 帶去查的東西→參考、出處；推薦函"
+    },
+    {
+     "w": "indifferent",
+     "lv": 5,
+     "p": "in 不＋dif 分開＋fer 帶＋-ent",
+     "g": "adj. 連分都懶得分的→漠不關心的"
+    },
+    {
+     "w": "offering",
+     "lv": 5,
+     "p": "offer 提供＋-ing",
+     "g": "n. 帶到面前的東西→供品；提供的產品"
+    },
+    {
+     "w": "preference",
+     "lv": 5,
+     "p": "prefer 偏好＋-ence",
+     "g": "n. 偏好的狀態→偏愛、優先"
+    },
+    {
+     "w": "transfer",
+     "lv": 5,
+     "p": "trans 越過＋fer 帶",
+     "g": "v. 帶過去另一邊→轉移、轉學、轉乘"
+    },
+    {
+     "w": "differentiate",
+     "lv": 6,
+     "p": "different 不同的＋-iate 使",
+     "g": "v. 使產生不同→區分、分辨"
+    },
+    {
+     "w": "fertility",
+     "lv": 6,
+     "p": "fertile 肥沃的＋-ity",
+     "g": "n. 生得出東西的能力→肥沃；生育力"
+    },
+    {
+     "w": "fertilizer",
+     "lv": 6,
+     "p": "fertile 肥沃的＋-ize 使＋-er 物",
+     "g": "n. 讓土地生得出東西的東西→肥料"
+    },
+    {
+     "w": "indifference",
+     "lv": 6,
+     "p": "indifferent 漠不關心的＋-ence",
+     "g": "n. 連分都懶得分→漠不關心"
+    },
+    {
+     "w": "infer",
+     "lv": 6,
+     "p": "in 往裡＋fer 帶",
+     "g": "v. 從字裡行間把結論帶出來→推論"
+    },
+    {
+     "w": "referee",
+     "lv": 6,
+     "p": "refer 交付＋-ee 人",
+     "g": "n. 爭議被交付給他裁決的人→裁判"
+    },
+    {
+     "w": "referendum",
+     "lv": 6,
+     "p": "refer 交付＋-endum",
+     "g": "n. 該被交付出去給大家決定的事→公民投票"
+    }
+   ],
+   "dropped": [
+    {
+     "why": "假朋友一：來自 inferus「低」，不是 ferre",
+     "list": "inferior（3）——正好可以跟本表的 infer（6）對照著教：infer 是 in 往裡＋fer 帶，inferior 是「位置比較低的」，兩個字長得像，字根完全不同。"
+    },
+    {
+     "why": "假朋友二：來自 ferire「敲打」，不是 ferre",
+     "list": "interfere（4）　interference（5）——Etymonline：來自古法語 enterferer「互相打擊」，entre- 之間＋ferir 打擊，源頭是拉丁 ferire「敲打」，與 forare「鑽孔」同源。意思上「插進中間」很像「帶進中間」，但構詞是「在中間互打」。"
+    },
+    {
+     "why": "假朋友三：日耳曼語系，與拉丁 ferre 無關",
+     "list": "ferry（4）——來自古英語 ferian、原始日耳曼語 *farjan，PIE 詞根 *per-，跟 fare 同源；ferre 走的是 PIE *bher-。這是最刁鑽的一個：意思幾乎一樣（把人或貨載過去），來源卻無關。"
+    }
+   ]
+  },
+  {
+   "key": "spec / spect / spic / spis",
+   "zh": "看",
+   "note": "拉丁文 specere「看」。字首決定往哪裡看：回頭看、往裡看、從底下偷看、往下看。母音會變：spec、spect、spic、spis 是同一個字根的不同面貌。",
+   "items": [
+    {
+     "w": "respect",
+     "lv": 2,
+     "p": "re 往回＋spect 看",
+     "g": "n./v. 回頭再看一眼→尊重、敬重"
+    },
+    {
+     "w": "aspect",
+     "lv": 3,
+     "p": "a（ad）朝向＋spect 看",
+     "g": "n. 朝某個方向看到的那一面→方面、外觀"
+    },
+    {
+     "w": "inspect",
+     "lv": 3,
+     "p": "in 往裡＋spect 看",
+     "g": "v. 往裡面看→檢查、視察"
+    },
+    {
+     "w": "inspector",
+     "lv": 3,
+     "p": "inspect 檢查＋-or 人",
+     "g": "n. 負責檢查的人→檢查員、督察"
+    },
+    {
+     "w": "suspect",
+     "lv": 3,
+     "p": "sus（sub）在下＋spect 看",
+     "g": "v. 從底下偷偷打量→懷疑；n. 嫌犯"
+    },
+    {
+     "w": "suspicion",
+     "lv": 3,
+     "p": "sus（sub）在下＋spic 看＋-ion",
+     "g": "n. 底下偷看的那個心思→懷疑、嫌疑"
+    },
+    {
+     "w": "inspection",
+     "lv": 4,
+     "p": "inspect 檢查＋-ion",
+     "g": "n. 檢查這件事→檢查、視察"
+    },
+    {
+     "w": "respectable",
+     "lv": 4,
+     "p": "respect 尊重＋-able",
+     "g": "adj. 值得人回頭再看的→體面的、可敬的"
+    },
+    {
+     "w": "respectful",
+     "lv": 4,
+     "p": "respect 尊重＋-ful",
+     "g": "adj. 心裡帶著尊重的→恭敬的"
+    },
+    {
+     "w": "perspective",
+     "lv": 5,
+     "p": "per 穿過＋spect 看＋-ive",
+     "g": "n. 穿過去看的方式→觀點；透視法"
+    },
+    {
+     "w": "prospect",
+     "lv": 5,
+     "p": "pro 向前＋spect 看",
+     "g": "n. 往前看到的東西→前景、可能性"
+    },
+    {
+     "w": "specimen",
+     "lv": 5,
+     "p": "spec 看＋-imen 物",
+     "g": "n. 拿出來讓人看的那一個→標本、樣本"
+    },
+    {
+     "w": "spectacular",
+     "lv": 5,
+     "p": "spect 看＋-acular",
+     "g": "adj. 場面看得見的→壯觀的"
+    },
+    {
+     "w": "spectator",
+     "lv": 5,
+     "p": "spect 看＋-ator 人",
+     "g": "n. 在旁邊看的人→觀眾"
+    },
+    {
+     "w": "spectrum",
+     "lv": 5,
+     "p": "spect 看＋-trum 物",
+     "g": "n. 看得見的整段範圍→光譜；（意見的）光譜"
+    },
+    {
+     "w": "speculate",
+     "lv": 5,
+     "p": "spec 看＋ul 瞭望台＋-ate",
+     "g": "v. 站在瞭望台上遠遠地看就下判斷→推測；投機"
+    },
+    {
+     "w": "suspicious",
+     "lv": 5,
+     "p": "sus（sub）在下＋spic 看＋-ious",
+     "g": "adj. 底下偷看的→可疑的；起疑的"
+    },
+    {
+     "w": "despise",
+     "lv": 6,
+     "p": "de 往下＋spis 看",
+     "g": "v. 往下看人→鄙視、看不起"
+    },
+    {
+     "w": "prospective",
+     "lv": 6,
+     "p": "prospect 前景＋-ive",
+     "g": "adj. 有前景的→未來的、可能的"
+    },
+    {
+     "w": "respective",
+     "lv": 6,
+     "p": "re 各自回頭＋spect 看＋-ive",
+     "g": "adj. 各自看各自的→各自的"
+    },
+    {
+     "w": "spectacle",
+     "lv": 6,
+     "p": "spect 看＋-acle 物",
+     "g": "n. 值得看的東西→奇觀、場面"
+    }
+   ],
+   "dropped": [
+    {
+     "why": "同源旁支一：希臘語 skopein「看」，與拉丁 specere 同出 PIE *spek-",
+     "list": "scope（5）　microscope（4）　telescope（5）——這三個確實同源，只是走希臘語那一支（字母順序倒過來成 skop-）。可以在課堂上當延伸提一句：micro 小＋scope 看、tele 遠＋scope 看，但不併入本表，免得學生把 spec- 和 -scope 當成同一個字根去拼。"
+    },
+    {
+     "why": "同源旁支二：日耳曼語，但與拉丁 specere 同出 PIE *spek-",
+     "list": "spy（3）——來自古法語 espiier，再往上是法蘭克語 *spehon、原始日耳曼語 *spehon-，跟 specere 同一個 PIE 詞根。與 ferry 那種情形不同：ferry 是完全不同的詞根，spy 是同根不同支。"
+    },
+    {
+     "why": "同源但語意已遠",
+     "list": "spice（3）　spicy（5）——來自拉丁 species，中世紀拉丁文裡 species 指「各類貨品」，香料是其中一類，於是成了 spice。路徑太長，不列入條目。"
+    },
+    {
+     "why": "字串巧合",
+     "list": "crispy（3，來自 crispus 捲曲的，是 crisp＋-y）"
+    }
+   ]
+  },
+  {
+   "key": "speci",
+   "zh": "種類（同一字根的另一支）",
+   "note": "「看」再往前走一步就是「看起來的樣子」，樣子相同的歸為一類，於是分出 species「種類」這一支。這一支不必回拉丁層——special 是第 1 級，學生早就認得，從它拆起最省力。",
+   "items": [
+    {
+     "w": "special",
+     "lv": 1,
+     "p": "speci 種類＋-al",
+     "g": "adj. 屬於某一個種類的→特別的、專門的"
+    },
+    {
+     "w": "especially",
+     "lv": 2,
+     "p": "e 古法語加的母音＋special 特別的＋-ly",
+     "g": "adv. 特別挑出來講→尤其、特別是（e- 不是字首、沒有意思；拉丁文 sp-、st-、sc- 開頭的字進古法語常加一個 e-。special 直接加 -ly 得到的 specially 是另一個字，兩者同源，但 specially 偏「為某個目的特地」）"
+    },
+    {
+     "w": "specific",
+     "lv": 3,
+     "p": "speci 種類＋fic 做",
+     "g": "adj. 指明是哪一種的→特定的、明確的"
+    },
+    {
+     "w": "species",
+     "lv": 4,
+     "p": "spec 看＋-ies",
+     "g": "n. 看起來同一個樣子的一群→物種"
+    },
+    {
+     "w": "specialist",
+     "lv": 5,
+     "p": "special 特別的＋-ist 人",
+     "g": "n. 專做特別那一項的人→專家"
+    },
+    {
+     "w": "specialize",
+     "lv": 5,
+     "p": "special 特別的＋-ize 使",
+     "g": "v. 使自己專走特別那一項→專攻"
+    },
+    {
+     "w": "specialty",
+     "lv": 5,
+     "p": "special 特別的＋-ty",
+     "g": "n. 特別的那一項→專長；招牌菜"
+    },
+    {
+     "w": "specify",
+     "lv": 5,
+     "p": "speci 種類＋-fy 使",
+     "g": "v. 指明是哪一種→具體說明、明確指出"
+    }
+   ]
+  },
+  {
+   "key": "ced / cess / ceed / cede",
+   "zh": "走、讓",
+   "note": "拉丁文 cedere「走、退讓」。字首決定走的方向：往前走、往回退、緊接在後面走、讓出去。這一家最值得講的是 necessary——ne 不＋cess 讓，原意是「沒有退路」，沒有退路的事就是必要的事。",
+   "items": [
+    {
+     "w": "successful",
+     "lv": 1,
+     "p": "suc（sub）在後＋cess 走＋-ful",
+     "g": "adj. 一路跟著走上去的→成功的"
+    },
+    {
+     "w": "necessary",
+     "lv": 2,
+     "p": "ne 不＋cess 讓＋-ary",
+     "g": "adj. 沒有退路的→必要的、必需的"
+    },
+    {
+     "w": "succeed",
+     "lv": 2,
+     "p": "suc（sub）在後＋ceed 走",
+     "g": "v. 緊接在後面走上來→接續、繼任；成功"
+    },
+    {
+     "w": "success",
+     "lv": 2,
+     "p": "suc（sub）在後＋cess 走",
+     "g": "n. 接上去了→成功"
+    },
+    {
+     "w": "access",
+     "lv": 3,
+     "p": "ac（ad）朝向＋cess 走",
+     "g": "n./v. 走得過去→通道、使用權；進入、取得"
+    },
+    {
+     "w": "necessity",
+     "lv": 3,
+     "p": "necessary 必要的＋-ity",
+     "g": "n. 沒有退路的那個東西→必需品；必要"
+    },
+    {
+     "w": "process",
+     "lv": 3,
+     "p": "pro 向前＋cess 走",
+     "g": "n. 一路往前走的整段→過程；v. 處理、加工"
+    },
+    {
+     "w": "procedure",
+     "lv": 4,
+     "p": "pro 向前＋ced 走＋-ure",
+     "g": "n. 往前走的那一套步驟→程序、手續"
+    },
+    {
+     "w": "proceed",
+     "lv": 4,
+     "p": "pro 向前＋ceed 走",
+     "g": "v. 繼續往前走→繼續進行"
+    },
+    {
+     "w": "accessible",
+     "lv": 5,
+     "p": "access 進入＋-ible",
+     "g": "adj. 走得過去的→可到達的、易取得的"
+    },
+    {
+     "w": "concede",
+     "lv": 5,
+     "p": "con 加強語氣＋cede 讓",
+     "g": "v. 徹底退讓→承認（敗選、有理）"
+    },
+    {
+     "w": "exceed",
+     "lv": 5,
+     "p": "ex 向外＋ceed 走",
+     "g": "v. 走出界線→超過"
+    },
+    {
+     "w": "excessive",
+     "lv": 5,
+     "p": "ex 向外＋cess 走＋-ive",
+     "g": "adj. 走出界線的→過度的"
+    },
+    {
+     "w": "recession",
+     "lv": 5,
+     "p": "re 往回＋cess 走＋-ion",
+     "g": "n. 往回退→（景氣）衰退"
+    },
+    {
+     "w": "successor",
+     "lv": 5,
+     "p": "suc（sub）在後＋cess 走＋-or 人",
+     "g": "n. 接在後面走上來的人→繼任者"
+    },
+    {
+     "w": "unprecedented",
+     "lv": 5,
+     "p": "un 沒有＋pre 在前＋ced 走＋-ent＋-ed",
+     "g": "adj. 前面沒人走過的→史無前例的"
+    },
+    {
+     "w": "accessory",
+     "lv": 6,
+     "p": "ac（ad）朝向＋cess 走＋-ory",
+     "g": "n. 附著過來的東西→配件；（法律）從犯"
+    },
+    {
+     "w": "concession",
+     "lv": 6,
+     "p": "con 加強語氣＋cess 讓＋-ion",
+     "g": "n. 徹底退讓的結果→讓步；（園區內的）特許攤位"
+    },
+    {
+     "w": "excess",
+     "lv": 6,
+     "p": "ex 向外＋cess 走",
+     "g": "n. 走出界線之外→超過的量、過量"
+    },
+    {
+     "w": "precede",
+     "lv": 6,
+     "p": "pre 在前＋cede 走",
+     "g": "v. 走在前面→先於…發生"
+    },
+    {
+     "w": "precedent",
+     "lv": 6,
+     "p": "pre 在前＋ced 走＋-ent",
+     "g": "n. 先走過的那一次→先例、判例"
+    },
+    {
+     "w": "predecessor",
+     "lv": 6,
+     "p": "pre 在前＋de 離開＋cess 走＋-or 人",
+     "g": "n. 先走掉的那個人→前任"
+    },
+    {
+     "w": "procession",
+     "lv": 6,
+     "p": "pro 向前＋cess 走＋-ion",
+     "g": "n. 一路向前走→行列、隊伍"
+    },
+    {
+     "w": "succession",
+     "lv": 6,
+     "p": "suc（sub）在後＋cess 走＋-ion",
+     "g": "n. 一個接在一個後面走→連續；繼任"
+    },
+    {
+     "w": "successive",
+     "lv": 6,
+     "p": "suc（sub）在後＋cess 走＋-ive",
+     "g": "adj. 接在後面走的→接連的"
+    }
+   ],
+   "dropped": [
+    {
+     "why": "字串巧合",
+     "list": "prince/princess（2，來自 primus 第一＋cap 拿取，是「拿到第一位的人」，cess 只是 princess 拼法上的巧合）　advanced（3，來自 abante「在前面」，與 cedere 無關）"
+    }
+   ]
+  },
+  {
+   "key": "cap / capt / cip / cept",
+   "zh": "抓、取（主幹）",
+   "note": "拉丁文 capere「抓住、拿取」。母音會變：cap、capt、cip、cept 是同一個字根的四種面貌，看到就要能認出來。字首決定抓的方向：朝自己抓、抓出去另外放、事先抓住、抓住一部分。",
+   "items": [
+    {
+     "w": "except",
+     "lv": 1,
+     "p": "ex 向外＋cept 抓",
+     "g": "prep./conj. 被抓出去另外放的→除…之外"
+    },
+    {
+     "w": "accept",
+     "lv": 2,
+     "p": "ac（ad）朝向＋cept 抓",
+     "g": "v. 朝自己這邊抓過來→接受"
+    },
+    {
+     "w": "participate",
+     "lv": 2,
+     "p": "parti 部分＋cip 抓＋-ate",
+     "g": "v. 抓住其中一部分→參與"
+    },
+    {
+     "w": "acceptable",
+     "lv": 3,
+     "p": "accept 接受＋-able",
+     "g": "adj. 可以被接受的→可接受的"
+    },
+    {
+     "w": "acceptance",
+     "lv": 3,
+     "p": "accept 接受＋-ance",
+     "g": "n. 接受這件事→接受、錄取"
+    },
+    {
+     "w": "capable",
+     "lv": 3,
+     "p": "cap 拿取＋-able",
+     "g": "adj. 拿得動、裝得下的→有能力的"
+    },
+    {
+     "w": "capture",
+     "lv": 3,
+     "p": "capt 抓＋-ure",
+     "g": "v./n. 抓住→捕獲、擒獲"
+    },
+    {
+     "w": "capacity",
+     "lv": 4,
+     "p": "cap 容納＋-acity",
+     "g": "n. 裝得下的量→容量；能力"
+    },
+    {
+     "w": "concept",
+     "lv": 4,
+     "p": "con 一起＋cept 抓",
+     "g": "n. 把想法抓在一起→概念"
+    },
+    {
+     "w": "discipline",
+     "lv": 4,
+     "p": "dis 分開＋cip 抓＋-line",
+     "g": "n. 一句句抓住並照著做→紀律；學科"
+    },
+    {
+     "w": "exception",
+     "lv": 4,
+     "p": "except 除外＋-ion",
+     "g": "n. 被抓出去另外放的那個→例外"
+    },
+    {
+     "w": "participation",
+     "lv": 4,
+     "p": "participate 參與＋-ion",
+     "g": "n. 參與這件事→參與"
+    },
+    {
+     "w": "recipe",
+     "lv": 4,
+     "p": "re 回＋cip 抓",
+     "g": "n. 照著取用的那一張→食譜（原是處方上的「取…」）"
+    },
+    {
+     "w": "anticipate",
+     "lv": 5,
+     "p": "anti（ante）事先＋cip 抓＋-ate",
+     "g": "v. 事先抓住→預料、期待"
+    },
+    {
+     "w": "capability",
+     "lv": 5,
+     "p": "capable 有能力的＋-ity",
+     "g": "n. 拿得動的程度→能力、能耐"
+    },
+    {
+     "w": "exceptional",
+     "lv": 5,
+     "p": "exception 例外＋-al",
+     "g": "adj. 屬於例外的→例外的；傑出的"
+    },
+    {
+     "w": "municipal",
+     "lv": 5,
+     "p": "muni 職務＋cip 抓＋-al",
+     "g": "adj. 把公共職務接下來的→市政的、地方自治的"
+    },
+    {
+     "w": "participant",
+     "lv": 5,
+     "p": "parti 部分＋cip 抓＋-ant 人",
+     "g": "n. 抓住一部分的人→參與者"
+    },
+    {
+     "w": "recipient",
+     "lv": 5,
+     "p": "re 回＋cip 抓＋-ient 人",
+     "g": "n. 接過來抓住的人→接受者、受贈者"
+    },
+    {
+     "w": "anticipation",
+     "lv": 6,
+     "p": "anticipate 預料＋-ion",
+     "g": "n. 事先抓住的心情→預期、期待"
+    },
+    {
+     "w": "caption",
+     "lv": 6,
+     "p": "capt 抓＋-ion",
+     "g": "n. 抓住畫面重點的那一句→圖說、字幕"
+    },
+    {
+     "w": "captive",
+     "lv": 6,
+     "p": "capt 抓＋-ive",
+     "g": "adj./n. 被抓住的→被俘的；俘虜"
+    },
+    {
+     "w": "captivity",
+     "lv": 6,
+     "p": "captive 被俘的＋-ity",
+     "g": "n. 被抓住的狀態→囚禁、圈養"
+    },
+    {
+     "w": "capsule",
+     "lv": 6,
+     "p": "caps 盒子＋-ule 小",
+     "g": "n. 裝東西的小盒→膠囊；太空艙"
+    },
+    {
+     "w": "disciple",
+     "lv": 6,
+     "p": "dis 分開＋cip 抓＋-le",
+     "g": "n. 把老師的話一句句抓住的人→門徒、弟子"
+    },
+    {
+     "w": "disciplinary",
+     "lv": 6,
+     "p": "discipline 紀律＋-ary",
+     "g": "adj. 與紀律有關的；學科的"
+    }
+   ],
+   "dropped": [
+    {
+     "why": "假朋友一：來自 caput「頭」，不是 capere「抓」",
+     "list": "capital（2）　capital(ism)（4）　capitalist（4）　captain（3）——這一組講的是「頭」：capital 是頭一等的城市或資本，captain 是船頭那個人。跟「抓取」無關，是這一家最大的假朋友群。"
+    },
+    {
+     "why": "假朋友二：來自 cappa「斗篷、頭罩」",
+     "list": "cap（1）　cape（6）　escape（2）——cap 是頭罩，escape 是 ex 脫出＋cappa 斗篷，「從斗篷裡溜出去」。注意 cap 是第 1 級，而站上把 capable 拆成 cap 拿取，兩個 cap 長得一樣、來源不同，教到 capable 時要提一句。"
+    },
+    {
+     "why": "字串巧合",
+     "list": "landscape（4，land＋-scape，來自荷蘭語 -schap，即英文的 -ship）　handicap（6，hand in cap，出自舊時抽籤下注的手勢）"
+    }
+   ]
+  },
+  {
+   "key": "-ceive / -ceipt / -cept",
+   "zh": "抓（同一字根的法語支）",
+   "note": "capere 經古法語進入英文時，動詞變成 -ceive、名詞收據變成 -ceipt，但名詞形式又回到拉丁的 -cept。所以動詞與名詞看起來不像同一個字：receive 對 reception、conceive 對 conception、perceive 對 perception。這一組配對本身就是考點。",
+   "items": [
+    {
+     "w": "receive",
+     "lv": 2,
+     "p": "re 回＋ceive 抓",
+     "g": "v. 接過來抓住→收到、接待"
+    },
+    {
+     "w": "receipt",
+     "lv": 3,
+     "p": "re 回＋ceipt 抓",
+     "g": "n. 收到的憑證→收據"
+    },
+    {
+     "w": "receiver",
+     "lv": 3,
+     "p": "receive 收到＋-er 人",
+     "g": "n. 接收的人或裝置→收受者；聽筒"
+    },
+    {
+     "w": "reception",
+     "lv": 4,
+     "p": "re 回＋cept 抓＋-ion",
+     "g": "n. 接過來這件事→接待、櫃台；收訊"
+    },
+    {
+     "w": "conceive",
+     "lv": 5,
+     "p": "con 一起＋ceive 抓",
+     "g": "v. 把想法抓在一起→構思、想出；懷孕"
+    },
+    {
+     "w": "conception",
+     "lv": 5,
+     "p": "con 一起＋cept 抓＋-ion",
+     "g": "n. 把想法抓在一起→概念；受孕"
+    },
+    {
+     "w": "deceive",
+     "lv": 5,
+     "p": "de 離開＋ceive 抓",
+     "g": "v. 把人的心思抓開→欺騙"
+    },
+    {
+     "w": "perceive",
+     "lv": 5,
+     "p": "per 完全＋ceive 抓",
+     "g": "v. 完全抓住→察覺、認知"
+    },
+    {
+     "w": "perception",
+     "lv": 5,
+     "p": "per 完全＋cept 抓＋-ion",
+     "g": "n. 完全抓住→知覺、看法"
+    }
+   ]
+  },
+  {
+   "key": "princip-",
+   "zh": "拿到第一位（同一字根的複合支）",
+   "note": "princeps＝primus 第一＋cap 拿取，「拿到第一順位的人」。principal 與 principle 是全表最常混的一對：前者是「主要的、校長」，後者是「原則」，字源相同、詞性用法完全不同。",
+   "items": [
+    {
+     "w": "principal",
+     "lv": 2,
+     "p": "princip 拿到第一位＋-al",
+     "g": "adj. 最主要的；n. 校長、本金"
+    },
+    {
+     "w": "principle",
+     "lv": 2,
+     "p": "princip 拿到第一位＋-le",
+     "g": "n. 排在最前面的那一條→原則、原理"
+    }
+   ]
+  },
+  {
+   "key": "tend / tens / tent",
+   "zh": "伸展",
+   "note": "拉丁文 tendere「伸長、拉緊」。心思或力氣往某個方向伸過去。這一家與 tain/ten「握住」長得極像，但不同源：那一家是抓在手上，這一家是往外拉開。判斷方法：意思跟「方向、注意力、拉緊」有關的是這一家。",
+   "items": [
+    {
+     "w": "attend",
+     "lv": 2,
+     "p": "at（ad）朝向＋tend 伸",
+     "g": "v. 把人和注意力伸過去→出席；注意；照顧"
+    },
+    {
+     "w": "attention",
+     "lv": 2,
+     "p": "at（ad）朝向＋tent 伸＋-ion",
+     "g": "n. 伸過去的那份注意力→注意、專心"
+    },
+    {
+     "w": "pretend",
+     "lv": 3,
+     "p": "pre 在前＋tend 伸",
+     "g": "v. 在人前伸出一個樣子→假裝"
+    },
+    {
+     "w": "tend",
+     "lv": 3,
+     "p": "tend 伸",
+     "g": "v. 往某個方向伸→傾向；照料"
+    },
+    {
+     "w": "tent",
+     "lv": 3,
+     "p": "tent 伸",
+     "g": "n. 撐開拉緊的那塊布→帳篷"
+    },
+    {
+     "w": "extend",
+     "lv": 4,
+     "p": "ex 向外＋tend 伸",
+     "g": "v. 往外伸出去→延長、擴展"
+    },
+    {
+     "w": "extent",
+     "lv": 4,
+     "p": "ex 向外＋tent 伸",
+     "g": "n. 往外伸到哪裡→範圍、程度"
+    },
+    {
+     "w": "intend",
+     "lv": 4,
+     "p": "in 往裡＋tend 伸",
+     "g": "v. 心思朝一個方向伸→打算、意圖"
+    },
+    {
+     "w": "intense",
+     "lv": 4,
+     "p": "in 往裡＋tens 伸",
+     "g": "adj. 往內繃緊的→強烈的"
+    },
+    {
+     "w": "intensity",
+     "lv": 4,
+     "p": "intense 強烈的＋-ity",
+     "g": "n. 繃緊的程度→強度"
+    },
+    {
+     "w": "intensive",
+     "lv": 4,
+     "p": "intense 強烈的＋-ive",
+     "g": "adj. 集中繃緊的→密集的、加強的"
+    },
+    {
+     "w": "intention",
+     "lv": 4,
+     "p": "in 往裡＋tent 伸＋-ion",
+     "g": "n. 心思伸過去的那個方向→意圖"
+    },
+    {
+     "w": "attendance",
+     "lv": 5,
+     "p": "attend 出席＋-ance",
+     "g": "n. 出席這件事→出席、出席率"
+    },
+    {
+     "w": "contend",
+     "lv": 5,
+     "p": "con 一起＋tend 伸",
+     "g": "v. 兩邊都把力氣伸出來→競爭；主張"
+    },
+    {
+     "w": "extension",
+     "lv": 5,
+     "p": "ex 向外＋tens 伸＋-ion",
+     "g": "n. 往外伸出去→延長、延伸；分機"
+    },
+    {
+     "w": "extensive",
+     "lv": 5,
+     "p": "ex 向外＋tens 伸＋-ive",
+     "g": "adj. 伸得很開的→廣泛的、大範圍的"
+    },
+    {
+     "w": "intensify",
+     "lv": 5,
+     "p": "intense 強烈的＋-ify 使",
+     "g": "v. 使繃得更緊→加強、加劇"
+    },
+    {
+     "w": "intent",
+     "lv": 5,
+     "p": "in 往裡＋tent 伸",
+     "g": "n. 心思朝一個方向伸→意圖；adj. 專注的"
+    },
+    {
+     "w": "tendency",
+     "lv": 5,
+     "p": "tend 傾向＋-ency",
+     "g": "n. 老是往某個方向伸→傾向"
+    },
+    {
+     "w": "tense",
+     "lv": 5,
+     "p": "tens 伸",
+     "g": "adj. 拉緊的→緊張的；v. 使繃緊"
+    },
+    {
+     "w": "tension",
+     "lv": 5,
+     "p": "tens 伸＋-ion",
+     "g": "n. 拉緊的狀態→緊張、張力"
+    },
+    {
+     "w": "attendant",
+     "lv": 6,
+     "p": "attend 照顧＋-ant 人",
+     "g": "n. 把心思伸向客人的人→服務員、隨從"
+    },
+    {
+     "w": "contention",
+     "lv": 6,
+     "p": "con 一起＋tent 伸＋-ion",
+     "g": "n. 互相拉扯→爭論；（要主張的）論點"
+    },
+    {
+     "w": "superintendent",
+     "lv": 6,
+     "p": "super 在上＋in 往裡＋tend 伸＋-ent 人",
+     "g": "n. 從上面盯著看的人→主管、督學"
+    },
+    {
+     "w": "tentative",
+     "lv": 6,
+     "p": "tent 伸＋-ative",
+     "g": "adj. 先伸出去試試看的→暫定的、試探性的"
+    }
+   ],
+   "dropped": [
+    {
+     "why": "同源旁支：詞彙表收的是形容詞，而形容詞來自另一個拉丁字",
+     "list": "tender（3）——Etymonline：形容詞 tender 來自拉丁 tener「柔軟、幼嫩」，與 tendere 同出 PIE *ten-「伸展」（拉開→變薄→柔弱），但是不同的拉丁字。真正屬於 tendere 的是動詞 tender「正式提出」（legal tender 的那個），詞彙表未收。"
+    },
+    {
+     "why": "假朋友一：來自 tenere「握住」，屬於 tain/ten 家族",
+     "list": "content（4）　content(ment)（4）　detention（6）——這三個已收在 tain/ten 那一家。content 是「一起握在裡面」，不是「一起伸出去」。"
+    },
+    {
+     "why": "假朋友二：來自 sistere「站」",
+     "list": "consistent（4）　persistent（6）——con 一起＋sist 站＝立場前後站得住；per 持續＋sist 站＝一直站著不走。跟「伸」無關。"
+    },
+    {
+     "why": "假朋友三：其他同形異源",
+     "list": "competent（5，com 一起＋pet 追求，能力夠得上）　potential（4）　potent（6）（來自 potis 能夠）　patent（5，來自 patere 開放，公開的專利）　utensil（6，來自 uti 使用）"
+    }
+   ]
+  },
+  {
+   "key": "lect / leg / lig",
+   "zh": "挑、讀（legere）",
+   "note": "拉丁文 legere「一個個挑起來」，挑字來看就成了「讀」。字首決定怎麼挑：一起挑、分開挑、挑出來、不去挑。intelligent 與 diligent 是這一支最漂亮的兩條：能在事物之間挑出分別的是聰明，一件件挑著仔細做的是勤勉。",
+   "items": [
+    {
+     "w": "collect",
+     "lv": 1,
+     "p": "col 一起＋lect 挑",
+     "g": "v. 一個個挑起來聚到一處→收集"
+    },
+    {
+     "w": "college",
+     "lv": 2,
+     "p": "col 一起＋leg 挑＋-e",
+     "g": "n. 一起被選出來的那一群人→學院、大學"
+    },
+    {
+     "w": "select",
+     "lv": 2,
+     "p": "se 分開＋lect 挑",
+     "g": "v. 挑出來另外放→挑選"
+    },
+    {
+     "w": "selection",
+     "lv": 2,
+     "p": "select 挑選＋-ion",
+     "g": "n. 挑選這件事或挑出來的東西→選擇、精選"
+    },
+    {
+     "w": "collection",
+     "lv": 3,
+     "p": "collect 收集＋-ion",
+     "g": "n. 收集起來的一批→收藏、系列"
+    },
+    {
+     "w": "elect",
+     "lv": 3,
+     "p": "e（ex）向外＋lect 挑",
+     "g": "v. 從一群人裡挑出來→選舉"
+    },
+    {
+     "w": "election",
+     "lv": 3,
+     "p": "elect 選舉＋-ion",
+     "g": "n. 挑出來這件事→選舉"
+    },
+    {
+     "w": "intelligent",
+     "lv": 3,
+     "p": "intel（inter）之間＋lig 挑＋-ent",
+     "g": "adj. 能在事物之間挑出分別的→聰明的"
+    },
+    {
+     "w": "diligence",
+     "lv": 4,
+     "p": "diligent 勤勉的＋-ence",
+     "g": "n. 一件件挑著仔細做→勤勉"
+    },
+    {
+     "w": "diligent",
+     "lv": 4,
+     "p": "di 分開＋lig 挑＋-ent",
+     "g": "adj. 一件件分開挑著仔細做的→勤勉的"
+    },
+    {
+     "w": "elegant",
+     "lv": 4,
+     "p": "e（ex）向外＋leg 挑＋-ant",
+     "g": "adj. 從一堆裡挑選過的→優雅的、講究的"
+    },
+    {
+     "w": "intellectual",
+     "lv": 4,
+     "p": "intel（inter）之間＋lect 挑＋-ual",
+     "g": "adj./n. 靠挑出分別來思考的→智識的；知識分子"
+    },
+    {
+     "w": "intelligence",
+     "lv": 4,
+     "p": "intelligent 聰明的＋-ence",
+     "g": "n. 挑得出分別的能力→智力；情報"
+    },
+    {
+     "w": "lecture",
+     "lv": 4,
+     "p": "lect 讀＋-ure",
+     "g": "n./v. 讀出來講給人聽→講課、演講"
+    },
+    {
+     "w": "lecturer",
+     "lv": 4,
+     "p": "lecture 講課＋-er 人",
+     "g": "n. 講課的人→講師"
+    },
+    {
+     "w": "legend",
+     "lv": 4,
+     "p": "leg 讀＋-end",
+     "g": "n. 該被讀出來的那些事→傳說、傳奇人物"
+    },
+    {
+     "w": "neglect",
+     "lv": 4,
+     "p": "neg 不＋lect 挑",
+     "g": "v./n. 不去挑起來→忽視、疏忽"
+    },
+    {
+     "w": "collective",
+     "lv": 5,
+     "p": "collect 收集＋-ive",
+     "g": "adj./n. 聚在一起的→集體的；集合體"
+    },
+    {
+     "w": "collector",
+     "lv": 5,
+     "p": "collect 收集＋-or 人",
+     "g": "n. 收集的人→收藏家、收費員"
+    },
+    {
+     "w": "eligible",
+     "lv": 5,
+     "p": "e（ex）向外＋lig 挑＋-ible",
+     "g": "adj. 挑得出來的→合格的、有資格的"
+    },
+    {
+     "w": "legendary",
+     "lv": 5,
+     "p": "legend 傳說＋-ary",
+     "g": "adj. 屬於傳說的→傳奇的"
+    },
+    {
+     "w": "intellect",
+     "lv": 6,
+     "p": "intel（inter）之間＋lect 挑",
+     "g": "n. 在事物之間挑出分別的能力→智力、才智"
+    },
+    {
+     "w": "selective",
+     "lv": 6,
+     "p": "select 挑選＋-ive",
+     "g": "adj. 會挑的→有選擇性的、挑剔的"
+    }
+   ],
+   "dropped": [
+    {
+     "why": "假朋友一：英文 light 一整組，與拉丁字根全部無關",
+     "list": "light（1）　flight（2）　flashlight（3）　lighthouse（3）　lightning（3）　highlight（5）　enlighten(ment)（6）　lighten（6）　spotlight（6）　twilight（6）——這一組是機器寬篩最大的錯誤來源，第二批曾誤收 highlight、spotlight、enlighten、twilight 四個。"
+    },
+    {
+     "why": "特別注意：delight 拼法被 light 帶偏",
+     "list": "delight（4）　delightful（4）——來自拉丁 delectare「吸引、取悅」（de＋lacere 誘引），跟 delicious 同源，本來拼作 delite，是後人看它像 light 才改成 -ght。所以它既不屬 legere，也不屬 light。"
+    },
+    {
+     "why": "假朋友二：希臘語 elektron「琥珀」",
+     "list": "electric（2）　electrical（2）　electricity（3）　electronic（3）　electronics（4）　electrician（6）——琥珀摩擦生靜電，於是成了「電」。lect 只是拼法上的巧合。"
+    },
+    {
+     "why": "同源旁支：希臘語 legein「說」／logos「話語」，與拉丁 legere 同出 PIE *leg-",
+     "list": "dialogue（2）　catalogue（4）　dialect（5）　——dia 之間＋log 說＝兩人之間的話；cata 依序＋log 說＝依序列出來的清單；dialect 是一地人之間講的話。確實同源，但走希臘語那一支，不併入本表。"
+    },
+    {
+     "why": "字源有爭議，不列入",
+     "list": "religion（2）　religious（3）——古羅馬的西塞羅認為來自 relegere「反覆讀」，後來的基督教作者（拉克坦提烏斯、奧古斯丁）認為來自 religare「緊緊綁住」。兩種說法都有人採，Etymonline 並列而未定論，因此不列入條目。"
+    },
+    {
+     "why": "字串巧合",
+     "list": "leg（1，腿，來自古北歐語 leggr）　slight（4，來自古北歐語 slettr 平滑）　align（6，來自法語 aligner，出自 ligne 線，不是 ligare）　alligator（6，來自西班牙語 el lagarto「那隻蜥蜴」）　telegraph（5）　calligraphy（6）（都是 graph 寫，不是 leg）"
+    }
+   ]
+  },
+  {
+   "key": "leg / legis",
+   "zh": "法律（lex）",
+   "note": "拉丁文 lex／legis「法律」。跟上一支同形但不同源：上一支是「挑」，這一支是「法」。判斷方法：意思跟法律、權利、指派有關的是這一支。",
+   "items": [
+    {
+     "w": "legal",
+     "lv": 2,
+     "p": "leg 法律＋-al",
+     "g": "adj. 跟法律有關的→合法的、法律的"
+    },
+    {
+     "w": "privilege",
+     "lv": 4,
+     "p": "privi 私人＋leg 法律＋-e",
+     "g": "n./v. 為私人訂的那條法→特權；給予特權"
+    },
+    {
+     "w": "delegate",
+     "lv": 5,
+     "p": "de 離開＋leg 派＋-ate",
+     "g": "v. 依法派出去→委派；n. 代表"
+    },
+    {
+     "w": "delegation",
+     "lv": 5,
+     "p": "delegate 委派＋-ion",
+     "g": "n. 派出去這件事→委派；代表團"
+    },
+    {
+     "w": "legacy",
+     "lv": 5,
+     "p": "leg 依法交付＋-acy",
+     "g": "n. 依法傳下來的東西→遺產、遺澤"
+    },
+    {
+     "w": "legislation",
+     "lv": 5,
+     "p": "legis 法律＋lat 帶來＋-ion",
+     "g": "n. 把法律帶出來→立法、法規"
+    },
+    {
+     "w": "legislative",
+     "lv": 5,
+     "p": "legis 法律＋lat 帶來＋-ive",
+     "g": "adj. 與立法有關的→立法的"
+    },
+    {
+     "w": "legitimate",
+     "lv": 5,
+     "p": "legitim 合法的＋-ate",
+     "g": "adj. 站得住法的→合法的、正當的"
+    },
+    {
+     "w": "legislator",
+     "lv": 6,
+     "p": "legis 法律＋lat 帶來＋-or 人",
+     "g": "n. 制定法律的人→立法者"
+    },
+    {
+     "w": "allege",
+     "lv": 6,
+     "p": "al（ad）朝向＋leg 法律",
+     "g": "v. 拿到法庭上主張→聲稱、指稱"
+    }
+   ]
+  },
+  {
+   "key": "lig",
+   "zh": "綁（ligare）",
+   "note": "拉丁文 ligare「綁」。與上兩支同形而不同源，只有兩個字，但都是常考字。同源的還有 ligament（韌帶）、league（結盟），詞彙表未收。",
+   "items": [
+    {
+     "w": "obligation",
+     "lv": 5,
+     "p": "ob 朝向＋lig 綁＋-ation",
+     "g": "n. 被綁住要做的事→義務、責任"
+    },
+    {
+     "w": "oblige",
+     "lv": 6,
+     "p": "ob 朝向＋lig 綁",
+     "g": "v. 把人綁住→迫使；使感激"
+    }
+   ]
+  }
+ ]
+}

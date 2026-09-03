@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>字根家族表｜高中英文參考詞彙表</title>
+<meta name="description" content="把大考中心《高中英文參考詞彙表》裡拆得動的字，按字根收成一家一家，每個字附拆解與意思。">
+<meta property="og:title" content="字根家族表｜高中英文參考詞彙表">
+<meta property="og:description" content="十五個字根家族，二百四十五個字，從第一級排到第六級，附同形異源的假朋友對照。">
+<style>
+:root{
+  --ground:#f1f3f2; --ink:#17282f; --teal:#1f6f6a; --teal-soft:#dfeceb;
+  --muted:#77878d; --line:#cdd6d6; --exam:#b4661c; --exam-soft:#fdf4e7;
+  --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+  --sans:"PingFang TC","Noto Sans TC","Microsoft JhengHei","Helvetica Neue",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);
+     line-height:1.6;-webkit-text-size-adjust:100%}
+.wrap{max-width:46rem;margin:0 auto;padding:1.6rem 1.1rem 4rem}
+h1{font-family:var(--serif);font-weight:600;font-size:1.7rem;line-height:1.25;margin:0 0 .4rem}
+.lede{color:#3d5059;font-size:.95rem;margin:0 0 1.2rem;max-width:38em}
+.tools{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;margin:0 0 .5rem}
+input[type=search]{flex:1 1 12rem;font:inherit;font-size:.92rem;padding:.42rem .6rem;
+  border:1px solid var(--line);border-radius:.3rem;background:#fff;color:var(--ink)}
+input[type=search]:focus-visible{outline:2px solid var(--teal);outline-offset:1px}
+.lv{display:flex;gap:.3rem;flex-wrap:wrap}
+.lv button{font:inherit;font-size:.82rem;padding:.28rem .55rem;background:#fff;color:var(--ink);
+  border:1px solid var(--line);border-radius:.3rem;cursor:pointer}
+.lv button[aria-pressed=true]{background:var(--teal);border-color:var(--teal);color:#fff}
+.lv button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.count{font-size:.85rem;color:var(--muted);margin:0 0 1.4rem}
+nav{margin:0 0 1.6rem;display:flex;flex-wrap:wrap;gap:.3rem}
+nav a{font-family:var(--serif);font-size:.9rem;text-decoration:none;color:var(--teal);
+  border:1px solid var(--line);background:#fff;border-radius:.3rem;padding:.26rem .5rem}
+nav a:hover{background:var(--teal-soft)}
+section{margin:0 0 2.4rem;scroll-margin-top:1rem}
+h2{font-family:var(--serif);font-size:1.24rem;margin:0 0 .1rem;font-weight:600}
+h2 span{font-family:var(--sans);font-size:.92rem;color:#3d5059;margin-left:.5rem;font-weight:400}
+.note{font-size:.9rem;color:#3d5059;margin:.35rem 0 1rem;max-width:40em;
+  border-left:3px solid var(--teal-soft);padding-left:.7rem}
+ul{list-style:none;margin:0;padding:0}
+li{padding:.55rem 0;border-top:1px solid var(--line)}
+li:last-child{border-bottom:1px solid var(--line)}
+.w{font-family:var(--serif);font-size:1.06rem;font-weight:600}
+.badge{font-size:.72rem;color:var(--muted);border:1px solid var(--line);background:#fff;
+  border-radius:.9rem;padding:.02rem .4rem;margin-left:.45rem;vertical-align:.08em}
+.p{font-size:.9rem;color:var(--teal);margin-top:.1rem}
+.g{font-size:.92rem;margin-top:.06rem}
+details{margin-top:.9rem;font-size:.9rem}
+summary{cursor:pointer;color:var(--exam);font-weight:600}
+summary:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+details .why{font-weight:600;margin-top:.6rem}
+details .list{color:#3d5059}
+.foot{border-top:3px double var(--ink);margin-top:2.4rem;padding-top:1rem;
+  font-size:.86rem;color:#3d5059;max-width:40em}
+.empty{padding:1.2rem 0;color:var(--muted)}
+@media (prefers-reduced-motion:no-preference){li{transition:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>字根家族表</h1>
+  <p class="lede">大考中心《高中英文參考詞彙表》（111 學年度起適用）收 5,992 個詞條，其中拆得動的字按字根收成一家一家。先定字根，再把整家收齊，不分級別——低級的字排在前面，用來推後面的高級字。每一家後面附同形異源的假朋友，那些是看起來像、其實不同家的字。</p>
+
+  <div class="tools">
+    <input type="search" id="q" placeholder="搜尋單字、拆解或意思" aria-label="搜尋">
+    <div class="lv" id="lv" role="group" aria-label="依級別篩選"></div>
+  </div>
+  <p class="count" id="count"></p>
+
+  <nav id="nav" aria-label="字根家族"></nav>
+  <div id="body"></div>
+
+  <div class="foot" id="foot"></div>
+</div>
+
+<script>
+const $=s=>document.querySelector(s);
+let DATA=null, state={q:'', lv:new Set()};
+
+function render(){
+  const nav=$('#nav'), body=$('#body');
+  nav.innerHTML=''; body.innerHTML='';
+  const q=state.q.trim().toLowerCase();
+  let shown=0, total=0;
+
+  DATA.groups.forEach((g,gi)=>{
+    total+=g.items.length;
+    const items=g.items.filter(it=>{
+      if(state.lv.size && !state.lv.has(it.lv)) return false;
+      if(!q) return true;
+      return (it.w+' '+it.p+' '+it.g).toLowerCase().includes(q);
+    });
+    if(!items.length) return;
+    shown+=items.length;
+
+    const a=document.createElement('a');
+    a.href='#g'+gi; a.textContent=g.key; nav.appendChild(a);
+
+    const sec=document.createElement('section');
+    sec.id='g'+gi;
+    const h=document.createElement('h2');
+    h.textContent=g.key;
+    if(g.zh){const sp=document.createElement('span');sp.textContent=g.zh;h.appendChild(sp);}
+    sec.appendChild(h);
+    if(g.note){const n=document.createElement('p');n.className='note';n.textContent=g.note;sec.appendChild(n);}
+
+    const ul=document.createElement('ul');
+    items.forEach(it=>{
+      const li=document.createElement('li');
+      const w=document.createElement('div');
+      const nm=document.createElement('span'); nm.className='w'; nm.textContent=it.w; w.appendChild(nm);
+      if(it.lv){const b=document.createElement('span');b.className='badge';b.textContent='第 '+it.lv+' 級';w.appendChild(b);}
+      li.appendChild(w);
+      const p=document.createElement('div'); p.className='p'; p.textContent=it.p; li.appendChild(p);
+      const gg=document.createElement('div'); gg.className='g'; gg.textContent=it.g; li.appendChild(gg);
+      ul.appendChild(li);
+    });
+    sec.appendChild(ul);
+
+    if(g.dropped && g.dropped.length){
+      const d=document.createElement('details');
+      const s=document.createElement('summary');
+      s.textContent='看起來像、其實不是這一家的字';
+      d.appendChild(s);
+      g.dropped.forEach(x=>{
+        const t=document.createElement('p'); t.className='why'; t.textContent=x.why; d.appendChild(t);
+        const l=document.createElement('p'); l.className='list'; l.textContent=x.list; d.appendChild(l);
+      });
+      sec.appendChild(d);
+    }
+    body.appendChild(sec);
+  });
+
+  if(!shown){
+    const e=document.createElement('p'); e.className='empty';
+    e.textContent='這個條件下沒有字。清掉搜尋或級別再試一次。';
+    body.appendChild(e);
+  }
+  $('#count').textContent = (state.q||state.lv.size)
+    ? '符合的字 '+shown+' 個，全表共 '+total+' 個'
+    : '共 '+DATA.groups.length+' 個字根家族、'+total+' 個字';
+}
+
+function buildLv(){
+  const box=$('#lv');
+  for(let i=1;i<=6;i++){
+    const b=document.createElement('button');
+    b.type='button'; b.textContent='第 '+i+' 級';
+    b.setAttribute('aria-pressed','false');
+    b.onclick=()=>{
+      if(state.lv.has(i)){state.lv.delete(i);b.setAttribute('aria-pressed','false');}
+      else{state.lv.add(i);b.setAttribute('aria-pressed','true');}
+      render();
+    };
+    box.appendChild(b);
+  }
+}
+
+fetch('roots_data.json').then(r=>r.json()).then(d=>{
+  DATA=d;
+  buildLv();
+  $('#q').addEventListener('input',e=>{state.q=e.target.value;render();});
+  $('#foot').textContent=d.note+' 資料更新：'+d.updated+'。拆解與中文說明為本站整理，字源依 Online Etymology Dictionary 查證；詞彙表著作權屬財團法人大學入學考試中心基金會，本表僅供非營利教學使用。';
+  render();
+}).catch(()=>{
+  $('#body').innerHTML='<p class="empty">讀不到 roots_data.json。這個頁面要跟資料檔放在同一個資料夾。</p>';
+});
+</script>
+</body>
+</html>
