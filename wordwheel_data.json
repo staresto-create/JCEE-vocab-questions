@@ -185,7 +185,7 @@
  ],
  "words": {
   "refuse": {
-   "parse": "re 往回＋fus 倒",
+   "parse": "re 往回 + fus 倒",
    "gloss": "v. 把倒過來的推回去→拒絕",
    "affixes": [
     "re-"
@@ -195,7 +195,7 @@
    }
   },
   "refusal": {
-   "parse": "refuse＋-al 名詞",
+   "parse": "refuse + -al 名詞",
    "gloss": "n. 拒絕這件事",
    "affixes": [
     "re-"
@@ -205,7 +205,7 @@
    }
   },
   "reform": {
-   "parse": "re 再＋form 形狀",
+   "parse": "re 再 + form 形狀",
    "gloss": "v. 重新塑形→改革",
    "affixes": [
     "re-"
@@ -215,7 +215,7 @@
    }
   },
   "recovery": {
-   "parse": "re 回＋cover 蓋",
+   "parse": "re 回 + cover 蓋",
    "gloss": "n. 重新蓋回去→復原",
    "affixes": [
     "re-"
@@ -225,7 +225,7 @@
    }
   },
   "restore": {
-   "parse": "re 回＋stor 儲存",
+   "parse": "re 回 + stor 儲存",
    "gloss": "v. 放回原來的地方→恢復",
    "affixes": [
     "re-"
@@ -235,7 +235,7 @@
    }
   },
   "reunion": {
-   "parse": "re 再＋union 結合",
+   "parse": "re 再 + union 結合",
    "gloss": "n. 再度聚在一起→團圓",
    "affixes": [
     "re-"
@@ -245,7 +245,7 @@
    }
   },
   "reminder": {
-   "parse": "re 再＋mind 心思＋-er",
+   "parse": "re 再 + mind 心思 + -er",
    "gloss": "n. 讓你再想起來的東西→提醒物",
    "affixes": [
     "re-"
@@ -255,7 +255,7 @@
    }
   },
   "revise": {
-   "parse": "re 再＋vis 看",
+   "parse": "re 再 + vis 看",
    "gloss": "v. 再看一次→修訂",
    "affixes": [
     "re-"
@@ -265,7 +265,7 @@
    }
   },
   "construction": {
-   "parse": "construct 建造＋-ion",
+   "parse": "construct 建造 + -ion",
    "gloss": "n. 蓋的過程→施工",
    "affixes": [
     "-tion / -sion"
@@ -275,7 +275,7 @@
    }
   },
   "exploration": {
-   "parse": "explore 探索＋-ation",
+   "parse": "explore 探索 + -ation",
    "gloss": "n. 探索這件事→勘查",
    "affixes": [
     "-tion / -sion",
@@ -286,7 +286,7 @@
    }
   },
   "innovation": {
-   "parse": "innovate 創新＋-ion",
+   "parse": "innovate 創新 + -ion",
    "gloss": "n. 創新的成果→革新",
    "affixes": [
     "-tion / -sion"
@@ -296,7 +296,7 @@
    }
   },
   "graduation": {
-   "parse": "graduate 畢業＋-ion",
+   "parse": "graduate 畢業 + -ion",
    "gloss": "n. 畢業這件事→畢業典禮",
    "affixes": [
     "-tion / -sion"
@@ -306,7 +306,7 @@
    }
   },
   "hesitation": {
-   "parse": "hesitate 猶豫＋-ion",
+   "parse": "hesitate 猶豫 + -ion",
    "gloss": "n. 猶豫的狀態→遲疑",
    "affixes": [
     "-tion / -sion"
@@ -316,7 +316,7 @@
    }
   },
   "distribution": {
-   "parse": "distribute 分配＋-ion",
+   "parse": "distribute 分配 + -ion",
    "gloss": "n. 分配的結果→分布",
    "affixes": [
     "-tion / -sion"
@@ -326,7 +326,7 @@
    }
   },
   "civilization": {
-   "parse": "civilize 開化＋-ation",
+   "parse": "civilize 開化 + -ation",
    "gloss": "n. 開化的結果→文明",
    "affixes": [
     "-tion / -sion"
@@ -336,7 +336,7 @@
    }
   },
   "collaboration": {
-   "parse": "collaborate 合作＋-ion",
+   "parse": "collaborate 合作 + -ion",
    "gloss": "n. 合作這件事→協作",
    "affixes": [
     "-tion / -sion"
@@ -346,7 +346,7 @@
    }
   },
   "construct": {
-   "parse": "con 一起＋struct 建造",
+   "parse": "con 一起 + struct 建造",
    "gloss": "v. 把材料組在一起→建造",
    "affixes": [
     "con- / com-"
@@ -356,7 +356,7 @@
    }
   },
   "collaborate": {
-   "parse": "col 一起＋labor 勞動",
+   "parse": "col 一起 + labor 勞動",
    "gloss": "v. 一起出力→合作",
    "affixes": [
     "con- / com-"
@@ -366,7 +366,7 @@
    }
   },
   "colleague": {
-   "parse": "col 一起＋leg 選派",
+   "parse": "col 一起 + leg 選派",
    "gloss": "n. 被派在一起做事的人→同事",
    "affixes": [
     "con- / com-"
@@ -376,7 +376,7 @@
    }
   },
   "combination": {
-   "parse": "com 一起＋bin 兩個＋-ation",
+   "parse": "com 一起 + bin 兩個 + -ation",
    "gloss": "n. 把兩樣併在一起→組合",
    "affixes": [
     "con- / com-"
@@ -386,7 +386,7 @@
    }
   },
   "compromise": {
-   "parse": "com 一起＋promise 承諾",
+   "parse": "com 一起 + promise 承諾",
    "gloss": "n. 雙方各讓一步的承諾→妥協",
    "affixes": [
     "con- / com-"
@@ -396,7 +396,7 @@
    }
   },
   "conflict": {
-   "parse": "con 一起＋flict 撞擊",
+   "parse": "con 一起 + flict 撞擊",
    "gloss": "n. 互相撞上→衝突",
    "affixes": [
     "con- / com-"
@@ -406,7 +406,7 @@
    }
   },
   "consume": {
-   "parse": "con 完全＋sum 拿取",
+   "parse": "con 完全 + sum 拿取",
    "gloss": "v. 全部拿光→消耗",
    "affixes": [
     "con- / com-"
@@ -416,7 +416,7 @@
    }
   },
   "conscience": {
-   "parse": "con 一起＋sci 知道",
+   "parse": "con 一起 + sci 知道",
    "gloss": "n. 心裡跟你一起知道的聲音→良心",
    "affixes": [
     "con- / com-",
@@ -427,7 +427,7 @@
    }
   },
   "innovate": {
-   "parse": "in 進入＋nov 新",
+   "parse": "in 進入 + nov 新",
    "gloss": "v. 把新東西放進來→創新",
    "affixes": [
     "in- / im-"
@@ -437,7 +437,7 @@
    }
   },
   "inspire": {
-   "parse": "in 進入＋spir 呼吸",
+   "parse": "in 進入 + spir 呼吸",
    "gloss": "v. 把氣吹進去→激勵",
    "affixes": [
     "in- / im-"
@@ -447,7 +447,7 @@
    }
   },
   "insight": {
-   "parse": "in 裡面＋sight 看",
+   "parse": "in 裡面 + sight 看",
    "gloss": "n. 看進事情裡面→洞察力",
    "affixes": [
     "in- / im-"
@@ -457,7 +457,7 @@
    }
   },
   "invest": {
-   "parse": "in 進入＋vest 衣服",
+   "parse": "in 進入 + vest 衣服",
    "gloss": "v. 把錢投進去→投資",
    "affixes": [
     "in- / im-"
@@ -467,7 +467,7 @@
    }
   },
   "invade": {
-   "parse": "in 進入＋vad 走",
+   "parse": "in 進入 + vad 走",
    "gloss": "v. 走進別人的地方→侵略",
    "affixes": [
     "in- / im-"
@@ -477,7 +477,7 @@
    }
   },
   "imaginative": {
-   "parse": "imagine 想像＋-ative",
+   "parse": "imagine 想像 + -ative",
    "gloss": "a. 腦中造得出畫面的→有想像力的",
    "affixes": [
     "in- / im-",
@@ -488,7 +488,7 @@
    }
   },
   "incredible": {
-   "parse": "in 不＋cred 相信＋-ible",
+   "parse": "in 不 + cred 相信 + -ible",
    "gloss": "a. 沒辦法相信的→難以置信的",
    "affixes": [
     "in- / im-"
@@ -497,7 +497,7 @@
    "level": 4
   },
   "independent": {
-   "parse": "in 不＋depend 依賴＋-ent",
+   "parse": "in 不 + depend 依賴 + -ent",
    "gloss": "a. 不靠別人的→獨立的",
    "affixes": [
     "in- / im-"
@@ -506,7 +506,7 @@
    "level": 2
   },
   "depart": {
-   "parse": "de 離開＋part 部分",
+   "parse": "de 離開 + part 部分",
    "gloss": "v. 從原地離開→出發",
    "affixes": [
     "de-"
@@ -516,7 +516,7 @@
    }
   },
   "departure": {
-   "parse": "depart＋-ure 名詞",
+   "parse": "depart + -ure 名詞",
    "gloss": "n. 離開這件事→啟程",
    "affixes": [
     "de-"
@@ -526,7 +526,7 @@
    }
   },
   "dependent": {
-   "parse": "de 往下＋pend 懸掛＋-ent",
+   "parse": "de 往下 + pend 懸掛 + -ent",
    "gloss": "a. 掛在別人身上的→依賴的",
    "affixes": [
     "de-"
@@ -536,7 +536,7 @@
    }
   },
   "demonstrate": {
-   "parse": "de 完全＋monstr 展示",
+   "parse": "de 完全 + monstr 展示",
    "gloss": "v. 完整攤開給人看→示範",
    "affixes": [
     "de-"
@@ -546,7 +546,7 @@
    }
   },
   "destination": {
-   "parse": "de 往下＋stin 定位＋-ation",
+   "parse": "de 往下 + stin 定位 + -ation",
    "gloss": "n. 事先定好要落腳的點→目的地",
    "affixes": [
     "de-"
@@ -556,7 +556,7 @@
    }
   },
   "delicate": {
-   "parse": "de 去掉＋lic 引誘",
+   "parse": "de 去掉 + lic 引誘",
    "gloss": "a. 經不起碰的→精緻脆弱的",
    "affixes": [
     "de-"
@@ -566,7 +566,7 @@
    }
   },
   "decrease": {
-   "parse": "de 往下＋creas 增長",
+   "parse": "de 往下 + creas 增長",
    "gloss": "v. 往下長→減少",
    "affixes": [
     "de-"
@@ -575,7 +575,7 @@
    "level": 3
   },
   "destruction": {
-   "parse": "de 去掉＋struct 建造＋-ion",
+   "parse": "de 去掉 + struct 建造 + -ion",
    "gloss": "n. 把蓋好的拆掉→破壞",
    "affixes": [
     "de-"
@@ -584,7 +584,7 @@
    "level": 4
   },
   "essential": {
-   "parse": "essence 本質＋-ial",
+   "parse": "essence 本質 + -ial",
    "gloss": "a. 跟本質有關的→必要的",
    "affixes": [
     "-al"
@@ -594,7 +594,7 @@
    }
   },
   "material": {
-   "parse": "mater 母體＋-ial",
+   "parse": "mater 母體 + -ial",
    "gloss": "a./n. 構成東西的底料→材料",
    "affixes": [
     "-al"
@@ -604,7 +604,7 @@
    }
   },
   "universal": {
-   "parse": "universe 宇宙＋-al",
+   "parse": "universe 宇宙 + -al",
    "gloss": "a. 跟整個宇宙有關的→普遍的",
    "affixes": [
     "-al"
@@ -614,7 +614,7 @@
    }
   },
   "logical": {
-   "parse": "logic 邏輯＋-al",
+   "parse": "logic 邏輯 + -al",
    "gloss": "a. 合乎邏輯的→合理的",
    "affixes": [
     "-al"
@@ -624,7 +624,7 @@
    }
   },
   "mechanical": {
-   "parse": "mechanic 機械＋-al",
+   "parse": "mechanic 機械 + -al",
    "gloss": "a. 跟機械有關的→機械式的",
    "affixes": [
     "-al"
@@ -634,7 +634,7 @@
    }
   },
   "professional": {
-   "parse": "profession 專業＋-al",
+   "parse": "profession 專業 + -al",
    "gloss": "a. 跟本行有關的→專業的",
    "affixes": [
     "-al"
@@ -644,7 +644,7 @@
    }
   },
   "beneficial": {
-   "parse": "benefit 好處＋-ial",
+   "parse": "benefit 好處 + -ial",
    "gloss": "a. 帶來好處的→有益的",
    "affixes": [
     "-al",
@@ -655,7 +655,7 @@
    }
   },
   "psychological": {
-   "parse": "psychology 心理學＋-al",
+   "parse": "psychology 心理學 + -al",
    "gloss": "a. 跟心理有關的→心理上的",
    "affixes": [
     "-al"
@@ -665,7 +665,7 @@
    }
   },
   "constructive": {
-   "parse": "construct 建造＋-ive",
+   "parse": "construct 建造 + -ive",
    "gloss": "a. 傾向把事情蓋起來→有建設性的",
    "affixes": [
     "-ive"
@@ -675,7 +675,7 @@
    }
   },
   "innovative": {
-   "parse": "innovate 創新＋-ive",
+   "parse": "innovate 創新 + -ive",
    "gloss": "a. 傾向創新的→創新的",
    "affixes": [
     "-ive"
@@ -685,7 +685,7 @@
    }
   },
   "primitive": {
-   "parse": "prim 最早＋-itive",
+   "parse": "prim 最早 + -itive",
    "gloss": "a. 停在最早階段的→原始的",
    "affixes": [
     "-ive"
@@ -695,7 +695,7 @@
    }
   },
   "massive": {
-   "parse": "mass 大量＋-ive",
+   "parse": "mass 大量 + -ive",
    "gloss": "a. 具有大量特性的→巨大的",
    "affixes": [
     "-ive"
@@ -705,7 +705,7 @@
    }
   },
   "attractive": {
-   "parse": "attract 吸引＋-ive",
+   "parse": "attract 吸引 + -ive",
    "gloss": "a. 會吸引人的→有魅力的",
    "affixes": [
     "-ive"
@@ -714,7 +714,7 @@
    "level": 3
   },
   "competitive": {
-   "parse": "compete 競爭＋-itive",
+   "parse": "compete 競爭 + -itive",
    "gloss": "a. 傾向競爭的→有競爭力的",
    "affixes": [
     "-ive"
@@ -723,7 +723,7 @@
    "level": 4
   },
   "sensitive": {
-   "parse": "sens 感覺＋-itive",
+   "parse": "sens 感覺 + -itive",
    "gloss": "a. 容易有感覺的→敏感的",
    "affixes": [
     "-ive"
@@ -732,7 +732,7 @@
    "level": 2
   },
   "explore": {
-   "parse": "ex 向外＋plor 呼喊尋找",
+   "parse": "ex 向外 + plor 呼喊尋找",
    "gloss": "v. 往外找→探索",
    "affixes": [
     "ex- / e-"
@@ -742,7 +742,7 @@
    }
   },
   "exceed": {
-   "parse": "ex 向外＋ceed 走",
+   "parse": "ex 向外 + ceed 走",
    "gloss": "v. 走出界線→超過",
    "affixes": [
     "ex- / e-"
@@ -752,7 +752,7 @@
    }
   },
   "exhibit": {
-   "parse": "ex 向外＋hibit 拿住",
+   "parse": "ex 向外 + hibit 拿住",
    "gloss": "v. 拿出來給人看→展出",
    "affixes": [
     "ex- / e-"
@@ -762,7 +762,7 @@
    }
   },
   "extraordinary": {
-   "parse": "extra 之外＋ordinary 普通",
+   "parse": "extra 之外 + ordinary 普通",
    "gloss": "a. 在普通之外的→非凡的",
    "affixes": [
     "ex- / e-"
@@ -772,7 +772,7 @@
    }
   },
   "export": {
-   "parse": "ex 向外＋port 搬",
+   "parse": "ex 向外 + port 搬",
    "gloss": "v. 把貨搬出國→出口",
    "affixes": [
     "ex- / e-"
@@ -781,7 +781,7 @@
    "level": 3
   },
   "expand": {
-   "parse": "ex 向外＋pand 展開",
+   "parse": "ex 向外 + pand 展開",
    "gloss": "v. 往外攤開→擴張",
    "affixes": [
     "ex- / e-"
@@ -790,7 +790,7 @@
    "level": 4
   },
   "exclude": {
-   "parse": "ex 向外＋clud 關閉",
+   "parse": "ex 向外 + clud 關閉",
    "gloss": "v. 關在門外→排除",
    "affixes": [
     "ex- / e-"
@@ -799,7 +799,7 @@
    "level": 5
   },
   "reliable": {
-   "parse": "rely 依靠＋-able",
+   "parse": "rely 依靠 + -able",
    "gloss": "a. 可以被依靠的→可靠的",
    "affixes": [
     "-able / -ible"
@@ -809,7 +809,7 @@
    }
   },
   "capable": {
-   "parse": "cap 拿取＋-able",
+   "parse": "cap 拿取 + -able",
    "gloss": "a. 拿得動的→有能力的",
    "affixes": [
     "-able / -ible"
@@ -819,7 +819,7 @@
    }
   },
   "dependable": {
-   "parse": "depend 依賴＋-able",
+   "parse": "depend 依賴 + -able",
    "gloss": "a. 可以被依賴的→靠得住的",
    "affixes": [
     "-able / -ible"
@@ -829,7 +829,7 @@
    }
   },
   "accessible": {
-   "parse": "access 進入＋-ible",
+   "parse": "access 進入 + -ible",
    "gloss": "a. 進得去的→容易取得的",
    "affixes": [
     "-able / -ible"
@@ -839,7 +839,7 @@
    }
   },
   "flexible": {
-   "parse": "flex 彎曲＋-ible",
+   "parse": "flex 彎曲 + -ible",
    "gloss": "a. 彎得動的→有彈性的",
    "affixes": [
     "-able / -ible"
@@ -849,7 +849,7 @@
    }
   },
   "favorable": {
-   "parse": "favor 恩惠＋-able",
+   "parse": "favor 恩惠 + -able",
    "gloss": "a. 給得出好處的→有利的",
    "affixes": [
     "-able / -ible"
@@ -859,7 +859,7 @@
    }
   },
   "miserable": {
-   "parse": "miser 悲慘＋-able",
+   "parse": "miser 悲慘 + -able",
    "gloss": "a. 慘得起來的→悲慘的",
    "affixes": [
     "-able / -ible"
@@ -869,7 +869,7 @@
    }
   },
   "available": {
-   "parse": "avail 有用＋-able",
+   "parse": "avail 有用 + -able",
    "gloss": "a. 用得上的→可取得的",
    "affixes": [
     "-able / -ible"
@@ -878,7 +878,7 @@
    "level": 2
   },
   "distribute": {
-   "parse": "dis 分開＋tribut 給予",
+   "parse": "dis 分開 + tribut 給予",
    "gloss": "v. 分開發給大家→分配",
    "affixes": [
     "dis-"
@@ -888,7 +888,7 @@
    }
   },
   "dismiss": {
-   "parse": "dis 分開＋miss 送",
+   "parse": "dis 分開 + miss 送",
    "gloss": "v. 把人送走→解散、駁回",
    "affixes": [
     "dis-"
@@ -898,7 +898,7 @@
    }
   },
   "dispute": {
-   "parse": "dis 分開＋put 思考",
+   "parse": "dis 分開 + put 思考",
    "gloss": "v. 想法分岔→爭論",
    "affixes": [
     "dis-"
@@ -908,7 +908,7 @@
    }
   },
   "disturb": {
-   "parse": "dis 分開＋turb 攪動",
+   "parse": "dis 分開 + turb 攪動",
    "gloss": "v. 把安定攪散→打擾",
    "affixes": [
     "dis-"
@@ -918,7 +918,7 @@
    }
   },
   "distinct": {
-   "parse": "dis 分開＋tinct 刺記號",
+   "parse": "dis 分開 + tinct 刺記號",
    "gloss": "a. 被畫開來的→明顯不同的",
    "affixes": [
     "dis-"
@@ -928,7 +928,7 @@
    }
   },
   "disqualify": {
-   "parse": "dis 相反＋qualify 取得資格",
+   "parse": "dis 相反 + qualify 取得資格",
    "gloss": "v. 把資格拿掉→取消資格",
    "affixes": [
     "dis-"
@@ -938,7 +938,7 @@
    }
   },
   "discipline": {
-   "parse": "disc 學習＋-ipline",
+   "parse": "disc 學習 + -ipline",
    "gloss": "n. 學習養成的規矩→紀律",
    "affixes": [
     "dis-"
@@ -948,7 +948,7 @@
    }
   },
   "discover": {
-   "parse": "dis 相反＋cover 蓋住",
+   "parse": "dis 相反 + cover 蓋住",
    "gloss": "v. 把蓋子掀開→發現",
    "affixes": [
     "dis-"
@@ -957,7 +957,7 @@
    "level": 2
   },
   "dependence": {
-   "parse": "depend 依賴＋-ence",
+   "parse": "depend 依賴 + -ence",
    "gloss": "n. 依賴的狀態→依賴",
    "affixes": [
     "-ance / -ence"
@@ -967,7 +967,7 @@
    }
   },
   "insurance": {
-   "parse": "insure 保險＋-ance",
+   "parse": "insure 保險 + -ance",
    "gloss": "n. 保障這件事→保險",
    "affixes": [
     "-ance / -ence"
@@ -977,7 +977,7 @@
    }
   },
   "allowance": {
-   "parse": "allow 允許＋-ance",
+   "parse": "allow 允許 + -ance",
    "gloss": "n. 被允許的額度→零用錢",
    "affixes": [
     "-ance / -ence"
@@ -987,7 +987,7 @@
    }
   },
   "preference": {
-   "parse": "prefer 偏好＋-ence",
+   "parse": "prefer 偏好 + -ence",
    "gloss": "n. 偏好的狀態→偏愛",
    "affixes": [
     "-ance / -ence"
@@ -997,7 +997,7 @@
    }
   },
   "coincidence": {
-   "parse": "co 一起＋incid 落下＋-ence",
+   "parse": "co 一起 + incid 落下 + -ence",
    "gloss": "n. 剛好一起發生→巧合",
    "affixes": [
     "-ance / -ence"
@@ -1007,7 +1007,7 @@
    }
   },
   "difference": {
-   "parse": "differ 相異＋-ence",
+   "parse": "differ 相異 + -ence",
    "gloss": "n. 不一樣的地方→差別",
    "affixes": [
     "-ance / -ence"
@@ -1016,7 +1016,7 @@
    "level": 2
   },
   "performance": {
-   "parse": "perform 表演＋-ance",
+   "parse": "perform 表演 + -ance",
    "gloss": "n. 表演這件事→表現",
    "affixes": [
     "-ance / -ence"
@@ -1025,7 +1025,7 @@
    "level": 3
   },
   "satisfaction": {
-   "parse": "satis 足夠＋fac 做＋-tion",
+   "parse": "satis 足夠 + fac 做 + -tion",
    "gloss": "n. 做到夠了→滿足",
    "affixes": [
     "fac / fect / fic"
@@ -1035,7 +1035,7 @@
    }
   },
   "dissatisfaction": {
-   "parse": "dis 不＋satisfaction",
+   "parse": "dis 不 + satisfaction",
    "gloss": "n. 沒做到夠→不滿",
    "affixes": [
     "fac / fect / fic"
@@ -1045,7 +1045,7 @@
    }
   },
   "magnificent": {
-   "parse": "magni 大＋fic 做＋-ent",
+   "parse": "magni 大 + fic 做 + -ent",
    "gloss": "a. 做得很大器的→壯麗的",
    "affixes": [
     "fac / fect / fic"
@@ -1055,7 +1055,7 @@
    }
   },
   "effect": {
-   "parse": "ef 向外＋fect 做",
+   "parse": "ef 向外 + fect 做",
    "gloss": "n. 做出來的結果→效果",
    "affixes": [
     "fac / fect / fic"
@@ -1064,7 +1064,7 @@
    "level": 2
   },
   "efficient": {
-   "parse": "ef 向外＋fic 做＋-ient",
+   "parse": "ef 向外 + fic 做 + -ient",
    "gloss": "a. 做得出東西的→有效率的",
    "affixes": [
     "fac / fect / fic"
@@ -1073,7 +1073,7 @@
    "level": 3
   },
   "manufacture": {
-   "parse": "manu 手＋fact 做＋-ure",
+   "parse": "manu 手 + fact 做 + -ure",
    "gloss": "v. 用手做出來→製造",
    "affixes": [
     "fac / fect / fic"
@@ -1082,7 +1082,7 @@
    "level": 4
   },
   "sufficient": {
-   "parse": "suf 底下＋fic 做＋-ient",
+   "parse": "suf 底下 + fic 做 + -ient",
    "gloss": "a. 做得夠墊底的→足夠的",
    "affixes": [
     "fac / fect / fic"
