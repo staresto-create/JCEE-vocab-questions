@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>字根家族表｜高中英文參考詞彙表</title>
-<meta name="description" content="把大考中心《高中英文參考詞彙表》裡拆得動的字，按字根收成一家一家，每個字附拆解與意思。">
+<meta name="description" content="把大考中心《高中英文參考詞彙表》裡拆得動的字，按字根收成一家一家，每個字附拆解與意思，考過的字直接連到歷屆真題。">
 <meta property="og:title" content="字根家族表｜高中英文參考詞彙表">
-<meta property="og:description" content="十五個字根家族，二百四十五個字，從第一級排到第六級，附同形異源的假朋友對照。">
+<meta property="og:description" content="十五個字根家族，二百四十五個字，其中一百三十七個字連得到學測、指考、克漏字與作文的歷屆考題。">
 <style>
 :root{
   --ground:#f1f3f2; --ink:#17282f; --teal:#1f6f6a; --teal-soft:#dfeceb;
@@ -52,6 +52,14 @@ summary{cursor:pointer;color:var(--exam);font-weight:600}
 summary:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
 details .why{font-weight:600;margin-top:.6rem}
 details .list{color:#3d5059}
+.refs{margin-top:.34rem;font-size:.82rem;line-height:1.5}
+.refs .lb{color:var(--muted);margin-right:.3rem}
+.refs a{display:inline-block;color:var(--exam);background:var(--exam-soft);
+  border:1px solid #f0dcc0;border-radius:.25rem;padding:.02rem .35rem;
+  margin:.1rem .28rem .1rem 0;text-decoration:none}
+.refs a:hover{background:#f9e8d2}
+.refs a:focus-visible{outline:2px solid var(--exam);outline-offset:1px}
+.refs a .k{color:var(--muted);font-size:.92em}
 .foot{border-top:3px double var(--ink);margin-top:2.4rem;padding-top:1rem;
   font-size:.86rem;color:#3d5059;max-width:40em}
 .empty{padding:1.2rem 0;color:var(--muted)}
@@ -77,7 +85,7 @@ details .list{color:#3d5059}
 
 <script>
 const $=s=>document.querySelector(s);
-let DATA=null, state={q:'', lv:new Set()};
+let DATA=null, state={q:'', lv:new Set(), examOnly:false};
 
 function render(){
   const nav=$('#nav'), body=$('#body');
@@ -89,8 +97,10 @@ function render(){
     total+=g.items.length;
     const items=g.items.filter(it=>{
       if(state.lv.size && !state.lv.has(it.lv)) return false;
+      if(state.examOnly && !(it.refs && it.refs.length)) return false;
       if(!q) return true;
-      return (it.w+' '+it.p+' '+it.g).toLowerCase().includes(q);
+      const refTxt=(it.refs||[]).map(r=>r.t).join(' ');
+      return (it.w+' '+it.p+' '+it.g+' '+refTxt).toLowerCase().includes(q);
     });
     if(!items.length) return;
     shown+=items.length;
@@ -115,6 +125,21 @@ function render(){
       li.appendChild(w);
       const p=document.createElement('div'); p.className='p'; p.textContent=it.p; li.appendChild(p);
       const gg=document.createElement('div'); gg.className='g'; gg.textContent=it.g; li.appendChild(gg);
+      if(it.refs && it.refs.length && DATA.sites){
+        const rf=document.createElement('div'); rf.className='refs';
+        const lb=document.createElement('span'); lb.className='lb'; lb.textContent='考過'; rf.appendChild(lb);
+        it.refs.forEach(r=>{
+          const site=DATA.sites[r.s]; if(!site) return;
+          const a=document.createElement('a');
+          a.href=site.base+encodeURIComponent(r.id)+(site.suf||'');
+          a.append(r.t);
+          if(r.k){const k=document.createElement('span');k.className='k';
+            k.textContent=r.k==='a'?'（答案）':'（誘答）';a.appendChild(k);}
+          a.title=site.n+'　'+r.t;
+          rf.appendChild(a);
+        });
+        li.appendChild(rf);
+      }
       ul.appendChild(li);
     });
     sec.appendChild(ul);
@@ -138,13 +163,20 @@ function render(){
     e.textContent='這個條件下沒有字。清掉搜尋或級別再試一次。';
     body.appendChild(e);
   }
-  $('#count').textContent = (state.q||state.lv.size)
+  let linked=0; DATA.groups.forEach(g=>g.items.forEach(it=>{if(it.refs&&it.refs.length)linked++;}));
+  $('#count').textContent = (state.q||state.lv.size||state.examOnly)
     ? '符合的字 '+shown+' 個，全表共 '+total+' 個'
-    : '共 '+DATA.groups.length+' 個字根家族、'+total+' 個字';
+    : '共 '+DATA.groups.length+' 個字根家族、'+total+' 個字，其中 '+linked+' 個字附了考古題連結';
 }
 
 function buildLv(){
   const box=$('#lv');
+  const e=document.createElement('button');
+  e.type='button'; e.textContent='只看考過的字';
+  e.setAttribute('aria-pressed','false');
+  e.onclick=()=>{ state.examOnly=!state.examOnly;
+    e.setAttribute('aria-pressed', state.examOnly?'true':'false'); render(); };
+  box.appendChild(e);
   for(let i=1;i<=6;i++){
     const b=document.createElement('button');
     b.type='button'; b.textContent='第 '+i+' 級';
@@ -162,7 +194,7 @@ fetch('roots_data.json').then(r=>r.json()).then(d=>{
   DATA=d;
   buildLv();
   $('#q').addEventListener('input',e=>{state.q=e.target.value;render();});
-  $('#foot').textContent=d.note+' 資料更新：'+d.updated+'。拆解與中文說明為本站整理，字源依 Online Etymology Dictionary 查證；詞彙表著作權屬財團法人大學入學考試中心基金會，本表僅供非營利教學使用。';
+  $('#foot').textContent=d.note+' 資料更新：'+d.updated+'。標「考過」的字可點進本站題庫看該題原文；拆解與中文說明為本站整理，字源依 Online Etymology Dictionary 查證；詞彙表著作權屬財團法人大學入學考試中心基金會，本表僅供非營利教學使用。';
   render();
 }).catch(()=>{
   $('#body').innerHTML='<p class="empty">讀不到 roots_data.json。這個頁面要跟資料檔放在同一個資料夾。</p>';
