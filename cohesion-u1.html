@@ -125,6 +125,24 @@ h2{font-family:var(--serif);font-weight:600;font-size:1.2rem;margin:0 0 .5rem;co
 .panel .ch i{font-style:normal;color:var(--muted);padding:0 .28rem}
 .panel .nt{font-size:.88rem;color:#3d5059;margin:0}
 
+.gap{background:#fff;border:1px solid var(--line);border-radius:.4rem;
+      padding:.9rem 1rem;margin:0 0 .9rem;font-family:var(--serif);
+      font-size:1.02rem;line-height:1.95}
+.gap .blank{display:inline-block;min-width:9rem;border-bottom:2px solid var(--gen);
+            color:var(--gen);text-align:center;font-family:var(--sans);font-size:.82rem}
+.gap .blank.filled{border-bottom-color:var(--teal);color:var(--ink);
+                   font-family:var(--serif);font-size:1.02rem;text-align:left;
+                   background:var(--teal-soft);border-radius:.2rem;padding:0 .25rem}
+.picks{display:flex;flex-direction:column;gap:.45rem;margin:0 0 .9rem}
+.picks button{font:inherit;font-family:var(--serif);font-size:.98rem;line-height:1.6;
+  background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:.3rem;
+  padding:.55rem .8rem;cursor:pointer;text-align:left}
+.picks button:hover{border-color:var(--teal)}
+.picks button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.picks button[data-state="right"]{background:var(--teal-soft);border-color:var(--teal)}
+.picks button[data-state="wrong"]{background:var(--ground);color:var(--muted)}
+.why{font-size:.86rem;color:#3d5059;margin:.35rem 0 0;padding-left:.1rem}
+.why[hidden]{display:none}
 .close{border-top:1px solid var(--line);margin-top:2rem;padding-top:1.1rem;
        font-size:.93rem;color:#3d5059}
 .close h2{font-size:1.1rem}
@@ -260,16 +278,48 @@ h2{font-family:var(--serif);font-weight:600;font-size:1.2rem;margin:0 0 .5rem;co
     <div class="ch" id="pc">點一個字看看</div>
     <p class="nt" id="pt">青色是同一件事的不同說法，橘色是同一類的字，藍灰是概括與具體的一組。</p>
   </div>
+  <p style="margin-top:1.1rem"><button class="go" id="g5">那這些能拿來做什麼？</button></p>
+</section>
+
+<!-- STEP 6 -->
+<section class="step" id="s7" hidden>
+  <p class="stepno">第六步</p>
+  <h2>把一句話放回去</h2>
+  <p>這就是考卷上的<b>篇章結構</b>題。下面把第 18 到 19 行整句抽掉了，四個候選句只有一句放得進去。前面五步練的東西，全部用在這一題。</p>
+  <div class="gap" id="gp">
+    … Experts say that natural weather effects and everyday objects such as balloons and drones account for most UAP sightings. <span class="blank" id="bl">（空格）</span>
+    <br><br>
+    The release has been met with mixed reactions. Some people support the government’s openness and say it helps reduce rumors. Others argue that the files still leave too many important questions unanswered. …
+  </div>
+  <div class="picks" id="q6">
+    <button data-ok="1">However, a small number of cases remain unexplained due to limited data.</button>
+    <button>Therefore, the government decided to release all the remaining files.</button>
+    <button>In addition, experts confirmed that every sighting can now be fully explained.</button>
+    <button>However, the Pentagon has refused to comment on any of the findings.</button>
+  </div>
+  <div class="said" id="a6" hidden>
+    <b>三個線索同時指向同一句，缺一個都不夠。</b>
+    <br><br>
+    <b>方向。</b>前一句說大部分解釋得了，空格必須是轉折，所以 In addition 那句先出局——而且它說「全部都能解釋」，跟後面的 questions unanswered 直接打架。
+    <br><br>
+    <b>詞彙鏈。</b>答案裡的 unexplained 接得上第 2 行的 unidentified 和第 25 行的 unanswered。那條 un- 鏈少了中間這一環就斷了。
+    <br><br>
+    <b>後文。</b>下一段講 mixed reactions，需要前面留下一個未解的疑問當理由。Pentagon 拒絕評論那句雖然也用了 However，但它引出的是「官方態度」，不是「還有疑問」，接不上。
+    <br><br>
+    <b>Therefore 那句方向完全相反</b>，前一句沒有任何理由導出「所以決定全部公布」。
+  </div>
+  <p class="why" id="w6" hidden>考卷上不會有底色。但你剛才用的三個線索，每一篇文章都有。</p>
 </section>
 
 <!-- CLOSE -->
 <section class="close" id="s6" hidden>
-  <h2>帶著走的四句話</h2>
+  <h2>帶著走的五句話</h2>
   <ol>
     <li><b>新聞的標題就是提綱。</b>標題出現的概念，結尾幾乎一定回來。</li>
     <li><b>同一個概念會換說法，換到第四次可能連字首都換掉。</b>un- 用了三次，第四次變成 mysterious。</li>
     <li><b>回指的不一定是名詞，也可能是前面整件事。</b>找不到對應的名詞，就找對應的動作。</li>
     <li><b>概括的說法後面會跟著具體的東西。</b>看不懂細節，往前找那一層概括。</li>
+    <li><b>篩章結構題就是拿上面四點來判斷。</b>方向對不對、詞彙鏈接不接得上、後文需不需要它。三個都要對。</li>
   </ol>
   <p class="more"><a href="https://staresto-create.github.io/JCEE-vocab-questions/wordwheel.html">單字輪：un-、in-、im- 這一輪 →</a></p>
 </section>
@@ -283,8 +333,8 @@ function $(id){return document.getElementById(id);}
 function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;");}
 
 /* ---------- progress memory (this browser only) ---------- */
-var KEY="cohesion-u1-v1";
-var ST={q1:0,hunt:{},found:0,phase:1,early:0,q3:0,q4:0,step:1};
+var KEY="cohesion-u1-v2";
+var ST={q1:0,hunt:{},found:0,phase:1,early:0,q3:0,q4:0,q6:0,step:1};
 function save(){ try{ localStorage.setItem(KEY, JSON.stringify(ST)); }catch(e){} }
 function load(){ try{ var r=localStorage.getItem(KEY); return r?JSON.parse(r):null; }catch(e){ return null; } }
 function wipe(){ try{ localStorage.removeItem(KEY); }catch(e){} location.reload(); }
@@ -391,7 +441,7 @@ function openLadder(){
 }
 quiz("q4",null,"g4",openLadder,"q4");
 $("g4").addEventListener("click",function(){
-  ST.step=5; save(); $("s5").hidden=false; $("s6").hidden=false;
+  ST.step=5; save(); $("s5").hidden=false;
   build(); $("s5").scrollIntoView({behavior:"smooth",block:"start"});
 });
 
@@ -448,6 +498,31 @@ toggle($("m1"),"off-sub");
 toggle($("m2"),"off-field");
 toggle($("m3"),"off-gen");
 
+/* ---------- step 6 : passage completion ---------- */
+function fillBlank(){
+  var b=$("q6").querySelector("button[data-ok]");
+  $("bl").textContent=b.textContent;
+  $("bl").className="blank filled";
+}
+$("g5").addEventListener("click",function(){
+  ST.step=6; save();
+  $("s7").hidden=false; $("s6").hidden=false;
+  $("s7").scrollIntoView({behavior:"smooth",block:"start"});
+});
+var done6=false;
+$("q6").addEventListener("click",function(e){
+  var b=e.target.closest("button"); if(!b||done6) return;
+  done6=true; ST.q6=1; save();
+  var bs=$("q6").querySelectorAll("button");
+  for(var i=0;i<bs.length;i++){
+    bs[i].disabled=true;
+    bs[i].dataset.state = bs[i].dataset.ok ? "right" : "wrong";
+  }
+  fillBlank();
+  $("a6").hidden=false; $("w6").hidden=false;
+  $("a6").scrollIntoView({behavior:"smooth",block:"nearest"});
+});
+
 /* ---------- restore ---------- */
 $("rst").addEventListener("click",wipe);
 (function restore(){
@@ -486,9 +561,10 @@ $("rst").addEventListener("click",wipe);
   }
   if(ST.step>=3){ $("s3").hidden=false; if(ST.q3) settle("q3","a3","g3"); }
   if(ST.step>=4){ $("s4").hidden=false; if(ST.q4) settle("q4",null,"g4",openLadder); }
-  if(ST.step>=5){ $("s5").hidden=false; $("s6").hidden=false; build(); }
+  if(ST.step>=5){ $("s5").hidden=false; build(); }
+  if(ST.step>=6){ $("s7").hidden=false; $("s6").hidden=false; if(ST.q6){ done6=true; settle("q6","a6",null,function(){ fillBlank(); $("w6").hidden=false; }); } }
 
-  var last=$("s"+(ST.step>=5?"5":ST.step));
+  var last=$(ST.step>=6?"s7":("s"+(ST.step>=5?"5":ST.step)));
   if(last) setTimeout(function(){ last.scrollIntoView({block:"start"}); },60);
 })();
 })();
