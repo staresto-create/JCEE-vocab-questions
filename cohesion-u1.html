@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>換字追蹤｜Questions Remain After Pentagon Releases UFO Files</title>
+<meta name="description" content="新聞報導怎麼從概括寫到具體？同一個概念換了四種說法，跟著五個步驟自己找出來。">
+<meta property="og:title" content="換字追蹤｜Pentagon Releases UFO Files">
+<meta property="og:description" content="unidentified、unexplained、unanswered、mysterious——同一件事，四種說法。新聞的標題和結尾扣在同一個概念上。">
+<style>
+:root{
+  --ground:#f1f3f2; --ink:#17282f; --teal:#1f6f6a; --teal-soft:#dfeceb;
+  --muted:#77878d; --line:#cdd6d6; --exam:#b4661c; --exam-soft:#fdf4e7;
+  --gen:#4a6a90; --gen-soft:#e0e7f0;
+  --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+  --sans:"PingFang TC","Noto Sans TC","Microsoft JhengHei","Helvetica Neue",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);
+     line-height:1.6;-webkit-text-size-adjust:100%}
+.wrap{max-width:44rem;margin:0 auto;padding:1.6rem 1.1rem 4rem}
+
+h1{font-family:var(--serif);font-weight:600;font-size:1.6rem;line-height:1.3;margin:0 0 .55rem}
+.lede{margin:0 0 1.3rem;color:#3d5059;font-size:.95rem}
+.src{font-size:.8rem;color:var(--muted);margin:0 0 1.1rem}
+.resume{font-size:.85rem;color:var(--teal);background:var(--teal-soft);
+        border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.resume[hidden]{display:none}
+.resume button{font:inherit;font-size:.82rem;background:#fff;color:var(--ink);
+  border:1px solid var(--line);border-radius:.25rem;padding:.16rem .6rem;
+  margin-left:.5rem;cursor:pointer}
+.resume button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+
+.hero{background:#fff;border:1px solid var(--line);border-radius:.4rem;
+      padding:1.05rem 1rem;margin:0 0 1.5rem}
+.hero .row{font-family:var(--serif);font-size:1.14rem;line-height:2;color:var(--teal)}
+.hero .row span{background:var(--teal-soft);border-radius:.2rem;padding:.06rem .32rem}
+.hero .row i{font-style:normal;color:var(--muted);padding:0 .28rem}
+.hero p{margin:.6rem 0 0;font-size:.9rem;color:#3d5059}
+
+.step{border-top:1px solid var(--line);padding-top:1.15rem;margin-top:1.6rem}
+.step[hidden]{display:none}
+.stepno{font-family:var(--serif);font-size:.82rem;color:var(--muted);margin:0 0 .2rem}
+h2{font-family:var(--serif);font-weight:600;font-size:1.2rem;margin:0 0 .5rem;color:var(--teal)}
+.step p{margin:0 0 .7rem;font-size:.95rem}
+
+.opts{display:flex;flex-wrap:wrap;gap:.45rem;margin:.2rem 0 .8rem}
+.opts button{font:inherit;font-size:.96rem;background:#fff;color:var(--ink);
+  border:1px solid var(--line);border-radius:.3rem;padding:.4rem 1rem;cursor:pointer;text-align:left}
+.opts button:hover{border-color:var(--teal)}
+.opts button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.opts button[data-state="right"]{background:var(--teal);border-color:var(--teal);color:#fff}
+.opts button[data-state="wrong"]{background:var(--ground);color:var(--muted)}
+.opts button[disabled]{cursor:default}
+
+.said{background:#fff;border-left:3px solid var(--teal);border-radius:.3rem;
+      padding:.75rem .85rem;margin:.2rem 0 .9rem;font-size:.93rem;color:#3d5059}
+.said b{color:var(--ink);font-weight:600}
+.said[hidden]{display:none}
+.said.g{border-left-color:var(--gen)}
+
+.go{font:inherit;font-size:.92rem;background:var(--ink);color:#fff;border:1px solid var(--ink);
+    border-radius:.3rem;padding:.42rem 1.05rem;cursor:pointer}
+.go:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.go[hidden]{display:none}
+.go.alt{background:#fff;color:var(--teal);border-color:var(--line);margin-bottom:.8rem}
+
+.hunt{font-family:var(--serif);font-size:1.02rem;line-height:2;background:#fff;
+      border:1px solid var(--line);border-radius:.4rem;padding:.9rem 1rem;margin:0 0 .7rem}
+.hunt b{display:block;font-size:1.06rem;margin-bottom:.5rem;color:var(--ink)}
+.hunt w{cursor:pointer;border-bottom:1px dotted var(--line);padding:.02rem .1rem}
+.hunt w:hover{border-bottom-color:var(--teal)}
+.hunt w.hit{background:var(--teal-soft);border-bottom:none;border-radius:.2rem;color:var(--teal)}
+.hunt w.miss{color:var(--muted);border-bottom:none}
+.score{font-size:.88rem;color:var(--muted);margin:0 0 .8rem}
+.score em{font-style:normal;color:var(--teal);font-weight:600}
+
+.pair{background:#fff;border:1px solid var(--line);border-radius:.4rem;
+      padding:.85rem 1rem;margin:0 0 .8rem;font-family:var(--serif);font-size:1rem;line-height:1.8}
+.pair div{padding:.25rem 0}
+.pair u{text-decoration:none;background:var(--teal-soft);border-radius:.2rem;padding:.04rem .28rem}
+.pair span{font-family:var(--sans);font-size:.8rem;color:var(--muted);margin-right:.55rem}
+
+.ladder{list-style:none;margin:.2rem 0 .9rem;padding:0;counter-reset:r}
+.ladder li{background:#fff;border:1px solid var(--line);border-radius:.4rem;
+           padding:.6rem .85rem .6rem 2.5rem;margin-bottom:.4rem;position:relative;
+           font-size:.94rem}
+.ladder li::before{counter-increment:r;content:counter(r);position:absolute;left:.85rem;top:.62rem;
+  font-family:var(--serif);font-size:.9rem;color:var(--gen);font-weight:600}
+.ladder li[hidden]{display:none}
+.ladder q{quotes:none;font-family:var(--serif);color:var(--ink);display:block}
+.ladder small{color:var(--muted);font-size:.84rem}
+.ladder li.key{border-color:var(--gen);background:var(--gen-soft)}
+
+.modes{display:flex;gap:.4rem;margin:0 0 1rem;flex-wrap:wrap}
+.modes button{font:inherit;font-size:.86rem;background:#fff;color:var(--ink);
+  border:1px solid var(--line);border-radius:.3rem;padding:.32rem .85rem;cursor:pointer}
+.modes button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.modes button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+
+.text{background:#fff;border:1px solid var(--line);border-radius:.4rem;
+      padding:1rem 1rem 1.2rem;font-family:var(--serif);font-size:1.04rem;line-height:1.95}
+.text .ttl{font-weight:600;font-size:1.1rem;margin:0 0 .8rem;line-height:1.45}
+.text p{margin:0 0 .6rem}
+.text m{cursor:pointer;border-radius:.2rem;padding:.04rem .16rem}
+.text m[data-kind="sub"]{background:var(--teal-soft);box-shadow:inset 0 -2px 0 #a8ccc8}
+.text m[data-kind="field"]{background:var(--exam-soft);box-shadow:inset 0 -2px 0 #ecc9a2}
+.text m[data-kind="gen"]{background:var(--gen-soft);box-shadow:inset 0 -2px 0 #a9bbd0}
+.text m.lit[data-kind="sub"]{background:var(--teal);color:#fff;box-shadow:none}
+.text m.lit[data-kind="field"]{background:var(--exam);color:#fff;box-shadow:none}
+.text m.lit[data-kind="gen"]{background:var(--gen);color:#fff;box-shadow:none}
+.text.off-sub m[data-kind="sub"]{background:none;box-shadow:none}
+.text.off-field m[data-kind="field"]{background:none;box-shadow:none}
+.text.off-gen m[data-kind="gen"]{background:none;box-shadow:none}
+
+.panel{position:sticky;bottom:0;background:#fff;border:1px solid var(--line);
+       border-radius:.4rem;padding:.75rem .9rem;margin-top:1rem;
+       box-shadow:0 -2px 10px rgba(23,40,47,.07)}
+.panel .k{font-size:.72rem;font-weight:600;border-radius:.2rem;padding:.06rem .42rem;
+          color:var(--teal);background:var(--teal-soft)}
+.panel .k.f{color:var(--exam);background:var(--exam-soft);border:1px solid var(--exam)}
+.panel .k.g{color:var(--gen);background:var(--gen-soft);border:1px solid var(--gen)}
+.panel .ch{font-family:var(--serif);font-size:1.02rem;margin:.4rem 0 .3rem;color:var(--ink);
+           line-height:1.75;overflow-wrap:anywhere}
+.panel .ch i{font-style:normal;color:var(--muted);padding:0 .28rem}
+.panel .nt{font-size:.88rem;color:#3d5059;margin:0}
+
+.close{border-top:1px solid var(--line);margin-top:2rem;padding-top:1.1rem;
+       font-size:.93rem;color:#3d5059}
+.close h2{font-size:1.1rem}
+.close ol{margin:.3rem 0 0;padding-left:1.15rem}
+.close li{margin-bottom:.5rem}
+.more{margin-top:1.5rem;font-size:.88rem}
+.more a{color:var(--teal)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>換字追蹤</h1>
+<p class="lede">新聞報導怎麼把一件事講清楚？同一個概念在這篇裡換了四種說法，你自己找得出來。</p>
+<p class="resume" id="rs" hidden>上次做到一半，已經幫你接回來了。<button id="rst">重新開始</button></p>
+<p class="src">ALL+ 互動英語 9 月號 Unit 1　Questions Remain After Pentagon Releases UFO Files</p>
+
+<div class="hero">
+  <div class="row"><span>unidentified</span><i>→</i><span>unexplained</span><i>→</i><span>unanswered</span><i>→</i><span>mysterious</span></div>
+  <p>這四個字分別在第 2、19、25、28 行。它們講的是同一件事。</p>
+</div>
+
+<!-- STEP 1 -->
+<section class="step" id="s1">
+  <p class="stepno">第一步</p>
+  <h2>先看標題就好</h2>
+  <p>這篇報導的標題是 <i>Questions Remain After Pentagon Releases UFO Files</i>。還沒讀內文，猜猜看：這篇的<b>結尾</b>最可能留下什麼？</p>
+  <div class="opts" id="q1">
+    <button data-ok="1">還沒有答案的疑問</button>
+    <button>一項新的法律</button>
+    <button>一個確定的科學結論</button>
+    <button>外星人存在的證據</button>
+  </div>
+  <div class="said" id="a1" hidden>
+    <b>標題說 Questions Remain，第 24 到 25 行就寫 too many important questions unanswered。</b>
+    一頭一尾扣在同一個概念上。
+    <br><br>
+    新聞報導幾乎都這樣：標題把核心概念先講一次，內文繞一圈，結尾再回到它。所以讀新聞的時候，<b>標題不是裝飾，是提綱</b>。
+  </div>
+  <button class="go" id="g1" hidden>那中間換了幾種說法？</button>
+</section>
+
+<!-- STEP 2 -->
+<section class="step" id="s2" hidden>
+  <p class="stepno">第二步</p>
+  <h2>找出同一家族的字</h2>
+  <p>標題的 <i>Questions Remain</i> 講的是「還沒有答案」。課文裡有<b>三個字</b>都在講這件事，而且用了同一個字首。在下面的課文裡點出來。點錯會變灰，但還可以再點一次。</p>
+  <div class="hunt" id="hunt">
+    <b>Questions Remain After Pentagon Releases UFO Files</b>
+    The Pentagon has released 161 files about <w data-ok="1">unidentified</w> <w>anomalous</w> phenomena (UAPs), commonly known as UFOs. The release is part of a US government effort to share military reports about <w>strange</w> objects seen in the sky with the general public.
+    <br><br>
+    The files include pilot reports, <w>declassified</w> notes, and data from radar and other sensors. In one case, navy pilots spotted a fast-moving object off the US East Coast. It then suddenly changed direction and <w>disappeared</w> from radar. In another, military personnel filmed glowing lights moving in <w>unusual</w> patterns above a training area. Experts say that natural weather effects and everyday objects such as balloons and drones account for most UAP sightings. However, a small number of cases remain <w data-ok="1">unexplained</w> due to <w>limited</w> data.
+    <br><br>
+    The release has been met with mixed reactions. Some people support the government's openness and say it helps reduce rumors. Others argue that the files still leave too many <w>important</w> questions <w data-ok="1">unanswered</w>. The Pentagon says it will continue collecting and studying UAP reports to strengthen flight safety and better understand these <w data-ok="2">mysterious</w> sightings.
+  </div>
+  <p class="score" id="sc">找到 <em>0</em> / 3</p>
+  <button class="go alt" id="skip" hidden>找不到，直接看答案</button>
+  <div class="said" id="h2a" hidden>
+    <b>三個都找到了。</b>un + identify（辨認）、un + explain（解釋）、un + answer（回答）。同一個字首，換三個字根，講的都是「沒有答案」。
+    <br><br>
+    現在再找一個：<b>還有第四個字也在講同一件事，但作者沒有用 un-。</b>它在最後一句。
+  </div>
+  <div class="said" id="h2b" hidden>
+    <b>mysterious。</b>前面用了三次 un-，第四次作者整個換掉。如果他寫第四個 un- 開頭的字，讀起來就重複了。
+    <br><br>
+    這對你的用處在這裡：考卷上如果把 unexplained 挖掉，你不必認得它，只要發現前面出現過 unidentified、後面出現過 unanswered，就知道空格要填的是「不能～」這一類的字。
+  </div>
+  <button class="go" id="g2" hidden>下一個</button>
+</section>
+
+<!-- STEP 3 -->
+<section class="step" id="s3" hidden>
+  <p class="stepno">第三步</p>
+  <h2>The release 指的是什麼？</h2>
+  <div class="pair">
+    <div><span>第 1 行</span>The Pentagon <u>has released</u> 161 files about unidentified anomalous phenomena.</div>
+    <div><span>第 20 行</span><u>The release</u> has been met with mixed reactions.</div>
+  </div>
+  <div class="opts" id="q3">
+    <button>那 161 份檔案</button>
+    <button data-ok="1">五角大廈公布檔案這整件事</button>
+    <button>一份官方新聞稿</button>
+    <button>檔案裡的雷達資料</button>
+  </div>
+  <div class="said" id="a3" hidden>
+    <b>第 1 行是動詞 has released，第 20 行變成名詞 The release。</b>
+    它回頭指的不是某一個名詞，是<b>前面整件事</b>——五角大廈把檔案公布出來。
+    <br><br>
+    這是換字裡最難的一種。往回找的時候，如果找不到對應的名詞，就改找對應的<b>動作</b>。第 20 行的 the files（那些檔案）和 The release（公布這件事）是兩回事，混在一起就會選錯。
+  </div>
+  <button class="go" id="g3" hidden>看這篇怎麼往下寫</button>
+</section>
+
+<!-- STEP 4 -->
+<section class="step" id="s4" hidden>
+  <p class="stepno">第四步</p>
+  <h2>從概括寫到具體</h2>
+  <p>第 1 行說五角大廈公布了 <i>161 files</i>。這是一個抽象的數字，讀者其實還不知道那是什麼。作者接下來做了什麼？</p>
+  <div class="opts" id="q4">
+    <button>馬上舉一個實際案例</button>
+    <button data-ok="1">先說清楚那 161 份是哪些東西</button>
+    <button>解釋為什麼要公布</button>
+    <button>引述專家的看法</button>
+  </div>
+  <ol class="ladder" id="ld">
+    <li hidden><q>161 files</q><small>一個抽象的數字</small></li>
+    <li hidden class="key"><q>pilot reports, declassified notes, and data from radar and other sensors</q><small>那是什麼——落實成看得見的東西</small></li>
+    <li hidden><q>In one case… ／ In another…</q><small>兩個具體案例</small></li>
+    <li hidden><q>Experts say weather effects and balloons account for most sightings</q><small>這些案例代表什麼</small></li>
+  </ol>
+  <div class="said g" id="a4" hidden>
+    <b>第 2 層最容易被跳過。</b>少了它，讀者不知道後面那兩個案例在證明什麼——只會覺得作者忽然開始講故事。
+    <br><br>
+    英文的說明和報導常常這樣往下走：<b>概括 → 那是什麼 → 舉例 → 代表什麼。</b>你在考卷上遇到看不懂的具體細節時，往前找那一層概括，通常就夠了。
+  </div>
+  <button class="go" id="g4" hidden>把整篇打開</button>
+</section>
+
+<!-- STEP 5 -->
+<section class="step" id="s5" hidden>
+  <p class="stepno">第五步</p>
+  <h2>自己追整篇</h2>
+  <p>點任何一個有底色的字，跟它同一條的字會一起亮起來。三種顏色可以各自關掉。</p>
+  <div class="modes">
+    <button id="m1" aria-pressed="true">換字（青色）</button>
+    <button id="m2" aria-pressed="true">語意場（橘色）</button>
+    <button id="m3" aria-pressed="true">概括到具體（藍灰）</button>
+  </div>
+  <div class="text" id="tx"></div>
+  <div class="panel" id="pn">
+    <span class="k" id="pk">換字</span>
+    <div class="ch" id="pc">點一個字看看</div>
+    <p class="nt" id="pt">青色是同一件事的不同說法，橘色是同一類的字，藍灰是概括與具體的一組。</p>
+  </div>
+</section>
+
+<!-- CLOSE -->
+<section class="close" id="s6" hidden>
+  <h2>帶著走的四句話</h2>
+  <ol>
+    <li><b>新聞的標題就是提綱。</b>標題出現的概念，結尾幾乎一定回來。</li>
+    <li><b>同一個概念會換說法，換到第四次可能連字首都換掉。</b>un- 用了三次，第四次變成 mysterious。</li>
+    <li><b>回指的不一定是名詞，也可能是前面整件事。</b>找不到對應的名詞，就找對應的動作。</li>
+    <li><b>概括的說法後面會跟著具體的東西。</b>看不懂細節，往前找那一層概括。</li>
+  </ol>
+  <p class="more"><a href="https://staresto-create.github.io/JCEE-vocab-questions/wordwheel.html">單字輪：un-、in-、im- 這一輪 →</a></p>
+</section>
+
+</div>
+
+<script>
+(function(){
+"use strict";
+function $(id){return document.getElementById(id);}
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;");}
+
+/* ---------- progress memory (this browser only) ---------- */
+var KEY="cohesion-u1-v1";
+var ST={q1:0,hunt:{},found:0,phase:1,early:0,q3:0,q4:0,step:1};
+function save(){ try{ localStorage.setItem(KEY, JSON.stringify(ST)); }catch(e){} }
+function load(){ try{ var r=localStorage.getItem(KEY); return r?JSON.parse(r):null; }catch(e){ return null; } }
+function wipe(){ try{ localStorage.removeItem(KEY); }catch(e){} location.reload(); }
+
+var CHAINS={
+ "c-un":{k:"sub",n:"同一個概念的四種說法。前三次用 un- 換字根，第四次整個換掉。標題的 Questions Remain 是這條鏈的起點。"},
+ "c-uap":{k:"sub",n:"同一個東西的五種叫法：學術全名、俗名、日常描述、縮寫、最後收在 sightings。作者每換一次，讀者對它的認識就多一層。"},
+ "c-rel":{k:"sub",n:"第 1 行是動詞，第 20 行變成名詞。回指的是前面整件事，不是某一個名詞。"},
+ "c-file":{k:"sub",n:"這條相反：files 幾乎原字重複。它是這篇的主軸，重複是在提醒你別跟丟。"},
+ "f-see":{k:"field",n:"觀測與記錄。這幾個字沒有兩個同義，但全部屬於「怎麼看到的」。就算不認得 sensors，旁邊的 radar 也把方向指出來了。"},
+ "f-react":{k:"field",n:"贊成與反對。Some 和 Others 各站一邊，是新聞平衡兩面說法的標準寫法。"},
+ "g-file":{k:"gen",n:"先給一個數字，再說清楚那是哪些東西。這一層最容易被跳過，少了它，後面的案例就沒有依據。"},
+ "g-obj":{k:"gen",n:"第 5 行講 strange objects，隔了五行和八行才落到兩個實際的東西。距離拉得很開，要往前翻才找得到。"}
+};
+
+var TITLE="{Questions|c-un} Remain After Pentagon Releases UFO Files";
+var SRC=[
+"The Pentagon {has released|c-rel} {161 files|g-file} about {unidentified|c-un} {anomalous phenomena (UAPs)|c-uap}, commonly known as {UFOs|c-uap}. The release is part of a US government effort to share military reports about {strange objects|g-obj} {seen|f-see} in the sky with the general public.",
+"{The files|c-file} include {pilot reports, declassified notes, and data from radar and other sensors|g-file}. In one case, navy pilots {spotted|f-see} {a fast-moving object|g-obj} off the US East Coast. It then suddenly changed direction and disappeared from {radar|f-see}. In another, military personnel {filmed|f-see} {glowing lights|g-obj} moving in unusual patterns above a training area. Experts say that natural weather effects and everyday objects such as balloons and drones account for most {UAP sightings|c-uap}. However, a small number of cases remain {unexplained|c-un} due to limited data.",
+"{The release|c-rel} has been met with {mixed reactions|f-react}. Some people {support|f-react} the government\u2019s {openness|f-react} and say it helps reduce rumors. Others {argue|f-react} that {the files|c-file} still leave too many important questions {unanswered|c-un}. The Pentagon says it will continue collecting and studying UAP reports to strengthen flight safety and better understand these {mysterious|c-un} {sightings|c-uap}."
+];
+
+/* ---------- step 1 ---------- */
+function quiz(qid,aid,gid,after,tag){
+  var done=false;
+  $(qid).addEventListener("click",function(e){
+    var b=e.target.closest("button"); if(!b||done) return;
+    done=true;
+    var bs=$(qid).querySelectorAll("button");
+    for(var i=0;i<bs.length;i++){
+      bs[i].disabled=true;
+      bs[i].dataset.state = bs[i].dataset.ok ? "right" : "wrong";
+    }
+    if(aid) $(aid).hidden=false;
+    if(gid) $(gid).hidden=false;
+    if(after) after();
+    if(tag){ ST[tag]=1; save(); }
+  });
+}
+quiz("q1","a1","g1",null,"q1");
+$("g1").addEventListener("click",function(){
+  ST.step=2; save(); $("s2").hidden=false; $("s2").scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+/* ---------- step 2 : self search ---------- */
+var found=0, phase=1;
+function reveal2(){
+  ST.phase=3; save();
+  $("sc").innerHTML="\u56db\u500b\u90fd\u627e\u5230\u4e86";
+  $("h2b").hidden=false; $("g2").hidden=false; $("skip").hidden=true;
+  $("h2b").scrollIntoView({behavior:"smooth",block:"nearest"});
+}
+$("hunt").addEventListener("click",function(e){
+  var w=e.target.closest("w"); if(!w) return;
+  if(w.classList.contains("hit")) return;
+  var lvl=w.dataset.ok ? parseInt(w.dataset.ok,10) : 0;
+
+  if(lvl===0){ w.classList.add("miss"); ST.hunt[w.dataset.i]="miss"; save(); return; }   /* wrong: grey, but retryable */
+  w.classList.remove("miss"); ST.hunt[w.dataset.i]="hit"; save();
+
+  if(lvl===1){
+    if(phase!==1){ w.classList.add("hit"); return; }
+    w.classList.add("hit"); found++; ST.found=found; save();
+    $("sc").innerHTML="\u627e\u5230 <em>"+found+"</em> / 3";
+    if(found===3){
+      phase=2; ST.phase=2; save(); $("h2a").hidden=false;
+      $("sc").innerHTML="\u9084\u6709\u4e00\u500b\uff0c\u4f5c\u8005\u6c92\u6709\u7528 un-";
+      $("skip").hidden=false;
+      if($("hunt").querySelector("w[data-ok='2']").dataset.early) reveal2();
+      else $("h2a").scrollIntoView({behavior:"smooth",block:"nearest"});
+    }
+    return;
+  }
+
+  /* lvl === 2 : mysterious */
+  w.classList.add("hit");
+  if(phase===1){
+    w.dataset.early="1"; ST.early=1; save();
+    $("sc").innerHTML="mysterious \u4e5f\u5c0d\uff0c\u4f46\u5148\u628a\u4e09\u500b un- \u958b\u982d\u7684\u627e\u51fa\u4f86";
+    return;
+  }
+  reveal2();
+});
+$("skip").addEventListener("click",function(){
+  var w=$("hunt").querySelector("w[data-ok='2']");
+  w.classList.remove("miss"); w.classList.add("hit");
+  reveal2();
+});
+$("g2").addEventListener("click",function(){
+  ST.step=3; save(); $("s3").hidden=false; $("s3").scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+/* ---------- step 3 ---------- */
+quiz("q3","a3","g3",null,"q3");
+$("g3").addEventListener("click",function(){
+  ST.step=4; save(); $("s4").hidden=false; $("s4").scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+/* ---------- step 4 ---------- */
+function openLadder(){
+  var li=$("ld").querySelectorAll("li");
+  for(var i=0;i<li.length;i++) li[i].hidden=false;
+  $("a4").hidden=false;
+}
+quiz("q4",null,"g4",openLadder,"q4");
+$("g4").addEventListener("click",function(){
+  ST.step=5; save(); $("s5").hidden=false; $("s6").hidden=false;
+  build(); $("s5").scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+/* ---------- step 5 ---------- */
+var built=false;
+function render(str){
+  var out="",i=0;
+  while(i<str.length){
+    var a=str.indexOf("{",i);
+    if(a<0){ out+=esc(str.slice(i)); break; }
+    out+=esc(str.slice(i,a));
+    var b=str.indexOf("}",a), p=str.slice(a+1,b).split("|");
+    var id=p[1], k=CHAINS[id]?CHAINS[id].k:"sub";
+    out+='<m data-c="'+id+'" data-kind="'+k+'" tabindex="0">'+esc(p[0])+'</m>';
+    i=b+1;
+  }
+  return out;
+}
+function build(){
+  if(built) return; built=true;
+  var h='<p class="ttl">'+render(TITLE)+'</p>';
+  for(var i=0;i<SRC.length;i++) h+="<p>"+render(SRC[i])+"</p>";
+  $("tx").innerHTML=h;
+}
+var LB={sub:"換字",field:"語意場",gen:"概括到具體"};
+var CL={sub:"k",field:"k f",gen:"k g"};
+function light(id){
+  var ms=$("tx").querySelectorAll("m"), words=[];
+  for(var i=0;i<ms.length;i++){
+    if(ms[i].dataset.c===id){ ms[i].classList.add("lit"); words.push(ms[i].textContent); }
+    else ms[i].classList.remove("lit");
+  }
+  var c=CHAINS[id]; if(!c) return;
+  $("pk").textContent=LB[c.k]; $("pk").className=CL[c.k];
+  $("pc").innerHTML=words.map(function(w){return esc(w);})
+                         .join(c.k==="field" ? '<i>\u00b7</i>' : '<i>\u2192</i>');
+  $("pt").textContent=c.n;
+}
+$("tx").addEventListener("click",function(e){
+  var m=e.target.closest("m"); if(m) light(m.dataset.c);
+});
+$("tx").addEventListener("keydown",function(e){
+  if(e.key!=="Enter"&&e.key!==" ") return;
+  var m=e.target.closest("m"); if(m){ e.preventDefault(); light(m.dataset.c); }
+});
+function toggle(btn,cls){
+  btn.addEventListener("click",function(){
+    var on=btn.getAttribute("aria-pressed")==="true";
+    btn.setAttribute("aria-pressed",on?"false":"true");
+    $("tx").classList.toggle(cls,on);
+  });
+}
+toggle($("m1"),"off-sub");
+toggle($("m2"),"off-field");
+toggle($("m3"),"off-gen");
+
+/* ---------- restore ---------- */
+$("rst").addEventListener("click",wipe);
+(function restore(){
+  var hw=$("hunt").querySelectorAll("w");
+  for(var i=0;i<hw.length;i++) hw[i].dataset.i=i;
+  var v=load(); if(!v) return;
+  ST=v; if(!ST.hunt) ST.hunt={};
+  if(!(ST.q1||ST.step>1)) return;
+  $("rs").hidden=false;
+
+  function settle(qid,aid,gid,extra){
+    var bs=$(qid).querySelectorAll("button");
+    for(var i=0;i<bs.length;i++){
+      bs[i].disabled=true;
+      bs[i].dataset.state = bs[i].dataset.ok ? "right" : "wrong";
+    }
+    if(aid) $(aid).hidden=false;
+    if(gid) $(gid).hidden=false;
+    if(extra) extra();
+  }
+  if(ST.q1) settle("q1","a1","g1");
+  if(ST.step>=2){
+    $("s2").hidden=false;
+    for(var k in ST.hunt){ if(hw[k]) hw[k].classList.add(ST.hunt[k]); }
+    found=ST.found||0; phase=ST.phase||1;
+    if(phase===1){ $("sc").innerHTML="\u627e\u5230 <em>"+found+"</em> / 3"; }
+    if(phase===2){
+      $("h2a").hidden=false; $("skip").hidden=false;
+      $("sc").innerHTML="\u9084\u6709\u4e00\u500b\uff0c\u4f5c\u8005\u6c92\u6709\u7528 un-";
+    }
+    if(phase===3){
+      $("h2a").hidden=false; $("h2b").hidden=false; $("g2").hidden=false;
+      $("sc").innerHTML="\u56db\u500b\u90fd\u627e\u5230\u4e86";
+      phase=3;
+    }
+  }
+  if(ST.step>=3){ $("s3").hidden=false; if(ST.q3) settle("q3","a3","g3"); }
+  if(ST.step>=4){ $("s4").hidden=false; if(ST.q4) settle("q4",null,"g4",openLadder); }
+  if(ST.step>=5){ $("s5").hidden=false; $("s6").hidden=false; build(); }
+
+  var last=$("s"+(ST.step>=5?"5":ST.step));
+  if(last) setTimeout(function(){ last.scrollIntoView({block:"start"}); },60);
+})();
+})();
+</script>
+</body>
+</html>
