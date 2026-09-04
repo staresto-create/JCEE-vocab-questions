@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>人物側寫｜Kjell Lindgren: How a Kid from Taipei Reached the Stars</title>
+<meta name="description" content="側寫不是履歷表。這一頁教你認出它的五個部件、引語標記的位置，還有貫串全篇的那一組比喻。">
+<meta property="og:title" content="人物側寫｜Kjell Lindgren">
+<meta property="og:description" content="valley 不是山谷，map 不是地圖。整篇用同一組比喻在講一件事：人生的路線可以重畫。">
+<style>
+:root{
+  --ground:#f1f3f2; --ink:#17282f; --teal:#1f6f6a; --teal-soft:#dfeceb;
+  --muted:#77878d; --line:#cdd6d6; --exam:#b4661c; --exam-soft:#fdf4e7;
+  --gen:#4a6a90; --gen-soft:#e0e7f0;
+  --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+  --sans:"PingFang TC","Noto Sans TC","Microsoft JhengHei","Helvetica Neue",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-text-size-adjust:100%}
+.wrap{max-width:44rem;margin:0 auto;padding:1.6rem 1.1rem 4rem}
+h1{font-family:var(--serif);font-weight:600;font-size:1.6rem;line-height:1.3;margin:0 0 .55rem}
+.lede{margin:0 0 1.3rem;color:#3d5059;font-size:.95rem}
+.src{font-size:.8rem;color:var(--muted);margin:0 0 1.1rem}
+.resume{font-size:.85rem;color:var(--teal);background:var(--teal-soft);border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.resume[hidden]{display:none}
+.preview{font-size:.85rem;color:var(--exam);background:var(--exam-soft);
+  border:1px dashed var(--exam);border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.preview[hidden]{display:none}
+.resume button{font:inherit;font-size:.82rem;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:.25rem;padding:.16rem .6rem;margin-left:.5rem;cursor:pointer}
+.resume button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.step{border-top:1px solid var(--line);padding-top:1.15rem;margin-top:1.6rem}
+.step[hidden]{display:none}
+.stepno{font-family:var(--serif);font-size:.82rem;color:var(--muted);margin:0 0 .2rem}
+h2{font-family:var(--serif);font-weight:600;font-size:1.2rem;margin:0 0 .5rem;color:var(--teal)}
+.step p{margin:0 0 .7rem;font-size:.95rem}
+.tag{display:inline-block;font-size:.72rem;font-weight:600;border-radius:.2rem;padding:.08rem .45rem;margin-left:.45rem;vertical-align:.12rem;color:var(--exam);background:var(--exam-soft);border:1px solid var(--exam)}
+.tag.b{color:var(--gen);background:var(--gen-soft);border-color:var(--gen)}
+.opts{display:flex;flex-direction:column;gap:.45rem;margin:.2rem 0 .8rem}
+.opts button{font:inherit;font-size:.95rem;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:.3rem;padding:.45rem .85rem;cursor:pointer;text-align:left}
+.opts button:hover{border-color:var(--teal)}
+.opts button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.opts button[data-state="right"]{background:var(--teal);border-color:var(--teal);color:#fff}
+.opts button[data-state="wrong"]{background:var(--ground);color:var(--muted)}
+.opts button[disabled]{cursor:default}
+.opts.rg button i{display:block;font-style:normal;font-size:.82rem;color:var(--muted);margin-top:.12rem}
+.opts.rg button[data-state="right"] i{color:#dfeceb}
+.said{background:#fff;border-left:3px solid var(--teal);border-radius:.3rem;padding:.75rem .85rem;margin:.2rem 0 .9rem;font-size:.93rem;color:#3d5059}
+.said b{color:var(--ink);font-weight:600}
+.said[hidden]{display:none}
+.said.g{border-left-color:var(--gen)}
+.said.e{border-left-color:var(--exam)}
+.said q{quotes:none;font-family:var(--serif)}
+.go{font:inherit;font-size:.92rem;background:var(--ink);color:#fff;border:1px solid var(--ink);border-radius:.3rem;padding:.42rem 1.05rem;cursor:pointer}
+.go:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.go[hidden]{display:none}
+.lead{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.9rem 1rem;margin:0 0 .7rem;font-family:var(--serif);font-size:1.02rem;line-height:1.95}
+.lead c{cursor:pointer;border-radius:.2rem;padding:.06rem .2rem;background:var(--exam-soft);box-shadow:inset 0 -2px 0 #ecc9a2}
+.lead c:hover{box-shadow:inset 0 -2px 0 var(--exam)}
+.lead c.got{background:var(--exam);color:#fff;box-shadow:none}
+.lead c b{font-family:var(--sans);font-size:.72rem;font-weight:600;background:#fff;color:var(--exam);border-radius:.2rem;padding:.02rem .3rem;margin-right:.3rem}
+.score{font-size:.9rem;color:var(--muted);margin:0 0 .8rem}
+.score em{font-style:normal;color:var(--exam);font-weight:600}
+.parts{display:flex;flex-direction:column;gap:.4rem;margin:0 0 .8rem}
+.part{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.5rem .8rem;font-size:.93rem}
+.part b{color:var(--teal);font-family:var(--serif);font-size:1rem;margin-right:.5rem}
+.part i{font-style:normal;color:var(--muted);font-size:.8rem;float:right}
+.qs{display:flex;flex-direction:column;gap:.5rem;margin:0 0 .8rem}
+.qcard{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.6rem .85rem}
+.qcard .hd{display:flex;align-items:center;gap:.6rem;font-size:.95rem}
+.qcard .hd .qt{flex:1 1 auto;font-weight:600}
+.qcard .hd button{font:inherit;font-size:.8rem;background:#fff;color:var(--ink);border:1px solid var(--line);
+  border-radius:.25rem;padding:.18rem .7rem;cursor:pointer;flex:0 0 auto}
+.qcard .hd button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.qcard .bd{display:none;margin-top:.4rem;font-size:.92rem;color:#3d5059;line-height:1.75}
+.qcard.open .bd{display:block}
+.qcard.open .hd button{display:none}
+.qcard .bd i{font-style:normal;color:var(--muted);font-size:.82rem;margin-left:.3rem}
+.fig{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.7rem .5rem .4rem;margin:0 0 .7rem}
+.fig svg{display:block;width:100%;height:auto;max-width:27rem;margin:0 auto}
+.fig figcaption{font-size:.85rem;color:#3d5059;margin:.35rem .5rem 0;line-height:1.65}
+.route{stroke:var(--line);stroke-width:2.5;fill:none;stroke-linejoin:round;stroke-linecap:round}
+.stop{cursor:pointer}
+.stop circle{fill:#fff;stroke:var(--line);stroke-width:2}
+.stop .nm{font-family:var(--sans);font-size:10px;fill:var(--ink);font-weight:600}
+.stop .rg{font-family:var(--sans);font-size:8.5px;fill:var(--muted)}
+.stop.on circle{fill:var(--exam-soft);stroke:var(--exam);stroke-width:3}
+.stop.on .nm,.stop.on .rg{fill:var(--exam)}
+.star{fill:var(--exam);stroke:none}
+.ends{font-family:var(--sans);font-size:9.5px;fill:var(--muted)}
+.daybreak{border:1px dashed var(--exam);background:var(--exam-soft);border-radius:.4rem;
+  padding:.8rem .95rem;margin:1.6rem 0 0;font-size:.9rem;color:#3d5059;line-height:1.7}
+.daybreak b{display:block;color:var(--exam);font-family:var(--serif);font-size:1.02rem;margin-bottom:.3rem}
+.daybreak[hidden]{display:none}
+.modes{display:flex;gap:.4rem;margin:0 0 .7rem;flex-wrap:wrap}
+.modes button{font:inherit;font-size:.84rem;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:.3rem;padding:.3rem .8rem;cursor:pointer}
+.modes button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.modes button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.text{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.9rem .6rem 1.1rem;font-family:var(--serif);font-size:1rem;line-height:1.85}
+.text .ttl{font-weight:600;font-size:1.06rem;margin:0 .4rem .7rem 2.6rem;line-height:1.45}
+.ln{display:flex;align-items:baseline;padding:.02rem 0;border-radius:.2rem}
+.ln>i{flex:0 0 2.2rem;text-align:right;padding-right:.55rem;font-family:var(--sans);font-style:normal;font-size:.68rem;color:var(--muted);line-height:1.9}
+.ln>span{flex:1 1 auto;overflow-wrap:anywhere}
+.ln.ind>span{padding-left:1.1rem}
+.ln.hl{background:var(--exam-soft)}
+.ln.pb{margin-top:.55rem}
+.text .split{font-family:var(--sans);font-size:.78rem;color:var(--exam);
+  border-top:1px dashed var(--exam);margin:.8rem .4rem .7rem 2.6rem;padding-top:.35rem}
+.text m{cursor:pointer;border-radius:.2rem;padding:.02rem .14rem}
+.text m[data-kind="sub"]{background:var(--teal-soft);box-shadow:inset 0 -2px 0 #a8ccc8}
+.text m[data-kind="gen"]{background:var(--gen-soft);box-shadow:inset 0 -2px 0 #a9bbd0}
+.text m.lit[data-kind="sub"]{background:var(--teal);color:#fff;box-shadow:none}
+.text m.lit[data-kind="gen"]{background:var(--gen);color:#fff;box-shadow:none}
+.text.off-sub m[data-kind="sub"]{background:none;box-shadow:none}
+.text.off-gen m[data-kind="gen"]{background:none;box-shadow:none}
+.panel{position:sticky;bottom:0;background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.75rem .9rem;margin-top:.8rem;box-shadow:0 -2px 10px rgba(23,40,47,.07)}
+.panel .k{font-size:.72rem;font-weight:600;border-radius:.2rem;padding:.06rem .42rem;color:var(--teal);background:var(--teal-soft);border:1px solid var(--teal)}
+.panel .k.g{color:var(--gen);background:var(--gen-soft);border-color:var(--gen)}
+.panel .k.e{color:var(--exam);background:var(--exam-soft);border-color:var(--exam)}
+.panel .ch{font-family:var(--serif);font-size:1rem;margin:.4rem 0 .3rem;color:var(--ink);line-height:1.75;overflow-wrap:anywhere}
+.panel .ch i{font-style:normal;color:var(--muted);padding:0 .28rem}
+.panel .nt{font-size:.88rem;color:#3d5059;margin:0}
+.recall{background:#fff;border:1px solid var(--line);border-left:3px solid var(--muted);
+  border-radius:.3rem;padding:.75rem .85rem;margin:1.1rem 0 .9rem;font-size:.92rem;color:#3d5059}
+.recall b{color:var(--ink)}
+.recall ul{margin:.4rem 0 0;padding-left:1.1rem}
+.recall li{margin-bottom:.35rem}
+.gap{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.9rem 1rem;margin:0 0 .9rem;font-family:var(--serif);font-size:1rem;line-height:1.9}
+.gap .blank{display:inline-block;min-width:9rem;border-bottom:2px solid var(--gen);color:var(--gen);text-align:center;font-family:var(--sans);font-size:.82rem}
+.gap .blank.filled{border-bottom-color:var(--teal);color:var(--ink);font-family:var(--serif);font-size:1rem;text-align:left;background:var(--teal-soft);border-radius:.2rem;padding:0 .25rem}
+.picks{display:flex;flex-direction:column;gap:.45rem;margin:0 0 .9rem}
+.picks button{font:inherit;font-family:var(--serif);font-size:.97rem;line-height:1.6;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:.3rem;padding:.55rem .8rem;cursor:pointer;text-align:left}
+.picks button:hover{border-color:var(--teal)}
+.picks button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.picks button[data-state="right"]{background:var(--teal-soft);border-color:var(--teal)}
+.picks button[data-state="wrong"]{background:var(--ground);color:var(--muted)}
+.why{font-size:.86rem;color:#3d5059;margin:.35rem 0 0}
+.why[hidden]{display:none}
+.close{border-top:1px solid var(--line);margin-top:2rem;padding-top:1.1rem;font-size:.93rem;color:#3d5059}
+.close[hidden]{display:none}
+.close h2{font-size:1.1rem}
+.close ol{margin:.3rem 0 0;padding-left:1.15rem}
+.close li{margin-bottom:.5rem}
+.more{margin-top:1.5rem;font-size:.88rem}
+.more a{color:var(--teal)}
+.series{border-top:1px solid var(--line);margin-top:2rem;padding-top:1.1rem;font-size:.9rem;color:#3d5059}
+.series .back{font-family:var(--serif);font-size:1rem;color:var(--teal);text-decoration:none}
+.series .back:hover{text-decoration:underline}
+.series .back:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.series .note{font-size:.85rem;color:var(--muted);margin:.5rem 0 0}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>人物側寫</h1>
+<p class="lede">側寫不是履歷表。履歷寫的是這個人做過什麼，側寫要讓你<b>認識這個人</b>——所以它會有轉折、有他自己說的話，還有一段跟成就無關的東西。</p>
+<p class="preview" id="pv" hidden>預覽模式：所有步驟、圖表、課文標記都已展開，進度不會存檔。學生拿到的一般連結不受影響。</p>
+<p class="resume" id="rs" hidden>上次做到一半，已經幫你接回來了。<button id="rst">重新開始</button></p>
+<p class="src">ALL+ 互動英語 9 月號 Unit 10（pp. 42–45）　Kjell Lindgren: How a Kid from Taipei Reached the Stars　全文 57 行　9/19 讀第 1–27 行，9/22 讀第 28–57 行</p>
+
+<!-- STEP 1 -->
+<section class="step" id="s1">
+  <p class="stepno">第一步</p>
+  <h2>鉤子不是生平，是性格<span class="tag">上層：組織方式</span></h2>
+  <p>側寫幾乎不會從「某某某，幾年生於某地」開始。它會先給你<b>一個畫面</b>，而那個畫面通常在說這個人是什麼樣的人。下面是第 1 到 4 行，<b>點三個有底色的地方</b>。</p>
+  <div class="lead" id="ld">
+    <c data-t="a">At age 11</c>, Kjell Lindgren <c data-t="g">did something most kids wouldn’t even imagine</c>: He applied to the US Air Force Academy. <c data-t="p">He never received a response, but that didn’t stop him</c>. Lindgren was born in Taipei in 1973…
+  </div>
+  <p class="score" id="sc">已標出 <em>0</em> / 3</p>
+  <div id="s1b" hidden>
+    <p>三個都標出來了。那麼——<b>作者為什麼挑「十一歲寫信、而且沒收到回信」當開場？</b></p>
+    <div class="opts" id="q1">
+      <button data-ok="1">一開場就讓你看見他的性格，後面的生平才有意義</button>
+      <button>因為那是他這一生當中最重要的一個關鍵決定</button>
+      <button>因為讀者需要先知道他一九七三年出生於台北這件事</button>
+      <button>因為美國空軍官校就是他後來受飛行訓練的地方</button>
+    </div>
+    <div class="said e" id="a1" hidden>
+      <b>一開場就讓你看見他的性格。</b>三個地方各做一件事：<b>At age 11</b> 給年齡，落差才出得來；<b>did something most kids wouldn’t even imagine</b> 把落差講明；<b>He never received a response, but that didn’t stop him</b> 給性格——沒有回音也不放棄。
+      <br><br>
+      <b>注意這件事沒有結果。</b>他沒進空軍官校，文章也沒說後來怎麼樣。<b>作者要的不是這件事的結果，是這件事顯示的個性</b>——而那個個性正是後面第 13 到 19 行遇到低谷時派上用場的東西。生平從第 4 行後半才開始。
+      <br><br>
+      <b>另外三個為什麼排除：</b>
+      <br><br>
+      「一生中最重要的決定」——<b>文章沒有替任何一件事排名。</b>而且真要說重要，第 24 行入選 NASA 那一刻更說得過去。看到選項出現「最」，先回頭找課文有沒有比較級或最高級。
+      <br><br>
+      「讀者需要先知道他出生在台北」——出生資訊在第 4 到 5 行才出現，而且<b>正好是被鉤子擠到後面去的那一段</b>。這個選項把順序顛倒了。
+      <br><br>
+      「空軍官校就是他後來受訓的地方」——<b>這一個最容易上當，因為兩件事都跟飛行有關。</b>但第 13 行寫的是 <q>After college, Lindgren began pilot training</q>，沒有說在哪裡受訓，更沒說他進了空軍官校。<b>課文沒寫的事，不能自己補上去。</b>
+    </div>
+    <button class="go" id="g1" hidden>側寫有哪些部件？</button>
+  </div>
+</section>
+
+<!-- STEP 2 -->
+<section class="step" id="s2" hidden>
+  <p class="stepno">第二步</p>
+  <h2>五個部件，缺一個就變履歷<span class="tag">上層：怎麼認出來</span></h2>
+  <p>這篇分成六段，可以歸成五個部件：</p>
+  <div class="parts" id="parts"></div>
+  <p>試一題：<b>下面哪一段如果整段拿掉，這篇就只剩下一份寫得比較好看的履歷？</b></p>
+  <div class="opts rg" id="q2">
+    <button>第 13–19 行<i>飛行資格被取消，轉念醫學與航太醫學</i></button>
+    <button>第 20–27 行<i>在 NASA 工作，二〇〇九年入選太空人</i></button>
+    <button data-ok="1">第 44–57 行<i>在太空吹風笛，公開談環境保護</i></button>
+    <button>第 28–35 行<i>二〇一五年首次前往國際太空站</i></button>
+  </div>
+  <div class="said e" id="a2" hidden>
+    <b>第 44 到 57 行。</b>風笛和環境發言<b>跟任務表現無關</b>，履歷上不會寫，可是拿掉之後你就只知道他做了什麼，不知道他是誰。<b>側寫和履歷的分界就在這裡。</b>
+    <br><br>
+    <b>另外三個為什麼排除：</b>
+    <br><br>
+    <b>第 13–19 行（低谷）——這一個最難排除。</b>挫折聽起來很「有人味」，但仔細看：氣喘、轉念醫學、完成航太醫學訓練，<b>這三件事履歷上全都會寫</b>，只是寫成「學歷：醫學博士；專長：航太醫學」。它是職涯事件，不是另一面。
+    <br><br>
+    第 20–27 行和第 28–35 行——一個是任職與入選，一個是任務紀錄，<b>兩段都是標準的履歷條目</b>，拿掉反而會讓這篇讀不通，因為後面的「第二次任務」會沒有前情。
+    <br><br>
+    下面這張圖就是他的路線。<b>點任一站</b>，第四步的課文對應行會亮起來（課文還沒打開的話，先把行號記住就好）。
+  </div>
+  <figure class="fig" id="fig" hidden></figure>
+  <button class="go" id="g2" hidden>找引語</button>
+</section>
+
+<div class="daybreak" id="db" hidden>
+  <b>9/22 的範圍從這裡開始：第 28–57 行</b>
+  第一、二步用的是 9/19 的第 1–27 行（鉤子、出身與夢想、低谷與轉向、入選 NASA）。第三步以後會用到整篇，包含 9/22 的第 28–57 行（兩次太空任務、風笛與環境發言）。如果你今天是 9/19，做到這裡可以先停，隔天再接下去。（第二步的部件表和路線圖已經含有後半段的標題，先看到不影響。）
+</div>
+
+<!-- STEP 3 -->
+<section class="step" id="s3" hidden>
+  <p class="stepno">第三步</p>
+  <h2>找引語<span class="tag">上層：怎麼驗證</span></h2>
+  <p>怎麼確定一篇是側寫？<b>找直接引語。</b>側寫一定有，而且通常很少——<b>正因為少，每一處都是作者刻意放的，位置就是全篇的重點所在。</b></p>
+  <p>這篇五十七行，只有兩處。<b>四張卡片逐一按開。</b></p>
+  <div class="qs" id="qs"></div>
+  <p class="score" id="sc3">已看過 <em>0</em> / 4</p>
+  <div class="said e" id="a3" hidden>
+    <b>兩處引語，一處標記轉折，一處標記價值觀。中間隔了將近四十行，全是事件敘述。</b>
+    <br><br>
+    <b>怎麼認出一篇是側寫：</b>掃一遍有沒有引號。有引語、有轉折、有一段跟成就無關的內容，三樣齊了就是側寫。<b>只有事件和年份、沒有半句引語的，那是新聞或年表。</b>
+    <br><br>
+    <b>考卷上怎麼考：</b>引語幾乎一定會被出題。問的通常不是字面意思，而是<b>「他說這句話是什麼意思」或「從這句話可以看出他什麼」</b>——因為那正是作者放它進來的原因。<b>看到引號，先停下來想一下它為什麼在這裡。</b>
+  </div>
+  <button class="go" id="g3" hidden>看貫串全篇的那組字</button>
+</section>
+
+<!-- STEP 4 -->
+<section class="step" id="s4" hidden>
+  <p class="stepno">第四步</p>
+  <h2>valley 不是山谷<span class="tag b">下層：比喻串</span></h2>
+  <p>第 15 行的 <q>a pretty significant valley</q> 不是地形，第 16 行的 <q>my map</q> 不是地圖。<b>整篇用同一組比喻在講一件事：人生是一條規劃好的路線，走不通的時候可以重畫。</b></p>
+  <p>這叫<b>比喻串</b>——一組彼此相關的比喻從標題一路延伸到全篇。它不只是修辭，<b>它本身就在告訴你作者怎麼看這個人</b>：不是「他很努力」，而是「他懂得改路線」。</p>
+  <p><b>點圖上任一站</b>，或直接點課文裡有底色的字。兩色可以各自關掉。</p>
+  <div class="modes">
+    <button id="m1" aria-pressed="true">比喻串（青）</button>
+    <button id="m2" aria-pressed="true">時間標記（藍灰）</button>
+  </div>
+  <div class="text" id="tx"></div>
+  <div class="panel" id="pn">
+    <span class="k" id="pk">線索</span>
+    <div class="ch" id="pc">點圖上的一站，或課文裡有底色的字</div>
+    <p class="nt" id="pt">青色是路線與地形的比喻，藍灰是把生平釘住的時間標記。</p>
+  </div>
+  <div class="recall">
+    <b>另外兩樣，前面單元教過，這篇自己確認得出來：</b>
+    <ul>
+      <li><b>概括名詞。</b>第 20 行的 <q>These achievements</q> 往回收前一段（醫學學位＋航太醫學訓練），第 52 行的 <q>a stance</q> 則是同位語，把前面那句「公開談環境保護」重新命名成一個名詞，後面才好接 <q>informed by his unique experiences</q>。<b>又是一大一小。</b></li>
+      <li><b>換字。</b>同一個人一路換說法：Kjell Lindgren（1）→ he → Lindgren → <q>a NASA astronaut candidate</q>（25）→ <q>a flight surgeon</q>（21）→ <q>commander</q>（38）→ <q>a skilled scientist and mission leader</q>（44–45）。<b>每換一次，他的身分就往前推進一格</b>——這是側寫特有的換字方式。</li>
+    </ul>
+  </div>
+  <p style="margin-top:1.1rem"><button class="go" id="g4">考卷怎麼考側寫</button></p>
+</section>
+
+<!-- STEP 5 -->
+<section class="step" id="s5" hidden>
+  <p class="stepno">第五步</p>
+  <h2>比喻題和推論題<span class="tag">上層：考點</span></h2>
+  <p>側寫的題目集中在兩種：</p>
+  <p><b>一、比喻用法題。</b>問某個字在文中指什麼。做法固定：<b>先確認它的字面意思，再問「在這個人的故事裡，對應的是什麼」。</b>valley 的字面是山谷，對應的是低潮；map 的字面是地圖，對應的是人生規劃。</p>
+  <p><b>二、推論題。</b>從行為推性格。<b>界線是：推得出來的才算，超出文本的不算。</b>他吹風笛紀念同事，推得出「他重感情、不怕表現自己」；推不出「他音樂造詣很高」——課文沒說。</p>
+  <p>試一題：<b>第 15 行的 <q>a pretty significant valley</q> 在文中指的是什麼？</b></p>
+  <div class="opts" id="q5">
+    <button>他童年住在英國時，家附近那一帶的山谷地形</button>
+    <button data-ok="1">一段讓他原本規劃好的路走不下去的低潮</button>
+    <button>太空人選拔過程中競爭最激烈的那一個關卡</button>
+    <button>他為了取得醫學學位所投入的那幾年苦讀</button>
+  </div>
+  <div class="said e" id="a5" hidden>
+    <b>一段讓他原本規劃好的路走不下去的低潮。</b>第 13 到 14 行說他開始飛行訓練，卻因氣喘被取消資格；第 15 到 17 行他自己接著說 <q>I reworked my map and began climbing out of that valley</q>。<b>valley 和 map 是同一組比喻，一個是掉下去的地方，一個是走出來的方法。</b>
+    <br><br>
+    <b>另外三個為什麼排除：</b>
+    <br><br>
+    「英國的山谷地形」——<b>把比喻當成字面意思。</b>第 8 行確實提到他童年待過英國，所以這個選項有落點；但那一段講的是搬家，跟低潮無關。<b>比喻題最常見的誘答，就是拿字面義去配一個文章裡真的出現過的地點或東西。</b>
+    <br><br>
+    「選拔競爭最激烈的關卡」——三千五百人取九人（第 26 到 27 行）確實很競爭，但那是第 20 到 27 行的事，而且那一段講的是<b>成功</b>。<b>把後面一段的內容接到前面一段的比喻上。</b>
+    <br><br>
+    <b>「為了醫學學位苦讀的那幾年」——這一個最難排除。</b>它時間相近、也聽起來像辛苦的一段。但順序要看清楚：valley 是<b>被取消資格的那一刻</b>，醫學學位是<b>爬出來的方法</b>（第 17 到 18 行 <q>Following his revised plan…earned a medical degree</q>）。<b>把解方當成問題，是推論題最常設的陷阱。</b>
+  </div>
+  <button class="go" id="g5" hidden>最後一題</button>
+</section>
+
+<!-- STEP 6 -->
+<section class="step" id="s6" hidden>
+  <p class="stepno">第六步</p>
+  <h2>把一句話放回去</h2>
+  <p>這就是考卷上的<b>篇章結構</b>題。下面把第 44–46 行的第一句整句抽掉了，四個候選句只有一句放得進去。</p>
+  <div class="gap" id="gp">
+    … He also helped conduct over 200 experiments, including research into how microgravity affects the human immune system.
+    <br><br>
+    <span class="blank" id="bl">（空格）</span> In November 2015, he played “Amazing Grace” on bagpipes aboard the ISS to honor a colleague who had recently passed away. It was the first time bagpipes were ever played in space. He has also spoken out about the importance of protecting the environment…
+  </div>
+  <div class="picks" id="q6">
+    <button>After returning from his second mission, Lindgren decided to take a long break.</button>
+    <button>His two missions to the ISS made him one of NASA’s most experienced astronauts.</button>
+    <button data-ok="1">Besides being a skilled scientist and mission leader, Lindgren isn’t afraid to express himself.</button>
+    <button>Lindgren’s story shows that persistence is the most important quality for an astronaut.</button>
+  </div>
+  <div class="said" id="a6" hidden>
+    <b>四個線索同時指向同一句。</b>這四句單獨看都說得通，沒有一句本身是錯的。要排除，得靠位置和線索。
+    <br><br>
+    <b>先講一個例外。</b>前面說大考的正解通常是改寫，但<b>抽句題不一樣</b>：被抽掉的就是原文那一句，所以正解一定是原文。這一題要靠的是誘答哪裡接不上。
+    <br><br>
+    <b>一、追加標記。</b><q>Besides being…</q> 的意思是「除了 A 之外，他還有 B」。A 是前面整段的科學家與指揮官身分，B 就是接下來要講的<b>另一面</b>。<b>四句裡只有它把話題從任務轉開。</b>
+    <br><br>
+    <b>另外三個為什麼排除，各有一個明確的依據：</b>
+    <br><br>
+    <b>二、位置。</b><q>decided to take a long break</q> 是一個<b>事件</b>，不是一句概括。空格後面立刻接兩個具體例子（風笛、環境發言），所以空格必須是能罩住這兩個例子的句子；接一個「休假」上去，下一句的風笛就斷了。
+    <br><br>
+    <b>三、範圍。</b><q>made him one of NASA’s most experienced astronauts</q> 還停在<b>任務</b>上，可是後面兩個例子跟任務一點關係都沒有。<b>而且 most experienced 是課文沒有的最高級。</b>
+    <br><br>
+    <b>四、超出文本。</b><q>persistence is the most important quality</q> 是一句評價。課文第 24 行確實用過 <q>persistence</q>，<b>所以這一個最容易選</b>；但作者從頭到尾沒有替各種特質排名，而且這種總結句該放在文章最後，不是這裡——後面還有兩個例子沒講。
+  </div>
+  <p class="why" id="w6" hidden>考卷上不會有底色，也不會有行號。但你剛才用的四個線索，每一篇側寫都有。</p>
+</section>
+
+<!-- CLOSE -->
+<section class="close" id="s7" hidden>
+  <h2>帶著走的五句話</h2>
+  <ol>
+    <li><b>側寫的鉤子給的是性格，不是生平。</b>開場那個畫面常常沒有結果——作者要的是它顯示的個性，生平從第二段才真正開始。</li>
+    <li><b>驗證方法：找引語。</b>側寫一定有，而且很少。引語出現的位置就是作者認為最關鍵的地方，考卷幾乎一定會考它。</li>
+    <li><b>缺了「另一面」，側寫就變履歷。</b>挫折不算——挫折仍然寫得進履歷。要找的是跟成就無關、卻讓你認識這個人的那一段。</li>
+    <li><b>比喻串會從頭延伸到尾。</b>valley、map、path、climbing out、opened new doors 是同一組。<b>它本身就在告訴你作者怎麼看這個人。</b>比喻題的做法：先想字面義，再問「在他的故事裡對應的是什麼」。</li>
+    <li><b>推論題的界線是文本。</b>推得出來的才算，超出的不算。看到選項出現「最」，先回頭找課文有沒有比較。</li>
+  </ol>
+  <p class="more"><a href="https://staresto-create.github.io/JCEE-vocab-questions/wordwheel.html">單字輪：把字拆成部件來記 →</a></p>
+</section>
+
+<nav class="series">
+  <a class="back" href="cohesion.html">← 回讀法練習總表</a>
+  <p class="note">總表上有目前可以做的所有單元，還有你累積到現在的讀法工具。</p>
+</nav>
+
+</div>
+<script>
+(function(){
+"use strict";
+function $(id){return document.getElementById(id);}
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;");}
+var KEY="cohesion-u10-v1";
+var ST={tags:{},qs:{},q1:0,q2:0,q5:0,q6:0,step:1};
+function save(){ try{ localStorage.setItem(KEY, JSON.stringify(ST)); }catch(e){} }
+function load(){ try{ var r=localStorage.getItem(KEY); return r?JSON.parse(r):null; }catch(e){ return null; } }
+function wipe(){ try{ localStorage.removeItem(KEY); }catch(e){} location.reload(); }
+
+var TITLE="Kjell Lindgren: How a Kid from Taipei {Reached the Stars|c-meta|0}";
+var LINES=[
+"{At age 11|c-time|1}, Kjell Lindgren did something",
+"most kids wouldn\u2019t even imagine: He applied to",
+"the US Air Force Academy. He never received",
+"a response, but that didn\u2019t stop him. Lindgren",
+"was born in Taipei {in 1973|c-time|2} to a Taiwanese mother",
+"and an American father who was serving in the",
+"US Air Force. The family moved often, and he",
+"spent much of his childhood in England before",
+"returning to the US for high school. {From an early|c-time|3}",
+"{age|c-time|3}, he knew he wanted to be an astronaut, and",
+"books like The Right Stuff inspired him to {map|c-meta|1}",
+"{out a path|c-meta|1} to get there.",
+"{After college|c-time|4}, Lindgren began pilot training\u2014",
+"only to be disqualified due to asthma. \u201cThat",
+"was {a pretty significant valley|c-meta|2},\u201d he said. \u201cBut then",
+"{I reworked my map|c-meta|3} and {began climbing out of|c-meta|4}",
+"{that valley|c-meta|4}.\u201d Following {his revised plan|c-meta|5}, Lindgren",
+"earned a medical degree before going on to",
+"complete training in aerospace medicine.",
+"These achievements {opened new doors|c-meta|6}.",
+"Lindgren worked as a flight surgeon at",
+"NASA and later supported astronaut",
+"training in Russia. {In 2009|c-time|5}, his",
+"persistence paid off: He was selected",
+"as a NASA astronaut candidate\u2014",
+"one of only nine chosen from roughly",
+"3,500 applicants.",
+"Lindgren\u2019s childhood dream finally",
+"became reality {on July 22, 2015|c-time|6}, when",
+"he launched on his first mission to the",
+"International Space Station (ISS). There,",
+"he conducted scientific experiments on",
+"the effects of long-term spaceflight",
+"on human health and plant growth, in",
+"addition to completing two space walks.",
+"{Seven years later|c-time|7}, Lindgren returned",
+"to the ISS for his second mission, this time",
+"as commander. He spent 170 days in",
+"space, leading the crew through all stages",
+"of flight. He also helped conduct over 200",
+"experiments, including research into how",
+"microgravity affects the human immune",
+"system.",
+"Besides being a skilled scientist and",
+"mission leader, Lindgren isn\u2019t afraid to",
+"express himself. {In November 2015|c-time|8}, he",
+"played \u201cAmazing Grace\u201d on bagpipes aboard",
+"the ISS to honor a colleague who had",
+"recently passed away. It was the first time",
+"bagpipes were ever played in space. He",
+"has also spoken out about the importance",
+"of protecting the environment, a stance",
+"informed by his unique experiences as an",
+"astronaut. \u201cFrom orbit, it is clear that . . . our",
+"resources are finite . . . This is our home\u2014",
+"the only planet we have. We have to take",
+"care of it!\u201d"
+];
+var INDENT={1:1,13:1,20:1,28:1,36:1,44:1};
+var SPLIT=28;
+
+var CHAINS={
+ "c-meta":{k:"sub",n:"\u6bd4\u55bb\u4e32\u3002\u5f9e\u6a19\u984c\u7684 Reached the Stars \u958b\u59cb\uff0c\u4e00\u8def\u4e32\u5230\u7b2c 20 \u884c\u3002\u8def\u7dda\uff08map\u3001path\u3001plan\uff09\u8ddf\u5730\u5f62\uff08valley\u3001climbing out\uff09\u662f\u540c\u4e00\u7d44\uff1a\u628a\u4eba\u751f\u770b\u6210\u4e00\u689d\u898f\u5283\u597d\u7684\u8def\u3002\u6ce8\u610f\u7b2c 15 \u5230 17 \u884c\u9019\u4e09\u500b\u662f\u4ed6\u672c\u4eba\u8aaa\u7684\uff0c\u4e0d\u662f\u4f5c\u8005\u5beb\u7684\u2014\u2014\u6240\u4ee5\u4f5c\u8005\u624d\u628a\u5b83\u5011\u62c9\u6210\u5168\u7bc7\u7684\u4e3b\u8ecc\u3002"},
+ "c-time":{k:"gen",n:"\u6642\u9593\u6a19\u8a18\uff0c\u516b\u500b\uff0c\u628a\u4e00\u6574\u689d\u751f\u5e73\u91d8\u4f4f\u3002\u6ce8\u610f\u5b83\u5011\u5168\u90e8\u51fa\u73fe\u5728\u6bcf\u4e00\u6bb5\u7684\u958b\u982d\u2014\u2014\u5074\u5beb\u7684\u6bb5\u843d\u5e38\u5e38\u4e00\u958b\u5834\u5c31\u5148\u5b9a\u4f4d\u6642\u9593\u3002\u7b2c\u56db\u55ae\u5143\u6559\u904e\u7684\u4e00\u4ef6\u4e8b\u9019\u88e1\u4e5f\u9069\u7528\uff1a\u51fa\u73fe\u9806\u5e8f\u8ddf\u767c\u751f\u9806\u5e8f\u4e0d\u4e00\u5b9a\u4e00\u6a23\uff0c\u7b2c 46 \u884c\u7684 In November 2015 \u5c31\u6bd4\u7b2c 36 \u884c\u7684 Seven years later \u65e9\u3002"}
+};
+var LB={sub:"\u6bd4\u55bb\u4e32",gen:"\u6642\u9593\u6a19\u8a18"};
+var CL={sub:"k",gen:"k g"};
+
+var PARTS=[
+ {t:"\u9264\u5b50",d:"\u5341\u4e00\u6b72\u5beb\u4fe1\u7d66\u7a7a\u8ecd\u5b98\u6821\uff0c\u6c92\u6709\u56de\u97f3\u4e5f\u4e0d\u653e\u68c4",r:"\u7b2c 1\u20134 \u884c"},
+ {t:"\u51fa\u8eab\u8207\u5922\u60f3",d:"\u53f0\u5317\u51fa\u751f\u3001\u82f1\u570b\u6210\u9577\uff0c\u5f88\u65e9\u5c31\u77e5\u9053\u8981\u7576\u592a\u7a7a\u4eba",r:"\u7b2c 4\u201312 \u884c"},
+ {t:"\u4f4e\u8c37\u8207\u8f49\u5411",d:"\u6c23\u5598\u53d6\u6d88\u98db\u884c\u8cc7\u683c\uff0c\u6539\u8d70\u91ab\u5b78\u8207\u822a\u592a\u91ab\u5b78",r:"\u7b2c 13\u201319 \u884c"},
+ {t:"\u6210\u5c31",d:"\u5165\u9078 NASA\u3001\u5169\u6b21\u4efb\u52d9\uff0c\u7b2c\u4e8c\u6b21\u64d4\u4efb\u6307\u63ee\u5b98",r:"\u7b2c 20\u201343 \u884c"},
+ {t:"\u53e6\u4e00\u9762",d:"\u5728\u592a\u7a7a\u5439\u98a8\u7b1b\u7d00\u5ff5\u540c\u4e8b\uff0c\u516c\u958b\u8ac7\u74b0\u5883\u4fdd\u8b77",r:"\u7b2c 44\u201357 \u884c"}
+];
+
+var STOPS=[
+ {nm:"\u51fa\u8eab\u8207\u5922\u60f3",a:1,b:12,x:32,y:132,up:1},
+ {nm:"\u4f4e\u8c37",a:13,b:19,x:100,y:192,up:0},
+ {nm:"\u5165\u9078 NASA",a:20,b:27,x:168,y:136,up:1},
+ {nm:"\u9996\u6b21\u4efb\u52d9",a:28,b:35,x:236,y:98,up:0},
+ {nm:"\u4e8c\u5ea6\u6307\u63ee",a:36,b:43,x:304,y:74,up:1},
+ {nm:"\u53e6\u4e00\u9762",a:44,b:57,x:372,y:62,up:0}
+];
+
+var QS=[
+ {q:"\u5168\u7bc7\u7b2c\u4e00\u8655\u76f4\u63a5\u5f15\u8a9e\u5728\u54ea\u88e1\uff1f",
+  a:"\u7b2c 14 \u5230 17 \u884c\u3002\u4ed6\u628a\u98db\u884c\u8cc7\u683c\u88ab\u53d6\u6d88\u9019\u4ef6\u4e8b\u53eb\u505a a pretty significant valley\uff0c\u63a5\u8457\u8aaa\u81ea\u5df1 reworked my map\u3001\u958b\u59cb\u722c\u51fa\u4f86\u3002",
+  r:"\u6a19\u8a18\u7684\u662f\u8f49\u6298\u9ede",a2:14,b2:17},
+ {q:"\u7b2c\u4e8c\u8655\u5462\uff1f",
+  a:"\u7b2c 54 \u5230 57 \u884c\u3002\u5f9e\u8ecc\u9053\u4e0a\u770b\uff0c\u8cc7\u6e90\u662f\u6709\u9650\u7684\uff0c\u9019\u662f\u6211\u5011\u552f\u4e00\u7684\u5bb6\u3002\u9019\u662f\u5168\u7bc7\u7684\u6700\u5f8c\u4e00\u53e5\u3002",
+  r:"\u6a19\u8a18\u7684\u662f\u50f9\u503c\u89c0",a2:54,b2:57},
+ {q:"\u4f5c\u8005\u70ba\u4ec0\u9ebc\u4e0d\u628a\u9019\u5169\u6bb5\u6539\u5beb\u6210\u53d9\u8ff0\u53e5\uff1f",
+  a:"\u56e0\u70ba valley\u3001rework my map \u9019\u4e9b\u6bd4\u55bb\u662f\u4ed6\u672c\u4eba\u7684\u8aaa\u6cd5\u3002\u6539\u5beb\u6210\u300c\u4ed6\u9047\u5230\u632b\u6298\u5f8c\u91cd\u65b0\u898f\u5283\u300d\uff0c\u6bd4\u55bb\u5c31\u6c92\u4e86\u2014\u2014\u800c\u90a3\u7d44\u6bd4\u55bb\u6b63\u662f\u5168\u7bc7\u7684\u4e3b\u8ecc\u3002",
+  r:"\u7b2c\u56db\u6b65\u6703\u62c6\u9019\u4e00\u689d",a2:15,b2:17},
+ {q:"\u5169\u8655\u5f15\u8a9e\u4e2d\u9593\u9694\u4e86\u5c07\u8fd1\u56db\u5341\u884c\u3002\u9019\u8aaa\u660e\u4ec0\u9ebc\uff1f",
+  a:"\u5f15\u8a9e\u5f88\u5c11\uff0c\u6240\u4ee5\u6bcf\u4e00\u8655\u90fd\u662f\u4f5c\u8005\u523b\u610f\u653e\u7684\u3002\u4e2d\u9593\u90a3\u56db\u5341\u884c\u5168\u662f\u4e8b\u4ef6\u53d9\u8ff0\uff0c\u4f5c\u8005\u4e00\u53e5\u8a55\u8ad6\u90fd\u6c92\u63d2\u9032\u53bb\u3002",
+  r:"\u5f15\u8a9e\u7684\u4f4d\u7f6e\u5c31\u662f\u91cd\u9ede",a2:18,b2:43}
+];
+
+/* ---------- generic quiz ---------- */
+function quiz(qid,aid,gid,tag,after){
+  var done=false;
+  function settle(){
+    done=true;
+    var bs=$(qid).querySelectorAll("button");
+    for(var i=0;i<bs.length;i++){ bs[i].disabled=true; bs[i].dataset.state=bs[i].dataset.ok?"right":"wrong"; }
+    if(aid) $(aid).hidden=false;
+    if(gid) $(gid).hidden=false;
+    if(after) after();
+  }
+  $(qid).addEventListener("click",function(e){
+    var b=e.target.closest("button"); if(!b||done) return;
+    settle(); ST[tag]=1; save();
+  });
+  return settle;
+}
+function opener(gid,sid,extra){
+  $(gid).addEventListener("click",function(){
+    var n=parseInt(sid.replace(/\D/g,""),10);
+    if(ST.step<n) ST.step=n; save();
+    $(sid).hidden=false; if(extra) extra();
+    $(sid).scrollIntoView({behavior:"smooth",block:"start"});
+  });
+}
+function hlLines(a,b){
+  var rows=$("tx").querySelectorAll(".ln");
+  for(var r=0;r<rows.length;r++){ var n=+rows[r].dataset.n; rows[r].classList.toggle("hl", n>=a&&n<=b); }
+  var ms=$("tx").querySelectorAll("m");
+  for(var k=0;k<ms.length;k++) ms[k].classList.remove("lit");
+  if(rows.length){ var f=$("tx").querySelector('.ln[data-n="'+a+'"]'); if(f) f.scrollIntoView({behavior:"smooth",block:"center"}); }
+}
+
+/* ---------- step 1 ---------- */
+var TL={a:"\u5e74\u9f61",g:"\u843d\u5dee",p:"\u6027\u683c"};
+function tagged(){ var n=0; for(var k in ST.tags) if(ST.tags[k]) n++; return n; }
+function paintTag(c){
+  if(c.classList.contains("got")) return;
+  c.classList.add("got");
+  var b=document.createElement("b"); b.textContent=TL[c.dataset.t];
+  c.insertBefore(b, c.firstChild);
+}
+function afterTags(){
+  $("sc").innerHTML="\u5df2\u6a19\u51fa <em>"+tagged()+"</em> / 3";
+  if(tagged()===3) $("s1b").hidden=false;
+}
+$("ld").addEventListener("click",function(e){
+  var c=e.target.closest("c"); if(!c) return;
+  if(ST.tags[c.dataset.t]) return;
+  ST.tags[c.dataset.t]=1; save(); paintTag(c); afterTags();
+});
+var set1=quiz("q1","a1","g1","q1");
+opener("g1","s2",buildParts);
+
+/* ---------- step 2 : parts + route ---------- */
+var builtParts=false;
+function buildParts(){
+  if(builtParts) return; builtParts=true;
+  var h="";
+  for(var i=0;i<PARTS.length;i++){
+    var p=PARTS[i];
+    h+='<div class="part"><i>'+esc(p.r)+'</i><b>'+esc(p.t)+'</b>'+esc(p.d)+'</div>';
+  }
+  $("parts").innerHTML=h;
+}
+function drawRoute(){
+  if($("fig").firstChild) return;
+  $("fig").hidden=false;
+  var s='<svg viewBox="0 0 420 236" role="img" aria-label="\u4e00\u689d\u5f9e\u53f0\u5317\u5f80\u4e0a\u8d70\u3001\u4e2d\u9593\u6389\u9032\u4f4e\u8c37\u518d\u722c\u51fa\u4f86\u7684\u8def\u7dda">';
+  var d="M8 150";
+  for(var i=0;i<STOPS.length;i++){ d+=" L"+STOPS[i].x+" "+STOPS[i].y; }
+  d+=" L412 46";
+  s+='<path class="route" d="'+d+'"/>';
+  s+='<path class="star" d="M400 26 l4 9 10 1 -7 7 2 10 -9 -5 -9 5 2 -10 -7 -7 10 -1 z"/>';
+  s+='<text class="ends" x="8" y="168">\u53f0\u5317\u30001973</text>';
+  for(i=0;i<STOPS.length;i++){
+    var st=STOPS[i], ty=st.up? st.y-16 : st.y+22, ry=st.up? st.y-27 : st.y+33;
+    s+='<g class="stop" data-i="'+i+'" tabindex="0" role="button">';
+    s+='<circle cx="'+st.x+'" cy="'+st.y+'" r="7"/>';
+    s+='<text class="nm" x="'+st.x+'" y="'+ty+'" text-anchor="middle">'+esc(st.nm)+'</text>';
+    s+='<text class="rg" x="'+st.x+'" y="'+ry+'" text-anchor="middle">'+st.a+"\u2013"+st.b+'</text>';
+    s+='</g>';
+  }
+  s+='</svg><figcaption>\u4e0b\u964d\u90a3\u4e00\u6bb5\u5c31\u662f\u4ed6\u53e3\u4e2d\u7684 valley\u3002\u9019\u5f35\u5716\u7684\u756b\u6cd5\u4e0d\u662f\u6211\u5011\u81ea\u5df1\u60f3\u7684\u2014\u2014\u662f\u8ab2\u6587\u7684\u6bd4\u55bb\u672c\u4f86\u5c31\u628a\u4eba\u751f\u756b\u6210\u4e00\u689d\u6709\u9ad8\u4f4e\u7684\u8def\u7dda\u3002\u9ede\u4efb\u4e00\u7ad9\uff0c\u7b2c\u56db\u6b65\u7684\u8ab2\u6587\u5c0d\u61c9\u884c\u6703\u4eae\u8d77\u4f86\u3002</figcaption>';
+  $("fig").innerHTML=s;
+  function hit(g){
+    var i=+g.dataset.i, st=STOPS[i];
+    var gs=$("fig").querySelectorAll(".stop");
+    for(var j=0;j<gs.length;j++) gs[j].classList.toggle("on", +gs[j].dataset.i===i);
+    hlLines(st.a,st.b);
+    $("pk").textContent="\u8def\u7dda\u4e0a\u7684\u4e00\u7ad9"; $("pk").className="k e";
+    $("pc").textContent=st.nm; $("pt").textContent="\u7b2c "+st.a+"\u2013"+st.b+" \u884c\u3002\u8ab2\u6587\u9019\u5e7e\u884c\u5df2\u7d93\u4eae\u8d77\u4f86\u4e86\u3002";
+  }
+  $("fig").addEventListener("click",function(e){ var g=e.target.closest(".stop"); if(g) hit(g); });
+  $("fig").addEventListener("keydown",function(e){
+    if(e.key!=="Enter"&&e.key!==" ") return;
+    var g=e.target.closest(".stop"); if(g){ e.preventDefault(); hit(g); }
+  });
+}
+function afterQ2(){ drawRoute(); $("db").hidden=false; }
+var set2=quiz("q2","a2","g2","q2",afterQ2);
+opener("g2","s3",buildQs);
+
+/* ---------- step 3 : find the quotes ---------- */
+var builtQs=false;
+function buildQs(){
+  if(builtQs) return; builtQs=true;
+  var h="";
+  for(var i=0;i<QS.length;i++){
+    var q=QS[i];
+    h+='<div class="qcard" id="qc'+i+'"><div class="hd"><span class="qt">'+esc(q.q)+'</span>'+
+       '<button data-i="'+i+'">\u770b\u7b54\u6848</button></div>'+
+       '<div class="bd">'+esc(q.a)+'<i>'+esc(q.r)+'</i></div></div>';
+  }
+  $("qs").innerHTML=h;
+  $("qs").addEventListener("click",function(e){
+    var b=e.target.closest("button"); if(!b) return;
+    ST.qs[b.dataset.i]=1; save(); paintQs();
+  });
+  paintQs();
+}
+function openedQs(){ var n=0; for(var k in ST.qs) if(ST.qs[k]) n++; return n; }
+function paintQs(){
+  for(var i=0;i<QS.length;i++){ var el=$("qc"+i); if(el) el.classList.toggle("open",!!ST.qs[i]); }
+  $("sc3").innerHTML="\u5df2\u770b\u904e <em>"+openedQs()+"</em> / 4";
+  if(openedQs()>=QS.length){ $("a3").hidden=false; $("g3").hidden=false; }
+}
+opener("g3","s4",buildText);
+
+/* ---------- step 4 : passage ---------- */
+function renderLine(str){
+  var out="",i=0;
+  while(i<str.length){
+    var a=str.indexOf("{",i);
+    if(a<0){ out+=esc(str.slice(i)); break; }
+    out+=esc(str.slice(i,a));
+    var b=str.indexOf("}",a), p=str.slice(a+1,b).split("|");
+    var id=p[1], it=p[2]||"1", k=CHAINS[id]?CHAINS[id].k:"sub";
+    out+='<m data-c="'+id+'" data-i="'+it+'" data-kind="'+k+'" tabindex="0">'+esc(p[0])+'</m>';
+    i=b+1;
+  }
+  return out;
+}
+var builtText=false;
+function buildText(){
+  if(builtText) return; builtText=true;
+  var h='<p class="ttl">'+renderLine(TITLE)+'</p>';
+  for(var i=0;i<LINES.length;i++){
+    var n=i+1;
+    if(n===SPLIT) h+='<p class="split">\u4ee5\u4e0a\u662f 9/19 \u7684\u7b2c 1\u201327 \u884c\u3002\u4ee5\u4e0b\u662f 9/22 \u7684\u7b2c 28\u201357 \u884c\u3002</p>';
+    var cls="ln"+(INDENT[n]?" ind"+(n>1?" pb":""):"");
+    h+='<div class="'+cls+'" data-n="'+n+'"><i>'+((n%5===0)?n:"")+'</i><span>'+renderLine(LINES[i])+'</span></div>';
+  }
+  $("tx").innerHTML=h;
+}
+function lightChain(id){
+  var ms=$("tx").querySelectorAll("m"), items={}, order=[],i;
+  var gs=$("fig").querySelectorAll(".stop");
+  for(i=0;i<gs.length;i++) gs[i].classList.remove("on");
+  var rows=$("tx").querySelectorAll(".ln");
+  for(i=0;i<rows.length;i++) rows[i].classList.remove("hl");
+  for(i=0;i<ms.length;i++){
+    if(ms[i].dataset.c===id){
+      ms[i].classList.add("lit");
+      var key=ms[i].dataset.i;
+      if(!items[key]){ items[key]=[]; order.push(key); }
+      items[key].push(ms[i].textContent);
+    } else ms[i].classList.remove("lit");
+  }
+  var c=CHAINS[id]; if(!c) return;
+  var parts=[];
+  for(var o=0;o<order.length;o++) parts.push(esc(items[order[o]].join(" ")));
+  $("pk").textContent=LB[c.k]; $("pk").className=CL[c.k];
+  $("pc").innerHTML=parts.join('<i>\u2192</i>');
+  $("pt").textContent=c.n;
+}
+$("tx").addEventListener("click",function(e){ var m=e.target.closest("m"); if(m) lightChain(m.dataset.c); });
+$("tx").addEventListener("keydown",function(e){
+  if(e.key!=="Enter"&&e.key!==" ") return;
+  var m=e.target.closest("m"); if(m){ e.preventDefault(); lightChain(m.dataset.c); }
+});
+function toggle(btn,cls){
+  btn.addEventListener("click",function(){
+    var on=btn.getAttribute("aria-pressed")==="true";
+    btn.setAttribute("aria-pressed",on?"false":"true");
+    $("tx").classList.toggle(cls,on);
+  });
+}
+toggle($("m1"),"off-sub");
+toggle($("m2"),"off-gen");
+opener("g4","s5");
+
+/* ---------- step 5 ---------- */
+var set5=quiz("q5","a5","g5","q5");
+$("g5").addEventListener("click",function(){
+  if(ST.step<6) ST.step=6; save();
+  $("s6").hidden=false;
+  $("s6").scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+/* ---------- step 6 ---------- */
+var done6=false;
+function settle6(){
+  done6=true;
+  var bs=$("q6").querySelectorAll("button");
+  for(var i=0;i<bs.length;i++){
+    bs[i].disabled=true; bs[i].dataset.state=bs[i].dataset.ok?"right":"wrong";
+    if(bs[i].dataset.ok){ $("bl").textContent=bs[i].textContent; $("bl").className="blank filled"; }
+  }
+  $("a6").hidden=false; $("w6").hidden=false; $("s7").hidden=false;
+}
+$("q6").addEventListener("click",function(e){
+  var b=e.target.closest("button"); if(!b||done6) return;
+  settle6(); ST.q6=1; save();
+  $("a6").scrollIntoView({behavior:"smooth",block:"nearest"});
+});
+
+/* ---------- preview mode for the teacher: cohesion-u10.html?all ---------- */
+function previewAll(){
+  $("pv").hidden=false;
+  var i,cs=$("ld").querySelectorAll("c");
+  for(i=0;i<cs.length;i++){ ST.tags[cs[i].dataset.t]=1; paintTag(cs[i]); }
+  afterTags(); set1();
+  $("s2").hidden=false; buildParts(); set2();
+  $("s3").hidden=false;
+  for(i=0;i<QS.length;i++) ST.qs[i]=1;
+  buildQs();
+  $("s4").hidden=false; buildText();
+  $("s5").hidden=false; set5();
+  $("s6").hidden=false; settle6();
+}
+
+/* ---------- restore ---------- */
+$("rst").addEventListener("click",wipe);
+(function restore(){
+  if(/(^|[?&])all(=|&|$)/.test(location.search)){ previewAll(); return; }
+  var v=load(); if(!v) return;
+  ST=v;
+  if(!ST.tags) ST.tags={};
+  if(!ST.qs) ST.qs={};
+  if(!ST.step) ST.step=1;
+  if(!(tagged()||ST.step>1)) return;
+  $("rs").hidden=false;
+  var i,cs=$("ld").querySelectorAll("c");
+  for(i=0;i<cs.length;i++) if(ST.tags[cs[i].dataset.t]) paintTag(cs[i]);
+  afterTags();
+  if(ST.q1) set1();
+  if(ST.step>=2){ $("s2").hidden=false; buildParts(); if(ST.q2) set2(); }
+  if(ST.step>=3){ $("s3").hidden=false; buildQs(); }
+  if(ST.step>=4){ $("s4").hidden=false; buildText(); }
+  if(ST.step>=5){ $("s5").hidden=false; if(ST.q5) set5(); }
+  if(ST.step>=6){ $("s6").hidden=false; if(ST.q6) settle6(); }
+  var last=$("s"+(ST.step>=6?6:ST.step));
+  if(last) setTimeout(function(){ last.scrollIntoView({block:"start"}); },60);
+})();
+})();
+</script>
+</body>
+</html>
