@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OREO｜Why Italians Take Food So Seriously</title>
+<meta name="description" content="第一句就把話講完，中間舉例，最後再講一次。收尾靠一個名詞把前面全部收攏——這一頁教你認出它。">
+<meta property="og:title" content="OREO｜Why Italians Take Food So Seriously">
+<meta property="og:description" content="頭尾兩段講的是同一件事，只是換了說法。自己對讀一次就看得出來。">
+<style>
+:root{
+  --ground:#f1f3f2; --ink:#17282f; --teal:#1f6f6a; --teal-soft:#dfeceb;
+  --muted:#77878d; --line:#cdd6d6; --exam:#b4661c; --exam-soft:#fdf4e7;
+  --gen:#4a6a90; --gen-soft:#e0e7f0;
+  --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+  --sans:"PingFang TC","Noto Sans TC","Microsoft JhengHei","Helvetica Neue",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-text-size-adjust:100%}
+.wrap{max-width:44rem;margin:0 auto;padding:1.6rem 1.1rem 4rem}
+h1{font-family:var(--serif);font-weight:600;font-size:1.6rem;line-height:1.3;margin:0 0 .55rem}
+.lede{margin:0 0 1.3rem;color:#3d5059;font-size:.95rem}
+.src{font-size:.8rem;color:var(--muted);margin:0 0 1.1rem}
+.resume{font-size:.85rem;color:var(--teal);background:var(--teal-soft);border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.resume[hidden]{display:none}
+.preview{font-size:.85rem;color:var(--exam);background:var(--exam-soft);
+  border:1px dashed var(--exam);border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.preview[hidden]{display:none}
+.resume button{font:inherit;font-size:.82rem;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:.25rem;padding:.16rem .6rem;margin-left:.5rem;cursor:pointer}
+.resume button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.step{border-top:1px solid var(--line);padding-top:1.15rem;margin-top:1.6rem}
+.step[hidden]{display:none}
+.stepno{font-family:var(--serif);font-size:.82rem;color:var(--muted);margin:0 0 .2rem}
+h2{font-family:var(--serif);font-weight:600;font-size:1.2rem;margin:0 0 .5rem;color:var(--teal)}
+.step p{margin:0 0 .7rem;font-size:.95rem}
+.tag{display:inline-block;font-size:.72rem;font-weight:600;border-radius:.2rem;padding:.08rem .45rem;margin-left:.45rem;vertical-align:.12rem;color:var(--exam);background:var(--exam-soft);border:1px solid var(--exam)}
+.tag.b{color:var(--gen);background:var(--gen-soft);border-color:var(--gen)}
+.opts{display:flex;flex-direction:column;gap:.45rem;margin:.2rem 0 .8rem}
+.opts button{font:inherit;font-size:.95rem;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:.3rem;padding:.45rem .85rem;cursor:pointer;text-align:left}
+.opts button:hover{border-color:var(--teal)}
+.opts button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.opts button[data-state="right"]{background:var(--teal);border-color:var(--teal);color:#fff}
+.opts button[data-state="wrong"]{background:var(--ground);color:var(--muted)}
+.opts button[disabled]{cursor:default}
+.opts.en button{font-family:var(--serif);font-size:.97rem;line-height:1.6;padding:.55rem .8rem}
+.opts.en button[data-state="right"]{background:var(--teal-soft);border-color:var(--teal);color:var(--ink)}
+.said{background:#fff;border-left:3px solid var(--teal);border-radius:.3rem;padding:.75rem .85rem;margin:.2rem 0 .9rem;font-size:.93rem;color:#3d5059}
+.said b{color:var(--ink);font-weight:600}
+.said[hidden]{display:none}
+.said.g{border-left-color:var(--gen)}
+.said.e{border-left-color:var(--exam)}
+.said q{quotes:none;font-family:var(--serif)}
+.go{font:inherit;font-size:.92rem;background:var(--ink);color:#fff;border:1px solid var(--ink);border-radius:.3rem;padding:.42rem 1.05rem;cursor:pointer}
+.go:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.go[hidden]{display:none}
+.lead{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.9rem 1rem;margin:0 0 .7rem;font-family:var(--serif);font-size:1.02rem;line-height:1.95}
+.lead c{cursor:pointer;border-radius:.2rem;padding:.06rem .2rem;background:var(--exam-soft);box-shadow:inset 0 -2px 0 #ecc9a2}
+.lead c:hover{box-shadow:inset 0 -2px 0 var(--exam)}
+.lead c.got{background:var(--exam);color:#fff;box-shadow:none}
+.lead c b{font-family:var(--sans);font-size:.72rem;font-weight:600;background:#fff;color:var(--exam);border-radius:.2rem;padding:.02rem .3rem;margin-right:.3rem}
+.score{font-size:.9rem;color:var(--muted);margin:0 0 .8rem}
+.score em{font-style:normal;color:var(--exam);font-weight:600}
+.cols{display:grid;grid-template-columns:1fr;gap:.6rem;margin:0 0 .7rem}
+@media(min-width:40rem){.cols{grid-template-columns:1fr 1fr}}
+.col{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.75rem .9rem;
+  font-family:var(--serif);font-size:.97rem;line-height:1.9}
+.col .cap{font-family:var(--sans);font-size:.76rem;color:var(--muted);margin-bottom:.35rem;letter-spacing:.02em}
+.col.b{border-color:var(--gen)}
+.col.b .cap{color:var(--gen)}
+.col c{cursor:pointer;border-radius:.2rem;padding:.06rem .2rem;background:var(--exam-soft);box-shadow:inset 0 -2px 0 #ecc9a2}
+.col c:hover{box-shadow:inset 0 -2px 0 var(--exam)}
+.col c.got{background:var(--exam);color:#fff;box-shadow:none}
+.col s{text-decoration:none;border-radius:.2rem;padding:.06rem .2rem}
+.col s.lit{background:var(--gen);color:#fff}
+.fig{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.7rem .5rem .4rem;margin:0 0 .7rem}
+.fig svg{display:block;width:100%;height:auto;max-width:26rem;margin:0 auto}
+.fig figcaption{font-size:.85rem;color:#3d5059;margin:.35rem .5rem 0;line-height:1.65}
+.slab{cursor:pointer}
+.slab path{fill:#fff;stroke:var(--line);stroke-width:2;stroke-linejoin:round}
+.slab.dark path{fill:#e7ece9}
+.slab text{font-family:var(--sans);font-size:12px;fill:var(--ink);font-weight:600}
+.slab tspan.n{font-size:9.5px;font-weight:400;fill:var(--muted)}
+.slab.on path{fill:var(--exam-soft);stroke:var(--exam)}
+.slab.on text{fill:var(--exam)}
+.slab.on tspan.n{fill:var(--exam)}
+.modes{display:flex;gap:.4rem;margin:0 0 .7rem;flex-wrap:wrap}
+.modes button{font:inherit;font-size:.84rem;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:.3rem;padding:.3rem .8rem;cursor:pointer}
+.modes button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.modes button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.text{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.9rem .6rem 1.1rem;font-family:var(--serif);font-size:1rem;line-height:1.85}
+.text .ttl{font-weight:600;font-size:1.06rem;margin:0 .4rem .7rem 2.6rem;line-height:1.45}
+.ln{display:flex;align-items:baseline;padding:.02rem 0;border-radius:.2rem}
+.ln>i{flex:0 0 2.2rem;text-align:right;padding-right:.55rem;font-family:var(--sans);font-style:normal;font-size:.68rem;color:var(--muted);line-height:1.9}
+.ln>span{flex:1 1 auto;overflow-wrap:anywhere}
+.ln.ind>span{padding-left:1.1rem}
+.ln.hl{background:var(--exam-soft)}
+.ln.pb{margin-top:.55rem}
+.text m{cursor:pointer;border-radius:.2rem;padding:.02rem .14rem}
+.text m[data-kind="sub"]{background:var(--teal-soft);box-shadow:inset 0 -2px 0 #a8ccc8}
+.text m[data-kind="gen"]{background:var(--gen-soft);box-shadow:inset 0 -2px 0 #a9bbd0}
+.text m.lit[data-kind="sub"]{background:var(--teal);color:#fff;box-shadow:none}
+.text m.lit[data-kind="gen"]{background:var(--gen);color:#fff;box-shadow:none}
+.text.off-sub m[data-kind="sub"]{background:none;box-shadow:none}
+.text.off-gen m[data-kind="gen"]{background:none;box-shadow:none}
+.panel{position:sticky;bottom:0;background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.75rem .9rem;margin-top:.8rem;box-shadow:0 -2px 10px rgba(23,40,47,.07)}
+.panel .k{font-size:.72rem;font-weight:600;border-radius:.2rem;padding:.06rem .42rem;color:var(--teal);background:var(--teal-soft);border:1px solid var(--teal)}
+.panel .k.g{color:var(--gen);background:var(--gen-soft);border-color:var(--gen)}
+.panel .k.e{color:var(--exam);background:var(--exam-soft);border-color:var(--exam)}
+.panel .ch{font-family:var(--serif);font-size:1rem;margin:.4rem 0 .3rem;color:var(--ink);line-height:1.75;overflow-wrap:anywhere}
+.panel .ch i{font-style:normal;color:var(--muted);padding:0 .28rem}
+.panel .nt{font-size:.88rem;color:#3d5059;margin:0}
+.recall{background:#fff;border:1px solid var(--line);border-left:3px solid var(--muted);
+  border-radius:.3rem;padding:.75rem .85rem;margin:1.1rem 0 .9rem;font-size:.92rem;color:#3d5059}
+.recall b{color:var(--ink)}
+.recall ul{margin:.4rem 0 0;padding-left:1.1rem}
+.recall li{margin-bottom:.35rem}
+.gap{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.9rem 1rem;margin:0 0 .9rem;font-family:var(--serif);font-size:1rem;line-height:1.9}
+.gap .blank{display:inline-block;min-width:9rem;border-bottom:2px solid var(--gen);color:var(--gen);text-align:center;font-family:var(--sans);font-size:.82rem}
+.gap .blank.filled{border-bottom-color:var(--teal);color:var(--ink);font-family:var(--serif);font-size:1rem;text-align:left;background:var(--teal-soft);border-radius:.2rem;padding:0 .25rem}
+.picks{display:flex;flex-direction:column;gap:.45rem;margin:0 0 .9rem}
+.picks button{font:inherit;font-family:var(--serif);font-size:.97rem;line-height:1.6;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:.3rem;padding:.55rem .8rem;cursor:pointer;text-align:left}
+.picks button:hover{border-color:var(--teal)}
+.picks button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.picks button[data-state="right"]{background:var(--teal-soft);border-color:var(--teal)}
+.picks button[data-state="wrong"]{background:var(--ground);color:var(--muted)}
+.why{font-size:.86rem;color:#3d5059;margin:.35rem 0 0}
+.why[hidden]{display:none}
+.close{border-top:1px solid var(--line);margin-top:2rem;padding-top:1.1rem;font-size:.93rem;color:#3d5059}
+.close[hidden]{display:none}
+.close h2{font-size:1.1rem}
+.close ol{margin:.3rem 0 0;padding-left:1.15rem}
+.close li{margin-bottom:.5rem}
+.more{margin-top:1.5rem;font-size:.88rem}
+.more a{color:var(--teal)}
+.series{border-top:1px solid var(--line);margin-top:2rem;padding-top:1.1rem;font-size:.9rem;color:#3d5059}
+.series b{display:block;font-family:var(--serif);font-size:1rem;color:var(--ink);margin-bottom:.5rem}
+.series ul{margin:0;padding-left:1.1rem}
+.series li{margin-bottom:.4rem}
+.series a{color:var(--teal)}
+.series .note{font-size:.85rem;color:var(--muted);margin:.7rem 0 0}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>OREO</h1>
+<p class="lede">這篇文章第一句就把話講完了，中間舉三組例子，最後再講一次同一句話——只是換了說法，而且多加了一層。頭尾兩段對讀一次，你就會認出這個形狀。</p>
+<p class="preview" id="pv" hidden>預覽模式：所有步驟、圖表、課文標記都已展開，進度不會存檔。學生拿到的一般連結不受影響。</p>
+<p class="resume" id="rs" hidden>上次做到一半，已經幫你接回來了。<button id="rst">重新開始</button></p>
+<p class="src">ALL+ 互動英語 9 月號 Unit 3（pp. 12–13）　Why Italians Take Food So Seriously　全文 31 行　9/4 一天讀完</p>
+
+<!-- STEP 1 -->
+<section class="step" id="s1">
+  <p class="stepno">第一步</p>
+  <h2>第一句就是主張<span class="tag">上層：組織方式</span></h2>
+  <p>OREO 是四個字母：<b>O</b>pinion 主張、<b>R</b>eason 理由、<b>E</b>xample 例子、<b>O</b>pinion 再講一次主張。它的特色是<b>把話擺在最前面</b>，跟中文作文習慣的「鋪陳到最後才揭曉」相反。</p>
+  <p>下面是第 1 到 7 行。<b>點三個有底色的地方</b>，看看各自在做什麼。</p>
+  <div class="lead" id="ld">
+    In Italy, food is about <c data-t="o">more than just flavor</c>. It’s a matter of <c data-t="r">culture, family traditions, and regional pride</c>. <c data-t="x">As a result</c>, Italians sometimes react strongly when people in other countries change classic Italian dishes. A recipe that seems completely fine in Taiwan or the US might seem totally wrong in Italy.
+  </div>
+  <p class="score" id="sc">已標出 <em>0</em> / 3</p>
+  <div id="s1b" hidden>
+    <p>三個都標出來了。那麼——<b>這一段裡，哪一句才是作者的主張？</b></p>
+    <div class="opts" id="q1">
+      <button data-ok="1">對義大利人來說，食物的重點不只在味道好不好</button>
+      <button>義大利的飲食牽涉到家庭傳統與地方的榮譽感</button>
+      <button>義大利人有時會對外國人改動義大利菜反應激烈</button>
+      <button>同一道食譜在台灣沒問題，在義大利卻可能不行</button>
+    </div>
+    <div class="said e" id="a1" hidden>
+      <b>對義大利人來說，食物的重點不只在味道好不好。</b>就是第 1 行那一句 <q>food is about more than just flavor</q>。<b>主張是整段裡涵蓋最廣、其他句子都在支持它的那一句。</b>
+      <br><br>
+      <b>另外三個都在文章裡，但身分不是主張：</b>
+      <br><br>
+      「牽涉到家庭傳統與地方的榮譽感」——第 2 到 3 行，這是<b>理由</b>，回答「為什麼不只是味道」。理由是拿來撐主張的，本身不是主張。
+      <br><br>
+      「對外國人改動義大利菜反應激烈」——第 3 到 5 行。這一句前面掛著 <q>As a result</q>，那四個字直接告訴你它是<b>結果</b>，不是出發點。看到 As a result、Therefore、So 就知道這一句是被推出來的。
+      <br><br>
+      「同一道食譜在台灣沒問題，在義大利卻可能不行」——第 5 到 7 行，這是<b>把上一句講得更具體</b>，範圍只到食譜，比主張小一圈。
+      <br><br>
+      <b>對你的用處：</b>主旨題的答案就是主張那一句的改寫。找主張時，先看哪一句<b>沒有掛著表示因果或舉例的字</b>——那一句通常就是。
+    </div>
+    <button class="go" id="g1" hidden>那整篇的形狀呢？</button>
+  </div>
+</section>
+
+<!-- STEP 2 -->
+<section class="step" id="s2" hidden>
+  <p class="stepno">第二步</p>
+  <h2>兩片餅乾夾中間<span class="tag">上層：怎麼認出來</span></h2>
+  <p>OREO 這個名字就是那款餅乾：<b>上下兩片一樣，中間夾內餡</b>。這篇的四塊是第 1 行、第 2–7 行、第 8–24 行、第 25–31 行。</p>
+  <p>先回答：<b>最後一段（第 25–31 行）在做什麼？</b></p>
+  <div class="opts" id="q2">
+    <button data-ok="1">收攏前面三組例子，回到第一句的主張</button>
+    <button>補上第四個例子，說明義大利人的堅持</button>
+    <button>從義大利的情況推廣到其他國家的飲食</button>
+    <button>提出一個比前面更強的新主張當作結論</button>
+  </div>
+  <div class="said e" id="a2" hidden>
+    <b>收攏前面三組例子，回到第一句的主張。</b>第 25 到 26 行 <q>these reactions are not simply about personal taste</q>，跟第 1 行的 <q>food is about more than just flavor</q> 是同一句話換個說法：<b>都在說「不只是表面那一項」。</b>
+    <br><br>
+    <b>另外三個為什麼排除：</b>
+    <br><br>
+    「補上第四個例子」——第 25 到 31 行<b>一個菜名都沒有出現</b>。前面三格每一格都點名了具體的東西（tagliatelle、Hawaiian pizza、cappuccino），這一段沒有，所以它不是例子。
+    <br><br>
+    「推廣到其他國家」——第 26 到 27 行寫的是 <q>For many Italians</q>，焦點還在義大利人身上，範圍沒有擴大。<b>這是最容易選錯的一個</b>，因為結尾聽起來很有普遍性；但普遍性來自語氣，不是來自範圍。
+    <br><br>
+    「提出更強的新主張」——第 25 行的 <q>these reactions</q> 是回頭指前面，指涉詞往回看的句子不會是新主張。<b>OREO 的收尾是回到原來那句，不是換一句更大的。</b>
+    <br><br>
+    下面這張圖就是這篇的形狀。<b>點任一層</b>，第四步的課文對應行會亮起來（課文還沒打開的話，先把行號記住就好）。
+  </div>
+  <figure class="fig" id="fig" hidden></figure>
+  <button class="go" id="g2" hidden>首尾對讀測試</button>
+</section>
+
+<!-- STEP 3 -->
+<section class="step" id="s3" hidden>
+  <p class="stepno">第三步</p>
+  <h2>首尾對讀測試<span class="tag">上層：怎麼驗證</span></h2>
+  <p>怎麼確定一篇是 OREO？<b>把第一段和最後一段擺在一起讀。</b>如果兩段在講同一件事，只是換了說法，那就是 OREO。</p>
+  <p><b>點左邊三個有底色的說法</b>，右邊對應的說法會亮起來。</p>
+  <div class="cols">
+    <div class="col" id="cl">
+      <p class="cap">第一段（第 1–4 行）</p>
+      In Italy, food is about <c data-p="a">more than just flavor</c>. It’s a matter of <c data-p="b">culture, family traditions, and regional pride</c>. As a result, Italians sometimes <c data-p="c">react strongly</c>…
+    </div>
+    <div class="col b" id="cr">
+      <p class="cap">最後一段（第 25–31 行）</p>
+      Ultimately, <s id="pc">these reactions</s> are <s id="pa">not simply about personal taste</s>. For many Italians, traditional recipes carry <s id="pb">the stories and craftsmanship of generations</s>—and that, most would agree, deserves to be taken seriously.
+    </div>
+  </div>
+  <p class="score" id="sc3">已對出 <em>0</em> / 3</p>
+  <div class="said e" id="a3" hidden>
+    <b>三組都對上了。頭尾兩段講的是同一件事。</b>
+    <br><br>
+    但請注意，<b>收尾不是把開頭抄一遍</b>。三組都換了字：flavor 換成 personal taste，culture、family traditions、regional pride 三個抽象名詞換成 the stories and craftsmanship of generations 一個更具體的說法，react strongly 換成名詞 these reactions。<b>英文不會用完全相同的字去講同一件事</b>，所以你要靠意思去對，不能靠找一樣的字。
+    <br><br>
+    <b>而且收尾多了一層。</b>開頭只說義大利人反應激烈，結尾加上一句評價：<q>that, most would agree, deserves to be taken seriously</q>——這種反應值得認真看待。<b>OREO 的第二個 O 通常會比第一個多這麼一點東西</b>，作者才有理由再講一次。
+    <br><br>
+    <b>怎麼認出一篇是 OREO：</b>遮住中間，只讀頭尾兩段，看它們是不是同一件事。是，就是 OREO；如果最後一段講的是新東西，那就不是，得換別的讀法。
+  </div>
+  <button class="go" id="g3" hidden>看撐住這個形狀的字</button>
+</section>
+
+<!-- STEP 4 -->
+<section class="step" id="s4" hidden>
+  <p class="stepno">第四步</p>
+  <h2>一個名詞就把三組例子收走<span class="tag b">下層：概括名詞</span></h2>
+  <p>最後一段憑什麼一句話就接得回主張？靠 <q>these reactions</q> 這個<b>概括名詞</b>——用一個名詞把前面一整片內容包起來。這是這一篇要學的新工具。</p>
+  <p><b>點任何一個有底色的字，同一條的字會一起亮起來。</b>兩種顏色可以各自關掉。</p>
+  <div class="modes">
+    <button id="m1" aria-pressed="true">概括名詞（青）</button>
+    <button id="m2" aria-pressed="true">上義詞／下義詞（藍灰）</button>
+  </div>
+  <div class="text" id="tx"></div>
+  <div class="panel" id="pn">
+    <span class="k" id="pk">線索</span>
+    <div class="ch" id="pc2">點一個有底色的字</div>
+    <p class="nt" id="pt">青色是把一整片內容包起來的名詞，藍灰是同一個概念的總稱和實例。</p>
+  </div>
+  <div class="recall">
+    <b>另外三樣，前面單元教過，這篇自己確認得出來：</b>
+    <ul>
+      <li><b>換字。</b>同一個概念在這篇換了六種說法：第 4 行 <q>react strongly</q>、第 9 行 <q>disagreements</q>、第 13 行 <q>debates</q>、第 18 行 <q>strong opinions</q>、第 20 行 <q>surprises</q>、第 25 行 <q>reactions</q>。動詞、名詞交替出現，立場一路沒變。</li>
+      <li><b>指涉詞。</b>第 29 行的 <q>that</q> 回頭指的不是某一個名詞，是<b>前面整個子句</b>——traditional recipes carry the stories and craftsmanship of generations。跟第一單元的 <q>The release</q> 同一類：往回找如果找不到對應的名詞，就改找對應的那件事。</li>
+      <li><b>原字重複。</b>recipe 在第 5、13、27 行原封不動出現三次。它是這篇的軸心概念，重複是在提醒你別跟丟——<b>英文避免的是用完全相同的字去講同一件事，不是避免重複軸心本身。</b></li>
+    </ul>
+  </div>
+  <p style="margin-top:1.1rem"><button class="go" id="g4">考卷怎麼考這種文章</button></p>
+</section>
+
+<!-- STEP 5 -->
+<section class="step" id="s5" hidden>
+  <p class="stepno">第五步</p>
+  <h2>主旨題往頭尾兩段找<span class="tag">上層：考點</span></h2>
+  <p>OREO 的好處是<b>答案出現兩次</b>。主旨題問的東西，第一段講過一遍，最後一段又講過一遍——<b>兩段的交集就是主旨</b>。任何只在中間出現過的內容，都是例子，不是主旨。</p>
+  <p>還有一個看標記就能用的判斷：<b>最後一段如果以 <q>Ultimately</q>、<q>In short</q>、<q>In the end</q> 開頭，那是回到主張，不是新資訊。</b>時間不夠的時候，先讀第一段和這一段。</p>
+  <p>試試看：<b>這篇文章的主旨最接近下面哪一句？</b></p>
+  <div class="opts en" id="q5">
+    <button>Italians dislike the foreign versions of their own traditional dishes.</button>
+    <button data-ok="1">For Italians, food carries traditions that go far beyond taste.</button>
+    <button>Pasta, pizza, and coffee each have their own strict rules in Italy.</button>
+    <button>Traditional Italian recipes should never be changed by people abroad.</button>
+  </div>
+  <div class="said e" id="a5" hidden>
+    <b>第二句。</b>注意它<b>一個字都沒有照抄課文</b>：carries traditions 是 <q>traditional recipes carry the stories and craftsmanship of generations</q> 的改寫，go far beyond taste 是 <q>more than just flavor</q> 和 <q>not simply about personal taste</q> 的改寫。<b>大考的正解通常長這樣——換過字的改寫；反而是誘答會照抄原文的字。</b>學生如果用「哪個選項跟文章長得最像就選哪個」，這一題一定選錯。
+    <br><br>
+    <b>另外三個為什麼排除：</b>
+    <br><br>
+    第一句 <q>Italians dislike the foreign versions…</q>——文章確實這樣寫過（第 3 到 5 行），但那是<b>例子段的內容</b>。而且第 25 到 26 行明講 <q>not simply about personal taste</q>，作者的重點不是「他們討厭」，是「他們為什麼在意」。<b>拿細節當主旨，是主旨題最常見的誘答做法。</b>
+    <br><br>
+    第三句 <q>Pasta, pizza, and coffee…</q>——三個字全部照抄小段的內容，看起來最眼熟，但它只是把三組例子列出來，<b>沒有講出那句涵蓋全部的話</b>。
+    <br><br>
+    第四句 <q>…should never be changed…</q>——文章只寫義大利人反應激烈，<b>沒有說任何人不可以改</b>。這是把作者的觀察推成規定，範圍推過頭了。
+  </div>
+  <button class="go" id="g5" hidden>最後一題</button>
+</section>
+
+<!-- STEP 6 -->
+<section class="step" id="s6" hidden>
+  <p class="stepno">第六步</p>
+  <h2>把一句話放回去</h2>
+  <p>這就是考卷上的<b>篇章結構</b>題。下面把第 25–26 行的第一句整句抽掉了，四個候選句只有一句放得進去。前面五步練的東西，全部用在這一題。</p>
+  <div class="gap" id="gp">
+    … In Italy, ordering a cappuccino after dinner is often seen as a clear sign that someone is a tourist.
+    <br><br>
+    <span class="blank" id="bl">（空格）</span> For many Italians, traditional recipes carry the stories and craftsmanship of generations—and that, most would agree, deserves to be taken seriously.
+  </div>
+  <div class="picks" id="q6">
+    <button data-ok="1">Ultimately, these reactions are not simply about personal taste.</button>
+    <button>However, many Italians are now open to these variations.</button>
+    <button>Of all these rules, the coffee one surprises tourists the most.</button>
+    <button>Around the world, people are slowly learning the traditional recipes.</button>
+  </div>
+  <div class="said" id="a6" hidden>
+    <b>四個線索同時指向同一句。</b>這四句單獨看都說得通，沒有一句本身是錯的。要排除，得靠位置和線索。
+    <br><br>
+    <b>一、指涉詞找不找得到先行內容。</b><q>these reactions</q> 需要前面有一整串「反應」可以指——第 4 行 <q>react strongly</q>、第 9 行 <q>disagreements</q>、第 13 行 <q>debates</q>、第 18 行 <q>strong opinions</q>、第 20 行 <q>surprises</q>，五處全被它一次收攏。<b>四句裡只有它接得住前面三組例子。</b>
+    <br><br>
+    <b>二、方向。</b><q>However, many Italians are now open to these variations.</q> 用 However 轉了個彎，但下一句 <q>For many Italians, traditional recipes carry…</q> 是順著原來的立場走的。<b>轉折了卻沒有轉到，兩句就接不上。</b>
+    <br><br>
+    <b>三、層級。</b><q>Of all these rules, the coffee one surprises tourists the most.</q> 挑出三組例子裡的一組來講，那是<b>細節</b>。收尾段的第一句要收攏全部，不是選出其中一個；而且文章從頭到尾沒有比較過哪一組反應最大。
+    <br><br>
+    <b>四、範圍。</b><q>Around the world, people are slowly learning the traditional recipes.</q> 把焦點推到全世界，可是下一句 <q>For many Italians</q> 馬上又拉回義大利人。<b>範圍先放大再縮小，中間沒有交代，就是接不上。</b>（<q>Around the world</q> 在第 9 行出現過，是拿來跟義大利對比的，不是講學習。）
+    <br><br>
+    再補一條：正解的 <q>personal taste</q> 接得回第 1 行的 <q>flavor</q>，<b>首尾就是靠這一組字扣起來的</b>。
+  </div>
+  <p class="why" id="w6" hidden>考卷上不會有底色，也不會有行號。但你剛才用的四個線索，每一篇 OREO 都有。</p>
+</section>
+
+<!-- CLOSE -->
+<section class="close" id="s7" hidden>
+  <h2>帶著走的五句話</h2>
+  <ol>
+    <li><b>OREO 把主張擺在第一句。</b>找主張時，先看哪一句沒有掛著 As a result、Therefore、For example 這類字——那一句通常就是。</li>
+    <li><b>驗證方法：遮住中間，只讀頭尾兩段。</b>兩段在講同一件事，就是 OREO；最後一段講新東西，就不是。</li>
+    <li><b>概括名詞是收尾的樞紐。</b>用一個名詞把前面一整片包起來（these reactions、similar debates、unwritten rules），文章才回得去主張。往回找它的先行內容時，找的是<b>一整段</b>，不是一個名詞。</li>
+    <li><b>收尾會換字，而且會多一層。</b>flavor 換成 personal taste，react strongly 換成 these reactions，最後再加上一句評價。<b>要靠意思去對，不能靠找一樣的字。</b></li>
+    <li><b>大考的正解通常是改寫，誘答才照抄原文。</b>「哪個選項跟文章長得最像就選哪個」這一招會害你選錯——尤其是主旨題。</li>
+  </ol>
+  <p class="more"><a href="https://staresto-create.github.io/JCEE-vocab-questions/wordwheel.html">單字輪：把字拆成部件來記 →</a></p>
+</section>
+
+<nav class="series">
+  <b>這個系列前面的單元</b>
+  <ul>
+    <li><a href="cohesion-u1.html">Unit 1　倒金字塔</a>　新聞為什麼把最重要的先講？導言就是全篇的縮影。</li>
+    <li><a href="cohesion-u2.html">Unit 2　列舉</a>　六個並列的例子撐一個主張，順序可以隨便換。</li>
+  </ul>
+  <p class="note">還沒做過的話可以先回去做，順序不影響。後面的單元老師會照雜誌的日期陸續給連結。</p>
+</nav>
+
+</div>
+<script>
+(function(){
+"use strict";
+function $(id){return document.getElementById(id);}
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;");}
+var KEY="cohesion-u3-v1";
+var ST={tags:{},pairs:{},q1:0,q2:0,q5:0,q6:0,step:1};
+function save(){ try{ localStorage.setItem(KEY, JSON.stringify(ST)); }catch(e){} }
+function load(){ try{ var r=localStorage.getItem(KEY); return r?JSON.parse(r):null; }catch(e){ return null; } }
+function wipe(){ try{ localStorage.removeItem(KEY); }catch(e){} location.reload(); }
+
+var TITLE="Why Italians Take {Food|c-gen|0} So Seriously";
+var LINES=[
+"In Italy, {food|c-gen|1} is about more than just flavor.",
+"It\u2019s a matter of culture, family traditions, and",
+"regional pride. As a result, Italians sometimes",
+"react strongly when people in other countries",
+"change {classic Italian dishes|c-gen|2}. A recipe that",
+"seems completely fine in Taiwan or the US",
+"might seem totally wrong in Italy.",
+"{Pasta dishes|c-gen|3} typically stir up {the biggest|c-um|1}",
+"{disagreements|c-um|1}. Around the world, people",
+"often eat \u201c{spaghetti Bolognese|c-low|1},\u201d but in Bologna,",
+"{the famous meat sauce|c-low|2} is usually served with",
+"{tagliatelle|c-low|3}, not {spaghetti|c-low|4}. {Carbonara|c-low|5} sparks",
+"{similar debates|c-um|2}. The traditional recipe from",
+"Rome contains only {guanciale, egg yolk,|c-low|6}",
+"{pecorino cheese, and black pepper|c-low|6}. So for",
+"Italians, adding {cream|c-low|7} is not considered a",
+"variation; it\u2019s considered a mistake.",
+"{Pizza|c-gen|4} can also lead to {strong opinions|c-um|3}.",
+"{Hawaiian pizza|c-low|8}, with {pineapple|c-low|9} on top,",
+"surprises many Italians because they usually",
+"prefer classic combinations. {Coffee|c-gen|5} has",
+"{unwritten rules|c-um|4} as well. In Italy, ordering a",
+"{cappuccino|c-low|10} after dinner is often seen as a clear",
+"sign that someone is a tourist.",
+"Ultimately, {these reactions|c-um|5} are not",
+"simply about personal taste. For many",
+"Italians, traditional recipes carry",
+"the stories and craftsmanship",
+"of generations\u2014and that, most",
+"would agree, deserves to be taken",
+"seriously."
+];
+var INDENT={1:1,8:1,18:1,25:1};
+
+var CHAINS={
+ "c-um":{k:"sub",n:"\u6982\u62ec\u540d\u8a5e\u3002\u524d\u56db\u500b\u90fd\u662f\u5148\u7d66\u540d\u76ee\u3001\u518d\u8209\u4f8b\u5b50\uff1a\u8aaa\u5b8c the biggest disagreements \u624d\u8b1b\u6ce2\u9686\u90a3\uff0c\u8aaa\u5b8c unwritten rules \u624d\u8b1b\u5496\u5561\u3002\u6700\u5f8c\u4e00\u500b these reactions \u53cd\u904e\u4f86\uff0c\u4e00\u53e3\u6c23\u5f80\u56de\u5305\u4f4f\u7b2c 8 \u5230 24 \u884c\u4e09\u7d44\u4f8b\u5b50\u2014\u2014\u9019\u5c31\u662f\u6536\u5c3e\u6bb5\u63a5\u5f97\u56de\u4e3b\u5f35\u7684\u539f\u56e0\u3002"},
+ "c-gen":{k:"gen",n:"\u7e3d\u7a31\u8ddf\u985e\u3002\u4e3b\u5f35\u6bb5\u53ea\u7528\u6700\u4e0a\u5c64\u7684 food\uff0c\u4e00\u9053\u83dc\u4e5f\u6c92\u9ede\u540d\uff1b\u5f80\u4e0b\u4e00\u5c64\u662f dishes\uff0c\u518d\u5f80\u4e0b\u624d\u5206\u6210 Pasta\u3001Pizza\u3001Coffee \u4e09\u985e\u3002\u9019\u662f\u4e0a\u4e00\u55ae\u5143\u7684\u4e0a\u7fa9\u8a5e\u5011\u5be6\u4f8b\uff0c\u63db\u4e00\u7bc7\u6587\u7ae0\u53c8\u51fa\u73fe\u4e00\u6b21\u3002"},
+ "c-low":{k:"gen",n:"\u5be6\u4f8b\u3002\u5341\u7a2e\u5177\u9ad4\u7684\u98df\u7269\u5168\u90e8\u96c6\u4e2d\u5728\u7b2c 8 \u5230 24 \u884c\u7684\u4f8b\u5b50\u6bb5\uff0c\u4e00\u500b\u4e5f\u6c92\u51fa\u73fe\u5728\u4e3b\u5f35\u6bb5\u6216\u6536\u5c3e\u6bb5\u3002\u7b2c 11 \u884c\u7684 the famous meat sauce \u9084\u662f\u63db\u5b57\uff1a\u5b83\u6307\u7684\u5c31\u662f\u4e0a\u4e00\u884c\u7684 Bolognese\u3002"}
+};
+var LB={sub:"\u6982\u62ec\u540d\u8a5e",gen:"\u4e0a\u7fa9\u2571\u4e0b\u7fa9"}, CL={sub:"k",gen:"k g"};
+
+var SLABS=[
+ {a:1,b:1,t:"O\u3000\u4e3b\u5f35",s:"\u7b2c 1 \u884c",d:1},
+ {a:2,b:7,t:"R\u3000\u7406\u7531",s:"\u7b2c 2\u20137 \u884c",d:0},
+ {a:8,b:24,t:"E\u3000\u4f8b\u5b50\uff08\u9eb5\u3001\u62ab\u85a9\u3001\u5496\u5561\uff09",s:"\u7b2c 8\u201324 \u884c",d:0},
+ {a:25,b:31,t:"O\u3000\u56de\u5230\u4e3b\u5f35",s:"\u7b2c 25\u201331 \u884c",d:1}
+];
+
+/* ---------- generic quiz ---------- */
+function quiz(qid,aid,gid,tag,after){
+  var done=false;
+  function settle(){
+    done=true;
+    var bs=$(qid).querySelectorAll("button");
+    for(var i=0;i<bs.length;i++){ bs[i].disabled=true; bs[i].dataset.state=bs[i].dataset.ok?"right":"wrong"; }
+    if(aid) $(aid).hidden=false;
+    if(gid) $(gid).hidden=false;
+    if(after) after();
+  }
+  $(qid).addEventListener("click",function(e){
+    var b=e.target.closest("button"); if(!b||done) return;
+    settle(); ST[tag]=1; save();
+  });
+  return settle;
+}
+function opener(gid,sid,extra){
+  $(gid).addEventListener("click",function(){
+    var n=parseInt(sid.replace(/\D/g,""),10);
+    if(ST.step<n) ST.step=n; save();
+    $(sid).hidden=false; if(extra) extra();
+    $(sid).scrollIntoView({behavior:"smooth",block:"start"});
+  });
+}
+
+/* ---------- step 1 : tag the claim paragraph ---------- */
+var TL={o:"\u4e3b\u5f35",r:"\u7406\u7531",x:"\u7d50\u679c"};
+function tagged(){ var n=0; for(var k in ST.tags) if(ST.tags[k]) n++; return n; }
+function paintTag(c){
+  if(c.classList.contains("got")) return;
+  c.classList.add("got");
+  var b=document.createElement("b"); b.textContent=TL[c.dataset.t];
+  c.insertBefore(b, c.firstChild);
+}
+function afterTags(){
+  $("sc").innerHTML="\u5df2\u6a19\u51fa <em>"+tagged()+"</em> / 3";
+  if(tagged()===3) $("s1b").hidden=false;
+}
+$("ld").addEventListener("click",function(e){
+  var c=e.target.closest("c"); if(!c) return;
+  if(ST.tags[c.dataset.t]) return;
+  ST.tags[c.dataset.t]=1; save(); paintTag(c); afterTags();
+});
+var set1=quiz("q1","a1","g1","q1");
+opener("g1","s2");
+
+/* ---------- step 2 : the OREO stack ---------- */
+function drawFig(){
+  if($("fig").firstChild) return;
+  $("fig").hidden=false;
+  var box=[[18,20,58],[18,84,44],[18,134,74],[18,214,58]];
+  var jit=[1,-1,0,1];
+  var s='<svg viewBox="0 0 420 292" role="img" aria-label="\u56db\u5c64\u5806\u758a\uff1a\u4e0a\u4e0b\u5169\u5c64\u662f\u4e3b\u5f35\uff0c\u4e2d\u9593\u5169\u5c64\u662f\u7406\u7531\u548c\u4f8b\u5b50">';
+  for(var i=0;i<4;i++){
+    var y=box[i][1], h=box[i][2], j=jit[i], t=SLABS[i], cy=y+h/2;
+    s+='<g class="slab'+(t.d?" dark":"")+'" data-i="'+i+'" tabindex="0" role="button">';
+    s+='<path d="M'+(12+j)+' '+y+' L408 '+(y+j)+' L'+(408-j)+' '+(y+h)+' L12 '+(y+h-j)+' Z"/>';
+    s+='<text x="210" y="'+(cy-1)+'" text-anchor="middle">'+esc(t.t)+'</text>';
+    s+='<text x="210" y="'+(cy+15)+'" text-anchor="middle"><tspan class="n">'+esc(t.s)+'</tspan></text>';
+    s+='</g>';
+  }
+  s+='</svg><figcaption>\u4e0a\u4e0b\u5169\u7247\u4e00\u6a23\uff0c\u4e2d\u9593\u593e\u5167\u9921\u3002\u4e2d\u9593\u90a3\u4e00\u5c64\u6700\u539a\uff0c\u56e0\u70ba\u4f8b\u5b50\u6700\u4f54\u7bc7\u5e45\uff1b\u4f46\u8003\u5377\u554f\u4e3b\u65e8\u7684\u6642\u5019\uff0c\u7b54\u6848\u5728\u4e0a\u4e0b\u5169\u7247\u9905\u4e7e\u88e1\u3002\u9ede\u4efb\u4e00\u5c64\uff0c\u7b2c\u56db\u6b65\u7684\u8ab2\u6587\u5c0d\u61c9\u884c\u6703\u4eae\u8d77\u4f86\uff08\u8ab2\u6587\u9084\u6c92\u6253\u958b\u7684\u8a71\uff0c\u5148\u628a\u884c\u865f\u8a18\u4f4f\u5c31\u597d\uff09\u3002</figcaption>';
+  $("fig").innerHTML=s;
+  function hit(g){
+    var i=+g.dataset.i, t=SLABS[i];
+    var gs=$("fig").querySelectorAll(".slab");
+    for(var j2=0;j2<gs.length;j2++) gs[j2].classList.toggle("on", +gs[j2].dataset.i===i);
+    var ms=$("tx").querySelectorAll("m");
+    for(var k=0;k<ms.length;k++) ms[k].classList.remove("lit");
+    var rows=$("tx").querySelectorAll(".ln");
+    for(var r=0;r<rows.length;r++){ var n=+rows[r].dataset.n; rows[r].classList.toggle("hl", n>=t.a&&n<=t.b); }
+    if(rows.length){
+      var f=$("tx").querySelector('.ln[data-n="'+t.a+'"]'); if(f) f.scrollIntoView({behavior:"smooth",block:"center"});
+      $("pk").textContent="\u5c64"; $("pk").className="k e";
+      $("pc2").textContent=t.t; $("pt").textContent=t.s+"\u3002\u8ab2\u6587\u9019\u5e7e\u884c\u5df2\u7d93\u4eae\u8d77\u4f86\u4e86\u3002";
+    }
+  }
+  $("fig").addEventListener("click",function(e){ var g=e.target.closest(".slab"); if(g) hit(g); });
+  $("fig").addEventListener("keydown",function(e){
+    if(e.key!=="Enter"&&e.key!==" ") return;
+    var g=e.target.closest(".slab"); if(g){ e.preventDefault(); hit(g); }
+  });
+}
+var set2=quiz("q2","a2","g2","q2",drawFig);
+opener("g2","s3");
+
+/* ---------- step 3 : head-and-tail pairing ---------- */
+var PL={a:"\u4e0d\u53ea\u662f\u8868\u9762\u90a3\u4e00\u9805",b:"\u80cc\u5f8c\u7684\u6771\u897f",c:"\u6fc0\u70c8\u7684\u53cd\u61c9"};
+function paired(){ var n=0; for(var k in ST.pairs) if(ST.pairs[k]) n++; return n; }
+function paintPair(c){
+  var k=c.dataset.p;
+  if(!c.classList.contains("got")){
+    c.classList.add("got");
+    var b=document.createElement("b"); b.textContent=PL[k];
+    c.insertBefore(b, c.firstChild);
+  }
+  var t=$("p"+k); if(t) t.classList.add("lit");
+}
+function afterPairs(){
+  $("sc3").innerHTML="\u5df2\u5c0d\u51fa <em>"+paired()+"</em> / 3";
+  if(paired()===3){ $("a3").hidden=false; $("g3").hidden=false; }
+}
+$("cl").addEventListener("click",function(e){
+  var c=e.target.closest("c"); if(!c) return;
+  if(ST.pairs[c.dataset.p]) return;
+  ST.pairs[c.dataset.p]=1; save(); paintPair(c); afterPairs();
+});
+opener("g3","s4",buildText);
+
+/* ---------- step 4 : passage ---------- */
+function renderLine(str){
+  var out="",i=0;
+  while(i<str.length){
+    var a=str.indexOf("{",i);
+    if(a<0){ out+=esc(str.slice(i)); break; }
+    out+=esc(str.slice(i,a));
+    var b=str.indexOf("}",a), p=str.slice(a+1,b).split("|");
+    var id=p[1], it=p[2]||"1", k=CHAINS[id]?CHAINS[id].k:"sub";
+    out+='<m data-c="'+id+'" data-i="'+it+'" data-kind="'+k+'" tabindex="0">'+esc(p[0])+'</m>';
+    i=b+1;
+  }
+  return out;
+}
+var builtText=false;
+function buildText(){
+  if(builtText) return; builtText=true;
+  var h='<p class="ttl">'+renderLine(TITLE)+'</p>';
+  for(var i=0;i<LINES.length;i++){
+    var n=i+1;
+    var cls="ln"+(INDENT[n]?" ind"+(n>1?" pb":""):"");
+    h+='<div class="'+cls+'" data-n="'+n+'"><i>'+((n%5===0)?n:"")+'</i><span>'+renderLine(LINES[i])+'</span></div>';
+  }
+  $("tx").innerHTML=h;
+}
+function lightChain(id){
+  var ms=$("tx").querySelectorAll("m"), items={}, order=[];
+  var gs=$("fig").querySelectorAll(".slab");
+  for(var g=0;g<gs.length;g++) gs[g].classList.remove("on");
+  var rows=$("tx").querySelectorAll(".ln");
+  for(var r=0;r<rows.length;r++) rows[r].classList.remove("hl");
+  for(var i=0;i<ms.length;i++){
+    if(ms[i].dataset.c===id){
+      ms[i].classList.add("lit");
+      var key=ms[i].dataset.i;
+      if(!items[key]){ items[key]=[]; order.push(key); }
+      items[key].push(ms[i].textContent);
+    } else ms[i].classList.remove("lit");
+  }
+  var c=CHAINS[id]; if(!c) return;
+  var parts=[];
+  for(var o=0;o<order.length;o++) parts.push(esc(items[order[o]].join(" ")));
+  $("pk").textContent=LB[c.k]; $("pk").className=CL[c.k];
+  $("pc2").innerHTML=parts.join('<i>\u2192</i>');
+  $("pt").textContent=c.n;
+}
+$("tx").addEventListener("click",function(e){ var m=e.target.closest("m"); if(m) lightChain(m.dataset.c); });
+$("tx").addEventListener("keydown",function(e){
+  if(e.key!=="Enter"&&e.key!==" ") return;
+  var m=e.target.closest("m"); if(m){ e.preventDefault(); lightChain(m.dataset.c); }
+});
+function toggle(btn,cls){
+  btn.addEventListener("click",function(){
+    var on=btn.getAttribute("aria-pressed")==="true";
+    btn.setAttribute("aria-pressed",on?"false":"true");
+    $("tx").classList.toggle(cls,on);
+  });
+}
+toggle($("m1"),"off-sub");
+toggle($("m2"),"off-gen");
+opener("g4","s5");
+
+/* ---------- step 5 ---------- */
+var set5=quiz("q5","a5","g5","q5");
+$("g5").addEventListener("click",function(){
+  if(ST.step<6) ST.step=6; save();
+  $("s6").hidden=false;
+  $("s6").scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+/* ---------- step 6 ---------- */
+var done6=false;
+function settle6(){
+  done6=true;
+  var bs=$("q6").querySelectorAll("button");
+  for(var i=0;i<bs.length;i++){
+    bs[i].disabled=true; bs[i].dataset.state=bs[i].dataset.ok?"right":"wrong";
+    if(bs[i].dataset.ok){ $("bl").textContent=bs[i].textContent; $("bl").className="blank filled"; }
+  }
+  $("a6").hidden=false; $("w6").hidden=false; $("s7").hidden=false;
+}
+$("q6").addEventListener("click",function(e){
+  var b=e.target.closest("button"); if(!b||done6) return;
+  settle6(); ST.q6=1; save();
+  $("a6").scrollIntoView({behavior:"smooth",block:"nearest"});
+});
+
+/* ---------- preview mode for the teacher: cohesion-u3.html?all ---------- */
+function previewAll(){
+  $("pv").hidden=false;
+  var i,cs=$("ld").querySelectorAll("c");
+  for(i=0;i<cs.length;i++){ ST.tags[cs[i].dataset.t]=1; paintTag(cs[i]); }
+  afterTags(); set1();
+  $("s2").hidden=false; set2();
+  $("s3").hidden=false;
+  var ps=$("cl").querySelectorAll("c");
+  for(i=0;i<ps.length;i++){ ST.pairs[ps[i].dataset.p]=1; paintPair(ps[i]); }
+  afterPairs();
+  $("s4").hidden=false; buildText();
+  $("s5").hidden=false; set5();
+  $("s6").hidden=false; settle6();
+}
+
+/* ---------- restore ---------- */
+$("rst").addEventListener("click",wipe);
+(function restore(){
+  if(/(^|[?&])all(=|&|$)/.test(location.search)){ previewAll(); return; }
+  var v=load(); if(!v) return;
+  ST=v;
+  if(!ST.tags) ST.tags={};
+  if(!ST.pairs) ST.pairs={};
+  if(!ST.step) ST.step=1;
+  if(!(tagged()||ST.step>1)) return;
+  $("rs").hidden=false;
+  var i,cs=$("ld").querySelectorAll("c");
+  for(i=0;i<cs.length;i++) if(ST.tags[cs[i].dataset.t]) paintTag(cs[i]);
+  afterTags();
+  if(ST.q1) set1();
+  if(ST.step>=2){ $("s2").hidden=false; if(ST.q2) set2(); }
+  if(ST.step>=3){
+    $("s3").hidden=false;
+    var ps=$("cl").querySelectorAll("c");
+    for(i=0;i<ps.length;i++) if(ST.pairs[ps[i].dataset.p]) paintPair(ps[i]);
+    afterPairs();
+  }
+  if(ST.step>=4){ $("s4").hidden=false; buildText(); }
+  if(ST.step>=5){ $("s5").hidden=false; if(ST.q5) set5(); }
+  if(ST.step>=6){ $("s6").hidden=false; if(ST.q6) settle6(); }
+  var last=$("s"+(ST.step>=6?6:ST.step));
+  if(last) setTimeout(function(){ last.scrollIntoView({block:"start"}); },60);
+})();
+})();
+</script>
+</body>
+</html>
