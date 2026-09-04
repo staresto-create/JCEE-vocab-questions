@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>列舉｜The Secret Lives of Plants</title>
+<meta name="description" content="六個不相干的植物例子，為什麼讀起來是一篇？主張只用總稱，格子裡才落到實例。七個步驟自己驗證。">
+<meta property="og:title" content="列舉｜The Secret Lives of Plants">
+<meta property="og:description" content="六個例子的順序可以隨便換，主張段卻不能移。換位測試自己做一次。">
+<style>
+:root{
+  --ground:#f1f3f2; --ink:#17282f; --teal:#1f6f6a; --teal-soft:#dfeceb;
+  --muted:#77878d; --line:#cdd6d6; --exam:#b4661c; --exam-soft:#fdf4e7;
+  --gen:#4a6a90; --gen-soft:#e0e7f0;
+  --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+  --sans:"PingFang TC","Noto Sans TC","Microsoft JhengHei","Helvetica Neue",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-text-size-adjust:100%}
+.wrap{max-width:44rem;margin:0 auto;padding:1.6rem 1.1rem 4rem}
+h1{font-family:var(--serif);font-weight:600;font-size:1.6rem;line-height:1.3;margin:0 0 .55rem}
+.lede{margin:0 0 1.3rem;color:#3d5059;font-size:.95rem}
+.src{font-size:.8rem;color:var(--muted);margin:0 0 1.1rem}
+.resume{font-size:.85rem;color:var(--teal);background:var(--teal-soft);border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.resume[hidden]{display:none}
+.preview{font-size:.85rem;color:var(--exam);background:var(--exam-soft);
+  border:1px dashed var(--exam);border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.preview[hidden]{display:none}
+.resume button{font:inherit;font-size:.82rem;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:.25rem;padding:.16rem .6rem;margin-left:.5rem;cursor:pointer}
+.resume button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.step{border-top:1px solid var(--line);padding-top:1.15rem;margin-top:1.6rem}
+.step[hidden]{display:none}
+.stepno{font-family:var(--serif);font-size:.82rem;color:var(--muted);margin:0 0 .2rem}
+h2{font-family:var(--serif);font-weight:600;font-size:1.2rem;margin:0 0 .5rem;color:var(--teal)}
+.step p{margin:0 0 .7rem;font-size:.95rem}
+.tag{display:inline-block;font-size:.72rem;font-weight:600;border-radius:.2rem;padding:.08rem .45rem;margin-left:.45rem;vertical-align:.12rem;color:var(--exam);background:var(--exam-soft);border:1px solid var(--exam)}
+.tag.b{color:var(--gen);background:var(--gen-soft);border-color:var(--gen)}
+.opts{display:flex;flex-direction:column;gap:.45rem;margin:.2rem 0 .8rem}
+.opts button{font:inherit;font-size:.95rem;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:.3rem;padding:.45rem .85rem;cursor:pointer;text-align:left}
+.opts button:hover{border-color:var(--teal)}
+.opts button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.opts button[data-state="right"]{background:var(--teal);border-color:var(--teal);color:#fff}
+.opts button[data-state="wrong"]{background:var(--ground);color:var(--muted)}
+.opts button[disabled]{cursor:default}
+.said{background:#fff;border-left:3px solid var(--teal);border-radius:.3rem;padding:.75rem .85rem;margin:.2rem 0 .9rem;font-size:.93rem;color:#3d5059}
+.said b{color:var(--ink);font-weight:600}
+.said[hidden]{display:none}
+.said.g{border-left-color:var(--gen)}
+.said.e{border-left-color:var(--exam)}
+.said q{quotes:none;font-family:var(--serif)}
+.go{font:inherit;font-size:.92rem;background:var(--ink);color:#fff;border:1px solid var(--ink);border-radius:.3rem;padding:.42rem 1.05rem;cursor:pointer}
+.go:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.go[hidden]{display:none}
+.lead{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.9rem 1rem;margin:0 0 .7rem;font-family:var(--serif);font-size:1.02rem;line-height:1.95}
+.lead c{cursor:pointer;border-radius:.2rem;padding:.06rem .2rem;background:var(--exam-soft);box-shadow:inset 0 -2px 0 #ecc9a2}
+.lead c:hover{box-shadow:inset 0 -2px 0 var(--exam)}
+.lead c.got{background:var(--exam);color:#fff;box-shadow:none}
+.lead c b{font-family:var(--sans);font-size:.72rem;font-weight:600;background:#fff;color:var(--exam);border-radius:.2rem;padding:.02rem .3rem;margin-right:.3rem}
+.score{font-size:.9rem;color:var(--muted);margin:0 0 .8rem}
+.score em{font-style:normal;color:var(--exam);font-weight:600}
+.fig{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.7rem .5rem .4rem;margin:0 0 .7rem}
+.fig svg{display:block;width:100%;height:auto;max-width:27rem;margin:0 auto}
+.fig figcaption{font-size:.85rem;color:#3d5059;margin:.35rem .5rem 0;line-height:1.65}
+.slab{cursor:pointer}
+.slab path{fill:#fff;stroke:var(--line);stroke-width:2;stroke-linejoin:round}
+.slab text{font-family:var(--sans);font-size:12px;fill:var(--ink);font-weight:600}
+.slab tspan.n{font-size:9.5px;font-weight:400;fill:var(--muted)}
+.slab.on path{fill:var(--exam-soft);stroke:var(--exam)}
+.slab.on text{fill:var(--exam)}
+.slab.on tspan.n{fill:var(--exam)}
+.ground{stroke:var(--line);stroke-width:2}
+.daybreak{border:1px dashed var(--exam);background:var(--exam-soft);border-radius:.4rem;
+  padding:.8rem .95rem;margin:1.6rem 0 0;font-size:.9rem;color:#3d5059;line-height:1.7}
+.daybreak b{display:block;color:var(--exam);font-family:var(--serif);font-size:1.02rem;margin-bottom:.3rem}
+.daybreak[hidden]{display:none}
+.deck{display:flex;flex-direction:column;gap:.5rem;margin:0 0 .8rem}
+.blk{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.6rem .8rem}
+.blk.claim{border-color:var(--teal);background:var(--teal-soft)}
+.blk .hd{display:flex;justify-content:space-between;align-items:center;gap:.5rem;
+  font-family:var(--sans);font-size:.8rem;color:var(--muted);margin-bottom:.3rem}
+.blk.claim .hd{color:var(--teal);font-weight:600}
+.blk .hd .nav{display:flex;gap:.3rem;flex:0 0 auto}
+.blk .hd button{font:inherit;font-size:.85rem;line-height:1;background:#fff;color:var(--ink);
+  border:1px solid var(--line);border-radius:.25rem;padding:.22rem .5rem;cursor:pointer}
+.blk .hd button[disabled]{color:#c2cccc;cursor:default}
+.blk .hd button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.blk .bd{font-family:var(--serif);font-size:.95rem;line-height:1.75}
+.verdict{border-radius:.3rem;padding:.6rem .8rem;font-size:.9rem;margin:0 0 .8rem;border:1px solid var(--line);background:#fff;color:#3d5059}
+.verdict.ok{border-color:var(--teal);background:var(--teal-soft);color:var(--teal)}
+.verdict.no{border-color:var(--exam);background:var(--exam-soft);color:var(--exam)}
+.modes{display:flex;gap:.4rem;margin:0 0 .7rem;flex-wrap:wrap}
+.modes button{font:inherit;font-size:.84rem;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:.3rem;padding:.3rem .8rem;cursor:pointer}
+.modes button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.modes button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.text{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.9rem .6rem 1.1rem;font-family:var(--serif);font-size:1rem;line-height:1.85}
+.text .ttl{font-weight:600;font-size:1.06rem;margin:0 .4rem .7rem 2.6rem;line-height:1.45}
+.ln{display:flex;align-items:baseline;padding:.02rem 0;border-radius:.2rem}
+.ln>i{flex:0 0 2.2rem;text-align:right;padding-right:.55rem;font-family:var(--sans);font-style:normal;font-size:.68rem;color:var(--muted);line-height:1.9}
+.ln>span{flex:1 1 auto;overflow-wrap:anywhere}
+.ln.ind>span{padding-left:1.1rem}
+.ln.sub>span{font-weight:600}
+.ln.hl{background:var(--exam-soft)}
+.ln.pb{margin-top:.55rem}
+.text .split{font-family:var(--sans);font-size:.78rem;color:var(--exam);
+  border-top:1px dashed var(--exam);margin:.8rem .4rem .7rem 2.6rem;padding-top:.35rem}
+.text m{cursor:pointer;border-radius:.2rem;padding:.02rem .14rem}
+.text m[data-kind="sub"]{background:var(--teal-soft);box-shadow:inset 0 -2px 0 #a8ccc8}
+.text m[data-kind="gen"]{background:var(--gen-soft);box-shadow:inset 0 -2px 0 #a9bbd0}
+.text m.lit[data-kind="sub"]{background:var(--teal);color:#fff;box-shadow:none}
+.text m.lit[data-kind="gen"]{background:var(--gen);color:#fff;box-shadow:none}
+.text.off-sub m[data-kind="sub"]{background:none;box-shadow:none}
+.text.off-gen m[data-kind="gen"]{background:none;box-shadow:none}
+.panel{position:sticky;bottom:0;background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.75rem .9rem;margin-top:.8rem;box-shadow:0 -2px 10px rgba(23,40,47,.07)}
+.panel .k{font-size:.72rem;font-weight:600;border-radius:.2rem;padding:.06rem .42rem;color:var(--teal);background:var(--teal-soft);border:1px solid var(--teal)}
+.panel .k.g{color:var(--gen);background:var(--gen-soft);border-color:var(--gen)}
+.panel .k.e{color:var(--exam);background:var(--exam-soft);border-color:var(--exam)}
+.panel .ch{font-family:var(--serif);font-size:1rem;margin:.4rem 0 .3rem;color:var(--ink);line-height:1.75;overflow-wrap:anywhere}
+.panel .ch i{font-style:normal;color:var(--muted);padding:0 .28rem}
+.panel .nt{font-size:.88rem;color:#3d5059;margin:0}
+.recall{background:#fff;border:1px solid var(--line);border-left:3px solid var(--muted);
+  border-radius:.3rem;padding:.75rem .85rem;margin:1.1rem 0 .9rem;font-size:.92rem;color:#3d5059}
+.recall b{color:var(--ink)}
+.recall ul{margin:.4rem 0 0;padding-left:1.1rem}
+.recall li{margin-bottom:.35rem}
+.gap{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.9rem 1rem;margin:0 0 .9rem;font-family:var(--serif);font-size:1rem;line-height:1.9}
+.gap .gh{font-weight:600}
+.gap .blank{display:inline-block;min-width:9rem;border-bottom:2px solid var(--gen);color:var(--gen);text-align:center;font-family:var(--sans);font-size:.82rem}
+.gap .blank.filled{border-bottom-color:var(--teal);color:var(--ink);font-family:var(--serif);font-size:1rem;text-align:left;background:var(--teal-soft);border-radius:.2rem;padding:0 .25rem}
+.picks{display:flex;flex-direction:column;gap:.45rem;margin:0 0 .9rem}
+.picks button{font:inherit;font-family:var(--serif);font-size:.97rem;line-height:1.6;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:.3rem;padding:.55rem .8rem;cursor:pointer;text-align:left}
+.picks button:hover{border-color:var(--teal)}
+.picks button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.picks button[data-state="right"]{background:var(--teal-soft);border-color:var(--teal)}
+.picks button[data-state="wrong"]{background:var(--ground);color:var(--muted)}
+.why{font-size:.86rem;color:#3d5059;margin:.35rem 0 0}
+.why[hidden]{display:none}
+.close{border-top:1px solid var(--line);margin-top:2rem;padding-top:1.1rem;font-size:.93rem;color:#3d5059}
+.close[hidden]{display:none}
+.close h2{font-size:1.1rem}
+.close ol{margin:.3rem 0 0;padding-left:1.15rem}
+.close li{margin-bottom:.5rem}
+.more{margin-top:1.5rem;font-size:.88rem}
+.more a{color:var(--teal)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>列舉</h1>
+<p class="lede">六個植物的例子，彼此不相干：發熱、示警、地下網路、仙人掌、樹高、向日葵。它們為什麼讀起來是一篇文章，而不是六則短訊？這一頁就是讓你自己拆開看。</p>
+<p class="preview" id="pv" hidden>預覽模式：所有步驟、圖表、課文標記都已展開，進度不會存檔。學生拿到的一般連結不受影響。</p>
+<p class="resume" id="rs" hidden>上次做到一半，已經幫你接回來了。<button id="rst">重新開始</button></p>
+<p class="src">ALL+ 互動英語 9 月號 Unit 2（pp. 8–11）　The Secret Lives of Plants　全文 58 行　9/2 讀第 1–31 行，9/3 讀第 32–58 行</p>
+
+<!-- STEP 1 -->
+<section class="step" id="s1">
+  <p class="stepno">第一步</p>
+  <h2>主張在前面，而且它會先報數<span class="tag">上層：組織方式</span></h2>
+  <p>下面是第 1 到 9 行，整篇的主張段。<b>點三個有底色的字</b>，看看各自在做什麼事。</p>
+  <div class="lead" id="ld">
+    Plants may seem simple and predictable, <c data-t="yet">yet</c> their lives are far more complex than they appear. From hidden communication systems to clever survival strategies, the plant world is full of surprising details that challenge conventional ideas about what plants can do. Here are <c data-t="six">six</c> fascinating <c data-t="ex">examples</c> of just how inventive plants can be.
+  </div>
+  <p class="score" id="sc">已標出 <em>0</em> / 3</p>
+  <div id="s1b" hidden>
+    <p>三個都標出來了。那麼——<b>讀完第 9 行，你已經知道接下來會看到什麼？</b></p>
+    <div class="opts" id="q1">
+      <button data-ok="1">六件事，而且六件都是同一個主張的證據</button>
+      <button>植物從發芽到死亡的過程，照時間順序寫</button>
+      <button>植物和動物的比較</button>
+      <button>最重要的已經講完了，後面可以不看</button>
+    </div>
+    <div class="said e" id="a1" hidden>
+      <b>六件事，而且六件都是同一個主張的證據。</b>三個字各管一件事：
+      <br><br>
+      <b>yet</b> 把主張從反面翻過來。作者先說一般人以為植物 simple and predictable，再用 yet 轉成 far more complex——<b>主張句常常是這樣起手的：先擺一般看法，再推翻它。</b>
+      <br><br>
+      <b>six</b> 報數。你已經知道要數到六，數到第六個就結束了。
+      <br><br>
+      <b>examples</b> 交代身分。後面六段是<b>例子</b>，不是六個新主張。它們彼此平行，全部往上撐同一句話。
+      <br><br>
+      <b>跟第一單元比一下：</b>倒金字塔的第一段是全篇的縮影，後面砍掉照樣看得懂。列舉不一樣——每砍掉一個例子，主張就少一份證據。但反過來，<b>六個例子的先後順序可以換</b>，這一點第三步你會自己驗證。
+    </div>
+    <button class="go" id="g1" hidden>那六個例子長什麼樣？</button>
+  </div>
+</section>
+
+<!-- STEP 2 -->
+<section class="step" id="s2" hidden>
+  <p class="stepno">第二步</p>
+  <h2>六個格子，同一種形狀<span class="tag">上層：怎麼認出來</span></h2>
+  <p>六個例子各有一個小標題，各佔一段。它們不只是並排而已——<b>每一格裡面的東西是照同一個順序放的</b>：小標題 → 情境或問題 → 機制 → 一句評價。</p>
+  <p>先回答：<b>作者為什麼要在第 8 行先講出「六個」這個數字？</b></p>
+  <div class="opts" id="q2">
+    <button data-ok="1">先報數，讀者才知道要數到哪裡、什麼時候算讀完</button>
+    <button>因為雜誌規定每篇文章要有六段</button>
+    <button>因為六個例子的重要性由高到低排列</button>
+    <button>為了讓讀者可以只挑其中一個看</button>
+  </div>
+  <div class="said e" id="a2" hidden>
+    <b>先報數，讀者才知道要數到哪裡。</b>第 8 到 9 行 <q>Here are six fascinating examples…</q> 這種句子叫<b>宣告句</b>：它站在主張和例子中間，宣布下面要開始列舉，並且給出數量。
+    <br><br>
+    宣告句是列舉文最好用的路標，所以<b>考卷特別愛把它抽掉</b>——因為抽掉之後，你必須自己數出後面有幾個並列的項目，才還原得回來。
+    <br><br>
+    下面這張圖就是這篇的骨架：一根橫樑架在六根柱子上。<b>點橫樑或任何一根柱子</b>，第四步的課文對應行會亮起來（課文還沒打開的話，先把行號記住就好）。
+  </div>
+  <figure class="fig" id="fig" hidden></figure>
+  <button class="go" id="g2" hidden>換位測試</button>
+</section>
+
+<div class="daybreak" id="db" hidden>
+  <b>9/3 的範圍從這裡開始：第 32–58 行</b>
+  第一、二步用的是 9/2 的第 1–31 行。第三步以後會用到整篇，包含 9/3 的第 32–58 行。如果你今天是 9/2，做到這裡可以先停，明天再接下去。（第二步的圖裡已經有三個小標題來自第 32 行以後，先看到不影響。另外請注意：9/2 和 9/3 的分界剛好切在一個句子中間——第 31 行 <q>Douglas fir and paper birch use these</q> 到第 32 行 <q>connections…</q> 是同一句。）
+</div>
+
+<!-- STEP 3 -->
+<section class="step" id="s3" hidden>
+  <p class="stepno">第三步</p>
+  <h2>換位測試<span class="tag">上層：怎麼驗證</span></h2>
+  <p>怎麼確定一篇文章是列舉，不是別的組織方式？<b>把段落換位置看看。</b>按上下箭頭，隨便什麼順序都可以，下面會告訴你讀起來還通不通。<b>主張段也可以移。</b></p>
+  <div class="deck" id="deck"></div>
+  <p class="verdict" id="vd">這是雜誌原本的順序。動動看上下箭頭。</p>
+  <div class="said e" id="a3" hidden>
+    <b>你剛才驗證的就是列舉的定義。</b>六個例子彼此並列，誰先誰後都不影響主張成不成立——所以順序可以換。但主張段一移到中間，讀者會先讀到一個例子，卻不知道它在證明什麼，整篇就散了。
+    <br><br>
+    <b>怎麼認出一篇是列舉：</b>問自己「把第二個和第五個例子對調，有差嗎？」沒差，就是列舉。
+    <br><br>
+    <b>跟前面兩篇對照：</b>第一單元的倒金字塔，順序是<b>重要性</b>由高到低，換位會讓次要的跑到前面。第四單元的時間序，順序是<b>時間</b>，換位會讓事情前後顛倒。列舉是三者裡唯一順序自由的——因為它的順序不帶意義。
+    <br><br>
+    <b>考卷上怎麼考：</b>主旨題的答案在主張段，不在任何一個例子裡。看到選項只講六件事中的一件，那是細節，不是主旨。
+  </div>
+  <button class="go" id="g3" hidden>看撐住這六格的字</button>
+</section>
+
+<!-- STEP 4 -->
+<section class="step" id="s4" hidden>
+  <p class="stepno">第四步</p>
+  <h2>六格為什麼黏得起來<span class="tag b">下層：上義詞與換字</span></h2>
+  <p>六個例子講的是六種完全不同的植物，主張段卻一種都沒點名。這不是巧合，是<b>上義詞</b>在做事。</p>
+  <p><b>點任何一個有底色的字，同一條的字會一起亮起來。</b>兩種顏色可以各自關掉。</p>
+  <div class="modes">
+    <button id="m1" aria-pressed="true">上義詞／下義詞（青）</button>
+    <button id="m2" aria-pressed="true">換字（藍灰）</button>
+  </div>
+  <div class="text" id="tx"></div>
+  <div class="panel" id="pn">
+    <span class="k" id="pk">線索</span>
+    <div class="ch" id="pc">點一個有底色的字</div>
+    <p class="nt" id="pt">青色是同一個概念的三個層級（總稱、類、實例），藍灰是同一個主張換成不同說法。</p>
+  </div>
+  <div class="recall">
+    <b>另外兩樣，前面單元教過，這篇自己確認得出來：</b>
+    <ul>
+      <li><b>指涉詞。</b>第 13 行 <q>this warmth</q> 指第 11 行的 heat，這種好找。難的是第 22–23 行的 <q>this system</q> 和第 31–32 行的 <q>these connections</q>——它們回頭指的不是某一個名詞，是<b>前面整套作法</b>。跟第一單元 <q>The release</q> 同一類：往回找如果找不到對應的名詞，就改找對應的動作。</li>
+      <li><b>原字重複。</b>water 在第 36、41、46、49 行原封不動出現四次。它是這兩格的軸心概念，重複是在提醒你別跟丟。<b>英文避免的是用完全相同的字去講同一件事，不是避免重複軸心本身</b>——這一點跟上面那條藍灰的換字鏈剛好是一體兩面。</li>
+    </ul>
+  </div>
+  <p style="margin-top:1.1rem"><button class="go" id="g4">考卷上沒有小標題怎麼辦</button></p>
+</section>
+
+<!-- STEP 5 -->
+<section class="step" id="s5" hidden>
+  <p class="stepno">第五步</p>
+  <h2>考卷上沒有小標題<span class="tag b">下層：連接標記</span><span class="tag">上層：考點</span></h2>
+  <p>這篇的六格好認，是因為雜誌給了小標題。<b>考卷上的列舉文通常沒有標題</b>，一段就是一整塊，你得自己看出哪裡換項了。靠的是這些字。</p>
+  <p>下面這段是另外寫的，跟課文無關。<b>點出四個「換下一項了」的信號</b>：</p>
+  <div class="lead" id="mk">
+    Cities are trying several ways to cool down in summer. <c data-t="a">One approach</c> is planting more street trees, which lower the temperature in the shade. <c data-t="b">Another</c> is painting rooftops white so that they reflect sunlight instead of storing it. <c data-t="c">In addition</c>, some cities open cooling centers where people can rest during a heat wave. <c data-t="d">A final</c> option is simply changing working hours, so that outdoor jobs start before the sun gets high.
+  </div>
+  <p class="score" id="sc5">已標出 <em>0</em> / 4</p>
+  <div id="s5b" hidden>
+    <div class="said g" id="a5a">
+      <b>四個都找到了。</b>這一組字要記起來：<q>One / First</q>、<q>Another / A second</q>、<q>In addition / Also / Besides</q>、<q>A final / Finally / Lastly</q>。它們是列舉文的接縫。
+      <br><br>
+      注意開頭那句 <q>several ways</q>——它就是這一段的宣告句，只是沒有給確切數字。<b>先找宣告句，再數接縫</b>，一段密密麻麻的文字就分成格子了。
+    </div>
+    <p>會分格之後，細節題就好辦了。<b>下面四句只有一句和課文相符：</b></p>
+    <div class="opts" id="q5">
+      <button>The sacred lotus produces heat so that nearby plants will be warned of an insect attack.</button>
+      <button>Cacti open their stomata in the daytime so that they can take in more sunlight.</button>
+      <button data-ok="1">Trees can pass nutrients to younger, shaded trees through the fungal networks under the forest floor.</button>
+      <button>A coastal redwood can keep growing taller as long as its roots reach enough water.</button>
+    </div>
+    <div class="said e" id="a5" hidden>
+      <b>第三句。</b>對應第 26–34 行那一格。做法是<b>先用小標題（或接縫）定位到是哪一格，再逐字比對</b>——不要整篇從頭找。
+      <br><br>
+      另外三句示範了列舉文最常見的<b>兩種誘答做法</b>：
+      <br><br>
+      <b>一、跨格嫁接。</b>第一句把<b>示警</b>那一格的功能（<q>warn nearby plants</q>）接到<b>產熱</b>那一格頭上。課文第 13–14 行說發熱是為了散發氣味、吸引授粉者，跟示警無關。兩格的字都在課文裡，被拼在一起就不對了——<b>這種選項最難排除，因為每個字看起來都眼熟。</b>
+      <br><br>
+      <b>二、反向敘述。</b>第二句把 at night 改成 in the daytime，第四句把「樹高有物理上限」反過來說成「只要有水就能一直長」。課文第 39 行是 <q>rather than during the day</q>，第 50 行是 <q>rarely exceeds 130 meters</q>。<b>反向的選項只差一兩個字，位置卻剛好在你已經找到的那一格裡。</b>
+      <br><br>
+      <b>所以定位之後不能只看「有沒有提到」，要看「說的是哪一邊」。</b>
+      <br><br>
+      練完這一步，回雜誌 p. 10 做 Integrated Questions 第 2 題——那是同一篇文章的六選多題，正好拿這兩招去檢查每個選項。
+    </div>
+    <button class="go" id="g5" hidden>最後一題</button>
+  </div>
+</section>
+
+<!-- STEP 6 -->
+<section class="step" id="s6" hidden>
+  <p class="stepno">第六步</p>
+  <h2>把一句話放回去</h2>
+  <p>這就是考卷上的<b>篇章結構</b>題。下面把第 36–37 行的第一句整句抽掉了，四個候選句只有一句放得進去。前面五步練的東西，全部用在這一題。</p>
+  <div class="gap" id="gp">
+    <span class="gh">Why Cacti “Breathe” at Night</span>
+    <br>
+    <span class="blank" id="bl">（空格）</span> Unlike most plants, cacti open their stomata—the tiny pores through which they exchange gases—at night rather than during the day. By absorbing carbon dioxide when temperatures are cooler, they dramatically reduce water loss that scorching daytime heat would otherwise cause. It’s a simple but very effective way to adapt to extreme heat.
+  </div>
+  <div class="picks" id="q6">
+    <button data-ok="1">In harsh desert environments, conserving water is essential.</button>
+    <button>In harsh desert environments, finding enough sunlight is the greatest challenge.</button>
+    <button>Like most desert plants, cacti keep their stomata open whenever temperatures rise.</button>
+    <button>Cacti are among the few plants that can survive without any water at all.</button>
+  </div>
+  <div class="said" id="a6" hidden>
+    <b>四個線索同時指向同一句。</b>
+    <br><br>
+    <b>一、格子的形狀。</b>第二步說過，六格都是<b>小標題 → 情境或問題 → 機制 → 一句評價</b>。空格坐在小標題後面第一句，那個位置放的是<b>情境或問題</b>。<q>Like most desert plants, cacti keep their stomata open…</q> 講的是機制，位置就不對。
+    <br><br>
+    <b>二、後文的對照詞。</b>下一句是 <q>Unlike most plants</q>。要說「跟大多數植物不一樣」，前面得先有一個<b>一般情況</b>當底。而那個錯誤選項自己就寫了 <q>Like most desert plants</q>，把對照拆成兩半互相打架。
+    <br><br>
+    <b>三、詞彙鏈。</b>答案裡的 conserving water 接得上第 41 行的 water loss；harsh 接得上第 43 行的 extreme heat。<q>finding enough sunlight</q> 那句在整格裡找不到任何一個字跟它同一條——沙漠缺的是水不是陽光，後面三句也一句都沒提到光。
+    <br><br>
+    <b>四、小標題。</b>標題問的是 <b>Why</b> cacti breathe at night。這一格必須交代理由，而且理由要能撐到最後一句的 <q>adapt to extreme heat</q>。<q>survive without any water at all</q> 不但沒交代理由，還跟後面「減少水分散失」自相矛盾——真的完全不需要水，就不必費事保水了。
+  </div>
+  <p class="why" id="w6" hidden>考卷上不會有底色，也不會有行號。但你剛才用的四個線索，每一篇列舉文都有。</p>
+</section>
+
+<!-- CLOSE -->
+<section class="close" id="s7" hidden>
+  <h2>帶著走的五句話</h2>
+  <ol>
+    <li><b>列舉的主張在最前面，而且會報數。</b>先看有沒有 <q>Here are six…</q>、<q>several ways</q> 這種宣告句；有的話，你已經知道要數幾格。</li>
+    <li><b>換位測試：把第二格和第五格對調，有差嗎？</b>沒差就是列舉。倒金字塔換位會亂了輕重，時間序換位會亂了先後——只有列舉的順序不帶意義。</li>
+    <li><b>上義詞是把不相干的例子黏成一篇的膠。</b>主張段只用總稱（plants、the plant world），中間層用類（species、trees），格子裡才落到實例（sacred lotus、cacti、coastal redwood）。<b>由概括寫到具體，是英文寫作的常態。</b></li>
+    <li><b>沒有小標題時，接縫靠標記詞認。</b>One / Another / In addition / A final——先找宣告句，再數接縫，一整塊文字就分成格子了。</li>
+    <li><b>列舉文的細節題，先定位再比對；誘答有兩種做法。</b>跨格嫁接（把別格的細節接到這一格頭上）和反向敘述（只改一兩個字，把方向倒過來）。定位之後不能只看「有沒有提到」，要看「說的是哪一邊」。</li>
+  </ol>
+  <p class="more"><a href="https://staresto-create.github.io/JCEE-vocab-questions/wordwheel.html">單字輪：把字拆成部件來記 →</a></p>
+</section>
+
+</div>
+<script>
+(function(){
+"use strict";
+function $(id){return document.getElementById(id);}
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;");}
+var KEY="cohesion-u2-v1";
+var ORIG=[0,1,2,3,4,5,6];
+var ST={tags:{},marks:{},q1:0,q2:0,q5:0,q6:0,order:ORIG.slice(),orderTouched:0,step:1};
+function save(){ try{ localStorage.setItem(KEY, JSON.stringify(ST)); }catch(e){} }
+function load(){ try{ var r=localStorage.getItem(KEY); return r?JSON.parse(r):null; }catch(e){ return null; } }
+function wipe(){ try{ localStorage.removeItem(KEY); }catch(e){} location.reload(); }
+
+var TITLE="The {Secret|c-clev|0} Lives of {Plants|c-top|0}";
+var LINES=[
+"{Plants|c-top|1} may seem {simple and|c-clev|1}",
+"{predictable|c-clev|1}, yet their lives are {far more|c-clev|2}",
+"{complex|c-clev|2} than they appear. From {hidden|c-clev|3}",
+"communication systems to {clever|c-clev|4}",
+"survival strategies, {the plant world|c-top|2} is",
+"full of {surprising|c-clev|5} details that challenge",
+"{conventional|c-clev|6} ideas about what {plants|c-top|3} can",
+"do. Here are six {fascinating|c-clev|7} examples of",
+"just how {inventive|c-clev|8} {plants|c-top|4} can be.",
+"Plants That Generate Heat",
+"Some {plants|c-top|5} produce heat through",
+"thermogenesis. {The sacred lotus|c-low|1} and {skunk|c-low|2}",
+"{cabbage|c-low|2} use this warmth to spread their",
+"scents and attract pollinators. In colder",
+"regions, it can even melt surrounding snow,",
+"giving them an early seasonal advantage.",
+"Plants That Warn Each Other",
+"When attacked by insects, {some plants|c-top|6}",
+"release airborne chemical signals that",
+"nearby {plants|c-top|7} detect, which prompts them",
+"to strengthen their own defenses. Observed",
+"in {species|c-mid|1} like {tobacco|c-low|3} and {lima bean|c-low|4}, this",
+"system allows entire groups of {plants|c-top|8} to",
+"respond to threats faster than they could",
+"individually.",
+"The Forest\u2019s Underground Network",
+"Beneath the forest floor, {tree roots|c-mid|2} are",
+"linked by fungal networks that allow {trees|c-mid|3}",
+"to exchange nutrients and information.",
+"Ecologist Suzanne Simard found that",
+"{Douglas fir|c-low|5} and {paper birch|c-low|6} use these",
+"connections to support younger, shaded neighbors. This",
+"suggests that cooperation, not just competition, plays a",
+"part in forest survival.",
+"Why Cacti \u201cBreathe\u201d at Night",
+"In harsh desert environments, conserving water is",
+"essential. Unlike {most plants|c-top|9}, {cacti|c-low|7} open their stomata\u2014the",
+"tiny pores through which they exchange gases\u2014at night",
+"rather than during the day. By absorbing carbon dioxide",
+"when temperatures are cooler, they dramatically reduce",
+"water loss that scorching daytime heat would otherwise",
+"cause. It\u2019s a simple but very {effective|c-clev|9} way to adapt to",
+"extreme heat.",
+"Why Trees Can Only Grow So Tall",
+"{Trees|c-mid|4} cannot grow endlessly upward. Their heights",
+"are limited by their ability to transport water from roots",
+"to leaves\u2014a process driven by evaporation and internal",
+"pressure. The taller {a tree|c-mid|5} grows, the harder it becomes",
+"for water to reach its highest branches. That is why even",
+"{the coastal redwood|c-low|8} rarely exceeds 130 meters. Even",
+"{the mightiest trees|c-mid|6} must follow the laws of physics.",
+"Why Sunflowers Stop Following the Sun",
+"Young {sunflowers|c-low|9} track the sun through a behavior",
+"called heliotropism. But once mature, {the common|c-low|10}",
+"{sunflower|c-low|10} settles into a fixed eastward-facing position.",
+"This allows it to warm up quickly each morning, which",
+"attracts more pollinators early in the day. Sometimes,",
+"stillness is {the smarter strategy|c-clev|10}."
+];
+var HEAD={10:1,17:1,26:1,35:1,44:1,52:1};
+var INDENT={1:1,11:1,18:1,27:1,36:1,45:1,53:1};
+var SPLIT=32;
+
+var CHAINS={
+ "c-top":{k:"sub",n:"\u6700\u4e0a\u5c64\u7684\u7e3d\u7a31\u3002\u4e3b\u5f35\u6bb5\uff08\u7b2c 1\u20139 \u884c\uff09\u5f9e\u982d\u5230\u5c3e\u53ea\u7528\u9019\u4e00\u5c64\uff0c\u4e00\u7a2e\u690d\u7269\u4e5f\u6c92\u9ede\u540d\u2014\u2014\u56e0\u70ba\u4e3b\u5f35\u8981\u7ba1\u7684\u662f\u6240\u6709\u690d\u7269\uff0c\u4e0d\u662f\u67d0\u4e00\u7a2e\u3002\u5b83\u5f8c\u4f86\u53c8\u5728\u683c\u5b50\u88e1\u51fa\u73fe\u4e94\u6b21\uff0c\u6bcf\u4e00\u6b21\u90fd\u662f\u628a\u9019\u4e00\u683c\u91cd\u65b0\u639b\u56de\u4e3b\u5f35\u4e0a\u3002"},
+ "c-mid":{k:"sub",n:"\u4e2d\u9593\u5c64\uff1a\u6bd4\u7e3d\u7a31\u5c0f\uff0c\u6bd4\u5be6\u4f8b\u5927\u3002\u7b2c 22 \u884c\u7684 species like \u662f\u6700\u6a19\u6e96\u7684\u4e0a\u4e0b\u7fa9\u4fe1\u865f\uff1a\u6a19\u8a18\u524d\u9762\u662f\u985e\uff0c\u5f8c\u9762\u63a5\u7684\u5c31\u662f\u5be6\u4f8b\u3002\u7b2c 45\u201351 \u884c\u90a3\u4e00\u683c\u5168\u7528 trees\uff0c\u5230\u4e86\u7b2c 50 \u884c\u624d\u843d\u5230 coastal redwood\u2014\u2014\u9019\u5c31\u662f\u7531\u6982\u62ec\u5beb\u5230\u5177\u9ad4\u3002"},
+ "c-low":{k:"sub",n:"\u6700\u4e0b\u5c64\u7684\u5be6\u4f8b\uff0c\u5341\u7a2e\u690d\u7269\u5168\u90e8\u96c6\u4e2d\u5728\u516d\u500b\u683c\u5b50\u88e1\uff0c\u4e00\u500b\u4e5f\u6c92\u51fa\u73fe\u5728\u4e3b\u5f35\u6bb5\u3002\u4f60\u53ef\u4ee5\u628a\u9019\u689d\u93c8\u5f53\u6210\u76ee\u9304\uff1a\u6bcf\u51fa\u73fe\u4e00\u7d44\u65b0\u7684\u690d\u7269\u540d\uff0c\u5c31\u662f\u63db\u4e0b\u4e00\u683c\u4e86\u3002"},
+ "c-clev":{k:"gen",n:"\u540c\u4e00\u500b\u4e3b\u5f35\u7684\u5341\u4e00\u7a2e\u8aaa\u6cd5\uff0c\u5f9e\u6a19\u984c\u7684 Secret \u5c31\u958b\u59cb\u3002\u524d\u5169\u500b\u662f\u53cd\u9762\uff08simple and predictable\u3001conventional\uff09\uff0c\u5176\u9918\u4e5d\u500b\u662f\u6b63\u9762\u3002\u6ce8\u610f\u7b2c 42 \u884c\u53c8\u51fa\u73fe\u4e00\u6b21 simple\uff0c\u4f46\u90a3\u662f\u7a31\u8b9a\uff08\u7c21\u55ae\u5374\u6709\u6548\uff09\uff0c\u8ddf\u7b2c 1 \u884c\u7684 simple \u7acb\u5834\u76f8\u53cd\u2014\u2014\u540c\u4e00\u500b\u5b57\uff0c\u5169\u7a2e\u7528\u6cd5\u3002"}
+};
+var LB={sub:"\u4e0a\u7fa9\u2571\u4e0b\u7fa9",gen:"\u63db\u5b57"}, CL={sub:"k",gen:"k g"};
+
+var SLABS=[
+ {a:1,b:9,t:"\u4e3b\u5f35",s:"\u7b2c 1\u20139 \u884c"},
+ {a:10,b:16,t:"\u7522\u71b1",s:"10\u201316"},
+ {a:17,b:25,t:"\u793a\u8b66",s:"17\u201325"},
+ {a:26,b:34,t:"\u5730\u4e0b\u7db2",s:"26\u201334"},
+ {a:35,b:43,t:"\u4ed9\u4eba\u638c",s:"35\u201343"},
+ {a:44,b:51,t:"\u6a39\u9ad8",s:"44\u201351"},
+ {a:52,b:58,t:"\u5411\u65e5\u8475",s:"52\u201358"}
+];
+var BLOCKS=[
+ {hd:"\u4e3b\u5f35\u6bb5\uff08\u7b2c 1\u20139 \u884c\uff09",tx:"Plants may seem simple and predictable, yet their lives are far more complex than they appear. \u2026 Here are six fascinating examples of just how inventive plants can be."},
+ {hd:"\u2460 \u7522\u71b1\uff08\u7b2c 10\u201316 \u884c\uff09",tx:"Plants That Generate Heat \u2014 Some plants produce heat through thermogenesis. The sacred lotus and skunk cabbage use this warmth to spread their scents and attract pollinators. \u2026"},
+ {hd:"\u2461 \u793a\u8b66\uff08\u7b2c 17\u201325 \u884c\uff09",tx:"Plants That Warn Each Other \u2014 When attacked by insects, some plants release airborne chemical signals that nearby plants detect, which prompts them to strengthen their own defenses. \u2026"},
+ {hd:"\u2462 \u5730\u4e0b\u7db2\u8def\uff08\u7b2c 26\u201334 \u884c\uff09",tx:"The Forest\u2019s Underground Network \u2014 Beneath the forest floor, tree roots are linked by fungal networks that allow trees to exchange nutrients and information. \u2026"},
+ {hd:"\u2463 \u4ed9\u4eba\u638c\uff08\u7b2c 35\u201343 \u884c\uff09",tx:"Why Cacti \u201cBreathe\u201d at Night \u2014 In harsh desert environments, conserving water is essential. Unlike most plants, cacti open their stomata \u2026 at night rather than during the day. \u2026"},
+ {hd:"\u2464 \u6a39\u9ad8\uff08\u7b2c 44\u201351 \u884c\uff09",tx:"Why Trees Can Only Grow So Tall \u2014 Trees cannot grow endlessly upward. Their heights are limited by their ability to transport water from roots to leaves \u2026"},
+ {hd:"\u2465 \u5411\u65e5\u8475\uff08\u7b2c 52\u201358 \u884c\uff09",tx:"Why Sunflowers Stop Following the Sun \u2014 Young sunflowers track the sun through a behavior called heliotropism. But once mature, the common sunflower settles into a fixed eastward-facing position. \u2026"}
+];
+
+/* ---------- generic quiz ---------- */
+function quiz(qid,aid,gid,tag,after){
+  var done=false;
+  function settle(){
+    done=true;
+    var bs=$(qid).querySelectorAll("button");
+    for(var i=0;i<bs.length;i++){ bs[i].disabled=true; bs[i].dataset.state=bs[i].dataset.ok?"right":"wrong"; }
+    if(aid) $(aid).hidden=false;
+    if(gid) $(gid).hidden=false;
+    if(after) after();
+  }
+  $(qid).addEventListener("click",function(e){
+    var b=e.target.closest("button"); if(!b||done) return;
+    settle(); ST[tag]=1; save();
+  });
+  return settle;
+}
+function opener(gid,sid,extra){
+  $(gid).addEventListener("click",function(){
+    var n=parseInt(sid.replace(/\D/g,""),10);
+    if(ST.step<n) ST.step=n; save();
+    $(sid).hidden=false; if(extra) extra();
+    $(sid).scrollIntoView({behavior:"smooth",block:"start"});
+  });
+}
+
+/* ---------- step 1 : tag the claim ---------- */
+var TL={yet:"\u8f49\u6298",six:"\u6578\u91cf",ex:"\u9019\u4e9b\u662f\u4f8b\u5b50"};
+function tagged(){ var n=0; for(var k in ST.tags) if(ST.tags[k]) n++; return n; }
+function paintTag(c){
+  if(c.classList.contains("got")) return;
+  c.classList.add("got");
+  var b=document.createElement("b"); b.textContent=TL[c.dataset.t];
+  c.insertBefore(b, c.firstChild);
+}
+function afterTags(){
+  $("sc").innerHTML="\u5df2\u6a19\u51fa <em>"+tagged()+"</em> / 3";
+  if(tagged()===3) $("s1b").hidden=false;
+}
+$("ld").addEventListener("click",function(e){
+  var c=e.target.closest("c"); if(!c) return;
+  if(ST.tags[c.dataset.t]) return;
+  ST.tags[c.dataset.t]=1; save(); paintTag(c); afterTags();
+});
+var set1=quiz("q1","a1","g1","q1");
+opener("g1","s2");
+
+/* ---------- step 2 : six pillars ---------- */
+function drawFig(){
+  if($("fig").firstChild) return;
+  $("fig").hidden=false;
+  var jit=[0,1,-1,0,1,-1];
+  var s='<svg viewBox="0 0 420 232" role="img" aria-label="\u4e00\u6839\u6a6b\u6a11\u67b6\u5728\u516d\u6839\u67f1\u5b50\u4e0a\uff0c\u6a6b\u6a11\u662f\u4e3b\u5f35\uff0c\u516d\u6839\u67f1\u5b50\u662f\u516d\u500b\u4f8b\u5b50">';
+  s+='<g class="slab" data-i="0" tabindex="0" role="button">';
+  s+='<path d="M13 20 L407 17 L409 55 L11 57 Z"/>';
+  s+='<text x="210" y="36" text-anchor="middle">'+esc(SLABS[0].t)+'\uff1a\u690d\u7269\u9060\u6bd4\u770b\u8d77\u4f86\u8907\u96dc</text>';
+  s+='<text x="210" y="49" text-anchor="middle"><tspan class="n">'+esc(SLABS[0].s)+'</tspan></text>';
+  s+='</g>';
+  for(var i=1;i<=6;i++){
+    var x=12+(i-1)*68, j=jit[i-1], t=SLABS[i];
+    s+='<g class="slab" data-i="'+i+'" tabindex="0" role="button">';
+    s+='<path d="M'+(x+j)+' 74 L'+(x+60-j)+' '+(76+j)+' L'+(x+60)+' 198 L'+(x-j)+' '+(197-j)+' Z"/>';
+    s+='<text x="'+(x+30)+'" y="112" text-anchor="middle">'+esc("\u2460\u2461\u2462\u2463\u2464\u2465".charAt(i-1))+'</text>';
+    s+='<text x="'+(x+30)+'" y="140" text-anchor="middle">'+esc(t.t)+'</text>';
+    s+='<text x="'+(x+30)+'" y="160" text-anchor="middle"><tspan class="n">'+esc(t.s)+'</tspan></text>';
+    s+='</g>';
+  }
+  s+='<path class="ground" d="M8 206 L412 203" fill="none"/>';
+  s+='</svg><figcaption>\u6a6b\u6a11\u662f\u4e3b\u5f35\uff0c\u516d\u6839\u67f1\u5b50\u4e00\u6a23\u9ad8\u3001\u4e00\u6a23\u5bec\u2014\u2014\u56e0\u70ba\u516d\u500b\u4f8b\u5b50\u5730\u4f4d\u5e73\u7b49\uff0c\u6c92\u6709\u8ab0\u6bd4\u8f03\u91cd\u8981\u3002\u9ede\u6a6b\u6a11\u6216\u4efb\u4e00\u6839\u67f1\u5b50\uff0c\u7b2c\u56db\u6b65\u7684\u8ab2\u6587\u5c0d\u61c9\u884c\u6703\u4eae\u8d77\u4f86\uff08\u8ab2\u6587\u9084\u6c92\u6253\u958b\u7684\u8a71\uff0c\u5148\u628a\u884c\u865f\u8a18\u4f4f\u5c31\u597d\uff09\u3002</figcaption>';
+  $("fig").innerHTML=s;
+  function hit(g){
+    var i=+g.dataset.i, t=SLABS[i];
+    var gs=$("fig").querySelectorAll(".slab");
+    for(var j2=0;j2<gs.length;j2++) gs[j2].classList.toggle("on", +gs[j2].dataset.i===i);
+    var ms=$("tx").querySelectorAll("m");
+    for(var k=0;k<ms.length;k++) ms[k].classList.remove("lit");
+    var rows=$("tx").querySelectorAll(".ln");
+    for(var r=0;r<rows.length;r++){ var n=+rows[r].dataset.n; rows[r].classList.toggle("hl", n>=t.a&&n<=t.b); }
+    if(rows.length){
+      var f=$("tx").querySelector('.ln[data-n="'+t.a+'"]'); if(f) f.scrollIntoView({behavior:"smooth",block:"center"});
+      $("pk").textContent="\u683c\u5b50"; $("pk").className="k e";
+      $("pc").textContent=t.t; $("pt").textContent="\u7b2c "+t.a+"\u2013"+t.b+" \u884c\u3002\u8ab2\u6587\u9019\u5e7e\u884c\u5df2\u7d93\u4eae\u8d77\u4f86\u4e86\u3002";
+    }
+  }
+  $("fig").addEventListener("click",function(e){ var g=e.target.closest(".slab"); if(g) hit(g); });
+  $("fig").addEventListener("keydown",function(e){
+    if(e.key!=="Enter"&&e.key!==" ") return;
+    var g=e.target.closest(".slab"); if(g){ e.preventDefault(); hit(g); }
+  });
+}
+function afterQ2(){ drawFig(); $("db").hidden=false; }
+var set2=quiz("q2","a2","g2","q2",afterQ2);
+opener("g2","s3",buildDeck);
+
+/* ---------- step 3 : the reorder test ---------- */
+var builtDeck=false;
+function buildDeck(){
+  if(builtDeck) return; builtDeck=true;
+  paintDeck();
+  $("deck").addEventListener("click",function(e){
+    var b=e.target.closest("button"); if(!b) return;
+    var pos=+b.dataset.pos, d=+b.dataset.d, to=pos+d;
+    if(to<0||to>=ST.order.length) return;
+    var tmp=ST.order[pos]; ST.order[pos]=ST.order[to]; ST.order[to]=tmp;
+    ST.orderTouched=1; save(); paintDeck();
+  });
+}
+function paintDeck(){
+  var h="",i;
+  for(i=0;i<ST.order.length;i++){
+    var id=ST.order[i], bk=BLOCKS[id];
+    h+='<div class="blk'+(id===0?" claim":"")+'"><div class="hd"><span>'+esc(bk.hd)+'</span>'+
+       '<span class="nav">'+
+       '<button data-pos="'+i+'" data-d="-1" aria-label="\u4e0a\u79fb"'+(i===0?" disabled":"")+'>\u2191</button>'+
+       '<button data-pos="'+i+'" data-d="1" aria-label="\u4e0b\u79fb"'+(i===ST.order.length-1?" disabled":"")+'>\u2193</button>'+
+       '</span></div><div class="bd">'+esc(bk.tx)+'</div></div>';
+  }
+  $("deck").innerHTML=h;
+  var same=true;
+  for(i=0;i<ORIG.length;i++) if(ST.order[i]!==ORIG[i]) same=false;
+  var v=$("vd"), msg, cls;
+  if(ST.order[0]!==0){
+    msg="\u4e3b\u5f35\u6bb5\u4e0d\u5728\u6700\u524d\u9762\u4e86\u3002\u8b80\u8005\u4e00\u958b\u982d\u5c31\u78b0\u5230\u4e00\u500b\u4f8b\u5b50\uff0c\u537b\u4e0d\u77e5\u9053\u5b83\u5728\u8b49\u660e\u4ec0\u9ebc\u2014\u2014\u5217\u8209\u6587\u7684\u4e3b\u5f35\u53e5\u4e0d\u80fd\u79fb\u3002";
+    cls="no";
+  } else if(same){
+    msg="\u9019\u662f\u96dc\u8a8c\u539f\u672c\u7684\u9806\u5e8f\u3002\u52d5\u52d5\u770b\u4e0a\u4e0b\u7bad\u982d\u3002";
+    cls="";
+  } else {
+    msg="\u9806\u5e8f\u63db\u904e\u4e86\uff0c\u8b80\u8d77\u4f86\u9084\u662f\u901a\u7684\u3002\u516d\u500b\u4f8b\u5b50\u5f7c\u6b64\u4e26\u5217\uff0c\u8ab0\u5148\u8ab0\u5f8c\u90fd\u4e0d\u5f71\u97ff\u4e3b\u5f35\u6210\u4e0d\u6210\u7acb\u2014\u2014\u9019\u5c31\u662f\u5217\u8209\u3002";
+    cls="ok";
+  }
+  v.textContent=msg; v.className="verdict"+(cls?" "+cls:"");
+  if(ST.orderTouched){ $("a3").hidden=false; $("g3").hidden=false; }
+}
+opener("g3","s4",buildText);
+
+/* ---------- step 4 : passage ---------- */
+function renderLine(str){
+  var out="",i=0;
+  while(i<str.length){
+    var a=str.indexOf("{",i);
+    if(a<0){ out+=esc(str.slice(i)); break; }
+    out+=esc(str.slice(i,a));
+    var b=str.indexOf("}",a), p=str.slice(a+1,b).split("|");
+    var id=p[1], it=p[2]||"1", k=CHAINS[id]?CHAINS[id].k:"sub";
+    out+='<m data-c="'+id+'" data-i="'+it+'" data-kind="'+k+'" tabindex="0">'+esc(p[0])+'</m>';
+    i=b+1;
+  }
+  return out;
+}
+var builtText=false;
+function buildText(){
+  if(builtText) return; builtText=true;
+  var h='<p class="ttl">'+renderLine(TITLE)+'</p>';
+  for(var i=0;i<LINES.length;i++){
+    var n=i+1;
+    if(n===SPLIT) h+='<p class="split">\u4ee5\u4e0a\u662f 9/2 \u7684\u7b2c 1\u201331 \u884c\u3002\u4ee5\u4e0b\u662f 9/3 \u7684\u7b2c 32\u201358 \u884c\uff08\u9019\u4e00\u53e5\u662f\u8de8\u5929\u7684\uff09\u3002</p>';
+    var cls="ln";
+    if(HEAD[n]) cls+=" sub pb";
+    else if(INDENT[n]) cls+=" ind"+(n>1?" pb":"");
+    h+='<div class="'+cls+'" data-n="'+n+'"><i>'+((n%5===0)?n:"")+'</i><span>'+renderLine(LINES[i])+'</span></div>';
+  }
+  $("tx").innerHTML=h;
+}
+function lightChain(id){
+  var ms=$("tx").querySelectorAll("m"), items={}, order=[];
+  var gs=$("fig").querySelectorAll(".slab");
+  for(var g=0;g<gs.length;g++) gs[g].classList.remove("on");
+  var rows=$("tx").querySelectorAll(".ln");
+  for(var r=0;r<rows.length;r++) rows[r].classList.remove("hl");
+  for(var i=0;i<ms.length;i++){
+    if(ms[i].dataset.c===id){
+      ms[i].classList.add("lit");
+      var key=ms[i].dataset.i;
+      if(!items[key]){ items[key]=[]; order.push(key); }
+      items[key].push(ms[i].textContent);
+    } else ms[i].classList.remove("lit");
+  }
+  var c=CHAINS[id]; if(!c) return;
+  var parts=[];
+  for(var o=0;o<order.length;o++) parts.push(esc(items[order[o]].join(" ")));
+  $("pk").textContent=LB[c.k]; $("pk").className=CL[c.k];
+  $("pc").innerHTML=parts.join('<i>\u2192</i>');
+  $("pt").textContent=c.n;
+}
+$("tx").addEventListener("click",function(e){ var m=e.target.closest("m"); if(m) lightChain(m.dataset.c); });
+$("tx").addEventListener("keydown",function(e){
+  if(e.key!=="Enter"&&e.key!==" ") return;
+  var m=e.target.closest("m"); if(m){ e.preventDefault(); lightChain(m.dataset.c); }
+});
+function toggle(btn,cls){
+  btn.addEventListener("click",function(){
+    var on=btn.getAttribute("aria-pressed")==="true";
+    btn.setAttribute("aria-pressed",on?"false":"true");
+    $("tx").classList.toggle(cls,on);
+  });
+}
+toggle($("m1"),"off-sub");
+toggle($("m2"),"off-gen");
+opener("g4","s5");
+
+/* ---------- step 5 : markers ---------- */
+var ML={a:"\u7b2c\u4e00\u9805",b:"\u63db\u4e0b\u4e00\u9805",c:"\u518d\u52a0\u4e00\u9805",d:"\u6700\u5f8c\u4e00\u9805"};
+function marked(){ var n=0; for(var k in ST.marks) if(ST.marks[k]) n++; return n; }
+function paintMark(c){
+  if(c.classList.contains("got")) return;
+  c.classList.add("got");
+  var b=document.createElement("b"); b.textContent=ML[c.dataset.t];
+  c.insertBefore(b, c.firstChild);
+}
+function afterMarks(){
+  $("sc5").innerHTML="\u5df2\u6a19\u51fa <em>"+marked()+"</em> / 4";
+  if(marked()===4) $("s5b").hidden=false;
+}
+$("mk").addEventListener("click",function(e){
+  var c=e.target.closest("c"); if(!c) return;
+  if(ST.marks[c.dataset.t]) return;
+  ST.marks[c.dataset.t]=1; save(); paintMark(c); afterMarks();
+});
+var set5=quiz("q5","a5","g5","q5");
+$("g5").addEventListener("click",function(){
+  if(ST.step<6) ST.step=6; save();
+  $("s6").hidden=false;
+  $("s6").scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+/* ---------- step 6 ---------- */
+var done6=false;
+function settle6(){
+  done6=true;
+  var bs=$("q6").querySelectorAll("button");
+  for(var i=0;i<bs.length;i++){
+    bs[i].disabled=true; bs[i].dataset.state=bs[i].dataset.ok?"right":"wrong";
+    if(bs[i].dataset.ok){ $("bl").textContent=bs[i].textContent; $("bl").className="blank filled"; }
+  }
+  $("a6").hidden=false; $("w6").hidden=false; $("s7").hidden=false;
+}
+$("q6").addEventListener("click",function(e){
+  var b=e.target.closest("button"); if(!b||done6) return;
+  settle6(); ST.q6=1; save();
+  $("a6").scrollIntoView({behavior:"smooth",block:"nearest"});
+});
+
+/* ---------- preview mode for the teacher: cohesion-u2.html?all ---------- */
+function previewAll(){
+  $("pv").hidden=false;
+  var cs=$("ld").querySelectorAll("c"),i;
+  for(i=0;i<cs.length;i++){ ST.tags[cs[i].dataset.t]=1; paintTag(cs[i]); }
+  afterTags(); set1();
+  $("s2").hidden=false; set2();
+  $("s3").hidden=false; buildDeck(); ST.orderTouched=1; paintDeck();
+  $("s4").hidden=false; buildText();
+  $("s5").hidden=false;
+  var ms=$("mk").querySelectorAll("c");
+  for(i=0;i<ms.length;i++){ ST.marks[ms[i].dataset.t]=1; paintMark(ms[i]); }
+  afterMarks(); set5();
+  $("s6").hidden=false; settle6();
+}
+
+/* ---------- restore ---------- */
+$("rst").addEventListener("click",wipe);
+(function restore(){
+  if(/(^|[?&])all(=|&|$)/.test(location.search)){ previewAll(); return; }
+  var v=load(); if(!v) return;
+  ST=v;
+  if(!ST.tags) ST.tags={};
+  if(!ST.marks) ST.marks={};
+  if(!ST.order||ST.order.length!==7) ST.order=ORIG.slice();
+  if(!("orderTouched" in ST)) ST.orderTouched=0;
+  if(!ST.step) ST.step=1;
+  if(!(tagged()||ST.step>1)) return;
+  $("rs").hidden=false;
+  var cs=$("ld").querySelectorAll("c"),i;
+  for(i=0;i<cs.length;i++) if(ST.tags[cs[i].dataset.t]) paintTag(cs[i]);
+  afterTags();
+  if(ST.q1) set1();
+  if(ST.step>=2){ $("s2").hidden=false; if(ST.q2) set2(); }
+  if(ST.step>=3){ $("s3").hidden=false; buildDeck(); }
+  if(ST.step>=4){ $("s4").hidden=false; buildText(); }
+  if(ST.step>=5){
+    $("s5").hidden=false;
+    var ms=$("mk").querySelectorAll("c");
+    for(i=0;i<ms.length;i++) if(ST.marks[ms[i].dataset.t]) paintMark(ms[i]);
+    afterMarks();
+    if(ST.q5) set5();
+  }
+  if(ST.step>=6){ $("s6").hidden=false; if(ST.q6) settle6(); }
+  var last=$("s"+(ST.step>=6?6:ST.step));
+  if(last) setTimeout(function(){ last.scrollIntoView({block:"start"}); },60);
+})();
+})();
+</script>
+</body>
+</html>
