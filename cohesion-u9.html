@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>概念說明｜Dress to De-Stress: How the Clothes You Wear Can Impact Your Mood</title>
+<meta name="description" content="術語一立起來就當場定義。這一頁教你認出說明文的四段骨架，還有把衣服和心情接起來的那一群動詞。">
+<meta property="og:title" content="概念說明｜Dress to De-Stress">
+<meta property="og:description" content="那是什麼、為什麼有效、有證據嗎、我該怎麼做——四個問句就把說明文拆開了。">
+<style>
+:root{
+  --ground:#f1f3f2; --ink:#17282f; --teal:#1f6f6a; --teal-soft:#dfeceb;
+  --muted:#77878d; --line:#cdd6d6; --exam:#b4661c; --exam-soft:#fdf4e7;
+  --gen:#4a6a90; --gen-soft:#e0e7f0;
+  --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+  --sans:"PingFang TC","Noto Sans TC","Microsoft JhengHei","Helvetica Neue",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-text-size-adjust:100%}
+.wrap{max-width:44rem;margin:0 auto;padding:1.6rem 1.1rem 4rem}
+h1{font-family:var(--serif);font-weight:600;font-size:1.6rem;line-height:1.3;margin:0 0 .55rem}
+.lede{margin:0 0 1.3rem;color:#3d5059;font-size:.95rem}
+.src{font-size:.8rem;color:var(--muted);margin:0 0 1.1rem}
+.resume{font-size:.85rem;color:var(--teal);background:var(--teal-soft);border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.resume[hidden]{display:none}
+.preview{font-size:.85rem;color:var(--exam);background:var(--exam-soft);
+  border:1px dashed var(--exam);border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.preview[hidden]{display:none}
+.resume button{font:inherit;font-size:.82rem;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:.25rem;padding:.16rem .6rem;margin-left:.5rem;cursor:pointer}
+.resume button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.step{border-top:1px solid var(--line);padding-top:1.15rem;margin-top:1.6rem}
+.step[hidden]{display:none}
+.stepno{font-family:var(--serif);font-size:.82rem;color:var(--muted);margin:0 0 .2rem}
+h2{font-family:var(--serif);font-weight:600;font-size:1.2rem;margin:0 0 .5rem;color:var(--teal)}
+.step p{margin:0 0 .7rem;font-size:.95rem}
+.tag{display:inline-block;font-size:.72rem;font-weight:600;border-radius:.2rem;padding:.08rem .45rem;margin-left:.45rem;vertical-align:.12rem;color:var(--exam);background:var(--exam-soft);border:1px solid var(--exam)}
+.tag.b{color:var(--gen);background:var(--gen-soft);border-color:var(--gen)}
+.opts{display:flex;flex-direction:column;gap:.45rem;margin:.2rem 0 .8rem}
+.opts button{font:inherit;font-size:.95rem;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:.3rem;padding:.45rem .85rem;cursor:pointer;text-align:left}
+.opts button:hover{border-color:var(--teal)}
+.opts button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.opts button[data-state="right"]{background:var(--teal);border-color:var(--teal);color:#fff}
+.opts button[data-state="wrong"]{background:var(--ground);color:var(--muted)}
+.opts button[disabled]{cursor:default}
+.opts.en button{font-family:var(--serif);font-size:.97rem;line-height:1.6;padding:.55rem .8rem}
+.opts.en button[data-state="right"]{background:var(--teal-soft);border-color:var(--teal);color:var(--ink)}
+.said{background:#fff;border-left:3px solid var(--teal);border-radius:.3rem;padding:.75rem .85rem;margin:.2rem 0 .9rem;font-size:.93rem;color:#3d5059}
+.said b{color:var(--ink);font-weight:600}
+.said[hidden]{display:none}
+.said.g{border-left-color:var(--gen)}
+.said.e{border-left-color:var(--exam)}
+.said q{quotes:none;font-family:var(--serif)}
+.go{font:inherit;font-size:.92rem;background:var(--ink);color:#fff;border:1px solid var(--ink);border-radius:.3rem;padding:.42rem 1.05rem;cursor:pointer}
+.go:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.go[hidden]{display:none}
+.lead{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.9rem 1rem;margin:0 0 .7rem;font-family:var(--serif);font-size:1.02rem;line-height:1.95}
+.lead c{cursor:pointer;border-radius:.2rem;padding:.06rem .2rem;background:var(--exam-soft);box-shadow:inset 0 -2px 0 #ecc9a2}
+.lead c:hover{box-shadow:inset 0 -2px 0 var(--exam)}
+.lead c.got{background:var(--exam);color:#fff;box-shadow:none}
+.lead c b{font-family:var(--sans);font-size:.72rem;font-weight:600;background:#fff;color:var(--exam);border-radius:.2rem;padding:.02rem .3rem;margin-right:.3rem}
+.score{font-size:.9rem;color:var(--muted);margin:0 0 .8rem}
+.score em{font-style:normal;color:var(--exam);font-weight:600}
+.terms{display:flex;flex-direction:column;gap:.5rem;margin:0 0 .8rem}
+.term{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.6rem .85rem;
+  font-family:var(--serif);font-size:.97rem;line-height:1.8}
+.term .tm{font-weight:600;color:var(--teal)}
+.term .fr{background:var(--exam-soft);border-bottom:2px dotted var(--exam);border-radius:.2rem;padding:.02rem .2rem}
+.term .df{color:#3d5059}
+.term .rf{display:block;font-family:var(--sans);font-size:.78rem;color:var(--muted);margin-top:.25rem}
+.qs{display:flex;flex-direction:column;gap:.5rem;margin:0 0 .8rem}
+.qcard{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.6rem .85rem}
+.qcard .hd{display:flex;align-items:center;gap:.6rem;font-size:.95rem}
+.qcard .hd .qt{flex:1 1 auto;font-weight:600}
+.qcard .hd button{font:inherit;font-size:.8rem;background:#fff;color:var(--ink);border:1px solid var(--line);
+  border-radius:.25rem;padding:.18rem .7rem;cursor:pointer;flex:0 0 auto}
+.qcard .hd button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.qcard .bd{display:none;margin-top:.4rem;font-size:.92rem;color:#3d5059;line-height:1.75}
+.qcard.open .bd{display:block}
+.qcard.open .hd button{display:none}
+.qcard .bd i{font-style:normal;color:var(--muted);font-size:.82rem;margin-left:.3rem}
+.fig{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.7rem .5rem .4rem;margin:0 0 .7rem}
+.fig svg{display:block;width:100%;height:auto;max-width:27rem;margin:0 auto}
+.fig figcaption{font-size:.85rem;color:#3d5059;margin:.35rem .5rem 0;line-height:1.65}
+.pair{cursor:pointer}
+.pair rect{stroke-width:2}
+.pair .lb{fill:var(--teal-soft);stroke:#a8ccc8}
+.pair .rb{fill:var(--gen-soft);stroke:#a9bbd0}
+.pair text{font-family:var(--serif);font-size:10.5px;fill:var(--ink)}
+.pair .vb{font-family:var(--serif);font-size:9.5px;fill:var(--exam);font-style:italic}
+.pair path{stroke:var(--line);stroke-width:2;fill:none}
+.pair.on rect{stroke:var(--exam);stroke-width:3}
+.pair.on path{stroke:var(--exam)}
+.pair.on .vb{font-weight:600}
+.hdlab{font-family:var(--sans);font-size:10.5px;font-weight:600}
+.hdlab.l{fill:var(--teal)}
+.hdlab.r{fill:var(--gen)}
+.daybreak{border:1px dashed var(--exam);background:var(--exam-soft);border-radius:.4rem;
+  padding:.8rem .95rem;margin:1.6rem 0 0;font-size:.9rem;color:#3d5059;line-height:1.7}
+.daybreak b{display:block;color:var(--exam);font-family:var(--serif);font-size:1.02rem;margin-bottom:.3rem}
+.daybreak[hidden]{display:none}
+.modes{display:flex;gap:.4rem;margin:0 0 .7rem;flex-wrap:wrap}
+.modes button{font:inherit;font-size:.84rem;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:.3rem;padding:.3rem .8rem;cursor:pointer}
+.modes button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.modes button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.text{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.9rem .6rem 1.1rem;font-family:var(--serif);font-size:1rem;line-height:1.85}
+.text .ttl{font-weight:600;font-size:1.06rem;margin:0 .4rem .7rem 2.6rem;line-height:1.45}
+.ln{display:flex;align-items:baseline;padding:.02rem 0;border-radius:.2rem}
+.ln>i{flex:0 0 2.2rem;text-align:right;padding-right:.55rem;font-family:var(--sans);font-style:normal;font-size:.68rem;color:var(--muted);line-height:1.9}
+.ln>span{flex:1 1 auto;overflow-wrap:anywhere}
+.ln.ind>span{padding-left:1.1rem}
+.ln.hl{background:var(--exam-soft)}
+.ln.pb{margin-top:.55rem}
+.text .split{font-family:var(--sans);font-size:.78rem;color:var(--exam);
+  border-top:1px dashed var(--exam);margin:.8rem .4rem .7rem 2.6rem;padding-top:.35rem}
+.text m{cursor:pointer;border-radius:.2rem;padding:.02rem .14rem}
+.text m[data-kind="sub"]{background:var(--teal-soft);box-shadow:inset 0 -2px 0 #a8ccc8}
+.text m[data-kind="gen"]{background:var(--gen-soft);box-shadow:inset 0 -2px 0 #a9bbd0}
+.text m[data-kind="mk"]{border-bottom:2px dotted var(--exam);font-style:italic}
+.text m.lit[data-kind="sub"]{background:var(--teal);color:#fff;box-shadow:none}
+.text m.lit[data-kind="gen"]{background:var(--gen);color:#fff;box-shadow:none}
+.text m.lit[data-kind="mk"]{background:var(--exam);color:#fff;border-bottom:none}
+.text.off-sub m[data-kind="sub"]{background:none;box-shadow:none}
+.text.off-gen m[data-kind="gen"]{background:none;box-shadow:none}
+.panel{position:sticky;bottom:0;background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.75rem .9rem;margin-top:.8rem;box-shadow:0 -2px 10px rgba(23,40,47,.07)}
+.panel .k{font-size:.72rem;font-weight:600;border-radius:.2rem;padding:.06rem .42rem;color:var(--teal);background:var(--teal-soft);border:1px solid var(--teal)}
+.panel .k.g{color:var(--gen);background:var(--gen-soft);border-color:var(--gen)}
+.panel .k.e{color:var(--exam);background:var(--exam-soft);border-color:var(--exam)}
+.panel .ch{font-family:var(--serif);font-size:1rem;margin:.4rem 0 .3rem;color:var(--ink);line-height:1.75;overflow-wrap:anywhere}
+.panel .ch i{font-style:normal;color:var(--muted);padding:0 .28rem}
+.panel .nt{font-size:.88rem;color:#3d5059;margin:0}
+.recall{background:#fff;border:1px solid var(--line);border-left:3px solid var(--muted);
+  border-radius:.3rem;padding:.75rem .85rem;margin:1.1rem 0 .9rem;font-size:.92rem;color:#3d5059}
+.recall b{color:var(--ink)}
+.recall ul{margin:.4rem 0 0;padding-left:1.1rem}
+.recall li{margin-bottom:.35rem}
+.gap{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.9rem 1rem;margin:0 0 .9rem;font-family:var(--serif);font-size:1rem;line-height:1.9}
+.gap .blank{display:inline-block;min-width:9rem;border-bottom:2px solid var(--gen);color:var(--gen);text-align:center;font-family:var(--sans);font-size:.82rem}
+.gap .blank.filled{border-bottom-color:var(--teal);color:var(--ink);font-family:var(--serif);font-size:1rem;text-align:left;background:var(--teal-soft);border-radius:.2rem;padding:0 .25rem}
+.picks{display:flex;flex-direction:column;gap:.45rem;margin:0 0 .9rem}
+.picks button{font:inherit;font-family:var(--serif);font-size:.97rem;line-height:1.6;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:.3rem;padding:.55rem .8rem;cursor:pointer;text-align:left}
+.picks button:hover{border-color:var(--teal)}
+.picks button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.picks button[data-state="right"]{background:var(--teal-soft);border-color:var(--teal)}
+.picks button[data-state="wrong"]{background:var(--ground);color:var(--muted)}
+.why{font-size:.86rem;color:#3d5059;margin:.35rem 0 0}
+.why[hidden]{display:none}
+.close{border-top:1px solid var(--line);margin-top:2rem;padding-top:1.1rem;font-size:.93rem;color:#3d5059}
+.close[hidden]{display:none}
+.close h2{font-size:1.1rem}
+.close ol{margin:.3rem 0 0;padding-left:1.15rem}
+.close li{margin-bottom:.5rem}
+.more{margin-top:1.5rem;font-size:.88rem}
+.more a{color:var(--teal)}
+.series{border-top:1px solid var(--line);margin-top:2rem;padding-top:1.1rem;font-size:.9rem;color:#3d5059}
+.series .back{font-family:var(--serif);font-size:1rem;color:var(--teal);text-decoration:none}
+.series .back:hover{text-decoration:underline}
+.series .back:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.series .note{font-size:.85rem;color:var(--muted);margin:.5rem 0 0}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>概念說明</h1>
+<p class="lede">這種文章要教你一個新名詞。它的骨架永遠是同四件事：<b>那是什麼、為什麼有效、有證據嗎、我該怎麼做。</b>認出這四段，任何一篇說明文都拆得開。</p>
+<p class="preview" id="pv" hidden>預覽模式：所有步驟、圖表、課文標記都已展開，進度不會存檔。學生拿到的一般連結不受影響。</p>
+<p class="resume" id="rs" hidden>上次做到一半，已經幫你接回來了。<button id="rst">重新開始</button></p>
+<p class="src">ALL+ 互動英語 9 月號 Unit 9（pp. 38–41）　Dress to De-Stress: How the Clothes You Wear Can Impact Your Mood　全文 52 行　9/17 讀第 1–31 行，9/18 讀第 32–52 行</p>
+
+<!-- STEP 1 -->
+<section class="step" id="s1">
+  <p class="stepno">第一步</p>
+  <h2>先讓你認出自己<span class="tag">上層：組織方式</span></h2>
+  <p>說明文最怕讀者覺得「這干我什麼事」。所以它常常<b>不從定義開始，而從你的經驗開始</b>。下面是第 1 到 8 行，<b>點三個有底色的地方</b>。</p>
+  <div class="lead" id="ld">
+    <c data-t="y">You know the feeling</c>: You’re getting ready for something important—a presentation, a birthday dinner, a big interview—but <c data-t="e">nothing in your wardrobe feels right</c>. The colors seem off. The style doesn’t match your mood. Everything leaves you feeling flat. What you need is a dose of <c data-t="w">dopamine dressing</c>.
+  </div>
+  <p class="score" id="sc">已標出 <em>0</em> / 3</p>
+  <div id="s1b" hidden>
+    <p>三個都標出來了。那麼——<b>作者為什麼要花整整八行寫一個「出門前找不到衣服穿」的場景？</b></p>
+    <div class="opts" id="q1">
+      <button data-ok="1">先讓你認出自己的經驗，術語丟出來你才想知道</button>
+      <button>因為壓力大的時候特別難挑衣服，這是全文重點</button>
+      <button>因為這個場景本身就是多巴胺穿搭的定義</button>
+      <button>因為作者要比較不同場合各自該穿什麼衣服</button>
+    </div>
+    <div class="said e" id="a1" hidden>
+      <b>先讓你認出自己的經驗。</b>第 1 行的 <q>You know the feeling</q> 是直接對你說話，第 4 到 7 行把那個經驗描述得很細——顏色不對、風格不搭、穿什麼都提不起勁。等你點頭說「對，我也這樣」，第 7 到 8 行才把術語丟出來：<q>What you need is a dose of dopamine dressing.</q>
+      <br><br>
+      <b>這是說明文的標準開場：先給經驗，再給名字。</b>看到 <q>You know the feeling</q>、<q>We’ve all been there</q>、<q>Have you ever…?</q>，就知道下一段會出現一個新名詞。<b>那個名詞才是全文要講的東西，前面都是引子。</b>
+      <br><br>
+      <b>另外三個為什麼排除：</b>
+      <br><br>
+      「壓力大的時候特別難挑衣服」——<b>標題確實有 De-Stress，所以這個最容易選。</b>但第 1 到 8 行說的是「重要場合之前」，沒有一個字提到壓力；而且全文的重點是穿搭如何影響情緒，不是壓力如何影響穿搭。<b>方向剛好相反。</b>
+      <br><br>
+      「場景本身就是定義」——定義在第 10 到 11 行才出現（<q>the term means choosing clothes for their mood-boosting powers</q>）。<b>場景是引子，不是定義。</b>
+      <br><br>
+      「要比較不同場合該穿什麼」——文章確實提到 presentation、interview（第 3 行、第 47 行），但那是舉例，全篇從頭到尾沒有把兩個場合拿來比較。
+    </div>
+    <button class="go" id="g1" hidden>那術語是怎麼立起來的？</button>
+  </div>
+</section>
+
+<!-- STEP 2 -->
+<section class="step" id="s2" hidden>
+  <p class="stepno">第二步</p>
+  <h2>術語一立起來就當場定義<span class="tag">上層：怎麼認出來</span></h2>
+  <p>說明文最好認的特徵：<b>每出現一個術語，它的定義就緊跟在後面。</b>這篇有三組，而且用的都是同一種句型——一個概括名詞當框，把定義裝進去。</p>
+  <div class="terms" id="terms"></div>
+  <p><b>橘色虛線底的就是定義框。</b>看到 <q>the term</q>、<q>the study of</q>、<q>the idea that</q>、<q>a concept</q>，破折號或逗號後面那一段就是定義——<b>字彙題和指涉題最愛考這裡。</b></p>
+  <p>試一題：<b>根據第 32 到 33 行，enclothed cognition 指的是什麼？</b></p>
+  <div class="opts" id="q2">
+    <button>鮮豔的顏色能讓大腦分泌更多的多巴胺</button>
+    <button>一個人會依照當天的心情去挑選要穿的衣服</button>
+    <button data-ok="1">身上穿的衣服會左右一個人的思考方式</button>
+    <button>穿實驗衣的人在注意力測驗上表現得比較好</button>
+  </div>
+  <div class="said e" id="a2" hidden>
+    <b>身上穿的衣服會左右一個人的思考方式。</b>第 32 到 33 行的定義框是 <q>the idea that</q>，裝進去的是 <q>what we wear shapes our mindset</q>。<b>注意正解沒有照抄：shapes our mindset 被改寫成「左右思考方式」。</b>
+    <br><br>
+    <b>另外三個為什麼排除：</b>
+    <br><br>
+    「依照心情挑衣服」——<b>這個最容易選，因為第一段講的正是這件事</b>（心情不好、怎麼挑都不對）。但 enclothed cognition 說的是<b>反方向</b>：衣服影響思考，不是心情決定衣服。<b>一個定義被倒過來說，字面上每個字都還在，意思卻反了。</b>
+      <br><br>
+      「顏色讓大腦分泌多巴胺」——那是第 14 到 31 行 dopamine dressing 和 color psychology 的內容。<b>三個術語擺在同一篇文章裡，把 A 的定義安到 B 頭上，是這種文章最常見的誘答。</b>
+      <br><br>
+      「穿實驗衣的人表現比較好」——第 38 到 40 行確實這樣寫，但那是<b>證據</b>，不是定義。定義是通則，證據是個案；<b>看到具體的實驗、數字、人數，那一定不是定義。</b>
+  </div>
+  <button class="go" id="g2" hidden>四個問句拆全篇</button>
+</section>
+
+<div class="daybreak" id="db" hidden>
+  <b>9/18 的範圍從這裡開始：第 32–52 行</b>
+  第一、二步用的是 9/17 的第 1–31 行（場景、定義、多巴胺、顏色心理學）。第三步以後會用到整篇，包含 9/18 的第 32–52 行（enclothed cognition、實驗證據、實務建議）。如果你今天是 9/17，做到這裡可以先停，明天再接下去。（第二步的第三個術語來自第 32 行以後，先看到不影響。）
+</div>
+
+<!-- STEP 3 -->
+<section class="step" id="s3" hidden>
+  <p class="stepno">第三步</p>
+  <h2>這一段在回答哪個問題<span class="tag">上層：怎麼驗證</span></h2>
+  <p>怎麼確定一篇是概念說明文？<b>看它有沒有依序回答那幾個問題。</b>下面六個問句，每一個都對應課文的一段。<b>逐一按開來看。</b></p>
+  <div class="qs" id="qs"></div>
+  <p class="score" id="sc3">已對出 <em>0</em> / 6</p>
+  <div class="said e" id="a3" hidden>
+    <b>六個問句都有一段在回答，而且順序就是課文的順序。這就是概念說明文。</b>
+    <br><br>
+    <b>怎麼認出一篇是概念說明文：</b>問自己「這篇有沒有在教我一個新名詞」。有的話，往下找那四件事——<b>那是什麼、為什麼有效、有證據嗎、我該怎麼做</b>。四件齊了，就是這種文章。
+    <br><br>
+    <b>缺哪一段，文章的性質就變了。</b>沒有「有證據嗎」，那是意見文章；沒有「我該怎麼做」，那是純知識介紹。<b>這篇四件齊全，所以它是一篇既要你懂、也要你去做的文章</b>——第 45 行的 <q>Instead, dress for the task at hand</q> 是全篇唯一的祈使句，位置就在建議那一段的開頭。
+    <br><br>
+    <b>考卷上怎麼考：</b>主旨題的答案在「那是什麼」和「我該怎麼做」的交集；細節題往「為什麼有效」和「有證據嗎」找。<b>看到題目問實驗結果，直接跳到有數字、有 participants 的那一段。</b>
+  </div>
+  <button class="go" id="g3" hidden>看把衣服和心情接起來的字</button>
+</section>
+
+<!-- STEP 4 -->
+<section class="step" id="s4" hidden>
+  <p class="stepno">第四步</p>
+  <h2>一邊是穿的，一邊是感覺的<span class="tag b">下層：對應配對與連結動詞</span></h2>
+  <p>這篇整篇在做同一件事：<b>把一件衣服或一個顏色，接到一種感覺上。</b>藍色接到冷靜，褐色接到穩定，實驗衣接到專注。</p>
+  <p>真正要學的是中間那個動詞。<b>同一種「A 帶來 B」的關係，作者換了九種說法</b>：<q>are connected with</q>、<q>tends to convey</q>、<q>signals</q>、<q>being capable of</q>、<q>being linked to</q>、<q>hold associations</q>、<q>associated…with</q>、<q>associate…with</q>、<q>reinforce</q>。</p>
+  <p>跟第八單元分清楚：那裡是<b>對立</b>，中間夾的是 however、but 這種轉折連接詞；<b>這裡是對應，中間夾的是動詞。</b>一個把兩邊推開，一個把兩邊接起來。</p>
+  <p><b>點圖上任一組</b>，課文對應行會亮起來。</p>
+  <figure class="fig" id="fig"></figure>
+  <p><b>也可以直接點課文裡有底色的字。</b>青色和藍灰可以各自關掉；虛線底的連結動詞一直都在。</p>
+  <div class="modes">
+    <button id="m1" aria-pressed="true">穿的那一邊（青）</button>
+    <button id="m2" aria-pressed="true">感覺的那一邊（藍灰）</button>
+  </div>
+  <div class="text" id="tx"></div>
+  <div class="panel" id="pn">
+    <span class="k" id="pk">線索</span>
+    <div class="ch" id="pc">點圖上的一組，或課文裡有底色的字</div>
+    <p class="nt" id="pt">青色是穿的那一邊，藍灰是感覺的那一邊，虛線底是把兩邊接起來的動詞。</p>
+  </div>
+  <div class="recall">
+    <b>另外兩樣，前面單元教過，這篇自己確認得出來：</b>
+    <ul>
+      <li><b>概括名詞。</b>又是一大一小：第 43 行的 <q>All of this</q> 往回收<b>整篇</b>（多巴胺、顏色、enclothed cognition、實驗，全部），第 41 行的 <q>this connection</q> 只收<b>前面一句</b>（實驗衣和專注之間的聯想）。跟第三、第四、第八單元一樣——往前找之前，先確定它收的是一句還是一整片。</li>
+      <li><b>換字。</b>整篇談的其實是同一件事，說法一路在換：第 8 行 <q>dopamine dressing</q>、第 24 行 <q>color psychology</q>、第 32 到 33 行 <q>enclothed cognition</q>——三個名字，講的都是「穿什麼會影響你」。第 32 行還特地寫 <q>A concept closely related to</q>，直接告訴你它們是同一家的。</li>
+    </ul>
+  </div>
+  <p style="margin-top:1.1rem"><button class="go" id="g4">考卷怎麼考說明文</button></p>
+</section>
+
+<!-- STEP 5 -->
+<section class="step" id="s5" hidden>
+  <p class="stepno">第五步</p>
+  <h2>改寫題就考這一群動詞<span class="tag">上層：考點</span></h2>
+  <p>說明文的題目集中在兩種：</p>
+  <p><b>一、字彙題與指涉題往定義框找。</b>問某個術語是什麼意思，答案幾乎一定在 <q>the term</q>、<q>the study of</q>、<q>the idea that</q> 後面那一段。</p>
+  <p><b>二、改寫題認連結動詞群。</b>把 <q>is linked to</q> 換成 <q>is associated with</q>、<q>conveys</q> 換成 <q>signals</q>，句意不變——這正是改寫題在做的事。<b>但要小心程度：<q>is linked to</q> 是有關聯，<q>has been proven to</q> 是已證實，兩者差很多。</b></p>
+  <p>試一題：<b>第 31 行 <q>green being linked to greater creativity</q> 的意思，最接近下列哪一句？</b></p>
+  <div class="opts en" id="q5">
+    <button>Green is the colour that highly creative people most often choose.</button>
+    <button data-ok="1">Green is thought to encourage people to think up new ideas.</button>
+    <button>Green helps people concentrate better than any of the other colours.</button>
+    <button>Green has been proven in several studies to increase creativity.</button>
+  </div>
+  <div class="said e" id="a5" hidden>
+    <b>第二句。</b><q>being linked to</q> 改寫成 <q>is thought to encourage</q>，<q>greater creativity</q> 改寫成 <q>think up new ideas</q>。<b>兩處都換了字，程度也對得上——被動、留有餘地。</b>
+    <br><br>
+    <b>另外三個為什麼排除：</b>
+    <br><br>
+    <q>the colour that highly creative people most often choose</q>——<b>方向倒過來了。</b>課文說的是綠色帶來創造力，這句變成有創造力的人愛選綠色。<b>A 帶來 B 和 B 的人選 A，是兩件完全不同的事</b>，而且後者文章一個字都沒提。
+    <br><br>
+    <q>concentrate better than any of the other colours</q>——concentrate 對應的是第 41 行的 <q>focus</q>，那是<b>實驗衣</b>那一段的效果，不是綠色的。<b>把別段的效果接到這一段頭上。</b>而且課文從頭到尾沒有把幾個顏色拿來比較誰強。
+    <br><br>
+    <q>has been proven in several studies</q>——<b>這一個最難排除，因為它讀起來最「科學」。</b>但課文用的是 <q>being linked to</q>，只說有關聯；<q>proven</q> 是已經證實，程度升了一級。而且全篇只提到<b>一個</b>研究（第 37 到 40 行的實驗衣），不是 several studies。<b>改寫題最常在程度和數量上動手腳：把「可能」寫成「一定」，把「一個研究」寫成「許多研究」。</b>
+  </div>
+  <button class="go" id="g5" hidden>最後一題</button>
+</section>
+
+<!-- STEP 6 -->
+<section class="step" id="s6" hidden>
+  <p class="stepno">第六步</p>
+  <h2>把一句話放回去</h2>
+  <p>這就是考卷上的<b>篇章結構</b>題。下面把第 43 行的第一句整句抽掉了，四個候選句只有一句放得進去。</p>
+  <div class="gap" id="gp">
+    … The participants associated the coats with focus and precision, and this connection appeared to sharpen how they thought.
+    <br><br>
+    <span class="blank" id="bl">（空格）</span> Casual clothing can be comfortable, but it isn’t always ideal for maintaining focus and motivation. Instead, dress for the task at hand. For example, a more polished outfit can help you feel more capable and confident for an interview or presentation.
+  </div>
+  <div class="picks" id="q6">
+    <button>Color psychology is still a fairly new field.</button>
+    <button>But the research still has limits.</button>
+    <button>Dopamine is only one of many hormones.</button>
+    <button data-ok="1">All of this has practical implications.</button>
+  </div>
+  <div class="said" id="a6" hidden>
+    <b>四個線索同時指向同一句。</b>這四句單獨看都說得通，沒有一句本身是錯的。要排除，得靠位置和線索。
+    <br><br>
+    <b>先講一個例外。</b>前面說大考的正解通常是改寫，但<b>抽句題不一樣</b>：被抽掉的就是原文那一句，所以正解一定是原文。這一題要靠的是誘答哪裡接不上，不是比對字面。
+    <br><br>
+    <b>一、概括名詞找不找得到先行內容。</b><q>All of this</q> 需要前面有一整片內容可以收——多巴胺的機制、顏色的效果、enclothed cognition、實驗衣的研究，四樣全被它一次收走。<b>四句裡只有它接得住前面整篇。</b>而且 <q>practical implications</q> 正好預告下一句要講「所以你該怎麼做」。
+    <br><br>
+    <b>另外三個為什麼排除，各有一個明確的依據：</b>
+    <br><br>
+    <b>二、方向。</b><q>But the research still has limits.</q> 用 But 轉了個彎，讀者會等著看研究的問題在哪。但下一句 <q>Casual clothing can be comfortable, but it isn’t always ideal…Instead, dress for the task at hand</q> 是順著給建議，<b>轉折了卻沒有轉到。</b>
+    <br><br>
+    <b>三、範圍。</b><q>Color psychology is still a fairly new field.</q> 只提到顏色一件事。可是這一段接下來的建議<b>同時涵蓋衣著和顏色</b>（第 46 行 <q>a more polished outfit</q>、第 48 行 <q>color choices</q>），範圍太窄，罩不住。
+    <br><br>
+    <b>四、歸屬。</b><q>Dopamine is only one of many hormones.</q> 把焦點拉回第 14 到 22 行的多巴胺，可是那一段早就結束了；文章也從來沒有比較過各種荷爾蒙。<b>把前面某一段的話題重新開一次，是這種誘答最常見的做法。</b>
+  </div>
+  <p class="why" id="w6" hidden>考卷上不會有底色，也不會有行號。但你剛才用的四個線索，每一篇說明文都有。</p>
+</section>
+
+<!-- CLOSE -->
+<section class="close" id="s7" hidden>
+  <h2>帶著走的五句話</h2>
+  <ol>
+    <li><b>說明文常常先給經驗，再給名字。</b>看到 <q>You know the feeling</q>、<q>Have you ever…?</q>，下一段就會出現那個新名詞——那才是全文要講的東西。</li>
+    <li><b>術語一立起來就當場定義。</b><q>the term</q>、<q>the study of</q>、<q>the idea that</q>、<q>a concept</q> 是定義框，後面那一段就是答案。字彙題和指涉題都往這裡找。</li>
+    <li><b>驗證方法：四個問句。</b>那是什麼、為什麼有效、有證據嗎、我該怎麼做。四件齊了就是概念說明文；缺哪一件，文章的性質就變了。</li>
+    <li><b>連結動詞是同一群。</b>connected with、convey、signal、linked to、associate with、reinforce——講的都是「A 帶來 B」。改寫題最常換的就是它們。</li>
+    <li><b>但要盯住程度和數量。</b><q>is linked to</q> 不等於 <q>has been proven to</q>，一個研究不等於 several studies。<b>改寫題最愛在這兩個地方偷偷升級。</b></li>
+  </ol>
+  <p class="more"><a href="https://staresto-create.github.io/JCEE-vocab-questions/wordwheel.html">單字輪：把字拆成部件來記 →</a></p>
+</section>
+
+<nav class="series">
+  <a class="back" href="cohesion.html">← 回讀法練習總表</a>
+  <p class="note">總表上有目前可以做的所有單元，還有你累積到現在的讀法工具。</p>
+</nav>
+
+</div>
+<script>
+(function(){
+"use strict";
+function $(id){return document.getElementById(id);}
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;");}
+var KEY="cohesion-u9-v1";
+var ST={tags:{},qs:{},q1:0,q2:0,q5:0,q6:0,step:1};
+function save(){ try{ localStorage.setItem(KEY, JSON.stringify(ST)); }catch(e){} }
+function load(){ try{ var r=localStorage.getItem(KEY); return r?JSON.parse(r):null; }catch(e){ return null; } }
+function wipe(){ try{ localStorage.removeItem(KEY); }catch(e){} location.reload(); }
+
+var TITLE="Dress to De-Stress: How the Clothes You Wear Can Impact Your Mood";
+var LINES=[
+"You know the feeling: You\u2019re getting",
+"ready for something important\u2014a",
+"presentation, a birthday dinner, a big",
+"interview\u2014but nothing in your wardrobe",
+"feels right. The colors seem off. The style",
+"doesn\u2019t match your mood. Everything",
+"leaves you feeling flat. What you need is a",
+"dose of dopamine dressing.",
+"First coined during the COVID-19",
+"pandemic, the term means choosing",
+"clothes for their mood-boosting powers.",
+"However, to understand how it works, we",
+"need to explore the neuroscience involved.",
+"Dopamine is produced by the brain in",
+"response to enjoyable activities. Nicknamed",
+"the \u201chappiness hormone,\u201d it creates that",
+"pleasurable rush you get from eating",
+"something delicious or accomplishing",
+"something difficult. Wearing clothes we",
+"like, whether they\u2019re fresh purchases or",
+"comfortable old favorites, has the ability to",
+"trigger the same response.",
+"Color is also central to dopamine",
+"dressing. According to color psychology\u2014",
+"the study of how various hues affect",
+"us\u2014different colors {are connected with|c-link|1}",
+"different feelings. {Blue|c-wear|1}, for example, {tends|c-link|2}",
+"{to convey|c-link|2} {calmness|c-mood|1}, while {brown|c-wear|2} {signals|c-link|3}",
+"{stability|c-mood|2}. Some colors are even capable of affecting us in more",
+"significant ways, with {red|c-wear|3} {being capable of|c-link|4} {raising heart rates|c-mood|3}",
+"and {green|c-wear|4} {being linked to|c-link|5} greater {creativity|c-mood|4}.",
+"A concept closely related to dopamine dressing is enclothed",
+"cognition, the idea that what we wear shapes our mindset.",
+"Simply put, this means that clothes {hold associations|c-link|6}, and those",
+"associations influence how we think and behave. Switching",
+"out of {pajamas|c-wear|5} and into {workwear|c-wear|6}, for instance, can help us",
+"shift from {a relaxed mood|c-mood|5} to {an energetic one|c-mood|6}. Similarly, in one",
+"well-known study, participants who wore {white lab coats|c-wear|7}",
+"scored significantly better on attention tests than those wearing",
+"{their regular clothes|c-wear|8}. The participants {associated|c-link|7} the coats with",
+"{focus and precision|c-mood|7}, and this connection appeared to sharpen",
+"how they thought.",
+"All of this has practical implications. Casual clothing can be",
+"comfortable, but it isn\u2019t always ideal for maintaining focus and",
+"motivation. Instead, dress for the task at hand. For example,",
+"{a more polished outfit|c-wear|9} can help you feel {more capable and|c-mood|8}",
+"{confident|c-mood|8} for an interview or presentation. The same applies to",
+"color choices. Wearing {shades|c-wear|10} you {associate with|c-link|8} {energy or calm|c-mood|9}",
+"will likely {reinforce|c-link|9} those feelings.",
+"Your wardrobe, it turns out, is more than just a collection of",
+"clothes. Used thoughtfully, it\u2019s one of the most accessible tools",
+"you have for managing your mood and improving your focus."
+];
+var INDENT={1:1,9:1,14:1,23:1,32:1,43:1,50:1};
+var SPLIT=32;
+
+var CHAINS={
+ "c-wear":{k:"sub",n:"\u7a7f\u7684\u90a3\u4e00\u908a\uff1a\u984f\u8272\u8ddf\u8863\u670d\u3002\u5341\u8655\u5168\u90e8\u96c6\u4e2d\u5728\u7b2c 27 \u884c\u4ee5\u5f8c\u2014\u2014\u524d\u9762\u4e8c\u5341\u5e7e\u884c\u5728\u8b1b\u539f\u7406\uff0c\u5230\u9019\u88e1\u624d\u958b\u59cb\u4e00\u500b\u4e00\u500b\u9ede\u540d\u3002\u6bcf\u4e00\u500b\u5f8c\u9762\u90fd\u63a5\u8457\u4e00\u500b\u611f\u89ba\uff0c\u6c92\u6709\u4f8b\u5916\u3002"},
+ "c-mood":{k:"gen",n:"\u611f\u89ba\u7684\u90a3\u4e00\u908a\u3002\u8ddf\u9752\u8272\u4e00\u4e00\u5c0d\u61c9\uff1aBlue \u63a5 calmness\uff0cbrown \u63a5 stability\uff0cred \u63a5 raising heart rates\uff0cgreen \u63a5 creativity\uff0c\u5be6\u9a57\u8863\u63a5 focus and precision\u3002\u6ce8\u610f\u7b2c 46 \u5230 47 \u884c\u7684 capable and confident\u2014\u2014\u9019\u4e00\u7d44\u63a5\u7684\u4e0d\u662f\u984f\u8272\uff0c\u662f\u4e00\u5957\u8863\u670d\u3002"},
+ "c-link":{k:"mk",n:"\u9023\u7d50\u52d5\u8a5e\uff0c\u4e5d\u500b\u3002\u5b83\u5011\u8b1b\u7684\u5168\u662f\u540c\u4e00\u4ef6\u4e8b\uff1aA \u5e36\u4f86 B\u3002\u8003\u5377\u7684\u6539\u5beb\u984c\u6700\u5e38\u63db\u7684\u5c31\u662f\u9019\u4e00\u7fa4\u2014\u2014is linked to \u63db\u6210 is associated with\uff0cconveys \u63db\u6210 signals\u3002\u4f46\u8981\u76ef\u4f4f\u7a0b\u5ea6\uff1abeing linked to \u53ea\u662f\u6709\u95dc\u806f\uff0c\u8ddf has been proven to \u5dee\u5f88\u591a\u3002"}
+};
+var LB={sub:"\u7a7f\u7684\u90a3\u4e00\u908a",gen:"\u611f\u89ba\u7684\u90a3\u4e00\u908a",mk:"\u9023\u7d50\u52d5\u8a5e"};
+var CL={sub:"k",gen:"k g",mk:"k e"};
+
+var TERMS=[
+ {t:"dopamine dressing",f:"the term means",d:"choosing clothes for their mood-boosting powers",r:"\u7b2c 8\u201311 \u884c"},
+ {t:"color psychology",f:"the study of",d:"how various hues affect us",r:"\u7b2c 24\u201326 \u884c"},
+ {t:"enclothed cognition",f:"the idea that",d:"what we wear shapes our mindset",r:"\u7b2c 32\u201333 \u884c"}
+];
+
+var QS=[
+ {q:"\u90a3\u662f\u4ec0\u9ebc\uff1f",a:"\u5728\u75ab\u60c5\u671f\u9593\u51fa\u73fe\u7684\u8aaa\u6cd5\uff0c\u6307\u7684\u662f\u300c\u6311\u8863\u670d\u7684\u6642\u5019\u770b\u5b83\u80fd\u4e0d\u80fd\u63d0\u632f\u5fc3\u60c5\u300d\u3002",r:"\u7b2c 9\u201313 \u884c",a2:9,b2:13},
+ {q:"\u70ba\u4ec0\u9ebc\u6709\u6548\uff1f\u8166\u88e1\u767c\u751f\u4e86\u4ec0\u9ebc\u4e8b\uff1f",a:"\u591a\u5df4\u80fa\u662f\u5927\u8166\u5728\u9047\u5230\u6109\u5feb\u7684\u4e8b\u6642\u91cb\u653e\u7684\uff0c\u800c\u7a7f\u4e0a\u81ea\u5df1\u559c\u6b61\u7684\u8863\u670d\u4e5f\u80fd\u89f8\u767c\u540c\u4e00\u7a2e\u53cd\u61c9\u3002",r:"\u7b2c 14\u201322 \u884c",a2:14,b2:22},
+ {q:"\u984f\u8272\u70ba\u4ec0\u9ebc\u6709\u5dee\uff1f",a:"\u984f\u8272\u5fc3\u7406\u5b78\u8a8d\u70ba\u4e0d\u540c\u984f\u8272\u63a5\u5230\u4e0d\u540c\u7684\u611f\u89ba\uff1a\u85cd\u8272\u5b89\u9748\u3001\u8910\u8272\u7a69\u5b9a\u3001\u7d05\u8272\u5fc3\u8df3\u52a0\u5feb\u3001\u7da0\u8272\u5e36\u4f86\u5275\u9020\u529b\u3002",r:"\u7b2c 23\u201331 \u884c",a2:23,b2:31},
+ {q:"\u9084\u6709\u5225\u7684\u8aaa\u6cd5\u55ce\uff1f",a:"enclothed cognition\uff1a\u8863\u670d\u5e36\u8457\u806f\u60f3\uff0c\u800c\u90a3\u4e9b\u806f\u60f3\u6703\u5f71\u97ff\u6211\u5011\u600e\u9ebc\u60f3\u3001\u600e\u9ebc\u505a\u3002",r:"\u7b2c 32\u201335 \u884c",a2:32,b2:35},
+ {q:"\u6709\u5be6\u9a57\u8b49\u64da\u55ce\uff1f",a:"\u6709\u3002\u63db\u4e0a\u5de5\u4f5c\u670d\u80fd\u5f9e\u653e\u9b06\u5207\u63db\u5230\u6709\u5e79\u52c1\uff1b\u7a7f\u767d\u8272\u5be6\u9a57\u8863\u7684\u53d7\u8a66\u8005\uff0c\u6ce8\u610f\u529b\u6e2c\u9a57\u6210\u7e3e\u660e\u986f\u8f03\u597d\u3002",r:"\u7b2c 36\u201342 \u884c",a2:36,b2:42},
+ {q:"\u90a3\u6211\u8a72\u600e\u9ebc\u505a\uff1f",a:"\u4f9d\u7167\u7576\u4e0b\u8981\u505a\u7684\u4e8b\u60c5\u7a7f\uff1b\u9762\u8a66\u6216\u7c21\u5831\u5c31\u7a7f\u6b63\u5f0f\u4e00\u9ede\uff0c\u984f\u8272\u4e5f\u6311\u4f60\u81ea\u5df1\u6703\u806f\u60f3\u5230\u6d3b\u529b\u6216\u5e73\u975c\u7684\u90a3\u4e9b\u3002",r:"\u7b2c 43\u201349 \u884c",a2:43,b2:49}
+];
+
+var PAIRS=[
+ {l:"Blue",v:"tends to convey",r:"calmness",a:27,b:28,n:"\u7b2c 27 \u5230 28 \u884c\u3002tends to \u662f\u7559\u9918\u5730\u7684\u8aaa\u6cd5\uff0c\u4e0d\u662f\u65b7\u8a00\u3002"},
+ {l:"brown",v:"signals",r:"stability",a:28,b:29,n:"\u7b2c 28 \u5230 29 \u884c\u3002signal \u5728\u9019\u88e1\u4e0d\u662f\u300c\u4fe1\u865f\u300d\uff0c\u662f\u52d5\u8a5e\u300c\u50b3\u9054\u51fa\u300d\u3002"},
+ {l:"red",v:"being capable of",r:"raising heart rates",a:30,b:30,n:"\u7b2c 30 \u884c\u3002\u9019\u4e00\u7d44\u662f\u751f\u7406\u53cd\u61c9\uff0c\u4e0d\u662f\u60c5\u7dd2\u2014\u2014\u4f5c\u8005\u7279\u5730\u8aaa\u9019\u5e7e\u500b\u984f\u8272\u5f71\u97ff\u5f97\u66f4 significant\u3002"},
+ {l:"green",v:"being linked to",r:"greater creativity",a:31,b:31,n:"\u7b2c 31 \u884c\u3002be linked to \u53ea\u8aaa\u6709\u95dc\u806f\uff0c\u6c92\u8aaa\u56e0\u679c\u3002\u7b2c\u4e94\u6b65\u7684\u984c\u76ee\u5c31\u8003\u9019\u4e00\u9ede\u3002"},
+ {l:"pajamas \u2192 workwear",v:"shift from\u2026to",r:"relaxed \u2192 energetic",a:36,b:37,n:"\u7b2c 36 \u5230 37 \u884c\u3002\u9019\u4e00\u7d44\u4e0d\u662f\u984f\u8272\uff0c\u662f\u63db\u4e00\u5957\u8863\u670d\u5c31\u63db\u4e00\u7a2e\u72c0\u614b\u3002"},
+ {l:"white lab coats",v:"associated with",r:"focus and precision",a:38,b:41,n:"\u7b2c 38 \u5230 41 \u884c\u3002\u9019\u662f\u5168\u7bc7\u552f\u4e00\u7684\u5be6\u9a57\u8b49\u64da\uff0c\u6240\u4ee5\u7279\u5225\u91cd\u8981\u3002"}
+];
+
+/* ---------- generic quiz ---------- */
+function quiz(qid,aid,gid,tag,after){
+  var done=false;
+  function settle(){
+    done=true;
+    var bs=$(qid).querySelectorAll("button");
+    for(var i=0;i<bs.length;i++){ bs[i].disabled=true; bs[i].dataset.state=bs[i].dataset.ok?"right":"wrong"; }
+    if(aid) $(aid).hidden=false;
+    if(gid) $(gid).hidden=false;
+    if(after) after();
+  }
+  $(qid).addEventListener("click",function(e){
+    var b=e.target.closest("button"); if(!b||done) return;
+    settle(); ST[tag]=1; save();
+  });
+  return settle;
+}
+function opener(gid,sid,extra){
+  $(gid).addEventListener("click",function(){
+    var n=parseInt(sid.replace(/\D/g,""),10);
+    if(ST.step<n) ST.step=n; save();
+    $(sid).hidden=false; if(extra) extra();
+    $(sid).scrollIntoView({behavior:"smooth",block:"start"});
+  });
+}
+function hlLines(a,b){
+  var rows=$("tx").querySelectorAll(".ln");
+  for(var r=0;r<rows.length;r++){ var n=+rows[r].dataset.n; rows[r].classList.toggle("hl", n>=a&&n<=b); }
+  var ms=$("tx").querySelectorAll("m");
+  for(var k=0;k<ms.length;k++) ms[k].classList.remove("lit");
+  if(rows.length){ var f=$("tx").querySelector('.ln[data-n="'+a+'"]'); if(f) f.scrollIntoView({behavior:"smooth",block:"center"}); }
+}
+
+/* ---------- step 1 ---------- */
+var TL={y:"\u76f4\u63a5\u5c0d\u4f60\u8aaa\u8a71",e:"\u5171\u540c\u7d93\u9a57",w:"\u8853\u8a9e"};
+function tagged(){ var n=0; for(var k in ST.tags) if(ST.tags[k]) n++; return n; }
+function paintTag(c){
+  if(c.classList.contains("got")) return;
+  c.classList.add("got");
+  var b=document.createElement("b"); b.textContent=TL[c.dataset.t];
+  c.insertBefore(b, c.firstChild);
+}
+function afterTags(){
+  $("sc").innerHTML="\u5df2\u6a19\u51fa <em>"+tagged()+"</em> / 3";
+  if(tagged()===3) $("s1b").hidden=false;
+}
+$("ld").addEventListener("click",function(e){
+  var c=e.target.closest("c"); if(!c) return;
+  if(ST.tags[c.dataset.t]) return;
+  ST.tags[c.dataset.t]=1; save(); paintTag(c); afterTags();
+});
+var set1=quiz("q1","a1","g1","q1");
+opener("g1","s2",buildTerms);
+
+/* ---------- step 2 : the three definition frames ---------- */
+var builtTerms=false;
+function buildTerms(){
+  if(builtTerms) return; builtTerms=true;
+  var h="";
+  for(var i=0;i<TERMS.length;i++){
+    var t=TERMS[i];
+    h+='<div class="term"><span class="tm">'+esc(t.t)+'</span>　<span class="fr">'+esc(t.f)+'</span> '+
+       '<span class="df">'+esc(t.d)+'</span><span class="rf">'+esc(t.r)+'</span></div>';
+  }
+  $("terms").innerHTML=h;
+}
+function afterQ2(){ $("db").hidden=false; }
+var set2=quiz("q2","a2","g2","q2",afterQ2);
+opener("g2","s3",buildQs);
+
+/* ---------- step 3 : four questions ---------- */
+var builtQs=false;
+function buildQs(){
+  if(builtQs) return; builtQs=true;
+  var h="";
+  for(var i=0;i<QS.length;i++){
+    var q=QS[i];
+    h+='<div class="qcard" id="qc'+i+'"><div class="hd"><span class="qt">'+esc(q.q)+'</span>'+
+       '<button data-i="'+i+'">\u54ea\u4e00\u6bb5\uff1f</button></div>'+
+       '<div class="bd">'+esc(q.a)+'<i>'+esc(q.r)+'</i></div></div>';
+  }
+  $("qs").innerHTML=h;
+  $("qs").addEventListener("click",function(e){
+    var b=e.target.closest("button"); if(!b) return;
+    ST.qs[b.dataset.i]=1; save(); paintQs();
+  });
+  paintQs();
+}
+function openedQs(){ var n=0; for(var k in ST.qs) if(ST.qs[k]) n++; return n; }
+function paintQs(){
+  for(var i=0;i<QS.length;i++){ var el=$("qc"+i); if(el) el.classList.toggle("open",!!ST.qs[i]); }
+  $("sc3").innerHTML="\u5df2\u5c0d\u51fa <em>"+openedQs()+"</em> / 6";
+  if(openedQs()>=QS.length){ $("a3").hidden=false; $("g3").hidden=false; }
+}
+opener("g3","s4",function(){ buildText(); drawPairs(); });
+
+/* ---------- step 4 : the pairing figure + passage ---------- */
+function drawPairs(){
+  if($("fig").firstChild) return;
+  var s='<svg viewBox="0 0 420 246" role="img" aria-label="\u5de6\u908a\u662f\u984f\u8272\u8207\u8863\u670d\uff0c\u53f3\u908a\u662f\u611f\u89ba\uff0c\u4e2d\u9593\u7684\u7dda\u4e0a\u6a19\u8457\u9023\u7d50\u52d5\u8a5e">';
+  s+='<text class="hdlab l" x="76" y="18" text-anchor="middle">\u7a7f\u7684\u90a3\u4e00\u908a</text>';
+  s+='<text class="hdlab r" x="344" y="18" text-anchor="middle">\u611f\u89ba\u7684\u90a3\u4e00\u908a</text>';
+  for(var i=0;i<6;i++){
+    var y=30+i*35, cy=y+13, p=PAIRS[i];
+    s+='<g class="pair" data-i="'+i+'" tabindex="0" role="button">';
+    s+='<rect class="lb" x="8" y="'+y+'" width="136" height="26" rx="4"/>';
+    s+='<text x="76" y="'+(cy+4)+'" text-anchor="middle">'+esc(p.l)+'</text>';
+    s+='<path d="M146 '+cy+' L274 '+cy+'"/>';
+    s+='<text class="vb" x="210" y="'+(cy-3)+'" text-anchor="middle">'+esc(p.v)+'</text>';
+    s+='<rect class="rb" x="276" y="'+y+'" width="136" height="26" rx="4"/>';
+    s+='<text x="344" y="'+(cy+4)+'" text-anchor="middle">'+esc(p.r)+'</text>';
+    s+='</g>';
+  }
+  s+='</svg><figcaption>\u5de6\u908a\u662f\u7a7f\u7684\uff0c\u53f3\u908a\u662f\u611f\u89ba\u7684\uff0c\u7dda\u4e0a\u7684\u659c\u9ad4\u5b57\u662f\u628a\u5169\u908a\u63a5\u8d77\u4f86\u7684\u52d5\u8a5e\u3002\u516d\u7d44\u7528\u4e86\u516d\u500b\u4e0d\u540c\u7684\u52d5\u8a5e\uff0c\u610f\u601d\u5374\u5dee\u4e0d\u591a\u3002\u9ede\u4efb\u4e00\u7d44\uff0c\u8ab2\u6587\u5c0d\u61c9\u884c\u6703\u4eae\u8d77\u4f86\u3002</figcaption>';
+  $("fig").innerHTML=s;
+  function hit(g){
+    var i=+g.dataset.i, p=PAIRS[i];
+    var gs=$("fig").querySelectorAll(".pair");
+    for(var j=0;j<gs.length;j++) gs[j].classList.toggle("on", +gs[j].dataset.i===i);
+    hlLines(p.a,p.b);
+    $("pk").textContent="\u5c0d\u61c9\u914d\u5c0d"; $("pk").className="k e";
+    $("pc").textContent=p.l+"\u3000\u2014"+p.v+"\u2192\u3000"+p.r;
+    $("pt").textContent=p.n;
+  }
+  $("fig").addEventListener("click",function(e){ var g=e.target.closest(".pair"); if(g) hit(g); });
+  $("fig").addEventListener("keydown",function(e){
+    if(e.key!=="Enter"&&e.key!==" ") return;
+    var g=e.target.closest(".pair"); if(g){ e.preventDefault(); hit(g); }
+  });
+}
+function renderLine(str){
+  var out="",i=0;
+  while(i<str.length){
+    var a=str.indexOf("{",i);
+    if(a<0){ out+=esc(str.slice(i)); break; }
+    out+=esc(str.slice(i,a));
+    var b=str.indexOf("}",a), p=str.slice(a+1,b).split("|");
+    var id=p[1], it=p[2]||"1", k=CHAINS[id]?CHAINS[id].k:"sub";
+    out+='<m data-c="'+id+'" data-i="'+it+'" data-kind="'+k+'" tabindex="0">'+esc(p[0])+'</m>';
+    i=b+1;
+  }
+  return out;
+}
+var builtText=false;
+function buildText(){
+  if(builtText) return; builtText=true;
+  var h='<p class="ttl">'+esc(TITLE)+'</p>';
+  for(var i=0;i<LINES.length;i++){
+    var n=i+1;
+    if(n===SPLIT) h+='<p class="split">\u4ee5\u4e0a\u662f 9/17 \u7684\u7b2c 1\u201331 \u884c\u3002\u4ee5\u4e0b\u662f 9/18 \u7684\u7b2c 32\u201352 \u884c\u3002</p>';
+    var cls="ln"+(INDENT[n]?" ind"+(n>1?" pb":""):"");
+    h+='<div class="'+cls+'" data-n="'+n+'"><i>'+((n%5===0)?n:"")+'</i><span>'+renderLine(LINES[i])+'</span></div>';
+  }
+  $("tx").innerHTML=h;
+}
+function lightChain(id){
+  var ms=$("tx").querySelectorAll("m"), items={}, order=[],i;
+  var gs=$("fig").querySelectorAll(".pair");
+  for(i=0;i<gs.length;i++) gs[i].classList.remove("on");
+  var rows=$("tx").querySelectorAll(".ln");
+  for(i=0;i<rows.length;i++) rows[i].classList.remove("hl");
+  for(i=0;i<ms.length;i++){
+    if(ms[i].dataset.c===id){
+      ms[i].classList.add("lit");
+      var key=ms[i].dataset.i;
+      if(!items[key]){ items[key]=[]; order.push(key); }
+      items[key].push(ms[i].textContent);
+    } else ms[i].classList.remove("lit");
+  }
+  var c=CHAINS[id]; if(!c) return;
+  var parts=[];
+  for(var o=0;o<order.length;o++) parts.push(esc(items[order[o]].join(" ")));
+  $("pk").textContent=LB[c.k]; $("pk").className=CL[c.k];
+  $("pc").innerHTML=parts.join('<i>\u2192</i>');
+  $("pt").textContent=c.n;
+}
+$("tx").addEventListener("click",function(e){ var m=e.target.closest("m"); if(m) lightChain(m.dataset.c); });
+$("tx").addEventListener("keydown",function(e){
+  if(e.key!=="Enter"&&e.key!==" ") return;
+  var m=e.target.closest("m"); if(m){ e.preventDefault(); lightChain(m.dataset.c); }
+});
+function toggle(btn,cls){
+  btn.addEventListener("click",function(){
+    var on=btn.getAttribute("aria-pressed")==="true";
+    btn.setAttribute("aria-pressed",on?"false":"true");
+    $("tx").classList.toggle(cls,on);
+  });
+}
+toggle($("m1"),"off-sub");
+toggle($("m2"),"off-gen");
+opener("g4","s5");
+
+/* ---------- step 5 ---------- */
+var set5=quiz("q5","a5","g5","q5");
+$("g5").addEventListener("click",function(){
+  if(ST.step<6) ST.step=6; save();
+  $("s6").hidden=false;
+  $("s6").scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+/* ---------- step 6 ---------- */
+var done6=false;
+function settle6(){
+  done6=true;
+  var bs=$("q6").querySelectorAll("button");
+  for(var i=0;i<bs.length;i++){
+    bs[i].disabled=true; bs[i].dataset.state=bs[i].dataset.ok?"right":"wrong";
+    if(bs[i].dataset.ok){ $("bl").textContent=bs[i].textContent; $("bl").className="blank filled"; }
+  }
+  $("a6").hidden=false; $("w6").hidden=false; $("s7").hidden=false;
+}
+$("q6").addEventListener("click",function(e){
+  var b=e.target.closest("button"); if(!b||done6) return;
+  settle6(); ST.q6=1; save();
+  $("a6").scrollIntoView({behavior:"smooth",block:"nearest"});
+});
+
+/* ---------- preview mode for the teacher: cohesion-u9.html?all ---------- */
+function previewAll(){
+  $("pv").hidden=false;
+  var i,cs=$("ld").querySelectorAll("c");
+  for(i=0;i<cs.length;i++){ ST.tags[cs[i].dataset.t]=1; paintTag(cs[i]); }
+  afterTags(); set1();
+  $("s2").hidden=false; buildTerms(); set2();
+  $("s3").hidden=false;
+  for(i=0;i<QS.length;i++) ST.qs[i]=1;
+  buildQs();
+  $("s4").hidden=false; buildText(); drawPairs();
+  $("s5").hidden=false; set5();
+  $("s6").hidden=false; settle6();
+}
+
+/* ---------- restore ---------- */
+$("rst").addEventListener("click",wipe);
+(function restore(){
+  if(/(^|[?&])all(=|&|$)/.test(location.search)){ previewAll(); return; }
+  var v=load(); if(!v) return;
+  ST=v;
+  if(!ST.tags) ST.tags={};
+  if(!ST.qs) ST.qs={};
+  if(!ST.step) ST.step=1;
+  if(!(tagged()||ST.step>1)) return;
+  $("rs").hidden=false;
+  var i,cs=$("ld").querySelectorAll("c");
+  for(i=0;i<cs.length;i++) if(ST.tags[cs[i].dataset.t]) paintTag(cs[i]);
+  afterTags();
+  if(ST.q1) set1();
+  if(ST.step>=2){ $("s2").hidden=false; buildTerms(); if(ST.q2) set2(); }
+  if(ST.step>=3){ $("s3").hidden=false; buildQs(); }
+  if(ST.step>=4){ $("s4").hidden=false; buildText(); drawPairs(); }
+  if(ST.step>=5){ $("s5").hidden=false; if(ST.q5) set5(); }
+  if(ST.step>=6){ $("s6").hidden=false; if(ST.q6) settle6(); }
+  var last=$("s"+(ST.step>=6?6:ST.step));
+  if(last) setTimeout(function(){ last.scrollIntoView({block:"start"}); },60);
+})();
+})();
+</script>
+</body>
+</html>
