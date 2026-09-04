@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>時間序｜When Dreams Led to Scientific Breakthroughs</title>
+<meta name="description" content="四位科學家，四個夢。但課文的出現順序不是實際的時間順序——一個 had occurred 就把時間往回推了一步。">
+<meta property="og:title" content="時間序｜When Dreams Led to Scientific Breakthroughs">
+<meta property="og:description" content="找出時間訊號，就找到這篇的骨架。然後注意：出現順序不等於時間順序。">
+<style>
+:root{
+  --ground:#f1f3f2; --ink:#17282f; --teal:#1f6f6a; --teal-soft:#dfeceb;
+  --muted:#77878d; --line:#cdd6d6; --exam:#b4661c; --exam-soft:#fdf4e7;
+  --gen:#4a6a90; --gen-soft:#e0e7f0;
+  --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+  --sans:"PingFang TC","Noto Sans TC","Microsoft JhengHei","Helvetica Neue",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);
+     line-height:1.6;-webkit-text-size-adjust:100%}
+.wrap{max-width:44rem;margin:0 auto;padding:1.6rem 1.1rem 4rem}
+
+h1{font-family:var(--serif);font-weight:600;font-size:1.6rem;line-height:1.3;margin:0 0 .55rem}
+.lede{margin:0 0 1.3rem;color:#3d5059;font-size:.95rem}
+.src{font-size:.8rem;color:var(--muted);margin:0 0 1.1rem}
+.resume{font-size:.85rem;color:var(--teal);background:var(--teal-soft);
+        border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.resume[hidden]{display:none}
+.resume button{font:inherit;font-size:.82rem;background:#fff;color:var(--ink);
+  border:1px solid var(--line);border-radius:.25rem;padding:.16rem .6rem;
+  margin-left:.5rem;cursor:pointer}
+.resume button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+
+.hero{background:#fff;border:1px solid var(--line);border-radius:.4rem;
+      padding:1.05rem 1rem;margin:0 0 1.5rem}
+.hero .row{font-family:var(--serif);font-size:1.06rem;line-height:2;color:var(--exam)}
+.hero .row span{background:var(--exam-soft);border-radius:.2rem;padding:.06rem .32rem}
+.hero .row i{font-style:normal;color:var(--muted);padding:0 .28rem}
+.hero p{margin:.6rem 0 0;font-size:.9rem;color:#3d5059}
+
+.step{border-top:1px solid var(--line);padding-top:1.15rem;margin-top:1.6rem}
+.step[hidden]{display:none}
+.stepno{font-family:var(--serif);font-size:.82rem;color:var(--muted);margin:0 0 .2rem}
+h2{font-family:var(--serif);font-weight:600;font-size:1.2rem;margin:0 0 .5rem;color:var(--teal)}
+.step p{margin:0 0 .7rem;font-size:.95rem}
+
+.opts{display:flex;flex-direction:column;gap:.45rem;margin:.2rem 0 .8rem}
+.opts button{font:inherit;font-size:.95rem;background:#fff;color:var(--ink);
+  border:1px solid var(--line);border-radius:.3rem;padding:.45rem .8rem;cursor:pointer;text-align:left}
+.opts button:hover{border-color:var(--teal)}
+.opts button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.opts button[data-state="right"]{background:var(--teal);border-color:var(--teal);color:#fff}
+.opts button[data-state="wrong"]{background:var(--ground);color:var(--muted)}
+.opts button[disabled]{cursor:default}
+
+.said{background:#fff;border-left:3px solid var(--teal);border-radius:.3rem;
+      padding:.75rem .85rem;margin:.2rem 0 .9rem;font-size:.93rem;color:#3d5059}
+.said b{color:var(--ink);font-weight:600}
+.said[hidden]{display:none}
+.said.g{border-left-color:var(--gen)}
+.said.e{border-left-color:var(--exam)}
+
+.go{font:inherit;font-size:.92rem;background:var(--ink);color:#fff;border:1px solid var(--ink);
+    border-radius:.3rem;padding:.42rem 1.05rem;cursor:pointer}
+.go:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.go[hidden]{display:none}
+.go.alt{background:#fff;color:var(--teal);border-color:var(--line);margin-bottom:.8rem}
+
+.cards{display:flex;flex-wrap:wrap;gap:.45rem;margin:.2rem 0 .8rem}
+.cards button{font:inherit;font-family:var(--serif);font-size:.98rem;background:#fff;color:var(--ink);
+  border:1px solid var(--line);border-radius:.3rem;padding:.4rem .75rem;cursor:pointer;text-align:left}
+.cards button small{display:block;font-family:var(--sans);font-size:.74rem;color:var(--muted);margin-top:.1rem}
+.cards button:hover{border-color:var(--exam)}
+.cards button:focus-visible{outline:2px solid var(--exam);outline-offset:2px}
+.cards button.hit{background:var(--exam-soft);border-color:var(--exam);color:var(--exam)}
+.cards button.hit small{color:var(--exam)}
+.cards button.miss{background:var(--ground);color:var(--muted);border-style:dashed}
+.score{font-size:.88rem;color:var(--muted);margin:0 0 .8rem}
+.score em{font-style:normal;color:var(--exam);font-weight:600}
+
+.daybreak{border:1px dashed var(--exam);background:var(--exam-soft);border-radius:.4rem;
+          padding:.8rem .9rem;margin:1.6rem 0 0;font-size:.9rem;color:#3d5059}
+.daybreak b{display:block;color:var(--exam);font-family:var(--serif);font-size:1.02rem;margin-bottom:.3rem}
+.daybreak[hidden]{display:none}
+
+.tl{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.5rem .4rem .3rem;margin:0 0 .7rem}
+.tl svg{display:block;width:100%;max-width:26rem;height:auto;margin:0 auto}
+.tl .pt{cursor:pointer}
+.tl .pt .dot{fill:#fff;stroke:var(--muted);stroke-width:2.4}
+.tl .pt .lblL{fill:var(--ink);font-family:var(--sans);font-size:13px;text-anchor:end}
+.tl .pt .lblR{fill:var(--ink);font-family:var(--sans);font-size:13px;text-anchor:start}
+.tl .pt .yr{fill:var(--muted);font-family:var(--sans);font-size:10.5px;text-anchor:start}
+.tl .pt .link{fill:none;stroke:var(--line);stroke-width:2;stroke-linecap:round}
+.tl .pt.on .dot{fill:var(--exam);stroke:var(--exam)}
+.tl .pt.on .lblL,.tl .pt.on .lblR{fill:var(--exam);font-weight:600}
+.tl .pt.on .yr{fill:var(--exam)}
+.tl .pt.on .link{stroke:var(--exam);stroke-width:2.8}
+.tl .pt:focus{outline:none}
+.tl .pt:focus-visible .dot{stroke:var(--teal);stroke-width:3.6}
+.tl .axis{fill:none;stroke:var(--line);stroke-width:1.6;stroke-linecap:round}
+.tl .rowlab{fill:var(--muted);font-family:var(--sans);font-size:11.5px}
+.tl .foot{fill:var(--muted);font-family:var(--sans);font-size:10.5px}
+
+.lines{background:#fff;border:1px solid var(--line);border-radius:.4rem;
+       padding:.8rem .9rem;margin:0 0 .8rem}
+.lines .hd{font-size:.85rem;color:var(--muted);margin:0 0 .5rem}
+.lines ol{list-style:none;margin:0;padding:0;font-family:var(--serif);font-size:.98rem;line-height:1.75}
+.lines li{display:flex;gap:.6rem}
+.lines li b{flex:0 0 1.8rem;text-align:right;font-family:var(--sans);font-size:.74rem;
+            font-weight:400;color:var(--line);padding-top:.28rem}
+.lines li.five b{color:var(--muted)}
+.lines mark{background:var(--exam-soft);color:var(--exam);box-shadow:inset 0 -2px 0 #ecc9a2;
+            border-radius:.15rem;padding:0 .12rem}
+
+.pair{background:#fff;border:1px solid var(--line);border-radius:.4rem;
+      padding:.85rem 1rem;margin:0 0 .8rem;font-family:var(--serif);font-size:1rem;line-height:1.8}
+.pair div{padding:.25rem 0}
+.pair u{text-decoration:none;background:var(--gen-soft);border-radius:.2rem;padding:.04rem .28rem}
+.pair span{font-family:var(--sans);font-size:.78rem;color:var(--muted);margin-right:.55rem}
+
+.modes{display:flex;gap:.4rem;margin:0 0 1rem;flex-wrap:wrap}
+.modes button{font:inherit;font-size:.86rem;background:#fff;color:var(--ink);
+  border:1px solid var(--line);border-radius:.3rem;padding:.32rem .85rem;cursor:pointer}
+.modes button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.modes button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+
+.text{background:#fff;border:1px solid var(--line);border-radius:.4rem;
+      padding:1rem 1rem 1.2rem;font-family:var(--serif);font-size:1.04rem;line-height:1.95}
+.text .ttl{font-weight:600;font-size:1.1rem;margin:0 0 .8rem;line-height:1.45}
+.text p{margin:0 0 .6rem}
+.text .split{font-family:var(--sans);font-size:.78rem;color:var(--exam);
+             border-top:1px dashed var(--exam);margin:1rem 0 .8rem;padding-top:.4rem}
+.text m{cursor:pointer;border-radius:.2rem;padding:.04rem .16rem}
+.text m[data-kind="time"]{background:var(--exam-soft);box-shadow:inset 0 -2px 0 #ecc9a2}
+.text m[data-kind="who"]{background:var(--teal-soft);box-shadow:inset 0 -2px 0 #a8ccc8}
+.text m[data-kind="ref"]{background:var(--gen-soft);box-shadow:inset 0 -2px 0 #a9bbd0}
+.text m.lit[data-kind="time"]{background:var(--exam);color:#fff;box-shadow:none}
+.text m.lit[data-kind="who"]{background:var(--teal);color:#fff;box-shadow:none}
+.text m.lit[data-kind="ref"]{background:var(--gen);color:#fff;box-shadow:none}
+.text.off-time m[data-kind="time"]{background:none;box-shadow:none}
+.text.off-who m[data-kind="who"]{background:none;box-shadow:none}
+.text.off-ref m[data-kind="ref"]{background:none;box-shadow:none}
+
+.panel{position:sticky;bottom:0;background:#fff;border:1px solid var(--line);
+       border-radius:.4rem;padding:.75rem .9rem;margin-top:1rem;
+       box-shadow:0 -2px 10px rgba(23,40,47,.07)}
+.panel .k{font-size:.72rem;font-weight:600;border-radius:.2rem;padding:.06rem .42rem;
+          color:var(--exam);background:var(--exam-soft);border:1px solid var(--exam)}
+.panel .k.w{color:var(--teal);background:var(--teal-soft);border-color:var(--teal)}
+.panel .k.r{color:var(--gen);background:var(--gen-soft);border-color:var(--gen)}
+.panel .ch{font-family:var(--serif);font-size:1.02rem;margin:.4rem 0 .3rem;color:var(--ink);
+           line-height:1.75;overflow-wrap:anywhere}
+.panel .ch i{font-style:normal;color:var(--muted);padding:0 .28rem}
+.panel .nt{font-size:.88rem;color:#3d5059;margin:0}
+
+.gap{background:#fff;border:1px solid var(--line);border-radius:.4rem;
+      padding:.9rem 1rem;margin:0 0 .9rem;font-family:var(--serif);
+      font-size:1.02rem;line-height:1.95}
+.gap .blank{display:inline-block;min-width:9rem;border-bottom:2px solid var(--exam);
+            color:var(--exam);text-align:center;font-family:var(--sans);font-size:.82rem}
+.gap .blank.filled{border-bottom-color:var(--teal);color:var(--ink);
+                   font-family:var(--serif);font-size:1.02rem;text-align:left;
+                   background:var(--teal-soft);border-radius:.2rem;padding:0 .25rem}
+.picks{display:flex;flex-direction:column;gap:.45rem;margin:0 0 .9rem}
+.picks button{font:inherit;font-family:var(--serif);font-size:.98rem;line-height:1.6;
+  background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:.3rem;
+  padding:.55rem .8rem;cursor:pointer;text-align:left}
+.picks button:hover{border-color:var(--teal)}
+.picks button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.picks button[data-state="right"]{background:var(--teal-soft);border-color:var(--teal)}
+.picks button[data-state="wrong"]{background:var(--ground);color:var(--muted)}
+.why{font-size:.86rem;color:#3d5059;margin:.35rem 0 0;padding-left:.1rem}
+.why[hidden]{display:none}
+.close{border-top:1px solid var(--line);margin-top:2rem;padding-top:1.1rem;
+       font-size:.93rem;color:#3d5059}
+.close h2{font-size:1.1rem}
+.close ol{margin:.3rem 0 0;padding-left:1.15rem}
+.close li{margin-bottom:.5rem}
+.more{margin-top:1.5rem;font-size:.88rem}
+.more a{color:var(--teal)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>時間序</h1>
+<p class="lede">四位科學家，四個夢。作者把他們排成一條時間線——但課文的出現順序，不等於事情發生的順序。</p>
+<p class="resume" id="rs" hidden>上次做到一半，已經幫你接回來了。<button id="rst">重新開始</button></p>
+<p class="src">ALL+ 互動英語 9 月號 Unit 4　When Dreams Led to Scientific Breakthroughs　pp. 16–17（課文共 64 行）</p>
+
+<div class="hero">
+  <div class="row"><span>For centuries</span><i>→</i><span>On March 1, 1869</span><i>→</i><span>just a few years before</span><i>→</i><span>later thinkers</span><i>→</i><span>Today</span></div>
+  <p>這五個片語分別在第 5、15、25、35、55 行。把它們連起來，就是這篇文章的骨架。其中有一個的方向跟其他四個相反。</p>
+</div>
+
+<!-- STEP 1 -->
+<section class="step" id="s1">
+  <p class="stepno">第一步</p>
+  <h2>先把時間訊號挑出來</h2>
+  <p>下面八張字卡都是課文裡的片語。有些在告訴你<b>時間</b>，有些只是在描述<b>方式或地點</b>。把講時間的挑出來，一共五張。點錯會變灰，但還可以再點。</p>
+  <div class="cards" id="c1">
+    <button data-ok="1">For centuries<small>第 5 行</small></button>
+    <button>in the quiet, unpredictable world of dreams<small>第 4–5 行</small></button>
+    <button data-ok="1">On March 1, 1869<small>第 15–16 行</small></button>
+    <button>in a logical, systematic way<small>第 17–18 行</small></button>
+    <button data-ok="1">had occurred just a few years before<small>第 25 行</small></button>
+    <button data-ok="1">later thinkers<small>第 35 行</small></button>
+    <button>in organic chemistry<small>第 32 行</small></button>
+    <button data-ok="1">Today<small>第 55 行</small></button>
+  </div>
+  <p class="score" id="sc1">找到 <em>0</em> / 5</p>
+  <button class="go alt" id="sk1" hidden>找不到，直接看答案</button>
+  <div class="said e" id="a1" hidden>
+    <b>五張時間訊號串起來，就是這篇的骨架：數百年來 → 1869 年 3 月 1 日 → 更早幾年 → 後來的人 → 今天。</b>
+    <br><br>
+    沒被選到的三張長得也很像——都是 in 開頭的介系詞片語——但它們回答的是「怎麼做」「在哪裡」，不是「什麼時候」。<b>判斷的方法不是看句型，是看它回答的問題。</b>
+    <br><br>
+    一篇文章只要能挑出這樣一串時間訊號，它多半就是<b>時間序</b>寫的。時間序的文章，段落順序本身就在傳遞訊息，這是讀的時候最省力的一條線。
+  </div>
+  <button class="go" id="g1" hidden>可是有一張的方向不一樣</button>
+</section>
+
+<!-- STEP 2 -->
+<section class="step" id="s2" hidden>
+  <p class="stepno">第二步</p>
+  <h2>出現順序不等於時間順序</h2>
+  <p>課文先講門得列夫，寫明是 <i>On March 1, 1869</i>（第 15–16 行）。下一段才講凱庫勒。</p>
+  <p>那麼，凱庫勒夢見那條蛇，是什麼時候的事？</p>
+  <div class="opts" id="q2">
+    <button>1869 年之後</button>
+    <button data-ok="1">比 1869 年早幾年</button>
+    <button>跟門得列夫同一年</button>
+    <button>課文沒有交代</button>
+  </div>
+  <div class="said e" id="a2" hidden>
+    <b>第 25 行：a similar discovery had occurred just a few years before.</b>
+    <br><br>
+    <b>had ＋ p.p.（過去完成式）</b>的工作，就是把時間推到另一個過去事件<b>之前</b>。後面再加一個 before，方向又確定了一次。所以：
+    <br><br>
+    課文出現順序：門得列夫 → 凱庫勒<br>
+    實際發生順序：凱庫勒 → 門得列夫
+    <br><br>
+    考卷上問「下列事件何者最先發生」的時候，照字面順序回答就會答錯。<b>中文沒有時態，這一步對我們特別容易漏掉</b>，所以看到 had ＋ p.p.，先停一下，確認時間是不是往回走了。
+  </div>
+  <button class="go" id="g2" hidden>把整條時間線畫出來</button>
+</section>
+
+<!-- DAY BREAK -->
+<div class="daybreak" id="db" hidden>
+  <b>9/8 的範圍從這裡開始：第 33–64 行</b>
+  第一、二步用的是 9/7 的第 1–32 行。第三步以後會用到整篇，包含 9/8 的第 33–64 行。如果你今天是 9/7，做到這裡可以先停，明天再接下去。（第一步的字卡裡已經有兩張來自第 33 行以後，先看到不影響。）
+</div>
+
+<!-- STEP 3 -->
+<section class="step" id="s3" hidden>
+  <p class="stepno">第三步</p>
+  <h2>兩條線，只有前兩個位置交換</h2>
+  <p>左邊是<b>課文出現的順序</b>，右邊是<b>實際發生的順序</b>。點任何一個名字，下面會出現它在課文裡的行，時間訊號會標起來。</p>
+  <div class="tl" id="tl">
+    <svg viewBox="0 0 400 402" role="img" aria-label="左邊是課文出現的順序，右邊是實際發生的順序，門得列夫與凱庫勒兩條連線交叉">
+      <text class="rowlab" text-anchor="end" x="104" y="46">課文出現的順序</text>
+      <text class="rowlab" text-anchor="start" x="270" y="46">實際發生的順序</text>
+      <path class="axis" d="M 116 60 C 113 150, 119 260, 116 350"/>
+      <path class="axis" d="M 254 60 C 257 150, 251 260, 254 350"/>
+
+      <g class="pt" id="p-mendeleev" tabindex="0" role="button" aria-label="門得列夫">
+        <path class="link" d="M 124 78 C 165 78, 205 141, 246 141"/>
+        <text class="lblL" text-anchor="end" x="104" y="83">門得列夫</text>
+        <circle class="dot" cx="116" cy="78" r="7"/>
+        <circle class="dot" cx="254" cy="141" r="7"/>
+        <text class="lblR" text-anchor="start" x="270" y="142">門得列夫</text>
+        <text class="yr" text-anchor="start" x="270" y="156">1869.3.1</text>
+      </g>
+
+      <g class="pt" id="p-kekule" tabindex="0" role="button" aria-label="凱庫勒">
+        <path class="link" d="M 124 141 C 165 141, 205 78, 246 78"/>
+        <text class="lblL" text-anchor="end" x="104" y="146">凱庫勒</text>
+        <circle class="dot" cx="116" cy="141" r="7"/>
+        <circle class="dot" cx="254" cy="78" r="7"/>
+        <text class="lblR" text-anchor="start" x="270" y="79">凱庫勒</text>
+        <text class="yr" text-anchor="start" x="270" y="93">比 1869 早幾年</text>
+      </g>
+
+      <g class="pt" id="p-ramanujan" tabindex="0" role="button" aria-label="拉馬努金">
+        <path class="link" d="M 124 204 C 165 204, 205 204, 246 204"/>
+        <text class="lblL" text-anchor="end" x="104" y="209">拉馬努金</text>
+        <circle class="dot" cx="116" cy="204" r="7"/>
+        <circle class="dot" cx="254" cy="204" r="7"/>
+        <text class="lblR" text-anchor="start" x="270" y="205">拉馬努金</text>
+        <text class="yr" text-anchor="start" x="270" y="219">19 世紀之後</text>
+      </g>
+
+      <g class="pt" id="p-bohr" tabindex="0" role="button" aria-label="波耳">
+        <path class="link" d="M 124 267 C 165 267, 205 267, 246 267"/>
+        <text class="lblL" text-anchor="end" x="104" y="272">波耳</text>
+        <circle class="dot" cx="116" cy="267" r="7"/>
+        <circle class="dot" cx="254" cy="267" r="7"/>
+        <text class="lblR" text-anchor="start" x="270" y="268">波耳</text>
+        <text class="yr" text-anchor="start" x="270" y="282">19 世紀之後</text>
+      </g>
+
+      <g class="pt" id="p-today" tabindex="0" role="button" aria-label="今天">
+        <path class="link" d="M 124 330 C 165 330, 205 330, 246 330"/>
+        <text class="lblL" text-anchor="end" x="104" y="335">今天</text>
+        <circle class="dot" cx="116" cy="330" r="7"/>
+        <circle class="dot" cx="254" cy="330" r="7"/>
+        <text class="lblR" text-anchor="start" x="270" y="331">今天</text>
+        <text class="yr" text-anchor="start" x="270" y="345">Today</text>
+      </g>
+
+      <text class="foot" text-anchor="middle" x="200" y="370">拉馬努金和波耳，課文只說是「後來的人」，</text>
+      <text class="foot" text-anchor="middle" x="200" y="386">沒有給年代，也沒有說他們兩人誰先誰後</text>
+    </svg>
+  </div>
+  <div class="lines" id="ln">
+    <p class="hd">點上面的名字，這裡會顯示對應的課文行。</p>
+    <ol id="lnb"></ol>
+  </div>
+  <div class="said e" id="a3" hidden>
+    <b>整條線上只有一個地方交叉。</b>其他三段課文順序和時間順序完全一致，作者也就沒有多加說明——順序自己會講話。只有要往回走的那一次，他必須用 had occurred … before 明講。
+    <br><br>
+    <b>這給你一個很省力的讀法：時間序的文章，預設「先寫的先發生」，只在看到過去完成式或 before、earlier、previously 這類字的時候才停下來重排。</b>
+  </div>
+  <button class="go" id="g3" hidden>下一個：作者怎麼指回前面</button>
+</section>
+
+<!-- STEP 4 -->
+<section class="step" id="s4" hidden>
+  <p class="stepno">第四步</p>
+  <h2>This ＋ 一個概括的名詞</h2>
+  <p>時間序把段落串起來，但段落<b>內部</b>靠的是另一套工具。看第 30 行：</p>
+  <div class="pair">
+    <div><span>第 28–29 行</span>Then one night, he dreamed of a snake biting its own tail and forming a ring.</div>
+    <div><span>第 30 行</span><u>This striking vision</u> led him to propose a circular molecular structure…</div>
+  </div>
+  <p><i>This striking vision</i> 指的是什麼？</p>
+  <div class="opts" id="q4">
+    <button>苯的環狀結構</button>
+    <button data-ok="1">凱庫勒夢見蛇咬住自己的尾巴繞成一圈</button>
+    <button>凱庫勒長年的研究</button>
+    <button>有機化學上的突破</button>
+  </div>
+  <div class="said g" id="a4" hidden>
+    <b>vision 這個字本身沒有內容，內容全在前面那一句。</b>
+    <br><br>
+    作者不想把整句重講一次，就用一個<b>概括的名詞</b>（vision）把它整包收起來，前面加 This。要判斷它指什麼，往前找<b>最近的一整句話</b>，不是找最近的一個名詞。
+    <br><br>
+    選「苯的環狀結構」的話，方向剛好相反——那是這個 vision <b>造成的結果</b>，寫在同一句的後半段。
+  </div>
+  <button class="go alt" id="g4a" hidden>再看一個一模一樣的</button>
+  <div id="w4b" hidden>
+    <div class="pair">
+      <div><span>第 45–47 行</span>…Niels Bohr is said to have dreamed of electrons orbiting the nucleus like planets around the sun.</div>
+      <div><span>第 48 行</span><u>This vivid image</u> inspired his model of the atom…</div>
+    </div>
+    <div class="opts" id="q4b">
+      <button>波耳的原子模型</button>
+      <button data-ok="1">電子繞著原子核運行，像行星繞著太陽</button>
+      <button>諾貝爾物理獎</button>
+      <button>原子的結構</button>
+    </div>
+    <div class="said g" id="a4b" hidden>
+      <b>同一招，同一個位置。</b>夢的內容寫在前面，This ＋ 概括名詞把它收起來，接著才寫它引出的結果（his model of the atom）。
+      <br><br>
+      vision、image 這種字在這裡叫<b>概括名詞</b>。常見的還有 this approach、this decision、this problem、these findings、such discoveries。看到它們，先往前找那一整句。
+      <br><br>
+      這正是這期第 12 單元「看懂代名詞的指涉對象」要處理的東西，你已經先練到了。
+    </div>
+  </div>
+  <button class="go" id="g4" hidden>把整篇打開</button>
+</section>
+
+<!-- STEP 5 -->
+<section class="step" id="s5" hidden>
+  <p class="stepno">第五步</p>
+  <h2>三條線一起看</h2>
+  <p>點任何一個有底色的字，同一條線上的字會一起亮起來。三種顏色可以各自關掉。</p>
+  <div class="modes">
+    <button id="m1" aria-pressed="true">時間訊號（橘）</button>
+    <button id="m2" aria-pressed="true">換字：做研究的人（青）</button>
+    <button id="m3" aria-pressed="true">指涉（藍灰）</button>
+  </div>
+  <div class="text" id="tx"></div>
+  <div class="panel" id="pn">
+    <span class="k" id="pk">時間訊號</span>
+    <div class="ch" id="pc">點一個字看看</div>
+    <p class="nt" id="pt">橘色是時間骨架，青色是同一種人的不同說法，藍灰是回頭指前文的詞。</p>
+  </div>
+  <p style="margin-top:1.1rem"><button class="go" id="g5">那考卷上怎麼考？</button></p>
+</section>
+
+<!-- STEP 6 -->
+<section class="step" id="s6" hidden>
+  <p class="stepno">第六步</p>
+  <h2>把一句話放回去</h2>
+  <p>這就是考卷上的<b>篇章結構</b>題。下面把第 24–25 行整句抽掉了，四個候選句只有一句放得進去。前面五步練的東西，這一題全部用上。</p>
+  <div class="gap" id="gp">
+    … Upon waking, he immediately wrote it down—and what he had envisioned was what we now recognize as the periodic table.
+    <br><br>
+    <span class="blank" id="bl">（空格）</span> August Kekulé had long endeavored unsuccessfully to determine the structure of benzene. Then one night, he dreamed of a snake biting its own tail and forming a ring. …
+  </div>
+  <div class="picks" id="q6">
+    <button data-ok="1">Remarkably, a similar discovery had occurred just a few years before.</button>
+    <button>Soon afterward, another chemist would make a discovery in much the same way.</button>
+    <button>August Kekulé, however, reached his conclusion through years of careful experiments.</button>
+    <button>Since then, no other scientist has reported a discovery of this kind.</button>
+  </div>
+  <div class="said" id="a6" hidden>
+    <b>三個線索同時指向同一句。</b>
+    <br><br>
+    <b>時間方向。</b>空格後面接的是凱庫勒，而這篇在這裡是全文唯一一次往回走。只有正解的 had occurred … before 把時間推到 1869 之前。<i>Soon afterward</i>（不久之後）和 <i>Since then</i>（從那時起）都是往後，方向相反。
+    <br><br>
+    <b>空格要留一個位子。</b>空格後那句直接寫 August Kekulé，沒有任何介紹就出場了，表示空格必須先鋪好「還有另一個人、另一件事」的位子。正解的 <i>a similar discovery</i> 正好留下這個位子——而且它又是一個<b>概括名詞</b>，跟你第四步練的 This striking vision 同一種東西：先概括，下一句才落實成凱庫勒。<i>August Kekulé, however…</i> 那句提早把名字點掉了，後面那句反而變成重複。
+    <br><br>
+    <b>內容不能打架。</b><i>reached his conclusion through years of careful experiments</i>（靠多年實驗得出結論）跟第 28–29 行的夢直接相反。<i>no other scientist has reported a discovery of this kind</i>（此後沒有別人有過這類發現）則跟第 33 行以後的拉馬努金和波耳整段矛盾。
+  </div>
+  <p class="why" id="w6" hidden>考卷上不會有底色，也不會有時間軸。但時間訊號、留位子的概括名詞、前後內容一不一致，這三樣每一篇文章都在。</p>
+</section>
+
+<!-- CLOSE -->
+<section class="close" id="s7" hidden>
+  <h2>帶著走的五句話</h2>
+  <ol>
+    <li><b>先找時間訊號，骨架就出來了。</b>判斷一個片語是不是時間訊號，看它回答的是不是「什麼時候」，不是看它的句型。</li>
+    <li><b>出現順序不等於時間順序。</b>看到 had ＋ p.p.，或 before、earlier、previously，先停下來確認時間是不是往回走了。</li>
+    <li><b>順序一致的時候作者不會多說。</b>他只在要往回走的那一次明講——所以那一句通常就是考點。</li>
+    <li><b>This／These／such ＋ 概括名詞，指的是前面一整句。</b>往前找最近的一整句，不是最近的一個名詞。</li>
+    <li><b>篇章結構題三個線索一起用。</b>時間方向對不對、空格後面需不需要一個位子、內容跟前後文有沒有打架。</li>
+  </ol>
+  <p class="more"><a href="https://staresto-create.github.io/JCEE-vocab-questions/wordwheel.html">單字輪：neuro-、-logy 這一輪 →</a></p>
+</section>
+
+</div>
+
+<script>
+(function(){
+"use strict";
+function $(id){return document.getElementById(id);}
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;");}
+
+/* ---------- progress memory (this browser only) ---------- */
+var KEY="cohesion-u4-v1";
+var ST={c1:{},f1:0,q2:0,tl:"",q4:0,q4b:0,q6:0,step:1};
+function save(){ try{ localStorage.setItem(KEY, JSON.stringify(ST)); }catch(e){} }
+function load(){ try{ var r=localStorage.getItem(KEY); return r?JSON.parse(r):null; }catch(e){ return null; } }
+function wipe(){ try{ localStorage.removeItem(KEY); }catch(e){} location.reload(); }
+
+/* ---------- the passage, one array entry per magazine line (1-64) ---------- */
+var LINES=[
+"Laboratories are the workshops",
+"of science. However, some of the most",
+"important scientific breakthroughs didn\u2019t",
+"occur in labs, but in the quiet, unpredictable",
+"world of dreams. For centuries, scientists",
+"have reported moments when solutions",
+"appeared through images and patterns",
+"formed during sleep rather than through",
+"careful calculations. While this may",
+"sound mysterious, modern neuroscience",
+"suggests that the brain continues to",
+"process information and make connections",
+"even when we\u2019re not consciously thinking.",
+"One of the most famous examples",
+"involves Dmitri Mendeleev. On March",
+"1, 1869, after struggling to organize the",
+"chemical elements in a logical, systematic",
+"way, he reportedly fell asleep at his desk",
+"and saw, in a dream, \u201ca table where all the",
+"elements fell into place as required.\u201d Upon",
+"waking, he immediately wrote it down\u2014",
+"and what he had envisioned was what we",
+"now recognize as the periodic table.",
+"Remarkably, a similar discovery",
+"had occurred just a few years before.",
+"August Kekul\u00e9 had long endeavored",
+"unsuccessfully to determine the structure of",
+"benzene. Then one night, he dreamed of a",
+"snake biting its own tail and forming a ring.",
+"This striking vision led him to propose a",
+"circular molecular structure\u2014a landmark",
+"breakthrough in organic chemistry.",
+"Of course, dream-inspired insights",
+"have not been limited to 19th-century",
+"chemists; later thinkers have also",
+"experienced them. The mathematician",
+"Srinivasa Ramanujan often claimed that",
+"mathematical formulas appeared to him",
+"in dreams. He believed these insights came",
+"from a Hindu goddess named Namagiri.",
+"His findings still required careful proof,",
+"but many of the equations he dreamed up",
+"later proved highly important in modern",
+"mathematics.",
+"Similarly, the physicist Niels Bohr is said",
+"to have dreamed of electrons orbiting",
+"the nucleus like planets around the sun.",
+"This vivid image inspired his model of the",
+"atom, making an abstract concept",
+"far easier to visualize and understand.",
+"Bohr would go on to win the Nobel",
+"Prize in Physics, in large part for these",
+"groundbreaking contributions to our",
+"understanding of atomic structure.",
+"Today, scientists believe dreams",
+"may help speed such discoveries by",
+"strengthening memory and forging",
+"unexpected links. When the mind is relaxed,",
+"it becomes freer to explore possibilities",
+"without the limits of logic or doubt. In other",
+"words, creativity doesn\u2019t always come simply",
+"from working harder. Sometimes, letting",
+"the mind wander, even in sleep, can allow",
+"surprising new solutions to surface."
+];
+
+/* ---------- step 1 : pick the time signals ---------- */
+var f1=0, done1=false;
+function reveal1(){
+  if(done1) return; done1=true;
+  var bs=$("c1").querySelectorAll("button");
+  for(var i=0;i<bs.length;i++){
+    if(bs[i].dataset.ok){ bs[i].classList.remove("miss"); bs[i].classList.add("hit"); }
+    else bs[i].classList.add("miss");
+  }
+  $("sc1").innerHTML="\u4e94\u5f35\u90fd\u627e\u5230\u4e86";
+  $("a1").hidden=false; $("g1").hidden=false; $("sk1").hidden=true;
+  ST.f1=5; ST.step=Math.max(ST.step,1); save();
+}
+var clicks1=0;
+$("c1").addEventListener("click",function(e){
+  var b=e.target.closest("button"); if(!b||done1) return;
+  clicks1++;
+  if(clicks1>=2) $("sk1").hidden=false;
+  var idx=b.dataset.i;
+  if(!b.dataset.ok){ b.classList.add("miss"); ST.c1[idx]="miss"; save(); return; }
+  if(b.classList.contains("hit")) return;
+  b.classList.remove("miss"); b.classList.add("hit"); ST.c1[idx]="hit";
+  f1++; ST.f1=f1; save();
+  $("sc1").innerHTML="\u627e\u5230 <em>"+f1+"</em> / 5";
+  if(f1===5) reveal1();
+});
+$("sk1").addEventListener("click",reveal1);
+$("g1").addEventListener("click",function(){
+  ST.step=2; save(); $("s2").hidden=false; $("s2").scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+/* ---------- generic one-shot quiz ---------- */
+function quiz(qid,aid,gid,tag,after){
+  var done=false;
+  $(qid).addEventListener("click",function(e){
+    var b=e.target.closest("button"); if(!b||done) return;
+    done=true;
+    var bs=$(qid).querySelectorAll("button");
+    for(var i=0;i<bs.length;i++){
+      bs[i].disabled=true;
+      bs[i].dataset.state = bs[i].dataset.ok ? "right" : "wrong";
+    }
+    if(aid) $(aid).hidden=false;
+    if(gid) $(gid).hidden=false;
+    if(tag){ ST[tag]=1; save(); }
+    if(after) after();
+  });
+}
+function settle(qid,aid,gid,after){
+  var bs=$(qid).querySelectorAll("button");
+  for(var i=0;i<bs.length;i++){
+    bs[i].disabled=true;
+    bs[i].dataset.state = bs[i].dataset.ok ? "right" : "wrong";
+  }
+  if(aid) $(aid).hidden=false;
+  if(gid) $(gid).hidden=false;
+  if(after) after();
+}
+
+/* ---------- step 2 ---------- */
+quiz("q2","a2","g2","q2");
+$("g2").addEventListener("click",function(){
+  ST.step=3; save();
+  $("db").hidden=false; $("s3").hidden=false;
+  $("db").scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+/* ---------- step 3 : timeline ---------- */
+var SPOT={
+ "p-mendeleev":{a:14,b:23,mark:["On March","1, 1869,"],
+   n:"\u9580\u5f97\u5217\u592b\uff1a\u8ab2\u6587\u7b2c\u4e00\u500b\u8b1b\u7684\u4eba\uff0c\u5e74\u4ee3\u5beb\u5f97\u6700\u6e05\u695a\u3002"},
+ "p-kekule":{a:24,b:32,mark:["had occurred just a few years before."],
+   n:"\u51f1\u5eab\u52d2\uff1a\u8ab2\u6587\u7b2c\u4e8c\u500b\u8b1b\uff0c\u4e8b\u60c5\u537b\u767c\u751f\u5728\u9580\u5f97\u5217\u592b\u4e4b\u524d\u3002\u9019\u4e00\u53e5\u5c31\u662f\u4ea4\u53c9\u9ede\u3002"},
+ "p-ramanujan":{a:33,b:44,mark:["19th-century","later thinkers"],
+   n:"\u62c9\u99ac\u52aa\u91d1\uff1a\u8ab2\u6587\u53ea\u8aaa\u4ed6\u4e0d\u662f 19 \u4e16\u7d00\u7684\u5316\u5b78\u5bb6\uff0c\u662f\u300c\u5f8c\u4f86\u7684\u4eba\u300d\uff0c\u6c92\u6709\u7d66\u5e74\u4ee3\u3002"},
+ "p-bohr":{a:45,b:54,mark:["would go on to"],
+   n:"\u6ce2\u8033\uff1aSimilarly \u628a\u4ed6\u8ddf\u4e0a\u4e00\u6bb5\u4e26\u5217\u3002would go on to \u8868\u793a\u5f8c\u4f86\u624d\u767c\u751f\u7684\u4e8b\u3002"},
+ "p-today":{a:55,b:64,mark:["Today,"],
+   n:"\u4eca\u5929\uff1a\u6642\u9593\u7dda\u6536\u5230\u73fe\u5728\uff0c\u4f5c\u8005\u56de\u982d\u4e0b\u7d50\u8ad6\u3002\u6642\u9593\u5e8f\u7684\u6587\u7ae0\u5e38\u5e38\u9019\u6a23\u6536\u5c3e\u3002"}
+};
+function showLines(k){
+  var s=SPOT[k]; if(!s) return;
+  var g=$("tl").querySelectorAll(".pt");
+  for(var i=0;i<g.length;i++) g[i].classList.toggle("on", g[i].id===k);
+  var h="";
+  for(var n=s.a;n<=s.b;n++){
+    var t=esc(LINES[n-1]);
+    for(var m=0;m<s.mark.length;m++){
+      var q=esc(s.mark[m]);
+      if(t.indexOf(q)>=0) t=t.split(q).join("<mark>"+q+"</mark>");
+    }
+    h+='<li'+(n%5===0?' class="five"':'')+'><b>'+n+'</b><span>'+t+'</span></li>';
+  }
+  $("lnb").innerHTML=h;
+  $("ln").querySelector(".hd").innerHTML="\u7b2c "+s.a+"\u2013"+s.b+" \u884c\uff1a"+s.n;
+  ST.tl=k; save();
+  if($("g3").hidden){ $("a3").hidden=false; $("g3").hidden=false; }
+}
+$("tl").addEventListener("click",function(e){
+  var g=e.target.closest(".pt"); if(g) showLines(g.id);
+});
+$("tl").addEventListener("keydown",function(e){
+  if(e.key!=="Enter"&&e.key!==" ") return;
+  var g=e.target.closest(".pt"); if(g){ e.preventDefault(); showLines(g.id); }
+});
+$("g3").addEventListener("click",function(){
+  ST.step=4; save(); $("s4").hidden=false; $("s4").scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+/* ---------- step 4 ---------- */
+quiz("q4","a4","g4a","q4");
+$("g4a").addEventListener("click",function(){
+  $("w4b").hidden=false; $("g4a").hidden=true;
+  $("w4b").scrollIntoView({behavior:"smooth",block:"nearest"});
+});
+quiz("q4b","a4b","g4","q4b");
+$("g4").addEventListener("click",function(){
+  ST.step=5; save(); $("s5").hidden=false;
+  build(); $("s5").scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+/* ---------- step 5 : whole passage ---------- */
+var CHAINS={
+ "t-time":{k:"time",n:"\u6574\u7bc7\u7684\u9aa8\u67b6\u3002\u5f9e\u300c\u6578\u767e\u5e74\u4f86\u300d\u4e00\u8def\u8d70\u5230\u300c\u4eca\u5929\u300d\uff0c\u53ea\u6709 had occurred \u2026 before \u90a3\u4e00\u6b21\u662f\u5f80\u56de\u8d70\u7684\u3002"},
+ "c-who":{k:"who",n:"\u540c\u4e00\u7a2e\u4eba\u7684\u4e0d\u540c\u8aaa\u6cd5\u3002\u958b\u982d\u548c\u7d50\u5c3e\u90fd\u662f scientists\uff0c\u4e2d\u9593\u63db\u6210\u500b\u5225\u8eab\u5206\uff1a\u5316\u5b78\u5bb6\u3001\u601d\u60f3\u5bb6\u3001\u6578\u5b78\u5bb6\u3001\u7269\u7406\u5b78\u5bb6\u3002\u8003\u5377\u4e0a\u628a\u5176\u4e2d\u4e00\u500b\u6316\u6389\uff0c\u5c31\u662f\u9760\u9019\u689d\u93c8\u63a8\u56de\u4f86\u3002"},
+ "r-ref":{k:"ref",n:"\u56de\u982d\u6307\u524d\u6587\u7684\u8a5e\u3002it\u3001them \u6307\u4e00\u500b\u6771\u897f\uff1bThis striking vision\u3001This vivid image\u3001such discoveries \u5247\u662f\u7528\u4e00\u500b\u6982\u62ec\u540d\u8a5e\u628a\u524d\u9762\u6574\u53e5\u5305\u8d77\u4f86\u3002"}
+};
+var TITLE="When Dreams Led to Scientific Breakthroughs";
+var SRC=[
+"Laboratories are the workshops of science. However, some of the most important scientific breakthroughs didn\u2019t occur in labs, but in the quiet, unpredictable world of dreams. {For centuries|t-time}, {scientists|c-who} have reported moments when solutions appeared through images and patterns formed during sleep rather than through careful calculations. While {this|r-ref} may sound mysterious, modern neuroscience suggests that the brain continues to process information and make connections even when we\u2019re not consciously thinking.",
+"One of the most famous examples involves {Dmitri Mendeleev|c-who}. {On March 1, 1869|t-time}, after struggling to organize the chemical elements in a logical, systematic way, he reportedly fell asleep at his desk and saw, in a dream, \u201ca table where all the elements fell into place as required.\u201d Upon waking, he immediately wrote {it|r-ref} down\u2014and what he had envisioned was what we now recognize as the periodic table.",
+"Remarkably, a similar discovery {had occurred just a few years before|t-time}. {August Kekul\u00e9|c-who} had long endeavored unsuccessfully to determine the structure of benzene. Then one night, he dreamed of a snake biting its own tail and forming a ring. {This striking vision|r-ref} led him to propose a circular molecular structure\u2014a landmark breakthrough in organic chemistry.",
+"SPLIT",
+"Of course, dream-inspired insights have not been limited to {19th-century|t-time} {chemists|c-who}; {later|t-time} {thinkers|c-who} have also experienced {them|r-ref}. {The mathematician|c-who} Srinivasa Ramanujan often claimed that mathematical formulas appeared to him in dreams. He believed {these insights|r-ref} came from a Hindu goddess named Namagiri. His findings still required careful proof, but many of the equations he dreamed up later proved highly important in modern mathematics.",
+"Similarly, {the physicist|c-who} Niels Bohr is said to have dreamed of electrons orbiting the nucleus like planets around the sun. {This vivid image|r-ref} inspired his model of the atom, making an abstract concept far easier to visualize and understand. Bohr {would go on to|t-time} win the Nobel Prize in Physics, in large part for these groundbreaking contributions to our understanding of atomic structure.",
+"{Today|t-time}, {scientists|c-who} believe dreams may help speed {such discoveries|r-ref} by strengthening memory and forging unexpected links. When the mind is relaxed, {it|r-ref} becomes freer to explore possibilities without the limits of logic or doubt. In other words, creativity doesn\u2019t always come simply from working harder. Sometimes, letting the mind wander, even in sleep, can allow surprising new solutions to surface."
+];
+var built=false;
+function render(str){
+  var out="",i=0;
+  while(i<str.length){
+    var a=str.indexOf("{",i);
+    if(a<0){ out+=esc(str.slice(i)); break; }
+    out+=esc(str.slice(i,a));
+    var b=str.indexOf("}",a), p=str.slice(a+1,b).split("|");
+    var id=p[1], k=CHAINS[id]?CHAINS[id].k:"time";
+    out+='<m data-c="'+id+'" data-kind="'+k+'" tabindex="0">'+esc(p[0])+'</m>';
+    i=b+1;
+  }
+  return out;
+}
+function build(){
+  if(built) return; built=true;
+  var h='<p class="ttl">'+esc(TITLE)+'</p>';
+  for(var i=0;i<SRC.length;i++){
+    if(SRC[i]==="SPLIT"){
+      h+='<p class="split">\u4ee5\u4e0a\u662f 9/7 \u7684\u7b2c 1\u201332 \u884c\u3002\u4ee5\u4e0b\u662f 9/8 \u7684\u7b2c 33\u201364 \u884c\u3002</p>';
+    } else {
+      h+="<p>"+render(SRC[i])+"</p>";
+    }
+  }
+  $("tx").innerHTML=h;
+}
+var LB={time:"\u6642\u9593\u8a0a\u865f",who:"\u63db\u5b57\uff1a\u505a\u7814\u7a76\u7684\u4eba",ref:"\u6307\u6d89"};
+var CL={time:"k",who:"k w",ref:"k r"};
+function light(id){
+  var ms=$("tx").querySelectorAll("m"), words=[];
+  for(var i=0;i<ms.length;i++){
+    if(ms[i].dataset.c===id){ ms[i].classList.add("lit"); words.push(ms[i].textContent); }
+    else ms[i].classList.remove("lit");
+  }
+  var c=CHAINS[id]; if(!c) return;
+  $("pk").textContent=LB[c.k]; $("pk").className=CL[c.k];
+  $("pc").innerHTML=words.map(function(w){return esc(w);}).join('<i>\u2192</i>');
+  $("pt").textContent=c.n;
+}
+$("tx").addEventListener("click",function(e){
+  var m=e.target.closest("m"); if(m) light(m.dataset.c);
+});
+$("tx").addEventListener("keydown",function(e){
+  if(e.key!=="Enter"&&e.key!==" ") return;
+  var m=e.target.closest("m"); if(m){ e.preventDefault(); light(m.dataset.c); }
+});
+function toggle(btn,cls){
+  btn.addEventListener("click",function(){
+    var on=btn.getAttribute("aria-pressed")==="true";
+    btn.setAttribute("aria-pressed",on?"false":"true");
+    $("tx").classList.toggle(cls,on);
+  });
+}
+toggle($("m1"),"off-time");
+toggle($("m2"),"off-who");
+toggle($("m3"),"off-ref");
+
+/* ---------- step 6 : passage completion ---------- */
+function fillBlank(){
+  var b=$("q6").querySelector("button[data-ok]");
+  $("bl").textContent=b.textContent;
+  $("bl").className="blank filled";
+}
+$("g5").addEventListener("click",function(){
+  ST.step=6; save();
+  $("s6").hidden=false; $("s7").hidden=false;
+  $("s6").scrollIntoView({behavior:"smooth",block:"start"});
+});
+var done6=false;
+$("q6").addEventListener("click",function(e){
+  var b=e.target.closest("button"); if(!b||done6) return;
+  done6=true; ST.q6=1; save();
+  var bs=$("q6").querySelectorAll("button");
+  for(var i=0;i<bs.length;i++){
+    bs[i].disabled=true;
+    bs[i].dataset.state = bs[i].dataset.ok ? "right" : "wrong";
+  }
+  fillBlank();
+  $("a6").hidden=false; $("w6").hidden=false;
+  $("a6").scrollIntoView({behavior:"smooth",block:"nearest"});
+});
+
+/* ---------- restore ---------- */
+$("rst").addEventListener("click",wipe);
+(function restore(){
+  var cb=$("c1").querySelectorAll("button");
+  for(var i=0;i<cb.length;i++) cb[i].dataset.i=i;
+  var v=load(); if(!v) return;
+  ST=v; if(!ST.c1) ST.c1={};
+  if(!(ST.f1||ST.step>1)) return;
+  $("rs").hidden=false;
+
+  for(var k in ST.c1){ if(cb[k]) cb[k].classList.add(ST.c1[k]); }
+  f1=ST.f1||0;
+  if(f1>=5){ reveal1(); }
+  else if(f1>0){ $("sc1").innerHTML="\u627e\u5230 <em>"+f1+"</em> / 5"; $("sk1").hidden=false; }
+  if(ST.step>=2){ if(!done1) reveal1(); $("s2").hidden=false; if(ST.q2) settle("q2","a2","g2"); }
+  if(ST.step>=3){
+    $("db").hidden=false; $("s3").hidden=false;
+    if(ST.tl && SPOT[ST.tl]) showLines(ST.tl);
+  }
+  if(ST.step>=4){
+    if($("g3").hidden){ $("a3").hidden=false; $("g3").hidden=false; }
+    $("s4").hidden=false;
+    if(ST.q4) settle("q4","a4","g4a");
+    if(ST.q4b){ $("w4b").hidden=false; $("g4a").hidden=true; settle("q4b","a4b","g4"); }
+  }
+  if(ST.step>=5){ $("s5").hidden=false; build(); }
+  if(ST.step>=6){
+    $("s6").hidden=false; $("s7").hidden=false;
+    if(ST.q6){ done6=true; settle("q6","a6",null,function(){ fillBlank(); $("w6").hidden=false; }); }
+  }
+  var last=$(ST.step>=6?"s6":("s"+(ST.step>=5?"5":ST.step)));
+  if(last) setTimeout(function(){ last.scrollIntoView({block:"start"}); },60);
+})();
+})();
+</script>
+</body>
+</html>
