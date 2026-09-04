@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>因果鏈｜Beef Versus Cow: The Linguistic History Hidden on Your Plate</title>
+<meta name="description" content="從菜單上的一個字，往回追一千年。這一頁教你認出單線的因果鏈，還有把全篇分成兩邊的對比標記。">
+<meta property="og:title" content="因果鏈｜Beef Versus Cow">
+<meta property="og:description" content="為什麼是 beef 不是 cow？一階一階往回問，每一階都答得出來，就是因果鏈。">
+<style>
+:root{
+  --ground:#f1f3f2; --ink:#17282f; --teal:#1f6f6a; --teal-soft:#dfeceb;
+  --muted:#77878d; --line:#cdd6d6; --exam:#b4661c; --exam-soft:#fdf4e7;
+  --gen:#4a6a90; --gen-soft:#e0e7f0;
+  --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+  --sans:"PingFang TC","Noto Sans TC","Microsoft JhengHei","Helvetica Neue",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-text-size-adjust:100%}
+.wrap{max-width:44rem;margin:0 auto;padding:1.6rem 1.1rem 4rem}
+h1{font-family:var(--serif);font-weight:600;font-size:1.6rem;line-height:1.3;margin:0 0 .55rem}
+.lede{margin:0 0 1.3rem;color:#3d5059;font-size:.95rem}
+.src{font-size:.8rem;color:var(--muted);margin:0 0 1.1rem}
+.resume{font-size:.85rem;color:var(--teal);background:var(--teal-soft);border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.resume[hidden]{display:none}
+.preview{font-size:.85rem;color:var(--exam);background:var(--exam-soft);
+  border:1px dashed var(--exam);border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.preview[hidden]{display:none}
+.resume button{font:inherit;font-size:.82rem;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:.25rem;padding:.16rem .6rem;margin-left:.5rem;cursor:pointer}
+.resume button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.step{border-top:1px solid var(--line);padding-top:1.15rem;margin-top:1.6rem}
+.step[hidden]{display:none}
+.stepno{font-family:var(--serif);font-size:.82rem;color:var(--muted);margin:0 0 .2rem}
+h2{font-family:var(--serif);font-weight:600;font-size:1.2rem;margin:0 0 .5rem;color:var(--teal)}
+.step p{margin:0 0 .7rem;font-size:.95rem}
+.tag{display:inline-block;font-size:.72rem;font-weight:600;border-radius:.2rem;padding:.08rem .45rem;margin-left:.45rem;vertical-align:.12rem;color:var(--exam);background:var(--exam-soft);border:1px solid var(--exam)}
+.tag.b{color:var(--gen);background:var(--gen-soft);border-color:var(--gen)}
+.opts{display:flex;flex-direction:column;gap:.45rem;margin:.2rem 0 .8rem}
+.opts button{font:inherit;font-size:.95rem;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:.3rem;padding:.45rem .85rem;cursor:pointer;text-align:left}
+.opts button:hover{border-color:var(--teal)}
+.opts button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.opts button[data-state="right"]{background:var(--teal);border-color:var(--teal);color:#fff}
+.opts button[data-state="wrong"]{background:var(--ground);color:var(--muted)}
+.opts button[disabled]{cursor:default}
+.opts.en button{font-family:var(--serif);font-size:.97rem;line-height:1.6;padding:.55rem .8rem}
+.opts.en button[data-state="right"]{background:var(--teal-soft);border-color:var(--teal);color:var(--ink)}
+.said{background:#fff;border-left:3px solid var(--teal);border-radius:.3rem;padding:.75rem .85rem;margin:.2rem 0 .9rem;font-size:.93rem;color:#3d5059}
+.said b{color:var(--ink);font-weight:600}
+.said[hidden]{display:none}
+.said.g{border-left-color:var(--gen)}
+.said.e{border-left-color:var(--exam)}
+.said q{quotes:none;font-family:var(--serif)}
+.go{font:inherit;font-size:.92rem;background:var(--ink);color:#fff;border:1px solid var(--ink);border-radius:.3rem;padding:.42rem 1.05rem;cursor:pointer}
+.go:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.go[hidden]{display:none}
+.lead{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.9rem 1rem;margin:0 0 .7rem;font-family:var(--serif);font-size:1.02rem;line-height:1.95}
+.lead c{cursor:pointer;border-radius:.2rem;padding:.06rem .2rem;background:var(--exam-soft);box-shadow:inset 0 -2px 0 #ecc9a2}
+.lead c:hover{box-shadow:inset 0 -2px 0 var(--exam)}
+.lead c.got{background:var(--exam);color:#fff;box-shadow:none}
+.lead c b{font-family:var(--sans);font-size:.72rem;font-weight:600;background:#fff;color:var(--exam);border-radius:.2rem;padding:.02rem .3rem;margin-right:.3rem}
+.score{font-size:.9rem;color:var(--muted);margin:0 0 .8rem}
+.score em{font-style:normal;color:var(--exam);font-weight:600}
+.fig{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.7rem .5rem .4rem;margin:0 0 .7rem}
+.fig svg{display:block;width:100%;height:auto;max-width:27rem;margin:0 auto}
+.fig figcaption{font-size:.85rem;color:#3d5059;margin:.35rem .5rem 0;line-height:1.65}
+.node{cursor:pointer}
+.node path,.node rect{fill:#fff;stroke:var(--line);stroke-width:2;stroke-linejoin:round}
+.node text{font-family:var(--sans);font-size:11px;fill:var(--ink);font-weight:600}
+.node tspan.n{font-size:9px;font-weight:400;fill:var(--muted)}
+.node.on path,.node.on rect{fill:var(--exam-soft);stroke:var(--exam)}
+.node.on text{fill:var(--exam)}
+.node.on tspan.n{fill:var(--exam)}
+.arrow{stroke:var(--line);stroke-width:2;fill:none}
+.divline{stroke:var(--ink);stroke-width:2;stroke-dasharray:5 4}
+.side{cursor:pointer}
+.side rect{fill:#fff;stroke:var(--line);stroke-width:2}
+.side.l rect{fill:var(--teal-soft);stroke:#a8ccc8}
+.side.r rect{fill:var(--gen-soft);stroke:#a9bbd0}
+.side text{font-family:var(--serif);font-size:10.5px;fill:var(--ink)}
+.side.on rect{stroke:var(--exam);stroke-width:3}
+.mk text{font-family:var(--serif);font-size:10px;fill:var(--exam);font-style:italic}
+.hdlab{font-family:var(--sans);font-size:10.5px;font-weight:600}
+.hdlab.l{fill:var(--teal)}
+.hdlab.r{fill:var(--gen)}
+.ladder{display:flex;flex-direction:column;gap:.5rem;margin:0 0 .8rem}
+.rung{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.65rem .85rem}
+.rung .qz{font-size:.95rem;font-weight:600;margin-bottom:.4rem}
+.rung .qz span{color:var(--exam)}
+.rung button{font:inherit;font-size:.86rem;background:#fff;color:var(--ink);border:1px solid var(--line);
+  border-radius:.25rem;padding:.22rem .8rem;cursor:pointer}
+.rung button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.rung .an{display:none;font-size:.92rem;color:#3d5059;line-height:1.75}
+.rung.open .an{display:block}
+.rung.open button{display:none}
+.rung .an i{font-style:normal;color:var(--muted);font-size:.82rem;margin-left:.3rem}
+.rung[hidden]{display:none}
+.daybreak{border:1px dashed var(--exam);background:var(--exam-soft);border-radius:.4rem;
+  padding:.8rem .95rem;margin:1.6rem 0 0;font-size:.9rem;color:#3d5059;line-height:1.7}
+.daybreak b{display:block;color:var(--exam);font-family:var(--serif);font-size:1.02rem;margin-bottom:.3rem}
+.daybreak[hidden]{display:none}
+.modes{display:flex;gap:.4rem;margin:0 0 .7rem;flex-wrap:wrap}
+.modes button{font:inherit;font-size:.84rem;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:.3rem;padding:.3rem .8rem;cursor:pointer}
+.modes button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.modes button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.text{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.9rem .6rem 1.1rem;font-family:var(--serif);font-size:1rem;line-height:1.85}
+.text .ttl{font-weight:600;font-size:1.06rem;margin:0 .4rem .7rem 2.6rem;line-height:1.45}
+.ln{display:flex;align-items:baseline;padding:.02rem 0;border-radius:.2rem}
+.ln>i{flex:0 0 2.2rem;text-align:right;padding-right:.55rem;font-family:var(--sans);font-style:normal;font-size:.68rem;color:var(--muted);line-height:1.9}
+.ln>span{flex:1 1 auto;overflow-wrap:anywhere}
+.ln.ind>span{padding-left:1.1rem}
+.ln.hl{background:var(--exam-soft)}
+.ln.pb{margin-top:.55rem}
+.text .split{font-family:var(--sans);font-size:.78rem;color:var(--exam);
+  border-top:1px dashed var(--exam);margin:.8rem .4rem .7rem 2.6rem;padding-top:.35rem}
+.text m{cursor:pointer;border-radius:.2rem;padding:.02rem .14rem}
+.text m[data-kind="sub"]{background:var(--teal-soft);box-shadow:inset 0 -2px 0 #a8ccc8}
+.text m[data-kind="gen"]{background:var(--gen-soft);box-shadow:inset 0 -2px 0 #a9bbd0}
+.text m[data-kind="mk"]{border-bottom:2px dotted var(--exam);font-style:italic}
+.text m.lit[data-kind="sub"]{background:var(--teal);color:#fff;box-shadow:none}
+.text m.lit[data-kind="gen"]{background:var(--gen);color:#fff;box-shadow:none}
+.text m.lit[data-kind="mk"]{background:var(--exam);color:#fff;border-bottom:none}
+.text.off-sub m[data-kind="sub"]{background:none;box-shadow:none}
+.text.off-gen m[data-kind="gen"]{background:none;box-shadow:none}
+.panel{position:sticky;bottom:0;background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.75rem .9rem;margin-top:.8rem;box-shadow:0 -2px 10px rgba(23,40,47,.07)}
+.panel .k{font-size:.72rem;font-weight:600;border-radius:.2rem;padding:.06rem .42rem;color:var(--teal);background:var(--teal-soft);border:1px solid var(--teal)}
+.panel .k.g{color:var(--gen);background:var(--gen-soft);border-color:var(--gen)}
+.panel .k.e{color:var(--exam);background:var(--exam-soft);border-color:var(--exam)}
+.panel .ch{font-family:var(--serif);font-size:1rem;margin:.4rem 0 .3rem;color:var(--ink);line-height:1.75;overflow-wrap:anywhere}
+.panel .ch i{font-style:normal;color:var(--muted);padding:0 .28rem}
+.panel .nt{font-size:.88rem;color:#3d5059;margin:0}
+.recall{background:#fff;border:1px solid var(--line);border-left:3px solid var(--muted);
+  border-radius:.3rem;padding:.75rem .85rem;margin:1.1rem 0 .9rem;font-size:.92rem;color:#3d5059}
+.recall b{color:var(--ink)}
+.recall ul{margin:.4rem 0 0;padding-left:1.1rem}
+.recall li{margin-bottom:.35rem}
+.gap{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.9rem 1rem;margin:0 0 .9rem;font-family:var(--serif);font-size:1rem;line-height:1.9}
+.gap .blank{display:inline-block;min-width:9rem;border-bottom:2px solid var(--gen);color:var(--gen);text-align:center;font-family:var(--sans);font-size:.82rem}
+.gap .blank.filled{border-bottom-color:var(--teal);color:var(--ink);font-family:var(--serif);font-size:1rem;text-align:left;background:var(--teal-soft);border-radius:.2rem;padding:0 .25rem}
+.picks{display:flex;flex-direction:column;gap:.45rem;margin:0 0 .9rem}
+.picks button{font:inherit;font-family:var(--serif);font-size:.97rem;line-height:1.6;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:.3rem;padding:.55rem .8rem;cursor:pointer;text-align:left}
+.picks button:hover{border-color:var(--teal)}
+.picks button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.picks button[data-state="right"]{background:var(--teal-soft);border-color:var(--teal)}
+.picks button[data-state="wrong"]{background:var(--ground);color:var(--muted)}
+.why{font-size:.86rem;color:#3d5059;margin:.35rem 0 0}
+.why[hidden]{display:none}
+.close{border-top:1px solid var(--line);margin-top:2rem;padding-top:1.1rem;font-size:.93rem;color:#3d5059}
+.close[hidden]{display:none}
+.close h2{font-size:1.1rem}
+.close ol{margin:.3rem 0 0;padding-left:1.15rem}
+.close li{margin-bottom:.5rem}
+.more{margin-top:1.5rem;font-size:.88rem}
+.more a{color:var(--teal)}
+.series{border-top:1px solid var(--line);margin-top:2rem;padding-top:1.1rem;font-size:.9rem;color:#3d5059}
+.series .back{font-family:var(--serif);font-size:1rem;color:var(--teal);text-decoration:none}
+.series .back:hover{text-decoration:underline}
+.series .back:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.series .note{font-size:.85rem;color:var(--muted);margin:.5rem 0 0}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>因果鏈</h1>
+<p class="lede">菜單上寫 beef 不寫 cow，這件小事可以一路往回追到一千年前的一場戰爭。這一頁教你認出<b>單線的因果鏈</b>——每一段都在回答上一段留下的「為什麼」。</p>
+<p class="preview" id="pv" hidden>預覽模式：所有步驟、圖表、課文標記都已展開，進度不會存檔。學生拿到的一般連結不受影響。</p>
+<p class="resume" id="rs" hidden>上次做到一半，已經幫你接回來了。<button id="rst">重新開始</button></p>
+<p class="src">ALL+ 互動英語 9 月號 Unit 8（pp. 34–37）　Beef Versus Cow: The Linguistic History Hidden on Your Plate　全文 51 行　9/15 讀第 1–20 行，9/16 讀第 21–51 行</p>
+
+<!-- STEP 1 -->
+<section class="step" id="s1">
+  <p class="stepno">第一步</p>
+  <h2>先擋住一個念頭<span class="tag">上層：組織方式</span></h2>
+  <p>因果類的文章開頭通常做兩件事：<b>先把現象攤出來，再宣布它有原因。</b>下面是第 1 到 5 行，<b>點三個有底色的地方</b>。</p>
+  <div class="lead" id="ld">
+    In most languages, a single word is used for both a living animal and the meat it produces. English, however, is a curious outlier. <c data-t="p">A farmer tends to cows and pigs, but a diner orders beef and pork</c>. This linguistic divide <c data-t="n">is no coincidence</c>; it’s a permanent mark left by a thousand-year-old <c data-t="c">conquest</c> that greatly reshaped English society and its class structure.
+  </div>
+  <p class="score" id="sc">已標出 <em>0</em> / 3</p>
+  <div id="s1b" hidden>
+    <p>三個都標出來了。那麼——<b>作者為什麼要特地寫 <q>is no coincidence</q> 這幾個字？</b></p>
+    <div class="opts" id="q1">
+      <button>因為這種一物兩字的現象在多數語言裡都找得到</button>
+      <button>因為一○六六年的戰爭同時改變了政治與語言</button>
+      <button data-ok="1">因為讀者可能當它只是碰巧，作者先堵住這條路</button>
+      <button>因為接下來要比較英語和法語各有多少食物用字</button>
+    </div>
+    <div class="said e" id="a1" hidden>
+      <b>因為讀者可能當它只是碰巧。</b>一個語言裡兩個字並存，最省事的解釋就是「剛好而已」。作者知道讀者會這樣想，所以先用 <q>no coincidence</q> 把這條路堵起來，逼你接受後面那句 <q>a permanent mark left by a…conquest</q>——<b>有一個特定的原因，而且我要告訴你是什麼。</b>
+      <br><br>
+      <b>這種句子叫「反預期」。</b>因果文常常這樣起手：先講一個看起來平常的現象，再說「這不是偶然」。看到 <q>no coincidence</q>、<q>not by chance</q>、<q>there is a reason for this</q>，<b>下一段幾乎一定給原因。</b>
+      <br><br>
+      <b>另外三個為什麼排除：</b>
+      <br><br>
+      「在多數語言裡都找得到」——<b>剛好講反了。</b>第 1 到 2 行說多數語言只用一個字，英語才是 <q>a curious outlier</q>。
+      <br><br>
+      「一○六六年的戰爭同時改變了政治與語言」——<b>這句話本身完全正確，整篇都在講這件事。</b>但問題問的是 <q>no coincidence</q> 這幾個字在做什麼，不是問文章在講什麼。<b>把文章的內容拿來當某一句的功能，是最容易上鉤的一種誘答。</b>
+      <br><br>
+      「要比較各有多少食物用字」——文章從頭到尾沒有數過任何數量，也沒有比較兩種語言誰的字多。
+    </div>
+    <button class="go" id="g1" hidden>那整條鏈長什麼樣？</button>
+  </div>
+</section>
+
+<!-- STEP 2 -->
+<section class="step" id="s2" hidden>
+  <p class="stepno">第二步</p>
+  <h2>一條單線，往回追再往前推<span class="tag">上層：怎麼認出來</span></h2>
+  <p>先回答：<b>這篇文章的推進方式，最接近下列哪一種？</b></p>
+  <div class="opts" id="q2">
+    <button data-ok="1">先指出現在的現象，再回頭追出造成它的事件</button>
+    <button>先描述一場戰爭，再依時間順序記錄後續的戰役</button>
+    <button>先提出兩種說法，再比較哪一種比較有道理</button>
+    <button>先列出幾種語言的例子，再歸納出共同的規則</button>
+  </div>
+  <div class="said e" id="a2" hidden>
+    <b>先指出現象，再回頭追成因。</b>第 1 到 5 行講今天的 cow 對 beef，第 6 行馬上跳到 <q>The story begins in 1066</q>——<b>時間往回走了一千年</b>，然後再一路推回今天的菜單。
+    <br><br>
+    <b>另外三個為什麼排除，每一個都是這個系列教過的別種結構：</b>
+    <br><br>
+    「依時間順序記錄後續的戰役」——這是<b>時間序</b>（第四單元）。但這篇只提到一場戰役，而且戰役本身不是重點，它是被拿來當原因用的。<b>文章裡沒有第二個時間點在推進。</b>
+    <br><br>
+    「提出兩種說法再比較哪一種有道理」——文章確實有兩邊（農民對貴族、古英語對古法語），<b>所以這個最容易選</b>。但那兩邊不是兩種「說法」，作者也從頭到尾沒有評斷哪一邊對。<b>兩邊並存不等於在比較優劣。</b>
+    <br><br>
+    「列出例子再歸納規則」——這是<b>列舉</b>（第二單元）。veal、venison、chicken、fish 確實是例子，但它們出現在第 35 行之後，是拿來<b>驗證前面已經給出的原因</b>，不是拿來歸納出新規則的。<b>例子的位置決定它的角色：先有主張才舉例是列舉，先有原因才舉例是驗證。</b>
+    <br><br>
+    下面這張圖就是這條鏈。<b>點任一節</b>，第四步的課文對應行會亮起來（課文還沒打開的話，先把行號記住就好）。
+  </div>
+  <figure class="fig" id="fig1" hidden></figure>
+  <button class="go" id="g2" hidden>為什麼階梯</button>
+</section>
+
+<div class="daybreak" id="db" hidden>
+  <b>9/16 的範圍從這裡開始：第 21–51 行</b>
+  第一、二步用的是 9/15 的第 1–20 行（現象、一○六六年的成因、農民那一邊）。第三步以後會用到整篇，包含 9/16 的第 21–51 行（貴族那一邊、擴散與例外、今天的菜單）。如果你今天是 9/15，做到這裡可以先停，明天再接下去。（第二步的圖已經畫出整條鏈的骨架，先看到不影響。）
+</div>
+
+<!-- STEP 3 -->
+<section class="step" id="s3" hidden>
+  <p class="stepno">第三步</p>
+  <h2>為什麼階梯<span class="tag">上層：怎麼驗證</span></h2>
+  <p>怎麼確定一篇文章是因果鏈，不是把幾件事排在一起？<b>從結尾的現象往回問「為什麼」，看每一階都答不答得出來。</b></p>
+  <p>從這句開始：<b>菜單上寫的是 beef，不是 cow。</b>一階一階往回問。</p>
+  <div class="ladder" id="ladder"></div>
+  <p class="score" id="sc3">已追出 <em>0</em> / 4</p>
+  <div class="said e" id="a3" hidden>
+    <b>四階都答得出來，而且答案全部在文章裡。這就是因果鏈。</b>
+    <br><br>
+    <b>怎麼認出一篇是因果鏈：</b>從最後一段的結論往回問「為什麼」。如果每問一次都能在前面找到一段回答它，就是因果鏈。<b>如果問到第二階就沒有答案了，那篇文章只是把幾件事並排，不是在解釋因果。</b>
+    <br><br>
+    <b>注意最後一階。</b>chicken 和 fish 沒有分成兩個字，這不是反例，反而是<b>對這個原因最強的支持</b>：原因如果是「兩個階級接觸到的東西不同」，那麼<b>兩個階級都吃得到的東西就不該分家</b>——事實正是如此。
+    <br><br>
+    <b>會找例外，是因果類文章最值得學的一招。</b>作者自己把例外找出來並解釋掉，讀者才會信。考卷也愛考這一段，因為它最能看出你有沒有真的懂那個原因。
+  </div>
+  <button class="go" id="g3" hidden>看把全篇分成兩邊的字</button>
+</section>
+
+<!-- STEP 4 -->
+<section class="step" id="s4" hidden>
+  <p class="stepno">第四步</p>
+  <h2>一條線，兩邊的字<span class="tag b">下層：對比標記與對立配對</span></h2>
+  <p>這篇的字幾乎全部可以分到一條線的兩邊：<b>養動物的人</b>用一組字，<b>吃肉的人</b>用另一組字。而且每一組對立都有一個<b>對比標記詞</b>把兩邊接起來——<q>however</q>、<q>but</q>、<q>while</q>、<q>Meanwhile</q>、<q>Conversely</q>。</p>
+  <p>跟第六單元的語意場分清楚：那裡是<b>一堆意思相近的字聚成一場</b>；這裡是<b>成對的對立</b>，而且成對出現在同一句裡，中間夾著標記詞。<b>標記詞就是抓手：看到它，作者要換到另一邊了。</b></p>
+  <p><b>點圖上任一列</b>，課文對應行會亮起來。</p>
+  <figure class="fig" id="fig2"></figure>
+  <p><b>也可以直接點課文裡有底色的字。</b>青色和藍灰可以各自關掉；虛線底的標記詞一直都在。</p>
+  <div class="modes">
+    <button id="m1" aria-pressed="true">養動物的那一邊（青）</button>
+    <button id="m2" aria-pressed="true">吃肉的那一邊（藍灰）</button>
+  </div>
+  <div class="text" id="tx"></div>
+  <div class="panel" id="pn">
+    <span class="k" id="pk">線索</span>
+    <div class="ch" id="pc">點圖上的一列，或課文裡有底色的字</div>
+    <p class="nt" id="pt">青色是養動物的那一邊，藍灰是吃肉的那一邊，虛線底是把兩邊接起來的標記詞。</p>
+  </div>
+  <div class="recall">
+    <b>另外兩樣，前面單元教過，這篇自己確認得出來：</b>
+    <ul>
+      <li><b>概括名詞。</b>這篇又是一大一小兩個範圍：第 43 行的 <q>this duality</q> 往回收<b>整篇</b>（兩套字並存這件事），第 46 到 47 行的 <q>These echoes</q> 只收<b>前面一句</b>。跟第三、第四單元練過的一樣——往前找之前，先確定它收的是一句還是一整片。</li>
+      <li><b>換字。</b>同一件事換了三種說法：第 5 行 <q>conquest</q>、第 6 行 <q>the Battle of Hastings</q>、第 7 行 <q>invaded</q>。名詞、專有名詞、動詞交替出現，指的都是一○六六年那件事。</li>
+    </ul>
+  </div>
+  <p style="margin-top:1.1rem"><button class="go" id="g4">考卷怎麼考因果</button></p>
+</section>
+
+<!-- STEP 5 -->
+<section class="step" id="s5" hidden>
+  <p class="stepno">第五步</p>
+  <h2>因果題的兩個陷阱<span class="tag">上層：考點</span></h2>
+  <p>因果類文章的題目，誘答幾乎都出在兩個地方：</p>
+  <p><b>一、倒因為果。</b>把 A 造成 B 說成 B 造成 A。這篇是「征服造成階級分化，階級分化造成用字分家」，倒過來說成「用字分家造成階級分化」就錯了。</p>
+  <p><b>二、把並存當成因果。</b>兩件事同時發生，不代表其中一件造成另一件。這篇特別容易中招，因為古英語和古法語有三百年是<b>並存</b>的（第 13 到 14 行 <q>effectively bilingual</q>）。</p>
+  <p>試一題：<b>根據全文，chicken 為什麼沒有像 cow 和 beef 那樣分成兩個字？</b></p>
+  <div class="opts en" id="q5">
+    <button>Chicken and fish were too cheap for the Norman nobles to serve at their feasts.</button>
+    <button data-ok="1">Both classes ate small animals, so no separate upper-class word was ever needed.</button>
+    <button>Farmers raised chickens and fish themselves, so they kept their own Germanic words.</button>
+    <button>The original Germanic names had already replaced the French ones by that time.</button>
+  </div>
+  <div class="said e" id="a5" hidden>
+    <b>第二句。</b>先注意：<b>它一個字都沒有照抄課文。</b><q>Both classes ate small animals</q> 是第 39 到 40 行 <q>foods eaten by all social classes</q> 的改寫，<q>no separate upper-class word was ever needed</q> 是把第 40 到 42 行 <q>the original Germanic names survived for both the animal and the dish</q> 反過來說。<b>另外三句反而滿是課文裡的字。</b>
+    <br><br>
+    <b>另外三個為什麼排除：</b>
+    <br><br>
+    <q>too cheap for the Norman nobles</q>——文章說的是小動物<b>各階級都吃</b>，不是貴族看不上。把「大家都吃」講成「貴族不吃」，<b>方向剛好相反</b>，而且變成貴族根本碰不到——那樣就跟大動物的情況一樣了，反而推不出結論。
+    <br><br>
+    <q>Farmers raised chickens and fish themselves</q>——raised、farmers 都是課文裡的字（第 16 到 17 行），但那是在講<b>大動物</b>那一段。<b>把前面一段的細節接到後面一段頭上</b>，這是最難排除的一種誘答，因為每個字看起來都眼熟。
+    <br><br>
+    <q>had already replaced the French ones</q>——第 41 行用的是 <q>survived</q>，兩套字是<b>一起活下來</b>，不是誰取代誰。第 33 到 34 行也寫得很清楚：<q>both sets of vocabulary survived</q>。<b>只改一個動詞，整句的意思就反了。</b>
+  </div>
+  <button class="go" id="g5" hidden>最後一題</button>
+</section>
+
+<!-- STEP 6 -->
+<section class="step" id="s6" hidden>
+  <p class="stepno">第六步</p>
+  <h2>把一句話放回去</h2>
+  <p>這就是考卷上的<b>篇章結構</b>題。下面把第 43–44 行的第一句整句抽掉了，四個候選句只有一句放得進去。</p>
+  <div class="gap" id="gp">
+    … Conversely, for smaller animals such as chicken and fish—foods eaten by all social classes—the original Germanic names survived for both the animal and the dish.
+    <br><br>
+    <span class="blank" id="bl">（空格）</span> Whenever we read a menu, we see the echoes of a medieval class struggle. These echoes are reminders that those who raised the food and those who ate it once spoke entirely different languages.
+  </div>
+  <div class="picks" id="q6">
+    <button>Today, the French terms have almost entirely replaced the older Germanic ones.</button>
+    <button>By then, the two sets of words had merged into one shared vocabulary.</button>
+    <button data-ok="1">Today, this duality endures as a fascinating reminder of linguistic history.</button>
+    <button>The Normans gradually adopted the Anglo-Saxon words for their own dishes.</button>
+  </div>
+  <div class="said" id="a6" hidden>
+    <b>四個線索同時指向同一句。</b>這四句單獨看都說得通，沒有一句本身是錯的。要排除，得靠位置和線索。
+    <br><br>
+    <b>先講一個例外。</b>前面說大考的正解通常是改寫，但<b>抽句題不一樣</b>：被抽掉的就是原文那一句，所以正解一定是原文。這一題要靠的是誘答哪裡接不上，不是比對字面。
+    <br><br>
+    <b>一、概括名詞找不找得到先行內容。</b><q>this duality</q>（這個一分為二的現象）需要前面已經出現「兩套字並存」這件事——第 33 到 34 行的 <q>both sets of vocabulary survived</q>、第 40 到 42 行的例外，全部被它一次收攏。<b>四句裡只有它接得住前面整篇。</b>
+    <br><br>
+    <b>另外三個為什麼排除，各有一個明確的依據：</b>
+    <br><br>
+    <b>二、時間框。</b>正解開頭是 <q>Today</q>，跟第 6 行的 <q>The story begins in 1066</q> 一頭一尾把整條鏈框起來，下一句的 <q>Whenever we read a menu</q> 也是講現在。<q>By then…had merged</q> 用的是過去完成式，<b>把時間留在中世紀</b>，接不上後面現在式的兩句。
+    <br><br>
+    <b>三、方向。</b><q>the French terms have almost entirely replaced the older Germanic ones</q> 說法文的字取代了日耳曼的字。但第 41 行寫 <q>survived</q>，第 33 到 34 行寫 <q>both sets of vocabulary survived</q>——<b>是一起活下來，不是誰取代誰。</b>而且真的取代了的話，下一句「菜單上看得到中世紀階級鬥爭的迴響」就無從說起。
+    <br><br>
+    <b>四、歸屬。</b><q>The Normans gradually adopted the Anglo-Saxon words</q> 把方向整個倒過來。文章說的是諾曼人用自己的法文字（第 27 到 31 行），那些字後來變成 beef、pork、mutton。<b>諾曼人沒有改用農民的字。</b>
+    <br><br>
+    再補一條詞彙鏈：正解的 <q>duality</q> 接得回第 33 行的 <q>both sets</q>，<q>linguistic history</q> 接得回標題和第 3 行的 <q>linguistic divide</q>。<b>首尾就是靠這兩組字扣起來的。</b>
+  </div>
+  <p class="why" id="w6" hidden>考卷上不會有底色，也不會有行號。但你剛才用的四個線索，每一篇因果文都有。</p>
+</section>
+
+<!-- CLOSE -->
+<section class="close" id="s7" hidden>
+  <h2>帶著走的五句話</h2>
+  <ol>
+    <li><b>因果文常常先擋住一個念頭。</b>看到 <q>no coincidence</q>、<q>not by chance</q>、<q>there is a reason for this</q>，下一段幾乎一定給原因。</li>
+    <li><b>驗證方法：從結尾往回問「為什麼」。</b>每問一次都能在前面找到一段回答它，就是因果鏈；問到第二階就沒答案，那只是把幾件事並排。</li>
+    <li><b>例外不是漏洞，是最強的支持。</b>作者自己找出 chicken 和 fish 這個例外並解釋掉，那個原因才站得住。考卷特別愛考這一段。</li>
+    <li><b>對比標記詞是抓手。</b>however、but、while、Meanwhile、Conversely——看到它，作者要換到線的另一邊了。整篇的字因此分成兩組，一組對應一個階級。</li>
+    <li><b>因果題的兩個陷阱：倒因為果，和把並存當成因果。</b>兩件事同時發生，不代表其中一件造成另一件——這篇有三百年的雙語並存，最容易中招。</li>
+  </ol>
+  <p class="more"><a href="https://staresto-create.github.io/JCEE-vocab-questions/wordwheel.html">單字輪：把字拆成部件來記 →</a></p>
+</section>
+
+<nav class="series">
+  <a class="back" href="cohesion.html">← 回讀法練習總表</a>
+  <p class="note">總表上有目前可以做的所有單元，還有你累積到現在的讀法工具。</p>
+</nav>
+
+</div>
+<script>
+(function(){
+"use strict";
+function $(id){return document.getElementById(id);}
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;");}
+var KEY="cohesion-u8-v1";
+var ST={tags:{},rungs:0,q1:0,q2:0,q5:0,q6:0,step:1};
+function save(){ try{ localStorage.setItem(KEY, JSON.stringify(ST)); }catch(e){} }
+function load(){ try{ var r=localStorage.getItem(KEY); return r?JSON.parse(r):null; }catch(e){ return null; } }
+function wipe(){ try{ localStorage.removeItem(KEY); }catch(e){} location.reload(); }
+
+var TITLE="Beef Versus Cow: The Linguistic History Hidden on Your Plate";
+var LINES=[
+"In most languages, a single word is used for both {a living animal|c-sax|1} and the",
+"{the meat it produces|c-nor|1}. English, {however|c-mk|1}, is a curious outlier. {A farmer tends to|c-sax|2}",
+"{cows and pigs|c-sax|2}, {but|c-mk|2} {a diner orders beef and pork|c-nor|2}. This linguistic divide",
+"is no coincidence; it\u2019s a permanent mark left by a thousand-year-old",
+"conquest that greatly reshaped English society and its class structure.",
+"The story begins in 1066 with the Battle of Hastings. William the",
+"Conqueror, Duke of Normandy, invaded England and overthrew",
+"the Anglo-Saxon monarchy, taking control of the land and its people",
+"almost overnight. This established a rigid new social order: {The French-|c-nor|3}",
+"{speaking Normans|c-nor|3} became {the ruling aristocracy|c-nor|4}, {while|c-mk|3} {the native|c-sax|3}",
+"{Anglo-Saxons|c-sax|3} were reduced to {the laboring peasantry|c-sax|4}, stripped of",
+"political power and social status.",
+"For the next three centuries, England was effectively",
+"bilingual. The Anglo-Saxon peasants continued to speak {Old|c-sax|5}",
+"{English, a Germanic tongue|c-sax|5} rooted in the language of their",
+"ancestors. They were the ones who {worked the land and raised|c-sax|6}",
+"{the livestock|c-sax|6}. {However|c-mk|4}, they rarely saw the",
+"fruits of their labor on their own tables. To",
+"them, the animal was simply a {c\u016b (cow), a|c-sax|7}",
+"{picg (pig), or a sceap (sheep)|c-sax|7}.",
+"{Meanwhile|c-mk|5}, in the great halls of Norman",
+"castles, a very different language was",
+"spoken at the dining table. {The Old French-|c-nor|5}",
+"{speaking nobles|c-nor|5} rarely encountered",
+"living cows, pigs, and sheep; they only saw",
+"them as {prepared dishes served at lavish|c-nor|6}",
+"{feasts|c-nor|6}. Naturally, they used French terms",
+"for what they were eating: {b\u0153uf, porc, and|c-nor|7}",
+"{mouton|c-nor|7}\u2014terms that would eventually",
+"evolve into the modern English words",
+"{\u201cbeef,\u201d \u201cpork,\u201d and \u201cmutton.\u201d|c-nor|8}",
+"As the two cultures gradually merged",
+"into a single English identity, both sets of",
+"vocabulary survived, {but|c-mk|6} their social roles",
+"remained distinct. The pattern extended",
+"further, with \u201cveal\u201d (from French veau) and",
+"\u201cvenison\u201d (from French venaison) following",
+"the same logic. {Conversely|c-mk|7}, for smaller",
+"animals such as chicken and fish\u2014foods",
+"eaten by all social classes\u2014the original",
+"Germanic names survived for both the",
+"animal and the dish.",
+"Today, this duality endures as a",
+"fascinating reminder of linguistic history.",
+"Whenever we read a menu, we see the",
+"echoes of a medieval class struggle. These",
+"echoes are reminders that {those who raised|c-sax|8}",
+"{the food|c-sax|8} and {those who ate it|c-nor|9} once spoke",
+"entirely different languages. What we eat",
+"may have changed, {but|c-mk|8} the words we use",
+"still carry the weight of history."
+];
+var INDENT={1:1,6:1,13:1,21:1,32:1,43:1};
+var SPLIT=21;
+
+var CHAINS={
+ "c-sax":{k:"sub",n:"\u990a\u52d5\u7269\u7684\u90a3\u4e00\u908a\uff1a\u76ce\u683c\u9b6f\u2013\u6492\u514b\u905c\u8fb2\u6c11\u3001\u53e4\u82f1\u8a9e\u3001\u6d3b\u7684\u52d5\u7269\u3002\u5b83\u5011\u4e00\u8def\u5f9e\u7b2c 1 \u884c\u6392\u5230\u7b2c 48 \u884c\uff0c\u800c\u4e14\u6bcf\u4e00\u6b21\u90fd\u6709\u4e00\u500b\u5c0d\u624b\u5728\u53e6\u4e00\u908a\u3002\u6ce8\u610f\u7b2c 19 \u5230 20 \u884c\u7684 c\u016b\u3001picg\u3001sceap\u2014\u2014\u8fb2\u6c11\u81ea\u5df1\u7684\u53e4\u82f1\u8a9e\u5b57\uff0c\u9019\u4e09\u500b\u5b57\u5f8c\u4f86\u5c31\u662f cow\u3001pig\u3001sheep\u3002"},
+ "c-nor":{k:"gen",n:"\u5403\u8089\u7684\u90a3\u4e00\u908a\uff1a\u8afe\u66fc\u8cb4\u65cf\u3001\u53e4\u6cd5\u8a9e\u3001\u7aef\u4e0a\u684c\u7684\u83dc\u3002\u8ddf\u9752\u8272\u90a3\u4e00\u5806\u4e00\u4e00\u5c0d\u61c9\uff1a\u8fb2\u6c11\u990a cows and pigs\uff0c\u98df\u5ba2\u9ede beef and pork\uff1b\u8fb2\u6c11\u8aaa c\u016b\u3001picg\u3001sceap\uff0c\u8cb4\u65cf\u8aaa b\u0153uf\u3001porc\u3001mouton\u3002\u6700\u5f8c\u6536\u5728\u7b2c 47 \u5230 48 \u884c\uff1a\u990a\u98df\u7269\u7684\u4eba\u5c0d\u5403\u98df\u7269\u7684\u4eba\u3002"},
+ "c-mk":{k:"mk",n:"\u5c0d\u6bd4\u6a19\u8a18\u8a5e\uff0c\u516b\u500b\u3002\u5b83\u5011\u662f\u5169\u908a\u4e4b\u9593\u7684\u63a5\u7e2b\uff1a\u770b\u5230\u5b83\uff0c\u4f5c\u8005\u8981\u63db\u5230\u7dda\u7684\u53e6\u4e00\u908a\u4e86\u3002\u7b2c 38 \u884c\u7684 Conversely \u6700\u503c\u5f97\u8a18\u2014\u2014\u5b83\u5f15\u51fa\u7684\u4e0d\u662f\u53e6\u4e00\u908a\uff0c\u800c\u662f\u4f8b\u5916\uff1achicken \u548c fish \u5169\u908a\u90fd\u5403\uff0c\u6240\u4ee5\u6c92\u6709\u5206\u5bb6\u3002"}
+};
+var LB={sub:"\u990a\u52d5\u7269\u7684\u90a3\u4e00\u908a",gen:"\u5403\u8089\u7684\u90a3\u4e00\u908a",mk:"\u5c0d\u6bd4\u6a19\u8a18"};
+var CL={sub:"k",gen:"k g",mk:"k e"};
+
+var NODES=[
+ {a:1,b:5,t:"\u73fe\u8c61",s:"\u7b2c 1\u20135 \u884c"},
+ {a:6,b:12,t:"\u6210\u56e0",s:"\u7b2c 6\u201312 \u884c"},
+ {a:13,b:31,t:"\u6a5f\u5236",s:"\u7b2c 13\u201331 \u884c"},
+ {a:32,b:42,t:"\u64f4\u6563\u8207\u4f8b\u5916",s:"\u7b2c 32\u201342 \u884c"},
+ {a:43,b:51,t:"\u4eca\u5929",s:"\u7b2c 43\u201351 \u884c"}
+];
+
+var ROWS=[
+ {l:"a farmer tends cows and pigs",r:"a diner orders beef and pork",mk:"but",
+  a:1,b:3,n:"\u7b2c 2 \u5230 3 \u884c\u3002\u4e00\u53e5\u8a71\u88e1\u5c31\u628a\u5169\u908a\u64fa\u597d\u4e86\uff0c\u4e2d\u9593\u593e\u8457 but\u3002"},
+ {l:"native Anglo-Saxons \u00b7 peasantry",r:"French-speaking Normans \u00b7 aristocracy",mk:"while",
+  a:9,b:11,n:"\u7b2c 9 \u5230 11 \u884c\u3002while \u5728\u9019\u88e1\u4e0d\u662f\u300c\u7576\u2026\u2026\u7684\u6642\u5019\u300d\uff0c\u662f\u300c\u800c\u53e6\u4e00\u65b9\u9762\u300d\u2014\u2014\u9019\u662f\u5c0d\u6bd4\u7684\u7528\u6cd5\u3002"},
+ {l:"worked the land, raised the livestock",r:"prepared dishes at lavish feasts",mk:"However",
+  a:16,b:27,n:"\u7b2c 16 \u5230 17 \u884c\u5c0d\u7b2c 26 \u5230 27 \u884c\u3002\u4e00\u908a\u990a\uff0c\u4e00\u908a\u5403\uff0c\u5169\u908a\u5f9e\u4f86\u6c92\u78b0\u5230\u3002"},
+ {l:"c\u016b \u00b7 picg \u00b7 sceap",r:"b\u0153uf \u00b7 porc \u00b7 mouton",mk:"Meanwhile",
+  a:19,b:29,n:"\u7b2c 19 \u5230 20 \u884c\u5c0d\u7b2c 28 \u5230 29 \u884c\u3002\u9019\u516d\u500b\u5b57\u5c31\u662f\u4eca\u5929 cow\u3001pig\u3001sheep \u8ddf beef\u3001pork\u3001mutton \u7684\u4f86\u6e90\u3002"},
+ {l:"chicken \u548c fish\uff1a\u5169\u908a\u90fd\u5403\uff0c\u6240\u4ee5\u6c92\u6709\u5206\u5bb6",r:"",mk:"Conversely",
+  a:38,b:42,n:"\u7b2c 38 \u5230 42 \u884c\u3002\u9019\u4e00\u5217\u8de8\u904e\u4e2d\u9593\u90a3\u689d\u7dda\u2014\u2014\u56e0\u70ba\u9019\u5169\u7a2e\u98df\u7269\u672c\u4f86\u5c31\u4e0d\u5c6c\u65bc\u4efb\u4f55\u4e00\u908a\u3002"}
+];
+
+var RUNGS=[
+ {q:"\u83dc\u55ae\u4e0a\u70ba\u4ec0\u9ebc\u5beb beef\uff0c\u4e0d\u5beb cow\uff1f",
+  a:"\u56e0\u70ba\u7576\u5e74\u8aaa\u6cd5\u6587\u7684\u8cb4\u65cf\u53ea\u770b\u5f97\u5230\u7aef\u4e0a\u684c\u7684\u83dc\uff0c\u5c31\u7528\u6cd5\u6587\u7684\u5b57\u7a31\u547c\u5b83\uff1ab\u0153uf\u3001porc\u3001mouton\uff0c\u5f8c\u4f86\u8b8a\u6210 beef\u3001pork\u3001mutton\u3002",r:"\u7b2c 21\u201331 \u884c",a2:21,b2:31},
+ {q:"\u8cb4\u65cf\u70ba\u4ec0\u9ebc\u8aaa\u6cd5\u6587\uff1f",
+  a:"\u56e0\u70ba\u4e00\u25cb\u516d\u516d\u5e74\u9ed1\u65af\u5ef7\u65af\u6230\u5f79\u4e4b\u5f8c\uff0c\u8afe\u66fc\u4eba\u63a8\u7ffb\u4e86\u76ce\u683c\u9b6f\u2013\u6492\u514b\u905c\u738b\u671d\uff0c\u6210\u70ba\u8aaa\u6cd5\u6587\u7684\u7d71\u6cbb\u968e\u7d1a\u3002",r:"\u7b2c 6\u201312 \u884c",a2:6,b2:12},
+ {q:"\u90a3\u8fb2\u6c11\u90a3\u4e00\u908a\u5462\uff1f",
+  a:"\u8fb2\u6c11\u662f\u88ab\u7d71\u6cbb\u7684\u4e00\u65b9\uff0c\u7e7c\u7e8c\u8aaa\u53e4\u82f1\u8a9e\u3002\u4ed6\u5011\u990a\u52d5\u7269\u3001\u7a2e\u7530\uff0c\u5374\u5f88\u5c11\u5403\u5230\u81ea\u5df1\u7684\u6210\u679c\uff0c\u6240\u4ee5\u4ed6\u5011\u7684\u5b57\u6307\u7684\u662f\u6d3b\u7684\u52d5\u7269\u3002",r:"\u7b2c 13\u201320 \u884c",a2:13,b2:20},
+ {q:"\u90a3 chicken \u70ba\u4ec0\u9ebc\u6c92\u6709\u5206\u6210\u5169\u500b\u5b57\uff1f",
+  a:"\u56e0\u70ba\u5c0f\u52d5\u7269\u5404\u968e\u7d1a\u90fd\u5403\u5f97\u5230\uff0c\u6c92\u6709\u5206\u5230\u7dda\u7684\u54ea\u4e00\u908a\uff0c\u65e5\u8033\u66fc\u8a9e\u7684\u540d\u5b57\u5c31\u540c\u6642\u7576\u4e86\u52d5\u7269\u548c\u83dc\u7684\u540d\u7a31\u3002",r:"\u7b2c 38\u201342 \u884c",a2:38,b2:42}
+];
+
+/* ---------- generic quiz ---------- */
+function quiz(qid,aid,gid,tag,after){
+  var done=false;
+  function settle(){
+    done=true;
+    var bs=$(qid).querySelectorAll("button");
+    for(var i=0;i<bs.length;i++){ bs[i].disabled=true; bs[i].dataset.state=bs[i].dataset.ok?"right":"wrong"; }
+    if(aid) $(aid).hidden=false;
+    if(gid) $(gid).hidden=false;
+    if(after) after();
+  }
+  $(qid).addEventListener("click",function(e){
+    var b=e.target.closest("button"); if(!b||done) return;
+    settle(); ST[tag]=1; save();
+  });
+  return settle;
+}
+function opener(gid,sid,extra){
+  $(gid).addEventListener("click",function(){
+    var n=parseInt(sid.replace(/\D/g,""),10);
+    if(ST.step<n) ST.step=n; save();
+    $(sid).hidden=false; if(extra) extra();
+    $(sid).scrollIntoView({behavior:"smooth",block:"start"});
+  });
+}
+function hlLines(a,b){
+  var rows=$("tx").querySelectorAll(".ln");
+  for(var r=0;r<rows.length;r++){ var n=+rows[r].dataset.n; rows[r].classList.toggle("hl", n>=a&&n<=b); }
+  var ms=$("tx").querySelectorAll("m");
+  for(var k=0;k<ms.length;k++) ms[k].classList.remove("lit");
+  if(rows.length){ var f=$("tx").querySelector('.ln[data-n="'+a+'"]'); if(f) f.scrollIntoView({behavior:"smooth",block:"center"}); }
+}
+
+/* ---------- step 1 ---------- */
+var TL={p:"\u73fe\u8c61",n:"\u4e0d\u662f\u5de7\u5408",c:"\u6210\u56e0"};
+function tagged(){ var n=0; for(var k in ST.tags) if(ST.tags[k]) n++; return n; }
+function paintTag(c){
+  if(c.classList.contains("got")) return;
+  c.classList.add("got");
+  var b=document.createElement("b"); b.textContent=TL[c.dataset.t];
+  c.insertBefore(b, c.firstChild);
+}
+function afterTags(){
+  $("sc").innerHTML="\u5df2\u6a19\u51fa <em>"+tagged()+"</em> / 3";
+  if(tagged()===3) $("s1b").hidden=false;
+}
+$("ld").addEventListener("click",function(e){
+  var c=e.target.closest("c"); if(!c) return;
+  if(ST.tags[c.dataset.t]) return;
+  ST.tags[c.dataset.t]=1; save(); paintTag(c); afterTags();
+});
+var set1=quiz("q1","a1","g1","q1");
+opener("g1","s2");
+
+/* ---------- step 2 : the chain ---------- */
+function drawChain(){
+  if($("fig1").firstChild) return;
+  $("fig1").hidden=false;
+  var s='<svg viewBox="0 0 420 150" role="img" aria-label="\u4e94\u7bc0\u7684\u56e0\u679c\u93c8\uff0c\u5f9e\u73fe\u8c61\u5f80\u56de\u8ffd\u5230\u6210\u56e0\uff0c\u518d\u63a8\u56de\u4eca\u5929">';
+  var w=72, gap=15, y=46, h=48;
+  for(var i=0;i<5;i++){
+    var x=8+i*(w+gap), n=NODES[i];
+    s+='<g class="node" data-i="'+i+'" tabindex="0" role="button">';
+    s+='<rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="5"/>';
+    s+='<text x="'+(x+w/2)+'" y="'+(y+20)+'" text-anchor="middle">'+esc(n.t)+'</text>';
+    s+='<text x="'+(x+w/2)+'" y="'+(y+35)+'" text-anchor="middle"><tspan class="n">'+esc(n.s)+'</tspan></text>';
+    s+='</g>';
+    if(i<4){ var ax=x+w+2, mx=ax+gap-4;
+      s+='<path class="arrow" d="M'+ax+' '+(y+h/2)+' L'+mx+' '+(y+h/2)+'"/>';
+      s+='<path class="arrow" d="M'+(mx-4)+' '+(y+h/2-3)+' L'+mx+' '+(y+h/2)+' L'+(mx-4)+' '+(y+h/2+3)+'"/>';
+    }
+  }
+  s+='<path class="arrow" d="M44 40 L44 24 L188 24" stroke-dasharray="4 3"/>';
+  s+='<path class="arrow" d="M184 20 L188 24 L184 28" stroke-dasharray="0"/>';
+  s+='<text x="116" y="18" text-anchor="middle" style="font-family:var(--sans);font-size:9.5px;fill:var(--muted)">\u5f80\u56de\u8ffd\u4e00\u5343\u5e74</text>';
+  s+='</svg><figcaption>\u5be6\u7dda\u7bad\u982d\u662f\u6587\u7ae0\u7684\u9806\u5e8f\uff0c\u865b\u7dda\u7bad\u982d\u662f\u6642\u9593\u7684\u65b9\u5411\u2014\u2014\u4f5c\u8005\u5148\u8b1b\u4eca\u5929\uff0c\u518d\u56de\u982d\u627e\u4e00\u5343\u5e74\u524d\u7684\u6210\u56e0\u3002\u9ede\u4efb\u4e00\u7bc0\uff0c\u7b2c\u56db\u6b65\u7684\u8ab2\u6587\u5c0d\u61c9\u884c\u6703\u4eae\u8d77\u4f86\u3002</figcaption>';
+  $("fig1").innerHTML=s;
+  function hit(g){
+    var i=+g.dataset.i, n=NODES[i];
+    var gs=$("fig1").querySelectorAll(".node");
+    for(var j=0;j<gs.length;j++) gs[j].classList.toggle("on", +gs[j].dataset.i===i);
+    var r2=$("fig2").querySelectorAll(".side,.mk");
+    for(var k=0;k<r2.length;k++) r2[k].classList.remove("on");
+    hlLines(n.a,n.b);
+    $("pk").textContent="\u93c8\u4e0a\u7684\u4e00\u7bc0"; $("pk").className="k e";
+    $("pc").textContent=n.t; $("pt").textContent=n.s+"\u3002\u8ab2\u6587\u9019\u5e7e\u884c\u5df2\u7d93\u4eae\u8d77\u4f86\u4e86\u3002";
+  }
+  $("fig1").addEventListener("click",function(e){ var g=e.target.closest(".node"); if(g) hit(g); });
+  $("fig1").addEventListener("keydown",function(e){
+    if(e.key!=="Enter"&&e.key!==" ") return;
+    var g=e.target.closest(".node"); if(g){ e.preventDefault(); hit(g); }
+  });
+}
+function afterQ2(){ drawChain(); $("db").hidden=false; }
+var set2=quiz("q2","a2","g2","q2",afterQ2);
+opener("g2","s3",buildLadder);
+
+/* ---------- step 3 : the why-ladder ---------- */
+var builtLadder=false;
+function buildLadder(){
+  if(builtLadder) return; builtLadder=true;
+  var h="";
+  for(var i=0;i<RUNGS.length;i++){
+    var r=RUNGS[i];
+    h+='<div class="rung" id="rg'+i+'" hidden><div class="qz"><span>\u2192</span> '+esc(r.q)+'</div>'+
+       '<button data-i="'+i+'">\u70ba\u4ec0\u9ebc\uff1f</button>'+
+       '<div class="an">'+esc(r.a)+'<i>'+esc(r.r)+'</i></div></div>';
+  }
+  $("ladder").innerHTML=h;
+  $("ladder").addEventListener("click",function(e){
+    var b=e.target.closest("button"); if(!b) return;
+    var i=+b.dataset.i;
+    if(ST.rungs<i+1){ ST.rungs=i+1; save(); }
+    paintLadder();
+  });
+  paintLadder();
+}
+function paintLadder(){
+  for(var i=0;i<RUNGS.length;i++){
+    var el=$("rg"+i); if(!el) continue;
+    el.hidden = (i>ST.rungs);
+    el.classList.toggle("open", i<ST.rungs);
+  }
+  $("sc3").innerHTML="\u5df2\u8ffd\u51fa <em>"+ST.rungs+"</em> / 4";
+  if(ST.rungs>=RUNGS.length){ $("a3").hidden=false; $("g3").hidden=false; }
+}
+opener("g3","s4",function(){ buildText(); drawSides(); });
+
+/* ---------- step 4 : the dividing line + passage ---------- */
+function drawSides(){
+  if($("fig2").firstChild) return;
+  var s='<svg viewBox="0 0 420 268" role="img" aria-label="\u4e00\u689d\u5206\u754c\u7dda\uff0c\u5de6\u908a\u662f\u990a\u52d5\u7269\u7684\u4eba\u7684\u5b57\uff0c\u53f3\u908a\u662f\u5403\u8089\u7684\u4eba\u7684\u5b57">';
+  s+='<text class="hdlab l" x="91" y="20" text-anchor="middle">\u990a\u52d5\u7269\u7684\u4eba\uff08\u76ce\u683c\u9b6f\u2013\u6492\u514b\u905c\uff09</text>';
+  s+='<text class="hdlab r" x="329" y="20" text-anchor="middle">\u5403\u8089\u7684\u4eba\uff08\u8afe\u66fc\u8cb4\u65cf\uff09</text>';
+  s+='<path class="divline" d="M210 30 L210 212" fill="none"/>';
+  for(var i=0;i<4;i++){
+    var y=34+i*42, r=ROWS[i];
+    s+='<g class="side l" data-i="'+i+'" tabindex="0" role="button">';
+    s+='<rect x="10" y="'+y+'" width="162" height="30" rx="4"/>';
+    s+='<text x="91" y="'+(y+19)+'" text-anchor="middle">'+esc(r.l)+'</text></g>';
+    s+='<g class="side r" data-i="'+i+'" tabindex="0" role="button">';
+    s+='<rect x="248" y="'+y+'" width="162" height="30" rx="4"/>';
+    s+='<text x="329" y="'+(y+19)+'" text-anchor="middle">'+esc(r.r)+'</text></g>';
+    s+='<g class="mk"><text x="210" y="'+(y+19)+'" text-anchor="middle">'+esc(r.mk)+'</text></g>';
+  }
+  var y5=218, r5=ROWS[4];
+  s+='<g class="side" data-i="4" tabindex="0" role="button">';
+  s+='<rect x="10" y="'+y5+'" width="400" height="34" rx="4" stroke-dasharray="5 4"/>';
+  s+='<text x="210" y="'+(y5+15)+'" text-anchor="middle">'+esc(r5.mk)+'\uff1a'+esc(r5.l)+'</text>';
+  s+='<text x="210" y="'+(y5+28)+'" text-anchor="middle" style="font-size:9px;fill:var(--muted)">\u7b2c 38\u201342 \u884c</text></g>';
+  s+='</svg><figcaption>\u4e2d\u9593\u90a3\u689d\u865b\u7dda\u5c31\u662f\u968e\u7d1a\u5206\u754c\uff0c\u7dda\u4e0a\u7684\u659c\u9ad4\u5b57\u662f\u628a\u5169\u908a\u63a5\u8d77\u4f86\u7684\u5c0d\u6bd4\u6a19\u8a18\u8a5e\u3002\u6700\u4e0b\u9762\u90a3\u4e00\u5217\u8de8\u904e\u5206\u754c\u7dda\uff0c\u56e0\u70ba chicken \u548c fish \u5169\u908a\u90fd\u5403\u3002\u9ede\u4efb\u4e00\u5217\uff0c\u8ab2\u6587\u5c0d\u61c9\u884c\u6703\u4eae\u8d77\u4f86\u3002</figcaption>';
+  $("fig2").innerHTML=s;
+  function hit(g){
+    var i=+g.dataset.i, r=ROWS[i];
+    var gs=$("fig2").querySelectorAll(".side");
+    for(var j=0;j<gs.length;j++) gs[j].classList.toggle("on", +gs[j].dataset.i===i);
+    var n1=$("fig1").querySelectorAll(".node");
+    for(var k=0;k<n1.length;k++) n1[k].classList.remove("on");
+    hlLines(r.a,r.b);
+    $("pk").textContent="\u5c0d\u7acb\u914d\u5c0d"; $("pk").className="k e";
+    $("pc").textContent = r.r ? (r.l+"　\u2194　"+r.r+"　\uff08"+r.mk+"\uff09") : (r.mk+"\uff1a"+r.l);
+    $("pt").textContent=r.n;
+  }
+  $("fig2").addEventListener("click",function(e){ var g=e.target.closest(".side"); if(g) hit(g); });
+  $("fig2").addEventListener("keydown",function(e){
+    if(e.key!=="Enter"&&e.key!==" ") return;
+    var g=e.target.closest(".side"); if(g){ e.preventDefault(); hit(g); }
+  });
+}
+function renderLine(str){
+  var out="",i=0;
+  while(i<str.length){
+    var a=str.indexOf("{",i);
+    if(a<0){ out+=esc(str.slice(i)); break; }
+    out+=esc(str.slice(i,a));
+    var b=str.indexOf("}",a), p=str.slice(a+1,b).split("|");
+    var id=p[1], it=p[2]||"1", k=CHAINS[id]?CHAINS[id].k:"sub";
+    out+='<m data-c="'+id+'" data-i="'+it+'" data-kind="'+k+'" tabindex="0">'+esc(p[0])+'</m>';
+    i=b+1;
+  }
+  return out;
+}
+var builtText=false;
+function buildText(){
+  if(builtText) return; builtText=true;
+  var h='<p class="ttl">'+esc(TITLE)+'</p>';
+  for(var i=0;i<LINES.length;i++){
+    var n=i+1;
+    if(n===SPLIT) h+='<p class="split">\u4ee5\u4e0a\u662f 9/15 \u7684\u7b2c 1\u201320 \u884c\u3002\u4ee5\u4e0b\u662f 9/16 \u7684\u7b2c 21\u201351 \u884c\u3002</p>';
+    var cls="ln"+(INDENT[n]?" ind"+(n>1?" pb":""):"");
+    h+='<div class="'+cls+'" data-n="'+n+'"><i>'+((n%5===0)?n:"")+'</i><span>'+renderLine(LINES[i])+'</span></div>';
+  }
+  $("tx").innerHTML=h;
+}
+function lightChain(id){
+  var ms=$("tx").querySelectorAll("m"), items={}, order=[];
+  var g1=$("fig1").querySelectorAll(".node"), g2=$("fig2").querySelectorAll(".side"),i;
+  for(i=0;i<g1.length;i++) g1[i].classList.remove("on");
+  for(i=0;i<g2.length;i++) g2[i].classList.remove("on");
+  var rows=$("tx").querySelectorAll(".ln");
+  for(i=0;i<rows.length;i++) rows[i].classList.remove("hl");
+  for(i=0;i<ms.length;i++){
+    if(ms[i].dataset.c===id){
+      ms[i].classList.add("lit");
+      var key=ms[i].dataset.i;
+      if(!items[key]){ items[key]=[]; order.push(key); }
+      items[key].push(ms[i].textContent);
+    } else ms[i].classList.remove("lit");
+  }
+  var c=CHAINS[id]; if(!c) return;
+  var parts=[];
+  for(var o=0;o<order.length;o++) parts.push(esc(items[order[o]].join(" ")));
+  $("pk").textContent=LB[c.k]; $("pk").className=CL[c.k];
+  $("pc").innerHTML=parts.join('<i>\u2192</i>');
+  $("pt").textContent=c.n;
+}
+$("tx").addEventListener("click",function(e){ var m=e.target.closest("m"); if(m) lightChain(m.dataset.c); });
+$("tx").addEventListener("keydown",function(e){
+  if(e.key!=="Enter"&&e.key!==" ") return;
+  var m=e.target.closest("m"); if(m){ e.preventDefault(); lightChain(m.dataset.c); }
+});
+function toggle(btn,cls){
+  btn.addEventListener("click",function(){
+    var on=btn.getAttribute("aria-pressed")==="true";
+    btn.setAttribute("aria-pressed",on?"false":"true");
+    $("tx").classList.toggle(cls,on);
+  });
+}
+toggle($("m1"),"off-sub");
+toggle($("m2"),"off-gen");
+opener("g4","s5");
+
+/* ---------- step 5 ---------- */
+var set5=quiz("q5","a5","g5","q5");
+$("g5").addEventListener("click",function(){
+  if(ST.step<6) ST.step=6; save();
+  $("s6").hidden=false;
+  $("s6").scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+/* ---------- step 6 ---------- */
+var done6=false;
+function settle6(){
+  done6=true;
+  var bs=$("q6").querySelectorAll("button");
+  for(var i=0;i<bs.length;i++){
+    bs[i].disabled=true; bs[i].dataset.state=bs[i].dataset.ok?"right":"wrong";
+    if(bs[i].dataset.ok){ $("bl").textContent=bs[i].textContent; $("bl").className="blank filled"; }
+  }
+  $("a6").hidden=false; $("w6").hidden=false; $("s7").hidden=false;
+}
+$("q6").addEventListener("click",function(e){
+  var b=e.target.closest("button"); if(!b||done6) return;
+  settle6(); ST.q6=1; save();
+  $("a6").scrollIntoView({behavior:"smooth",block:"nearest"});
+});
+
+/* ---------- preview mode for the teacher: cohesion-u8.html?all ---------- */
+function previewAll(){
+  $("pv").hidden=false;
+  var i,cs=$("ld").querySelectorAll("c");
+  for(i=0;i<cs.length;i++){ ST.tags[cs[i].dataset.t]=1; paintTag(cs[i]); }
+  afterTags(); set1();
+  $("s2").hidden=false; set2();
+  $("s3").hidden=false; ST.rungs=RUNGS.length; buildLadder();
+  $("s4").hidden=false; buildText(); drawSides();
+  $("s5").hidden=false; set5();
+  $("s6").hidden=false; settle6();
+}
+
+/* ---------- restore ---------- */
+$("rst").addEventListener("click",wipe);
+(function restore(){
+  if(/(^|[?&])all(=|&|$)/.test(location.search)){ previewAll(); return; }
+  var v=load(); if(!v) return;
+  ST=v;
+  if(!ST.tags) ST.tags={};
+  if(typeof ST.rungs!=="number") ST.rungs=0;
+  if(!ST.step) ST.step=1;
+  if(!(tagged()||ST.step>1)) return;
+  $("rs").hidden=false;
+  var i,cs=$("ld").querySelectorAll("c");
+  for(i=0;i<cs.length;i++) if(ST.tags[cs[i].dataset.t]) paintTag(cs[i]);
+  afterTags();
+  if(ST.q1) set1();
+  if(ST.step>=2){ $("s2").hidden=false; if(ST.q2) set2(); }
+  if(ST.step>=3){ $("s3").hidden=false; buildLadder(); }
+  if(ST.step>=4){ $("s4").hidden=false; buildText(); drawSides(); }
+  if(ST.step>=5){ $("s5").hidden=false; if(ST.q5) set5(); }
+  if(ST.step>=6){ $("s6").hidden=false; if(ST.q6) settle6(); }
+  var last=$("s"+(ST.step>=6?6:ST.step));
+  if(last) setTimeout(function(){ last.scrollIntoView({block:"start"}); },60);
+})();
+})();
+</script>
+</body>
+</html>
