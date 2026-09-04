@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>問題與解決｜Anesthesia: The Discovery That Transformed Medicine</title>
+<meta name="description" content="每解決一次，就冒出新問題。這一頁教你認出這種循環，還有跟著循環一起上下擺盪的評價字。">
+<meta property="og:title" content="問題與解決｜Anesthesia">
+<meta property="og:description" content="乙醚不是終點，氯仿也不是。每一個解法後面都跟著一個 but。">
+<style>
+:root{
+  --ground:#f1f3f2; --ink:#17282f; --teal:#1f6f6a; --teal-soft:#dfeceb;
+  --muted:#77878d; --line:#cdd6d6; --exam:#b4661c; --exam-soft:#fdf4e7;
+  --gen:#4a6a90; --gen-soft:#e0e7f0;
+  --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+  --sans:"PingFang TC","Noto Sans TC","Microsoft JhengHei","Helvetica Neue",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-text-size-adjust:100%}
+.wrap{max-width:44rem;margin:0 auto;padding:1.6rem 1.1rem 4rem}
+h1{font-family:var(--serif);font-weight:600;font-size:1.6rem;line-height:1.3;margin:0 0 .55rem}
+.lede{margin:0 0 1.3rem;color:#3d5059;font-size:.95rem}
+.src{font-size:.8rem;color:var(--muted);margin:0 0 1.1rem}
+.resume{font-size:.85rem;color:var(--teal);background:var(--teal-soft);border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.resume[hidden]{display:none}
+.preview{font-size:.85rem;color:var(--exam);background:var(--exam-soft);
+  border:1px dashed var(--exam);border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.preview[hidden]{display:none}
+.resume button{font:inherit;font-size:.82rem;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:.25rem;padding:.16rem .6rem;margin-left:.5rem;cursor:pointer}
+.resume button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.step{border-top:1px solid var(--line);padding-top:1.15rem;margin-top:1.6rem}
+.step[hidden]{display:none}
+.stepno{font-family:var(--serif);font-size:.82rem;color:var(--muted);margin:0 0 .2rem}
+h2{font-family:var(--serif);font-weight:600;font-size:1.2rem;margin:0 0 .5rem;color:var(--teal)}
+.step p{margin:0 0 .7rem;font-size:.95rem}
+.tag{display:inline-block;font-size:.72rem;font-weight:600;border-radius:.2rem;padding:.08rem .45rem;margin-left:.45rem;vertical-align:.12rem;color:var(--exam);background:var(--exam-soft);border:1px solid var(--exam)}
+.tag.b{color:var(--gen);background:var(--gen-soft);border-color:var(--gen)}
+.opts{display:flex;flex-direction:column;gap:.45rem;margin:.2rem 0 .8rem}
+.opts button{font:inherit;font-size:.95rem;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:.3rem;padding:.45rem .85rem;cursor:pointer;text-align:left}
+.opts button:hover{border-color:var(--teal)}
+.opts button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.opts button[data-state="right"]{background:var(--teal);border-color:var(--teal);color:#fff}
+.opts button[data-state="wrong"]{background:var(--ground);color:var(--muted)}
+.opts button[disabled]{cursor:default}
+.opts.en button{font-family:var(--serif);font-size:.97rem;line-height:1.6;padding:.55rem .8rem}
+.opts.en button[data-state="right"]{background:var(--teal-soft);border-color:var(--teal);color:var(--ink)}
+.said{background:#fff;border-left:3px solid var(--teal);border-radius:.3rem;padding:.75rem .85rem;margin:.2rem 0 .9rem;font-size:.93rem;color:#3d5059}
+.said b{color:var(--ink);font-weight:600}
+.said[hidden]{display:none}
+.said.g{border-left-color:var(--gen)}
+.said.e{border-left-color:var(--exam)}
+.said q{quotes:none;font-family:var(--serif)}
+.go{font:inherit;font-size:.92rem;background:var(--ink);color:#fff;border:1px solid var(--ink);border-radius:.3rem;padding:.42rem 1.05rem;cursor:pointer}
+.go:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.go[hidden]{display:none}
+.lead{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.9rem 1rem;margin:0 0 .7rem;font-family:var(--serif);font-size:1.02rem;line-height:1.95}
+.lead c{cursor:pointer;border-radius:.2rem;padding:.06rem .2rem;background:var(--exam-soft);box-shadow:inset 0 -2px 0 #ecc9a2}
+.lead c:hover{box-shadow:inset 0 -2px 0 var(--exam)}
+.lead c.got{background:var(--exam);color:#fff;box-shadow:none}
+.lead c b{font-family:var(--sans);font-size:.72rem;font-weight:600;background:#fff;color:var(--exam);border-radius:.2rem;padding:.02rem .3rem;margin-right:.3rem}
+.score{font-size:.9rem;color:var(--muted);margin:0 0 .8rem}
+.score em{font-style:normal;color:var(--exam);font-weight:600}
+.qs{display:flex;flex-direction:column;gap:.5rem;margin:0 0 .8rem}
+.qcard{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.6rem .85rem}
+.qcard .hd{display:flex;align-items:center;gap:.6rem;font-size:.95rem}
+.qcard .hd .qt{flex:1 1 auto;font-weight:600}
+.qcard .hd button{font:inherit;font-size:.8rem;background:#fff;color:var(--ink);border:1px solid var(--line);
+  border-radius:.25rem;padding:.18rem .7rem;cursor:pointer;flex:0 0 auto}
+.qcard .hd button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.qcard .bd{display:none;margin-top:.4rem;font-size:.92rem;color:#3d5059;line-height:1.75}
+.qcard.open .bd{display:block}
+.qcard.open .hd button{display:none}
+.qcard .r{display:grid;grid-template-columns:1fr;gap:.1rem;margin-bottom:.4rem}
+@media(min-width:34rem){.qcard .r{grid-template-columns:5.5rem 1fr;gap:.5rem}}
+.qcard .r:last-child{margin-bottom:0}
+.qcard .r .k{font-size:.76rem;font-weight:600;color:var(--gen)}
+.qcard .r .v{line-height:1.7}
+.qcard .r .v em{font-style:normal;color:var(--muted);font-size:.82rem;margin-left:.3rem}
+.fig{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.7rem .5rem .4rem;margin:0 0 .7rem}
+.fig svg{display:block;width:100%;height:auto;max-width:27rem;margin:0 auto}
+.fig figcaption{font-size:.85rem;color:#3d5059;margin:.35rem .5rem 0;line-height:1.65}
+.wave{stroke:var(--line);stroke-width:2.5;fill:none;stroke-linejoin:round;stroke-linecap:round}
+.mid{stroke:var(--line);stroke-width:1;stroke-dasharray:4 4}
+.knot{cursor:pointer}
+.knot circle{fill:#fff;stroke:var(--line);stroke-width:2}
+.knot .nm{font-family:var(--sans);font-size:10px;fill:var(--ink);font-weight:600}
+.knot .rg{font-family:var(--sans);font-size:8.5px;fill:var(--muted)}
+.knot.on circle{fill:var(--exam-soft);stroke:var(--exam);stroke-width:3}
+.knot.on .nm,.knot.on .rg{fill:var(--exam)}
+.ends{font-family:var(--sans);font-size:9.5px;font-weight:600}
+.ends.p{fill:var(--teal)}
+.ends.n{fill:var(--gen)}
+.daybreak{border:1px dashed var(--exam);background:var(--exam-soft);border-radius:.4rem;
+  padding:.8rem .95rem;margin:1.6rem 0 0;font-size:.9rem;color:#3d5059;line-height:1.7}
+.daybreak b{display:block;color:var(--exam);font-family:var(--serif);font-size:1.02rem;margin-bottom:.3rem}
+.daybreak[hidden]{display:none}
+.modes{display:flex;gap:.4rem;margin:0 0 .7rem;flex-wrap:wrap}
+.modes button{font:inherit;font-size:.84rem;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:.3rem;padding:.3rem .8rem;cursor:pointer}
+.modes button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.modes button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.text{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.9rem .6rem 1.1rem;font-family:var(--serif);font-size:1rem;line-height:1.85}
+.text .ttl{font-weight:600;font-size:1.06rem;margin:0 .4rem .7rem 2.6rem;line-height:1.45}
+.ln{display:flex;align-items:baseline;padding:.02rem 0;border-radius:.2rem}
+.ln>i{flex:0 0 2.2rem;text-align:right;padding-right:.55rem;font-family:var(--sans);font-style:normal;font-size:.68rem;color:var(--muted);line-height:1.9}
+.ln>span{flex:1 1 auto;overflow-wrap:anywhere}
+.ln.ind>span{padding-left:1.1rem}
+.ln.hl{background:var(--exam-soft)}
+.ln.pb{margin-top:.55rem}
+.text .split{font-family:var(--sans);font-size:.78rem;color:var(--exam);
+  border-top:1px dashed var(--exam);margin:.8rem .4rem .7rem 2.6rem;padding-top:.35rem}
+.text m{cursor:pointer;border-radius:.2rem;padding:.02rem .14rem}
+.text m[data-kind="sub"]{background:var(--teal-soft);box-shadow:inset 0 -2px 0 #a8ccc8}
+.text m[data-kind="gen"]{background:var(--gen-soft);box-shadow:inset 0 -2px 0 #a9bbd0}
+.text m.lit[data-kind="sub"]{background:var(--teal);color:#fff;box-shadow:none}
+.text m.lit[data-kind="gen"]{background:var(--gen);color:#fff;box-shadow:none}
+.text.off-sub m[data-kind="sub"]{background:none;box-shadow:none}
+.text.off-gen m[data-kind="gen"]{background:none;box-shadow:none}
+.panel{position:sticky;bottom:0;background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.75rem .9rem;margin-top:.8rem;box-shadow:0 -2px 10px rgba(23,40,47,.07)}
+.panel .k{font-size:.72rem;font-weight:600;border-radius:.2rem;padding:.06rem .42rem;color:var(--teal);background:var(--teal-soft);border:1px solid var(--teal)}
+.panel .k.g{color:var(--gen);background:var(--gen-soft);border-color:var(--gen)}
+.panel .k.e{color:var(--exam);background:var(--exam-soft);border-color:var(--exam)}
+.panel .ch{font-family:var(--serif);font-size:1rem;margin:.4rem 0 .3rem;color:var(--ink);line-height:1.75;overflow-wrap:anywhere}
+.panel .ch i{font-style:normal;color:var(--muted);padding:0 .28rem}
+.panel .nt{font-size:.88rem;color:#3d5059;margin:0}
+.recall{background:#fff;border:1px solid var(--line);border-left:3px solid var(--muted);
+  border-radius:.3rem;padding:.75rem .85rem;margin:1.1rem 0 .9rem;font-size:.92rem;color:#3d5059}
+.recall b{color:var(--ink)}
+.recall ul{margin:.4rem 0 0;padding-left:1.1rem}
+.recall li{margin-bottom:.35rem}
+.gap{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.9rem 1rem;margin:0 0 .9rem;font-family:var(--serif);font-size:1rem;line-height:1.9}
+.gap .blank{display:inline-block;min-width:9rem;border-bottom:2px solid var(--gen);color:var(--gen);text-align:center;font-family:var(--sans);font-size:.82rem}
+.gap .blank.filled{border-bottom-color:var(--teal);color:var(--ink);font-family:var(--serif);font-size:1rem;text-align:left;background:var(--teal-soft);border-radius:.2rem;padding:0 .25rem}
+.picks{display:flex;flex-direction:column;gap:.45rem;margin:0 0 .9rem}
+.picks button{font:inherit;font-family:var(--serif);font-size:.97rem;line-height:1.6;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:.3rem;padding:.55rem .8rem;cursor:pointer;text-align:left}
+.picks button:hover{border-color:var(--teal)}
+.picks button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.picks button[data-state="right"]{background:var(--teal-soft);border-color:var(--teal)}
+.picks button[data-state="wrong"]{background:var(--ground);color:var(--muted)}
+.why{font-size:.86rem;color:#3d5059;margin:.35rem 0 0}
+.why[hidden]{display:none}
+.close{border-top:1px solid var(--line);margin-top:2rem;padding-top:1.1rem;font-size:.93rem;color:#3d5059}
+.close[hidden]{display:none}
+.close h2{font-size:1.1rem}
+.close ol{margin:.3rem 0 0;padding-left:1.15rem}
+.close li{margin-bottom:.5rem}
+.more{margin-top:1.5rem;font-size:.88rem}
+.more a{color:var(--teal)}
+.series{border-top:1px solid var(--line);margin-top:2rem;padding-top:1.1rem;font-size:.9rem;color:#3d5059}
+.series .back{font-family:var(--serif);font-size:1rem;color:var(--teal);text-decoration:none}
+.series .back:hover{text-decoration:underline}
+.series .back:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.series .note{font-size:.85rem;color:var(--muted);margin:.5rem 0 0}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>問題與解決</h1>
+<p class="lede">這種文章不是「有個問題，然後解決了」那麼簡單。<b>它是一個循環：每解決一次，就冒出新的問題。</b>乙醚不是終點，氯仿也不是——每一個解法後面都跟著一個 but。</p>
+<p class="preview" id="pv" hidden>預覽模式：所有步驟、圖表、課文標記都已展開，進度不會存檔。學生拿到的一般連結不受影響。</p>
+<p class="resume" id="rs" hidden>上次做到一半，已經幫你接回來了。<button id="rst">重新開始</button></p>
+<p class="src">ALL+ 互動英語 9 月號 Unit 13（pp. 54–57）　Anesthesia: The Discovery That Transformed Medicine　全文 52 行　9/29 讀第 1–22 行，9/30 讀第 23–52 行</p>
+
+<!-- STEP 1 -->
+<section class="step" id="s1">
+  <p class="stepno">第一步</p>
+  <h2>先擺一排你想得到的<span class="tag">上層：組織方式</span></h2>
+  <p>問題解決文常常從「我們現在有多好」開始，因為<b>你要先覺得現在很好，等一下讀到以前有多慘才會有感覺</b>。下面是第 1 到 7 行，<b>點三個有底色的地方</b>。</p>
+  <div class="lead" id="ld">
+    There are <c data-t="g">countless reasons to be grateful</c> for living in the modern world. Technologies from phones and planes to fridges and blenders make our lives much more comfortable and luxurious than those of our ancestors. <c data-t="n">But perhaps no innovations have spared people from more misery than</c> <c data-t="a">anesthetics</c>, the medicines that put us to sleep and stop us from feeling pain during surgeries.
+  </div>
+  <p class="score" id="sc">已標出 <em>0</em> / 3</p>
+  <div id="s1b" hidden>
+    <p>三個都標出來了。那麼——<b>作者為什麼先講手機、飛機、冰箱、果汁機？</b></p>
+    <div class="opts" id="q1">
+      <button data-ok="1">先擺一排人人想得到的發明，再說麻醉比它們重要</button>
+      <button>因為讀者需要先知道現代生活究竟方便到什麼程度</button>
+      <button>因為這幾樣發明跟麻醉都是同一個時期出現的產物</button>
+      <button>因為作者接下來要比較科技和醫學究竟何者更重要</button>
+    </div>
+    <div class="said e" id="a1" hidden>
+      <b>先擺一排人人想得到的發明，再說麻醉比它們都重要。</b>手機、飛機、冰箱、果汁機是<b>墊底用的</b>——它們讓人聯想到「方便、舒適」。然後第 4 到 5 行一句 <q>But perhaps no innovations have spared people from more misery than anesthetics</q> 把整個標準抬高一級：<b>那些只是讓生活舒服，麻醉是讓人免於受苦。</b>
+      <br><br>
+      <b>注意那個最高級的句型。</b><q>no innovations have…more…than X</q> 等於「X 是最……的」。<b>看到 no…more…than，先把它翻成最高級再讀。</b>
+      <br><br>
+      <b>另外三個為什麼排除：</b>
+      <br><br>
+      「先知道現代生活多方便」——<b>這一個最容易選，因為前三行確實在講方便。</b>但方便只是手段，第 4 行的 But 立刻把它推翻掉了。<b>看到 But，前面那幾行的功能就從「重點」變成「墊底」。</b>
+      <br><br>
+      「同一個時期出現的產物」——課文沒有給手機、冰箱的年代，也沒有把它們跟一八四六年放在一起比。<b>課文沒寫的關聯不能自己補。</b>
+      <br><br>
+      「比較科技和醫學何者更重要」——比的不是兩個領域，是<b>一個東西（麻醉）和一整排東西</b>。而且比完之後就不再回頭講科技了，那一排發明從第 8 行起完全消失。
+    </div>
+    <button class="go" id="g1" hidden>那全篇怎麼走？</button>
+  </div>
+</section>
+
+<!-- STEP 2 -->
+<section class="step" id="s2" hidden>
+  <p class="stepno">第二步</p>
+  <h2>每個解法後面都跟著一個 but<span class="tag">上層：怎麼認出來</span></h2>
+  <p>先回答：<b>這篇文章推進的方式，最接近下列哪一種？</b></p>
+  <div class="opts" id="q2">
+    <button>依照時間順序，記錄麻醉技術的每一項重要發明</button>
+    <button data-ok="1">每解決一次就冒出新問題，再解決，又再冒出來</button>
+    <button>把幾種麻醉方式並排，比較它們各自的優點缺點</button>
+    <button>先提出一個主張，再用三個實驗的結果去證明它</button>
+  </div>
+  <div class="said e" id="a2" hidden>
+    <b>每解決一次就冒出新問題。</b>證據是三個轉折，位置都在解法剛講完的時候：第 20 到 22 行 <q>None of these methods, however, were particularly effective</q>、第 33 到 34 行 <q>While ether clearly had massive benefits, it wasn’t perfect</q>、第 38 到 39 行 <q>but finding the right dosage proved to be difficult</q>。
+    <br><br>
+    <b>另外三個為什麼排除，每一個都是這個系列教過的別種結構：</b>
+    <br><br>
+    「依時間順序記錄」——這是<b>時間序</b>（第四單元）。這篇確實有年份，但年份不是骨架。<b>真正推著文章往前走的是「上一個方法不夠好」，不是「後來又過了幾年」。</b>拿掉那三個轉折，這篇就散了；拿掉年份，還讀得懂。
+    <br><br>
+    「並排比較優缺點」——這是<b>比較對照</b>（第十二單元）。<b>這一個最容易選，因為乙醚和氯仿確實各有優缺點。</b>但比較對照會把兩者擺在一起對照著寫，這篇是<b>先後接力</b>：氯仿是為了解決乙醚的問題才出現的，第 37 到 38 行寫得很清楚——<q>Chloroform soon started to be used instead</q>。
+    <br><br>
+    「用實驗結果證明主張」——文章只有一個實驗（第 41 到 43 行 John Snow 試劑量），而且那是解法的一部分，不是拿來證明什麼。
+    <br><br>
+    下面這張圖就是全篇的起伏。<b>點任一點</b>，第四步的課文對應行會亮起來（課文還沒打開的話，先把行號記住就好）。
+  </div>
+  <figure class="fig" id="fig" hidden></figure>
+  <button class="go" id="g2" hidden>把循環拆開</button>
+</section>
+
+<div class="daybreak" id="db" hidden>
+  <b>9/30 的範圍從這裡開始：第 23–52 行</b>
+  第一、二步用的是 9/29 的第 1–22 行（開場、麻醉發明前的手術、無效的舊方法）。第三步以後會用到整篇，包含 9/30 的第 23–52 行（乙醚的突破、氯仿與劑量、今天）。如果你今天是 9/29，做到這裡可以先停，明天再接下去。（第二步的圖已經畫出後半段的起伏，先看到不影響。）
+</div>
+
+<!-- STEP 3 -->
+<section class="step" id="s3" hidden>
+  <p class="stepno">第三步</p>
+  <h2>循環表<span class="tag">上層：怎麼驗證</span></h2>
+  <p>怎麼確定一篇是這種循環，不是單純的「問題→解決」？<b>拆成三欄看：問題、解法、新問題。</b>三輪逐一按開。</p>
+  <div class="qs" id="qs"></div>
+  <p class="score" id="sc3">已拆出 <em>0</em> / 3</p>
+  <div class="said e" id="a3" hidden>
+    <b>看出來了嗎——這一輪的「新問題」，就是下一輪的「問題」。</b>三輪像鏈條一樣扣在一起，這就是這種文章往前走的方式。
+    <br><br>
+    <b>怎麼認出一篇是這種循環：</b>找解法後面的轉折詞。<b>如果每一個解法後面都有一個 but、however、wasn’t perfect，那就是循環；如果解法講完就結束了，那是單純的問題解決。</b>
+    <br><br>
+    <b>而循環在哪裡停下來，作者是有態度的。</b>這篇停在 John Snow 算出劑量（第 41 到 46 行），然後第 47 行直接跳到 Today。<b>作者沒有再挑毛病，等於在說：問題到這裡算解決了。</b>
+    <br><br>
+    <b>考卷上怎麼考：</b>最常見的是把中途的解法當成最終答案——問「作者認為最有效的止痛方式是什麼」，選項給乙醚。<b>乙醚是第二輪的解法，不是終點。</b>讀這種文章，一定要讀到最後一個轉折之後。
+  </div>
+  <button class="go" id="g3" hidden>看跟著循環擺盪的字</button>
+</section>
+
+<!-- STEP 4 -->
+<section class="step" id="s4" hidden>
+  <p class="stepno">第四步</p>
+  <h2>好、壞、好、壞<span class="tag b">下層：正負評價的擺盪</span></h2>
+  <p>這篇的形容詞在正負之間來回擺，而且<b>擺動的節奏剛好對應上面那個循環</b>——上下兩層在這一課是同一件事。</p>
+  <p>負面那一堆集中在第 9 到 15 行和第 34 到 40 行（terrifying、screams、agony、appalling、unpleasant、vomit、death），正面那一堆集中在開頭、第 30 到 33 行和結尾（grateful、miraculous、breakthrough、massive benefits、lucky）。<b>把兩色分別關掉看一次，起伏就一目了然。</b></p>
+  <p><b>點圖上任一點，或直接點課文裡有底色的字。</b></p>
+  <div class="modes">
+    <button id="m1" aria-pressed="true">正面（青）</button>
+    <button id="m2" aria-pressed="true">負面（藍灰）</button>
+  </div>
+  <div class="text" id="tx"></div>
+  <div class="panel" id="pn">
+    <span class="k" id="pk">線索</span>
+    <div class="ch" id="pc">點圖上的一點，或課文裡有底色的字</div>
+    <p class="nt" id="pt">青色是正面評價，藍灰是負面評價。</p>
+  </div>
+  <div class="recall">
+    <b>另外兩樣，前面單元教過，這篇自己確認得出來：</b>
+    <ul>
+      <li><b>概括名詞。</b>第 20 到 21 行的 <q>None of these methods</q> 一次收走前面五種舊方法（酒、鴉片、笑氣、催眠、打昏）；第 23 行的 <q>This all changed</q> 更狠，<b>收走的是整整一段的失敗</b>。跟第三、四、八、九、十二單元同一種工具——這是第六次遇到了，你應該已經很熟。</li>
+      <li><b>換字。</b>同一個主題一路換說法：<q>anesthetics</q>（6）→ <q>anesthesia</q>（8）→ <q>ether</q>（25）→ <q>chloroform</q>（37）→ <q>anesthesia</q>（47）。<b>中間那兩個是具體的藥名，頭尾兩個是總稱</b>——這正是第二、三單元教過的上義詞往下落到實例，再收回來。</li>
+    </ul>
+  </div>
+  <p style="margin-top:1.1rem"><button class="go" id="g4">考卷怎麼考</button></p>
+</section>
+
+<!-- STEP 5 -->
+<section class="step" id="s5" hidden>
+  <p class="stepno">第五步</p>
+  <h2>別把中途的解法當終點<span class="tag">上層：考點</span></h2>
+  <p>問題解決文的題目集中在兩種：</p>
+  <p><b>一、方法與問題的配對。</b>問「哪個方法是為了解決什麼」。做法是先在腦中把循環表畫出來，再回去對。</p>
+  <p><b>二、把中途的解法當成最終答案。</b>這是最常見的陷阱。乙醚是第二輪的解法，它自己也有問題；<b>讀到最後一個轉折之後，才是作者的結論。</b></p>
+  <p>試一題：<b>根據全文，氯仿為什麼後來取代了乙醚？</b></p>
+  <div class="opts en" id="q5">
+    <button>Because chloroform could be given in almost any amount without danger.</button>
+    <button>Because chloroform was much cheaper and far easier to produce.</button>
+    <button data-ok="1">Because ether was hard to inhale and posed a fire risk.</button>
+    <button>Because ether had been shown to cause several patients’ deaths.</button>
+  </div>
+  <div class="said e" id="a5" hidden>
+    <b>第三句。</b>第 34 到 37 行寫的是 <q>Breathing it in was very unpleasant, which often caused patients to cough or vomit, and it could easily catch fire</q>。<b>正解換過字</b>：<q>very unpleasant to breathe</q> 改寫成 <q>hard to inhale</q>，<q>could easily catch fire</q> 改寫成 <q>posed a fire risk</q>。
+    <br><br>
+    <b>另外三個為什麼排除：</b>
+    <br><br>
+    <q>in almost any amount without danger</q>——<b>跟課文正好相反。</b>第 38 到 40 行說氯仿的劑量很難拿捏，過量會致死。<b>氯仿解決的是乙醚的問題，不是沒有自己的問題</b>——這正好踩到「把中途的解法當終點」那個陷阱。
+    <br><br>
+    <q>much cheaper and far easier to produce</q>——<b>聽起來最合理，所以最難排除。</b>價錢和生產難度在真實世界確實會影響選擇，但<b>課文一個字都沒提</b>。這種誘答靠的是你的常識，不是文本。
+    <br><br>
+    <q>ether had been shown to cause several patients’ deaths</q>——<b>把死亡接錯了對象。</b>第 39 到 40 行的死亡風險屬於<b>氯仿</b>過量，不是乙醚。兩段都在講副作用，字看起來都眼熟，位置卻錯了一格。
+  </div>
+  <button class="go" id="g5" hidden>最後一題</button>
+</section>
+
+<!-- STEP 6 -->
+<section class="step" id="s6" hidden>
+  <p class="stepno">第六步</p>
+  <h2>把一句話放回去</h2>
+  <p>這就是考卷上的<b>篇章結構</b>題。下面把第 20–22 行那一句整句抽掉了，四個候選句只有一句放得進去。</p>
+  <div class="gap" id="gp">
+    … Other methods for reducing pain included giving the patient alcohol, opium, or nitrous oxide, substances that people otherwise used for pleasure. Sometimes, surgeons even tried to hypnotize patients or knock them unconscious with a blow to the head. <span class="blank" id="bl">（空格）</span>
+    <br><br>
+    This all changed in 1846, when an American dentist named William Morton demonstrated the use of ether as an anesthetic.
+  </div>
+  <div class="picks" id="q6">
+    <button>Alcohol was the method surgeons trusted most.</button>
+    <button data-ok="1">None of these methods, however, were particularly effective.</button>
+    <button>Doctors therefore began to look for a chemical solution.</button>
+    <button>These methods stayed in use for many more years.</button>
+  </div>
+  <div class="said" id="a6" hidden>
+    <b>四個線索同時指向同一句。</b>這四句單獨看都說得通，沒有一句本身是錯的。要排除，得靠位置和線索。
+    <br><br>
+    <b>先講一個例外。</b>前面說大考的正解通常是改寫，但<b>抽句題不一樣</b>：被抽掉的就是原文那一句，所以正解一定是原文。這一題要靠的是誘答哪裡接不上。
+    <br><br>
+    <b>一、概括名詞收不收得住。</b><q>None of these methods</q> 的 these methods 要一次收走前面列出的五種做法——酒、鴉片、笑氣、催眠、打昏。<b>四句裡只有它罩得住整份清單</b>；<q>Alcohol was the method surgeons trusted most</q> 只挑一項，剩下四項就懸在那裡。
+    <br><br>
+    <b>另外三個為什麼排除，各有一個明確的依據：</b>
+    <br><br>
+    <b>二、方向。</b><q>Doctors therefore began to look for a chemical solution.</q> 用 therefore 往前推進，讀者會以為接下來要講尋找的過程。可是下一句是 <q>This all changed in 1846</q>——<b>changed 需要前面留下一個「還沒改變」的狀態，不是一個已經開始的行動。</b>
+    <br><br>
+    <b>三、評價。</b><q>These methods stayed in use for many more years.</q> 只講時間，沒有評價。但下一段把乙醚稱為 <q>a miraculous breakthrough</q>（第 30 到 31 行）——<b>突破之所以是突破，前面必須先說「全都無效」。</b>沒有那句評價，breakthrough 就沒有對照。
+    <br><br>
+    <b>四、落點。</b><q>Alcohol was the method surgeons trusted most.</q> 除了收不住清單，還多說了一件課文沒說的事：<b>文章從頭到尾沒有比較過哪一種方法比較受信任。</b>
+  </div>
+  <p class="why" id="w6" hidden>考卷上不會有底色，也不會有行號。但你剛才用的四個線索，每一篇問題解決文都有。</p>
+</section>
+
+<!-- CLOSE -->
+<section class="close" id="s7" hidden>
+  <h2>帶著走的五句話</h2>
+  <ol>
+    <li><b>問題解決文常常先講「現在有多好」。</b>那是墊底用的。看到 But，前面那幾行的功能就從重點變成襯托。</li>
+    <li><b>驗證方法：找解法後面的轉折詞。</b>每一個解法後面都有 but、however、wasn’t perfect，就是循環；解法講完就結束，那是單純的問題解決。</li>
+    <li><b>這一輪的新問題，就是下一輪的問題。</b>三輪像鏈條一樣扣著。循環在哪裡停下來，是作者的態度——他不再挑毛病，就是認為問題解決了。</li>
+    <li><b>別把中途的解法當終點。</b>乙醚不是答案，氯仿也不是。讀到最後一個轉折之後，才是作者的結論。</li>
+    <li><b>評價字會跟著循環一起擺盪。</b>好、壞、好、壞——把正負兩堆字分開看，全篇的起伏就出來了。<b>這是上下兩層咬在一起的一課。</b></li>
+  </ol>
+  <p class="more"><a href="https://staresto-create.github.io/JCEE-vocab-questions/wordwheel.html">單字輪：把字拆成部件來記 →</a></p>
+</section>
+
+<nav class="series">
+  <a class="back" href="cohesion.html">← 回讀法練習總表</a>
+  <p class="note">總表上有目前可以做的所有單元，還有你累積到現在的讀法工具。</p>
+</nav>
+
+</div>
+<script>
+(function(){
+"use strict";
+function $(id){return document.getElementById(id);}
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;");}
+var KEY="cohesion-u13-v1";
+var ST={tags:{},qs:{},q1:0,q2:0,q5:0,q6:0,step:1};
+function save(){ try{ localStorage.setItem(KEY, JSON.stringify(ST)); }catch(e){} }
+function load(){ try{ var r=localStorage.getItem(KEY); return r?JSON.parse(r):null; }catch(e){ return null; } }
+function wipe(){ try{ localStorage.removeItem(KEY); }catch(e){} location.reload(); }
+
+var TITLE="Anesthesia: The Discovery That Transformed Medicine";
+var LINES=[
+"There are countless reasons to be {grateful|c-pos|1} for living in",
+"the modern world. Technologies from phones and planes to",
+"fridges and blenders make our lives much more {comfortable|c-pos|2}",
+"and {luxurious|c-pos|3} than those of our ancestors. But perhaps no",
+"innovations have {spared|c-pos|4} people from more {misery|c-neg|1} than",
+"anesthetics, the medicines that put us to sleep and stop us",
+"from feeling pain during surgeries.",
+"Before anesthesia was invented, surgery was one of the",
+"most {terrifying|c-neg|2} experiences a person could face. Patients",
+"remained fully awake as doctors cut into their bodies,",
+"physically held down by four or more strong men. A patient\u2019s",
+"{screams|c-neg|3} were simply part of the procedure. Surgeons",
+"focused on speed to make the {suffering|c-neg|4} as brief as possible\u2014",
+"the Scottish surgeon Robert Liston could amputate a leg in",
+"25 seconds\u2014but the {agony|c-neg|5} was still {appalling|c-neg|6}.",
+"Other methods for reducing pain included giving the",
+"patient alcohol, opium, or nitrous oxide, substances that",
+"people otherwise used for pleasure. Sometimes, surgeons",
+"even tried to hypnotize patients or knock them unconscious",
+"with a blow to the head. {None of these|c-neg|7}",
+"{methods, however, were particularly|c-neg|7}",
+"{effective|c-neg|7}.",
+"This all changed in 1846, when an",
+"American dentist named William Morton",
+"demonstrated the use of ether as an",
+"anesthetic. When inhaled, ether made",
+"Morton\u2019s patient unconscious, allowing",
+"the dentist to operate. Upon waking up,",
+"the patient confirmed that he hadn\u2019t felt",
+"any pain during the procedure. It was a",
+"{miraculous breakthrough|c-pos|5}, and within",
+"weeks, Liston started using ether in London.",
+"While ether clearly had {massive|c-pos|6}",
+"{benefits|c-pos|6}, it {wasn\u2019t perfect|c-neg|8}. Breathing it in",
+"was very {unpleasant|c-neg|9}, which often caused",
+"patients to {cough or vomit|c-neg|10}, and it could",
+"easily {catch fire|c-neg|11}. Chloroform soon started",
+"to be used instead, but finding the right",
+"dosage proved to be {difficult|c-neg|12}, as too much",
+"could cause a patient\u2019s {death|c-neg|13}. The English",
+"physician John Snow experimented with",
+"different doses, carefully working out",
+"exactly how much should be used. He was",
+"so {confident|c-pos|7} that he even gave chloroform",
+"to Queen Victoria when she gave birth in",
+"1853.",
+"Today, anesthesia is an {established|c-pos|8}",
+"part of modern medicine. It allows us to",
+"undergo important procedures in a {safe|c-pos|9}",
+"and {relatively comfortable|c-pos|10} way. We may",
+"take it for granted, but we should always",
+"remember how {lucky|c-pos|11} we are to have it."
+];
+var INDENT={1:1,8:1,16:1,23:1,33:1,47:1};
+var SPLIT=23;
+
+var CHAINS={
+ "c-pos":{k:"sub",n:"\u6b63\u9762\u8a55\u50f9\uff0c\u5341\u4e00\u8655\u3002\u5b83\u5011\u4e0d\u662f\u5747\u52fb\u6563\u5e03\u7684\u2014\u2014\u958b\u982d\u56db\u500b\u3001\u7b2c 31 \u5230 34 \u884c\u5169\u500b\u3001\u7d50\u5c3e\u56db\u500b\uff0c\u4e2d\u9593\u5927\u7247\u7a7a\u767d\u3002\u628a\u85cd\u7070\u90a3\u4e00\u8272\u95dc\u6389\u518d\u770b\u4e00\u6b21\uff0c\u4f60\u6703\u767c\u73fe\u6b63\u9762\u7684\u5b57\u5168\u90fd\u843d\u5728\u6ce2\u5cf0\u4e0a\u3002"},
+ "c-neg":{k:"gen",n:"\u8ca0\u9762\u8a55\u50f9\uff0c\u5341\u4e09\u8655\uff0c\u96c6\u4e2d\u5728\u5169\u5806\uff1a\u7b2c 9 \u5230 22 \u884c\uff08\u9ebb\u9189\u767c\u660e\u524d\uff09\u548c\u7b2c 34 \u5230 40 \u884c\uff08\u4e59\u919a\u8207\u6c2f\u4eff\u7684\u526f\u4f5c\u7528\uff09\u3002\u9019\u5169\u5806\u5c31\u662f\u5716\u4e0a\u5169\u500b\u6ce2\u8c37\u3002\u7b2c 20 \u5230 22 \u884c\u7684 None of these methods\u2026were particularly effective \u7279\u5225\u503c\u5f97\u770b\uff1a\u5b83\u672c\u8eab\u6c92\u6709\u4e00\u500b\u8ca0\u9762\u7684\u5f62\u5bb9\u8a5e\uff0c\u662f\u9760\u5426\u5b9a\u8a5e\u628a\u6574\u53e5\u8b8a\u6210\u8ca0\u9762\u7684\u3002"}
+};
+var LB={sub:"\u6b63\u9762\u8a55\u50f9",gen:"\u8ca0\u9762\u8a55\u50f9"};
+var CL={sub:"k",gen:"k g"};
+
+var KNOTS=[
+ {nm:"\u73fe\u5728\u5f88\u5e78\u904b",a:1,b:7,x:34,y:62,up:1},
+ {nm:"\u904e\u53bb\u7684\u624b\u8853",a:8,b:15,x:106,y:142,up:0},
+ {nm:"\u820a\u65b9\u6cd5\u7121\u6548",a:16,b:22,x:178,y:150,up:0},
+ {nm:"\u4e59\u919a\u7a81\u7834",a:23,b:32,x:250,y:64,up:1},
+ {nm:"\u526f\u4f5c\u7528\u8207\u5291\u91cf",a:33,b:40,x:322,y:144,up:0},
+ {nm:"\u7b97\u51fa\u5291\u91cf\uff0c\u5230\u4eca\u5929",a:41,b:52,x:390,y:58,up:1}
+];
+
+var QS=[
+ {q:"\u7b2c\u4e00\u8f2a",
+  p:"\u624b\u8853\u6975\u75db\uff0c\u75c5\u4eba\u6e05\u9192\u88ab\u58d3\u5728\u53f0\u4e0a",pr:"\u7b2c 8\u201315 \u884c",
+  s:"\u9152\u3001\u9d09\u7247\u3001\u7b11\u6c23\u3001\u50ac\u7720\u3001\u628a\u4eba\u6253\u6688",sr:"\u7b2c 16\u201320 \u884c",
+  x:"\u5168\u90fd\u4e0d\u7ba1\u7528",xr:"\u7b2c 20\u201322 \u884c",a2:8,b2:22},
+ {q:"\u7b2c\u4e8c\u8f2a",
+  p:"\u6c92\u6709\u4efb\u4f55\u6709\u6548\u7684\u6b62\u75db\u65b9\u6cd5",pr:"\u7b2c 20\u201322 \u884c",
+  s:"\u4e00\u516b\u56db\u516d\u5e74\uff0c\u83ab\u9813\u793a\u7bc4\u4e59\u919a\u9ebb\u9189",sr:"\u7b2c 23\u201332 \u884c",
+  x:"\u4e59\u919a\u96e3\u805e\u3001\u50ac\u5410\u3001\u800c\u4e14\u6613\u71c3",xr:"\u7b2c 33\u201337 \u884c",a2:20,b2:37},
+ {q:"\u7b2c\u4e09\u8f2a",
+  p:"\u4e59\u919a\u7684\u526f\u4f5c\u7528\u8207\u706b\u707d\u98a8\u96aa",pr:"\u7b2c 33\u201337 \u884c",
+  s:"\u6539\u7528\u6c2f\u4eff",sr:"\u7b2c 37\u201338 \u884c",
+  x:"\u5291\u91cf\u5f88\u96e3\u62ff\u6350\uff0c\u904e\u91cf\u6703\u81f4\u6b7b",xr:"\u7b2c 38\u201340 \u884c",a2:33,b2:40}
+];
+
+/* ---------- generic quiz ---------- */
+function quiz(qid,aid,gid,tag,after){
+  var done=false;
+  function settle(){
+    done=true;
+    var bs=$(qid).querySelectorAll("button");
+    for(var i=0;i<bs.length;i++){ bs[i].disabled=true; bs[i].dataset.state=bs[i].dataset.ok?"right":"wrong"; }
+    if(aid) $(aid).hidden=false;
+    if(gid) $(gid).hidden=false;
+    if(after) after();
+  }
+  $(qid).addEventListener("click",function(e){
+    var b=e.target.closest("button"); if(!b||done) return;
+    settle(); ST[tag]=1; save();
+  });
+  return settle;
+}
+function opener(gid,sid,extra){
+  $(gid).addEventListener("click",function(){
+    var n=parseInt(sid.replace(/\D/g,""),10);
+    if(ST.step<n) ST.step=n; save();
+    $(sid).hidden=false; if(extra) extra();
+    $(sid).scrollIntoView({behavior:"smooth",block:"start"});
+  });
+}
+function hlLines(a,b){
+  var rows=$("tx").querySelectorAll(".ln");
+  for(var r=0;r<rows.length;r++){ var n=+rows[r].dataset.n; rows[r].classList.toggle("hl", n>=a&&n<=b); }
+  var ms=$("tx").querySelectorAll("m");
+  for(var k=0;k<ms.length;k++) ms[k].classList.remove("lit");
+  if(rows.length){ var f=$("tx").querySelector('.ln[data-n="'+a+'"]'); if(f) f.scrollIntoView({behavior:"smooth",block:"center"}); }
+}
+
+/* ---------- step 1 ---------- */
+var TL={g:"\u6b63\u9762\u958b\u5834",n:"\u628a\u6a19\u6e96\u62ac\u9ad8",a:"\u8853\u8a9e"};
+function tagged(){ var n=0; for(var k in ST.tags) if(ST.tags[k]) n++; return n; }
+function paintTag(c){
+  if(c.classList.contains("got")) return;
+  c.classList.add("got");
+  var b=document.createElement("b"); b.textContent=TL[c.dataset.t];
+  c.insertBefore(b, c.firstChild);
+}
+function afterTags(){
+  $("sc").innerHTML="\u5df2\u6a19\u51fa <em>"+tagged()+"</em> / 3";
+  if(tagged()===3) $("s1b").hidden=false;
+}
+$("ld").addEventListener("click",function(e){
+  var c=e.target.closest("c"); if(!c) return;
+  if(ST.tags[c.dataset.t]) return;
+  ST.tags[c.dataset.t]=1; save(); paintTag(c); afterTags();
+});
+var set1=quiz("q1","a1","g1","q1");
+opener("g1","s2");
+
+/* ---------- step 2 : the wave ---------- */
+function drawWave(){
+  if($("fig").firstChild) return;
+  $("fig").hidden=false;
+  var s='<svg viewBox="0 0 420 196" role="img" aria-label="\u4e00\u689d\u5728\u6b63\u8ca0\u4e4b\u9593\u4e0a\u4e0b\u64fa\u76ea\u7684\u66f2\u7dda\uff0c\u516d\u500b\u7bc0\u9ede\u6a19\u5728\u6ce2\u5cf0\u8207\u6ce2\u8c37\u4e0a">';
+  s+='<path class="mid" d="M8 104 L412 104" fill="none"/>';
+  s+='<text class="ends p" x="8" y="20">\u6b63\u9762</text>';
+  s+='<text class="ends n" x="8" y="188">\u8ca0\u9762</text>';
+  var d="M8 92";
+  for(var i=0;i<KNOTS.length;i++){ d+=" L"+KNOTS[i].x+" "+KNOTS[i].y; }
+  d+=" L412 56";
+  s+='<path class="wave" d="'+d+'"/>';
+  for(i=0;i<KNOTS.length;i++){
+    var k=KNOTS[i], ty=k.up? k.y-16 : k.y+22, ry=k.up? k.y-27 : k.y+33;
+    s+='<g class="knot" data-i="'+i+'" tabindex="0" role="button">';
+    s+='<circle cx="'+k.x+'" cy="'+k.y+'" r="7"/>';
+    s+='<text class="nm" x="'+k.x+'" y="'+ty+'" text-anchor="middle">'+esc(k.nm)+'</text>';
+    s+='<text class="rg" x="'+k.x+'" y="'+ry+'" text-anchor="middle">'+k.a+"\u2013"+k.b+'</text>';
+    s+='</g>';
+  }
+  s+='</svg><figcaption>\u4e0a\u4e0b\u4e09\u6b21\uff0c\u6bcf\u4e00\u6b21\u5f9e\u6ce2\u5cf0\u6389\u4e0b\u53bb\u90fd\u662f\u56e0\u70ba\u4e00\u500b but\u3002\u9019\u689d\u66f2\u7dda\u4e0d\u53ea\u662f\u4e8b\u4ef6\u7684\u8d77\u4f0f\uff0c\u4e5f\u662f\u7b2c\u56db\u6b65\u90a3\u5169\u5806\u8a55\u50f9\u5b57\u7684\u5206\u5e03\u3002\u9ede\u4efb\u4e00\u9ede\uff0c\u8ab2\u6587\u5c0d\u61c9\u884c\u6703\u4eae\u8d77\u4f86\u3002</figcaption>';
+  $("fig").innerHTML=s;
+  function hit(g){
+    var i=+g.dataset.i, k=KNOTS[i];
+    var gs=$("fig").querySelectorAll(".knot");
+    for(var j=0;j<gs.length;j++) gs[j].classList.toggle("on", +gs[j].dataset.i===i);
+    hlLines(k.a,k.b);
+    $("pk").textContent="\u66f2\u7dda\u4e0a\u7684\u4e00\u9ede"; $("pk").className="k e";
+    $("pc").textContent=k.nm; $("pt").textContent="\u7b2c "+k.a+"\u2013"+k.b+" \u884c\u3002\u8ab2\u6587\u9019\u5e7e\u884c\u5df2\u7d93\u4eae\u8d77\u4f86\u4e86\u3002";
+  }
+  $("fig").addEventListener("click",function(e){ var g=e.target.closest(".knot"); if(g) hit(g); });
+  $("fig").addEventListener("keydown",function(e){
+    if(e.key!=="Enter"&&e.key!==" ") return;
+    var g=e.target.closest(".knot"); if(g){ e.preventDefault(); hit(g); }
+  });
+}
+function afterQ2(){ drawWave(); $("db").hidden=false; }
+var set2=quiz("q2","a2","g2","q2",afterQ2);
+opener("g2","s3",buildQs);
+
+/* ---------- step 3 : the three cycles ---------- */
+var builtQs=false;
+function buildQs(){
+  if(builtQs) return; builtQs=true;
+  var h="";
+  for(var i=0;i<QS.length;i++){
+    var q=QS[i];
+    h+='<div class="qcard" id="qc'+i+'"><div class="hd"><span class="qt">'+esc(q.q)+'</span>'+
+       '<button data-i="'+i+'">\u62c6\u958b</button></div><div class="bd">'+
+       '<div class="r"><span class="k">\u554f\u984c</span><span class="v">'+esc(q.p)+'<em>'+esc(q.pr)+'</em></span></div>'+
+       '<div class="r"><span class="k">\u89e3\u6cd5</span><span class="v">'+esc(q.s)+'<em>'+esc(q.sr)+'</em></span></div>'+
+       '<div class="r"><span class="k">\u65b0\u554f\u984c</span><span class="v">'+esc(q.x)+'<em>'+esc(q.xr)+'</em></span></div>'+
+       '</div></div>';
+  }
+  $("qs").innerHTML=h;
+  $("qs").addEventListener("click",function(e){
+    var b=e.target.closest("button"); if(!b) return;
+    ST.qs[b.dataset.i]=1; save(); paintQs();
+  });
+  paintQs();
+}
+function openedQs(){ var n=0; for(var k in ST.qs) if(ST.qs[k]) n++; return n; }
+function paintQs(){
+  for(var i=0;i<QS.length;i++){ var el=$("qc"+i); if(el) el.classList.toggle("open",!!ST.qs[i]); }
+  $("sc3").innerHTML="\u5df2\u62c6\u51fa <em>"+openedQs()+"</em> / 3";
+  if(openedQs()>=QS.length){ $("a3").hidden=false; $("g3").hidden=false; }
+}
+opener("g3","s4",buildText);
+
+/* ---------- step 4 : passage ---------- */
+function renderLine(str){
+  var out="",i=0;
+  while(i<str.length){
+    var a=str.indexOf("{",i);
+    if(a<0){ out+=esc(str.slice(i)); break; }
+    out+=esc(str.slice(i,a));
+    var b=str.indexOf("}",a), p=str.slice(a+1,b).split("|");
+    var id=p[1], it=p[2]||"1", k=CHAINS[id]?CHAINS[id].k:"sub";
+    out+='<m data-c="'+id+'" data-i="'+it+'" data-kind="'+k+'" tabindex="0">'+esc(p[0])+'</m>';
+    i=b+1;
+  }
+  return out;
+}
+var builtText=false;
+function buildText(){
+  if(builtText) return; builtText=true;
+  var h='<p class="ttl">'+esc(TITLE)+'</p>';
+  for(var i=0;i<LINES.length;i++){
+    var n=i+1;
+    if(n===SPLIT) h+='<p class="split">\u4ee5\u4e0a\u662f 9/29 \u7684\u7b2c 1\u201322 \u884c\u3002\u4ee5\u4e0b\u662f 9/30 \u7684\u7b2c 23\u201352 \u884c\u3002</p>';
+    var cls="ln"+(INDENT[n]?" ind"+(n>1?" pb":""):"");
+    h+='<div class="'+cls+'" data-n="'+n+'"><i>'+((n%5===0)?n:"")+'</i><span>'+renderLine(LINES[i])+'</span></div>';
+  }
+  $("tx").innerHTML=h;
+}
+function lightChain(id){
+  var ms=$("tx").querySelectorAll("m"), items={}, order=[],i;
+  var gs=$("fig").querySelectorAll(".knot");
+  for(i=0;i<gs.length;i++) gs[i].classList.remove("on");
+  var rows=$("tx").querySelectorAll(".ln");
+  for(i=0;i<rows.length;i++) rows[i].classList.remove("hl");
+  for(i=0;i<ms.length;i++){
+    if(ms[i].dataset.c===id){
+      ms[i].classList.add("lit");
+      var key=ms[i].dataset.i;
+      if(!items[key]){ items[key]=[]; order.push(key); }
+      items[key].push(ms[i].textContent);
+    } else ms[i].classList.remove("lit");
+  }
+  var c=CHAINS[id]; if(!c) return;
+  var parts=[];
+  for(var o=0;o<order.length;o++) parts.push(esc(items[order[o]].join(" ")));
+  $("pk").textContent=LB[c.k]; $("pk").className=CL[c.k];
+  $("pc").innerHTML=parts.join('<i>\u2192</i>');
+  $("pt").textContent=c.n;
+}
+$("tx").addEventListener("click",function(e){ var m=e.target.closest("m"); if(m) lightChain(m.dataset.c); });
+$("tx").addEventListener("keydown",function(e){
+  if(e.key!=="Enter"&&e.key!==" ") return;
+  var m=e.target.closest("m"); if(m){ e.preventDefault(); lightChain(m.dataset.c); }
+});
+function toggle(btn,cls){
+  btn.addEventListener("click",function(){
+    var on=btn.getAttribute("aria-pressed")==="true";
+    btn.setAttribute("aria-pressed",on?"false":"true");
+    $("tx").classList.toggle(cls,on);
+  });
+}
+toggle($("m1"),"off-sub");
+toggle($("m2"),"off-gen");
+opener("g4","s5");
+
+/* ---------- step 5 ---------- */
+var set5=quiz("q5","a5","g5","q5");
+$("g5").addEventListener("click",function(){
+  if(ST.step<6) ST.step=6; save();
+  $("s6").hidden=false;
+  $("s6").scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+/* ---------- step 6 ---------- */
+var done6=false;
+function settle6(){
+  done6=true;
+  var bs=$("q6").querySelectorAll("button");
+  for(var i=0;i<bs.length;i++){
+    bs[i].disabled=true; bs[i].dataset.state=bs[i].dataset.ok?"right":"wrong";
+    if(bs[i].dataset.ok){ $("bl").textContent=bs[i].textContent; $("bl").className="blank filled"; }
+  }
+  $("a6").hidden=false; $("w6").hidden=false; $("s7").hidden=false;
+}
+$("q6").addEventListener("click",function(e){
+  var b=e.target.closest("button"); if(!b||done6) return;
+  settle6(); ST.q6=1; save();
+  $("a6").scrollIntoView({behavior:"smooth",block:"nearest"});
+});
+
+/* ---------- preview mode for the teacher: cohesion-u13.html?all ---------- */
+function previewAll(){
+  $("pv").hidden=false;
+  var i,cs=$("ld").querySelectorAll("c");
+  for(i=0;i<cs.length;i++){ ST.tags[cs[i].dataset.t]=1; paintTag(cs[i]); }
+  afterTags(); set1();
+  $("s2").hidden=false; set2();
+  $("s3").hidden=false;
+  for(i=0;i<QS.length;i++) ST.qs[i]=1;
+  buildQs();
+  $("s4").hidden=false; buildText();
+  $("s5").hidden=false; set5();
+  $("s6").hidden=false; settle6();
+}
+
+/* ---------- restore ---------- */
+$("rst").addEventListener("click",wipe);
+(function restore(){
+  if(/(^|[?&])all(=|&|$)/.test(location.search)){ previewAll(); return; }
+  var v=load(); if(!v) return;
+  ST=v;
+  if(!ST.tags) ST.tags={};
+  if(!ST.qs) ST.qs={};
+  if(!ST.step) ST.step=1;
+  if(!(tagged()||ST.step>1)) return;
+  $("rs").hidden=false;
+  var i,cs=$("ld").querySelectorAll("c");
+  for(i=0;i<cs.length;i++) if(ST.tags[cs[i].dataset.t]) paintTag(cs[i]);
+  afterTags();
+  if(ST.q1) set1();
+  if(ST.step>=2){ $("s2").hidden=false; if(ST.q2) set2(); }
+  if(ST.step>=3){ $("s3").hidden=false; buildQs(); }
+  if(ST.step>=4){ $("s4").hidden=false; buildText(); }
+  if(ST.step>=5){ $("s5").hidden=false; if(ST.q5) set5(); }
+  if(ST.step>=6){ $("s6").hidden=false; if(ST.q6) settle6(); }
+  var last=$("s"+(ST.step>=6?6:ST.step));
+  if(last) setTimeout(function(){ last.scrollIntoView({block:"start"}); },60);
+})();
+})();
+</script>
+</body>
+</html>
