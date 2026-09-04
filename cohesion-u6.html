@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>分類｜The City That Never Sleeps: Discovering New York City</title>
+<meta name="description" content="六個地點掛上 A 到 F 的標籤，各填同一組欄位。宣告句先說共同身分，這一頁教你認出這種清單式的文章。">
+<meta property="og:title" content="分類｜Discovering New York City">
+<meta property="og:description" content="從熱鬧到安靜，六個地點各站一個位置——而那條軸線是你整理出來的，不是作者排的。">
+<style>
+:root{
+  --ground:#f1f3f2; --ink:#17282f; --teal:#1f6f6a; --teal-soft:#dfeceb;
+  --muted:#77878d; --line:#cdd6d6; --exam:#b4661c; --exam-soft:#fdf4e7;
+  --gen:#4a6a90; --gen-soft:#e0e7f0;
+  --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+  --sans:"PingFang TC","Noto Sans TC","Microsoft JhengHei","Helvetica Neue",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-text-size-adjust:100%}
+.wrap{max-width:44rem;margin:0 auto;padding:1.6rem 1.1rem 4rem}
+h1{font-family:var(--serif);font-weight:600;font-size:1.6rem;line-height:1.3;margin:0 0 .55rem}
+.lede{margin:0 0 1.3rem;color:#3d5059;font-size:.95rem}
+.src{font-size:.8rem;color:var(--muted);margin:0 0 1.1rem}
+.resume{font-size:.85rem;color:var(--teal);background:var(--teal-soft);border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.resume[hidden]{display:none}
+.preview{font-size:.85rem;color:var(--exam);background:var(--exam-soft);
+  border:1px dashed var(--exam);border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.preview[hidden]{display:none}
+.resume button{font:inherit;font-size:.82rem;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:.25rem;padding:.16rem .6rem;margin-left:.5rem;cursor:pointer}
+.resume button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.step{border-top:1px solid var(--line);padding-top:1.15rem;margin-top:1.6rem}
+.step[hidden]{display:none}
+.stepno{font-family:var(--serif);font-size:.82rem;color:var(--muted);margin:0 0 .2rem}
+h2{font-family:var(--serif);font-weight:600;font-size:1.2rem;margin:0 0 .5rem;color:var(--teal)}
+.step p{margin:0 0 .7rem;font-size:.95rem}
+.tag{display:inline-block;font-size:.72rem;font-weight:600;border-radius:.2rem;padding:.08rem .45rem;margin-left:.45rem;vertical-align:.12rem;color:var(--exam);background:var(--exam-soft);border:1px solid var(--exam)}
+.tag.b{color:var(--gen);background:var(--gen-soft);border-color:var(--gen)}
+.opts{display:flex;flex-direction:column;gap:.45rem;margin:.2rem 0 .8rem}
+.opts button{font:inherit;font-size:.95rem;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:.3rem;padding:.45rem .85rem;cursor:pointer;text-align:left}
+.opts button:hover{border-color:var(--teal)}
+.opts button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.opts button[data-state="right"]{background:var(--teal);border-color:var(--teal);color:#fff}
+.opts button[data-state="wrong"]{background:var(--ground);color:var(--muted)}
+.opts button[disabled]{cursor:default}
+.opts.mix button{font-size:.93rem;line-height:1.65}
+.opts.mix button i{display:block;font-style:normal;font-family:var(--serif);font-size:.9rem;color:var(--muted);margin-top:.15rem}
+.opts.mix button[data-state="right"] i{color:#dfeceb}
+.said{background:#fff;border-left:3px solid var(--teal);border-radius:.3rem;padding:.75rem .85rem;margin:.2rem 0 .9rem;font-size:.93rem;color:#3d5059}
+.said b{color:var(--ink);font-weight:600}
+.said[hidden]{display:none}
+.said.g{border-left-color:var(--gen)}
+.said.e{border-left-color:var(--exam)}
+.said q{quotes:none;font-family:var(--serif)}
+.go{font:inherit;font-size:.92rem;background:var(--ink);color:#fff;border:1px solid var(--ink);border-radius:.3rem;padding:.42rem 1.05rem;cursor:pointer}
+.go:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.go[hidden]{display:none}
+.lead{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.9rem 1rem;margin:0 0 .7rem;font-family:var(--serif);font-size:1.02rem;line-height:1.95}
+.lead c{cursor:pointer;border-radius:.2rem;padding:.06rem .2rem;background:var(--exam-soft);box-shadow:inset 0 -2px 0 #ecc9a2}
+.lead c:hover{box-shadow:inset 0 -2px 0 var(--exam)}
+.lead c.got{background:var(--exam);color:#fff;box-shadow:none}
+.lead c b{font-family:var(--sans);font-size:.72rem;font-weight:600;background:#fff;color:var(--exam);border-radius:.2rem;padding:.02rem .3rem;margin-right:.3rem}
+.score{font-size:.9rem;color:var(--muted);margin:0 0 .8rem}
+.score em{font-style:normal;color:var(--exam);font-weight:600}
+.slots{display:flex;flex-direction:column;gap:.5rem;margin:0 0 .8rem}
+.slot{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.6rem .8rem}
+.slot .hd{display:flex;align-items:center;gap:.5rem;font-size:.9rem}
+.slot .u{font-family:var(--sans);font-size:.72rem;font-weight:600;color:var(--exam);
+  background:var(--exam-soft);border:1px solid var(--exam);border-radius:.2rem;padding:.04rem .42rem;flex:0 0 auto}
+.slot .nm{font-family:var(--serif);font-size:1rem;font-weight:600;flex:1 1 auto}
+.slot .hd button{font:inherit;font-size:.8rem;background:#fff;color:var(--ink);border:1px solid var(--line);
+  border-radius:.25rem;padding:.16rem .6rem;cursor:pointer;flex:0 0 auto}
+.slot .hd button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.slot .bd{display:none;margin-top:.5rem}
+.slot.open .bd{display:block}
+.slot .r{display:grid;grid-template-columns:1fr;gap:.15rem;margin-bottom:.45rem}
+@media(min-width:34rem){.slot .r{grid-template-columns:7.5rem 1fr;gap:.5rem}}
+.slot .r:last-child{margin-bottom:0}
+.slot .r .k{font-size:.76rem;color:var(--gen);font-weight:600}
+.slot .r .v{font-family:var(--serif);font-size:.93rem;color:#3d5059;line-height:1.7}
+.verdict{border-radius:.3rem;padding:.6rem .8rem;font-size:.9rem;margin:0 0 .8rem;border:1px solid var(--line);background:#fff;color:#3d5059}
+.verdict.ok{border-color:var(--teal);background:var(--teal-soft);color:var(--teal)}
+.fig{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.7rem .5rem .4rem;margin:0 0 .7rem}
+.fig svg{display:block;width:100%;height:auto;max-width:27rem;margin:0 auto}
+.fig figcaption{font-size:.85rem;color:#3d5059;margin:.35rem .5rem 0;line-height:1.65}
+.axis{stroke:var(--line);stroke-width:2}
+.pin{cursor:pointer}
+.pin circle{fill:#fff;stroke:var(--line);stroke-width:2}
+.pin .lt{font-family:var(--serif);font-size:12px;font-weight:600;fill:var(--ink)}
+.pin .nm{font-family:var(--sans);font-size:10.5px;fill:var(--ink)}
+.pin .rg{font-family:var(--sans);font-size:9px;fill:var(--muted)}
+.pin.on circle{fill:var(--exam-soft);stroke:var(--exam);stroke-width:3}
+.pin.on .lt,.pin.on .nm,.pin.on .rg{fill:var(--exam)}
+.endlab{font-family:var(--sans);font-size:11px;font-weight:600}
+.endlab.l{fill:var(--teal)}
+.endlab.r{fill:var(--gen)}
+.daybreak{border:1px dashed var(--exam);background:var(--exam-soft);border-radius:.4rem;
+  padding:.8rem .95rem;margin:1.6rem 0 0;font-size:.9rem;color:#3d5059;line-height:1.7}
+.daybreak b{display:block;color:var(--exam);font-family:var(--serif);font-size:1.02rem;margin-bottom:.3rem}
+.daybreak[hidden]{display:none}
+.modes{display:flex;gap:.4rem;margin:0 0 .7rem;flex-wrap:wrap}
+.modes button{font:inherit;font-size:.84rem;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:.3rem;padding:.3rem .8rem;cursor:pointer}
+.modes button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.modes button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.text{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.9rem .6rem 1.1rem;font-family:var(--serif);font-size:1rem;line-height:1.85}
+.text .ttl{font-weight:600;font-size:1.06rem;margin:0 .4rem .7rem 2.6rem;line-height:1.45}
+.ln{display:flex;align-items:baseline;padding:.02rem 0;border-radius:.2rem}
+.ln>i{flex:0 0 2.2rem;text-align:right;padding-right:.55rem;font-family:var(--sans);font-style:normal;font-size:.68rem;color:var(--muted);line-height:1.9}
+.ln>span{flex:1 1 auto;overflow-wrap:anywhere}
+.ln.ind>span{padding-left:1.1rem}
+.ln.sub>span{font-weight:600}
+.ln.hl{background:var(--exam-soft)}
+.ln.pb{margin-top:.55rem}
+.text .split{font-family:var(--sans);font-size:.78rem;color:var(--exam);
+  border-top:1px dashed var(--exam);margin:.8rem .4rem .7rem 2.6rem;padding-top:.35rem}
+.text m{cursor:pointer;border-radius:.2rem;padding:.02rem .14rem}
+.text m[data-kind="sub"]{background:var(--teal-soft);box-shadow:inset 0 -2px 0 #a8ccc8}
+.text m[data-kind="gen"]{background:var(--gen-soft);box-shadow:inset 0 -2px 0 #a9bbd0}
+.text m.lit[data-kind="sub"]{background:var(--teal);color:#fff;box-shadow:none}
+.text m.lit[data-kind="gen"]{background:var(--gen);color:#fff;box-shadow:none}
+.text.off-sub m[data-kind="sub"]{background:none;box-shadow:none}
+.text.off-gen m[data-kind="gen"]{background:none;box-shadow:none}
+.panel{position:sticky;bottom:0;background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.75rem .9rem;margin-top:.8rem;box-shadow:0 -2px 10px rgba(23,40,47,.07)}
+.panel .k{font-size:.72rem;font-weight:600;border-radius:.2rem;padding:.06rem .42rem;color:var(--teal);background:var(--teal-soft);border:1px solid var(--teal)}
+.panel .k.g{color:var(--gen);background:var(--gen-soft);border-color:var(--gen)}
+.panel .k.e{color:var(--exam);background:var(--exam-soft);border-color:var(--exam)}
+.panel .ch{font-family:var(--serif);font-size:1rem;margin:.4rem 0 .3rem;color:var(--ink);line-height:1.75;overflow-wrap:anywhere}
+.panel .ch i{font-style:normal;color:var(--muted);padding:0 .28rem}
+.panel .nt{font-size:.88rem;color:#3d5059;margin:0}
+.recall{background:#fff;border:1px solid var(--line);border-left:3px solid var(--muted);
+  border-radius:.3rem;padding:.75rem .85rem;margin:1.1rem 0 .9rem;font-size:.92rem;color:#3d5059}
+.recall b{color:var(--ink)}
+.recall ul{margin:.4rem 0 0;padding-left:1.1rem}
+.recall li{margin-bottom:.35rem}
+.gap{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.9rem 1rem;margin:0 0 .9rem;font-family:var(--serif);font-size:1rem;line-height:1.9}
+.gap .blank{display:inline-block;min-width:9rem;border-bottom:2px solid var(--gen);color:var(--gen);text-align:center;font-family:var(--sans);font-size:.82rem}
+.gap .blank.filled{border-bottom-color:var(--teal);color:var(--ink);font-family:var(--serif);font-size:1rem;text-align:left;background:var(--teal-soft);border-radius:.2rem;padding:0 .25rem}
+.gap .lst{font-family:var(--sans);font-size:.85rem;color:var(--muted);display:block;margin-top:.5rem}
+.picks{display:flex;flex-direction:column;gap:.45rem;margin:0 0 .9rem}
+.picks button{font:inherit;font-family:var(--serif);font-size:.97rem;line-height:1.6;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:.3rem;padding:.55rem .8rem;cursor:pointer;text-align:left}
+.picks button:hover{border-color:var(--teal)}
+.picks button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.picks button[data-state="right"]{background:var(--teal-soft);border-color:var(--teal)}
+.picks button[data-state="wrong"]{background:var(--ground);color:var(--muted)}
+.why{font-size:.86rem;color:#3d5059;margin:.35rem 0 0}
+.why[hidden]{display:none}
+.close{border-top:1px solid var(--line);margin-top:2rem;padding-top:1.1rem;font-size:.93rem;color:#3d5059}
+.close[hidden]{display:none}
+.close h2{font-size:1.1rem}
+.close ol{margin:.3rem 0 0;padding-left:1.15rem}
+.close li{margin-bottom:.5rem}
+.more{margin-top:1.5rem;font-size:.88rem}
+.more a{color:var(--teal)}
+.series{border-top:1px solid var(--line);margin-top:2rem;padding-top:1.1rem;font-size:.9rem;color:#3d5059}
+.series .back{font-family:var(--serif);font-size:1rem;color:var(--teal);text-decoration:none}
+.series .back:hover{text-decoration:underline}
+.series .back:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.series .note{font-size:.85rem;color:var(--muted);margin:.5rem 0 0}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>分類</h1>
+<p class="lede">六個地點，掛上 A 到 F 的標籤，每一格填同樣的欄位。這種文章不是拿來從頭讀到尾的——它是一份清單，你要學會直接跳到需要的那一格。</p>
+<p class="preview" id="pv" hidden>預覽模式：所有步驟、圖表、課文標記都已展開，進度不會存檔。學生拿到的一般連結不受影響。</p>
+<p class="resume" id="rs" hidden>上次做到一半，已經幫你接回來了。<button id="rst">重新開始</button></p>
+<p class="src">ALL+ 互動英語 9 月號 Unit 6（pp. 26–29）　The City That Never Sleeps: Discovering New York City　全文 63 行　9/10 讀第 1–30 行，9/11 讀第 31–63 行</p>
+
+<!-- STEP 1 -->
+<section class="step" id="s1">
+  <p class="stepno">第一步</p>
+  <h2>宣告句先說共同身分<span class="tag">上層：組織方式</span></h2>
+  <p>總述的最後一句叫<b>宣告句</b>，它站在總述和清單中間，負責把後面那份清單交代清楚。下面是第 9 到 11 行，<b>點三個有底色的地方</b>。</p>
+  <div class="lead" id="ld">
+    …unique charm and endless possibilities. <c data-t="f">The following</c> <c data-t="n">six</c> <c data-t="c">places</c> highlight what makes this city truly unlike any other.
+  </div>
+  <p class="score" id="sc">已標出 <em>0</em> / 3</p>
+  <div id="s1b" hidden>
+    <p>三個都標出來了。那麼——<b>除了告訴你有六個，宣告句還做了一件事。是什麼？</b></p>
+    <div class="opts" id="q1">
+      <button data-ok="1">說出這六項的共同身分，都是城市的地點</button>
+      <button>說出這六個地點接下來要照什麼順序排</button>
+      <button>說出作者心目中最值得去的是哪一個地點</button>
+      <button>說出這六個地點各自最特別的地方在哪裡</button>
+    </div>
+    <div class="said e" id="a1" hidden>
+      <b>說出這六項的共同身分。</b>三個字各管一件事：
+      <br><br>
+      <b>The following</b> 往前預告：下面馬上要出現一份清單。它是個<b>概括名詞</b>的用法，跟第三、第四單元練過的同一種工具，只是方向相反——那兩篇是往回收，這裡是往前指。
+      <br><br>
+      <b>six</b> 報數。你知道要數到六。
+      <br><br>
+      <b>places</b> 給共同身分。<b>這是分類文最關鍵的一個字</b>：六格再怎麼不一樣，都必須是「地點」。這個字就是分類的依據。
+      <br><br>
+      <b>另外三個為什麼排除：</b>
+      <br><br>
+      「照什麼順序排」——宣告句裡沒有任何表示順序的字。A 到 F 是<b>標籤</b>，不是名次；換成 1 到 6 或圈圈叉叉都一樣。
+      <br><br>
+      「最值得去的是哪一個」——全篇沒有一個最高級或推薦的字。分類文把六格擺平，不替你選。
+      <br><br>
+      「各自最特別的地方」——那是後面六格各自的工作。宣告句只負責講<b>共同的</b>那一件事，講不到各自的。
+    </div>
+    <button class="go" id="g1" hidden>那六個格子長什麼樣？</button>
+  </div>
+</section>
+
+<!-- STEP 2 -->
+<section class="step" id="s2" hidden>
+  <p class="stepno">第二步</p>
+  <h2>五格用同一個句式開頭<span class="tag">上層：怎麼認出來</span></h2>
+  <p>分類文的格子形狀，常常直接寫在<b>每一格的第一句</b>裡。下面是六格的開頭，你自己比對看看。</p>
+  <p><b>其中有一格的寫法跟其他五格不一樣。是哪一格？</b></p>
+  <div class="opts mix" id="q2">
+    <button>A. Broadway<i>A global center for world-class theater, Broadway attracts…</i></button>
+    <button>C. The High Line<i>Built on a former raised railway, the High Line is…</i></button>
+    <button>E. The 9/11 Memorial &amp; Museum<i>A place of quiet reflection, the 9/11 Memorial &amp; Museum honors…</i></button>
+    <button data-ok="1">F. Yankee Stadium<i>Baseball fans should not miss Yankee Stadium, home to…</i></button>
+  </div>
+  <div class="said e" id="a2" hidden>
+    <b>F 洋基球場。</b>另外五格（A、B、C、D、E）都是同一個做法：<b>先給一句定性語，再說出地名。</b>
+    <br><br>
+    <q>A global center for world-class theater, <b>Broadway</b>…</q>　<q>Stretching through the heart of Manhattan, <b>Fifth Avenue</b>…</q>　<q>Built on a former raised railway, <b>the High Line</b>…</q>　<q>With its vibrant artistic atmosphere, <b>SoHo</b>…</q>　<q>A place of quiet reflection, <b>the 9/11 Memorial &amp; Museum</b>…</q>
+    <br><br>
+    只有 F 反過來，先寫給讀者的建議 <q>Baseball fans should not miss…</q>，地名之後才補上定性語 <q>home to one of the most well-known teams…</q>。
+    <br><br>
+    <b>對你的用處：</b>那句定性語就是這一格的<b>索引</b>。考卷問「想找某某條件的人該去哪裡」，答案幾乎都在各格的第一句，不必整篇讀。F 這種例外提醒你：<b>定性語不一定在最前面，但一定有。</b>
+  </div>
+  <button class="go" id="g2" hidden>同欄位測試</button>
+</section>
+
+<div class="daybreak" id="db" hidden>
+  <b>9/11 的範圍從這裡開始：第 31–63 行</b>
+  第一、二步用的是 9/10 的第 1–30 行（總述、A 百老匯、B 第五大道）。第三步以後會用到整篇，包含 9/11 的第 31–63 行（C 高架公園、D SoHo、E 九一一紀念館、F 洋基球場）。如果你今天是 9/10，做到這裡可以先停，明天再接下去。（第二步的四個選項裡已經有兩格來自第 31 行以後，先看到不影響。）
+</div>
+
+<!-- STEP 3 -->
+<section class="step" id="s3" hidden>
+  <p class="stepno">第三步</p>
+  <h2>同欄位測試<span class="tag">上層：怎麼驗證</span></h2>
+  <p>怎麼確定一篇是分類，而不是隨手列了幾樣東西？<b>看六格是不是都填得進同一組欄位。</b>這篇的欄位有三個：一句定性語、這裡有什麼、適合誰或什麼體驗。</p>
+  <p><b>六格逐一按開來看</b>，確認每一格三個欄位都填得滿。</p>
+  <div class="slots" id="slots"></div>
+  <p class="score" id="sc3">已展開 <em>0</em> / 6</p>
+  <div class="said e" id="a3" hidden>
+    <b>六格都填得滿，這就是分類。</b>欄位一致，讀者才能拿它當清單用——想找什麼，直接跳到那一格的第一句去看。
+    <br><br>
+    <b>跟前面幾篇分清楚：</b>第二單元的列舉是<b>六個例子撐一個主張</b>，重點在主張；這一篇的六格<b>不撐任何主張</b>，第 10 到 11 行只說它們共同構成這座城市的與眾不同，沒有要你相信什麼。分類的六格是<b>並排的清單</b>，列舉的六格是<b>證據</b>。
+    <br><br>
+    <b>怎麼認出一篇是分類：</b>問自己「這六項填得進同一張表格嗎」。填得進就是分類。如果有一格填不進去，那一格通常就是考點——不是作者寫壞了，是你把範疇抓錯了。
+    <br><br>
+    <b>考卷上怎麼考：</b>分類文最常出的是<b>配對題</b>（第五步會做一題），還有從文章裡找出指定的字來填空。兩種都不需要整篇讀，需要的是快速定位。
+  </div>
+  <button class="go" id="g3" hidden>看撐住這六格的字</button>
+</section>
+
+<!-- STEP 4 -->
+<section class="step" id="s4" hidden>
+  <p class="stepno">第四步</p>
+  <h2>從熱鬧到安靜<span class="tag b">下層：語意場對立</span></h2>
+  <p>六格講的是六個不相干的地方，但作者用的形容詞其實只分成兩堆：<b>一堆在講熱鬧，一堆在講安靜。</b>一組意思相關的字擺在一起，叫做一個<b>語意場</b>；這篇有兩個語意場，而且它們是對立的。</p>
+  <p>這一句是樞紐——第 35 到 36 行 <q>Lifted above the city’s bustle</q>：先把 bustle 這個熱鬧的字擺出來，再用 lifted above 離開它，接著才給 peaceful。<b>兩堆字就是靠這一句釘在一起的。</b></p>
+  <p><b>點軸上任一個地點</b>，課文對應行會亮起來，面板會告訴你是哪些字把它放在那個位置。</p>
+  <figure class="fig" id="fig"></figure>
+  <p><b>也可以直接點課文裡有底色的字</b>，同一堆的字會一起亮起來。兩堆可以各自關掉。</p>
+  <div class="modes">
+    <button id="m1" aria-pressed="true">熱鬧（青）</button>
+    <button id="m2" aria-pressed="true">安靜（藍灰）</button>
+  </div>
+  <div class="text" id="tx"></div>
+  <div class="panel" id="pn">
+    <span class="k" id="pk">線索</span>
+    <div class="ch" id="pc">點軸上的地點，或課文裡有底色的字</div>
+    <p class="nt" id="pt">青色是熱鬧那一堆，藍灰是安靜那一堆。</p>
+  </div>
+  <div class="recall">
+    <b>另外兩樣，前面單元教過，這篇自己確認得出來：</b>
+    <ul>
+      <li><b>概括名詞。</b>這篇兩個方向都出現了：第 9 到 10 行的 <q>The following six places</q> 往前預告，第 45 行的 <q>This combination</q> 往回收前面一整句（19 世紀鑄鐵建築配上藝廊與小店）。<b>往前找之前先確定它收的是一句還是一整片。</b></li>
+      <li><b>上義詞與下義詞。</b>總述只用 <q>places</q>、<q>sights and experiences</q> 這一層，六格裡才落到 Broadway、Fifth Avenue、the High Line、SoHo、the 9/11 Memorial &amp; Museum、Yankee Stadium。跟第二、第三單元同一個道理，第三次遇到了。</li>
+    </ul>
+  </div>
+  <p style="margin-top:1.1rem"><button class="go" id="g4">考卷怎麼考這種文章</button></p>
+</section>
+
+<!-- STEP 5 -->
+<section class="step" id="s5" hidden>
+  <p class="stepno">第五步</p>
+  <h2>配對題：把條件拆開再找<span class="tag">上層：考點</span></h2>
+  <p>分類文最常出的是<b>配對題</b>：給你一個人的需求，問他該去 A 到 F 的哪一格。作法固定三步：<b>把需求拆成幾個條件 → 每個條件到六格的第一句去找 → 兩個條件都命中的那一格才是答案。</b></p>
+  <p>試試看：<b>有位旅客想找一個能安靜走走、又能從不同角度看看這座城市的地方。他該去哪一格？</b></p>
+  <div class="opts en" id="q5">
+    <button>A. Broadway</button>
+    <button data-ok="1">C. The High Line</button>
+    <button>D. SoHo</button>
+    <button>E. The 9/11 Memorial &amp; Museum</button>
+  </div>
+  <div class="said e" id="a5" hidden>
+    <b>C 高架公園。</b>需求拆成兩個條件：<b>安靜</b>、<b>從不同角度看城市</b>。C 兩個都命中——第 36 到 37 行 <q>peaceful surroundings</q> 是第一個，第 32 到 35 行 <q>Built on a former raised railway… walk along a green pathway looking over the Hudson River</q> 是第二個（走在舊高架鐵路上，本來就是換一個高度看城市）。
+    <br><br>
+    <b>另外三個為什麼排除：</b>
+    <br><br>
+    <b>E 九一一紀念館——這是最容易選的誘答。</b>它的 <q>quiet reflection</q> 完全命中「安靜」，但第二個條件一個字也沒沾到：那裡是追思場所，不是觀景的地方。<b>配對題的誘答十之八九長這樣：只滿足一半。所以條件一定要拆開一個一個對，不能對到一個就下筆。</b>
+    <br><br>
+    <b>D SoHo</b>——可以在街上走，也有「跟一般觀光不一樣」的味道，但第 39 行的定性語寫的是 <q>vibrant artistic atmosphere</q>，那是熱鬧那一堆的字。安靜這個條件對不上。
+    <br><br>
+    <b>A 百老匯</b>——室內看戲，兩個條件都不沾。這是拿來墊底的選項，一眼就該排除。
+    <br><br>
+    <b>還有一種考法要提醒你：</b>雜誌 p. 28 那份混合題型裡有一題要你「從文章中找出一個單詞」填進空格。那種題目的答案<b>必須是原文裡的字</b>，只能照抄再視句型做字形變化，不能自己換一個同義字——跟選擇題正解常常是改寫，剛好相反。做完這一頁，回去把 p. 28 那三題做完。
+  </div>
+  <button class="go" id="g5" hidden>最後一題</button>
+</section>
+
+<!-- STEP 6 -->
+<section class="step" id="s6" hidden>
+  <p class="stepno">第六步</p>
+  <h2>把一句話放回去</h2>
+  <p>這就是考卷上的<b>篇章結構</b>題。下面把第 9–11 行的宣告句整句抽掉了，四個候選句只有一句放得進去。前面五步練的東西，全部用在這一題。</p>
+  <div class="gap" id="gp">
+    … Travelers from around the globe come to explore its unique charm and endless possibilities. <span class="blank" id="bl">（空格）</span>
+    <span class="lst">A. Broadway　B. Fifth Avenue　C. The High Line　D. SoHo　E. The 9/11 Memorial &amp; Museum　F. Yankee Stadium</span>
+  </div>
+  <div class="picks" id="q6">
+    <button data-ok="1">The following six places highlight what makes this city truly unlike any other.</button>
+    <button>These six places are arranged from the liveliest one to the quietest one.</button>
+    <button>Among them, Broadway and Fifth Avenue are the two that attract the largest crowds.</button>
+    <button>The city’s long history explains why each of these six places became famous.</button>
+  </div>
+  <div class="said" id="a6" hidden>
+    <b>四個線索同時指向同一句。</b>這四句單獨看都說得通，沒有一句本身是錯的。要排除，得靠位置和線索。
+    <br><br>
+    <b>一、往前預告。</b>空格後面立刻出現一份 A 到 F 的清單，所以這一句必須<b>先把清單交代出來</b>。<q>The following</q> 正是做這件事的說法。其他三句都是在講清單裡的內容，沒有一句把清單本身宣布出來。
+    <br><br>
+    <b>二、順序。</b><q>These six places are arranged from the liveliest one to the quietest one.</q> <b>這一句最難排除，因為你剛剛才在第四步畫過那條軸線。</b>但請分清楚：那條軸線是<b>你整理出來的分布</b>，不是作者聲明的順序。課文從頭到尾沒有一個表示排列的字，而且照課文的實際次序，A 百老匯（熱鬧）排在 C 高架公園（安靜）前面，F 洋基球場（最熱鬧）反而排最後——<b>根本不是由熱鬧到安靜。</b>語意場是讀者的整理工具，不能反過來當成作者的結構。
+    <br><br>
+    <b>三、層級。</b><q>Among them, Broadway and Fifth Avenue are the two that attract the largest crowds.</q> 從六格裡挑兩格出來比較。可是六格是<b>並排</b>的，全篇沒有一處拿它們互相比較；<q>draw crowds</q> 只出現在 B 那一格（第 29 行），把它擴大成六格之間的名次，是把細節升級成通則。
+    <br><br>
+    <b>四、範圍。</b><q>The city’s long history explains why each of these six places became famous.</q> 後面六格沒有一格在講「為什麼變有名」的來由。D 提到 19 世紀的鑄鐵建築（第 44 到 45 行），但那是它現在的特色，不是它成名的原因。
+    <br><br>
+    再補一條詞彙鏈：正解的 <q>unlike any other</q> 接得回第 3 行的 <q>variety</q> 和第 9 行的 <q>unique charm</q>，<q>six</q> 接得上後面 A 到 F 六個標籤。四句裡只有它前後兩頭都扣得住。
+  </div>
+  <p class="why" id="w6" hidden>考卷上不會有底色，也不會有行號。但你剛才用的四個線索，每一篇分類文都有。</p>
+</section>
+
+<!-- CLOSE -->
+<section class="close" id="s7" hidden>
+  <h2>帶著走的五句話</h2>
+  <ol>
+    <li><b>分類文的宣告句給三件事：預告、數量、共同身分。</b>其中共同身分那個字最重要，它是分類的依據——這篇是 <q>places</q>。</li>
+    <li><b>每一格的第一句是索引。</b>定性語不一定擺在最前面，但一定有。配對題和找詞題的答案，多半就在那一句。</li>
+    <li><b>驗證方法：六項填得進同一張表格嗎。</b>填得進就是分類。分類的六格是並排的清單，跟列舉的六格是證據，不一樣。</li>
+    <li><b>語意場：一組意思相關的字站在一起，還常常成對對立。</b>這篇是熱鬧對安靜。認出語意場，你就能把一篇文章的字整理成幾堆，而不是一個一個記。</li>
+    <li><b>但語意場是你整理出來的，不是作者聲明的結構。</b>看得出六個地點有熱鬧到安靜的分布，不等於作者照那個順序排。<b>讀出來的規律和作者寫明的話，要分開。</b></li>
+  </ol>
+  <p class="more"><a href="https://staresto-create.github.io/JCEE-vocab-questions/wordwheel.html">單字輪：把字拆成部件來記 →</a></p>
+</section>
+
+<nav class="series">
+  <a class="back" href="cohesion.html">← 回讀法練習總表</a>
+  <p class="note">總表上有目前可以做的所有單元，還有你累積到現在的讀法工具。</p>
+</nav>
+
+</div>
+<script>
+(function(){
+"use strict";
+function $(id){return document.getElementById(id);}
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;");}
+var KEY="cohesion-u6-v1";
+var ST={tags:{},slots:{},q1:0,q2:0,q5:0,q6:0,step:1};
+function save(){ try{ localStorage.setItem(KEY, JSON.stringify(ST)); }catch(e){} }
+function load(){ try{ var r=localStorage.getItem(KEY); return r?JSON.parse(r):null; }catch(e){ return null; } }
+function wipe(){ try{ localStorage.removeItem(KEY); }catch(e){} location.reload(); }
+
+var TITLE="The City That {Never Sleeps|c-loud|0}: Discovering New York City";
+var LINES=[
+"Located on the East Coast of the United",
+"States, New York City is one of the {liveliest|c-loud|1}",
+"cities in the world. Its variety and {energy|c-loud|2}",
+"provide an amazing range of sights and",
+"experiences, from historic landmarks and",
+"cultural performances to upscale shopping",
+"and beloved sports traditions. Travelers",
+"from around the globe come to explore its",
+"unique charm and endless possibilities. The",
+"following six places highlight what makes",
+"this city truly unlike any other.",
+"A. Broadway",
+"A global center for world-class",
+"theater, Broadway {attracts millions of|c-loud|3}",
+"{visitors each year|c-loud|3}. From musicals to dramas,",
+"audiences can enjoy live performances of",
+"every kind, with top performers bringing",
+"compelling stories to life onstage. For",
+"many, attending a show here is a marvelous",
+"experience that leaves a lasting impression.",
+"B. Fifth Avenue",
+"Stretching through the heart of",
+"Manhattan, Fifth Avenue is among the most",
+"famous shopping streets in the world. Lined",
+"with flagship stores for luxury brands,",
+"it is a paradise for those who appreciate",
+"high-end fashion and the {vibrancy|c-loud|4} of",
+"city life. During major holidays, elaborately",
+"decorated shop windows {draw crowds|c-loud|5} and",
+"add a cheerful charm to the street.",
+"C. The High Line",
+"Built on a former raised railway, the High",
+"Line is an unusual urban park where visitors",
+"can walk along a green pathway looking",
+"over the Hudson River. {Lifted above|c-quiet|1} the city\u2019s",
+"{bustle|c-loud|6}, it offers a rare mix of {peaceful|c-quiet|2}",
+"{surroundings|c-quiet|2} and imaginative design.",
+"D. SoHo",
+"With its {vibrant|c-loud|7} artistic atmosphere,",
+"SoHo attracts those seeking something",
+"different from the typical tourist experience.",
+"Art galleries, independent boutiques,",
+"and stylish caf\u00e9s line its streets, while",
+"many buildings still feature 19th-century",
+"cast-iron architecture. This combination",
+"of {creative energy|c-loud|8} and historical character",
+"gives the neighborhood a strong identity.",
+"E. The 9/11 Memorial & Museum",
+"A place of {quiet reflection|c-quiet|3}, the 9/11",
+"Memorial & Museum honors the victims of",
+"the September 11, 2001, terrorist attacks.",
+"Through powerful displays and carefully",
+"designed spaces, it invites visitors to bear",
+"witness to history and {pay their respects|c-quiet|4}.",
+"F. Yankee Stadium",
+"Baseball fans should not miss Yankee",
+"Stadium, home to one of the most",
+"well-known teams in professional sports.",
+"Watching a game here means stepping into",
+"the heart of American sports culture and",
+"being surrounded by the stadium\u2019s {energetic|c-loud|9}",
+"{fans and lively atmosphere|c-loud|10}\u2014an experience",
+"every sports lover will treasure."
+];
+var HEAD={12:1,21:1,31:1,38:1,48:1,55:1};
+var INDENT={1:1,13:1,22:1,32:1,39:1,49:1,56:1};
+var SPLIT=31;
+
+var CHAINS={
+ "c-loud":{k:"sub",n:"\u71b1\u9b27\u90a3\u4e00\u5806\uff0c\u5f9e\u6a19\u984c\u7684 Never Sleeps \u5c31\u958b\u59cb\uff0c\u4e00\u8def\u6492\u5230\u6700\u5f8c\u4e00\u683c\u3002\u5b83\u6563\u5e03\u5728\u5168\u7bc7\uff0c\u56e0\u70ba\u9019\u5ea7\u57ce\u5e02\u7684\u57fa\u672c\u8abf\u5b50\u5c31\u662f\u71b1\u9b27\u3002\u6ce8\u610f\u7b2c 36 \u884c\u7684 bustle\uff1a\u5b83\u662f\u71b1\u9b27\u7684\u5b57\uff0c\u537b\u88ab lifted above \u7d66\u7559\u5728\u4e0b\u9762\u2014\u2014\u5169\u5806\u5b57\u5c31\u662f\u9760\u90a3\u4e00\u53e5\u91d8\u5728\u4e00\u8d77\u7684\u3002"},
+ "c-quiet":{k:"gen",n:"\u5b89\u975c\u90a3\u4e00\u5806\uff0c\u53ea\u6709\u56db\u8655\uff0c\u800c\u4e14\u5168\u90e8\u96c6\u4e2d\u5728 C \u9ad8\u67b6\u516c\u5712\u548c E \u4e5d\u4e00\u4e00\u7d00\u5ff5\u9928\u9019\u5169\u683c\u3002\u5b57\u6578\u5c11\u4e0d\u4ee3\u8868\u4e0d\u91cd\u8981\uff1a\u5c11\u800c\u96c6\u4e2d\uff0c\u53cd\u800c\u628a\u9019\u5169\u683c\u8ddf\u5176\u4ed6\u56db\u683c\u5206\u5f97\u66f4\u958b\u3002"}
+};
+var LB={sub:"\u71b1\u9b27",gen:"\u5b89\u975c"}, CL={sub:"k",gen:"k g"};
+
+var PINS=[
+ {i:"F",nm:"\u6d0b\u57fa\u7403\u5834",a:55,b:63,ev:"energetic \uff08\u7b2c 61 \u884c\uff09\u3001fans and lively atmosphere\uff08\u7b2c 62 \u884c\uff09\u3001being surrounded by\uff08\u7b2c 61 \u884c\uff09",
+  n:"\u71b1\u9b27\u90a3\u4e00\u7aef\u7684\u6975\u7aef\u3002\u9019\u4e00\u683c\u9023\u7528\u4e09\u500b\u71b1\u9b27\u7684\u8aaa\u6cd5\uff0c\u800c\u4e14\u5f37\u8abf\u88ab\u4eba\u7fa4\u5305\u570d\u8d77\u4f86\u3002"},
+ {i:"B",nm:"\u7b2c\u4e94\u5927\u9053",a:21,b:30,ev:"vibrancy of city life\uff08\u7b2c 27\u201328 \u884c\uff09\u3001draw crowds\uff08\u7b2c 29 \u884c\uff09",
+  n:"\u4eba\u6f6e\u8ddf\u90fd\u5e02\u6d3b\u529b\u3002draw crowds \u662f\u76f4\u63a5\u5beb\u4eba\u805a\u904e\u4f86\u7684\u52d5\u4f5c\u3002"},
+ {i:"A",nm:"\u767e\u8001\u532f",a:12,b:20,ev:"attracts millions of visitors each year\uff08\u7b2c 14\u201315 \u884c\uff09\u3001audiences\uff08\u7b2c 16 \u884c\uff09",
+  n:"\u4eba\u6578\u591a\uff0c\u4f46\u662f\u5750\u5728\u5834\u5167\u770b\u6232\uff0c\u6240\u4ee5\u6bd4 B \u548c F \u7a0d\u5fae\u5f80\u5b89\u975c\u90a3\u908a\u4e00\u9ede\u3002"},
+ {i:"D",nm:"SoHo",a:38,b:47,ev:"vibrant artistic atmosphere\uff08\u7b2c 39 \u884c\uff09\u3001creative energy\uff08\u7b2c 46 \u884c\uff09",
+  n:"\u9084\u662f\u71b1\u9b27\u90a3\u4e00\u5806\u7684\u5b57\uff0c\u4f46\u7b2c 40\u201341 \u884c\u8aaa\u5b83\u8ddf\u4e00\u822c\u89c0\u5149\u4e0d\u4e00\u6a23\uff0c\u6240\u4ee5\u4f4d\u7f6e\u5728\u4e2d\u9593\u3002"},
+ {i:"C",nm:"\u9ad8\u67b6\u516c\u5712",a:31,b:37,ev:"Lifted above the city\u2019s bustle\uff08\u7b2c 35\u201336 \u884c\uff09\u3001peaceful surroundings\uff08\u7b2c 36\u201337 \u884c\uff09",
+  n:"\u5169\u5806\u5b57\u7684\u6a1e\u7d10\u5c31\u5728\u9019\u4e00\u683c\uff1a\u5148\u62ac\u51fa bustle\uff0c\u518d\u96e2\u958b\u5b83\uff0c\u63a5\u8457\u624d\u7d66 peaceful\u3002"},
+ {i:"E",nm:"\u4e5d\u4e00\u4e00\u7d00\u5ff5\u9928",a:48,b:54,ev:"quiet reflection\uff08\u7b2c 49 \u884c\uff09\u3001pay their respects\uff08\u7b2c 54 \u884c\uff09",
+  n:"\u5b89\u975c\u90a3\u4e00\u7aef\u7684\u6975\u7aef\u3002\u9019\u4e00\u683c\u4e00\u500b\u71b1\u9b27\u7684\u5b57\u90fd\u6c92\u6709\u3002"}
+];
+
+var SLOTS=[
+ {i:"A",nm:"Broadway",d:"A global center for world-class theater",
+  h:"musicals, dramas, live performances of every kind",w:"attending a show here is a marvelous experience"},
+ {i:"B",nm:"Fifth Avenue",d:"among the most famous shopping streets in the world",
+  h:"flagship stores for luxury brands; decorated shop windows",w:"a paradise for those who appreciate high-end fashion"},
+ {i:"C",nm:"The High Line",d:"an unusual urban park, built on a former raised railway",
+  h:"a green pathway looking over the Hudson River",w:"a rare mix of peaceful surroundings and imaginative design"},
+ {i:"D",nm:"SoHo",d:"a neighborhood with a vibrant artistic atmosphere",
+  h:"art galleries, boutiques, caf\u00e9s, cast-iron architecture",w:"those seeking something different from the typical tourist experience"},
+ {i:"E",nm:"The 9/11 Memorial & Museum",d:"a place of quiet reflection",
+  h:"powerful displays and carefully designed spaces",w:"invites visitors to bear witness to history and pay their respects"},
+ {i:"F",nm:"Yankee Stadium",d:"home to one of the most well-known teams in professional sports",
+  h:"the stadium\u2019s energetic fans and lively atmosphere",w:"an experience every sports lover will treasure"}
+];
+
+/* ---------- generic quiz ---------- */
+function quiz(qid,aid,gid,tag,after){
+  var done=false;
+  function settle(){
+    done=true;
+    var bs=$(qid).querySelectorAll("button");
+    for(var i=0;i<bs.length;i++){ bs[i].disabled=true; bs[i].dataset.state=bs[i].dataset.ok?"right":"wrong"; }
+    if(aid) $(aid).hidden=false;
+    if(gid) $(gid).hidden=false;
+    if(after) after();
+  }
+  $(qid).addEventListener("click",function(e){
+    var b=e.target.closest("button"); if(!b||done) return;
+    settle(); ST[tag]=1; save();
+  });
+  return settle;
+}
+function opener(gid,sid,extra){
+  $(gid).addEventListener("click",function(){
+    var n=parseInt(sid.replace(/\D/g,""),10);
+    if(ST.step<n) ST.step=n; save();
+    $(sid).hidden=false; if(extra) extra();
+    $(sid).scrollIntoView({behavior:"smooth",block:"start"});
+  });
+}
+
+/* ---------- step 1 ---------- */
+var TL={f:"\u5f80\u524d\u9810\u544a",n:"\u6578\u91cf",c:"\u5171\u540c\u8eab\u5206"};
+function tagged(){ var n=0; for(var k in ST.tags) if(ST.tags[k]) n++; return n; }
+function paintTag(c){
+  if(c.classList.contains("got")) return;
+  c.classList.add("got");
+  var b=document.createElement("b"); b.textContent=TL[c.dataset.t];
+  c.insertBefore(b, c.firstChild);
+}
+function afterTags(){
+  $("sc").innerHTML="\u5df2\u6a19\u51fa <em>"+tagged()+"</em> / 3";
+  if(tagged()===3) $("s1b").hidden=false;
+}
+$("ld").addEventListener("click",function(e){
+  var c=e.target.closest("c"); if(!c) return;
+  if(ST.tags[c.dataset.t]) return;
+  ST.tags[c.dataset.t]=1; save(); paintTag(c); afterTags();
+});
+var set1=quiz("q1","a1","g1","q1");
+opener("g1","s2");
+
+/* ---------- step 2 ---------- */
+function afterQ2(){ $("db").hidden=false; }
+var set2=quiz("q2","a2","g2","q2",afterQ2);
+opener("g2","s3",buildSlots);
+
+/* ---------- step 3 : same-slot test ---------- */
+var builtSlots=false;
+function buildSlots(){
+  if(builtSlots) return; builtSlots=true;
+  var h="";
+  for(var i=0;i<SLOTS.length;i++){
+    var s=SLOTS[i];
+    h+='<div class="slot" id="sl'+i+'"><div class="hd">'+
+       '<span class="u">'+esc(s.i)+'</span><span class="nm">'+esc(s.nm)+'</span>'+
+       '<button data-i="'+i+'" id="sb'+i+'">\u5c55\u958b</button></div>'+
+       '<div class="bd">'+
+       '<div class="r"><span class="k">\u4e00\u53e5\u5b9a\u6027\u8a9e</span><span class="v">'+esc(s.d)+'</span></div>'+
+       '<div class="r"><span class="k">\u9019\u88e1\u6709\u4ec0\u9ebc</span><span class="v">'+esc(s.h)+'</span></div>'+
+       '<div class="r"><span class="k">\u9069\u5408\u8ab0\u2571\u4ec0\u9ebc\u9ad4\u9a57</span><span class="v">'+esc(s.w)+'</span></div>'+
+       '</div></div>';
+  }
+  $("slots").innerHTML=h;
+  $("slots").addEventListener("click",function(e){
+    var b=e.target.closest("button"); if(!b) return;
+    var i=b.dataset.i;
+    ST.slots[i]=ST.slots[i]?0:1; save(); paintSlots();
+  });
+  paintSlots();
+}
+function opened(){ var n=0; for(var k in ST.slots) if(ST.slots[k]) n++; return n; }
+function paintSlots(){
+  for(var i=0;i<SLOTS.length;i++){
+    var on=!!ST.slots[i];
+    $("sl"+i).classList.toggle("open",on);
+    $("sb"+i).textContent = on ? "\u6536\u8d77" : "\u5c55\u958b";
+  }
+  $("sc3").innerHTML="\u5df2\u5c55\u958b <em>"+opened()+"</em> / 6";
+  if(opened()===6){ $("a3").hidden=false; $("g3").hidden=false; }
+}
+opener("g3","s4",function(){ buildText(); drawFig(); });
+
+/* ---------- step 4 : axis + passage ---------- */
+function drawFig(){
+  if($("fig").firstChild) return;
+  var s='<svg viewBox="0 0 420 210" role="img" aria-label="\u4e00\u689d\u5f9e\u71b1\u9b27\u5230\u5b89\u975c\u7684\u6a6b\u8ef8\uff0c\u516d\u500b\u5730\u9ede\u6a19\u5728\u8ef8\u4e0a">';
+  s+='<text class="endlab l" x="16" y="26">\u2190 \u71b1\u9b27</text>';
+  s+='<text class="endlab r" x="404" y="26" text-anchor="end">\u5b89\u975c \u2192</text>';
+  s+='<path class="axis" d="M16 110 L404 108" fill="none"/>';
+  for(var i=0;i<6;i++){
+    var x=44+i*68, p=PINS[i], up=(i%2===0);
+    s+='<g class="pin" data-i="'+i+'" tabindex="0" role="button">';
+    s+='<circle cx="'+x+'" cy="109" r="14"/>';
+    s+='<text class="lt" x="'+x+'" y="114" text-anchor="middle">'+esc(p.i)+'</text>';
+    s+='<text class="nm" x="'+x+'" y="'+(up?84:148)+'" text-anchor="middle">'+esc(p.nm)+'</text>';
+    s+='<text class="rg" x="'+x+'" y="'+(up?70:162)+'" text-anchor="middle">'+p.a+"\u2013"+p.b+'</text>';
+    s+='</g>';
+  }
+  s+='</svg><figcaption>\u8ef8\u4e0a\u7684\u4f4d\u7f6e\u4e0d\u662f\u96dc\u8a8c\u6392\u7684\uff0c\u662f\u4f60\u6839\u64da\u8ab2\u6587\u7528\u5b57\u6574\u7406\u51fa\u4f86\u7684\u3002\u9ede\u4efb\u4e00\u500b\u5730\u9ede\uff0c\u8ab2\u6587\u5c0d\u61c9\u884c\u6703\u4eae\u8d77\u4f86\uff0c\u9762\u677f\u6703\u5217\u51fa\u628a\u5b83\u653e\u5728\u90a3\u88e1\u7684\u5b57\u3002</figcaption>';
+  $("fig").innerHTML=s;
+  function hit(g){
+    var i=+g.dataset.i, p=PINS[i];
+    var gs=$("fig").querySelectorAll(".pin");
+    for(var j=0;j<gs.length;j++) gs[j].classList.toggle("on", +gs[j].dataset.i===i);
+    var ms=$("tx").querySelectorAll("m");
+    for(var k=0;k<ms.length;k++) ms[k].classList.remove("lit");
+    var rows=$("tx").querySelectorAll(".ln");
+    for(var r=0;r<rows.length;r++){ var n=+rows[r].dataset.n; rows[r].classList.toggle("hl", n>=p.a&&n<=p.b); }
+    var f=$("tx").querySelector('.ln[data-n="'+p.a+'"]'); if(f) f.scrollIntoView({behavior:"smooth",block:"center"});
+    $("pk").textContent=p.i+" "+p.nm; $("pk").className="k e";
+    $("pc").textContent=p.ev; $("pt").textContent=p.n;
+  }
+  $("fig").addEventListener("click",function(e){ var g=e.target.closest(".pin"); if(g) hit(g); });
+  $("fig").addEventListener("keydown",function(e){
+    if(e.key!=="Enter"&&e.key!==" ") return;
+    var g=e.target.closest(".pin"); if(g){ e.preventDefault(); hit(g); }
+  });
+}
+function renderLine(str){
+  var out="",i=0;
+  while(i<str.length){
+    var a=str.indexOf("{",i);
+    if(a<0){ out+=esc(str.slice(i)); break; }
+    out+=esc(str.slice(i,a));
+    var b=str.indexOf("}",a), p=str.slice(a+1,b).split("|");
+    var id=p[1], it=p[2]||"1", k=CHAINS[id]?CHAINS[id].k:"sub";
+    out+='<m data-c="'+id+'" data-i="'+it+'" data-kind="'+k+'" tabindex="0">'+esc(p[0])+'</m>';
+    i=b+1;
+  }
+  return out;
+}
+var builtText=false;
+function buildText(){
+  if(builtText) return; builtText=true;
+  var h='<p class="ttl">'+renderLine(TITLE)+'</p>';
+  for(var i=0;i<LINES.length;i++){
+    var n=i+1;
+    if(n===SPLIT) h+='<p class="split">\u4ee5\u4e0a\u662f 9/10 \u7684\u7b2c 1\u201330 \u884c\u3002\u4ee5\u4e0b\u662f 9/11 \u7684\u7b2c 31\u201363 \u884c\u3002</p>';
+    var cls="ln";
+    if(HEAD[n]) cls+=" sub pb";
+    else if(INDENT[n]) cls+=" ind"+(n>1?" pb":"");
+    h+='<div class="'+cls+'" data-n="'+n+'"><i>'+((n%5===0)?n:"")+'</i><span>'+renderLine(LINES[i])+'</span></div>';
+  }
+  $("tx").innerHTML=h;
+}
+function lightChain(id){
+  var ms=$("tx").querySelectorAll("m"), items={}, order=[];
+  var gs=$("fig").querySelectorAll(".pin");
+  for(var g=0;g<gs.length;g++) gs[g].classList.remove("on");
+  var rows=$("tx").querySelectorAll(".ln");
+  for(var r=0;r<rows.length;r++) rows[r].classList.remove("hl");
+  for(var i=0;i<ms.length;i++){
+    if(ms[i].dataset.c===id){
+      ms[i].classList.add("lit");
+      var key=ms[i].dataset.i;
+      if(!items[key]){ items[key]=[]; order.push(key); }
+      items[key].push(ms[i].textContent);
+    } else ms[i].classList.remove("lit");
+  }
+  var c=CHAINS[id]; if(!c) return;
+  var parts=[];
+  for(var o=0;o<order.length;o++) parts.push(esc(items[order[o]].join(" ")));
+  $("pk").textContent=LB[c.k]; $("pk").className=CL[c.k];
+  $("pc").innerHTML=parts.join('<i>\u2192</i>');
+  $("pt").textContent=c.n;
+}
+$("tx").addEventListener("click",function(e){ var m=e.target.closest("m"); if(m) lightChain(m.dataset.c); });
+$("tx").addEventListener("keydown",function(e){
+  if(e.key!=="Enter"&&e.key!==" ") return;
+  var m=e.target.closest("m"); if(m){ e.preventDefault(); lightChain(m.dataset.c); }
+});
+function toggle(btn,cls){
+  btn.addEventListener("click",function(){
+    var on=btn.getAttribute("aria-pressed")==="true";
+    btn.setAttribute("aria-pressed",on?"false":"true");
+    $("tx").classList.toggle(cls,on);
+  });
+}
+toggle($("m1"),"off-sub");
+toggle($("m2"),"off-gen");
+opener("g4","s5");
+
+/* ---------- step 5 ---------- */
+var set5=quiz("q5","a5","g5","q5");
+$("g5").addEventListener("click",function(){
+  if(ST.step<6) ST.step=6; save();
+  $("s6").hidden=false;
+  $("s6").scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+/* ---------- step 6 ---------- */
+var done6=false;
+function settle6(){
+  done6=true;
+  var bs=$("q6").querySelectorAll("button");
+  for(var i=0;i<bs.length;i++){
+    bs[i].disabled=true; bs[i].dataset.state=bs[i].dataset.ok?"right":"wrong";
+    if(bs[i].dataset.ok){ $("bl").textContent=bs[i].textContent; $("bl").className="blank filled"; }
+  }
+  $("a6").hidden=false; $("w6").hidden=false; $("s7").hidden=false;
+}
+$("q6").addEventListener("click",function(e){
+  var b=e.target.closest("button"); if(!b||done6) return;
+  settle6(); ST.q6=1; save();
+  $("a6").scrollIntoView({behavior:"smooth",block:"nearest"});
+});
+
+/* ---------- preview mode for the teacher: cohesion-u6.html?all ---------- */
+function previewAll(){
+  $("pv").hidden=false;
+  var i,cs=$("ld").querySelectorAll("c");
+  for(i=0;i<cs.length;i++){ ST.tags[cs[i].dataset.t]=1; paintTag(cs[i]); }
+  afterTags(); set1();
+  $("s2").hidden=false; set2();
+  $("s3").hidden=false; buildSlots();
+  for(i=0;i<SLOTS.length;i++) ST.slots[i]=1;
+  paintSlots();
+  $("s4").hidden=false; buildText(); drawFig();
+  $("s5").hidden=false; set5();
+  $("s6").hidden=false; settle6();
+}
+
+/* ---------- restore ---------- */
+$("rst").addEventListener("click",wipe);
+(function restore(){
+  if(/(^|[?&])all(=|&|$)/.test(location.search)){ previewAll(); return; }
+  var v=load(); if(!v) return;
+  ST=v;
+  if(!ST.tags) ST.tags={};
+  if(!ST.slots) ST.slots={};
+  if(!ST.step) ST.step=1;
+  if(!(tagged()||ST.step>1)) return;
+  $("rs").hidden=false;
+  var i,cs=$("ld").querySelectorAll("c");
+  for(i=0;i<cs.length;i++) if(ST.tags[cs[i].dataset.t]) paintTag(cs[i]);
+  afterTags();
+  if(ST.q1) set1();
+  if(ST.step>=2){ $("s2").hidden=false; if(ST.q2) set2(); }
+  if(ST.step>=3){ $("s3").hidden=false; buildSlots(); }
+  if(ST.step>=4){ $("s4").hidden=false; buildText(); drawFig(); }
+  if(ST.step>=5){ $("s5").hidden=false; if(ST.q5) set5(); }
+  if(ST.step>=6){ $("s6").hidden=false; if(ST.q6) settle6(); }
+  var last=$("s"+(ST.step>=6?6:ST.step));
+  if(last) setTimeout(function(){ last.scrollIntoView({block:"start"}); },60);
+})();
+})();
+</script>
+</body>
+</html>
