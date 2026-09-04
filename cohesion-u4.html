@@ -178,6 +178,15 @@ h2{font-family:var(--serif);font-weight:600;font-size:1.2rem;margin:0 0 .5rem;co
 .close li{margin-bottom:.5rem}
 .more{margin-top:1.5rem;font-size:.88rem}
 .more a{color:var(--teal)}
+.preview{font-size:.85rem;color:var(--exam);background:var(--exam-soft);
+  border:1px dashed var(--exam);border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.preview[hidden]{display:none}
+.series{border-top:1px solid var(--line);margin-top:2rem;padding-top:1.1rem;font-size:.9rem;color:#3d5059}
+.series b{display:block;font-family:var(--serif);font-size:1rem;color:var(--ink);margin-bottom:.5rem}
+.series ul{margin:0;padding-left:1.1rem}
+.series li{margin-bottom:.4rem}
+.series a{color:var(--teal)}
+.series .note{font-size:.85rem;color:var(--muted);margin:.7rem 0 0}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
@@ -186,6 +195,7 @@ h2{font-family:var(--serif);font-weight:600;font-size:1.2rem;margin:0 0 .5rem;co
 
 <h1>時間序</h1>
 <p class="lede">四位科學家，四個夢。作者把他們排成一條時間線——但課文的出現順序，不等於事情發生的順序。</p>
+<p class="preview" id="pv" hidden>預覽模式：所有步驟、時間軸、課文標記都已展開，進度不會存檔。學生拿到的一般連結不受影響。</p>
 <p class="resume" id="rs" hidden>上次做到一半，已經幫你接回來了。<button id="rst">重新開始</button></p>
 <p class="src">ALL+ 互動英語 9 月號 Unit 4　When Dreams Led to Scientific Breakthroughs　pp. 16–17（課文共 64 行）</p>
 
@@ -365,6 +375,8 @@ h2{font-family:var(--serif);font-weight:600;font-size:1.2rem;margin:0 0 .5rem;co
       <br><br>
       vision、image 這種字在這裡叫<b>概括名詞</b>。常見的還有 this approach、this decision、this problem、these findings、such discoveries。看到它們，先往前找那一整句。
       <br><br>
+      第三單元練過同一種工具，但那裡的 <q>these reactions</q> 一次收走了三整段；這裡的 <q>This striking vision</q> 只收前面一整句。<b>同一種工具，收的範圍可大可小——往前找的時候，先確定它收的是一句還是一整片。</b>
+      <br><br>
       這正是這期第 12 單元「看懂代名詞的指涉對象」要處理的東西，你已經先練到了。
     </div>
   </div>
@@ -431,6 +443,16 @@ h2{font-family:var(--serif);font-weight:600;font-size:1.2rem;margin:0 0 .5rem;co
   <p class="more"><a href="https://staresto-create.github.io/JCEE-vocab-questions/wordwheel.html">單字輪：neuro-、-logy 這一輪 →</a></p>
 </section>
 
+<nav class="series">
+  <b>這個系列前面的單元</b>
+  <ul>
+    <li><a href="cohesion-u1.html">Unit 1　倒金字塔</a>　新聞為什麼把最重要的先講？導言就是全篇的縮影。</li>
+    <li><a href="cohesion-u2.html">Unit 2　列舉</a>　六個並列的例子撐一個主張，順序可以隨便換。</li>
+    <li><a href="cohesion-u3.html">Unit 3　OREO</a>　第一句就把話講完，最後一段再講一次。</li>
+  </ul>
+  <p class="note">還沒做過的話可以先回去做，順序不影響。後面的單元老師會照雜誌的日期陸續給連結。</p>
+</nav>
+
 </div>
 
 <script>
@@ -442,7 +464,8 @@ function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;");}
 /* ---------- progress memory (this browser only) ---------- */
 var KEY="cohesion-u4-v1";
 var ST={c1:{},f1:0,q2:0,tl:"",q4:0,q4b:0,q6:0,step:1};
-function save(){ try{ localStorage.setItem(KEY, JSON.stringify(ST)); }catch(e){} }
+var PREVIEW=false;
+function save(){ if(PREVIEW) return; try{ localStorage.setItem(KEY, JSON.stringify(ST)); }catch(e){} }
 function load(){ try{ var r=localStorage.getItem(KEY); return r?JSON.parse(r):null; }catch(e){ return null; } }
 function wipe(){ try{ localStorage.removeItem(KEY); }catch(e){} location.reload(); }
 
@@ -733,11 +756,31 @@ $("q6").addEventListener("click",function(e){
   $("a6").scrollIntoView({behavior:"smooth",block:"nearest"});
 });
 
+/* ---------- preview mode for the teacher: cohesion-u4.html?all ---------- */
+function previewAll(){
+  PREVIEW=true;
+  $("pv").hidden=false;
+  var cb=$("c1").querySelectorAll("button"),i;
+  for(i=0;i<cb.length;i++){ cb[i].dataset.i=i; if(cb[i].dataset.ok) cb[i].classList.add("hit"); }
+  reveal1();
+  $("s2").hidden=false; settle("q2","a2","g2");
+  $("db").hidden=false; $("s3").hidden=false;
+  for(var k in SPOT){ showLines(k); break; }
+  $("a3").hidden=false; $("g3").hidden=false;
+  $("s4").hidden=false;
+  settle("q4","a4","g4a");
+  $("w4b").hidden=false; $("g4a").hidden=true; settle("q4b","a4b","g4");
+  $("s5").hidden=false; build();
+  $("s6").hidden=false; $("s7").hidden=false;
+  done6=true; settle("q6","a6",null,function(){ fillBlank(); $("w6").hidden=false; });
+}
+
 /* ---------- restore ---------- */
 $("rst").addEventListener("click",wipe);
 (function restore(){
   var cb=$("c1").querySelectorAll("button");
   for(var i=0;i<cb.length;i++) cb[i].dataset.i=i;
+  if(/(^|[?&])all(=|&|$)/.test(location.search)){ previewAll(); return; }
   var v=load(); if(!v) return;
   ST=v; if(!ST.c1) ST.c1={};
   if(!(ST.f1||ST.step>1)) return;
