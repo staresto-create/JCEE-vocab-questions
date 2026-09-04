@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>比較對照｜The Big Lap</title>
+<meta name="description" content="拿你已經知道的東西當基準，去講你不知道的。這一頁教你認出比較對照的方向，還有藏在修飾語裡的資訊。">
+<meta property="og:title" content="比較對照｜The Big Lap">
+<meta property="og:description" content="14,500 公里本身沒有意義，要有 1,000 公里擺在旁邊才有。">
+<style>
+:root{
+  --ground:#f1f3f2; --ink:#17282f; --teal:#1f6f6a; --teal-soft:#dfeceb;
+  --muted:#77878d; --line:#cdd6d6; --exam:#b4661c; --exam-soft:#fdf4e7;
+  --gen:#4a6a90; --gen-soft:#e0e7f0;
+  --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+  --sans:"PingFang TC","Noto Sans TC","Microsoft JhengHei","Helvetica Neue",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-text-size-adjust:100%}
+.wrap{max-width:44rem;margin:0 auto;padding:1.6rem 1.1rem 4rem}
+h1{font-family:var(--serif);font-weight:600;font-size:1.6rem;line-height:1.3;margin:0 0 .55rem}
+.lede{margin:0 0 1.3rem;color:#3d5059;font-size:.95rem}
+.src{font-size:.8rem;color:var(--muted);margin:0 0 1.1rem}
+.resume{font-size:.85rem;color:var(--teal);background:var(--teal-soft);border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.resume[hidden]{display:none}
+.preview{font-size:.85rem;color:var(--exam);background:var(--exam-soft);
+  border:1px dashed var(--exam);border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.preview[hidden]{display:none}
+.resume button{font:inherit;font-size:.82rem;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:.25rem;padding:.16rem .6rem;margin-left:.5rem;cursor:pointer}
+.resume button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.step{border-top:1px solid var(--line);padding-top:1.15rem;margin-top:1.6rem}
+.step[hidden]{display:none}
+.stepno{font-family:var(--serif);font-size:.82rem;color:var(--muted);margin:0 0 .2rem}
+h2{font-family:var(--serif);font-weight:600;font-size:1.2rem;margin:0 0 .5rem;color:var(--teal)}
+.step p{margin:0 0 .7rem;font-size:.95rem}
+.tag{display:inline-block;font-size:.72rem;font-weight:600;border-radius:.2rem;padding:.08rem .45rem;margin-left:.45rem;vertical-align:.12rem;color:var(--exam);background:var(--exam-soft);border:1px solid var(--exam)}
+.tag.b{color:var(--gen);background:var(--gen-soft);border-color:var(--gen)}
+.opts{display:flex;flex-direction:column;gap:.45rem;margin:.2rem 0 .8rem}
+.opts button{font:inherit;font-size:.95rem;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:.3rem;padding:.45rem .85rem;cursor:pointer;text-align:left}
+.opts button:hover{border-color:var(--teal)}
+.opts button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.opts button[data-state="right"]{background:var(--teal);border-color:var(--teal);color:#fff}
+.opts button[data-state="wrong"]{background:var(--ground);color:var(--muted)}
+.opts button[disabled]{cursor:default}
+.opts.en button{font-family:var(--serif);font-size:.97rem;line-height:1.6;padding:.55rem .8rem}
+.opts.en button[data-state="right"]{background:var(--teal-soft);border-color:var(--teal);color:var(--ink)}
+.said{background:#fff;border-left:3px solid var(--teal);border-radius:.3rem;padding:.75rem .85rem;margin:.2rem 0 .9rem;font-size:.93rem;color:#3d5059}
+.said b{color:var(--ink);font-weight:600}
+.said[hidden]{display:none}
+.said.g{border-left-color:var(--gen)}
+.said.e{border-left-color:var(--exam)}
+.said q{quotes:none;font-family:var(--serif)}
+.go{font:inherit;font-size:.92rem;background:var(--ink);color:#fff;border:1px solid var(--ink);border-radius:.3rem;padding:.42rem 1.05rem;cursor:pointer}
+.go:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.go[hidden]{display:none}
+.lead{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.9rem 1rem;margin:0 0 .7rem;font-family:var(--serif);font-size:1.02rem;line-height:1.95}
+.lead c{cursor:pointer;border-radius:.2rem;padding:.06rem .2rem;background:var(--exam-soft);box-shadow:inset 0 -2px 0 #ecc9a2}
+.lead c:hover{box-shadow:inset 0 -2px 0 var(--exam)}
+.lead c.got{background:var(--exam);color:#fff;box-shadow:none}
+.lead c b{font-family:var(--sans);font-size:.72rem;font-weight:600;background:#fff;color:var(--exam);border-radius:.2rem;padding:.02rem .3rem;margin-right:.3rem}
+.score{font-size:.9rem;color:var(--muted);margin:0 0 .8rem}
+.score em{font-style:normal;color:var(--exam);font-weight:600}
+.qs{display:flex;flex-direction:column;gap:.5rem;margin:0 0 .8rem}
+.qcard{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.6rem .85rem}
+.qcard .hd{display:flex;align-items:center;gap:.6rem;font-size:.95rem}
+.qcard .hd .qt{flex:1 1 auto;font-weight:600}
+.qcard .hd button{font:inherit;font-size:.8rem;background:#fff;color:var(--ink);border:1px solid var(--line);
+  border-radius:.25rem;padding:.18rem .7rem;cursor:pointer;flex:0 0 auto}
+.qcard .hd button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.qcard .bd{display:none;margin-top:.4rem;font-size:.92rem;color:#3d5059;line-height:1.75}
+.qcard.open .bd{display:block}
+.qcard.open .hd button{display:none}
+.qcard .bd .sw{display:block;font-family:var(--serif);background:var(--ground);border-radius:.3rem;
+  padding:.45rem .6rem;margin:.35rem 0;color:var(--ink);font-size:.93rem;line-height:1.7}
+.fig{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.7rem .5rem .4rem;margin:0 0 .7rem}
+.fig svg{display:block;width:100%;height:auto;max-width:27rem;margin:0 auto}
+.fig figcaption{font-size:.85rem;color:#3d5059;margin:.35rem .5rem 0;line-height:1.65}
+.trow{cursor:pointer}
+.trow rect{fill:#fff;stroke:var(--line);stroke-width:1.5}
+.trow rect.lc{fill:var(--teal-soft);stroke:#a8ccc8}
+.trow rect.rc{fill:var(--gen-soft);stroke:#a9bbd0}
+.trow text{font-family:var(--serif);font-size:10px;fill:var(--ink)}
+.trow text.lab{font-family:var(--sans);font-size:10px;font-weight:600;fill:var(--muted)}
+.trow text.non{fill:var(--muted);font-style:italic}
+.trow.on rect{stroke:var(--exam);stroke-width:2.5}
+.thead{font-family:var(--sans);font-size:10.5px;font-weight:600}
+.thead.l{fill:var(--teal)}
+.thead.r{fill:var(--gen)}
+.modes{display:flex;gap:.4rem;margin:0 0 .7rem;flex-wrap:wrap}
+.modes button{font:inherit;font-size:.84rem;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:.3rem;padding:.3rem .8rem;cursor:pointer}
+.modes button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.modes button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.text{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.9rem .6rem 1.1rem;font-family:var(--serif);font-size:1rem;line-height:1.85}
+.text .ttl{font-weight:600;font-size:1.06rem;margin:0 .4rem .7rem 2.6rem;line-height:1.45}
+.ln{display:flex;align-items:baseline;padding:.02rem 0;border-radius:.2rem}
+.ln>i{flex:0 0 2.2rem;text-align:right;padding-right:.55rem;font-family:var(--sans);font-style:normal;font-size:.68rem;color:var(--muted);line-height:1.9}
+.ln>span{flex:1 1 auto;overflow-wrap:anywhere}
+.ln.ind>span{padding-left:1.1rem}
+.ln.hl{background:var(--exam-soft)}
+.ln.pb{margin-top:.55rem}
+.text m{cursor:pointer;border-radius:.2rem;padding:.02rem .14rem}
+.text m[data-kind="sub"]{background:var(--teal-soft);box-shadow:inset 0 -2px 0 #a8ccc8}
+.text m[data-kind="gen"]{background:var(--gen-soft);box-shadow:inset 0 -2px 0 #a9bbd0}
+.text m.lit[data-kind="sub"]{background:var(--teal);color:#fff;box-shadow:none}
+.text m.lit[data-kind="gen"]{background:var(--gen);color:#fff;box-shadow:none}
+.text.off-sub m[data-kind="sub"]{background:none;box-shadow:none}
+.text.off-gen m[data-kind="gen"]{background:none;box-shadow:none}
+.panel{position:sticky;bottom:0;background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.75rem .9rem;margin-top:.8rem;box-shadow:0 -2px 10px rgba(23,40,47,.07)}
+.panel .k{font-size:.72rem;font-weight:600;border-radius:.2rem;padding:.06rem .42rem;color:var(--teal);background:var(--teal-soft);border:1px solid var(--teal)}
+.panel .k.g{color:var(--gen);background:var(--gen-soft);border-color:var(--gen)}
+.panel .k.e{color:var(--exam);background:var(--exam-soft);border-color:var(--exam)}
+.panel .ch{font-family:var(--serif);font-size:1rem;margin:.4rem 0 .3rem;color:var(--ink);line-height:1.75;overflow-wrap:anywhere}
+.panel .ch i{font-style:normal;color:var(--muted);padding:0 .28rem}
+.panel .nt{font-size:.88rem;color:#3d5059;margin:0}
+.recall{background:#fff;border:1px solid var(--line);border-left:3px solid var(--muted);
+  border-radius:.3rem;padding:.75rem .85rem;margin:1.1rem 0 .9rem;font-size:.92rem;color:#3d5059}
+.recall b{color:var(--ink)}
+.recall ul{margin:.4rem 0 0;padding-left:1.1rem}
+.recall li{margin-bottom:.35rem}
+.gap{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.9rem 1rem;margin:0 0 .9rem;font-family:var(--serif);font-size:1rem;line-height:1.9}
+.gap .blank{display:inline-block;min-width:9rem;border-bottom:2px solid var(--gen);color:var(--gen);text-align:center;font-family:var(--sans);font-size:.82rem}
+.gap .blank.filled{border-bottom-color:var(--teal);color:var(--ink);font-family:var(--serif);font-size:1rem;text-align:left;background:var(--teal-soft);border-radius:.2rem;padding:0 .25rem}
+.picks{display:flex;flex-direction:column;gap:.45rem;margin:0 0 .9rem}
+.picks button{font:inherit;font-family:var(--serif);font-size:.97rem;line-height:1.6;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:.3rem;padding:.55rem .8rem;cursor:pointer;text-align:left}
+.picks button:hover{border-color:var(--teal)}
+.picks button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.picks button[data-state="right"]{background:var(--teal-soft);border-color:var(--teal)}
+.picks button[data-state="wrong"]{background:var(--ground);color:var(--muted)}
+.why{font-size:.86rem;color:#3d5059;margin:.35rem 0 0}
+.why[hidden]{display:none}
+.close{border-top:1px solid var(--line);margin-top:2rem;padding-top:1.1rem;font-size:.93rem;color:#3d5059}
+.close[hidden]{display:none}
+.close h2{font-size:1.1rem}
+.close ol{margin:.3rem 0 0;padding-left:1.15rem}
+.close li{margin-bottom:.5rem}
+.more{margin-top:1.5rem;font-size:.88rem}
+.more a{color:var(--teal)}
+.series{border-top:1px solid var(--line);margin-top:2rem;padding-top:1.1rem;font-size:.9rem;color:#3d5059}
+.series .back{font-family:var(--serif);font-size:1rem;color:var(--teal);text-decoration:none}
+.series .back:hover{text-decoration:underline}
+.series .back:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.series .note{font-size:.85rem;color:var(--muted);margin:.5rem 0 0}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>比較對照</h1>
+<p class="lede">14,500 公里這個數字本身沒有意義。要有 1,000 公里擺在旁邊，你才會嚇一跳。<b>比較對照文的做法就是先立一個你已經知道的東西當基準</b>，再拿新的東西跟它比。</p>
+<p class="preview" id="pv" hidden>預覽模式：所有步驟、圖表、課文標記都已展開，進度不會存檔。學生拿到的一般連結不受影響。</p>
+<p class="resume" id="rs" hidden>上次做到一半，已經幫你接回來了。<button id="rst">重新開始</button></p>
+<p class="src">ALL+ 互動英語 9 月號 Unit 12（pp. 52–53）　The Big Lap　全文 28 行　9/26 一天讀完</p>
+
+<!-- STEP 1 -->
+<section class="step" id="s1">
+  <p class="stepno">第一步</p>
+  <h2>基準先立起來<span class="tag">上層：組織方式</span></h2>
+  <p>這篇要講的是澳洲的 Big Lap，可是前七行全在講台灣的環島。<b>那不是離題，那是在架基準。</b>下面是第 1 到 7 行，<b>點三個有底色的地方</b>。</p>
+  <div class="lead" id="ld">
+    For young Taiwanese, taking an around-the-island trip, or huandao, is an important rite of passage—one that promises many unforgettable experiences. A typical huandao covers <c data-t="d">around 1,000 km</c> and can be completed in <c data-t="t">less than two weeks</c>. <c data-t="b">But what if</c> the journey were…
+  </div>
+  <p class="score" id="sc">已標出 <em>0</em> / 3</p>
+  <div id="s1b" hidden>
+    <p>三個都標出來了。那麼——<b>作者為什麼要先花七行講台灣的環島？</b></p>
+    <div class="opts" id="q1">
+      <button data-ok="1">先立一個讀者知道的基準，後面的數字才有感覺</button>
+      <button>因為台灣讀者多半沒去過澳洲，需要先補一些背景知識</button>
+      <button>因為環島和大環澳其實是同一種活動的兩個名字</button>
+      <button>因為環島才是這篇文章真正想要介紹的那個主題</button>
+    </div>
+    <div class="said e" id="a1" hidden>
+      <b>先立一個讀者已經知道的基準。</b><q>around 1,000 km</q> 和 <q>less than two weeks</q> 這兩個數字不是重點，它們是<b>尺</b>。有了這把尺，第 8 行的 14,500 km 才會讓你倒抽一口氣；沒有它，那就只是一個很大的數字。
+      <br><br>
+      <b>第 7 行的 <q>But what if</q> 是翻轉的樞紐。</b>But 表示要換邊了，what if 表示接下來是一個假設——而下一句 <q>This is the reality</q> 立刻把假設變成事實。<b>兩句話就從台灣跳到澳洲。</b>
+      <br><br>
+      <b>另外三個為什麼排除：</b>
+      <br><br>
+      「需要先補一點背景」——<b>這一個最容易選，因為聽起來很合理。</b>但仔細看：作者補的背景不是澳洲的，是<b>台灣的</b>。真要補澳洲背景，前七行應該講澳洲有多大。<b>比較對照文先講的一定是讀者熟悉的那一邊。</b>
+      <br><br>
+      「同一種活動的兩個名字」——第 9 到 10 行寫的是 <q>their own version of a huandao</q>，<b>版本不等於同一件事</b>；而且如果真的一樣，後面整篇的比較就沒必要了。
+      <br><br>
+      「環島才是真正的主題」——第 10 行冒號之後點出 the Big Lap，標題也是 The Big Lap。<b>基準不是主題，它是拿來襯托主題的。</b>
+    </div>
+    <button class="go" id="g1" hidden>把兩邊排開來看</button>
+  </div>
+</section>
+
+<!-- STEP 2 -->
+<section class="step" id="s2" hidden>
+  <p class="stepno">第二步</p>
+  <h2>方向由讀者決定<span class="tag">上層：怎麼認出來</span></h2>
+  <p>把課文裡兩邊的數字排成一張表，形狀就出來了。<b>點任一列</b>，第四步的課文對應行會亮起來（課文還沒打開的話，先把行號記住就好）。</p>
+  <figure class="fig" id="fig"></figure>
+  <p>你應該注意到了：<b>表格下面三列只有右邊有東西，左邊是空的。</b></p>
+  <p>試一題：<b>這三列左邊空著，最合理的解釋是什麼？</b></p>
+  <div class="opts" id="q2">
+    <button>作者手邊缺台灣這一邊的資料，只好先留白</button>
+    <button>因為兩地差距太大，這幾個項目沒辦法對比</button>
+    <button data-ok="1">那幾段的功能不是比較，而是要勸你去挑戰</button>
+    <button>那幾段講的是澳洲，跟環島無關，可以跳過</button>
+  </div>
+  <div class="said e" id="a2" hidden>
+    <b>那幾段的功能已經不是比較。</b>第 17 行之後，作者不再兩邊對照了——他在講 Big Lap 值不值得（<q>the payoff is certainly worthwhile</q>）、路上會看到什麼，最後第 25 到 28 行直接對你說話：<q>If you’ve completed a huandao and are ready for a bigger challenge…</q>
+    <br><br>
+    <b>比較對照文不是每一段都在比較。</b>前半用對照建立落差，後半用落差去說服。<b>認出哪一段在比較、哪一段在說服，你就知道每一段該用什麼方式讀。</b>
+    <br><br>
+    <b>另外三個為什麼排除：</b>
+    <br><br>
+    「作者缺資料」——<b>這一個最容易選，因為表格看起來就是缺了一半。</b>但台灣的環島當然也有風景、也要準備，作者不是找不到，是<b>不需要</b>。
+    <br><br>
+    「差距太大沒辦法對比」——前面三列（距離、時間）差距更大，照樣對比得好好的。<b>能不能對比跟差距大小無關。</b>
+    <br><br>
+    <b>「講澳洲跟環島無關，可以跳過」——這個要特別小心。</b>第 21 到 28 行是全篇的<b>結論</b>，跳過它等於沒讀到作者的主張。看到某一段不再出現對照，正確的反應是「作者換手法了」，不是「這段沒用」。
+  </div>
+  <button class="go" id="g2" hidden>拆解測試</button>
+</section>
+
+<!-- STEP 3 -->
+<section class="step" id="s3" hidden>
+  <p class="stepno">第三步</p>
+  <h2>拆解測試<span class="tag">上層：怎麼驗證</span></h2>
+  <p>怎麼確定一篇是比較對照，而且確定它的方向沒有寫反？<b>把它拆開來試。</b>三張卡片逐一按開。</p>
+  <div class="qs" id="qs"></div>
+  <p class="score" id="sc3">已試過 <em>0</em> / 3</p>
+  <div class="said e" id="a3" hidden>
+    <b>三個測試都指向同一件事：基準必須是讀者已經知道的東西。</b>
+    <br><br>
+    <b>怎麼認出一篇是比較對照：</b>找那個「已知的一邊」。文章一開頭花力氣描述的東西，如果不是標題講的那個，它八成就是基準。<b>然後看有沒有一個轉折句把你從基準推到主題</b>——這篇是第 7 行的 <q>But what if</q>。
+    <br><br>
+    <b>考卷上怎麼考：</b>細節題最常問「哪一邊」——選項會把 A 的數字接到 B 頭上。做法是先在腦中畫那張兩欄表，再回去對。<b>另外要提防的是：文章後半可能早就不在比較了，那裡的內容不能拿去填表格。</b>
+  </div>
+  <button class="go" id="g3" hidden>看藏在修飾語裡的資訊</button>
+</section>
+
+<!-- STEP 4 -->
+<section class="step" id="s4" hidden>
+  <p class="stepno">第四步</p>
+  <h2>重點不在名詞，在修飾語<span class="tag b">下層：比較與程度的語言</span></h2>
+  <p>比較對照文的資訊幾乎都不在名詞裡，在<b>名詞前後那幾個字</b>：<q>far more time</q> 的重點是 far，<q>equally diverse</q> 的重點是 equally，<q>less than two weeks</q> 的重點是 less than。把這些字拿掉，句子還通，但比較就沒了。</p>
+  <p><b>這一群字正是考卷改寫題最愛動的地方</b>——這接得上第九單元學到的：盯住程度和數量。</p>
+  <p>藍灰那一色是<b>指涉詞</b>。這一課的雜誌 p. 51 讀門祕笈剛好就在教「看懂代名詞的指涉對象」，可以兩邊對照著看。</p>
+  <p><b>點課文裡有底色的字</b>，同一條的字會一起亮起來。兩色可以各自關掉。</p>
+  <div class="modes">
+    <button id="m1" aria-pressed="true">比較與程度（青）</button>
+    <button id="m2" aria-pressed="true">指涉詞（藍灰）</button>
+  </div>
+  <div class="text" id="tx"></div>
+  <div class="panel" id="pn">
+    <span class="k" id="pk">線索</span>
+    <div class="ch" id="pc">點圖上的一列，或課文裡有底色的字</div>
+    <p class="nt" id="pt">青色是比較與程度的說法，藍灰是指涉詞。</p>
+  </div>
+  <div class="recall">
+    <b>另外兩樣，前面單元教過，這篇自己確認得出來：</b>
+    <ul>
+      <li><b>概括名詞。</b>第 17 行的 <q>such a trip</q> 把前面整段（14,500 公里、開車三到六個月、單車一整年）收成一個名詞，後面才好接 <q>calls for many months of research and planning</q>。<b>跟第三、四、八、九單元同一種工具，這是第五次遇到了。</b></li>
+      <li><b>換字。</b>同一件事一路換說法：<q>an around-the-island trip</q>（1）→ <q>huandao</q>（2）→ <q>a rite of passage</q>（3）→ <q>the journey</q>（7）→ <q>their own version of a huandao</q>（10）→ <q>the trip</q>（14）→ <q>such a trip</q>（17）→ <q>the perfect next adventure</q>（27–28）。<b>最後那一次特別重要：它已經不是換字，是在給評價。</b></li>
+    </ul>
+  </div>
+  <p style="margin-top:1.1rem"><button class="go" id="g4">考卷怎麼考比較對照</button></p>
+</section>
+
+<!-- STEP 5 -->
+<section class="step" id="s5" hidden>
+  <p class="stepno">第五步</p>
+  <h2>改寫題動的是修飾語<span class="tag">上層：考點</span></h2>
+  <p>比較對照文的題目集中在兩種：</p>
+  <p><b>一、細節題問「哪一邊」。</b>誘答會把一邊的數字接到另一邊頭上。做法是先在腦中畫那張兩欄表。</p>
+  <p><b>二、改寫題動修飾語。</b>把 <q>far more</q> 改成 <q>slightly more</q>、把 <q>equally</q> 改成 <q>even more</q>、把時間換成難度——<b>句子讀起來都很順，意思卻已經不一樣了。</b></p>
+  <p>試一題：<b>第 13 行 <q>requires far more time to complete than a huandao</q> 的意思，最接近下列哪一句？</b></p>
+  <div class="opts en" id="q5">
+    <button>The Big Lap is a great deal harder to complete than a huandao.</button>
+    <button data-ok="1">Finishing the Big Lap takes much longer than finishing a huandao does.</button>
+    <button>A huandao takes almost as much time to finish as the Big Lap.</button>
+    <button>The Big Lap cannot possibly be completed in less than a year.</button>
+  </div>
+  <div class="said e" id="a5" hidden>
+    <b>第二句。</b><q>requires far more time</q> 改寫成 <q>takes much longer</q>，<q>than a huandao</q> 改寫成 <q>than finishing a huandao does</q>。<b>換了字，程度沒有變。</b>
+    <br><br>
+    <b>另外三個為什麼排除：</b>
+    <br><br>
+    <q>a great deal harder</q>——<b>這一個最難排除，因為 a great deal 跟 far 的程度其實對得上。</b>但它把<b>向度換掉了</b>：課文比的是<b>時間</b>，這句比的是<b>難度</b>。花的時間長不等於比較難——第 15 行說開車三到六個月，開車並不難。<b>比較題要先看清楚比的是哪一個向度。</b>
+    <br><br>
+    <q>almost as much time</q>——把 far more 換成「幾乎一樣多」，<b>差距整個被抹掉了</b>。這正是改寫題最常動的手腳：程度副詞一改，落差就沒了。
+    <br><br>
+    <q>cannot possibly be completed in less than a year</q>——跟第 14 到 16 行直接打架：開車三到六個月就完成得了，一整年是<b>騎單車</b>的情況。<b>把其中一種交通方式的數字說成全部。</b>
+  </div>
+  <button class="go" id="g5" hidden>最後一題</button>
+</section>
+
+<!-- STEP 6 -->
+<section class="step" id="s6" hidden>
+  <p class="stepno">第六步</p>
+  <h2>把一句話放回去</h2>
+  <p>這就是考卷上的<b>篇章結構</b>題。下面把第 7–8 行那一句整句抽掉了，四個候選句只有一句放得進去。</p>
+  <div class="gap" id="gp">
+    … A typical huandao covers around 1,000 km and can be completed in less than two weeks.
+    <span class="blank" id="bl">（空格）</span> This is the reality Australians face when they attempt their own version of a huandao: the Big Lap.
+  </div>
+  <div class="picks" id="q6">
+    <button>Australians, however, rarely finish the trip in under two weeks.</button>
+    <button data-ok="1">But what if the journey were more like 14,500 km?</button>
+    <button>In Australia, cyclists face a very different set of problems.</button>
+    <button>The same is true of long-distance cycling in Australia.</button>
+  </div>
+  <div class="said" id="a6" hidden>
+    <b>四個線索同時指向同一句。</b>這四句單獨看都說得通，沒有一句本身是錯的。要排除，得靠位置和線索。
+    <br><br>
+    <b>先講一個例外。</b>前面說大考的正解通常是改寫，但<b>抽句題不一樣</b>：被抽掉的就是原文那一句，所以正解一定是原文。這一題要靠的是誘答哪裡接不上。
+    <br><br>
+    <b>一、指涉詞找不找得到先行內容。</b>下一句開頭是 <q>This is the reality</q>。<b>This 指的必須是一個「還不是現實」的東西</b>，否則 <q>is the reality</q> 這句話就沒有意義了。只有 <q>what if…</q> 這種假設句提供得了。其他三句講的都已經是事實，接上 <q>This is the reality</q> 會變成廢話。
+    <br><br>
+    <b>另外三個為什麼排除，各有一個明確的依據：</b>
+    <br><br>
+    <b>二、方向。</b><q>The same is true of long-distance cycling in Australia.</q> 說的是「一樣」。但整篇的立足點是<b>不一樣</b>——1,000 對 14,500。<b>方向剛好相反。</b>
+    <br><br>
+    <b>三、對照的向度。</b><q>Australians, however, rarely finish the trip in under two weeks.</q> 直接跳到時間。可是<b>距離的對比就不見了</b>，而第 11 到 12 行接著寫 <q>Because it covers such a vast distance</q>——那個 <q>such a vast distance</q> 需要前面先出現一個距離數字。
+    <br><br>
+    <b>四、落點。</b><q>In Australia, cyclists face a very different set of problems.</q> 用了 problems 這個負面的框架，可是全篇沒有一句把 Big Lap 講成問題，反而說 <q>the payoff is certainly worthwhile</q>。<b>而且它只提 cyclists，第 14 行馬上就講開車。</b>
+  </div>
+  <p class="why" id="w6" hidden>考卷上不會有底色，也不會有行號。但你剛才用的四個線索，每一篇比較對照文都有。</p>
+</section>
+
+<!-- CLOSE -->
+<section class="close" id="s7" hidden>
+  <h2>帶著走的五句話</h2>
+  <ol>
+    <li><b>比較對照先立基準，而基準是讀者已知的那一邊。</b>文章開頭花力氣描述的東西，如果不是標題講的那個，它八成就是基準。</li>
+    <li><b>找那個轉折句。</b>But what if、However、Unlike——它把你從基準推到主題，通常就在第一段結尾。</li>
+    <li><b>不是每一段都在比較。</b>前半用對照建立落差，後半用落差去說服。看到某一段不再出現對照，是作者換手法，不是那段沒用。</li>
+    <li><b>資訊在修飾語裡，不在名詞裡。</b>far more、equally、less than、almost as——拿掉它們句子還通，但比較就沒了。</li>
+    <li><b>比較題先看清楚比的是哪一個向度。</b>時間、難度、費用是三件事。改寫題最常做的就是換向度、換程度副詞，句子讀起來一樣順。</li>
+  </ol>
+  <p class="more"><a href="https://staresto-create.github.io/JCEE-vocab-questions/wordwheel.html">單字輪：把字拆成部件來記 →</a></p>
+</section>
+
+<nav class="series">
+  <a class="back" href="cohesion.html">← 回讀法練習總表</a>
+  <p class="note">總表上有目前可以做的所有單元，還有你累積到現在的讀法工具。</p>
+</nav>
+
+</div>
+<script>
+(function(){
+"use strict";
+function $(id){return document.getElementById(id);}
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;");}
+var KEY="cohesion-u12-v1";
+var ST={tags:{},qs:{},q1:0,q2:0,q5:0,q6:0,step:1};
+function save(){ try{ localStorage.setItem(KEY, JSON.stringify(ST)); }catch(e){} }
+function load(){ try{ var r=localStorage.getItem(KEY); return r?JSON.parse(r):null; }catch(e){ return null; } }
+function wipe(){ try{ localStorage.removeItem(KEY); }catch(e){} location.reload(); }
+
+var TITLE="The Big Lap";
+var LINES=[
+"For young Taiwanese, taking an around-",
+"the-island trip, or huandao, is an important",
+"rite of passage\u2014{one|c-ref|1} that promises",
+"many unforgettable experiences. A",
+"typical huandao covers {around|c-deg|1} 1,000 km",
+"and can be completed in {less than two|c-deg|2}",
+"{weeks|c-deg|2}. But what if the journey were",
+"{more like|c-deg|3} 14,500 km? {This|c-ref|2} is the reality",
+"Australians face when {they|c-ref|3} attempt {their|c-ref|4}",
+"own version of a huandao: the Big Lap.",
+"Because {it|c-ref|5} covers {such a vast|c-deg|4}",
+"{distance|c-deg|4}, the Big Lap unsurprisingly",
+"requires {far more time to complete than|c-deg|5}",
+"a huandao. By car, the trip {typically|c-deg|6} takes",
+"between three and six months. By bicycle,",
+"though, the Big Lap can take {an entire year|c-deg|7}!",
+"Undertaking {such a trip|c-ref|6} calls for many",
+"months of research and planning. For",
+"some, {that|c-ref|7} may seem like a lot of effort,",
+"but the payoff is certainly worthwhile.",
+"Australia offers an extraordinary variety of",
+"landscapes to travel through, from dusty",
+"deserts to snow-covered hills, along with",
+"an {equally diverse|c-deg|8} cast of characters to",
+"meet along the way. If you\u2019ve completed",
+"a huandao and are ready for {a bigger|c-deg|9}",
+"{challenge|c-deg|9}, the Big Lap might be the perfect",
+"next adventure for you."
+];
+var INDENT={1:1,11:1,17:1,21:1};
+
+var CHAINS={
+ "c-deg":{k:"sub",n:"\u6bd4\u8f03\u8207\u7a0b\u5ea6\u7684\u8aaa\u6cd5\uff0c\u4e5d\u8655\u3002\u5b83\u5011\u5168\u90e8\u662f\u4fee\u98fe\u8a9e\uff0c\u4e0d\u662f\u540d\u8a5e\u2014\u2014\u62ff\u6389\u4e4b\u5f8c\u53e5\u5b50\u9084\u901a\uff0c\u4f46\u6bd4\u8f03\u5c31\u6c92\u4e86\u3002\u6ce8\u610f\u7b2c 13 \u884c\u7684 far more time to complete than\uff1a\u9019\u4e00\u4e32\u88e1\uff0cfar \u7ba1\u7a0b\u5ea6\u3001time \u7ba1\u5411\u5ea6\u3001than \u7ba1\u5c0d\u8c61\uff0c\u4e09\u500b\u90fd\u662f\u8003\u9ede\u3002"},
+ "c-ref":{k:"gen",n:"\u6307\u6d89\u8a5e\uff0c\u4e03\u8655\u3002\u96dc\u8a8c\u9019\u4e00\u55ae\u5143 p. 51 \u7684\u8b80\u9580\u7955\u7b08\u5c31\u5728\u6559\u9019\u500b\uff0c\u53ef\u4ee5\u5c0d\u7167\u8457\u770b\u3002\u7b2c 8 \u884c\u7684 This \u548c\u7b2c 19 \u884c\u7684 that \u5f80\u56de\u6307\u7684\u4e0d\u662f\u540d\u8a5e\uff0c\u662f\u524d\u9762\u6574\u4ef6\u4e8b\uff1b\u7b2c 3 \u884c\u7684 one \u6307\u7684\u662f a rite of passage\uff0c\u4e0d\u662f\u6578\u5b57\u4e00\u3002"}
+};
+var LB={sub:"\u6bd4\u8f03\u8207\u7a0b\u5ea6",gen:"\u6307\u6d89\u8a5e"};
+var CL={sub:"k",gen:"k g"};
+
+var ROWS=[
+ {lab:"\u8ddd\u96e2",l:"around 1,000 km",r:"more like 14,500 km",a:5,b:8,
+  n:"\u7b2c 5 \u884c\u5c0d\u7b2c 8 \u884c\u3002\u5169\u500b\u6578\u5b57\u5dee\u5341\u56db\u500d\u4ee5\u4e0a\uff0c\u9019\u5c31\u662f\u5168\u7bc7\u7684\u843d\u5dee\u3002"},
+ {lab:"\u6240\u9700\u6642\u9593",l:"less than two weeks",r:"three to six months (by car)",a:6,b:15,
+  n:"\u7b2c 6 \u5230 7 \u884c\u5c0d\u7b2c 14 \u5230 15 \u884c\u3002\u6ce8\u610f\u53f3\u908a\u9084\u6307\u660e\u4e86\u4ea4\u901a\u65b9\u5f0f\u2014\u2014\u9019\u4e00\u9ede\u5f88\u5bb9\u6613\u88ab\u984c\u76ee\u62ff\u53bb\u505a\u6587\u7ae0\u3002"},
+ {lab:"\u9a0e\u55ae\u8eca",l:"",r:"an entire year",a:15,b:16,
+  n:"\u7b2c 15 \u5230 16 \u884c\u3002\u8ab2\u6587\u6c92\u6709\u55ae\u7368\u8b1b\u74b0\u5cf6\u9a0e\u55ae\u8eca\u8981\u591a\u4e45\uff0c\u6240\u4ee5\u5de6\u908a\u662f\u7a7a\u7684\u3002"},
+ {lab:"\u6e96\u5099\u5de5\u592b",l:"",r:"months of research and planning",a:17,b:18,
+  n:"\u7b2c 17 \u5230 18 \u884c\u3002\u5f9e\u9019\u4e00\u5217\u958b\u59cb\uff0c\u4f5c\u8005\u5df2\u7d93\u4e0d\u518d\u5169\u908a\u5c0d\u7167\u4e86\u3002"},
+ {lab:"\u6cbf\u9014",l:"",r:"deserts, snowy hills, diverse people",a:21,b:24,
+  n:"\u7b2c 21 \u5230 24 \u884c\u3002\u9019\u4e00\u6bb5\u7684\u529f\u80fd\u662f\u52f8\u4f60\u53bb\uff0c\u4e0d\u662f\u6bd4\u8f03\u3002"}
+];
+
+var QS=[
+ {q:"\u628a\u5169\u8005\u5c0d\u8abf\u4f86\u5beb\uff0c\u958b\u982d\u6703\u8b8a\u6210\u4ec0\u9ebc\u6a23\u5b50\uff1f",
+  sw:"For young Australians, the Big Lap is an important rite of passage. It covers around 14,500 km and can take an entire year. But what if the journey were only 1,000 km?",
+  a:"\u5c0d\u53f0\u7063\u8b80\u8005\u4f86\u8aaa\uff0c\u9019\u6a23\u5beb\u5c31\u6c92\u6709\u7acb\u8db3\u9ede\u4e86\u2014\u2014\u4f60\u4e0d\u77e5\u9053 14,500 \u516c\u91cc\u662f\u591a\u9060\uff0c\u4e5f\u6c92\u6709\u611f\u89ba\u3002\u540c\u4e00\u7bc7\u6587\u7ae0\u5beb\u7d66\u6fb3\u6d32\u5b78\u751f\u770b\uff0c\u5c31\u8981\u5c0d\u8abf\u4f86\u5beb\u3002",
+  r:"\u57fa\u6e96\u7531\u8b80\u8005\u6c7a\u5b9a\uff0c\u4e0d\u662f\u7531\u984c\u6750\u6c7a\u5b9a"},
+ {q:"\u6574\u7bc7\u53ea\u8b1b Big Lap\u3001\u5b8c\u5168\u4e0d\u63d0\u74b0\u5cf6\uff0c\u884c\u4e0d\u884c\uff1f",
+  sw:"The Big Lap covers around 14,500 km. By car, the trip typically takes between three and six months.",
+  a:"\u53e5\u5b50\u90fd\u6b63\u78ba\uff0c\u4f46 14,500 \u9019\u500b\u6578\u5b57\u8b8a\u6210\u53ea\u662f\u4e00\u500b\u6578\u5b57\u3002\u6c92\u6709 1,000 \u64fa\u5728\u65c1\u908a\uff0c\u4f60\u4e0d\u6703\u5687\u4e00\u8df3\uff0c\u5f8c\u9762\u300c\u66f4\u5927\u7684\u6311\u6230\u300d\u4e5f\u5c31\u7ad9\u4e0d\u4f4f\u3002",
+  r:"\u6bd4\u8f03\u5c0d\u8c61\u4e00\u62ff\u6389\uff0c\u6578\u5b57\u5c31\u6b7b\u4e86"},
+ {q:"\u5169\u908a\u8b1b\u7684\u9805\u76ee\u4e0d\u5c0d\u7a31\uff0c\u53ef\u4ee5\u55ce\uff1f",
+  sw:"\uff08\u770b\u770b\u7b2c\u4e8c\u6b65\u90a3\u5f35\u8868\uff09",
+  a:"\u53ef\u4ee5\u2014\u2014\u800c\u4e14\u8ab2\u6587\u672c\u4f86\u5c31\u9019\u6a23\u505a\u3002\u7b2c 21 \u5230 24 \u884c\u53ea\u5beb\u6fb3\u6d32\u7684\u5730\u666f\uff0c\u6c92\u6709\u5c0d\u6bd4\u53f0\u7063\u7684\u3002\u56e0\u70ba\u90a3\u4e00\u6bb5\u7684\u529f\u80fd\u5df2\u7d93\u4e0d\u662f\u6bd4\u8f03\uff0c\u662f\u52f8\u4f60\u53bb\u3002",
+  r:"\u4e0d\u662f\u6bcf\u4e00\u6bb5\u90fd\u5728\u6bd4\u8f03"}
+];
+
+/* ---------- generic quiz ---------- */
+function quiz(qid,aid,gid,tag,after){
+  var done=false;
+  function settle(){
+    done=true;
+    var bs=$(qid).querySelectorAll("button");
+    for(var i=0;i<bs.length;i++){ bs[i].disabled=true; bs[i].dataset.state=bs[i].dataset.ok?"right":"wrong"; }
+    if(aid) $(aid).hidden=false;
+    if(gid) $(gid).hidden=false;
+    if(after) after();
+  }
+  $(qid).addEventListener("click",function(e){
+    var b=e.target.closest("button"); if(!b||done) return;
+    settle(); ST[tag]=1; save();
+  });
+  return settle;
+}
+function opener(gid,sid,extra){
+  $(gid).addEventListener("click",function(){
+    var n=parseInt(sid.replace(/\D/g,""),10);
+    if(ST.step<n) ST.step=n; save();
+    $(sid).hidden=false; if(extra) extra();
+    $(sid).scrollIntoView({behavior:"smooth",block:"start"});
+  });
+}
+function hlLines(a,b){
+  var rows=$("tx").querySelectorAll(".ln");
+  for(var r=0;r<rows.length;r++){ var n=+rows[r].dataset.n; rows[r].classList.toggle("hl", n>=a&&n<=b); }
+  var ms=$("tx").querySelectorAll("m");
+  for(var k=0;k<ms.length;k++) ms[k].classList.remove("lit");
+  if(rows.length){ var f=$("tx").querySelector('.ln[data-n="'+a+'"]'); if(f) f.scrollIntoView({behavior:"smooth",block:"center"}); }
+}
+
+/* ---------- step 1 ---------- */
+var TL={d:"\u57fa\u6e96\u7684\u8ddd\u96e2",t:"\u57fa\u6e96\u7684\u6642\u9593",b:"\u7ffb\u8f49\u7684\u6a1e\u7d10"};
+function tagged(){ var n=0; for(var k in ST.tags) if(ST.tags[k]) n++; return n; }
+function paintTag(c){
+  if(c.classList.contains("got")) return;
+  c.classList.add("got");
+  var b=document.createElement("b"); b.textContent=TL[c.dataset.t];
+  c.insertBefore(b, c.firstChild);
+}
+function afterTags(){
+  $("sc").innerHTML="\u5df2\u6a19\u51fa <em>"+tagged()+"</em> / 3";
+  if(tagged()===3) $("s1b").hidden=false;
+}
+$("ld").addEventListener("click",function(e){
+  var c=e.target.closest("c"); if(!c) return;
+  if(ST.tags[c.dataset.t]) return;
+  ST.tags[c.dataset.t]=1; save(); paintTag(c); afterTags();
+});
+var set1=quiz("q1","a1","g1","q1");
+opener("g1","s2",drawTable);
+
+/* ---------- step 2 : the comparison table ---------- */
+function drawTable(){
+  if($("fig").firstChild) return;
+  var s='<svg viewBox="0 0 420 216" role="img" aria-label="\u5169\u6b04\u5c0d\u7167\u8868\uff0c\u5de6\u908a\u662f\u74b0\u5cf6\uff0c\u53f3\u908a\u662f\u5927\u74b0\u6fb3">';
+  s+='<text class="thead l" x="173" y="26" text-anchor="middle">huandao</text>';
+  s+='<text class="thead r" x="332" y="26" text-anchor="middle">the Big Lap</text>';
+  for(var i=0;i<ROWS.length;i++){
+    var y=34+i*34, r=ROWS[i], cy=y+19;
+    s+='<g class="trow" data-i="'+i+'" tabindex="0" role="button">';
+    s+='<text class="lab" x="8" y="'+cy+'">'+esc(r.lab)+'</text>';
+    s+='<rect class="lc" x="96" y="'+y+'" width="154" height="28" rx="4"/>';
+    if(r.l) s+='<text x="173" y="'+cy+'" text-anchor="middle">'+esc(r.l)+'</text>';
+    else s+='<text class="non" x="173" y="'+cy+'" text-anchor="middle">\u8ab2\u6587\u672a\u63d0</text>';
+    s+='<rect class="rc" x="254" y="'+y+'" width="158" height="28" rx="4"/>';
+    s+='<text x="333" y="'+cy+'" text-anchor="middle">'+esc(r.r)+'</text>';
+    s+='</g>';
+  }
+  s+='</svg><figcaption>\u4e0b\u9762\u4e09\u5217\u5de6\u908a\u662f\u7a7a\u7684\u3002\u90a3\u4e0d\u662f\u4f5c\u8005\u6f0f\u5beb\u2014\u2014\u7b2c\u4e8c\u6b65\u7684\u984c\u76ee\u5c31\u5728\u554f\u9019\u4ef6\u4e8b\u3002\u9ede\u4efb\u4e00\u5217\uff0c\u7b2c\u56db\u6b65\u7684\u8ab2\u6587\u5c0d\u61c9\u884c\u6703\u4eae\u8d77\u4f86\u3002</figcaption>';
+  $("fig").innerHTML=s;
+  function hit(g){
+    var i=+g.dataset.i, r=ROWS[i];
+    var gs=$("fig").querySelectorAll(".trow");
+    for(var j=0;j<gs.length;j++) gs[j].classList.toggle("on", +gs[j].dataset.i===i);
+    hlLines(r.a,r.b);
+    $("pk").textContent="\u5c0d\u7167\u8868"; $("pk").className="k e";
+    $("pc").textContent=r.lab+"\uff1a"+(r.l?r.l:"\u8ab2\u6587\u672a\u63d0")+"\u3000\u2194\u3000"+r.r;
+    $("pt").textContent=r.n;
+  }
+  $("fig").addEventListener("click",function(e){ var g=e.target.closest(".trow"); if(g) hit(g); });
+  $("fig").addEventListener("keydown",function(e){
+    if(e.key!=="Enter"&&e.key!==" ") return;
+    var g=e.target.closest(".trow"); if(g){ e.preventDefault(); hit(g); }
+  });
+}
+var set2=quiz("q2","a2","g2","q2");
+opener("g2","s3",buildQs);
+
+/* ---------- step 3 : the three tests ---------- */
+var builtQs=false;
+function buildQs(){
+  if(builtQs) return; builtQs=true;
+  var h="";
+  for(var i=0;i<QS.length;i++){
+    var q=QS[i];
+    h+='<div class="qcard" id="qc'+i+'"><div class="hd"><span class="qt">'+esc(q.q)+'</span>'+
+       '<button data-i="'+i+'">\u8a66\u8a66\u770b</button></div>'+
+       '<div class="bd"><span class="sw">'+esc(q.sw)+'</span>'+esc(q.a)+
+       '<i style="display:block;color:var(--muted);font-size:.82rem;font-style:normal;margin-top:.25rem">'+esc(q.r)+'</i></div></div>';
+  }
+  $("qs").innerHTML=h;
+  $("qs").addEventListener("click",function(e){
+    var b=e.target.closest("button"); if(!b) return;
+    ST.qs[b.dataset.i]=1; save(); paintQs();
+  });
+  paintQs();
+}
+function openedQs(){ var n=0; for(var k in ST.qs) if(ST.qs[k]) n++; return n; }
+function paintQs(){
+  for(var i=0;i<QS.length;i++){ var el=$("qc"+i); if(el) el.classList.toggle("open",!!ST.qs[i]); }
+  $("sc3").innerHTML="\u5df2\u8a66\u904e <em>"+openedQs()+"</em> / 3";
+  if(openedQs()>=QS.length){ $("a3").hidden=false; $("g3").hidden=false; }
+}
+opener("g3","s4",buildText);
+
+/* ---------- step 4 : passage ---------- */
+function renderLine(str){
+  var out="",i=0;
+  while(i<str.length){
+    var a=str.indexOf("{",i);
+    if(a<0){ out+=esc(str.slice(i)); break; }
+    out+=esc(str.slice(i,a));
+    var b=str.indexOf("}",a), p=str.slice(a+1,b).split("|");
+    var id=p[1], it=p[2]||"1", k=CHAINS[id]?CHAINS[id].k:"sub";
+    out+='<m data-c="'+id+'" data-i="'+it+'" data-kind="'+k+'" tabindex="0">'+esc(p[0])+'</m>';
+    i=b+1;
+  }
+  return out;
+}
+var builtText=false;
+function buildText(){
+  if(builtText) return; builtText=true;
+  var h='<p class="ttl">'+esc(TITLE)+'</p>';
+  for(var i=0;i<LINES.length;i++){
+    var n=i+1;
+    var cls="ln"+(INDENT[n]?" ind"+(n>1?" pb":""):"");
+    h+='<div class="'+cls+'" data-n="'+n+'"><i>'+((n%5===0)?n:"")+'</i><span>'+renderLine(LINES[i])+'</span></div>';
+  }
+  $("tx").innerHTML=h;
+}
+function lightChain(id){
+  var ms=$("tx").querySelectorAll("m"), items={}, order=[],i;
+  var gs=$("fig").querySelectorAll(".trow");
+  for(i=0;i<gs.length;i++) gs[i].classList.remove("on");
+  var rows=$("tx").querySelectorAll(".ln");
+  for(i=0;i<rows.length;i++) rows[i].classList.remove("hl");
+  for(i=0;i<ms.length;i++){
+    if(ms[i].dataset.c===id){
+      ms[i].classList.add("lit");
+      var key=ms[i].dataset.i;
+      if(!items[key]){ items[key]=[]; order.push(key); }
+      items[key].push(ms[i].textContent);
+    } else ms[i].classList.remove("lit");
+  }
+  var c=CHAINS[id]; if(!c) return;
+  var parts=[];
+  for(var o=0;o<order.length;o++) parts.push(esc(items[order[o]].join(" ")));
+  $("pk").textContent=LB[c.k]; $("pk").className=CL[c.k];
+  $("pc").innerHTML=parts.join('<i>\u2192</i>');
+  $("pt").textContent=c.n;
+}
+$("tx").addEventListener("click",function(e){ var m=e.target.closest("m"); if(m) lightChain(m.dataset.c); });
+$("tx").addEventListener("keydown",function(e){
+  if(e.key!=="Enter"&&e.key!==" ") return;
+  var m=e.target.closest("m"); if(m){ e.preventDefault(); lightChain(m.dataset.c); }
+});
+function toggle(btn,cls){
+  btn.addEventListener("click",function(){
+    var on=btn.getAttribute("aria-pressed")==="true";
+    btn.setAttribute("aria-pressed",on?"false":"true");
+    $("tx").classList.toggle(cls,on);
+  });
+}
+toggle($("m1"),"off-sub");
+toggle($("m2"),"off-gen");
+opener("g4","s5");
+
+/* ---------- step 5 ---------- */
+var set5=quiz("q5","a5","g5","q5");
+$("g5").addEventListener("click",function(){
+  if(ST.step<6) ST.step=6; save();
+  $("s6").hidden=false;
+  $("s6").scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+/* ---------- step 6 ---------- */
+var done6=false;
+function settle6(){
+  done6=true;
+  var bs=$("q6").querySelectorAll("button");
+  for(var i=0;i<bs.length;i++){
+    bs[i].disabled=true; bs[i].dataset.state=bs[i].dataset.ok?"right":"wrong";
+    if(bs[i].dataset.ok){ $("bl").textContent=bs[i].textContent; $("bl").className="blank filled"; }
+  }
+  $("a6").hidden=false; $("w6").hidden=false; $("s7").hidden=false;
+}
+$("q6").addEventListener("click",function(e){
+  var b=e.target.closest("button"); if(!b||done6) return;
+  settle6(); ST.q6=1; save();
+  $("a6").scrollIntoView({behavior:"smooth",block:"nearest"});
+});
+
+/* ---------- preview mode for the teacher: cohesion-u12.html?all ---------- */
+function previewAll(){
+  $("pv").hidden=false;
+  var i,cs=$("ld").querySelectorAll("c");
+  for(i=0;i<cs.length;i++){ ST.tags[cs[i].dataset.t]=1; paintTag(cs[i]); }
+  afterTags(); set1();
+  $("s2").hidden=false; drawTable(); set2();
+  $("s3").hidden=false;
+  for(i=0;i<QS.length;i++) ST.qs[i]=1;
+  buildQs();
+  $("s4").hidden=false; buildText();
+  $("s5").hidden=false; set5();
+  $("s6").hidden=false; settle6();
+}
+
+/* ---------- restore ---------- */
+$("rst").addEventListener("click",wipe);
+(function restore(){
+  if(/(^|[?&])all(=|&|$)/.test(location.search)){ previewAll(); return; }
+  var v=load(); if(!v) return;
+  ST=v;
+  if(!ST.tags) ST.tags={};
+  if(!ST.qs) ST.qs={};
+  if(!ST.step) ST.step=1;
+  if(!(tagged()||ST.step>1)) return;
+  $("rs").hidden=false;
+  var i,cs=$("ld").querySelectorAll("c");
+  for(i=0;i<cs.length;i++) if(ST.tags[cs[i].dataset.t]) paintTag(cs[i]);
+  afterTags();
+  if(ST.q1) set1();
+  if(ST.step>=2){ $("s2").hidden=false; drawTable(); if(ST.q2) set2(); }
+  if(ST.step>=3){ $("s3").hidden=false; buildQs(); }
+  if(ST.step>=4){ $("s4").hidden=false; buildText(); }
+  if(ST.step>=5){ $("s5").hidden=false; if(ST.q5) set5(); }
+  if(ST.step>=6){ $("s6").hidden=false; if(ST.q6) settle6(); }
+  var last=$("s"+(ST.step>=6?6:ST.step));
+  if(last) setTimeout(function(){ last.scrollIntoView({block:"start"}); },60);
+})();
+})();
+</script>
+</body>
+</html>
