@@ -1,985 +1,338 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>單字記憶卡 · 學測指考英文字彙</title>
-<meta name="description" content="用學測、指考詞彙題考過的字做間隔複習。四個選項就是當年那一題的四個，答對的往後推，答錯的當場再來。免費、無廣告。">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>第一次段考單字練習</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700;900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --paper:#F6F1E4;
-    --paper-card:#FFFDF7;
-    --ink:#221F1A;
-    --ink-soft:#5B5648;
-    --rule:#DCD3BB;
-    --crimson:#AE3626;
-    --crimson-soft:#D8C6BE;
-    --sage:#3E6E52;
-    --sage-soft:#CBD9C9;
-    --gold:#A9812E;
+    --paper:#F6F1E4; --paper-card:#FFFDF7; --ink:#221F1A; --ink-soft:#5B5648;
+    --rule:#DCD3BB; --crimson:#AE3626; --sage:#3E6E52;
     --shadow: 0 1px 0 rgba(34,31,26,.06), 0 8px 24px rgba(34,31,26,.08);
   }
   *{box-sizing:border-box;}
   html,body{margin:0;padding:0;}
-  body{
-    background: var(--paper);
-    background-image:
-      radial-gradient(circle at 100% 0%, rgba(174,54,38,.05), transparent 40%),
-      repeating-linear-gradient(0deg, rgba(34,31,26,0.025) 0px, rgba(34,31,26,0.025) 1px, transparent 1px, transparent 34px);
-    color: var(--ink);
-    font-family: 'Noto Sans TC', sans-serif;
-    min-height: 100vh;
-    padding: 28px 16px 72px;
-    -webkit-text-size-adjust:100%;
-  }
-  .wrap{max-width:640px;margin:0 auto;}
-  header.top{
-    display:flex; align-items:baseline; justify-content:space-between; gap:10px;
-    border-bottom: 3px double var(--ink);
-    padding-bottom:12px; margin-bottom: 20px;
-  }
-  header.top .title{font-family:'Noto Serif TC',serif; font-weight:900; font-size:23px; letter-spacing:.02em;}
+  body{background:var(--paper); color:var(--ink); font-family:'Noto Sans TC',sans-serif;
+       font-size:16px; line-height:1.75; -webkit-text-size-adjust:100%;}
+  .wrap{max-width:600px; margin:0 auto; padding:0 16px 48px;}
+  header.top{display:flex; align-items:baseline; justify-content:space-between; gap:12px;
+             padding:18px 0 10px; border-bottom:3px double var(--ink);}
+  header.top .title{font-family:'Noto Serif TC',serif; font-weight:900; font-size:21px;}
   header.top .sub{font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:var(--ink-soft); white-space:nowrap;}
-  .card{
-    background: var(--paper-card);
-    border:1px solid var(--rule);
-    border-radius:3px;
-    box-shadow: var(--shadow);
-    position:relative;
-  }
-  .card::before{
-    content:""; position:absolute; left:0; top:14px; bottom:14px; width:3px;
-    background: repeating-linear-gradient(0deg, var(--crimson-soft) 0 6px, transparent 6px 13px);
-    opacity:.6;
-  }
+  .card{background:var(--paper-card); border:1px solid var(--rule); border-left:6px dashed var(--rule);
+        border-radius:3px; box-shadow:var(--shadow); padding:20px 18px; margin:18px 0;}
+  .lead{font-family:'Noto Serif TC',serif; font-weight:700; font-size:19px; margin:0 0 6px;}
+  .note{color:var(--ink-soft); font-size:14.5px; margin:0 0 12px;}
+  .stat{font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:var(--ink-soft); margin:2px 0 0;}
+  .stat b{color:var(--crimson);}
+  .big-btn{display:block; width:100%; font:inherit; font-size:18px; font-weight:700;
+           font-family:'Noto Serif TC',serif; background:var(--ink); color:var(--paper-card);
+           border:0; border-radius:3px; padding:15px; cursor:pointer; margin:6px 0 10px;}
+  .minor-row{display:flex; gap:10px; flex-wrap:wrap;}
+  .minor-btn{flex:1 1 0; min-width:120px; font:inherit; font-size:14.5px; background:var(--paper-card);
+             color:var(--ink); border:1px solid var(--rule); border-radius:3px; padding:11px; cursor:pointer;}
+  .minor-btn.ok{background:var(--ink); color:var(--paper-card); border-color:var(--ink);}
+  .big-btn:focus-visible,.minor-btn:focus-visible{outline:2px solid var(--crimson); outline-offset:2px;}
+  .row{display:flex; flex-wrap:wrap; gap:7px; margin:0 0 12px;}
+  .grp{margin:0 0 10px;}
+  .grp .glbl{font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:var(--sage); display:block; margin:0 0 5px;}
+  .legend{font-size:12.5px; color:var(--ink-soft); margin:0 0 14px;}
+  .chip{font:inherit; font-size:14.5px; cursor:pointer; background:var(--paper-card); color:var(--ink);
+        border:1px solid var(--rule); border-radius:3px; padding:7px 12px;}
+  .chip[aria-pressed="true"]{background:var(--ink); color:var(--paper-card); border-color:var(--ink);}
+  .chip:focus-visible{outline:2px solid var(--crimson); outline-offset:2px;}
+  .chip .qty{font-family:'IBM Plex Mono',monospace; font-size:11.5px; opacity:.75; margin-left:5px;}
+  .bar{display:flex; justify-content:space-between; align-items:center;
+       font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-soft); padding:14px 0 0;}
+  .bar a{color:var(--crimson);}
+  .src{font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:var(--sage); margin:0 0 2px;}
+  .prompt{font-family:'Noto Serif TC',serif; font-weight:700; font-size:23px; line-height:1.5; margin:2px 0 6px;}
+  .hint{font-family:'IBM Plex Mono',monospace; font-size:17px; color:var(--ink-soft); letter-spacing:.06em;
+        margin:0 0 18px; word-break:break-word;}
+  .answer{font-family:'IBM Plex Mono',monospace; font-size:20px; color:var(--crimson); background:#FBF6EA;
+          border:1px solid var(--rule); border-radius:3px; padding:14px; margin:0 0 6px; word-break:break-word;}
+  .kk{font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--ink-soft); margin:0 0 14px;}
+  .done{text-align:center; padding:14px 0;}
+  .done .big{font-family:'Noto Serif TC',serif; font-weight:900; font-size:25px; margin:0 0 6px;}
+  footer{border-top:1px solid var(--rule); margin-top:26px; padding-top:14px; font-size:13px; color:var(--ink-soft);}
   .hide{display:none !important;}
-
-  /* ---------- HOME ---------- */
-  #home .card{padding:26px 24px 24px; margin-bottom:16px;}
-  .home-lead{font-family:'Noto Serif TC',serif; font-weight:700; font-size:19px; margin:0 0 8px;}
-  .home-desc{color:var(--ink-soft); font-size:14px; line-height:1.85; margin:0 0 18px;}
-  .big-btn{
-    display:block; width:100%; text-align:center; cursor:pointer;
-    background: var(--ink); color: var(--paper-card);
-    font-family:'Noto Serif TC',serif; font-weight:700; font-size:20px;
-    padding:17px; border:none; border-radius:3px; letter-spacing:.06em;
-    transition: transform .12s ease, background .15s ease;
-  }
-  .big-btn:hover{background:#000; transform: translateY(-1px);}
-  .big-btn:active{transform: translateY(0);}
-  .big-btn[disabled]{background:var(--rule); color:var(--ink-soft); cursor:default; transform:none;}
-  .scope-line{
-    font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:var(--sage);
-    letter-spacing:.04em; margin:14px 0 0; text-align:center; line-height:1.7;
-  }
-  .home-stat{
-    margin:18px 0 0; padding-top:14px; border-top:1px dashed var(--rule);
-    font-size:13px; color:var(--ink-soft); line-height:1.9;
-  }
-  .home-stat b{color:var(--crimson); font-family:'IBM Plex Mono',monospace; font-size:14px;}
-  .range-row{
-    margin-top:10px; font-family:'IBM Plex Mono',monospace; font-size:11.5px;
-    color:var(--ink-soft); line-height:2; letter-spacing:.02em;
-  }
-  .range-row .rg{color:var(--crimson); text-decoration:underline;}
-  .range-row .rg.on{color:var(--ink); font-weight:600; text-decoration:none;}
-  .minor-row{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px;}
-  .minor-btn{
-    flex:1 1 auto; min-width:140px; cursor:pointer; text-align:center;
-    background:transparent; color:var(--ink); border:1px solid var(--rule);
-    border-radius:3px; padding:11px 12px; font-size:13.5px; font-family:'Noto Sans TC',sans-serif;
-  }
-  .minor-btn:hover{border-color:var(--ink); background:#F1EADA;}
-  .note{font-size:12.5px; color:var(--ink-soft); line-height:1.85; margin:16px 0 0;}
-  .note a{color:var(--crimson);}
-
-  /* ---------- QUIZ ---------- */
-  .bar{
-    display:flex; align-items:baseline; justify-content:space-between; gap:8px;
-    font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:var(--ink-soft);
-    margin-bottom:10px; flex-wrap:wrap; line-height:1.7;
-  }
-  .bar .quit{flex:0 0 auto;}
-  .bar .quit{cursor:pointer; text-decoration:underline; color:var(--crimson); background:none; border:none; font:inherit; padding:0;}
-  .track{height:3px; background:var(--rule); border-radius:2px; overflow:hidden; margin-bottom:16px;}
-  .track span{display:block; height:100%; background:var(--sage); width:0; transition:width .25s ease;}
-
-  .qcard{padding:26px 22px 22px; margin-bottom:14px;}
-  .mode-tag{
-    font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:.1em;
-    color:var(--sage); display:block; margin-bottom:14px;
-  }
-  .front-word{
-    font-family:'Noto Serif TC',serif; font-weight:700; font-size:32px; line-height:1.3;
-    margin:0 0 6px; word-break:break-word;
-  }
-  .front-zh{
-    font-family:'Noto Serif TC',serif; font-weight:700; font-size:23px; line-height:1.55;
-    margin:0 0 6px;
-  }
-  .front-frame{
-    font-size:19px; line-height:1.75; margin:0 0 6px; word-break:break-word;
-  }
-  .front-frame u{text-decoration:none; color:var(--crimson); font-weight:700; letter-spacing:.06em;}
-  .front-meta{font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:var(--ink-soft); margin:0;}
-  .front-meta .pos{color:var(--crimson); font-weight:600;}
-  .front-hint{font-size:12.5px; color:var(--ink-soft); margin:10px 0 0; line-height:1.75;}
-
-  .opts{list-style:none; margin:20px 0 0; padding:0;}
-  .opts li{margin-bottom:9px;}
-  .opt{
-    display:block; width:100%; text-align:left; cursor:pointer;
-    background:var(--paper-card); border:1px solid var(--rule); border-radius:3px;
-    padding:13px 14px; font-size:15.5px; line-height:1.6; color:var(--ink);
-    font-family:'Noto Sans TC',sans-serif; word-break:break-word;
-    transition:border-color .12s ease, background .12s ease;
-  }
-  .opt:hover{border-color:var(--ink); background:#F1EADA;}
-  .opt .lt{
-    font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-soft);
-    margin-right:9px;
-  }
-  .opt.right{border-color:var(--sage); background:var(--sage-soft);}
-  .opt.wrong{border-color:var(--crimson); background:#F3E2DE;}
-  .opt.dim{opacity:.5;}
-  .opt[disabled]{cursor:default;}
-  .opt.right .lt, .opt.wrong .lt{color:var(--ink);}
-
-  /* ---------- BACK ---------- */
-  .back{padding:20px 22px 22px; margin-bottom:14px;}
-  .verdict{
-    font-family:'Noto Serif TC',serif; font-weight:700; font-size:16px; margin:0 0 14px;
-    padding-bottom:12px; border-bottom:1px dashed var(--rule);
-  }
-  .verdict.ok{color:var(--sage);}
-  .verdict.no{color:var(--crimson);}
-  .bk-head{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:4px;}
-  .bk-word{font-family:'Noto Serif TC',serif; font-weight:700; font-size:22px;}
-  .bk-kk{font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:var(--ink-soft);}
-  .lvtag{
-    font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:.06em;
-    border:1px solid var(--rule); border-radius:2px; padding:2px 6px; color:var(--ink-soft);
-  }
-  .bk-gloss{font-size:14.5px; line-height:1.85; margin:6px 0 0;}
-  .bk-sec{margin-top:16px; padding-left:11px; border-left:2px solid var(--sage);}
-  .bk-src{
-    font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:.08em;
-    color:var(--sage); display:block; margin-bottom:4px;
-  }
-  .bk-src .seg{display:inline-block;}
-  .bk-en{font-size:14.5px; line-height:1.8; margin:0 0 3px; word-break:break-word;}
-  .bk-en b{color:var(--crimson);}
-  .bk-en u.mk{text-decoration:underline; text-underline-offset:3px; font-weight:600;}
-  .bk-zh{font-size:13px; color:var(--ink-soft); line-height:1.8; margin:0;}
-  .bk-role{
-    margin:8px 0 0; font-size:12.5px; color:var(--ink-soft); line-height:1.8;
-    background:#F1EADA; border-radius:3px; padding:7px 10px;
-  }
-  .bk-role b{color:var(--crimson);}
-  .bk-col{margin-top:14px; font-size:13px; color:var(--ink-soft); line-height:1.85; word-break:break-word;}
-  .bk-col .lab{font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:.08em; color:var(--sage); display:block; margin-bottom:3px;}
-  .bk-link{
-    display:inline-block; margin-top:14px; font-family:'IBM Plex Mono',monospace;
-    font-size:11.5px; color:var(--crimson); text-decoration:underline;
-  }
-  .act-row{display:flex; gap:10px; align-items:stretch;}
-  .act-row .big-btn{flex:1 1 auto;}
-  .guess-btn{
-    flex:0 0 auto; cursor:pointer; background:transparent; color:var(--ink-soft);
-    border:1px solid var(--rule); border-radius:3px; padding:0 16px;
-    font-size:13px; font-family:'Noto Sans TC',sans-serif; line-height:1.5;
-  }
-  .guess-btn:hover{border-color:var(--crimson); color:var(--crimson);}
-  .guess-done{
-    flex:0 0 auto; display:flex; align-items:center; padding:0 16px;
-    font-size:12.5px; color:var(--crimson); border:1px dashed var(--crimson-soft); border-radius:3px;
-  }
-
-  /* ---------- DONE ---------- */
-  #done .card{padding:26px 24px 24px; margin-bottom:16px;}
-  .done-lead{font-family:'Noto Serif TC',serif; font-weight:700; font-size:19px; margin:0 0 12px;}
-  .done-stat{font-size:14px; line-height:2; color:var(--ink-soft); margin:0 0 18px;}
-  .done-stat b{color:var(--crimson); font-family:'IBM Plex Mono',monospace; font-size:15px;}
-
-  footer.foot{
-    margin-top:26px; padding-top:14px; border-top:1px solid var(--rule);
-    font-size:12px; color:var(--ink-soft); line-height:1.9;
-  }
-  footer.foot a{color:var(--crimson);}
-  .loading{text-align:center; padding:60px 0; color:var(--ink-soft); font-size:14px;}
-
-  @media (max-width:420px){
-    body{padding:20px 12px 60px;}
-    .front-word{font-size:28px;}
-    .front-zh{font-size:20px;}
-    .act-row{flex-wrap:wrap;}
-    .guess-btn,.guess-done{width:100%; padding:11px 16px; justify-content:center; text-align:center;}
-  }
 </style>
 </head>
 <body>
 <div class="wrap">
-
   <header class="top">
-    <div class="title">單字記憶卡</div>
-    <div class="sub">學測 · 指考詞彙題</div>
+    <span class="title">第一次段考單字練習</span>
+    <span class="sub">中正高中　張敬欣</span>
   </header>
 
-  <div id="loading" class="loading">載入字庫中…</div>
-
-  <!-- ================= HOME ================= -->
-  <section id="home" class="hide">
+  <section id="home">
     <div class="card">
-      <p class="home-lead">用考過的字複習，不是背字典</p>
-      <p class="home-desc">
-        每一張卡片的字都真的在學測或指考詞彙題出現過，四個選項也是當年那一題的四個，三個錯的就是當年那三個。
-        答對的字往後推，答錯的當場再來一次。
-      </p>
-      <button id="startBtn" class="big-btn">開始複習</button>
-      <p id="scopeLine" class="scope-line"></p>
-
-      <div id="homeStat" class="home-stat"></div>
-      <div id="rangeRow" class="range-row"></div>
-
-      <div class="minor-row">
-        <button id="freeBtn" class="minor-btn">自由練習（不排程）</button>
-        <button id="resetBtn" class="minor-btn">清除我的進度</button>
-      </div>
-
-      <p class="note">
-        進度存在這台裝置的瀏覽器裡，換手機或換電腦不會跟著走，清除瀏覽器資料也會一起消失。
-      </p>
+      <p class="lead">看中文，把英文拼出來</p>
+      <p class="note">選一個範圍開始。答對的會往後推，答錯的當場再來。</p>
+      <div id="setGroups"></div>
+      <p class="legend">★ 是 ALL+ 閱讀必考的五個單元，段考閱讀從這裡出。</p>
+      <button class="big-btn" id="startBtn">開始練習</button>
+      <p class="stat" id="homeStat"></p>
+      <div class="minor-row"><button class="minor-btn" id="clearBtn">清除我的進度</button></div>
+      <p class="note" style="margin:14px 0 0;">看到中文自己想英文，想好再按「看答案」，對就按「拼得出來」。進度存在這台裝置裡，換手機不會跟著走。</p>
     </div>
   </section>
 
-  <!-- ================= QUIZ ================= -->
   <section id="quiz" class="hide">
-    <div class="bar">
-      <span id="barLeft"></span>
-      <button id="quitBtn" class="quit">結束</button>
-    </div>
-    <div class="track"><span id="trackFill"></span></div>
-
-    <div id="frontCard" class="card qcard">
-      <span id="modeTag" class="mode-tag"></span>
-      <div id="frontBody"></div>
-      <ul id="optList" class="opts"></ul>
-    </div>
-
-    <div id="backCard" class="card back hide"></div>
-    <div id="actRow" class="act-row hide"></div>
-  </section>
-
-  <!-- ================= DONE ================= -->
-  <section id="done" class="hide">
+    <div class="bar"><span id="qProgress"></span><a href="#" id="quitLink">回上一頁</a></div>
     <div class="card">
-      <p class="done-lead" id="doneLead"></p>
-      <p class="done-stat" id="doneStat"></p>
-      <button id="againBtn" class="big-btn">繼續練</button>
-      <div class="minor-row">
-        <button id="homeBtn" class="minor-btn">回到首頁</button>
+      <p class="src" id="srcLbl"></p>
+      <p class="prompt" id="prompt"></p>
+      <p class="hint" id="hint"></p>
+      <div class="minor-row" id="revealRow"><button class="minor-btn" id="revealBtn">看答案</button></div>
+      <div id="ansBox" class="hide">
+        <div class="answer" id="answer"></div>
+        <p class="kk" id="kk"></p>
+        <div class="minor-row">
+          <button class="minor-btn" id="missBtn">還不會</button>
+          <button class="minor-btn ok" id="gotBtn">拼得出來</button>
+        </div>
       </div>
     </div>
   </section>
 
-  <footer class="foot">
-    <a href="../">回題庫首頁</a>　·　<a href="teacher.html">老師：產生指定連結</a>　·　
-    字源為本站學測 500 題、指考 343 題詞彙題。免費、無廣告之非營利自學題庫。
-  </footer>
+  <section id="done" class="hide">
+    <div class="card done">
+      <p class="big">這一輪練完了</p>
+      <p class="note" id="doneNote"></p>
+      <button class="big-btn" id="againBtn">再練一輪</button>
+      <div class="minor-row"><button class="minor-btn" id="homeBtn">回到首頁</button></div>
+    </div>
+  </section>
 
+  <footer>範圍由老師給的連結決定。字級標在括號裡，(超) 表示超出參考詞彙表。</footer>
 </div>
 <script>
-/* 單字記憶卡 · 引擎
-   資料：cards_data.json（同資料夾）
-   進度：localStorage，鍵 jcee_cards_v1
-   排程：簡化 SM-2，只決定「何時再出現」 */
+var DATA = {"w":[{"n":1,"s":"L1","e":"employ","k":"ɪm`plɔɪ","z":"vt.僱用","v":"2"},{"n":1,"s":"L1","e":"employer","k":"ɪm`plɔɪɚ","z":"n.[C]雇主","v":"2"},{"n":1,"s":"L1","e":"employee","k":"ˏɛmplɔɪ`i","z":"n.[C]員工；受僱者","v":"2"},{"n":1,"s":"L1","e":"employment","k":"ɪm`plɔɪmənt","z":"n.[U]工作；受僱","v":"2"},{"n":2,"s":"L1","e":"corporation","k":"ˏkɔrpə`reʃən","z":"n.[C]（大）公司；集團公司","v":"5"},{"n":2,"s":"L1","e":"corporate","k":"`kɔrpərɪt","z":"adj.（大）公司的","v":"5"},{"n":3,"s":"L1","e":"suffer","k":"`sʌfɚ","z":"vi.受苦","v":"3"},{"n":4,"s":"L1","e":"terminal","k":"`tɝmənḷ","z":"adj.末期的／n.[C]航廈；總站；起訖站","v":"5"},{"n":5,"s":"L1","e":"illness","k":"`ɪlnəs","z":"n.[C,U]疾病；生病","v":"2"},{"n":5,"s":"L1","e":"ill","k":"ɪl","z":"adj.生病的","v":"2"},{"n":6,"s":"L1","e":"tremendously","k":"trɪ`mɛndəslɪ","z":"adv.相當大地","v":"4"},{"n":6,"s":"L1","e":"tremendous","k":"trɪ`mɛndəs","z":"adj.相當大的","v":"4"},{"n":7,"s":"L1","e":"laughter","k":"`læftɚ","z":"n.[U]笑；笑聲","v":"3"},{"n":8,"s":"L1","e":"frighten","k":"`fraɪtṇ","z":"vt.使驚嚇","v":"3"},{"n":8,"s":"L1","e":"fright","k":"fraɪt","z":"n.[U]驚嚇","v":"3"},{"n":9,"s":"L1","e":"contact","k":"`kɑntækt","z":"n.[U]接觸／n.[U]聯絡／vt.聯絡","v":"2"},{"n":10,"s":"L1","e":"germ","k":"dʒɝm","z":"n.[C](usu. pl.)細菌","v":"4"},{"n":11,"s":"L1","e":"warmth","k":"wɔrmθ","z":"n.[U]熱情／n.[U]溫暖","v":"3"},{"n":12,"s":"L1","e":"frail","k":"frel","z":"adj.虛弱的","v":"超"},{"n":13,"s":"L1","e":"prompt","k":"prɑmpt","z":"vt.促使／adj.立即的","v":"4"},{"n":14,"s":"L1","e":"confine","k":"kən`faɪn","z":"vt.使離不開（床、輪椅等）／vt.侷限；限定","v":"5"},{"n":15,"s":"L1","e":"sparkle","k":"`spɑrkḷ","z":"n.[C]神采；閃耀／vi.閃耀","v":"5"},{"n":16,"s":"L1","e":"hug","k":"hʌg","z":"n.[C]擁抱／vt.擁抱","v":"3"},{"n":17,"s":"L1","e":"drowsy","k":"`draʊzɪ","z":"adj.昏昏欲睡的","v":"4"},{"n":18,"s":"L1","e":"stretch","k":"strɛtʃ","z":"vt.伸出（手臂或腿）／vt.伸長；拉長","v":"2"},{"n":19,"s":"L1","e":"refuse","k":"rɪ`fjuz","z":"vi.vt.拒絕","v":"2"},{"n":19,"s":"L1","e":"refusal","k":"rɪ`fjuzḷ","z":"n.[U]拒絕","v":"4"},{"n":20,"s":"L1","e":"hesitate","k":"`hɛzəˏtet","z":"vi.猶豫","v":"3"},{"n":20,"s":"L1","e":"hesitation","k":"ˏhɛzə`teʃən","z":"n.[U]猶豫","v":"4"},{"n":21,"s":"L1","e":"pass on...to...","k":"","z":"將……傳給、轉交給……","v":null},{"n":22,"s":"L1","e":"cheer...up","k":"","z":"使……振奮、高興","v":null},{"n":23,"s":"L1","e":"turn...down","k":"","z":"拒絕……","v":null},{"n":24,"s":"L1","e":"be about to","k":"","z":"即將；正要","v":null},{"n":25,"s":"L1","e":"after all","k":"","z":"畢竟","v":null},{"n":26,"s":"L1","e":"pass away","k":"","z":"過世","v":null},{"n":27,"s":"L1","e":"make a difference","k":"","z":"有所影響","v":null},{"n":28,"s":"L2","e":"innovative","k":"`ɪnəˏvetɪv","z":"adj.創新的","v":"5"},{"n":28,"s":"L2","e":"innovate","k":"`ɪnəˏvet","z":"vi.創新","v":"超"},{"n":28,"s":"L2","e":"innovation","k":"ˏɪnə`veʃən","z":"n.[C]新方法","v":"5"},{"n":29,"s":"L2","e":"promise","k":"ˋprɑmɪs","z":"vt.可望……；預示……／vi.vt.承諾；保證／n.[C]承諾","v":"2"},{"n":30,"s":"L2","e":"material","k":"mə`tɪrɪəl","z":"n.[C]（活動所需的）材料","v":"2"},{"n":31,"s":"L2","e":"mention","k":"`mɛnʃən","z":"vt.提到","v":"2"},{"n":32,"s":"L2","e":"structure","k":"`strʌktʃɚ","z":"n.[C]結構體；建築物","v":"3"},{"n":33,"s":"L2","e":"capable","k":"`kepəbḷ","z":"adj.有能力的；能夠……的","v":"3"},{"n":33,"s":"L2","e":"capability","k":"ˏkepə`bɪlətɪ","z":"n.[C]能力","v":"5"},{"n":34,"s":"L2","e":"collaborate","k":"kə`læbəˏret","z":"vi.合作","v":"超"},{"n":34,"s":"L2","e":"collaboration","k":"kəˏlæbə`reʃən","z":"n.[C,U]合作","v":"5"},{"n":35,"s":"L2","e":"architect","k":"`ɑrkəˏtɛkt","z":"n.[C]建築師","v":"5"},{"n":35,"s":"L2","e":"architecture","k":"`ɑrkəˏtɛktʃɚ","z":"n.[U]建築","v":"5"},{"n":36,"s":"L2","e":"graduate","k":"`grædʒʊɪt","z":"n.[C]（大學）畢業生／vi.畢業","v":"3"},{"n":36,"s":"L2","e":"graduation","k":"ˏgrædʒʊ`eʃən","z":"n.[U]畢業","v":"4"},{"n":37,"s":"L2","e":"construct","k":"kən`strʌkt","z":"vt.建造","v":"4"},{"n":37,"s":"L2","e":"construction","k":"kən`strʌkʃən","z":"n.[C]建築物／n.[U]建造","v":"4"},{"n":37,"s":"L2","e":"constructive","k":"kən`strʌktɪv","z":"adj.有建設性的","v":"4"},{"n":38,"s":"L2","e":"slightly","k":"`slaɪtlɪ","z":"adv.稍微","v":"4"},{"n":38,"s":"L2","e":"slight","k":"slaɪt","z":"adj.細微的","v":"4"},{"n":39,"s":"L2","e":"rank","k":"ræŋk","z":"vi.vt.排序為……","v":"3"},{"n":39,"s":"L2","e":"ranking","k":"`ræŋkɪŋ","z":"n.[C]排名","v":"3"},{"n":40,"s":"L2","e":"unique","k":"ju`nik","z":"adj.獨特的","v":"3"},{"n":41,"s":"L2","e":"adjust","k":"ə`dʒʌst","z":"vt.調整","v":"4"},{"n":41,"s":"L2","e":"adjustment","k":"ə`dʒʌstmənt","z":"n.[C]調整","v":"4"},{"n":42,"s":"L2","e":"rely","k":"rɪ`laɪ","z":"vi.依賴；信任","v":"3"},{"n":42,"s":"L2","e":"reliable","k":"rɪ`laɪəbḷ","z":"adj.可信賴的","v":"3"},{"n":43,"s":"L2","e":"feedback","k":"`fidbæk","z":"n.[U]回饋意見","v":"4"},{"n":44,"s":"L2","e":"element","k":"`ɛləmənt","z":"n.[C]要素","v":"3"},{"n":44,"s":"L2","e":"elementary","k":"ˏɛlə`mɛntərɪ","z":"adj.初級的；基礎的","v":"4"},{"n":45,"s":"L2","e":"stability","k":"stə`bɪlətɪ","z":"n.[U]穩定","v":"5"},{"n":45,"s":"L2","e":"stable","k":"`stebḷ","z":"adj.穩定的；穩固的","v":"3"},{"n":46,"s":"L2","e":"route","k":"rut; raʊt","z":"n.[C]途徑；路線","v":"4"},{"n":47,"s":"L2","e":"explore","k":"ɪk`splor","z":"vt.探索","v":"3"},{"n":47,"s":"L2","e":"exploration","k":"ˏɛksplə`reʃən","z":"n.[U]探索；探究","v":"5"},{"n":48,"s":"L2","e":"trial and error","k":"","z":"反覆試驗","v":null},{"n":49,"s":"L2","e":"in charge","k":"","z":"主控；負責","v":null},{"n":50,"s":"L2","e":"figure out","k":"","z":"想出","v":null},{"n":51,"s":"L2","e":"roll up one’s sleeves","k":"","z":"挽起袖子（表示開始行動）","v":null},{"n":52,"s":"L2","e":"get down to...","k":"","z":"開始做某事","v":null},{"n":53,"s":"L3","e":"humankind","k":"ˋhjumən͵kaɪnd","z":"n.[U]人類","v":"3"},{"n":54,"s":"L3","e":"universe","k":"`junəˏvɝs","z":"n.sing.宇宙","v":"2"},{"n":54,"s":"L3","e":"universal","k":"ˏjunə`vɝsḷ","z":"adj.普遍的","v":"4"},{"n":55,"s":"L3","e":"fur","k":"fɝ","z":"n.[U]（動物的）毛／n.[U]毛皮","v":"3"},{"n":56,"s":"L3","e":"enable","k":"ɪn`ebḷ","z":"vt.使……能夠……","v":"3"},{"n":57,"s":"L3","e":"upright","k":"`ʌpˏraɪt","z":"adv.直立地／adj.直立的","v":"6"},{"n":58,"s":"L3","e":"generous","k":"`dʒɛnərəs","z":"adj.慷慨的","v":"2"},{"n":58,"s":"L3","e":"generosity","k":"ˏdʒɛnə`rɑsətɪ","z":"n.[U]慷慨","v":"4"},{"n":59,"s":"L3","e":"conflict","k":"`kɑnflɪkt","z":"n.[U,C]衝突／vi.（兩種想法等）牴觸","v":"2"},{"n":60,"s":"L3","e":"distribution","k":"ˏdɪstrə`bjuʃən","z":"n.[U]分配；分布","v":"4"},{"n":60,"s":"L3","e":"distribute","k":"dɪ`strɪbjʊt","z":"vt.分發；分配","v":"4"},{"n":61,"s":"L3","e":"benefit","k":"`bɛnəfɪt","z":"n.[U,C]益處／vt.對……有益／vi.得益於……","v":"3"},{"n":61,"s":"L3","e":"beneficial","k":"ˏbɛnə`fɪʃəl","z":"adj.有利的；有幫助的","v":"5"},{"n":62,"s":"L3","e":"slaughter","k":"`slɔtɚ","z":"vt.宰殺／vt.屠殺／n.[U]屠殺","v":"6"},{"n":63,"s":"L3","e":"underneath","k":"ˏʌndɚ`niθ","z":"prep.在……下","v":"6"},{"n":64,"s":"L3","e":"freeze","k":"friz","z":"vi.受凍 (froze—frozen—freezing)／vt.vi.冷凍；凍結","v":"3"},{"n":65,"s":"L3","e":"victim","k":"`vɪktɪm","z":"n.[C]受害者；罹難者；罹病者","v":"3"},{"n":66,"s":"L3","e":"miserable","k":"ˋmɪzərəbḷ","z":"adj.悲慘的","v":"4"},{"n":66,"s":"L3","e":"misery","k":"ˋmɪzərɪ","z":"n.[U,C]慘況","v":"3"},{"n":67,"s":"L3","e":"hollow","k":"`hɑlo","z":"adj.中空的","v":"3"},{"n":68,"s":"L3","e":"furious","k":"`fjʊrɪəs","z":"adj.暴怒的","v":"4"},{"n":68,"s":"L3","e":"fury","k":"`fjʊrɪ","z":"n.[U]狂怒","v":"6"},{"n":69,"s":"L3","e":"theft","k":"θɛft","z":"n.[C,U]偷竊；偷竊罪","v":"5"},{"n":70,"s":"L3","e":"punish","k":"`pʌnɪʃ","z":"vt.懲罰","v":"2"},{"n":70,"s":"L3","e":"punishment","k":"`pʌnɪʃmənt","z":"n.[U,C]懲罰","v":"2"},{"n":71,"s":"L3","e":"banish","k":"`bænɪʃ","z":"vt.放逐","v":"超"},{"n":71,"s":"L3","e":"banishment","k":"ˋbænɪʃmənt","z":"n.[U]放逐","v":"超"},{"n":72,"s":"L3","e":"torture","k":"`tɔrtʃɚ","z":"vt.折磨／n.[U,C]折磨；折磨人的事物","v":"4"},{"n":73,"s":"L3","e":"civilization","k":"ˏsɪvḷə`zeʃən","z":"n.[U,C]文明","v":"4"},{"n":74,"s":"L3","e":"run out (of...)","k":"","z":"用完","v":null},{"n":75,"s":"L3","e":"make up for","k":"","z":"彌補","v":null},{"n":76,"s":"L3","e":"as a result","k":"","z":"因此","v":null},{"n":77,"s":"L3","e":"fall victim to","k":"","z":"成為……的受害者；受……所害","v":null},{"n":78,"s":"L3","e":"feed on","k":"","z":"靠……為食","v":null},{"n":79,"s":"L3","e":"set the stage for","k":"","z":"為……作好準備","v":null},{"n":80,"s":"U9","e":"continuous","k":"kənˋtɪnjuəs","z":"a.連續的（一直不中斷的）","v":"4"},{"n":80,"s":"U9","e":"continuously","k":"kənˋtɪnjuəslɪ","z":"adv.持續不斷地","v":"4"},{"n":80,"s":"U9","e":"continual","k":"kənˋtɪnjuəl","z":"a.持續的（偶有間歇的），頻頻的；連續的","v":"4"},{"n":81,"s":"U9","e":"plot","k":"plɑt","z":"n.陰謀；（故事的）情節&amp;vt.&amp;vi.圖謀","v":"4"},{"n":82,"s":"U9","e":"consume","k":"kənˋs(j)um","z":"vt.消費","v":"4"},{"n":82,"s":"U9","e":"consumer","k":"kənˋs(j)umɚ","z":"n.消費者","v":"4"},{"n":83,"s":"U9","e":"crack","k":"kræk","z":"vi.破裂&amp;vt.解開（密碼）&amp;n.裂縫","v":"4"},{"n":84,"s":"U9","e":"invest","k":"ɪnˋvɛst","z":"vt.&amp;vi.投資","v":"4"},{"n":84,"s":"U9","e":"investment","k":"ɪnˋvɛstmənt","z":"n.投資","v":"4"},{"n":84,"s":"U9","e":"investor","k":"ɪnˋvɛstɚ","z":"n.投資者","v":"超"},{"n":85,"s":"U9","e":"calculate","k":"ˋkælkjəˏlet","z":"vt.計算；估計","v":"4"},{"n":85,"s":"U9","e":"calculation","k":"ˏkælkjəˋleʃən","z":"n.計算；計算結果","v":"4"},{"n":86,"s":"U9","e":"regulate","k":"ˋrɛgjəˏlet","z":"vt.規範；調節，調整","v":"4"},{"n":86,"s":"U9","e":"regulation","k":"ˏrɛgjəˋleʃən","z":"n.規定，法規","v":"4"},{"n":87,"s":"U9","e":"machinery","k":"məˋʃinərɪ","z":"n.機器（集合名詞，不可數）","v":"4"},{"n":87,"s":"U9","e":"mechanic","k":"məˋkænɪk","z":"n.技工，機械士","v":"4"},{"n":87,"s":"U9","e":"mechanical","k":"məˋkænɪkl̩","z":"a.機械的；機械性的","v":"4"},{"n":88,"s":"U9","e":"witness","k":"ˋwɪtnəs","z":"n.證人&amp;vt.目擊","v":"4"},{"n":89,"s":"U9","e":"prime","k":"praɪm","z":"a.主要的；最好的&amp;n.全盛時期","v":"4"},{"n":90,"s":"U9","e":"dominant","k":"ˋdɑmənənt","z":"a.支配的；重要的（職位）","v":"4"},{"n":90,"s":"U9","e":"dominate","k":"ˋdɑməˏnet","z":"vt.統治，支配；（山脈或建築物）俯瞰","v":"4"},{"n":91,"s":"U9","e":"satisfaction","k":"ˏsætɪsˋfækʃən","z":"n.滿足，滿意","v":"4"},{"n":91,"s":"U9","e":"dissatisfaction","k":"ˏdɪsˏsætɪsˋfækʃən","z":"n.不滿，不平","v":"超"},{"n":92,"s":"U9","e":"interpret","k":"ɪnˋtɝprɪt","z":"vi.&amp;vt.翻譯，口譯&amp;vt.解釋，視為","v":"4"},{"n":92,"s":"U9","e":"translate","k":"trænsˋlet","z":"vi.&amp;vt.翻譯（尤指筆譯）","v":"4"},{"n":92,"s":"U9","e":"translation","k":"trænsˋleʃən","z":"n.翻譯本（可數）；翻譯（不可數）","v":"4"},{"n":92,"s":"U9","e":"translator","k":"trænsˋletɚ／ˋtrænsˏletɚ","z":"n.翻譯者（尤指文字翻譯者）","v":"4"},{"n":93,"s":"U9","e":"virtue","k":"ˋvɝtʃu","z":"n.美德；優點，長處","v":"4"},{"n":94,"s":"U9","e":"permanent","k":"ˋpɝmənənt","z":"a.永恆的；常設的","v":"4"},{"n":95,"s":"U9","e":"transfer","k":"trænsˋfɝ／ˋtrænsfɝ","z":"vt.&amp;vi.調離；移轉&amp;[ˋtrænsfɝ]n.調任","v":"4"},{"n":96,"s":"U9","e":"regarding","k":"rɪˋgɑrdɪŋ","z":"prep.關於，有關（＝about）","v":"4"},{"n":97,"s":"U9","e":"fort","k":"fɔrt","z":"n.要塞","v":"4"},{"n":98,"s":"U9","e":"reception","k":"rɪˋsɛpʃən","z":"n.招待會，宴會；接受，回應","v":"4"},{"n":99,"s":"U9","e":"genuine","k":"ˋdʒɛnjuɪn","z":"a.真的，真正的","v":"4"},{"n":99,"s":"U9","e":"authentic","k":"ɔˋθɛntɪk","z":"a.（物品）真正的","v":"4"},{"n":100,"s":"U9","e":"indication","k":"ˏɪndəˋkeʃən","z":"n.指示，顯示","v":"4"},{"n":101,"s":"U9","e":"laboratory","k":"ˋlæbrəˏtɔrɪ","z":"n.實驗室","v":"4"},{"n":102,"s":"U9","e":"horizon","k":"həˋraɪzn̩","z":"n.地平線（單數）；範圍，範疇（常用複數）","v":"4"},{"n":103,"s":"U9","e":"primitive","k":"ˋprɪmətɪv","z":"a.原始的","v":"4"},{"n":104,"s":"U9","e":"severe","k":"səˋvɪr","z":"a.嚴厲的；十分嚴重的","v":"4"},{"n":105,"s":"U9","e":"annoy","k":"əˋnɔɪ","z":"vt.煩擾；騷擾","v":"4"},{"n":105,"s":"U9","e":"annoyed","k":"əˋnɔɪd","z":"a.感到惱怒的","v":"4"},{"n":105,"s":"U9","e":"annoying","k":"əˋnɔɪɪŋ","z":"a.討厭的，煩人的","v":"4"},{"n":106,"s":"U9","e":"millionaire","k":"ˏmɪljənˋɛr","z":"n.百萬富翁，巨富","v":"4"},{"n":107,"s":"U9","e":"category","k":"ˋkætəˏgorɪ","z":"n.種類；範疇","v":"4"},{"n":108,"s":"U9","e":"representation","k":"ˏrɛprɪzɛnˋteʃən","z":"n.代表；呈現","v":"4"},{"n":109,"s":"U10","e":"merit","k":"ˋmɛrɪt","z":"n.優點；功績","v":"4"},{"n":110,"s":"U10","e":"curve","k":"kɝv","z":"n.曲線&amp;vi.彎曲","v":"4"},{"n":111,"s":"U10","e":"license","k":"ˋlaɪsn̩s","z":"n.執照（可數）&amp;vt.授權，批准","v":"4"},{"n":112,"s":"U10","e":"dignity","k":"ˋdɪgnətɪ","z":"n.威嚴","v":"4"},{"n":112,"s":"U10","e":"dignify","k":"ˋdɪgnəˏfaɪ","z":"vt.使有尊嚴","v":"超"},{"n":113,"s":"U10","e":"differ","k":"ˋdɪfɚ","z":"vi.不同，差異","v":"4"},{"n":114,"s":"U10","e":"limitation","k":"ˏlɪməˋteʃən","z":"n.限制；缺點（可數）","v":"4"},{"n":115,"s":"U10","e":"conscience","k":"ˋkɑnʃəns","z":"n.良心","v":"4"},{"n":116,"s":"U10","e":"lecture","k":"ˋlɛktʃɚ","z":"n.講課&amp;vi.授課&amp;vt.向（某人）說教","v":"4"},{"n":116,"s":"U10","e":"lecturer","k":"ˋlɛktʃərɚ","z":"n.演講者；講師","v":"4"},{"n":117,"s":"U10","e":"quilt","k":"kwɪlt","z":"n.被子&amp;vt.縫製（成棉被）","v":"4"},{"n":118,"s":"U10","e":"disturb","k":"dɪsˋtɝb","z":"vt.&amp;vi.打擾，使煩惱","v":"4"},{"n":118,"s":"U10","e":"disturbing","k":"dɪsˋtɝbɪŋ","z":"a.令人不安的","v":"4"},{"n":119,"s":"U10","e":"aspirin","k":"ˋæsprɪn","z":"n.阿斯匹靈","v":"4"},{"n":120,"s":"U10","e":"predict","k":"prɪˋdɪkt","z":"vt.預測","v":"4"},{"n":120,"s":"U10","e":"prediction","k":"prɪˋdɪkʃən","z":"n.預測","v":"4"},{"n":120,"s":"U10","e":"forecast","k":"ˋforˏkæst","z":"vt.&amp;n.預測，預報","v":"4"},{"n":121,"s":"U10","e":"cease","k":"sis","z":"vt.&amp;vi.&amp;n.停止","v":"4"},{"n":121,"s":"U10","e":"ceasefire","k":"ˋsisˏfaɪr","z":"n.停戰，停火","v":"超"},{"n":122,"s":"U10","e":"opera","k":"ˋɑpərə","z":"n.歌劇","v":"4"},{"n":122,"s":"U10","e":"ballet","k":"bæˋle／ˋbæle","z":"n.芭蕾舞","v":"4"},{"n":122,"s":"U10","e":"gallery","k":"ˋgælərɪ","z":"n.畫廊","v":"4"},{"n":123,"s":"U10","e":"restriction","k":"rɪˋstrɪkʃən","z":"n.限制，約束","v":"4"},{"n":124,"s":"U10","e":"enforce","k":"ɪnˋfɔrs","z":"vt.實施，執行","v":"4"},{"n":124,"s":"U10","e":"enforcement","k":"ɪnˋfɔrsmənt","z":"n.實施，執行","v":"4"},{"n":125,"s":"U10","e":"complicate","k":"ˋkɑmpləˏket","z":"vt.使複雜化","v":"4"},{"n":125,"s":"U10","e":"complicated","k":"ˋkɑmpləˏketɪd","z":"a.複雜的","v":"4"},{"n":126,"s":"U10","e":"era","k":"ˋɛrə","z":"n.年代，時代","v":"4"},{"n":127,"s":"U10","e":"dependent","k":"dɪˋpɛndənt","z":"a.依賴的（與介詞on並用）&amp;n.扶養親屬，眷屬（＝dependant〔英〕）","v":"4"},{"n":127,"s":"U10","e":"dependence","k":"dɪˋpɛndəns","z":"n.依賴（與介詞on並用）","v":"超"},{"n":127,"s":"U10","e":"dependable","k":"dɪˋpɛndəbl̩","z":"a.可靠的；穩定的","v":"超"},{"n":128,"s":"U10","e":"frequency","k":"ˋfrikwənsɪ","z":"n.頻率；頻繁","v":"4"},{"n":129,"s":"U10","e":"logic","k":"ˋlɑdʒɪk","z":"n.邏輯學；邏輯（性）","v":"4"},{"n":129,"s":"U10","e":"logical","k":"ˋlɑdʒɪkl̩","z":"a.邏輯的","v":"4"},{"n":129,"s":"U10","e":"illogical","k":"ɪˋlɑdʒɪkl̩","z":"a.不合邏輯的","v":"4"},{"n":130,"s":"U10","e":"presentation","k":"ˏprɛzn̩ˋteʃən","z":"n.授與，頒贈（典禮）；口頭報告","v":"4"},{"n":131,"s":"U10","e":"admission","k":"ədˋmɪʃən","z":"n.入會；入場費；承認，供認","v":"4"},{"n":132,"s":"U10","e":"guilt","k":"gɪlt","z":"n.罪","v":"4"},{"n":132,"s":"U10","e":"guilty","k":"ˋgɪltɪ","z":"a.有罪的","v":"4"},{"n":133,"s":"U10","e":"reform","k":"rɪˋfɔrm","z":"n.&amp;vt.&amp;vi.改革","v":"4"},{"n":134,"s":"U10","e":"household","k":"ˋhaʊsˏhold","z":"n.家庭（＝family）","v":"4"},{"n":134,"s":"U10","e":"housework","k":"ˋhaʊsˏwɝk","z":"n.家事（不可數）","v":"4"},{"n":135,"s":"U10","e":"celebration","k":"ˏsɛləˋbreʃən","z":"n.慶祝","v":"4"},{"n":136,"s":"U10","e":"issue","k":"ˋɪʃu","z":"n.重大議題；爭議；期刊&amp;vt.發行","v":"4"},{"n":137,"s":"U10","e":"lengthen","k":"ˋlɛŋθən","z":"vt.使變長，加長","v":"4"},{"n":138,"s":"U11","e":"favorable","k":"ˋfevərəbl̩","z":"a.有利的","v":"4"},{"n":139,"s":"U11","e":"multiple","k":"ˋmʌltəpl̩","z":"a.多重的，眾多的","v":"4"},{"n":140,"s":"U11","e":"psychology","k":"saɪˋkɑlədʒɪ","z":"n.心理學","v":"4"},{"n":140,"s":"U11","e":"psychological","k":"ˏsaɪkəˋlɑdʒɪkl̩","z":"a.心理的，心理學的","v":"4"},{"n":140,"s":"U11","e":"psychologist","k":"saɪˋkɑlədʒɪst","z":"n.心理學家","v":"4"},{"n":141,"s":"U11","e":"bracelet","k":"ˋbreslɪt","z":"n.手鐲","v":"4"},{"n":142,"s":"U11","e":"strengthen","k":"ˋstrɛŋθən","z":"vt.鞏固，加強","v":"4"},{"n":143,"s":"U11","e":"funeral","k":"ˋfjunərəl","z":"n.葬禮","v":"4"},{"n":144,"s":"U11","e":"enthusiasm","k":"ɪnˋθjuzɪˏæzəm","z":"n.熱愛，熱衷","v":"4"},{"n":145,"s":"U11","e":"launch","k":"lɔntʃ","z":"vt.發動（活動）；發射（火箭、飛彈）；發表（新書、新作品、新產品）&amp;n.發表會；（船）首次下水出航；（火箭）首次發射升空","v":"4"},{"n":146,"s":"U11","e":"inspire","k":"ɪnˋspaɪr","z":"vt.鼓舞，激勵，啟發","v":"4"},{"n":146,"s":"U11","e":"inspiration","k":"ˏɪnspəˋreʃən","z":"n.靈感，啟示","v":"4"},{"n":147,"s":"U11","e":"allowance","k":"əˋlaʊəns","z":"n.零用錢〔美〕（＝pocket money〔英〕）；顧慮","v":"4"},{"n":148,"s":"U11","e":"harmony","k":"ˋhɑrmənɪ","z":"n.和諧","v":"4"},{"n":148,"s":"U11","e":"harmonious","k":"hɑrˋmonɪəs","z":"a.和諧的","v":"超"},{"n":149,"s":"U11","e":"fortunate","k":"ˋfɔrtʃənɪt","z":"a.幸運的","v":"4"},{"n":149,"s":"U11","e":"fortunately","k":"ˋfɔrtʃənɪtlɪ","z":"adv.幸運地","v":"4"},{"n":149,"s":"U11","e":"unfortunate","k":"ʌnˋfɔrtʃənɪt","z":"a.不幸的；倒楣的","v":"4"},{"n":149,"s":"U11","e":"misfortune","k":"mɪsˋfɔrtʃən","z":"n.不幸，災禍","v":"4"},{"n":150,"s":"U11","e":"cope","k":"kop","z":"vi.對抗，應付（與介詞with並用）","v":"4"},{"n":151,"s":"U11","e":"realistic","k":"rɪəˋlɪstɪk","z":"a.實際的；現實的","v":"4"},{"n":152,"s":"U11","e":"thorough","k":"ˋθɝo","z":"a.徹底的","v":"4"},{"n":153,"s":"U11","e":"insurance","k":"ɪnˋʃʊrəns","z":"n.保險（不可數）","v":"4"},{"n":153,"s":"U11","e":"insure","k":"ɪnˋʃʊr","z":"vt.&amp;vi.保險，投保","v":"超"},{"n":154,"s":"U11","e":"outstanding","k":"aʊtˋstændɪŋ","z":"a.傑出的","v":"4"},{"n":155,"s":"U11","e":"depart","k":"dɪˋpɑrt","z":"vi.出發","v":"4"},{"n":155,"s":"U11","e":"departure","k":"dɪˋpɑrtʃɚ","z":"n.出發，離開","v":"4"},{"n":156,"s":"U11","e":"visual","k":"ˋvɪʒuəl","z":"a.視覺的","v":"4"},{"n":156,"s":"U11","e":"audio","k":"ˋɔdɪˏo","z":"a.聲音的","v":"4"},{"n":156,"s":"U11","e":"audio-visual","k":"ˏɔdɪoˋvɪʒuəl","z":"a.視聽的","v":"超"},{"n":157,"s":"U11","e":"rhythm","k":"ˋrɪðəm","z":"n.節奏","v":"4"},{"n":157,"s":"U11","e":"rhyme","k":"raɪm","z":"n.&amp;vi.押韻","v":"4"},{"n":158,"s":"U11","e":"volunteer","k":"ˏvɑlənˋtɪr","z":"n.自願者，義工&amp;vi.自告奮勇","v":"4"},{"n":158,"s":"U11","e":"voluntary","k":"ˋvɑlənˏtɛrɪ","z":"a.自願的，自動的","v":"4"},{"n":159,"s":"U11","e":"prompt","k":"prɑmpt","z":"vt.促使&amp;a.立刻的&amp;n.（演員）提詞","v":"4"},{"n":160,"s":"U11","e":"fiction","k":"ˋfɪkʃən","z":"n.（虛構）小說類（集合名詞，不可數）","v":"4"},{"n":161,"s":"U11","e":"forbid","k":"fɚˋbɪd","z":"vt.禁止","v":"4"},{"n":162,"s":"U11","e":"entertain","k":"ˏɛntɚˋten","z":"vt.娛樂","v":"4"},{"n":162,"s":"U11","e":"entertainment","k":"ˏɛntɚˋtenmənt","z":"n.娛樂，樂趣（不可數）；娛樂節目（可數）","v":"4"},{"n":163,"s":"U11","e":"restore","k":"rɪˋstor","z":"vt.復原","v":"4"},{"n":164,"s":"U11","e":"delicate","k":"ˋdɛləkət","z":"a.脆弱的；精緻的","v":"4"},{"n":164,"s":"U11","e":"delicacy","k":"ˋdɛləkəsɪ","z":"n.美食（可數）；細緻（不可數）；慎重（不可數）","v":"超"},{"n":164,"s":"U11","e":"fragile","k":"ˋfrædʒəl","z":"a.脆弱的","v":"4"},{"n":165,"s":"U11","e":"priority","k":"praɪˋɔrətɪ","z":"n.優先考慮的事（可數）；優先權（不可數）","v":"4"},{"n":166,"s":"U11","e":"recognition","k":"ˏrɛkəgˋnɪʃən","z":"n.認出；承認，認可","v":"4"},{"n":167,"s":"U11","e":"pasta","k":"ˋpɑstə","z":"n.義大利麵食（總稱，不可數）","v":"4"},{"n":168,"s":"U12","e":"anxiety","k":"æŋˋzaɪətɪ","z":"n.焦慮","v":"4"},{"n":169,"s":"U12","e":"magnificent","k":"mægˋnɪfəsənt","z":"a.非凡的，華麗的","v":"4"},{"n":169,"s":"U12","e":"splendid","k":"ˋsplɛndɪd","z":"a.富麗堂皇的；絕佳的","v":"4"},{"n":170,"s":"U12","e":"discipline","k":"ˋdɪsəplɪn","z":"n.紀律（不可數）&amp;vt.訓練，管教","v":"4"},{"n":171,"s":"U12","e":"dismiss","k":"dɪsˋmɪs","z":"vt.摒棄；開除","v":"4"},{"n":172,"s":"U12","e":"resemble","k":"rɪˋzɛmbl̩","z":"vt.和……相似","v":"4"},{"n":173,"s":"U12","e":"protest","k":"prəˋtɛst／ˋprotɛst","z":"vt.&amp;vi.抗議&amp;vt.反駁（用that子句作受詞）／n.抗議；抗議行動","v":"4"},{"n":174,"s":"U12","e":"drift","k":"drɪft","z":"vi.漂流；遊蕩，漫遊&amp;n.（被風吹積起來的）一堆（雪、沙等）；（局面）變化；漂流","v":"4"},{"n":175,"s":"U12","e":"transportation","k":"ˏtrænspɚˋteʃən","z":"n.交通運輸（工具）（不可數）","v":"4"},{"n":176,"s":"U12","e":"recovery","k":"rɪˋkʌvərɪ","z":"n.找回；痊癒，復元","v":"4"},{"n":177,"s":"U12","e":"terror","k":"ˋtɛrɚ","z":"n.恐怖；可怕的人或物","v":"4"},{"n":178,"s":"U12","e":"modest","k":"ˋmɑdɪst","z":"a.謙虛的","v":"4"},{"n":178,"s":"U12","e":"modesty","k":"ˋmɑdɪstɪ","z":"n.謙虛","v":"4"},{"n":179,"s":"U12","e":"peculiar","k":"pɪˋkjuljɚ","z":"a.奇怪的；獨特的","v":"4"},{"n":180,"s":"U12","e":"reputation","k":"ˏrɛpjəˋteʃən","z":"n.名譽，名聲","v":"4"},{"n":181,"s":"U12","e":"absolute","k":"ˋæbsəˏlut／ˏæbsəˋlut","z":"a.絕對的，完全的","v":"4"},{"n":181,"s":"U12","e":"absolutely","k":"ˋæbsəˏlutlɪ／ˏæbsəˋlutlɪ","z":"adv.絕對地，完全地","v":"4"},{"n":182,"s":"U12","e":"outcome","k":"ˋaʊtˏkʌm","z":"n.結果","v":"4"},{"n":183,"s":"U12","e":"withdraw","k":"wɪðˋdrɔ","z":"vt.提（款）&amp;vt.&amp;vi.退出；撤退","v":"4"},{"n":184,"s":"U12","e":"monument","k":"ˋmɑnjəmənt","z":"n.紀念碑","v":"4"},{"n":185,"s":"U12","e":"artistic","k":"ɑrˋtɪstɪk","z":"a.藝術的；美妙的","v":"4"},{"n":186,"s":"U12","e":"await","k":"əˋwet","z":"vt.等候，等待","v":"4"},{"n":187,"s":"U12","e":"convey","k":"kənˋve","z":"vt.運送，運輸；傳達","v":"4"},{"n":188,"s":"U12","e":"grind","k":"graɪnd","z":"vt.&amp;vi.研磨，磨碎；磨（牙）&amp;n.苦差事（恆為單數）；書呆子","v":"4"},{"n":189,"s":"U12","e":"exhibit","k":"ɪgˋzɪbɪt","z":"vt.顯示，現出；展示&amp;vi.展示&amp;n.展覽會（＝exhibition[ˏɛksəˋbɪʃən]）","v":"4"},{"n":190,"s":"U12","e":"grateful","k":"ˋgretfəl","z":"a.感激的","v":"4"},{"n":190,"s":"U12","e":"gratitude","k":"ˋgrætəˏt(j)ud","z":"n.感激","v":"4"},{"n":190,"s":"U12","e":"ungrateful","k":"ʌnˋgretfəl","z":"a.不知感激的","v":"4"},{"n":191,"s":"U12","e":"grace","k":"gres","z":"n.優雅；大方&amp;vt.使增光；使美化","v":"4"},{"n":191,"s":"U12","e":"graceful","k":"ˋgresfəl","z":"a.優雅的","v":"4"},{"n":191,"s":"U12","e":"gracious","k":"ˋgreʃəs","z":"a.親切的，仁慈的；富裕的","v":"4"},{"n":192,"s":"U12","e":"alert","k":"əˋlɝt","z":"n.警戒&amp;a.警戒的&amp;vt.提醒","v":"4"},{"n":193,"s":"U12","e":"dispute","k":"dɪˋspjut","z":"n.&amp;vt.爭執；質疑&amp;vi.爭執","v":"4"},{"n":194,"s":"U12","e":"transform","k":"trænsˋfɔrm","z":"vt.變化，改變","v":"4"},{"n":195,"s":"U12","e":"maturity","k":"məˋtʃʊrətɪ","z":"n.成熟","v":"4"},{"n":196,"s":"U12","e":"neglect","k":"nɪˋglɛkt","z":"vt.忽視&amp;n.疏忽","v":"4"},{"n":196,"s":"U12","e":"overlook","k":"ˏovɚˋlʊk","z":"vt.忽略；俯瞰","v":"4"},{"n":197,"s":"U12","e":"split","k":"splɪt","z":"vt.劈開；分裂&amp;vi.分開&amp;n.裂口；意見分歧","v":"4"},{"n":198,"s":"U12","e":"accuracy","k":"ˋækjərəsɪ","z":"n.準確性","v":"4"},{"n":199,"s":"U12","e":"endure","k":"ɪnˋd(j)ʊr","z":"vt.忍耐","v":"4"},{"n":200,"s":"U12","e":"reunion","k":"riˋjunjən","z":"n.重聚，團圓","v":"4"},{"n":201,"s":"U12","e":"romance","k":"roˋmæns／ˋromæns","z":"n.戀情；浪漫；愛情小說","v":"4"},{"n":202,"s":"U12","e":"tremble","k":"ˋtrɛmbl̩","z":"vi.顫抖","v":"4"},{"n":203,"s":"U12","e":"yawn","k":"jɔn","z":"vi.打呵欠","v":"4"},{"n":204,"s":"U12","e":"workout","k":"ˋwɝkaʊt","z":"n.（尤指運動的）鍛鍊，訓練（可數）","v":"4"},{"n":205,"s":"U12","e":"noble","k":"ˋnobl̩","z":"a.高貴的；貴族的","v":"4"},{"n":206,"s":"9/1","e":"unidentified","k":"ˏʌnaɪˋdɛntəˏfaɪd","z":"adj.未知的、不明的","v":"4"},{"n":207,"s":"9/1","e":"phenomenon","k":"fɪˋnɑməˏnɑn","z":"n.現象（尤指不尋常或引人注意的事物，複數形為phenomena）","v":"4"},{"n":208,"s":"9/1","e":"radar","k":"ˋreˏdɑr","z":"n.雷達","v":"4"},{"n":209,"s":"9/1","e":"sensor","k":"ˋsɛnsɚ","z":"n.感測器、感應裝置","v":"5"},{"n":210,"s":"9/1","e":"personnel","k":"ˏpɝsəˋnɛl","z":"n.（公司、軍隊的）全體人員、員工（為集合名詞）","v":"5"},{"n":211,"s":"9/1","e":"strengthen","k":"ˋstrɛŋθən","z":"v.加強、增強","v":"4"},{"n":212,"s":"9/1","e":"mysterious","k":"mɪˋstɪrɪəs","z":"adj.神祕的、難以理解的","v":"4"},{"n":213,"s":"9/2","e":"communication","k":"kəˏmjunəˋkeʃən","z":"n.溝通、交流；通訊","v":"4"},{"n":214,"s":"9/2","e":"conventional","k":"kənˋvɛnʃənl̩","z":"adj.傳統的；習以為常的、慣例的","v":"4"},{"n":215,"s":"9/2","e":"fascinating","k":"ˋfæsəˏnetɪŋ","z":"adj.極有趣的、精彩的；吸引人的、迷人的","v":"5"},{"n":216,"s":"9/2","e":"generate","k":"ˋdʒɛnəˏret","z":"v.產生（能量、想法等）；生成；引起","v":"5"},{"n":217,"s":"9/2","e":"scent","k":"sɛnt","z":"n.氣味、香味；（動物的）臭跡","v":"5"},{"n":218,"s":"9/2","e":"prompt","k":"prɑmpt","z":"v.促使、引發；提示、（系統或介面）跳出提示訊息","v":"4"},{"n":219,"s":"9/2","e":"nutrient","k":"ˋnutrɪənt","z":"n.營養物質、養分","v":"5"},{"n":220,"s":"9/3","e":"harsh","k":"hɑrʃ","z":"adj.嚴酷的、惡劣的；嚴厲的","v":"4"},{"n":221,"s":"9/3","e":"essential","k":"ɪˋsɛnʃəl","z":"adj.極其重要的、必不可少的","v":"4"},{"n":222,"s":"9/3","e":"absorb","k":"əbˋsɔrb","z":"v.吸收；理解、掌握（知識）","v":"4"},{"n":223,"s":"9/3","e":"otherwise","k":"ˋʌðɚˏwaɪz","z":"adv.在其他情況下；以另外的方式；否則","v":"4"},{"n":224,"s":"9/3","e":"exceed","k":"ɪkˋsid","z":"v.超過、超出（數量、程度等）","v":"5"},{"n":225,"s":"9/3","e":"physics","k":"ˋfɪzɪks","z":"n.物理學","v":"4"},{"n":226,"s":"9/3","e":"behavior","k":"bɪˋhevjɚ","z":"n.習性；行為、舉止","v":"4"},{"n":227,"s":"9/4","e":"recipe","k":"ˋrɛsəpi","z":"n.食譜；烹飪法","v":"4"},{"n":228,"s":"9/4","e":"pasta","k":"ˋpɑstə","z":"n.義大利麵食（統稱）","v":"4"},{"n":229,"s":"9/4","e":"variation","k":"ˏvɛriˋeʃən","z":"n.變體；變化形式","v":"5"},{"n":230,"s":"9/4","e":"combination","k":"ˏkɑmbəˋneʃən","z":"n.組合；結合（文中指「配料組合」）","v":"4"},{"n":231,"s":"9/4","e":"ultimately","k":"ˋʌltəmətli","z":"adv.說到底、歸根究柢；最終","v":"5"},{"n":232,"s":"9/4","e":"generation","k":"ˏdʒɛnəˋreʃən","z":"n.世代；一代人","v":"4"},{"n":233,"s":"9/4","e":"deserve","k":"dɪˋzɝv","z":"v.值得、應得","v":"4"},{"n":234,"s":"9/7","e":"breakthrough","k":"ˋbrekˏθru","z":"n.突破、重大進展","v":"5"},{"n":235,"s":"9/7","e":"laboratory","k":"ˋlæbrəˏtɔri","z":"n.實驗室（簡稱lab）","v":"4"},{"n":236,"s":"9/7","e":"workshop","k":"ˋwɝkˏʃɑp","z":"n.工坊、作坊；實作課程","v":"5"},{"n":237,"s":"9/7","e":"calculation","k":"ˏkælkjəˋleʃən","z":"n.計算、運算；計算結果","v":"4"},{"n":238,"s":"9/7","e":"envision","k":"ɪnˋvɪʒən","z":"v.想像、在心中描繪；預見","v":"5"},{"n":239,"s":"9/7","e":"striking","k":"ˋstraɪkɪŋ","z":"adj.引人注目的；非常明顯的","v":"5"},{"n":240,"s":"9/8","e":"insight","k":"ˋɪnˏsaɪt","z":"n.洞見；深刻見解；洞察力","v":"5"},{"n":241,"s":"9/8","e":"formula","k":"ˋfɔrmjələ","z":"n.公式；配方；分子式","v":"4"},{"n":242,"s":"9/8","e":"equation","k":"ɪˋkweʒən","z":"n.方程式；等式","v":"5"},{"n":243,"s":"9/8","e":"orbit","k":"ˋɔrbət","z":"v.繞軌道運行（可作及物或不及物用）n.軌道","v":"4"},{"n":244,"s":"9/8","e":"abstract","k":"ˋæbˏstrækt","z":"adj.抽象的；理論性的n.摘要","v":"4"},{"n":245,"s":"9/8","e":"contribution","k":"ˏkɑntrəˋbjuʃən","z":"n.貢獻、奉獻","v":"4"},{"n":246,"s":"9/8","e":"forge","k":"fɔrdʒ","z":"v.建立；開闢；打造","v":"5"},{"n":247,"s":"9/9","e":"grip","k":"grɪp","z":"n.握法、握拍方式v.握住、緊握","v":"5"},{"n":248,"s":"9/9","e":"adjustment","k":"əˋdʒʌstmənt","z":"n.調整、調節；適應","v":"4"},{"n":249,"s":"9/9","e":"strain","k":"stren","z":"v.拉傷；使負擔過重、使承受壓力n.負擔、壓力","v":"5"},{"n":250,"s":"9/9","e":"flexible","k":"ˋflɛksəbəl","z":"adj.靈活的；柔韌的；有彈性的","v":"4"},{"n":251,"s":"9/9","e":"loosen","k":"ˋlusn̩","z":"v.（使）鬆開；放鬆","v":"4"},{"n":252,"s":"9/9","e":"slightly","k":"ˋslaɪtli","z":"adv.稍微地、略微地","v":"4"},{"n":253,"s":"9/9","e":"demonstrate","k":"ˋdɛmənˏstret","z":"v.示範；證明；顯示","v":"4"},{"n":254,"s":"9/10","e":"beloved","k":"bɪˋlʌvəd","z":"adj.心愛的、深愛的；深受喜愛的","v":"5"},{"n":255,"s":"9/10","e":"highlight","k":"ˋhaɪˏlaɪt","z":"v.使突出、突顯；強調n.最精彩的部分","v":"5"},{"n":256,"s":"9/10","e":"performer","k":"pɚˋfɔrmɚ","z":"n.表演者、演出者","v":"5"},{"n":257,"s":"9/10","e":"compelling","k":"kəmˋpɛlɪŋ","z":"adj.引人入勝的、扣人心弦的；（論點等）令人信服的","v":"5"},{"n":258,"s":"9/10","e":"luxury","k":"ˋlʌkʃəri","z":"adj.奢華的、高檔的n.奢侈品（可數）；奢華（不可數）","v":"4"},{"n":259,"s":"9/10","e":"elaborately","k":"ɪˋlæbərətli","z":"adv.精心地；精緻複雜地（強調細節）","v":"5"},{"n":260,"s":"9/11","e":"surroundings","k":"səˋraʊndɪŋz","z":"n.周遭環境（恆用複數）","v":"4"},{"n":261,"s":"9/11","e":"imaginative","k":"ɪˋmædʒənətɪv","z":"adj.富有想像力的；有創意的","v":"4"},{"n":262,"s":"9/11","e":"artistic","k":"ɑrˋtɪstɪk","z":"adj.具有藝術氣息的；藝術的；有藝術天賦的","v":"4"},{"n":263,"s":"9/11","e":"atmosphere","k":"ˋætməˏsfɪr","z":"n.氣氛；大氣（層）","v":"4"},{"n":264,"s":"9/11","e":"gallery","k":"ˋgæləri","z":"n.畫廊、藝廊；美術館、展覽館","v":"4"},{"n":265,"s":"9/11","e":"architecture","k":"ˋɑrkəˏtɛktʃɚ","z":"n.建築風格；建築設計；建築學","v":"5"},{"n":266,"s":"9/11","e":"professional","k":"prəˋfɛʃnəl","z":"adj.職業的；專業的","v":"4"},{"n":267,"s":"9/15","e":"coincidence","k":"koˋɪnsədəns","z":"n.巧合；碰巧的事","v":"5"},{"n":268,"s":"9/15","e":"invade","k":"ɪnˋved","z":"v.入侵、侵略；侵犯","v":"4"},{"n":269,"s":"9/15","e":"overthrow","k":"ˏovɚˋθro","z":"v.（尤指以武力）推翻、打倒（動詞三態為overthrow–overthrew–overthrown）","v":"4"},{"n":270,"s":"9/15","e":"rigid","k":"ˋrɪdʒəd","z":"adj.僵化的、不易改變的；死板的","v":"5"},{"n":271,"s":"9/15","e":"labor","k":"ˋlebɚ","z":"v.勞動；辛苦工作（文中為現在分詞作形容詞用，表示「勞動的」）","v":"4"},{"n":272,"s":"9/15","e":"peasant","k":"ˋpɛzn̩t","z":"n.（尤指舊時的）農民、佃農","v":"5"},{"n":273,"s":"9/16","e":"noble","k":"ˋnobəl","z":"n.貴族；品德高尚的人","v":"4"},{"n":274,"s":"9/16","e":"encounter","k":"ɪnˋkaʊntɚ","z":"v.（偶然）遇到；遭遇","v":"4"},{"n":275,"s":"9/16","e":"feast","k":"fist","z":"n.盛宴、宴會","v":"4"},{"n":276,"s":"9/16","e":"merge","k":"mɝdʒ","z":"v.（公司、部門等）合併、融合、結合（可作及物或不及物動詞）","v":"5"},{"n":277,"s":"9/16","e":"distinct","k":"dɪˋstɪŋkt","z":"adj.有所區分的、截然不同的；顯著的","v":"4"},{"n":278,"s":"9/16","e":"endure","k":"ɪnˋdʊr","z":"v.持續存在、持久（不及物）；忍受、忍耐（及物）","v":"4"},{"n":279,"s":"9/16","e":"reminder","k":"rɪˋmaɪndɚ","z":"n.提醒物；提醒的人或事；提示","v":"5"},{"n":280,"s":"9/17","e":"presentation","k":"ˏprizɛnˋteʃən","z":"n.報告、簡報；授予；呈現","v":"4"},{"n":281,"s":"9/17","e":"boost","k":"bust","z":"v.提升、增加；推動、促進（文中mood-boosting表示「提振心情的」）","v":"5"},{"n":282,"s":"9/17","e":"accomplish","k":"əˋkɑmplɪʃ","z":"v.完成；達成、實現","v":"4"},{"n":283,"s":"9/17","e":"purchase","k":"ˋpɝtʃəs","z":"n.購買之物、購買行為v.購買、採購","v":"5"},{"n":284,"s":"9/17","e":"trigger","k":"ˋtrɪgɚ","z":"v.引發、觸發n.誘因；扳機","v":"5"},{"n":285,"s":"9/17","e":"psychology","k":"saɪˋkɑlədʒi","z":"n.心理學","v":"4"},{"n":286,"s":"9/17","e":"stability","k":"stəˋbɪləti","z":"n.穩定（性）；穩固","v":"5"},{"n":287,"s":"9/18","e":"participant","k":"pɑrˋtɪsəpənt","z":"n.參加者、參與者","v":"5"},{"n":288,"s":"9/18","e":"implication","k":"ˏɪmpləˋkeʃən","z":"n.可能的影響、後果（作此義時常用複數）；含意、暗示","v":"5"},{"n":289,"s":"9/18","e":"motivation","k":"ˏmotəˋveʃən","z":"n.動機、動力；積極性","v":"4"},{"n":290,"s":"9/18","e":"polished","k":"ˋpɑlɪʃt","z":"adj.優雅的；得體的；精緻熟練的","v":"4"},{"n":291,"s":"9/18","e":"outfit","k":"ˋaʊtˏfɪt","z":"n.全套服裝；穿搭","v":"5"},{"n":292,"s":"9/18","e":"reinforce","k":"ˏriənˋfɔrs","z":"v.強化、加強；鞏固","v":"5"},{"n":293,"s":"9/18","e":"accessible","k":"ækˋsɛsəbəl","z":"adj.可取得的、可使用的；易接近的","v":"5"},{"n":294,"s":"9/21","e":"disqualify","k":"dɪsˋkwɑləˏfaɪ","z":"v.取消……的資格；判定無資格","v":"超"},{"n":295,"s":"9/21","e":"revise","k":"rɪˋvaɪz","z":"v.修改、修正；修訂（文中為過去分詞作形容詞，表示「修正後的」）","v":"4"},{"n":296,"s":"9/21","e":"aerospace","k":"ˋɛroˏspes","z":"adj.航空太空的；航太的n.航太工業；航空太空領域","v":"超"},{"n":297,"s":"9/21","e":"surgeon","k":"ˋsɝdʒən","z":"n.外科醫師","v":"4"},{"n":298,"s":"9/21","e":"candidate","k":"ˋkændəˏdet","z":"n.候選人；申請者；應試者（尤指經過篩選後被列入考慮的人）","v":"4"},{"n":299,"s":"9/21","e":"applicant","k":"ˋæplɪkənt","z":"n.（求職、求學等的）申請者","v":"4"},{"n":300,"s":"9/22","e":"launch","k":"lɔntʃ","z":"v.展開、開始（文中作不及物用）；推出、發布；發射","v":"4"},{"n":301,"s":"9/22","e":"conduct","k":"kənˋdʌkt","z":"v.進行、實施；傳導；指揮","v":"5"},{"n":302,"s":"9/22","e":"commander","k":"kəˋmændɚ","z":"n.指揮官；司令官；海軍中校","v":"4"},{"n":303,"s":"9/22","e":"research","k":"ˋriˏsɝtʃ","z":"n., v.研究、調查（作動詞時唸作[rɪˋsɝtʃ]）","v":"4"},{"n":304,"s":"9/22","e":"immune","k":"ɪˋmjun","z":"adj.（對疾病）免疫的、有免疫力的；不受影響的","v":"5"},{"n":305,"s":"9/22","e":"colleague","k":"ˋkɑlig","z":"n.同事、同僚","v":"4"},{"n":306,"s":"9/22","e":"stance","k":"stæns","z":"n.（公開表明的）觀點、立場、態度","v":"5"},{"n":307,"s":"9/23","e":"reservation","k":"ˏrɛzɚˋveʃən","z":"n.預約、預訂","v":"4"},{"n":308,"s":"9/23","e":"preference","k":"ˋprɛfrəns","z":"n.偏好、喜愛","v":"5"},{"n":309,"s":"9/23","e":"secure","k":"sɪˋkjʊr","z":"v.確保；成功取得、獲得；固定","v":"4"},{"n":310,"s":"9/23","e":"session","k":"ˋsɛʃən","z":"n.（從事某項活動的）時段；課程；場次","v":"5"},{"n":311,"s":"9/23","e":"massage","k":"məˋsɑʒ","z":"n.按摩（massage therapist指「按摩師」）","v":"5"},{"n":312,"s":"9/23","e":"promptly","k":"ˋprɑmptli","z":"adv.準時地；迅速地","v":"4"},{"n":313,"s":"9/24","e":"opening","k":"ˋopənɪŋ","z":"n.空缺的名額；職缺；機會","v":"1"},{"n":314,"s":"9/24","e":"participation","k":"pɑrˏtɪsəˋpeʃən","z":"n.參與、參加","v":"4"},{"n":315,"s":"9/24","e":"instructor","k":"ɪnˋstrʌktɚ","z":"n.指導者；教練；講師","v":"4"},{"n":316,"s":"9/24","e":"calculate","k":"ˋkælkjəˏlet","z":"v.計算","v":"4"},{"n":317,"s":"9/25","e":"version","k":"ˋvɝʒən","z":"n.版本；變化形式","v":"5"},{"n":318,"s":"9/25","e":"vast","k":"væst","z":"adj.巨大的；遼闊的；龐大的","v":"4"},{"n":319,"s":"9/25","e":"undertake","k":"ˏʌndɚˋtek","z":"v.著手進行、從事；承擔","v":"5"},{"n":320,"s":"9/25","e":"extraordinary","k":"ɪkˋstrɔrdəˏnɛri","z":"adj.非凡的、出色的；令人驚奇的","v":"5"},{"n":321,"s":"9/25","e":"landscape","k":"ˋlændˏskep","z":"n.（陸上的）風景、景觀；地貌","v":"4"},{"n":322,"s":"9/25","e":"dusty","k":"ˋdʌsti","z":"adj.塵土飛揚的；布滿灰塵的","v":"4"},{"n":323,"s":"9/25","e":"diverse","k":"daɪˋvɝs","z":"adj.形形色色的；各式各樣的","v":"4"},{"n":324,"s":"9/28","e":"luxurious","k":"lʌgˋʒʊriəs","z":"adj.奢華的、豪華的；舒適享受的","v":"4"},{"n":325,"s":"9/28","e":"innovation","k":"ˏɪnəˋveʃən","z":"n.新發明、新方法；創新","v":"5"},{"n":326,"s":"9/28","e":"surgery","k":"ˋsɝdʒəri","z":"n.外科手術","v":"4"},{"n":327,"s":"9/28","e":"terrifying","k":"ˋtɛrəˏfaɪɪŋ","z":"adj.令人十分害怕的、駭人的","v":"5"},{"n":328,"s":"9/28","e":"physically","k":"ˋfɪzɪkli","z":"adv.身體上、肉體上；物理上","v":"4"},{"n":329,"s":"9/28","e":"procedure","k":"prəˋsidʒɚ","z":"n.醫療處置、手術；程序","v":"4"},{"n":330,"s":"9/28","e":"agony","k":"ˋægəni","z":"n.（身體或精神上）極度痛苦（不可數）；痛苦的經歷（可數）","v":"5"},{"n":331,"s":"9/29","e":"miraculous","k":"məˋrækjələs","z":"adj.不可思議的、奇蹟般的","v":"6"},{"n":332,"s":"9/29","e":"massive","k":"ˋmæsɪv","z":"adj.巨大的；大規模的；大量的","v":"5"},{"n":333,"s":"9/29","e":"vomit","k":"ˋvɑmət","z":"v.嘔吐","v":"5"},{"n":334,"s":"9/29","e":"physician","k":"fəˋzɪʃən","z":"n.醫生（尤指內科醫生）","v":"4"},{"n":335,"s":"9/29","e":"dose","k":"dos","z":"n.一次的服用量、劑量","v":"3"},{"n":336,"s":"9/29","e":"established","k":"ɪˋstæblɪʃt","z":"adj.已確立的、已被接受的；備受尊重的","v":"4"},{"n":337,"s":"9/29","e":"undergo","k":"ˏʌndɚˋgo","z":"v.經歷、接受、遭受（動詞三態為undergo–underwent–undergone）","v":"5"},{"n":338,"s":"9/30","e":"solo","k":"ˋsolo","z":"adj.單人的；獨自進行的；獨唱的、獨奏的","v":"5"},{"n":339,"s":"9/30","e":"flexibility","k":"ˏflɛksəˋbɪləti","z":"n.靈活性、彈性","v":"5"},{"n":340,"s":"9/30","e":"compromise","k":"ˋkɑmprəˏmaɪz","z":"v.妥協、折衷、讓步","v":"5"},{"n":341,"s":"9/30","e":"destination","k":"ˏdɛstəˋneʃən","z":"n.目的地；終點","v":"5"},{"n":342,"s":"9/30","e":"split","k":"splɪt","z":"v.分攤、分享；分開；分裂","v":"4"},{"n":343,"s":"9/30","e":"arise","k":"əˋraɪz","z":"v.發生、出現；產生（較正式，常指抽象問題；動詞三態為arise–arose–arisen）","v":"4"},{"n":344,"s":"9/30","e":"occasionally","k":"əˋkeʒənəli","z":"adv.偶爾、有時","v":"4"}],"c":[{"l":"L1","z":"找到工作","e":"find employment"},{"l":"L1","z":"全球性的公司","e":"global corporations"},{"l":"L1","z":"患有…／受…所苦","e":"suffer from"},{"l":"L1","z":"末期癌症","e":"terminal cancer"},{"l":"L1","z":"航廈","e":"terminal building"},{"l":"L1","z":"精神疾病","e":"mental illness"},{"l":"L1","z":"哄堂大笑／爆笑","e":"burst into laughter"},{"l":"L1","z":"把…嚇個半死","e":"frighten…to death"},{"l":"L1","z":"嚇得逃跑","e":"run away in fright"},{"l":"L1","z":"接觸到","e":"come into contact with"},{"l":"L1","z":"保持聯絡","e":"keep in contact"},{"l":"L1","z":"促使…去…","e":"prompt…to…"},{"l":"L1","z":"離不開輪椅／被限制在輪椅上","e":"be confined to a wheelchair"},{"l":"L1","z":"伸出手臂","e":"stretch his arm"},{"l":"L1","z":"遭到拒絕","e":"was met with refusal"},{"l":"L1","z":"毫不猶豫地","e":"without hesitation"},{"l":"L2","z":"用創新的方法","e":"take an innovative approach"},{"l":"L2","z":"承諾／答應過","e":"make a promise"},{"l":"L2","z":"能夠","e":"was capable of"},{"l":"L2","z":"超出能力範圍","e":"beyond their capabilities"},{"l":"L2","z":"和…合作","e":"collaborate with"},{"l":"L2","z":"和…密切合作","e":"in close collaboration with"},{"l":"L2","z":"畢業於…","e":"graduate from"},{"l":"L2","z":"建築工地","e":"the construction site"},{"l":"L2","z":"有建設性的批評","e":"constructive criticism"},{"l":"L2","z":"排名在前百分之一","e":"rank in the top 1%"},{"l":"L2","z":"做調整","e":"make adjustments"},{"l":"L2","z":"依賴","e":"rely on"},{"l":"L2","z":"收到顧客回饋","e":"receive feedback from customers"},{"l":"L2","z":"…的一項關鍵要素","e":"a key element in"},{"l":"L2","z":"走不同路線","e":"take a different route"},{"l":"L2","z":"對…詳盡探索","e":"detailed exploration of"},{"l":"L3","z":"對死亡普遍的恐懼","e":"a universal fear of death"},{"l":"L3","z":"假毛","e":"fake fur"},{"l":"L3","z":"把你的座椅恢復直立狀態","e":"return your seat to the upright position"},{"l":"L3","z":"和…起衝突","e":"come into conflict with"},{"l":"L3","z":"和…衝突、與…牴觸","e":"conflict with"},{"l":"L3","z":"某人…很慷慨","e":"It is generous of sb. to"},{"l":"L3","z":"分發、分送給…","e":"be distributed to"},{"l":"L3","z":"大有助益","e":"be of great benefit"},{"l":"L3","z":"從…獲益","e":"benefit from"},{"l":"L3","z":"凍死","e":"freeze to death"},{"l":"L3","z":"對…暴怒","e":"be furious at"},{"l":"L3","z":"氣得發抖","e":"shake with fury"},{"l":"L3","z":"犯汽車竊盜罪","e":"commit a car theft"},{"l":"L3","z":"因…被某人處罰","e":"be punished by sb. for"},{"l":"L3","z":"被從…放逐","e":"be banished from"},{"l":"L3","z":"古代文明","e":"an ancient civilization"}]};
 (function () {
   'use strict';
+  var STORE_KEY = 'zz_exam1_v1', RELEARN_GAP = 5, PASS = 3;
+  var state = null, session = null, scope = null;
 
-  var STORE_KEY = 'jcee_cards_v1';
-  var DEFAULT_Y0 = 106, DEFAULT_Y1 = 115;
-  var RELEARN_GAP = 6;      // 答錯的卡片隔幾張後再出現（同一張一再答錯就往後拉更遠）
-  var RELEARN_MAX = 24;
-  var VAR_MEMORY = 6;       // 每個字記住最近用過的幾種出現方式
+  function $(id){ return document.getElementById(id); }
+  function shuffle(a){ for (var i=a.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=a[i];a[i]=a[j];a[j]=t; } return a; }
+  function today(){ var d=new Date(); return Math.floor(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate())/86400000); }
+  function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 
-  var DATA = null, Q = null, W = null;
-  var state = null;         // { v, w:{word:{i,e,d,r,l,vv}}, day, done }
-  var scope = null;         // { y0, y1, st, lv, label, free }
-  var session = null;
-
-  /* ---------------- 小工具 ---------------- */
-  function $(id) { return document.getElementById(id); }
-  function show(id) { $(id).classList.remove('hide'); }
-  function hide(id) { $(id).classList.add('hide'); }
-  function esc(s) {
-    return String(s == null ? '' : s)
-      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;');
-  }
-  function today() {
-    var d = new Date();
-    return Math.floor(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()) / 86400000);
-  }
-  function shuffle(a) {
-    for (var i = a.length - 1; i > 0; i--) {
-      var j = Math.floor(Math.random() * (i + 1));
-      var t = a[i]; a[i] = a[j]; a[j] = t;
-    }
-    return a;
-  }
-  function pick(a) { return a[Math.floor(Math.random() * a.length)]; }
-
-  /* ---------------- 進度存取 ---------------- */
-  function loadState() {
-    var s = null;
-    try { s = JSON.parse(localStorage.getItem(STORE_KEY)); } catch (e) { s = null; }
-    if (!s || s.v !== 1 || typeof s.w !== 'object' || !s.w) s = { v: 1, w: {}, day: today(), done: 0 };
-    if (s.day !== today()) { s.day = today(); s.done = 0; }
+  function loadState(){
+    var s=null;
+    try { s=JSON.parse(localStorage.getItem(STORE_KEY)); } catch(e){ s=null; }
+    if (!s || s.v!==1) s={v:1,w:{}};
     return s;
   }
-  function saveState() {
-    try { localStorage.setItem(STORE_KEY, JSON.stringify(state)); } catch (e) { /* 無痕模式等，略過 */ }
-  }
+  function saveState(){ try { localStorage.setItem(STORE_KEY, JSON.stringify(state)); } catch(e){} }
 
-  /* ---------------- 範圍參數 ---------------- */
-  function parseScope() {
-    var raw = '';
-    try { raw = decodeURIComponent((location.hash || '').replace(/^#/, '')); } catch (e) { raw = (location.hash || '').replace(/^#/, ''); }
-    var p = {};
-    raw.split('&').forEach(function (kv) {
-      var i = kv.indexOf('=');
-      if (i > 0) p[kv.slice(0, i).trim()] = kv.slice(i + 1).trim();
+  // 網址：#n=25-36,296-304&c=L1,L2&t=第五節聽寫
+  function parseScope(){
+    var h=(location.hash||'').replace(/^#/,''), q={};
+    h.split('&').forEach(function(p){
+      var i=p.indexOf('='); if(i<0) return;
+      q[decodeURIComponent(p.slice(0,i))]=decodeURIComponent(p.slice(i+1));
     });
-
-    var y0 = DEFAULT_Y0, y1 = DEFAULT_Y1;
-    if (p.y) {
-      var m = p.y.match(/^(\d{2,3})\s*(?:[-–~]\s*(\d{2,3}))?$/);
-      if (m) { y0 = +m[1]; y1 = m[2] ? +m[2] : +m[1]; if (y0 > y1) { var t = y0; y0 = y1; y1 = t; } }
-    }
-    var st = (p.st === 'gsat' || p.st === 'zhikao') ? p.st : 'both';
-
-    var lv = null;                       // null = 全部字級
-    if (p.lv) {
-      lv = { n: {}, p: false, x: false };
-      p.lv.split(',').forEach(function (tok) {
-        tok = tok.trim();
-        if (tok === 'p' || tok === '片語') { lv.p = true; return; }
-        if (tok === 'x' || tok === '超綱') { lv.x = true; return; }
-        var m2 = tok.match(/^([1-6])\s*(?:[-–~]\s*([1-6]))?$/);
-        if (m2) {
-          var a = +m2[1], b = m2[2] ? +m2[2] : +m2[1];
-          if (a > b) { var t2 = a; a = b; b = t2; }
-          for (var i = a; i <= b; i++) lv.n[i] = true;
-        }
+    var nums=null;
+    if (q.n) {
+      nums=[];
+      q.n.split(',').forEach(function(r){
+        var m=/^(\d+)(?:-(\d+))?$/.exec(r.trim());
+        if(m) nums.push([+m[1], m[2]?+m[2]:+m[1]]);
       });
-      var any = lv.p || lv.x || Object.keys(lv.n).length;
-      if (!any) lv = null;
     }
-
-    return {
-      y0: y0, y1: y1, st: st, lv: lv,
-      label: p.t || '',
-      free: p.mode === 'free',
-      custom: !!(p.y || p.st || p.lv)
-    };
+    var lessons = q.c ? q.c.split(',').map(function(s){return s.trim().toUpperCase();}) : null;
+    return { nums: nums, lessons: lessons, title: q.t || '' };
   }
 
-  function scopeText() {
-    var parts = [];
-    parts.push(scope.y0 === scope.y1 ? (scope.y0 + ' 年') : (scope.y0 + '–' + scope.y1 + ' 年'));
-    parts.push(scope.st === 'gsat' ? '學測' : scope.st === 'zhikao' ? '指考' : '學測＋指考');
-    if (scope.lv) {
-      var ns = Object.keys(scope.lv.n).map(Number).sort(function (a, b) { return a - b; });
-      var seg = [];
-      if (ns.length) seg.push(ns.length === 1 ? (ns[0] + ' 級') : (ns[0] + '–' + ns[ns.length - 1] + ' 級'));
-      if (scope.lv.p) seg.push('片語');
-      if (scope.lv.x) seg.push('超綱');
-      parts.push(seg.join('、'));
+  function inRanges(n, rs){ for (var i=0;i<rs.length;i++) if (n>=rs[i][0] && n<=rs[i][1]) return true; return false; }
+
+  var SETS = [], sel = 0;
+
+  var AL_UNITS = [['U1',['9/1']],['U2',['9/2','9/3']],['U3',['9/4']],['U4',['9/7','9/8']],
+    ['U5',['9/9']],['U6',['9/10','9/11']],['U8',['9/15','9/16']],['U9',['9/17','9/18']],
+    ['U10',['9/21','9/22']],['U11',['9/23','9/24']],['U12',['9/25']],['U13',['9/28','9/29']],
+    ['U14',['9/30']]];
+  var AL_STAR = ['U2','U6','U8','U9','U13'];
+
+  function makeSets(){
+    // 字搭要等課堂核對過才開。改這一行就能解鎖：L2 核對後寫 ['L1','L2']，L3 核對後寫 ['L1','L2','L3']
+    var UNLOCKED = ['L1'];
+    var g = [], lessons = scope.lessons || UNLOCKED;
+    if (scope.nums || scope.lessons) {
+      g.push({ label: '老師指定', sets: [
+        { label: scope.title || '這次範圍', nums: scope.nums, lessons: scope.lessons } ] });
     }
-    return parts.join('　·　');
+    g.push({ label: '龍騰課本　單字', sets: ['L1','L2','L3'].map(function (l) {
+      return { label: l, secs: [l] }; }) });
+    g.push({ label: '龍騰課本　字詞搭配', sets: lessons.map(function (l) {
+      return { label: l, lessons: [l] }; }) });
+    g.push({ label: '核心字彙', sets: ['U9','U10','U11','U12'].map(function (u) {
+      return { label: u, secs: [u] }; }) });
+    var al = AL_UNITS.map(function (u) {
+      var star = AL_STAR.indexOf(u[0]) >= 0;
+      return { label: u[0] + (star ? '★' : ''), secs: u[1] };
+    });
+    al.push({ label: '閱讀必考★', secs: ['9/2','9/3','9/10','9/11','9/15','9/16','9/17','9/18','9/28','9/29'] });
+    g.push({ label: 'ALL+ 九月號', sets: al });
+    g.push({ label: '整份', sets: [
+      { label: '單字全部', nums: [[1,344]] },
+      { label: '字搭全部', lessons: lessons },
+      { label: '全部', nums: [[1,344]], lessons: lessons } ] });
+    var flat = [];
+    g.forEach(function (grp) { grp.sets.forEach(function (s) { s.g = grp.label; flat.push(s); }); });
+    return { groups: g, flat: flat };
   }
 
-  /* ---------------- 選字 ---------------- */
-  function inRange(qid, sc) {
-    sc = sc || scope;
-    var q = Q[qid];
-    if (!q) return false;
-    if (q.y < sc.y0 || q.y > sc.y1) return false;
-    if (sc.st !== 'both' && q.st !== sc.st) return false;
-    return true;
-  }
-  function lvOK(w, sc) {
-    sc = sc || scope;
-    var lv = sc.lv;
-    if (!lv) return true;
-    if (w.kd === '片語') return !!lv.p;
-    if (w.kd === '超綱') return !!lv.x;
-    return !!(w.lv && lv.n[+w.lv]);
-  }
-  function buildPool(sc) {
-    sc = sc || scope;
-    var pool = [];
-    for (var k in W) {
-      var w = W[k];
-      if (!w.c || !lvOK(w, sc)) continue;
-      var hit = false;
-      for (var i = 0; i < w.oc.length; i++) { if (inRange(w.oc[i][0], sc)) { hit = true; break; } }
-      if (hit) pool.push(k);
-    }
-    // 新字排序：考過越多次的排前面，其次是年份越近的排前面
-    pool.sort(function (a, b) {
-      var d = W[b].oc.length - W[a].oc.length;
-      if (d) return d;
-      var ya = Math.max.apply(null, W[a].oc.map(function (o) { return Q[o[0]].y; }));
-      var yb = Math.max.apply(null, W[b].oc.map(function (o) { return Q[o[0]].y; }));
-      if (yb !== ya) return yb - ya;
-      return a < b ? -1 : 1;
-    });
-    return pool;
-  }
-
-  /* ---------------- 出現方式 ---------------- */
-  // 回傳這個字在目前範圍內所有可用的出現方式
-  function variantsOf(word) {
-    var w = W[word], out = [];
-    w.oc.forEach(function (o) {
-      var qid = o[0];
-      if (!inRange(qid)) return;
-      if (Q[qid].ez !== 0) out.push('e|' + qid);
-      out.push('z|' + qid);
-    });
-    (w.fr || []).forEach(function (f, i) {
-      if (inRange(f[1])) out.push('f|' + f[1] + '|' + i);
-    });
-    if (w.fm && w.fm.length >= 3) out.push('m|');
+  function poolOf(set){
+    var out = [];
+    if (set.secs) DATA.w.forEach(function (w, i) { if (set.secs.indexOf(w.s) >= 0) out.push({t:'w', i:i}); });
+    if (set.nums) DATA.w.forEach(function (w, i) { if (inRanges(w.n, set.nums)) out.push({t:'w', i:i}); });
+    if (set.lessons) DATA.c.forEach(function (c, i) { if (set.lessons.indexOf(c.l) >= 0) out.push({t:'c', i:i}); });
     return out;
   }
-  // 挑一個最久沒用過的出現方式
-  function chooseVariant(word) {
-    var vs = variantsOf(word);
-    if (!vs.length) return null;
-    var used = (state.w[word] && state.w[word].vv) || [];
-    var fresh = vs.filter(function (v) { return used.indexOf(v) === -1; });
-    if (fresh.length) {
-      // 沒用過的裡面，優先挑跟上次不同題的，這樣再遇到同一個字時
-      // 換的是另一題的三個誘答，而不是同一題換個方向問
-      var lastQ = used.length ? (used[used.length - 1].split('|')[1] || '') : '';
-      var other = fresh.filter(function (v) {
-        var qid = v.split('|')[1] || '';
-        return qid && qid !== lastQ;
-      });
-      return pick(other.length ? other : fresh);
-    }
-    var best = vs[0], bestPos = 1e9;
-    vs.forEach(function (v) {
-      var p = used.indexOf(v);
-      if (p < bestPos) { bestPos = p; best = v; }
+
+  function buildPool(){ return poolOf(SETS.flat[sel]); }
+
+  function rec(card){ return card.t==='w' ? DATA.w[card.i] : DATA.c[card.i]; }
+  function key(card){ var r=rec(card); return card.t==='w' ? ('w'+r.n+'|'+r.e) : ('c'+r.l+'|'+r.e); }
+  function answerOf(card){ return rec(card).e; }
+  function promptOf(card){ var r=rec(card); return card.t==='w' ? r.z : r.z; }
+  function labelOf(card){
+    var r=rec(card);
+    return card.t==='w' ? (r.s+'　#'+r.n+(r.v?'　'+r.v+'級':'')) : ('龍騰 '+r.l+'　字詞搭配');
+  }
+
+  // 提示：每個字母串留首字母，其餘蓋掉；標點與省略號原樣保留
+  function mask(en){
+    return en.replace(/[A-Za-z]+/g, function(w){ return w.charAt(0) + w.slice(1).replace(/./g,'_'); });
+  }
+  function isPhrase(en){ return /[\s…]/.test(en) || /\.{2,}/.test(en); }
+  function countOf(en){
+    return isPhrase(en) ? en.split(/[\s…]+|\.{2,}/).filter(Boolean).length
+                        : en.replace(/[^A-Za-z]/g,'').length;
+  }
+  function unit(en){ return isPhrase(en) ? ' 個字' : ' 個字母'; }
+  function hintFor(en, stage){
+    if (stage <= 0) return mask(en);
+    var head = (en.match(/[A-Za-z]/) || [''])[0];
+    if (stage === 1) return head + '…　（' + countOf(en) + unit(en) + '）';
+    return '（' + countOf(en) + unit(en) + '）';
+  }
+
+  function due(pool){
+    var t=today(), fresh=[], ready=[], passed=0;
+    pool.forEach(function(c){
+      var r=state.w[key(c)];
+      if (!r) fresh.push(c);
+      else if (r.p>=PASS && r.due>t) passed++;
+      else if (r.due<=t) ready.push(c);
+      else passed++;
     });
-    return best;
-  }
-  function rememberVariant(word, v) {
-    var s = state.w[word];
-    if (!s) return;
-    s.vv = (s.vv || []).filter(function (x) { return x !== v; });
-    s.vv.push(v);
-    if (s.vv.length > VAR_MEMORY) s.vv = s.vv.slice(-VAR_MEMORY);
+    return {fresh:fresh, ready:ready, passed:passed};
   }
 
-  /* ---------------- 排程（簡化 SM-2） ---------------- */
-  function grade(word, ok) {
-    var s = state.w[word];
-    if (!s) s = state.w[word] = { i: 0, e: 2.5, d: today(), r: 0, l: 0, vv: [] };
-    if (ok) {
-      s.r = (s.r || 0) + 1;
-      s.i = s.r === 1 ? 1 : s.r === 2 ? 3 : Math.round(s.i * s.e);
-      if (s.i > 365) s.i = 365;
-      s.e = Math.min(2.8, (s.e || 2.5) + 0.05);
-    } else {
-      s.l = (s.l || 0) + 1;
-      s.r = 0;
-      s.i = 0;
-      s.e = Math.max(1.3, (s.e || 2.5) - 0.2);
-    }
-    s.d = today() + s.i;
-    return s;
-  }
-
-  /* ---------------- 開始一輪 ---------------- */
-  function startSession(free) {
-    var pool = buildPool();
-    var t = today(), due = [], fresh = [];
-    pool.forEach(function (k) {
-      var s = state.w[k];
-      if (!s) fresh.push(k);
-      else if (s.d <= t) due.push(k);
-    });
-    due.sort(function (a, b) { return state.w[a].d - state.w[b].d; });
-
-    var queue;
-    if (free) {
-      queue = shuffle(pool.slice());
-    } else {
-      queue = due.concat(fresh);
-    }
-    if (!queue.length) { renderDone(free, 0, 0, pool); return; }
-
-    session = {
-      free: !!free, queue: queue, at: 0,
-      total: queue.length, answered: 0, right: 0,
-      newSeen: 0, pool: pool, current: null, miss: {}
-    };
-    hide('home'); hide('done'); show('quiz');
-    nextCard();
-  }
-
-  function nextCard() {
-    if (session.at >= session.queue.length) {
-      hide('quiz');
-      renderDone(session.free, session.answered, session.right, session.pool);
-      return;
-    }
-    var word = session.queue[session.at];
-    var v = chooseVariant(word);
-    if (!v) { session.at++; nextCard(); return; }
-    session.current = { word: word, variant: v, isNew: !state.w[word], graded: false, ok: null };
-    renderFront();
-  }
-
-  /* ---------------- 畫卡片正面 ---------------- */
-  var MODE_LABEL = {
-    e: '英文 → 中文',
-    z: '中文 → 英文',
-    f: '搭配詞填空',
-    m: '形近字辨識'
-  };
-
-  function frameHTML(txt) {
-    return esc(txt).replace(/_{2,}/g, '<u>______</u>');
-  }
-
-  function renderFront() {
-    var c = session.current, word = c.word, w = W[word];
-    var kind = c.variant.charAt(0);
-    var parts = c.variant.split('|');
-    var qid = parts[1] || null;
-
-    $('modeTag').textContent = MODE_LABEL[kind];
-
-    var body = '', opts = [], correct = '';
-
-    if (kind === 'e') {
-      var q = Q[qid], L = letterOf(word, qid);
-      body = '<p class="front-word">' + esc(displayWord(word, qid)) + '</p>' +
-             metaLine(q.gs[L]);
-      var ls = lettersOf(q);
-      var bare = ls.map(function (x) { return stripPos(q.gs[x]); });
-      var uniq = {}, allOK = true;
-      bare.forEach(function (t) { if (!t || uniq[t]) allOK = false; uniq[t] = 1; });
-      opts = ls.map(function (x, i) { return { key: x, text: allOK ? bare[i] : q.gs[x] }; });
-      correct = L;
-    } else if (kind === 'z') {
-      var q2 = Q[qid], L2 = letterOf(word, qid);
-      body = '<p class="front-zh">' + esc(q2.gs[L2]) + '</p>' +
-             '<p class="front-hint">四個選項都是這一題當年的原選項。</p>';
-      opts = lettersOf(q2).map(function (x) { return { key: x, text: q2.o[x] }; });
-      correct = L2;
-    } else if (kind === 'f') {
-      var q3 = Q[qid], L3 = letterOf(word, qid);
-      var fr = w.fr[+parts[2]];
-      body = '<p class="front-frame">' + frameHTML(fr[0]) + '</p>' +
-             '<p class="front-hint">出自 ' + esc(yearTag(qid)) + ' 的原題，四個選項是當年的原選項。</p>';
-      opts = lettersOf(q3).map(function (x) { return { key: x, text: q3.o[x] }; });
-      correct = L3;
-    } else { // m 形近字
-      var first = primaryOcc(word);
-      body = '<p class="front-zh">' + esc(Q[first[0]].gs[first[1]]) + '</p>' +
-             '<p class="front-hint">四個拼法相近的字都在本站考過，選出符合上面意思的那一個。</p>';
-      var cand = [{ key: '*', text: word }];
-      w.fm.slice(0, 3).forEach(function (p, i) { cand.push({ key: 'x' + i, text: p }); });
-      opts = cand;
-      correct = '*';
-    }
-
-    $('frontBody').innerHTML = body;
-
-    var shuffled = shuffle(opts.slice());
-    var LT = ['A', 'B', 'C', 'D', 'E'];
-    var ul = $('optList');
-    ul.innerHTML = '';
-    shuffled.forEach(function (o, i) {
-      var li = document.createElement('li');
-      var btn = document.createElement('button');
-      btn.className = 'opt';
-      btn.type = 'button';
-      btn.setAttribute('data-key', o.key);
-      btn.innerHTML = '<span class="lt">' + LT[i] + '</span>' + esc(o.text);
-      btn.addEventListener('click', function () { answer(o.key, correct); });
-      li.appendChild(btn);
-      ul.appendChild(li);
-    });
-
-    hide('backCard'); hide('actRow');
-    $('frontCard').classList.remove('hide');
-    updateBar();
-    window.scrollTo(0, 0);
-  }
-
-  // 挑一筆代表性的出現紀錄：範圍內、而且這個字是正解的優先，例句才會有這個字
-  function primaryOcc(word) {
-    var oc = W[word].oc, i;
-    for (i = 0; i < oc.length; i++) if (inRange(oc[i][0]) && oc[i][1] === Q[oc[i][0]].a) return oc[i];
-    for (i = 0; i < oc.length; i++) if (inRange(oc[i][0])) return oc[i];
-    for (i = 0; i < oc.length; i++) if (oc[i][1] === Q[oc[i][0]].a) return oc[i];
-    return oc[0];
-  }
-  function letterOf(word, qid) {
-    var oc = W[word].oc;
-    for (var i = 0; i < oc.length; i++) if (oc[i][0] === qid) return oc[i][1];
-    return null;
-  }
-  function lettersOf(q) { return Object.keys(q.o); }
-  function displayWord(word, qid) {
-    // 用原題選項的大小寫，例如句首的 Regardless of
-    var L = letterOf(word, qid);
-    return (qid && L && Q[qid].o[L]) ? Q[qid].o[L] : word;
-  }
-  function yearTag(qid) {
-    var q = Q[qid];
-    return q.y + '年 ' + q.t;   // 與兩個字彙站的寫法一致
-  }
-  var POS_RE = /^\s*((?:(?:adj|adv|n|v|vt|vi|prep|conj|pron|int|aux|art|abbr)\.\s*)+)/;
-  // 從一段釋義取出詞性標記
-  function posOf(gloss) {
-    var g = String(gloss || '').replace(/\u3000/g, ' ');
-    var m = POS_RE.exec(g);
-    if (m) return m[1].trim();
-    return g.indexOf('片語') === 0 ? '片語' : '';
-  }
-  // 去掉釋義開頭的詞性標記
-  function stripPos(gloss) {
-    var g = String(gloss || '').replace(/\u3000/g, ' ');
-    var m = POS_RE.exec(g);
-    if (m) return g.slice(m[0].length).trim();
-    return g.indexOf('片語') === 0 ? g.slice(2).trim() : g.trim();
-  }
-  // 正面的詞性要跟「這一題」的釋義一致：同一個字在別題可能是別的詞性
-  function metaLine(gloss) {
-    var p = posOf(gloss);
-    if (!p) return '';
-    return '<p class="front-meta"><span class="pos">' + esc(p) + '</span></p>';
-  }
-
-  /* ---------------- 作答 ---------------- */
-  function answer(chosen, correct) {
-    var c = session.current;
-    if (c.graded) return;
-    c.graded = true;
-    c.ok = (chosen === correct);
-
-    var btns = $('optList').querySelectorAll('.opt');
-    Array.prototype.forEach.call(btns, function (b) {
-      var k = b.getAttribute('data-key');
-      b.disabled = true;
-      if (k === correct) b.classList.add('right');
-      else if (k === chosen) b.classList.add('wrong');
-      else b.classList.add('dim');
-    });
-
-    session.answered++;
-    if (c.ok) session.right++;
-    if (c.isNew) session.newSeen++;
-
-    if (!session.free) {
-      grade(c.word, c.ok);
-      rememberVariant(c.word, c.variant);
-      state.done = (state.done || 0) + 1;
-      saveState();
-    }
-    if (!c.ok) requeue(c.word);
-
-    renderBack();
-  }
-
-  // 答錯的字排回佇列。同一個字在這一輪錯越多次，就排得越後面，
-  // 免得幾個難字一直輪迴、後面的新字都輪不到。
-  function requeue(word) {
-    session.miss[word] = (session.miss[word] || 0) + 1;
-    var gap = Math.min(RELEARN_GAP * session.miss[word], RELEARN_MAX);
-    var q = session.queue;
-    var pos = Math.min(session.at + 1 + gap, q.length);
-    q.splice(pos, 0, word);
-    session.total = q.length;
-  }
-
-  function markGuessed() {
-    var c = session.current;
-    if (session.free) { requeue(c.word); }
-    else {
-      grade(c.word, false);
-      saveState();
-      requeue(c.word);
-    }
-    var row = $('actRow');
-    row.innerHTML = '';
-    var b = document.createElement('button');
-    b.className = 'big-btn'; b.type = 'button'; b.textContent = '下一張';
-    b.addEventListener('click', advance);
-    var d = document.createElement('div');
-    d.className = 'guess-done'; d.textContent = '已記為猜的，等一下會再出現';
-    row.appendChild(b); row.appendChild(d);
-    updateBar();
-  }
-
-  function advance() {
-    session.at++;
-    nextCard();
-  }
-
-  /* ---------------- 畫卡片背面 ---------------- */
-  function renderBack() {
-    var c = session.current, word = c.word, w = W[word];
-    var parts = c.variant.split('|');
-    var qid = parts[1] || primaryOcc(word)[0];
-    var L = letterOf(word, qid);
-    var q = Q[qid];
-
-    var h = '';
-    h += '<p class="verdict ' + (c.ok ? 'ok' : 'no') + '">' + (c.ok ? '答對了' : '答錯了') + '</p>';
-
-    h += '<div class="bk-head">';
-    h += '<span class="bk-word">' + esc(displayWord(word, qid)) + '</span>';
-    if (w.kk) h += '<span class="bk-kk">[' + esc(w.kk) + ']</span>';
-    h += '<span class="lvtag">' + esc(levelText(w)) + '</span>';
-    h += '</div>';
-    h += '<p class="bk-gloss">' + esc(q.g[L]) + '</p>';
-
-    // 例句
-    h += '<div class="bk-sec">';
-    h += '<span class="bk-src"><span class="seg">' + esc(q.y + '年 ' + q.t) + '</span>　<span class="seg">第 ' + q.n + ' 題</span></span>';
-    h += '<p class="bk-en">' + stemHTML(q) + '</p>';
-    if (q.sz) h += '<p class="bk-zh">' + esc(q.sz) + '</p>';
-    var mk = markedWord(q);
-    if (mk) {
-      h += '<p class="bk-role">這一題是畫線選同義字，畫線的是 <b>' + esc(mk) +
-           '</b>，要選意思最接近的，正解是 <b>' + esc(q.o[q.a]) + '</b>。四個選項都不在句子裡。' +
-           (L !== q.a ? esc(displayWord(word, qid)) + ' 是當年的誘答。' : '') + '</p>';
-    } else if (L !== q.a) {
-      h += '<p class="bk-role">這一題的正解是 <b>' + esc(q.o[q.a]) + '</b>，' +
-           esc(displayWord(word, qid)) + ' 是當年的誘答，所以句子裡看不到這個字。</p>';
-    }
-    h += '</div>';
-
-    if (q.col) {
-      var colLab = (L === q.a) ? '字詞搭配'
-                 : '這一題考的搭配（正解 ' + esc(q.o[q.a]) + '）';
-      h += '<div class="bk-col"><span class="lab">' + colLab + '</span>' + esc(q.col) + '</div>';
-    }
-
-    h += '<a class="bk-link" href="' + (q.st === 'gsat' ? '../gsat/' : '../zhikao/') +
-         '#set-' + encodeURIComponent(q.id || qid) + '|單字記憶卡" target="_blank" rel="noopener">看原題與完整解析 →</a>';
-
-    $('backCard').innerHTML = h;
-    show('backCard');
-
-    var row = $('actRow');
-    row.innerHTML = '';
-    var b = document.createElement('button');
-    b.className = 'big-btn'; b.type = 'button'; b.textContent = '下一張';
-    b.addEventListener('click', advance);
-    row.appendChild(b);
-    if (c.ok) {
-      var g = document.createElement('button');
-      g.className = 'guess-btn'; g.type = 'button'; g.textContent = '剛才是猜的';
-      g.addEventListener('click', markGuessed);
-      row.appendChild(g);
-    }
-    show('actRow');
-    updateBar();
-  }
-
-  // 畫線同義字題：題幹用 @@字@@ 標出畫線的字，沒有空格
-  function markedWord(q) {
-    var m = /@@(.+?)@@/.exec(q.s);
-    return m ? m[1] : null;
-  }
-
-  function stemHTML(q) {
-    var ans = q.o[q.a];
-    var s = esc(q.s);
-    if (markedWord(q)) return s.replace(/@@(.+?)@@/, '<u class="mk">$1</u>');
-    var re = /_{3,}/;
-    if (re.test(s)) return s.replace(re, ' <b>' + esc(ans) + '</b> ').replace(/\s+([,.;!?])/g, '$1');
-    return s + '（正解 <b>' + esc(ans) + '</b>）';
-  }
-
-  function levelText(w) {
-    if (w.kd === '片語') return '片語';
-    if (w.kd === '超綱') return '超出詞彙表';
-    if (w.kd === '衍生' && w.fam) return w.lv + ' 級 · 源自 ' + w.fam;
-    return w.lv ? (w.lv + ' 級') : '未標級';
-  }
-
-  /* ---------------- 進度列 ---------------- */
-  function updateBar() {
-    var left = session.queue.length - session.at;
-    var acc = session.answered ? Math.round(session.right / session.answered * 100) : 0;
-    $('barLeft').textContent = '剩 ' + left + ' 張　·　已做 ' + session.answered +
-      (session.answered ? '　·　答對 ' + acc + '%' : '') + (session.free ? '　·　自由練習' : '');
-    var pct = session.queue.length ? (session.at / session.queue.length * 100) : 0;
-    $('trackFill').style.width = pct.toFixed(1) + '%';
-  }
-
-  /* ---------------- 結束畫面 ---------------- */
-  function renderDone(free, answered, right, pool) {
-    var t = today(), dueLater = [], nextDay = null, learned = 0;
-    pool.forEach(function (k) {
-      var s = state.w[k];
-      if (!s) return;
-      learned++;
-      if (s.d > t) { dueLater.push(s.d); if (nextDay === null || s.d < nextDay) nextDay = s.d; }
-    });
-    var newLeft = pool.filter(function (k) { return !state.w[k]; }).length;
-
-    var lead, stat = '';
-    if (answered === 0) {
-      lead = '今天沒有到期的字';
-      stat += '這個範圍裡的 <b>' + pool.length + '</b> 個字，你已經看過 <b>' + learned + '</b> 個。';
-      if (newLeft) stat += '<br>還有 <b>' + newLeft + '</b> 個新字沒開始。';
-    } else {
-      lead = free ? '這一輪練完了' : '今天這一輪做完了';
-      stat += '做了 <b>' + answered + '</b> 張，答對 <b>' + Math.round(right / answered * 100) + '</b>%。';
-      if (!free) {
-        stat += '<br>這個範圍累計看過 <b>' + learned + '</b> 個字，還有 <b>' + newLeft + '</b> 個新字沒開始。';
-      }
-    }
-    if (nextDay !== null) {
-      var days = nextDay - t;
-      stat += '<br>下一批到期是' + (days <= 0 ? '現在' : days === 1 ? '明天' : (days + ' 天後'));
-      stat += '，共 ' + dueLater.filter(function (d) { return d === nextDay; }).length + ' 個字。';
-    }
-    $('doneLead').textContent = lead;
-    $('doneStat').innerHTML = stat;
-    $('againBtn').textContent = (answered === 0 && newLeft === 0) ? '自由練習' : '繼續練';
-    hide('quiz'); hide('home'); show('done');
-    window.scrollTo(0, 0);
-  }
-
-  /* ---------------- 首頁的範圍切換 ---------------- */
-  // 「開始複習」不問設定直接進；這一列是給想擴大範圍的人點的。
-  var RANGES = [
-    { label: '近十年', y0: 106, y1: 115, st: 'both', hash: '#y=106-115' },
-    { label: '學測全部', y0: 83, y1: 115, st: 'gsat', hash: '#y=83-115&st=gsat' },
-    { label: '指考全部', y0: 81, y1: 110, st: 'zhikao', hash: '#y=81-110&st=zhikao' },
-    { label: '兩站全部', y0: 81, y1: 115, st: 'both', hash: '#y=81-115' }
-  ];
-  function renderRanges() {
-    var box = $('rangeRow');
-    if (!box) return;
+  function renderHome(){
+    var box = $('setGroups');
     box.innerHTML = '';
-    RANGES.forEach(function (r, i) {
-      var n = buildPool({ y0: r.y0, y1: r.y1, st: r.st, lv: scope.lv }).length;
-      var here = (scope.y0 === r.y0 && scope.y1 === r.y1 && scope.st === r.st);
-      if (i) box.appendChild(document.createTextNode(' · '));
-      var el = document.createElement(here ? 'span' : 'a');
-      el.className = 'rg' + (here ? ' on' : '');
-      if (!here) el.setAttribute('href', r.hash);
-      el.textContent = r.label + ' ' + n;
-      box.appendChild(el);
+    var idx = 0;
+    SETS.groups.forEach(function (grp) {
+      var wrap = document.createElement('div');
+      wrap.className = 'grp';
+      var lbl = document.createElement('span');
+      lbl.className = 'glbl'; lbl.textContent = grp.label;
+      wrap.appendChild(lbl);
+      var row = document.createElement('div');
+      row.className = 'row';
+      grp.sets.forEach(function (s) {
+        var my = idx++;
+        var n = poolOf(s).length;
+        var b = document.createElement('button');
+        b.className = 'chip'; b.type = 'button';
+        b.setAttribute('aria-pressed', my === sel ? 'true' : 'false');
+        b.innerHTML = esc(s.label) + '<span class="qty">' + n + '</span>';
+        b.addEventListener('click', function () { sel = my; renderHome(); });
+        row.appendChild(b);
+      });
+      wrap.appendChild(row);
+      box.appendChild(wrap);
     });
+    var pool = buildPool(), dd = due(pool);
+    $('homeStat').innerHTML = '這個範圍 <b>' + pool.length + '</b> 個，今天要練 <b>' +
+      (dd.ready.length + dd.fresh.length) + '</b> 個，已經拼得出來的 <b>' + dd.passed + '</b> 個。';
   }
 
-  /* ---------------- 首頁 ---------------- */
-  function renderHome() {
-    var pool = buildPool();
-    var t = today(), due = 0, fresh = 0, learned = 0;
-    pool.forEach(function (k) {
-      var s = state.w[k];
-      if (!s) { fresh++; return; }
-      learned++;
-      if (s.d <= t) due++;
-    });
-    $('scopeLine').textContent = (scope.label ? scope.label + '　·　' : '') + scopeText() +
-      '　·　' + pool.length + ' 字';
+  function start(){
+    var pool=buildPool(), d=due(pool);
+    var q=shuffle(d.ready.slice()).concat(shuffle(d.fresh.slice()));
+    if (!q.length) q=shuffle(pool.slice());
+    session={q:q, total:q.length, miss:{}};
+    $('home').classList.add('hide'); $('done').classList.add('hide'); $('quiz').classList.remove('hide');
+    next();
+  }
 
-    var h = '';
-    if (!learned) {
-      h += '這個範圍有 <b>' + pool.length + '</b> 個字，全部還沒開始。';
+  function next(){
+    if (!session.q.length) return finish();
+    var card=session.q[0], r=state.w[key(card)]||{p:0,i:0,due:0};
+    var en=answerOf(card);
+    $('qProgress').textContent='還有 '+session.q.length+' 個';
+    $('srcLbl').textContent=labelOf(card);
+    $('prompt').textContent=promptOf(card);
+    $('hint').textContent=hintFor(en, Math.min(r.p,2));
+    $('ansBox').classList.add('hide');
+    $('revealRow').classList.remove('hide');
+    $('revealBtn').onclick=function(){
+      $('revealRow').classList.add('hide');
+      $('answer').textContent=en;
+      var k=rec(card).k;
+      $('kk').textContent = k ? '['+k+']' : '';
+      $('ansBox').classList.remove('hide');
+      $('gotBtn').onclick=function(){ grade(card,true); };
+      $('missBtn').onclick=function(){ grade(card,false); };
+    };
+  }
+
+  function grade(card, ok){
+    var k=key(card), r=state.w[k]||{p:0,i:0,due:0};
+    if (ok) {
+      r.p=(r.p||0)+1;
+      if (r.p>=PASS) { r.i=r.i?Math.min(r.i*2,30):1; r.due=today()+r.i; session.q.shift(); }
+      else { var it=session.q.shift(); session.q.splice(Math.min(RELEARN_GAP,session.q.length),0,it); }
     } else {
-      h += '今天到期 <b>' + due + '</b> 個字';
-      h += '，沒開始過的還有 <b>' + fresh + '</b> 個。';
-      h += '<br>累計已經看過 <b>' + learned + '</b> 個字。';
+      r.p=0; r.i=0; r.due=today();
+      session.miss[k]=(session.miss[k]||0)+1;
+      var it2=session.q.shift();
+      session.q.splice(Math.min(RELEARN_GAP,session.q.length),0,it2);
     }
-    $('homeStat').innerHTML = h;
-    renderRanges();
-    $('startBtn').disabled = pool.length === 0;
-    if (pool.length === 0) $('startBtn').textContent = '這個範圍沒有字';
-    hide('quiz'); hide('done'); show('home');
+    state.w[k]=r; saveState(); next();
   }
 
-  /* ---------------- 啟動 ---------------- */
-  function boot(data) {
-    DATA = data; Q = data.q; W = data.w;
-    // 補上 id 欄位，背面連結要用
-    for (var k in Q) Q[k].id = k;
-    state = loadState();
-    scope = parseScope();
-    hide('loading');
-    if (scope.free) { startSession(true); return; }
+  function finish(){
+    $('quiz').classList.add('hide'); $('done').classList.remove('hide');
+    var m=Object.keys(session.miss).length;
+    $('doneNote').textContent = m ? ('這一輪 '+session.total+' 個，其中 '+m+' 個卡住過，過幾天會再出現。')
+                                  : ('這一輪 '+session.total+' 個，全部一次就拼出來。');
     renderHome();
   }
 
-  function wire() {
-    $('startBtn').addEventListener('click', function () { startSession(false); });
-    $('freeBtn').addEventListener('click', function () { startSession(true); });
-    $('quitBtn').addEventListener('click', function () {
-      hide('quiz');
-      renderDone(session.free, session.answered, session.right, session.pool);
-    });
-    $('againBtn').addEventListener('click', function () {
-      var pool = buildPool(), t = today();
-      var hasWork = pool.some(function (k) { var s = state.w[k]; return !s || s.d <= t; });
-      startSession(!hasWork);
-    });
-    $('homeBtn').addEventListener('click', renderHome);
-    $('resetBtn').addEventListener('click', function () {
-      if (!window.confirm('確定要清除這台裝置上的所有複習進度嗎？清掉之後所有的字都會變回新字。')) return;
-      state = { v: 1, w: {}, day: today(), done: 0 };
-      saveState();
-      renderHome();
-    });
-    window.addEventListener('hashchange', function () {
-      scope = parseScope();
-      renderHome();
-    });
-  }
+  $('startBtn').addEventListener('click', start);
+  $('againBtn').addEventListener('click', start);
+  $('homeBtn').addEventListener('click', function(){ $('done').classList.add('hide'); $('home').classList.remove('hide'); renderHome(); });
+  $('quitLink').addEventListener('click', function(e){ e.preventDefault(); $('quiz').classList.add('hide'); $('home').classList.remove('hide'); renderHome(); });
+  $('clearBtn').addEventListener('click', function(){
+    if (!confirm('確定要清除這台裝置上的練習進度嗎？清掉之後所有字都會變回沒練過。')) return;
+    state={v:1,w:{}}; saveState(); renderHome();
+  });
+  window.addEventListener('hashchange', function(){ scope=parseScope(); SETS=makeSets(); sel=0; renderHome(); });
 
-  function init() {
-    wire();
-    fetch('cards_data.json', { cache: 'default' })
-      .then(function (r) {
-        if (!r.ok) throw new Error('HTTP ' + r.status);
-        return r.json();
-      })
-      .then(boot)
-      .catch(function (e) {
-        $('loading').textContent = '字庫載入失敗，請重新整理頁面試試。';
-      });
-  }
-
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
-  else init();
-
-  // 測試用
-  window.__cards = {
-    get state() { return state; },
-    get scope() { return scope; },
-    get session() { return session; },
-    buildPool: buildPool, variantsOf: variantsOf, today: today,
-    chooseVariant: chooseVariant, stemHTML: stemHTML, markedWord: markedWord,
-    setState: function (s) { state = s; }, saveState: saveState, grade: grade
-  };
+  state=loadState(); scope=parseScope(); SETS=makeSets(); sel=0; renderHome();
+  window.__deck={ get state(){return state;}, DATA:DATA, hintFor:hintFor, buildPool:buildPool,
+    parseScope:parseScope, get SETS(){return SETS.flat;}, poolOf:poolOf, setSel:function(i){sel=i;} };
 })();
 </script>
 </body>
