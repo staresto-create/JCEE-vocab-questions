@@ -551,8 +551,12 @@
     if (kind === 'e') {
       var q = Q[qid], L = letterOf(word, qid);
       body = '<p class="front-word">' + esc(displayWord(word, qid)) + '</p>' +
-             metaLine(w);
-      opts = lettersOf(q).map(function (x) { return { key: x, text: q.gs[x] }; });
+             metaLine(q.gs[L]);
+      var ls = lettersOf(q);
+      var bare = ls.map(function (x) { return stripPos(q.gs[x]); });
+      var uniq = {}, allOK = true;
+      bare.forEach(function (t) { if (!t || uniq[t]) allOK = false; uniq[t] = 1; });
+      opts = ls.map(function (x, i) { return { key: x, text: allOK ? bare[i] : q.gs[x] }; });
       correct = L;
     } else if (kind === 'z') {
       var q2 = Q[qid], L2 = letterOf(word, qid);
@@ -624,9 +628,26 @@
     var q = Q[qid];
     return q.y + ' ' + q.t;
   }
-  function metaLine(w) {
-    if (!w.pos) return '';
-    return '<p class="front-meta"><span class="pos">' + esc(w.pos) + '</span></p>';
+  var POS_RE = /^\s*((?:(?:adj|adv|n|v|vt|vi|prep|conj|pron|int|aux|art|abbr)\.\s*)+)/;
+  // 從一段釋義取出詞性標記
+  function posOf(gloss) {
+    var g = String(gloss || '').replace(/\u3000/g, ' ');
+    var m = POS_RE.exec(g);
+    if (m) return m[1].trim();
+    return g.indexOf('片語') === 0 ? '片語' : '';
+  }
+  // 去掉釋義開頭的詞性標記
+  function stripPos(gloss) {
+    var g = String(gloss || '').replace(/\u3000/g, ' ');
+    var m = POS_RE.exec(g);
+    if (m) return g.slice(m[0].length).trim();
+    return g.indexOf('片語') === 0 ? g.slice(2).trim() : g.trim();
+  }
+  // 正面的詞性要跟「這一題」的釋義一致：同一個字在別題可能是別的詞性
+  function metaLine(gloss) {
+    var p = posOf(gloss);
+    if (!p) return '';
+    return '<p class="front-meta"><span class="pos">' + esc(p) + '</span></p>';
   }
 
   /* ---------------- 作答 ---------------- */
