@@ -79,6 +79,12 @@
     font-size:13px; color:var(--ink-soft); line-height:1.9;
   }
   .home-stat b{color:var(--crimson); font-family:'IBM Plex Mono',monospace; font-size:14px;}
+  .range-row{
+    margin-top:10px; font-family:'IBM Plex Mono',monospace; font-size:11.5px;
+    color:var(--ink-soft); line-height:2; letter-spacing:.02em;
+  }
+  .range-row .rg{color:var(--crimson); text-decoration:underline;}
+  .range-row .rg.on{color:var(--ink); font-weight:600; text-decoration:none;}
   .minor-row{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px;}
   .minor-btn{
     flex:1 1 auto; min-width:140px; cursor:pointer; text-align:center;
@@ -234,6 +240,7 @@
       <p id="scopeLine" class="scope-line"></p>
 
       <div id="homeStat" class="home-stat"></div>
+      <div id="rangeRow" class="range-row"></div>
 
       <div class="minor-row">
         <button id="freeBtn" class="minor-btn">自由練習（不排程）</button>
@@ -394,26 +401,30 @@
   }
 
   /* ---------------- 選字 ---------------- */
-  function inRange(qid) {
+  function inRange(qid, sc) {
+    sc = sc || scope;
     var q = Q[qid];
     if (!q) return false;
-    if (q.y < scope.y0 || q.y > scope.y1) return false;
-    if (scope.st !== 'both' && q.st !== scope.st) return false;
+    if (q.y < sc.y0 || q.y > sc.y1) return false;
+    if (sc.st !== 'both' && q.st !== sc.st) return false;
     return true;
   }
-  function lvOK(w) {
-    if (!scope.lv) return true;
-    if (w.kd === '片語') return !!scope.lv.p;
-    if (w.kd === '超綱') return !!scope.lv.x;
-    return !!(w.lv && scope.lv.n[+w.lv]);
+  function lvOK(w, sc) {
+    sc = sc || scope;
+    var lv = sc.lv;
+    if (!lv) return true;
+    if (w.kd === '片語') return !!lv.p;
+    if (w.kd === '超綱') return !!lv.x;
+    return !!(w.lv && lv.n[+w.lv]);
   }
-  function buildPool() {
+  function buildPool(sc) {
+    sc = sc || scope;
     var pool = [];
     for (var k in W) {
       var w = W[k];
-      if (!w.c || !lvOK(w)) continue;
+      if (!w.c || !lvOK(w, sc)) continue;
       var hit = false;
-      for (var i = 0; i < w.oc.length; i++) { if (inRange(w.oc[i][0])) { hit = true; break; } }
+      for (var i = 0; i < w.oc.length; i++) { if (inRange(w.oc[i][0], sc)) { hit = true; break; } }
       if (hit) pool.push(k);
     }
     // 新字排序：考過越多次的排前面，其次是年份越近的排前面
@@ -626,7 +637,7 @@
   }
   function yearTag(qid) {
     var q = Q[qid];
-    return q.y + ' ' + q.t;
+    return q.y + '年 ' + q.t;   // 與兩個字彙站的寫法一致
   }
   var POS_RE = /^\s*((?:(?:adj|adv|n|v|vt|vi|prep|conj|pron|int|aux|art|abbr)\.\s*)+)/;
   // 從一段釋義取出詞性標記
@@ -736,7 +747,7 @@
 
     // 例句
     h += '<div class="bk-sec">';
-    h += '<span class="bk-src"><span class="seg">' + esc(q.y + ' ' + q.t) + '</span>　<span class="seg">第 ' + q.n + ' 題</span></span>';
+    h += '<span class="bk-src"><span class="seg">' + esc(q.y + '年 ' + q.t) + '</span>　<span class="seg">第 ' + q.n + ' 題</span></span>';
     h += '<p class="bk-en">' + stemHTML(q) + '</p>';
     if (q.sz) h += '<p class="bk-zh">' + esc(q.sz) + '</p>';
     if (L !== q.a) {
@@ -833,6 +844,30 @@
     window.scrollTo(0, 0);
   }
 
+  /* ---------------- 首頁的範圍切換 ---------------- */
+  // 「開始複習」維持一鍵，不問設定；這一列只是讓想擴大範圍的人點得到。
+  var RANGES = [
+    { label: '近十年', y0: 106, y1: 115, st: 'both', hash: '#y=106-115' },
+    { label: '學測全部', y0: 83, y1: 115, st: 'gsat', hash: '#y=83-115&st=gsat' },
+    { label: '指考全部', y0: 81, y1: 110, st: 'zhikao', hash: '#y=81-110&st=zhikao' },
+    { label: '兩站全部', y0: 81, y1: 115, st: 'both', hash: '#y=81-115' }
+  ];
+  function renderRanges() {
+    var box = $('rangeRow');
+    if (!box) return;
+    box.innerHTML = '';
+    RANGES.forEach(function (r, i) {
+      var n = buildPool({ y0: r.y0, y1: r.y1, st: r.st, lv: scope.lv }).length;
+      var here = (scope.y0 === r.y0 && scope.y1 === r.y1 && scope.st === r.st);
+      if (i) box.appendChild(document.createTextNode(' · '));
+      var el = document.createElement(here ? 'span' : 'a');
+      el.className = 'rg' + (here ? ' on' : '');
+      if (!here) el.setAttribute('href', r.hash);
+      el.textContent = r.label + ' ' + n;
+      box.appendChild(el);
+    });
+  }
+
   /* ---------------- 首頁 ---------------- */
   function renderHome() {
     var pool = buildPool();
@@ -855,6 +890,7 @@
       h += '<br>累計已經看過 <b>' + learned + '</b> 個字。';
     }
     $('homeStat').innerHTML = h;
+    renderRanges();
     $('startBtn').disabled = pool.length === 0;
     if (pool.length === 0) $('startBtn').textContent = '這個範圍沒有字';
     hide('quiz'); hide('done'); show('home');
