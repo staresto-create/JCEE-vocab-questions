@@ -96,6 +96,7 @@
   .count b{color:var(--crimson); font-family:'IBM Plex Mono',monospace; font-size:15px;}
   .count.zero{background:#F3E2DE;}
   .count .warn{color:var(--crimson); font-size:13px;}
+  .count .sub2{color:var(--ink-soft); font-size:12.5px; line-height:1.8;}
 
   .out{margin-top:20px;}
   .urlbox{
@@ -321,7 +322,8 @@
       box.innerHTML = '<span class="warn">這個範圍一個字也沒有，學生點進去會是空的。請放寬年份、站別或字級。</span>';
     } else {
       box.className = 'count';
-      box.innerHTML = '這個範圍有 <b>' + c.q + '</b> 題、<b>' + c.w + '</b> 個字。' +
+      box.innerHTML = '取自 <b>' + c.q + '</b> 題，共 <b>' + c.w + '</b> 個字。' +
+        '<br><span class="sub2">記憶卡以字為單位，學生做的是這 ' + c.w + ' 個字；題數是這些字的出處，不受字級篩選影響。</span>' +
         (c.w < 20 ? '<br><span class="warn">字數偏少，學生大概幾分鐘就練完了。</span>' : '');
     }
 
