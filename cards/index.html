@@ -91,10 +91,11 @@
 
   /* ---------- QUIZ ---------- */
   .bar{
-    display:flex; align-items:center; justify-content:space-between; gap:12px;
+    display:flex; align-items:baseline; justify-content:space-between; gap:8px;
     font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:var(--ink-soft);
-    margin-bottom:10px;
+    margin-bottom:10px; flex-wrap:wrap; line-height:1.7;
   }
+  .bar .quit{flex:0 0 auto;}
   .bar .quit{cursor:pointer; text-decoration:underline; color:var(--crimson); background:none; border:none; font:inherit; padding:0;}
   .track{height:3px; background:var(--rule); border-radius:2px; overflow:hidden; margin-bottom:16px;}
   .track span{display:block; height:100%; background:var(--sage); width:0; transition:width .25s ease;}
@@ -126,7 +127,7 @@
     display:block; width:100%; text-align:left; cursor:pointer;
     background:var(--paper-card); border:1px solid var(--rule); border-radius:3px;
     padding:13px 14px; font-size:15.5px; line-height:1.6; color:var(--ink);
-    font-family:'Noto Sans TC',sans-serif;
+    font-family:'Noto Sans TC',sans-serif; word-break:break-word;
     transition:border-color .12s ease, background .12s ease;
   }
   .opt:hover{border-color:var(--ink); background:#F1EADA;}
@@ -162,7 +163,7 @@
     color:var(--sage); display:block; margin-bottom:4px;
   }
   .bk-src .seg{display:inline-block;}
-  .bk-en{font-size:14.5px; line-height:1.8; margin:0 0 3px;}
+  .bk-en{font-size:14.5px; line-height:1.8; margin:0 0 3px; word-break:break-word;}
   .bk-en b{color:var(--crimson);}
   .bk-zh{font-size:13px; color:var(--ink-soft); line-height:1.8; margin:0;}
   .bk-role{
@@ -170,7 +171,7 @@
     background:#F1EADA; border-radius:3px; padding:7px 10px;
   }
   .bk-role b{color:var(--crimson);}
-  .bk-col{margin-top:14px; font-size:13px; color:var(--ink-soft); line-height:1.85;}
+  .bk-col{margin-top:14px; font-size:13px; color:var(--ink-soft); line-height:1.85; word-break:break-word;}
   .bk-col .lab{font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:.08em; color:var(--sage); display:block; margin-bottom:3px;}
   .bk-link{
     display:inline-block; margin-top:14px; font-family:'IBM Plex Mono',monospace;
@@ -724,7 +725,9 @@
     h += '</div>';
 
     if (q.col) {
-      h += '<div class="bk-col"><span class="lab">字詞搭配</span>' + esc(q.col) + '</div>';
+      var colLab = (L === q.a) ? '字詞搭配'
+                 : '這一題考的搭配（正解 ' + esc(q.o[q.a]) + '）';
+      h += '<div class="bk-col"><span class="lab">' + colLab + '</span>' + esc(q.col) + '</div>';
     }
 
     h += '<a class="bk-link" href="' + (q.st === 'gsat' ? '../gsat/' : '../zhikao/') +
