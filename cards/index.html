@@ -285,7 +285,7 @@
   </section>
 
   <footer class="foot">
-    <a href="../">回題庫首頁</a>　·　
+    <a href="../">回題庫首頁</a>　·　<a href="teacher.html">老師：產生指定連結</a>　·　
     字源為本站學測 500 題、指考 343 題詞彙題。免費、無廣告之非營利自學題庫。
   </footer>
 
@@ -767,7 +767,7 @@
            (L !== q.a ? esc(displayWord(word, qid)) + ' 是當年的誘答。' : '') + '</p>';
     } else if (L !== q.a) {
       h += '<p class="bk-role">這一題的正解是 <b>' + esc(q.o[q.a]) + '</b>，' +
-           esc(displayWord(word, qid)) + ' 是當年的誘答，所以句子裡看不到它。</p>';
+           esc(displayWord(word, qid)) + ' 是當年的誘答，所以句子裡看不到這個字。</p>';
     }
     h += '</div>';
 
@@ -867,7 +867,7 @@
   }
 
   /* ---------------- 首頁的範圍切換 ---------------- */
-  // 「開始複習」維持一鍵，不問設定；這一列只是讓想擴大範圍的人點得到。
+  // 「開始複習」不問設定直接進；這一列是給想擴大範圍的人點的。
   var RANGES = [
     { label: '近十年', y0: 106, y1: 115, st: 'both', hash: '#y=106-115' },
     { label: '學測全部', y0: 83, y1: 115, st: 'gsat', hash: '#y=83-115&st=gsat' },
