@@ -171,6 +171,7 @@
   .bk-src .seg{display:inline-block;}
   .bk-en{font-size:14.5px; line-height:1.8; margin:0 0 3px; word-break:break-word;}
   .bk-en b{color:var(--crimson);}
+  .bk-en u.mk{text-decoration:underline; text-underline-offset:3px; font-weight:600;}
   .bk-zh{font-size:13px; color:var(--ink-soft); line-height:1.8; margin:0;}
   .bk-role{
     margin:8px 0 0; font-size:12.5px; color:var(--ink-soft); line-height:1.8;
@@ -461,7 +462,16 @@
     if (!vs.length) return null;
     var used = (state.w[word] && state.w[word].vv) || [];
     var fresh = vs.filter(function (v) { return used.indexOf(v) === -1; });
-    if (fresh.length) return pick(fresh);
+    if (fresh.length) {
+      // 沒用過的裡面，優先挑跟上次不同題的，這樣再遇到同一個字時
+      // 換的是另一題的三個誘答，而不是同一題換個方向問
+      var lastQ = used.length ? (used[used.length - 1].split('|')[1] || '') : '';
+      var other = fresh.filter(function (v) {
+        var qid = v.split('|')[1] || '';
+        return qid && qid !== lastQ;
+      });
+      return pick(other.length ? other : fresh);
+    }
     var best = vs[0], bestPos = 1e9;
     vs.forEach(function (v) {
       var p = used.indexOf(v);
@@ -750,7 +760,12 @@
     h += '<span class="bk-src"><span class="seg">' + esc(q.y + '年 ' + q.t) + '</span>　<span class="seg">第 ' + q.n + ' 題</span></span>';
     h += '<p class="bk-en">' + stemHTML(q) + '</p>';
     if (q.sz) h += '<p class="bk-zh">' + esc(q.sz) + '</p>';
-    if (L !== q.a) {
+    var mk = markedWord(q);
+    if (mk) {
+      h += '<p class="bk-role">這一題是畫線選同義字，畫線的是 <b>' + esc(mk) +
+           '</b>，要選意思最接近的，正解是 <b>' + esc(q.o[q.a]) + '</b>。四個選項都不在句子裡。' +
+           (L !== q.a ? esc(displayWord(word, qid)) + ' 是當年的誘答。' : '') + '</p>';
+    } else if (L !== q.a) {
       h += '<p class="bk-role">這一題的正解是 <b>' + esc(q.o[q.a]) + '</b>，' +
            esc(displayWord(word, qid)) + ' 是當年的誘答，所以句子裡看不到它。</p>';
     }
@@ -784,9 +799,16 @@
     updateBar();
   }
 
+  // 畫線同義字題：題幹用 @@字@@ 標出畫線的字，沒有空格
+  function markedWord(q) {
+    var m = /@@(.+?)@@/.exec(q.s);
+    return m ? m[1] : null;
+  }
+
   function stemHTML(q) {
     var ans = q.o[q.a];
     var s = esc(q.s);
+    if (markedWord(q)) return s.replace(/@@(.+?)@@/, '<u class="mk">$1</u>');
     var re = /_{3,}/;
     if (re.test(s)) return s.replace(re, ' <b>' + esc(ans) + '</b> ').replace(/\s+([,.;!?])/g, '$1');
     return s + '（正解 <b>' + esc(ans) + '</b>）';
@@ -955,6 +977,7 @@
     get scope() { return scope; },
     get session() { return session; },
     buildPool: buildPool, variantsOf: variantsOf, today: today,
+    chooseVariant: chooseVariant, stemHTML: stemHTML, markedWord: markedWord,
     setState: function (s) { state = s; }, saveState: saveState, grade: grade
   };
 })();
