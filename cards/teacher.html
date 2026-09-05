@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>單字記憶卡 · 出題範圍與連結產生器</title>
+<meta name="description" content="勾選年份、站別與字級，產生一條指定範圍的單字記憶卡連結，貼給學生就能用。免費、無廣告。">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F6F1E4;
+    --paper-card:#FFFDF7;
+    --ink:#221F1A;
+    --ink-soft:#5B5648;
+    --rule:#DCD3BB;
+    --crimson:#AE3626;
+    --crimson-soft:#D8C6BE;
+    --sage:#3E6E52;
+    --sage-soft:#CBD9C9;
+    --gold:#A9812E;
+    --shadow: 0 1px 0 rgba(34,31,26,.06), 0 8px 24px rgba(34,31,26,.08);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background: var(--paper);
+    background-image:
+      radial-gradient(circle at 100% 0%, rgba(174,54,38,.05), transparent 40%),
+      repeating-linear-gradient(0deg, rgba(34,31,26,0.025) 0px, rgba(34,31,26,0.025) 1px, transparent 1px, transparent 34px);
+    color: var(--ink);
+    font-family: 'Noto Sans TC', sans-serif;
+    min-height: 100vh;
+    padding: 28px 16px 72px;
+    -webkit-text-size-adjust:100%;
+  }
+  .wrap{max-width:640px;margin:0 auto;}
+  header.top{
+    display:flex; align-items:baseline; justify-content:space-between; gap:10px;
+    border-bottom: 3px double var(--ink);
+    padding-bottom:12px; margin-bottom: 20px;
+  }
+  header.top .title{font-family:'Noto Serif TC',serif; font-weight:900; font-size:23px; letter-spacing:.02em;}
+  header.top .sub{font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:var(--ink-soft); white-space:nowrap;}
+  .card{
+    background: var(--paper-card);
+    border:1px solid var(--rule);
+    border-radius:3px;
+    box-shadow: var(--shadow);
+    position:relative;
+    padding:24px 22px 22px;
+    margin-bottom:16px;
+  }
+  .card::before{
+    content:""; position:absolute; left:0; top:14px; bottom:14px; width:3px;
+    background: repeating-linear-gradient(0deg, var(--crimson-soft) 0 6px, transparent 6px 13px);
+    opacity:.6;
+  }
+  .lead{font-family:'Noto Serif TC',serif; font-weight:700; font-size:18px; margin:0 0 8px;}
+  .desc{color:var(--ink-soft); font-size:13.5px; line-height:1.9; margin:0 0 4px;}
+
+  .field{margin-top:20px;}
+  .flabel{
+    font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:.1em;
+    color:var(--sage); display:block; margin-bottom:8px;
+  }
+  .fhint{font-size:12px; color:var(--ink-soft); line-height:1.8; margin:6px 0 0;}
+
+  .chips{display:flex; flex-wrap:wrap; gap:7px;}
+  .chip{
+    cursor:pointer; border:1px solid var(--rule); border-radius:3px;
+    background:var(--paper-card); color:var(--ink);
+    font-family:'Noto Sans TC',sans-serif; font-size:13.5px;
+    padding:8px 13px; line-height:1.4;
+  }
+  .chip:hover{border-color:var(--ink); background:#F1EADA;}
+  .chip.on{background:var(--ink); border-color:var(--ink); color:var(--paper-card); font-weight:500;}
+  .chip.mini{font-size:12.5px; padding:6px 11px;}
+
+  .yrow{display:flex; align-items:center; gap:9px; flex-wrap:wrap;}
+  select, input[type=text]{
+    font-family:'IBM Plex Mono',monospace; font-size:14px; color:var(--ink);
+    background:var(--paper-card); border:1px solid var(--rule); border-radius:3px;
+    padding:9px 10px;
+  }
+  input[type=text]{font-family:'Noto Sans TC',sans-serif; width:100%;}
+  select:focus, input:focus{outline:2px solid var(--sage-soft); outline-offset:1px;}
+  .yrow .dash{color:var(--ink-soft);}
+  .presets{margin-top:9px;}
+
+  .count{
+    margin-top:20px; padding:13px 14px; border-radius:3px;
+    background:#F1EADA; font-size:14px; line-height:1.8;
+  }
+  .count b{color:var(--crimson); font-family:'IBM Plex Mono',monospace; font-size:15px;}
+  .count.zero{background:#F3E2DE;}
+  .count .warn{color:var(--crimson); font-size:13px;}
+
+  .out{margin-top:20px;}
+  .urlbox{
+    font-family:'IBM Plex Mono',monospace; font-size:12.5px; line-height:1.8;
+    background:#F1EADA; border:1px solid var(--rule); border-radius:3px;
+    padding:12px 13px; word-break:break-all; color:var(--ink);
+  }
+  .btnrow{display:flex; gap:10px; margin-top:12px; flex-wrap:wrap;}
+  .btn{
+    flex:1 1 auto; min-width:130px; cursor:pointer; text-align:center;
+    border-radius:3px; padding:12px 14px; font-size:14.5px;
+    font-family:'Noto Sans TC',sans-serif; border:1px solid var(--ink);
+    background:var(--ink); color:var(--paper-card); text-decoration:none;
+    display:inline-block;
+  }
+  .btn:hover{background:#000;}
+  .btn.ghost{background:transparent; color:var(--ink); border-color:var(--rule);}
+  .btn.ghost:hover{border-color:var(--ink); background:#F1EADA;}
+  .btn[disabled]{background:var(--rule); border-color:var(--rule); color:var(--ink-soft); cursor:default;}
+
+  .note h3{
+    font-family:'Noto Serif TC',serif; font-size:15px; margin:0 0 8px;
+  }
+  .note p{font-size:13.5px; color:var(--ink-soft); line-height:1.95; margin:0 0 12px;}
+  .note p:last-child{margin-bottom:0;}
+  .note b{color:var(--ink);}
+
+  footer.foot{
+    margin-top:26px; padding-top:14px; border-top:1px solid var(--rule);
+    font-size:12px; color:var(--ink-soft); line-height:1.9;
+  }
+  footer.foot a{color:var(--crimson);}
+  .loading{text-align:center; padding:60px 0; color:var(--ink-soft); font-size:14px;}
+  @media (max-width:420px){
+    body{padding:20px 12px 60px;}
+    .btn{min-width:100%;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <div class="title">出題範圍與連結</div>
+    <div class="sub">單字記憶卡</div>
+  </header>
+
+  <div id="loading" class="loading">載入字庫中…</div>
+
+  <main id="app" class="hide" style="display:none;">
+
+    <div class="card">
+      <p class="lead">勾好範圍，把產生的連結貼給學生</p>
+      <p class="desc">
+        學生點開就是那個範圍的記憶卡，不必註冊、不用設定。範圍寫在網址裡，所以一條連結就是一份指定作業。
+      </p>
+
+      <div class="field">
+        <span class="flabel">年份</span>
+        <div class="yrow">
+          <select id="y0"></select>
+          <span class="dash">—</span>
+          <select id="y1"></select>
+        </div>
+        <div class="chips presets" id="yPresets"></div>
+      </div>
+
+      <div class="field">
+        <span class="flabel">站別</span>
+        <div class="chips" id="stChips"></div>
+        <p class="fhint">指考英文只考到 110 學年度，111 學年度起改制為分科測驗，不考英文。</p>
+      </div>
+
+      <div class="field">
+        <span class="flabel">字級</span>
+        <div class="chips" id="lvChips"></div>
+        <p class="fhint">字級依大考中心《高中英文參考詞彙表》（111 學年度起適用）。片語與超出詞彙表的字沒有級別，另外列。全部勾選等於不設限。</p>
+      </div>
+
+      <div class="field">
+        <span class="flabel">作業名稱（可留空）</span>
+        <input type="text" id="label" maxlength="24" placeholder="例如：第二次段考複習">
+        <p class="fhint">填了會顯示在學生那邊，只是個標籤，不影響出題。</p>
+      </div>
+
+      <div id="count" class="count"></div>
+
+      <div class="out">
+        <span class="flabel">連結</span>
+        <div id="urlbox" class="urlbox"></div>
+        <div class="btnrow">
+          <button id="copyBtn" class="btn" type="button">複製連結</button>
+          <a id="openBtn" class="btn ghost" target="_blank" rel="noopener">先自己試一次</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card note">
+      <h3>學生那邊會看到什麼</h3>
+      <p>
+        點開就是卡片，一個字一張。四個選項是那個字當年那一題的原選項，不是另外湊的；同一個字考過兩次，第二次會換成另一題的三個誘答。
+        出現方式有四種輪流：英文選中文、中文選英文、把原題的搭配詞挖空來填、拼法相近的字擺在一起辨形。
+      </p>
+      <p>
+        翻到背面有 KK 音標、字級、完整釋義、原題整句與中譯，還有那一題的字詞搭配。
+        這個字當年是誘答的話，背面會說明正解是哪一個、為什麼句子裡看不到它，點一下就跳回原題看完整解析。
+      </p>
+      <p>
+        答對的字會隔幾天才再出現，答錯的當場排回來。答對之後如果其實是猜的，學生可以自己按「剛才是猜的」，系統就當作沒記住。
+      </p>
+
+      <h3>幾件先說清楚的</h3>
+      <p>
+        <b>沒有後台。</b>這裡沒有帳號、沒有班級管理，您看不到誰點了、誰做了幾張。
+        進度存在學生自己的瀏覽器裡，換手機或換電腦不會跟著走。要收作業的話，請另外用您原本的方式。
+      </p>
+      <p>
+        <b>連結可以重複用。</b>同一條連結給幾個班、貼幾次都可以，也可以直接放在班群或課程平台。
+        不必回來這一頁重新產生。
+      </p>
+      <p>
+        <b>字源是歷屆考題。</b>全部取自本站學測 500 題、指考 343 題詞彙題的所有選項，共 2,113 個字。
+        這裡不收詞彙表裡沒考過的字——這個站的價值在於「這個字真的考過、當年真的用這三個字騙人」。
+      </p>
+      <p>
+        免費、無廣告之非營利自學題庫，歡迎自由分享。
+      </p>
+    </div>
+
+  </main>
+
+  <footer class="foot">
+    <a href="./">單字記憶卡</a>　·　<a href="../">回題庫首頁</a>
+  </footer>
+
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  var BASE = location.href.replace(/teacher\.html.*$/, '');
+  var Q = null, W = null;
+  var st = 'both';
+  var lv = { n: {1:1,2:1,3:1,4:1,5:1,6:1}, p: true, x: true };
+  var years = [];
+
+  function $(id) { return document.getElementById(id); }
+  function esc(s) {
+    return String(s == null ? '' : s)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
+  /* ---------- 算範圍 ---------- */
+  function inRange(qid, y0, y1, station) {
+    var q = Q[qid];
+    if (!q) return false;
+    if (q.y < y0 || q.y > y1) return false;
+    if (station !== 'both' && q.st !== station) return false;
+    return true;
+  }
+  function lvOK(w) {
+    if (w.kd === '片語') return !!lv.p;
+    if (w.kd === '超綱') return !!lv.x;
+    return !!(w.lv && lv.n[+w.lv]);
+  }
+  function count(y0, y1, station) {
+    var nq = 0, k, i;
+    for (k in Q) if (inRange(k, y0, y1, station)) nq++;
+    var nw = 0;
+    for (k in W) {
+      var w = W[k];
+      if (!w.c || !lvOK(w)) continue;
+      for (i = 0; i < w.oc.length; i++) {
+        if (inRange(w.oc[i][0], y0, y1, station)) { nw++; break; }
+      }
+    }
+    return { q: nq, w: nw };
+  }
+
+  /* ---------- 組網址 ---------- */
+  function allLevels() {
+    if (!lv.p || !lv.x) return false;
+    for (var i = 1; i <= 6; i++) if (!lv.n[i]) return false;
+    return true;
+  }
+  function lvParam() {
+    var ns = [], i;
+    for (i = 1; i <= 6; i++) if (lv.n[i]) ns.push(i);
+    var segs = [], start = null, prev = null;
+    ns.forEach(function (n) {
+      if (start === null) { start = prev = n; return; }
+      if (n === prev + 1) { prev = n; return; }
+      segs.push(start === prev ? String(start) : start + '-' + prev);
+      start = prev = n;
+    });
+    if (start !== null) segs.push(start === prev ? String(start) : start + '-' + prev);
+    if (lv.p) segs.push('p');
+    if (lv.x) segs.push('x');
+    return segs.join(',');
+  }
+  function cleanLabel(s) {
+    return String(s || '').replace(/[&#=]/g, '').replace(/\s+/g, ' ').trim().slice(0, 24);
+  }
+  function buildURL(y0, y1) {
+    var p = ['y=' + (y0 === y1 ? y0 : y0 + '-' + y1)];
+    if (st !== 'both') p.push('st=' + st);
+    if (!allLevels()) p.push('lv=' + lvParam());
+    var lab = cleanLabel($('label').value);
+    if (lab) p.push('t=' + lab);
+    return BASE + '#' + p.join('&');
+  }
+
+  /* ---------- 畫面 ---------- */
+  function refresh() {
+    var y0 = +$('y0').value, y1 = +$('y1').value;
+    if (y0 > y1) { var t = y0; y0 = y1; y1 = t; $('y0').value = y0; $('y1').value = y1; }
+
+    var c = count(y0, y1, st);
+    var box = $('count');
+    if (c.w === 0) {
+      box.className = 'count zero';
+      box.innerHTML = '<span class="warn">這個範圍一個字也沒有，學生點進去會是空的。請放寬年份、站別或字級。</span>';
+    } else {
+      box.className = 'count';
+      box.innerHTML = '這個範圍有 <b>' + c.q + '</b> 題、<b>' + c.w + '</b> 個字。' +
+        (c.w < 20 ? '<br><span class="warn">字數偏少，學生大概幾分鐘就練完了。</span>' : '');
+    }
+
+    var url = buildURL(y0, y1);
+    $('urlbox').textContent = url;
+    $('openBtn').setAttribute('href', url);
+    $('copyBtn').disabled = (c.w === 0);
+    $('openBtn').style.pointerEvents = c.w === 0 ? 'none' : '';
+    $('openBtn').style.opacity = c.w === 0 ? '.45' : '';
+    $('copyBtn').textContent = '複製連結';
+  }
+
+  function chip(text, on, onclick, mini) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'chip' + (mini ? ' mini' : '') + (on ? ' on' : '');
+    b.textContent = text;
+    b.addEventListener('click', onclick);
+    return b;
+  }
+
+  function drawStations() {
+    var box = $('stChips'); box.innerHTML = '';
+    [['both', '學測＋指考'], ['gsat', '學測'], ['zhikao', '指考']].forEach(function (o) {
+      box.appendChild(chip(o[1], st === o[0], function () { st = o[0]; drawStations(); refresh(); }));
+    });
+  }
+  function drawLevels() {
+    var box = $('lvChips'); box.innerHTML = '';
+    for (var i = 1; i <= 6; i++) (function (n) {
+      box.appendChild(chip(n + ' 級', !!lv.n[n], function () {
+        if (lv.n[n]) delete lv.n[n]; else lv.n[n] = 1;
+        drawLevels(); refresh();
+      }, true));
+    })(i);
+    box.appendChild(chip('片語', lv.p, function () { lv.p = !lv.p; drawLevels(); refresh(); }, true));
+    box.appendChild(chip('超出詞彙表', lv.x, function () { lv.x = !lv.x; drawLevels(); refresh(); }, true));
+    box.appendChild(chip('全選', false, function () {
+      lv = { n: {1:1,2:1,3:1,4:1,5:1,6:1}, p: true, x: true }; drawLevels(); refresh();
+    }, true));
+  }
+  function drawYearPresets() {
+    var box = $('yPresets'); box.innerHTML = '';
+    [['近五年', 111, 115], ['近十年', 106, 115], ['全部', years[0], years[years.length - 1]]]
+      .forEach(function (o) {
+        box.appendChild(chip(o[0], false, function () {
+          $('y0').value = o[1]; $('y1').value = o[2]; refresh();
+        }, true));
+      });
+  }
+
+  function fillYears() {
+    var set = {};
+    for (var k in Q) set[Q[k].y] = 1;
+    years = Object.keys(set).map(Number).sort(function (a, b) { return a - b; });
+    [$('y0'), $('y1')].forEach(function (sel) {
+      years.forEach(function (y) {
+        var o = document.createElement('option');
+        o.value = y; o.textContent = y + ' 年';
+        sel.appendChild(o);
+      });
+    });
+    $('y0').value = 106;
+    $('y1').value = years[years.length - 1];
+  }
+
+  function copyURL() {
+    var text = $('urlbox').textContent;
+    function done() { $('copyBtn').textContent = '已複製'; }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, fallback);
+    } else fallback();
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); done(); }
+      catch (e) { $('copyBtn').textContent = '請手動選取上面的網址複製'; }
+      document.body.removeChild(ta);
+    }
+  }
+
+  function boot(data) {
+    Q = data.q; W = data.w;
+    fillYears();
+    drawYearPresets();
+    drawStations();
+    drawLevels();
+    $('y0').addEventListener('change', refresh);
+    $('y1').addEventListener('change', refresh);
+    $('label').addEventListener('input', refresh);
+    $('copyBtn').addEventListener('click', copyURL);
+    refresh();
+    $('loading').style.display = 'none';
+    $('app').style.display = '';
+    $('app').classList.remove('hide');
+  }
+
+  fetch('cards_data.json', { cache: 'default' })
+    .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+    .then(boot)
+    .catch(function () { $('loading').textContent = '字庫載入失敗，請重新整理頁面試試。'; });
+
+  window.__teacher = {
+    refresh: refresh,
+    url: function () { return $('urlbox').textContent; },
+    setStation: function (v) { st = v; drawStations(); refresh(); },
+    setLevels: function (o) { lv = o; drawLevels(); refresh(); },
+    count: count
+  };
+})();
+</script>
+</body>
+</html>
