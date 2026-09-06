@@ -53,6 +53,14 @@
   .prompt{font-family:'Noto Serif TC',serif; font-weight:700; font-size:23px; line-height:1.5; margin:2px 0 6px;}
   .hint{font-family:'IBM Plex Mono',monospace; font-size:17px; color:var(--ink-soft); letter-spacing:.06em;
         margin:0 0 18px; word-break:break-word;}
+  .typed{width:100%; font:inherit; font-family:'IBM Plex Mono',monospace; font-size:18px;
+         padding:12px 13px; border:1px solid var(--rule); border-radius:3px; background:#fff;
+         color:var(--ink); margin:0 0 10px;}
+  .typed:focus{outline:2px solid var(--sage); outline-offset:1px;}
+  .verdict{font-family:'Noto Serif TC',serif; font-weight:700; font-size:17px; margin:0 0 4px;}
+  .verdict.right{color:var(--sage);} .verdict.wrong{color:var(--crimson);}
+  .yours{font-family:'IBM Plex Mono',monospace; font-size:14px; color:var(--ink-soft); margin:0 0 8px;
+         word-break:break-word;}
   .answer{font-family:'IBM Plex Mono',monospace; font-size:20px; color:var(--crimson); background:#FBF6EA;
           border:1px solid var(--rule); border-radius:3px; padding:14px; margin:0 0 6px; word-break:break-word;}
   .kk{font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--ink-soft); margin:0 0 14px;}
@@ -71,14 +79,14 @@
 
   <section id="home">
     <div class="card">
-      <p class="lead">看中文，把英文拼出來</p>
+      <p class="lead">看中文，把英文打出來</p>
       <p class="note">選一個範圍開始。答對的會往後推，答錯的當場再來。</p>
       <div id="setGroups"></div>
       <p class="legend">★ 是 ALL+ 閱讀必考的五個單元，段考閱讀從這裡出。</p>
       <button class="big-btn" id="startBtn">開始練習</button>
       <p class="stat" id="homeStat"></p>
       <div class="minor-row"><button class="minor-btn" id="clearBtn">清除我的進度</button></div>
-      <p class="note" style="margin:14px 0 0;">看到中文自己想英文，想好再按「看答案」，對就按「拼得出來」。進度存在這台裝置裡，換手機不會跟著走。</p>
+      <p class="note" style="margin:14px 0 0;">看到中文就把英文打出來，跟段考一樣要自己拼。大小寫、標點、冠詞和 his／her 這類代名詞不計較，介系詞要對。進度存在這台裝置裡，換手機不會跟著走。</p>
     </div>
   </section>
 
@@ -88,13 +96,22 @@
       <p class="src" id="srcLbl"></p>
       <p class="prompt" id="prompt"></p>
       <p class="hint" id="hint"></p>
-      <div class="minor-row" id="revealRow"><button class="minor-btn" id="revealBtn">看答案</button></div>
+      <div id="typeBox">
+        <input id="typed" class="typed" type="text" autocomplete="off" autocorrect="off"
+               autocapitalize="off" spellcheck="false" placeholder="把英文打出來">
+        <div class="minor-row">
+          <button class="minor-btn" id="dunnoBtn">還不會</button>
+          <button class="minor-btn ok" id="sendBtn">送出</button>
+        </div>
+      </div>
       <div id="ansBox" class="hide">
+        <p class="verdict" id="verdict"></p>
+        <p class="yours" id="yours"></p>
         <div class="answer" id="answer"></div>
         <p class="kk" id="kk"></p>
         <div class="minor-row">
-          <button class="minor-btn" id="missBtn">還不會</button>
-          <button class="minor-btn ok" id="gotBtn">拼得出來</button>
+          <button class="minor-btn" id="overrideBtn">我其實拼對了</button>
+          <button class="minor-btn ok" id="nextBtn">下一個</button>
         </div>
       </div>
     </div>
@@ -209,8 +226,16 @@ var DATA = {"w":[{"n":1,"s":"L1","e":"employ","k":"ɪm`plɔɪ","z":"vt.僱用","
   }
 
   // 提示：每個字母串留首字母，其餘蓋掉；標點與省略號原樣保留
+  // 功能詞照考卷的做法直接印出來，只挖實詞和介系詞
+  var GIVEN = ['a','an','the','his','her','their','your','its','my','our','sb','sbs','sth','sths','ones'];
+  function isGiven(w){ return GIVEN.indexOf(w.toLowerCase()) >= 0; }
   function mask(en){
-    return en.replace(/[A-Za-z]+/g, function(w){ return w.charAt(0) + w.slice(1).replace(/./g,'_'); });
+    return en.replace(/[A-Za-z]+/g, function(w){
+      return isGiven(w) ? w : w.charAt(0) + w.slice(1).replace(/./g,'_');
+    });
+  }
+  function initials(en){
+    return en.replace(/[A-Za-z]+/g, function(w){ return isGiven(w) ? w : w.charAt(0) + '…'; });
   }
   function isPhrase(en){ return /[\s…]/.test(en) || /\.{2,}/.test(en); }
   function countOf(en){
@@ -220,8 +245,7 @@ var DATA = {"w":[{"n":1,"s":"L1","e":"employ","k":"ɪm`plɔɪ","z":"vt.僱用","
   function unit(en){ return isPhrase(en) ? ' 個字' : ' 個字母'; }
   function hintFor(en, stage){
     if (stage <= 0) return mask(en);
-    var head = (en.match(/[A-Za-z]/) || [''])[0];
-    if (stage === 1) return head + '…　（' + countOf(en) + unit(en) + '）';
+    if (stage === 1) return initials(en);
     return '（' + countOf(en) + unit(en) + '）';
   }
 
@@ -276,25 +300,69 @@ var DATA = {"w":[{"n":1,"s":"L1","e":"employ","k":"ɪm`plɔɪ","z":"vt.僱用","
     next();
   }
 
+  // 判分：大小寫、空白、標點不計較；冠詞、人稱代名詞、be 動詞時態放寬；
+  // 介系詞與介副詞一律嚴格比對，那是搭配本身要考的東西
+  var DROP = ['a','an','the'];
+  var BE = ['is','are','was','were','been','being','am','be'];
+  var SB = ['sb','sbs','sth','sths','someone','somebody','something','ones',
+            'his','her','hers','their','theirs','its','my','mine','your','yours','our','ours','him','them','me','us','you'];
+  function norm(s){
+    var w = String(s).toLowerCase()
+      .replace(/[…]|\.{2,}/g, ' ')
+      .replace(/[’‘]/g, "'")
+      .replace(/'s\b/g, 's')
+      .replace(/[.,;:!?"“”']/g, '')
+      .replace(/\s+/g, ' ')
+      .trim()
+      .split(' ');
+    var out = [];
+    w.forEach(function (x) {
+      if (!x) return;
+      if (DROP.indexOf(x) >= 0) return;
+      if (BE.indexOf(x) >= 0) { out.push('be'); return; }
+      if (SB.indexOf(x) >= 0) { out.push('sb'); return; }
+      out.push(x);
+    });
+    return out.join(' ');
+  }
+
   function next(){
     if (!session.q.length) return finish();
-    var card=session.q[0], r=state.w[key(card)]||{p:0,i:0,due:0};
-    var en=answerOf(card);
-    $('qProgress').textContent='還有 '+session.q.length+' 個';
-    $('srcLbl').textContent=labelOf(card);
-    $('prompt').textContent=promptOf(card);
-    $('hint').textContent=hintFor(en, Math.min(r.p,2));
+    var card = session.q[0], r = state.w[key(card)] || {p:0, i:0, due:0};
+    var en = answerOf(card);
+    $('qProgress').textContent = '還有 ' + session.q.length + ' 個';
+    $('srcLbl').textContent = labelOf(card);
+    $('prompt').textContent = promptOf(card);
+    $('hint').textContent = hintFor(en, Math.min(r.p, 2));
     $('ansBox').classList.add('hide');
-    $('revealRow').classList.remove('hide');
-    $('revealBtn').onclick=function(){
-      $('revealRow').classList.add('hide');
-      $('answer').textContent=en;
-      var k=rec(card).k;
-      $('kk').textContent = k ? '['+k+']' : '';
-      $('ansBox').classList.remove('hide');
-      $('gotBtn').onclick=function(){ grade(card,true); };
-      $('missBtn').onclick=function(){ grade(card,false); };
-    };
+    $('typeBox').classList.remove('hide');
+    var box = $('typed');
+    box.value = '';
+    try { box.focus(); } catch (e) {}
+    $('sendBtn').onclick = function () { check(card, box.value); };
+    $('dunnoBtn').onclick = function () { show(card, box.value, false, true); };
+    box.onkeydown = function (e) { if (e.key === 'Enter') { e.preventDefault(); check(card, box.value); } };
+  }
+
+  function check(card, typed){
+    if (!norm(typed)) return;
+    show(card, typed, norm(typed) === norm(answerOf(card)), false);
+  }
+
+  function show(card, typed, ok, gaveUp){
+    var en = answerOf(card);
+    $('typeBox').classList.add('hide');
+    $('ansBox').classList.remove('hide');
+    var v = $('verdict');
+    v.className = 'verdict ' + (ok ? 'right' : 'wrong');
+    v.textContent = ok ? '拼對了' : (gaveUp ? '這一個先看答案' : '還差一點');
+    $('yours').textContent = (!ok && !gaveUp && typed.trim()) ? ('你寫的：' + typed.trim()) : '';
+    $('answer').textContent = en;
+    var k = rec(card).k;
+    $('kk').textContent = k ? '[' + k + ']' : '';
+    $('overrideBtn').style.display = ok ? 'none' : '';
+    $('overrideBtn').onclick = function () { grade(card, true); };
+    $('nextBtn').onclick = function () { grade(card, ok); };
   }
 
   function grade(card, ok){
@@ -332,7 +400,7 @@ var DATA = {"w":[{"n":1,"s":"L1","e":"employ","k":"ɪm`plɔɪ","z":"vt.僱用","
 
   state=loadState(); scope=parseScope(); SETS=makeSets(); sel=0; renderHome();
   window.__deck={ get state(){return state;}, DATA:DATA, hintFor:hintFor, buildPool:buildPool,
-    parseScope:parseScope, get SETS(){return SETS.flat;}, poolOf:poolOf, setSel:function(i){sel=i;} };
+    parseScope:parseScope, get SETS(){return SETS.flat;}, poolOf:poolOf, setSel:function(i){sel=i;}, norm:norm };
 })();
 </script>
 </body>
