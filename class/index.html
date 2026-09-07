@@ -288,7 +288,7 @@ var DATA = null;
     });
     var pool = buildPool(), dd = due(pool);
     $('homeStat').innerHTML = '這個範圍 <b>' + pool.length + '</b> 個，今天要練 <b>' +
-      (dd.ready.length + dd.fresh.length) + '</b> 個，已經拼得出來的 <b>' + dd.passed + '</b> 個。';
+      (dd.ready.length + dd.fresh.length) + '</b> 個，今天不用再練的 <b>' + dd.passed + '</b> 個。';
   }
 
   function start(){
