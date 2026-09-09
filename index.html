@@ -40,7 +40,7 @@
   body{
     background:var(--paper);
     color:var(--ink);
-    font-family:'Noto Sans TC','PingFang TC',sans-serif;
+    font-family:'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif;
     -webkit-font-smoothing:antialiased;
   }
   @font-face{}
@@ -48,11 +48,11 @@
 
   header{padding:44px 0 8px; text-align:center;}
   .eyebrow{
-    font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.16em;
+    font-family:'IBM Plex Mono','Noto Sans TC','PingFang TC','Microsoft JhengHei',monospace; font-size:11px; letter-spacing:.16em;
     color:var(--crimson); text-transform:uppercase;
   }
   h1{
-    font-family:'Noto Serif TC',serif; font-weight:900; font-size:30px; line-height:1.35;
+    font-family:'Noto Serif TC','PingFang TC','Microsoft JhengHei',serif; font-weight:900; font-size:30px; line-height:1.35;
     margin:10px 0 6px;
   }
   .sub{color:var(--ink-soft); font-size:14px; line-height:1.7; margin:0 0 6px;}
@@ -66,14 +66,14 @@
     box-shadow:var(--shadow);
   }
   .cd-line{display:flex; align-items:baseline; gap:8px;}
-  .cd-label{font-family:'Noto Serif TC',serif; font-weight:700; font-size:17px;}
+  .cd-label{font-family:'Noto Serif TC','PingFang TC','Microsoft JhengHei',serif; font-weight:700; font-size:17px;}
   .countdown .num{
-    font-family:'Noto Serif TC',serif; font-weight:900; font-size:40px; line-height:1;
+    font-family:'Noto Serif TC','PingFang TC','Microsoft JhengHei',serif; font-weight:900; font-size:40px; line-height:1;
     color:#F0C46B;
   }
-  .cd-unit{font-family:'Noto Serif TC',serif; font-weight:700; font-size:17px;}
+  .cd-unit{font-family:'Noto Serif TC','PingFang TC','Microsoft JhengHei',serif; font-weight:700; font-size:17px;}
   .countdown .date{
-    font-family:'IBM Plex Mono',monospace; font-size:11px; color:#C9C3B2; display:block; margin-top:4px;
+    font-family:'IBM Plex Mono','Noto Sans TC','PingFang TC','Microsoft JhengHei',monospace; font-size:11px; color:#C9C3B2; display:block; margin-top:4px;
   }
 
   .rule{border:none; border-top:1px solid var(--rule); margin:34px 0 22px;}
@@ -89,18 +89,18 @@
   }
   a.card:hover{ transform:translateY(-2px); box-shadow:0 2px 0 rgba(34,31,26,.08), 0 14px 28px rgba(34,31,26,.12); }
   .card .tag{
-    font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:.1em;
+    font-family:'IBM Plex Mono','Noto Sans TC','PingFang TC','Microsoft JhengHei',monospace; font-size:10.5px; letter-spacing:.1em;
     color:var(--sage); text-transform:uppercase; margin-bottom:8px; display:block;
   }
   .card .tag span{white-space:nowrap;}
   .card.zk .tag{color:var(--crimson);}
-  .tag .qcount{background:#EDE6D3; color:var(--ink); font-family:'Noto Sans TC',sans-serif; font-size:10px; letter-spacing:0; text-transform:none; padding:1px 6px; border-radius:8px; margin-left:4px; vertical-align:middle;}
+  .tag .qcount{background:#EDE6D3; color:var(--ink); font-family:'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif; font-size:10px; letter-spacing:0; text-transform:none; padding:1px 6px; border-radius:8px; margin-left:4px; vertical-align:middle;}
   .card-title{
-    font-family:'Noto Serif TC',serif; font-weight:700; font-size:19px; margin:0 0 6px;
+    font-family:'Noto Serif TC','PingFang TC','Microsoft JhengHei',serif; font-weight:700; font-size:19px; margin:0 0 6px;
   }
   .card-desc{font-size:12.5px; color:var(--ink-soft); line-height:1.7; margin:0;}
   .card-arrow{
-    font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--ink-soft);
+    font-family:'IBM Plex Mono','Noto Sans TC','PingFang TC','Microsoft JhengHei',monospace; font-size:11px; color:var(--ink-soft);
     margin-top:12px; display:block;
   }
 
@@ -118,7 +118,7 @@
   details.skill > summary{
     cursor:pointer; list-style:none; padding:16px 20px;
     display:flex; justify-content:space-between; align-items:baseline; gap:12px;
-    font-family:'Noto Serif TC',serif; font-weight:700; font-size:15.5px; color:var(--ink);
+    font-family:'Noto Serif TC','PingFang TC','Microsoft JhengHei',serif; font-weight:700; font-size:15.5px; color:var(--ink);
   }
   details.skill > summary::-webkit-details-marker{display:none;}
   details.skill > summary::after{content:'\FF0B 展開'; white-space:nowrap; font-size:13px; color:var(--crimson); font-weight:700;}
@@ -127,7 +127,7 @@
   .skill-body{padding:6px 20px 24px; font-size:13.5px; line-height:1.85; color:var(--ink-soft);}
   .skill-body p{margin:14px 0;}
   .skill-body h4{
-    font-family:'Noto Serif TC',serif; font-size:14.5px; color:var(--ink);
+    font-family:'Noto Serif TC','PingFang TC','Microsoft JhengHei',serif; font-size:14.5px; color:var(--ink);
     margin:28px 0 4px; padding-top:18px; border-top:1px solid var(--rule);
   }
   .skill-body .caution{
@@ -138,7 +138,7 @@
   .ex{margin:18px 0 0; padding-left:12px; border-left:2px solid var(--sage-soft);}
   .ex.zk{border-left-color:var(--crimson-soft);}
   .ex .src{
-    font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:.08em;
+    font-family:'IBM Plex Mono','Noto Sans TC','PingFang TC','Microsoft JhengHei',monospace; font-size:10.5px; letter-spacing:.08em;
     color:var(--sage); display:block; margin-bottom:4px;
   }
   .ex.zk .src{color:var(--crimson);}
@@ -149,14 +149,14 @@
   .ex .tip{margin:7px 0 0; font-size:12.5px; background:#F1EADA; border-radius:3px; padding:8px 10px;}
 
   .aside{background:var(--paper-card); border:1px solid var(--rule); border-radius:6px; padding:14px 16px; margin:26px 0 0; font-size:13.5px; color:var(--ink); line-height:1.75;}
-  .aside h3.at{font-family:'Noto Serif TC',serif; font-weight:900; font-size:14px; color:var(--ink); margin:0 0 8px;}
+  .aside h3.at{font-family:'Noto Serif TC','PingFang TC','Microsoft JhengHei',serif; font-weight:900; font-size:14px; color:var(--ink); margin:0 0 8px;}
   .aside p{margin:0 0 8px;}
   .aside p:last-child{margin-bottom:0;}
   .aside .ad{font-size:11.5px; color:var(--ink-soft);}
   footer{margin-top:40px; padding-top:22px; border-top:1px dashed var(--rule); font-size:12px; color:var(--ink-soft); line-height:1.8; text-align:center;}
 
   .recent{background:var(--paper-card); border:1px solid var(--rule); border-radius:6px; padding:14px 16px; margin:0 0 22px;}
-  .recent .rt{font-family:'Noto Serif TC',serif; font-weight:900; font-size:14px; color:var(--ink); margin-bottom:2px;}
+  .recent .rt{font-family:'Noto Serif TC','PingFang TC','Microsoft JhengHei',serif; font-weight:900; font-size:14px; color:var(--ink); margin-bottom:2px;}
   .recent .rs{font-size:11.5px; color:var(--ink-soft); margin-bottom:10px;}
   .recent .rr{display:flex; gap:11px; padding:10px 0; border-bottom:1px dashed var(--rule);}
   .recent .rr:last-child{border-bottom:none;}
@@ -171,13 +171,13 @@
   /* 徽章：外觀完全一致，只有文字不同 */
   .recent .newdot, .recent .infodot, .tag .newdot{
     display:inline-block; box-sizing:border-box; min-width:52px; text-align:center;
-    font-family:'Noto Sans TC',sans-serif; font-size:13px; font-weight:700; letter-spacing:.04em;
+    font-family:'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif; font-size:13px; font-weight:700; letter-spacing:.04em;
     line-height:1.5; padding:1px 8px; border-radius:3px;
     background:#FFE9A0; color:#9C2C1E; border:1.5px solid #AE3626;
     vertical-align:middle; margin-left:6px;}
   .tag .newdot{min-width:0; font-size:10px; padding:1px 6px; line-height:1.4; margin-left:4px;}
   .card-title .cemoji{margin-right:6px; font-size:15px;}
-  .quicknav{font-family:'Noto Sans TC',sans-serif; font-size:14px; line-height:2.1; text-align:center;
+  .quicknav{font-family:'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif; font-size:14px; line-height:2.1; text-align:center;
     margin:0 0 18px; padding:11px 12px; background:#FFFDF7; border:1px solid var(--rule); border-radius:6px;}
   .quicknav a{color:#9C2C1E; font-weight:700; text-decoration:underline; text-underline-offset:2px; white-space:nowrap; padding:0 2px;}
   .quicknav .sep{color:var(--rule); padding:0 6px;}
