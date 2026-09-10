@@ -133,6 +133,10 @@ var DATA = null;
 (function () {
   'use strict';
   var STORE_KEY = 'zz_exam1_v1', RELEARN_GAP = 5, PASS = 3;
+  // 同一輪裡再出現的間距。答對之後要隔得夠遠，下一次才是真的回想，
+  // 而不是照抄剛剛看過的答案；答錯的隔近一點，趁還記得再補一次。
+  // GAP_OK[已答對次數] → 隔幾張再出現。
+  var GAP_OK = [8, 20], GAP_MISS = 4;
   var state = null, session = null, scope = null;
 
   function $(id){ return document.getElementById(id); }
@@ -287,8 +291,15 @@ var DATA = null;
       box.appendChild(wrap);
     });
     var pool = buildPool(), dd = due(pool);
-    $('homeStat').innerHTML = '這個範圍 <b>' + pool.length + '</b> 個，今天要練 <b>' +
-      (dd.ready.length + dd.fresh.length) + '</b> 個，今天不用再練的 <b>' + dd.passed + '</b> 個。';
+    var todo = dd.ready.concat(dd.fresh), shots = 0;
+    todo.forEach(function (c) {
+      var r = state.w[key(c)];
+      shots += Math.max(1, PASS - ((r && r.p) || 0));
+    });
+    $('homeStat').innerHTML = '這個範圍 <b>' + pool.length + '</b> 個字，今天要練 <b>' +
+      todo.length + '</b> 個字、約 <b>' + shots + '</b> 張' +
+      '（一個字要答對 ' + PASS + ' 次才算過，中間會隔開，不會連著出現）。' +
+      '<br>今天不用再練的 <b>' + dd.passed + '</b> 個字。';
   }
 
   function start(){
@@ -370,12 +381,18 @@ var DATA = null;
     if (ok) {
       r.p=(r.p||0)+1;
       if (r.p>=PASS) { r.i=r.i?Math.min(r.i*2,30):1; r.due=today()+r.i; session.q.shift(); }
-      else { var it=session.q.shift(); session.q.splice(Math.min(RELEARN_GAP,session.q.length),0,it); }
+      else {
+        var g = GAP_OK[r.p-1] || GAP_OK[GAP_OK.length-1];
+        var it=session.q.shift(); session.q.splice(Math.min(g,session.q.length),0,it);
+      }
     } else {
-      r.p=0; r.i=0; r.due=today();
+      // 答錯只退一級，不把之前答對的次數清掉；間隔減半、最少留一天，不打回原點。
+      r.p=Math.max(0,(r.p||0)-1);
+      r.i=r.i?Math.max(1,Math.floor(r.i/2)):0;
+      r.due=today();
       session.miss[k]=(session.miss[k]||0)+1;
       var it2=session.q.shift();
-      session.q.splice(Math.min(RELEARN_GAP,session.q.length),0,it2);
+      session.q.splice(Math.min(GAP_MISS,session.q.length),0,it2);
     }
     state.w[k]=r; saveState(); next();
   }
