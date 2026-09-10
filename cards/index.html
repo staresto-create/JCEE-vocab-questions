@@ -258,7 +258,7 @@
       <div id="rangeRow" class="range-row"></div>
 
       <div class="minor-row">
-        <button id="freeBtn" class="minor-btn">自由練習（不排程）</button>
+        <button id="freeBtn" class="minor-btn">自由練習（不計入進度）</button>
         <button id="resetBtn" class="minor-btn">清除我的進度</button>
       </div>
 
@@ -317,6 +317,12 @@
   var RELEARN_GAP = 6;      // 答錯的卡片隔幾張後再出現（同一張一再答錯就往後拉更遠）
   var RELEARN_MAX = 24;
   var VAR_MEMORY = 6;       // 每個字記住最近用過的幾種出現方式
+  // 一輪的份量。到期的字設上限，新字固定帶一批，兩者都進同一輪——
+  // 舊版是 due.concat(fresh) 且兩邊都不設上限，到期堆每天塞滿當天的額度，
+  // 新字那一段永遠輪不到，做得越勤重複感越強。
+  // 這不是每日上限：一輪做完按「繼續練」就是下一輪，要做幾輪由學生自己決定。
+  var DUE_PER_ROUND = 24;   // 一輪最多帶幾個到期的字
+  var NEW_PER_ROUND = 12;   // 一輪帶幾個新字（取一份考卷的詞彙題份量）
 
   var DATA = null, Q = null, W = null;
   var state = null;         // { v, w:{word:{i,e,d,r,l,vv}}, day, done }
@@ -344,6 +350,18 @@
     return a;
   }
   function pick(a) { return a[Math.floor(Math.random() * a.length)]; }
+  // 依 keyFn 分層，層內洗牌，層與層之間維持原順序。
+  // 新字仍照「考過次數多的先教」分層，但同一層每一輪先後不同，
+  // 免得每次開啟看到的都是同一串。
+  function shuffleWithin(list, keyFn) {
+    var out = [], band = [], last = null;
+    list.forEach(function (k) {
+      var b = keyFn(k);
+      if (last !== null && b !== last) { out = out.concat(shuffle(band)); band = []; }
+      band.push(k); last = b;
+    });
+    return out.concat(shuffle(band));
+  }
 
   /* ---------------- 進度存取 ---------------- */
   function loadState() {
@@ -507,13 +525,17 @@
     if (!s) s = state.w[word] = { i: 0, e: 2.5, d: today(), r: 0, l: 0, vv: [] };
     if (ok) {
       s.r = (s.r || 0) + 1;
-      s.i = s.r === 1 ? 1 : s.r === 2 ? 3 : Math.round(s.i * s.e);
+      // 第一次答對隔 2 天、第二次隔 4 天。舊版是 1 天與 3 天，
+      // 而答對的字隔天就回到到期堆，堆積起來就把新字擋在後面。
+      s.i = s.r === 1 ? 2 : s.r === 2 ? 4 : Math.round(s.i * s.e);
       if (s.i > 365) s.i = 365;
       s.e = Math.min(2.8, (s.e || 2.5) + 0.05);
     } else {
       s.l = (s.l || 0) + 1;
       s.r = 0;
-      s.i = 0;
+      // 答錯排到明天，不留在今天的到期清單裡頂著；
+      // 當天的重來交給同輪插隊（requeue），排程上不必再記一份。
+      s.i = 1;
       s.e = Math.max(1.3, (s.e || 2.5) - 0.2);
     }
     s.d = today() + s.i;
@@ -535,7 +557,9 @@
     if (free) {
       queue = shuffle(pool.slice());
     } else {
-      queue = due.concat(fresh);
+      var freshRound = shuffleWithin(fresh, function (k) { return W[k].oc.length; })
+                         .slice(0, NEW_PER_ROUND);
+      queue = due.slice(0, DUE_PER_ROUND).concat(freshRound);
     }
     if (!queue.length) { renderDone(free, 0, 0, pool); return; }
 
@@ -862,10 +886,13 @@
       stat += '這個範圍裡的 <b>' + pool.length + '</b> 個字，你已經看過 <b>' + learned + '</b> 個。';
       if (newLeft) stat += '<br>還有 <b>' + newLeft + '</b> 個新字沒開始。';
     } else {
-      lead = free ? '這一輪練完了' : '今天這一輪做完了';
+      lead = free ? '這一輪練完了' : '這一輪做完了';
       stat += '做了 <b>' + answered + '</b> 張，答對 <b>' + Math.round(right / answered * 100) + '</b>%。';
-      if (!free) {
+      if (free) {
+        stat += '<br>自由練習不計入進度，這一輪答對的字不會排進複習。要留紀錄請回首頁按「開始複習」。';
+      } else {
         stat += '<br>這個範圍累計看過 <b>' + learned + '</b> 個字，還有 <b>' + newLeft + '</b> 個新字沒開始。';
+        if (newLeft || dueLater.length) stat += '<br>按「繼續練」就接著下一輪。';
       }
     }
     if (nextDay !== null) {
