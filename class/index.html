@@ -183,7 +183,7 @@ var DATA = null;
 
   function makeSets(){
     // 字搭要等課堂核對過才開。改這一行就能解鎖：L2 核對後寫 ['L1','L2']，L3 核對後寫 ['L1','L2','L3']
-    var UNLOCKED = ['L1'];
+    var UNLOCKED = ['L1','L2'];
     var g = [], lessons = scope.lessons || UNLOCKED;
     if (scope.nums || scope.lessons) {
       g.push({ label: '老師指定', sets: [
