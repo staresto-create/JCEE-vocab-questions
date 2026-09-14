@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>列舉的組織圖｜The Secret Lives of Plants</title>
+<meta name="description" content="把一篇列舉的文章壓成一張圖，再把同一張圖用在自己的作文上。">
+<style>
+:root{
+  --ground:#f1f3f2; --ink:#17282f; --teal:#1f6f6a; --teal-soft:#dfeceb;
+  --muted:#77878d; --line:#cdd6d6; --exam:#b4661c; --exam-soft:#fdf4e7;
+  --ok:#2e6b4f; --ok-soft:#edf4ef;
+  --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+  --sans:"PingFang TC","Noto Sans TC","Microsoft JhengHei","Helvetica Neue",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-text-size-adjust:100%}
+.wrap{max-width:44rem;margin:0 auto;padding:1.6rem 1.1rem 4rem}
+h1{font-family:var(--serif);font-weight:600;font-size:1.6rem;line-height:1.3;margin:0 0 .55rem}
+.lede{margin:0 0 1.1rem;color:#3d5059;font-size:.95rem}
+.src{font-size:.8rem;color:var(--muted);margin:0 0 1.1rem}
+.preview{font-size:.85rem;color:var(--exam);background:var(--exam-soft);border:1px dashed var(--exam);
+  border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.preview[hidden]{display:none}
+.resume{font-size:.85rem;color:var(--teal);background:var(--teal-soft);border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.resume[hidden]{display:none}
+.resume button{font:inherit;font-size:.82rem;background:#fff;color:var(--ink);border:1px solid var(--line);
+  border-radius:.25rem;padding:.16rem .6rem;margin-left:.5rem;cursor:pointer}
+.step{border-top:1px solid var(--line);padding-top:1.15rem;margin-top:1.7rem}
+.step[hidden]{display:none}
+.stepno{font-family:var(--serif);font-size:.82rem;color:var(--muted);margin:0 0 .2rem}
+h2{font-family:var(--serif);font-weight:600;font-size:1.2rem;margin:0 0 .5rem;color:var(--teal)}
+p{margin:0 0 .7rem;font-size:.95rem}
+
+/* 組織圖：一根主幹，六格並排掛上去 */
+.fig{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.7rem .5rem .5rem;margin:.2rem 0 .6rem}
+.fig svg{display:block;width:100%;height:auto;max-width:25rem;margin:0 auto}
+.top rect{fill:var(--teal-soft);stroke:var(--teal);stroke-width:2}
+.top text.lb{font-family:var(--sans);font-size:11px;font-weight:600;fill:var(--teal)}
+.top text.q{font-family:var(--serif);font-size:11px;fill:var(--ink)}
+.bx rect{fill:#fff;stroke:var(--line);stroke-width:2}
+.bx text.hd{font-family:var(--serif);font-size:11px;fill:var(--ink)}
+.bx text.rf{font-family:var(--sans);font-size:10px;fill:var(--muted)}
+.bx.aim rect{stroke:var(--teal);stroke-dasharray:6 4}
+.bx.on rect{fill:var(--ok-soft);stroke:var(--ok);stroke-width:2.5}
+.bx.on text.rf{fill:var(--ok);font-weight:600}
+.bx.sel rect{stroke:var(--teal);stroke-width:3}
+.bx.mv rect{stroke:var(--exam);stroke-width:3}
+.stem{stroke:var(--line);stroke-width:2;fill:none}
+
+.panel{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.7rem .85rem;margin:0 0 .9rem}
+.panel .k{font-size:.72rem;font-weight:600;border-radius:.2rem;padding:.06rem .42rem;
+  color:var(--teal);background:var(--teal-soft);border:1px solid var(--teal)}
+.panel .q{font-family:var(--serif);font-size:.95rem;line-height:1.65;margin:.4rem 0 0;color:#3d5059}
+
+.pool{display:flex;flex-direction:column;gap:.4rem;margin:0 0 .8rem}
+.pool button{font:inherit;font-family:var(--serif);font-size:.93rem;line-height:1.55;background:#fff;color:var(--ink);
+  border:1px solid var(--line);border-radius:.3rem;padding:.5rem .7rem;cursor:pointer;text-align:left}
+.pool button:hover{border-color:var(--teal)}
+.pool button.pick{border-color:var(--teal);background:var(--teal-soft)}
+.pool button.gone{display:none}
+.hint{font-size:.85rem;color:var(--muted);margin:0 0 .8rem}
+.hint em{font-style:normal;color:var(--teal);font-weight:600}
+
+.opts{display:flex;flex-direction:column;gap:.45rem;margin:.2rem 0 .8rem}
+.opts button{font:inherit;font-size:.94rem;background:#fff;color:var(--ink);border:1px solid var(--line);
+  border-radius:.3rem;padding:.5rem .8rem;cursor:pointer;text-align:left}
+.opts button:hover{border-color:var(--teal)}
+.opts button[data-state="right"]{background:var(--ok-soft);border-color:var(--ok)}
+.opts button[data-state="wrong"]{background:var(--ground);color:var(--muted)}
+.opts button[disabled]{cursor:default}
+
+.said{background:#fff;border-left:3px solid var(--teal);border-radius:.3rem;padding:.75rem .85rem;
+  margin:.2rem 0 .9rem;font-size:.93rem;color:#3d5059}
+.said[hidden]{display:none}
+.said b{color:var(--ink)}
+.srcs{margin:.6rem 0 .9rem}
+.srcs .pair{font-family:var(--serif);font-size:.9rem;line-height:1.6;color:#3d5059;
+  border-left:2px solid var(--line);padding:.1rem 0 .1rem .6rem;margin:0 0 .5rem}
+.srcs .pair .t{display:block;font-family:var(--sans);font-size:.76rem;font-weight:600;color:var(--teal)}
+.go{font:inherit;font-size:.92rem;background:var(--ink);color:#fff;border:1px solid var(--ink);
+  border-radius:.3rem;padding:.42rem 1.05rem;cursor:pointer}
+.go[hidden]{display:none}
+
+.prompt{background:var(--exam-soft);border:1px solid #e8d3b4;border-radius:.4rem;padding:.75rem .85rem;
+  margin:0 0 .9rem;font-size:.92rem;color:#3d5059}
+.prompt b{color:var(--ink)}
+.cell{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.6rem .75rem}
+.cell+.cell{margin-top:.6rem}
+.cell .fn{font-size:.78rem;font-weight:600;color:var(--teal)}
+.cell .fn em{font-style:normal;color:var(--muted);font-weight:400;margin-left:.35rem}
+.cell textarea{width:100%;margin-top:.3rem;font-family:inherit;font-size:.93rem;line-height:1.6;
+  padding:.45rem .55rem;border:1px solid var(--line);border-radius:.3rem;background:#fff;color:var(--ink);resize:vertical}
+.bar{display:flex;gap:.5rem;flex-wrap:wrap;margin:.7rem 0}
+.bar button{font:inherit;font-size:.9rem;background:#fff;color:var(--ink);border:1px solid var(--ink);
+  border-radius:.3rem;padding:.38rem .9rem;cursor:pointer}
+.bar button.p{background:var(--ink);color:#fff}
+pre.ai{background:#fff;border:1px solid var(--line);border-radius:.3rem;padding:.6rem .7rem;
+  font-size:.8rem;line-height:1.65;white-space:pre-wrap;margin:.4rem 0 0;color:#3d5059}
+.code{background:var(--teal-soft);border:1px solid var(--teal);border-radius:.4rem;padding:.7rem .85rem;margin:1.1rem 0 .5rem}
+.code .t{font-size:.8rem;font-weight:600;color:var(--teal);margin:0 0 .35rem}
+.code .v{font-family:var(--serif);font-size:1.15rem;letter-spacing:.04em;color:var(--ink);margin:0 0 .5rem}
+.series{border-top:1px solid var(--line);margin-top:2.2rem;padding-top:1.1rem;font-size:.9rem}
+.series a{font-family:var(--serif);font-size:1rem;color:var(--teal);text-decoration:none}
+.series a:hover{text-decoration:underline}
+.toast{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--ink);color:#fff;
+  padding:.45rem 1rem;border-radius:.3rem;font-size:.86rem;opacity:0;transition:opacity .2s;pointer-events:none}
+.toast.on{opacity:1}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>列舉的組織圖</h1>
+<p class="lede">上一份講義帶你讀完 The Secret Lives of Plants。這一份把整篇壓成一張圖。它跟因果鏈那一張長得完全不一樣——沒有箭頭，因為六個格子之間沒有先後。</p>
+<p class="preview" id="pv" hidden>預覽模式：全部步驟與答案一次展開，進度不存檔。學生拿到的一般連結不受影響。</p>
+<p class="resume" id="rs" hidden>上次做到一半，已經幫你接回來了。<button id="rst">重新開始</button></p>
+<p class="src">ALL+ 互動英語 9 月號 Unit 2（pp. 8–9）　The Secret Lives of Plants　全文 58 行</p>
+
+<!-- 第一步 -->
+<section class="step" id="s1">
+  <p class="stepno">第一步</p>
+  <h2>一根主幹，六個並排的格子</h2>
+  <p>最上面那一格是主張，它做了一件很好認的事——<b>先報數</b>。下面六個格子從同一根主幹長出來，格與格之間沒有箭頭，因為它們誰也不接誰。</p>
+  <p>每個格子上印的是課文原本的小標題。<b>八張句卡，只有六張放得進去</b>，而且都不是課文原句，是換過字的說法。</p>
+  <p class="hint" id="h1">先點一張句卡，再點圖上的格子。第一次就放對 <em id="n1">0</em> / 6</p>
+
+  <div class="pool" id="pool"></div>
+  <figure class="fig" id="fig"></figure>
+  <div class="panel" id="pn">
+    <span class="k" id="pk">這一格</span>
+    <p class="q" id="pq">點圖上任一個格子，看它裝的是哪一句。</p>
+  </div>
+
+  <div class="said" id="a1" hidden>
+    <b>兩張放不進去的是哪兩張。</b>一張說植物世界處處出人意料，那是主張本身，管的是全部六格，不屬於任何一格。另一張說 Suzanne Simard 是發現這件事的生態學家，第 30 行真的這樣寫，但那一格要的是地底下發生了什麼，不是誰發現的。誘答不會是假話，誘答是把對的東西放錯層級。
+    <br><br>
+    <b>八張句卡沒有一張跟課文一樣。</b>你剛才是靠讀懂每一格在講什麼才配對成功的。下面是六格的原文位置，回去對一次。
+    <div class="srcs" id="src6"></div>
+  </div>
+  <button class="go" id="g1" hidden>下一步：把兩格對調看看</button>
+</section>
+
+<!-- 第二步 -->
+<section class="step" id="s2" hidden>
+  <p class="stepno">第二步</p>
+  <h2>換位測試</h2>
+  <p>怎麼確定一篇是列舉？<b>把兩格對調，再讀一次。</b>按下面這顆按鈕，圖上第二格和第五格會真的交換位置。</p>
+  <div class="bar">
+    <button class="p" id="sw">把第二格和第五格對調</button>
+  </div>
+  <div id="q2box" hidden>
+    <p>對調完了。現在看著那張圖回答：<b>這篇文章壞掉了嗎？</b></p>
+    <div class="opts" id="q2">
+      <button>壞了，第五格的樹必須接在地下網路那一格後面</button>
+      <button data-ok="1">沒壞，六格各自獨立，誰先誰後都讀得通</button>
+      <button>壞了，六格原本是照植物由小到大排下來的</button>
+      <button>沒壞，因為作者本來就沒有替這六格編號</button>
+    </div>
+    <div class="said" id="a2" hidden>
+      <b>沒壞，六格各自獨立。</b>這就是換位測試：能對調而不壞的是列舉，不能對調的是別種結構。因果鏈對調就壞了，因為後面那一格要靠前面那一格才成立。
+      <br><br>
+      <b>另外三個為什麼排除：</b>第一個說樹要接在地下網路後面——地下網路那一格講的是樹根交換養分，第五格講的是樹長不高的原因，兩件事沒有承接關係。第三個說照大小排——仙人掌排在樹前面，文章沒有按大小走。第四個最難排除，它的結論是對的，理由卻不成立：倒金字塔那種文章也沒有編號，可是它不能對調。<b>沒編號不等於可互換，能互換是因為六格平行。</b>
+    </div>
+  </div>
+  <button class="go" id="g2" hidden>下一步：換成你自己的作文</button>
+</section>
+
+<!-- 第三步 -->
+<section class="step" id="s3" hidden>
+  <p class="stepno">第三步</p>
+  <h2>同一張圖，換成你的題目</h2>
+  <p>學測作文只有兩段，掛不了六格，掛三格剛好。主張那一格照樣要先報數——你說了要談三件事，閱卷老師就會數。</p>
+  <div class="prompt">
+    <b>試寫的題目：</b>一位外國朋友下個月要來台灣玩一週。請以此為題，第一段說明你挑選景點的標準並點出你要推薦的三個地方，第二段分別說明推薦的理由。
+  </div>
+  <p>每一格寫一句中文要點就好，這一步先不寫英文。</p>
+  <div id="mine"></div>
+  <div class="bar">
+    <button class="p" id="cp">複製我寫的內容</button>
+    <button id="sv">存到瀏覽器</button>
+  </div>
+  <p class="hint">這一步沒有標準答案，站上不批改。複製之後貼給老師，或貼給 AI 也可以——下面這段指示會跟著一起複製。</p>
+  <pre class="ai" id="aib"></pre>
+
+  <div class="code">
+    <p class="t">做完了，把這一行貼到 Google Classroom 的作業回覆欄</p>
+    <p class="v" id="cv">—</p>
+    <div class="bar" style="margin:0">
+      <button class="p" id="cc">複製完成碼</button>
+      <button id="rfb">重新產生</button>
+    </div>
+    <p class="hint" style="margin:.5rem 0 0">老師只看這一行，不會看到你寫的內容。你寫的東西只留在這台裝置的瀏覽器裡。</p>
+  </div>
+</section>
+
+<nav class="series">
+  <a href="cohesion.html">← 回讀法練習總表</a>
+</nav>
+
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+"use strict";
+function $(id){return document.getElementById(id);}
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;");}
+
+var KEY="outline-u2-v1";
+var PREVIEW=false;
+var ST={put:{},first:{},miss:{},q2:0,swapped:0,mine:{},step:1};
+function save(){ if(PREVIEW) return; try{ localStorage.setItem(KEY,JSON.stringify(ST)); }catch(e){} }
+function load(){ try{ var r=localStorage.getItem(KEY); return r?JSON.parse(r):null; }catch(e){ return null; } }
+function toast(m){ var t=$("toast"); t.textContent=m; t.classList.add("on");
+  setTimeout(function(){ t.classList.remove("on"); },1600); }
+
+/* 主張框：課文原樣的報數句 */
+var TOP={lb:"主張　the claim　第 1–9 行", q:"Here are six fascinating examples of just how inventive plants can be."};
+
+/* 六個格子，小標題照課文原樣 */
+var CELLS=[
+ {id:"b1",hd:"Plants That Generate Heat",           rf:"第 10–16 行"},
+ {id:"b2",hd:"Plants That Warn Each Other",         rf:"第 17–25 行"},
+ {id:"b3",hd:"The Forest's Underground Network",    rf:"第 26–34 行"},
+ {id:"b4",hd:"Why Cacti \u201cBreathe\u201d at Night",rf:"第 35–43 行"},
+ {id:"b5",hd:"Why Trees Can Only Grow So Tall",     rf:"第 44–51 行"},
+ {id:"b6",hd:"Why Sunflowers Stop Following the Sun",rf:"第 52–58 行"}
+];
+var ORD=[0,1,2,3,4,5];
+
+/* 八張句卡，六張改寫自課文，兩張沒有位置 */
+var SENTS=[
+ {id:"b3",t:"Fungi join tree roots underground, so trees can pass food and news to one another."},
+ {id:"b6",t:"A young sunflower turns with the sun, but a grown one stops and faces one way for good."},
+ {id:"x1",t:"The world of plants is full of things that go against what we expect."},
+ {id:"b1",t:"Some plants make their own heat, which carries their scent and can even melt the snow."},
+ {id:"b4",t:"In the desert, opening up at night instead of by day saves a plant a lot of water."},
+ {id:"x2",t:"Suzanne Simard is the ecologist who found out about this sharing underground."},
+ {id:"b5",t:"Water can only be pushed so far upward, so no tree grows past a certain height."},
+ {id:"b2",t:"A plant under attack sends a chemical warning into the air, and the plants nearby get ready."}
+];
+var NOFIT={
+ x1:"第 5 到 7 行真的這樣寫，但那是主張本身，管的是全部六格。它該待在最上面那一格，不屬於下面任何一格。",
+ x2:"第 30 行真的這樣寫，但那一格要的是地底下發生了什麼事。誰發現的是細節，不是那一格的重點。"
+};
+var SRCQ=[
+ {hd:"Plants That Generate Heat",rf:"第 11–16 行",t:"Some plants produce heat through thermogenesis. The sacred lotus and skunk cabbage use this warmth to spread their scents and attract pollinators."},
+ {hd:"Plants That Warn Each Other",rf:"第 18–21 行",t:"When attacked by insects, some plants release airborne chemical signals that nearby plants detect, which prompts them to strengthen their own defenses."},
+ {hd:"The Forest's Underground Network",rf:"第 27–29 行",t:"Beneath the forest floor, tree roots are linked by fungal networks that allow trees to exchange nutrients and information."},
+ {hd:"Why Cacti \u201cBreathe\u201d at Night",rf:"第 37–41 行",t:"Unlike most plants, cacti open their stomata at night rather than during the day. By absorbing carbon dioxide when temperatures are cooler, they dramatically reduce water loss."},
+ {hd:"Why Trees Can Only Grow So Tall",rf:"第 45–48 行",t:"Trees cannot grow endlessly upward. The taller a tree grows, the harder it becomes for water to reach its highest branches."},
+ {hd:"Why Sunflowers Stop Following the Sun",rf:"第 53–55 行",t:"Young sunflowers track the sun through a behavior called heliotropism. But once mature, the common sunflower settles into a fixed eastward-facing position."}
+];
+
+var MINE=[
+ {id:"m1",fn:"主張，並且報數",en:"the claim, with a number",ph:"我的標準是什麼？我要談的是哪三個？"},
+ {id:"m2",fn:"第一格",en:"item 1",ph:"第一個，還有一個理由"},
+ {id:"m3",fn:"第二格",en:"item 2",ph:"第二個，還有一個理由"},
+ {id:"m4",fn:"第三格",en:"item 3",ph:"第三個，還有一個理由"}
+];
+
+var AI=[
+"我是台灣的高中生，正在準備學測英文作文。下面是我用「列舉」這個架構列的中文大綱。",
+"",
+"請照以下規則給我意見：",
+"1. 先看第一格：我有沒有說清楚挑選的標準，有沒有先報數。",
+"2. 再看三格是不是同一個層級。如果其中一格其實包含另一格，或其中一格只是別格的例子，請直接講明。",
+"3. 把三格的順序對調，告訴我有沒有哪一格其實不能動——如果有，那我寫的就不是列舉。",
+"4. 不要幫我寫英文，也不要幫我補內容。",
+"5. 說明用中文。"
+].join("\n");
+
+/* ── 畫圖 ── */
+var TX=20, TW=300, TH=56, BX=64, BW=256, BH=50, PITCH=62, BY0=86, STEM=40;
+function drawFig(){
+  var H=BY0+5*PITCH+BH+8;
+  var s='<svg viewBox="0 0 340 '+H+'" role="img" aria-label="列舉組織圖：一個主張框，下面六個並排的格子">';
+  s+='<g class="top"><rect x="'+TX+'" y="6" width="'+TW+'" height="'+TH+'" rx="6"/>';
+  s+='<text class="lb" x="'+(TX+14)+'" y="26">'+esc(TOP.lb)+'</text>';
+  s+='<text class="q" x="'+(TX+14)+'" y="45">'+esc(TOP.q)+'</text></g>';
+  var lastY=BY0+5*PITCH+BH/2;
+  s+='<line class="stem" x1="'+STEM+'" y1="'+(6+TH)+'" x2="'+STEM+'" y2="'+lastY+'"/>';
+  for(var i=0;i<6;i++){
+    var c=CELLS[ORD[i]], y=BY0+i*PITCH, mid=y+BH/2;
+    s+='<line class="stem" x1="'+STEM+'" y1="'+mid+'" x2="'+BX+'" y2="'+mid+'"/>';
+    var cl="bx"+(ST.put[c.id]?" on":"");
+    s+='<g class="'+cl+'" data-id="'+c.id+'" tabindex="0" role="button">';
+    s+='<rect x="'+BX+'" y="'+y+'" width="'+BW+'" height="'+BH+'" rx="6"/>';
+    s+='<text class="hd" x="'+(BX+12)+'" y="'+(y+21)+'">'+esc(c.hd)+'</text>';
+    s+='<text class="rf" x="'+(BX+12)+'" y="'+(y+38)+'">'+(ST.put[c.id]?esc(c.rf):"待放")+'</text>';
+    s+='</g>';
+  }
+  s+='</svg>';
+  $("fig").innerHTML=s;
+}
+
+var pick=null;
+function drawPool(){
+  var h="";
+  for(var i=0;i<SENTS.length;i++){
+    var s=SENTS[i];
+    h+='<button data-i="'+i+'" class="'+(ST.put[s.id]?"gone":"")+'">'+esc(s.t)+'</button>';
+  }
+  $("pool").innerHTML=h;
+}
+function done1(){ var n=0; for(var k in ST.put) if(ST.put[k]) n++; return n; }
+function first1(){ var n=0; for(var k in ST.first) if(ST.first[k]) n++; return n; }
+function showSrc(){
+  if($("src6").innerHTML) return;
+  var h="";
+  for(var i=0;i<SRCQ.length;i++)
+    h+='<div class="pair"><span class="t">'+esc(SRCQ[i].hd)+'　'+esc(SRCQ[i].rf)+'</span>'+esc(SRCQ[i].t)+'</div>';
+  $("src6").innerHTML=h;
+}
+function after1(){
+  if($("n1")) $("n1").textContent=first1();
+  if(done1()===6){
+    $("h1").innerHTML="\u516d\u683c\u90fd\u6eff\u4e86\u3002\u7b2c\u4e00\u6b21\u5c31\u653e\u5c0d <em id=\"n1\">"+first1()+"</em> / 6";
+    $("a1").hidden=false; $("g1").hidden=false; showSrc();
+  }
+}
+function show(id){
+  var c=null,i;
+  for(i=0;i<CELLS.length;i++) if(CELLS[i].id===id) c=CELLS[i];
+  if(!c) return;
+  var gs=$("fig").querySelectorAll(".bx");
+  for(i=0;i<gs.length;i++) gs[i].classList.toggle("sel", gs[i].dataset.id===id);
+  $("pk").textContent=(ST.put[id]?c.rf:"還沒放");
+  $("pq").textContent=ST.put[id]||"這一格還空著。";
+}
+function aim(on){
+  var gs=$("fig").querySelectorAll(".bx");
+  for(var i=0;i<gs.length;i++) if(!gs[i].classList.contains("on")) gs[i].classList.toggle("aim",on);
+}
+$("pool").addEventListener("click",function(e){
+  var b=e.target.closest("button"); if(!b) return;
+  var bs=$("pool").querySelectorAll("button");
+  for(var i=0;i<bs.length;i++) bs[i].classList.remove("pick");
+  b.classList.add("pick"); pick=+b.dataset.i; aim(true);
+});
+function hit(g){
+  var id=g.dataset.id;
+  if(pick===null || ST.put[id]){ show(id); return; }
+  var s=SENTS[pick];
+  if(NOFIT[s.id]){
+    ST.miss[id]=1; save();
+    $("pk").textContent="這一張沒有位置";
+    $("pq").textContent=NOFIT[s.id];
+    return;
+  }
+  if(s.id!==id){ ST.miss[id]=1; save(); toast("這一格要的不是這一張"); return; }
+  if(!ST.miss[id]) ST.first[id]=1;
+  ST.put[id]=s.t; save(); pick=null;
+  drawFig(); drawPool(); aim(false); show(id); after1();
+}
+$("fig").addEventListener("click",function(e){ var g=e.target.closest(".bx"); if(g) hit(g); });
+$("fig").addEventListener("keydown",function(e){
+  if(e.key!=="Enter"&&e.key!==" ") return;
+  var g=e.target.closest(".bx"); if(g){ e.preventDefault(); hit(g); }
+});
+$("g1").addEventListener("click",function(){
+  if(ST.step<2) ST.step=2; save();
+  $("s2").hidden=false; $("s2").scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+/* ── 第二步：換位測試 ── */
+function doSwap(){
+  var t=ORD[1]; ORD[1]=ORD[4]; ORD[4]=t;
+  drawFig();
+  var gs=$("fig").querySelectorAll(".bx");
+  for(var i=0;i<gs.length;i++)
+    if(gs[i].dataset.id==="b2"||gs[i].dataset.id==="b5") gs[i].classList.add("mv");
+  $("q2box").hidden=false;
+  $("sw").disabled=true;
+}
+$("sw").addEventListener("click",function(){
+  if(ST.swapped) return;
+  ST.swapped=1; save(); doSwap();
+  $("q2box").scrollIntoView({behavior:"smooth",block:"nearest"});
+});
+function settle2(){
+  var bs=$("q2").querySelectorAll("button");
+  for(var i=0;i<bs.length;i++){ bs[i].disabled=true; bs[i].dataset.state=bs[i].dataset.ok?"right":"wrong"; }
+  $("a2").hidden=false; $("g2").hidden=false;
+}
+$("q2").addEventListener("click",function(e){
+  var b=e.target.closest("button"); if(!b||ST.q2) return;
+  ST.q2=b.dataset.ok?1:2; save(); settle2();
+});
+$("g2").addEventListener("click",function(){
+  if(ST.step<3) ST.step=3; save();
+  paintCode(); $("s3").hidden=false;
+  $("s3").scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+/* ── 第三步 ── */
+function drawMine(){
+  var h="";
+  for(var i=0;i<MINE.length;i++){
+    var m=MINE[i];
+    h+='<div class="cell"><span class="fn">'+esc(m.fn)+'<em>'+esc(m.en)+'</em></span>'+
+       '<textarea id="'+m.id+'" rows="2" placeholder="'+esc(m.ph)+'"></textarea></div>';
+  }
+  $("mine").innerHTML=h;
+  for(var j=0;j<MINE.length;j++){
+    var el=$(MINE[j].id);
+    if(ST.mine[MINE[j].id]) el.value=ST.mine[MINE[j].id];
+    el.addEventListener("input",function(){ ST.mine[this.id]=this.value; save(); });
+  }
+  $("aib").textContent=AI;
+}
+function mkCode(){
+  var f=first1(), m=0, w=0, i;
+  for(var k in ST.miss) if(ST.miss[k]) m++;
+  for(i=0;i<MINE.length;i++){ var el=$(MINE[i].id); if(el&&el.value.trim()) w++; }
+  var seed=(f*31 + m*7 + w*13 + (ST.q2===1?5:0) + 2*101 + 1777) % 46656;
+  var chk=("000"+seed.toString(36).toUpperCase()).slice(-3);
+  return "U2 "+f+"/6 大綱"+w+"/4 "+chk;
+}
+function paintCode(){ $("cv").textContent=mkCode(); }
+$("rfb").addEventListener("click",paintCode);
+function copy(t){
+  function fb(){
+    var ta=document.createElement("textarea"); ta.value=t; document.body.appendChild(ta);
+    ta.select(); try{ document.execCommand("copy"); toast("已複製"); }catch(e){ toast("複製失敗，請手動選取"); }
+    document.body.removeChild(ta);
+  }
+  if(navigator.clipboard&&navigator.clipboard.writeText)
+    navigator.clipboard.writeText(t).then(function(){ toast("已複製"); },fb);
+  else fb();
+}
+$("cc").addEventListener("click",function(){ copy(mkCode()); });
+$("sv").addEventListener("click",function(){
+  for(var i=0;i<MINE.length;i++) ST.mine[MINE[i].id]=$(MINE[i].id).value;
+  save(); toast("已存在這台裝置的瀏覽器裡");
+});
+$("cp").addEventListener("click",function(){
+  var t=AI+"\n\n【我的大綱】\n";
+  for(var i=0;i<MINE.length;i++) t+=MINE[i].fn+"："+($(MINE[i].id).value||"（空白）")+"\n";
+  copy(t);
+});
+
+/* ── 預覽 ── */
+function previewAll(){
+  PREVIEW=true; $("pv").hidden=false;
+  for(var i=0;i<SENTS.length;i++) if(!NOFIT[SENTS[i].id]){ ST.put[SENTS[i].id]=SENTS[i].t; ST.first[SENTS[i].id]=1; }
+  drawFig(); drawPool(); drawMine(); after1();
+  $("s2").hidden=false; ST.swapped=1; doSwap(); ST.q2=1; settle2();
+  $("s3").hidden=false; paintCode();
+}
+
+/* ── 接回進度 ── */
+$("rst").addEventListener("click",function(){
+  try{ localStorage.removeItem(KEY); }catch(e){} location.reload();
+});
+(function restore(){
+  if(/(^|[?&])all(=|&|$)/.test(location.search)){ previewAll(); return; }
+  var v=load();
+  if(v){
+    ST=v;
+    if(!ST.put) ST.put={};
+    if(!ST.first) ST.first={};
+    if(!ST.miss) ST.miss={};
+    if(!ST.mine) ST.mine={};
+    if(!ST.step) ST.step=1;
+  }
+  drawFig(); drawPool(); drawMine();
+  if(done1()||ST.step>1) $("rs").hidden=false;
+  if(ST.step>=2) $("s2").hidden=false;
+  if(ST.swapped) doSwap();
+  if(ST.q2) settle2();
+  if(ST.step>=3){ $("s3").hidden=false; paintCode(); }
+  after1();
+})();
+})();
+</script>
+</body>
+</html>
