@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OREO 的組織圖｜Why Italians Take Food So Seriously</title>
+<meta name="description" content="把一篇 OREO 的文章壓成一張圖，再把這四格用在自己的作文上。">
+<style>
+:root{
+  --ground:#f1f3f2; --ink:#17282f; --teal:#1f6f6a; --teal-soft:#dfeceb;
+  --muted:#77878d; --line:#cdd6d6; --exam:#b4661c; --exam-soft:#fdf4e7;
+  --ok:#2e6b4f; --ok-soft:#edf4ef;
+  --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+  --sans:"PingFang TC","Noto Sans TC","Microsoft JhengHei","Helvetica Neue",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-text-size-adjust:100%}
+.wrap{max-width:44rem;margin:0 auto;padding:1.6rem 1.1rem 4rem}
+h1{font-family:var(--serif);font-weight:600;font-size:1.6rem;line-height:1.3;margin:0 0 .55rem}
+.lede{margin:0 0 1.1rem;color:#3d5059;font-size:.95rem}
+.src{font-size:.8rem;color:var(--muted);margin:0 0 1.1rem}
+.preview{font-size:.85rem;color:var(--exam);background:var(--exam-soft);border:1px dashed var(--exam);
+  border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.preview[hidden]{display:none}
+.resume{font-size:.85rem;color:var(--teal);background:var(--teal-soft);border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.resume[hidden]{display:none}
+.resume button{font:inherit;font-size:.82rem;background:#fff;color:var(--ink);border:1px solid var(--line);
+  border-radius:.25rem;padding:.16rem .6rem;margin-left:.5rem;cursor:pointer}
+.step{border-top:1px solid var(--line);padding-top:1.15rem;margin-top:1.7rem}
+.step[hidden]{display:none}
+.stepno{font-family:var(--serif);font-size:.82rem;color:var(--muted);margin:0 0 .2rem}
+h2{font-family:var(--serif);font-weight:600;font-size:1.2rem;margin:0 0 .5rem;color:var(--teal)}
+p{margin:0 0 .7rem;font-size:.95rem}
+
+/* 組織圖：四層，上下兩層是餅乾 */
+.fig{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.7rem .5rem .5rem;margin:.2rem 0 .6rem}
+.fig svg{display:block;width:100%;height:auto;max-width:25rem;margin:0 auto}
+.bx rect{fill:#fff;stroke:var(--line);stroke-width:2}
+.bx.ck rect{fill:var(--teal-soft)}
+.bx text.ltr{font-family:var(--serif);font-size:19px;font-weight:700;fill:var(--teal)}
+.bx text.fn{font-family:var(--sans);font-size:12px;font-weight:600;fill:var(--ink)}
+.bx text.en{font-family:var(--serif);font-size:9px;fill:var(--muted)}
+.bx text.rf{font-family:var(--sans);font-size:9px;fill:var(--muted)}
+.bx.aim rect{stroke:var(--teal);stroke-dasharray:6 4}
+.bx.on rect{fill:var(--ok-soft);stroke:var(--ok);stroke-width:2.5}
+.bx.on text.rf{fill:var(--ok);font-weight:600}
+.bx.sel rect{stroke:var(--teal);stroke-width:3}
+.bx.dim{opacity:.22}
+.wrapbox{fill:none;stroke:var(--line);stroke-width:2;stroke-dasharray:5 4}
+.wraplb{font-family:var(--serif);font-size:19px;font-weight:700;fill:var(--teal)}
+.wrapen{font-family:var(--sans);font-size:9px;fill:var(--muted)}
+
+.panel{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.7rem .85rem;margin:0 0 .9rem}
+.panel .k{font-size:.72rem;font-weight:600;border-radius:.2rem;padding:.06rem .42rem;
+  color:var(--teal);background:var(--teal-soft);border:1px solid var(--teal)}
+.panel .q{font-family:var(--serif);font-size:.95rem;line-height:1.65;margin:.4rem 0 0;color:#3d5059}
+
+.pool{display:flex;flex-direction:column;gap:.4rem;margin:0 0 .8rem}
+.pool button{font:inherit;font-family:var(--serif);font-size:.93rem;line-height:1.55;background:#fff;color:var(--ink);
+  border:1px solid var(--line);border-radius:.3rem;padding:.5rem .7rem;cursor:pointer;text-align:left}
+.pool button:hover{border-color:var(--teal)}
+.pool button.pick{border-color:var(--teal);background:var(--teal-soft)}
+.pool button.gone{display:none}
+.hint{font-size:.85rem;color:var(--muted);margin:0 0 .8rem}
+.hint em{font-style:normal;color:var(--teal);font-weight:600}
+
+.pair2{display:grid;grid-template-columns:1fr;gap:.5rem;margin:.2rem 0 .9rem}
+@media(min-width:34rem){.pair2{grid-template-columns:1fr 1fr}}
+.pair2 div{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.6rem .75rem;
+  font-family:var(--serif);font-size:.92rem;line-height:1.65;color:#3d5059}
+.pair2 div b{display:block;font-family:var(--sans);font-size:.74rem;font-weight:600;color:var(--teal);margin-bottom:.25rem}
+.pair2[hidden]{display:none}
+
+.opts{display:flex;flex-direction:column;gap:.45rem;margin:.2rem 0 .8rem}
+.opts button{font:inherit;font-size:.94rem;background:#fff;color:var(--ink);border:1px solid var(--line);
+  border-radius:.3rem;padding:.5rem .8rem;cursor:pointer;text-align:left}
+.opts button:hover{border-color:var(--teal)}
+.opts button[data-state="right"]{background:var(--ok-soft);border-color:var(--ok)}
+.opts button[data-state="wrong"]{background:var(--ground);color:var(--muted)}
+.opts button[disabled]{cursor:default}
+
+.said{background:#fff;border-left:3px solid var(--teal);border-radius:.3rem;padding:.75rem .85rem;
+  margin:.2rem 0 .9rem;font-size:.93rem;color:#3d5059}
+.said[hidden]{display:none}
+.said b{color:var(--ink)}
+.srcs{margin:.6rem 0 .9rem}
+.srcs .pair{font-family:var(--serif);font-size:.9rem;line-height:1.6;color:#3d5059;
+  border-left:2px solid var(--line);padding:.1rem 0 .1rem .6rem;margin:0 0 .5rem}
+.srcs .pair .t{display:block;font-family:var(--sans);font-size:.76rem;font-weight:600;color:var(--teal)}
+.go{font:inherit;font-size:.92rem;background:var(--ink);color:#fff;border:1px solid var(--ink);
+  border-radius:.3rem;padding:.42rem 1.05rem;cursor:pointer}
+.go[hidden]{display:none}
+
+.prompt{background:var(--exam-soft);border:1px solid #e8d3b4;border-radius:.4rem;padding:.75rem .85rem;
+  margin:0 0 .9rem;font-size:.92rem;color:#3d5059}
+.prompt b{color:var(--ink)}
+.cell{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.6rem .75rem}
+.cell+.cell{margin-top:.6rem}
+.cell .fn{font-size:.78rem;font-weight:600;color:var(--teal)}
+.cell .fn em{font-style:normal;color:var(--muted);font-weight:400;margin-left:.35rem}
+.cell textarea{width:100%;margin-top:.3rem;font-family:inherit;font-size:.93rem;line-height:1.6;
+  padding:.45rem .55rem;border:1px solid var(--line);border-radius:.3rem;background:#fff;color:var(--ink);resize:vertical}
+.bar{display:flex;gap:.5rem;flex-wrap:wrap;margin:.7rem 0}
+.bar button{font:inherit;font-size:.9rem;background:#fff;color:var(--ink);border:1px solid var(--ink);
+  border-radius:.3rem;padding:.38rem .9rem;cursor:pointer}
+.bar button.p{background:var(--ink);color:#fff}
+.bar button[disabled]{border-color:var(--line);color:var(--muted);cursor:default;background:#fff}
+pre.ai{background:#fff;border:1px solid var(--line);border-radius:.3rem;padding:.6rem .7rem;
+  font-size:.8rem;line-height:1.65;white-space:pre-wrap;margin:.4rem 0 0;color:#3d5059}
+.note{font-size:.85rem;color:var(--muted);background:#fff;border:1px solid var(--line);
+  border-radius:.3rem;padding:.6rem .75rem;margin:.2rem 0 .9rem;line-height:1.7}
+.code{background:var(--teal-soft);border:1px solid var(--teal);border-radius:.4rem;padding:.7rem .85rem;margin:1.1rem 0 .5rem}
+.code .t{font-size:.8rem;font-weight:600;color:var(--teal);margin:0 0 .35rem}
+.code .v{font-family:var(--serif);font-size:1.15rem;letter-spacing:.04em;color:var(--ink);margin:0 0 .5rem}
+.series{border-top:1px solid var(--line);margin-top:2.2rem;padding-top:1.1rem;font-size:.9rem}
+.series a{font-family:var(--serif);font-size:1rem;color:var(--teal);text-decoration:none}
+.series a:hover{text-decoration:underline}
+.toast{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--ink);color:#fff;
+  padding:.45rem 1rem;border-radius:.3rem;font-size:.86rem;opacity:0;transition:opacity .2s;pointer-events:none}
+.toast.on{opacity:1}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>OREO 的組織圖</h1>
+<p class="lede">上一份講義帶你讀完那篇義大利料理。這一份把整篇壓成一張圖。它跟倒金字塔剛好相反——倒金字塔可以從尾巴砍，這一種<b>砍掉尾巴就散了</b>，因為最後一格要把話再講一次。</p>
+<p class="preview" id="pv" hidden>預覽模式：全部步驟與答案一次展開，進度不存檔。學生拿到的一般連結不受影響。</p>
+<p class="resume" id="rs" hidden>上次做到一半，已經幫你接回來了。<button id="rst">重新開始</button></p>
+<p class="src">ALL+ 互動英語 9 月號 Unit 3（pp. 12–13）　Why Italians Take Food So Seriously　全文 31 行</p>
+
+<!-- 第一步 -->
+<section class="step" id="s1">
+  <p class="stepno">第一步</p>
+  <h2>兩片餅乾夾中間</h2>
+  <p>上下兩層是同一個主張，中間夾理由和例子。中間的 E 在這一篇又分成三小格，因為作者舉了三組例子：pasta、pizza、coffee。</p>
+  <p><b>最容易混的是 R 和 E。</b>理由回答「為什麼我這樣主張」，例子回答「哪一件事可以證明」。一張句卡如果只講某一道菜怎麼樣，那就是例子，不是理由。</p>
+  <p><b>八張句卡，只有六張放得進去</b>，而且都不是原句，是換過字的說法。</p>
+  <p class="hint" id="h1">先點一張句卡，再點圖上的格子。第一次就放對 <em id="n1">0</em> / 6</p>
+
+  <div class="pool" id="pool"></div>
+  <figure class="fig" id="fig"></figure>
+  <div class="panel" id="pn">
+    <span class="k" id="pk">這一格</span>
+    <p class="q" id="pq">點圖上任一個格子，看它裝的是哪一句。</p>
+  </div>
+
+  <div class="said" id="a1" hidden>
+    <b>兩張放不進去的是哪兩張。</b>一張說義大利人把加鮮奶油當成錯誤而不是變化——第 16 到 17 行真的這樣寫，但那已經包在 pasta 那一格裡，是同一個例子的下一層，不是第七個例子。另一張說老食譜承載著好幾代人的故事與手藝，那句在收尾段裡，可是收尾那一格要的是<b>把主張再講一次</b>的那一句，不是收尾段裡的補充理由。
+    <br><br>
+    <b>八張句卡沒有一張跟課文一樣。</b>下面是六個位置的原文與行號，回去對一次。
+    <div class="srcs" id="src6"></div>
+  </div>
+  <button class="go" id="g1" hidden>下一步：只讀頭尾兩段</button>
+</section>
+
+<!-- 第二步 -->
+<section class="step" id="s2" hidden>
+  <p class="stepno">第二步</p>
+  <h2>首尾對讀測試</h2>
+  <p>怎麼確定一篇是 OREO？<b>把中間遮起來，只讀頭尾兩段。</b>按下面的按鈕，圖上中間那兩層會變淡，頭尾兩段的原文並排出來。</p>
+  <div class="bar">
+    <button class="p" id="fold">把中間遮起來</button>
+    <button id="unfold" hidden>中間放回來</button>
+  </div>
+  <div class="pair2" id="two" hidden>
+    <div><b>第一段　第 1–3 行</b>In Italy, food is about more than just flavor. It's a matter of culture, family traditions, and regional pride.</div>
+    <div><b>最後一段　第 25–31 行</b>Ultimately, these reactions are not simply about personal taste. For many Italians, traditional recipes carry the stories and craftsmanship of generations—and that, most would agree, deserves to be taken seriously.</div>
+  </div>
+  <div id="q2box" hidden>
+    <p>兩段擺在一起了。<b>你看到什麼？</b></p>
+    <div class="opts" id="q2">
+      <button data-ok="1">最後一段換了字，但講的是同一個主張</button>
+      <button>最後一段把中間那三組例子又各講了一次</button>
+      <button>最後一段推翻第一段的說法，給了相反的結論</button>
+      <button>最後一段只是補一個新例子，跟第一段沒有關係</button>
+    </div>
+    <div class="said" id="a2" hidden>
+      <b>換了字，同一個主張。</b>第一段說食物不只是味道，是文化、家庭傳統和地方榮譽；最後一段說這些反應不只關乎個人口味，而是承載著世代的故事與手藝。同一件事，兩種說法。這就是首尾對讀測試：<b>頭尾能對上，中間是夾心，那就是 OREO。</b>考卷問主旨，往這兩段找最快。
+      <br><br>
+      <b>另外三個為什麼排除：</b>第二個說重提三組例子——最後一段一道菜也沒有再提，它用 these reactions 一個名詞就把第 8 到 24 行三組例子全收走了，那正是上一份講義教的概括名詞。第三個說推翻——deserves to be taken seriously 跟第一句同一個方向，沒有轉折。第四個最難排除：最後一段確實出現了第一段沒有的內容，也就是世代的故事與手藝，但那是<b>理由</b>不是例子，而且它明白接回主張。
+    </div>
+  </div>
+  <button class="go" id="g2" hidden>下一步：換成你自己的作文</button>
+</section>
+
+<!-- 第三步 -->
+<section class="step" id="s3" hidden>
+  <p class="stepno">第三步</p>
+  <h2>同一張圖，換成你的題目</h2>
+  <p>這四格是<b>意見類作文最好用的一個架構</b>，因為學測作文常常要你表態並說明理由。四格對兩段：O 和 R 放第一段，E 和最後那個 O 放第二段。</p>
+  <div class="note">
+    OREO 跟這個系列的其他讀法有一點不同：倒金字塔、列舉、因果鏈這些是閱讀教學界整理出來的文章結構，OREO 不在那份清單裡，它是教學現場用來教意見寫作的四格口訣。用在讀文章上要小心，用在寫作文上很好用。
+  </div>
+  <div class="prompt">
+    <b>試寫的題目：</b>有人主張高中生應該全面禁止在校內使用手機。請以此為題，第一段說明你同意或不同意以及理由，第二段舉一個具體的例子或經驗支持你的看法，並在最後重申你的立場。
+  </div>
+  <p>每一格寫一句中文要點就好，這一步先不寫英文。</p>
+  <div id="mine"></div>
+  <div class="bar">
+    <button class="p" id="cp">複製我寫的內容</button>
+    <button id="sv">存到瀏覽器</button>
+  </div>
+  <p class="hint">這一步沒有標準答案，站上不批改。複製之後貼給老師，或貼給 AI 也可以——下面這段指示會跟著一起複製。</p>
+  <pre class="ai" id="aib"></pre>
+
+  <div class="code">
+    <p class="t">做完了，把這一行貼到 Google Classroom 的作業回覆欄</p>
+    <p class="v" id="cv">—</p>
+    <div class="bar" style="margin:0">
+      <button class="p" id="cc">複製完成碼</button>
+      <button id="rfb">重新產生</button>
+    </div>
+    <p class="hint" style="margin:.5rem 0 0">老師只看這一行，不會看到你寫的內容。你寫的東西只留在這台裝置的瀏覽器裡。</p>
+  </div>
+</section>
+
+<nav class="series">
+  <a href="cohesion.html">← 回讀法練習總表</a>
+</nav>
+
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+"use strict";
+function $(id){return document.getElementById(id);}
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;");}
+
+var KEY="outline-u3-v1";
+var PREVIEW=false;
+var ST={put:{},first:{},miss:{},fold:0,q2:0,mine:{},step:1};
+function save(){ if(PREVIEW) return; try{ localStorage.setItem(KEY,JSON.stringify(ST)); }catch(e){} }
+function load(){ try{ var r=localStorage.getItem(KEY); return r?JSON.parse(r):null; }catch(e){ return null; } }
+function toast(m){ var t=$("toast"); t.textContent=m; t.classList.add("on");
+  setTimeout(function(){ t.classList.remove("on"); },1600); }
+
+/* 四層。E 拆成三小格，外面套一個虛線框 */
+var CELLS=[
+ {id:"o1",ltr:"O",fn:"主張",   en:"opinion",             rf:"第 1–3 行",  x:20,y:8,  w:300,h:54,ck:1,mid:0},
+ {id:"r", ltr:"R",fn:"理由",   en:"reason",              rf:"第 3–7 行",  x:20,y:70, w:300,h:54,ck:0,mid:1},
+ {id:"e1",ltr:"", fn:"Pasta",  en:"example 1",           rf:"第 8–17 行", x:34,y:150,w:272,h:46,ck:0,mid:1},
+ {id:"e2",ltr:"", fn:"Pizza",  en:"example 2",           rf:"第 18–20 行",x:34,y:202,w:272,h:46,ck:0,mid:1},
+ {id:"e3",ltr:"", fn:"Coffee", en:"example 3",           rf:"第 21–24 行",x:34,y:254,w:272,h:46,ck:0,mid:1},
+ {id:"o2",ltr:"O",fn:"再講一次",en:"opinion restated",   rf:"第 25–26 行",x:20,y:318,w:300,h:54,ck:1,mid:0}
+];
+var EWRAP={x:22,y:132,w:296,h:180};
+
+var SENTS=[
+ {id:"e2",t:"Pineapple on a pizza comes as a shock to many Italians, who prefer the usual combinations."},
+ {id:"o1",t:"In Italy, eating is not only about taste; it is tied to culture, family habits and local pride."},
+ {id:"x1",t:"Putting cream in the sauce is treated not as a version of the dish but as an error."},
+ {id:"e3",t:"Ordering a cappuccino after a meal marks you out at once as a visitor."},
+ {id:"r", t:"That is why Italians react so strongly when other countries change their classic dishes."},
+ {id:"x2",t:"Old recipes carry the stories and the skill of many generations."},
+ {id:"o2",t:"In the end, none of these reactions is really about what one person happens to like."},
+ {id:"e1",t:"In Bologna the famous meat sauce goes with tagliatelle, not with spaghetti."}
+];
+var NOFIT={
+ x1:"第 16 到 17 行真的這樣寫，但那已經包在 Pasta 那一格裡，是同一個例子的下一層，不是第七個例子。",
+ x2:"第 27 到 29 行真的這樣寫，但收尾那一格要的是把主張再講一次的那一句。這一句是收尾段裡的補充理由，不是主張本身。"
+};
+var SRCQ=[
+ {fn:"O　主張",rf:"第 1–3 行",t:"In Italy, food is about more than just flavor. It's a matter of culture, family traditions, and regional pride."},
+ {fn:"R　理由",rf:"第 3–7 行",t:"As a result, Italians sometimes react strongly when people in other countries change classic Italian dishes."},
+ {fn:"E　Pasta",rf:"第 10–12 行",t:"Around the world, people often eat \u201cspaghetti Bolognese,\u201d but in Bologna, the famous meat sauce is usually served with tagliatelle, not spaghetti."},
+ {fn:"E　Pizza",rf:"第 18–20 行",t:"Hawaiian pizza, with pineapple on top, surprises many Italians because they usually prefer classic combinations."},
+ {fn:"E　Coffee",rf:"第 21–24 行",t:"In Italy, ordering a cappuccino after dinner is often seen as a clear sign that someone is a tourist."},
+ {fn:"O　再講一次",rf:"第 25–26 行",t:"Ultimately, these reactions are not simply about personal taste."}
+];
+
+var MINE=[
+ {id:"m1",fn:"O　主張",     en:"opinion",          ph:"我同意還是不同意？一句話講完。"},
+ {id:"m2",fn:"R　理由",     en:"reason",           ph:"為什麼？這裡不要舉例。"},
+ {id:"m3",fn:"E　例子",     en:"example",          ph:"哪一件事可以證明？愈具體愈好。"},
+ {id:"m4",fn:"O　再講一次", en:"opinion restated", ph:"換句話說回主張，不要原句照抄。"}
+];
+
+var AI=[
+"我是台灣的高中生，正在準備學測英文作文。下面是我用 OREO 四格列的中文大綱。",
+"",
+"請照以下規則給我意見：",
+"1. 先看第二格和第三格有沒有混在一起。理由回答「為什麼我這樣主張」，例子回答「哪一件事可以證明」。如果我的理由其實是一個例子，請直接講明。",
+"2. 再看第四格。它應該換過字再說一次第一格，不是原句照抄，也不是補一個新的理由。",
+"3. 告訴我第三格夠不夠具體，還是只是把理由換句話說。",
+"4. 不要幫我寫英文，也不要幫我補內容。",
+"5. 說明用中文。"
+].join("\n");
+
+/* ── 畫圖 ── */
+function drawFig(){
+  var H=372+8;
+  var s='<svg viewBox="0 0 340 '+H+'" role="img" aria-label="OREO 組織圖：四層，上下兩層是同一個主張">';
+  s+='<rect class="wrapbox" x="'+EWRAP.x+'" y="'+EWRAP.y+'" width="'+EWRAP.w+'" height="'+EWRAP.h+'" rx="8"/>';
+  s+='<text class="wraplb" x="'+(EWRAP.x+10)+'" y="'+(EWRAP.y+19)+'">E</text>';
+  s+='<text class="wrapen" x="'+(EWRAP.x+30)+'" y="'+(EWRAP.y+18)+'">examples　三組例子</text>';
+  for(var i=0;i<CELLS.length;i++){
+    var c=CELLS[i];
+    var cl="bx"+(c.ck?" ck":"")+(ST.put[c.id]?" on":"")+(ST.fold&&c.mid?" dim":"");
+    s+='<g class="'+cl+'" data-id="'+c.id+'" tabindex="0" role="button">';
+    s+='<rect x="'+c.x+'" y="'+c.y+'" width="'+c.w+'" height="'+c.h+'" rx="6"/>';
+    var tx=c.x+12;
+    if(c.ltr){ s+='<text class="ltr" x="'+tx+'" y="'+(c.y+c.h/2+7)+'">'+c.ltr+'</text>'; tx=c.x+40; }
+    s+='<text class="fn" x="'+tx+'" y="'+(c.y+22)+'">'+esc(c.fn)+'</text>';
+    s+='<text class="en" x="'+tx+'" y="'+(c.y+36)+'">'+esc(c.en)+'</text>';
+    s+='<text class="rf" x="'+(c.x+c.w-12)+'" y="'+(c.y+36)+'" text-anchor="end">'+
+       (ST.put[c.id]?esc(c.rf):"待放")+'</text>';
+    s+='</g>';
+  }
+  s+='</svg>';
+  $("fig").innerHTML=s;
+}
+
+var pick=null;
+function drawPool(){
+  var h="";
+  for(var i=0;i<SENTS.length;i++)
+    h+='<button data-i="'+i+'" class="'+(ST.put[SENTS[i].id]?"gone":"")+'">'+esc(SENTS[i].t)+'</button>';
+  $("pool").innerHTML=h;
+}
+function done1(){ var n=0; for(var k in ST.put) if(ST.put[k]) n++; return n; }
+function first1(){ var n=0; for(var k in ST.first) if(ST.first[k]) n++; return n; }
+function showSrc(){
+  if($("src6").innerHTML) return;
+  var h="";
+  for(var i=0;i<SRCQ.length;i++)
+    h+='<div class="pair"><span class="t">'+esc(SRCQ[i].fn)+'　'+esc(SRCQ[i].rf)+'</span>'+esc(SRCQ[i].t)+'</div>';
+  $("src6").innerHTML=h;
+}
+function after1(){
+  if($("n1")) $("n1").textContent=first1();
+  if(done1()===6){
+    $("h1").innerHTML="\u516d\u683c\u90fd\u6eff\u4e86\u3002\u7b2c\u4e00\u6b21\u5c31\u653e\u5c0d <em id=\"n1\">"+first1()+"</em> / 6";
+    $("a1").hidden=false; $("g1").hidden=false; showSrc();
+  }
+}
+function show(id){
+  var c=null,i;
+  for(i=0;i<CELLS.length;i++) if(CELLS[i].id===id) c=CELLS[i];
+  if(!c) return;
+  var gs=$("fig").querySelectorAll(".bx");
+  for(i=0;i<gs.length;i++) gs[i].classList.toggle("sel", gs[i].dataset.id===id);
+  $("pk").textContent=(c.ltr?c.ltr+"　":"")+c.fn+"　"+(ST.put[id]?c.rf:"還沒放");
+  $("pq").textContent=ST.put[id]||"這一格還空著。";
+}
+function aim(on){
+  var gs=$("fig").querySelectorAll(".bx");
+  for(var i=0;i<gs.length;i++) if(!gs[i].classList.contains("on")) gs[i].classList.toggle("aim",on);
+}
+$("pool").addEventListener("click",function(e){
+  var b=e.target.closest("button"); if(!b) return;
+  var bs=$("pool").querySelectorAll("button");
+  for(var i=0;i<bs.length;i++) bs[i].classList.remove("pick");
+  b.classList.add("pick"); pick=+b.dataset.i; aim(true);
+});
+function hit(g){
+  var id=g.dataset.id;
+  if(pick===null || ST.put[id]){ show(id); return; }
+  var s=SENTS[pick];
+  if(NOFIT[s.id]){
+    ST.miss[id]=1; save();
+    $("pk").textContent="這一張沒有位置";
+    $("pq").textContent=NOFIT[s.id];
+    return;
+  }
+  if(s.id!==id){ ST.miss[id]=1; save(); toast("這一格要的不是這一張"); return; }
+  if(!ST.miss[id]) ST.first[id]=1;
+  ST.put[id]=s.t; save(); pick=null;
+  drawFig(); drawPool(); aim(false); show(id); after1();
+}
+$("fig").addEventListener("click",function(e){ var g=e.target.closest(".bx"); if(g) hit(g); });
+$("fig").addEventListener("keydown",function(e){
+  if(e.key!=="Enter"&&e.key!==" ") return;
+  var g=e.target.closest(".bx"); if(g){ e.preventDefault(); hit(g); }
+});
+$("g1").addEventListener("click",function(){
+  if(ST.step<2) ST.step=2; save();
+  $("s2").hidden=false; $("s2").scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+/* ── 第二步：首尾對讀 ── */
+function paintFold(){
+  drawFig();
+  $("fold").disabled=!!ST.fold;
+  $("unfold").hidden=!ST.fold;
+  $("two").hidden=!ST.fold;
+  if(ST.fold) $("q2box").hidden=false;
+}
+$("fold").addEventListener("click",function(){ if(ST.fold) return; ST.fold=1; save(); paintFold(); });
+$("unfold").addEventListener("click",function(){ ST.fold=0; save(); drawFig(); $("fold").disabled=false; $("unfold").hidden=true; });
+function settle2(){
+  var bs=$("q2").querySelectorAll("button");
+  for(var i=0;i<bs.length;i++){ bs[i].disabled=true; bs[i].dataset.state=bs[i].dataset.ok?"right":"wrong"; }
+  $("a2").hidden=false; $("g2").hidden=false;
+}
+$("q2").addEventListener("click",function(e){
+  var b=e.target.closest("button"); if(!b||ST.q2) return;
+  ST.q2=b.dataset.ok?1:2; save(); settle2();
+});
+$("g2").addEventListener("click",function(){
+  if(ST.step<3) ST.step=3; save();
+  paintCode(); $("s3").hidden=false;
+  $("s3").scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+/* ── 第三步 ── */
+function drawMine(){
+  var h="";
+  for(var i=0;i<MINE.length;i++){
+    var m=MINE[i];
+    h+='<div class="cell"><span class="fn">'+esc(m.fn)+'<em>'+esc(m.en)+'</em></span>'+
+       '<textarea id="'+m.id+'" rows="2" placeholder="'+esc(m.ph)+'"></textarea></div>';
+  }
+  $("mine").innerHTML=h;
+  for(var j=0;j<MINE.length;j++){
+    var el=$(MINE[j].id);
+    if(ST.mine[MINE[j].id]) el.value=ST.mine[MINE[j].id];
+    el.addEventListener("input",function(){ ST.mine[this.id]=this.value; save(); });
+  }
+  $("aib").textContent=AI;
+}
+function mkCode(){
+  var f=first1(), m=0, w=0, i;
+  for(var k in ST.miss) if(ST.miss[k]) m++;
+  for(i=0;i<MINE.length;i++){ var el=$(MINE[i].id); if(el&&el.value.trim()) w++; }
+  var seed=(f*31 + m*7 + w*13 + (ST.q2===1?5:0) + 3*101 + 1777) % 46656;
+  return "U3 "+f+"/6 大綱"+w+"/4 "+("000"+seed.toString(36).toUpperCase()).slice(-3);
+}
+function paintCode(){ $("cv").textContent=mkCode(); }
+$("rfb").addEventListener("click",paintCode);
+function copy(t){
+  function fb(){
+    var ta=document.createElement("textarea"); ta.value=t; document.body.appendChild(ta);
+    ta.select(); try{ document.execCommand("copy"); toast("已複製"); }catch(e){ toast("複製失敗，請手動選取"); }
+    document.body.removeChild(ta);
+  }
+  if(navigator.clipboard&&navigator.clipboard.writeText)
+    navigator.clipboard.writeText(t).then(function(){ toast("已複製"); },fb);
+  else fb();
+}
+$("cc").addEventListener("click",function(){ copy(mkCode()); });
+$("sv").addEventListener("click",function(){
+  for(var i=0;i<MINE.length;i++) ST.mine[MINE[i].id]=$(MINE[i].id).value;
+  save(); toast("已存在這台裝置的瀏覽器裡");
+});
+$("cp").addEventListener("click",function(){
+  var t=AI+"\n\n【我的大綱】\n";
+  for(var i=0;i<MINE.length;i++) t+=MINE[i].fn+"："+($(MINE[i].id).value||"（空白）")+"\n";
+  copy(t);
+});
+
+/* ── 預覽 ── */
+function previewAll(){
+  PREVIEW=true; $("pv").hidden=false;
+  for(var i=0;i<SENTS.length;i++) if(!NOFIT[SENTS[i].id]){ ST.put[SENTS[i].id]=SENTS[i].t; ST.first[SENTS[i].id]=1; }
+  drawPool(); drawMine(); after1();
+  $("s2").hidden=false; drawFig(); $("two").hidden=false; $("q2box").hidden=false; ST.q2=1; settle2();
+  $("s3").hidden=false; paintCode();
+}
+
+/* ── 接回進度 ── */
+$("rst").addEventListener("click",function(){
+  try{ localStorage.removeItem(KEY); }catch(e){} location.reload();
+});
+(function restore(){
+  if(/(^|[?&])all(=|&|$)/.test(location.search)){ previewAll(); return; }
+  var v=load();
+  if(v){
+    ST=v;
+    if(!ST.put) ST.put={};
+    if(!ST.first) ST.first={};
+    if(!ST.miss) ST.miss={};
+    if(!ST.mine) ST.mine={};
+    if(!ST.step) ST.step=1;
+    if(!ST.fold) ST.fold=0;
+  }
+  drawPool(); drawMine(); paintFold();
+  if(done1()||ST.step>1) $("rs").hidden=false;
+  if(ST.step>=2) $("s2").hidden=false;
+  if(ST.q2) settle2();
+  if(ST.step>=3){ $("s3").hidden=false; paintCode(); }
+  after1();
+})();
+})();
+</script>
+</body>
+</html>
