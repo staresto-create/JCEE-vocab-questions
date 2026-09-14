@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>分類的組織圖｜The City That Never Sleeps</title>
+<meta name="description" content="把一篇分類的文章壓成一張圖，再把同一張圖用在自己的作文上。">
+<style>
+:root{
+  --ground:#f1f3f2; --ink:#17282f; --teal:#1f6f6a; --teal-soft:#dfeceb;
+  --muted:#77878d; --line:#cdd6d6; --exam:#b4661c; --exam-soft:#fdf4e7;
+  --gen:#4a6a90; --gen-soft:#e0e7f0;
+  --ok:#2e6b4f; --ok-soft:#edf4ef;
+  --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+  --sans:"PingFang TC","Noto Sans TC","Microsoft JhengHei","Helvetica Neue",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-text-size-adjust:100%}
+.wrap{max-width:44rem;margin:0 auto;padding:1.6rem 1.1rem 4rem}
+h1{font-family:var(--serif);font-weight:600;font-size:1.6rem;line-height:1.3;margin:0 0 .55rem}
+.lede{margin:0 0 1.1rem;color:#3d5059;font-size:.95rem}
+.src{font-size:.8rem;color:var(--muted);margin:0 0 1.1rem}
+.preview{font-size:.85rem;color:var(--exam);background:var(--exam-soft);border:1px dashed var(--exam);
+  border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.preview[hidden]{display:none}
+.resume{font-size:.85rem;color:var(--teal);background:var(--teal-soft);border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.resume[hidden]{display:none}
+.resume button{font:inherit;font-size:.82rem;background:#fff;color:var(--ink);border:1px solid var(--line);
+  border-radius:.25rem;padding:.16rem .6rem;margin-left:.5rem;cursor:pointer}
+.daybreak{border:1px dashed var(--exam);background:var(--exam-soft);border-radius:.4rem;
+  padding:.7rem .85rem;margin:0 0 1rem;font-size:.9rem;color:#3d5059;line-height:1.7}
+.daybreak b{display:block;color:var(--exam);font-family:var(--serif);font-size:1rem;margin-bottom:.25rem}
+.step{border-top:1px solid var(--line);padding-top:1.15rem;margin-top:1.7rem}
+.step[hidden]{display:none}
+.stepno{font-family:var(--serif);font-size:.82rem;color:var(--muted);margin:0 0 .2rem}
+h2{font-family:var(--serif);font-weight:600;font-size:1.2rem;margin:0 0 .5rem;color:var(--teal)}
+p{margin:0 0 .7rem;font-size:.95rem}
+
+/* 組織圖：上位框帶分類標準，橫樑，六格 */
+.fig{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.7rem .5rem .5rem;margin:.2rem 0 .6rem}
+.fig svg{display:block;width:100%;height:auto;max-width:25rem;margin:0 auto}
+.top rect{fill:var(--teal-soft);stroke:var(--teal);stroke-width:2}
+.top line{stroke:var(--teal);stroke-width:1;stroke-dasharray:4 3}
+.top text.lb{font-family:var(--sans);font-size:9.5px;font-weight:600;fill:var(--teal)}
+.top text.q{font-family:var(--serif);font-size:10.5px;fill:var(--ink)}
+.beam{stroke:var(--line);stroke-width:2;fill:none}
+.bx rect{fill:#fff;stroke:var(--line);stroke-width:2}
+.bx rect.chip{fill:var(--ground);stroke:var(--line)}
+.bx text.ltr{font-family:var(--serif);font-size:14px;font-weight:700;fill:var(--muted)}
+.bx text.hd{font-family:var(--serif);font-size:11px;fill:var(--ink)}
+.bx text.rf{font-family:var(--sans);font-size:9px;fill:var(--muted)}
+.bx text.tag{font-family:var(--sans);font-size:9px;font-weight:600}
+.bx text.tag.loud{fill:var(--exam)}
+.bx text.tag.quiet{fill:var(--gen)}
+.bx.aim rect{stroke:var(--teal);stroke-dasharray:6 4}
+.bx.on rect{fill:var(--ok-soft);stroke:var(--ok);stroke-width:2.5}
+.bx.on rect.chip{fill:#fff}
+.bx.on text.ltr{fill:var(--ok)}
+.bx.sel rect{stroke:var(--teal);stroke-width:3}
+.bx.bad rect{fill:var(--exam-soft);stroke:var(--exam);stroke-width:2.5;stroke-dasharray:6 4}
+.bx.bad text.hd,.bx.bad text.ltr{fill:var(--exam)}
+
+.panel{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.7rem .85rem;margin:0 0 .9rem}
+.panel .k{font-size:.72rem;font-weight:600;border-radius:.2rem;padding:.06rem .42rem;
+  color:var(--teal);background:var(--teal-soft);border:1px solid var(--teal)}
+.panel .q{font-family:var(--serif);font-size:.95rem;line-height:1.65;margin:.4rem 0 0;color:#3d5059}
+
+.pool{display:flex;flex-direction:column;gap:.4rem;margin:0 0 .8rem}
+.pool button{font:inherit;font-family:var(--serif);font-size:.93rem;line-height:1.55;background:#fff;color:var(--ink);
+  border:1px solid var(--line);border-radius:.3rem;padding:.5rem .7rem;cursor:pointer;text-align:left}
+.pool button:hover{border-color:var(--teal)}
+.pool button.pick{border-color:var(--teal);background:var(--teal-soft)}
+.pool button.gone{display:none}
+.hint{font-size:.85rem;color:var(--muted);margin:0 0 .8rem}
+.hint em{font-style:normal;color:var(--teal);font-weight:600}
+
+.opts{display:flex;flex-direction:column;gap:.45rem;margin:.2rem 0 .8rem}
+.opts button{font:inherit;font-size:.94rem;background:#fff;color:var(--ink);border:1px solid var(--line);
+  border-radius:.3rem;padding:.5rem .8rem;cursor:pointer;text-align:left}
+.opts button:hover{border-color:var(--teal)}
+.opts button[data-state="right"]{background:var(--ok-soft);border-color:var(--ok)}
+.opts button[data-state="wrong"]{background:var(--ground);color:var(--muted)}
+.opts button[disabled]{cursor:default}
+
+.said{background:#fff;border-left:3px solid var(--teal);border-radius:.3rem;padding:.75rem .85rem;
+  margin:.2rem 0 .9rem;font-size:.93rem;color:#3d5059}
+.said[hidden]{display:none}
+.said b{color:var(--ink)}
+.srcs{margin:.6rem 0 .9rem}
+.srcs .pair{font-family:var(--serif);font-size:.9rem;line-height:1.6;color:#3d5059;
+  border-left:2px solid var(--line);padding:.1rem 0 .1rem .6rem;margin:0 0 .5rem}
+.srcs .pair .t{display:block;font-family:var(--sans);font-size:.76rem;font-weight:600;color:var(--teal)}
+.go{font:inherit;font-size:.92rem;background:var(--ink);color:#fff;border:1px solid var(--ink);
+  border-radius:.3rem;padding:.42rem 1.05rem;cursor:pointer}
+.go[hidden]{display:none}
+
+.prompt{background:var(--exam-soft);border:1px solid #e8d3b4;border-radius:.4rem;padding:.75rem .85rem;
+  margin:0 0 .9rem;font-size:.92rem;color:#3d5059}
+.prompt b{color:var(--ink)}
+.cell{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.6rem .75rem}
+.cell+.cell{margin-top:.6rem}
+.cell .fn{font-size:.78rem;font-weight:600;color:var(--teal)}
+.cell .fn em{font-style:normal;color:var(--muted);font-weight:400;margin-left:.35rem}
+.cell textarea{width:100%;margin-top:.3rem;font-family:inherit;font-size:.93rem;line-height:1.6;
+  padding:.45rem .55rem;border:1px solid var(--line);border-radius:.3rem;background:#fff;color:var(--ink);resize:vertical}
+.bar{display:flex;gap:.5rem;flex-wrap:wrap;margin:.7rem 0}
+.bar button{font:inherit;font-size:.9rem;background:#fff;color:var(--ink);border:1px solid var(--ink);
+  border-radius:.3rem;padding:.38rem .9rem;cursor:pointer}
+.bar button.p{background:var(--ink);color:#fff}
+.bar button[disabled]{border-color:var(--line);color:var(--muted);cursor:default;background:#fff}
+pre.ai{background:#fff;border:1px solid var(--line);border-radius:.3rem;padding:.6rem .7rem;
+  font-size:.8rem;line-height:1.65;white-space:pre-wrap;margin:.4rem 0 0;color:#3d5059}
+.note{font-size:.85rem;color:#3d5059;background:#fff;border:1px solid var(--line);border-left:3px solid var(--exam);
+  border-radius:.3rem;padding:.6rem .75rem;margin:.2rem 0 .9rem;line-height:1.7}
+.note b{color:var(--ink)}
+.code{background:var(--teal-soft);border:1px solid var(--teal);border-radius:.4rem;padding:.7rem .85rem;margin:1.1rem 0 .5rem}
+.code .t{font-size:.8rem;font-weight:600;color:var(--teal);margin:0 0 .35rem}
+.code .v{font-family:var(--serif);font-size:1.15rem;letter-spacing:.04em;color:var(--ink);margin:0 0 .5rem}
+.series{border-top:1px solid var(--line);margin-top:2.2rem;padding-top:1.1rem;font-size:.9rem}
+.series a{font-family:var(--serif);font-size:1rem;color:var(--teal);text-decoration:none}
+.series a:hover{text-decoration:underline}
+.toast{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--ink);color:#fff;
+  padding:.45rem 1rem;border-radius:.3rem;font-size:.86rem;opacity:0;transition:opacity .2s;pointer-events:none}
+.toast.on{opacity:1}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>分類的組織圖</h1>
+<p class="lede">上一份講義帶你讀完那篇紐約。這一份把整篇壓成一張圖。它跟列舉那張長得很像，但<b>多了一格</b>——分類要先講清楚照什麼標準分，列舉不必。</p>
+<p class="preview" id="pv" hidden>預覽模式：全部步驟與答案一次展開，進度不存檔。學生拿到的一般連結不受影響。</p>
+<p class="resume" id="rs" hidden>上次做到一半，已經幫你接回來了。<button id="rst">重新開始</button></p>
+<p class="src">ALL+ 互動英語 9 月號 Unit 6（pp. 26–27）　The City That Never Sleeps: Discovering New York City　全文 64 行</p>
+<div class="daybreak">
+  <b>這一頁用到整篇</b>
+  雜誌把這個單元分成兩天：9/10 讀第 1–30 行，9/11 讀第 31–64 行。這一頁六格從 A 排到 F，所以要兩天都讀過再做。
+</div>
+
+<!-- 第一步 -->
+<section class="step" id="s1">
+  <p class="stepno">第一步</p>
+  <h2>上面兩格，下面六格</h2>
+  <p>最上面那一塊有兩行。上一行是<b>共同身分</b>：這六個東西都是什麼。下一行是<b>分類標準</b>：作者照什麼把它們擺在一起。列舉的圖沒有下面這一行，那就是兩種結構的差別。</p>
+  <p>六格上印的是課文原本的小標題。<b>八張句卡，只有六張放得進去</b>，都不是原句，而且刻意沒有提到地名——你得靠內容判斷是哪一格。</p>
+  <p class="hint" id="h1">先點一張句卡，再點圖上的格子。第一次就放對 <em id="n1">0</em> / 6</p>
+
+  <div class="pool" id="pool"></div>
+  <figure class="fig" id="fig"></figure>
+  <div class="panel" id="pn">
+    <span class="k" id="pk">這一格</span>
+    <p class="q" id="pq">點圖上任一個格子，看它裝的是哪一句。</p>
+  </div>
+
+  <div class="said" id="a1" hidden>
+    <b>兩張放不進去的是哪兩張。</b>一張說這座城市位在美國東岸，另一張說全世界的旅人都來探索它的魅力。兩句在第 1 行和第 7 到 9 行都真的寫過，但它們回答的是<b>在哪裡</b>和<b>誰會來</b>，六格回答的卻是<b>這裡能體驗到什麼</b>。欄位不同，所以沒有位置。
+    <br><br>
+    <b>放對之後每一格右邊多了一個標籤：熱鬧或安靜。</b>六格裡有四格熱鬧、兩格安靜。安靜那兩格字數少，不代表不重要——少而集中，反而把它們跟其他四格分得更開。這就是上一份講義教的語意場對立。
+    <br><br>
+    <b>八張句卡沒有一張跟課文一樣。</b>下面是六格的原文與行號，回去對一次。
+    <div class="srcs" id="src6"></div>
+  </div>
+  <button class="go" id="g1" hidden>下一步：硬塞一個第七格</button>
+</section>
+
+<!-- 第二步 -->
+<section class="step" id="s2" hidden>
+  <p class="stepno">第二步</p>
+  <h2>同欄位測試</h2>
+  <p>怎麼確定一篇是分類？<b>看每一格是不是都在回答同一個問題。</b>按下按鈕，把剛才放不進去的那一句硬塞成第七格，看它有多不合群。</p>
+  <div class="bar">
+    <button class="p" id="add">硬塞成第七格</button>
+    <button id="undo" hidden>拿掉第七格</button>
+  </div>
+  <div id="q2box" hidden>
+    <p>第七格擺上去了。<b>它為什麼不能算一格？</b></p>
+    <div class="opts" id="q2">
+      <button>因為它出現在第一段，不在六格的範圍裡</button>
+      <button>因為作者說了六個地方，多一格就超過他講的數目</button>
+      <button data-ok="1">因為六格都在回答「這裡能體驗到什麼」，它回答的是「在哪裡」</button>
+      <button>因為它跟其他六格不一樣，沒有配一張照片</button>
+    </div>
+    <div class="said" id="a2" hidden>
+      <b>欄位不同。</b>同欄位測試就是這樣用：把每一格的內容抽成一句話，看它們是不是都在填同一個欄位。六格填的都是「這個地方給你什麼體驗」，第七格填的是地理位置，欄位一換就露餡。<b>能填進同一個欄位的才是同一類。</b>考卷上的配對題就是在考這件事：先看清楚題目問的是哪一個欄位，再回文章裡找。
+      <br><br>
+      <b>另外三個為什麼排除：</b>第一個說它在第一段——這是最容易選的一個，因為聽起來完全正確。但位置只是結果，不是理由：如果第一段裡出現一句「某某廣場能看到什麼」，它照樣可以變成一格。真正的判準是欄位，不是段落。第二個說超過數目——作者說六個是因為他選了六個，如果真的有第七個同欄位的地方，他寫成七個也沒問題。第三個說照片——照片是雜誌的排版，不是文章的結構，文本上驗證不到。
+    </div>
+  </div>
+  <button class="go" id="g2" hidden>下一步：換成你自己的作文</button>
+</section>
+
+<!-- 第三步 -->
+<section class="step" id="s3" hidden>
+  <p class="stepno">第三步</p>
+  <h2>同一張圖，換成你的題目</h2>
+  <p>學測作文常要你介紹幾種東西。四格對兩段：標準那一格和第一類放第一段，另外兩類放第二段。</p>
+  <div class="note">
+    <b>最容易失分的不是三類寫得好不好，是標準沒講清楚。</b>先說出你照什麼分，三類才會像同一組；沒說標準就直接列三樣，閱卷老師讀到的是三件不相干的事。檢查方法就是剛才那個同欄位測試：把三類各抽成一句話，看它們是不是都在回答同一個問題。
+  </div>
+  <div class="prompt">
+    <b>試寫的題目：</b>假設你要向外國朋友介紹你居住的城市。請以此為題，第一段說明你打算從哪一個角度介紹並舉出第一個地方，第二段再舉兩個地方並說明理由。
+  </div>
+  <p>每一格寫一句中文要點就好，這一步先不寫英文。</p>
+  <div id="mine"></div>
+  <div class="bar">
+    <button class="p" id="cp">複製我寫的內容</button>
+    <button id="sv">存到瀏覽器</button>
+  </div>
+  <p class="hint">這一步沒有標準答案，站上不批改。複製之後貼給老師，或貼給 AI 也可以——下面這段指示會跟著一起複製。</p>
+  <pre class="ai" id="aib"></pre>
+
+  <div class="code">
+    <p class="t">做完了，把這一行貼到 Google Classroom 的作業回覆欄</p>
+    <p class="v" id="cv">—</p>
+    <div class="bar" style="margin:0">
+      <button class="p" id="cc">複製完成碼</button>
+      <button id="rfb">重新產生</button>
+    </div>
+    <p class="hint" style="margin:.5rem 0 0">老師只看這一行，不會看到你寫的內容。你寫的東西只留在這台裝置的瀏覽器裡。</p>
+  </div>
+</section>
+
+<nav class="series">
+  <a href="cohesion.html">← 回讀法練習總表</a>
+</nav>
+
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+"use strict";
+function $(id){return document.getElementById(id);}
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;");}
+
+var KEY="outline-u6-v1";
+var PREVIEW=false;
+var ST={put:{},first:{},miss:{},add:0,q2:0,mine:{},step:1};
+function save(){ if(PREVIEW) return; try{ localStorage.setItem(KEY,JSON.stringify(ST)); }catch(e){} }
+function load(){ try{ var r=localStorage.getItem(KEY); return r?JSON.parse(r):null; }catch(e){ return null; } }
+function toast(m){ var t=$("toast"); t.textContent=m; t.classList.add("on");
+  setTimeout(function(){ t.classList.remove("on"); },1600); }
+
+var TOP={
+ lb1:"共同身分　the class",      q1:"six places in New York City",
+ lb2:"分類標準　the criterion",  q2:"what makes this city truly unlike any other"
+};
+var CELLS=[
+ {id:"a",ltr:"A",hd:"Broadway",                 rf:"第 12–20 行",tag:"熱鬧",tk:"loud"},
+ {id:"b",ltr:"B",hd:"Fifth Avenue",             rf:"第 21–30 行",tag:"熱鬧",tk:"loud"},
+ {id:"c",ltr:"C",hd:"The High Line",            rf:"第 31–37 行",tag:"安靜",tk:"quiet"},
+ {id:"d",ltr:"D",hd:"SoHo",                     rf:"第 38–47 行",tag:"熱鬧",tk:"loud"},
+ {id:"e",ltr:"E",hd:"The 9/11 Memorial",        rf:"第 48–54 行",tag:"安靜",tk:"quiet"},
+ {id:"f",ltr:"F",hd:"Yankee Stadium",           rf:"第 55–64 行",tag:"熱鬧",tk:"loud"}
+];
+var SEVEN={id:"g",ltr:"G",hd:"east coast of the US",rf:"第 1 行"};
+
+var SENTS=[
+ {id:"c",t:"An old raised railway is now a green walkway above the traffic, looking out over the river."},
+ {id:"f",t:"Watching a game here puts you right inside American sports culture, surrounded by a lively crowd."},
+ {id:"x1",t:"The city sits on the east coast of the United States."},
+ {id:"a",t:"World-class theater draws millions every year, and a show here leaves a lasting impression."},
+ {id:"e",t:"A place for quiet thought, where the displays ask visitors to face history and pay their respects."},
+ {id:"b",t:"Flagship stores for luxury brands line the street, and the decorated windows pull in crowds at holidays."},
+ {id:"x2",t:"Travelers from all over the world come to discover its charm and its endless possibilities."},
+ {id:"d",t:"Galleries, small boutiques and stylish cafés sit among nineteenth-century cast-iron buildings."}
+];
+var NOFIT={
+ x1:"第 1 行真的這樣寫，但它回答的是「在哪裡」。六格回答的是「這裡能體驗到什麼」，欄位不同，所以沒有位置。",
+ x2:"第 7 到 9 行真的這樣寫，但它回答的是「誰會來」。那是宣告段的內容，不是六個地方裡的任何一個。"
+};
+var SRCQ=[
+ {fn:"A　Broadway",rf:"第 13–15 行",t:"A global center for world-class theater, Broadway attracts millions of visitors each year."},
+ {fn:"B　Fifth Avenue",rf:"第 24–26 行",t:"Lined with flagship stores for luxury brands, it is a paradise for those who appreciate high-end fashion and the vibrancy of city life."},
+ {fn:"C　The High Line",rf:"第 32–37 行",t:"Built on a former raised railway, the High Line is an unusual urban park where visitors can walk along a green pathway looking over the Hudson River."},
+ {fn:"D　SoHo",rf:"第 42–45 行",t:"Art galleries, independent boutiques, and stylish cafés line its streets, while many buildings still feature 19th-century cast-iron architecture."},
+ {fn:"E　The 9/11 Memorial & Museum",rf:"第 49–54 行",t:"A place of quiet reflection, the 9/11 Memorial & Museum honors the victims of the September 11, 2001, terrorist attacks."},
+ {fn:"F　Yankee Stadium",rf:"第 59–62 行",t:"Watching a game here means stepping into the heart of American sports culture and being surrounded by the stadium's energetic fans and lively atmosphere."}
+];
+
+var MINE=[
+ {id:"m1",fn:"共同身分＋分類標準",en:"the class and the criterion",ph:"我要介紹的是什麼？照什麼角度挑？"},
+ {id:"m2",fn:"第一類",en:"group 1",ph:"第一個地方，還有它給人什麼"},
+ {id:"m3",fn:"第二類",en:"group 2",ph:"第二個地方，還有它給人什麼"},
+ {id:"m4",fn:"第三類",en:"group 3",ph:"第三個地方，還有它給人什麼"}
+];
+
+var AI=[
+"我是台灣的高中生，正在準備學測英文作文。下面是我用「分類」這個架構列的中文大綱。",
+"",
+"請照以下規則給我意見：",
+"1. 先看第一格有沒有講出分類的標準。如果我只寫了要介紹什麼，沒有寫照什麼角度挑，請直接講明。",
+"2. 再把後面三格各抽成一句話，看它們是不是都在回答同一個問題。有哪一格換了欄位，請指出來。",
+"3. 告訴我三格是不是同一個層級，有沒有哪一格其實包含另一格。",
+"4. 不要幫我寫英文，也不要幫我補內容。",
+"5. 說明用中文。"
+].join("\n");
+
+/* ── 畫圖 ── */
+var TX=20, TW=300, TH=54, BEAM=78, BX=36, BW=284, BH=44, PITCH=52, Y0=92, CHIP=26;
+function drawFig(){
+  var n=6+(ST.add?1:0);
+  var H=Y0+(n-1)*PITCH+BH+8;
+  var s='<svg viewBox="0 0 340 '+H+'" role="img" aria-label="分類組織圖：上面是共同身分與分類標準，下面六格">';
+  s+='<g class="top"><rect x="'+TX+'" y="6" width="'+TW+'" height="'+TH+'" rx="6"/>';
+  s+='<text class="lb" x="'+(TX+12)+'" y="20">'+esc(TOP.lb1)+'</text>';
+  s+='<text class="q" x="'+(TX+12)+'" y="32">'+esc(TOP.q1)+'</text>';
+  s+='<line x1="'+(TX+8)+'" y1="37" x2="'+(TX+TW-8)+'" y2="37"/>';
+  s+='<text class="lb" x="'+(TX+12)+'" y="48">'+esc(TOP.lb2)+'</text>';
+  s+='<text class="q" x="'+(TX+12)+'" y="60">'+esc(TOP.q2)+'</text></g>';
+  s+='<line class="beam" x1="170" y1="'+(6+TH)+'" x2="170" y2="'+BEAM+'"/>';
+  s+='<line class="beam" x1="'+(BX+14)+'" y1="'+BEAM+'" x2="'+(BX+BW-14)+'" y2="'+BEAM+'"/>';
+  var list=CELLS.slice(); if(ST.add) list.push(SEVEN);
+  for(var i=0;i<list.length;i++){
+    var c=list[i], y=Y0+i*PITCH, bad=(c.id==="g");
+    var cl="bx"+(ST.put[c.id]?" on":"")+(bad?" bad":"");
+    s+='<line class="beam" x1="'+(BX+14)+'" y1="'+BEAM+'" x2="'+(BX+14)+'" y2="'+(y+BH/2)+'"/>';
+    s+='<line class="beam" x1="'+(BX+14)+'" y1="'+(y+BH/2)+'" x2="'+BX+'" y2="'+(y+BH/2)+'"/>';
+    s+='<g class="'+cl+'" data-id="'+c.id+'" tabindex="0" role="button">';
+    s+='<rect x="'+BX+'" y="'+y+'" width="'+BW+'" height="'+BH+'" rx="6"/>';
+    s+='<rect class="chip" x="'+(BX+8)+'" y="'+(y+9)+'" width="'+CHIP+'" height="'+CHIP+'" rx="5"/>';
+    s+='<text class="ltr" x="'+(BX+8+CHIP/2)+'" y="'+(y+28)+'" text-anchor="middle">'+c.ltr+'</text>';
+    s+='<text class="hd" x="'+(BX+44)+'" y="'+(y+20)+'">'+esc(c.hd)+'</text>';
+    s+='<text class="rf" x="'+(BX+44)+'" y="'+(y+34)+'">'+(ST.put[c.id]?esc(c.rf):(bad?esc(c.rf):"待放"))+'</text>';
+    if(ST.put[c.id]&&c.tag)
+      s+='<text class="tag '+c.tk+'" x="'+(BX+BW-12)+'" y="'+(y+34)+'" text-anchor="end">'+esc(c.tag)+'</text>';
+    s+='</g>';
+  }
+  s+='</svg>';
+  $("fig").innerHTML=s;
+}
+
+var pick=null;
+function drawPool(){
+  var h="";
+  for(var i=0;i<SENTS.length;i++)
+    h+='<button data-i="'+i+'" class="'+(ST.put[SENTS[i].id]?"gone":"")+'">'+esc(SENTS[i].t)+'</button>';
+  $("pool").innerHTML=h;
+}
+function done1(){ var n=0; for(var k in ST.put) if(ST.put[k]) n++; return n; }
+function first1(){ var n=0; for(var k in ST.first) if(ST.first[k]) n++; return n; }
+function showSrc(){
+  if($("src6").innerHTML) return;
+  var h="";
+  for(var i=0;i<SRCQ.length;i++)
+    h+='<div class="pair"><span class="t">'+esc(SRCQ[i].fn)+'　'+esc(SRCQ[i].rf)+'</span>'+esc(SRCQ[i].t)+'</div>';
+  $("src6").innerHTML=h;
+}
+function after1(){
+  if($("n1")) $("n1").textContent=first1();
+  if(done1()===6){
+    $("h1").innerHTML="\u516d\u683c\u90fd\u6eff\u4e86\u3002\u7b2c\u4e00\u6b21\u5c31\u653e\u5c0d <em id=\"n1\">"+first1()+"</em> / 6";
+    $("a1").hidden=false; $("g1").hidden=false; showSrc();
+  }
+}
+function show(id){
+  var c=null,i,list=CELLS.concat([SEVEN]);
+  for(i=0;i<list.length;i++) if(list[i].id===id) c=list[i];
+  if(!c) return;
+  var gs=$("fig").querySelectorAll(".bx");
+  for(i=0;i<gs.length;i++) gs[i].classList.toggle("sel", gs[i].dataset.id===id);
+  if(id==="g"){ $("pk").textContent="欄位不對"; $("pq").textContent=NOFIT.x1; return; }
+  $("pk").textContent=c.ltr+"　"+(ST.put[id]?c.rf:"還沒放");
+  $("pq").textContent=ST.put[id]||"這一格還空著。";
+}
+function aim(on){
+  var gs=$("fig").querySelectorAll(".bx");
+  for(var i=0;i<gs.length;i++) if(!gs[i].classList.contains("on")) gs[i].classList.toggle("aim",on);
+}
+$("pool").addEventListener("click",function(e){
+  var b=e.target.closest("button"); if(!b) return;
+  var bs=$("pool").querySelectorAll("button");
+  for(var i=0;i<bs.length;i++) bs[i].classList.remove("pick");
+  b.classList.add("pick"); pick=+b.dataset.i; aim(true);
+});
+function hit(g){
+  var id=g.dataset.id;
+  if(pick===null || ST.put[id] || id==="g"){ show(id); return; }
+  var s=SENTS[pick];
+  if(NOFIT[s.id]){
+    ST.miss[id]=1; save();
+    $("pk").textContent="這一張沒有位置";
+    $("pq").textContent=NOFIT[s.id];
+    return;
+  }
+  if(s.id!==id){ ST.miss[id]=1; save(); toast("這一格要的不是這一張"); return; }
+  if(!ST.miss[id]) ST.first[id]=1;
+  ST.put[id]=s.t; save(); pick=null;
+  drawFig(); drawPool(); aim(false); show(id); after1();
+}
+$("fig").addEventListener("click",function(e){ var g=e.target.closest(".bx"); if(g) hit(g); });
+$("fig").addEventListener("keydown",function(e){
+  if(e.key!=="Enter"&&e.key!==" ") return;
+  var g=e.target.closest(".bx"); if(g){ e.preventDefault(); hit(g); }
+});
+$("g1").addEventListener("click",function(){
+  if(ST.step<2) ST.step=2; save();
+  $("s2").hidden=false; $("s2").scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+/* ── 第二步：硬塞第七格 ── */
+function paintAdd(){
+  drawFig();
+  $("add").disabled=!!ST.add;
+  $("undo").hidden=!ST.add;
+  if(ST.add) $("q2box").hidden=false;
+}
+$("add").addEventListener("click",function(){ if(ST.add) return; ST.add=1; save(); paintAdd(); });
+$("undo").addEventListener("click",function(){ ST.add=0; save(); drawFig(); $("add").disabled=false; $("undo").hidden=true; });
+function settle2(){
+  var bs=$("q2").querySelectorAll("button");
+  for(var i=0;i<bs.length;i++){ bs[i].disabled=true; bs[i].dataset.state=bs[i].dataset.ok?"right":"wrong"; }
+  $("a2").hidden=false; $("g2").hidden=false;
+}
+$("q2").addEventListener("click",function(e){
+  var b=e.target.closest("button"); if(!b||ST.q2) return;
+  ST.q2=b.dataset.ok?1:2; save(); settle2();
+});
+$("g2").addEventListener("click",function(){
+  if(ST.step<3) ST.step=3; save();
+  paintCode(); $("s3").hidden=false;
+  $("s3").scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+/* ── 第三步 ── */
+function drawMine(){
+  var h="";
+  for(var i=0;i<MINE.length;i++){
+    var m=MINE[i];
+    h+='<div class="cell"><span class="fn">'+esc(m.fn)+'<em>'+esc(m.en)+'</em></span>'+
+       '<textarea id="'+m.id+'" rows="2" placeholder="'+esc(m.ph)+'"></textarea></div>';
+  }
+  $("mine").innerHTML=h;
+  for(var j=0;j<MINE.length;j++){
+    var el=$(MINE[j].id);
+    if(ST.mine[MINE[j].id]) el.value=ST.mine[MINE[j].id];
+    el.addEventListener("input",function(){ ST.mine[this.id]=this.value; save(); });
+  }
+  $("aib").textContent=AI;
+}
+function mkCode(){
+  var f=first1(), m=0, w=0, i;
+  for(var k in ST.miss) if(ST.miss[k]) m++;
+  for(i=0;i<MINE.length;i++){ var el=$(MINE[i].id); if(el&&el.value.trim()) w++; }
+  var seed=(f*31 + m*7 + w*13 + (ST.q2===1?5:0) + 6*101 + 1777) % 46656;
+  return "U6 "+f+"/6 大綱"+w+"/4 "+("000"+seed.toString(36).toUpperCase()).slice(-3);
+}
+function paintCode(){ $("cv").textContent=mkCode(); }
+$("rfb").addEventListener("click",paintCode);
+function copy(t){
+  function fb(){
+    var ta=document.createElement("textarea"); ta.value=t; document.body.appendChild(ta);
+    ta.select(); try{ document.execCommand("copy"); toast("已複製"); }catch(e){ toast("複製失敗，請手動選取"); }
+    document.body.removeChild(ta);
+  }
+  if(navigator.clipboard&&navigator.clipboard.writeText)
+    navigator.clipboard.writeText(t).then(function(){ toast("已複製"); },fb);
+  else fb();
+}
+$("cc").addEventListener("click",function(){ copy(mkCode()); });
+$("sv").addEventListener("click",function(){
+  for(var i=0;i<MINE.length;i++) ST.mine[MINE[i].id]=$(MINE[i].id).value;
+  save(); toast("已存在這台裝置的瀏覽器裡");
+});
+$("cp").addEventListener("click",function(){
+  var t=AI+"\n\n【我的大綱】\n";
+  for(var i=0;i<MINE.length;i++) t+=MINE[i].fn+"："+($(MINE[i].id).value||"（空白）")+"\n";
+  copy(t);
+});
+
+/* ── 預覽 ── */
+function previewAll(){
+  PREVIEW=true; $("pv").hidden=false;
+  for(var i=0;i<SENTS.length;i++) if(!NOFIT[SENTS[i].id]){ ST.put[SENTS[i].id]=SENTS[i].t; ST.first[SENTS[i].id]=1; }
+  drawPool(); drawMine(); after1();
+  $("s2").hidden=false; ST.add=1; paintAdd(); ST.q2=1; settle2();
+  $("s3").hidden=false; paintCode();
+}
+
+/* ── 接回進度 ── */
+$("rst").addEventListener("click",function(){
+  try{ localStorage.removeItem(KEY); }catch(e){} location.reload();
+});
+(function restore(){
+  if(/(^|[?&])all(=|&|$)/.test(location.search)){ previewAll(); return; }
+  var v=load();
+  if(v){
+    ST=v;
+    if(!ST.put) ST.put={};
+    if(!ST.first) ST.first={};
+    if(!ST.miss) ST.miss={};
+    if(!ST.mine) ST.mine={};
+    if(!ST.step) ST.step=1;
+    if(!ST.add) ST.add=0;
+  }
+  drawPool(); drawMine(); paintAdd();
+  if(done1()||ST.step>1) $("rs").hidden=false;
+  if(ST.step>=2) $("s2").hidden=false;
+  if(ST.q2) settle2();
+  if(ST.step>=3){ $("s3").hidden=false; paintCode(); }
+  after1();
+})();
+})();
+</script>
+</body>
+</html>
