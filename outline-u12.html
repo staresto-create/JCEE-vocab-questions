@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>比較對照的組織圖｜The Big Lap</title>
+<meta name="description" content="把一篇比較對照的文章壓成一張表，再把同一張表用在自己的作文上。">
+<style>
+:root{
+  --ground:#f1f3f2; --ink:#17282f; --teal:#1f6f6a; --teal-soft:#dfeceb;
+  --muted:#77878d; --line:#cdd6d6; --exam:#b4661c; --exam-soft:#fdf4e7;
+  --gen:#4a6a90; --gen-soft:#e0e7f0;
+  --ok:#2e6b4f; --ok-soft:#edf4ef;
+  --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+  --sans:"PingFang TC","Noto Sans TC","Microsoft JhengHei","Helvetica Neue",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-text-size-adjust:100%}
+.wrap{max-width:44rem;margin:0 auto;padding:1.6rem 1.1rem 4rem}
+h1{font-family:var(--serif);font-weight:600;font-size:1.6rem;line-height:1.3;margin:0 0 .55rem}
+.lede{margin:0 0 1.1rem;color:#3d5059;font-size:.95rem}
+.src{font-size:.8rem;color:var(--muted);margin:0 0 1.1rem}
+.preview{font-size:.85rem;color:var(--exam);background:var(--exam-soft);border:1px dashed var(--exam);
+  border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.preview[hidden]{display:none}
+.resume{font-size:.85rem;color:var(--teal);background:var(--teal-soft);border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.resume[hidden]{display:none}
+.resume button{font:inherit;font-size:.82rem;background:#fff;color:var(--ink);border:1px solid var(--line);
+  border-radius:.25rem;padding:.16rem .6rem;margin-left:.5rem;cursor:pointer}
+.step{border-top:1px solid var(--line);padding-top:1.15rem;margin-top:1.7rem}
+.step[hidden]{display:none}
+.stepno{font-family:var(--serif);font-size:.82rem;color:var(--muted);margin:0 0 .2rem}
+h2{font-family:var(--serif);font-weight:600;font-size:1.2rem;margin:0 0 .5rem;color:var(--teal)}
+p{margin:0 0 .7rem;font-size:.95rem}
+
+.fig{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.7rem .5rem .5rem;margin:.2rem 0 .6rem}
+.fig svg{display:block;width:100%;height:auto;max-width:25rem;margin:0 auto}
+.hd rect{fill:var(--teal-soft);stroke:var(--teal);stroke-width:2}
+.hd text{font-family:var(--sans);font-size:10px;font-weight:600;fill:var(--teal)}
+.hd text.en{font-family:var(--serif);font-size:9px;font-weight:400;fill:var(--muted)}
+.lbl rect{fill:var(--ground);stroke:var(--line);stroke-width:2}
+.lbl text{font-family:var(--sans);font-size:10px;font-weight:600;fill:var(--ink)}
+.lbl text.en{font-family:var(--serif);font-size:8.5px;font-weight:400;fill:var(--muted)}
+.bx rect{fill:#fff;stroke:var(--line);stroke-width:2}
+.bx text{font-family:var(--sans);font-size:9px;fill:var(--muted)}
+.bx.aim rect{stroke:var(--teal);stroke-dasharray:6 4}
+.bx.on rect{fill:var(--ok-soft);stroke:var(--ok);stroke-width:2.5}
+.bx.on text{fill:var(--ok);font-weight:600}
+.bx.sel rect{stroke:var(--teal);stroke-width:3}
+.gap rect{fill:var(--ground);stroke:var(--line);stroke-width:2;stroke-dasharray:5 4}
+.gap text{font-family:var(--sans);font-size:9px;fill:var(--muted)}
+
+.panel{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.7rem .85rem;margin:0 0 .9rem}
+.panel .k{font-size:.72rem;font-weight:600;border-radius:.2rem;padding:.06rem .42rem;
+  color:var(--teal);background:var(--teal-soft);border:1px solid var(--teal)}
+.panel .q{font-family:var(--serif);font-size:.95rem;line-height:1.65;margin:.4rem 0 0;color:#3d5059}
+
+.pool{display:flex;flex-direction:column;gap:.4rem;margin:0 0 .8rem}
+.pool button{font:inherit;font-family:var(--serif);font-size:.93rem;line-height:1.55;background:#fff;color:var(--ink);
+  border:1px solid var(--line);border-radius:.3rem;padding:.5rem .7rem;cursor:pointer;text-align:left}
+.pool button:hover{border-color:var(--teal)}
+.pool button.pick{border-color:var(--teal);background:var(--teal-soft)}
+.pool button.gone{display:none}
+.hint{font-size:.85rem;color:var(--muted);margin:0 0 .8rem}
+.hint em{font-style:normal;color:var(--teal);font-weight:600}
+
+.parts{display:flex;flex-wrap:wrap;gap:.45rem;margin:.2rem 0 .9rem}
+.parts[hidden]{display:none}
+.parts div{border-radius:.3rem;padding:.45rem .7rem;font-family:var(--serif);font-size:.98rem;
+  border:1px solid var(--line);background:#fff}
+.parts div b{display:block;font-family:var(--sans);font-size:.7rem;font-weight:600;margin-bottom:.1rem}
+.parts .d{border-color:var(--exam)} .parts .d b{color:var(--exam)}
+.parts .x{border-color:var(--teal)} .parts .x b{color:var(--teal)}
+.parts .o{border-color:var(--gen)}  .parts .o b{color:var(--gen)}
+
+.opts{display:flex;flex-direction:column;gap:.45rem;margin:.2rem 0 .8rem}
+.opts button{font:inherit;font-size:.94rem;background:#fff;color:var(--ink);border:1px solid var(--line);
+  border-radius:.3rem;padding:.5rem .8rem;cursor:pointer;text-align:left}
+.opts button:hover{border-color:var(--teal)}
+.opts button[data-state="right"]{background:var(--ok-soft);border-color:var(--ok)}
+.opts button[data-state="wrong"]{background:var(--ground);color:var(--muted)}
+.opts button[disabled]{cursor:default}
+
+.said{background:#fff;border-left:3px solid var(--teal);border-radius:.3rem;padding:.75rem .85rem;
+  margin:.2rem 0 .9rem;font-size:.93rem;color:#3d5059}
+.said[hidden]{display:none}
+.said b{color:var(--ink)}
+.srcs{margin:.6rem 0 .9rem}
+.srcs .pair{font-family:var(--serif);font-size:.9rem;line-height:1.6;color:#3d5059;
+  border-left:2px solid var(--line);padding:.1rem 0 .1rem .6rem;margin:0 0 .5rem}
+.srcs .pair .t{display:block;font-family:var(--sans);font-size:.76rem;font-weight:600;color:var(--teal)}
+.go{font:inherit;font-size:.92rem;background:var(--ink);color:#fff;border:1px solid var(--ink);
+  border-radius:.3rem;padding:.42rem 1.05rem;cursor:pointer}
+.go[hidden]{display:none}
+
+.prompt{background:var(--exam-soft);border:1px solid #e8d3b4;border-radius:.4rem;padding:.75rem .85rem;
+  margin:0 0 .9rem;font-size:.92rem;color:#3d5059}
+.prompt b{color:var(--ink)}
+.cell{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.6rem .75rem}
+.cell+.cell{margin-top:.6rem}
+.cell .fn{font-size:.78rem;font-weight:600;color:var(--teal)}
+.cell .fn em{font-style:normal;color:var(--muted);font-weight:400;margin-left:.35rem}
+.cell textarea{width:100%;margin-top:.3rem;font-family:inherit;font-size:.93rem;line-height:1.6;
+  padding:.45rem .55rem;border:1px solid var(--line);border-radius:.3rem;background:#fff;color:var(--ink);resize:vertical}
+.bar{display:flex;gap:.5rem;flex-wrap:wrap;margin:.7rem 0}
+.bar button{font:inherit;font-size:.9rem;background:#fff;color:var(--ink);border:1px solid var(--ink);
+  border-radius:.3rem;padding:.38rem .9rem;cursor:pointer}
+.bar button.p{background:var(--ink);color:#fff}
+.bar button[disabled]{border-color:var(--line);color:var(--muted);cursor:default;background:#fff}
+pre.ai{background:#fff;border:1px solid var(--line);border-radius:.3rem;padding:.6rem .7rem;
+  font-size:.8rem;line-height:1.65;white-space:pre-wrap;margin:.4rem 0 0;color:#3d5059}
+.note{font-size:.85rem;color:#3d5059;background:#fff;border:1px solid var(--line);border-left:3px solid var(--exam);
+  border-radius:.3rem;padding:.6rem .75rem;margin:.2rem 0 .9rem;line-height:1.7}
+.note b{color:var(--ink)}
+.code{background:var(--teal-soft);border:1px solid var(--teal);border-radius:.4rem;padding:.7rem .85rem;margin:1.1rem 0 .5rem}
+.code .t{font-size:.8rem;font-weight:600;color:var(--teal);margin:0 0 .35rem}
+.code .v{font-family:var(--serif);font-size:1.15rem;letter-spacing:.04em;color:var(--ink);margin:0 0 .5rem}
+.series{border-top:1px solid var(--line);margin-top:2.2rem;padding-top:1.1rem;font-size:.9rem}
+.series a{font-family:var(--serif);font-size:1rem;color:var(--teal);text-decoration:none}
+.series a:hover{text-decoration:underline}
+.toast{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--ink);color:#fff;
+  padding:.45rem 1rem;border-radius:.3rem;font-size:.86rem;opacity:0;transition:opacity .2s;pointer-events:none}
+.toast.on{opacity:1}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>比較對照的組織圖</h1>
+<p class="lede">上一份講義帶你讀完那篇環島與 Big Lap。這一份把整篇壓成一張表。前面幾種都是往下走的形狀，這一種<b>要橫著讀</b>：同一個比較點，左右兩邊各有一個值。</p>
+<p class="preview" id="pv" hidden>預覽模式：全部步驟與答案一次展開，進度不存檔。學生拿到的一般連結不受影響。</p>
+<p class="resume" id="rs" hidden>上次做到一半，已經幫你接回來了。<button id="rst">重新開始</button></p>
+<p class="src">ALL+ 互動英語 9 月號 Unit 12（pp. 52–53）　The Big Lap　全文 28 行</p>
+
+<!-- 第一步 -->
+<section class="step" id="s1">
+  <p class="stepno">第一步</p>
+  <h2>橫著讀，一列一個比較點</h2>
+  <p>左欄是<b>比較點</b>，右邊兩欄是被比的兩方。作者先立起環島當基準，再拿 Big Lap 來比——所以讀的時候要橫著讀：同一列的兩格擺在一起，落差才出得來。</p>
+  <p><b>表上有兩格是灰的。</b>那不是漏掉，是課文真的沒說：作者沒有交代環島要準備多久，也沒有描寫環島沿途看得到什麼。比較對照的文章常常這樣，只在兩三個點上比，其他只講一邊。</p>
+  <p><b>八張句卡，只有六張放得進去</b>，都不是原句，是換過字的說法。</p>
+  <p class="hint" id="h1">先點一張句卡，再點表上的格子。第一次就放對 <em id="n1">0</em> / 6</p>
+
+  <div class="pool" id="pool"></div>
+  <figure class="fig" id="fig"></figure>
+  <div class="panel" id="pn">
+    <span class="k" id="pk">這一格</span>
+    <p class="q" id="pq">點表上任一個格子，看它裝的是哪一句。</p>
+  </div>
+
+  <div class="said" id="a1" hidden>
+    <b>兩張放不進去的是哪兩張。</b>一張說環島是台灣年輕人重要的成年禮，一張說做完環島想挑戰更大的就來試這一趟。兩句在第 1 到 3 行和第 25 到 28 行都真的寫過，但它們<b>不落在任何一個比較點上</b>：前者在交代基準是什麼，後者是收尾的建議。表格只收「某一個比較點上，某一邊的值」。
+    <br><br>
+    <b>八張句卡沒有一張跟課文一樣。</b>下面是六格的原文與行號，回去對一次，順便注意作者每一次比較都靠修飾語在撐。
+    <div class="srcs" id="src6"></div>
+  </div>
+  <button class="go" id="g1" hidden>下一步：把一串比較拆開</button>
+</section>
+
+<!-- 第二步 -->
+<section class="step" id="s2" hidden>
+  <p class="stepno">第二步</p>
+  <h2>拆解測試</h2>
+  <p>怎麼確定一篇在比較？<b>把比較的那一串拆開，看它是不是三塊都齊。</b>第 13 行這一串是全篇最完整的一個。按下按鈕拆開看看。</p>
+  <div class="bar">
+    <button class="p" id="split">拆開第 13 行那一串</button>
+    <button id="undo" hidden>合回去</button>
+  </div>
+  <div class="parts" id="parts" hidden></div>
+  <div id="q2box" hidden>
+    <p>三塊都在了：程度、向度、對象。<b>考卷的改寫題動的是哪一塊？</b></p>
+    <div class="opts" id="q2">
+      <button>動向度，把 time 換成 distance</button>
+      <button>動對象，把 than a huandao 換成別的行程</button>
+      <button data-ok="1">動程度，把 far 換成 much 或 significantly</button>
+      <button>三塊都不動，只把整句改寫成被動</button>
+    </div>
+    <div class="said" id="a2" hidden>
+      <b>改寫題動的是程度那一塊。</b>far、much、significantly、considerably 意思相近，換掉句子的比較關係不變，所以改寫題最愛從這裡下手；你要判斷選項對不對，就得認得這一組字。這也是上一份講義說的——<b>重點不在名詞，在修飾語</b>。
+      <br><br>
+      <b>另外三個為什麼排除：</b>第一個動向度——time 換成 distance，比的東西就從時間變成距離，那不是改寫，是換了一題。第二個動對象——基準一換，整個比較就得重算。第四個說改成被動——這是最容易選的一個，因為「改寫就是換句型」聽起來很合理，但被動與否跟比較關係無關，這一串三塊原封不動還在。
+    </div>
+  </div>
+  <button class="go" id="g2" hidden>下一步：換成你自己的作文</button>
+</section>
+
+<!-- 第三步 -->
+<section class="step" id="s3" hidden>
+  <p class="stepno">第三步</p>
+  <h2>同一張表，換成你的題目</h2>
+  <p>學測作文考過好幾次比較兩件事。表格照抄就能用：左欄先想好兩三個比較點，再一列一列填。</p>
+  <div class="note">
+    <b>照橫列寫，不要先寫完一邊再寫另一邊。</b>一列寫一個比較點、兩邊都講到，段落自然就成了逐點對比；先把 A 從頭講到尾再講 B，讀者得自己記住前面說過什麼，落差就出不來。另外，<b>每一列都要有修飾語</b>——只寫「A 要一千公里，B 要一萬四千公里」是兩個事實，加上 far more、much longer 才是比較。
+  </div>
+  <div class="prompt">
+    <b>試寫的題目：</b>有人喜歡在家自己煮，有人習慣外食。請以此為題，第一段從兩到三個角度比較這兩種方式，第二段說明你偏好哪一種以及理由。
+  </div>
+  <p>每一格寫一句中文要點就好，這一步先不寫英文。</p>
+  <div id="mine"></div>
+  <div class="bar">
+    <button class="p" id="cp">複製我寫的內容</button>
+    <button id="sv">存到瀏覽器</button>
+  </div>
+  <p class="hint">這一步沒有標準答案，站上不批改。複製之後貼給老師，或貼給 AI 也可以——下面這段指示會跟著一起複製。</p>
+  <pre class="ai" id="aib"></pre>
+
+  <div class="code">
+    <p class="t">做完了，把這一行貼到 Google Classroom 的作業回覆欄</p>
+    <p class="v" id="cv">—</p>
+    <div class="bar" style="margin:0">
+      <button class="p" id="cc">複製完成碼</button>
+      <button id="rfb">重新產生</button>
+    </div>
+    <p class="hint" style="margin:.5rem 0 0">老師只看這一行，不會看到你寫的內容。你寫的東西只留在這台裝置的瀏覽器裡。</p>
+  </div>
+</section>
+
+<nav class="series">
+  <a href="cohesion.html">← 回讀法練習總表</a>
+</nav>
+
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+"use strict";
+function $(id){return document.getElementById(id);}
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;");}
+
+var KEY="outline-u12-v1";
+var PREVIEW=false;
+var ST={put:{},first:{},miss:{},split:0,q2:0,mine:{},step:1};
+function save(){ if(PREVIEW) return; try{ localStorage.setItem(KEY,JSON.stringify(ST)); }catch(e){} }
+function load(){ try{ var r=localStorage.getItem(KEY); return r?JSON.parse(r):null; }catch(e){ return null; } }
+function toast(m){ var t=$("toast"); t.textContent=m; t.classList.add("on");
+  setTimeout(function(){ t.classList.remove("on"); },1600); }
+
+var ROWS=[
+ {lb:"距離",    en:"distance", l:"r1l", r:"r1r"},
+ {lb:"所需時間",en:"time",     l:"r2l", r:"r2r"},
+ {lb:"事前準備",en:"planning", l:null,  r:"r3r"},
+ {lb:"沿途所見",en:"landscape",l:null,  r:"r4r"}
+];
+var CELLS={
+ r1l:{rf:"第 5 行"},   r1r:{rf:"第 8 行"},
+ r2l:{rf:"第 6–7 行"}, r2r:{rf:"第 14–16 行"},
+ r3r:{rf:"第 17–18 行"},
+ r4r:{rf:"第 21–24 行"}
+};
+
+var SENTS=[
+ {id:"r2r",t:"By car it runs to somewhere between three and six months, and by bicycle a whole year."},
+ {id:"x1",t:"For young people in Taiwan, riding around the island is an important step into adulthood."},
+ {id:"r1l",t:"A normal trip around the island covers roughly a thousand kilometres."},
+ {id:"r4r",t:"The land on the way changes from dry desert to hills under snow, and the people are just as varied."},
+ {id:"r2l",t:"Most people finish it in under a fortnight."},
+ {id:"x2",t:"If you have already ridden around the island and want something harder, this could be your next trip."},
+ {id:"r1r",t:"The Australian version is closer to fourteen and a half thousand kilometres."},
+ {id:"r3r",t:"Setting out on it takes many months of looking things up and planning ahead."}
+];
+var NOFIT={
+ x1:"第 1 到 3 行真的這樣寫，但那是在交代基準是什麼，不落在任何一個比較點上。表格只收「某一個比較點上，某一邊的值」。",
+ x2:"第 25 到 28 行真的這樣寫，但那是收尾的建議，也不落在任何一個比較點上。"
+};
+var SRCQ=[
+ {fn:"距離　huandao",rf:"第 5 行",t:"A typical huandao covers around 1,000 km."},
+ {fn:"距離　the Big Lap",rf:"第 7–8 行",t:"But what if the journey were more like 14,500 km?"},
+ {fn:"所需時間　huandao",rf:"第 6–7 行",t:"…and can be completed in less than two weeks."},
+ {fn:"所需時間　the Big Lap",rf:"第 13–16 行",t:"By car, the trip typically takes between three and six months. By bicycle, though, the Big Lap can take an entire year!"},
+ {fn:"事前準備　the Big Lap",rf:"第 17–18 行",t:"Undertaking such a trip calls for many months of research and planning."},
+ {fn:"沿途所見　the Big Lap",rf:"第 21–24 行",t:"Australia offers an extraordinary variety of landscapes to travel through, from dusty deserts to snow-covered hills, along with an equally diverse cast of characters."}
+];
+var PARTS=[
+ {c:"d",lb:"程度　how much",t:"far"},
+ {c:"x",lb:"向度　in what",t:"more time to complete"},
+ {c:"o",lb:"對象　than what",t:"than a huandao"}
+];
+
+var MINE=[
+ {id:"m1",fn:"比較的兩方",en:"the two sides",  ph:"我要比的是哪兩種？哪一邊當基準？"},
+ {id:"m2",fn:"比較點一",  en:"point 1",        ph:"第一個角度：兩邊各怎樣？"},
+ {id:"m3",fn:"比較點二",  en:"point 2",        ph:"第二個角度：兩邊各怎樣？"},
+ {id:"m4",fn:"我的取捨",  en:"my choice",      ph:"我偏好哪一種？為什麼？"}
+];
+
+var AI=[
+"我是台灣的高中生，正在準備學測英文作文。下面是我用比較表列的中文大綱。",
+"",
+"請照以下規則給我意見：",
+"1. 先看中間兩格是不是真的在同一個角度上比。如果左右兩邊講的其實不是同一件事，請直接講明。",
+"2. 告訴我每一個比較點有沒有用到比較的說法，例如 far more、much longer、not as。只寫兩個事實不算比較。",
+"3. 如果我把一邊從頭講到尾再講另一邊，請提醒我改成一個角度一個角度輪流講。",
+"4. 不要幫我寫英文，也不要幫我補內容。",
+"5. 說明用中文。"
+].join("\n");
+
+/* ── 畫表 ── */
+var X0=20, W1=76, W2=112, RH=44, HH=32, Y0=8;
+function colX(i){ return i===0?X0:(i===1?X0+W1:X0+W1+W2); }
+function colW(i){ return i===0?W1:W2; }
+function drawFig(){
+  var H=Y0+HH+ROWS.length*RH+8;
+  var s='<svg viewBox="0 0 340 '+H+'" role="img" aria-label="比較對照組織圖：一張三欄的比較表">';
+  var heads=[{t:"比較點",e:"point"},{t:"huandao",e:"環島"},{t:"the Big Lap",e:"澳洲環澳"}];
+  for(var h=0;h<3;h++){
+    s+='<g class="hd"><rect x="'+colX(h)+'" y="'+Y0+'" width="'+colW(h)+'" height="'+HH+'"/>';
+    s+='<text x="'+(colX(h)+8)+'" y="'+(Y0+14)+'">'+esc(heads[h].t)+'</text>';
+    s+='<text class="en" x="'+(colX(h)+8)+'" y="'+(Y0+26)+'">'+esc(heads[h].e)+'</text></g>';
+  }
+  for(var i=0;i<ROWS.length;i++){
+    var r=ROWS[i], y=Y0+HH+i*RH;
+    s+='<g class="lbl"><rect x="'+X0+'" y="'+y+'" width="'+W1+'" height="'+RH+'"/>';
+    s+='<text x="'+(X0+8)+'" y="'+(y+20)+'">'+esc(r.lb)+'</text>';
+    s+='<text class="en" x="'+(X0+8)+'" y="'+(y+33)+'">'+esc(r.en)+'</text></g>';
+    var side=[r.l,r.r];
+    for(var k=0;k<2;k++){
+      var id=side[k], x=colX(k+1);
+      if(!id){
+        s+='<g class="gap"><rect x="'+x+'" y="'+y+'" width="'+W2+'" height="'+RH+'"/>';
+        s+='<text x="'+(x+W2/2)+'" y="'+(y+26)+'" text-anchor="middle">課文沒說</text></g>';
+        continue;
+      }
+      var cl="bx"+(ST.put[id]?" on":"");
+      s+='<g class="'+cl+'" data-id="'+id+'" tabindex="0" role="button">';
+      s+='<rect x="'+x+'" y="'+y+'" width="'+W2+'" height="'+RH+'"/>';
+      s+='<text x="'+(x+W2/2)+'" y="'+(y+26)+'" text-anchor="middle">'+
+         (ST.put[id]?esc(CELLS[id].rf):"待放")+'</text></g>';
+    }
+  }
+  s+='</svg>';
+  $("fig").innerHTML=s;
+}
+
+var pick=null;
+function drawPool(){
+  var h="";
+  for(var i=0;i<SENTS.length;i++)
+    h+='<button data-i="'+i+'" class="'+(ST.put[SENTS[i].id]?"gone":"")+'">'+esc(SENTS[i].t)+'</button>';
+  $("pool").innerHTML=h;
+}
+function done1(){ var n=0; for(var k in ST.put) if(ST.put[k]) n++; return n; }
+function first1(){ var n=0; for(var k in ST.first) if(ST.first[k]) n++; return n; }
+function showSrc(){
+  if($("src6").innerHTML) return;
+  var h="";
+  for(var i=0;i<SRCQ.length;i++)
+    h+='<div class="pair"><span class="t">'+esc(SRCQ[i].fn)+'　'+esc(SRCQ[i].rf)+'</span>'+esc(SRCQ[i].t)+'</div>';
+  $("src6").innerHTML=h;
+}
+function after1(){
+  if($("n1")) $("n1").textContent=first1();
+  if(done1()===6){
+    $("h1").innerHTML="\u516d\u683c\u90fd\u6eff\u4e86\u3002\u7b2c\u4e00\u6b21\u5c31\u653e\u5c0d <em id=\"n1\">"+first1()+"</em> / 6";
+    $("a1").hidden=false; $("g1").hidden=false; showSrc();
+  }
+}
+function show(id){
+  var gs=$("fig").querySelectorAll(".bx"),i;
+  for(i=0;i<gs.length;i++) gs[i].classList.toggle("sel", gs[i].dataset.id===id);
+  $("pk").textContent=ST.put[id]?CELLS[id].rf:"還沒放";
+  $("pq").textContent=ST.put[id]||"這一格還空著。";
+}
+function aim(on){
+  var gs=$("fig").querySelectorAll(".bx");
+  for(var i=0;i<gs.length;i++) if(!gs[i].classList.contains("on")) gs[i].classList.toggle("aim",on);
+}
+$("pool").addEventListener("click",function(e){
+  var b=e.target.closest("button"); if(!b) return;
+  var bs=$("pool").querySelectorAll("button");
+  for(var i=0;i<bs.length;i++) bs[i].classList.remove("pick");
+  b.classList.add("pick"); pick=+b.dataset.i; aim(true);
+});
+function hit(g){
+  var id=g.dataset.id;
+  if(pick===null || ST.put[id]){ show(id); return; }
+  var s=SENTS[pick];
+  if(NOFIT[s.id]){
+    ST.miss[id]=1; save();
+    $("pk").textContent="這一張沒有位置";
+    $("pq").textContent=NOFIT[s.id];
+    return;
+  }
+  if(s.id!==id){ ST.miss[id]=1; save(); toast("這一格要的不是這一張"); return; }
+  if(!ST.miss[id]) ST.first[id]=1;
+  ST.put[id]=s.t; save(); pick=null;
+  drawFig(); drawPool(); aim(false); show(id); after1();
+}
+$("fig").addEventListener("click",function(e){ var g=e.target.closest(".bx"); if(g) hit(g); });
+$("fig").addEventListener("keydown",function(e){
+  if(e.key!=="Enter"&&e.key!==" ") return;
+  var g=e.target.closest(".bx"); if(g){ e.preventDefault(); hit(g); }
+});
+$("g1").addEventListener("click",function(){
+  if(ST.step<2) ST.step=2; save();
+  $("s2").hidden=false; $("s2").scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+/* ── 第二步：拆解 ── */
+function drawParts(){
+  if($("parts").innerHTML) return;
+  var h="";
+  for(var i=0;i<PARTS.length;i++)
+    h+='<div class="'+PARTS[i].c+'"><b>'+esc(PARTS[i].lb)+'</b>'+esc(PARTS[i].t)+'</div>';
+  $("parts").innerHTML=h;
+}
+function paintSplit(){
+  $("split").disabled=!!ST.split;
+  $("undo").hidden=!ST.split;
+  $("parts").hidden=!ST.split;
+  if(ST.split){ drawParts(); $("q2box").hidden=false; }
+}
+$("split").addEventListener("click",function(){ if(ST.split) return; ST.split=1; save(); paintSplit(); });
+$("undo").addEventListener("click",function(){ ST.split=0; save(); $("split").disabled=false; $("undo").hidden=true; $("parts").hidden=true; });
+function settle2(){
+  var bs=$("q2").querySelectorAll("button");
+  for(var i=0;i<bs.length;i++){ bs[i].disabled=true; bs[i].dataset.state=bs[i].dataset.ok?"right":"wrong"; }
+  $("a2").hidden=false; $("g2").hidden=false;
+}
+$("q2").addEventListener("click",function(e){
+  var b=e.target.closest("button"); if(!b||ST.q2) return;
+  ST.q2=b.dataset.ok?1:2; save(); settle2();
+});
+$("g2").addEventListener("click",function(){
+  if(ST.step<3) ST.step=3; save();
+  paintCode(); $("s3").hidden=false;
+  $("s3").scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+/* ── 第三步 ── */
+function drawMine(){
+  var h="";
+  for(var i=0;i<MINE.length;i++){
+    var m=MINE[i];
+    h+='<div class="cell"><span class="fn">'+esc(m.fn)+'<em>'+esc(m.en)+'</em></span>'+
+       '<textarea id="'+m.id+'" rows="2" placeholder="'+esc(m.ph)+'"></textarea></div>';
+  }
+  $("mine").innerHTML=h;
+  for(var j=0;j<MINE.length;j++){
+    var el=$(MINE[j].id);
+    if(ST.mine[MINE[j].id]) el.value=ST.mine[MINE[j].id];
+    el.addEventListener("input",function(){ ST.mine[this.id]=this.value; save(); });
+  }
+  $("aib").textContent=AI;
+}
+function mkCode(){
+  var f=first1(), m=0, w=0, i;
+  for(var k in ST.miss) if(ST.miss[k]) m++;
+  for(i=0;i<MINE.length;i++){ var el=$(MINE[i].id); if(el&&el.value.trim()) w++; }
+  var seed=(f*31 + m*7 + w*13 + (ST.q2===1?5:0) + 12*101 + 1777) % 46656;
+  return "U12 "+f+"/6 大綱"+w+"/4 "+("000"+seed.toString(36).toUpperCase()).slice(-3);
+}
+function paintCode(){ $("cv").textContent=mkCode(); }
+$("rfb").addEventListener("click",paintCode);
+function copy(t){
+  function fb(){
+    var ta=document.createElement("textarea"); ta.value=t; document.body.appendChild(ta);
+    ta.select(); try{ document.execCommand("copy"); toast("已複製"); }catch(e){ toast("複製失敗，請手動選取"); }
+    document.body.removeChild(ta);
+  }
+  if(navigator.clipboard&&navigator.clipboard.writeText)
+    navigator.clipboard.writeText(t).then(function(){ toast("已複製"); },fb);
+  else fb();
+}
+$("cc").addEventListener("click",function(){ copy(mkCode()); });
+$("sv").addEventListener("click",function(){
+  for(var i=0;i<MINE.length;i++) ST.mine[MINE[i].id]=$(MINE[i].id).value;
+  save(); toast("已存在這台裝置的瀏覽器裡");
+});
+$("cp").addEventListener("click",function(){
+  var t=AI+"\n\n【我的大綱】\n";
+  for(var i=0;i<MINE.length;i++) t+=MINE[i].fn+"："+($(MINE[i].id).value||"（空白）")+"\n";
+  copy(t);
+});
+
+/* ── 預覽 ── */
+function previewAll(){
+  PREVIEW=true; $("pv").hidden=false;
+  for(var i=0;i<SENTS.length;i++) if(!NOFIT[SENTS[i].id]){ ST.put[SENTS[i].id]=SENTS[i].t; ST.first[SENTS[i].id]=1; }
+  drawFig(); drawPool(); drawMine(); after1();
+  $("s2").hidden=false; ST.split=1; paintSplit(); ST.q2=1; settle2();
+  $("s3").hidden=false; paintCode();
+}
+
+/* ── 接回進度 ── */
+$("rst").addEventListener("click",function(){
+  try{ localStorage.removeItem(KEY); }catch(e){} location.reload();
+});
+(function restore(){
+  if(/(^|[?&])all(=|&|$)/.test(location.search)){ previewAll(); return; }
+  var v=load();
+  if(v){
+    ST=v;
+    if(!ST.put) ST.put={};
+    if(!ST.first) ST.first={};
+    if(!ST.miss) ST.miss={};
+    if(!ST.mine) ST.mine={};
+    if(!ST.step) ST.step=1;
+    if(!ST.split) ST.split=0;
+  }
+  drawFig(); drawPool(); drawMine(); paintSplit();
+  if(done1()||ST.step>1) $("rs").hidden=false;
+  if(ST.step>=2) $("s2").hidden=false;
+  if(ST.q2) settle2();
+  if(ST.step>=3){ $("s3").hidden=false; paintCode(); }
+  after1();
+})();
+})();
+</script>
+</body>
+</html>

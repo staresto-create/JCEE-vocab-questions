@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>概念說明的組織圖｜Dopamine Dressing</title>
+<meta name="description" content="把一篇概念說明的文章壓成六個問句，再把同一張圖用在自己的作文上。">
+<style>
+:root{
+  --ground:#f1f3f2; --ink:#17282f; --teal:#1f6f6a; --teal-soft:#dfeceb;
+  --muted:#77878d; --line:#cdd6d6; --exam:#b4661c; --exam-soft:#fdf4e7;
+  --ok:#2e6b4f; --ok-soft:#edf4ef;
+  --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+  --sans:"PingFang TC","Noto Sans TC","Microsoft JhengHei","Helvetica Neue",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-text-size-adjust:100%}
+.wrap{max-width:44rem;margin:0 auto;padding:1.6rem 1.1rem 4rem}
+h1{font-family:var(--serif);font-weight:600;font-size:1.6rem;line-height:1.3;margin:0 0 .55rem}
+.lede{margin:0 0 1.1rem;color:#3d5059;font-size:.95rem}
+.src{font-size:.8rem;color:var(--muted);margin:0 0 1.1rem}
+.preview{font-size:.85rem;color:var(--exam);background:var(--exam-soft);border:1px dashed var(--exam);
+  border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.preview[hidden]{display:none}
+.resume{font-size:.85rem;color:var(--teal);background:var(--teal-soft);border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.resume[hidden]{display:none}
+.resume button{font:inherit;font-size:.82rem;background:#fff;color:var(--ink);border:1px solid var(--line);
+  border-radius:.25rem;padding:.16rem .6rem;margin-left:.5rem;cursor:pointer}
+.daybreak{border:1px dashed var(--exam);background:var(--exam-soft);border-radius:.4rem;
+  padding:.7rem .85rem;margin:0 0 1rem;font-size:.9rem;color:#3d5059;line-height:1.7}
+.daybreak b{display:block;color:var(--exam);font-family:var(--serif);font-size:1rem;margin-bottom:.25rem}
+.step{border-top:1px solid var(--line);padding-top:1.15rem;margin-top:1.7rem}
+.step[hidden]{display:none}
+.stepno{font-family:var(--serif);font-size:.82rem;color:var(--muted);margin:0 0 .2rem}
+h2{font-family:var(--serif);font-weight:600;font-size:1.2rem;margin:0 0 .5rem;color:var(--teal)}
+p{margin:0 0 .7rem;font-size:.95rem}
+
+/* 組織圖：六個問句往下 */
+.fig{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.7rem .5rem .5rem;margin:.2rem 0 .6rem}
+.fig svg{display:block;width:100%;height:auto;max-width:25rem;margin:0 auto}
+.hook rect{fill:var(--ground);stroke:var(--line);stroke-width:2;stroke-dasharray:6 4}
+.hook text{font-family:var(--sans);font-size:9.5px;fill:var(--muted)}
+.bx rect{fill:#fff;stroke:var(--line);stroke-width:2}
+.bx rect.qm{fill:var(--teal-soft);stroke:var(--teal)}
+.bx text.qmk{font-family:var(--serif);font-size:13px;font-weight:700;fill:var(--teal)}
+.bx text.qn{font-family:var(--serif);font-size:11px;fill:var(--ink)}
+.bx text.zh{font-family:var(--sans);font-size:9px;fill:var(--muted)}
+.bx text.rf{font-family:var(--sans);font-size:9px;fill:var(--muted)}
+.bx.aim rect{stroke:var(--teal);stroke-dasharray:6 4}
+.bx.on rect{fill:var(--ok-soft);stroke:var(--ok);stroke-width:2.5}
+.bx.on rect.qm{fill:#fff}
+.bx.on text.rf{fill:var(--ok);font-weight:600}
+.bx.sel rect{stroke:var(--teal);stroke-width:3}
+.bx.def rect{stroke:var(--exam);stroke-width:3}
+.stem{stroke:var(--line);stroke-width:2;fill:none}
+.deftag{font-family:var(--sans);font-size:9px;font-weight:600;fill:var(--exam)}
+
+.panel{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.7rem .85rem;margin:0 0 .9rem}
+.panel .k{font-size:.72rem;font-weight:600;border-radius:.2rem;padding:.06rem .42rem;
+  color:var(--teal);background:var(--teal-soft);border:1px solid var(--teal)}
+.panel .q{font-family:var(--serif);font-size:.95rem;line-height:1.65;margin:.4rem 0 0;color:#3d5059}
+
+.pool{display:flex;flex-direction:column;gap:.4rem;margin:0 0 .8rem}
+.pool button{font:inherit;font-family:var(--serif);font-size:.93rem;line-height:1.55;background:#fff;color:var(--ink);
+  border:1px solid var(--line);border-radius:.3rem;padding:.5rem .7rem;cursor:pointer;text-align:left}
+.pool button:hover{border-color:var(--teal)}
+.pool button.pick{border-color:var(--teal);background:var(--teal-soft)}
+.pool button.gone{display:none}
+.hint{font-size:.85rem;color:var(--muted);margin:0 0 .8rem}
+.hint em{font-style:normal;color:var(--teal);font-weight:600}
+
+.defs{margin:.2rem 0 .9rem}
+.defs[hidden]{display:none}
+.defs div{background:#fff;border:1px solid var(--line);border-left:3px solid var(--exam);border-radius:.3rem;
+  padding:.55rem .75rem;margin:0 0 .45rem;font-family:var(--serif);font-size:.92rem;line-height:1.6;color:#3d5059}
+.defs div b{display:block;font-family:var(--sans);font-size:.74rem;font-weight:600;color:var(--exam);margin-bottom:.2rem}
+
+.opts{display:flex;flex-direction:column;gap:.45rem;margin:.2rem 0 .8rem}
+.opts button{font:inherit;font-size:.94rem;background:#fff;color:var(--ink);border:1px solid var(--line);
+  border-radius:.3rem;padding:.5rem .8rem;cursor:pointer;text-align:left}
+.opts button:hover{border-color:var(--teal)}
+.opts button[data-state="right"]{background:var(--ok-soft);border-color:var(--ok)}
+.opts button[data-state="wrong"]{background:var(--ground);color:var(--muted)}
+.opts button[disabled]{cursor:default}
+
+.said{background:#fff;border-left:3px solid var(--teal);border-radius:.3rem;padding:.75rem .85rem;
+  margin:.2rem 0 .9rem;font-size:.93rem;color:#3d5059}
+.said[hidden]{display:none}
+.said b{color:var(--ink)}
+.srcs{margin:.6rem 0 .9rem}
+.srcs .pair{font-family:var(--serif);font-size:.9rem;line-height:1.6;color:#3d5059;
+  border-left:2px solid var(--line);padding:.1rem 0 .1rem .6rem;margin:0 0 .5rem}
+.srcs .pair .t{display:block;font-family:var(--sans);font-size:.76rem;font-weight:600;color:var(--teal)}
+.go{font:inherit;font-size:.92rem;background:var(--ink);color:#fff;border:1px solid var(--ink);
+  border-radius:.3rem;padding:.42rem 1.05rem;cursor:pointer}
+.go[hidden]{display:none}
+
+.prompt{background:var(--exam-soft);border:1px solid #e8d3b4;border-radius:.4rem;padding:.75rem .85rem;
+  margin:0 0 .9rem;font-size:.92rem;color:#3d5059}
+.prompt b{color:var(--ink)}
+.cell{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.6rem .75rem}
+.cell+.cell{margin-top:.6rem}
+.cell .fn{font-size:.78rem;font-weight:600;color:var(--teal)}
+.cell .fn em{font-style:normal;color:var(--muted);font-weight:400;margin-left:.35rem}
+.cell textarea{width:100%;margin-top:.3rem;font-family:inherit;font-size:.93rem;line-height:1.6;
+  padding:.45rem .55rem;border:1px solid var(--line);border-radius:.3rem;background:#fff;color:var(--ink);resize:vertical}
+.bar{display:flex;gap:.5rem;flex-wrap:wrap;margin:.7rem 0}
+.bar button{font:inherit;font-size:.9rem;background:#fff;color:var(--ink);border:1px solid var(--ink);
+  border-radius:.3rem;padding:.38rem .9rem;cursor:pointer}
+.bar button.p{background:var(--ink);color:#fff}
+.bar button[disabled]{border-color:var(--line);color:var(--muted);cursor:default;background:#fff}
+pre.ai{background:#fff;border:1px solid var(--line);border-radius:.3rem;padding:.6rem .7rem;
+  font-size:.8rem;line-height:1.65;white-space:pre-wrap;margin:.4rem 0 0;color:#3d5059}
+.note{font-size:.85rem;color:#3d5059;background:#fff;border:1px solid var(--line);border-left:3px solid var(--exam);
+  border-radius:.3rem;padding:.6rem .75rem;margin:.2rem 0 .9rem;line-height:1.7}
+.note b{color:var(--ink)}
+.code{background:var(--teal-soft);border:1px solid var(--teal);border-radius:.4rem;padding:.7rem .85rem;margin:1.1rem 0 .5rem}
+.code .t{font-size:.8rem;font-weight:600;color:var(--teal);margin:0 0 .35rem}
+.code .v{font-family:var(--serif);font-size:1.15rem;letter-spacing:.04em;color:var(--ink);margin:0 0 .5rem}
+.series{border-top:1px solid var(--line);margin-top:2.2rem;padding-top:1.1rem;font-size:.9rem}
+.series a{font-family:var(--serif);font-size:1rem;color:var(--teal);text-decoration:none}
+.series a:hover{text-decoration:underline}
+.toast{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--ink);color:#fff;
+  padding:.45rem 1rem;border-radius:.3rem;font-size:.86rem;opacity:0;transition:opacity .2s;pointer-events:none}
+.toast.on{opacity:1}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>概念說明的組織圖</h1>
+<p class="lede">上一份講義帶你讀完那篇 dopamine dressing。這一份把整篇壓成一張圖。它跟前面幾張都不一樣——<b>格子裡印的是問句</b>。概念說明的文章，每一段都在回答一個問題。</p>
+<p class="preview" id="pv" hidden>預覽模式：全部步驟與答案一次展開，進度不存檔。學生拿到的一般連結不受影響。</p>
+<p class="resume" id="rs" hidden>上次做到一半，已經幫你接回來了。<button id="rst">重新開始</button></p>
+<p class="src">ALL+ 互動英語 9 月號 Unit 9（pp. 40–41）　Dopamine Dressing　全文 55 行</p>
+<div class="daybreak">
+  <b>這一頁用到整篇</b>
+  雜誌把這個單元分成兩天：第 1–31 行和第 32–55 行。這一頁六個問句從頭排到尾，要兩天都讀過再做。
+</div>
+
+<!-- 第一步 -->
+<section class="step" id="s1">
+  <p class="stepno">第一步</p>
+  <h2>六個問句，一段回答一個</h2>
+  <p>最上面那一塊是虛線的，它不在六格裡。那是<b>鉤子</b>——「你有過這種感覺吧」，作用是讓你認出自己，把你拉進來，它不回答任何問題。</p>
+  <p>下面六格印的是問句。一段回答一個，順序也不能亂：先講是什麼，才輪得到為什麼；講完為什麼，才談怎麼用。</p>
+  <p><b>八張句卡，只有六張放得進去</b>，都不是原句，是換過字的說法。</p>
+  <p class="hint" id="h1">先點一張句卡，再點圖上的格子。第一次就放對 <em id="n1">0</em> / 6</p>
+
+  <div class="pool" id="pool"></div>
+  <figure class="fig" id="fig"></figure>
+  <div class="panel" id="pn">
+    <span class="k" id="pk">這一格</span>
+    <p class="q" id="pq">點圖上任一個格子，看它裝的是哪一句。</p>
+  </div>
+
+  <div class="said" id="a1" hidden>
+    <b>兩張放不進去的是哪兩張。</b>一張說打開衣櫃卻覺得沒有一件對——那是鉤子本身，圖上那個虛線框就是它的位置，六格裡沒有一格留給它。另一張說穿白袍的受試者在專注力測驗上表現比較好，第 38 到 41 行真的這樣寫，但那是第四格裡的<b>證據</b>，不是回答那個問題的那一句。
+    <br><br>
+    <b>八張句卡沒有一張跟課文一樣。</b>下面是六格的原文與行號，回去對一次。
+    <div class="srcs" id="src6"></div>
+  </div>
+  <button class="go" id="g1" hidden>下一步：看作者怎麼處理術語</button>
+</section>
+
+<!-- 第二步 -->
+<section class="step" id="s2" hidden>
+  <p class="stepno">第二步</p>
+  <h2>術語一立起來就當場定義</h2>
+  <p>這一篇丟出三個術語，一般人都不認識。作者每一次都做了同一件事。按下按鈕，三個術語連同它們出現的地方會標出來。</p>
+  <div class="bar">
+    <button class="p" id="mark">把三個術語標出來</button>
+    <button id="undo" hidden>收起來</button>
+  </div>
+  <div class="defs" id="defs" hidden></div>
+  <div id="q2box" hidden>
+    <p>三個術語都在上面了。<b>作者每次丟出術語，做的同一件事是什麼？</b></p>
+    <div class="opts" id="q2">
+      <button>先舉一個例子，讓讀者從例子裡自己猜出意思</button>
+      <button data-ok="1">在同一句話裡就把意思講明白，不等到下一段</button>
+      <button>先用中文說一次，再換成英文的專有名詞</button>
+      <button>把術語放在段落最後，當作那一段的結論</button>
+    </div>
+    <div class="said" id="a2" hidden>
+      <b>當場定義，不拖。</b>三次都一樣：the term means、破折號接說明、the idea that。術語一出現，意思就在同一句裡交代完。這是概念說明文章最好認的特徵，也是考卷最愛考的地方——<b>字彙題如果問一個你沒看過的術語，答案幾乎一定就在它旁邊</b>，不必往別處找。
+      <br><br>
+      <b>另外三個為什麼排除：</b>第一個說先舉例讓讀者猜——作者確實舉了例子，但例子都在定義<b>之後</b>，順序剛好相反。第二個說先中文再英文——這是英文雜誌，文章裡沒有中文，文本上驗證得掉。第四個說放在段落最後當結論——三個術語全都出現在各自那一段的開頭，這是最容易選的一個，因為「結論放最後」聽起來很合理，但回頭數一下位置就排除得掉。
+    </div>
+  </div>
+  <button class="go" id="g2" hidden>下一步：換成你自己的作文</button>
+</section>
+
+<!-- 第三步 -->
+<section class="step" id="s3" hidden>
+  <p class="stepno">第三步</p>
+  <h2>同一組問句，換成你的題目</h2>
+  <p>學測作文有時要你解釋一件事給不懂的人聽。六個問句壓成四個就夠用：是什麼、為什麼、舉個例、所以呢。</p>
+  <div class="note">
+    <b>用到英文以外的專有名詞，記得當場解釋。</b>閱卷老師不一定知道你說的那個東西，你寫了術語卻不解釋，那一句就等於沒寫。照這篇的做法，在同一句裡用 which means 或破折號交代完，最省字。
+  </div>
+  <div class="prompt">
+    <b>試寫的題目：</b>請向一位外國朋友介紹一個台灣特有的生活習慣或活動。第一段說明那是什麼以及為什麼會有這個習慣，第二段舉一個具體的例子並說明你的看法。
+  </div>
+  <p>每一格寫一句中文要點就好，這一步先不寫英文。</p>
+  <div id="mine"></div>
+  <div class="bar">
+    <button class="p" id="cp">複製我寫的內容</button>
+    <button id="sv">存到瀏覽器</button>
+  </div>
+  <p class="hint">這一步沒有標準答案，站上不批改。複製之後貼給老師，或貼給 AI 也可以——下面這段指示會跟著一起複製。</p>
+  <pre class="ai" id="aib"></pre>
+
+  <div class="code">
+    <p class="t">做完了，把這一行貼到 Google Classroom 的作業回覆欄</p>
+    <p class="v" id="cv">—</p>
+    <div class="bar" style="margin:0">
+      <button class="p" id="cc">複製完成碼</button>
+      <button id="rfb">重新產生</button>
+    </div>
+    <p class="hint" style="margin:.5rem 0 0">老師只看這一行，不會看到你寫的內容。你寫的東西只留在這台裝置的瀏覽器裡。</p>
+  </div>
+</section>
+
+<nav class="series">
+  <a href="cohesion.html">← 回讀法練習總表</a>
+</nav>
+
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+"use strict";
+function $(id){return document.getElementById(id);}
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;");}
+
+var KEY="outline-u9-v1";
+var PREVIEW=false;
+var ST={put:{},first:{},miss:{},mark:0,q2:0,mine:{},step:1};
+function save(){ if(PREVIEW) return; try{ localStorage.setItem(KEY,JSON.stringify(ST)); }catch(e){} }
+function load(){ try{ var r=localStorage.getItem(KEY); return r?JSON.parse(r):null; }catch(e){ return null; } }
+function toast(m){ var t=$("toast"); t.textContent=m; t.classList.add("on");
+  setTimeout(function(){ t.classList.remove("on"); },1600); }
+
+var HOOK="鉤子　the hook　第 1–8 行　不回答問題，只讓你認出自己";
+var CELLS=[
+ {id:"q1",qn:"What is it?",           zh:"這是什麼",       rf:"第 9–13 行", def:1},
+ {id:"q2",qn:"Why does it work?",     zh:"為什麼會有效",   rf:"第 14–22 行",def:0},
+ {id:"q3",qn:"What does color do?",   zh:"顏色扮演什麼角色",rf:"第 23–31 行",def:1},
+ {id:"q4",qn:"What else is like it?", zh:"還有什麼相關概念",rf:"第 32–42 行",def:1},
+ {id:"q5",qn:"How do I use it?",      zh:"我可以怎麼用",   rf:"第 43–49 行",def:0},
+ {id:"q6",qn:"So what?",              zh:"所以呢",         rf:"第 50–55 行",def:0}
+];
+
+var SENTS=[
+ {id:"q3",t:"Different colors are tied to different feelings: blue reads as calm, brown as steady."},
+ {id:"x1",t:"You open the wardrobe before something important and nothing in it feels right."},
+ {id:"q1",t:"The term came out of the pandemic and means picking clothes for the lift they give your mood."},
+ {id:"q6",t:"A wardrobe, used with thought, turns out to be one of the handiest tools you have."},
+ {id:"q2",t:"The brain releases the happiness hormone when we enjoy something, and clothes we like can trigger the same thing."},
+ {id:"x2",t:"People who put on white lab coats scored much better on tests of attention."},
+ {id:"q5",t:"Dress for the job in front of you: a smarter outfit can make you feel more able before an interview."},
+ {id:"q4",t:"A nearby idea says that what we put on shapes the way we think, because clothes carry associations."}
+];
+var NOFIT={
+ x1:"第 1 到 7 行真的這樣寫，但那是鉤子，圖上那個虛線框就是它的位置。它不回答任何問題，作用是讓你認出自己。",
+ x2:"第 38 到 41 行真的這樣寫，但那是第四格裡的證據，用來支持那一格的答案，不是回答那個問題的那一句。"
+};
+var SRCQ=[
+ {fn:"What is it?",rf:"第 9–11 行",t:"First coined during the COVID-19 pandemic, the term means choosing clothes for their mood-boosting powers."},
+ {fn:"Why does it work?",rf:"第 14–22 行",t:"Dopamine is produced by the brain in response to enjoyable activities. Wearing clothes we like has the ability to trigger the same response."},
+ {fn:"What does color do?",rf:"第 24–28 行",t:"According to color psychology—the study of how various hues affect us—different colors are connected with different feelings."},
+ {fn:"What else is like it?",rf:"第 32–35 行",t:"A concept closely related to dopamine dressing is enclothed cognition, the idea that what we wear shapes our mindset."},
+ {fn:"How do I use it?",rf:"第 45–48 行",t:"Instead, dress for the task at hand. A more polished outfit can help you feel more capable and confident for an interview or presentation."},
+ {fn:"So what?",rf:"第 50–53 行",t:"Your wardrobe, it turns out, is more than just a collection of clothes."}
+];
+var DEFS=[
+ {w:"dopamine dressing",how:"the term means",rf:"第 9–11 行",
+  t:"First coined during the COVID-19 pandemic, the term means choosing clothes for their mood-boosting powers."},
+ {w:"color psychology",how:"破折號",rf:"第 24–26 行",
+  t:"According to color psychology—the study of how various hues affect us—different colors are connected with different feelings."},
+ {w:"enclothed cognition",how:"the idea that",rf:"第 32–33 行",
+  t:"A concept closely related to dopamine dressing is enclothed cognition, the idea that what we wear shapes our mindset."}
+];
+
+var MINE=[
+ {id:"m1",fn:"是什麼", en:"what it is",   ph:"我要介紹的是什麼？一句話講完，有術語就當場解釋。"},
+ {id:"m2",fn:"為什麼", en:"why",          ph:"為什麼會有這個習慣？"},
+ {id:"m3",fn:"舉個例", en:"for example",  ph:"哪一件具體的事可以讓人看懂？"},
+ {id:"m4",fn:"所以呢", en:"so what",      ph:"這對外國朋友來說有什麼意思？"}
+];
+
+var AI=[
+"我是台灣的高中生，正在準備學測英文作文。下面是我用「概念說明」列的中文大綱。",
+"",
+"請照以下規則給我意見：",
+"1. 先看第一格：如果我用了外國人不一定懂的說法，我有沒有在同一句裡解釋清楚。",
+"2. 第二格是原因，第三格是例子。如果這兩格其實在講同一件事，請直接講明。",
+"3. 告訴我第四格是不是只是把第一格再說一次，而沒有講出這件事的意義。",
+"4. 不要幫我寫英文，也不要幫我補內容。",
+"5. 說明用中文。"
+].join("\n");
+
+/* ── 畫圖 ── */
+var HX=20, HW=300, HH=34, BX=20, BW=300, BH=52, PITCH=60, Y0=52;
+function drawFig(){
+  var H=Y0+5*PITCH+BH+8;
+  var s='<svg viewBox="0 0 340 '+H+'" role="img" aria-label="概念說明組織圖：一個鉤子加六個問句">';
+  s+='<g class="hook"><rect x="'+HX+'" y="4" width="'+HW+'" height="'+HH+'" rx="6"/>';
+  s+='<text x="'+(HX+12)+'" y="25">'+esc(HOOK)+'</text></g>';
+  s+='<line class="stem" x1="170" y1="'+(4+HH)+'" x2="170" y2="'+Y0+'"/>';
+  for(var i=0;i<CELLS.length;i++){
+    var c=CELLS[i], y=Y0+i*PITCH;
+    if(i>0) s+='<line class="stem" x1="170" y1="'+(y-8)+'" x2="170" y2="'+y+'"/>';
+    var cl="bx"+(ST.put[c.id]?" on":"")+((ST.mark&&c.def)?" def":"");
+    s+='<g class="'+cl+'" data-id="'+c.id+'" tabindex="0" role="button">';
+    s+='<rect x="'+BX+'" y="'+y+'" width="'+BW+'" height="'+BH+'" rx="6"/>';
+    s+='<rect class="qm" x="'+(BX+8)+'" y="'+(y+12)+'" width="24" height="24" rx="5"/>';
+    s+='<text class="qmk" x="'+(BX+20)+'" y="'+(y+29)+'" text-anchor="middle">?</text>';
+    s+='<text class="qn" x="'+(BX+42)+'" y="'+(y+22)+'">'+esc(c.qn)+'</text>';
+    s+='<text class="zh" x="'+(BX+42)+'" y="'+(y+36)+'">'+esc(c.zh)+'</text>';
+    s+='<text class="rf" x="'+(BX+BW-12)+'" y="'+(y+36)+'" text-anchor="end">'+
+       (ST.put[c.id]?esc(c.rf):"待放")+'</text>';
+    if(ST.mark&&c.def)
+      s+='<text class="deftag" x="'+(BX+BW-12)+'" y="'+(y+20)+'" text-anchor="end">有術語定義</text>';
+    s+='</g>';
+  }
+  s+='</svg>';
+  $("fig").innerHTML=s;
+}
+
+var pick=null;
+function drawPool(){
+  var h="";
+  for(var i=0;i<SENTS.length;i++)
+    h+='<button data-i="'+i+'" class="'+(ST.put[SENTS[i].id]?"gone":"")+'">'+esc(SENTS[i].t)+'</button>';
+  $("pool").innerHTML=h;
+}
+function done1(){ var n=0; for(var k in ST.put) if(ST.put[k]) n++; return n; }
+function first1(){ var n=0; for(var k in ST.first) if(ST.first[k]) n++; return n; }
+function showSrc(){
+  if($("src6").innerHTML) return;
+  var h="";
+  for(var i=0;i<SRCQ.length;i++)
+    h+='<div class="pair"><span class="t">'+esc(SRCQ[i].fn)+'　'+esc(SRCQ[i].rf)+'</span>'+esc(SRCQ[i].t)+'</div>';
+  $("src6").innerHTML=h;
+}
+function after1(){
+  if($("n1")) $("n1").textContent=first1();
+  if(done1()===6){
+    $("h1").innerHTML="\u516d\u683c\u90fd\u6eff\u4e86\u3002\u7b2c\u4e00\u6b21\u5c31\u653e\u5c0d <em id=\"n1\">"+first1()+"</em> / 6";
+    $("a1").hidden=false; $("g1").hidden=false; showSrc();
+  }
+}
+function show(id){
+  var c=null,i;
+  for(i=0;i<CELLS.length;i++) if(CELLS[i].id===id) c=CELLS[i];
+  if(!c) return;
+  var gs=$("fig").querySelectorAll(".bx");
+  for(i=0;i<gs.length;i++) gs[i].classList.toggle("sel", gs[i].dataset.id===id);
+  $("pk").textContent=c.zh+"　"+(ST.put[id]?c.rf:"還沒放");
+  $("pq").textContent=ST.put[id]||"這一格還空著。";
+}
+function aim(on){
+  var gs=$("fig").querySelectorAll(".bx");
+  for(var i=0;i<gs.length;i++) if(!gs[i].classList.contains("on")) gs[i].classList.toggle("aim",on);
+}
+$("pool").addEventListener("click",function(e){
+  var b=e.target.closest("button"); if(!b) return;
+  var bs=$("pool").querySelectorAll("button");
+  for(var i=0;i<bs.length;i++) bs[i].classList.remove("pick");
+  b.classList.add("pick"); pick=+b.dataset.i; aim(true);
+});
+function hit(g){
+  var id=g.dataset.id;
+  if(pick===null || ST.put[id]){ show(id); return; }
+  var s=SENTS[pick];
+  if(NOFIT[s.id]){
+    ST.miss[id]=1; save();
+    $("pk").textContent="這一張沒有位置";
+    $("pq").textContent=NOFIT[s.id];
+    return;
+  }
+  if(s.id!==id){ ST.miss[id]=1; save(); toast("這一格要的不是這一張"); return; }
+  if(!ST.miss[id]) ST.first[id]=1;
+  ST.put[id]=s.t; save(); pick=null;
+  drawFig(); drawPool(); aim(false); show(id); after1();
+}
+$("fig").addEventListener("click",function(e){ var g=e.target.closest(".bx"); if(g) hit(g); });
+$("fig").addEventListener("keydown",function(e){
+  if(e.key!=="Enter"&&e.key!==" ") return;
+  var g=e.target.closest(".bx"); if(g){ e.preventDefault(); hit(g); }
+});
+$("g1").addEventListener("click",function(){
+  if(ST.step<2) ST.step=2; save();
+  $("s2").hidden=false; $("s2").scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+/* ── 第二步：術語定義框 ── */
+function drawDefs(){
+  if($("defs").innerHTML) return;
+  var h="";
+  for(var i=0;i<DEFS.length;i++)
+    h+='<div><b>'+esc(DEFS[i].w)+'　'+esc(DEFS[i].rf)+'　定義的方式：'+esc(DEFS[i].how)+'</b>'+esc(DEFS[i].t)+'</div>';
+  $("defs").innerHTML=h;
+}
+function paintMark(){
+  drawFig();
+  $("mark").disabled=!!ST.mark;
+  $("undo").hidden=!ST.mark;
+  $("defs").hidden=!ST.mark;
+  if(ST.mark){ drawDefs(); $("q2box").hidden=false; }
+}
+$("mark").addEventListener("click",function(){ if(ST.mark) return; ST.mark=1; save(); paintMark(); });
+$("undo").addEventListener("click",function(){ ST.mark=0; save(); drawFig(); $("mark").disabled=false; $("undo").hidden=true; $("defs").hidden=true; });
+function settle2(){
+  var bs=$("q2").querySelectorAll("button");
+  for(var i=0;i<bs.length;i++){ bs[i].disabled=true; bs[i].dataset.state=bs[i].dataset.ok?"right":"wrong"; }
+  $("a2").hidden=false; $("g2").hidden=false;
+}
+$("q2").addEventListener("click",function(e){
+  var b=e.target.closest("button"); if(!b||ST.q2) return;
+  ST.q2=b.dataset.ok?1:2; save(); settle2();
+});
+$("g2").addEventListener("click",function(){
+  if(ST.step<3) ST.step=3; save();
+  paintCode(); $("s3").hidden=false;
+  $("s3").scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+/* ── 第三步 ── */
+function drawMine(){
+  var h="";
+  for(var i=0;i<MINE.length;i++){
+    var m=MINE[i];
+    h+='<div class="cell"><span class="fn">'+esc(m.fn)+'<em>'+esc(m.en)+'</em></span>'+
+       '<textarea id="'+m.id+'" rows="2" placeholder="'+esc(m.ph)+'"></textarea></div>';
+  }
+  $("mine").innerHTML=h;
+  for(var j=0;j<MINE.length;j++){
+    var el=$(MINE[j].id);
+    if(ST.mine[MINE[j].id]) el.value=ST.mine[MINE[j].id];
+    el.addEventListener("input",function(){ ST.mine[this.id]=this.value; save(); });
+  }
+  $("aib").textContent=AI;
+}
+function mkCode(){
+  var f=first1(), m=0, w=0, i;
+  for(var k in ST.miss) if(ST.miss[k]) m++;
+  for(i=0;i<MINE.length;i++){ var el=$(MINE[i].id); if(el&&el.value.trim()) w++; }
+  var seed=(f*31 + m*7 + w*13 + (ST.q2===1?5:0) + 9*101 + 1777) % 46656;
+  return "U9 "+f+"/6 大綱"+w+"/4 "+("000"+seed.toString(36).toUpperCase()).slice(-3);
+}
+function paintCode(){ $("cv").textContent=mkCode(); }
+$("rfb").addEventListener("click",paintCode);
+function copy(t){
+  function fb(){
+    var ta=document.createElement("textarea"); ta.value=t; document.body.appendChild(ta);
+    ta.select(); try{ document.execCommand("copy"); toast("已複製"); }catch(e){ toast("複製失敗，請手動選取"); }
+    document.body.removeChild(ta);
+  }
+  if(navigator.clipboard&&navigator.clipboard.writeText)
+    navigator.clipboard.writeText(t).then(function(){ toast("已複製"); },fb);
+  else fb();
+}
+$("cc").addEventListener("click",function(){ copy(mkCode()); });
+$("sv").addEventListener("click",function(){
+  for(var i=0;i<MINE.length;i++) ST.mine[MINE[i].id]=$(MINE[i].id).value;
+  save(); toast("已存在這台裝置的瀏覽器裡");
+});
+$("cp").addEventListener("click",function(){
+  var t=AI+"\n\n【我的大綱】\n";
+  for(var i=0;i<MINE.length;i++) t+=MINE[i].fn+"："+($(MINE[i].id).value||"（空白）")+"\n";
+  copy(t);
+});
+
+/* ── 預覽 ── */
+function previewAll(){
+  PREVIEW=true; $("pv").hidden=false;
+  for(var i=0;i<SENTS.length;i++) if(!NOFIT[SENTS[i].id]){ ST.put[SENTS[i].id]=SENTS[i].t; ST.first[SENTS[i].id]=1; }
+  drawPool(); drawMine(); after1();
+  $("s2").hidden=false; ST.mark=1; paintMark(); ST.q2=1; settle2();
+  $("s3").hidden=false; paintCode();
+}
+
+/* ── 接回進度 ── */
+$("rst").addEventListener("click",function(){
+  try{ localStorage.removeItem(KEY); }catch(e){} location.reload();
+});
+(function restore(){
+  if(/(^|[?&])all(=|&|$)/.test(location.search)){ previewAll(); return; }
+  var v=load();
+  if(v){
+    ST=v;
+    if(!ST.put) ST.put={};
+    if(!ST.first) ST.first={};
+    if(!ST.miss) ST.miss={};
+    if(!ST.mine) ST.mine={};
+    if(!ST.step) ST.step=1;
+    if(!ST.mark) ST.mark=0;
+  }
+  drawPool(); drawMine(); paintMark();
+  if(done1()||ST.step>1) $("rs").hidden=false;
+  if(ST.step>=2) $("s2").hidden=false;
+  if(ST.q2) settle2();
+  if(ST.step>=3){ $("s3").hidden=false; paintCode(); }
+  after1();
+})();
+})();
+</script>
+</body>
+</html>
