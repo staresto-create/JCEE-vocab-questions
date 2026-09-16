@@ -157,7 +157,7 @@ h2{font-family:var(--serif);font-weight:600;font-size:1.2rem;margin:0 0 .5rem;co
 <p class="lede">側寫不是履歷表。履歷寫的是這個人做過什麼，側寫要讓你<b>認識這個人</b>——所以它會有轉折、有他自己說的話，還有一段跟成就無關的東西。</p>
 <p class="preview" id="pv" hidden>預覽模式：所有步驟、圖表、課文標記都已展開，進度不會存檔。學生拿到的一般連結不受影響。</p>
 <p class="resume" id="rs" hidden>上次做到一半，已經幫你接回來了。<button id="rst">重新開始</button></p>
-<p class="src">ALL+ 互動英語 9 月號 Unit 10（pp. 42–45）　Kjell Lindgren: How a Kid from Taipei Reached the Stars　全文 57 行　9/19 讀第 1–27 行，9/22 讀第 28–57 行</p>
+<p class="src">ALL+ 互動英語 9 月號 Unit 10（pp. 42–45）　Kjell Lindgren: How a Kid from Taipei Reached the Stars　全文 57 行　9/21 讀第 1–27 行，9/22 讀第 28–57 行</p>
 
 <!-- STEP 1 -->
 <section class="step" id="s1">
@@ -223,7 +223,7 @@ h2{font-family:var(--serif);font-weight:600;font-size:1.2rem;margin:0 0 .5rem;co
 
 <div class="daybreak" id="db" hidden>
   <b>9/22 的範圍從這裡開始：第 28–57 行</b>
-  第一、二步用的是 9/19 的第 1–27 行（鉤子、出身與夢想、低谷與轉向、入選 NASA）。第三步以後會用到整篇，包含 9/22 的第 28–57 行（兩次太空任務、風笛與環境發言）。如果你今天是 9/19，做到這裡可以先停，隔天再接下去。（第二步的部件表和路線圖已經含有後半段的標題，先看到不影響。）
+  第一、二步用的是 9/21 的第 1–27 行（鉤子、出身與夢想、低谷與轉向、入選 NASA）。第三步以後會用到整篇，包含 9/22 的第 28–57 行（兩次太空任務、風笛與環境發言）。如果你今天是 9/21，做到這裡可以先停，隔天再接下去。（第二步的部件表和路線圖已經含有後半段的標題，先看到不影響。）
 </div>
 
 <!-- STEP 3 -->
@@ -614,7 +614,7 @@ function buildText(){
   var h='<p class="ttl">'+renderLine(TITLE)+'</p>';
   for(var i=0;i<LINES.length;i++){
     var n=i+1;
-    if(n===SPLIT) h+='<p class="split">\u4ee5\u4e0a\u662f 9/19 \u7684\u7b2c 1\u201327 \u884c\u3002\u4ee5\u4e0b\u662f 9/22 \u7684\u7b2c 28\u201357 \u884c\u3002</p>';
+    if(n===SPLIT) h+='<p class="split">\u4ee5\u4e0a\u662f 9/21 \u7684\u7b2c 1\u201327 \u884c\u3002\u4ee5\u4e0b\u662f 9/22 \u7684\u7b2c 28\u201357 \u884c\u3002</p>';
     var cls="ln"+(INDENT[n]?" ind"+(n>1?" pb":""):"");
     h+='<div class="'+cls+'" data-n="'+n+'"><i>'+((n%5===0)?n:"")+'</i><span>'+renderLine(LINES[i])+'</span></div>';
   }
