@@ -160,7 +160,7 @@ h2{font-family:var(--serif);font-weight:600;font-size:1.2rem;margin:0 0 .5rem;co
 <p class="lede">這種文章不是「有個問題，然後解決了」那麼簡單。<b>它是一個循環：每解決一次，就冒出新的問題。</b>乙醚不是終點，氯仿也不是——每一個解法後面都跟著一個 but。</p>
 <p class="preview" id="pv" hidden>預覽模式：所有步驟、圖表、課文標記都已展開，進度不會存檔。學生拿到的一般連結不受影響。</p>
 <p class="resume" id="rs" hidden>上次做到一半，已經幫你接回來了。<button id="rst">重新開始</button></p>
-<p class="src">ALL+ 互動英語 9 月號 Unit 13（pp. 54–57）　Anesthesia: The Discovery That Transformed Medicine　全文 52 行　9/29 讀第 1–22 行，9/30 讀第 23–52 行</p>
+<p class="src">ALL+ 互動英語 9 月號 Unit 13（pp. 54–57）　Anesthesia: The Discovery That Transformed Medicine　全文 52 行　9/28 讀第 1–22 行，9/29 讀第 23–52 行</p>
 
 <!-- STEP 1 -->
 <section class="step" id="s1">
@@ -225,8 +225,8 @@ h2{font-family:var(--serif);font-weight:600;font-size:1.2rem;margin:0 0 .5rem;co
 </section>
 
 <div class="daybreak" id="db" hidden>
-  <b>9/30 的範圍從這裡開始：第 23–52 行</b>
-  第一、二步用的是 9/29 的第 1–22 行（開場、麻醉發明前的手術、無效的舊方法）。第三步以後會用到整篇，包含 9/30 的第 23–52 行（乙醚的突破、氯仿與劑量、今天）。如果你今天是 9/29，做到這裡可以先停，明天再接下去。（第二步的圖已經畫出後半段的起伏，先看到不影響。）
+  <b>9/29 的範圍從這裡開始：第 23–52 行</b>
+  第一、二步用的是 9/28 的第 1–22 行（開場、麻醉發明前的手術、無效的舊方法）。第三步以後會用到整篇，包含 9/29 的第 23–52 行（乙醚的突破、氯仿與劑量、今天）。如果你今天是 9/28，做到這裡可以先停，明天再接下去。（第二步的圖已經畫出後半段的起伏，先看到不影響。）
 </div>
 
 <!-- STEP 3 -->
@@ -599,7 +599,7 @@ function buildText(){
   var h='<p class="ttl">'+esc(TITLE)+'</p>';
   for(var i=0;i<LINES.length;i++){
     var n=i+1;
-    if(n===SPLIT) h+='<p class="split">\u4ee5\u4e0a\u662f 9/29 \u7684\u7b2c 1\u201322 \u884c\u3002\u4ee5\u4e0b\u662f 9/30 \u7684\u7b2c 23\u201352 \u884c\u3002</p>';
+    if(n===SPLIT) h+='<p class="split">\u4ee5\u4e0a\u662f 9/28 \u7684\u7b2c 1\u201322 \u884c\u3002\u4ee5\u4e0b\u662f 9/29 \u7684\u7b2c 23\u201352 \u884c\u3002</p>';
     var cls="ln"+(INDENT[n]?" ind"+(n>1?" pb":""):"");
     h+='<div class="'+cls+'" data-n="'+n+'"><i>'+((n%5===0)?n:"")+'</i><span>'+renderLine(LINES[i])+'</span></div>';
   }
