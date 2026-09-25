@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>因果的組織圖｜The Hidden Costs of Energy Drinks</title>
+
+<style>
+:root{
+  --ground:#f1f3f2; --ink:#17282f; --teal:#1f6f6a; --teal-soft:#dfeceb;
+  --muted:#77878d; --line:#cdd6d6; --exam:#b4661c; --exam-soft:#fdf4e7;
+  --ok:#2e6b4f; --ok-soft:#edf4ef;
+  --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+  --sans:"PingFang TC","Noto Sans TC","Microsoft JhengHei","Helvetica Neue",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-text-size-adjust:100%}
+.wrap{max-width:44rem;margin:0 auto;padding:1.6rem 1.1rem 4rem}
+h1{font-family:var(--serif);font-weight:600;font-size:1.6rem;line-height:1.3;margin:0 0 .55rem}
+.lede{margin:0 0 1.1rem;color:#3d5059;font-size:.95rem}
+.src{font-size:.8rem;color:var(--muted);margin:0 0 1.1rem}
+.preview{font-size:.85rem;color:var(--exam);background:var(--exam-soft);border:1px dashed var(--exam);
+  border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.preview[hidden]{display:none}
+.resume{font-size:.85rem;color:var(--teal);background:var(--teal-soft);border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.resume[hidden]{display:none}
+.resume button{font:inherit;font-size:.82rem;background:#fff;color:var(--ink);border:1px solid var(--line);
+  border-radius:.25rem;padding:.16rem .6rem;margin-left:.5rem;cursor:pointer}
+.step{border-top:1px solid var(--line);padding-top:1.15rem;margin-top:1.7rem}
+.step[hidden]{display:none}
+.stepno{font-family:var(--serif);font-size:.82rem;color:var(--muted);margin:0 0 .2rem}
+h2{font-family:var(--serif);font-weight:600;font-size:1.2rem;margin:0 0 .5rem;color:var(--teal)}
+p{margin:0 0 .7rem;font-size:.95rem}
+
+/* 組織圖：多列原因結果表 */
+.fig{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.7rem .5rem .5rem;margin:.2rem 0 .6rem}
+.fig svg{display:block;width:100%;height:auto;max-width:26rem;margin:0 auto}
+.bx rect{fill:#fff;stroke:var(--line);stroke-width:2}
+.bx text.fn{font-family:var(--sans);font-size:11px;font-weight:600;fill:var(--ink)}
+.bx text.en{font-family:var(--serif);font-size:8.5px;fill:var(--muted)}
+.bx text.rf{font-family:var(--sans);font-size:8.5px;fill:var(--muted)}
+.bx.aim rect{stroke:var(--teal);stroke-dasharray:6 4}
+.bx.on rect{fill:var(--ok-soft);stroke:var(--ok);stroke-width:2.5}
+.bx.on text.rf{fill:var(--ok);font-weight:600}
+.bx.sel rect{stroke:var(--teal);stroke-width:3}
+.lv text{font-family:var(--sans);font-size:9px;fill:var(--muted)}
+.cutline{stroke:var(--exam);stroke-width:2;stroke-dasharray:6 5}
+.frameline{stroke:var(--line);stroke-width:2;stroke-dasharray:5 4;fill:none}
+.cuttag{font-family:var(--sans);font-size:9px;font-weight:600;fill:var(--exam)}
+
+.panel{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.7rem .85rem;margin:0 0 .9rem}
+.panel .k{font-size:.72rem;font-weight:600;border-radius:.2rem;padding:.06rem .42rem;
+  color:var(--teal);background:var(--teal-soft);border:1px solid var(--teal)}
+.panel .q{font-family:var(--serif);font-size:.95rem;line-height:1.65;margin:.4rem 0 0;color:#3d5059}
+
+.pool{display:flex;flex-direction:column;gap:.4rem;margin:0 0 .8rem}
+.pool button{font:inherit;font-family:var(--serif);font-size:.93rem;line-height:1.55;background:#fff;color:var(--ink);
+  border:1px solid var(--line);border-radius:.3rem;padding:.5rem .7rem;cursor:pointer;text-align:left}
+.pool button:hover{border-color:var(--teal)}
+.pool button.pick{border-color:var(--teal);background:var(--teal-soft)}
+.pool button.gone{display:none}
+.hint{font-size:.85rem;color:var(--muted);margin:0 0 .8rem}
+.hint em{font-style:normal;color:var(--teal);font-weight:600}
+
+.opts{display:flex;flex-direction:column;gap:.45rem;margin:.2rem 0 .8rem}
+.opts button{font:inherit;font-size:.94rem;background:#fff;color:var(--ink);border:1px solid var(--line);
+  border-radius:.3rem;padding:.5rem .8rem;cursor:pointer;text-align:left}
+.opts button:hover{border-color:var(--teal)}
+.opts button[data-state="right"]{background:var(--ok-soft);border-color:var(--ok)}
+.opts button[data-state="wrong"]{background:var(--ground);color:var(--muted)}
+.opts button[disabled]{cursor:default}
+
+.said{background:#fff;border-left:3px solid var(--teal);border-radius:.3rem;padding:.75rem .85rem;
+  margin:.2rem 0 .9rem;font-size:.93rem;color:#3d5059}
+.said[hidden]{display:none}
+.said b{color:var(--ink)}
+.srcs{margin:.6rem 0 .9rem}
+.srcs .pair{font-family:var(--serif);font-size:.9rem;line-height:1.6;color:#3d5059;
+  border-left:2px solid var(--line);padding:.1rem 0 .1rem .6rem;margin:0 0 .5rem}
+.srcs .pair .t{display:block;font-family:var(--sans);font-size:.76rem;font-weight:600;color:var(--teal)}
+.go{font:inherit;font-size:.92rem;background:var(--ink);color:#fff;border:1px solid var(--ink);
+  border-radius:.3rem;padding:.42rem 1.05rem;cursor:pointer}
+.go[hidden]{display:none}
+
+.prompt{background:var(--exam-soft);border:1px solid #e8d3b4;border-radius:.4rem;padding:.75rem .85rem;
+  margin:0 0 .9rem;font-size:.92rem;color:#3d5059}
+.prompt b{color:var(--ink)}
+.cell{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.6rem .75rem}
+.cell+.cell{margin-top:.6rem}
+.cell .fn{font-size:.78rem;font-weight:600;color:var(--teal)}
+.cell .fn em{font-style:normal;color:var(--muted);font-weight:400;margin-left:.35rem}
+.cell textarea{width:100%;margin-top:.3rem;font-family:inherit;font-size:.93rem;line-height:1.6;
+  padding:.45rem .55rem;border:1px solid var(--line);border-radius:.3rem;background:#fff;color:var(--ink);resize:vertical}
+.bar{display:flex;gap:.5rem;flex-wrap:wrap;margin:.7rem 0}
+.bar button{font:inherit;font-size:.9rem;background:#fff;color:var(--ink);border:1px solid var(--ink);
+  border-radius:.3rem;padding:.38rem .9rem;cursor:pointer}
+.bar button.p{background:var(--ink);color:#fff}
+.bar button[disabled]{border-color:var(--line);color:var(--muted);cursor:default;background:#fff}
+pre.ai{background:#fff;border:1px solid var(--line);border-radius:.3rem;padding:.6rem .7rem;
+  font-size:.8rem;line-height:1.65;white-space:pre-wrap;margin:.4rem 0 0;color:#3d5059}
+.code{background:var(--teal-soft);border:1px solid var(--teal);border-radius:.4rem;padding:.7rem .85rem;margin:1.1rem 0 .5rem}
+.code .t{font-size:.8rem;font-weight:600;color:var(--teal);margin:0 0 .35rem}
+.code .v{font-family:var(--serif);font-size:1.15rem;letter-spacing:.04em;color:var(--ink);margin:0 0 .5rem}
+.series{border-top:1px solid var(--line);margin-top:2.2rem;padding-top:1.1rem;font-size:.9rem}
+.series a{font-family:var(--serif);font-size:1rem;color:var(--teal);text-decoration:none}
+.series a:hover{text-decoration:underline}
+.toast{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--ink);color:#fff;
+  padding:.45rem 1rem;border-radius:.3rem;font-size:.86rem;opacity:0;transition:opacity .2s;pointer-events:none}
+.toast.on{opacity:1}
+.spoke{stroke:var(--line);stroke-width:2;fill:none}
+.bx.hub rect{stroke:var(--muted)}
+.bx.hub.on rect{stroke:var(--ok)}
+.bx.sw rect,.bx.hub.on.sw rect{stroke:var(--exam);stroke-width:2.5}
+.bx.sw text.fn{fill:var(--exam)}
+.warn{font-family:var(--sans);font-size:9.5px;font-weight:600;fill:var(--exam)}
+.okk{font-family:var(--sans);font-size:9.5px;font-weight:600;fill:var(--ok)}
+.hint ul{margin:.3rem 0 0;padding-left:1.1rem;color:var(--exam)}
+.hint ul.ok{color:var(--ok)}
+.hint li{margin-bottom:.2rem}
+.fig .zone{fill:none;stroke:var(--line);stroke-width:1.5;stroke-dasharray:5 4}
+.fig .zl{font-family:var(--sans);font-size:10.5px;font-weight:600}
+.fig .zl.l{fill:var(--teal)}
+.fig .zl.r{fill:#4a6a90}
+.fig .arr{stroke:var(--muted);stroke-width:2;fill:none;stroke-linejoin:round;stroke-linecap:round}
+.fig .pivot{font-family:var(--serif);font-style:italic;font-size:11.5px;fill:var(--exam)}
+.fig .pn{font-family:var(--sans);font-size:9px;fill:var(--muted)}
+.bx.cut rect{fill:var(--ground);stroke:var(--exam);stroke-dasharray:5 4}
+.bx.cut text.fn{fill:var(--muted);text-decoration:line-through}
+.bx.cut text.rf{fill:var(--exam);font-weight:600}
+.fig .tw{font-family:var(--serif);font-style:italic;font-size:9px;fill:var(--exam)}
+.fig .twz{font-family:var(--sans);font-size:10px;font-weight:600;fill:var(--exam)}
+.fig .arr.dash{stroke-dasharray:4 3}
+.fig .arr.gone{stroke:var(--line);stroke-dasharray:3 3}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>因果的組織圖：一個原因，三個結果</h1>
+<p class="lede">上一份單元頁帶你讀完這篇談能量飲料的文章。這一份把整篇整理成一張圖：左邊一個原因，三個箭頭指向右邊三個結果，結果由上到下照時間排。這個形狀叫<b>原因結果圖</b>，是因果結構的標準圖。文章說明一件事造成哪些結果時，就用這種圖來整理。</p>
+<p class="preview" id="pv" hidden>預覽模式：全部步驟與答案一次展開，進度不存檔。學生拿到的一般連結不受影響。</p>
+<p class="resume" id="rs" hidden>上次做到一半，已經幫你接回來了。<button id="rst">重新開始</button></p>
+<p class="src">ALL+ 互動英語 10 月號 Unit 9（p. 38）　The Hidden Costs of Energy Drinks　全文 30 行</p>
+
+<!-- 第一步 -->
+<section class="step" id="s1">
+  <p class="stepno">第一步</p>
+  <h2>一個原因，三個結果，一個提醒</h2>
+  <p>每一格的名稱已經印好了：左邊是原因，右邊三格是依時間排的結果，最下面是給青少年的提醒。你要放的是每一格在說什麼。</p>
+  <p>五個位置各有各的內容。<b>七張句卡，只有五張放得進去</b>，而且都不是原句，是換過字的說法。</p>
+  <p class="hint" id="h1">先點一張句卡，再點圖上的格子。第一次就放對 <em id="n1">0</em> / 5</p>
+  <div class="pool" id="pool"></div>
+  <figure class="fig" id="fig"></figure>
+  <div class="panel" id="pn">
+    <span class="k" id="pk">這一格</span>
+    <p class="q" id="pq">點圖上任一個格子，看它裝的是哪一句。</p>
+  </div>
+  <div class="said" id="a1" hidden>
+    <b>兩張放不進去的是哪兩張。</b>一張說腎上腺素能維持好幾天，一罐就能撐過整個考試週。它最容易放進作用中那一格，因為 adrenaline 確實在第 12 行；可是第 11 到 12 行寫的是 <q>trigger a temporary release of adrenaline</q>，temporary 是短暫的，<b>把短暫說成好幾天，方向錯了</b>。另一張說作用一退，身體很快就恢復正常。第 17 到 19 行說作用退去之後，人會 <q>more tired, anxious, or irritable than before</q>，第 20 到 21 行還說長期依賴會打亂身體的能量週期，<b>方向剛好相反</b>。
+    <br><br>
+    <b>七張句卡沒有一張跟課文一樣。</b>下面是五個位置的原文與行號，回去對一次。
+    <div class="srcs" id="src6"></div>
+  </div>
+  <button class="go" id="g1" hidden>下一步：拿掉一格看看</button>
+</section>
+
+<!-- 第二步 -->
+<section class="step" id="s2" hidden>
+  <p class="stepno">第二步</p>
+  <h2>拿掉一格，或把兩個結果對調</h2>
+  <p>九月號第八單元的因果鏈，拿掉中間任何一環，後面就接不上。這一篇的三個結果是不是也這樣？<b>按下面的按鈕，圖上的格子會真的拿掉或換位置。</b>三種都試過，才會出題。</p>
+  <div class="bar" id="swbar">
+    <button data-s="1">拿掉原因</button>
+    <button data-s="2">拿掉「退去之後」</button>
+    <button data-s="3">對調「作用中」和「長期」</button>
+    <button class="p" id="undo" hidden>換回來</button>
+  </div>
+  <div class="hint" id="swh">五格照原來的位置排著。任選一種試試看。</div>
+  <div id="q2box" hidden>
+    <p>拿掉「退去之後」，文章照樣成立；拿掉原因，或把兩個結果對調，就不成立了。<b>這說明了什麼？</b></p>
+    <div class="opts" id="q2">
+      <button>這篇跟因果鏈一樣，拿掉任何一環就接不上</button>
+      <button>三個結果彼此對等，排列的順序可以任意對調</button>
+      <button>原因只是開頭的背景，拿掉了也不影響結果</button>
+      <button data-ok="1">三個結果都連回同一個原因，還要照時間排</button>
+    </div>
+    <div class="said" id="a2" hidden>
+      <b>三個結果都連回同一個原因，還要照時間排。</b>三個箭頭都從原因出發，所以原因一拿掉，第 11 行的 thus 就沒有東西可以接，三個結果也不知道從哪裡來。三個結果之間卻沒有箭頭：長期那一格的主詞是 relying on energy drinks，直接連回喝能量飲料這件事，不需要先有 crash，所以拿掉「退去之後」，其他兩格照樣成立。可是三個結果各有自己的時間，第 17 行的 Once … wear off 和第 19 行的 Over time 決定了它們的先後，所以不能對調。<b>一個原因帶出幾種結果：原因不能少，結果可以少一個，但先後不能亂。</b>
+      <br><br>
+      <b>另外三個為什麼排除：</b>「這篇跟因果鏈一樣，拿掉任何一環就接不上」<b>最容易選</b>，因為九月號第八單元的因果鏈正是這樣，十月號第三單元的原因結果表也練過拿掉一列。可是這一篇拿掉「退去之後」，圖上沒有出現任何警告，說明三個結果不是一條鏈。「三個結果彼此對等，排列的順序可以任意對調」跟你看到的結果相反：作用中和長期一對調，時間的字就接不上。「原因只是開頭的背景」也不對，拿掉原因之後，三個結果全都沒有來源。
+    </div>
+  </div>
+  <button class="go" id="g2" hidden>下一步：換成你自己的作文</button>
+</section>
+
+<!-- 第三步 -->
+<section class="step" id="s3" hidden>
+  <p class="stepno">第三步</p>
+  <h2>用同一張圖列你的大綱</h2>
+  <p>學測作文常要你說明一個習慣或一件事帶來的影響。這就是一篇小小的因果文章。用剛才那張圖列大綱，有三件事要照這篇學：</p>
+  <p><b>一、先說這個習慣吸引人的地方，再帶出真正的影響。</b>像這篇先說能量飲料 seem like the perfect solution to fatigue，再問 what are their actual effects。<b>二、影響依時間排，並用時間的字標出來。</b>寫成英文時，可以用 At first、Once … wears off、Over time 分出當下、事後和長期。<b>三、讓事後跟當下相反。</b>像這篇的 rush 對 crash、alert 對 tired，你可以寫當下覺得 relaxed，事後卻 exhausted，讀者一看就知道影響反轉了。</p>
+  <div class="prompt">
+    <b>試寫的題目：</b>請寫一篇短文，說明你的一個生活習慣帶來的影響，例如睡前滑短影音、天天喝手搖飲、週末一次補眠。第一段說明這個習慣和它為什麼吸引你；第二段依時間說明它帶來的影響，包括當下、事後和長期。
+  </div>
+  <p>每一格寫一句中文要點就好，這一步先不寫英文。</p>
+  <div id="mine"></div>
+  <div class="bar">
+    <button class="p" id="cp">複製我寫的內容</button>
+    <button id="sv">存到瀏覽器</button>
+  </div>
+  <p class="hint">這一步沒有標準答案，站上不批改。複製之後貼給老師，或貼給 AI 也可以，下面這段指示會跟著一起複製。</p>
+  <pre class="ai" id="aib"></pre>
+  <div class="code">
+    <p class="t">做完了，把這一行貼到 Google Classroom 的作業回覆欄</p>
+    <p class="v" id="cv">—</p>
+    <div class="bar" style="margin:0">
+      <button class="p" id="cc">複製完成碼</button>
+      <button id="rfb">重新產生</button>
+    </div>
+    <p class="hint" style="margin:.5rem 0 0">老師只看這一行，不會看到你寫的內容。你寫的東西只留在這台裝置的瀏覽器裡。</p>
+  </div>
+</section>
+
+<nav class="series">
+  <a href="cohesion.html">← 回讀法練習總表</a>
+</nav>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+"use strict";
+function $(id){return document.getElementById(id);}
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;");}
+
+var KEY="outline-202610-u9-v1";
+var PREVIEW=false;
+var ST={put:{},first:{},miss:{},sw:0,tr:{},q2:0,mine:{},step:1};
+function save(){ if(PREVIEW) return; try{ localStorage.setItem(KEY,JSON.stringify(ST)); }catch(e){} }
+function load(){ try{ var r=localStorage.getItem(KEY); return r?JSON.parse(r):null; }catch(e){ return null; } }
+function toast(m){ var t=$("toast"); t.textContent=m; t.classList.add("on");
+  setTimeout(function(){ t.classList.remove("on"); },1600); }
+
+/* 五格：原因、三個結果、對青少年 */
+var CELLS=[
+ {id:"c",fn:"原因：喝能量飲料",en:"caffeine · guarana · sugar",rf:"第 1–10 行",tw:""},
+ {id:"e1",fn:"結果一：作用中",en:"alert · heart beats faster",rf:"第 11–15 行",tw:"instantly · At the same time"},
+ {id:"e2",fn:"結果二：退去之後",en:"the inevitable crash",rf:"第 16–19 行",tw:"Once … wear off"},
+ {id:"e3",fn:"結果三：長期",en:"energy cycle · sleep",rf:"第 20–22 行",tw:"Over time"},
+ {id:"t",fn:"對青少年",en:"be cautious",rf:"第 23–30 行",tw:""}
+];
+/* 位置：[x,y,w,h] */
+var SLOT={c:[10,124,132,64],e1:[196,44,214,56],e2:[196,120,214,56],e3:[196,196,214,56],t:[110,276,200,48]};
+var SAFE2=["作用中和長期兩格各自連回原因：長期那一格的主詞是 relying on energy drinks，不需要先有 crash。",
+           "第 24 行的 these effects 收的是所有的結果；少了一格，它照樣收得住剩下的兩格。"];
+var WARN={
+ 1:["第 11 行的 thus 要接一個原因；第 8 到 10 行的成分拿掉之後，thus 沒有東西可以接。",
+    "三個箭頭都從原因出發，原因一拿掉，三個結果都不知道從哪裡來；第 7 行問的 effects 也就沒有對象。"],
+ 3:["第 17 行的 Once … wear off 要接在作用發生之後；長期那一格排到最前面，作用還沒開始，就先說了長期依賴。",
+    "第 19 行的 Over time 表示經過一段時間，放在第一格，就沒有「一段時間」可以經過。"]
+};
+
+var SENTS=[
+ {id:"e2",t:"When the drink stops working, you may feel more worn out, nervous, and short-tempered than you did before."},
+ {id:"x1",t:"The burst of adrenaline lasts for several days, so a single can can carry you through a whole exam week."},
+ {id:"c",t:"A sweet can full of caffeine, guarana, and sugar excites the body\u2019s nerve center the moment you drink it."},
+ {id:"e3",t:"Leaning on these drinks for months upsets the body\u2019s own energy rhythm and makes deep, restful sleep harder."},
+ {id:"x2",t:"Once the effects fade, your body quickly settles back into its normal daily energy cycle without any trouble."},
+ {id:"t",t:"Because young bodies and brains are still growing, experts urge teens to go easy on caffeine and not rely on it."},
+ {id:"e1",t:"A short rush of adrenaline wakes you up, while your heart speeds up and your blood pressure can climb."}
+];
+var NOFIT={
+ x1:"這一張最容易放進作用中那一格，因為 adrenaline 確實在第 12 行。可是第 12 行寫的是 temporary，腎上腺素只是短暫增加；這一張說能維持好幾天，方向錯了，所以哪一格都放不進去。",
+ x2:"這一張看起來屬於退去之後那一格，因為 Once … wear off 就在第 17 行。可是第 20 到 21 行說依賴能量飲料會打亂身體的能量週期，退去之後也不是馬上恢復正常，而是比之前更累。這一張把方向說反了。"
+};
+var SRCQ=[
+ {fn:"原因：喝能量飲料",rf:"第 8–11 行",t:"Energy drinks typically contain high levels of caffeine along with guarana and sugar, ingredients that stimulate the central nervous system."},
+ {fn:"結果一：作用中",rf:"第 11–15 行",t:"They can thus trigger a temporary release of adrenaline, making you feel more alert and energetic. At the same time, your heart beats faster and your blood pressure may rise."},
+ {fn:"結果二：退去之後",rf:"第 16–19 行",t:"The real catch is the inevitable crash. Once the caffeine and sugar wear off, you may end up feeling more tired, anxious, or irritable than before."},
+ {fn:"結果三：長期",rf:"第 19–22 行",t:"Over time, relying on energy drinks can disrupt the body\u2019s natural energy cycle and make it harder to get quality sleep."},
+ {fn:"對青少年",rf:"第 23–28 行",t:"Among teenagers, whose bodies and brains are still developing, these effects are especially worth paying attention to. Health experts generally advise young people to be cautious with caffeine and avoid depending on energy drinks to get through the day."}
+];
+
+var MINE=[
+ {id:"m1",fn:"原因：這個習慣",en:"the cause",ph:"是什麼習慣？它哪裡吸引你？"},
+ {id:"m2",fn:"結果一：當下",en:"right away",ph:"做的當下有什麼感覺或影響？"},
+ {id:"m3",fn:"結果二：事後",en:"afterward",ph:"做完之後、效果過了，會怎樣？最好跟上一格相反。"},
+ {id:"m4",fn:"結果三：長期",en:"over time",ph:"天天這樣做，一段時間之後會怎樣？"}
+];
+
+var AI=[
+"我是台灣的高中生，正在準備學測英文作文。下面是我列的中文大綱，題目要我說明自己的一個生活習慣帶來的影響：第一段說明這個習慣和它為什麼吸引我；第二段依時間說明它帶來的影響，包括當下、事後和長期。",
+"",
+"請照以下規則給我意見：",
+"1. 先看第一格：有沒有說出是什麼習慣，以及它吸引我的地方。",
+"2. 三個結果是不是都來自第一格的習慣，而不是其他原因。",
+"3. 三個結果有沒有照時間排：當下、事後、長期，而且各講一件事，彼此不重複。",
+"4. 事後那一格有沒有跟當下形成對比，讓讀者看出前後反轉。",
+"5. 不要幫我寫英文，也不要幫我補內容。",
+"6. 說明用中文。"
+].join("\n");
+
+/* ── 畫圖 ── */
+function slotOf(id){
+  var sw=ST.sw||0;
+  if(sw===3&&id==="e1") return SLOT.e3;
+  if(sw===3&&id==="e3") return SLOT.e1;
+  return SLOT[id];
+}
+function drawFig(){
+  var sw=ST.sw||0;
+  var cut=sw===1?"c":(sw===2?"e2":"");
+  var s='<svg viewBox="0 0 420 344" role="img" aria-label="原因結果圖：左邊是原因，三個箭頭指向右邊三個結果，結果由上到下照時間排">';
+  var k, slots=["e1","e2","e3"];
+  for(k=0;k<3;k++){ var ty=SLOT[slots[k]][1]+28;
+    s+='<path class="arr'+(sw===1?' gone':'')+'" d="M142 156 C166 156 170 '+ty+' 190 '+ty+'"/><path class="arr'+(sw===1?' gone':'')+'" d="M184 '+(ty-5)+' L191 '+ty+' L184 '+(ty+5)+'"/>'; }
+  s+='<path class="arr dash" d="M303 252 L303 266 L210 266 L210 274"/>';
+  s+='<text class="twz" x="16" y="214">一個原因</text><text class="twz" x="16" y="229">三個結果</text>';
+  for(var i=0;i<CELLS.length;i++){
+    var c=CELLS[i], b=slotOf(c.id), x=b[0]+b[2]/2, y=b[1], mid=y+b[3]/2;
+    var cls="bx"+(ST.put[c.id]?" on":"")+(c.id===cut?" cut":"")+(sw===3&&(c.id==="e1"||c.id==="e3")?" sw":"");
+    if(c.tw) s+='<text class="tw" x="410" y="'+(y-4)+'" text-anchor="end">'+esc(c.tw)+'</text>';
+    s+='<g class="'+cls+'" data-id="'+c.id+'" tabindex="0" role="button">';
+    s+='<rect x="'+b[0]+'" y="'+y+'" width="'+b[2]+'" height="'+b[3]+'" rx="6"/>';
+    s+='<text class="fn" x="'+x+'" y="'+(mid-7)+'" text-anchor="middle">'+esc(c.fn)+'</text>';
+    s+='<text class="en" x="'+x+'" y="'+(mid+6)+'" text-anchor="middle">'+esc(c.en)+'</text>';
+    s+='<text class="rf" x="'+x+'" y="'+(mid+19)+'" text-anchor="middle">'+(c.id===cut?"拿掉了":(ST.put[c.id]?esc(c.rf):"待放"))+'</text>';
+    s+='</g>';
+  }
+  if(sw===2) s+='<text class="okk" x="414" y="340" text-anchor="end">拿掉之後照樣成立</text>';
+  if(sw===1) s+='<text class="warn" x="414" y="340" text-anchor="end">三個結果不知道從哪裡來</text>';
+  if(sw===3) s+='<text class="warn" x="414" y="340" text-anchor="end">時間的字接不上</text>';
+  s+='</svg>';
+  $("fig").innerHTML=s;
+}
+
+var pick=null;
+function drawPool(){
+  var h="";
+  for(var i=0;i<SENTS.length;i++)
+    h+='<button data-i="'+i+'" class="'+(ST.put[SENTS[i].id]?"gone":"")+'">'+esc(SENTS[i].t)+'</button>';
+  $("pool").innerHTML=h;
+}
+function done1(){ var n=0; for(var k in ST.put) if(ST.put[k]) n++; return n; }
+function first1(){ var n=0; for(var k in ST.first) if(ST.first[k]) n++; return n; }
+function showSrc(){
+  if($("src6").innerHTML) return;
+  var h="";
+  for(var i=0;i<SRCQ.length;i++)
+    h+='<div class="pair"><span class="t">'+esc(SRCQ[i].fn)+'　'+esc(SRCQ[i].rf)+'</span>'+esc(SRCQ[i].t)+'</div>';
+  $("src6").innerHTML=h;
+}
+function after1(){
+  if($("n1")) $("n1").textContent=first1();
+  if(done1()===5){
+    $("h1").innerHTML="五格都滿了。第一次就放對 <em id=\"n1\">"+first1()+"</em> / 5";
+    $("a1").hidden=false; $("g1").hidden=false; showSrc();
+  }
+}
+function cellOf(id){ for(var i=0;i<CELLS.length;i++) if(CELLS[i].id===id) return CELLS[i]; return null; }
+function show(id){
+  var c=cellOf(id),i; if(!c) return;
+  var gs=$("fig").querySelectorAll(".bx");
+  for(i=0;i<gs.length;i++) gs[i].classList.toggle("sel", gs[i].dataset.id===id);
+  $("pk").textContent=c.fn+"　"+(ST.put[id]?c.rf:"還沒放");
+  $("pq").textContent=ST.put[id]||"這一格還空著。";
+}
+function aim(on){
+  var gs=$("fig").querySelectorAll(".bx");
+  for(var i=0;i<gs.length;i++) if(!gs[i].classList.contains("on")) gs[i].classList.toggle("aim",on);
+}
+$("pool").addEventListener("click",function(e){
+  var b=e.target.closest("button"); if(!b) return;
+  var bs=$("pool").querySelectorAll("button");
+  for(var i=0;i<bs.length;i++) bs[i].classList.remove("pick");
+  b.classList.add("pick"); pick=+b.dataset.i; aim(true);
+});
+function hit(g){
+  var id=g.dataset.id;
+  if(pick===null || ST.put[id]){ show(id); return; }
+  var s=SENTS[pick];
+  if(NOFIT[s.id]){
+    ST.miss[id]=1; save();
+    $("pk").textContent="這一張沒有位置";
+    $("pq").textContent=NOFIT[s.id];
+    return;
+  }
+  if(s.id!==id){ ST.miss[id]=1; save(); toast("這一格要的不是這一張"); return; }
+  if(!ST.miss[id]) ST.first[id]=1;
+  ST.put[id]=s.t; save(); pick=null;
+  drawFig(); drawPool(); aim(false); show(id); after1();
+}
+$("fig").addEventListener("click",function(e){ var g=e.target.closest(".bx"); if(g) hit(g); });
+$("fig").addEventListener("keydown",function(e){
+  if(e.key!=="Enter"&&e.key!==" ") return;
+  var g=e.target.closest(".bx"); if(g){ e.preventDefault(); hit(g); }
+});
+$("g1").addEventListener("click",function(){
+  if(ST.step<2) ST.step=2; save();
+  $("s2").hidden=false; $("s2").scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+/* ── 第二步：拿掉與對調 ── */
+function tried(){ return !!(ST.tr[1]&&ST.tr[2]&&ST.tr[3]); }
+function paintSw(){
+  drawFig();
+  var bs=$("swbar").querySelectorAll("button[data-s]");
+  for(var i=0;i<bs.length;i++) bs[i].disabled=!!ST.sw;
+  $("undo").hidden=!ST.sw;
+  var h,k,list,n=0;
+  for(k=1;k<=3;k++) if(ST.tr[k]) n++;
+  if(!ST.sw){
+    if(tried()) h="換回來了。三種都試過了，看下面的題目。";
+    else if(n) h="換回來了。已經試過 "+n+" 種，再試其他的。";
+    else h="五格照原來的位置排著。任選一種試試看。";
+    $("swh").textContent=h;
+  } else {
+    if(ST.sw===2){ h="拿掉之後，沒有一處接不上：<ul class=\"ok\">"; list=SAFE2; }
+    else { h=(ST.sw===1?"拿掉這一格，就不成立了：":"兩邊一對調，就不成立了：")+"<ul>"; list=WARN[ST.sw]; }
+    for(k=0;k<list.length;k++) h+="<li>"+esc(list[k])+"</li>";
+    $("swh").innerHTML=h+"</ul>";
+  }
+  if(tried()) $("q2box").hidden=false;
+}
+$("swbar").addEventListener("click",function(e){
+  var b=e.target.closest("button[data-s]"); if(!b||ST.sw) return;
+  ST.sw=+b.dataset.s; ST.tr[ST.sw]=1; save(); paintSw();
+});
+$("undo").addEventListener("click",function(){ ST.sw=0; save(); paintSw(); });
+function settle2(){
+  var bs=$("q2").querySelectorAll("button");
+  for(var i=0;i<bs.length;i++){ bs[i].disabled=true; bs[i].dataset.state=bs[i].dataset.ok?"right":"wrong"; }
+  $("a2").hidden=false; $("g2").hidden=false;
+}
+$("q2").addEventListener("click",function(e){
+  var b=e.target.closest("button"); if(!b||ST.q2) return;
+  ST.q2=b.dataset.ok?1:2; save(); settle2();
+});
+$("g2").addEventListener("click",function(){
+  if(ST.step<3) ST.step=3; save();
+  paintCode(); $("s3").hidden=false;
+  $("s3").scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+/* ── 第三步 ── */
+function drawMine(){
+  var h="";
+  for(var i=0;i<MINE.length;i++){
+    var m=MINE[i];
+    h+='<div class="cell"><span class="fn">'+esc(m.fn)+'<em>'+esc(m.en)+'</em></span>'+
+       '<textarea id="'+m.id+'" rows="2" placeholder="'+esc(m.ph)+'"></textarea></div>';
+  }
+  $("mine").innerHTML=h;
+  for(var j=0;j<MINE.length;j++){
+    var el=$(MINE[j].id);
+    if(ST.mine[MINE[j].id]) el.value=ST.mine[MINE[j].id];
+    el.addEventListener("input",function(){ ST.mine[this.id]=this.value; save(); });
+  }
+  $("aib").textContent=AI;
+}
+function mkCode(){
+  var f=first1(), m=0, w=0, i;
+  for(var k in ST.miss) if(ST.miss[k]) m++;
+  for(i=0;i<MINE.length;i++){ var el=$(MINE[i].id); if(el&&el.value.trim()) w++; }
+  var seed=(f*31 + m*7 + w*13 + (ST.q2===1?5:0) + 10*211 + 9*101 + 1777) % 46656;
+  return "10-U9 "+f+"/5 大綱"+w+"/4 "+("000"+seed.toString(36).toUpperCase()).slice(-3);
+}
+function paintCode(){ $("cv").textContent=mkCode(); }
+$("rfb").addEventListener("click",paintCode);
+function copy(t){
+  function fb(){
+    var ta=document.createElement("textarea"); ta.value=t; document.body.appendChild(ta);
+    ta.select(); try{ document.execCommand("copy"); toast("已複製"); }catch(e){ toast("複製失敗，請手動選取"); }
+    document.body.removeChild(ta);
+  }
+  if(navigator.clipboard&&navigator.clipboard.writeText)
+    navigator.clipboard.writeText(t).then(function(){ toast("已複製"); },fb);
+  else fb();
+}
+$("cc").addEventListener("click",function(){ copy(mkCode()); });
+$("sv").addEventListener("click",function(){
+  for(var i=0;i<MINE.length;i++) ST.mine[MINE[i].id]=$(MINE[i].id).value;
+  save(); toast("已存在這台裝置的瀏覽器裡");
+});
+$("cp").addEventListener("click",function(){
+  var t=AI+"\n\n【我的大綱】\n";
+  for(var i=0;i<MINE.length;i++) t+=MINE[i].fn+"："+($(MINE[i].id).value||"（空白）")+"\n";
+  copy(t);
+});
+
+/* ── 預覽 ── */
+function previewAll(){
+  PREVIEW=true; $("pv").hidden=false;
+  for(var i=0;i<SENTS.length;i++) if(!NOFIT[SENTS[i].id]){ ST.put[SENTS[i].id]=SENTS[i].t; ST.first[SENTS[i].id]=1; }
+  drawPool(); drawMine(); after1();
+  $("s2").hidden=false; ST.sw=0; ST.tr={1:1,2:1,3:1}; paintSw(); ST.q2=1; settle2();
+  $("s3").hidden=false; paintCode();
+}
+
+/* ── 接回進度 ── */
+$("rst").addEventListener("click",function(){
+  try{ localStorage.removeItem(KEY); }catch(e){} location.reload();
+});
+(function restore(){
+  if(/(^|[?&])all(=|&|$)/.test(location.search)){ previewAll(); return; }
+  var v=load();
+  if(v){
+    ST=v;
+    if(!ST.put) ST.put={};
+    if(!ST.first) ST.first={};
+    if(!ST.miss) ST.miss={};
+    if(!ST.mine) ST.mine={};
+    if(!ST.tr) ST.tr={};
+    if(!ST.step) ST.step=1;
+    if(!ST.sw) ST.sw=0;
+  }
+  drawPool(); drawMine(); paintSw();
+  if(done1()||ST.step>1) $("rs").hidden=false;
+  if(ST.step>=2) $("s2").hidden=false;
+  if(ST.q2) settle2();
+  if(ST.step>=3){ $("s3").hidden=false; paintCode(); }
+  after1();
+})();
+})();
+</script>
+</body>
+</html>
