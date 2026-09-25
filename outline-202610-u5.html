@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>序列的組織圖｜A Scenic Journey Through Germany and Austria</title>
+
+<style>
+:root{
+  --ground:#f1f3f2; --ink:#17282f; --teal:#1f6f6a; --teal-soft:#dfeceb;
+  --muted:#77878d; --line:#cdd6d6; --exam:#b4661c; --exam-soft:#fdf4e7;
+  --ok:#2e6b4f; --ok-soft:#edf4ef;
+  --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+  --sans:"PingFang TC","Noto Sans TC","Microsoft JhengHei","Helvetica Neue",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-text-size-adjust:100%}
+.wrap{max-width:44rem;margin:0 auto;padding:1.6rem 1.1rem 4rem}
+h1{font-family:var(--serif);font-weight:600;font-size:1.6rem;line-height:1.3;margin:0 0 .55rem}
+.lede{margin:0 0 1.1rem;color:#3d5059;font-size:.95rem}
+.src{font-size:.8rem;color:var(--muted);margin:0 0 1.1rem}
+.preview{font-size:.85rem;color:var(--exam);background:var(--exam-soft);border:1px dashed var(--exam);
+  border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.preview[hidden]{display:none}
+.resume{font-size:.85rem;color:var(--teal);background:var(--teal-soft);border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.resume[hidden]{display:none}
+.resume button{font:inherit;font-size:.82rem;background:#fff;color:var(--ink);border:1px solid var(--line);
+  border-radius:.25rem;padding:.16rem .6rem;margin-left:.5rem;cursor:pointer}
+.step{border-top:1px solid var(--line);padding-top:1.15rem;margin-top:1.7rem}
+.step[hidden]{display:none}
+.stepno{font-family:var(--serif);font-size:.82rem;color:var(--muted);margin:0 0 .2rem}
+h2{font-family:var(--serif);font-weight:600;font-size:1.2rem;margin:0 0 .5rem;color:var(--teal)}
+p{margin:0 0 .7rem;font-size:.95rem}
+
+/* 組織圖：多列原因結果表 */
+.fig{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.7rem .5rem .5rem;margin:.2rem 0 .6rem}
+.fig svg{display:block;width:100%;height:auto;max-width:26rem;margin:0 auto}
+.bx rect{fill:#fff;stroke:var(--line);stroke-width:2}
+.bx text.fn{font-family:var(--sans);font-size:11px;font-weight:600;fill:var(--ink)}
+.bx text.en{font-family:var(--serif);font-size:8.5px;fill:var(--muted)}
+.bx text.rf{font-family:var(--sans);font-size:8.5px;fill:var(--muted)}
+.bx.aim rect{stroke:var(--teal);stroke-dasharray:6 4}
+.bx.on rect{fill:var(--ok-soft);stroke:var(--ok);stroke-width:2.5}
+.bx.on text.rf{fill:var(--ok);font-weight:600}
+.bx.sel rect{stroke:var(--teal);stroke-width:3}
+.lv text{font-family:var(--sans);font-size:9px;fill:var(--muted)}
+.cutline{stroke:var(--exam);stroke-width:2;stroke-dasharray:6 5}
+.frameline{stroke:var(--line);stroke-width:2;stroke-dasharray:5 4;fill:none}
+.cuttag{font-family:var(--sans);font-size:9px;font-weight:600;fill:var(--exam)}
+
+.panel{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.7rem .85rem;margin:0 0 .9rem}
+.panel .k{font-size:.72rem;font-weight:600;border-radius:.2rem;padding:.06rem .42rem;
+  color:var(--teal);background:var(--teal-soft);border:1px solid var(--teal)}
+.panel .q{font-family:var(--serif);font-size:.95rem;line-height:1.65;margin:.4rem 0 0;color:#3d5059}
+
+.pool{display:flex;flex-direction:column;gap:.4rem;margin:0 0 .8rem}
+.pool button{font:inherit;font-family:var(--serif);font-size:.93rem;line-height:1.55;background:#fff;color:var(--ink);
+  border:1px solid var(--line);border-radius:.3rem;padding:.5rem .7rem;cursor:pointer;text-align:left}
+.pool button:hover{border-color:var(--teal)}
+.pool button.pick{border-color:var(--teal);background:var(--teal-soft)}
+.pool button.gone{display:none}
+.hint{font-size:.85rem;color:var(--muted);margin:0 0 .8rem}
+.hint em{font-style:normal;color:var(--teal);font-weight:600}
+
+.opts{display:flex;flex-direction:column;gap:.45rem;margin:.2rem 0 .8rem}
+.opts button{font:inherit;font-size:.94rem;background:#fff;color:var(--ink);border:1px solid var(--line);
+  border-radius:.3rem;padding:.5rem .8rem;cursor:pointer;text-align:left}
+.opts button:hover{border-color:var(--teal)}
+.opts button[data-state="right"]{background:var(--ok-soft);border-color:var(--ok)}
+.opts button[data-state="wrong"]{background:var(--ground);color:var(--muted)}
+.opts button[disabled]{cursor:default}
+
+.said{background:#fff;border-left:3px solid var(--teal);border-radius:.3rem;padding:.75rem .85rem;
+  margin:.2rem 0 .9rem;font-size:.93rem;color:#3d5059}
+.said[hidden]{display:none}
+.said b{color:var(--ink)}
+.srcs{margin:.6rem 0 .9rem}
+.srcs .pair{font-family:var(--serif);font-size:.9rem;line-height:1.6;color:#3d5059;
+  border-left:2px solid var(--line);padding:.1rem 0 .1rem .6rem;margin:0 0 .5rem}
+.srcs .pair .t{display:block;font-family:var(--sans);font-size:.76rem;font-weight:600;color:var(--teal)}
+.go{font:inherit;font-size:.92rem;background:var(--ink);color:#fff;border:1px solid var(--ink);
+  border-radius:.3rem;padding:.42rem 1.05rem;cursor:pointer}
+.go[hidden]{display:none}
+
+.prompt{background:var(--exam-soft);border:1px solid #e8d3b4;border-radius:.4rem;padding:.75rem .85rem;
+  margin:0 0 .9rem;font-size:.92rem;color:#3d5059}
+.prompt b{color:var(--ink)}
+.cell{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.6rem .75rem}
+.cell+.cell{margin-top:.6rem}
+.cell .fn{font-size:.78rem;font-weight:600;color:var(--teal)}
+.cell .fn em{font-style:normal;color:var(--muted);font-weight:400;margin-left:.35rem}
+.cell textarea{width:100%;margin-top:.3rem;font-family:inherit;font-size:.93rem;line-height:1.6;
+  padding:.45rem .55rem;border:1px solid var(--line);border-radius:.3rem;background:#fff;color:var(--ink);resize:vertical}
+.bar{display:flex;gap:.5rem;flex-wrap:wrap;margin:.7rem 0}
+.bar button{font:inherit;font-size:.9rem;background:#fff;color:var(--ink);border:1px solid var(--ink);
+  border-radius:.3rem;padding:.38rem .9rem;cursor:pointer}
+.bar button.p{background:var(--ink);color:#fff}
+.bar button[disabled]{border-color:var(--line);color:var(--muted);cursor:default;background:#fff}
+pre.ai{background:#fff;border:1px solid var(--line);border-radius:.3rem;padding:.6rem .7rem;
+  font-size:.8rem;line-height:1.65;white-space:pre-wrap;margin:.4rem 0 0;color:#3d5059}
+.code{background:var(--teal-soft);border:1px solid var(--teal);border-radius:.4rem;padding:.7rem .85rem;margin:1.1rem 0 .5rem}
+.code .t{font-size:.8rem;font-weight:600;color:var(--teal);margin:0 0 .35rem}
+.code .v{font-family:var(--serif);font-size:1.15rem;letter-spacing:.04em;color:var(--ink);margin:0 0 .5rem}
+.series{border-top:1px solid var(--line);margin-top:2.2rem;padding-top:1.1rem;font-size:.9rem}
+.series a{font-family:var(--serif);font-size:1rem;color:var(--teal);text-decoration:none}
+.series a:hover{text-decoration:underline}
+.toast{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--ink);color:#fff;
+  padding:.45rem 1rem;border-radius:.3rem;font-size:.86rem;opacity:0;transition:opacity .2s;pointer-events:none}
+.toast.on{opacity:1}
+.arr{stroke:var(--muted);stroke-width:1.5;fill:none}
+.leg{font-family:var(--sans);font-size:9px;fill:#3d5059}
+.leg.s{fill:var(--muted)}
+.stop{fill:#fff;stroke:var(--muted);stroke-width:1.5}
+.bx.co rect{stroke-dasharray:5 4}
+.bx.sw rect{stroke:var(--exam);stroke-width:2.5}
+.bx.sw text.fn{fill:var(--exam)}
+.warn{font-family:var(--sans);font-size:9px;font-weight:600;fill:var(--exam)}
+.hint ul{margin:.3rem 0 0;padding-left:1.1rem;color:var(--exam)}
+.hint li{margin-bottom:.2rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>序列的組織圖：一站接一站</h1>
+<p class="lede">上一份單元頁帶你讀完這篇德奧遊記。這一份把整篇整理成一張圖：由上往下一站一格，箭頭上寫著怎麼過去，最下面是不接在路線上的回顧。這個形狀叫<b>流程圖</b>，是序列文章的標準圖。文章依時間或地點的先後推進時，就用這種圖來整理。</p>
+<p class="preview" id="pv" hidden>預覽模式：全部步驟與答案一次展開，進度不存檔。學生拿到的一般連結不受影響。</p>
+<p class="resume" id="rs" hidden>上次做到一半，已經幫你接回來了。<button id="rst">重新開始</button></p>
+<p class="src">ALL+ 互動英語 10 月號 Unit 5（pp. 20–21）　A Scenic Journey Through Germany and Austria　全文 44 行</p>
+
+<!-- 第一步 -->
+<section class="step" id="s1">
+  <p class="stepno">第一步</p>
+  <h2>一站一格</h2>
+  <p>站名和箭頭上的交通方式已經印好了。你要放的是每一站發生了什麼，另外還有最後的回顧那一格。</p>
+  <p>五個位置各有各的內容。<b>七張句卡，只有五張放得進去</b>，而且都不是原句，是換過字的說法。</p>
+  <p class="hint" id="h1">先點一張句卡，再點圖上的格子。第一次就放對 <em id="n1">0</em> / 5</p>
+  <div class="pool" id="pool"></div>
+  <figure class="fig" id="fig"></figure>
+  <div class="panel" id="pn">
+    <span class="k" id="pk">這一格</span>
+    <p class="q" id="pq">點圖上任一個格子，看它裝的是哪一句。</p>
+  </div>
+  <div class="said" id="a1" hidden>
+    <b>兩張放不進去的是哪兩張。</b>一張說電動船載著大家渡過那座奧地利小鎮下方的湖。它最容易放進哈修塔特那一格，因為哈修塔特確實在湖邊（第 19 到 20 行）；可是電動船是第 11 行國王湖的事，<b>把甲站的東西搬到乙站，就是配錯了站</b>。另一張說作者在薩爾茲堡悠閒待了好幾天。第 17 到 18 行寫的是 <q>After a brief stop in Salzburg</q>，只停一下就走了，所以薩爾茲堡在圖上只是箭頭上的一個小點，<b>沒有自己的一格</b>。
+    <br><br>
+    <b>七張句卡沒有一張跟課文一樣。</b>下面是五個位置的原文與行號，回去對一次。
+    <div class="srcs" id="src6"></div>
+  </div>
+  <button class="go" id="g1" hidden>下一步：把兩站對調看看</button>
+</section>
+
+<!-- 第二步 -->
+<section class="step" id="s2" hidden>
+  <p class="stepno">第二步</p>
+  <h2>兩站對調測試</h2>
+  <p>上一篇的原因結果表，拿掉一列，其他列照樣站得住。序列是不是也這樣？<b>把兩站對調，看文章還接不接得上。</b>按下面任一個按鈕，圖上那兩格會真的換位置。</p>
+  <div class="bar" id="swbar">
+    <button data-s="1">對調國王湖和哈修塔特</button>
+    <button data-s="2">對調哈修塔特和維也納</button>
+    <button class="p" id="undo" hidden>換回來</button>
+  </div>
+  <div class="hint" id="swh">四站照原來的順序排著。</div>
+  <div id="q2box" hidden>
+    <p>兩站一對調，文章裡就有字接不上。<b>這說明了什麼？</b></p>
+    <div class="opts" id="q2">
+      <button>跟上一篇的四種食物一樣，各站可以互換</button>
+      <button data-ok="1">格子一換，時間和地點的說法就找不到基準</button>
+      <button>維也納是首都，所以作者一定要把它放最後</button>
+      <button>只要交通方式寫清楚，各站的順序就不重要</button>
+    </div>
+    <div class="said" id="a2" hidden>
+      <b>格子一換，時間和地點的說法就找不到基準。</b>第 17 行的 From there 指的是前一站，第 31 行的 later 要接在前一件事後面，第 32 行的 the last stretch 是整趟路的最後一段。這些字都靠「前面是哪一站」才讀得懂，站一換，它們就指錯了地方。<b>換了就接不上，是序列；拿掉一列還站得住，是並列。</b>單元頁第四步教的句首時間、地點片語，就是前後兩站之間的銜接。
+      <br><br>
+      <b>另外三個為什麼排除：</b>「跟上一篇的四種食物一樣，各站可以互換」<b>最容易選</b>，因為你上一篇剛做過拿掉一列的測試，結果是可以。可是那四種食物之間沒有先後，這四站有：剛才一對調，圖上的警告就出來了。「維也納是首都，所以一定放最後」抓的是第 34 行的 the capital，但維也納排最後是因為作者最後才到，文章沒說首都一定要壓軸。「只要交通方式寫清楚」也不對，交通方式本身就綁著順序：Railjet 是 the last stretch，換到中間，「最後一段」就說不通了。
+    </div>
+  </div>
+  <button class="go" id="g2" hidden>下一步：換成你自己的作文</button>
+</section>
+
+<!-- 第三步 -->
+<section class="step" id="s3" hidden>
+  <p class="stepno">第三步</p>
+  <h2>用同一張圖列你的大綱</h2>
+  <p>學測作文常要你「記一次難忘的經驗」，第一段交代經過，第二段說明意義。第一段就是一篇小小的序列，第二段就是這篇的回顧。用剛才那張圖列大綱，有三件事要照這篇學：</p>
+  <p><b>一、起點交代清楚。</b>什麼時候、去哪裡、第一站是哪裡，像這篇的 Last October、through Germany and Austria、My first stop。<b>二、每一站的開頭先寫時間或地點。</b>像「中午到了九份」「From there」「After lunch」，讀者一看就知道換了一站。寫成英文時，這類片語放句首，後面加逗號，例如 After lunch, we took a bus to the old street.<b>三、回顧不是再多一站。</b>它不接在路線後面，是回頭說這趟經驗為什麼重要。</p>
+  <div class="prompt">
+    <b>試寫的題目：</b>請寫一篇短文，記一次讓你印象深刻的出遊，例如畢業旅行、校外教學或家族旅行。第一段依照先後交代你去了哪些地方、在每個地方做了什麼，第二段說明這趟經驗為什麼讓你難忘。
+  </div>
+  <p>每一格寫一句中文要點就好，這一步先不寫英文。</p>
+  <div id="mine"></div>
+  <div class="bar">
+    <button class="p" id="cp">複製我寫的內容</button>
+    <button id="sv">存到瀏覽器</button>
+  </div>
+  <p class="hint">這一步沒有標準答案，站上不批改。複製之後貼給老師，或貼給 AI 也可以，下面這段指示會跟著一起複製。</p>
+  <pre class="ai" id="aib"></pre>
+  <div class="code">
+    <p class="t">做完了，把這一行貼到 Google Classroom 的作業回覆欄</p>
+    <p class="v" id="cv">—</p>
+    <div class="bar" style="margin:0">
+      <button class="p" id="cc">複製完成碼</button>
+      <button id="rfb">重新產生</button>
+    </div>
+    <p class="hint" style="margin:.5rem 0 0">老師只看這一行，不會看到你寫的內容。你寫的東西只留在這台裝置的瀏覽器裡。</p>
+  </div>
+</section>
+
+<nav class="series">
+  <a href="cohesion.html">← 回讀法練習總表</a>
+</nav>
+</div>
+<div class="toast" id="toast"></div>
+
+
+<script>
+(function(){
+"use strict";
+function $(id){return document.getElementById(id);}
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;");}
+
+var KEY="outline-202610-u5-v1";
+var PREVIEW=false;
+var ST={put:{},first:{},miss:{},sw:0,swTouched:0,q2:0,mine:{},step:1};
+function save(){ if(PREVIEW) return; try{ localStorage.setItem(KEY,JSON.stringify(ST)); }catch(e){} }
+function load(){ try{ var r=localStorage.getItem(KEY); return r?JSON.parse(r):null; }catch(e){ return null; } }
+function toast(m){ var t=$("toast"); t.textContent=m; t.classList.add("on");
+  setTimeout(function(){ t.classList.remove("on"); },1600); }
+
+/* 五格：四站加回顧（x、y 由畫圖函式依對調狀態決定） */
+var CELLS=[
+ {id:"a",fn:"起點＋第一站　慕尼黑",en:"the start · Munich",rf:"第 1–6 行"},
+ {id:"b",fn:"第二站　國王湖",en:"stop 2 · Königssee",rf:"第 7–16 行"},
+ {id:"c",fn:"第三站　哈修塔特",en:"stop 3 · Hallstatt",rf:"第 17–30 行"},
+ {id:"d",fn:"第四站　維也納",en:"stop 4 · Vienna",rf:"第 31–40 行"},
+ {id:"e",fn:"回顧（不在路線上）",en:"looking back",rf:"第 41–44 行"}
+];
+var LEG=["先搭火車，再轉巴士","越過國界進入奧地利","搭火車，最後一段 Railjet"];
+var ORDERS={0:[0,1,2,3],1:[0,2,1,3],2:[0,1,3,2]};
+var WARN={
+ 1:{tags:["From there？","From Munich？"],
+    list:["第 17 行 From there：there 本來是國王湖，現在前一站變成慕尼黑，作者從德國直接越過國界。",
+          "第 7 行 From Munich：人已經到了奧地利的哈修塔特，下一站卻又從慕尼黑出發。"]},
+ 2:{tags:["later？","又回到湖和山？"],
+    list:["第 31 行 later：去維也納變成緊接在國王湖之後，作者還沒越過國界就到了奧地利首都。",
+          "第 32 到 33 行：往東走時湖泊山峰換成平地；對調之後，平地的首都後面又回到湖和山壁，the last stretch 也不再是最後一段。"]}
+};
+
+var SENTS=[
+ {id:"c",t:"After crossing the border, the writer reached a tiny lakeside town and slid down old wooden chutes inside its salt mine."},
+ {id:"x1",t:"An electric boat took the whole tour group slowly over the water lying below the small Austrian town."},
+ {id:"e",t:"Moving mostly by rail made each new place feel like a continuation of the last one."},
+ {id:"a",t:"Setting out with one bag, the writer began in a busy German city of stone buildings, markets and cafés."},
+ {id:"x2",t:"The writer spent several relaxed days walking around Salzburg before finally heading on to the next town."},
+ {id:"d",t:"On flatter land in the east, the writer rode the subway, saw a colorful block with trees, and watched a giant wheel at dusk."},
+ {id:"b",t:"On a calm mountain lake, a boatman’s short trumpet tune rang back from the rock walls."}
+];
+var NOFIT={
+ x1:"這一張最容易放進哈修塔特那一格，因為小鎮確實在湖邊。可是電動船是第 11 行國王湖的事，把甲站的東西搬到乙站，就是配錯了站。",
+ x2:"第 17 到 18 行寫的是 After a brief stop in Salzburg，只停一下就走了。薩爾茲堡在圖上只是箭頭上的一個小點，沒有自己的一格。"
+};
+var SRCQ=[
+ {fn:"起點＋第一站　慕尼黑",rf:"第 1–5 行",t:"Last October, I set off through Germany and Austria with only a backpack. My first stop was Munich \u2026 I spent my days wandering the old town, picking up food from market stalls"},
+ {fn:"第二站　國王湖",rf:"第 12–14 行",t:"Midway through, the captain raised a trumpet and played a short phrase. The notes bounced off the rock faces in clean, distinct echoes"},
+ {fn:"第三站　哈修塔特",rf:"第 17–27 行",t:"From there, I crossed into Austria. \u2026 The best part was the wooden slides the miners once used to move around."},
+ {fn:"第四站　維也納",rf:"第 31–39 行",t:"I later continued to Vienna by train \u2026 As the light faded, I walked over to the Prater, the city\u2019s vast public park, where its famous Ferris wheel was slowly turning"},
+ {fn:"回顧",rf:"第 41–44 行",t:"Traveling mostly by train kept things easy. Each departure felt like a natural extension of wherever I\u2019d just been, rather than a break from it\u2014which, for a trip like this, made all the difference."}
+];
+
+var MINE=[
+ {id:"m1",fn:"起點：時間、要去哪裡、第一站",en:"the start",ph:"什麼時候出發？去哪裡？第一站到了哪裡、做了什麼？"},
+ {id:"m2",fn:"下一站（開頭先寫時間或地點）",en:"next stop",ph:"例如「中午到了……」：在那裡做了什麼、看到什麼？"},
+ {id:"m3",fn:"再下一站（開頭先寫時間或地點）",en:"next stop",ph:"例如「傍晚我們……」：在那裡做了什麼、看到什麼？"},
+ {id:"m4",fn:"回顧：為什麼難忘",en:"looking back",ph:"不是再多一站：回頭說這趟經驗對你的意義。"}
+];
+
+var AI=[
+"我是台灣的高中生，正在準備學測英文作文。下面是我列的中文大綱，題目要我記一次難忘的出遊：第一段依先後交代經過，第二段說明為什麼難忘。",
+"",
+"請照以下規則給我意見：",
+"1. 先看第一格：有沒有交代什麼時候、要去哪裡、第一站是哪裡。",
+"2. 第二、三格是不是照先後排，每一格開頭有沒有先寫時間或地點，讓讀者知道換了一站。",
+"3. 每一站有沒有寫出具體做了什麼、看到什麼，而不是只列地名。",
+"4. 第四格是回頭說意義，不是再多加一站；它說的道理是不是從前面幾站自然得出來。",
+"5. 不要幫我寫英文，也不要幫我補內容。",
+"6. 說明用中文。"
+].join("\n");
+
+/* ── 畫圖 ── */
+function drawFig(){
+  var sw=ST.sw||0, ord=ORDERS[sw], w=WARN[sw];
+  var s='<svg viewBox="0 0 340 372" role="img" aria-label="流程圖：四站由上往下，箭頭上是交通方式，最下面是不在路線上的回顧">';
+  var i,c,y,on,cls;
+  for(var p=0;p<5;p++){
+    c = p<4 ? CELLS[ord[p]] : CELLS[4];
+    y = p<4 ? 8+p*74 : 316;
+    on=ST.put[c.id]?" on":"";
+    cls="bx"+on+(p===4?" co":"")+(sw&&p<4&&ord[p]!==p?" sw":"");
+    if(p===4) s+='<text class="leg s" x="125" y="306" text-anchor="middle">不在路線上，沒有箭頭接過去</text>';
+    s+='<g class="'+cls+'" data-id="'+c.id+'" tabindex="0" role="button">';
+    s+='<rect x="20" y="'+y+'" width="210" height="48" rx="6"/>';
+    s+='<text class="fn" x="28" y="'+(y+17)+'">'+esc(c.fn)+'</text>';
+    s+='<text class="en" x="28" y="'+(y+30)+'">'+esc(c.en)+'</text>';
+    s+='<text class="rf" x="28" y="'+(y+42)+'">'+(ST.put[c.id]?esc(c.rf):"待放")+'</text>';
+    s+='</g>';
+    if(p<3){
+      var y0=y+51, y1=y+71;
+      s+='<path class="arr" d="M125 '+y0+' L125 '+y1+' M121 '+(y1-5)+' L125 '+y1+' L129 '+(y1-5)+'"/>';
+      if(!sw) s+='<text class="leg" x="136" y="'+(y0+13)+'">'+esc(LEG[p])+'</text>';
+    }
+  }
+  if(!sw){
+    s+='<circle class="stop" cx="125" cy="143" r="3.5"/>';
+    s+='<text class="leg s" x="238" y="136">途經薩爾茲堡</text>';
+    s+='<text class="leg s" x="238" y="148">只停一下</text>';
+  } else {
+    var ay = sw===1 ? [72,146] : [146,220];
+    for(i=0;i<2;i++) s+='<text class="warn" x="136" y="'+ay[i]+'">'+esc(w.tags[i])+'</text>';
+  }
+  s+='</svg>';
+  $("fig").innerHTML=s;
+}
+
+var pick=null;
+function drawPool(){
+  var h="";
+  for(var i=0;i<SENTS.length;i++)
+    h+='<button data-i="'+i+'" class="'+(ST.put[SENTS[i].id]?"gone":"")+'">'+esc(SENTS[i].t)+'</button>';
+  $("pool").innerHTML=h;
+}
+function done1(){ var n=0; for(var k in ST.put) if(ST.put[k]) n++; return n; }
+function first1(){ var n=0; for(var k in ST.first) if(ST.first[k]) n++; return n; }
+function showSrc(){
+  if($("src6").innerHTML) return;
+  var h="";
+  for(var i=0;i<SRCQ.length;i++)
+    h+='<div class="pair"><span class="t">'+esc(SRCQ[i].fn)+'　'+esc(SRCQ[i].rf)+'</span>'+esc(SRCQ[i].t)+'</div>';
+  $("src6").innerHTML=h;
+}
+function after1(){
+  if($("n1")) $("n1").textContent=first1();
+  if(done1()===5){
+    $("h1").innerHTML="五格都滿了。第一次就放對 <em id=\"n1\">"+first1()+"</em> / 5";
+    $("a1").hidden=false; $("g1").hidden=false; showSrc();
+  }
+}
+function show(id){
+  var c=null,i;
+  for(i=0;i<CELLS.length;i++) if(CELLS[i].id===id) c=CELLS[i];
+  if(!c) return;
+  var gs=$("fig").querySelectorAll(".bx");
+  for(i=0;i<gs.length;i++) gs[i].classList.toggle("sel", gs[i].dataset.id===id);
+  $("pk").textContent=c.fn+"　"+(ST.put[id]?c.rf:"還沒放");
+  $("pq").textContent=ST.put[id]||"這一格還空著。";
+}
+function aim(on){
+  var gs=$("fig").querySelectorAll(".bx");
+  for(var i=0;i<gs.length;i++) if(!gs[i].classList.contains("on")) gs[i].classList.toggle("aim",on);
+}
+$("pool").addEventListener("click",function(e){
+  var b=e.target.closest("button"); if(!b) return;
+  var bs=$("pool").querySelectorAll("button");
+  for(var i=0;i<bs.length;i++) bs[i].classList.remove("pick");
+  b.classList.add("pick"); pick=+b.dataset.i; aim(true);
+});
+function hit(g){
+  var id=g.dataset.id;
+  if(pick===null || ST.put[id]){ show(id); return; }
+  var s=SENTS[pick];
+  if(NOFIT[s.id]){
+    ST.miss[id]=1; save();
+    $("pk").textContent="這一張沒有位置";
+    $("pq").textContent=NOFIT[s.id];
+    return;
+  }
+  if(s.id!==id){ ST.miss[id]=1; save(); toast("這一格要的不是這一張"); return; }
+  if(!ST.miss[id]) ST.first[id]=1;
+  ST.put[id]=s.t; save(); pick=null;
+  drawFig(); drawPool(); aim(false); show(id); after1();
+}
+$("fig").addEventListener("click",function(e){ var g=e.target.closest(".bx"); if(g) hit(g); });
+$("fig").addEventListener("keydown",function(e){
+  if(e.key!=="Enter"&&e.key!==" ") return;
+  var g=e.target.closest(".bx"); if(g){ e.preventDefault(); hit(g); }
+});
+$("g1").addEventListener("click",function(){
+  if(ST.step<2) ST.step=2; save();
+  $("s2").hidden=false; $("s2").scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+/* ── 第二步：兩站對調 ── */
+function paintSw(){
+  drawFig();
+  var bs=$("swbar").querySelectorAll("button[data-s]");
+  for(var i=0;i<bs.length;i++) bs[i].disabled=!!ST.sw;
+  $("undo").hidden=!ST.sw;
+  if(!ST.sw) $("swh").textContent=ST.swTouched?"換回來了，四站又接得上。換另一組對調試試看，結果一樣。":"四站照原來的順序排著。任選一組對調。";
+  else {
+    var h="對調之後，這兩處接不上了：<ul>";
+    for(var k=0;k<WARN[ST.sw].list.length;k++) h+="<li>"+esc(WARN[ST.sw].list[k])+"</li>";
+    $("swh").innerHTML=h+"</ul>";
+  }
+  if(ST.swTouched) $("q2box").hidden=false;
+}
+$("swbar").addEventListener("click",function(e){
+  var b=e.target.closest("button[data-s]"); if(!b||ST.sw) return;
+  ST.sw=+b.dataset.s; ST.swTouched=1; save(); paintSw();
+});
+$("undo").addEventListener("click",function(){ ST.sw=0; save(); paintSw(); });
+function settle2(){
+  var bs=$("q2").querySelectorAll("button");
+  for(var i=0;i<bs.length;i++){ bs[i].disabled=true; bs[i].dataset.state=bs[i].dataset.ok?"right":"wrong"; }
+  $("a2").hidden=false; $("g2").hidden=false;
+}
+$("q2").addEventListener("click",function(e){
+  var b=e.target.closest("button"); if(!b||ST.q2) return;
+  ST.q2=b.dataset.ok?1:2; save(); settle2();
+});
+$("g2").addEventListener("click",function(){
+  if(ST.step<3) ST.step=3; save();
+  paintCode(); $("s3").hidden=false;
+  $("s3").scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+/* ── 第三步 ── */
+function drawMine(){
+  var h="";
+  for(var i=0;i<MINE.length;i++){
+    var m=MINE[i];
+    h+='<div class="cell"><span class="fn">'+esc(m.fn)+'<em>'+esc(m.en)+'</em></span>'+
+       '<textarea id="'+m.id+'" rows="2" placeholder="'+esc(m.ph)+'"></textarea></div>';
+  }
+  $("mine").innerHTML=h;
+  for(var j=0;j<MINE.length;j++){
+    var el=$(MINE[j].id);
+    if(ST.mine[MINE[j].id]) el.value=ST.mine[MINE[j].id];
+    el.addEventListener("input",function(){ ST.mine[this.id]=this.value; save(); });
+  }
+  $("aib").textContent=AI;
+}
+function mkCode(){
+  var f=first1(), m=0, w=0, i;
+  for(var k in ST.miss) if(ST.miss[k]) m++;
+  for(i=0;i<MINE.length;i++){ var el=$(MINE[i].id); if(el&&el.value.trim()) w++; }
+  var seed=(f*31 + m*7 + w*13 + (ST.q2===1?5:0) + 10*211 + 5*101 + 1777) % 46656;
+  return "10-U5 "+f+"/5 大綱"+w+"/4 "+("000"+seed.toString(36).toUpperCase()).slice(-3);
+}
+function paintCode(){ $("cv").textContent=mkCode(); }
+$("rfb").addEventListener("click",paintCode);
+function copy(t){
+  function fb(){
+    var ta=document.createElement("textarea"); ta.value=t; document.body.appendChild(ta);
+    ta.select(); try{ document.execCommand("copy"); toast("已複製"); }catch(e){ toast("複製失敗，請手動選取"); }
+    document.body.removeChild(ta);
+  }
+  if(navigator.clipboard&&navigator.clipboard.writeText)
+    navigator.clipboard.writeText(t).then(function(){ toast("已複製"); },fb);
+  else fb();
+}
+$("cc").addEventListener("click",function(){ copy(mkCode()); });
+$("sv").addEventListener("click",function(){
+  for(var i=0;i<MINE.length;i++) ST.mine[MINE[i].id]=$(MINE[i].id).value;
+  save(); toast("已存在這台裝置的瀏覽器裡");
+});
+$("cp").addEventListener("click",function(){
+  var t=AI+"\n\n【我的大綱】\n";
+  for(var i=0;i<MINE.length;i++) t+=MINE[i].fn+"："+($(MINE[i].id).value||"（空白）")+"\n";
+  copy(t);
+});
+
+/* ── 預覽 ── */
+function previewAll(){
+  PREVIEW=true; $("pv").hidden=false;
+  for(var i=0;i<SENTS.length;i++) if(!NOFIT[SENTS[i].id]){ ST.put[SENTS[i].id]=SENTS[i].t; ST.first[SENTS[i].id]=1; }
+  drawPool(); drawMine(); after1();
+  $("s2").hidden=false; ST.sw=0; ST.swTouched=1; paintSw(); ST.q2=1; settle2();
+  $("s3").hidden=false; paintCode();
+}
+
+/* ── 接回進度 ── */
+$("rst").addEventListener("click",function(){
+  try{ localStorage.removeItem(KEY); }catch(e){} location.reload();
+});
+(function restore(){
+  if(/(^|[?&])all(=|&|$)/.test(location.search)){ previewAll(); return; }
+  var v=load();
+  if(v){
+    ST=v;
+    if(!ST.put) ST.put={};
+    if(!ST.first) ST.first={};
+    if(!ST.miss) ST.miss={};
+    if(!ST.mine) ST.mine={};
+    if(!ST.step) ST.step=1;
+    if(!ST.sw) ST.sw=0;
+    if(!ST.swTouched) ST.swTouched=ST.sw?1:0;
+  }
+  drawPool(); drawMine(); paintSw();
+  if(done1()||ST.step>1) $("rs").hidden=false;
+  if(ST.step>=2) $("s2").hidden=false;
+  if(ST.q2) settle2();
+  if(ST.step>=3){ $("s3").hidden=false; paintCode(); }
+  after1();
+})();
+})();
+</script>
+</body>
+</html>
