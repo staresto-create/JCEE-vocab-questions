@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>倒金字塔的組織圖｜AI-Designed Vaccine Shows Promise in First Human Trial</title>
+
+<style>
+:root{
+  --ground:#f1f3f2; --ink:#17282f; --teal:#1f6f6a; --teal-soft:#dfeceb;
+  --muted:#77878d; --line:#cdd6d6; --exam:#b4661c; --exam-soft:#fdf4e7;
+  --ok:#2e6b4f; --ok-soft:#edf4ef;
+  --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+  --sans:"PingFang TC","Noto Sans TC","Microsoft JhengHei","Helvetica Neue",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-text-size-adjust:100%}
+.wrap{max-width:44rem;margin:0 auto;padding:1.6rem 1.1rem 4rem}
+h1{font-family:var(--serif);font-weight:600;font-size:1.6rem;line-height:1.3;margin:0 0 .55rem}
+.lede{margin:0 0 1.1rem;color:#3d5059;font-size:.95rem}
+.src{font-size:.8rem;color:var(--muted);margin:0 0 1.1rem}
+.preview{font-size:.85rem;color:var(--exam);background:var(--exam-soft);border:1px dashed var(--exam);
+  border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.preview[hidden]{display:none}
+.resume{font-size:.85rem;color:var(--teal);background:var(--teal-soft);border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.resume[hidden]{display:none}
+.resume button{font:inherit;font-size:.82rem;background:#fff;color:var(--ink);border:1px solid var(--line);
+  border-radius:.25rem;padding:.16rem .6rem;margin-left:.5rem;cursor:pointer}
+.step{border-top:1px solid var(--line);padding-top:1.15rem;margin-top:1.7rem}
+.step[hidden]{display:none}
+.stepno{font-family:var(--serif);font-size:.82rem;color:var(--muted);margin:0 0 .2rem}
+h2{font-family:var(--serif);font-weight:600;font-size:1.2rem;margin:0 0 .5rem;color:var(--teal)}
+p{margin:0 0 .7rem;font-size:.95rem}
+
+/* 組織圖：三層倒三角，每層兩格 */
+.fig{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.7rem .5rem .5rem;margin:.2rem 0 .6rem}
+.fig svg{display:block;width:100%;height:auto;max-width:26rem;margin:0 auto}
+.bx rect{fill:#fff;stroke:var(--line);stroke-width:2}
+.bx text.fn{font-family:var(--sans);font-size:11px;font-weight:600;fill:var(--ink)}
+.bx text.en{font-family:var(--serif);font-size:8.5px;fill:var(--muted)}
+.bx text.rf{font-family:var(--sans);font-size:8.5px;fill:var(--muted)}
+.bx.aim rect{stroke:var(--teal);stroke-dasharray:6 4}
+.bx.on rect{fill:var(--ok-soft);stroke:var(--ok);stroke-width:2.5}
+.bx.on text.rf{fill:var(--ok);font-weight:600}
+.bx.sel rect{stroke:var(--teal);stroke-width:3}
+.lv text{font-family:var(--sans);font-size:9px;fill:var(--muted)}
+.cutline{stroke:var(--exam);stroke-width:2;stroke-dasharray:6 5}
+.cuttag{font-family:var(--sans);font-size:9px;font-weight:600;fill:var(--exam)}
+
+.panel{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.7rem .85rem;margin:0 0 .9rem}
+.panel .k{font-size:.72rem;font-weight:600;border-radius:.2rem;padding:.06rem .42rem;
+  color:var(--teal);background:var(--teal-soft);border:1px solid var(--teal)}
+.panel .q{font-family:var(--serif);font-size:.95rem;line-height:1.65;margin:.4rem 0 0;color:#3d5059}
+
+.pool{display:flex;flex-direction:column;gap:.4rem;margin:0 0 .8rem}
+.pool button{font:inherit;font-family:var(--serif);font-size:.93rem;line-height:1.55;background:#fff;color:var(--ink);
+  border:1px solid var(--line);border-radius:.3rem;padding:.5rem .7rem;cursor:pointer;text-align:left}
+.pool button:hover{border-color:var(--teal)}
+.pool button.pick{border-color:var(--teal);background:var(--teal-soft)}
+.pool button.gone{display:none}
+.hint{font-size:.85rem;color:var(--muted);margin:0 0 .8rem}
+.hint em{font-style:normal;color:var(--teal);font-weight:600}
+
+.opts{display:flex;flex-direction:column;gap:.45rem;margin:.2rem 0 .8rem}
+.opts button{font:inherit;font-size:.94rem;background:#fff;color:var(--ink);border:1px solid var(--line);
+  border-radius:.3rem;padding:.5rem .8rem;cursor:pointer;text-align:left}
+.opts button:hover{border-color:var(--teal)}
+.opts button[data-state="right"]{background:var(--ok-soft);border-color:var(--ok)}
+.opts button[data-state="wrong"]{background:var(--ground);color:var(--muted)}
+.opts button[disabled]{cursor:default}
+
+.said{background:#fff;border-left:3px solid var(--teal);border-radius:.3rem;padding:.75rem .85rem;
+  margin:.2rem 0 .9rem;font-size:.93rem;color:#3d5059}
+.said[hidden]{display:none}
+.said b{color:var(--ink)}
+.srcs{margin:.6rem 0 .9rem}
+.srcs .pair{font-family:var(--serif);font-size:.9rem;line-height:1.6;color:#3d5059;
+  border-left:2px solid var(--line);padding:.1rem 0 .1rem .6rem;margin:0 0 .5rem}
+.srcs .pair .t{display:block;font-family:var(--sans);font-size:.76rem;font-weight:600;color:var(--teal)}
+.go{font:inherit;font-size:.92rem;background:var(--ink);color:#fff;border:1px solid var(--ink);
+  border-radius:.3rem;padding:.42rem 1.05rem;cursor:pointer}
+.go[hidden]{display:none}
+
+.prompt{background:var(--exam-soft);border:1px solid #e8d3b4;border-radius:.4rem;padding:.75rem .85rem;
+  margin:0 0 .9rem;font-size:.92rem;color:#3d5059}
+.prompt b{color:var(--ink)}
+.cell{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.6rem .75rem}
+.cell+.cell{margin-top:.6rem}
+.cell .fn{font-size:.78rem;font-weight:600;color:var(--teal)}
+.cell .fn em{font-style:normal;color:var(--muted);font-weight:400;margin-left:.35rem}
+.cell textarea{width:100%;margin-top:.3rem;font-family:inherit;font-size:.93rem;line-height:1.6;
+  padding:.45rem .55rem;border:1px solid var(--line);border-radius:.3rem;background:#fff;color:var(--ink);resize:vertical}
+.bar{display:flex;gap:.5rem;flex-wrap:wrap;margin:.7rem 0}
+.bar button{font:inherit;font-size:.9rem;background:#fff;color:var(--ink);border:1px solid var(--ink);
+  border-radius:.3rem;padding:.38rem .9rem;cursor:pointer}
+.bar button.p{background:var(--ink);color:#fff}
+.bar button[disabled]{border-color:var(--line);color:var(--muted);cursor:default;background:#fff}
+pre.ai{background:#fff;border:1px solid var(--line);border-radius:.3rem;padding:.6rem .7rem;
+  font-size:.8rem;line-height:1.65;white-space:pre-wrap;margin:.4rem 0 0;color:#3d5059}
+.code{background:var(--teal-soft);border:1px solid var(--teal);border-radius:.4rem;padding:.7rem .85rem;margin:1.1rem 0 .5rem}
+.code .t{font-size:.8rem;font-weight:600;color:var(--teal);margin:0 0 .35rem}
+.code .v{font-family:var(--serif);font-size:1.15rem;letter-spacing:.04em;color:var(--ink);margin:0 0 .5rem}
+.series{border-top:1px solid var(--line);margin-top:2.2rem;padding-top:1.1rem;font-size:.9rem}
+.series a{font-family:var(--serif);font-size:1rem;color:var(--teal);text-decoration:none}
+.series a:hover{text-decoration:underline}
+.toast{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--ink);color:#fff;
+  padding:.45rem 1rem;border-radius:.3rem;font-size:.86rem;opacity:0;transition:opacity .2s;pointer-events:none}
+.toast.on{opacity:1}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>倒金字塔的組織圖：科學新聞</h1>
+<p class="lede">上一份單元頁帶你讀完這則疫苗新聞。這一份把整篇壓成一張圖，形狀跟九月號第一單元一樣：倒三角，越往下越窄，因為<b>越往下越不重要</b>。同一種結構用同一種圖，你一看形狀就認得出來。</p>
+<p class="preview" id="pv" hidden>預覽模式：全部步驟與答案一次展開，進度不存檔。學生拿到的一般連結不受影響。</p>
+<p class="resume" id="rs" hidden>上次做到一半，已經幫你接回來了。<button id="rst">重新開始</button></p>
+<p class="src">ALL+ 互動英語 10 月號 Unit 1（pp. 6–7）　AI-Designed Vaccine Shows Promise in First Human Trial　全文 31 行</p>
+
+<!-- 第一步 -->
+<section class="step" id="s1">
+  <p class="stepno">第一步</p>
+  <h2>三層，一層比一層窄</h2>
+  <p>新聞照<b>重要性</b>寫。第一層是導言，兩格就把整件事講完；第二層補上這支疫苗怎麼做、試驗結果如何；第三層是研究人員自己的保留，和成功之後可能的用途。</p>
+  <p>六個位置各有各的功能。<b>八張句卡，只有六張放得進去</b>，而且都不是原句，是換過字的說法。</p>
+  <p class="hint" id="h1">先點一張句卡，再點圖上的格子。第一次就放對 <em id="n1">0</em> / 6</p>
+
+  <div class="pool" id="pool"></div>
+  <figure class="fig" id="fig"></figure>
+  <div class="panel" id="pn">
+    <span class="k" id="pk">這一格</span>
+    <p class="q" id="pq">點圖上任一個格子，看它裝的是哪一句。</p>
+  </div>
+
+  <div class="said" id="a1" hidden>
+    <b>兩張放不進去的是哪兩張。</b>一張是標題的改寫。標題是整篇的濃縮，跟導言最像，所以最難排除；但導言那兩格要的是「發生了什麼」和「為什麼算新聞」，標題只說看起來有希望，兩件事都沒講完。另一張講的是一般的疫苗只對付一種病毒，這是第 10 行拿來對照的背景；圖上每一格講的都是這支新疫苗，所以它沒有位置。
+    <br><br>
+    <b>八張句卡沒有一張跟課文一樣。</b>下面是六個位置的原文與行號，回去對一次。
+    <div class="srcs" id="src6"></div>
+  </div>
+  <button class="go" id="g1" hidden>下一步：從尾巴開始砍</button>
+</section>
+
+<!-- 第二步 -->
+<section class="step" id="s2" hidden>
+  <p class="stepno">第二步</p>
+  <h2>砍尾巴測試</h2>
+  <p>怎麼確定一篇是倒金字塔？<b>從最後一層開始砍，看它還成不成立。</b>按下面的按鈕，圖上的那一層會真的砍掉。</p>
+  <div class="bar">
+    <button class="p" id="cut1">砍掉第三層</button>
+    <button class="p" id="cut2" disabled>再砍掉第二層</button>
+    <button id="undo" hidden>把三層叫回來</button>
+  </div>
+  <p class="hint" id="cuth">砍完之後，剩下的部分還讀得懂嗎？</p>
+  <div id="q2box" hidden>
+    <p>第三層砍掉以後，新聞還成立。<b>可是讀者會少知道什麼，因此產生誤會？</b></p>
+    <div class="opts" id="q2">
+      <button>讀者會不知道這支疫苗是哪裡研發的</button>
+      <button data-ok="1">讀者會以為這支疫苗已經證實有效了</button>
+      <button>讀者會看不出這支疫苗到底新在哪裡</button>
+      <button>讀者會以為參加試驗的人數太少了</button>
+    </div>
+    <div class="said" id="a2" hidden>
+      <b>讀者會以為已經證實有效。</b>第三層放的是 caution、still in an early stage、will be required before its effectiveness can be confirmed。這些字一砍掉，剩下的就只有「完成試驗、很安全、有免疫反應」，讀起來像是成功了。所以科學新聞的最後一層砍得掉，但一砍就變成誇大。
+      <br><br>
+      <b>另外三個為什麼排除：</b>「哪裡研發的」——劍橋大學在第 4 行，屬於導言，第三層砍掉它還在。「新在哪裡」——一次對付很多種病毒，是第 10 到 14 行的內容，屬於第二層，也還在。「人數太少」——<b>這個最容易選</b>，因為真實世界裡 39 個人確實不多，研究人員也在第三層說還要更大的試驗。可是課文從來沒有說人數太少，要靠常識才推得出來。<b>靠常識補出來的敘述，不能當答案。</b>
+    </div>
+  </div>
+  <button class="go" id="g2" hidden>下一步：換成你自己的作文</button>
+</section>
+
+<!-- 第三步 -->
+<section class="step" id="s3" hidden>
+  <p class="stepno">第三步</p>
+  <h2>能用的是哪兩樣</h2>
+  <p>倒金字塔不能整套搬進作文，因為<b>作文不能砍尾巴</b>，最後一句要收得起來。能搬的有兩樣：一是<b>第一句就把話講完</b>，閱卷老師一眼就知道你要談什麼；二是這篇新聞示範的<b>不把話說滿</b>，還不確定的事，就寫成還不確定。</p>
+  <div class="prompt">
+    <b>試寫的題目：</b>你的學校試辦「午餐後二十分鐘不用手機」一個月。學務處的問卷顯示，多數同學覺得下午上課比較有精神，但也有同學認為只是心理作用。請寫一篇短文：第一段說明試辦的結果，第二段說明你是否支持繼續實施，並說明理由。
+  </div>
+  <p>每一格寫一句中文要點就好，這一步先不寫英文。</p>
+  <div id="mine"></div>
+  <div class="bar">
+    <button class="p" id="cp">複製我寫的內容</button>
+    <button id="sv">存到瀏覽器</button>
+  </div>
+  <p class="hint">這一步沒有標準答案，站上不批改。複製之後貼給老師，或貼給 AI 也可以，下面這段指示會跟著一起複製。</p>
+  <pre class="ai" id="aib"></pre>
+
+  <div class="code">
+    <p class="t">做完了，把這一行貼到 Google Classroom 的作業回覆欄</p>
+    <p class="v" id="cv">—</p>
+    <div class="bar" style="margin:0">
+      <button class="p" id="cc">複製完成碼</button>
+      <button id="rfb">重新產生</button>
+    </div>
+    <p class="hint" style="margin:.5rem 0 0">老師只看這一行，不會看到你寫的內容。你寫的東西只留在這台裝置的瀏覽器裡。</p>
+  </div>
+</section>
+
+<nav class="series">
+  <a href="cohesion.html">← 回讀法練習總表</a>
+</nav>
+
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+"use strict";
+function $(id){return document.getElementById(id);}
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;");}
+
+var KEY="outline-202610-u1-v1";
+var PREVIEW=false;
+var ST={put:{},first:{},miss:{},cut:0,q2:0,mine:{},step:1};
+function save(){ if(PREVIEW) return; try{ localStorage.setItem(KEY,JSON.stringify(ST)); }catch(e){} }
+function load(){ try{ var r=localStorage.getItem(KEY); return r?JSON.parse(r):null; }catch(e){ return null; } }
+function toast(m){ var t=$("toast"); t.textContent=m; t.classList.add("on");
+  setTimeout(function(){ t.classList.remove("on"); },1600); }
+
+/* 三層，每層兩格。x/w 越下面越窄 */
+var LV=[
+ {nm:"第一層　導言　第 1–9 行",  y:8,   x:20, w:300},
+ {nm:"第二層　做法與試驗結果　第 10–21 行", y:76,  x:50, w:240},
+ {nm:"第三層　保留與將來　第 22–31 行", y:144, x:80, w:180}
+];
+var CELLS=[
+ {id:"a",lv:0,fn:"發生了什麼",  en:"what happened", rf:"第 1–3 行"},
+ {id:"b",lv:0,fn:"為什麼算新聞",en:"why it matters",rf:"第 4–9 行"},
+ {id:"c",lv:1,fn:"新在哪裡",    en:"what is new",   rf:"第 10–14 行"},
+ {id:"d",lv:1,fn:"試驗結果",    en:"the results",   rf:"第 16–19 行"},
+ {id:"e",lv:2,fn:"還不確定",    en:"the caution",   rf:"第 22–27 行"},
+ {id:"f",lv:2,fn:"成功的話",    en:"what may come", rf:"第 27–31 行"}
+];
+
+var SENTS=[
+ {id:"d",t:"When 39 people took part in a test, the vaccine proved safe and set off immune responses to several coronaviruses."},
+ {id:"x1",t:"A vaccine made with AI looks promising after being tested on people for the first time."},
+ {id:"b",t:"It is meant to guard against a whole group of coronaviruses, which might help stop future outbreaks early."},
+ {id:"f",t:"If it works, the same approach might one day be used against other kinds of viruses."},
+ {id:"x2",t:"Most vaccines are designed to protect people against only one particular virus."},
+ {id:"c",t:"Instead of aiming at a single virus, it combines features that many coronaviruses have in common."},
+ {id:"e",t:"The team warns that it is still too early to say it works, and bigger studies are needed."},
+ {id:"a",t:"For the first time, scientists have tried out on humans a vaccine created with the help of AI."}
+];
+var NOFIT={
+ x1:"這是標題的改寫。標題是整篇的濃縮，跟導言最像，所以最難排除；但導言那兩格要的是「發生了什麼」和「為什麼算新聞」，這一句只說看起來有希望，兩件事都沒講完。",
+ x2:"第 10 行真的這樣寫，但它講的是一般的疫苗，是拿來跟新疫苗對照的背景。圖上每一格講的都是這支新疫苗，所以它沒有位置。"
+};
+var SRCQ=[
+ {fn:"發生了什麼",rf:"第 1–3 行",t:"Researchers recently completed the first human trial of a new vaccine designed with the help of artificial intelligence."},
+ {fn:"為什麼算新聞",rf:"第 4–9 行",t:"Developed at the University of Cambridge, the vaccine is intended to protect against many different coronaviruses instead of just one. Scientists hope it could help people prepare for future outbreaks before they begin to spread widely."},
+ {fn:"新在哪裡",rf:"第 10–14 行",t:"Most vaccines target a specific virus. This new vaccine takes a different approach. Researchers made use of AI to identify features shared by many coronaviruses and combined them into a single vaccine."},
+ {fn:"試驗結果",rf:"第 16–19 行",t:"In a trial involving 39 volunteers, the vaccine was found to be safe and produced immune responses against several coronaviruses."},
+ {fn:"還不確定",rf:"第 22–27 行",t:"All in all, the results have raised hopes among researchers, but they caution that more testing is needed. The vaccine is still in an early stage, and larger trials will be required before its effectiveness can be confirmed."},
+ {fn:"成功的話",rf:"第 27–31 行",t:"If the technology proves successful, though, scientists believe the same method could be used to develop vaccines against other groups of viruses in the future."}
+];
+
+var MINE=[
+ {id:"m1",fn:"第一句就講完",en:"the lead",ph:"試辦的結果是什麼？一句話講完。"},
+ {id:"m2",fn:"證據",en:"the evidence",ph:"你憑什麼這樣說？"},
+ {id:"m3",fn:"還不確定的地方",en:"the caution",ph:"哪一點還不能確定？"},
+ {id:"m4",fn:"收尾（新聞沒有，作文一定要）",en:"the close",ph:"支不支持繼續？最後一句怎麼收？"}
+];
+
+var AI=[
+"我是台灣的高中生，正在準備學測英文作文。下面是我列的中文大綱，用的是科學新聞「第一句就講完、不把話說滿」的寫法。",
+"",
+"請照以下規則給我意見：",
+"1. 先看第一格：我有沒有在第一句就把試辦的結果講完，還是拖到後面才講。",
+"2. 第二格的證據是不是真的支持第一格，還是只是把第一格換句話說。",
+"3. 第三格是還不確定的地方。請告訴我，我是不是真的寫出一件還不能確定的事，而不是把它寫得像已經確定。",
+"4. 第四格是收尾。請告訴我我的收尾有沒有回答「支不支持繼續實施」，還是只是再補一個細節。",
+"5. 不要幫我寫英文，也不要幫我補內容。",
+"6. 說明用中文。"
+].join("\n");
+
+/* ── 畫圖 ── */
+var BH=56, GAPX=8;
+function cellBox(c){
+  var L=LV[c.lv], half=(L.w-GAPX)/2, idx=(c.id==="a"||c.id==="c"||c.id==="e")?0:1;
+  return {x:L.x+idx*(half+GAPX), y:L.y, w:half, h:BH};
+}
+function drawFig(){
+  var shown=3-ST.cut;
+  var H=LV[Math.max(0,shown-1)].y+BH+26;
+  var s='<svg viewBox="0 0 340 '+H+'" role="img" aria-label="倒金字塔組織圖：三層，越下面越窄">';
+  for(var i=0;i<CELLS.length;i++){
+    var c=CELLS[i]; if(c.lv>=shown) continue;
+    var b=cellBox(c), on=ST.put[c.id]?" on":"";
+    s+='<g class="bx'+on+'" data-id="'+c.id+'" tabindex="0" role="button">';
+    s+='<rect x="'+b.x+'" y="'+b.y+'" width="'+b.w+'" height="'+b.h+'" rx="6"/>';
+    s+='<text class="fn" x="'+(b.x+10)+'" y="'+(b.y+21)+'">'+esc(c.fn)+'</text>';
+    s+='<text class="en" x="'+(b.x+10)+'" y="'+(b.y+35)+'">'+esc(c.en)+'</text>';
+    s+='<text class="rf" x="'+(b.x+10)+'" y="'+(b.y+48)+'">'+(ST.put[c.id]?esc(c.rf):"待放")+'</text>';
+    s+='</g>';
+  }
+  for(var j=0;j<shown;j++)
+    s+='<g class="lv"><text x="170" y="'+(LV[j].y+BH+11)+'" text-anchor="middle">'+esc(LV[j].nm)+'</text></g>';
+  if(ST.cut){
+    var cy=LV[shown-1].y+BH+18;
+    s+='<line class="cutline" x1="20" y1="'+cy+'" x2="320" y2="'+cy+'"/>';
+    s+='<text class="cuttag" x="170" y="'+(cy+13)+'" text-anchor="middle">以下砍掉了：新聞還在，保留的話也沒了</text>';
+  }
+  s+='</svg>';
+  $("fig").innerHTML=s;
+}
+
+var pick=null;
+function drawPool(){
+  var h="";
+  for(var i=0;i<SENTS.length;i++)
+    h+='<button data-i="'+i+'" class="'+(ST.put[SENTS[i].id]?"gone":"")+'">'+esc(SENTS[i].t)+'</button>';
+  $("pool").innerHTML=h;
+}
+function done1(){ var n=0; for(var k in ST.put) if(ST.put[k]) n++; return n; }
+function first1(){ var n=0; for(var k in ST.first) if(ST.first[k]) n++; return n; }
+function showSrc(){
+  if($("src6").innerHTML) return;
+  var h="";
+  for(var i=0;i<SRCQ.length;i++)
+    h+='<div class="pair"><span class="t">'+esc(SRCQ[i].fn)+'　'+esc(SRCQ[i].rf)+'</span>'+esc(SRCQ[i].t)+'</div>';
+  $("src6").innerHTML=h;
+}
+function after1(){
+  if($("n1")) $("n1").textContent=first1();
+  if(done1()===6){
+    $("h1").innerHTML="\u516d\u683c\u90fd\u6eff\u4e86\u3002\u7b2c\u4e00\u6b21\u5c31\u653e\u5c0d <em id=\"n1\">"+first1()+"</em> / 6";
+    $("a1").hidden=false; $("g1").hidden=false; showSrc();
+  }
+}
+function show(id){
+  var c=null,i;
+  for(i=0;i<CELLS.length;i++) if(CELLS[i].id===id) c=CELLS[i];
+  if(!c) return;
+  var gs=$("fig").querySelectorAll(".bx");
+  for(i=0;i<gs.length;i++) gs[i].classList.toggle("sel", gs[i].dataset.id===id);
+  $("pk").textContent=c.fn+"　"+(ST.put[id]?c.rf:"還沒放");
+  $("pq").textContent=ST.put[id]||"這一格還空著。";
+}
+function aim(on){
+  var gs=$("fig").querySelectorAll(".bx");
+  for(var i=0;i<gs.length;i++) if(!gs[i].classList.contains("on")) gs[i].classList.toggle("aim",on);
+}
+$("pool").addEventListener("click",function(e){
+  var b=e.target.closest("button"); if(!b) return;
+  var bs=$("pool").querySelectorAll("button");
+  for(var i=0;i<bs.length;i++) bs[i].classList.remove("pick");
+  b.classList.add("pick"); pick=+b.dataset.i; aim(true);
+});
+function hit(g){
+  var id=g.dataset.id;
+  if(pick===null || ST.put[id]){ show(id); return; }
+  var s=SENTS[pick];
+  if(NOFIT[s.id]){
+    ST.miss[id]=1; save();
+    $("pk").textContent="這一張沒有位置";
+    $("pq").textContent=NOFIT[s.id];
+    return;
+  }
+  if(s.id!==id){ ST.miss[id]=1; save(); toast("這一格要的不是這一張"); return; }
+  if(!ST.miss[id]) ST.first[id]=1;
+  ST.put[id]=s.t; save(); pick=null;
+  drawFig(); drawPool(); aim(false); show(id); after1();
+}
+$("fig").addEventListener("click",function(e){ var g=e.target.closest(".bx"); if(g) hit(g); });
+$("fig").addEventListener("keydown",function(e){
+  if(e.key!=="Enter"&&e.key!==" ") return;
+  var g=e.target.closest(".bx"); if(g){ e.preventDefault(); hit(g); }
+});
+$("g1").addEventListener("click",function(){
+  if(ST.step<2) ST.step=2; save();
+  $("s2").hidden=false; $("s2").scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+/* ── 第二步：砍尾巴 ── */
+function paintCut(){
+  drawFig();
+  $("cut1").disabled=ST.cut>=1;
+  $("cut2").disabled=ST.cut!==1;
+  $("undo").hidden=ST.cut===0;
+  if(ST.cut===0) $("cuth").textContent="三層都在。從最後一層開始砍，看它還成不成立。";
+  if(ST.cut===1){ $("cuth").textContent="第三層沒了。新聞還在，可是 caution、still in an early stage、will be required 這些字也一起消失了。"; $("q2box").hidden=false; }
+  if(ST.cut>=2){ $("cuth").textContent="只剩導言了。發生了什麼、為什麼算新聞都還在，所以這確實是倒金字塔。保留的話只剩第 7 行的 hope 和 could。"; $("q2box").hidden=false; }
+}
+$("undo").addEventListener("click",function(){ ST.cut=0; save(); paintCut(); });
+$("cut1").addEventListener("click",function(){ if(ST.cut>=1) return; ST.cut=1; save(); paintCut(); });
+$("cut2").addEventListener("click",function(){ if(ST.cut!==1) return; ST.cut=2; save(); paintCut(); });
+function settle2(){
+  var bs=$("q2").querySelectorAll("button");
+  for(var i=0;i<bs.length;i++){ bs[i].disabled=true; bs[i].dataset.state=bs[i].dataset.ok?"right":"wrong"; }
+  $("a2").hidden=false; $("g2").hidden=false;
+}
+$("q2").addEventListener("click",function(e){
+  var b=e.target.closest("button"); if(!b||ST.q2) return;
+  ST.q2=b.dataset.ok?1:2; save(); settle2();
+});
+$("g2").addEventListener("click",function(){
+  if(ST.step<3) ST.step=3; save();
+  paintCode(); $("s3").hidden=false;
+  $("s3").scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+/* ── 第三步 ── */
+function drawMine(){
+  var h="";
+  for(var i=0;i<MINE.length;i++){
+    var m=MINE[i];
+    h+='<div class="cell"><span class="fn">'+esc(m.fn)+'<em>'+esc(m.en)+'</em></span>'+
+       '<textarea id="'+m.id+'" rows="2" placeholder="'+esc(m.ph)+'"></textarea></div>';
+  }
+  $("mine").innerHTML=h;
+  for(var j=0;j<MINE.length;j++){
+    var el=$(MINE[j].id);
+    if(ST.mine[MINE[j].id]) el.value=ST.mine[MINE[j].id];
+    el.addEventListener("input",function(){ ST.mine[this.id]=this.value; save(); });
+  }
+  $("aib").textContent=AI;
+}
+function mkCode(){
+  var f=first1(), m=0, w=0, i;
+  for(var k in ST.miss) if(ST.miss[k]) m++;
+  for(i=0;i<MINE.length;i++){ var el=$(MINE[i].id); if(el&&el.value.trim()) w++; }
+  var seed=(f*31 + m*7 + w*13 + (ST.q2===1?5:0) + 10*211 + 1*101 + 1777) % 46656;
+  return "10-U1 "+f+"/6 大綱"+w+"/4 "+("000"+seed.toString(36).toUpperCase()).slice(-3);
+}
+function paintCode(){ $("cv").textContent=mkCode(); }
+$("rfb").addEventListener("click",paintCode);
+function copy(t){
+  function fb(){
+    var ta=document.createElement("textarea"); ta.value=t; document.body.appendChild(ta);
+    ta.select(); try{ document.execCommand("copy"); toast("已複製"); }catch(e){ toast("複製失敗，請手動選取"); }
+    document.body.removeChild(ta);
+  }
+  if(navigator.clipboard&&navigator.clipboard.writeText)
+    navigator.clipboard.writeText(t).then(function(){ toast("已複製"); },fb);
+  else fb();
+}
+$("cc").addEventListener("click",function(){ copy(mkCode()); });
+$("sv").addEventListener("click",function(){
+  for(var i=0;i<MINE.length;i++) ST.mine[MINE[i].id]=$(MINE[i].id).value;
+  save(); toast("已存在這台裝置的瀏覽器裡");
+});
+$("cp").addEventListener("click",function(){
+  var t=AI+"\n\n【我的大綱】\n";
+  for(var i=0;i<MINE.length;i++) t+=MINE[i].fn+"："+($(MINE[i].id).value||"（空白）")+"\n";
+  copy(t);
+});
+
+/* ── 預覽 ── */
+function previewAll(){
+  PREVIEW=true; $("pv").hidden=false;
+  for(var i=0;i<SENTS.length;i++) if(!NOFIT[SENTS[i].id]){ ST.put[SENTS[i].id]=SENTS[i].t; ST.first[SENTS[i].id]=1; }
+  drawPool(); drawMine(); after1();
+  $("s2").hidden=false; ST.cut=0; paintCut(); $("q2box").hidden=false; ST.q2=1; settle2();
+  $("s3").hidden=false; paintCode();
+}
+
+/* ── 接回進度 ── */
+$("rst").addEventListener("click",function(){
+  try{ localStorage.removeItem(KEY); }catch(e){} location.reload();
+});
+(function restore(){
+  if(/(^|[?&])all(=|&|$)/.test(location.search)){ previewAll(); return; }
+  var v=load();
+  if(v){
+    ST=v;
+    if(!ST.put) ST.put={};
+    if(!ST.first) ST.first={};
+    if(!ST.miss) ST.miss={};
+    if(!ST.mine) ST.mine={};
+    if(!ST.step) ST.step=1;
+    if(!ST.cut) ST.cut=0;
+  }
+  drawPool(); drawMine(); paintCut();
+  if(done1()||ST.step>1) $("rs").hidden=false;
+  if(ST.step>=2) $("s2").hidden=false;
+  if(ST.q2) settle2();
+  if(ST.step>=3){ $("s3").hidden=false; paintCode(); }
+  after1();
+})();
+})();
+</script>
+</body>
+</html>
