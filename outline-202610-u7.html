@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>描述的組織圖｜The Hidden Science Behind Your Favorite Restaurants</title>
+
+<style>
+:root{
+  --ground:#f1f3f2; --ink:#17282f; --teal:#1f6f6a; --teal-soft:#dfeceb;
+  --muted:#77878d; --line:#cdd6d6; --exam:#b4661c; --exam-soft:#fdf4e7;
+  --ok:#2e6b4f; --ok-soft:#edf4ef;
+  --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+  --sans:"PingFang TC","Noto Sans TC","Microsoft JhengHei","Helvetica Neue",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-text-size-adjust:100%}
+.wrap{max-width:44rem;margin:0 auto;padding:1.6rem 1.1rem 4rem}
+h1{font-family:var(--serif);font-weight:600;font-size:1.6rem;line-height:1.3;margin:0 0 .55rem}
+.lede{margin:0 0 1.1rem;color:#3d5059;font-size:.95rem}
+.src{font-size:.8rem;color:var(--muted);margin:0 0 1.1rem}
+.preview{font-size:.85rem;color:var(--exam);background:var(--exam-soft);border:1px dashed var(--exam);
+  border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.preview[hidden]{display:none}
+.resume{font-size:.85rem;color:var(--teal);background:var(--teal-soft);border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.resume[hidden]{display:none}
+.resume button{font:inherit;font-size:.82rem;background:#fff;color:var(--ink);border:1px solid var(--line);
+  border-radius:.25rem;padding:.16rem .6rem;margin-left:.5rem;cursor:pointer}
+.step{border-top:1px solid var(--line);padding-top:1.15rem;margin-top:1.7rem}
+.step[hidden]{display:none}
+.stepno{font-family:var(--serif);font-size:.82rem;color:var(--muted);margin:0 0 .2rem}
+h2{font-family:var(--serif);font-weight:600;font-size:1.2rem;margin:0 0 .5rem;color:var(--teal)}
+p{margin:0 0 .7rem;font-size:.95rem}
+
+/* 組織圖：多列原因結果表 */
+.fig{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.7rem .5rem .5rem;margin:.2rem 0 .6rem}
+.fig svg{display:block;width:100%;height:auto;max-width:26rem;margin:0 auto}
+.bx rect{fill:#fff;stroke:var(--line);stroke-width:2}
+.bx text.fn{font-family:var(--sans);font-size:11px;font-weight:600;fill:var(--ink)}
+.bx text.en{font-family:var(--serif);font-size:8.5px;fill:var(--muted)}
+.bx text.rf{font-family:var(--sans);font-size:8.5px;fill:var(--muted)}
+.bx.aim rect{stroke:var(--teal);stroke-dasharray:6 4}
+.bx.on rect{fill:var(--ok-soft);stroke:var(--ok);stroke-width:2.5}
+.bx.on text.rf{fill:var(--ok);font-weight:600}
+.bx.sel rect{stroke:var(--teal);stroke-width:3}
+.lv text{font-family:var(--sans);font-size:9px;fill:var(--muted)}
+.cutline{stroke:var(--exam);stroke-width:2;stroke-dasharray:6 5}
+.frameline{stroke:var(--line);stroke-width:2;stroke-dasharray:5 4;fill:none}
+.cuttag{font-family:var(--sans);font-size:9px;font-weight:600;fill:var(--exam)}
+
+.panel{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.7rem .85rem;margin:0 0 .9rem}
+.panel .k{font-size:.72rem;font-weight:600;border-radius:.2rem;padding:.06rem .42rem;
+  color:var(--teal);background:var(--teal-soft);border:1px solid var(--teal)}
+.panel .q{font-family:var(--serif);font-size:.95rem;line-height:1.65;margin:.4rem 0 0;color:#3d5059}
+
+.pool{display:flex;flex-direction:column;gap:.4rem;margin:0 0 .8rem}
+.pool button{font:inherit;font-family:var(--serif);font-size:.93rem;line-height:1.55;background:#fff;color:var(--ink);
+  border:1px solid var(--line);border-radius:.3rem;padding:.5rem .7rem;cursor:pointer;text-align:left}
+.pool button:hover{border-color:var(--teal)}
+.pool button.pick{border-color:var(--teal);background:var(--teal-soft)}
+.pool button.gone{display:none}
+.hint{font-size:.85rem;color:var(--muted);margin:0 0 .8rem}
+.hint em{font-style:normal;color:var(--teal);font-weight:600}
+
+.opts{display:flex;flex-direction:column;gap:.45rem;margin:.2rem 0 .8rem}
+.opts button{font:inherit;font-size:.94rem;background:#fff;color:var(--ink);border:1px solid var(--line);
+  border-radius:.3rem;padding:.5rem .8rem;cursor:pointer;text-align:left}
+.opts button:hover{border-color:var(--teal)}
+.opts button[data-state="right"]{background:var(--ok-soft);border-color:var(--ok)}
+.opts button[data-state="wrong"]{background:var(--ground);color:var(--muted)}
+.opts button[disabled]{cursor:default}
+
+.said{background:#fff;border-left:3px solid var(--teal);border-radius:.3rem;padding:.75rem .85rem;
+  margin:.2rem 0 .9rem;font-size:.93rem;color:#3d5059}
+.said[hidden]{display:none}
+.said b{color:var(--ink)}
+.srcs{margin:.6rem 0 .9rem}
+.srcs .pair{font-family:var(--serif);font-size:.9rem;line-height:1.6;color:#3d5059;
+  border-left:2px solid var(--line);padding:.1rem 0 .1rem .6rem;margin:0 0 .5rem}
+.srcs .pair .t{display:block;font-family:var(--sans);font-size:.76rem;font-weight:600;color:var(--teal)}
+.go{font:inherit;font-size:.92rem;background:var(--ink);color:#fff;border:1px solid var(--ink);
+  border-radius:.3rem;padding:.42rem 1.05rem;cursor:pointer}
+.go[hidden]{display:none}
+
+.prompt{background:var(--exam-soft);border:1px solid #e8d3b4;border-radius:.4rem;padding:.75rem .85rem;
+  margin:0 0 .9rem;font-size:.92rem;color:#3d5059}
+.prompt b{color:var(--ink)}
+.cell{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.6rem .75rem}
+.cell+.cell{margin-top:.6rem}
+.cell .fn{font-size:.78rem;font-weight:600;color:var(--teal)}
+.cell .fn em{font-style:normal;color:var(--muted);font-weight:400;margin-left:.35rem}
+.cell textarea{width:100%;margin-top:.3rem;font-family:inherit;font-size:.93rem;line-height:1.6;
+  padding:.45rem .55rem;border:1px solid var(--line);border-radius:.3rem;background:#fff;color:var(--ink);resize:vertical}
+.bar{display:flex;gap:.5rem;flex-wrap:wrap;margin:.7rem 0}
+.bar button{font:inherit;font-size:.9rem;background:#fff;color:var(--ink);border:1px solid var(--ink);
+  border-radius:.3rem;padding:.38rem .9rem;cursor:pointer}
+.bar button.p{background:var(--ink);color:#fff}
+.bar button[disabled]{border-color:var(--line);color:var(--muted);cursor:default;background:#fff}
+pre.ai{background:#fff;border:1px solid var(--line);border-radius:.3rem;padding:.6rem .7rem;
+  font-size:.8rem;line-height:1.65;white-space:pre-wrap;margin:.4rem 0 0;color:#3d5059}
+.code{background:var(--teal-soft);border:1px solid var(--teal);border-radius:.4rem;padding:.7rem .85rem;margin:1.1rem 0 .5rem}
+.code .t{font-size:.8rem;font-weight:600;color:var(--teal);margin:0 0 .35rem}
+.code .v{font-family:var(--serif);font-size:1.15rem;letter-spacing:.04em;color:var(--ink);margin:0 0 .5rem}
+.series{border-top:1px solid var(--line);margin-top:2.2rem;padding-top:1.1rem;font-size:.9rem}
+.series a{font-family:var(--serif);font-size:1rem;color:var(--teal);text-decoration:none}
+.series a:hover{text-decoration:underline}
+.toast{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--ink);color:#fff;
+  padding:.45rem 1rem;border-radius:.3rem;font-size:.86rem;opacity:0;transition:opacity .2s;pointer-events:none}
+.toast.on{opacity:1}
+.spoke{stroke:var(--line);stroke-width:2;fill:none}
+.bx.hub rect{stroke:var(--muted)}
+.bx.hub.on rect{stroke:var(--ok)}
+.bx.sw rect,.bx.hub.on.sw rect{stroke:var(--exam);stroke-width:2.5}
+.bx.sw text.fn{fill:var(--exam)}
+.warn{font-family:var(--sans);font-size:9.5px;font-weight:600;fill:var(--exam)}
+.okk{font-family:var(--sans);font-size:9.5px;font-weight:600;fill:var(--ok)}
+.hint ul{margin:.3rem 0 0;padding-left:1.1rem;color:var(--exam)}
+.hint ul.ok{color:var(--ok)}
+.hint li{margin-bottom:.2rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>描述的組織圖：一個主題，五種手法</h1>
+<p class="lede">上一份單元頁帶你讀完這篇餐廳裡的科學。這一份把整篇整理成一張圖：中間是主題，周圍一項一格，格子之間不畫箭頭。這個形狀叫<b>放射狀網狀圖</b>，是描述文的標準圖。文章先提出一個主題，再分成幾項說明它的部分、特徵或例子時，就用這種圖來整理。</p>
+<p class="preview" id="pv" hidden>預覽模式：全部步驟與答案一次展開，進度不存檔。學生拿到的一般連結不受影響。</p>
+<p class="resume" id="rs" hidden>上次做到一半，已經幫你接回來了。<button id="rst">重新開始</button></p>
+<p class="src">ALL+ 互動英語 10 月號 Unit 7（pp. 28–29）　The Hidden Science Behind Your Favorite Restaurants　全文 50 行</p>
+
+<!-- 第一步 -->
+<section class="step" id="s1">
+  <p class="stepno">第一步</p>
+  <h2>中間一格，周圍五格</h2>
+  <p>每一格的名稱已經印好了：中間是主題，周圍是五個小標題。你要放的是每一格在說什麼。</p>
+  <p>六個位置各有各的內容。<b>八張句卡，只有六張放得進去</b>，而且都不是原句，是換過字的說法。</p>
+  <p class="hint" id="h1">先點一張句卡，再點圖上的格子。第一次就放對 <em id="n1">0</em> / 6</p>
+  <div class="pool" id="pool"></div>
+  <figure class="fig" id="fig"></figure>
+  <div class="panel" id="pn">
+    <span class="k" id="pk">這一格</span>
+    <p class="q" id="pq">點圖上任一個格子，看它裝的是哪一句。</p>
+  </div>
+  <div class="said" id="a1" hidden>
+    <b>兩張放不進去的是哪兩張。</b>一張說餐廳用柔和的燈光，主要是為了營造浪漫的氣氛。它最容易放進燈光那一格，因為 romantic mood 確實在第 45 行；可是第 44 到 45 行寫的是 <q>don’t use dim lighting just to set a romantic mood</q>，浪漫只是次要的理由，<b>把次要的說成主要的，就是層級錯了</b>。另一張說藍色和紫色讓客人肚子餓、急著點菜。第 11 到 12 行寫的是冷色 <q>suppress hunger</q>，抑制食慾，<b>方向剛好相反</b>。
+    <br><br>
+    <b>八張句卡沒有一張跟課文一樣。</b>下面是六個位置的原文與行號，回去對一次。
+    <div class="srcs" id="src6"></div>
+  </div>
+  <button class="go" id="g1" hidden>下一步：把格子換個位置看看</button>
+</section>
+
+<!-- 第二步 -->
+<section class="step" id="s2" hidden>
+  <p class="stepno">第二步</p>
+  <h2>對調測試</h2>
+  <p>上一篇德奧遊記的流程圖，兩站一對調，文章就接不上。描述文是不是也這樣？<b>按下面的按鈕，圖上的格子會真的換位置。</b>前兩個按鈕對調周圍的兩格，第三個按鈕把中心和其中一格互換。三種都試過，才會出題。</p>
+  <div class="bar" id="swbar">
+    <button data-s="1">對調顏色和燈光</button>
+    <button data-s="2">對調音樂和座椅</button>
+    <button data-s="3">把中心換成音樂</button>
+    <button class="p" id="undo" hidden>換回來</button>
+  </div>
+  <div class="hint" id="swh">六格照原來的位置排著。任選一種對調。</div>
+  <div id="q2box" hidden>
+    <p>周圍兩格對調，文章照樣成立；中心一換，就不成立了。<b>這說明了什麼？</b></p>
+    <div class="opts" id="q2">
+      <button>跟上一篇德奧遊記一樣，格子一換文章就接不上</button>
+      <button>作者把影響最大的手法放在第一格，所以不能換</button>
+      <button data-ok="1">周圍五格可以任意對調，中心的主題卻不能換</button>
+      <button>燈光那一格講到甜點，所以一定要排在最後面</button>
+    </div>
+    <div class="said" id="a2" hidden>
+      <b>周圍五格可以任意對調，中心的主題卻不能換。</b>周圍的五格彼此平行，每一段都用自己的小標題和段首句交代這一格講什麼，不靠前一段：第 8 行從 Fast-food giants 講起，第 44 行從 Fine dining restaurants 講起，段落之間也沒有 then、later、From there 這類接前一段的字，所以誰先誰後都讀得通。中心不一樣，它跟周圍五格不在同一個層級：第 4 行的 a variety of subtle strategies 是一個類別，五格是這個類別底下的成員。音樂只是其中一種手法，放到中間，顏色和菜單就收不進「音樂」底下。<b>周圍可以對調、中心不能換，就是描述；換了就接不上，是序列。</b>
+      <br><br>
+      <b>另外三個為什麼排除：</b>「跟上一篇德奧遊記一樣，格子一換文章就接不上」<b>最容易選</b>，因為你上一篇剛做過對調測試，結果是接不上。可是這一篇周圍兩格對調之後，圖上沒有出現任何警告，原因就是五段之間沒有表示先後的字。「作者把影響最大的手法放在第一格」，文章從來沒有替五種手法排名，顏色那一段也沒說它的效果最大。「燈光那一格講到甜點，所以要排在最後」也不對，第 42 行座椅那一段同樣講到甜點（<q>linger over dessert</q>），甜點不只出現在最後一格。
+    </div>
+  </div>
+  <button class="go" id="g2" hidden>下一步：換成你自己的作文</button>
+</section>
+
+<!-- 第三步 -->
+<section class="step" id="s3" hidden>
+  <p class="stepno">第三步</p>
+  <h2>用同一張圖列你的大綱</h2>
+  <p>學測作文常要你介紹一個地方或一樣東西：先說出它的特點，再說明它對你的意義。第一段就是一篇小小的描述文。用剛才那張圖列大綱，有三件事要照這篇學：</p>
+  <p><b>一、中心句先點出主題，再告訴讀者有好幾樣。</b>像這篇的 a variety of subtle strategies，你可以寫「這家店讓人一再上門，靠的是幾個小地方」。<b>二、每一格只講一個特點，配一個具體的細節，再說出它造成什麼效果。</b>寫成英文時，可以用單元頁第四步教的使役結構，例如 The owner’s warm greeting makes me feel welcome.<b>三、格子之間不必排先後，但每一格都要回到中心的主題。</b>寫完一格，問自己：這一格是不是中心那句話底下的一個例子？</p>
+  <div class="prompt">
+    <b>試寫的題目：</b>請寫一篇短文，介紹一家你常去的店，例如早餐店、便利商店或手搖飲料店。第一段說明這家店有哪幾個特點吸引你，每個特點舉一個具體的例子；第二段說明你為什麼一再回去，這家店對你有什麼意義。
+  </div>
+  <p>每一格寫一句中文要點就好，這一步先不寫英文。</p>
+  <div id="mine"></div>
+  <div class="bar">
+    <button class="p" id="cp">複製我寫的內容</button>
+    <button id="sv">存到瀏覽器</button>
+  </div>
+  <p class="hint">這一步沒有標準答案，站上不批改。複製之後貼給老師，或貼給 AI 也可以，下面這段指示會跟著一起複製。</p>
+  <pre class="ai" id="aib"></pre>
+  <div class="code">
+    <p class="t">做完了，把這一行貼到 Google Classroom 的作業回覆欄</p>
+    <p class="v" id="cv">—</p>
+    <div class="bar" style="margin:0">
+      <button class="p" id="cc">複製完成碼</button>
+      <button id="rfb">重新產生</button>
+    </div>
+    <p class="hint" style="margin:.5rem 0 0">老師只看這一行，不會看到你寫的內容。你寫的東西只留在這台裝置的瀏覽器裡。</p>
+  </div>
+</section>
+
+<nav class="series">
+  <a href="cohesion.html">← 回讀法練習總表</a>
+</nav>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+"use strict";
+function $(id){return document.getElementById(id);}
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;");}
+
+var KEY="outline-202610-u7-v1";
+var PREVIEW=false;
+var ST={put:{},first:{},miss:{},sw:0,tS:0,tH:0,q2:0,mine:{},step:1};
+function save(){ if(PREVIEW) return; try{ localStorage.setItem(KEY,JSON.stringify(ST)); }catch(e){} }
+function load(){ try{ var r=localStorage.getItem(KEY); return r?JSON.parse(r):null; }catch(e){ return null; } }
+function toast(m){ var t=$("toast"); t.textContent=m; t.classList.add("on");
+  setTimeout(function(){ t.classList.remove("on"); },1600); }
+
+/* 六格：中心加周圍五格 */
+var CELLS=[
+ {id:"h",fn:"中心　主題",en:"subtle strategies",rf:"第 1–6 行"},
+ {id:"c",fn:"顏色",en:"Color Psychology",rf:"第 7–13 行"},
+ {id:"m",fn:"菜單的位置",en:"Menu Placement",rf:"第 14–23 行"},
+ {id:"u",fn:"音樂",en:"Music",rf:"第 24–33 行"},
+ {id:"s",fn:"座椅",en:"Sit and Stay",rf:"第 34–42 行"},
+ {id:"l",fn:"燈光",en:"Dim Lighting",rf:"第 43–50 行"}
+];
+/* 位置：0 是中心，1–5 是周圍（順時針） */
+var POS=[[190,190],[190,36],[316,118],[276,290],[104,290],[64,118]];
+/* 每一種狀態下，位置 0–5 放哪一格（CELLS 的索引） */
+var ORDERS={0:[0,1,2,3,4,5],1:[0,5,2,3,4,1],2:[0,1,2,4,3,5],3:[3,1,2,0,4,5]};
+var SAFE={
+ 1:["第 8 行的段首 Fast-food giants 和第 44 行的段首 Fine dining restaurants，都是自己交代這一段講什麼，不需要前一段。",
+    "顏色和燈光兩段之間沒有 then、later 這類表示先後的字，誰先誰後都讀得通。"],
+ 2:["第 25 行的段首 That relaxing background music 和第 35 行的段首 Take a closer look at the chairs，各自開一個新話題。",
+    "兩段之間沒有任何一個字指回前一段，對調之後照樣讀得通。"]
+};
+var WARN3=["第 5 到 6 行預告的是 some of the tricks，好幾種手法；音樂只是其中一種，當不了整篇的主題。",
+           "顏色、菜單、座椅、燈光四格都不是在講音樂，收不進「音樂」這一格底下。第 4 行的 a variety of subtle strategies 被擠到外圈，只剩一格。"];
+
+var SENTS=[
+ {id:"l",t:"In low light, diners relax, care less about how their orders look to others, and eat richer food."},
+ {id:"x1",t:"Restaurants choose soft, dim lighting mainly so that couples can enjoy a romantic mood over dinner."},
+ {id:"h",t:"Many small, easily missed details in a restaurant are planned to affect how we eat and what we pay."},
+ {id:"u",t:"A slow beat keeps diners at the table buying more drinks, while a fast, noisy one hurries them out."},
+ {id:"c",t:"Bright, warm shades make people hungry and lively, so they eat fast and leave soon; blue and purple work the other way."},
+ {id:"x2",t:"Blue and purple walls are chosen to make diners feel hungry and eager to order more food."},
+ {id:"s",t:"Hard, narrow stools send customers away within about twenty minutes, while soft, padded ones keep them ordering."},
+ {id:"m",t:"Where a dish appears on the list, and whether prices carry currency marks, changes what people pick and pay."}
+];
+var NOFIT={
+ x1:"這一張最容易放進燈光那一格，因為 romantic mood 確實在第 45 行。可是第 44 到 45 行寫的是 don’t use dim lighting just to set a romantic mood：浪漫只是次要的理由，這一張把它說成主要的，層級錯了。",
+ x2:"這一張看起來屬於顏色那一格，可是第 11 到 12 行寫的是冷色 suppress hunger，抑制食慾。這一張把方向說反了，所以哪一格都放不進去。"
+};
+var SRCQ=[
+ {fn:"中心　主題",rf:"第 2–5 行",t:"A restaurant\u2019s atmosphere is rarely accidental, though. Indeed, restaurants draw on a variety of subtle strategies to shape your experience\u2014and your spending."},
+ {fn:"顏色",rf:"第 9–12 行",t:"Warm colors stimulate appetite and raise energy levels, which makes you dig in quickly and move on sooner. In contrast, cool colors like blue and purple suppress hunger"},
+ {fn:"菜單的位置",rf:"第 16–21 行",t:"customers tend to notice items placed in the top-right corner first \u2026 Even the absence of dollar signs can boost spending"},
+ {fn:"音樂",rf:"第 27–31 行",t:"slow-tempo music causes diners to stay longer and spend up to 40 percent more on drinks \u2026 upbeat, loud music speeds up eating and pushes customers out the door faster"},
+ {fn:"座椅",rf:"第 36–41 行",t:"The hard stools and narrow seats in fast-food restaurants are no accident. \u2026 plush, cushioned chairs invite you to stay, order another round"},
+ {fn:"燈光",rf:"第 46–50 行",t:"diners in dimly lit environments order more calories \u2026 Darkness makes diners feel relaxed and less self-conscious about their choices, so they tend to indulge a little more."}
+];
+
+var MINE=[
+ {id:"m1",fn:"中心：主題句",en:"the topic",ph:"這家店是哪一家？用一句話說它靠幾樣東西吸引你。"},
+ {id:"m2",fn:"特點一",en:"feature 1",ph:"一個特點＋一個具體的例子＋它讓你怎麼樣。"},
+ {id:"m3",fn:"特點二",en:"feature 2",ph:"另一個特點，跟特點一不重複，也要有例子和效果。"},
+ {id:"m4",fn:"特點三",en:"feature 3",ph:"第三個特點。寫完問自己：它是不是主題句底下的一個例子？"}
+];
+
+var AI=[
+"我是台灣的高中生，正在準備學測英文作文。下面是我列的中文大綱，題目要我介紹一家常去的店：第一段說明它有哪幾個特點吸引我，每個特點舉一個具體的例子；第二段說明我為什麼一再回去。",
+"",
+"請照以下規則給我意見：",
+"1. 先看主題句：有沒有說出是哪一家店，並且告訴讀者後面會講好幾個特點。",
+"2. 三個特點是不是各講一件事，彼此沒有重複。",
+"3. 每一個特點有沒有配一個具體的例子，並說出它讓我怎麼樣，而不是只寫「很好」「很方便」。",
+"4. 每一個特點是不是都回到主題句，是主題底下的一個例子。",
+"5. 不要幫我寫英文，也不要幫我補內容。",
+"6. 說明用中文。"
+].join("\n");
+
+/* ── 畫圖 ── */
+function drawFig(){
+  var sw=ST.sw||0, ord=ORDERS[sw];
+  var s='<svg viewBox="0 0 380 330" role="img" aria-label="放射狀網狀圖：中間是主題，周圍五格是顏色、菜單的位置、音樂、座椅、燈光">';
+  var p,c,x,y,w,h,cls;
+  for(p=1;p<6;p++) s+='<path class="spoke" d="M'+POS[0][0]+' '+POS[0][1]+' L'+POS[p][0]+' '+POS[p][1]+'"/>';
+  for(p=0;p<6;p++){
+    c=CELLS[ord[p]]; x=POS[p][0]; y=POS[p][1];
+    w=p===0?128:124; h=p===0?56:48;
+    cls="bx"+(ST.put[c.id]?" on":"")+(p===0?" hub":"")+(sw&&ord[p]!==p?" sw":"");
+    s+='<g class="'+cls+'" data-id="'+c.id+'" tabindex="0" role="button">';
+    s+='<rect x="'+(x-w/2)+'" y="'+(y-h/2)+'" width="'+w+'" height="'+h+'" rx="6"/>';
+    s+='<text class="fn" x="'+x+'" y="'+(y-h/2+17)+'" text-anchor="middle">'+esc(c.fn)+'</text>';
+    s+='<text class="en" x="'+x+'" y="'+(y-h/2+30)+'" text-anchor="middle">'+esc(c.en)+'</text>';
+    s+='<text class="rf" x="'+x+'" y="'+(y-h/2+42)+'" text-anchor="middle">'+(ST.put[c.id]?esc(c.rf):"待放")+'</text>';
+    s+='</g>';
+  }
+  if(sw===1||sw===2) s+='<text class="okk" x="6" y="12">對調之後照樣成立</text>';
+  if(sw===3) s+='<text class="warn" x="190" y="238" text-anchor="middle">主題？</text><text class="warn" x="6" y="12">其他四格收不進中心</text>';
+  s+='</svg>';
+  $("fig").innerHTML=s;
+}
+
+var pick=null;
+function drawPool(){
+  var h="";
+  for(var i=0;i<SENTS.length;i++)
+    h+='<button data-i="'+i+'" class="'+(ST.put[SENTS[i].id]?"gone":"")+'">'+esc(SENTS[i].t)+'</button>';
+  $("pool").innerHTML=h;
+}
+function done1(){ var n=0; for(var k in ST.put) if(ST.put[k]) n++; return n; }
+function first1(){ var n=0; for(var k in ST.first) if(ST.first[k]) n++; return n; }
+function showSrc(){
+  if($("src6").innerHTML) return;
+  var h="";
+  for(var i=0;i<SRCQ.length;i++)
+    h+='<div class="pair"><span class="t">'+esc(SRCQ[i].fn)+'　'+esc(SRCQ[i].rf)+'</span>'+esc(SRCQ[i].t)+'</div>';
+  $("src6").innerHTML=h;
+}
+function after1(){
+  if($("n1")) $("n1").textContent=first1();
+  if(done1()===6){
+    $("h1").innerHTML="六格都滿了。第一次就放對 <em id=\"n1\">"+first1()+"</em> / 6";
+    $("a1").hidden=false; $("g1").hidden=false; showSrc();
+  }
+}
+function show(id){
+  var c=null,i;
+  for(i=0;i<CELLS.length;i++) if(CELLS[i].id===id) c=CELLS[i];
+  if(!c) return;
+  var gs=$("fig").querySelectorAll(".bx");
+  for(i=0;i<gs.length;i++) gs[i].classList.toggle("sel", gs[i].dataset.id===id);
+  $("pk").textContent=c.fn+"　"+(ST.put[id]?c.rf:"還沒放");
+  $("pq").textContent=ST.put[id]||"這一格還空著。";
+}
+function aim(on){
+  var gs=$("fig").querySelectorAll(".bx");
+  for(var i=0;i<gs.length;i++) if(!gs[i].classList.contains("on")) gs[i].classList.toggle("aim",on);
+}
+$("pool").addEventListener("click",function(e){
+  var b=e.target.closest("button"); if(!b) return;
+  var bs=$("pool").querySelectorAll("button");
+  for(var i=0;i<bs.length;i++) bs[i].classList.remove("pick");
+  b.classList.add("pick"); pick=+b.dataset.i; aim(true);
+});
+function hit(g){
+  var id=g.dataset.id;
+  if(pick===null || ST.put[id]){ show(id); return; }
+  var s=SENTS[pick];
+  if(NOFIT[s.id]){
+    ST.miss[id]=1; save();
+    $("pk").textContent="這一張沒有位置";
+    $("pq").textContent=NOFIT[s.id];
+    return;
+  }
+  if(s.id!==id){ ST.miss[id]=1; save(); toast("這一格要的不是這一張"); return; }
+  if(!ST.miss[id]) ST.first[id]=1;
+  ST.put[id]=s.t; save(); pick=null;
+  drawFig(); drawPool(); aim(false); show(id); after1();
+}
+$("fig").addEventListener("click",function(e){ var g=e.target.closest(".bx"); if(g) hit(g); });
+$("fig").addEventListener("keydown",function(e){
+  if(e.key!=="Enter"&&e.key!==" ") return;
+  var g=e.target.closest(".bx"); if(g){ e.preventDefault(); hit(g); }
+});
+$("g1").addEventListener("click",function(){
+  if(ST.step<2) ST.step=2; save();
+  $("s2").hidden=false; $("s2").scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+/* ── 第二步：對調測試 ── */
+function paintSw(){
+  drawFig();
+  var bs=$("swbar").querySelectorAll("button[data-s]");
+  for(var i=0;i<bs.length;i++) bs[i].disabled=!!ST.sw;
+  $("undo").hidden=!ST.sw;
+  var h,k,list;
+  if(!ST.sw){
+    if(ST.tS&&ST.tH) h="換回來了。三種對調都試過了，看下面的題目。";
+    else if(ST.tS) h="換回來了。周圍兩格對調沒問題，再試試把中心換掉。";
+    else if(ST.tH) h="換回來了。中心不能換，再試試對調周圍的兩格。";
+    else h="六格照原來的位置排著。任選一種對調。";
+    $("swh").textContent=h;
+  } else {
+    if(ST.sw===3){ h="中心一換，就不成立了：<ul>"; list=WARN3; }
+    else { h="對調之後，沒有一處接不上：<ul class=\"ok\">"; list=SAFE[ST.sw]; }
+    for(k=0;k<list.length;k++) h+="<li>"+esc(list[k])+"</li>";
+    $("swh").innerHTML=h+"</ul>";
+  }
+  if(ST.tS&&ST.tH) $("q2box").hidden=false;
+}
+$("swbar").addEventListener("click",function(e){
+  var b=e.target.closest("button[data-s]"); if(!b||ST.sw) return;
+  ST.sw=+b.dataset.s; if(ST.sw===3) ST.tH=1; else ST.tS=1; save(); paintSw();
+});
+$("undo").addEventListener("click",function(){ ST.sw=0; save(); paintSw(); });
+function settle2(){
+  var bs=$("q2").querySelectorAll("button");
+  for(var i=0;i<bs.length;i++){ bs[i].disabled=true; bs[i].dataset.state=bs[i].dataset.ok?"right":"wrong"; }
+  $("a2").hidden=false; $("g2").hidden=false;
+}
+$("q2").addEventListener("click",function(e){
+  var b=e.target.closest("button"); if(!b||ST.q2) return;
+  ST.q2=b.dataset.ok?1:2; save(); settle2();
+});
+$("g2").addEventListener("click",function(){
+  if(ST.step<3) ST.step=3; save();
+  paintCode(); $("s3").hidden=false;
+  $("s3").scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+/* ── 第三步 ── */
+function drawMine(){
+  var h="";
+  for(var i=0;i<MINE.length;i++){
+    var m=MINE[i];
+    h+='<div class="cell"><span class="fn">'+esc(m.fn)+'<em>'+esc(m.en)+'</em></span>'+
+       '<textarea id="'+m.id+'" rows="2" placeholder="'+esc(m.ph)+'"></textarea></div>';
+  }
+  $("mine").innerHTML=h;
+  for(var j=0;j<MINE.length;j++){
+    var el=$(MINE[j].id);
+    if(ST.mine[MINE[j].id]) el.value=ST.mine[MINE[j].id];
+    el.addEventListener("input",function(){ ST.mine[this.id]=this.value; save(); });
+  }
+  $("aib").textContent=AI;
+}
+function mkCode(){
+  var f=first1(), m=0, w=0, i;
+  for(var k in ST.miss) if(ST.miss[k]) m++;
+  for(i=0;i<MINE.length;i++){ var el=$(MINE[i].id); if(el&&el.value.trim()) w++; }
+  var seed=(f*31 + m*7 + w*13 + (ST.q2===1?5:0) + 10*211 + 7*101 + 1777) % 46656;
+  return "10-U7 "+f+"/6 大綱"+w+"/4 "+("000"+seed.toString(36).toUpperCase()).slice(-3);
+}
+function paintCode(){ $("cv").textContent=mkCode(); }
+$("rfb").addEventListener("click",paintCode);
+function copy(t){
+  function fb(){
+    var ta=document.createElement("textarea"); ta.value=t; document.body.appendChild(ta);
+    ta.select(); try{ document.execCommand("copy"); toast("已複製"); }catch(e){ toast("複製失敗，請手動選取"); }
+    document.body.removeChild(ta);
+  }
+  if(navigator.clipboard&&navigator.clipboard.writeText)
+    navigator.clipboard.writeText(t).then(function(){ toast("已複製"); },fb);
+  else fb();
+}
+$("cc").addEventListener("click",function(){ copy(mkCode()); });
+$("sv").addEventListener("click",function(){
+  for(var i=0;i<MINE.length;i++) ST.mine[MINE[i].id]=$(MINE[i].id).value;
+  save(); toast("已存在這台裝置的瀏覽器裡");
+});
+$("cp").addEventListener("click",function(){
+  var t=AI+"\n\n【我的大綱】\n";
+  for(var i=0;i<MINE.length;i++) t+=MINE[i].fn+"："+($(MINE[i].id).value||"（空白）")+"\n";
+  copy(t);
+});
+
+/* ── 預覽 ── */
+function previewAll(){
+  PREVIEW=true; $("pv").hidden=false;
+  for(var i=0;i<SENTS.length;i++) if(!NOFIT[SENTS[i].id]){ ST.put[SENTS[i].id]=SENTS[i].t; ST.first[SENTS[i].id]=1; }
+  drawPool(); drawMine(); after1();
+  $("s2").hidden=false; ST.sw=0; ST.tS=1; ST.tH=1; paintSw(); ST.q2=1; settle2();
+  $("s3").hidden=false; paintCode();
+}
+
+/* ── 接回進度 ── */
+$("rst").addEventListener("click",function(){
+  try{ localStorage.removeItem(KEY); }catch(e){} location.reload();
+});
+(function restore(){
+  if(/(^|[?&])all(=|&|$)/.test(location.search)){ previewAll(); return; }
+  var v=load();
+  if(v){
+    ST=v;
+    if(!ST.put) ST.put={};
+    if(!ST.first) ST.first={};
+    if(!ST.miss) ST.miss={};
+    if(!ST.mine) ST.mine={};
+    if(!ST.step) ST.step=1;
+    if(!ST.sw) ST.sw=0;
+  }
+  drawPool(); drawMine(); paintSw();
+  if(done1()||ST.step>1) $("rs").hidden=false;
+  if(ST.step>=2) $("s2").hidden=false;
+  if(ST.q2) settle2();
+  if(ST.step>=3){ $("s3").hidden=false; paintCode(); }
+  after1();
+})();
+})();
+</script>
+</body>
+</html>
