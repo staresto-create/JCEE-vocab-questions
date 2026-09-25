@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>多方觀點：一個問題，十個人發言｜Should Students Use AI in College Applications?</title>
+<meta name="description" content="十個不同身分的人談申請大學能不能用 AI：這一頁教你認出論說文的多方觀點，把每個人放進正反意見表，並認出 should、need to、it is important that 這類表示應該怎麼做的說法。">
+<meta property="og:title" content="多方觀點：一個問題，十個人發言｜Should Students Use AI in College Applications?">
+<meta property="og:description" content="支持、擔憂，還是談怎麼處理？十個人各說各的，作者一句結論也沒下。">
+<style>
+:root{
+  --ground:#f1f3f2; --ink:#17282f; --teal:#1f6f6a; --teal-soft:#dfeceb;
+  --muted:#77878d; --line:#cdd6d6; --exam:#b4661c; --exam-soft:#fdf4e7;
+  --gen:#4a6a90; --gen-soft:#e0e7f0;
+  --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+  --sans:"PingFang TC","Noto Sans TC","Microsoft JhengHei","Helvetica Neue",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-text-size-adjust:100%}
+.wrap{max-width:44rem;margin:0 auto;padding:1.6rem 1.1rem 4rem}
+h1{font-family:var(--serif);font-weight:600;font-size:1.6rem;line-height:1.3;margin:0 0 .55rem}
+.lede{margin:0 0 1.3rem;color:#3d5059;font-size:.95rem}
+.src{font-size:.8rem;color:var(--muted);margin:0 0 1.1rem}
+.resume{font-size:.85rem;color:var(--teal);background:var(--teal-soft);border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.resume[hidden],.preview[hidden]{display:none}
+.preview{font-size:.85rem;color:var(--exam);background:var(--exam-soft);
+  border:1px dashed var(--exam);border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.resume button{font:inherit;font-size:.82rem;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:.25rem;padding:.16rem .6rem;margin-left:.5rem;cursor:pointer}
+.resume button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.step{border-top:1px solid var(--line);padding-top:1.15rem;margin-top:1.6rem}
+.step[hidden]{display:none}
+.stepno{font-family:var(--serif);font-size:.82rem;color:var(--muted);margin:0 0 .2rem}
+h2{font-family:var(--serif);font-weight:600;font-size:1.2rem;margin:0 0 .5rem;color:var(--teal)}
+.step p{margin:0 0 .7rem;font-size:.95rem}
+.tag{display:inline-block;font-size:.72rem;font-weight:600;border-radius:.2rem;padding:.08rem .45rem;margin-left:.45rem;vertical-align:.12rem;color:var(--exam);background:var(--exam-soft);border:1px solid var(--exam)}
+.tag.b{color:var(--gen);background:var(--gen-soft);border-color:var(--gen)}
+
+/* 選擇題：中文用 .opts，英文選項加 .en，附小字說明加 .rg */
+.opts{display:flex;flex-direction:column;gap:.45rem;margin:.2rem 0 .8rem}
+.opts button{font:inherit;font-size:.95rem;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:.3rem;padding:.45rem .85rem;cursor:pointer;text-align:left}
+.opts button:hover{border-color:var(--teal)}
+.opts button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.opts button[data-state="right"]{background:var(--teal);border-color:var(--teal);color:#fff}
+.opts button[data-state="wrong"]{background:var(--ground);color:var(--muted)}
+.opts button[disabled]{cursor:default}
+.opts.en button{font-family:var(--serif);font-size:.97rem;line-height:1.6;padding:.55rem .8rem}
+.opts.en button[data-state="right"]{background:var(--teal-soft);border-color:var(--teal);color:var(--ink)}
+.opts.rg button i{display:block;font-style:normal;font-size:.82rem;color:var(--muted);margin-top:.12rem}
+.opts.rg button[data-state="right"] i{color:#dfeceb}
+
+/* 揭曉區塊 */
+.said{background:#fff;border-left:3px solid var(--teal);border-radius:.3rem;padding:.75rem .85rem;margin:.2rem 0 .9rem;font-size:.93rem;color:#3d5059}
+.said b{color:var(--ink);font-weight:600}
+.said[hidden]{display:none}
+.said.g{border-left-color:var(--gen)}
+.said.e{border-left-color:var(--exam)}
+.said q{quotes:none;font-family:var(--serif)}
+
+.go{font:inherit;font-size:.92rem;background:var(--ink);color:#fff;border:1px solid var(--ink);border-radius:.3rem;padding:.42rem 1.05rem;cursor:pointer}
+.go:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.go[hidden]{display:none}
+
+/* 第一步的可點標記 */
+.lead{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.9rem 1rem;margin:0 0 .7rem;font-family:var(--serif);font-size:1.02rem;line-height:1.95}
+.lead c{cursor:pointer;border-radius:.2rem;padding:.06rem .2rem;background:var(--exam-soft);box-shadow:inset 0 -2px 0 #ecc9a2}
+.lead c:hover{box-shadow:inset 0 -2px 0 var(--exam)}
+.lead c.got{background:var(--exam);color:#fff;box-shadow:none}
+.lead c b{font-family:var(--sans);font-size:.72rem;font-weight:600;background:#fff;color:var(--exam);border-radius:.2rem;padding:.02rem .3rem;margin-right:.3rem}
+.score{font-size:.9rem;color:var(--muted);margin:0 0 .8rem}
+.score em{font-style:normal;color:var(--exam);font-weight:600}
+
+/* 第三步的卡片（驗證方法通用容器） */
+.qs{display:flex;flex-direction:column;gap:.5rem;margin:0 0 .8rem}
+.qcard{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.6rem .85rem}
+.qcard .hd{display:flex;align-items:center;gap:.6rem;font-size:.95rem}
+.qcard .hd .qt{flex:1 1 auto;font-weight:600}
+.qcard .hd button{font:inherit;font-size:.8rem;background:#fff;color:var(--ink);border:1px solid var(--line);
+  border-radius:.25rem;padding:.18rem .7rem;cursor:pointer;flex:0 0 auto}
+.qcard .hd button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.qcard .bd{display:none;margin-top:.4rem;font-size:.92rem;color:#3d5059;line-height:1.75}
+.qcard.open .bd{display:block}
+.qcard.open .hd button{display:none}
+.qcard .bd .rf{display:block;color:var(--muted);font-size:.82rem;margin-top:.25rem}
+.qcard .bd .sw{display:block;font-family:var(--serif);background:var(--ground);border-radius:.3rem;
+  padding:.45rem .6rem;margin:.35rem 0;color:var(--ink);font-size:.93rem;line-height:1.7}
+.qcard .r{display:grid;grid-template-columns:1fr;gap:.1rem;margin-bottom:.4rem}
+@media(min-width:34rem){.qcard .r{grid-template-columns:5.5rem 1fr;gap:.5rem}}
+.qcard .r:last-child{margin-bottom:0}
+.qcard .r .k{font-size:.76rem;font-weight:600;color:var(--gen)}
+.qcard .r .v em{font-style:normal;color:var(--muted);font-size:.82rem;margin-left:.3rem}
+
+/* 圖表容器與通用節點 */
+.fig{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.7rem .5rem .4rem;margin:0 0 .7rem}
+.fig[hidden]{display:none}
+.fig svg{display:block;width:100%;height:auto;max-width:27rem;margin:0 auto}
+.fig figcaption{font-size:.85rem;color:#3d5059;margin:.35rem .5rem 0;line-height:1.65}
+.node{cursor:pointer}
+.node rect,.node circle,.node path.bx{fill:#fff;stroke:var(--line);stroke-width:2;stroke-linejoin:round}
+.node text{font-family:var(--sans);font-size:11px;fill:var(--ink);font-weight:600}
+.node tspan.n,.node text.n{font-size:9px;font-weight:400;fill:var(--muted)}
+.node.on rect,.node.on circle,.node.on path.bx{fill:var(--exam-soft);stroke:var(--exam);stroke-width:3}
+.node.on text{fill:var(--exam)}
+.node.on tspan.n,.node.on text.n{fill:var(--exam)}
+.guide{stroke:var(--line);stroke-width:2;fill:none;stroke-linejoin:round;stroke-linecap:round}
+.guide.dash{stroke-dasharray:5 4}
+.endlab{font-family:var(--sans);font-size:10.5px;font-weight:600}
+.endlab.l{fill:var(--teal)}
+.endlab.r{fill:var(--gen)}
+
+/* 分日分隔框 */
+.daybreak{border:1px dashed var(--exam);background:var(--exam-soft);border-radius:.4rem;
+  padding:.8rem .95rem;margin:1.6rem 0 0;font-size:.9rem;color:#3d5059;line-height:1.7}
+.daybreak b{display:block;color:var(--exam);font-family:var(--serif);font-size:1.02rem;margin-bottom:.3rem}
+.daybreak[hidden]{display:none}
+
+/* 課文與線索鏈 */
+.modes{display:flex;gap:.4rem;margin:0 0 .7rem;flex-wrap:wrap}
+.modes button{font:inherit;font-size:.84rem;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:.3rem;padding:.3rem .8rem;cursor:pointer}
+.modes button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.modes button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.text{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.9rem .6rem 1.1rem;font-family:var(--serif);font-size:1rem;line-height:1.85}
+.text .ttl{font-weight:600;font-size:1.06rem;margin:0 .4rem .7rem 2.6rem;line-height:1.45}
+.ln{display:flex;align-items:baseline;padding:.02rem 0;border-radius:.2rem}
+.ln>i{flex:0 0 2.2rem;text-align:right;padding-right:.55rem;font-family:var(--sans);font-style:normal;font-size:.68rem;color:var(--muted);line-height:1.9}
+.ln>span{flex:1 1 auto;overflow-wrap:anywhere}
+.ln.ind>span{padding-left:1.1rem}
+.ln.sub>span{font-weight:600}
+.ln.hl{background:var(--exam-soft)}
+.ln.pb{margin-top:.55rem}
+.text .split{font-family:var(--sans);font-size:.78rem;color:var(--exam);
+  border-top:1px dashed var(--exam);margin:.8rem .4rem .7rem 2.6rem;padding-top:.35rem}
+.text m{cursor:pointer;border-radius:.2rem;padding:.02rem .14rem}
+.text m[data-kind="sub"]{background:var(--teal-soft);box-shadow:inset 0 -2px 0 #a8ccc8}
+.text m[data-kind="gen"]{background:var(--gen-soft);box-shadow:inset 0 -2px 0 #a9bbd0}
+.text m[data-kind="mk"]{border-bottom:2px dotted var(--exam);font-style:italic}
+.text m.lit[data-kind="sub"]{background:var(--teal);color:#fff;box-shadow:none}
+.text m.lit[data-kind="gen"]{background:var(--gen);color:#fff;box-shadow:none}
+.text m.lit[data-kind="mk"]{background:var(--exam);color:#fff;border-bottom:none}
+.text.off-sub m[data-kind="sub"]{background:none;box-shadow:none}
+.text.off-gen m[data-kind="gen"]{background:none;box-shadow:none}
+
+/* 固定在底部的說明面板 */
+.panel{position:sticky;bottom:0;background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.75rem .9rem;margin-top:.8rem;box-shadow:0 -2px 10px rgba(23,40,47,.07)}
+.panel .k{font-size:.72rem;font-weight:600;border-radius:.2rem;padding:.06rem .42rem;color:var(--teal);background:var(--teal-soft);border:1px solid var(--teal)}
+.panel .k.g{color:var(--gen);background:var(--gen-soft);border-color:var(--gen)}
+.panel .k.e{color:var(--exam);background:var(--exam-soft);border-color:var(--exam)}
+.panel .ch{font-family:var(--serif);font-size:1rem;margin:.4rem 0 .3rem;color:var(--ink);line-height:1.75;overflow-wrap:anywhere}
+.panel .ch i{font-style:normal;color:var(--muted);padding:0 .28rem}
+.panel .nt{font-size:.88rem;color:#3d5059;margin:0}
+
+/* 舊工具點名複習 */
+.recall{background:#fff;border:1px solid var(--line);border-left:3px solid var(--muted);
+  border-radius:.3rem;padding:.75rem .85rem;margin:1.1rem 0 .9rem;font-size:.92rem;color:#3d5059}
+.recall b{color:var(--ink)}
+.recall ul{margin:.4rem 0 0;padding-left:1.1rem}
+.recall li{margin-bottom:.35rem}
+
+/* 抽句題 */
+.gap{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.9rem 1rem;margin:0 0 .9rem;font-family:var(--serif);font-size:1rem;line-height:1.9}
+.gap .blank{display:inline-block;min-width:9rem;border-bottom:2px solid var(--gen);color:var(--gen);text-align:center;font-family:var(--sans);font-size:.82rem}
+.gap .blank.filled{border-bottom-color:var(--teal);color:var(--ink);font-family:var(--serif);font-size:1rem;text-align:left;background:var(--teal-soft);border-radius:.2rem;padding:0 .25rem}
+.gap .lst{font-family:var(--sans);font-size:.85rem;color:var(--muted);display:block;margin-top:.5rem}
+.picks{display:flex;flex-direction:column;gap:.45rem;margin:0 0 .9rem}
+.picks button{font:inherit;font-family:var(--serif);font-size:.97rem;line-height:1.6;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:.3rem;padding:.55rem .8rem;cursor:pointer;text-align:left}
+.picks button:hover{border-color:var(--teal)}
+.picks button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.picks button[data-state="right"]{background:var(--teal-soft);border-color:var(--teal)}
+.picks button[data-state="wrong"]{background:var(--ground);color:var(--muted)}
+.why{font-size:.86rem;color:#3d5059;margin:.35rem 0 0}
+.why[hidden]{display:none}
+
+/* 收尾與頁尾 */
+.close{border-top:1px solid var(--line);margin-top:2rem;padding-top:1.1rem;font-size:.93rem;color:#3d5059}
+.close[hidden]{display:none}
+.close h2{font-size:1.1rem}
+.close ol{margin:.3rem 0 0;padding-left:1.15rem}
+.close li{margin-bottom:.5rem}
+.more{margin-top:1.5rem;font-size:.88rem}
+.more a{color:var(--teal)}
+.series{border-top:1px solid var(--line);margin-top:2rem;padding-top:1.1rem;font-size:.9rem;color:#3d5059}
+.series .back{font-family:var(--serif);font-size:1rem;color:var(--teal);text-decoration:none}
+.series .back:hover{text-decoration:underline}
+.series .back:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.series .note{font-size:.85rem;color:var(--muted);margin:.5rem 0 0}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+/* 本單元：圖表與第三步的歸格卡片 */
+.fig .lab{font-family:var(--sans);font-size:10px;fill:#3d5059}
+.fig .lab.s{font-size:9px;fill:var(--muted)}
+.fig .spoke{stroke:var(--line);stroke-width:2;fill:none}
+.fig .node.hub rect{stroke:var(--muted)}
+.fig .node.hub.on rect{stroke:var(--exam)}
+.yn{display:flex;gap:.45rem;align-items:center;flex-wrap:wrap;margin-top:.5rem;font-size:.9rem;color:var(--ink);font-weight:600}
+.yn button{font:inherit;font-weight:400;font-size:.82rem;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:.25rem;padding:.18rem .75rem;cursor:pointer}
+.yn button:hover{border-color:var(--teal)}
+.yn button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.qcard.open .yn{display:none}
+.qcard .bd .vd{display:block;font-weight:600;margin-bottom:.15rem}
+.qcard .bd .vd.ok{color:var(--teal)}
+.qcard .bd .vd.ng{color:var(--exam)}
+.qcard .bd q{quotes:none;font-family:var(--serif)}
+#q3w[hidden]{display:none}
+
+/* 本單元：正反意見表 */
+.colhd{font-family:var(--sans);font-size:11.5px;font-weight:600}
+.colhd.l{fill:var(--teal)}
+.colhd.r{fill:var(--gen)}
+.colhd.m{fill:var(--exam)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>多方觀點：一個問題，十個人發言</h1>
+<p class="lede">學生申請大學的時候，可不可以用 AI 幫忙準備學習歷程檔案？這一篇沒有替你回答，而是請來十個不同身分的人各說各的：老師、家長、學者、招生人員、學生、電腦科學家、輔導老師、科技顧問。這種寫法是論說文的<b>多方觀點</b>。這一頁教你怎麼把十個人分到正反意見表的三欄裡，也教你留意 should、need to、it is important that 這類表示「應該怎麼做」的說法，因為用這些說法的人，通常就是在提出做法的那一欄。</p>
+<p class="preview" id="pv" hidden>預覽模式：所有步驟、圖表、課文標記都已展開，進度不會存檔。學生拿到的一般連結不受影響。</p>
+<p class="resume" id="rs" hidden>上次做到一半，已經幫你接回來了。<button id="rst">重新開始</button></p>
+<p class="src">ALL+ 互動英語 10 月號 Unit 12（pp. 50–51）　Should Students Use AI in College Applications?　全文 76 行　10/26 讀第 1–37 行，10/27 讀第 38–76 行</p>
+
+<!-- ═══ 第一步 ═══ -->
+<section class="step" id="s1">
+  <p class="stepno">第一步</p>
+  <h2>開頭先把兩邊擺出來<span class="tag">上層：組織方式</span></h2>
+  <p>多方觀點的文章，開頭要交代兩件事：爭議是什麼，以及大致分成哪幾邊。作者自己不表態，只轉述別人的看法。下面是第 1 到 9 行，<b>點三個有底色的地方</b>。</p>
+  <div class="lead" id="ld">
+    High school students are increasingly using advanced AI tools when preparing their learning portfolios. <c data-t="s">While some supporters believe</c> these tools can help students present their ideas more clearly, <c data-t="c">critics worry</c> that AI blurs the line between assistance and authorship. <c data-t="i">This issue</c> ultimately brings significant challenges to keeping college admissions fair.
+  </div>
+  <p class="score" id="sc">已標出 <em>0</em> / 3</p>
+  <div id="s1b" hidden>
+    <p>三個都標出來了。那麼——<b>第 3 到 7 行 <q>While some supporters believe</q>…<q>critics worry</q>… 這一句在全文裡負責什麼？</b></p>
+    <div class="opts" id="q1">
+      <button data-ok="1">先擺出爭議的兩方，後面的人再各自表明立場</button>
+      <button>表明作者支持使用 AI，並先舉出支持的理由</button>
+      <button>比較支持者和批評者的人數，看哪一方比較多</button>
+      <button>說明 AI 為什麼讓申請大學變得越來越不公平</button>
+    </div>
+    <div class="said e" id="a1" hidden>
+      <b>先擺出爭議的兩方，後面的人再各自表明立場。</b>這一句用 While 把兩個子句接起來：前半句是支持的一方，後半句是擔憂的一方。While 在這裡不是「當……的時候」，而是「……，而……」，表示兩邊的對比，九月號第八單元看過同樣的用法。接下來第 7 行的 <q>This issue</q> 用一個概括名詞把兩邊的爭執收成「這個議題」，後面十個人發言，就是在回答這個議題。
+      <br><br>
+      <b>再看動詞。</b>作者寫的是 <q>supporters believe</q> 和 <q>critics worry</q>：想法是支持者的，擔心是批評者的，作者只負責轉述。論說文如果作者要表態，會寫 I believe、we should 這類句子；多方觀點的開頭則用 believe、worry、argue、claim 這類動詞，把看法交給別人說。看到開頭這樣寫，就知道後面會有好幾個人輪流發言。
+      <br><br>
+      <b>另外三個為什麼排除：</b>
+      <br><br>
+      「說明 AI 為什麼讓申請大學變得越來越不公平」——<b>這個最容易選</b>，因為下一句第 7 到 9 行確實提到公平：<q>This issue ultimately brings significant challenges to keeping college admissions fair</q>。可是那是下一句的內容，而且下一句也只說這個議題會帶來挑戰，沒有解釋原因。把下一句的內容當成這一句的功能，歸屬錯了。
+      <br><br>
+      「表明作者支持使用 AI」——相信 AI 有幫助的是 <q>some supporters</q>，不是作者。而且這一句的主要子句在 While 後面，講的是 critics 的擔憂；作者兩邊都轉述，沒有站到任何一邊。
+      <br><br>
+      「比較兩方的人數」——第 3 到 4 行只寫 <q>some supporters</q>，另一邊只寫 <q>critics</q>，兩邊都沒有數字，文章也沒有說哪一邊人比較多。
+    </div>
+    <button class="go" id="g1" hidden>整篇怎麼排？</button>
+  </div>
+</section>
+
+<!-- ═══ 第二步 ═══ -->
+<section class="step" id="s2" hidden>
+  <p class="stepno">第二步</p>
+  <h2>十個人，三種立場<span class="tag">上層：怎麼認出來</span></h2>
+  <p>先回答：<b>這篇文章的推進方式，最接近下列哪一種？</b></p>
+  <div class="opts" id="q2">
+    <button>先介紹學習歷程檔案，再分項說明它包含的內容</button>
+    <button data-ok="1">先點出一個爭議，再讓不同身分的人表達看法</button>
+    <button>先提出一個問題，再分析成因並提出解決辦法</button>
+    <button>先描述一個現象，再列出它對學生造成的影響</button>
+  </div>
+  <div class="said e" id="a2" hidden>
+    <b>先點出一個爭議，再讓不同身分的人表達看法。</b>這是論說文的<b>多方觀點</b>：作者不自己下結論，而是把立場不同的人的說法並排，讓讀者自己判斷。第 1 到 9 行點出爭議，第 10 行以後一共十段，一段一個人。
+    <br><br>
+    <b>這一篇的訊號很好認。</b>第一，每一段的開頭都是「名字、身分、冒號、引號」：第 10 行 <q>Ms. Huang, High School Teacher:</q>、第 17 行 <q>Mr. Lin, Parent:</q>，一直到第 70 行 <q>Mr. Wu, Technology Consultant:</q>。第二，這十個身分刻意挑得很分散：出題的一方（老師、招生人員），寫檔案的一方（學生），旁邊的人（家長、輔導老師），還有懂技術的人（電腦科學家、科技顧問）。立場不同的人都要有，文章才算「多方」。第三，最後一段是第十個人說完話就結束了，作者沒有出來總結。雜誌在課文後面附的 Discussion Starter 反過來問你：AI 該不該限制？答案要你自己決定。
+    <br><br>
+    <b>另外三個為什麼排除，每一個都是別種結構：</b>
+    <br><br>
+    「先提出一個問題，再分析成因並提出解決辦法」——這是<b>問題與解決</b>，<b>這個最容易選</b>，因為文章裡確實有人提出做法：第 27 到 28 行要學生說清楚用了多少，第 60 到 61 行要學校教大家負責任地使用，第 74 到 75 行要學校找新的評量方式。可是這些做法出自三個不同的人，各說各的，作者沒有選其中一個；十個人裡也還有兩個人根本不覺得需要解決什麼。十月號第八單元的問題與解決，做法是作者自己提出來的，這一篇不是。
+    <br><br>
+    「先描述一個現象，再列出它對學生造成的影響」——這是<b>因果</b>。因果文會把影響當成事實來寫；這一篇的發言者卻連有沒有壞影響都意見不同，第 42 到 43 行 Kevin 就說用了 AI，經歷和看法 <q>aren’t their own</q> 這種說法不成立。
+    <br><br>
+    「先介紹學習歷程檔案，再分項說明它包含的內容」——這是<b>描述</b>。第 11 到 13 行確實說了檔案的用途是呈現 <q>a student’s growth and achievements</q>，可是那只是黃老師發言的第一句，後面九個人談的都不是檔案裡有什麼。
+    <br><br>
+    下面這張圖是多方觀點的標準組織圖：<b>正反意見表</b>。最上面是爭議，下面分欄，每一欄放立場相同的人。這一篇的十個人分成三欄：<b>支持</b>、<b>擔憂</b>，以及不直接回答該不該用、而在<b>談怎麼處理</b>的人。<b>點任一格</b>，第四步的課文對應行會亮起來（課文還沒打開的話，先把行號記住就好）。
+  </div>
+  <figure class="fig" id="fig" hidden></figure>
+  <button class="go" id="g2" hidden>把十個人放回表格</button>
+</section>
+
+<div class="daybreak" id="db" hidden>
+  <b>10/27 的範圍從這裡開始：第 38–76 行</b>
+  第一、二步用的是 10/26 的第 1–37 行（開頭，以及黃老師、林先生、張教授、王女士四個人的發言）。第三步以後會用到整篇，包含 10/27 的第 38–76 行（Kevin、Amy、陳博士、劉老師、Eric、吳先生六個人的發言）。如果你今天是 10/26，做到這裡可以先停，明天再接下去。（第二步的說明和表格已經提到後面六個人，先看到不影響。）
+</div>
+
+<!-- ═══ 第三步 ═══ -->
+<section class="step" id="s3" hidden>
+  <p class="stepno">第三步</p>
+  <h2>把每個人放回意見表<span class="tag">上層：怎麼驗證</span></h2>
+  <p>怎麼確定這篇是多方觀點，不是作者自己在論證？<b>先找訊號詞，說出是哪一種結構，再把每個人放進正反意見表，最後用一句話說出整篇。</b></p>
+  <p>訊號詞你在前兩步看過，這裡整理一次：第 3 到 6 行的 <q>supporters believe</q> 和 <q>critics worry</q> 把看法交給別人說；第 7 行的 <q>This issue</q> 點出爭議；第 10 行以後每一段都用「名字、身分、冒號、引號」開頭；全文沒有一句是作者自己的結論。整篇的訊號都在說「換下一個人發言」，這就是多方觀點。</p>
+  <p>分欄的時候只問一個問題：<b>這個人對「學生該不該用 AI」怎麼回答？</b>回答可以用的，放支持；覺得會出問題的，放擔憂；不回答這個問題、而在談學校和大學該怎麼做的，放第三欄。</p>
+  <p>下面六張卡片寫的是六個人的看法，<b>都換過說法，也沒有名字和行號</b>。每一張判斷一次：它屬於哪一欄？點下去就定了，不能改。</p>
+  <div class="qs" id="qs"></div>
+  <p class="score" id="sc3">已放 <em>0</em> / 6，第一次就放對 <em>0</em> 張</p>
+  <div class="said e" id="a3" hidden>
+    <b>六張都放得回去，而且每一張只放得進一欄。這就是多方觀點。</b>每個人都有自己的位置，作者自己卻不在任何一欄裡。
+    <br><br>
+    <b>最容易放錯的，是第一張和第四張。</b>第一張是張教授，<q>AI itself is not the problem</q> 聽起來像支持；可是他的重點在 but 後面，要學生說清楚用了多少、用在哪裡。他沒有說學生該用，他是在訂規則。第四張是陳博士，他說偵測工具不可靠，聽起來像擔憂；可是他擔心的不是學生用 AI，而是學校拿什麼方法去查。<b>分欄看的是這個人回答了哪一個問題，不是他的語氣好不好。</b>
+    <br><br>
+    <b>再注意一件事：同一欄裡的人可以任意對調。</b>黃老師和 Amy 對調、Kevin 和林先生對調，文章都照樣成立。多方觀點的各段之間沒有先後，也沒有因果；每一段只跟開頭那個爭議有關係。
+    <br><br>
+    <b>考卷上怎麼考：</b>多方觀點的摘要題，誘答最愛只寫其中一個人，或者把最後一個人的話當成作者的結論。下面試一題摘要題。
+  </div>
+  <div id="q3w" hidden>
+    <p><b>哪一句最適合當這篇文章的一句話摘要？</b></p>
+    <div class="picks" id="q3">
+      <button>Most of the people quoted agree that AI helps students present their experiences more clearly in college applications.</button>
+      <button>Because AI detection tools are far from reliable, many honest students are unfairly punished when applying to college.</button>
+      <button>The article concludes that universities will need to develop new ways to assess applications as AI keeps improving.</button>
+      <button data-ok="1">People from different backgrounds disagree about AI in applications; some welcome it, some fear it, others suggest rules.</button>
+    </div>
+    <div class="said e" id="a3b" hidden>
+      <b>第四句。</b>它把三欄全部收進一句話：some welcome it 是支持，some fear it 是擔憂，others suggest rules 是談怎麼處理；前半句的 people from different backgrounds 說的是十個不同身分的人。它也沒有照抄課文：第 3 到 6 行的 <q>supporters</q> 和 <q>critics</q> 換成 some welcome it、some fear it，第 1 到 2 行的 <q>using advanced AI tools</q> 換成 AI in applications。
+      <br><br>
+      <b>另外三個為什麼排除：</b>
+      <br><br>
+      「The article concludes that universities will need to …」——<b>這個最容易選</b>，因為它是全文最後一段，很多人習慣把最後一段當成結論。可是第 70 到 76 行是吳先生的發言，前面有名字、身分和引號；作者從頭到尾沒有出來總結。把一個發言者的話說成文章的結論，歸屬錯了。
+      <br><br>
+      「Most of the people quoted agree that AI helps students …」——明確支持的只有林先生和 Kevin 兩個人，雜誌的混合題第 2 題答案也是這兩個。十個人裡兩個，不是 most。這一句還照抄了第 20 行的 <q>present their experiences more clearly</q>。
+      <br><br>
+      「Because AI detection tools are far from reliable …」——這是第 52 到 57 行陳博士一個人的看法，只是十個人裡的一格，代表不了整篇。
+    </div>
+  </div>
+  <button class="go" id="g3" hidden>看「應該怎麼做」的說法</button>
+</section>
+
+<!-- ═══ 第四步 ═══ -->
+<section class="step" id="s4" hidden>
+  <p class="stepno">第四步</p>
+  <h2>「應該怎麼做」的說法<span class="tag b">下層：表示義務與建議的情態</span></h2>
+  <p>第三欄的四個人怎麼認？看他們用的動詞。第 27 到 28 行 <q>it is important that students clearly disclose</q>、第 60 行 <q>Schools should teach</q>、第 74 到 75 行 <q>Schools and universities will need to develop</q>：這些說法都在告訴別人應該做什麼。語言學上把這一類叫做 deontic modality，也就是<b>表示義務與建議的情態</b>；Palmer 把情態分成三類：表示確定程度的、表示義務與許可的、表示能力與意願的；這一篇要看的是第二類，也就是必須、應該、需要。</p>
+  <p><b>跟確定程度的語言分清楚。</b>十月號第一、第十一單元教過的 about、is believed to、could have been，表示說話的人<b>有多確定</b>；這一篇的 should、need to、it is important that，表示說話的人認為<b>應該怎麼做</b>。同一個助動詞可能兩種都有：第 46 到 47 行 <q>universities will question us closely</q> 的 will 是預測，Amy 說的是將來會發生的事；第 74 到 75 行 <q>will need to develop</q> 的 need to 才是必須。第 48 行 <q>cannot explain</q> 的 can 則是能力，也不屬於這一類。</p>
+  <p><b>讀的時候怎麼用：</b>多方觀點的文章裡，用這類說法的人，通常就是在提出做法的那一欄；只描述情況或後果的人，則多半在支持或擔憂那兩欄。考卷問「某某人建議怎麼做」，就去他那一段找 should、need to、it is important that。<b>寫的時候也用得上：</b>第 27 到 28 行正是雜誌句型欄的 it is important that + 主詞 +（should）+ 原形動詞，學測作文要提出建議時，這個句型比一再用 should 正式。</p>
+  <p><b>點課文裡有底色的字</b>，同一條的字會一起亮起來。青色是表示義務與建議的情態；藍灰是比較與程度的語言，這篇的發言者幾乎都在說「越來越……」。兩色可以各自關掉。</p>
+  <div class="modes">
+    <button id="m1" aria-pressed="true">義務與建議（青）</button>
+    <button id="m2" aria-pressed="true">比較與程度（藍灰）</button>
+  </div>
+  <div class="text" id="tx"></div>
+  <div class="panel" id="pn">
+    <span class="k" id="pk">線索</span>
+    <div class="ch" id="pc">點表格裡的一格，或課文裡有底色的字</div>
+    <p class="nt" id="pt">青色是告訴別人應該怎麼做的說法；藍灰是比較級、表示變化的 increasingly，以及表示程度的字。</p>
+  </div>
+  <div class="recall">
+    <b>另外兩樣，前面單元教過，這篇自己確認得出來：</b>
+    <ul>
+      <li><b>詞形變化的重複。</b>十月號第八單元練過。開頭第 9 行先說，這個議題關係到 <q>keeping college admissions fair</q>；後面第 36 到 37 行 <q>fair evaluations</q>、第 55 行 <q>unfair judgments</q>、第 69 行 <q>deeply unfair</q>，三個人各自用了 fair 或 unfair。fair 加上字首 un- 變成反義，還是同一個字的家族。開頭埋下的字，後面的人接著用，十段各自獨立的發言就是這樣跟開頭扣在一起的。</li>
+      <li><b>概括名詞。</b>九月號第三、第四單元和十月號第九、第十一單元練過。第 7 行 <q>This issue</q> 收的是前一句整句：支持的一方和擔憂的一方之間的爭議。第 49 行 <q>that gap</q> 收的是第 48 到 49 行的 <q>If a student cannot explain their own portfolio in person</q>：檔案寫得出來、本人卻說不出來，中間那段落差就是 gap。兩個都是 this 或 that 加一個名詞，收的範圍一大一小。</li>
+    </ul>
+  </div>
+  <p style="margin-top:1.1rem"><button class="go" id="g4">考卷怎麼考這種文章</button></p>
+</section>
+
+<!-- ═══ 第五步 ═══ -->
+<section class="step" id="s5" hidden>
+  <p class="stepno">第五步</p>
+  <h2>誰說的，支持到什麼程度<span class="tag">上層：考點</span></h2>
+  <p>多方觀點的題目，誘答幾乎都出在兩個地方：</p>
+  <p><b>一、把甲的話安到乙頭上。</b>十個人的說法常常很像，第三欄的張教授、劉老師、吳先生都在談做法，誘答就把劉老師的建議寫成張教授的看法。做法：選項說的是某某人，就回到那個人名字後面的引號裡找，不要在隔壁一段找到相似的句子就選。</p>
+  <p><b>二、分不清「明確支持」和「有條件」。</b>雜誌的混合題第 2 題問哪幾位 <q>express clear support</q>，答案只有林先生和 Kevin。第 27 行 <q>AI itself is not the problem</q> 看起來也是支持，可是 but 後面加了條件，重點在規則。做法：看到 not…but…、might seem…but…，答案在 but 後面。</p>
+  <p>試一題：<b>Which of the following best reflects Professor Chang’s view?</b></p>
+  <div class="opts en" id="q5">
+    <button>The key problem is AI itself, since it makes students’ applications much less honest.</button>
+    <button>Students should be taught clear rules for AI use rather than punished for using it.</button>
+    <button data-ok="1">AI use is fine if students openly state how far and where they relied on it.</button>
+    <button>Students need to disclose their AI use only when it has produced most of their work.</button>
+  </div>
+  <div class="said e" id="a5" hidden>
+    <b>第三句。</b>先注意：它沒有照抄課文。第 26 行的 <q>transparency</q> 和第 28 行的 <q>clearly disclose</q> 換成 openly state，第 29 到 30 行的 <q>how much they used it and for which parts of their work</q> 換成 how far and where they relied on it，第 27 行的 <q>AI itself is not the problem</q> 換成 AI use is fine。<b>另外三句反而滿是課文裡的字。</b>大考的正解通常是改寫，照抄課文字面的選項反而要小心。
+    <br><br>
+    <b>另外三個為什麼排除：</b>
+    <br><br>
+    「Students should be taught clear rules …」——<b>這個最難排除</b>，因為它也是談怎麼處理，跟張教授同一欄，意思也說得通。可是這是第 59 到 62 行劉老師的話：<q>Schools should teach responsible AI use and establish clear rules, rather than defaulting to punishment</q>。張教授那一段從頭到尾沒有提到處罰，也沒有提到學校。<b>歸屬錯了。</b>
+    <br><br>
+    「The key problem is AI itself …」——key、problem、itself 都是張教授用過的字，可是第 27 行說的是 <q>AI itself is not the problem</q>，選項把 not 拿掉，意思剛好相反。<b>方向錯了。</b>
+    <br><br>
+    「disclose … only when it produced most of their work」——第 28 到 30 行要學生說明的是 <q>how much they used it and for which parts</q>，用多用少都要說，不是用得多才要說。選項加上 only when，把範圍縮小了。<b>範圍錯了。</b>
+  </div>
+  <button class="go" id="g5" hidden>最後一題</button>
+</section>
+
+<!-- ═══ 第六步 ═══ -->
+<section class="step" id="s6" hidden>
+  <p class="stepno">第六步</p>
+  <h2>把一句話放回去</h2>
+  <p>這就是考卷上的<b>篇章結構</b>題。下面把第 27 到 30 行那一句整句抽掉了，四個候選句只有一句放得進去。</p>
+  <div class="gap" id="gp">
+    … The experiences still belong to the student.”
+    <br><br>
+    Professor Chang, Education Researcher: “The key issue is honesty and transparency. <span class="blank" id="bl">（空格）</span>”
+    <br><br>
+    Ms. Wang, Admissions Officer: “Universities want portfolios that show a student’s real abilities and interests. …
+  </div>
+  <div class="picks" id="q6">
+    <button>AI itself is the real problem, so students should not be allowed to use it for any part of the work in their own learning portfolios.</button>
+    <button data-ok="1">AI itself is not the problem, but it is important that students clearly disclose how much they used it and for which parts of their work.</button>
+    <button>Schools should teach responsible AI use and establish clear rules for students, rather than punishing anyone whose work only seems to be written by AI.</button>
+    <button>That doesn’t mean the experiences and opinions in their portfolios aren’t their own, even if AI helped them organize ideas and improve their writing.</button>
+  </div>
+  <div class="said" id="a6" hidden>
+    <b>四個線索同時指向同一句。</b>這四句單獨看都說得通，沒有一句本身是錯的。要排除，得靠位置和線索。
+    <br><br>
+    <b>先講一個例外。</b>前面說大考的正解通常是改寫，但<b>抽句題不一樣</b>：抽掉的那一句就是原文，所以正解一定是原文。這一題要靠的是誘答哪裡接不上，不是比對字面。
+    <br><br>
+    <b>一、換字：前一句的名詞，要在後一句找到具體的做法。</b>空格前面只有一句 <q>The key issue is honesty and transparency</q>，兩個抽象名詞，還沒說要做什麼。正解的 clearly disclose 就是 transparency 的具體做法，how much they used it and for which parts 就是 honesty 要交代的內容。前一句提出原則，後一句說怎麼做，而且用的正是第四步的 it is important that。
+    <br><br>
+    <b>另外三個為什麼排除，各有一個明確的依據：</b>
+    <br><br>
+    <b>二、方向。</b>「AI itself is the real problem …」跟正解只差一個 not，<b>這個最容易選</b>。可是前一句才說關鍵是 honesty and transparency；如果問題出在 AI 本身，關鍵就該是 AI，不會是誠實和透明。前一句說重點在交代清楚，這一句卻說根本不能用，方向剛好相反。
+    <br><br>
+    <b>三、歸屬。</b>「Schools should teach responsible AI use …」是照著第 60 到 62 行劉老師的話改的。它談的是學校和處罰，跟前一句的誠實、透明一個字也接不上；主詞也從學生換成了學校。把另一個人的建議放進張教授的引號裡，歸屬錯了。
+    <br><br>
+    <b>四、指涉。</b>「That doesn’t mean the experiences and opinions in their portfolios …」是照著第 41 到 43 行 Kevin 的話改的。句首的 That 要往前指一件事，their 要往前指一群人；可是空格前面只有 honesty and transparency，沒有「學生用 AI 做了什麼」這件事，也沒有 students 這群人，That 和 their 都找不到可以指的對象。
+    <br><br>
+    再補一條：正解正是雜誌句型欄選出來的那一句。it is important that 後面的子句，動詞可以用 should 加原形，也可以省略 should 直接用原形，美式英語多半省略。這一句的主詞 students 是複數，看不出差別；主詞換成單數就看得出來：it is important that a student disclose…，disclose 不加 s。
+  </div>
+  <p class="why" id="w6" hidden>考卷上不會有底色，也不會有行號。但你剛才用的四個線索，每一篇多方觀點的文章都找得到。</p>
+</section>
+
+<!-- ═══ 第七步 ═══ -->
+<section class="close" id="s7" hidden>
+  <h2>帶著走的五句話</h2>
+  <ol>
+    <li><b>多方觀點的開頭先把兩邊擺出來。</b>While some supporters believe…, critics worry…：作者用 believe、worry 把看法交給別人說，自己不表態，後面的人再輪流發言。</li>
+    <li><b>驗證方法：把每個人放進正反意見表。</b>只問一個問題：這個人對爭議怎麼回答？支持、擔憂，或者不回答而在談怎麼處理。每個人都放得進一欄、作者自己不在任何一欄，就是多方觀點。</li>
+    <li><b>not…but… 不等於支持，最後一段也不等於結論。</b>AI itself is not the problem 的重點在 but 後面的條件；最後一段是第十個人的發言，不是作者的結論。</li>
+    <li><b>表示義務與建議的情態：should、need to、it is important that。</b>它們說的是「應該怎麼做」，跟 about、is believed to 那種「有多確定」不同；用這些說法的人，通常在提出做法的那一欄。</li>
+    <li><b>多方觀點的考點：誰說的，支持到什麼程度。</b>選項說的是某某人，就回到那個人的引號裡找；分清明確支持和有條件的支持，雜誌的混合題問的正是這個。</li>
+  </ol>
+  <p class="more"><a href="https://staresto-create.github.io/JCEE-vocab-questions/wordwheel.html">單字輪：把字拆成部件來記 →</a></p>
+</section>
+
+<nav class="series">
+  <a class="back" href="cohesion.html">← 回讀法練習總表</a>
+  <p class="note">總表上有目前可以做的所有單元，還有你累積到現在的讀法工具。</p>
+</nav>
+
+</div>
+<script>
+(function(){
+"use strict";
+function $(id){return document.getElementById(id);}
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;");}
+
+var KEY="cohesion-202610-u12-v1";
+
+var PREVIEW=false;
+var ST={tags:{},rows:{},q1:0,q2:0,q3:0,q5:0,q6:0,step:1};
+function save(){ if(PREVIEW) return; try{ localStorage.setItem(KEY, JSON.stringify(ST)); }catch(e){} }
+function load(){ try{ var r=localStorage.getItem(KEY); return r?JSON.parse(r):null; }catch(e){ return null; } }
+function wipe(){ try{ localStorage.removeItem(KEY); }catch(e){} location.reload(); }
+
+var TITLE="Should Students Use AI in College Applications?";
+
+var LINES=[
+"High school students are {increasingly|c-cmp|1}",
+"using advanced AI tools when preparing",
+"their learning portfolios. While some",
+"supporters believe these tools can help",
+"students present their ideas {more clearly|c-cmp|2},",
+"critics worry that AI blurs the line between",
+"assistance and authorship. This issue",
+"ultimately brings significant challenges to",
+"keeping college admissions fair.",
+"Ms. Huang, High School Teacher:",
+"“Learning portfolios {are meant|c-deo|1}",
+"{to reflect|c-deo|1} a student’s growth",
+"and achievements. When AI generates",
+"much of the content, it becomes {harder|c-cmp|3}",
+"to tell what the student actually learned",
+"or produced independently.”",
+"Mr. Lin, Parent: “Applying to",
+"college is already stressful and",
+"competitive. If AI helps students",
+"present their experiences {more clearly|c-cmp|4}, that",
+"isn’t any different from using a grammar",
+"checker or seeking a teacher’s advice. The",
+"experiences still belong to the student.”",
+"Professor Chang, Education",
+"Researcher: “The key issue is",
+"honesty and transparency.",
+"AI itself is not the problem, but {it is|c-deo|2}",
+"{important that|c-deo|2} students clearly disclose",
+"how much they used it and for which",
+"parts of their work.”",
+"Ms. Wang, Admissions Officer:",
+"“Universities want portfolios that",
+"show a student’s real abilities",
+"and interests. Excessive AI assistance",
+"makes applicants’ submissions look",
+"{increasingly similar|c-cmp|5}, which makes fair",
+"evaluations {more difficult|c-cmp|6}.”",
+"Kevin, High School Senior: “Many",
+"students use AI to organize",
+"information, brainstorm ideas,",
+"or improve their writing. That doesn’t",
+"mean the experiences and opinions in",
+"their portfolios aren’t their own.”",
+"Amy, High School Student:",
+"“Polishing an essay with AI",
+"might seem harmless, but",
+"universities will question us closely during",
+"interviews. If a student cannot explain",
+"their own portfolio in person, that gap will",
+"be obvious.”",
+"Dr. Chen, Computer Scientist:",
+"“Current AI detection tools",
+"are {far from|c-cmp|7} reliable. They",
+"sometimes flag human-written work as",
+"AI-generated, leading to unfair judgments",
+"and serious consequences for students",
+"who did nothing wrong.”",
+"Mrs. Liu, School Counselor:",
+"“Students {need|c-deo|3} guidance, not fear.",
+"Schools {should teach|c-deo|4} responsible",
+"AI use and establish clear rules, rather than",
+"defaulting to punishment.”",
+"Eric, Rural High School",
+"Student: “Students in large",
+"cities have {better|c-cmp|8} resources, and",
+"some attend cram schools that help them",
+"refine portfolios using AI. We don’t have",
+"that here, which makes competing for",
+"college slots feel {deeply|c-cmp|9} unfair.”",
+"Mr. Wu, Technology Consultant:",
+"“As AI improves, telling the",
+"difference between human",
+"writing and AI-generated writing will",
+"become {harder|c-cmp|10}. Schools and universities",
+"{will need to develop|c-deo|5} new ways to assess",
+"applications.”"
+];
+var INDENT={1:1,10:1,17:1,24:1,31:1,38:1,44:1,51:1,58:1,63:1,70:1};
+var HEAD={};
+var SPLIT=38;
+var SPLIT_TEXT="以上是 10/26 的第 1–37 行。以下是 10/27 的第 38–76 行。";
+
+var CHAINS={
+ "c-deo":{k:"sub",n:"表示義務與建議的情態，五處。第 11 到 12 行 are meant to reflect 說學習歷程檔案本來就應該呈現學生的成長，黃老師先講檔案應該是什麼樣子，再說 AI 讓它做不到。第 27 到 28 行 it is important that students clearly disclose 是張教授的做法，也是雜誌句型欄選的句子。第 59 行 need 和第 60 行 should teach 是劉老師的做法，第 75 行 will need to develop 是吳先生的做法。注意分布：除了黃老師那一處，其餘四處都在第三欄的張教授、劉老師、吳先生身上。支持和擔憂的人多半只描述情況和後果，提出做法的人才用這類說法。"},
+ "c-cmp":{k:"gen",n:"比較與程度的語言，十處，前面單元教過。分成兩種：一種說的是變化，也就是 increasingly 和比較級，例如第 1 行 increasingly、第 14 行 harder、第 36 到 37 行 increasingly similar 和 more difficult、第 74 行 harder；另一種說的是程度，例如第 53 行 far from reliable 表示一點也不可靠，第 69 行 deeply unfair 表示非常不公平。再看兩邊怎麼用同一種字：支持的一方說 AI 讓學生表達得 more clearly（第 5 行、第 20 行），擔憂的一方說 AI 讓判斷變得 harder、more difficult。比較級說的是一個趨勢，整個爭議就是從第 1 行的 increasingly 開始的。"}
+};
+var LB={sub:"義務與建議",gen:"比較與程度",mk:"標記詞"};
+var CL={sub:"k",gen:"k g",mk:"k e"};
+
+/* NODES[0] 是爭議，1–10 依字母 A–J；col 0 支持、1 擔憂、2 談怎麼處理 */
+var NODES=[
+ {nm:"爭議：申請大學能不能用 AI",en:"This issue",a:1,b:9,col:-1,
+  n:"第 1 到 9 行。高中生準備學習歷程檔案時越來越常用 AI。支持的一方認為 AI 能幫學生把想法說得更清楚，擔憂的一方認為 AI 讓「協助」和「代寫」分不清楚；這個議題關係到大學招生公不公平。"},
+ {nm:"A 黃老師・高中老師",en:"harder to tell",a:10,b:16,col:1,
+  n:"第 10 到 16 行。學習歷程檔案應該呈現學生的成長和成就；AI 寫了大部分內容，就很難分辨哪些是學生自己學到、自己完成的。"},
+ {nm:"B 林先生・家長",en:"isn’t any different",a:17,b:23,col:0,
+  n:"第 17 到 23 行。申請大學已經夠有壓力了；用 AI 把經歷說得更清楚，跟用文法檢查工具或請老師給意見沒有兩樣，經歷還是學生自己的。混合題第 2 題的答案之一。"},
+ {nm:"C 張教授・教育研究者",en:"clearly disclose",a:24,b:30,col:2,
+  n:"第 24 到 30 行。關鍵是誠實和透明：AI 本身不是問題，但學生要說清楚用了多少、用在哪些部分。第 27 行 not the problem 看起來像支持，重點卻在 but 後面的規則。"},
+ {nm:"D 王女士・招生人員",en:"increasingly similar",a:31,b:37,col:1,
+  n:"第 31 到 37 行。大學想看的是學生真正的能力和興趣；AI 幫得太多，大家交上來的東西越來越像，就很難公平評分。"},
+ {nm:"E Kevin・高三生",en:"aren’t their own",a:38,b:43,col:0,
+  n:"第 38 到 43 行。很多學生用 AI 整理資料、發想點子、修改文字，但這不代表檔案裡的經歷和看法不是自己的。混合題第 2 題的答案之一。第二天從這一格開始。"},
+ {nm:"F Amy・高中生",en:"that gap will be obvious",a:44,b:50,col:1,
+  n:"第 44 到 50 行。用 AI 潤飾文章看似無害，但大學面試時會追問；學生如果當面說不清楚自己的檔案，落差就會很明顯。"},
+ {nm:"G 陳博士・電腦科學家",en:"far from reliable",a:51,b:57,col:2,
+  n:"第 51 到 57 行。現在的 AI 偵測工具一點也不可靠，有時把人寫的作品判成 AI 寫的，讓沒做錯事的學生受到不公平的判定。他談的不是學生該不該用，而是學校拿什麼方法去查。"},
+ {nm:"H 劉老師・輔導老師",en:"guidance, not fear",a:58,b:62,col:2,
+  n:"第 58 到 62 行。學生需要的是引導，不是恐懼；學校應該教學生負責任地使用 AI、訂出清楚的規則，而不是動不動就處罰。"},
+ {nm:"I Eric・鄉下高中生",en:"deeply unfair",a:63,b:69,col:1,
+  n:"第 63 到 69 行。大城市的學生資源比較好，有些人上補習班，補習班會用 AI 幫他們修檔案；鄉下沒有這些，競爭大學名額就顯得很不公平。"},
+ {nm:"J 吳先生・科技顧問",en:"new ways to assess",a:70,b:76,col:2,
+  n:"第 70 到 76 行。AI 越來越進步，人寫的和 AI 寫的會越來越難分辨；學校和大學需要發展新的方式來評量申請資料。"}
+];
+
+var SPOKES=["支持","擔憂","談怎麼處理"];
+var ROWS=[
+ {f:"只要老實交代用了多少、用在哪些地方，AI 本身並不是問題。",ans:2,
+  note:"第 24 到 30 行，張教授。<q>AI itself is not the problem</q> 聽起來像支持，可是重點在 but 後面：<q>it is important that students clearly disclose</q>。他沒有說學生該用，只說用了就要交代清楚；他在訂規則，所以放在談怎麼處理那一欄。"},
+ {f:"用 AI 整理資料、發想點子，不代表檔案裡的經歷和想法就不是自己的。",ans:0,
+  note:"第 38 到 43 行，Kevin。<q>That doesn’t mean the experiences and opinions in their portfolios aren’t their own</q>。他直接回答了可以用，雜誌混合題第 2 題的答案裡也有他。"},
+ {f:"AI 幫得太多，大家交上來的檔案越看越像，評分就很難公平。",ans:1,
+  note:"第 31 到 37 行，王女士。<q>Excessive AI assistance makes applicants’ submissions look increasingly similar</q>。她是招生人員，擔心的是自己那一方的工作：檔案都長得差不多，就分不出誰比較好。"},
+ {f:"用來判斷作品是不是 AI 寫的工具並不可靠，常讓沒做錯事的學生吃虧。",ans:2,
+  note:"第 51 到 57 行，陳博士。這一張最容易放到擔憂。可是他擔心的不是學生用 AI，而是學校用什麼方法去查：<q>Current AI detection tools are far from reliable</q>。他談的是處理的方法靠不住，所以放在談怎麼處理那一欄。"},
+ {f:"城市的學生有補習班幫忙用 AI 修檔案，鄉下學生沒有，競爭起來很不公平。",ans:1,
+  note:"第 63 到 69 行，Eric。他沒有說 AI 不好，他在意的是有人用得到、有人用不到。可是他的結論是 <q>feel deeply unfair</q>，這是擔憂，不是支持。"},
+ {f:"用 AI 把經歷說得更清楚，跟請老師給意見或用文法檢查工具沒有兩樣。",ans:0,
+  note:"第 17 到 23 行，林先生。<q>that isn’t any different from using a grammar checker or seeking a teacher’s advice</q>。他拿大家都接受的做法來比，說明用 AI 也該接受，雜誌混合題第 2 題的答案裡也有他。"}
+];
+
+var TL={s:"支持的一方",c:"擔憂的一方",i:"爭議"};
+
+/* ---------- 通用：選擇題 ---------- */
+function quiz(qid,aid,gid,tag,after){
+  var done=false;
+  function settle(){
+    done=true;
+    var bs=$(qid).querySelectorAll("button");
+    for(var i=0;i<bs.length;i++){ bs[i].disabled=true; bs[i].dataset.state=bs[i].dataset.ok?"right":"wrong"; }
+    if(aid) $(aid).hidden=false;
+    if(gid) $(gid).hidden=false;
+    if(after) after();
+  }
+  $(qid).addEventListener("click",function(e){
+    var b=e.target.closest("button"); if(!b||done) return;
+    settle(); ST[tag]=1; save();
+  });
+  return settle;
+}
+function opener(gid,sid,extra){
+  $(gid).addEventListener("click",function(){
+    var n=parseInt(sid.replace(/\D/g,""),10);
+    if(ST.step<n) ST.step=n; save();
+    $(sid).hidden=false; if(extra) extra();
+    $(sid).scrollIntoView({behavior:"smooth",block:"start"});
+  });
+}
+function hlLines(a,b){
+  var rows=$("tx").querySelectorAll(".ln");
+  for(var r=0;r<rows.length;r++){ var n=+rows[r].dataset.n; rows[r].classList.toggle("hl", n>=a&&n<=b); }
+  var ms=$("tx").querySelectorAll("m");
+  for(var k=0;k<ms.length;k++) ms[k].classList.remove("lit");
+  if(rows.length){ var f=$("tx").querySelector('.ln[data-n="'+a+'"]'); if(f) f.scrollIntoView({behavior:"smooth",block:"center"}); }
+}
+
+/* ---------- 第一步 ---------- */
+function tagged(){ var n=0; for(var k in ST.tags) if(ST.tags[k]) n++; return n; }
+function paintTag(c){
+  if(c.classList.contains("got")) return;
+  c.classList.add("got");
+  var b=document.createElement("b"); b.textContent=TL[c.dataset.t]||"";
+  c.insertBefore(b, c.firstChild);
+}
+function afterTags(){
+  $("sc").innerHTML="已標出 <em>"+tagged()+"</em> / 3";
+  if(tagged()===3) $("s1b").hidden=false;
+}
+$("ld").addEventListener("click",function(e){
+  var c=e.target.closest("c"); if(!c) return;
+  if(ST.tags[c.dataset.t]) return;
+  ST.tags[c.dataset.t]=1; save(); paintTag(c); afterTags();
+});
+var set1=quiz("q1","a1","g1","q1");
+opener("g1","s2");
+
+/* ---------- 第二步：正反意見表 ---------- */
+function drawFig(){
+  if($("fig").firstChild) return;
+  $("fig").hidden=false;
+  var s='<svg viewBox="0 0 420 322" role="img" aria-label="正反意見表：最上面是爭議，下面三欄是支持、擔憂、談怎麼處理，十個人各放一格">';
+  var CX=[72,210,348], HD=["支持","擔憂","談怎麼處理"], HC=["l","r","m"];
+  var d=NODES[0], i, j;
+  for(i=0;i<3;i++) s+='<path class="guide" d="M210 62 L210 74 L'+CX[i]+' 74 L'+CX[i]+' 84"/>';
+  s+='<g class="node hub" data-i="0" tabindex="0" role="button">';
+  s+='<rect x="70" y="8" width="280" height="54" rx="8"/>';
+  s+='<text x="210" y="29" text-anchor="middle">'+esc(d.nm)+'</text>';
+  s+='<text class="n" x="210" y="43" text-anchor="middle">'+esc(d.en)+'</text>';
+  s+='<text class="n" x="210" y="55" text-anchor="middle">第 '+d.a+'–'+d.b+' 行</text>';
+  s+='</g>';
+  for(i=0;i<3;i++) s+='<text class="colhd '+HC[i]+'" x="'+CX[i]+'" y="98" text-anchor="middle">'+HD[i]+'</text>';
+  var row=[0,0,0];
+  for(j=1;j<NODES.length;j++){
+    d=NODES[j]; var c=d.col, x=CX[c], y=108+row[c]*52; row[c]++;
+    s+='<g class="node" data-i="'+j+'" tabindex="0" role="button">';
+    s+='<rect x="'+(x-64)+'" y="'+y+'" width="128" height="46" rx="5"/>';
+    s+='<text x="'+x+'" y="'+(y+16)+'" text-anchor="middle">'+esc(d.nm)+'</text>';
+    s+='<text class="n" x="'+x+'" y="'+(y+29)+'" text-anchor="middle">'+esc(d.en)+'</text>';
+    s+='<text class="n" x="'+x+'" y="'+(y+41)+'" text-anchor="middle">第 '+d.a+'–'+d.b+' 行</text>';
+    s+='</g>';
+  }
+  s+='</svg><figcaption>最上面是爭議，下面三欄是三種立場，格子前的字母 A 到 J 跟雜誌上的標號一樣。每一格的英文，是這個人那一段最關鍵的幾個字。支持只有兩格，擔憂和談怎麼處理各有四格：十個人裡明確支持的只有林先生和 Kevin，雜誌的混合題第 2 題問的就是這件事。同一欄裡的人上下對調都不影響，欄和欄之間也沒有箭頭：每個人只跟最上面的爭議有關係。點任一格，第四步的課文對應行會亮起來。</figcaption>';
+  $("fig").innerHTML=s;
+  function hit(g){
+    var i=+g.dataset.i, d=NODES[i];
+    var gs=$("fig").querySelectorAll(".node");
+    for(var j=0;j<gs.length;j++) gs[j].classList.toggle("on", +gs[j].dataset.i===i);
+    hlLines(d.a,d.b);
+    $("pk").textContent=(i===0?"意見表的爭議":"意見表的一格"); $("pk").className="k e";
+    $("pc").textContent=d.nm+"　"+d.en; $("pt").textContent=d.n;
+  }
+  $("fig").addEventListener("click",function(e){ var g=e.target.closest(".node"); if(g) hit(g); });
+  $("fig").addEventListener("keydown",function(e){
+    if(e.key!=="Enter"&&e.key!==" ") return;
+    var g=e.target.closest(".node"); if(g){ e.preventDefault(); hit(g); }
+  });
+}
+function afterQ2(){ drawFig(); $("db").hidden=false; }
+var set2=quiz("q2","a2","g2","q2",afterQ2);
+opener("g2","s3",buildRows);
+
+/* ---------- 第三步：把每個人放回意見表 ---------- */
+var builtRows=false;
+function buildRows(){
+  if(builtRows) return; builtRows=true;
+  var h="";
+  for(var i=0;i<ROWS.length;i++){
+    var r=ROWS[i], bt="";
+    for(var k=0;k<SPOKES.length;k++) bt+='<button data-i="'+i+'" data-v="'+k+'">'+SPOKES[k]+'</button>';
+    h+='<div class="qcard" id="cd'+i+'"><div class="hd"><span class="qt">'+esc(r.f)+'</span></div>'+
+       '<span class="yn">屬於：'+bt+'</span>'+
+       '<span class="bd" id="bd'+i+'"></span></div>';
+  }
+  $("qs").innerHTML=h;
+  $("qs").addEventListener("click",function(e){
+    var b=e.target.closest("button"); if(!b) return;
+    var i=b.dataset.i; if(ST.rows[i]!==undefined&&ST.rows[i]!==null) return;
+    ST.rows[i]=+b.dataset.v; save(); paintRows();
+  });
+  paintRows();
+}
+function isSet(v){ return typeof v==="number"; }
+function judged(){ var n=0; for(var i=0;i<ROWS.length;i++) if(isSet(ST.rows[i])) n++; return n; }
+function rightRows(){ var n=0; for(var i=0;i<ROWS.length;i++) if(ST.rows[i]===ROWS[i].ans) n++; return n; }
+function paintRows(){
+  for(var i=0;i<ROWS.length;i++){
+    var el=$("cd"+i); if(!el) continue;
+    var v=ST.rows[i], r=ROWS[i];
+    el.classList.toggle("open",isSet(v));
+    if(isSet(v)){
+      var ok=(v===r.ans);
+      var head= ok ? ("放對了：這一張屬於「"+SPOKES[r.ans]+"」那一格。") : ("再看一次：這一張其實屬於「"+SPOKES[r.ans]+"」，不是「"+SPOKES[v]+"」。");
+      $("bd"+i).innerHTML='<span class="vd '+(ok?"ok":"ng")+'">'+head+'</span>'+r.note;
+    }
+  }
+  $("sc3").innerHTML="已放 <em>"+judged()+"</em> / "+ROWS.length+"，第一次就放對 <em>"+rightRows()+"</em> 張";
+  if(judged()>=ROWS.length){ $("a3").hidden=false; $("q3w").hidden=false; }
+}
+var set3=quiz("q3","a3b","g3","q3");
+opener("g3","s4",function(){ buildText(); drawFig(); });
+
+/* ---------- 第四步：課文與線索鏈 ---------- */
+function renderLine(str){
+  var out="",i=0;
+  while(i<str.length){
+    var a=str.indexOf("{",i);
+    if(a<0){ out+=esc(str.slice(i)); break; }
+    out+=esc(str.slice(i,a));
+    var b=str.indexOf("}",a), p=str.slice(a+1,b).split("|");
+    var id=p[1], it=p[2]||"1", k=CHAINS[id]?CHAINS[id].k:"sub";
+    out+='<m data-c="'+id+'" data-i="'+it+'" data-kind="'+k+'" tabindex="0">'+esc(p[0])+'</m>';
+    i=b+1;
+  }
+  return out;
+}
+var builtText=false;
+function buildText(){
+  if(builtText) return; builtText=true;
+  var h='<p class="ttl">'+renderLine(TITLE)+'</p>';
+  for(var i=0;i<LINES.length;i++){
+    var n=i+1;
+    if(SPLIT && n===SPLIT) h+='<p class="split">'+esc(SPLIT_TEXT)+'</p>';
+    var cls="ln";
+    if(HEAD[n]) cls+=" sub pb";
+    else if(INDENT[n]) cls+=" ind"+(n>1&&!HEAD[n-1]?" pb":"");
+    h+='<div class="'+cls+'" data-n="'+n+'"><i>'+((n%5===0)?n:"")+'</i><span>'+renderLine(LINES[i])+'</span></div>';
+  }
+  $("tx").innerHTML=h;
+}
+function lightChain(id){
+  var ms=$("tx").querySelectorAll("m"), items={}, order=[],i;
+  var gs=$("fig").querySelectorAll(".node");
+  for(i=0;i<gs.length;i++) gs[i].classList.remove("on");
+  var rows=$("tx").querySelectorAll(".ln");
+  for(i=0;i<rows.length;i++) rows[i].classList.remove("hl");
+  for(i=0;i<ms.length;i++){
+    if(ms[i].dataset.c===id){
+      ms[i].classList.add("lit");
+      var key=ms[i].dataset.i;
+      if(!items[key]){ items[key]=[]; order.push(key); }
+      items[key].push(ms[i].textContent);
+    } else ms[i].classList.remove("lit");
+  }
+  var c=CHAINS[id]; if(!c) return;
+  var parts=[];
+  for(var o=0;o<order.length;o++) parts.push(esc(items[order[o]].join(" ")));
+  $("pk").textContent=LB[c.k]; $("pk").className=CL[c.k];
+  $("pc").innerHTML=parts.join('<i>\u2192</i>');
+  $("pt").textContent=c.n;
+}
+$("tx").addEventListener("click",function(e){ var m=e.target.closest("m"); if(m) lightChain(m.dataset.c); });
+$("tx").addEventListener("keydown",function(e){
+  if(e.key!=="Enter"&&e.key!==" ") return;
+  var m=e.target.closest("m"); if(m){ e.preventDefault(); lightChain(m.dataset.c); }
+});
+function toggle(btn,cls){
+  btn.addEventListener("click",function(){
+    var on=btn.getAttribute("aria-pressed")==="true";
+    btn.setAttribute("aria-pressed",on?"false":"true");
+    $("tx").classList.toggle(cls,on);
+  });
+}
+toggle($("m1"),"off-sub");
+toggle($("m2"),"off-gen");
+opener("g4","s5");
+
+/* ---------- 第五步 ---------- */
+var set5=quiz("q5","a5","g5","q5");
+$("g5").addEventListener("click",function(){
+  if(ST.step<6) ST.step=6; save();
+  $("s6").hidden=false;
+  $("s6").scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+/* ---------- 第六步 ---------- */
+var done6=false;
+function settle6(){
+  done6=true;
+  var bs=$("q6").querySelectorAll("button");
+  for(var i=0;i<bs.length;i++){
+    bs[i].disabled=true; bs[i].dataset.state=bs[i].dataset.ok?"right":"wrong";
+    if(bs[i].dataset.ok){ $("bl").textContent=bs[i].textContent; $("bl").className="blank filled"; }
+  }
+  $("a6").hidden=false; $("w6").hidden=false; $("s7").hidden=false;
+}
+$("q6").addEventListener("click",function(e){
+  var b=e.target.closest("button"); if(!b||done6) return;
+  settle6(); ST.q6=1; save();
+  $("a6").scrollIntoView({behavior:"smooth",block:"nearest"});
+});
+
+/* ---------- 老師的預覽開關：網址加 ?all ---------- */
+function previewAll(){
+  PREVIEW=true;
+  $("pv").hidden=false;
+  var i,cs=$("ld").querySelectorAll("c");
+  for(i=0;i<cs.length;i++){ ST.tags[cs[i].dataset.t]=1; paintTag(cs[i]); }
+  afterTags(); set1();
+  $("s2").hidden=false; set2();
+  $("s3").hidden=false;
+  for(i=0;i<ROWS.length;i++) ST.rows[i]=ROWS[i].ans;
+  buildRows(); set3();
+  $("s4").hidden=false; buildText(); drawFig();
+  $("s5").hidden=false; set5();
+  $("s6").hidden=false; settle6();
+}
+
+/* ---------- 接回上次的進度 ---------- */
+$("rst").addEventListener("click",wipe);
+(function restore(){
+  if(/(^|[?&])all(=|&|$)/.test(location.search)){ previewAll(); return; }
+  var v=load(); if(!v) return;
+  ST=v;
+  if(!ST.tags) ST.tags={};
+  if(!ST.rows) ST.rows={};
+  if(!ST.step) ST.step=1;
+  if(!(tagged()||ST.step>1)) return;
+  $("rs").hidden=false;
+  var i,cs=$("ld").querySelectorAll("c");
+  for(i=0;i<cs.length;i++) if(ST.tags[cs[i].dataset.t]) paintTag(cs[i]);
+  afterTags();
+  if(ST.q1) set1();
+  if(ST.step>=2){ $("s2").hidden=false; if(ST.q2) set2(); }
+  if(ST.step>=3){ $("s3").hidden=false; buildRows(); if(ST.q3) set3(); }
+  if(ST.step>=4){ $("s4").hidden=false; buildText(); drawFig(); }
+  if(ST.step>=5){ $("s5").hidden=false; if(ST.q5) set5(); }
+  if(ST.step>=6){ $("s6").hidden=false; if(ST.q6) settle6(); }
+  var last=$("s"+(ST.step>=6?6:ST.step));
+  if(last) setTimeout(function(){ last.scrollIntoView({block:"start"}); },60);
+})();
+})();
+</script>
+</body>
+</html>
