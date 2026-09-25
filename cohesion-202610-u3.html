@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>因果：多組並列｜The Kitchen Favorites Once Thought to Be Deadly</title>
+<meta name="description" content="番茄、馬鈴薯、咖啡和鹽，從前為什麼讓歐洲人害怕？這一頁教你認出多組並列的因果，還有讓作者立場露出來的讓步標記。">
+<meta property="og:title" content="因果：多組並列｜The Kitchen Favorites Once Thought to Be Deadly">
+<meta property="og:description" content="四種食物，四組原因。先讓一步再說真正要說的，作者的立場就在讓步標記後面。">
+<style>
+:root{
+  --ground:#f1f3f2; --ink:#17282f; --teal:#1f6f6a; --teal-soft:#dfeceb;
+  --muted:#77878d; --line:#cdd6d6; --exam:#b4661c; --exam-soft:#fdf4e7;
+  --gen:#4a6a90; --gen-soft:#e0e7f0;
+  --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+  --sans:"PingFang TC","Noto Sans TC","Microsoft JhengHei","Helvetica Neue",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-text-size-adjust:100%}
+.wrap{max-width:44rem;margin:0 auto;padding:1.6rem 1.1rem 4rem}
+h1{font-family:var(--serif);font-weight:600;font-size:1.6rem;line-height:1.3;margin:0 0 .55rem}
+.lede{margin:0 0 1.3rem;color:#3d5059;font-size:.95rem}
+.src{font-size:.8rem;color:var(--muted);margin:0 0 1.1rem}
+.resume{font-size:.85rem;color:var(--teal);background:var(--teal-soft);border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.resume[hidden],.preview[hidden]{display:none}
+.preview{font-size:.85rem;color:var(--exam);background:var(--exam-soft);
+  border:1px dashed var(--exam);border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.resume button{font:inherit;font-size:.82rem;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:.25rem;padding:.16rem .6rem;margin-left:.5rem;cursor:pointer}
+.resume button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.step{border-top:1px solid var(--line);padding-top:1.15rem;margin-top:1.6rem}
+.step[hidden]{display:none}
+.stepno{font-family:var(--serif);font-size:.82rem;color:var(--muted);margin:0 0 .2rem}
+h2{font-family:var(--serif);font-weight:600;font-size:1.2rem;margin:0 0 .5rem;color:var(--teal)}
+.step p{margin:0 0 .7rem;font-size:.95rem}
+.tag{display:inline-block;font-size:.72rem;font-weight:600;border-radius:.2rem;padding:.08rem .45rem;margin-left:.45rem;vertical-align:.12rem;color:var(--exam);background:var(--exam-soft);border:1px solid var(--exam)}
+.tag.b{color:var(--gen);background:var(--gen-soft);border-color:var(--gen)}
+
+/* 選擇題：中文用 .opts，英文選項加 .en，附小字說明加 .rg */
+.opts{display:flex;flex-direction:column;gap:.45rem;margin:.2rem 0 .8rem}
+.opts button{font:inherit;font-size:.95rem;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:.3rem;padding:.45rem .85rem;cursor:pointer;text-align:left}
+.opts button:hover{border-color:var(--teal)}
+.opts button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.opts button[data-state="right"]{background:var(--teal);border-color:var(--teal);color:#fff}
+.opts button[data-state="wrong"]{background:var(--ground);color:var(--muted)}
+.opts button[disabled]{cursor:default}
+.opts.en button{font-family:var(--serif);font-size:.97rem;line-height:1.6;padding:.55rem .8rem}
+.opts.en button[data-state="right"]{background:var(--teal-soft);border-color:var(--teal);color:var(--ink)}
+.opts.rg button i{display:block;font-style:normal;font-size:.82rem;color:var(--muted);margin-top:.12rem}
+.opts.rg button[data-state="right"] i{color:#dfeceb}
+
+/* 揭曉區塊 */
+.said{background:#fff;border-left:3px solid var(--teal);border-radius:.3rem;padding:.75rem .85rem;margin:.2rem 0 .9rem;font-size:.93rem;color:#3d5059}
+.said b{color:var(--ink);font-weight:600}
+.said[hidden]{display:none}
+.said.g{border-left-color:var(--gen)}
+.said.e{border-left-color:var(--exam)}
+.said q{quotes:none;font-family:var(--serif)}
+
+.go{font:inherit;font-size:.92rem;background:var(--ink);color:#fff;border:1px solid var(--ink);border-radius:.3rem;padding:.42rem 1.05rem;cursor:pointer}
+.go:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.go[hidden]{display:none}
+
+/* 第一步的可點標記 */
+.lead{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.9rem 1rem;margin:0 0 .7rem;font-family:var(--serif);font-size:1.02rem;line-height:1.95}
+.lead c{cursor:pointer;border-radius:.2rem;padding:.06rem .2rem;background:var(--exam-soft);box-shadow:inset 0 -2px 0 #ecc9a2}
+.lead c:hover{box-shadow:inset 0 -2px 0 var(--exam)}
+.lead c.got{background:var(--exam);color:#fff;box-shadow:none}
+.lead c b{font-family:var(--sans);font-size:.72rem;font-weight:600;background:#fff;color:var(--exam);border-radius:.2rem;padding:.02rem .3rem;margin-right:.3rem}
+.score{font-size:.9rem;color:var(--muted);margin:0 0 .8rem}
+.score em{font-style:normal;color:var(--exam);font-weight:600}
+
+/* 第三步的卡片（驗證方法通用容器） */
+.qs{display:flex;flex-direction:column;gap:.5rem;margin:0 0 .8rem}
+.qcard{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.6rem .85rem}
+.qcard .hd{display:flex;align-items:center;gap:.6rem;font-size:.95rem}
+.qcard .hd .qt{flex:1 1 auto;font-weight:600}
+.qcard .hd button{font:inherit;font-size:.8rem;background:#fff;color:var(--ink);border:1px solid var(--line);
+  border-radius:.25rem;padding:.18rem .7rem;cursor:pointer;flex:0 0 auto}
+.qcard .hd button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.qcard .bd{display:none;margin-top:.4rem;font-size:.92rem;color:#3d5059;line-height:1.75}
+.qcard.open .bd{display:block}
+.qcard.open .hd button{display:none}
+.qcard .bd .rf{display:block;color:var(--muted);font-size:.82rem;margin-top:.25rem}
+.qcard .bd .sw{display:block;font-family:var(--serif);background:var(--ground);border-radius:.3rem;
+  padding:.45rem .6rem;margin:.35rem 0;color:var(--ink);font-size:.93rem;line-height:1.7}
+.qcard .r{display:grid;grid-template-columns:1fr;gap:.1rem;margin-bottom:.4rem}
+@media(min-width:34rem){.qcard .r{grid-template-columns:5.5rem 1fr;gap:.5rem}}
+.qcard .r:last-child{margin-bottom:0}
+.qcard .r .k{font-size:.76rem;font-weight:600;color:var(--gen)}
+.qcard .r .v em{font-style:normal;color:var(--muted);font-size:.82rem;margin-left:.3rem}
+
+/* 圖表容器與通用節點 */
+.fig{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.7rem .5rem .4rem;margin:0 0 .7rem}
+.fig[hidden]{display:none}
+.fig svg{display:block;width:100%;height:auto;max-width:27rem;margin:0 auto}
+.fig figcaption{font-size:.85rem;color:#3d5059;margin:.35rem .5rem 0;line-height:1.65}
+.node{cursor:pointer}
+.node rect,.node circle,.node path.bx{fill:#fff;stroke:var(--line);stroke-width:2;stroke-linejoin:round}
+.node text{font-family:var(--sans);font-size:11px;fill:var(--ink);font-weight:600}
+.node tspan.n,.node text.n{font-size:9px;font-weight:400;fill:var(--muted)}
+.node.on rect,.node.on circle,.node.on path.bx{fill:var(--exam-soft);stroke:var(--exam);stroke-width:3}
+.node.on text{fill:var(--exam)}
+.node.on tspan.n,.node.on text.n{fill:var(--exam)}
+.guide{stroke:var(--line);stroke-width:2;fill:none;stroke-linejoin:round;stroke-linecap:round}
+.guide.dash{stroke-dasharray:5 4}
+.endlab{font-family:var(--sans);font-size:10.5px;font-weight:600}
+.endlab.l{fill:var(--teal)}
+.endlab.r{fill:var(--gen)}
+
+/* 分日分隔框 */
+.daybreak{border:1px dashed var(--exam);background:var(--exam-soft);border-radius:.4rem;
+  padding:.8rem .95rem;margin:1.6rem 0 0;font-size:.9rem;color:#3d5059;line-height:1.7}
+.daybreak b{display:block;color:var(--exam);font-family:var(--serif);font-size:1.02rem;margin-bottom:.3rem}
+.daybreak[hidden]{display:none}
+
+/* 課文與線索鏈 */
+.modes{display:flex;gap:.4rem;margin:0 0 .7rem;flex-wrap:wrap}
+.modes button{font:inherit;font-size:.84rem;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:.3rem;padding:.3rem .8rem;cursor:pointer}
+.modes button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.modes button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.text{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.9rem .6rem 1.1rem;font-family:var(--serif);font-size:1rem;line-height:1.85}
+.text .ttl{font-weight:600;font-size:1.06rem;margin:0 .4rem .7rem 2.6rem;line-height:1.45}
+.ln{display:flex;align-items:baseline;padding:.02rem 0;border-radius:.2rem}
+.ln>i{flex:0 0 2.2rem;text-align:right;padding-right:.55rem;font-family:var(--sans);font-style:normal;font-size:.68rem;color:var(--muted);line-height:1.9}
+.ln>span{flex:1 1 auto;overflow-wrap:anywhere}
+.ln.ind>span{padding-left:1.1rem}
+.ln.sub>span{font-weight:600}
+.ln.hl{background:var(--exam-soft)}
+.ln.pb{margin-top:.55rem}
+.text .split{font-family:var(--sans);font-size:.78rem;color:var(--exam);
+  border-top:1px dashed var(--exam);margin:.8rem .4rem .7rem 2.6rem;padding-top:.35rem}
+.text m{cursor:pointer;border-radius:.2rem;padding:.02rem .14rem}
+.text m[data-kind="sub"]{background:var(--teal-soft);box-shadow:inset 0 -2px 0 #a8ccc8}
+.text m[data-kind="gen"]{background:var(--gen-soft);box-shadow:inset 0 -2px 0 #a9bbd0}
+.text m[data-kind="mk"]{border-bottom:2px dotted var(--exam);font-style:italic}
+.text m.lit[data-kind="sub"]{background:var(--teal);color:#fff;box-shadow:none}
+.text m.lit[data-kind="gen"]{background:var(--gen);color:#fff;box-shadow:none}
+.text m.lit[data-kind="mk"]{background:var(--exam);color:#fff;border-bottom:none}
+.text.off-sub m[data-kind="sub"]{background:none;box-shadow:none}
+.text.off-gen m[data-kind="gen"]{background:none;box-shadow:none}
+
+/* 固定在底部的說明面板 */
+.panel{position:sticky;bottom:0;background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.75rem .9rem;margin-top:.8rem;box-shadow:0 -2px 10px rgba(23,40,47,.07)}
+.panel .k{font-size:.72rem;font-weight:600;border-radius:.2rem;padding:.06rem .42rem;color:var(--teal);background:var(--teal-soft);border:1px solid var(--teal)}
+.panel .k.g{color:var(--gen);background:var(--gen-soft);border-color:var(--gen)}
+.panel .k.e{color:var(--exam);background:var(--exam-soft);border-color:var(--exam)}
+.panel .ch{font-family:var(--serif);font-size:1rem;margin:.4rem 0 .3rem;color:var(--ink);line-height:1.75;overflow-wrap:anywhere}
+.panel .ch i{font-style:normal;color:var(--muted);padding:0 .28rem}
+.panel .nt{font-size:.88rem;color:#3d5059;margin:0}
+
+/* 舊工具點名複習 */
+.recall{background:#fff;border:1px solid var(--line);border-left:3px solid var(--muted);
+  border-radius:.3rem;padding:.75rem .85rem;margin:1.1rem 0 .9rem;font-size:.92rem;color:#3d5059}
+.recall b{color:var(--ink)}
+.recall ul{margin:.4rem 0 0;padding-left:1.1rem}
+.recall li{margin-bottom:.35rem}
+
+/* 抽句題 */
+.gap{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.9rem 1rem;margin:0 0 .9rem;font-family:var(--serif);font-size:1rem;line-height:1.9}
+.gap .blank{display:inline-block;min-width:9rem;border-bottom:2px solid var(--gen);color:var(--gen);text-align:center;font-family:var(--sans);font-size:.82rem}
+.gap .blank.filled{border-bottom-color:var(--teal);color:var(--ink);font-family:var(--serif);font-size:1rem;text-align:left;background:var(--teal-soft);border-radius:.2rem;padding:0 .25rem}
+.gap .lst{font-family:var(--sans);font-size:.85rem;color:var(--muted);display:block;margin-top:.5rem}
+.picks{display:flex;flex-direction:column;gap:.45rem;margin:0 0 .9rem}
+.picks button{font:inherit;font-family:var(--serif);font-size:.97rem;line-height:1.6;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:.3rem;padding:.55rem .8rem;cursor:pointer;text-align:left}
+.picks button:hover{border-color:var(--teal)}
+.picks button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.picks button[data-state="right"]{background:var(--teal-soft);border-color:var(--teal)}
+.picks button[data-state="wrong"]{background:var(--ground);color:var(--muted)}
+.why{font-size:.86rem;color:#3d5059;margin:.35rem 0 0}
+.why[hidden]{display:none}
+
+/* 收尾與頁尾 */
+.close{border-top:1px solid var(--line);margin-top:2rem;padding-top:1.1rem;font-size:.93rem;color:#3d5059}
+.close[hidden]{display:none}
+.close h2{font-size:1.1rem}
+.close ol{margin:.3rem 0 0;padding-left:1.15rem}
+.close li{margin-bottom:.5rem}
+.more{margin-top:1.5rem;font-size:.88rem}
+.more a{color:var(--teal)}
+.series{border-top:1px solid var(--line);margin-top:2rem;padding-top:1.1rem;font-size:.9rem;color:#3d5059}
+.series .back{font-family:var(--serif);font-size:1rem;color:var(--teal);text-decoration:none}
+.series .back:hover{text-decoration:underline}
+.series .back:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.series .note{font-size:.85rem;color:var(--muted);margin:.5rem 0 0}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+/* 本單元：原因結果表與第三步的判斷列 */
+.fig .hdr{font-family:var(--sans);font-size:10.5px;font-weight:600;fill:var(--muted)}
+.fig .node text.c{font-size:10.5px;font-weight:400}
+.fig .node.on text.c{fill:var(--exam)}
+.fig .arr{stroke:var(--muted);stroke-width:1.6;fill:none}
+.qcard .hd .lr{font-size:.78rem;color:var(--muted);flex:0 0 auto}
+.yn{display:flex;gap:.45rem;align-items:center;flex-wrap:wrap;margin-top:.5rem;font-size:.9rem;color:var(--ink);font-weight:600}
+.yn button{font:inherit;font-weight:400;font-size:.82rem;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:.25rem;padding:.18rem .75rem;cursor:pointer}
+.yn button:hover{border-color:var(--teal)}
+.yn button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.qcard.open .yn{display:none}
+.qcard .bd .vd{display:block;font-weight:600;margin-bottom:.15rem}
+.qcard .bd .vd.ok{color:var(--teal)}
+.qcard .bd .vd.ng{color:var(--exam)}
+.qcard .bd q{quotes:none;font-family:var(--serif)}
+#q3w[hidden]{display:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>因果：四種食物，四組原因</h1>
+<p class="lede">番茄、馬鈴薯、咖啡和鹽，今天天天吃，從前卻讓歐洲人害怕。這一篇四種食物各一段，每一段都在回答同一個問題：當時為什麼怕？這一頁教你認出這種<b>多組並列的因果</b>，還有一組會讓作者的立場露出來的字：<b>讓步標記</b>。</p>
+<p class="preview" id="pv" hidden>預覽模式：所有步驟、圖表、課文標記都已展開，進度不會存檔。學生拿到的一般連結不受影響。</p>
+<p class="resume" id="rs" hidden>上次做到一半，已經幫你接回來了。<button id="rst">重新開始</button></p>
+<p class="src">ALL+ 互動英語 10 月號 Unit 3（pp. 12–13）　The Kitchen Favorites Once Thought to Be Deadly　全文 60 行　10/6 讀第 1–30 行，10/7 讀第 31–60 行</p>
+
+<!-- ═══ 第一步 ═══ -->
+<section class="step" id="s1">
+  <p class="stepno">第一步</p>
+  <h2>今天離不開，從前很害怕<span class="tag">上層：組織方式</span></h2>
+  <p>因果文的開頭，常常先擺出一個讓人想問「為什麼」的現象。這篇的開頭只有五行，卻做了三件事。<b>點三個有底色的地方</b>。</p>
+  <div class="lead" id="ld">
+    Today, we can’t imagine life without <c data-t="p">tomatoes, potatoes, coffee, or salt</c>. <c data-t="n">Yet</c> Europeans once looked upon these everyday staples with terror and suspicion. <c data-t="c">So how did they go from feared foods to favorites?</c>
+  </div>
+  <p class="score" id="sc">已標出 <em>0</em> / 3</p>
+  <div id="s1b" hidden>
+    <p>三個都標出來了。那麼——<b>第 4 到 5 行的問句 <q>So how did they go from feared foods to favorites?</q> 在全文裡負責什麼？</b></p>
+    <div class="opts" id="q1">
+      <button>依時間先後介紹四種食物傳入歐洲的經過</button>
+      <button data-ok="1">預告後面要逐一解釋這些食物怎麼由怕變愛</button>
+      <button>暗示古人對這些食物的恐懼其實全無根據</button>
+      <button>引出比較，看四種食物哪一種最早受到歡迎</button>
+    </div>
+    <div class="said e" id="a1" hidden>
+      <b>預告後面要逐一解釋。</b>第 1 行先講今天，我們離不開這四樣東西；第 2 行一個 <q>Yet</q> 轉到從前，歐洲人很怕它們。兩件事擺在一起，就出現一個落差：既然從前那麼怕，怎麼會變成今天離不開？第 4 到 5 行的問句把這個落差直接問出來，<b>後面每一段都是在回答它。</b>
+      <br><br>
+      <b>因果文常這樣起手：</b>先擺出一個讓人想問「為什麼」的現象，再用一句話把問題挑明。開頭有問句，又有 Yet 或 But 把今天和從前對起來，就要準備找原因了。
+      <br><br>
+      <b>先記住一件事：</b>這個問句其實問了兩件事，一是從前為什麼怕，二是後來怎麼改觀。後面的段落是不是兩件都答了，第三步會檢查。
+      <br><br>
+      <b>另外三個為什麼排除：</b>
+      <br><br>
+      「暗示古人的恐懼其實全無根據」——<b>這個最容易選</b>，因為最後一段說這些恐懼今天看來 <q>silly</q>，番茄的鉛中毒故事作者也說大概不是真的。可是第 18 到 20 行寫得很清楚：馬鈴薯的葉子<b>真的含有毒素</b>。只要有一種食物的恐懼有根據，「全無根據」就不成立。
+      <br><br>
+      「依時間先後介紹傳入歐洲的經過」——文章確實寫了番茄在 1500 年代傳入（第 6 行），但第 32 到 34 行說咖啡跟番茄、馬鈴薯差不多同時到，<b>四種食物之間沒有先後可排</b>，鹽更是根本沒有「傳入」這件事。
+      <br><br>
+      「看哪一種最早受到歡迎」——文章只寫了兩種食物後來的轉變，而且從頭到尾沒有比過誰早誰晚。
+    </div>
+    <button class="go" id="g1" hidden>那整篇怎麼排？</button>
+  </div>
+</section>
+
+<!-- ═══ 第二步 ═══ -->
+<section class="step" id="s2" hidden>
+  <p class="stepno">第二步</p>
+  <h2>四種食物，四組因果<span class="tag">上層：怎麼認出來</span></h2>
+  <p>先回答：<b>這篇文章的推進方式，最接近下列哪一種？</b></p>
+  <div class="opts" id="q2">
+    <button>依照四種食物傳入歐洲的先後，一站一站往下寫</button>
+    <button>拿番茄和馬鈴薯相比，逐項說明兩者有哪些異同</button>
+    <button>一個原因引出下一個結果，一路接成一條因果鏈</button>
+    <button data-ok="1">四種食物各占一段，每段交代它讓人害怕的原因</button>
+  </div>
+  <div class="said e" id="a2" hidden>
+    <b>四種食物各占一段，每段交代原因。</b>第 6、18、31 行的段首直接點名 Tomatoes、Potatoes、Coffee，第 43 到 44 行的段首句點名 salt。每一段裡面都是「原因造成結果」：原因寫在 explanation、since、Why? … so、helped fuel 這些字附近，結果都是「歐洲人怕它」。最後一段（第 52 到 60 行）再把四組收成一個共同的原因。
+    <br><br>
+    <b>這跟九月號第八單元的因果鏈不一樣。</b>那一篇是一條單線：征服造成階級分化，階級分化造成用字分家，前一環是後一環的原因。這一篇是<b>四組並排的因果</b>，四組之間彼此沒有因果關係，番茄讓人害怕的原因，不會造成咖啡讓人害怕。第 31 到 32 行甚至直接說咖啡 <q>was shunned for entirely different reasons</q>。
+    <br><br>
+    <b>另外三個為什麼排除，每一個都是這個系列教過的別種結構：</b>
+    <br><br>
+    「一個原因引出下一個結果，一路接成一條因果鏈」——<b>這個最容易選</b>，因為它也是因果，而且九月號才剛練過。可是鏈要一環扣一環，這篇的四段拿掉任何一段，其他三段照樣讀得懂，<b>環和環之間沒有扣起來</b>。
+    <br><br>
+    「依照傳入歐洲的先後往下寫」——這是<b>序列</b>。第 6 行的 1500s 看起來像時間訊號，但第 32 到 34 行說咖啡跟番茄、馬鈴薯差不多同時到，時間沒有往前推。
+    <br><br>
+    「拿番茄和馬鈴薯相比」——這是<b>比較對照</b>。第 18 行的 <q>unlike tomatoes</q> 確實是比較的訊號詞，但比較只有這一句，咖啡和鹽都沒有拿來比。<b>一個訊號詞出現，不代表整篇就是那種結構</b>，要看它管的是一句還是整篇。
+    <br><br>
+    下面這張圖就是這篇的<b>原因結果表</b>：一種食物一列，左邊原因，右邊結果。<b>點任一列</b>，第四步的課文對應行會亮起來（課文還沒打開的話，先把行號記住就好）。
+  </div>
+  <figure class="fig" id="fig" hidden></figure>
+  <button class="go" id="g2" hidden>表格還少一欄</button>
+</section>
+
+<div class="daybreak" id="db" hidden>
+  <b>10/7 的範圍從這裡開始：第 31–60 行</b>
+  第一、二步用的是 10/6 的第 1–30 行（開頭的問題、番茄、馬鈴薯）。第三步以後會用到整篇，包含 10/7 的第 31–60 行（咖啡、鹽、結尾）。如果你今天是 10/6，做到這裡可以先停，明天再接下去。（第二步的題目和圖已經提到咖啡和鹽，先看到不影響。）
+</div>
+
+<!-- ═══ 第三步 ═══ -->
+<section class="step" id="s3" hidden>
+  <p class="stepno">第三步</p>
+  <h2>把表填完，再寫一句摘要<span class="tag">上層：怎麼驗證</span></h2>
+  <p>怎麼確定這篇是因果，不是把四種食物的小故事排在一起？<b>先找訊號詞，再把內容填進原因結果表，最後用一句話說出整篇。</b></p>
+  <p>訊號詞你在第二步看過一部分，這裡全部列出來，每一個都在說「某件事造成另一件事」：第 15 行 <q>explanation</q>、第 19 行 <q>since</q>、第 36 行 <q>Why?</q>、第 37 行 <q>so</q>、第 39 行 <q>didn’t help</q>、第 43 行 <q>played a part in shaping</q>、第 47 行 <q>helped fuel</q>、第 50 行 <q>added to</q>。一篇文章裡處處都是這種字，它的骨架就是因果。</p>
+  <p>下面是這篇的原因結果表，原因和結果已經填好了。第一步說過，開頭那個問句其實問了兩件事，所以表格多了最後一欄：<b>後來大家接受它了嗎？</b>每一列判斷一次，文章裡<b>有寫</b>還是<b>沒寫</b>。</p>
+  <div class="qs" id="qs"></div>
+  <p class="score" id="sc3">已判斷 <em>0</em> / 4，第一次就判斷對 <em>0</em> 列</p>
+  <div class="said e" id="a3" hidden>
+    <b>最後一欄只有兩格有寫，而且都寫得很少。</b>原因那一欄四格都填得滿滿的，每一格還不只一個原因；「後來怎麼改觀」卻只有馬鈴薯和咖啡有寫，一個只說恐懼淡了，一個靠的是傳說。<b>也就是說，這篇文章的重心在「為什麼怕」，不在「怎麼變愛」。</b>開頭的問句問了兩件事，作者真正回答完整的只有前一件。
+    <br><br>
+    <b>怎麼認出一篇是多組並列的因果：</b>段首一段換一個對象，每一段裡面都有因果訊號詞，而且拿掉其中一段，也不影響其他段。畫成表格時，一個對象一列，列和列之間不畫箭頭。
+    <br><br>
+    <b>順便看原因那一欄：</b>同一格裡的原因，作者的把握不一樣。番茄的鉛中毒故事，他說 <q>probably isn’t true</q>，顛茄那個原因他說 <q>more likely</q>；咖啡那格用 <q>perhaps</q>，鹽那格用 <q>debatable</q>。這就是十月號第一單元教的確定程度的語言。填表時要連作者的把握一起填，不然會把傳說當成事實。
+    <br><br>
+    <b>考卷上怎麼考：</b>主旨題的誘答常常照著開頭的問句寫，說這篇在講「這些食物怎麼一步步受到歡迎」。表格填完，你就知道這個說法超出了文章的範圍。下面試一題。
+  </div>
+  <div id="q3w" hidden>
+    <p><b>哪一句最適合當這篇文章的一句話摘要？</b></p>
+    <div class="picks" id="q3">
+      <button data-ok="1">Four foods we now enjoy were once feared for different reasons, which reflects a natural fear of the new.</button>
+      <button>Europeans feared tomatoes because they looked like belladonna berries, not because lead from pewter plates poisoned diners.</button>
+      <button>The article explains step by step how each of the four foods finally won over the people of Europe.</button>
+      <button>Religious leaders in Europe were to blame for people’s fear of all four foods, from tomatoes to salt.</button>
+    </div>
+    <div class="said e" id="a3b" hidden>
+      <b>第一句。</b>它同時收進了四組因果（four foods … for different reasons）和最後一段的共同原因（a natural fear of the new），而且沒有照抄課文：<q>these everyday staples</q> 改寫成 foods we now enjoy，最後一段的 <q>fearing the unfamiliar is simply human nature</q> 濃縮成 a natural fear of the new。
+      <br><br>
+      <b>另外三個為什麼排除：</b>
+      <br><br>
+      「how each of the four foods finally won over the people of Europe」——<b>這個最容易選</b>，因為它幾乎就是開頭那個問句的改寫。可是你剛才填的表格裡，番茄和鹽那兩格是空的，馬鈴薯那格也只說恐懼淡了。文章沒有一步一步講完四種食物怎麼改觀，<b>範圍比文章大</b>。
+      <br><br>
+      「Europeans feared tomatoes because they looked like belladonna berries …」——第 15 到 17 行確實這樣寫，但這只是表格的其中一列，<b>一列代表不了整篇</b>。
+      <br><br>
+      「Religious leaders … all four foods」——宗教只出現在咖啡和鹽那兩列（第 35 行、第 43 行）。番茄的原因是鉛和顛茄，馬鈴薯的原因是葉子的毒素，都跟宗教無關。
+    </div>
+  </div>
+  <button class="go" id="g3" hidden>看讓步標記</button>
+</section>
+
+<!-- ═══ 第四步 ═══ -->
+<section class="step" id="s4" hidden>
+  <p class="stepno">第四步</p>
+  <h2>先讓一步，再說真正要說的<span class="tag b">下層：讓步標記</span></h2>
+  <p>這篇有一組字特別值得看：<q>Yet</q>、<q>Fascinating as …, though</q>、<q>Even so</q>、<q>Still</q>。語法學家 Quirk 等人把這類連接詞叫做<b>讓步</b>（concessive）：前面那件事照理說會讓後面那件事不成立，結果後面那件事<b>照樣成立</b>。作者先承認一件事，再說他真正要說的，所以<b>作者的立場幾乎都在讓步標記的後面</b>。</p>
+  <p>跟九月號第八單元的對比標記分清楚。那裡的 <q>Meanwhile</q>、<q>Conversely</q> 是把兩個不同的東西擺在線的兩邊，農民一邊，貴族一邊。讓步不是兩邊，而是<b>一件事違反了你的預期</b>：第 20 到 23 行說安地斯原住民已經把馬鈴薯培育得比較不毒，你會以為歐洲人該放心了，第 23 行的 <q>Even so</q> 卻告訴你：沒有，他們照樣懷疑。另外要注意，however、but 這些字有時做對比、有時做讓步，<b>要看它在句子裡做什麼，不是看它長什麼樣</b>。</p>
+  <p><b>點課文裡有底色的字</b>，同一條的字會一起亮起來。兩色可以各自關掉。</p>
+  <div class="modes">
+    <button id="m1" aria-pressed="true">讓步標記（青）</button>
+    <button id="m2" aria-pressed="true">上義詞（藍灰）</button>
+  </div>
+  <div class="text" id="tx"></div>
+  <div class="panel" id="pn">
+    <span class="k" id="pk">線索</span>
+    <div class="ch" id="pc">點圖上的一列，或課文裡有底色的字</div>
+    <p class="nt" id="pt">青色是讓步標記；藍灰是上義詞，同一樣東西先用本名，再換成它所屬的類別。</p>
+  </div>
+  <div class="recall">
+    <b>另外兩樣，前面單元教過，這篇自己確認得出來：</b>
+    <ul>
+      <li><b>確定程度的語言。</b>十月號第一單元教的 hedges，這篇用得更密：第 10 行 <q>supposedly</q>、第 13 行 <q>probably</q>、第 15 行 <q>more likely</q>、第 37 行 <q>perhaps</q>、第 39 到 40 行 <q>According to legend</q>、第 51 行 <q>debatable</q>。它常常跟讓步標記一起出現：第 12 到 13 行先讓一步，說故事很精彩，接著就用 probably 表明他不信。</li>
+      <li><b>概括名詞。</b>九月號第三、第四單元練過。第 50 行 <q>this dark reputation</q> 收的是鹽那一段前面講的壞名聲；第 52 到 53 行 <q>these old food fears</q> 一次收回四種食物的恐懼，第 55 到 56 行 <q>these strange chapters of history</q> 又收一次。範圍一個比一個大，往前找之前，先確定它收的是一段還是一整篇。</li>
+    </ul>
+  </div>
+  <p style="margin-top:1.1rem"><button class="go" id="g4">考卷怎麼考這種文章</button></p>
+</section>
+
+<!-- ═══ 第五步 ═══ -->
+<section class="step" id="s5" hidden>
+  <p class="stepno">第五步</p>
+  <h2>原因配錯對象<span class="tag">上層：考點</span></h2>
+  <p>多組並列的因果文章，題目的誘答通常出在兩個地方：</p>
+  <p><b>一、原因配錯對象。</b>四組因果擺在一起，誘答最愛把某一列的原因接到另一列頭上，例如把白鑞盤的鉛說成馬鈴薯的問題，或把宗教說成四種食物共同的原因。做題時先確定題目問的是哪一列，再回那一段找。</p>
+  <p><b>二、把作者不信的原因當成答案。</b>同一格裡常常有好幾個原因，作者對每一個的把握不同。讓步標記和確定程度的字會告訴你作者站在哪一邊：<q>Fascinating as the story is, though</q> 後面緊接著 <q>probably isn’t true</q>，這個故事就不是作者認可的原因。</p>
+  <p>試一題：<b>根據全文，作者怎麼看番茄和白鑞盤的那個故事？</b></p>
+  <div class="opts en" id="q5">
+    <button>It proves that the natural acids in tomatoes were deadly to the diners.</button>
+    <button>It explains why Europeans looked upon all four everyday staples with terror.</button>
+    <button data-ok="1">It makes a memorable tale, but it cannot account for the deaths it describes.</button>
+    <button>It is the most likely explanation of why Europeans were afraid to eat tomatoes.</button>
+  </div>
+  <div class="said e" id="a5" hidden>
+    <b>第三句。</b>先注意：它沒有照抄課文。<q>Fascinating</q> 換成 memorable tale，<q>the lead released would not have been nearly enough to kill anyone</q> 換成 cannot account for the deaths it describes。<b>另外三句反而滿是課文裡的字。</b>大考的正解通常是改寫，照抄課文字面的選項反而要小心。
+    <br><br>
+    <b>另外三個為什麼排除：</b>
+    <br><br>
+    「the most likely explanation」——<b>這個最難排除</b>，因為 likely explanation 就是第 15 行的字。可是課文寫的是 <q>A more likely explanation</q>，指的是下一句的顛茄，意思是「比那個故事更可能的解釋」。比較的對象一弄反，<b>作者不信的就變成了作者最信的</b>。
+    <br><br>
+    「proves that the natural acids … were deadly」——第 9 行確實有 <q>natural acids</q>，但第 13 到 15 行說溶出的鉛<b>根本不足以致命</b>，作者的判斷跟這句剛好相反。
+    <br><br>
+    「all four everyday staples」——looked upon、everyday staples、terror 全是第 3 到 4 行的字。可是白鑞盤的故事只講番茄（第 8 到 11 行），咖啡那一段還特別註明是 <q>for entirely different reasons</q>。<b>一列的原因放大成四列</b>，範圍錯了。
+  </div>
+  <button class="go" id="g5" hidden>最後一題</button>
+</section>
+
+<!-- ═══ 第六步 ═══ -->
+<section class="step" id="s6" hidden>
+  <p class="stepno">第六步</p>
+  <h2>把一句話放回去</h2>
+  <p>這就是考卷上的<b>篇章結構</b>題。下面把第 23 到 26 行那一句整句抽掉了，四個候選句只有一句放得進去。</p>
+  <div class="gap" id="gp">
+    … Indigenous communities in the Andes spent generations breeding less toxic varieties, eventually domesticating the potato we know today.
+    <span class="blank" id="bl">（空格）</span>
+    Fortunately for French fry lovers everywhere, that fear ultimately faded, and the world gained a fast-food favorite.
+  </div>
+  <div class="picks" id="q6">
+    <button>As a result, Europeans happily welcomed the new vegetable into their kitchens as soon as it arrived.</button>
+    <button>Even so, Europeans claimed its acids reacted with pewter plates and released toxic lead into the food.</button>
+    <button data-ok="1">Even so, Europeans remained deeply suspicious of potatoes when the vegetable first arrived from South America.</button>
+    <button>Today, farmers across Europe grow the vegetable in huge fields without worrying about its poisonous leaves.</button>
+  </div>
+  <div class="said" id="a6" hidden>
+    <b>四個線索同時指向同一句。</b>這四句單獨看都說得通，沒有一句本身是錯的。要排除，得靠位置和線索。
+    <br><br>
+    <b>先講一個例外。</b>前面說大考的正解通常是改寫，但<b>抽句題不一樣</b>：空格裡原本就是原文那一句，所以正解一定是原文。這一題要靠的是誘答哪裡接不上，不是比對字面。
+    <br><br>
+    <b>一、讓步和指涉一起指向正解。</b>空格後面那句的 <q>that fear</q> 需要前面先出現一個恐懼，<q>Fortunately</q> 也需要前面先有一件不幸的事。空格前面那句說原住民已經把馬鈴薯培育得比較不毒，照理說歐洲人該放心了；正解用 <q>Even so</q> 接住這個落空的預期：他們還是懷疑。<b>這份懷疑，就是 that fear 指的東西。</b>
+    <br><br>
+    <b>另外三個為什麼排除，各有一個明確的依據：</b>
+    <br><br>
+    <b>二、歸屬。</b>「its acids reacted with pewter plates」也用了 Even so，也講歐洲人的恐懼，<b>所以這個最容易選</b>。可是白鑞盤溶出鉛的故事屬於番茄（第 8 到 11 行），不屬於馬鈴薯。<b>讓步標記一樣，不代表內容對得上。</b>
+    <br><br>
+    <b>三、方向。</b>「welcomed the new vegetable … as soon as it arrived」說歐洲人一見到馬鈴薯就歡迎，那麼下一句的 that fear 就找不到東西可指，Fortunately 也沒有不幸可以轉。
+    <br><br>
+    <b>四、時間。</b>「Today, farmers across Europe grow the vegetable」一下子跳到今天，可是下一句的 <q>ultimately faded</q> 還在講恐懼怎麼慢慢淡掉，時間又退回從前。<b>今天的事排在「後來淡了」前面，順序倒了。</b>
+    <br><br>
+    再補一條詞彙鏈：正解的 <q>the vegetable</q> 就是第四步那條上義詞鏈，同一句裡把 potatoes 換成類別名稱。<b>這一頁教的讓步和複習的上義詞，都在這一句裡。</b>
+  </div>
+  <p class="why" id="w6" hidden>考卷上不會有底色，也不會有行號。但你剛才用的四個線索，每一篇因果文都有。</p>
+</section>
+
+<!-- ═══ 第七步 ═══ -->
+<section class="close" id="s7" hidden>
+  <h2>帶著走的五句話</h2>
+  <ol>
+    <li><b>因果文常用一個問句開頭。</b>先把今天和從前擺在一起，用 Yet 或 But 對出一個落差，再直接問「怎麼會這樣」。後面的段落就是答案。</li>
+    <li><b>驗證方法：填原因結果表。</b>一個對象一列，原因在左，結果在右。列和列之間畫不出箭頭，就是多組並列的因果；畫得出箭頭、一環扣一環，才是單線的因果鏈。</li>
+    <li><b>表格填完，再看哪一格是空的。</b>開頭的問句問了兩件事，這篇只答完一件。主旨題的誘答最愛照著開頭的問句寫，範圍比文章大。</li>
+    <li><b>讓步標記後面，是作者真正的立場。</b>Yet、Even so、Still、Fascinating as …, though：先承認一件事，再說照樣成立的另一件。讀到讓步標記，重點放在它後面。</li>
+    <li><b>多組因果的考點：原因配錯對象。</b>誘答會把一列的原因搬到另一列，或把作者不信的原因當成答案。先確定題目問哪一列，再看作者對那個原因有多少把握。</li>
+  </ol>
+  <p class="more"><a href="https://staresto-create.github.io/JCEE-vocab-questions/wordwheel.html">單字輪：把字拆成部件來記 →</a></p>
+</section>
+
+<nav class="series">
+  <a class="back" href="cohesion.html">← 回讀法練習總表</a>
+  <p class="note">總表上有目前可以做的所有單元，還有你累積到現在的讀法工具。</p>
+</nav>
+
+</div>
+<script>
+(function(){
+"use strict";
+function $(id){return document.getElementById(id);}
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;");}
+
+var KEY="cohesion-202610-u3-v1";
+
+var PREVIEW=false;
+var ST={tags:{},rows:{},q1:0,q2:0,q3:0,q5:0,q6:0,step:1};
+function save(){ if(PREVIEW) return; try{ localStorage.setItem(KEY, JSON.stringify(ST)); }catch(e){} }
+function load(){ try{ var r=localStorage.getItem(KEY); return r?JSON.parse(r):null; }catch(e){ return null; } }
+function wipe(){ try{ localStorage.removeItem(KEY); }catch(e){} location.reload(); }
+
+var TITLE="The Kitchen Favorites Once Thought to Be Deadly";
+var LINES=[
+"Today, we can’t imagine life without",
+"{tomatoes, potatoes, coffee, or salt|c-stp|1}. {Yet|c-con|1}",
+"Europeans once looked upon {these everyday|c-stp|2}",
+"{staples|c-stp|2} with terror and suspicion. So how did",
+"they go from feared foods to favorites?",
+"Tomatoes arrived in Europe in the 1500s,",
+"but for almost 200 years, Europeans were afraid",
+"to eat them. One popular story blames a string",
+"of aristocrat deaths: Tomatoes’ natural acids",
+"supposedly reacted with the pewter plates",
+"they were served on, releasing toxic lead that",
+"poisoned the diners. {Fascinating as|c-con|2} the story",
+"is, {though|c-con|2}, it probably isn’t true—the lead",
+"released would not have been nearly enough",
+"to kill anyone. A more likely explanation is",
+"that tomatoes simply looked too much like",
+"belladonna berries, which really are deadly.",
+"Potatoes, unlike tomatoes, do have",
+"genuine poisonous potential, since their leaves",
+"contain a real toxin. Indigenous communities",
+"in the Andes spent generations breeding less",
+"toxic varieties, eventually domesticating the",
+"potato we know today. {Even so|c-con|3}, Europeans",
+"remained deeply suspicious of {potatoes|c-veg|1} when",
+"{the vegetable|c-veg|2} first arrived from",
+"South America. Fortunately for",
+"French fry lovers everywhere,",
+"that fear ultimately faded, and",
+"the world gained a fast-food",
+"favorite.",
+"{Coffee|c-drk|1} was shunned for entirely",
+"different reasons. After arriving in Europe",
+"around the same time as potatoes and",
+"tomatoes, {the drink|c-drk|2} drew suspicion from",
+"Christian leaders, who branded it satanic.",
+"Why? Christians of the era were famously",
+"no fun, so perhaps they simply found it too",
+"enjoyable. Coffee’s close ties to the Islamic",
+"world certainly didn’t help either. According",
+"to legend, public opinion only began to",
+"shift after Pope Clement VIII tried {the drink|c-drk|3}",
+"himself and declared it delicious.",
+"Religion also played a part in shaping",
+"salt’s reputation. Leonardo da Vinci’s",
+"famous painting The Last Supper shows",
+"Judas Iscariot knocking over salt, a detail",
+"that helped fuel the superstition that",
+"spilled salt brings misfortune. Stories",
+"of armies salting their enemies’ farmland",
+"added to this dark reputation, {though|c-con|4} the",
+"truth of these tales is debatable.",
+"From a modern perspective, these",
+"old food fears can seem silly. We no longer",
+"tremble at tomatoes or see Satan in a",
+"cappuccino. {Still|c-con|5}, these strange chapters of",
+"history are worth remembering. If nothing",
+"else, they remind us that fearing the",
+"unfamiliar is simply human nature, and that",
+"progress often means learning to look past",
+"our own prejudices."
+];
+var INDENT={1:1,6:1,18:1,31:1,43:1,52:1};
+var HEAD={};
+var SPLIT=31;
+var SPLIT_TEXT="以上是 10/6 的第 1–30 行。以下是 10/7 的第 31–60 行。";
+
+var CHAINS={
+ "c-con":{k:"sub",n:"讓步標記，五處。每一處都是「照理說不會，結果還是」：第 2 行 Yet，今天離不開，從前卻很怕；第 12 到 13 行先讓一步說故事很精彩，though 後面才是作者的判斷：大概不是真的；第 23 行 Even so，馬鈴薯已經不那麼毒了，歐洲人照樣懷疑；第 55 行 Still，這些恐懼今天看來可笑，照樣值得記得。第 50 行的 though 放在句子後半，讓步的是「這些故事真假有爭議」：故事不必是真的，照樣讓鹽的名聲變壞。"},
+ "c-stp":{k:"gen",n:"上義詞：第 2 行先列出四樣東西，第 3 到 4 行再用一個上義詞 these everyday staples（日常主食）把它們收起來。四個下義詞先列，一個上義詞收尾，讀者就知道這篇要把四樣東西當成同一類來談。"},
+ "c-veg":{k:"gen",n:"第 24 到 25 行，同一句裡 potatoes 換成 the vegetable。換成上義詞，同一句就不必重複 potatoes。九月號第二、第三單元練過這種換法：先用本名，再換成它所屬的類別。"},
+ "c-drk":{k:"gen",n:"咖啡這一段：第 31 行段首用本名 Coffee，第 34 行和第 41 行換成 the drink。段首點名，段中換成上義詞，讀者不會搞錯主角，文章也不會一直重複同一個字。"}
+};
+var LB={sub:"讓步標記",gen:"上義詞",mk:"標記詞"};
+var CL={sub:"k",gen:"k g",mk:"k e"};
+
+var NODES=[
+ {nm:"開頭",a:1,b:5,t:"現象：今天離不開，從前很害怕",
+  n:"第 1 到 5 行。今天離不開、從前很害怕，一個 Yet 對出落差，再用問句挑明：怎麼會這樣？"},
+ {nm:"番茄",a:6,b:17,c1:"據說：酸溶出盤裡的鉛",c2:"較可能：長得像顛茄",e:"近兩百年不敢吃",
+  n:"第 6 到 17 行。兩個原因，作者的把握不同：鉛中毒的故事他說 probably isn’t true，長得像顛茄他說 more likely。"},
+ {nm:"馬鈴薯",a:18,b:30,c1:"葉子真的含有毒素",c2:"",e:"歐洲人一直懷疑",
+  n:"第 18 到 30 行。四種食物裡唯一真的有毒的一種。原住民早已培育出低毒品種，歐洲人照樣懷疑（Even so），後來才慢慢不怕了。"},
+ {nm:"咖啡",a:31,b:42,c1:"教會說是撒旦之物",c2:"也許只是太好喝",e:"遭人排斥",
+  n:"第 31 到 42 行。原因跟前兩種完全不同（entirely different reasons）：宗教、太好喝、跟伊斯蘭世界關係密切。"},
+ {nm:"鹽",a:43,b:51,c1:"名畫裡猶大打翻鹽",c2:"軍隊撒鹽的故事",e:"名聲變壞",
+  n:"第 43 到 51 行。結果跟另外三種不一樣：從來沒有人不敢吃鹽，壞掉的是它的名聲（reputation）。"},
+ {nm:"結尾",a:52,b:60,t:"共同的根：人天生怕陌生的東西",
+  n:"第 52 到 60 行。把四組收成一個共同的原因：怕陌生的東西是人的天性。Still 後面，是作者要你帶走的話。"}
+];
+
+var ROWS=[
+ {f:"番茄",a:6,b:17,ans:"n",
+  c:"流傳的說法是番茄的酸溶出白鑞盤裡的鉛，毒死了貴族，但作者說這個故事大概不是真的；比較可能的原因，是它長得太像有毒的顛茄果實。",
+  e:"將近兩百年，歐洲人不敢吃。",
+  note:"第 7 行的 <q>for almost 200 years</q> 暗示後來不怕了，但番茄是怎麼改觀的，這一段一個字都沒寫。"},
+ {f:"馬鈴薯",a:18,b:30,ans:"y",
+  c:"葉子真的含有毒素。安地斯原住民花了好幾代培育出低毒的品種，歐洲人還是懷疑。",
+  e:"馬鈴薯剛從南美洲來的時候，歐洲人很不放心。",
+  note:"第 28 行 <q>that fear ultimately faded</q>：恐懼終究淡了，全世界多了一樣速食。不過這裡只說淡了，<b>沒說怎麼淡的</b>。"},
+ {f:"咖啡",a:31,b:42,ans:"y",
+  c:"教會領袖說它是撒旦之物；作者猜也許只是太好喝，再加上它跟伊斯蘭世界的關係太密切。",
+  e:"遭人排斥。",
+  note:"第 39 到 42 行：據說教宗克萊孟八世親自喝過、說好喝，輿論才開始轉向。作者用 <q>According to legend</q> 起頭，提醒你這是傳說，不是史實。"},
+ {f:"鹽",a:43,b:51,ans:"n",
+  c:"達文西的《最後的晚餐》畫了猶大打翻鹽，助長了「灑鹽帶來厄運」的迷信；軍隊在敵人田裡撒鹽的故事也有影響，雖然真假有爭議。",
+  e:"名聲變壞。",
+  note:"這一段停在名聲變壞，沒寫後來怎麼改觀。而且注意結果那一格：從來沒有人不敢吃鹽，壞掉的是它的名聲（第 44 行 <q>reputation</q>）。"}
+];
+
+var TL={p:"今天",n:"轉折",c:"問題"};
+
+/* ---------- 通用：選擇題 ---------- */
+function quiz(qid,aid,gid,tag,after){
+  var done=false;
+  function settle(){
+    done=true;
+    var bs=$(qid).querySelectorAll("button");
+    for(var i=0;i<bs.length;i++){ bs[i].disabled=true; bs[i].dataset.state=bs[i].dataset.ok?"right":"wrong"; }
+    if(aid) $(aid).hidden=false;
+    if(gid) $(gid).hidden=false;
+    if(after) after();
+  }
+  $(qid).addEventListener("click",function(e){
+    var b=e.target.closest("button"); if(!b||done) return;
+    settle(); ST[tag]=1; save();
+  });
+  return settle;
+}
+function opener(gid,sid,extra){
+  $(gid).addEventListener("click",function(){
+    var n=parseInt(sid.replace(/\D/g,""),10);
+    if(ST.step<n) ST.step=n; save();
+    $(sid).hidden=false; if(extra) extra();
+    $(sid).scrollIntoView({behavior:"smooth",block:"start"});
+  });
+}
+function hlLines(a,b){
+  var rows=$("tx").querySelectorAll(".ln");
+  for(var r=0;r<rows.length;r++){ var n=+rows[r].dataset.n; rows[r].classList.toggle("hl", n>=a&&n<=b); }
+  var ms=$("tx").querySelectorAll("m");
+  for(var k=0;k<ms.length;k++) ms[k].classList.remove("lit");
+  if(rows.length){ var f=$("tx").querySelector('.ln[data-n="'+a+'"]'); if(f) f.scrollIntoView({behavior:"smooth",block:"center"}); }
+}
+
+/* ---------- 第一步 ---------- */
+function tagged(){ var n=0; for(var k in ST.tags) if(ST.tags[k]) n++; return n; }
+function paintTag(c){
+  if(c.classList.contains("got")) return;
+  c.classList.add("got");
+  var b=document.createElement("b"); b.textContent=TL[c.dataset.t]||"";
+  c.insertBefore(b, c.firstChild);
+}
+function afterTags(){
+  $("sc").innerHTML="已標出 <em>"+tagged()+"</em> / 3";
+  if(tagged()===3) $("s1b").hidden=false;
+}
+$("ld").addEventListener("click",function(e){
+  var c=e.target.closest("c"); if(!c) return;
+  if(ST.tags[c.dataset.t]) return;
+  ST.tags[c.dataset.t]=1; save(); paintTag(c); afterTags();
+});
+var set1=quiz("q1","a1","g1","q1");
+opener("g1","s2");
+
+/* ---------- 第二步：原因結果表 ---------- */
+function drawFig(){
+  if($("fig").firstChild) return;
+  $("fig").hidden=false;
+  var s='<svg viewBox="0 0 420 316" role="img" aria-label="原因結果表：開頭的現象，四種食物各一列原因與結果，結尾的共同原因">';
+  var i,d,y;
+  s+='<text class="hdr" x="38" y="60" text-anchor="middle">食物</text>';
+  s+='<text class="hdr" x="176" y="60" text-anchor="middle">原因</text>';
+  s+='<text class="hdr" x="357" y="60" text-anchor="middle">結果</text>';
+  for(i=0;i<NODES.length;i++){
+    d=NODES[i];
+    s+='<g class="node" data-i="'+i+'" tabindex="0" role="button">';
+    if(d.t){
+      y = i===0 ? 6 : 276;
+      s+='<rect x="8" y="'+y+'" width="404" height="34" rx="5"/>';
+      s+='<text x="210" y="'+(y+15)+'" text-anchor="middle">'+esc(d.t)+'</text>';
+      s+='<text class="n" x="210" y="'+(y+28)+'" text-anchor="middle">第 '+d.a+'–'+d.b+' 行</text>';
+    } else {
+      y = 68+(i-1)*50;
+      s+='<rect x="8" y="'+y+'" width="60" height="42" rx="5"/>';
+      s+='<text x="38" y="'+(y+19)+'" text-anchor="middle">'+esc(d.nm)+'</text>';
+      s+='<text class="n" x="38" y="'+(y+33)+'" text-anchor="middle">'+d.a+'–'+d.b+'</text>';
+      s+='<rect x="76" y="'+y+'" width="200" height="42" rx="5"/>';
+      if(d.c2){
+        s+='<text class="c" x="176" y="'+(y+18)+'" text-anchor="middle">'+esc(d.c1)+'</text>';
+        s+='<text class="c" x="176" y="'+(y+33)+'" text-anchor="middle">'+esc(d.c2)+'</text>';
+      } else {
+        s+='<text class="c" x="176" y="'+(y+25)+'" text-anchor="middle">'+esc(d.c1)+'</text>';
+      }
+      s+='<rect x="302" y="'+y+'" width="110" height="42" rx="5"/>';
+      s+='<text class="c" x="357" y="'+(y+25)+'" text-anchor="middle">'+esc(d.e)+'</text>';
+      s+='<path class="arr" d="M281 '+(y+21)+' L297 '+(y+21)+' M292 '+(y+17)+' L297 '+(y+21)+' L292 '+(y+25)+'"/>';
+    }
+    s+='</g>';
+  }
+  s+='</svg><figcaption>一列是一組因果：左邊是原因，右邊是結果。四列之間沒有箭頭相連，這就是它跟九月號第八單元那條單線因果鏈最大的不同。最上面是開頭的現象，最下面是結尾把四組收起來的共同原因。點任一列，第四步的課文對應行會亮起來。</figcaption>';
+  $("fig").innerHTML=s;
+  function hit(g){
+    var i=+g.dataset.i, d=NODES[i];
+    var gs=$("fig").querySelectorAll(".node");
+    for(var j=0;j<gs.length;j++) gs[j].classList.toggle("on", +gs[j].dataset.i===i);
+    hlLines(d.a,d.b);
+    $("pk").textContent="表格的一列"; $("pk").className="k e";
+    $("pc").textContent=d.nm; $("pt").textContent=d.n;
+  }
+  $("fig").addEventListener("click",function(e){ var g=e.target.closest(".node"); if(g) hit(g); });
+  $("fig").addEventListener("keydown",function(e){
+    if(e.key!=="Enter"&&e.key!==" ") return;
+    var g=e.target.closest(".node"); if(g){ e.preventDefault(); hit(g); }
+  });
+}
+function afterQ2(){ drawFig(); $("db").hidden=false; }
+var set2=quiz("q2","a2","g2","q2",afterQ2);
+opener("g2","s3",buildRows);
+
+/* ---------- 第三步：最後一欄有寫還是沒寫 ---------- */
+var builtRows=false;
+function buildRows(){
+  if(builtRows) return; builtRows=true;
+  var h="";
+  for(var i=0;i<ROWS.length;i++){
+    var r=ROWS[i];
+    h+='<div class="qcard" id="cd'+i+'"><div class="hd"><span class="qt">'+esc(r.f)+'</span>'+
+       '<span class="lr">第 '+r.a+'–'+r.b+' 行</span></div>'+
+       '<div class="r"><span class="k">原因</span><span class="v">'+esc(r.c)+'</span></div>'+
+       '<div class="r"><span class="k">結果</span><span class="v">'+esc(r.e)+'</span></div>'+
+       '<div class="r"><span class="k">後來接受了嗎</span><span class="v">'+
+       '<span class="yn">文章裡：<button data-i="'+i+'" data-v="y">有寫</button><button data-i="'+i+'" data-v="n">沒寫</button></span>'+
+       '<span class="bd" id="bd'+i+'"></span></span></div></div>';
+  }
+  $("qs").innerHTML=h;
+  $("qs").addEventListener("click",function(e){
+    var b=e.target.closest("button"); if(!b) return;
+    var i=b.dataset.i; if(ST.rows[i]) return;
+    ST.rows[i]=b.dataset.v; save(); paintRows();
+  });
+  paintRows();
+}
+function judged(){ var n=0; for(var k in ST.rows) if(ST.rows[k]) n++; return n; }
+function rightRows(){ var n=0; for(var i=0;i<ROWS.length;i++) if(ST.rows[i]===ROWS[i].ans) n++; return n; }
+function paintRows(){
+  for(var i=0;i<ROWS.length;i++){
+    var el=$("cd"+i); if(!el) continue;
+    var v=ST.rows[i], r=ROWS[i];
+    el.classList.toggle("open",!!v);
+    if(v){
+      var ok=(v===r.ans), has=(r.ans==="y");
+      var head= ok ? ("判斷對了：文章"+(has?"有寫":"沒寫")+"。") : ("再看一次：文章其實"+(has?"有寫":"沒寫")+"。");
+      $("bd"+i).innerHTML='<span class="vd '+(ok?"ok":"ng")+'">'+head+'</span>'+r.note;
+    }
+  }
+  $("sc3").innerHTML="已判斷 <em>"+judged()+"</em> / 4，第一次就判斷對 <em>"+rightRows()+"</em> 列";
+  if(judged()>=ROWS.length){ $("a3").hidden=false; $("q3w").hidden=false; }
+}
+var set3=quiz("q3","a3b","g3","q3");
+opener("g3","s4",function(){ buildText(); drawFig(); });
+
+/* ---------- 第四步：課文與線索鏈 ---------- */
+function renderLine(str){
+  var out="",i=0;
+  while(i<str.length){
+    var a=str.indexOf("{",i);
+    if(a<0){ out+=esc(str.slice(i)); break; }
+    out+=esc(str.slice(i,a));
+    var b=str.indexOf("}",a), p=str.slice(a+1,b).split("|");
+    var id=p[1], it=p[2]||"1", k=CHAINS[id]?CHAINS[id].k:"sub";
+    out+='<m data-c="'+id+'" data-i="'+it+'" data-kind="'+k+'" tabindex="0">'+esc(p[0])+'</m>';
+    i=b+1;
+  }
+  return out;
+}
+var builtText=false;
+function buildText(){
+  if(builtText) return; builtText=true;
+  var h='<p class="ttl">'+renderLine(TITLE)+'</p>';
+  for(var i=0;i<LINES.length;i++){
+    var n=i+1;
+    if(SPLIT && n===SPLIT) h+='<p class="split">'+esc(SPLIT_TEXT)+'</p>';
+    var cls="ln";
+    if(HEAD[n]) cls+=" sub pb";
+    else if(INDENT[n]) cls+=" ind"+(n>1?" pb":"");
+    h+='<div class="'+cls+'" data-n="'+n+'"><i>'+((n%5===0)?n:"")+'</i><span>'+renderLine(LINES[i])+'</span></div>';
+  }
+  $("tx").innerHTML=h;
+}
+function lightChain(id){
+  var ms=$("tx").querySelectorAll("m"), items={}, order=[],i;
+  var gs=$("fig").querySelectorAll(".node");
+  for(i=0;i<gs.length;i++) gs[i].classList.remove("on");
+  var rows=$("tx").querySelectorAll(".ln");
+  for(i=0;i<rows.length;i++) rows[i].classList.remove("hl");
+  for(i=0;i<ms.length;i++){
+    if(ms[i].dataset.c===id){
+      ms[i].classList.add("lit");
+      var key=ms[i].dataset.i;
+      if(!items[key]){ items[key]=[]; order.push(key); }
+      items[key].push(ms[i].textContent);
+    } else ms[i].classList.remove("lit");
+  }
+  var c=CHAINS[id]; if(!c) return;
+  var parts=[];
+  for(var o=0;o<order.length;o++) parts.push(esc(items[order[o]].join(" ")));
+  $("pk").textContent=LB[c.k]; $("pk").className=CL[c.k];
+  $("pc").innerHTML=parts.join('<i>\u2192</i>');
+  $("pt").textContent=c.n;
+}
+$("tx").addEventListener("click",function(e){ var m=e.target.closest("m"); if(m) lightChain(m.dataset.c); });
+$("tx").addEventListener("keydown",function(e){
+  if(e.key!=="Enter"&&e.key!==" ") return;
+  var m=e.target.closest("m"); if(m){ e.preventDefault(); lightChain(m.dataset.c); }
+});
+function toggle(btn,cls){
+  btn.addEventListener("click",function(){
+    var on=btn.getAttribute("aria-pressed")==="true";
+    btn.setAttribute("aria-pressed",on?"false":"true");
+    $("tx").classList.toggle(cls,on);
+  });
+}
+toggle($("m1"),"off-sub");
+toggle($("m2"),"off-gen");
+opener("g4","s5");
+
+/* ---------- 第五步 ---------- */
+var set5=quiz("q5","a5","g5","q5");
+$("g5").addEventListener("click",function(){
+  if(ST.step<6) ST.step=6; save();
+  $("s6").hidden=false;
+  $("s6").scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+/* ---------- 第六步 ---------- */
+var done6=false;
+function settle6(){
+  done6=true;
+  var bs=$("q6").querySelectorAll("button");
+  for(var i=0;i<bs.length;i++){
+    bs[i].disabled=true; bs[i].dataset.state=bs[i].dataset.ok?"right":"wrong";
+    if(bs[i].dataset.ok){ $("bl").textContent=bs[i].textContent; $("bl").className="blank filled"; }
+  }
+  $("a6").hidden=false; $("w6").hidden=false; $("s7").hidden=false;
+}
+$("q6").addEventListener("click",function(e){
+  var b=e.target.closest("button"); if(!b||done6) return;
+  settle6(); ST.q6=1; save();
+  $("a6").scrollIntoView({behavior:"smooth",block:"nearest"});
+});
+
+/* ---------- 老師的預覽開關：網址加 ?all ---------- */
+function previewAll(){
+  PREVIEW=true;
+  $("pv").hidden=false;
+  var i,cs=$("ld").querySelectorAll("c");
+  for(i=0;i<cs.length;i++){ ST.tags[cs[i].dataset.t]=1; paintTag(cs[i]); }
+  afterTags(); set1();
+  $("s2").hidden=false; set2();
+  $("s3").hidden=false;
+  for(i=0;i<ROWS.length;i++) ST.rows[i]=ROWS[i].ans;
+  buildRows(); set3();
+  $("s4").hidden=false; buildText(); drawFig();
+  $("s5").hidden=false; set5();
+  $("s6").hidden=false; settle6();
+}
+
+/* ---------- 接回上次的進度 ---------- */
+$("rst").addEventListener("click",wipe);
+(function restore(){
+  if(/(^|[?&])all(=|&|$)/.test(location.search)){ previewAll(); return; }
+  var v=load(); if(!v) return;
+  ST=v;
+  if(!ST.tags) ST.tags={};
+  if(!ST.rows) ST.rows={};
+  if(!ST.step) ST.step=1;
+  if(!(tagged()||ST.step>1)) return;
+  $("rs").hidden=false;
+  var i,cs=$("ld").querySelectorAll("c");
+  for(i=0;i<cs.length;i++) if(ST.tags[cs[i].dataset.t]) paintTag(cs[i]);
+  afterTags();
+  if(ST.q1) set1();
+  if(ST.step>=2){ $("s2").hidden=false; if(ST.q2) set2(); }
+  if(ST.step>=3){ $("s3").hidden=false; buildRows(); if(ST.q3) set3(); }
+  if(ST.step>=4){ $("s4").hidden=false; buildText(); drawFig(); }
+  if(ST.step>=5){ $("s5").hidden=false; if(ST.q5) set5(); }
+  if(ST.step>=6){ $("s6").hidden=false; if(ST.q6) settle6(); }
+  var last=$("s"+(ST.step>=6?6:ST.step));
+  if(last) setTimeout(function(){ last.scrollIntoView({block:"start"}); },60);
+})();
+})();
+</script>
+</body>
+</html>
