@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>序列：一站接一站｜A Scenic Journey Through Germany and Austria</title>
+<meta name="description" content="從慕尼黑一路走到維也納。這一頁教你認出照走過的先後往下寫的序列，還有句首的時間與地點怎麼當路標。">
+<meta property="og:title" content="序列：一站接一站｜A Scenic Journey Through Germany and Austria">
+<meta property="og:description" content="From there、In Hallstatt、As the light faded：句子最前面那幾個字一出現，就是換了一站。">
+<style>
+:root{
+  --ground:#f1f3f2; --ink:#17282f; --teal:#1f6f6a; --teal-soft:#dfeceb;
+  --muted:#77878d; --line:#cdd6d6; --exam:#b4661c; --exam-soft:#fdf4e7;
+  --gen:#4a6a90; --gen-soft:#e0e7f0;
+  --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+  --sans:"PingFang TC","Noto Sans TC","Microsoft JhengHei","Helvetica Neue",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-text-size-adjust:100%}
+.wrap{max-width:44rem;margin:0 auto;padding:1.6rem 1.1rem 4rem}
+h1{font-family:var(--serif);font-weight:600;font-size:1.6rem;line-height:1.3;margin:0 0 .55rem}
+.lede{margin:0 0 1.3rem;color:#3d5059;font-size:.95rem}
+.src{font-size:.8rem;color:var(--muted);margin:0 0 1.1rem}
+.resume{font-size:.85rem;color:var(--teal);background:var(--teal-soft);border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.resume[hidden],.preview[hidden]{display:none}
+.preview{font-size:.85rem;color:var(--exam);background:var(--exam-soft);
+  border:1px dashed var(--exam);border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.resume button{font:inherit;font-size:.82rem;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:.25rem;padding:.16rem .6rem;margin-left:.5rem;cursor:pointer}
+.resume button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.step{border-top:1px solid var(--line);padding-top:1.15rem;margin-top:1.6rem}
+.step[hidden]{display:none}
+.stepno{font-family:var(--serif);font-size:.82rem;color:var(--muted);margin:0 0 .2rem}
+h2{font-family:var(--serif);font-weight:600;font-size:1.2rem;margin:0 0 .5rem;color:var(--teal)}
+.step p{margin:0 0 .7rem;font-size:.95rem}
+.tag{display:inline-block;font-size:.72rem;font-weight:600;border-radius:.2rem;padding:.08rem .45rem;margin-left:.45rem;vertical-align:.12rem;color:var(--exam);background:var(--exam-soft);border:1px solid var(--exam)}
+.tag.b{color:var(--gen);background:var(--gen-soft);border-color:var(--gen)}
+
+/* 選擇題：中文用 .opts，英文選項加 .en，附小字說明加 .rg */
+.opts{display:flex;flex-direction:column;gap:.45rem;margin:.2rem 0 .8rem}
+.opts button{font:inherit;font-size:.95rem;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:.3rem;padding:.45rem .85rem;cursor:pointer;text-align:left}
+.opts button:hover{border-color:var(--teal)}
+.opts button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.opts button[data-state="right"]{background:var(--teal);border-color:var(--teal);color:#fff}
+.opts button[data-state="wrong"]{background:var(--ground);color:var(--muted)}
+.opts button[disabled]{cursor:default}
+.opts.en button{font-family:var(--serif);font-size:.97rem;line-height:1.6;padding:.55rem .8rem}
+.opts.en button[data-state="right"]{background:var(--teal-soft);border-color:var(--teal);color:var(--ink)}
+.opts.rg button i{display:block;font-style:normal;font-size:.82rem;color:var(--muted);margin-top:.12rem}
+.opts.rg button[data-state="right"] i{color:#dfeceb}
+
+/* 揭曉區塊 */
+.said{background:#fff;border-left:3px solid var(--teal);border-radius:.3rem;padding:.75rem .85rem;margin:.2rem 0 .9rem;font-size:.93rem;color:#3d5059}
+.said b{color:var(--ink);font-weight:600}
+.said[hidden]{display:none}
+.said.g{border-left-color:var(--gen)}
+.said.e{border-left-color:var(--exam)}
+.said q{quotes:none;font-family:var(--serif)}
+
+.go{font:inherit;font-size:.92rem;background:var(--ink);color:#fff;border:1px solid var(--ink);border-radius:.3rem;padding:.42rem 1.05rem;cursor:pointer}
+.go:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.go[hidden]{display:none}
+
+/* 第一步的可點標記 */
+.lead{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.9rem 1rem;margin:0 0 .7rem;font-family:var(--serif);font-size:1.02rem;line-height:1.95}
+.lead c{cursor:pointer;border-radius:.2rem;padding:.06rem .2rem;background:var(--exam-soft);box-shadow:inset 0 -2px 0 #ecc9a2}
+.lead c:hover{box-shadow:inset 0 -2px 0 var(--exam)}
+.lead c.got{background:var(--exam);color:#fff;box-shadow:none}
+.lead c b{font-family:var(--sans);font-size:.72rem;font-weight:600;background:#fff;color:var(--exam);border-radius:.2rem;padding:.02rem .3rem;margin-right:.3rem}
+.score{font-size:.9rem;color:var(--muted);margin:0 0 .8rem}
+.score em{font-style:normal;color:var(--exam);font-weight:600}
+
+/* 第三步的卡片（驗證方法通用容器） */
+.qs{display:flex;flex-direction:column;gap:.5rem;margin:0 0 .8rem}
+.qcard{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.6rem .85rem}
+.qcard .hd{display:flex;align-items:center;gap:.6rem;font-size:.95rem}
+.qcard .hd .qt{flex:1 1 auto;font-weight:600}
+.qcard .hd button{font:inherit;font-size:.8rem;background:#fff;color:var(--ink);border:1px solid var(--line);
+  border-radius:.25rem;padding:.18rem .7rem;cursor:pointer;flex:0 0 auto}
+.qcard .hd button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.qcard .bd{display:none;margin-top:.4rem;font-size:.92rem;color:#3d5059;line-height:1.75}
+.qcard.open .bd{display:block}
+.qcard.open .hd button{display:none}
+.qcard .bd .rf{display:block;color:var(--muted);font-size:.82rem;margin-top:.25rem}
+.qcard .bd .sw{display:block;font-family:var(--serif);background:var(--ground);border-radius:.3rem;
+  padding:.45rem .6rem;margin:.35rem 0;color:var(--ink);font-size:.93rem;line-height:1.7}
+.qcard .r{display:grid;grid-template-columns:1fr;gap:.1rem;margin-bottom:.4rem}
+@media(min-width:34rem){.qcard .r{grid-template-columns:5.5rem 1fr;gap:.5rem}}
+.qcard .r:last-child{margin-bottom:0}
+.qcard .r .k{font-size:.76rem;font-weight:600;color:var(--gen)}
+.qcard .r .v em{font-style:normal;color:var(--muted);font-size:.82rem;margin-left:.3rem}
+
+/* 圖表容器與通用節點 */
+.fig{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.7rem .5rem .4rem;margin:0 0 .7rem}
+.fig[hidden]{display:none}
+.fig svg{display:block;width:100%;height:auto;max-width:27rem;margin:0 auto}
+.fig figcaption{font-size:.85rem;color:#3d5059;margin:.35rem .5rem 0;line-height:1.65}
+.node{cursor:pointer}
+.node rect,.node circle,.node path.bx{fill:#fff;stroke:var(--line);stroke-width:2;stroke-linejoin:round}
+.node text{font-family:var(--sans);font-size:11px;fill:var(--ink);font-weight:600}
+.node tspan.n,.node text.n{font-size:9px;font-weight:400;fill:var(--muted)}
+.node.on rect,.node.on circle,.node.on path.bx{fill:var(--exam-soft);stroke:var(--exam);stroke-width:3}
+.node.on text{fill:var(--exam)}
+.node.on tspan.n,.node.on text.n{fill:var(--exam)}
+.guide{stroke:var(--line);stroke-width:2;fill:none;stroke-linejoin:round;stroke-linecap:round}
+.guide.dash{stroke-dasharray:5 4}
+.endlab{font-family:var(--sans);font-size:10.5px;font-weight:600}
+.endlab.l{fill:var(--teal)}
+.endlab.r{fill:var(--gen)}
+
+/* 分日分隔框 */
+.daybreak{border:1px dashed var(--exam);background:var(--exam-soft);border-radius:.4rem;
+  padding:.8rem .95rem;margin:1.6rem 0 0;font-size:.9rem;color:#3d5059;line-height:1.7}
+.daybreak b{display:block;color:var(--exam);font-family:var(--serif);font-size:1.02rem;margin-bottom:.3rem}
+.daybreak[hidden]{display:none}
+
+/* 課文與線索鏈 */
+.modes{display:flex;gap:.4rem;margin:0 0 .7rem;flex-wrap:wrap}
+.modes button{font:inherit;font-size:.84rem;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:.3rem;padding:.3rem .8rem;cursor:pointer}
+.modes button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.modes button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.text{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.9rem .6rem 1.1rem;font-family:var(--serif);font-size:1rem;line-height:1.85}
+.text .ttl{font-weight:600;font-size:1.06rem;margin:0 .4rem .7rem 2.6rem;line-height:1.45}
+.ln{display:flex;align-items:baseline;padding:.02rem 0;border-radius:.2rem}
+.ln>i{flex:0 0 2.2rem;text-align:right;padding-right:.55rem;font-family:var(--sans);font-style:normal;font-size:.68rem;color:var(--muted);line-height:1.9}
+.ln>span{flex:1 1 auto;overflow-wrap:anywhere}
+.ln.ind>span{padding-left:1.1rem}
+.ln.sub>span{font-weight:600}
+.ln.hl{background:var(--exam-soft)}
+.ln.pb{margin-top:.55rem}
+.text .split{font-family:var(--sans);font-size:.78rem;color:var(--exam);
+  border-top:1px dashed var(--exam);margin:.8rem .4rem .7rem 2.6rem;padding-top:.35rem}
+.text m{cursor:pointer;border-radius:.2rem;padding:.02rem .14rem}
+.text m[data-kind="sub"]{background:var(--teal-soft);box-shadow:inset 0 -2px 0 #a8ccc8}
+.text m[data-kind="gen"]{background:var(--gen-soft);box-shadow:inset 0 -2px 0 #a9bbd0}
+.text m[data-kind="mk"]{border-bottom:2px dotted var(--exam);font-style:italic}
+.text m.lit[data-kind="sub"]{background:var(--teal);color:#fff;box-shadow:none}
+.text m.lit[data-kind="gen"]{background:var(--gen);color:#fff;box-shadow:none}
+.text m.lit[data-kind="mk"]{background:var(--exam);color:#fff;border-bottom:none}
+.text.off-sub m[data-kind="sub"]{background:none;box-shadow:none}
+.text.off-gen m[data-kind="gen"]{background:none;box-shadow:none}
+
+/* 固定在底部的說明面板 */
+.panel{position:sticky;bottom:0;background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.75rem .9rem;margin-top:.8rem;box-shadow:0 -2px 10px rgba(23,40,47,.07)}
+.panel .k{font-size:.72rem;font-weight:600;border-radius:.2rem;padding:.06rem .42rem;color:var(--teal);background:var(--teal-soft);border:1px solid var(--teal)}
+.panel .k.g{color:var(--gen);background:var(--gen-soft);border-color:var(--gen)}
+.panel .k.e{color:var(--exam);background:var(--exam-soft);border-color:var(--exam)}
+.panel .ch{font-family:var(--serif);font-size:1rem;margin:.4rem 0 .3rem;color:var(--ink);line-height:1.75;overflow-wrap:anywhere}
+.panel .ch i{font-style:normal;color:var(--muted);padding:0 .28rem}
+.panel .nt{font-size:.88rem;color:#3d5059;margin:0}
+
+/* 舊工具點名複習 */
+.recall{background:#fff;border:1px solid var(--line);border-left:3px solid var(--muted);
+  border-radius:.3rem;padding:.75rem .85rem;margin:1.1rem 0 .9rem;font-size:.92rem;color:#3d5059}
+.recall b{color:var(--ink)}
+.recall ul{margin:.4rem 0 0;padding-left:1.1rem}
+.recall li{margin-bottom:.35rem}
+
+/* 抽句題 */
+.gap{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.9rem 1rem;margin:0 0 .9rem;font-family:var(--serif);font-size:1rem;line-height:1.9}
+.gap .blank{display:inline-block;min-width:9rem;border-bottom:2px solid var(--gen);color:var(--gen);text-align:center;font-family:var(--sans);font-size:.82rem}
+.gap .blank.filled{border-bottom-color:var(--teal);color:var(--ink);font-family:var(--serif);font-size:1rem;text-align:left;background:var(--teal-soft);border-radius:.2rem;padding:0 .25rem}
+.gap .lst{font-family:var(--sans);font-size:.85rem;color:var(--muted);display:block;margin-top:.5rem}
+.picks{display:flex;flex-direction:column;gap:.45rem;margin:0 0 .9rem}
+.picks button{font:inherit;font-family:var(--serif);font-size:.97rem;line-height:1.6;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:.3rem;padding:.55rem .8rem;cursor:pointer;text-align:left}
+.picks button:hover{border-color:var(--teal)}
+.picks button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.picks button[data-state="right"]{background:var(--teal-soft);border-color:var(--teal)}
+.picks button[data-state="wrong"]{background:var(--ground);color:var(--muted)}
+.why{font-size:.86rem;color:#3d5059;margin:.35rem 0 0}
+.why[hidden]{display:none}
+
+/* 收尾與頁尾 */
+.close{border-top:1px solid var(--line);margin-top:2rem;padding-top:1.1rem;font-size:.93rem;color:#3d5059}
+.close[hidden]{display:none}
+.close h2{font-size:1.1rem}
+.close ol{margin:.3rem 0 0;padding-left:1.15rem}
+.close li{margin-bottom:.5rem}
+.more{margin-top:1.5rem;font-size:.88rem}
+.more a{color:var(--teal)}
+.series{border-top:1px solid var(--line);margin-top:2rem;padding-top:1.1rem;font-size:.9rem;color:#3d5059}
+.series .back{font-family:var(--serif);font-size:1rem;color:var(--teal);text-decoration:none}
+.series .back:hover{text-decoration:underline}
+.series .back:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.series .note{font-size:.85rem;color:var(--muted);margin:.5rem 0 0}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+/* 本單元：路線流程圖與第三步的放站卡片 */
+.fig .lab{font-family:var(--sans);font-size:10px;fill:#3d5059}
+.fig .lab.s{font-size:9px;fill:var(--muted)}
+.fig .arr{stroke:var(--muted);stroke-width:1.6;fill:none}
+.fig .stop{fill:#fff;stroke:var(--muted);stroke-width:1.6}
+.fig .node.co rect{stroke-dasharray:5 4}
+.yn{display:flex;gap:.45rem;align-items:center;flex-wrap:wrap;margin-top:.5rem;font-size:.9rem;color:var(--ink);font-weight:600}
+.yn button{font:inherit;font-weight:400;font-size:.82rem;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:.25rem;padding:.18rem .75rem;cursor:pointer}
+.yn button:hover{border-color:var(--teal)}
+.yn button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.qcard.open .yn{display:none}
+.qcard .bd .vd{display:block;font-weight:600;margin-bottom:.15rem}
+.qcard .bd .vd.ok{color:var(--teal)}
+.qcard .bd .vd.ng{color:var(--exam)}
+.qcard .bd q{quotes:none;font-family:var(--serif)}
+#q3w[hidden]{display:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>序列：一站接一站</h1>
+<p class="lede">去年十月，作者背著一個背包，從慕尼黑一路走到維也納。這一篇照走過的先後往下寫，是說明文五種基本結構裡的<b>序列</b>，只是這次推著文章往前走的不是日期，而是<b>地點</b>。這一頁也教你看句子最前面那幾個字：作者把時間或地點放在句首，就是在告訴你，現在換了一站。</p>
+<p class="preview" id="pv" hidden>預覽模式：所有步驟、圖表、課文標記都已展開，進度不會存檔。學生拿到的一般連結不受影響。</p>
+<p class="resume" id="rs" hidden>上次做到一半，已經幫你接回來了。<button id="rst">重新開始</button></p>
+<p class="src">ALL+ 互動英語 10 月號 Unit 5（pp. 20–21）　A Scenic Journey Through Germany and Austria　全文 44 行　10/12 讀第 1–21 行，10/13 讀第 22–44 行</p>
+
+<!-- ═══ 第一步 ═══ -->
+<section class="step" id="s1">
+  <p class="stepno">第一步</p>
+  <h2>出發的時間、範圍和第一站<span class="tag">上層：組織方式</span></h2>
+  <p>遊記跟其他序列文章一樣，開頭要先讓讀者知道三件事：從什麼時候開始、要走多大的範圍、從哪裡起步。這篇的前兩行就把三件事交代完了。<b>點三個有底色的地方</b>。</p>
+  <div class="lead" id="ld">
+    <c data-t="t">Last October</c>, I set off <c data-t="r">through Germany and Austria</c> with only a backpack. <c data-t="f">My first stop was Munich</c>, a city where old stone architecture and a lively street culture sit comfortably side by side. I spent my days wandering the old town, picking up food from market stalls and enjoying cafés that are popular with locals and travelers alike.
+  </div>
+  <p class="score" id="sc">已標出 <em>0</em> / 3</p>
+  <div id="s1b" hidden>
+    <p>三個都標出來了。那麼——<b>第 2 行的 <q>My first stop was Munich</q> 在全文裡負責什麼？</b></p>
+    <div class="opts" id="q1">
+      <button>說明慕尼黑是整趟旅程中最值得去的一站</button>
+      <button data-ok="1">預告後面會照走過的先後，一站站往下寫</button>
+      <button>強調作者這趟只背一個背包，輕裝上路</button>
+      <button>交代作者先搭火車，再轉巴士到國王湖</button>
+    </div>
+    <div class="said e" id="a1" hidden>
+      <b>預告後面會一站一站往下寫。</b>first 是一個序數，有第一站，就會有第二站、第三站。第 1 行的 <q>Last October</q> 定下時間的起點，<q>through Germany and Austria</q> 畫出範圍，<q>My first stop</q> 再指出從哪一站起步。三件事交代完，讀者就知道接下來要跟著作者走：第 7 行離開慕尼黑，第 17 行進入奧地利，第 31 行前往維也納。
+      <br><br>
+      <b>序列文章常這樣起手：</b>先給一個起點，再用 first、My first stop、To begin with 這類字告訴你「後面有順序」。看到序數，就先在腦子裡畫一條線，後面讀到的每一件事都往線上放。
+      <br><br>
+      <b>另外三個為什麼排除：</b>
+      <br><br>
+      「強調作者只背一個背包，輕裝上路」——<b>這個最容易選</b>，因為第 2 行真的寫了 <q>with only a backpack</q>，而且就在它前一句。可是題目問的是 My first stop 這幾個字在做什麼，不是問開頭講了什麼。<b>把句子的內容拿來當某幾個字的功能</b>，九月號第八單元就提醒過，這是最常見的一種誘答。
+      <br><br>
+      「慕尼黑是最值得去的一站」——first 講的是先後，不是輕重。文章也沒有替各站排名；真要說哪裡最精彩，第 25 到 26 行說的是鹽礦（<q>The best part was the wooden slides</q>）。
+      <br><br>
+      「先搭火車，再轉巴士到國王湖」——第 7 到 8 行確實有 <q>first by train, then by bus</q>，但那是離開慕尼黑之後的下一段路。那裡的 first 管的是交通工具的先後，<b>不是第 2 行這個 first</b>，放錯了位置。
+    </div>
+    <button class="go" id="g1" hidden>整條路線長什麼樣？</button>
+  </div>
+</section>
+
+<!-- ═══ 第二步 ═══ -->
+<section class="step" id="s2" hidden>
+  <p class="stepno">第二步</p>
+  <h2>照走過的先後，一站一站往下寫<span class="tag">上層：怎麼認出來</span></h2>
+  <p>先回答：<b>這篇文章的推進方式，最接近下列哪一種？</b></p>
+  <div class="opts" id="q2">
+    <button>比較德國和奧地利兩國風景的相同與不同</button>
+    <button>先說旅途中遇到的麻煩，再提出解決的辦法</button>
+    <button data-ok="1">照走過的地點和時間先後，一站一站往下寫</button>
+    <button>描述一座城市的幾個面向，再歸納它的特色</button>
+  </div>
+  <div class="said e" id="a2" hidden>
+    <b>照走過的地點和時間先後往下寫。</b>這是說明文五種基本結構裡的<b>序列</b>。幾乎每一段的段首都換了一站：第 1 行從慕尼黑起步，第 7 行 <q>From Munich</q> 往南到國王湖，第 17 行 <q>From there</q> 進入奧地利，第 22 行 <q>In Hallstatt</q> 上到鹽礦，第 31 行 <q>I later continued to Vienna</q>。拿掉任何一段，路線就斷了一截；兩段對調，作者就會從維也納走回哈修塔特。
+    <br><br>
+    <b>這一篇跟九月號第四單元的時間序不一樣。</b>那一篇講週期表的歷史，靠的是年代和 a few years before 這類時間說法，而且課文把較早發生的凱庫勒排在後面，<b>出現順序不等於發生順序</b>。這一篇剛好相反：出現的順序、發生的順序和走過的路線，三者完全一致。另一個不同是，這篇只有第 1 行一個日期，後面的時間幾乎都靠<b>地點</b>往前推：換了一個地方，就是往前走了一段時間。
+    <br><br>
+    <b>另外三個為什麼排除，每一個都是別種結構：</b>
+    <br><br>
+    「比較德國和奧地利兩國風景」——這是<b>比較對照</b>，<b>這個最容易選</b>。第 32 到 33 行確實寫了景色的變化：湖泊和山峰換成首都附近的平地。可是那個變化發生在奧地利境內，是從哈修塔特往東去維也納的路上看到的，根本不是兩國之間的比較。作者從頭到尾沒有把兩國並排，也沒說哪一國比較好。
+    <br><br>
+    「先說旅途中遇到的麻煩，再提出解決的辦法」——這是<b>問題與解決</b>。最後一段說搭火車 <q>kept things easy</q>（第 41 行），聽起來像是解決了什麼，可是全篇沒有提過任何麻煩。沒有問題，就談不上解決。
+    <br><br>
+    「描述一座城市的幾個面向」——這是<b>描述</b>。第 2 到 6 行確實在描述慕尼黑，但那只是第一站，六行之後作者就離開了。<b>一段描述不代表整篇是描述</b>，要看它管的是一段還是整篇。
+    <br><br>
+    下面這張圖就是這篇的<b>路線流程圖</b>：一站一格，箭頭旁邊寫著怎麼過去。<b>點任一格</b>，第四步的課文對應行會亮起來（課文還沒打開的話，先把行號記住就好）。
+  </div>
+  <figure class="fig" id="fig" hidden></figure>
+  <button class="go" id="g2" hidden>把每件事放回路線上</button>
+</section>
+
+<div class="daybreak" id="db" hidden>
+  <b>10/13 的範圍從這裡開始：第 22–44 行</b>
+  第一、二步用的是 10/12 的第 1–21 行（慕尼黑、國王湖、抵達哈修塔特）。第三步以後會用到整篇，包含 10/13 的第 22–44 行（鹽礦、維也納、最後的回顧）。如果你今天是 10/12，做到這裡可以先停，明天再接下去。（第二步的圖已經畫出整條路線，連維也納都在上面，先看到不影響。）
+</div>
+
+<!-- ═══ 第三步 ═══ -->
+<section class="step" id="s3" hidden>
+  <p class="stepno">第三步</p>
+  <h2>把每件事放回路線上<span class="tag">上層：怎麼驗證</span></h2>
+  <p>怎麼確定這篇是序列，不是把幾個景點的介紹排在一起？<b>先找訊號詞，說出是哪一種結構，再把內容放回路線圖，最後用一句話說出整篇。</b></p>
+  <p>訊號詞你在第二步看過一部分，這裡全部列出來。時間的有：第 1 行 <q>Last October</q>、第 7 到 8 行 <q>first by train, then by bus</q>、第 12 行 <q>Midway through</q>、第 17 行 <q>After a brief stop</q>、第 31 行 <q>later</q>、第 32 行 <q>the last stretch</q>、第 37 行 <q>As the light faded</q>。地點的有：第 2 行 <q>My first stop</q>、第 7 行 <q>From Munich</q>、第 17 行 <q>From there</q>、第 18 行 <q>pushed on to</q>、第 22 行 <q>In Hallstatt</q>、第 34 行 <q>In Vienna</q>。時間一直往前，地點一站換過一站，<b>兩組訊號指向同一個方向，就是序列</b>。</p>
+  <p>下面六張卡片寫的是作者在路上做過或看到的事，<b>都換過說法，也沒有行號</b>。每一張判斷一次：這件事發生在哪一站？點下去就定了，不能改。</p>
+  <div class="qs" id="qs"></div>
+  <p class="score" id="sc3">已放 <em>0</em> / 6，第一次就放對 <em>0</em> 張</p>
+  <div class="said e" id="a3" hidden>
+    <b>六張都放得回去，而且每一張只放得進一站。這就是序列。</b>序列文章裡的每一件事都有一個位置：它發生在某一站、某一個時刻之後。放不回路線上的句子，就不是這篇在講的事。
+    <br><br>
+    <b>最容易放錯的，是屋頂擠在湖和山壁之間那一張。</b>國王湖和哈修塔特都有湖，也都有陡峭的山壁，只看景色一定會搞混。能分辨的是第 18 行的 <q>The town</q>：國王湖是一座湖，哈修塔特是一座小鎮，擠在湖和山壁之間的屋頂屬於小鎮。<b>判斷一件事屬於哪一站，要往前找最近的那個地名。</b>第四步會把這件事講得更清楚。
+    <br><br>
+    <b>考卷上怎麼考：</b>雜誌這一單元的混合題第 2 題，就是要你從四張路線圖裡選出作者走的那一張。先把路線畫出來再看選項，比一個一個對課文快得多。下面再試一題摘要題。
+  </div>
+  <div id="q3w" hidden>
+    <p><b>哪一句最適合當這篇文章的一句話摘要？</b></p>
+    <div class="picks" id="q3">
+      <button data-ok="1">Moving mostly by rail, the writer went from city to lake to mountain town to capital, and the whole trip felt connected.</button>
+      <button>The best part of the trip was riding the wooden slides the miners once used deep inside the salt mine at Hallstatt.</button>
+      <button>The writer compares Germany with Austria and finds the lakes and peaks of Austria far more stunning than the old town of Munich.</button>
+      <button>Because buses and boats were slow and tiring, the writer switched to trains, which solved every problem that came up on the trip.</button>
+    </div>
+    <div class="said e" id="a3b" hidden>
+      <b>第一句。</b>它把整條路線收進一句話：city、lake、mountain town、capital 依序是慕尼黑、國王湖、哈修塔特、維也納，後半句再收進最後一段。而且它沒有照抄課文：第 41 行的 <q>Traveling mostly by train</q> 換成 Moving mostly by rail，第 42 行的 <q>a natural extension</q> 換成 felt connected。
+      <br><br>
+      <b>另外三個為什麼排除：</b>
+      <br><br>
+      「The best part of the trip was riding the wooden slides …」——<b>這個最容易選</b>，因為字幾乎全部來自第 25 到 26 行，the best part 聽起來又像在下結論。可是課文說的是鹽礦這一趟參觀裡最精彩的部分，不是整趟旅程最精彩的部分，<b>範圍放大了</b>；而且一站代表不了整條路線。
+      <br><br>
+      「The writer compares Germany with Austria …」——這是把序列讀成比較對照。第 10 行的 stunning 講的是國王湖，國王湖在德國；作者從頭到尾沒有拿兩國來比，更沒說哪一國比較美。
+      <br><br>
+      「Because buses and boats were slow and tiring …」——這是把序列讀成問題與解決。第 41 行只說搭火車讓一切很輕鬆，沒說巴士和船又慢又累，文章裡找不到任何一個要解決的問題。
+    </div>
+  </div>
+  <button class="go" id="g3" hidden>看句子最前面那幾個字</button>
+</section>
+
+<!-- ═══ 第四步 ═══ -->
+<section class="step" id="s4" hidden>
+  <p class="stepno">第四步</p>
+  <h2>句子最前面的那幾個字<span class="tag b">下層：句首的時間與地點</span></h2>
+  <p>這篇有一個你可能沒注意過的習慣：<b>很多句子不是從 I 開始，而是先放一個時間或地點</b>，像 <q>From Munich</q>、<q>From there</q>、<q>In Hallstatt</q>、<q>As the light faded</q>。語言學家 Halliday 把句子最前面的位置叫做<b>主位</b>（Theme），說它是一則訊息的出發點：讀者先看到什麼，就從那裡開始理解這句話。一般英文句子的出發點就是主詞；作者特地把時間或地點搬到主詞前面，就叫做<b>有標記的主位</b>（marked Theme）。英語教學裡常把這種句首的時間地點叫做 fronted adverbial。在遊記和敘事文裡，它們就是一個個路標：<b>一出現，就是換了一站，或換了一個時刻。</b></p>
+  <p>跟前面練過的連接標記分清楚。九月號第二單元的 One、Another、In addition 是在數「第幾項」，本身不帶內容；這裡的 From there、In Hallstatt 帶著真正的地點和時間，而且作者要的是它的<b>位置</b>。同樣的 in Hallstatt 放在句尾，只是一個地點；放在句首，就成了一段的起點。還有一個規律值得注意：句首放的通常是<b>讀者已經知道的</b>東西。第 17 行的 <q>From there</q>，there 就是剛寫完的國王湖；新的地點 Austria、Hallstatt 放在句子後面，下一段才拿到句首當出發點。</p>
+  <p><b>點課文裡有底色的字</b>，同一條的字會一起亮起來。青色有兩條，一條是句首的地點，一條是句首的時間；藍灰是定義框。兩色可以各自關掉。</p>
+  <div class="modes">
+    <button id="m1" aria-pressed="true">句首的時間與地點（青）</button>
+    <button id="m2" aria-pressed="true">定義框（藍灰）</button>
+  </div>
+  <div class="text" id="tx"></div>
+  <div class="panel" id="pn">
+    <span class="k" id="pk">線索</span>
+    <div class="ch" id="pc">點圖上的一站，或課文裡有底色的字</div>
+    <p class="nt" id="pt">青色是放在句首的地點和時間，是作者換站、換時刻的路標；藍灰是陌生地名後面當場說明的名詞片語。</p>
+  </div>
+  <div class="recall">
+    <b>另外兩樣，前面單元教過，這篇自己確認得出來：</b>
+    <ul>
+      <li><b>人稱指涉。</b>十月號第二單元練過，代名詞要往前找它指的是誰。第 27 行 <q>Riding them</q> 的 them 是前一句的 the wooden slides；第 29 行的 <q>it</q>，雜誌混合題第 1 題問的就是它，答案是 (D) Riding the slides，也就是坐滑梯這整件事；第 38 到 39 行 <q>its famous Ferris wheel</q> 的 its 是普拉特公園。</li>
+      <li><b>回指整件事。</b>九月號第一、第四單元練過。第 43 行的 <q>which</q> 往回收的不是某個名詞，而是前面一整句：每一次出發都像前一站的延續，<b>這件事</b>讓一切大不相同。第 43 到 44 行的 <q>a trip like this</q> 收得更大，this 指的是前面整趟旅程。往回找之前，先確定它收的是一個字、一句，還是一整篇。</li>
+    </ul>
+  </div>
+  <p style="margin-top:1.1rem"><button class="go" id="g4">考卷怎麼考這種文章</button></p>
+</section>
+
+<!-- ═══ 第五步 ═══ -->
+<section class="step" id="s5" hidden>
+  <p class="stepno">第五步</p>
+  <h2>事件配錯站<span class="tag">上層：考點</span></h2>
+  <p>序列文章的題目，誘答通常出在兩個地方：</p>
+  <p><b>一、先後弄反。</b>題目問哪件事先發生、作者走的是哪一條路線，誘答就把兩站的順序對調。雜誌混合題第 2 題的路線圖就是這種題目。做法：先在草稿紙上把路線畫出來，一站一個點，再看選項。</p>
+  <p><b>二、事件配錯站。</b>每一站都有自己的交通工具、景色和活動，誘答最愛把甲站的東西接到乙站頭上，而且照抄課文字面，看起來很眼熟。這篇特別容易中招，因為國王湖和哈修塔特都有湖，也都有山壁。做法：往前找這件事前面最近的那個句首地點，它屬於哪一站，事件就屬於哪一站。</p>
+  <p>試一題：<b>根據全文，下列關於這趟旅程的敘述，哪一項正確？</b></p>
+  <div class="opts en" id="q5">
+    <button>The author crossed the Königssee by electric boat before first arriving in Munich.</button>
+    <button>The author rode wooden slides through tunnels after reaching Vienna by train.</button>
+    <button>The author went by bus for the last stretch into the Austrian capital.</button>
+    <button data-ok="1">Near the end of the trip, mountains gave way to lower, level land.</button>
+  </div>
+  <div class="said e" id="a5" hidden>
+    <b>第四句。</b>先注意：它沒有照抄課文。第 32 到 34 行的 <q>trading lakes and peaks for flatter ground around the capital</q> 換成 mountains gave way to lower, level land；第 32 行的 <q>for the last stretch</q> 換成 Near the end of the trip。<b>另外三句反而滿是課文裡的字。</b>大考的正解通常是改寫，照抄課文字面的選項反而要小心。
+    <br><br>
+    <b>另外三個為什麼排除：</b>
+    <br><br>
+    「went by bus for the last stretch」——<b>這個最難排除</b>，因為 the last stretch、capital 都是課文的字。可是第 31 到 32 行寫的是 <q>taking a Railjet for the last stretch</q>，最後一段搭的是火車；巴士出現在第 8 行，是從慕尼黑到國王湖那一段。<b>交通工具配錯了站。</b>
+    <br><br>
+    「rode wooden slides … after reaching Vienna」——滑梯在哈修塔特的鹽礦裡（第 25 到 27 行），作者到第 31 行才出發去維也納。<b>活動配錯了站</b>，先後也跟著錯了。
+    <br><br>
+    「crossed the Königssee … before first arriving in Munich」——第 2 行說慕尼黑是 <q>My first stop</q>，國王湖是第 7 行離開慕尼黑之後才到的。讀懂開頭就排除得掉。
+  </div>
+  <button class="go" id="g5" hidden>最後一題</button>
+</section>
+
+<!-- ═══ 第六步 ═══ -->
+<section class="step" id="s6" hidden>
+  <p class="stepno">第六步</p>
+  <h2>把一句話放回去</h2>
+  <p>這就是考卷上的<b>篇章結構</b>題。下面把第 22 到 23 行那一句整句抽掉了，也就是第二天的第一句。四個候選句只有一句放得進去。</p>
+  <div class="gap" id="gp">
+    … From there, I crossed into Austria. After a brief stop in Salzburg, I pushed on to Hallstatt. The town came into view quietly—a cluster of rooftops caught between a lake and a steep mountain face, exactly as compact and striking as I’d heard.
+    <br><br>
+    <span class="blank" id="bl">（空格）</span> After changing into protective overalls, our tour group followed a guide through narrow tunnels deep inside the mountain. The best part was the wooden slides the miners once used to move around.
+  </div>
+  <div class="picks" id="q6">
+    <button>Later that week, in Vienna, I got around the capital by metro and tram.</button>
+    <button data-ok="1">In Hallstatt, I took the funicular up to the ancient salt mine above the town.</button>
+    <button>In Hallstatt, an electric boat carried our group slowly across the lake below.</button>
+    <button>In Salzburg, I made a brief stop before I pushed on to Hallstatt that day.</button>
+  </div>
+  <div class="said" id="a6" hidden>
+    <b>四個線索同時指向同一句。</b>這四句單獨看都說得通，沒有一句本身是錯的。要排除，得靠位置和線索。
+    <br><br>
+    <b>先講一個例外。</b>前面說大考的正解通常是改寫，但<b>抽句題不一樣</b>：抽掉的那一句就是原文，所以正解一定是原文。這一題要靠的是誘答哪裡接不上，不是比對字面。
+    <br><br>
+    <b>一、後面的句子需要先有一個地方。</b>空格後面那一句寫 <q>protective overalls</q>、<q>narrow tunnels deep inside the mountain</q>，再下一句又有 <q>the miners</q>。換防護服、鑽隧道、礦工，前面一定要先出現一座礦坑，這些字才有著落，而四句裡只有正解帶出 the ancient salt mine。另外，正解用句首的 In Hallstatt 接住前一段最後抵達的地方，再用 above the town 接回第 18 行的 <q>The town</q>：<b>句首放已知的地點，新的鹽礦放在句子後面</b>，正是第四步講的規律。
+    <br><br>
+    <b>另外三個為什麼排除，各有一個明確的依據：</b>
+    <br><br>
+    <b>二、往前跳站。</b>Later that week, in Vienna 直接跳到維也納。可是第 31 行才寫 <q>I later continued to Vienna</q>，作者這時候還沒去。這一句的地鐵聽起來跟後面的隧道接得上，<b>這個最容易選</b>，但路線不允許。
+    <br><br>
+    <b>三、配錯了站。</b>電動船載著大家渡湖，是第 11 行國王湖的事（<q>An electric boat carried us slowly across</q>）。把國王湖的船搬到哈修塔特，字都眼熟，站卻錯了。
+    <br><br>
+    <b>四、往回倒退。</b>第 17 到 18 行已經寫過 <q>After a brief stop in Salzburg, I pushed on to Hallstatt</q>，小鎮也已經出現在眼前。這時再回頭說一次在薩爾茲堡停留，時間就倒退了。
+  </div>
+  <p class="why" id="w6" hidden>考卷上不會有底色，也不會有行號。但你剛才用的四個線索，每一篇序列文章都有。</p>
+</section>
+
+<!-- ═══ 第七步 ═══ -->
+<section class="close" id="s7" hidden>
+  <h2>帶著走的五句話</h2>
+  <ol>
+    <li><b>序列文章一開頭就給起點。</b>什麼時候出發、走多大的範圍、從哪裡起步，再用 first、My first stop 這類序數告訴你後面有順序。看到序數，就先在腦子裡畫一條線。</li>
+    <li><b>驗證方法：把每件事放回路線上。</b>找出時間和地點的訊號詞，說出是序列，一站一格填進流程圖，再用一句話說出整條路線。放不回路線上的句子，就是誘答。</li>
+    <li><b>序列的訊號不一定是日期。</b>這篇只有一個 Last October，其他時間都靠換地點往前推。最後一段不在路線上，是回頭總結。這篇的出現順序、發生順序、路線順序三者一致，跟九月號第四單元出現順序不等於發生順序的那一篇不同。</li>
+    <li><b>句首的時間和地點是路標。</b>From there、In Hallstatt、As the light faded 放在句子最前面，就是換了一站或換了一個時刻；句首放讀者已經知道的地方，新的地方放在句子後面。沒看過的地名，說明通常就緊跟在它後面。</li>
+    <li><b>序列的考點：先後弄反、事件配錯站。</b>路線題先畫路線；問某件事的題目，往前找它最近的那個句首地點。誘答最愛把甲站的交通工具或活動，照抄字面接到乙站頭上。</li>
+  </ol>
+  <p class="more"><a href="https://staresto-create.github.io/JCEE-vocab-questions/wordwheel.html">單字輪：把字拆成部件來記 →</a></p>
+</section>
+
+<nav class="series">
+  <a class="back" href="cohesion.html">← 回讀法練習總表</a>
+  <p class="note">總表上有目前可以做的所有單元，還有你累積到現在的讀法工具。</p>
+</nav>
+
+</div>
+
+<script>
+(function(){
+"use strict";
+function $(id){return document.getElementById(id);}
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;");}
+
+var KEY="cohesion-202610-u5-v1";
+
+var PREVIEW=false;
+var ST={tags:{},rows:{},q1:0,q2:0,q3:0,q5:0,q6:0,step:1};
+function save(){ if(PREVIEW) return; try{ localStorage.setItem(KEY, JSON.stringify(ST)); }catch(e){} }
+function load(){ try{ var r=localStorage.getItem(KEY); return r?JSON.parse(r):null; }catch(e){ return null; } }
+function wipe(){ try{ localStorage.removeItem(KEY); }catch(e){} location.reload(); }
+
+var TITLE="A Scenic Journey Through Germany and Austria";
+var LINES=[
+"{Last October|c-tim|1}, I set off through Germany and Austria",
+"with only a backpack. My first stop was Munich, {a city|c-app|1}",
+"where old stone architecture and a lively street culture sit",
+"comfortably side by side. I spent my days wandering the",
+"old town, picking up food from market stalls and enjoying",
+"cafés that are popular with locals and travelers alike.",
+"{From Munich|c-plc|1}, I headed south—first by train, then",
+"by bus—to the Königssee, {a lake tucked inside the|c-app|2}",
+"{Bavarian Alps|c-app|2}. The water was glassy, the cliffs steep,",
+"and the whole place was as stunning as it was peaceful.",
+"An electric boat carried us slowly across, mountains rising",
+"sharply on both sides. {Midway through|c-tim|2}, the captain",
+"raised a trumpet and played a short phrase. The notes",
+"bounced off the rock faces in clean, distinct echoes—",
+"the kind of moment you wouldn’t expect and won’t easily",
+"forget.",
+"{From there|c-plc|2}, I crossed into Austria. {After a brief stop|c-tim|3}",
+"{in Salzburg|c-tim|3}, I pushed on to Hallstatt. The town came into",
+"view quietly—a cluster of rooftops caught between a",
+"lake and a steep mountain face, exactly",
+"as compact and striking as I’d heard.",
+"{In Hallstatt|c-plc|3}, I took the funicular up to the ancient salt",
+"mine above the town. {After changing into protective|c-tim|4}",
+"{overalls|c-tim|4}, our tour group followed a guide through",
+"narrow tunnels deep inside the mountain. The best part",
+"was the wooden slides the miners once used to move",
+"around. Riding them turned the visit into something",
+"between a history lesson and a theme park ride, the",
+"dead quiet of the tunnels making it feel even more",
+"surreal.",
+"I later continued to Vienna by train, taking a Railjet",
+"for the last stretch. The landscape shifted as we moved",
+"east, trading lakes and peaks for flatter ground around",
+"the capital. {In Vienna|c-plc|4}, I got around by metro and tram.",
+"I stopped at the Hundertwasserhaus, {an apartment|c-app|3}",
+"{block|c-app|3} painted in bold colors with trees growing from its",
+"window ledges. {As the light faded|c-tim|5}, I walked over to the",
+"Prater, {the city’s vast public park|c-app|4}, where its famous Ferris",
+"wheel was slowly turning as evening lights began to",
+"appear.",
+"Traveling mostly by train kept things easy. Each",
+"departure felt like a natural extension of wherever I’d",
+"just been, rather than a break from it—which, for a trip",
+"like this, made all the difference."
+];
+var INDENT={1:1,7:1,17:1,22:1,31:1,41:1};
+var HEAD={};
+var SPLIT=22;
+var SPLIT_TEXT="以上是 10/12 的第 1–21 行。以下是 10/13 的第 22–44 行。";
+
+var CHAINS={
+ "c-plc":{k:"sub",n:"句首的地點，四處。每一處都是作者換到新地方的起點：第 7 行 From Munich，離開第一站；第 17 行 From there，there 指的是前一段的國王湖；第 22 行 In Hallstatt，第二天從這裡開始；第 34 行 In Vienna，最後一站。注意 From Munich 和 From there 放在句首的都是讀者已經知道的地方，要去的新地方放在句子後面，下一段才拿到句首當出發點。"},
+ "c-tim":{k:"sub",n:"句首的時間，五處。第 1 行 Last October，整趟旅程的起點；第 12 行 Midway through，船開到一半；第 17 到 18 行 After a brief stop in Salzburg，薩爾茲堡一筆帶過；第 23 到 24 行 After changing into protective overalls，進隧道前的那一刻；第 37 行 As the light faded，維也納的一天推到傍晚。全篇只有 Last October 是真正的日期，其他時間都用「在……之後」「……的時候」交代。"},
+ "c-app":{k:"gen",n:"定義框，四處。陌生地名後面緊跟一個名詞片語，當場告訴你它是什麼：Munich 是一座城市，the Königssee 是巴伐利亞阿爾卑斯山裡的一座湖，the Hundertwasserhaus 是一棟公寓，the Prater 是維也納的大公園。九月號第九單元練過：沒看過的名字，說明幾乎一定就在它旁邊。考卷上遇到不認識的專有名詞，先看它後面那個逗號。"}
+};
+var LB={sub:"句首的時間與地點",gen:"定義框",mk:"標記詞"};
+var CL={sub:"k",gen:"k g",mk:"k e"};
+
+var NODES=[
+ {nm:"慕尼黑",en:"Munich",a:1,b:6,
+  n:"第 1 到 6 行。第一站：老城、市集攤位、當地人也愛去的咖啡館。"},
+ {nm:"國王湖",en:"Königssee",a:7,b:16,
+  n:"第 7 到 16 行。先搭火車再轉巴士，到巴伐利亞阿爾卑斯山裡的湖。船開到一半，船長吹起小號。"},
+ {nm:"哈修塔特",en:"Hallstatt",a:17,b:30,
+  n:"第 17 到 30 行。越過國界進入奧地利，途中在薩爾茲堡只停一下。這一站跨了兩天：第 17 到 21 行抵達小鎮，第 22 到 30 行上到鹽礦。"},
+ {nm:"維也納",en:"Vienna",a:31,b:40,
+  n:"第 31 到 40 行。最後一段搭 Railjet，景色從湖泊山峰換成平地。地鐵、電車、百水之家，傍晚的摩天輪。"},
+ {nm:"回顧",en:"",a:41,b:44,
+  n:"第 41 到 44 行。這一段不在路線上：作者不再往前走，而是回頭說，搭火車讓每一次出發都像前一站的延續。"}
+];
+
+var STOPS=["慕尼黑","國王湖","哈修塔特","維也納"];
+var ROWS=[
+ {f:"在市集攤位買東西吃，也去當地人和遊客都喜歡的咖啡館。",ans:0,
+  note:"第 5 到 6 行，慕尼黑的老城。這一段從第 2 行 <q>My first stop was Munich</q> 開始，還沒離開第一站。"},
+ {f:"一片屋頂擠在湖和陡峭的山壁之間，跟聽說的一樣小巧又醒目。",ans:2,
+  note:"第 18 到 21 行。湖和山壁很容易讓人想到國王湖，但第 18 行先寫 <q>I pushed on to Hallstatt</q>，接著才說 <q>The town came into view</q>：擠在湖和山壁之間的，是小鎮的屋頂。"},
+ {f:"船開到一半，有人吹起一小段小號，聲音在岩壁之間清楚地來回。",ans:1,
+  note:"第 12 到 15 行。前面第 11 行寫 <q>An electric boat carried us slowly across</q>，船在國王湖上；句首的 Midway through 就是船開到一半。"},
+ {f:"搭地鐵和路面電車四處跑，還去看了一棟窗臺長出樹來的公寓。",ans:3,
+  note:"第 34 到 37 行。句首的 In Vienna 已經告訴你在哪一站；那棟公寓就是百水之家。"},
+ {f:"湖面平得像玻璃，四周的峭壁又直又陡。",ans:1,
+  note:"第 9 到 10 行。前一行剛說到國王湖是 a lake，接下來的 The water 講的就是這座湖。它跟屋頂那一張很像，差別在一個是湖，一個是鎮。"},
+ {f:"換上防護連身服，跟著導覽員鑽進山裡狹窄的隧道。",ans:2,
+  note:"第 23 到 25 行。第二天第一句的句首 In Hallstatt 還在哈修塔特，作者搭纜車上到小鎮上方的鹽礦，隧道就在鹽礦裡。"}
+];
+
+var TL={t:"時間",r:"範圍",f:"第一站"};
+
+/* ---------- 通用：選擇題 ---------- */
+function quiz(qid,aid,gid,tag,after){
+  var done=false;
+  function settle(){
+    done=true;
+    var bs=$(qid).querySelectorAll("button");
+    for(var i=0;i<bs.length;i++){ bs[i].disabled=true; bs[i].dataset.state=bs[i].dataset.ok?"right":"wrong"; }
+    if(aid) $(aid).hidden=false;
+    if(gid) $(gid).hidden=false;
+    if(after) after();
+  }
+  $(qid).addEventListener("click",function(e){
+    var b=e.target.closest("button"); if(!b||done) return;
+    settle(); ST[tag]=1; save();
+  });
+  return settle;
+}
+function opener(gid,sid,extra){
+  $(gid).addEventListener("click",function(){
+    var n=parseInt(sid.replace(/\D/g,""),10);
+    if(ST.step<n) ST.step=n; save();
+    $(sid).hidden=false; if(extra) extra();
+    $(sid).scrollIntoView({behavior:"smooth",block:"start"});
+  });
+}
+function hlLines(a,b){
+  var rows=$("tx").querySelectorAll(".ln");
+  for(var r=0;r<rows.length;r++){ var n=+rows[r].dataset.n; rows[r].classList.toggle("hl", n>=a&&n<=b); }
+  var ms=$("tx").querySelectorAll("m");
+  for(var k=0;k<ms.length;k++) ms[k].classList.remove("lit");
+  if(rows.length){ var f=$("tx").querySelector('.ln[data-n="'+a+'"]'); if(f) f.scrollIntoView({behavior:"smooth",block:"center"}); }
+}
+
+/* ---------- 第一步 ---------- */
+function tagged(){ var n=0; for(var k in ST.tags) if(ST.tags[k]) n++; return n; }
+function paintTag(c){
+  if(c.classList.contains("got")) return;
+  c.classList.add("got");
+  var b=document.createElement("b"); b.textContent=TL[c.dataset.t]||"";
+  c.insertBefore(b, c.firstChild);
+}
+function afterTags(){
+  $("sc").innerHTML="已標出 <em>"+tagged()+"</em> / 3";
+  if(tagged()===3) $("s1b").hidden=false;
+}
+$("ld").addEventListener("click",function(e){
+  var c=e.target.closest("c"); if(!c) return;
+  if(ST.tags[c.dataset.t]) return;
+  ST.tags[c.dataset.t]=1; save(); paintTag(c); afterTags();
+});
+var set1=quiz("q1","a1","g1","q1");
+opener("g1","s2");
+
+/* ---------- 第二步：路線流程圖 ---------- */
+function drawFig(){
+  if($("fig").firstChild) return;
+  $("fig").hidden=false;
+  var s='<svg viewBox="0 0 420 342" role="img" aria-label="路線流程圖：慕尼黑、國王湖、哈修塔特、維也納四站由上往下，最下面是不在路線上的回顧">';
+  var LEG=["先搭火車，再轉巴士","越過國界進入奧地利","搭火車，最後一段 Railjet"];
+  var i,d,y;
+  s+='<text class="lab" x="100" y="36" text-anchor="end">Last October</text>';
+  s+='<text class="lab s" x="100" y="49" text-anchor="end">出發</text>';
+  for(i=0;i<4;i++){
+    d=NODES[i]; y=14+i*72;
+    s+='<g class="node" data-i="'+i+'" tabindex="0" role="button">';
+    s+='<rect x="110" y="'+y+'" width="200" height="44" rx="5"/>';
+    s+='<text x="210" y="'+(y+19)+'" text-anchor="middle">'+esc(d.nm)+'　<tspan class="n">'+esc(d.en)+'</tspan></text>';
+    s+='<text class="n" x="210" y="'+(y+35)+'" text-anchor="middle">第 '+d.a+'–'+d.b+' 行</text>';
+    s+='</g>';
+    if(i<3){
+      var y0=y+47, y1=y+69;
+      s+='<path class="arr" d="M210 '+y0+' L210 '+y1+' M206 '+(y1-5)+' L210 '+y1+' L214 '+(y1-5)+'"/>';
+      s+='<text class="lab" x="222" y="'+(y0+14)+'">'+esc(LEG[i])+'</text>';
+    }
+  }
+  var ys=14+72+58;
+  s+='<circle class="stop" cx="210" cy="'+ys+'" r="4"/>';
+  s+='<text class="lab" x="198" y="'+(ys-2)+'" text-anchor="end">薩爾茲堡</text>';
+  s+='<text class="lab s" x="198" y="'+(ys+10)+'" text-anchor="end">只停一下</text>';
+  var yh=14+2*72;
+  s+='<text class="lab s" x="100" y="'+(yh+19)+'" text-anchor="end">跨兩天：</text>';
+  s+='<text class="lab s" x="100" y="'+(yh+32)+'" text-anchor="end">第 22 行起是 10/13</text>';
+  d=NODES[4]; y=300;
+  s+='<text class="lab s" x="210" y="'+(y-10)+'" text-anchor="middle">不在路線上，沒有箭頭接過去</text>';
+  s+='<g class="node co" data-i="4" tabindex="0" role="button">';
+  s+='<rect x="60" y="'+y+'" width="300" height="36" rx="5"/>';
+  s+='<text x="210" y="'+(y+16)+'" text-anchor="middle">'+esc(d.nm)+'：搭火車讓整趟連成一氣</text>';
+  s+='<text class="n" x="210" y="'+(y+29)+'" text-anchor="middle">第 '+d.a+'–'+d.b+' 行</text>';
+  s+='</g>';
+  s+='</svg><figcaption>一站一格，照走過的先後由上往下排，箭頭旁邊寫的是怎麼過去的。薩爾茲堡畫成箭頭上的小點，因為作者只停一下就走了（第 17 到 18 行 <q>After a brief stop in Salzburg</q>）。最下面那一格用虛線框，也沒有箭頭接過去，因為最後一段不再往前走，而是回頭總結。點任一格，第四步的課文對應行會亮起來。</figcaption>';
+  $("fig").innerHTML=s;
+  function hit(g){
+    var i=+g.dataset.i, d=NODES[i];
+    var gs=$("fig").querySelectorAll(".node");
+    for(var j=0;j<gs.length;j++) gs[j].classList.toggle("on", +gs[j].dataset.i===i);
+    hlLines(d.a,d.b);
+    $("pk").textContent="路線上的一站"; $("pk").className="k e";
+    $("pc").textContent=d.nm+(d.en?"　"+d.en:""); $("pt").textContent=d.n;
+  }
+  $("fig").addEventListener("click",function(e){ var g=e.target.closest(".node"); if(g) hit(g); });
+  $("fig").addEventListener("keydown",function(e){
+    if(e.key!=="Enter"&&e.key!==" ") return;
+    var g=e.target.closest(".node"); if(g){ e.preventDefault(); hit(g); }
+  });
+}
+function afterQ2(){ drawFig(); $("db").hidden=false; }
+var set2=quiz("q2","a2","g2","q2",afterQ2);
+opener("g2","s3",buildRows);
+
+/* ---------- 第三步：把事件放回路線上 ---------- */
+var builtRows=false;
+function buildRows(){
+  if(builtRows) return; builtRows=true;
+  var h="";
+  for(var i=0;i<ROWS.length;i++){
+    var r=ROWS[i], bt="";
+    for(var k=0;k<STOPS.length;k++) bt+='<button data-i="'+i+'" data-v="'+k+'">'+STOPS[k]+'</button>';
+    h+='<div class="qcard" id="cd'+i+'"><div class="hd"><span class="qt">'+esc(r.f)+'</span></div>'+
+       '<span class="yn">發生在：'+bt+'</span>'+
+       '<span class="bd" id="bd'+i+'"></span></div>';
+  }
+  $("qs").innerHTML=h;
+  $("qs").addEventListener("click",function(e){
+    var b=e.target.closest("button"); if(!b) return;
+    var i=b.dataset.i; if(ST.rows[i]!==undefined&&ST.rows[i]!==null) return;
+    ST.rows[i]=+b.dataset.v; save(); paintRows();
+  });
+  paintRows();
+}
+function isSet(v){ return typeof v==="number"; }
+function judged(){ var n=0; for(var i=0;i<ROWS.length;i++) if(isSet(ST.rows[i])) n++; return n; }
+function rightRows(){ var n=0; for(var i=0;i<ROWS.length;i++) if(ST.rows[i]===ROWS[i].ans) n++; return n; }
+function paintRows(){
+  for(var i=0;i<ROWS.length;i++){
+    var el=$("cd"+i); if(!el) continue;
+    var v=ST.rows[i], r=ROWS[i];
+    el.classList.toggle("open",isSet(v));
+    if(isSet(v)){
+      var ok=(v===r.ans);
+      var head= ok ? ("放對了：這件事發生在"+STOPS[r.ans]+"。") : ("再看一次：這件事其實發生在"+STOPS[r.ans]+"，不是"+STOPS[v]+"。");
+      $("bd"+i).innerHTML='<span class="vd '+(ok?"ok":"ng")+'">'+head+'</span>'+r.note;
+    }
+  }
+  $("sc3").innerHTML="已放 <em>"+judged()+"</em> / "+ROWS.length+"，第一次就放對 <em>"+rightRows()+"</em> 張";
+  if(judged()>=ROWS.length){ $("a3").hidden=false; $("q3w").hidden=false; }
+}
+var set3=quiz("q3","a3b","g3","q3");
+opener("g3","s4",function(){ buildText(); drawFig(); });
+
+/* ---------- 第四步：課文與線索鏈 ---------- */
+function renderLine(str){
+  var out="",i=0;
+  while(i<str.length){
+    var a=str.indexOf("{",i);
+    if(a<0){ out+=esc(str.slice(i)); break; }
+    out+=esc(str.slice(i,a));
+    var b=str.indexOf("}",a), p=str.slice(a+1,b).split("|");
+    var id=p[1], it=p[2]||"1", k=CHAINS[id]?CHAINS[id].k:"sub";
+    out+='<m data-c="'+id+'" data-i="'+it+'" data-kind="'+k+'" tabindex="0">'+esc(p[0])+'</m>';
+    i=b+1;
+  }
+  return out;
+}
+var builtText=false;
+function buildText(){
+  if(builtText) return; builtText=true;
+  var h='<p class="ttl">'+renderLine(TITLE)+'</p>';
+  for(var i=0;i<LINES.length;i++){
+    var n=i+1;
+    if(SPLIT && n===SPLIT) h+='<p class="split">'+esc(SPLIT_TEXT)+'</p>';
+    var cls="ln";
+    if(HEAD[n]) cls+=" sub pb";
+    else if(INDENT[n]) cls+=" ind"+(n>1?" pb":"");
+    h+='<div class="'+cls+'" data-n="'+n+'"><i>'+((n%5===0)?n:"")+'</i><span>'+renderLine(LINES[i])+'</span></div>';
+  }
+  $("tx").innerHTML=h;
+}
+function lightChain(id){
+  var ms=$("tx").querySelectorAll("m"), items={}, order=[],i;
+  var gs=$("fig").querySelectorAll(".node");
+  for(i=0;i<gs.length;i++) gs[i].classList.remove("on");
+  var rows=$("tx").querySelectorAll(".ln");
+  for(i=0;i<rows.length;i++) rows[i].classList.remove("hl");
+  for(i=0;i<ms.length;i++){
+    if(ms[i].dataset.c===id){
+      ms[i].classList.add("lit");
+      var key=ms[i].dataset.i;
+      if(!items[key]){ items[key]=[]; order.push(key); }
+      items[key].push(ms[i].textContent);
+    } else ms[i].classList.remove("lit");
+  }
+  var c=CHAINS[id]; if(!c) return;
+  var parts=[];
+  for(var o=0;o<order.length;o++) parts.push(esc(items[order[o]].join(" ")));
+  $("pk").textContent=LB[c.k]; $("pk").className=CL[c.k];
+  $("pc").innerHTML=parts.join('<i>\u2192</i>');
+  $("pt").textContent=c.n;
+}
+$("tx").addEventListener("click",function(e){ var m=e.target.closest("m"); if(m) lightChain(m.dataset.c); });
+$("tx").addEventListener("keydown",function(e){
+  if(e.key!=="Enter"&&e.key!==" ") return;
+  var m=e.target.closest("m"); if(m){ e.preventDefault(); lightChain(m.dataset.c); }
+});
+function toggle(btn,cls){
+  btn.addEventListener("click",function(){
+    var on=btn.getAttribute("aria-pressed")==="true";
+    btn.setAttribute("aria-pressed",on?"false":"true");
+    $("tx").classList.toggle(cls,on);
+  });
+}
+toggle($("m1"),"off-sub");
+toggle($("m2"),"off-gen");
+opener("g4","s5");
+
+/* ---------- 第五步 ---------- */
+var set5=quiz("q5","a5","g5","q5");
+$("g5").addEventListener("click",function(){
+  if(ST.step<6) ST.step=6; save();
+  $("s6").hidden=false;
+  $("s6").scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+/* ---------- 第六步 ---------- */
+var done6=false;
+function settle6(){
+  done6=true;
+  var bs=$("q6").querySelectorAll("button");
+  for(var i=0;i<bs.length;i++){
+    bs[i].disabled=true; bs[i].dataset.state=bs[i].dataset.ok?"right":"wrong";
+    if(bs[i].dataset.ok){ $("bl").textContent=bs[i].textContent; $("bl").className="blank filled"; }
+  }
+  $("a6").hidden=false; $("w6").hidden=false; $("s7").hidden=false;
+}
+$("q6").addEventListener("click",function(e){
+  var b=e.target.closest("button"); if(!b||done6) return;
+  settle6(); ST.q6=1; save();
+  $("a6").scrollIntoView({behavior:"smooth",block:"nearest"});
+});
+
+/* ---------- 老師的預覽開關：網址加 ?all ---------- */
+function previewAll(){
+  PREVIEW=true;
+  $("pv").hidden=false;
+  var i,cs=$("ld").querySelectorAll("c");
+  for(i=0;i<cs.length;i++){ ST.tags[cs[i].dataset.t]=1; paintTag(cs[i]); }
+  afterTags(); set1();
+  $("s2").hidden=false; set2();
+  $("s3").hidden=false;
+  for(i=0;i<ROWS.length;i++) ST.rows[i]=ROWS[i].ans;
+  buildRows(); set3();
+  $("s4").hidden=false; buildText(); drawFig();
+  $("s5").hidden=false; set5();
+  $("s6").hidden=false; settle6();
+}
+
+/* ---------- 接回上次的進度 ---------- */
+$("rst").addEventListener("click",wipe);
+(function restore(){
+  if(/(^|[?&])all(=|&|$)/.test(location.search)){ previewAll(); return; }
+  var v=load(); if(!v) return;
+  ST=v;
+  if(!ST.tags) ST.tags={};
+  if(!ST.rows) ST.rows={};
+  if(!ST.step) ST.step=1;
+  if(!(tagged()||ST.step>1)) return;
+  $("rs").hidden=false;
+  var i,cs=$("ld").querySelectorAll("c");
+  for(i=0;i<cs.length;i++) if(ST.tags[cs[i].dataset.t]) paintTag(cs[i]);
+  afterTags();
+  if(ST.q1) set1();
+  if(ST.step>=2){ $("s2").hidden=false; if(ST.q2) set2(); }
+  if(ST.step>=3){ $("s3").hidden=false; buildRows(); if(ST.q3) set3(); }
+  if(ST.step>=4){ $("s4").hidden=false; buildText(); drawFig(); }
+  if(ST.step>=5){ $("s5").hidden=false; if(ST.q5) set5(); }
+  if(ST.step>=6){ $("s6").hidden=false; if(ST.q6) settle6(); }
+  var last=$("s"+(ST.step>=6?6:ST.step));
+  if(last) setTimeout(function(){ last.scrollIntoView({block:"start"}); },60);
+})();
+})();
+</script>
+</body>
+</html>
