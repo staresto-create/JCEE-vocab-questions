@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>問題與解決：先看清問題，再談治療｜Learning to Let Go</title>
+<meta name="description" content="囤積不是收藏，而是需要治療的問題。這一頁教你認出問題與解決的結構、辨識作者的寫作目的，還有同一個字根換詞性再出現的重複。">
+<meta property="og:title" content="問題與解決：先看清問題，再談治療｜Learning to Let Go">
+<meta property="og:description" content="hoarding、hoarders、a hoarder：同一個字根一路出現，字尾告訴你講的是行為還是人。">
+<style>
+:root{
+  --ground:#f1f3f2; --ink:#17282f; --teal:#1f6f6a; --teal-soft:#dfeceb;
+  --muted:#77878d; --line:#cdd6d6; --exam:#b4661c; --exam-soft:#fdf4e7;
+  --gen:#4a6a90; --gen-soft:#e0e7f0;
+  --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+  --sans:"PingFang TC","Noto Sans TC","Microsoft JhengHei","Helvetica Neue",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-text-size-adjust:100%}
+.wrap{max-width:44rem;margin:0 auto;padding:1.6rem 1.1rem 4rem}
+h1{font-family:var(--serif);font-weight:600;font-size:1.6rem;line-height:1.3;margin:0 0 .55rem}
+.lede{margin:0 0 1.3rem;color:#3d5059;font-size:.95rem}
+.src{font-size:.8rem;color:var(--muted);margin:0 0 1.1rem}
+.resume{font-size:.85rem;color:var(--teal);background:var(--teal-soft);border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.resume[hidden],.preview[hidden]{display:none}
+.preview{font-size:.85rem;color:var(--exam);background:var(--exam-soft);
+  border:1px dashed var(--exam);border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.resume button{font:inherit;font-size:.82rem;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:.25rem;padding:.16rem .6rem;margin-left:.5rem;cursor:pointer}
+.resume button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.step{border-top:1px solid var(--line);padding-top:1.15rem;margin-top:1.6rem}
+.step[hidden]{display:none}
+.stepno{font-family:var(--serif);font-size:.82rem;color:var(--muted);margin:0 0 .2rem}
+h2{font-family:var(--serif);font-weight:600;font-size:1.2rem;margin:0 0 .5rem;color:var(--teal)}
+.step p{margin:0 0 .7rem;font-size:.95rem}
+.tag{display:inline-block;font-size:.72rem;font-weight:600;border-radius:.2rem;padding:.08rem .45rem;margin-left:.45rem;vertical-align:.12rem;color:var(--exam);background:var(--exam-soft);border:1px solid var(--exam)}
+.tag.b{color:var(--gen);background:var(--gen-soft);border-color:var(--gen)}
+
+/* 選擇題：中文用 .opts，英文選項加 .en，附小字說明加 .rg */
+.opts{display:flex;flex-direction:column;gap:.45rem;margin:.2rem 0 .8rem}
+.opts button{font:inherit;font-size:.95rem;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:.3rem;padding:.45rem .85rem;cursor:pointer;text-align:left}
+.opts button:hover{border-color:var(--teal)}
+.opts button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.opts button[data-state="right"]{background:var(--teal);border-color:var(--teal);color:#fff}
+.opts button[data-state="wrong"]{background:var(--ground);color:var(--muted)}
+.opts button[disabled]{cursor:default}
+.opts.en button{font-family:var(--serif);font-size:.97rem;line-height:1.6;padding:.55rem .8rem}
+.opts.en button[data-state="right"]{background:var(--teal-soft);border-color:var(--teal);color:var(--ink)}
+.opts.rg button i{display:block;font-style:normal;font-size:.82rem;color:var(--muted);margin-top:.12rem}
+.opts.rg button[data-state="right"] i{color:#dfeceb}
+
+/* 揭曉區塊 */
+.said{background:#fff;border-left:3px solid var(--teal);border-radius:.3rem;padding:.75rem .85rem;margin:.2rem 0 .9rem;font-size:.93rem;color:#3d5059}
+.said b{color:var(--ink);font-weight:600}
+.said[hidden]{display:none}
+.said.g{border-left-color:var(--gen)}
+.said.e{border-left-color:var(--exam)}
+.said q{quotes:none;font-family:var(--serif)}
+
+.go{font:inherit;font-size:.92rem;background:var(--ink);color:#fff;border:1px solid var(--ink);border-radius:.3rem;padding:.42rem 1.05rem;cursor:pointer}
+.go:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.go[hidden]{display:none}
+
+/* 第一步的可點標記 */
+.lead{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.9rem 1rem;margin:0 0 .7rem;font-family:var(--serif);font-size:1.02rem;line-height:1.95}
+.lead c{cursor:pointer;border-radius:.2rem;padding:.06rem .2rem;background:var(--exam-soft);box-shadow:inset 0 -2px 0 #ecc9a2}
+.lead c:hover{box-shadow:inset 0 -2px 0 var(--exam)}
+.lead c.got{background:var(--exam);color:#fff;box-shadow:none}
+.lead c b{font-family:var(--sans);font-size:.72rem;font-weight:600;background:#fff;color:var(--exam);border-radius:.2rem;padding:.02rem .3rem;margin-right:.3rem}
+.score{font-size:.9rem;color:var(--muted);margin:0 0 .8rem}
+.score em{font-style:normal;color:var(--exam);font-weight:600}
+
+/* 第三步的卡片（驗證方法通用容器） */
+.qs{display:flex;flex-direction:column;gap:.5rem;margin:0 0 .8rem}
+.qcard{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.6rem .85rem}
+.qcard .hd{display:flex;align-items:center;gap:.6rem;font-size:.95rem}
+.qcard .hd .qt{flex:1 1 auto;font-weight:600}
+.qcard .hd button{font:inherit;font-size:.8rem;background:#fff;color:var(--ink);border:1px solid var(--line);
+  border-radius:.25rem;padding:.18rem .7rem;cursor:pointer;flex:0 0 auto}
+.qcard .hd button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.qcard .bd{display:none;margin-top:.4rem;font-size:.92rem;color:#3d5059;line-height:1.75}
+.qcard.open .bd{display:block}
+.qcard.open .hd button{display:none}
+.qcard .bd .rf{display:block;color:var(--muted);font-size:.82rem;margin-top:.25rem}
+.qcard .bd .sw{display:block;font-family:var(--serif);background:var(--ground);border-radius:.3rem;
+  padding:.45rem .6rem;margin:.35rem 0;color:var(--ink);font-size:.93rem;line-height:1.7}
+.qcard .r{display:grid;grid-template-columns:1fr;gap:.1rem;margin-bottom:.4rem}
+@media(min-width:34rem){.qcard .r{grid-template-columns:5.5rem 1fr;gap:.5rem}}
+.qcard .r:last-child{margin-bottom:0}
+.qcard .r .k{font-size:.76rem;font-weight:600;color:var(--gen)}
+.qcard .r .v em{font-style:normal;color:var(--muted);font-size:.82rem;margin-left:.3rem}
+
+/* 圖表容器與通用節點 */
+.fig{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.7rem .5rem .4rem;margin:0 0 .7rem}
+.fig[hidden]{display:none}
+.fig svg{display:block;width:100%;height:auto;max-width:27rem;margin:0 auto}
+.fig figcaption{font-size:.85rem;color:#3d5059;margin:.35rem .5rem 0;line-height:1.65}
+.node{cursor:pointer}
+.node rect,.node circle,.node path.bx{fill:#fff;stroke:var(--line);stroke-width:2;stroke-linejoin:round}
+.node text{font-family:var(--sans);font-size:11px;fill:var(--ink);font-weight:600}
+.node tspan.n,.node text.n{font-size:9px;font-weight:400;fill:var(--muted)}
+.node.on rect,.node.on circle,.node.on path.bx{fill:var(--exam-soft);stroke:var(--exam);stroke-width:3}
+.node.on text{fill:var(--exam)}
+.node.on tspan.n,.node.on text.n{fill:var(--exam)}
+.guide{stroke:var(--line);stroke-width:2;fill:none;stroke-linejoin:round;stroke-linecap:round}
+.guide.dash{stroke-dasharray:5 4}
+.endlab{font-family:var(--sans);font-size:10.5px;font-weight:600}
+.endlab.l{fill:var(--teal)}
+.endlab.r{fill:var(--gen)}
+
+/* 分日分隔框 */
+.daybreak{border:1px dashed var(--exam);background:var(--exam-soft);border-radius:.4rem;
+  padding:.8rem .95rem;margin:1.6rem 0 0;font-size:.9rem;color:#3d5059;line-height:1.7}
+.daybreak b{display:block;color:var(--exam);font-family:var(--serif);font-size:1.02rem;margin-bottom:.3rem}
+.daybreak[hidden]{display:none}
+
+/* 課文與線索鏈 */
+.modes{display:flex;gap:.4rem;margin:0 0 .7rem;flex-wrap:wrap}
+.modes button{font:inherit;font-size:.84rem;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:.3rem;padding:.3rem .8rem;cursor:pointer}
+.modes button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.modes button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.text{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.9rem .6rem 1.1rem;font-family:var(--serif);font-size:1rem;line-height:1.85}
+.text .ttl{font-weight:600;font-size:1.06rem;margin:0 .4rem .7rem 2.6rem;line-height:1.45}
+.ln{display:flex;align-items:baseline;padding:.02rem 0;border-radius:.2rem}
+.ln>i{flex:0 0 2.2rem;text-align:right;padding-right:.55rem;font-family:var(--sans);font-style:normal;font-size:.68rem;color:var(--muted);line-height:1.9}
+.ln>span{flex:1 1 auto;overflow-wrap:anywhere}
+.ln.ind>span{padding-left:1.1rem}
+.ln.sub>span{font-weight:600}
+.ln.hl{background:var(--exam-soft)}
+.ln.pb{margin-top:.55rem}
+.text .split{font-family:var(--sans);font-size:.78rem;color:var(--exam);
+  border-top:1px dashed var(--exam);margin:.8rem .4rem .7rem 2.6rem;padding-top:.35rem}
+.text m{cursor:pointer;border-radius:.2rem;padding:.02rem .14rem}
+.text m[data-kind="sub"]{background:var(--teal-soft);box-shadow:inset 0 -2px 0 #a8ccc8}
+.text m[data-kind="gen"]{background:var(--gen-soft);box-shadow:inset 0 -2px 0 #a9bbd0}
+.text m[data-kind="mk"]{border-bottom:2px dotted var(--exam);font-style:italic}
+.text m.lit[data-kind="sub"]{background:var(--teal);color:#fff;box-shadow:none}
+.text m.lit[data-kind="gen"]{background:var(--gen);color:#fff;box-shadow:none}
+.text m.lit[data-kind="mk"]{background:var(--exam);color:#fff;border-bottom:none}
+.text.off-sub m[data-kind="sub"]{background:none;box-shadow:none}
+.text.off-gen m[data-kind="gen"]{background:none;box-shadow:none}
+
+/* 固定在底部的說明面板 */
+.panel{position:sticky;bottom:0;background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.75rem .9rem;margin-top:.8rem;box-shadow:0 -2px 10px rgba(23,40,47,.07)}
+.panel .k{font-size:.72rem;font-weight:600;border-radius:.2rem;padding:.06rem .42rem;color:var(--teal);background:var(--teal-soft);border:1px solid var(--teal)}
+.panel .k.g{color:var(--gen);background:var(--gen-soft);border-color:var(--gen)}
+.panel .k.e{color:var(--exam);background:var(--exam-soft);border-color:var(--exam)}
+.panel .ch{font-family:var(--serif);font-size:1rem;margin:.4rem 0 .3rem;color:var(--ink);line-height:1.75;overflow-wrap:anywhere}
+.panel .ch i{font-style:normal;color:var(--muted);padding:0 .28rem}
+.panel .nt{font-size:.88rem;color:#3d5059;margin:0}
+
+/* 舊工具點名複習 */
+.recall{background:#fff;border:1px solid var(--line);border-left:3px solid var(--muted);
+  border-radius:.3rem;padding:.75rem .85rem;margin:1.1rem 0 .9rem;font-size:.92rem;color:#3d5059}
+.recall b{color:var(--ink)}
+.recall ul{margin:.4rem 0 0;padding-left:1.1rem}
+.recall li{margin-bottom:.35rem}
+
+/* 抽句題 */
+.gap{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.9rem 1rem;margin:0 0 .9rem;font-family:var(--serif);font-size:1rem;line-height:1.9}
+.gap .blank{display:inline-block;min-width:9rem;border-bottom:2px solid var(--gen);color:var(--gen);text-align:center;font-family:var(--sans);font-size:.82rem}
+.gap .blank.filled{border-bottom-color:var(--teal);color:var(--ink);font-family:var(--serif);font-size:1rem;text-align:left;background:var(--teal-soft);border-radius:.2rem;padding:0 .25rem}
+.gap .lst{font-family:var(--sans);font-size:.85rem;color:var(--muted);display:block;margin-top:.5rem}
+.picks{display:flex;flex-direction:column;gap:.45rem;margin:0 0 .9rem}
+.picks button{font:inherit;font-family:var(--serif);font-size:.97rem;line-height:1.6;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:.3rem;padding:.55rem .8rem;cursor:pointer;text-align:left}
+.picks button:hover{border-color:var(--teal)}
+.picks button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.picks button[data-state="right"]{background:var(--teal-soft);border-color:var(--teal)}
+.picks button[data-state="wrong"]{background:var(--ground);color:var(--muted)}
+.why{font-size:.86rem;color:#3d5059;margin:.35rem 0 0}
+.why[hidden]{display:none}
+
+/* 收尾與頁尾 */
+.close{border-top:1px solid var(--line);margin-top:2rem;padding-top:1.1rem;font-size:.93rem;color:#3d5059}
+.close[hidden]{display:none}
+.close h2{font-size:1.1rem}
+.close ol{margin:.3rem 0 0;padding-left:1.15rem}
+.close li{margin-bottom:.5rem}
+.more{margin-top:1.5rem;font-size:.88rem}
+.more a{color:var(--teal)}
+.series{border-top:1px solid var(--line);margin-top:2rem;padding-top:1.1rem;font-size:.9rem;color:#3d5059}
+.series .back{font-family:var(--serif);font-size:1rem;color:var(--teal);text-decoration:none}
+.series .back:hover{text-decoration:underline}
+.series .back:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.series .note{font-size:.85rem;color:var(--muted);margin:.5rem 0 0}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+/* 本單元：放射狀網狀圖與第三步的歸格卡片 */
+.fig .lab{font-family:var(--sans);font-size:10px;fill:#3d5059}
+.fig .lab.s{font-size:9px;fill:var(--muted)}
+.fig .spoke{stroke:var(--line);stroke-width:2;fill:none}
+.fig .node.hub rect{stroke:var(--muted)}
+.fig .node.hub.on rect{stroke:var(--exam)}
+.yn{display:flex;gap:.45rem;align-items:center;flex-wrap:wrap;margin-top:.5rem;font-size:.9rem;color:var(--ink);font-weight:600}
+.yn button{font:inherit;font-weight:400;font-size:.82rem;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:.25rem;padding:.18rem .75rem;cursor:pointer}
+.yn button:hover{border-color:var(--teal)}
+.yn button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.qcard.open .yn{display:none}
+.qcard .bd .vd{display:block;font-weight:600;margin-bottom:.15rem}
+.qcard .bd .vd.ok{color:var(--teal)}
+.qcard .bd .vd.ng{color:var(--exam)}
+.qcard .bd q{quotes:none;font-family:var(--serif)}
+#q3w[hidden]{display:none}
+.fig .zone{fill:none;stroke:var(--line);stroke-width:1.5;stroke-dasharray:5 4}
+.fig .zl{font-family:var(--sans);font-size:10.5px;font-weight:600}
+.fig .zl.l{fill:var(--teal)}
+.fig .zl.r{fill:var(--gen)}
+.fig .arr{stroke:var(--muted);stroke-width:2;fill:none;stroke-linejoin:round;stroke-linecap:round}
+.fig .pivot{font-family:var(--serif);font-style:italic;font-size:11.5px;fill:var(--exam)}
+.fig .pn{font-family:var(--sans);font-size:9px;fill:var(--muted)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>問題與解決：先看清問題，再談治療</h1>
+<p class="lede">你身邊有沒有什麼東西都丟不掉的人？這一篇先把這個狀況說清楚：它叫什麼、跟收藏有什麼不同、為什麼難治，然後在第 17 行用 However 轉到治療的方法。這是說明文五種基本結構裡的<b>問題與解決</b>。這一單元要跟讀門祕笈〈辨識作者的寫作目的〉一起看：第 35 頁的練習短文也在談收藏，寫作目的卻跟這一篇完全不同。下層要你留意同一個字根換了詞性再出現，例如 hoarding 變成 hoarder。</p>
+<p class="preview" id="pv" hidden>預覽模式：所有步驟、圖表、課文標記都已展開，進度不會存檔。學生拿到的一般連結不受影響。</p>
+<p class="resume" id="rs" hidden>上次做到一半，已經幫你接回來了。<button id="rst">重新開始</button></p>
+<p class="src">ALL+ 互動英語 10 月號 Unit 8（pp. 35–36）　讀門祕笈 Identifying the Writer’s Purpose　閱讀素養專欄 Learning to Let Go　全文 19 行　10/19 一天讀完</p>
+
+<!-- ═══ 第一步 ═══ -->
+<section class="step" id="s1">
+  <p class="stepno">第一步</p>
+  <h2>先問你，再說出名稱<span class="tag">上層：組織方式</span></h2>
+  <p>問題與解決的文章，開頭要先讓讀者看見問題，而且覺得這個問題跟自己有關。這篇的前五行做了三件事：向讀者提問、說出狀況有多嚴重、替這個狀況說出名稱。<b>點三個有底色的地方</b>。</p>
+  <div class="lead" id="ld">
+    <c data-t="q">Do you have a friend or family member who seemingly can’t throw anything away?</c> Is their home filling up with item after item, year after year, so that <c data-t="d">even moving around in it is becoming a danger</c>? If so, it may be <c data-t="n">a sign of a hoarding disorder</c>.
+  </div>
+  <p class="score" id="sc">已標出 <em>0</em> / 3</p>
+  <div id="s1b" hidden>
+    <p>三個都標出來了。那麼——<b>第 1 到 4 行為什麼用兩個問句開頭，而且問的是讀者身邊的人？</b></p>
+    <div class="opts" id="q1">
+      <button>鼓勵讀者從今天起動手，清掉家裡用不到的東西</button>
+      <button data-ok="1">讓讀者先想想身邊的人，再替這個狀況說出名稱</button>
+      <button>先說明收藏和囤積的不同，替第二段做好準備</button>
+      <button>暗示這些人只是懶得整理，其實不必太過擔心</button>
+    </div>
+    <div class="said e" id="a1" hidden>
+      <b>讓讀者先想想身邊的人，再替這個狀況說出名稱。</b>兩個問句都是 yes/no 問句，第一句的主詞是 you，問的是 a friend or family member。作者要讀者先在心裡對照一個真實的人：東西丟不掉、家裡越堆越多、連走動都有危險。讀者點頭之後，第 4 到 5 行才用 <q>If so, it may be a sign of a hoarding disorder</q> 說出名稱。If so 的 so 代替前面兩個問句的內容，意思是「如果你的答案是肯定的」。
+      <br><br>
+      <b>問題與解決的文章常這樣起手：</b>先描述一個讀者看得到的狀況，再給它一個名稱，讓它從「某個人的怪習慣」變成「一個需要處理的問題」。第 4 行的 danger 和第 5 行的 disorder 都是表示問題的訊號詞。另外留意第 5 行的 may：作者說的是「可能是徵兆」，並沒有替任何人下診斷。
+      <br><br>
+      <b>另外三個為什麼排除：</b>
+      <br><br>
+      「鼓勵讀者從今天起動手」——<b>這個最容易選</b>，尤其你剛做完第 35 頁讀門祕笈的練習。那篇談收藏的短文最後一句是 <q>So why not start your own collection today</q>，why not 是在建議讀者去做一件事。可是這篇的前五行只有問句和敘述，沒有一個祈使句，也沒有要讀者做任何事。問句要讀者去「看」身邊的人，不是要讀者去「做」什麼。
+      <br><br>
+      「先說明收藏和囤積的不同」——第二段確實在講這件事，可是第 1 到 5 行從頭到尾沒有出現 collect 或 collector，兩個問句也沒有比較任何東西。這是把第二段的內容接到開頭。
+      <br><br>
+      「暗示這些人只是懶得整理」——方向剛好相反。第 4 行說 <q>becoming a danger</q>，第 5 行說 disorder，作者是在提醒讀者這可能是一種病，不是在要讀者放心。
+    </div>
+    <button class="go" id="g1" hidden>整篇怎麼排？</button>
+  </div>
+</section>
+
+<!-- ═══ 第二步 ═══ -->
+<section class="step" id="s2" hidden>
+  <p class="stepno">第二步</p>
+  <h2>先把問題說清楚，再轉到解決<span class="tag">上層：怎麼認出來</span></h2>
+  <p>先回答：<b>這篇文章的推進方式，最接近下列哪一種？</b></p>
+  <div class="opts" id="q2">
+    <button data-ok="1">先描述一個令人擔心的狀況，再說明怎麼改善</button>
+    <button>比較收藏和囤積這兩種習慣，說明兩者的異同</button>
+    <button>列出囤積症的幾項特徵，一項一項加以說明</button>
+    <button>說明囤積症是怎麼形成的，再推出它的後果</button>
+  </div>
+  <div class="said e" id="a2" hidden>
+    <b>先描述一個令人擔心的狀況，再說明怎麼改善。</b>這是說明文五種基本結構裡的<b>問題與解決</b>（problem and solution）。第 1 到 16 行都在講問題：第 1 到 5 行說出狀況和名稱，第 6 到 13 行說明它跟收藏有什麼不同，第 14 到 16 行交代有多少人有這種問題、為什麼難治。到了第 17 行，However 一轉，最後三行講治療的方法和結果。
+    <br><br>
+    <b>判斷問題與解決，還有一個關鍵：解決的方法對不對得上問題的原因。</b>Meyer 把這種結構分成兩部分：前面是問題，後面是回應問題的解決；寫得比較完整的文章，還會交代問題的原因，解決方法就針對這個原因處理。這篇正是如此：第 16 行說囤積的人 <q>feel comforted when surrounded by their possessions</q>，問題出在他們的想法；第 17 到 18 行的治療，要做的就是幫他們認出這些想法。語言學家 Hoey 把這一類文章的順序整理成「情況、問題、回應、評估」，這篇也對得上：第 18 行 <q>It takes patience and a lot of support</q> 就是在評估治療這個方法。
+    <br><br>
+    <b>另外三個為什麼排除，每一個都是別種結構：</b>
+    <br><br>
+    「比較收藏和囤積這兩種習慣」——這是<b>比較對照</b>，<b>這個最容易選</b>，因為第 6 到 13 行整段都在比較，第 10 行還有 <q>on the other hand</q>。可是比較只占這一段，而且第 6 到 7 行 <q>It’s important to distinguish hoarding from simple collecting</q> 已經說明比較的目的：把兩者分開，讀者才看得清囤積到底是什麼問題。第 14 行以後，收藏就再也沒有出現。跟十月號第七單元一樣，一段裡面的結構和整篇的結構可以不同。
+    <br><br>
+    「列出囤積症的幾項特徵」——這是<b>描述</b>。第 11 到 12 行確實列了舊報紙、文具、面紙包和破杯子，可是那是在說明囤積的人留下什麼東西，屬於問題的一部分。描述文的各項可以任意對調；這篇如果把治療那一段搬到開頭，讀者連問題是什麼都還不知道，就讀不下去了。
+    <br><br>
+    「說明囤積症是怎麼形成的」——這是<b>因果</b>。文章沒有說囤積症從哪裡來；第 15 行只說它 <q>tends to get worse with age</q>，這句交代的是問題有多嚴重，不是問題的成因。
+    <br><br>
+    下面這張圖是問題與解決的標準組織圖：左邊是問題，右邊是解決，中間的箭頭標出轉折的地方。<b>點任一格</b>，第四步的課文對應行會亮起來（課文還沒打開的話，先把行號記住就好）。
+  </div>
+  <figure class="fig" id="fig" hidden></figure>
+  <button class="go" id="g2" hidden>把內容放回組織圖</button>
+</section>
+
+<!-- ═══ 第三步 ═══ -->
+<section class="step" id="s3" hidden>
+  <p class="stepno">第三步</p>
+  <h2>把內容放回問題解決圖<span class="tag">上層：怎麼驗證</span></h2>
+  <p>怎麼確定這篇是問題與解決，而不是收藏和囤積的比較？<b>先找訊號詞，說出是哪一種結構，再把內容放進組織圖，最後用一句話說出整篇。</b></p>
+  <p>訊號詞分成兩邊。表示問題的：第 4 行 danger、第 5 行 disorder、第 12 行 dangerous、第 14 行 suffer from、第 15 行 get worse 和 challenging。表示解決的：第 15 行 Treatment、第 17 行 therapy 和 help、第 18 行 control、第 19 行 possible。兩邊之間只有一個轉折：第 17 行的 However。問題的字集中在前面，解決的字集中在後面，中間有一個明確的轉折，這就是問題與解決。</p>
+  <p>下面六張卡片寫的是文章裡的內容，<b>都換過說法，也沒有行號</b>。每一張判斷一次：它屬於組織圖的哪一格？點下去就定了，不能改。</p>
+  <div class="qs" id="qs"></div>
+  <p class="score" id="sc3">已放 <em>0</em> / 6，第一次就放對 <em>0</em> 張</p>
+  <div class="said e" id="a3" hidden>
+    <b>六張都放得回去，而且問題那一邊的卡片比解決那一邊多。這就是問題與解決。</b>作者要先讓讀者看清問題，解決方法才有意義，所以問題那一邊常常寫得比較長。
+    <br><br>
+    <b>最容易放錯的是「不容易治療」那一張。</b>它提到治療，很容易放進解決方法；可是它說的是治療為什麼困難，所以還在問題那一邊。分界在第 17 行的 However：However 之前全是問題，之後才是解決。<b>讀問題與解決的文章，要先找到從問題轉到解決的那個字。</b>
+    <br><br>
+    <b>再看解決方法對準了哪一格。</b>第 15 到 16 行說治療困難，是因為囤積的人要有自己的東西在身邊才覺得安心；第 17 到 18 行的治療，處理的正是這種想法。解決方法和問題的原因對得上，兩邊才接得起來。
+    <br><br>
+    <b>考卷上怎麼考：</b>主旨題的誘答最愛只寫問題那一邊，或者只寫其中一段的比較。下面試一題摘要題。
+  </div>
+  <div id="q3w" hidden>
+    <p><b>哪一句最適合當這篇文章的一句話摘要？</b></p>
+    <div class="picks" id="q3">
+      <button>Collectors focus on specific objects of value and keep them highly organized, while hoarders simply struggle with throwing anything away at all.</button>
+      <button>Hoarding usually starts as a harmless collecting habit and slowly grows worse with age until the whole home becomes unsafe to live in.</button>
+      <button>Because hoarders feel comforted by their possessions, treatment rarely works, so their families should simply learn to live with the growing clutter.</button>
+      <button data-ok="1">Hoarding is a real disorder, not just collecting, and though hard to treat, therapy and support can help people part with their things.</button>
+    </div>
+    <div class="said e" id="a3b" hidden>
+      <b>第四句。</b>它把問題和解決兩邊都收進一句話：前半句是問題（一種病、不只是收藏、不容易治療），後半句是解決（治療和支持）以及結果（放得下東西）。而且它沒有照抄課文：第 6 到 7 行的 <q>simple collecting</q> 換成 not just collecting，第 15 行的 <q>Treatment can be challenging</q> 換成 hard to treat，第 19 行的 <q>let things go</q> 換成 part with their things。
+      <br><br>
+      <b>另外三個為什麼排除：</b>
+      <br><br>
+      「Collectors focus on specific objects of value …」——<b>這個最容易選</b>，因為它幾乎就是第 7 到 11 行的原文。可是它只是組織圖裡「跟收藏分開」那一格，沒有提到囤積為什麼是問題，也沒有提到治療。一格代表不了整篇。
+      <br><br>
+      「Hoarding usually starts as a harmless collecting habit …」——這是把問題與解決讀成因果。文章沒有說囤積從收藏開始，第 6 到 7 行反而要讀者把兩者分開；第 15 行的 <q>tends to get worse with age</q> 說的是囤積症本身，不是收藏的習慣。
+      <br><br>
+      「Because hoarders feel comforted …, treatment rarely works」——前半句是第 16 行的內容，後半句的方向卻跟第 17 行相反。第 17 行用 However 轉到 <q>targeted therapy can help</q>，第 19 行也說放手 <q>it’s possible</q>。作者從來沒有要家人放棄。
+    </div>
+  </div>
+  <button class="go" id="g3" hidden>看同一個字根怎麼換詞性</button>
+</section>
+
+<!-- ═══ 第四步 ═══ -->
+<section class="step" id="s4" hidden>
+  <p class="stepno">第四步</p>
+  <h2>同一個字根，換個詞性再出現<span class="tag b">下層：詞形變化的重複</span></h2>
+  <p>前面單元練過原字重複：同一個字原樣再出現一次。這篇的重複多了一層變化。第 5 行的 hoarding disorder，到了第 10 行變成 Hoarders，第 17 行變成單數的 a hoarder；第 7 行的 collecting，同一行就變成 Collectors，第 9 行又變成 collections。字根沒有變，換的是詞性和字尾。語言學家 Hoey 研究字詞在篇章裡怎麼重複，把這種情況叫做 complex repetition，跟一字不改的 simple repetition 分開。單複數或時態的變化（hoarder 和 hoarders）還算原字重複；換了詞性（動名詞 hoarding、加 -er 的名詞 hoarder）才算這一種。</p>
+  <p><b>為什麼要換詞性？因為句子需要的角色不同。</b>第 6 到 7 行 distinguish hoarding from simple collecting，比較的是兩種行為，所以用動名詞；第 7 行和第 10 行要說「做這件事的人」，就換成加 -er 的 Collectors 和 Hoarders；第 9 行說的是收來的東西，用 -ion 結尾的 collections。<b>行為、人、東西，靠字尾分開。</b>讀的時候，看字根就知道還在講同一件事，看字尾就知道這一次講的是行為、人還是東西。另一組是 danger 和 dangerous：第 4 行是名詞，第 12 行是形容詞，一前一後都在說囤積的後果。</p>
+  <p>這對考試很重要。選項改寫課文時，常常只換詞性不換字根，例如把 Treatment can be challenging 改成 hard to treat，把 distinguish A from B 改成 the distinction between A and B。認得出字根，才認得出這是同一件事。</p>
+  <p>第二色是前面單元教過的<b>上義詞與下義詞</b>。第 7 行 specific objects 是上義詞，第 8 行 <q>trading cards, antiques, or old books</q> 是它的下義詞；第 11 到 12 行 <q>Old newspapers, stationery, tissue packets, and broken cups</q> 是囤積的人留下的東西。兩組下義詞放在一起，差別就很清楚：一組值錢，一組用過就該丟。作者沒有直接說後面那些東西沒有價值，讀者從例子就看得出來。</p>
+  <p><b>點課文裡有底色的字</b>，同一條的字會一起亮起來。青色有三條字根：hoard、collect、danger；藍灰是上義詞與下義詞。兩色可以各自關掉。</p>
+  <div class="modes">
+    <button id="m1" aria-pressed="true">詞形變化的重複（青）</button>
+    <button id="m2" aria-pressed="true">上義詞與下義詞（藍灰）</button>
+  </div>
+  <div class="text" id="tx"></div>
+  <div class="panel" id="pn">
+    <span class="k" id="pk">線索</span>
+    <div class="ch" id="pc">點圖上的一格，或課文裡有底色的字</div>
+    <p class="nt" id="pt">青色是同一個字根換了詞性再出現，分成 hoard、collect、danger 三條；藍灰是上義詞與下義詞。</p>
+  </div>
+  <div class="recall">
+    <b>另外兩樣，前面單元教過，這篇自己確認得出來：</b>
+    <ul>
+      <li><b>對比標記與對立配對。</b>九月號第八單元練過。第 9 行 Although 和第 10 行 <q>on the other hand</q> 把收藏和囤積分成兩邊：第 10 行 organized 對上第 13 行 clutter。第 17 行的 However 用法不一樣：它不是換到另一群人，而是從問題轉到解決。同一類對比標記，可以管一段裡的兩邊，也可以管整篇的轉折。</li>
+      <li><b>確定程度的語言。</b>十月號第一單元練過的 hedging，這篇幾乎每一句都有：第 5 行 may、第 7 行 usually、第 9 行 typically、第 12 行 often、第 14 行 It is thought that 和 around、第 15 行 tends to、第 17 行 can。雜誌第 37 頁的補充說明也提到，It is thought that 用來表達一般的看法或還沒完全證實的研究結果。這些字正是讀門祕笈第三步說的 tone and word choice：語氣謹慎、就事論事，作者的目的是說明，不是說服。</li>
+    </ul>
+  </div>
+  <p style="margin-top:1.1rem"><button class="go" id="g4">考卷怎麼考寫作目的</button></p>
+</section>
+
+<!-- ═══ 第五步 ═══ -->
+<section class="step" id="s5" hidden>
+  <p class="stepno">第五步</p>
+  <h2>寫作目的題：從用字判斷作者要做什麼<span class="tag">上層：考點</span></h2>
+  <p>這一單元的讀門祕笈教的是辨識作者的寫作目的。第 35 頁列了三個步驟：先找主旨，再想作者要讀者有什麼反應，最後看語氣、用字和細節。常見的寫作目的有三種：說明（inform），讓讀者知道一件事；說服（persuade），要讀者同意一個看法或去做一件事；娛樂（entertain），讓讀者讀得開心。</p>
+  <p>把第 35 頁的練習短文和這一篇放在一起看，最清楚。兩篇都談收藏，目的卻不同。練習短文說收藏帶來快樂、不一定要花錢，最後用 why not 建議讀者今天就開始收藏；這一篇用數字、用 It is thought that，最後告訴讀者這種病可以改善，從頭到尾沒有要讀者做什麼。<b>同一個話題，用字不同，目的就不同。</b>另外要注意，問題與解決的結構不等於說服：這篇提出治療的方法，目的是說明，不是推銷。</p>
+  <p>考卷上的寫作目的題有兩種：一種問整篇的目的，一種問「作者為什麼提到某一個細節」。第二種更常見，做法是回到那個細節所在的段落，先看它屬於組織圖的哪一格，再問它在這一段裡負責什麼。</p>
+  <p>試一題：<b>作者在第 8 行舉出 trading cards、antiques 和 old books，目的是什麼？</b></p>
+  <div class="opts en" id="q5">
+    <button>To list the kinds of objects that hoarders find hardest to throw away</button>
+    <button>To persuade readers that collecting can be a cheap and joyful hobby</button>
+    <button data-ok="1">To show that collectors choose things worth keeping, while hoarders do not</button>
+    <button>To explain why hoarders feel comforted when surrounded by their things</button>
+  </div>
+  <div class="said e" id="a5" hidden>
+    <b>第三句。</b>先注意：它沒有照抄課文。第 7 到 8 行的 <q>specific objects—often objects of value</q> 換成 things worth keeping，focus on 換成 choose；while hoarders do not 則把第 10 到 11 行 <q>simply struggle with throwing anything away</q> 的意思濃縮成一句。這三樣東西跟在 such as 後面，是 objects of value 的下義詞：作者舉這三個例子，是要說明收藏家挑的是什麼樣的東西，好跟第 11 到 12 行囤積的人留下的東西對照。<b>另外三句反而滿是課文裡的字。</b>
+    <br><br>
+    <b>另外三個為什麼排除：</b>
+    <br><br>
+    「hoarders find hardest to throw away」——<b>這個最容易選</b>，因為 throw away 是課文反覆出現的字，而且這三樣東西就在講囤積的那幾行前面。可是 such as 前面的主詞是第 7 行的 Collectors，這三樣屬於收藏家；囤積的人留下的，是第 11 到 12 行的舊報紙、文具、面紙包和破杯子。把一邊的例子歸到另一邊，這是歸屬錯。
+    <br><br>
+    「persuade readers that collecting can be a cheap and joyful hobby」——這是第 35 頁練習短文的目的：那篇說收藏帶來快樂，也說收藏不一定要花錢。這一篇第 8 行的例子卻是 objects of value，強調的是價值，而且全篇沒有要讀者去收藏。讀懂這一篇的主旨，就排除得掉。
+    <br><br>
+    「explain why hoarders feel comforted」——這是第 16 行的內容，在第三段，說明的是治療為什麼困難，跟第 8 行的例子沒有關係。段落對不上，這是位置錯。
+  </div>
+  <button class="go" id="g5" hidden>最後一題</button>
+</section>
+
+<!-- ═══ 第六步 ═══ -->
+<section class="step" id="s6" hidden>
+  <p class="stepno">第六步</p>
+  <h2>把一句話放回去</h2>
+  <p>這就是考卷上的<b>篇章結構</b>題。下面把第 17 到 18 行那一句整句抽掉了，四個候選句只有一句放得進去。</p>
+  <div class="gap" id="gp">
+    It is thought that around 2.5 percent of people suffer from hoarding disorder and that it tends to get worse with age. Treatment can be challenging, as hoarders often feel comforted when surrounded by their possessions.
+    <span class="blank" id="bl">（空格）</span> It takes patience and a lot of support, but people with hoarding disorder can be shown that it’s possible to let things go.
+  </div>
+  <div class="picks" id="q6">
+    <button>However, clearing out their homes for them while they are away can quickly solve the problem once and for all.</button>
+    <button data-ok="1">However, targeted therapy can help a hoarder recognize the thought patterns that drive the behavior and begin to control it.</button>
+    <button>As a result, many hoarders turn down every offer of help from their families and keep adding to the clutter around them.</button>
+    <button>Some studies also suggest that this disorder becomes both more common and more serious as the people who have it grow older.</button>
+  </div>
+  <div class="said" id="a6" hidden>
+    <b>四個線索同時指向同一句。</b>這四句單獨看都說得通，沒有一句本身是錯的。要排除，得靠位置和線索。
+    <br><br>
+    <b>先講一個例外。</b>前面說大考的正解通常是改寫，但<b>抽句題不一樣</b>：抽掉的那一句就是原文，所以正解一定是原文。這一題要靠的是誘答哪裡接不上，不是比對字面。
+    <br><br>
+    <b>一、轉折要轉到解決，而且要對準原因。</b>空格前一句說治療困難，原因是囤積的人身邊有東西才覺得安心。正解用 However 轉到 can help，而且治療處理的正是這種想法：recognize the thought patterns。空格後一句 It takes patience 的 It，指的就是這個認出想法、開始控制行為的過程。四句裡只有它給得出這個過程。
+    <br><br>
+    <b>另外三個為什麼排除，各有一個明確的依據：</b>
+    <br><br>
+    <b>二、方向。</b>「clearing out their homes for them … can quickly solve」——<b>這個最容易選</b>，因為它跟正解一樣用 However 開頭，也在講解決。可是後一句說 It takes patience，需要時間，跟 quickly 衝突；最後一句要的是囤積的人自己學會 let things go，別人趁他不在替他清掉，不是他自己放手。
+    <br><br>
+    <b>三、轉折。</b>「As a result, many hoarders turn down every offer of help」——As a result 接著「治療困難」繼續往壞處說。可是後一句用 but 帶出 it’s possible，前面必須已經有一個可行的辦法；如果前一句說他們拒絕一切幫助，後面的 a lot of support 就沒有著落。這一句的 clutter 其實來自第 13 行，是第二段的字。
+    <br><br>
+    <b>四、重複與位置。</b>「this disorder becomes both more common and more serious」——這件事第 15 行已經說過了（<q>tends to get worse with age</q>），放在這裡只是重複。而且它夾在「治療困難」和「需要耐心」中間，後一句的 It 找不到可以指的過程。
+    <br><br>
+    再補一條詞形變化的重複：正解的 a hoarder 接回前一句的 hoarders，後一句的 hoarding disorder 又回到第 5 行的病名。<b>同一個字根一路出現，這一段的三句就連成一段。</b>
+  </div>
+  <p class="why" id="w6" hidden>考卷上不會有底色，也不會有行號。但你剛才用的四個線索，每一篇問題與解決的文章都找得到。</p>
+</section>
+
+<!-- ═══ 第七步 ═══ -->
+<section class="close" id="s7" hidden>
+  <h2>帶著走的五句話</h2>
+  <ol>
+    <li><b>問題與解決的文章，開頭先讓讀者看見問題。</b>用問句要讀者對照身邊的人，再用 danger、disorder 這類字說出問題的嚴重性和名稱。</li>
+    <li><b>驗證方法：找出從問題轉到解決的那個字。</b>這篇是第 17 行的 However，之前全是問題，之後才是解決。再檢查解決方法有沒有對準問題的原因：治療處理的，正是囤積的人抓著東西不放的想法。</li>
+    <li><b>一段裡的比較不等於整篇的比較，提出解決方法也不等於說服。</b>第二段比較收藏和囤積，是為了界定問題；判斷寫作目的要看用字，數字和 It is thought that 是說明，why not 是建議。</li>
+    <li><b>下層：詞形變化的重複。</b>hoarding、hoarder，collecting、collector、collection，danger、dangerous：字根相同，表示還在講同一件事；字尾告訴你這一次講的是行為、人、東西還是性質。選項改寫常常只換詞性。</li>
+    <li><b>寫作目的題最常問「作者為什麼提到某個細節」。</b>回到細節所在的段落，先看它屬於組織圖的哪一格。誘答最常把一邊的例子歸到另一邊，或者把另一篇文章的目的搬過來。</li>
+  </ol>
+  <p class="more"><a href="https://staresto-create.github.io/JCEE-vocab-questions/wordwheel.html">單字輪：把字拆成部件來記 →</a></p>
+</section>
+
+<nav class="series">
+  <a class="back" href="cohesion.html">← 回讀法練習總表</a>
+  <p class="note">總表上有目前可以做的所有單元，還有你累積到現在的讀法工具。</p>
+</nav>
+
+</div>
+<script>
+(function(){
+"use strict";
+function $(id){return document.getElementById(id);}
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;");}
+
+var KEY="cohesion-202610-u8-v1";
+
+var PREVIEW=false;
+var ST={tags:{},rows:{},q1:0,q2:0,q3:0,q5:0,q6:0,step:1};
+function save(){ if(PREVIEW) return; try{ localStorage.setItem(KEY, JSON.stringify(ST)); }catch(e){} }
+function load(){ try{ var r=localStorage.getItem(KEY); return r?JSON.parse(r):null; }catch(e){ return null; } }
+function wipe(){ try{ localStorage.removeItem(KEY); }catch(e){} location.reload(); }
+
+var TITLE="Learning to Let Go";
+
+var LINES=[
+"Do you have a friend or family member who",
+"seemingly can’t throw anything away? Is their home",
+"filling up with {item after item|c-hyp|1}, year after year, so that",
+"even moving around in it is becoming a {danger|c-dng|1}? If so, it",
+"may be a sign of a {hoarding|c-hrd|1} disorder.",
+"It’s important to distinguish {hoarding|c-hrd|2} from simple",
+"{collecting|c-col|1}. {Collectors|c-col|2} usually focus on {specific objects|c-hyp|2}—often",
+"objects of value—such as {trading cards, antiques, or old books|c-hyp|3}.",
+"Although they may own {many items|c-hyp|4}, their {collections|c-col|3} are typically",
+"highly organized. {Hoarders|c-hrd|3}, on the other hand, simply struggle with",
+"throwing anything away. {Old newspapers, stationery, tissue packets,|c-hyp|5}",
+"{and broken cups|c-hyp|5} keep piling up, which often leads to a {dangerous|c-dng|2} level",
+"of clutter.",
+"It is thought that around 2.5 percent of people suffer from {hoarding|c-hrd|4}",
+"disorder and that it tends to get worse with age. Treatment can be challenging,",
+"as {hoarders|c-hrd|5} often feel comforted when surrounded by {their possessions|c-hyp|6}.",
+"However, targeted therapy can help a {hoarder|c-hrd|6} recognize the thought patterns",
+"that drive the behavior and begin to control it. It takes patience and a lot of support,",
+"but people with {hoarding|c-hrd|7} disorder can be shown that it’s possible to let {things|c-hyp|7} go."
+];
+var INDENT={1:1,6:1,14:1};
+var HEAD={};
+var SPLIT=null;
+var SPLIT_TEXT="";
+
+var CHAINS={
+ "c-hrd":{k:"sub",n:"hoard 這個字根，七處，從第 5 行一路到第 19 行，全篇都在講這件事。第 5 行和第 19 行的 hoarding disorder 是病名，動名詞 hoarding 放在 disorder 前面修飾它；第 6 行的 hoarding 跟 collecting 並列，兩個都是動名詞，指的是行為；第 10 行 Hoarders、第 16 行 hoarders、第 17 行 a hoarder 加了 -er，指的是有這種行為的人。行為用 -ing，人用 -er：看字尾就知道這一句的主角是行為還是人。"},
+ "c-col":{k:"sub",n:"collect 這個字根，三處，全在第二段。第 7 行 collecting 是行為，同一行的 Collectors 是人，第 9 行 collections 是收來的東西，-ing、-or、-ion 三種字尾各管一個角色。這三個字接連出現，讀者一路知道這一段在講收藏；到了第 10 行，Hoarders 加上 on the other hand 一起出現，讀者就知道要換到另一邊了。"},
+ "c-dng":{k:"sub",n:"danger 這個字根，兩處。第 4 行的 danger 是名詞，當 becoming 的補語；第 12 行的 dangerous 是形容詞，修飾 level。一處在開頭的問句裡，一處在第二段的最後一句，說的都是囤積的後果：家裡變得危險。問題與解決的文章，表示問題的字常常像這樣前後各出現一次，讓讀者記得問題有多嚴重。"},
+ "c-hyp":{k:"gen",n:"上義詞與下義詞，兩組例子，加上幾個概括的名詞。第 7 行 specific objects 是上義詞，第 8 行的三樣是它的下義詞；第 11 到 12 行的四樣是囤積的人留下的東西，前面沒有上義詞。兩組下義詞一比，差別就出來了：一組值錢，一組用過就該丟。概括的名詞則分散在全篇：第 3 行 item after item、第 9 行 many items、第 16 行 their possessions、第 19 行 things。"}
+};
+var LB={sub:"詞形變化的重複",gen:"上義詞與下義詞",mk:"標記詞"};
+var CL={sub:"k",gen:"k g",mk:"k e"};
+
+var NODES=[
+ {nm:"狀況與名稱",en:"a hoarding disorder",a:1,b:5,
+  n:"第 1 到 5 行。兩個問句要讀者對照身邊丟不掉東西的人，再說出名稱：hoarding disorder。danger 和 disorder 說明這不只是一個怪習慣。"},
+ {nm:"跟收藏分開",en:"hoarding vs. collecting",a:6,b:13,
+  n:"第 6 到 13 行。收藏的人挑有價值的東西，收得很有條理；囤積的人什麼都丟不掉，家裡越堆越亂。比較只在這一段，目的是界定問題。"},
+ {nm:"規模與難處",en:"2.5 percent · challenging",a:14,b:16,
+  n:"第 14 到 16 行。大約百分之二點五的人有這種問題，年紀越大越嚴重；治療困難，因為囤積的人要有自己的東西在身邊才覺得安心。"},
+ {nm:"解決方法",en:"targeted therapy",a:17,b:18,
+  n:"第 17 到 18 行。However 一轉：針對性的治療幫囤積的人認出背後的想法，開始控制這種行為。這正好對準第 16 行說的難處。"},
+ {nm:"結果與評估",en:"let things go",a:19,b:19,
+  n:"第 19 行。需要耐心和許多支持，但有囤積症的人可以學會放手。第 18 行後半的 It takes patience 是對這個方法的評估。"}
+];
+
+var SPOKES=["狀況與名稱","跟收藏分開","規模與難處","解決方法","結果與評估"];
+var ROWS=[
+ {f:"家裡的東西一年比一年多，連在屋子裡走動都有危險。",ans:0,
+  note:"第 3 到 4 行。家裡 <q>filling up with item after item, year after year</q>，而且 <q>even moving around in it is becoming a danger</q>。這是開頭描述的狀況。"},
+ {f:"收藏的人只挑特定的東西，而且收得很有條理。",ans:1,
+  note:"第 7 到 10 行。Collectors <q>usually focus on specific objects</q>，他們的收藏也 <q>typically highly organized</q>。這一張說的是收藏家，放在跟收藏分開那一格，用來對照囤積。"},
+ {f:"大約每四十個人就有一個，而且年紀越大越嚴重。",ans:2,
+  note:"第 14 到 15 行。<q>around 2.5 percent of people</q>，百分之二點五就是四十分之一；而且 <q>tends to get worse with age</q>。"},
+ {f:"身邊堆滿自己的東西反而覺得安心，所以不容易治療。",ans:2,
+  note:"第 15 到 16 行。<q>Treatment can be challenging</q>，原因是囤積的人 <q>often feel comforted when surrounded by their possessions</q>。這一張提到治療，很容易放進解決方法；可是它說的是治療為什麼難，However 還沒有出現。"},
+ {f:"透過針對性的治療，認出是哪些想法讓人一直留著東西。",ans:3,
+  note:"第 17 到 18 行。<q>targeted therapy can help a hoarder recognize the thought patterns</q>，這些想法 <q>drive the behavior</q>。"},
+ {f:"需要耐心和許多人幫忙，但最後可以學會放下。",ans:4,
+  note:"第 18 到 19 行。<q>It takes patience and a lot of support</q>，但是 <q>it’s possible to let things go</q>。"}
+];
+
+var TL={q:"提問",d:"嚴重性",n:"名稱"};
+
+/* ---------- 通用：選擇題 ---------- */
+function quiz(qid,aid,gid,tag,after){
+  var done=false;
+  function settle(){
+    done=true;
+    var bs=$(qid).querySelectorAll("button");
+    for(var i=0;i<bs.length;i++){ bs[i].disabled=true; bs[i].dataset.state=bs[i].dataset.ok?"right":"wrong"; }
+    if(aid) $(aid).hidden=false;
+    if(gid) $(gid).hidden=false;
+    if(after) after();
+  }
+  $(qid).addEventListener("click",function(e){
+    var b=e.target.closest("button"); if(!b||done) return;
+    settle(); ST[tag]=1; save();
+  });
+  return settle;
+}
+function opener(gid,sid,extra){
+  $(gid).addEventListener("click",function(){
+    var n=parseInt(sid.replace(/\D/g,""),10);
+    if(ST.step<n) ST.step=n; save();
+    $(sid).hidden=false; if(extra) extra();
+    $(sid).scrollIntoView({behavior:"smooth",block:"start"});
+  });
+}
+function hlLines(a,b){
+  var rows=$("tx").querySelectorAll(".ln");
+  for(var r=0;r<rows.length;r++){ var n=+rows[r].dataset.n; rows[r].classList.toggle("hl", n>=a&&n<=b); }
+  var ms=$("tx").querySelectorAll("m");
+  for(var k=0;k<ms.length;k++) ms[k].classList.remove("lit");
+  if(rows.length){ var f=$("tx").querySelector('.ln[data-n="'+a+'"]'); if(f) f.scrollIntoView({behavior:"smooth",block:"center"}); }
+}
+
+/* ---------- 第一步 ---------- */
+function tagged(){ var n=0; for(var k in ST.tags) if(ST.tags[k]) n++; return n; }
+function paintTag(c){
+  if(c.classList.contains("got")) return;
+  c.classList.add("got");
+  var b=document.createElement("b"); b.textContent=TL[c.dataset.t]||"";
+  c.insertBefore(b, c.firstChild);
+}
+function afterTags(){
+  $("sc").innerHTML="已標出 <em>"+tagged()+"</em> / 3";
+  if(tagged()===3) $("s1b").hidden=false;
+}
+$("ld").addEventListener("click",function(e){
+  var c=e.target.closest("c"); if(!c) return;
+  if(ST.tags[c.dataset.t]) return;
+  ST.tags[c.dataset.t]=1; save(); paintTag(c); afterTags();
+});
+var set1=quiz("q1","a1","g1","q1");
+opener("g1","s2");
+
+/* ---------- 第二步：問題解決圖 ---------- */
+function drawFig(){
+  if($("fig").firstChild) return;
+  $("fig").hidden=false;
+  var s='<svg viewBox="0 0 420 292" role="img" aria-label="問題解決圖：左邊問題三格，右邊解決兩格，中間的箭頭是第 17 行的 However">';
+  s+='<text class="zl l" x="101" y="17" text-anchor="middle">問題 Problem</text>';
+  s+='<text class="zl r" x="332" y="17" text-anchor="middle">解決 Solution</text>';
+  s+='<rect class="zone" x="6" y="25" width="190" height="258" rx="8"/>';
+  s+='<rect class="zone" x="246" y="25" width="170" height="258" rx="8"/>';
+  s+='<path class="arr" d="M200 154 L240 154"/><path class="arr" d="M234 148 L241 154 L234 160"/>';
+  s+='<text class="pivot" x="221" y="144" text-anchor="middle">However</text>';
+  s+='<text class="pn" x="221" y="174" text-anchor="middle">第 17 行</text>';
+  s+='<path class="arr" d="M332 144 L332 176"/><path class="arr" d="M326 170 L332 177 L338 170"/>';
+  var P=[[101,36],[101,125],[101,214],[332,82],[332,180]], W=[172,172,172,150,150];
+  for(var i=0;i<NODES.length;i++){
+    var d=NODES[i], x=P[i][0], y=P[i][1], w=W[i];
+    s+='<g class="node" data-i="'+i+'" tabindex="0" role="button">';
+    s+='<rect x="'+(x-w/2)+'" y="'+y+'" width="'+w+'" height="60" rx="5"/>';
+    s+='<text x="'+x+'" y="'+(y+21)+'" text-anchor="middle">'+esc(d.nm)+'</text>';
+    s+='<text class="n" x="'+x+'" y="'+(y+36)+'" text-anchor="middle">'+esc(d.en)+'</text>';
+    s+='<text class="n" x="'+x+'" y="'+(y+50)+'" text-anchor="middle">'+(d.a===d.b?('第 '+d.a+' 行'):('第 '+d.a+'–'+d.b+' 行'))+'</text>';
+    s+='</g>';
+  }
+  s+='</svg><figcaption>左邊是問題，右邊是解決，中間的箭頭就是第 17 行的 However：整篇在這裡從問題轉到解決。問題這一邊有三格，比解決那一邊多，這在問題與解決的文章很常見，因為作者要先讓讀者看清問題。右邊兩格之間有箭頭，表示結果來自治療。點任一格，第四步的課文對應行會亮起來。</figcaption>';
+  $("fig").innerHTML=s;
+  function hit(g){
+    var i=+g.dataset.i, d=NODES[i];
+    var gs=$("fig").querySelectorAll(".node");
+    for(var j=0;j<gs.length;j++) gs[j].classList.toggle("on", +gs[j].dataset.i===i);
+    hlLines(d.a,d.b);
+    $("pk").textContent=(i<3?"問題的一格":"解決的一格"); $("pk").className="k e";
+    $("pc").textContent=d.nm+"　"+d.en; $("pt").textContent=d.n;
+  }
+  $("fig").addEventListener("click",function(e){ var g=e.target.closest(".node"); if(g) hit(g); });
+  $("fig").addEventListener("keydown",function(e){
+    if(e.key!=="Enter"&&e.key!==" ") return;
+    var g=e.target.closest(".node"); if(g){ e.preventDefault(); hit(g); }
+  });
+}
+function afterQ2(){ drawFig(); if($("db")) $("db").hidden=false; }
+var set2=quiz("q2","a2","g2","q2",afterQ2);
+opener("g2","s3",buildRows);
+
+/* ---------- 第三步：把內容放回組織圖 ---------- */
+var builtRows=false;
+function buildRows(){
+  if(builtRows) return; builtRows=true;
+  var h="";
+  for(var i=0;i<ROWS.length;i++){
+    var r=ROWS[i], bt="";
+    for(var k=0;k<SPOKES.length;k++) bt+='<button data-i="'+i+'" data-v="'+k+'">'+SPOKES[k]+'</button>';
+    h+='<div class="qcard" id="cd'+i+'"><div class="hd"><span class="qt">'+esc(r.f)+'</span></div>'+
+       '<span class="yn">屬於：'+bt+'</span>'+
+       '<span class="bd" id="bd'+i+'"></span></div>';
+  }
+  $("qs").innerHTML=h;
+  $("qs").addEventListener("click",function(e){
+    var b=e.target.closest("button"); if(!b) return;
+    var i=b.dataset.i; if(ST.rows[i]!==undefined&&ST.rows[i]!==null) return;
+    ST.rows[i]=+b.dataset.v; save(); paintRows();
+  });
+  paintRows();
+}
+function isSet(v){ return typeof v==="number"; }
+function judged(){ var n=0; for(var i=0;i<ROWS.length;i++) if(isSet(ST.rows[i])) n++; return n; }
+function rightRows(){ var n=0; for(var i=0;i<ROWS.length;i++) if(ST.rows[i]===ROWS[i].ans) n++; return n; }
+function paintRows(){
+  for(var i=0;i<ROWS.length;i++){
+    var el=$("cd"+i); if(!el) continue;
+    var v=ST.rows[i], r=ROWS[i];
+    el.classList.toggle("open",isSet(v));
+    if(isSet(v)){
+      var ok=(v===r.ans);
+      var head= ok ? ("放對了：這一張屬於「"+SPOKES[r.ans]+"」那一格。") : ("再看一次：這一張其實屬於「"+SPOKES[r.ans]+"」，不是「"+SPOKES[v]+"」。");
+      $("bd"+i).innerHTML='<span class="vd '+(ok?"ok":"ng")+'">'+head+'</span>'+r.note;
+    }
+  }
+  $("sc3").innerHTML="已放 <em>"+judged()+"</em> / "+ROWS.length+"，第一次就放對 <em>"+rightRows()+"</em> 張";
+  if(judged()>=ROWS.length){ $("a3").hidden=false; $("q3w").hidden=false; }
+}
+var set3=quiz("q3","a3b","g3","q3");
+opener("g3","s4",function(){ buildText(); drawFig(); });
+
+/* ---------- 第四步：課文與線索鏈 ---------- */
+function renderLine(str){
+  var out="",i=0;
+  while(i<str.length){
+    var a=str.indexOf("{",i);
+    if(a<0){ out+=esc(str.slice(i)); break; }
+    out+=esc(str.slice(i,a));
+    var b=str.indexOf("}",a), p=str.slice(a+1,b).split("|");
+    var id=p[1], it=p[2]||"1", k=CHAINS[id]?CHAINS[id].k:"sub";
+    out+='<m data-c="'+id+'" data-i="'+it+'" data-kind="'+k+'" tabindex="0">'+esc(p[0])+'</m>';
+    i=b+1;
+  }
+  return out;
+}
+var builtText=false;
+function buildText(){
+  if(builtText) return; builtText=true;
+  var h='<p class="ttl">'+renderLine(TITLE)+'</p>';
+  for(var i=0;i<LINES.length;i++){
+    var n=i+1;
+    if(SPLIT && n===SPLIT) h+='<p class="split">'+esc(SPLIT_TEXT)+'</p>';
+    var cls="ln";
+    if(HEAD[n]) cls+=" sub pb";
+    else if(INDENT[n]) cls+=" ind"+(n>1&&!HEAD[n-1]?" pb":"");
+    h+='<div class="'+cls+'" data-n="'+n+'"><i>'+((n%5===0)?n:"")+'</i><span>'+renderLine(LINES[i])+'</span></div>';
+  }
+  $("tx").innerHTML=h;
+}
+function lightChain(id){
+  var ms=$("tx").querySelectorAll("m"), items={}, order=[],i;
+  var gs=$("fig").querySelectorAll(".node");
+  for(i=0;i<gs.length;i++) gs[i].classList.remove("on");
+  var rows=$("tx").querySelectorAll(".ln");
+  for(i=0;i<rows.length;i++) rows[i].classList.remove("hl");
+  for(i=0;i<ms.length;i++){
+    if(ms[i].dataset.c===id){
+      ms[i].classList.add("lit");
+      var key=ms[i].dataset.i;
+      if(!items[key]){ items[key]=[]; order.push(key); }
+      items[key].push(ms[i].textContent);
+    } else ms[i].classList.remove("lit");
+  }
+  var c=CHAINS[id]; if(!c) return;
+  var parts=[];
+  for(var o=0;o<order.length;o++) parts.push(esc(items[order[o]].join(" ")));
+  $("pk").textContent=LB[c.k]; $("pk").className=CL[c.k];
+  $("pc").innerHTML=parts.join('<i>\u2192</i>');
+  $("pt").textContent=c.n;
+}
+$("tx").addEventListener("click",function(e){ var m=e.target.closest("m"); if(m) lightChain(m.dataset.c); });
+$("tx").addEventListener("keydown",function(e){
+  if(e.key!=="Enter"&&e.key!==" ") return;
+  var m=e.target.closest("m"); if(m){ e.preventDefault(); lightChain(m.dataset.c); }
+});
+function toggle(btn,cls){
+  btn.addEventListener("click",function(){
+    var on=btn.getAttribute("aria-pressed")==="true";
+    btn.setAttribute("aria-pressed",on?"false":"true");
+    $("tx").classList.toggle(cls,on);
+  });
+}
+toggle($("m1"),"off-sub");
+toggle($("m2"),"off-gen");
+opener("g4","s5");
+
+/* ---------- 第五步 ---------- */
+var set5=quiz("q5","a5","g5","q5");
+$("g5").addEventListener("click",function(){
+  if(ST.step<6) ST.step=6; save();
+  $("s6").hidden=false;
+  $("s6").scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+/* ---------- 第六步 ---------- */
+var done6=false;
+function settle6(){
+  done6=true;
+  var bs=$("q6").querySelectorAll("button");
+  for(var i=0;i<bs.length;i++){
+    bs[i].disabled=true; bs[i].dataset.state=bs[i].dataset.ok?"right":"wrong";
+    if(bs[i].dataset.ok){ $("bl").textContent=bs[i].textContent; $("bl").className="blank filled"; }
+  }
+  $("a6").hidden=false; $("w6").hidden=false; $("s7").hidden=false;
+}
+$("q6").addEventListener("click",function(e){
+  var b=e.target.closest("button"); if(!b||done6) return;
+  settle6(); ST.q6=1; save();
+  $("a6").scrollIntoView({behavior:"smooth",block:"nearest"});
+});
+
+/* ---------- 老師的預覽開關：網址加 ?all ---------- */
+function previewAll(){
+  PREVIEW=true;
+  $("pv").hidden=false;
+  var i,cs=$("ld").querySelectorAll("c");
+  for(i=0;i<cs.length;i++){ ST.tags[cs[i].dataset.t]=1; paintTag(cs[i]); }
+  afterTags(); set1();
+  $("s2").hidden=false; set2();
+  $("s3").hidden=false;
+  for(i=0;i<ROWS.length;i++) ST.rows[i]=ROWS[i].ans;
+  buildRows(); set3();
+  $("s4").hidden=false; buildText(); drawFig();
+  $("s5").hidden=false; set5();
+  $("s6").hidden=false; settle6();
+}
+
+/* ---------- 接回上次的進度 ---------- */
+$("rst").addEventListener("click",wipe);
+(function restore(){
+  if(/(^|[?&])all(=|&|$)/.test(location.search)){ previewAll(); return; }
+  var v=load(); if(!v) return;
+  ST=v;
+  if(!ST.tags) ST.tags={};
+  if(!ST.rows) ST.rows={};
+  if(!ST.step) ST.step=1;
+  if(!(tagged()||ST.step>1)) return;
+  $("rs").hidden=false;
+  var i,cs=$("ld").querySelectorAll("c");
+  for(i=0;i<cs.length;i++) if(ST.tags[cs[i].dataset.t]) paintTag(cs[i]);
+  afterTags();
+  if(ST.q1) set1();
+  if(ST.step>=2){ $("s2").hidden=false; if(ST.q2) set2(); }
+  if(ST.step>=3){ $("s3").hidden=false; buildRows(); if(ST.q3) set3(); }
+  if(ST.step>=4){ $("s4").hidden=false; buildText(); drawFig(); }
+  if(ST.step>=5){ $("s5").hidden=false; if(ST.q5) set5(); }
+  if(ST.step>=6){ $("s6").hidden=false; if(ST.q6) settle6(); }
+  var last=$("s"+(ST.step>=6?6:ST.step));
+  if(last) setTimeout(function(){ last.scrollIntoView({block:"start"}); },60);
+})();
+})();
+</script>
+</body>
+</html>
