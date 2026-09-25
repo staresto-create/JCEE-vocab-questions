@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>華爾街日報式的組織圖｜Jane Goodall: Inspiring Change Across Generations</title>
+
+<style>
+:root{
+  --ground:#f1f3f2; --ink:#17282f; --teal:#1f6f6a; --teal-soft:#dfeceb;
+  --muted:#77878d; --line:#cdd6d6; --exam:#b4661c; --exam-soft:#fdf4e7;
+  --ok:#2e6b4f; --ok-soft:#edf4ef;
+  --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+  --sans:"PingFang TC","Noto Sans TC","Microsoft JhengHei","Helvetica Neue",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-text-size-adjust:100%}
+.wrap{max-width:44rem;margin:0 auto;padding:1.6rem 1.1rem 4rem}
+h1{font-family:var(--serif);font-weight:600;font-size:1.6rem;line-height:1.3;margin:0 0 .55rem}
+.lede{margin:0 0 1.1rem;color:#3d5059;font-size:.95rem}
+.src{font-size:.8rem;color:var(--muted);margin:0 0 1.1rem}
+.preview{font-size:.85rem;color:var(--exam);background:var(--exam-soft);border:1px dashed var(--exam);
+  border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.preview[hidden]{display:none}
+.resume{font-size:.85rem;color:var(--teal);background:var(--teal-soft);border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.resume[hidden]{display:none}
+.resume button{font:inherit;font-size:.82rem;background:#fff;color:var(--ink);border:1px solid var(--line);
+  border-radius:.25rem;padding:.16rem .6rem;margin-left:.5rem;cursor:pointer}
+.step{border-top:1px solid var(--line);padding-top:1.15rem;margin-top:1.7rem}
+.step[hidden]{display:none}
+.stepno{font-family:var(--serif);font-size:.82rem;color:var(--muted);margin:0 0 .2rem}
+h2{font-family:var(--serif);font-weight:600;font-size:1.2rem;margin:0 0 .5rem;color:var(--teal)}
+p{margin:0 0 .7rem;font-size:.95rem}
+
+/* 組織圖：三層倒三角，每層兩格 */
+.fig{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.7rem .5rem .5rem;margin:.2rem 0 .6rem}
+.fig svg{display:block;width:100%;height:auto;max-width:26rem;margin:0 auto}
+.bx rect{fill:#fff;stroke:var(--line);stroke-width:2}
+.bx text.fn{font-family:var(--sans);font-size:11px;font-weight:600;fill:var(--ink)}
+.bx text.en{font-family:var(--serif);font-size:8.5px;fill:var(--muted)}
+.bx text.rf{font-family:var(--sans);font-size:8.5px;fill:var(--muted)}
+.bx.aim rect{stroke:var(--teal);stroke-dasharray:6 4}
+.bx.on rect{fill:var(--ok-soft);stroke:var(--ok);stroke-width:2.5}
+.bx.on text.rf{fill:var(--ok);font-weight:600}
+.bx.sel rect{stroke:var(--teal);stroke-width:3}
+.lv text{font-family:var(--sans);font-size:9px;fill:var(--muted)}
+.cutline{stroke:var(--exam);stroke-width:2;stroke-dasharray:6 5}
+.frameline{stroke:var(--line);stroke-width:2;stroke-dasharray:5 4;fill:none}
+.cuttag{font-family:var(--sans);font-size:9px;font-weight:600;fill:var(--exam)}
+
+.panel{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.7rem .85rem;margin:0 0 .9rem}
+.panel .k{font-size:.72rem;font-weight:600;border-radius:.2rem;padding:.06rem .42rem;
+  color:var(--teal);background:var(--teal-soft);border:1px solid var(--teal)}
+.panel .q{font-family:var(--serif);font-size:.95rem;line-height:1.65;margin:.4rem 0 0;color:#3d5059}
+
+.pool{display:flex;flex-direction:column;gap:.4rem;margin:0 0 .8rem}
+.pool button{font:inherit;font-family:var(--serif);font-size:.93rem;line-height:1.55;background:#fff;color:var(--ink);
+  border:1px solid var(--line);border-radius:.3rem;padding:.5rem .7rem;cursor:pointer;text-align:left}
+.pool button:hover{border-color:var(--teal)}
+.pool button.pick{border-color:var(--teal);background:var(--teal-soft)}
+.pool button.gone{display:none}
+.hint{font-size:.85rem;color:var(--muted);margin:0 0 .8rem}
+.hint em{font-style:normal;color:var(--teal);font-weight:600}
+
+.opts{display:flex;flex-direction:column;gap:.45rem;margin:.2rem 0 .8rem}
+.opts button{font:inherit;font-size:.94rem;background:#fff;color:var(--ink);border:1px solid var(--line);
+  border-radius:.3rem;padding:.5rem .8rem;cursor:pointer;text-align:left}
+.opts button:hover{border-color:var(--teal)}
+.opts button[data-state="right"]{background:var(--ok-soft);border-color:var(--ok)}
+.opts button[data-state="wrong"]{background:var(--ground);color:var(--muted)}
+.opts button[disabled]{cursor:default}
+
+.said{background:#fff;border-left:3px solid var(--teal);border-radius:.3rem;padding:.75rem .85rem;
+  margin:.2rem 0 .9rem;font-size:.93rem;color:#3d5059}
+.said[hidden]{display:none}
+.said b{color:var(--ink)}
+.srcs{margin:.6rem 0 .9rem}
+.srcs .pair{font-family:var(--serif);font-size:.9rem;line-height:1.6;color:#3d5059;
+  border-left:2px solid var(--line);padding:.1rem 0 .1rem .6rem;margin:0 0 .5rem}
+.srcs .pair .t{display:block;font-family:var(--sans);font-size:.76rem;font-weight:600;color:var(--teal)}
+.go{font:inherit;font-size:.92rem;background:var(--ink);color:#fff;border:1px solid var(--ink);
+  border-radius:.3rem;padding:.42rem 1.05rem;cursor:pointer}
+.go[hidden]{display:none}
+
+.prompt{background:var(--exam-soft);border:1px solid #e8d3b4;border-radius:.4rem;padding:.75rem .85rem;
+  margin:0 0 .9rem;font-size:.92rem;color:#3d5059}
+.prompt b{color:var(--ink)}
+.cell{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.6rem .75rem}
+.cell+.cell{margin-top:.6rem}
+.cell .fn{font-size:.78rem;font-weight:600;color:var(--teal)}
+.cell .fn em{font-style:normal;color:var(--muted);font-weight:400;margin-left:.35rem}
+.cell textarea{width:100%;margin-top:.3rem;font-family:inherit;font-size:.93rem;line-height:1.6;
+  padding:.45rem .55rem;border:1px solid var(--line);border-radius:.3rem;background:#fff;color:var(--ink);resize:vertical}
+.bar{display:flex;gap:.5rem;flex-wrap:wrap;margin:.7rem 0}
+.bar button{font:inherit;font-size:.9rem;background:#fff;color:var(--ink);border:1px solid var(--ink);
+  border-radius:.3rem;padding:.38rem .9rem;cursor:pointer}
+.bar button.p{background:var(--ink);color:#fff}
+.bar button[disabled]{border-color:var(--line);color:var(--muted);cursor:default;background:#fff}
+pre.ai{background:#fff;border:1px solid var(--line);border-radius:.3rem;padding:.6rem .7rem;
+  font-size:.8rem;line-height:1.65;white-space:pre-wrap;margin:.4rem 0 0;color:#3d5059}
+.code{background:var(--teal-soft);border:1px solid var(--teal);border-radius:.4rem;padding:.7rem .85rem;margin:1.1rem 0 .5rem}
+.code .t{font-size:.8rem;font-weight:600;color:var(--teal);margin:0 0 .35rem}
+.code .v{font-family:var(--serif);font-size:1.15rem;letter-spacing:.04em;color:var(--ink);margin:0 0 .5rem}
+.series{border-top:1px solid var(--line);margin-top:2.2rem;padding-top:1.1rem;font-size:.9rem}
+.series a{font-family:var(--serif);font-size:1rem;color:var(--teal);text-decoration:none}
+.series a:hover{text-decoration:underline}
+.toast{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--ink);color:#fff;
+  padding:.45rem 1rem;border-radius:.3rem;font-size:.86rem;opacity:0;transition:opacity .2s;pointer-events:none}
+.toast.on{opacity:1}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>華爾街日報式的組織圖：人物報導</h1>
+<p class="lede">上一份單元頁帶你讀完 Jane Goodall 這一篇。這一份把整篇壓成一張圖：上下兩格是 Nathan 的故事，中間夾著 Goodall 的一生。這個形狀叫<b>故事框</b>，看到它，就知道是華爾街日報式。</p>
+<p class="preview" id="pv" hidden>預覽模式：全部步驟與答案一次展開，進度不存檔。學生拿到的一般連結不受影響。</p>
+<p class="resume" id="rs" hidden>上次做到一半，已經幫你接回來了。<button id="rst">重新開始</button></p>
+<p class="src">ALL+ 互動英語 10 月號 Unit 2（pp. 8–9）　Jane Goodall: Inspiring Change Across Generations　全文 53 行</p>
+
+<!-- 第一步 -->
+<section class="step" id="s1">
+  <p class="stepno">第一步</p>
+  <h2>一個框，框住一條時間線</h2>
+  <p>最上面一格是開頭的故事，下面緊接著一句核心段；中間三格是 Goodall 的一生，照時間排；最下面一格回到開頭那個人。</p>
+  <p>六個位置各有各的功能。<b>八張句卡，只有六張放得進去</b>，而且都不是原句，是換過字的說法。</p>
+  <p class="hint" id="h1">先點一張句卡，再點圖上的格子。第一次就放對 <em id="n1">0</em> / 6</p>
+
+  <div class="pool" id="pool"></div>
+  <figure class="fig" id="fig"></figure>
+  <div class="panel" id="pn">
+    <span class="k" id="pk">這一格</span>
+    <p class="q" id="pq">點圖上任一個格子，看它裝的是哪一句。</p>
+  </div>
+
+  <div class="said" id="a1" hidden>
+    <b>兩張放不進去的是哪兩張。</b>一張是標題的改寫，說 Goodall 啟發了不同年紀的人。它跟核心段最像，所以最難排除；但核心段要的是「這個故事說明了什麼」，得先有 Nathan 的故事才說得出來，標題的改寫沒有接上任何故事。另一張說第一個看到黑猩猩用樹枝的是 Leakey，這是歸屬錯：第 16 行 She observed one using a stripped twig，She 是 Goodall。
+    <br><br>
+    <b>八張句卡沒有一張跟課文一樣。</b>下面是六個位置的原文與行號，回去對一次。
+    <div class="srcs" id="src6"></div>
+  </div>
+  <button class="go" id="g1" hidden>下一步：把外框拆掉</button>
+</section>
+
+<!-- 第二步 -->
+<section class="step" id="s2" hidden>
+  <p class="stepno">第二步</p>
+  <h2>拆外框測試</h2>
+  <p>怎麼確定外框不是裝飾？<b>把它拆掉，看少了什麼。</b>按下面的按鈕，圖上的外框會真的拆掉。</p>
+  <div class="bar">
+    <button class="p" id="cut1">拆掉外框</button>
+    <button id="undo" hidden>把外框放回去</button>
+  </div>
+  <p class="hint" id="cuth">拆掉之後，剩下的部分還讀得懂嗎？</p>
+  <div id="q2box" hidden>
+    <p>外框拆掉以後，中間三格還是一篇讀得懂的生平。<b>那麼，少掉的是什麼？</b></p>
+    <div class="opts" id="q2">
+      <button>少了珍．古德研究黑猩猩的重大發現</button>
+      <button data-ok="1">少了標題裡「跨世代」這一半的證據</button>
+      <button>少了珍．古德轉向保育工作的那一年</button>
+      <button>少了李奇給珍．古德研究機會的經過</button>
+    </div>
+    <div class="said" id="a2" hidden>
+      <b>少了「跨世代」的證據。</b>標題是 Inspiring Change Across Generations。Goodall 的一生只證明她帶來改變；年輕一代受到她的影響，證據是 Nathan：他得到資助繼續求學，還參加過她創辦的 Roots & Shoots。外框拆掉，標題的後半句就沒有著落了。
+      <br><br>
+      <b>另外三個為什麼排除：</b>黑猩猩的發現、1986 年轉向保育、Leakey 給的機會，這三件事都在中間三格，外框拆掉它們還在。<b>最容易選的是第一個</b>，因為那是全篇最重要的科學發現，感覺少了它最可惜；可是題目問的是拆掉外框少了什麼，它根本不在外框裡。
+    </div>
+  </div>
+  <button class="go" id="g2" hidden>下一步：換成你自己的作文</button>
+</section>
+
+<!-- 第三步 -->
+<section class="step" id="s3" hidden>
+  <p class="stepno">第三步</p>
+  <h2>用一個畫面開頭，最後回到它</h2>
+  <p>華爾街日報式可以整套搬進作文。學測作文常考「一個人」或「一次經驗」，與其第一句就寫 There is a person who influenced me a lot，不如先寫一個具體的畫面，再用一句話說出這個畫面代表什麼，最後回到同一個畫面收尾。閱卷老師讀到結尾，會發現頭尾扣在一起。</p>
+  <div class="prompt">
+    <b>試寫的題目：</b>請寫一篇短文，介紹一位對你有影響的人。第一段描述一件跟他有關、讓你印象深刻的事，第二段說明這個人對你有什麼影響。
+  </div>
+  <p>每一格寫一句中文要點就好，這一步先不寫英文。</p>
+  <div id="mine"></div>
+  <div class="bar">
+    <button class="p" id="cp">複製我寫的內容</button>
+    <button id="sv">存到瀏覽器</button>
+  </div>
+  <p class="hint">這一步沒有標準答案，站上不批改。複製之後貼給老師，或貼給 AI 也可以，下面這段指示會跟著一起複製。</p>
+  <pre class="ai" id="aib"></pre>
+
+  <div class="code">
+    <p class="t">做完了，把這一行貼到 Google Classroom 的作業回覆欄</p>
+    <p class="v" id="cv">—</p>
+    <div class="bar" style="margin:0">
+      <button class="p" id="cc">複製完成碼</button>
+      <button id="rfb">重新產生</button>
+    </div>
+    <p class="hint" style="margin:.5rem 0 0">老師只看這一行，不會看到你寫的內容。你寫的東西只留在這台裝置的瀏覽器裡。</p>
+  </div>
+</section>
+
+<nav class="series">
+  <a href="cohesion.html">← 回讀法練習總表</a>
+</nav>
+
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+"use strict";
+function $(id){return document.getElementById(id);}
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;");}
+
+var KEY="outline-202610-u2-v1";
+var PREVIEW=false;
+var ST={put:{},first:{},miss:{},cut:0,q2:0,mine:{},step:1};
+function save(){ if(PREVIEW) return; try{ localStorage.setItem(KEY,JSON.stringify(ST)); }catch(e){} }
+function load(){ try{ var r=localStorage.getItem(KEY); return r?JSON.parse(r):null; }catch(e){ return null; } }
+function toast(m){ var t=$("toast"); t.textContent=m; t.classList.add("on");
+  setTimeout(function(){ t.classList.remove("on"); },1600); }
+
+/* 六格的位置：上框、核心段、中間三格、下框 */
+var CELLS=[
+ {id:"a",fn:"故事開頭",   en:"the anecdote", rf:"第 1–8 行",  x:20, y:8,  w:300,h:50,frame:1},
+ {id:"b",fn:"核心段",     en:"the nut graph",rf:"第 8 行",    x:70, y:64, w:200,h:50,frame:1},
+ {id:"c",fn:"早年的機會", en:"early chance", rf:"第 9–14 行", x:20, y:136,w:96, h:56},
+ {id:"d",fn:"研究的發現", en:"the discovery",rf:"第 15–23 行",x:122,y:136,w:96, h:56},
+ {id:"e",fn:"轉向保育",   en:"a new focus",  rf:"第 24–42 行",x:224,y:136,w:96, h:56},
+ {id:"f",fn:"回到那個人", en:"the kicker",   rf:"第 43–49 行",x:20, y:214,w:300,h:50,frame:1}
+];
+
+var SENTS=[
+ {id:"e",t:"Later, worried about lost forests and hunting, she turned to protecting wildlife and started programs for young people."},
+ {id:"x1",t:"Goodall has inspired people of different ages to make changes."},
+ {id:"b",t:"What happened to him shows how far Goodall\u2019s influence has spread."},
+ {id:"d",t:"Her work with chimps proved that humans are not the only animals that use tools."},
+ {id:"x2",t:"Louis Leakey was the first to see a chimpanzee using a twig as a tool."},
+ {id:"a",t:"A young man from Tanzania who grew up without electricity got help to continue his schooling."},
+ {id:"f",t:"That same student turns out to have been part of her youth program."},
+ {id:"c",t:"A well-known scientist gave the young Goodall a rare chance to do research in Africa."}
+];
+var NOFIT={
+ x1:"這是標題的改寫。它跟核心段最像，所以最難排除；但核心段要的是「這個故事說明了什麼」，得先有 Nathan 的故事才說得出來。這一句沒有接上任何故事。",
+ x2:"這是歸屬錯。第 16 行 She observed one using a stripped twig，She 是 Goodall，不是 Leakey。Leakey 在第 11 到 12 行出現，給的是研究的機會。"
+};
+var SRCQ=[
+ {fn:"故事開頭",rf:"第 1–8 行",t:"He described a difficult childhood on a farm without electricity or clean water. A turning point came when he met Jane Goodall at a school event. Impressed by his determination, she offered financial support that allowed him to attend a better school and continue his studies."},
+ {fn:"核心段",rf:"第 8 行",t:"His story illustrates the reach of Goodall\u2019s influence."},
+ {fn:"早年的機會",rf:"第 9–14 行",t:"Recognizing her potential, he gave her the opportunity to take part in field research in Africa\u2014an opportunity that was uncommon for women at the time."},
+ {fn:"研究的發現",rf:"第 15–23 行",t:"This was a major discovery, as tool use had previously been thought to be a uniquely human ability."},
+ {fn:"轉向保育",rf:"第 24–42 行",t:"In 1986, she shifted her focus to conservation and public outreach \u2026 She also launched Roots & Shoots, a youth program that now operates in more than 60 countries, including Taiwan."},
+ {fn:"回到那個人",rf:"第 43–49 行",t:"Nathan Yoashi himself is a former member of Roots & Shoots, and stories like his are great examples of Goodall\u2019s philosophy in action."}
+];
+
+var MINE=[
+ {id:"m1",fn:"故事開頭（一個畫面）",en:"the anecdote",ph:"那個人做了什麼，讓你印象深刻？寫一個畫面。"},
+ {id:"m2",fn:"核心句",en:"the nut graph",ph:"這件事說明了什麼？一句話。"},
+ {id:"m3",fn:"主體：影響",en:"the body",ph:"他對你有什麼影響？"},
+ {id:"m4",fn:"收尾：回到開頭",en:"the kicker",ph:"怎麼回到第一格那個畫面？"}
+];
+
+var AI=[
+"我是台灣的高中生，正在準備學測英文作文。下面是我列的中文大綱，用的是華爾街日報式：先寫一個具體的畫面，再用一句話說出它代表什麼，最後回到同一個畫面。",
+"",
+"請照以下規則給我意見：",
+"1. 先看第一格：我寫的是不是一個具體的畫面（有人、有動作），還是一句籠統的介紹。",
+"2. 第二格的核心句有沒有把第一格的畫面變成一個例子，說出這件事代表什麼。",
+"3. 第三格的影響是不是真的從第二格延伸出來。",
+"4. 第四格的收尾有沒有回到第一格的畫面或同一個人，還是另外講了一件新的事。",
+"5. 不要幫我寫英文，也不要幫我補內容。",
+"6. 說明用中文。"
+].join("\n");
+
+/* ── 畫圖 ── */
+function drawFig(){
+  var s='<svg viewBox="0 0 340 272" role="img" aria-label="故事框組織圖：上下兩格是開頭的故事，中間三格是主體">';
+  s+='<path class="frameline" d="M12 30 L12 240"/><path class="frameline" d="M328 30 L328 240"/>';
+  s+='<g class="lv"><text x="170" y="128" text-anchor="middle">主體：照時間排</text></g>';
+  for(var i=0;i<CELLS.length;i++){
+    var c=CELLS[i]; if(ST.cut && c.frame) continue;
+    var on=ST.put[c.id]?" on":"";
+    s+='<g class="bx'+on+'" data-id="'+c.id+'" tabindex="0" role="button">';
+    s+='<rect x="'+c.x+'" y="'+c.y+'" width="'+c.w+'" height="'+c.h+'" rx="6"/>';
+    s+='<text class="fn" x="'+(c.x+8)+'" y="'+(c.y+18)+'">'+esc(c.fn)+'</text>';
+    s+='<text class="en" x="'+(c.x+8)+'" y="'+(c.y+31)+'">'+esc(c.en)+'</text>';
+    s+='<text class="rf" x="'+(c.x+8)+'" y="'+(c.y+44)+'">'+(ST.put[c.id]?esc(c.rf):"待放")+'</text>';
+    s+='</g>';
+  }
+  if(ST.cut){
+    s+='<text class="cuttag" x="170" y="40" text-anchor="middle">上框和核心段拆掉了</text>';
+    s+='<text class="cuttag" x="170" y="240" text-anchor="middle">下框拆掉了</text>';
+  }
+  s+='</svg>';
+  $("fig").innerHTML=s;
+}
+
+var pick=null;
+function drawPool(){
+  var h="";
+  for(var i=0;i<SENTS.length;i++)
+    h+='<button data-i="'+i+'" class="'+(ST.put[SENTS[i].id]?"gone":"")+'">'+esc(SENTS[i].t)+'</button>';
+  $("pool").innerHTML=h;
+}
+function done1(){ var n=0; for(var k in ST.put) if(ST.put[k]) n++; return n; }
+function first1(){ var n=0; for(var k in ST.first) if(ST.first[k]) n++; return n; }
+function showSrc(){
+  if($("src6").innerHTML) return;
+  var h="";
+  for(var i=0;i<SRCQ.length;i++)
+    h+='<div class="pair"><span class="t">'+esc(SRCQ[i].fn)+'　'+esc(SRCQ[i].rf)+'</span>'+esc(SRCQ[i].t)+'</div>';
+  $("src6").innerHTML=h;
+}
+function after1(){
+  if($("n1")) $("n1").textContent=first1();
+  if(done1()===6){
+    $("h1").innerHTML="\u516d\u683c\u90fd\u6eff\u4e86\u3002\u7b2c\u4e00\u6b21\u5c31\u653e\u5c0d <em id=\"n1\">"+first1()+"</em> / 6";
+    $("a1").hidden=false; $("g1").hidden=false; showSrc();
+  }
+}
+function show(id){
+  var c=null,i;
+  for(i=0;i<CELLS.length;i++) if(CELLS[i].id===id) c=CELLS[i];
+  if(!c) return;
+  var gs=$("fig").querySelectorAll(".bx");
+  for(i=0;i<gs.length;i++) gs[i].classList.toggle("sel", gs[i].dataset.id===id);
+  $("pk").textContent=c.fn+"　"+(ST.put[id]?c.rf:"還沒放");
+  $("pq").textContent=ST.put[id]||"這一格還空著。";
+}
+function aim(on){
+  var gs=$("fig").querySelectorAll(".bx");
+  for(var i=0;i<gs.length;i++) if(!gs[i].classList.contains("on")) gs[i].classList.toggle("aim",on);
+}
+$("pool").addEventListener("click",function(e){
+  var b=e.target.closest("button"); if(!b) return;
+  var bs=$("pool").querySelectorAll("button");
+  for(var i=0;i<bs.length;i++) bs[i].classList.remove("pick");
+  b.classList.add("pick"); pick=+b.dataset.i; aim(true);
+});
+function hit(g){
+  var id=g.dataset.id;
+  if(pick===null || ST.put[id]){ show(id); return; }
+  var s=SENTS[pick];
+  if(NOFIT[s.id]){
+    ST.miss[id]=1; save();
+    $("pk").textContent="這一張沒有位置";
+    $("pq").textContent=NOFIT[s.id];
+    return;
+  }
+  if(s.id!==id){ ST.miss[id]=1; save(); toast("這一格要的不是這一張"); return; }
+  if(!ST.miss[id]) ST.first[id]=1;
+  ST.put[id]=s.t; save(); pick=null;
+  drawFig(); drawPool(); aim(false); show(id); after1();
+}
+$("fig").addEventListener("click",function(e){ var g=e.target.closest(".bx"); if(g) hit(g); });
+$("fig").addEventListener("keydown",function(e){
+  if(e.key!=="Enter"&&e.key!==" ") return;
+  var g=e.target.closest(".bx"); if(g){ e.preventDefault(); hit(g); }
+});
+$("g1").addEventListener("click",function(){
+  if(ST.step<2) ST.step=2; save();
+  $("s2").hidden=false; $("s2").scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+/* ── 第二步：拆外框 ── */
+function paintCut(){
+  drawFig();
+  $("cut1").disabled=!!ST.cut;
+  $("undo").hidden=!ST.cut;
+  if(!ST.cut) $("cuth").textContent="外框還在。按「拆掉外框」，上框、核心段和下框會一起拿掉。";
+  else { $("cuth").textContent="外框拆掉了，只剩中間三格：Goodall 的早年、研究、轉向保育。這還是一篇讀得懂的生平。"; $("q2box").hidden=false; }
+}
+$("undo").addEventListener("click",function(){ ST.cut=0; save(); paintCut(); });
+$("cut1").addEventListener("click",function(){ if(ST.cut) return; ST.cut=1; save(); paintCut(); });
+function settle2(){
+  var bs=$("q2").querySelectorAll("button");
+  for(var i=0;i<bs.length;i++){ bs[i].disabled=true; bs[i].dataset.state=bs[i].dataset.ok?"right":"wrong"; }
+  $("a2").hidden=false; $("g2").hidden=false;
+}
+$("q2").addEventListener("click",function(e){
+  var b=e.target.closest("button"); if(!b||ST.q2) return;
+  ST.q2=b.dataset.ok?1:2; save(); settle2();
+});
+$("g2").addEventListener("click",function(){
+  if(ST.step<3) ST.step=3; save();
+  paintCode(); $("s3").hidden=false;
+  $("s3").scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+/* ── 第三步 ── */
+function drawMine(){
+  var h="";
+  for(var i=0;i<MINE.length;i++){
+    var m=MINE[i];
+    h+='<div class="cell"><span class="fn">'+esc(m.fn)+'<em>'+esc(m.en)+'</em></span>'+
+       '<textarea id="'+m.id+'" rows="2" placeholder="'+esc(m.ph)+'"></textarea></div>';
+  }
+  $("mine").innerHTML=h;
+  for(var j=0;j<MINE.length;j++){
+    var el=$(MINE[j].id);
+    if(ST.mine[MINE[j].id]) el.value=ST.mine[MINE[j].id];
+    el.addEventListener("input",function(){ ST.mine[this.id]=this.value; save(); });
+  }
+  $("aib").textContent=AI;
+}
+function mkCode(){
+  var f=first1(), m=0, w=0, i;
+  for(var k in ST.miss) if(ST.miss[k]) m++;
+  for(i=0;i<MINE.length;i++){ var el=$(MINE[i].id); if(el&&el.value.trim()) w++; }
+  var seed=(f*31 + m*7 + w*13 + (ST.q2===1?5:0) + 10*211 + 2*101 + 1777) % 46656;
+  return "10-U2 "+f+"/6 大綱"+w+"/4 "+("000"+seed.toString(36).toUpperCase()).slice(-3);
+}
+function paintCode(){ $("cv").textContent=mkCode(); }
+$("rfb").addEventListener("click",paintCode);
+function copy(t){
+  function fb(){
+    var ta=document.createElement("textarea"); ta.value=t; document.body.appendChild(ta);
+    ta.select(); try{ document.execCommand("copy"); toast("已複製"); }catch(e){ toast("複製失敗，請手動選取"); }
+    document.body.removeChild(ta);
+  }
+  if(navigator.clipboard&&navigator.clipboard.writeText)
+    navigator.clipboard.writeText(t).then(function(){ toast("已複製"); },fb);
+  else fb();
+}
+$("cc").addEventListener("click",function(){ copy(mkCode()); });
+$("sv").addEventListener("click",function(){
+  for(var i=0;i<MINE.length;i++) ST.mine[MINE[i].id]=$(MINE[i].id).value;
+  save(); toast("已存在這台裝置的瀏覽器裡");
+});
+$("cp").addEventListener("click",function(){
+  var t=AI+"\n\n【我的大綱】\n";
+  for(var i=0;i<MINE.length;i++) t+=MINE[i].fn+"："+($(MINE[i].id).value||"（空白）")+"\n";
+  copy(t);
+});
+
+/* ── 預覽 ── */
+function previewAll(){
+  PREVIEW=true; $("pv").hidden=false;
+  for(var i=0;i<SENTS.length;i++) if(!NOFIT[SENTS[i].id]){ ST.put[SENTS[i].id]=SENTS[i].t; ST.first[SENTS[i].id]=1; }
+  drawPool(); drawMine(); after1();
+  $("s2").hidden=false; ST.cut=0; paintCut(); $("q2box").hidden=false; ST.q2=1; settle2();
+  $("s3").hidden=false; paintCode();
+}
+
+/* ── 接回進度 ── */
+$("rst").addEventListener("click",function(){
+  try{ localStorage.removeItem(KEY); }catch(e){} location.reload();
+});
+(function restore(){
+  if(/(^|[?&])all(=|&|$)/.test(location.search)){ previewAll(); return; }
+  var v=load();
+  if(v){
+    ST=v;
+    if(!ST.put) ST.put={};
+    if(!ST.first) ST.first={};
+    if(!ST.miss) ST.miss={};
+    if(!ST.mine) ST.mine={};
+    if(!ST.step) ST.step=1;
+    if(!ST.cut) ST.cut=0;
+  }
+  drawPool(); drawMine(); paintCut();
+  if(done1()||ST.step>1) $("rs").hidden=false;
+  if(ST.step>=2) $("s2").hidden=false;
+  if(ST.q2) settle2();
+  if(ST.step>=3){ $("s3").hidden=false; paintCode(); }
+  after1();
+})();
+})();
+</script>
+</body>
+</html>
