@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>多方觀點的組織圖｜Should Students Use AI in College Applications?</title>
+
+<style>
+:root{
+  --ground:#f1f3f2; --ink:#17282f; --teal:#1f6f6a; --teal-soft:#dfeceb;
+  --muted:#77878d; --line:#cdd6d6; --exam:#b4661c; --exam-soft:#fdf4e7;
+  --ok:#2e6b4f; --ok-soft:#edf4ef;
+  --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+  --sans:"PingFang TC","Noto Sans TC","Microsoft JhengHei","Helvetica Neue",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-text-size-adjust:100%}
+.wrap{max-width:44rem;margin:0 auto;padding:1.6rem 1.1rem 4rem}
+h1{font-family:var(--serif);font-weight:600;font-size:1.6rem;line-height:1.3;margin:0 0 .55rem}
+.lede{margin:0 0 1.1rem;color:#3d5059;font-size:.95rem}
+.src{font-size:.8rem;color:var(--muted);margin:0 0 1.1rem}
+.preview{font-size:.85rem;color:var(--exam);background:var(--exam-soft);border:1px dashed var(--exam);
+  border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.preview[hidden]{display:none}
+.resume{font-size:.85rem;color:var(--teal);background:var(--teal-soft);border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.resume[hidden]{display:none}
+.resume button{font:inherit;font-size:.82rem;background:#fff;color:var(--ink);border:1px solid var(--line);
+  border-radius:.25rem;padding:.16rem .6rem;margin-left:.5rem;cursor:pointer}
+.step{border-top:1px solid var(--line);padding-top:1.15rem;margin-top:1.7rem}
+.step[hidden]{display:none}
+.stepno{font-family:var(--serif);font-size:.82rem;color:var(--muted);margin:0 0 .2rem}
+h2{font-family:var(--serif);font-weight:600;font-size:1.2rem;margin:0 0 .5rem;color:var(--teal)}
+p{margin:0 0 .7rem;font-size:.95rem}
+
+/* 組織圖：多列原因結果表 */
+.fig{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.7rem .5rem .5rem;margin:.2rem 0 .6rem}
+.fig svg{display:block;width:100%;height:auto;max-width:26rem;margin:0 auto}
+.bx rect{fill:#fff;stroke:var(--line);stroke-width:2}
+.bx text.fn{font-family:var(--sans);font-size:11px;font-weight:600;fill:var(--ink)}
+.bx text.en{font-family:var(--serif);font-size:8.5px;fill:var(--muted)}
+.bx text.rf{font-family:var(--sans);font-size:8.5px;fill:var(--muted)}
+.bx.aim rect{stroke:var(--teal);stroke-dasharray:6 4}
+.bx.on rect{fill:var(--ok-soft);stroke:var(--ok);stroke-width:2.5}
+.bx.on text.rf{fill:var(--ok);font-weight:600}
+.bx.sel rect{stroke:var(--teal);stroke-width:3}
+.lv text{font-family:var(--sans);font-size:9px;fill:var(--muted)}
+.cutline{stroke:var(--exam);stroke-width:2;stroke-dasharray:6 5}
+.frameline{stroke:var(--line);stroke-width:2;stroke-dasharray:5 4;fill:none}
+.cuttag{font-family:var(--sans);font-size:9px;font-weight:600;fill:var(--exam)}
+
+.panel{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.7rem .85rem;margin:0 0 .9rem}
+.panel .k{font-size:.72rem;font-weight:600;border-radius:.2rem;padding:.06rem .42rem;
+  color:var(--teal);background:var(--teal-soft);border:1px solid var(--teal)}
+.panel .q{font-family:var(--serif);font-size:.95rem;line-height:1.65;margin:.4rem 0 0;color:#3d5059}
+
+.pool{display:flex;flex-direction:column;gap:.4rem;margin:0 0 .8rem}
+.pool button{font:inherit;font-family:var(--serif);font-size:.93rem;line-height:1.55;background:#fff;color:var(--ink);
+  border:1px solid var(--line);border-radius:.3rem;padding:.5rem .7rem;cursor:pointer;text-align:left}
+.pool button:hover{border-color:var(--teal)}
+.pool button.pick{border-color:var(--teal);background:var(--teal-soft)}
+.pool button.gone{display:none}
+.hint{font-size:.85rem;color:var(--muted);margin:0 0 .8rem}
+.hint em{font-style:normal;color:var(--teal);font-weight:600}
+
+.opts{display:flex;flex-direction:column;gap:.45rem;margin:.2rem 0 .8rem}
+.opts button{font:inherit;font-size:.94rem;background:#fff;color:var(--ink);border:1px solid var(--line);
+  border-radius:.3rem;padding:.5rem .8rem;cursor:pointer;text-align:left}
+.opts button:hover{border-color:var(--teal)}
+.opts button[data-state="right"]{background:var(--ok-soft);border-color:var(--ok)}
+.opts button[data-state="wrong"]{background:var(--ground);color:var(--muted)}
+.opts button[disabled]{cursor:default}
+
+.said{background:#fff;border-left:3px solid var(--teal);border-radius:.3rem;padding:.75rem .85rem;
+  margin:.2rem 0 .9rem;font-size:.93rem;color:#3d5059}
+.said[hidden]{display:none}
+.said b{color:var(--ink)}
+.srcs{margin:.6rem 0 .9rem}
+.srcs .pair{font-family:var(--serif);font-size:.9rem;line-height:1.6;color:#3d5059;
+  border-left:2px solid var(--line);padding:.1rem 0 .1rem .6rem;margin:0 0 .5rem}
+.srcs .pair .t{display:block;font-family:var(--sans);font-size:.76rem;font-weight:600;color:var(--teal)}
+.go{font:inherit;font-size:.92rem;background:var(--ink);color:#fff;border:1px solid var(--ink);
+  border-radius:.3rem;padding:.42rem 1.05rem;cursor:pointer}
+.go[hidden]{display:none}
+
+.prompt{background:var(--exam-soft);border:1px solid #e8d3b4;border-radius:.4rem;padding:.75rem .85rem;
+  margin:0 0 .9rem;font-size:.92rem;color:#3d5059}
+.prompt b{color:var(--ink)}
+.cell{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.6rem .75rem}
+.cell+.cell{margin-top:.6rem}
+.cell .fn{font-size:.78rem;font-weight:600;color:var(--teal)}
+.cell .fn em{font-style:normal;color:var(--muted);font-weight:400;margin-left:.35rem}
+.cell textarea{width:100%;margin-top:.3rem;font-family:inherit;font-size:.93rem;line-height:1.6;
+  padding:.45rem .55rem;border:1px solid var(--line);border-radius:.3rem;background:#fff;color:var(--ink);resize:vertical}
+.bar{display:flex;gap:.5rem;flex-wrap:wrap;margin:.7rem 0}
+.bar button{font:inherit;font-size:.9rem;background:#fff;color:var(--ink);border:1px solid var(--ink);
+  border-radius:.3rem;padding:.38rem .9rem;cursor:pointer}
+.bar button.p{background:var(--ink);color:#fff}
+.bar button[disabled]{border-color:var(--line);color:var(--muted);cursor:default;background:#fff}
+pre.ai{background:#fff;border:1px solid var(--line);border-radius:.3rem;padding:.6rem .7rem;
+  font-size:.8rem;line-height:1.65;white-space:pre-wrap;margin:.4rem 0 0;color:#3d5059}
+.code{background:var(--teal-soft);border:1px solid var(--teal);border-radius:.4rem;padding:.7rem .85rem;margin:1.1rem 0 .5rem}
+.code .t{font-size:.8rem;font-weight:600;color:var(--teal);margin:0 0 .35rem}
+.code .v{font-family:var(--serif);font-size:1.15rem;letter-spacing:.04em;color:var(--ink);margin:0 0 .5rem}
+.series{border-top:1px solid var(--line);margin-top:2.2rem;padding-top:1.1rem;font-size:.9rem}
+.series a{font-family:var(--serif);font-size:1rem;color:var(--teal);text-decoration:none}
+.series a:hover{text-decoration:underline}
+.toast{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--ink);color:#fff;
+  padding:.45rem 1rem;border-radius:.3rem;font-size:.86rem;opacity:0;transition:opacity .2s;pointer-events:none}
+.toast.on{opacity:1}
+.spoke{stroke:var(--line);stroke-width:2;fill:none}
+.bx.hub rect{stroke:var(--muted)}
+.bx.hub.on rect{stroke:var(--ok)}
+.bx.sw rect,.bx.hub.on.sw rect{stroke:var(--exam);stroke-width:2.5}
+.bx.sw text.fn{fill:var(--exam)}
+.warn{font-family:var(--sans);font-size:9.5px;font-weight:600;fill:var(--exam)}
+.okk{font-family:var(--sans);font-size:9.5px;font-weight:600;fill:var(--ok)}
+.hint ul{margin:.3rem 0 0;padding-left:1.1rem;color:var(--exam)}
+.hint ul.ok{color:var(--ok)}
+.hint li{margin-bottom:.2rem}
+/* 本單元：正反意見表 */
+.colhd{font-family:var(--sans);font-size:11px;font-weight:600}
+.colhd.l{fill:var(--teal)}
+.colhd.r{fill:#4a6a90}
+.colhd.m{fill:var(--exam)}
+.bx.cut rect{fill:var(--ground);stroke:var(--exam);stroke-width:2;stroke-dasharray:5 4}
+.bx.cut text{fill:var(--muted)}
+.guide{stroke:var(--line);stroke-width:2;fill:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>多方觀點的組織圖：一個爭議，三種立場</h1>
+<p class="lede">上一份單元頁帶你讀完這篇申請大學能不能用 AI。這一份把整篇整理成一張圖：最上面是爭議，下面分欄，每一欄放立場相同的人。這個形狀叫<b>正反意見表</b>，是論說文多方觀點的標準圖。文章不自己下結論，而是讓立場不同的人輪流發言時，就用這種圖來整理。</p>
+<p class="preview" id="pv" hidden>預覽模式：全部步驟與答案一次展開，進度不存檔。學生拿到的一般連結不受影響。</p>
+<p class="resume" id="rs" hidden>上次做到一半，已經幫你接回來了。<button id="rst">重新開始</button></p>
+<p class="src">ALL+ 互動英語 10 月號 Unit 12（pp. 50–51）　Should Students Use AI in College Applications?　全文 76 行</p>
+
+<!-- 第一步 -->
+<section class="step" id="s1">
+  <p class="stepno">第一步</p>
+  <h2>一個爭議，三欄立場</h2>
+  <p>表格已經畫好了：最上面是爭議，下面三欄是支持、擔憂、談怎麼處理。十個發言的人，這裡每一欄挑兩個，格子上印了名字和身分。你要放的是每個人說了什麼。</p>
+  <p>七個位置各有各的內容。<b>九張句卡，只有七張放得進去</b>，而且都不是原句，是換過字的說法。同一欄的兩個人立場相同，要靠內容分辨誰是誰。</p>
+  <p class="hint" id="h1">先點一張句卡，再點圖上的格子。第一次就放對 <em id="n1">0</em> / 7</p>
+  <div class="pool" id="pool"></div>
+  <figure class="fig" id="fig"></figure>
+  <div class="panel" id="pn">
+    <span class="k" id="pk">這一格</span>
+    <p class="q" id="pq">點圖上任一個格子，看它裝的是哪一句。</p>
+  </div>
+  <div class="said" id="a1" hidden>
+    <b>兩張放不進去的是哪兩張。</b>一張說 AI 本身就是問題，學生應該完全不用。它最容易放進張教授那一格，因為 AI itself 和 problem 都是他的字；可是第 27 行寫的是 <q>AI itself is not the problem</q>，他只要求學生說清楚用了多少。十個人裡也沒有一個人主張完全不能用。<b>方向錯了。</b>另一張說大城市的學生因為怕大學在面試時追問，所以不用 AI。第 63 到 67 行 Eric 說的剛好相反：城市的學生上補習班，補習班會 <q>help them refine portfolios using AI</q>，他們用得更多，不是不用。<b>方向也錯了。</b>面試追問那一半，則是從第 47 到 48 行 Amy 的話搬過來的。
+    <br><br>
+    <b>九張句卡沒有一張跟課文一樣。</b>下面是七個位置的原文與行號，回去對一次。
+    <div class="srcs" id="src6"></div>
+  </div>
+  <button class="go" id="g1" hidden>下一步：把表格動一動</button>
+</section>
+
+<!-- 第二步 -->
+<section class="step" id="s2" hidden>
+  <p class="stepno">第二步</p>
+  <h2>對調與拿掉</h2>
+  <p>第十一單元的網狀圖，周圍兩格一對調，文章照樣成立。正反意見表呢？<b>按下面的按鈕，圖上的格子會真的動。</b>前兩個按鈕對調同一欄裡的兩個人，第三個按鈕把支持那一欄整欄拿掉。三種都試過，才會出題。</p>
+  <div class="bar" id="swbar">
+    <button data-s="1">對調林先生和 Kevin</button>
+    <button data-s="2">對調張教授和陳博士</button>
+    <button data-s="3">拿掉支持那一欄</button>
+    <button class="p" id="undo" hidden>換回來</button>
+  </div>
+  <div class="hint" id="swh">七格照原來的位置排著。任選一種。</div>
+  <div id="q2box" hidden>
+    <p>同一欄裡的人對調，文章照樣成立；拿掉一欄，就不成立了。<b>這說明了什麼？</b></p>
+    <div class="opts" id="q2">
+      <button>跟序列一樣，發言的先後一換，文章就接不上</button>
+      <button>支持的人比較少，拿掉那一欄對文章影響不大</button>
+      <button data-ok="1">每個人只回應開頭的爭議，每一方都要有人發言</button>
+      <button>作者支持的是哪一方，要看哪一欄的人數比較多</button>
+    </div>
+    <div class="said" id="a2" hidden>
+      <b>每個人只回應開頭的爭議，每一方都要有人發言。</b>每一段都用名字、身分、冒號開頭，自己說完自己的看法，不接前一段，也不回應別人：林先生沒有反駁黃老師，陳博士也沒有接張教授的話。所以同一欄的人誰先誰後都讀得通。可是拿掉整欄就不一樣了。第 3 到 5 行的開頭說 <q>some supporters believe these tools can help students present their ideas more clearly</q>，支持那一欄一拿掉，這句話就找不到人替它說話；剩下的人不是擔憂，就是在談怎麼管，整篇變成一面倒的論述。<b>同一欄可以對調、拿掉一欄就不成立，就是多方觀點。</b>
+      <br><br>
+      <b>另外三個為什麼排除：</b>「支持的人比較少，拿掉那一欄對文章影響不大」<b>最容易選</b>，因為十個人裡明確支持的確實只有兩個。可是多方觀點看的不是人數，而是每一方都要有人發言；少了支持的人，開頭那句 While some supporters believe… 就落空了。「跟序列一樣，發言的先後一換，文章就接不上」，你剛才對調了兩次，圖上都沒有出現警告，原因就是各段之間沒有 then、after that 這類接前一段的字。「作者支持的是哪一方，要看哪一欄的人數比較多」也不對：作者從頭到尾沒有表態，最後一段是第 70 到 76 行吳先生的發言，不是作者的結論；哪一欄人多，只說明作者訪問了哪些人。
+    </div>
+  </div>
+  <button class="go" id="g2" hidden>下一步：換成你自己的作文</button>
+</section>
+
+<!-- 第三步 -->
+<section class="step" id="s3" hidden>
+  <p class="stepno">第三步</p>
+  <h2>用同一張表列你的大綱</h2>
+  <p>學測作文常給一個有爭議的做法，要你先說明兩邊的看法，再說出自己的立場。第一段就是一篇小小的多方觀點，第二段才輪到你表態。用剛才那張表列大綱，有三件事要照這篇學：</p>
+  <p><b>一、主題句先點出爭議，把兩邊一起擺出來。</b>像這篇第 3 到 6 行 While some supporters believe…, critics worry…，你可以寫 While some students believe phones help them learn, many teachers worry that phones distract them in class. <b>二、兩邊的理由都交給別人說，而且各給一個具體的理由。</b>用 some students argue that…、many teachers worry that… 這類說法，讀者一看就知道這是誰的看法，還不是你的。<b>三、最後一格才輪到你，用 should、need to 或 it is important that 提出做法。</b>這就是單元頁第四步教的表示義務與建議的情態，例如 It is important that schools set clear rules for phone use.</p>
+  <div class="prompt">
+    <b>試寫的題目：</b>有人認為高中生上課時可以用手機查資料，也有人擔心手機讓學生分心。請寫一篇短文：第一段說明這個爭議，分別介紹支持和擔心的理由；第二段說明你的立場，並提出具體的做法。
+  </div>
+  <p>每一格寫一句中文要點就好，這一步先不寫英文。</p>
+  <div id="mine"></div>
+  <div class="bar">
+    <button class="p" id="cp">複製我寫的內容</button>
+    <button id="sv">存到瀏覽器</button>
+  </div>
+  <p class="hint">這一步沒有標準答案，站上不批改。複製之後貼給老師，或貼給 AI 也可以，下面這段指示會跟著一起複製。</p>
+  <pre class="ai" id="aib"></pre>
+  <div class="code">
+    <p class="t">做完了，把這一行貼到 Google Classroom 的作業回覆欄</p>
+    <p class="v" id="cv">—</p>
+    <div class="bar" style="margin:0">
+      <button class="p" id="cc">複製完成碼</button>
+      <button id="rfb">重新產生</button>
+    </div>
+    <p class="hint" style="margin:.5rem 0 0">老師只看這一行，不會看到你寫的內容。你寫的東西只留在這台裝置的瀏覽器裡。</p>
+  </div>
+</section>
+
+<nav class="series">
+  <a href="cohesion.html">← 回讀法練習總表</a>
+</nav>
+</div>
+<div class="toast" id="toast"></div>
+<script>
+(function(){
+"use strict";
+function $(id){return document.getElementById(id);}
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;");}
+
+var KEY="outline-202610-u12-v1";
+var PREVIEW=false;
+var ST={put:{},first:{},miss:{},sw:0,tS:0,tH:0,q2:0,mine:{},step:1};
+function save(){ if(PREVIEW) return; try{ localStorage.setItem(KEY,JSON.stringify(ST)); }catch(e){} }
+function load(){ try{ var r=localStorage.getItem(KEY); return r?JSON.parse(r):null; }catch(e){ return null; } }
+function toast(m){ var t=$("toast"); t.textContent=m; t.classList.add("on");
+  setTimeout(function(){ t.classList.remove("on"); },1600); }
+
+/* 七格：爭議加三欄各兩人 */
+var CELLS=[
+ {id:"h",fn:"爭議",en:"This issue",rf:"第 1–9 行"},
+ {id:"b",fn:"B 林先生・家長",en:"Parent",rf:"第 17–23 行"},
+ {id:"e",fn:"E Kevin・高三生",en:"High School Senior",rf:"第 38–43 行"},
+ {id:"d",fn:"D 王女士・招生人員",en:"Admissions Officer",rf:"第 31–37 行"},
+ {id:"f",fn:"F Amy・高中生",en:"High School Student",rf:"第 44–50 行"},
+ {id:"c",fn:"C 張教授・教育研究者",en:"Education Researcher",rf:"第 24–30 行"},
+ {id:"g",fn:"G 陳博士・電腦科學家",en:"Computer Scientist",rf:"第 51–57 行"}
+];
+/* 位置：0 是爭議，1–2 支持，3–4 擔憂，5–6 談怎麼處理 */
+var POS=[[190,34],[64,124],[64,184],[190,124],[190,184],[316,124],[316,184]];
+var ORDERS={0:[0,1,2,3,4,5,6],1:[0,2,1,3,4,5,6],2:[0,1,2,3,4,6,5],3:[0,1,2,3,4,5,6]};
+var SAFE={
+ 1:["第 17 行 Mr. Lin, Parent: 和第 38 行 Kevin, High School Senior: 都用自己的名字和身分開頭，說完自己的看法，不接前一段。",
+    "兩個人回答的都是開頭的爭議：林先生說用 AI 跟請老師給意見沒有兩樣，Kevin 說經歷還是學生自己的，誰先說都一樣。"],
+ 2:["第 24 行張教授和第 51 行陳博士都在談學校該怎麼處理：一個要學生說清楚用了多少，一個提醒偵測工具靠不住，兩段不需要對方。",
+    "兩段之間沒有 then、however 這類接前一段的字，每一段只跟第 7 行的 This issue 有關。"]
+};
+var WARN3=["第 3 到 5 行的 some supporters believe these tools can help students present their ideas more clearly 找不到任何一個人替它說話，開頭擺出的兩邊只剩一邊。",
+           "剩下的人不是擔憂，就是在談怎麼管，整篇變成一面倒的論述，不再是多方觀點。雜誌混合題第 2 題問哪幾位明確支持，也就沒有答案了。"];
+
+var SENTS=[
+ {id:"c",t:"Using AI is acceptable as long as students are honest about how much of their work it touched."},
+ {id:"x1",t:"AI itself is the real problem, so students should keep it out of their portfolios entirely."},
+ {id:"h",t:"More and more students turn to AI for their portfolios, which raises doubts about fairness in admissions."},
+ {id:"f",t:"Smoothing an essay with AI may backfire if the student later cannot discuss it face to face."},
+ {id:"g",t:"Programs that claim to spot AI writing make mistakes, so innocent students may end up paying for them."},
+ {id:"x2",t:"Students in big cities avoid using AI because universities question applicants closely in their interviews."},
+ {id:"b",t:"Letting AI make your experiences clearer is no different from asking a teacher or a grammar tool for help."},
+ {id:"d",t:"When applicants lean too heavily on AI, their work starts to look alike and becomes hard to judge fairly."},
+ {id:"e",t:"Even if AI helps sort and polish ideas, the student’s own experiences and views are still genuinely theirs."}
+];
+var NOFIT={
+ x1:"這一張最容易放進張教授那一格，因為 AI itself 和 problem 都是他的字。可是第 27 行寫的是 AI itself is not the problem，他只要求學生說清楚用了多少；十個人裡也沒有一個人主張完全不能用。這一張把方向說反了，所以哪一格都放不進去。",
+ x2:"這一張看起來像 Eric 或 Amy 的話。可是第 63 到 67 行 Eric 說的是城市的學生上補習班，補習班會用 AI 幫他們修檔案，他們用得更多，不是不用。這一張把方向說反了，所以哪一格都放不進去。"
+};
+var SRCQ=[
+ {fn:"爭議",rf:"第 1–9 行",t:"High school students are increasingly using advanced AI tools when preparing their learning portfolios. \u2026 This issue ultimately brings significant challenges to keeping college admissions fair."},
+ {fn:"支持　B 林先生",rf:"第 19–23 行",t:"If AI helps students present their experiences more clearly, that isn\u2019t any different from using a grammar checker or seeking a teacher\u2019s advice."},
+ {fn:"支持　E Kevin",rf:"第 38–43 行",t:"Many students use AI to organize information, brainstorm ideas, or improve their writing. That doesn\u2019t mean the experiences and opinions in their portfolios aren\u2019t their own."},
+ {fn:"擔憂　D 王女士",rf:"第 34–37 行",t:"Excessive AI assistance makes applicants\u2019 submissions look increasingly similar, which makes fair evaluations more difficult."},
+ {fn:"擔憂　F Amy",rf:"第 45–50 行",t:"Polishing an essay with AI might seem harmless, but universities will question us closely during interviews. If a student cannot explain their own portfolio in person, that gap will be obvious."},
+ {fn:"談怎麼處理　C 張教授",rf:"第 25–30 行",t:"The key issue is honesty and transparency. AI itself is not the problem, but it is important that students clearly disclose how much they used it and for which parts of their work."},
+ {fn:"談怎麼處理　G 陳博士",rf:"第 52–57 行",t:"Current AI detection tools are far from reliable. They sometimes flag human-written work as AI-generated, leading to unfair judgments and serious consequences for students who did nothing wrong."}
+];
+
+var MINE=[
+ {id:"m1",fn:"爭議：主題句",en:"the issue",ph:"用一句話點出爭議，把兩邊一起擺出來，像課文第 3 到 6 行的 While some…, critics worry…。"},
+ {id:"m2",fn:"支持的一方",en:"supporters",ph:"支持的人怎麼說？寫一個具體的理由，並交代是誰這樣認為。"},
+ {id:"m3",fn:"擔心的一方",en:"critics",ph:"擔心的人怎麼說？同樣寫一個具體的理由，並交代是誰擔心。"},
+ {id:"m4",fn:"我的立場與做法",en:"my view",ph:"輪到你表態。說出你的立場，再用「應該」「需要」提出一個具體的做法。"}
+];
+
+var AI=[
+"我是台灣的高中生，正在準備學測英文作文。下面是我列的中文大綱，題目是：有人認為高中生上課時可以用手機查資料，也有人擔心手機讓學生分心。請寫一篇短文：第一段說明這個爭議，分別介紹支持和擔心的理由；第二段說明你的立場，並提出具體的做法。",
+"",
+"請照以下規則給我意見：",
+"1. 先看主題句：有沒有點出爭議，並且把支持和擔心兩邊一起擺出來。",
+"2. 支持和擔心的理由，是不是各有一個具體的理由，而且交代了是誰這樣認為，沒有跟我自己的立場混在一起。",
+"3. 兩邊的理由是不是在回答同一個爭議，沒有離題。",
+"4. 最後一格有沒有清楚的立場，並提出一個具體、做得到的做法，而不是只寫「要適當使用」。",
+"5. 不要幫我寫英文，也不要幫我補內容。",
+"6. 說明用中文。"
+].join("\n");
+
+/* ── 畫圖 ── */
+function drawFig(){
+  var sw=ST.sw||0, ord=ORDERS[sw];
+  var s='<svg viewBox="0 0 380 234" role="img" aria-label="正反意見表：最上面是爭議，下面三欄是支持、擔憂、談怎麼處理">';
+  var CX=[64,190,316], HD=["支持","擔憂","談怎麼處理"], HC=["l","r","m"];
+  var p,c,x,y,w,h,cls,i,cut;
+  for(i=0;i<3;i++) s+='<path class="guide" d="M190 60 L190 72 L'+CX[i]+' 72 L'+CX[i]+' 80"/>';
+  for(i=0;i<3;i++) s+='<text class="colhd '+HC[i]+'" x="'+CX[i]+'" y="92" text-anchor="middle">'+HD[i]+'</text>';
+  for(p=0;p<7;p++){
+    c=CELLS[ord[p]]; x=POS[p][0]; y=POS[p][1];
+    w=p===0?200:120; h=52;
+    cut=(sw===3&&(p===1||p===2));
+    cls="bx"+(ST.put[c.id]&&!cut?" on":"")+(p===0?" hub":"")+(sw&&sw!==3&&ord[p]!==p?" sw":"")+(cut?" cut":"");
+    s+='<g class="'+cls+'" data-id="'+c.id+'" tabindex="0" role="button">';
+    s+='<rect x="'+(x-w/2)+'" y="'+(y-h/2)+'" width="'+w+'" height="'+h+'" rx="6"/>';
+    if(cut){
+      s+='<text class="fn" x="'+x+'" y="'+(y+4)+'" text-anchor="middle">（拿掉了）</text>';
+    } else {
+      s+='<text class="fn" x="'+x+'" y="'+(y-h/2+17)+'" text-anchor="middle">'+esc(c.fn)+'</text>';
+      s+='<text class="en" x="'+x+'" y="'+(y-h/2+31)+'" text-anchor="middle">'+esc(c.en)+'</text>';
+      s+='<text class="rf" x="'+x+'" y="'+(y-h/2+44)+'" text-anchor="middle">'+(ST.put[c.id]?esc(c.rf):"待放")+'</text>';
+    }
+    s+='</g>';
+  }
+  if(sw===1||sw===2) s+='<text class="okk" x="190" y="228" text-anchor="middle">對調之後照樣成立</text>';
+  if(sw===3) s+='<text class="warn" x="190" y="228" text-anchor="middle">開頭的 some supporters 找不到人</text>';
+  s+='</svg>';
+  $("fig").innerHTML=s;
+}
+
+var pick=null;
+function drawPool(){
+  var h="";
+  for(var i=0;i<SENTS.length;i++)
+    h+='<button data-i="'+i+'" class="'+(ST.put[SENTS[i].id]?"gone":"")+'">'+esc(SENTS[i].t)+'</button>';
+  $("pool").innerHTML=h;
+}
+function done1(){ var n=0; for(var k in ST.put) if(ST.put[k]) n++; return n; }
+function first1(){ var n=0; for(var k in ST.first) if(ST.first[k]) n++; return n; }
+function showSrc(){
+  if($("src6").innerHTML) return;
+  var h="";
+  for(var i=0;i<SRCQ.length;i++)
+    h+='<div class="pair"><span class="t">'+esc(SRCQ[i].fn)+'　'+esc(SRCQ[i].rf)+'</span>'+esc(SRCQ[i].t)+'</div>';
+  $("src6").innerHTML=h;
+}
+function after1(){
+  if($("n1")) $("n1").textContent=first1();
+  if(done1()===7){
+    $("h1").innerHTML="七格都滿了。第一次就放對 <em id=\"n1\">"+first1()+"</em> / 7";
+    $("a1").hidden=false; $("g1").hidden=false; showSrc();
+  }
+}
+function show(id){
+  var c=null,i;
+  for(i=0;i<CELLS.length;i++) if(CELLS[i].id===id) c=CELLS[i];
+  if(!c) return;
+  var gs=$("fig").querySelectorAll(".bx");
+  for(i=0;i<gs.length;i++) gs[i].classList.toggle("sel", gs[i].dataset.id===id);
+  $("pk").textContent=c.fn+"　"+(ST.put[id]?c.rf:"還沒放");
+  $("pq").textContent=ST.put[id]||"這一格還空著。";
+}
+function aim(on){
+  var gs=$("fig").querySelectorAll(".bx");
+  for(var i=0;i<gs.length;i++) if(!gs[i].classList.contains("on")) gs[i].classList.toggle("aim",on);
+}
+$("pool").addEventListener("click",function(e){
+  var b=e.target.closest("button"); if(!b) return;
+  var bs=$("pool").querySelectorAll("button");
+  for(var i=0;i<bs.length;i++) bs[i].classList.remove("pick");
+  b.classList.add("pick"); pick=+b.dataset.i; aim(true);
+});
+function hit(g){
+  if(g.classList.contains("cut")) return;
+  var id=g.dataset.id;
+  if(pick===null || ST.put[id]){ show(id); return; }
+  var s=SENTS[pick];
+  if(NOFIT[s.id]){
+    ST.miss[id]=1; save();
+    $("pk").textContent="這一張沒有位置";
+    $("pq").textContent=NOFIT[s.id];
+    return;
+  }
+  if(s.id!==id){ ST.miss[id]=1; save(); toast("這一格要的不是這一張"); return; }
+  if(!ST.miss[id]) ST.first[id]=1;
+  ST.put[id]=s.t; save(); pick=null;
+  drawFig(); drawPool(); aim(false); show(id); after1();
+}
+$("fig").addEventListener("click",function(e){ var g=e.target.closest(".bx"); if(g) hit(g); });
+$("fig").addEventListener("keydown",function(e){
+  if(e.key!=="Enter"&&e.key!==" ") return;
+  var g=e.target.closest(".bx"); if(g){ e.preventDefault(); hit(g); }
+});
+$("g1").addEventListener("click",function(){
+  if(ST.step<2) ST.step=2; save();
+  $("s2").hidden=false; $("s2").scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+/* ── 第二步：對調測試 ── */
+function paintSw(){
+  drawFig();
+  var bs=$("swbar").querySelectorAll("button[data-s]");
+  for(var i=0;i<bs.length;i++) bs[i].disabled=!!ST.sw;
+  $("undo").hidden=!ST.sw;
+  var h,k,list;
+  if(!ST.sw){
+    if(ST.tS&&ST.tH) h="換回來了。三種都試過了，看下面的題目。";
+    else if(ST.tS) h="換回來了。同一欄對調沒問題，再試試把支持那一欄拿掉。";
+    else if(ST.tH) h="放回來了。拿掉一欄不行，再試試對調同一欄的兩個人。";
+    else h="七格照原來的位置排著。任選一種。";
+    $("swh").textContent=h;
+  } else {
+    if(ST.sw===3){ h="拿掉一欄，就不成立了：<ul>"; list=WARN3; }
+    else { h="對調之後，沒有一處接不上：<ul class=\"ok\">"; list=SAFE[ST.sw]; }
+    for(k=0;k<list.length;k++) h+="<li>"+esc(list[k])+"</li>";
+    $("swh").innerHTML=h+"</ul>";
+  }
+  if(ST.tS&&ST.tH) $("q2box").hidden=false;
+}
+$("swbar").addEventListener("click",function(e){
+  var b=e.target.closest("button[data-s]"); if(!b||ST.sw) return;
+  ST.sw=+b.dataset.s; if(ST.sw===3) ST.tH=1; else ST.tS=1; save(); paintSw();
+});
+$("undo").addEventListener("click",function(){ ST.sw=0; save(); paintSw(); });
+function settle2(){
+  var bs=$("q2").querySelectorAll("button");
+  for(var i=0;i<bs.length;i++){ bs[i].disabled=true; bs[i].dataset.state=bs[i].dataset.ok?"right":"wrong"; }
+  $("a2").hidden=false; $("g2").hidden=false;
+}
+$("q2").addEventListener("click",function(e){
+  var b=e.target.closest("button"); if(!b||ST.q2) return;
+  ST.q2=b.dataset.ok?1:2; save(); settle2();
+});
+$("g2").addEventListener("click",function(){
+  if(ST.step<3) ST.step=3; save();
+  paintCode(); $("s3").hidden=false;
+  $("s3").scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+/* ── 第三步 ── */
+function drawMine(){
+  var h="";
+  for(var i=0;i<MINE.length;i++){
+    var m=MINE[i];
+    h+='<div class="cell"><span class="fn">'+esc(m.fn)+'<em>'+esc(m.en)+'</em></span>'+
+       '<textarea id="'+m.id+'" rows="2" placeholder="'+esc(m.ph)+'"></textarea></div>';
+  }
+  $("mine").innerHTML=h;
+  for(var j=0;j<MINE.length;j++){
+    var el=$(MINE[j].id);
+    if(ST.mine[MINE[j].id]) el.value=ST.mine[MINE[j].id];
+    el.addEventListener("input",function(){ ST.mine[this.id]=this.value; save(); });
+  }
+  $("aib").textContent=AI;
+}
+function mkCode(){
+  var f=first1(), m=0, w=0, i;
+  for(var k in ST.miss) if(ST.miss[k]) m++;
+  for(i=0;i<MINE.length;i++){ var el=$(MINE[i].id); if(el&&el.value.trim()) w++; }
+  var seed=(f*31 + m*7 + w*13 + (ST.q2===1?5:0) + 10*211 + 12*101 + 1777) % 46656;
+  return "10-U12 "+f+"/7 大綱"+w+"/4 "+("000"+seed.toString(36).toUpperCase()).slice(-3);
+}
+function paintCode(){ $("cv").textContent=mkCode(); }
+$("rfb").addEventListener("click",paintCode);
+function copy(t){
+  function fb(){
+    var ta=document.createElement("textarea"); ta.value=t; document.body.appendChild(ta);
+    ta.select(); try{ document.execCommand("copy"); toast("已複製"); }catch(e){ toast("複製失敗，請手動選取"); }
+    document.body.removeChild(ta);
+  }
+  if(navigator.clipboard&&navigator.clipboard.writeText)
+    navigator.clipboard.writeText(t).then(function(){ toast("已複製"); },fb);
+  else fb();
+}
+$("cc").addEventListener("click",function(){ copy(mkCode()); });
+$("sv").addEventListener("click",function(){
+  for(var i=0;i<MINE.length;i++) ST.mine[MINE[i].id]=$(MINE[i].id).value;
+  save(); toast("已存在這台裝置的瀏覽器裡");
+});
+$("cp").addEventListener("click",function(){
+  var t=AI+"\n\n【我的大綱】\n";
+  for(var i=0;i<MINE.length;i++) t+=MINE[i].fn+"："+($(MINE[i].id).value||"（空白）")+"\n";
+  copy(t);
+});
+
+/* ── 預覽 ── */
+function previewAll(){
+  PREVIEW=true; $("pv").hidden=false;
+  for(var i=0;i<SENTS.length;i++) if(!NOFIT[SENTS[i].id]){ ST.put[SENTS[i].id]=SENTS[i].t; ST.first[SENTS[i].id]=1; }
+  drawPool(); drawMine(); after1();
+  $("s2").hidden=false; ST.sw=0; ST.tS=1; ST.tH=1; paintSw(); ST.q2=1; settle2();
+  $("s3").hidden=false; paintCode();
+}
+
+/* ── 接回進度 ── */
+$("rst").addEventListener("click",function(){
+  try{ localStorage.removeItem(KEY); }catch(e){} location.reload();
+});
+(function restore(){
+  if(/(^|[?&])all(=|&|$)/.test(location.search)){ previewAll(); return; }
+  var v=load();
+  if(v){
+    ST=v;
+    if(!ST.put) ST.put={};
+    if(!ST.first) ST.first={};
+    if(!ST.miss) ST.miss={};
+    if(!ST.mine) ST.mine={};
+    if(!ST.step) ST.step=1;
+    if(!ST.sw) ST.sw=0;
+  }
+  drawPool(); drawMine(); paintSw();
+  if(done1()||ST.step>1) $("rs").hidden=false;
+  if(ST.step>=2) $("s2").hidden=false;
+  if(ST.q2) settle2();
+  if(ST.step>=3){ $("s3").hidden=false; paintCode(); }
+  after1();
+})();
+})();
+</script>
+</body>
+</html>
