@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>序列的組織圖｜Up, Up, and Away: Surprising Secrets of the Elevator</title>
+
+<style>
+:root{
+  --ground:#f1f3f2; --ink:#17282f; --teal:#1f6f6a; --teal-soft:#dfeceb;
+  --muted:#77878d; --line:#cdd6d6; --exam:#b4661c; --exam-soft:#fdf4e7;
+  --ok:#2e6b4f; --ok-soft:#edf4ef;
+  --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+  --sans:"PingFang TC","Noto Sans TC","Microsoft JhengHei","Helvetica Neue",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-text-size-adjust:100%}
+.wrap{max-width:44rem;margin:0 auto;padding:1.6rem 1.1rem 4rem}
+h1{font-family:var(--serif);font-weight:600;font-size:1.6rem;line-height:1.3;margin:0 0 .55rem}
+.lede{margin:0 0 1.1rem;color:#3d5059;font-size:.95rem}
+.src{font-size:.8rem;color:var(--muted);margin:0 0 1.1rem}
+.preview{font-size:.85rem;color:var(--exam);background:var(--exam-soft);border:1px dashed var(--exam);
+  border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.preview[hidden]{display:none}
+.resume{font-size:.85rem;color:var(--teal);background:var(--teal-soft);border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.resume[hidden]{display:none}
+.resume button{font:inherit;font-size:.82rem;background:#fff;color:var(--ink);border:1px solid var(--line);
+  border-radius:.25rem;padding:.16rem .6rem;margin-left:.5rem;cursor:pointer}
+.step{border-top:1px solid var(--line);padding-top:1.15rem;margin-top:1.7rem}
+.step[hidden]{display:none}
+.stepno{font-family:var(--serif);font-size:.82rem;color:var(--muted);margin:0 0 .2rem}
+h2{font-family:var(--serif);font-weight:600;font-size:1.2rem;margin:0 0 .5rem;color:var(--teal)}
+p{margin:0 0 .7rem;font-size:.95rem}
+
+/* 組織圖：時間線 */
+.fig{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.7rem .5rem .5rem;margin:.2rem 0 .6rem}
+.fig svg{display:block;width:100%;height:auto;max-width:26rem;margin:0 auto}
+.bx rect{fill:#fff;stroke:var(--line);stroke-width:2}
+.bx text.fn{font-family:var(--sans);font-size:11px;font-weight:600;fill:var(--ink)}
+.bx text.en{font-family:var(--serif);font-size:8.5px;fill:var(--muted)}
+.bx text.rf{font-family:var(--sans);font-size:8.5px;fill:var(--muted)}
+.bx.aim rect{stroke:var(--teal);stroke-dasharray:6 4}
+.bx.on rect{fill:var(--ok-soft);stroke:var(--ok);stroke-width:2.5}
+.bx.on text.rf{fill:var(--ok);font-weight:600}
+.bx.sel rect{stroke:var(--teal);stroke-width:3}
+.lv text{font-family:var(--sans);font-size:9px;fill:var(--muted)}
+.cutline{stroke:var(--exam);stroke-width:2;stroke-dasharray:6 5}
+.frameline{stroke:var(--line);stroke-width:2;stroke-dasharray:5 4;fill:none}
+.cuttag{font-family:var(--sans);font-size:9px;font-weight:600;fill:var(--exam)}
+
+.panel{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.7rem .85rem;margin:0 0 .9rem}
+.panel .k{font-size:.72rem;font-weight:600;border-radius:.2rem;padding:.06rem .42rem;
+  color:var(--teal);background:var(--teal-soft);border:1px solid var(--teal)}
+.panel .q{font-family:var(--serif);font-size:.95rem;line-height:1.65;margin:.4rem 0 0;color:#3d5059}
+
+.pool{display:flex;flex-direction:column;gap:.4rem;margin:0 0 .8rem}
+.pool button{font:inherit;font-family:var(--serif);font-size:.93rem;line-height:1.55;background:#fff;color:var(--ink);
+  border:1px solid var(--line);border-radius:.3rem;padding:.5rem .7rem;cursor:pointer;text-align:left}
+.pool button:hover{border-color:var(--teal)}
+.pool button.pick{border-color:var(--teal);background:var(--teal-soft)}
+.pool button.gone{display:none}
+.hint{font-size:.85rem;color:var(--muted);margin:0 0 .8rem}
+.hint em{font-style:normal;color:var(--teal);font-weight:600}
+
+.opts{display:flex;flex-direction:column;gap:.45rem;margin:.2rem 0 .8rem}
+.opts button{font:inherit;font-size:.94rem;background:#fff;color:var(--ink);border:1px solid var(--line);
+  border-radius:.3rem;padding:.5rem .8rem;cursor:pointer;text-align:left}
+.opts button:hover{border-color:var(--teal)}
+.opts button[data-state="right"]{background:var(--ok-soft);border-color:var(--ok)}
+.opts button[data-state="wrong"]{background:var(--ground);color:var(--muted)}
+.opts button[disabled]{cursor:default}
+
+.said{background:#fff;border-left:3px solid var(--teal);border-radius:.3rem;padding:.75rem .85rem;
+  margin:.2rem 0 .9rem;font-size:.93rem;color:#3d5059}
+.said[hidden]{display:none}
+.said b{color:var(--ink)}
+.srcs{margin:.6rem 0 .9rem}
+.srcs .pair{font-family:var(--serif);font-size:.9rem;line-height:1.6;color:#3d5059;
+  border-left:2px solid var(--line);padding:.1rem 0 .1rem .6rem;margin:0 0 .5rem}
+.srcs .pair .t{display:block;font-family:var(--sans);font-size:.76rem;font-weight:600;color:var(--teal)}
+.go{font:inherit;font-size:.92rem;background:var(--ink);color:#fff;border:1px solid var(--ink);
+  border-radius:.3rem;padding:.42rem 1.05rem;cursor:pointer}
+.go[hidden]{display:none}
+
+.prompt{background:var(--exam-soft);border:1px solid #e8d3b4;border-radius:.4rem;padding:.75rem .85rem;
+  margin:0 0 .9rem;font-size:.92rem;color:#3d5059}
+.prompt b{color:var(--ink)}
+.cell{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.6rem .75rem}
+.cell+.cell{margin-top:.6rem}
+.cell .fn{font-size:.78rem;font-weight:600;color:var(--teal)}
+.cell .fn em{font-style:normal;color:var(--muted);font-weight:400;margin-left:.35rem}
+.cell textarea{width:100%;margin-top:.3rem;font-family:inherit;font-size:.93rem;line-height:1.6;
+  padding:.45rem .55rem;border:1px solid var(--line);border-radius:.3rem;background:#fff;color:var(--ink);resize:vertical}
+.bar{display:flex;gap:.5rem;flex-wrap:wrap;margin:.7rem 0}
+.bar button{font:inherit;font-size:.9rem;background:#fff;color:var(--ink);border:1px solid var(--ink);
+  border-radius:.3rem;padding:.38rem .9rem;cursor:pointer}
+.bar button.p{background:var(--ink);color:#fff}
+.bar button[disabled]{border-color:var(--line);color:var(--muted);cursor:default;background:#fff}
+pre.ai{background:#fff;border:1px solid var(--line);border-radius:.3rem;padding:.6rem .7rem;
+  font-size:.8rem;line-height:1.65;white-space:pre-wrap;margin:.4rem 0 0;color:#3d5059}
+.code{background:var(--teal-soft);border:1px solid var(--teal);border-radius:.4rem;padding:.7rem .85rem;margin:1.1rem 0 .5rem}
+.code .t{font-size:.8rem;font-weight:600;color:var(--teal);margin:0 0 .35rem}
+.code .v{font-family:var(--serif);font-size:1.15rem;letter-spacing:.04em;color:var(--ink);margin:0 0 .5rem}
+.series{border-top:1px solid var(--line);margin-top:2.2rem;padding-top:1.1rem;font-size:.9rem}
+.series a{font-family:var(--serif);font-size:1rem;color:var(--teal);text-decoration:none}
+.series a:hover{text-decoration:underline}
+.toast{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--ink);color:#fff;
+  padding:.45rem 1rem;border-radius:.3rem;font-size:.86rem;opacity:0;transition:opacity .2s;pointer-events:none}
+.toast.on{opacity:1}
+.arr{stroke:var(--muted);stroke-width:1.5;fill:none}
+.leg{font-family:var(--sans);font-size:9px;fill:#3d5059}
+.leg.s{fill:var(--muted)}
+.stop{fill:#fff;stroke:var(--muted);stroke-width:1.5}
+.bx.co rect{stroke-dasharray:5 4}
+.bx.sw rect{stroke:var(--exam);stroke-width:2.5}
+.bx.sw text.fn{fill:var(--exam)}
+.warn{font-family:var(--sans);font-size:9px;font-weight:600;fill:var(--exam)}
+.hint ul{margin:.3rem 0 0;padding-left:1.1rem;color:var(--exam)}
+.hint li{margin-bottom:.2rem}
+.bx text.dt{font-family:var(--sans);font-size:10px;font-weight:600;fill:var(--teal)}
+.bx.sw text.dt{fill:var(--exam)}
+.okt{font-family:var(--sans);font-size:9px;font-weight:600;fill:var(--ok)}
+.bar button{margin:0}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>序列的組織圖：一條時間線</h1>
+<p class="lede">上一份單元頁帶你讀完這篇電梯的歷史。這一份把整篇整理成一張圖：左邊是年代，右邊是那個年代發生的事，由上往下就是時間往前走，最下面兩格是不接在時間線上的設計細節。這個形狀叫<b>時間線</b>，是依年代先後寫成的序列文章最常用的圖。</p>
+<p class="preview" id="pv" hidden>預覽模式：全部步驟與答案一次展開，進度不存檔。學生拿到的一般連結不受影響。</p>
+<p class="resume" id="rs" hidden>上次做到一半，已經幫你接回來了。<button id="rst">重新開始</button></p>
+<p class="src">ALL+ 互動英語 10 月號 Unit 13（pp. 54–55）　Up, Up, and Away: Surprising Secrets of the Elevator　全文 65 行</p>
+
+<!-- 第一步 -->
+<section class="step" id="s1">
+  <p class="stepno">第一步</p>
+  <h2>一個年代一格</h2>
+  <p>年代已經印好了。你要放的是每個年代發生了什麼，另外還有最下面兩格的設計細節。開頭第 1 到 7 行寫的是現在，只負責把讀者帶回古代，所以不占一格。</p>
+  <p>七個位置各有各的內容。<b>九張句卡，只有七張放得進去</b>，而且都不是原句，是換過字的說法。</p>
+  <p class="hint" id="h1">先點一張句卡，再點圖上的格子。第一次就放對 <em id="n1">0</em> / 7</p>
+  <div class="pool" id="pool"></div>
+  <figure class="fig" id="fig"></figure>
+  <div class="panel" id="pn">
+    <span class="k" id="pk">這一格</span>
+    <p class="q" id="pq">點圖上任一個格子，看它裝的是哪一句。</p>
+  </div>
+  <div class="said" id="a1" hidden>
+    <b>兩張放不進去的是哪兩張。</b>一張說電動電梯先出現，飯店和辦公大樓後來才裝客用電梯。它最容易放進 1852 年前後那一格，因為兩件事確實都在那一段；可是第 25 到 28 行的順序是客用電梯先出現，<b>electric models soon followed</b>，電動的跟在後面，<b>先後弄反了</b>。另一張說鏡子是 1930 年代裝進電梯的。鏡子確實在課文裡（第 47 到 54 行），可是課文沒有給它任何年代，1930 年代是這張卡自己加上去的。<b>沒有年代的事，放不進時間線的任何一格。</b>
+    <br><br>
+    <b>九張句卡沒有一張跟課文一樣。</b>下面是七個位置的原文與行號，回去對一次。
+    <div class="srcs" id="src6"></div>
+  </div>
+  <button class="go" id="g1" hidden>下一步：把兩格對調看看</button>
+</section>
+
+<!-- 第二步 -->
+<section class="step" id="s2" hidden>
+  <p class="stepno">第二步</p>
+  <h2>對調測試</h2>
+  <p>第五單元的遊記，兩站一對調，文章就接不上了。這篇的時間線也是這樣嗎？最下面那兩格設計細節呢？<b>時間線上的一組，設計細節的一組，兩種都試一次。</b>按下面任一個按鈕，圖上那兩格會真的換位置。</p>
+  <div class="bar" id="swbar">
+    <button data-s="1">對調古代和 1743 年</button>
+    <button data-s="2">對調 1852 年前後和 1930 年代</button>
+    <button data-s="3">對調兩個設計細節</button>
+    <button class="p" id="undo" hidden>換回來</button>
+  </div>
+  <div class="hint" id="swh">七格照原來的順序排著。</div>
+  <div id="q2box" hidden>
+    <p>兩種對調的結果不一樣。<b>這說明了什麼？</b></p>
+    <div class="opts" id="q2">
+      <button>七格都可以互換，只要把年代數字跟著改掉就好</button>
+      <button>只有寫著年代的那幾格，彼此可以隨意對調</button>
+      <button data-ok="1">時間線上一換就接不上，兩個設計細節對調卻沒事</button>
+      <button>設計細節也不能換，因為鏡子一定比按鈕早出現</button>
+    </div>
+    <div class="said" id="a2" hidden>
+      <b>時間線上一換就接不上，兩個設計細節對調卻沒事。</b>時間線上的每一格都靠前一格才讀得懂：第 25 行的 Before long 要接在安全煞車後面，第 12 到 13 行的 The first elevator known to carry humans 要接在更早的運貨電梯後面，年代一換，這些字就找不到基準。最下面兩格就不一樣了：鏡子和關門按鈕之間沒有先後，對調之後只要把 For example 和 Another 兩個字換一下位置，內容照樣說得通。<b>換了就接不上，是序列；換了還說得通，是並列的描述。</b>這篇前面是序列，後面附了一段描述，對調測試一做就分得出來。
+      <br><br>
+      <b>另外三個為什麼排除：</b>「只有寫著年代的那幾格，彼此可以隨意對調」<b>最容易選</b>，因為它把兩件事講反了：寫著年代的格子正好最不能換，沒有年代的那兩格才可以換。「七格都可以互換，只要把年代數字跟著改掉」也不對，數字改了，事件本身的先後還在：沒有安全煞車，就不會有摩天大樓。「鏡子一定比按鈕早出現」是把 first added 讀成了年代，課文從沒說兩樣東西哪一個先有。
+    </div>
+  </div>
+  <button class="go" id="g2" hidden>下一步：換成你自己的作文</button>
+</section>
+
+<!-- 第三步 -->
+<section class="step" id="s3" hidden>
+  <p class="stepno">第三步</p>
+  <h2>用同一張圖列你的大綱</h2>
+  <p>學測作文常要你寫「一樣東西或一個習慣的改變」，第一段交代經過，第二段說明你的看法。第一段就是一條小小的時間線，第二段就像這篇最後的設計細節。用剛才那張圖列大綱，有三件事要照這篇學：</p>
+  <p><b>一、從現在說起，再轉回從前。</b>像這篇先寫今天沒人多想，再用 Yet 一轉。<b>二、時間線上每一格的開頭先寫時間。</b>像「小學的時候」「上了國中以後」「現在」，讀者一看就知道換了一個時期。寫成英文時，這類片語放句首，後面加逗號，例如 In junior high, I started using it to check bus times. 上一句句尾剛提到的新東西，下一句最好就從它說起，句子才接得緊。<b>三、第二段不寫年代。</b>它不接在時間線後面，用 For example、Another 帶出你要介紹的設計或用法。</p>
+  <div class="prompt">
+    <b>試寫的題目：</b>請寫一篇短文，談一樣你從小用到大的東西，例如手機、悠遊卡、耳機或某個 app。第一段依時間先後，寫你從小到現在使用它的方式有什麼改變；第二段介紹它的一個設計或用法，說明你為什麼覺得它很巧妙。
+  </div>
+  <p>每一格寫一句中文要點就好，這一步先不寫英文。</p>
+  <div id="mine"></div>
+  <div class="bar">
+    <button class="p" id="cp">複製我寫的內容</button>
+    <button id="sv">存到瀏覽器</button>
+  </div>
+  <p class="hint">這一步沒有標準答案，站上不批改。複製之後貼給老師，或貼給 AI 也可以，下面這段指示會跟著一起複製。</p>
+  <pre class="ai" id="aib"></pre>
+  <div class="code">
+    <p class="t">做完了，把這一行貼到 Google Classroom 的作業回覆欄</p>
+    <p class="v" id="cv">—</p>
+    <div class="bar" style="margin:0">
+      <button class="p" id="cc">複製完成碼</button>
+      <button id="rfb">重新產生</button>
+    </div>
+    <p class="hint" style="margin:.5rem 0 0">老師只看這一行，不會看到你寫的內容。你寫的東西只留在這台裝置的瀏覽器裡。</p>
+  </div>
+</section>
+
+<nav class="series">
+  <a href="cohesion.html">← 回讀法練習總表</a>
+</nav>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+"use strict";
+function $(id){return document.getElementById(id);}
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;");}
+
+var KEY="outline-202610-u13-v1";
+var PREVIEW=false;
+var ST={put:{},first:{},miss:{},sw:0,seen:{},q2:0,mine:{},step:1};
+function save(){ if(PREVIEW) return; try{ localStorage.setItem(KEY,JSON.stringify(ST)); }catch(e){} }
+function load(){ try{ var r=localStorage.getItem(KEY); return r?JSON.parse(r):null; }catch(e){ return null; } }
+function toast(m){ var t=$("toast"); t.textContent=m; t.classList.add("on");
+  setTimeout(function(){ t.classList.remove("on"); },1600); }
+
+/* 七格：時間線五格，加時間線外兩格 */
+var CELLS=[
+ {id:"a",dt:"約西元前 236 年",fn:"最早的電梯",en:"the earliest lift",rf:"第 8–12 行"},
+ {id:"b",dt:"1743 年",fn:"第一台載人電梯",en:"the first to carry people",rf:"第 12–15 行"},
+ {id:"c",dt:"1852 年前後",fn:"變安全，開始普及",en:"safer and widespread",rf:"第 15–28 行"},
+ {id:"d",dt:"1930 年代",fn:"電梯成熟",en:"coming into their own",rf:"第 28–33 行"},
+ {id:"e",dt:"今天",fn:"今天的電梯",en:"today",rf:"第 34–44 行"},
+ {id:"f",dt:"",fn:"細節一　For example",en:"no date",rf:"第 45–54 行"},
+ {id:"g",dt:"",fn:"細節二　Another",en:"no date",rf:"第 55–65 行"}
+];
+var ORDERS={0:[0,1,2,3,4,5,6],1:[1,0,2,3,4,5,6],2:[0,1,3,2,4,5,6],3:[0,1,2,3,4,6,5]};
+var WARN={
+ 1:{tags:["年代倒著走","first 跑到後面"],at:[0,1],
+    list:["第 9 到 10 行 the first elevator around 236 BCE：寫著 first 的那一格跑到 1743 年後面，年代倒退了將近兩千年。",
+          "第 12 到 13 行 The first elevator known to carry humans：它說的是目前所知第一台載人的電梯，要接在更早的運貨電梯後面；對調之後，它前面什麼都沒有。"]},
+ 2:{tags:["By the 1930s？","Before long？"],at:[2,3],
+    list:["第 28 到 30 行 By the 1930s：摩天大樓先蓋起來了，可是安全煞車還沒發明，大家還怕繩子斷掉，電梯根本沒辦法先讓摩天大樓蓋得起來。",
+          "第 25 行 Before long：本來是安全煞車發明後不久，客用電梯就進了飯店和辦公大樓；對調之後，時間從 1930 年代跳回 1852 年，時間線倒著走。"]},
+ 3:{tags:[],at:[],list:[]}
+};
+
+var SENTS=[
+ {id:"c",t:"A new brake that could stop a falling car eased people\u2019s fears, and lifts soon spread to hotels and offices."},
+ {id:"x1",t:"Electric lifts came first, and only later did hotels and offices begin installing passenger lifts."},
+ {id:"f",t:"One detail first helped trips feel shorter, and it also makes a cramped space look roomier."},
+ {id:"a",t:"Long ago, a Greek thinker is said to have made a lift that moved goods with ropes and wheels."},
+ {id:"e",t:"Lifts are now almost everywhere; one can hold over two hundred riders, and others climb hundreds of meters a minute."},
+ {id:"x2",t:"Mirrors were put into lifts in the 1930s so that riders in the new tall towers would not feel crowded."},
+ {id:"g",t:"A button that often does nothing is kept anyway, because pressing it lets riders feel in charge."},
+ {id:"b",t:"A French king had a lift built so that he could ride between the floors of his palace."},
+ {id:"d",t:"Lifts had finally matured, so builders could put up towers far taller than anything before."}
+];
+var NOFIT={
+ x1:"這一張最容易放進 1852 年前後那一格，因為客用電梯和電動電梯確實都在那一段。可是第 25 到 28 行的順序是客用電梯先出現，electric models soon followed，電動的跟在後面。先後弄反了。",
+ x2:"鏡子確實在課文裡，擠在小箱子裡的不舒服也有寫（第 47 到 54 行）。可是課文沒有給鏡子任何年代，1930 年代是這張卡自己加上去的。沒有年代的事，放不進時間線的任何一格。"
+};
+var SRCQ=[
+ {fn:"約西元前 236 年　最早的電梯",rf:"第 8–12 行",t:"The Greek inventor Archimedes reportedly built the first elevator around 236 BCE. It likely used pulleys and ropes pulled by people or animals to move goods between levels."},
+ {fn:"1743 年　第一台載人電梯",rf:"第 12–15 行",t:"The first elevator known to carry humans was built in 1743 to enable King Louis XV of France to travel between floors of his palace."},
+ {fn:"1852 年前後　變安全，開始普及",rf:"第 20–28 行",t:"That changed in 1852 when American inventor Elisha Graves Otis pioneered a safety brake that could halt a falling elevator. \u2026 Before long, passenger elevators appeared in hotels and office buildings, and electric models soon followed."},
+ {fn:"1930 年代　電梯成熟",rf:"第 28–33 行",t:"By the 1930s, elevators had truly come into their own and made skyscrapers practical. \u2026 architects would never have been able to construct buildings that soared far higher than ever before."},
+ {fn:"今天　今天的電梯",rf:"第 34–42 行",t:"Today, elevators can be found almost everywhere \u2026 an elevator enormous enough to carry about 235 people at once. Meanwhile, modern high-speed elevators can travel at hundreds of meters per minute"},
+ {fn:"細節一　For example",rf:"第 46–52 行",t:"For example, mirrors were first added simply because passengers often complained that rides seemed to drag on for too long. \u2026 Mirrors also create the illusion of a larger space"},
+ {fn:"細節二　Another",rf:"第 55–61 行",t:"Another surprising feature is the \u201cclose door\u201d button. \u2026 Still, the button is usually kept since it grants passengers a sense of control."}
+];
+
+var MINE=[
+ {id:"m1",fn:"開頭：先寫現在，再轉回從前",en:"now, then back",ph:"例如：我現在每天用手機查公車、聽音樂……可是它不是一開始就這樣。"},
+ {id:"m2",fn:"最早（開頭先寫時間）",en:"the earliest",ph:"例如「小學的時候」：那時候怎麼用？"},
+ {id:"m3",fn:"後來（開頭先寫時間）",en:"later",ph:"例如「上了國中以後」：有什麼改變？為什麼？"},
+ {id:"m4",fn:"現在（開頭先寫時間）",en:"today",ph:"例如「現在」：怎麼用？跟以前最大的不同是什麼？"},
+ {id:"m5",fn:"時間線外：一個巧妙的設計或用法",en:"a detail, no date",ph:"不寫年代：介紹一個你覺得最巧妙的功能或用法，說明為什麼。"}
+];
+
+var AI=[
+"我是台灣的高中生，正在準備學測英文作文。下面是我列的中文大綱，題目要我談一樣從小用到大的東西：第一段依時間先後寫使用方式的改變，第二段介紹它一個巧妙的設計或用法。",
+"",
+"請照以下規則給我意見：",
+"1. 先看第一格：有沒有先寫現在，再轉回從前，讓讀者知道接下來要往回講。",
+"2. 第二到第四格是不是照時間先後排，每一格開頭有沒有先寫時間，讓讀者知道換了一個時期。",
+"3. 每個時期有沒有寫出具體怎麼用、為什麼改變，而不是只列年級。",
+"4. 第五格不寫年代，是不是清楚介紹了一個設計或用法，並說明為什麼巧妙。",
+"5. 不要幫我寫英文，也不要幫我補內容。",
+"6. 說明用中文。"
+].join("\n");
+
+/* ── 畫圖 ── */
+function cellSvg(c,x,y,w,h,extra){
+  var on=ST.put[c.id]?" on":"";
+  var s='<g class="bx'+on+extra+'" data-id="'+c.id+'" tabindex="0" role="button">';
+  if(c.dt) s+='<text class="dt" x="'+(x-8)+'" y="'+(y+27)+'" text-anchor="end">'+esc(c.dt)+'</text>';
+  s+='<rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="6"/>';
+  s+='<text class="fn" x="'+(x+8)+'" y="'+(y+17)+'">'+esc(c.fn)+'</text>';
+  s+='<text class="en" x="'+(x+8)+'" y="'+(y+30)+'">'+esc(c.en)+'</text>';
+  s+='<text class="rf" x="'+(x+8)+'" y="'+(y+42)+'">'+(ST.put[c.id]?esc(c.rf):"待放")+'</text>';
+  return s+'</g>';
+}
+function drawFig(){
+  var sw=ST.sw||0, ord=ORDERS[sw], w=WARN[sw];
+  var s='<svg viewBox="0 0 340 392" role="img" aria-label="時間線：左邊是年代，五格由上往下；最下面兩格是時間線外的設計細節">';
+  var p,c,y;
+  for(p=0;p<5;p++){
+    c=CELLS[ord[p]]; y=8+p*60;
+    s+=cellSvg(c,92,y,240,48,(sw&&ord[p]!==p?" sw":""));
+    if(p<4){ var y0=y+50, y1=y+66;
+      s+='<path class="arr" d="M212 '+y0+' L212 '+y1+' M208 '+(y1-5)+' L212 '+y1+' L216 '+(y1-5)+'"/>'; }
+  }
+  if(sw&&w.tags.length){
+    for(var i=0;i<2;i++){ var yy=8+w.at[i]*60+17; s+='<text class="warn" x="326" y="'+yy+'" text-anchor="end">'+esc(w.tags[i])+'</text>'; }
+  }
+  s+='<text class="leg s" x="170" y="318" text-anchor="middle">時間線外：沒有年代，不接箭頭</text>';
+  for(p=5;p<7;p++){
+    c=CELLS[ord[p]];
+    s+=cellSvg(c,p===5?8:174,328,158,48," co"+(sw===3?" sw":""));
+  }
+  if(sw===3) s+='<text class="okt" x="170" y="388" text-anchor="middle">照樣說得通</text>';
+  s+='</svg>';
+  $("fig").innerHTML=s;
+}
+
+var pick=null;
+function drawPool(){
+  var h="";
+  for(var i=0;i<SENTS.length;i++)
+    h+='<button data-i="'+i+'" class="'+(ST.put[SENTS[i].id]?"gone":"")+'">'+esc(SENTS[i].t)+'</button>';
+  $("pool").innerHTML=h;
+}
+function done1(){ var n=0; for(var k in ST.put) if(ST.put[k]) n++; return n; }
+function first1(){ var n=0; for(var k in ST.first) if(ST.first[k]) n++; return n; }
+function showSrc(){
+  if($("src6").innerHTML) return;
+  var h="";
+  for(var i=0;i<SRCQ.length;i++)
+    h+='<div class="pair"><span class="t">'+esc(SRCQ[i].fn)+'　'+esc(SRCQ[i].rf)+'</span>'+esc(SRCQ[i].t)+'</div>';
+  $("src6").innerHTML=h;
+}
+function after1(){
+  if($("n1")) $("n1").textContent=first1();
+  if(done1()===7){
+    $("h1").innerHTML="七格都滿了。第一次就放對 <em id=\"n1\">"+first1()+"</em> / 7";
+    $("a1").hidden=false; $("g1").hidden=false; showSrc();
+  }
+}
+function show(id){
+  var c=null,i;
+  for(i=0;i<CELLS.length;i++) if(CELLS[i].id===id) c=CELLS[i];
+  if(!c) return;
+  var gs=$("fig").querySelectorAll(".bx");
+  for(i=0;i<gs.length;i++) gs[i].classList.toggle("sel", gs[i].dataset.id===id);
+  $("pk").textContent=(c.dt?c.dt+"　":"")+c.fn+"　"+(ST.put[id]?c.rf:"還沒放");
+  $("pq").textContent=ST.put[id]||"這一格還空著。";
+}
+function aim(on){
+  var gs=$("fig").querySelectorAll(".bx");
+  for(var i=0;i<gs.length;i++) if(!gs[i].classList.contains("on")) gs[i].classList.toggle("aim",on);
+}
+$("pool").addEventListener("click",function(e){
+  var b=e.target.closest("button"); if(!b) return;
+  var bs=$("pool").querySelectorAll("button");
+  for(var i=0;i<bs.length;i++) bs[i].classList.remove("pick");
+  b.classList.add("pick"); pick=+b.dataset.i; aim(true);
+});
+function hit(g){
+  var id=g.dataset.id;
+  if(pick===null || ST.put[id]){ show(id); return; }
+  var s=SENTS[pick];
+  if(NOFIT[s.id]){
+    ST.miss[id]=1; save();
+    $("pk").textContent="這一張沒有位置";
+    $("pq").textContent=NOFIT[s.id];
+    return;
+  }
+  if(s.id!==id){ ST.miss[id]=1; save(); toast("這一格要的不是這一張"); return; }
+  if(!ST.miss[id]) ST.first[id]=1;
+  ST.put[id]=s.t; save(); pick=null;
+  drawFig(); drawPool(); aim(false); show(id); after1();
+}
+$("fig").addEventListener("click",function(e){ var g=e.target.closest(".bx"); if(g) hit(g); });
+$("fig").addEventListener("keydown",function(e){
+  if(e.key!=="Enter"&&e.key!==" ") return;
+  var g=e.target.closest(".bx"); if(g){ e.preventDefault(); hit(g); }
+});
+$("g1").addEventListener("click",function(){
+  if(ST.step<2) ST.step=2; save();
+  $("s2").hidden=false; $("s2").scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+/* ── 第二步：對調 ── */
+function seenLine(){ return !!(ST.seen[1]||ST.seen[2]); }
+function seenBoth(){ return seenLine() && !!ST.seen[3]; }
+function paintSw(){
+  drawFig();
+  var bs=$("swbar").querySelectorAll("button[data-s]");
+  for(var i=0;i<bs.length;i++) bs[i].disabled=!!ST.sw;
+  $("undo").hidden=!ST.sw;
+  if(!ST.sw){
+    if(seenBoth()) $("swh").textContent="換回來了，七格又照原來的順序排著。兩種對調的結果，你都看過了。";
+    else if(seenLine()) $("swh").textContent="換回來了。時間線上一換就接不上；再試試對調兩個設計細節，看結果一不一樣。";
+    else if(ST.seen[3]) $("swh").textContent="換回來了。兩個設計細節對調之後照樣說得通；再試試時間線上的一組，看結果一不一樣。";
+    else $("swh").textContent="七格照原來的順序排著。任選一組對調。";
+  } else if(ST.sw===3){
+    $("swh").innerHTML="對調之後，時間線完全沒動，鏡子和關門按鈕兩段內容也照樣說得通。唯一要改的是兩個字：第 46 到 47 行的 For example 要跟第 55 行的 Another 交換位置。這是措辭，不是內容。";
+  } else {
+    var h="對調之後，這兩處接不上了：<ul>";
+    for(var k=0;k<WARN[ST.sw].list.length;k++) h+="<li>"+esc(WARN[ST.sw].list[k])+"</li>";
+    $("swh").innerHTML=h+"</ul>";
+  }
+  if(seenBoth()) $("q2box").hidden=false;
+}
+$("swbar").addEventListener("click",function(e){
+  var b=e.target.closest("button[data-s]"); if(!b||ST.sw) return;
+  ST.sw=+b.dataset.s; ST.seen[ST.sw]=1; save(); paintSw();
+});
+$("undo").addEventListener("click",function(){ ST.sw=0; save(); paintSw(); });
+function settle2(){
+  var bs=$("q2").querySelectorAll("button");
+  for(var i=0;i<bs.length;i++){ bs[i].disabled=true; bs[i].dataset.state=bs[i].dataset.ok?"right":"wrong"; }
+  $("a2").hidden=false; $("g2").hidden=false;
+}
+$("q2").addEventListener("click",function(e){
+  var b=e.target.closest("button"); if(!b||ST.q2) return;
+  ST.q2=b.dataset.ok?1:2; save(); settle2();
+});
+$("g2").addEventListener("click",function(){
+  if(ST.step<3) ST.step=3; save();
+  paintCode(); $("s3").hidden=false;
+  $("s3").scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+/* ── 第三步 ── */
+function drawMine(){
+  var h="";
+  for(var i=0;i<MINE.length;i++){
+    var m=MINE[i];
+    h+='<div class="cell"><span class="fn">'+esc(m.fn)+'<em>'+esc(m.en)+'</em></span>'+
+       '<textarea id="'+m.id+'" rows="2" placeholder="'+esc(m.ph)+'"></textarea></div>';
+  }
+  $("mine").innerHTML=h;
+  for(var j=0;j<MINE.length;j++){
+    var el=$(MINE[j].id);
+    if(ST.mine[MINE[j].id]) el.value=ST.mine[MINE[j].id];
+    el.addEventListener("input",function(){ ST.mine[this.id]=this.value; save(); });
+  }
+  $("aib").textContent=AI;
+}
+function mkCode(){
+  var f=first1(), m=0, w=0, i;
+  for(var k in ST.miss) if(ST.miss[k]) m++;
+  for(i=0;i<MINE.length;i++){ var el=$(MINE[i].id); if(el&&el.value.trim()) w++; }
+  var seed=(f*31 + m*7 + w*13 + (ST.q2===1?5:0) + 10*211 + 13*101 + 1777) % 46656;
+  return "10-U13 "+f+"/7 大綱"+w+"/5 "+("000"+seed.toString(36).toUpperCase()).slice(-3);
+}
+function paintCode(){ $("cv").textContent=mkCode(); }
+$("rfb").addEventListener("click",paintCode);
+function copy(t){
+  function fb(){
+    var ta=document.createElement("textarea"); ta.value=t; document.body.appendChild(ta);
+    ta.select(); try{ document.execCommand("copy"); toast("已複製"); }catch(e){ toast("複製失敗，請手動選取"); }
+    document.body.removeChild(ta);
+  }
+  if(navigator.clipboard&&navigator.clipboard.writeText)
+    navigator.clipboard.writeText(t).then(function(){ toast("已複製"); },fb);
+  else fb();
+}
+$("cc").addEventListener("click",function(){ copy(mkCode()); });
+$("sv").addEventListener("click",function(){
+  for(var i=0;i<MINE.length;i++) ST.mine[MINE[i].id]=$(MINE[i].id).value;
+  save(); toast("已存在這台裝置的瀏覽器裡");
+});
+$("cp").addEventListener("click",function(){
+  var t=AI+"\n\n【我的大綱】\n";
+  for(var i=0;i<MINE.length;i++) t+=MINE[i].fn+"："+($(MINE[i].id).value||"（空白）")+"\n";
+  copy(t);
+});
+
+/* ── 預覽 ── */
+function previewAll(){
+  PREVIEW=true; $("pv").hidden=false;
+  for(var i=0;i<SENTS.length;i++) if(!NOFIT[SENTS[i].id]){ ST.put[SENTS[i].id]=SENTS[i].t; ST.first[SENTS[i].id]=1; }
+  drawPool(); drawMine(); after1();
+  $("s2").hidden=false; ST.sw=0; ST.seen={1:1,2:1,3:1}; paintSw(); ST.q2=1; settle2();
+  $("s3").hidden=false; paintCode();
+}
+
+/* ── 接回進度 ── */
+$("rst").addEventListener("click",function(){
+  try{ localStorage.removeItem(KEY); }catch(e){} location.reload();
+});
+(function restore(){
+  if(/(^|[?&])all(=|&|$)/.test(location.search)){ previewAll(); return; }
+  var v=load();
+  if(v){
+    ST=v;
+    if(!ST.put) ST.put={};
+    if(!ST.first) ST.first={};
+    if(!ST.miss) ST.miss={};
+    if(!ST.mine) ST.mine={};
+    if(!ST.seen) ST.seen={};
+    if(!ST.step) ST.step=1;
+    if(!ST.sw) ST.sw=0;
+  }
+  drawPool(); drawMine(); paintSw();
+  if(done1()||ST.step>1) $("rs").hidden=false;
+  if(ST.step>=2) $("s2").hidden=false;
+  if(ST.q2) settle2();
+  if(ST.step>=3){ $("s3").hidden=false; paintCode(); }
+  after1();
+})();
+})();
+</script>
+</body>
+</html>
