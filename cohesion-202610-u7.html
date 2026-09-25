@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>描述：一個主題，五種手法｜The Hidden Science Behind Your Favorite Restaurants</title>
+<meta name="description" content="餐廳用顏色、菜單、音樂、座椅和燈光影響你吃多少、花多少。這一頁教你認出一個主題分成幾項的描述結構，還有把因果寫在動詞裡的使役結構。">
+<meta property="og:title" content="描述：一個主題，五種手法｜The Hidden Science Behind Your Favorite Restaurants">
+<meta property="og:description" content="Warm colors stimulate appetite、slow-tempo music causes diners to stay longer：因果不一定靠 because，常常就寫在動詞裡。">
+<style>
+:root{
+  --ground:#f1f3f2; --ink:#17282f; --teal:#1f6f6a; --teal-soft:#dfeceb;
+  --muted:#77878d; --line:#cdd6d6; --exam:#b4661c; --exam-soft:#fdf4e7;
+  --gen:#4a6a90; --gen-soft:#e0e7f0;
+  --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+  --sans:"PingFang TC","Noto Sans TC","Microsoft JhengHei","Helvetica Neue",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-text-size-adjust:100%}
+.wrap{max-width:44rem;margin:0 auto;padding:1.6rem 1.1rem 4rem}
+h1{font-family:var(--serif);font-weight:600;font-size:1.6rem;line-height:1.3;margin:0 0 .55rem}
+.lede{margin:0 0 1.3rem;color:#3d5059;font-size:.95rem}
+.src{font-size:.8rem;color:var(--muted);margin:0 0 1.1rem}
+.resume{font-size:.85rem;color:var(--teal);background:var(--teal-soft);border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.resume[hidden],.preview[hidden]{display:none}
+.preview{font-size:.85rem;color:var(--exam);background:var(--exam-soft);
+  border:1px dashed var(--exam);border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.resume button{font:inherit;font-size:.82rem;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:.25rem;padding:.16rem .6rem;margin-left:.5rem;cursor:pointer}
+.resume button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.step{border-top:1px solid var(--line);padding-top:1.15rem;margin-top:1.6rem}
+.step[hidden]{display:none}
+.stepno{font-family:var(--serif);font-size:.82rem;color:var(--muted);margin:0 0 .2rem}
+h2{font-family:var(--serif);font-weight:600;font-size:1.2rem;margin:0 0 .5rem;color:var(--teal)}
+.step p{margin:0 0 .7rem;font-size:.95rem}
+.tag{display:inline-block;font-size:.72rem;font-weight:600;border-radius:.2rem;padding:.08rem .45rem;margin-left:.45rem;vertical-align:.12rem;color:var(--exam);background:var(--exam-soft);border:1px solid var(--exam)}
+.tag.b{color:var(--gen);background:var(--gen-soft);border-color:var(--gen)}
+
+/* 選擇題：中文用 .opts，英文選項加 .en，附小字說明加 .rg */
+.opts{display:flex;flex-direction:column;gap:.45rem;margin:.2rem 0 .8rem}
+.opts button{font:inherit;font-size:.95rem;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:.3rem;padding:.45rem .85rem;cursor:pointer;text-align:left}
+.opts button:hover{border-color:var(--teal)}
+.opts button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.opts button[data-state="right"]{background:var(--teal);border-color:var(--teal);color:#fff}
+.opts button[data-state="wrong"]{background:var(--ground);color:var(--muted)}
+.opts button[disabled]{cursor:default}
+.opts.en button{font-family:var(--serif);font-size:.97rem;line-height:1.6;padding:.55rem .8rem}
+.opts.en button[data-state="right"]{background:var(--teal-soft);border-color:var(--teal);color:var(--ink)}
+.opts.rg button i{display:block;font-style:normal;font-size:.82rem;color:var(--muted);margin-top:.12rem}
+.opts.rg button[data-state="right"] i{color:#dfeceb}
+
+/* 揭曉區塊 */
+.said{background:#fff;border-left:3px solid var(--teal);border-radius:.3rem;padding:.75rem .85rem;margin:.2rem 0 .9rem;font-size:.93rem;color:#3d5059}
+.said b{color:var(--ink);font-weight:600}
+.said[hidden]{display:none}
+.said.g{border-left-color:var(--gen)}
+.said.e{border-left-color:var(--exam)}
+.said q{quotes:none;font-family:var(--serif)}
+
+.go{font:inherit;font-size:.92rem;background:var(--ink);color:#fff;border:1px solid var(--ink);border-radius:.3rem;padding:.42rem 1.05rem;cursor:pointer}
+.go:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.go[hidden]{display:none}
+
+/* 第一步的可點標記 */
+.lead{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.9rem 1rem;margin:0 0 .7rem;font-family:var(--serif);font-size:1.02rem;line-height:1.95}
+.lead c{cursor:pointer;border-radius:.2rem;padding:.06rem .2rem;background:var(--exam-soft);box-shadow:inset 0 -2px 0 #ecc9a2}
+.lead c:hover{box-shadow:inset 0 -2px 0 var(--exam)}
+.lead c.got{background:var(--exam);color:#fff;box-shadow:none}
+.lead c b{font-family:var(--sans);font-size:.72rem;font-weight:600;background:#fff;color:var(--exam);border-radius:.2rem;padding:.02rem .3rem;margin-right:.3rem}
+.score{font-size:.9rem;color:var(--muted);margin:0 0 .8rem}
+.score em{font-style:normal;color:var(--exam);font-weight:600}
+
+/* 第三步的卡片（驗證方法通用容器） */
+.qs{display:flex;flex-direction:column;gap:.5rem;margin:0 0 .8rem}
+.qcard{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.6rem .85rem}
+.qcard .hd{display:flex;align-items:center;gap:.6rem;font-size:.95rem}
+.qcard .hd .qt{flex:1 1 auto;font-weight:600}
+.qcard .hd button{font:inherit;font-size:.8rem;background:#fff;color:var(--ink);border:1px solid var(--line);
+  border-radius:.25rem;padding:.18rem .7rem;cursor:pointer;flex:0 0 auto}
+.qcard .hd button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.qcard .bd{display:none;margin-top:.4rem;font-size:.92rem;color:#3d5059;line-height:1.75}
+.qcard.open .bd{display:block}
+.qcard.open .hd button{display:none}
+.qcard .bd .rf{display:block;color:var(--muted);font-size:.82rem;margin-top:.25rem}
+.qcard .bd .sw{display:block;font-family:var(--serif);background:var(--ground);border-radius:.3rem;
+  padding:.45rem .6rem;margin:.35rem 0;color:var(--ink);font-size:.93rem;line-height:1.7}
+.qcard .r{display:grid;grid-template-columns:1fr;gap:.1rem;margin-bottom:.4rem}
+@media(min-width:34rem){.qcard .r{grid-template-columns:5.5rem 1fr;gap:.5rem}}
+.qcard .r:last-child{margin-bottom:0}
+.qcard .r .k{font-size:.76rem;font-weight:600;color:var(--gen)}
+.qcard .r .v em{font-style:normal;color:var(--muted);font-size:.82rem;margin-left:.3rem}
+
+/* 圖表容器與通用節點 */
+.fig{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.7rem .5rem .4rem;margin:0 0 .7rem}
+.fig[hidden]{display:none}
+.fig svg{display:block;width:100%;height:auto;max-width:27rem;margin:0 auto}
+.fig figcaption{font-size:.85rem;color:#3d5059;margin:.35rem .5rem 0;line-height:1.65}
+.node{cursor:pointer}
+.node rect,.node circle,.node path.bx{fill:#fff;stroke:var(--line);stroke-width:2;stroke-linejoin:round}
+.node text{font-family:var(--sans);font-size:11px;fill:var(--ink);font-weight:600}
+.node tspan.n,.node text.n{font-size:9px;font-weight:400;fill:var(--muted)}
+.node.on rect,.node.on circle,.node.on path.bx{fill:var(--exam-soft);stroke:var(--exam);stroke-width:3}
+.node.on text{fill:var(--exam)}
+.node.on tspan.n,.node.on text.n{fill:var(--exam)}
+.guide{stroke:var(--line);stroke-width:2;fill:none;stroke-linejoin:round;stroke-linecap:round}
+.guide.dash{stroke-dasharray:5 4}
+.endlab{font-family:var(--sans);font-size:10.5px;font-weight:600}
+.endlab.l{fill:var(--teal)}
+.endlab.r{fill:var(--gen)}
+
+/* 分日分隔框 */
+.daybreak{border:1px dashed var(--exam);background:var(--exam-soft);border-radius:.4rem;
+  padding:.8rem .95rem;margin:1.6rem 0 0;font-size:.9rem;color:#3d5059;line-height:1.7}
+.daybreak b{display:block;color:var(--exam);font-family:var(--serif);font-size:1.02rem;margin-bottom:.3rem}
+.daybreak[hidden]{display:none}
+
+/* 課文與線索鏈 */
+.modes{display:flex;gap:.4rem;margin:0 0 .7rem;flex-wrap:wrap}
+.modes button{font:inherit;font-size:.84rem;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:.3rem;padding:.3rem .8rem;cursor:pointer}
+.modes button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.modes button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.text{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.9rem .6rem 1.1rem;font-family:var(--serif);font-size:1rem;line-height:1.85}
+.text .ttl{font-weight:600;font-size:1.06rem;margin:0 .4rem .7rem 2.6rem;line-height:1.45}
+.ln{display:flex;align-items:baseline;padding:.02rem 0;border-radius:.2rem}
+.ln>i{flex:0 0 2.2rem;text-align:right;padding-right:.55rem;font-family:var(--sans);font-style:normal;font-size:.68rem;color:var(--muted);line-height:1.9}
+.ln>span{flex:1 1 auto;overflow-wrap:anywhere}
+.ln.ind>span{padding-left:1.1rem}
+.ln.sub>span{font-weight:600}
+.ln.hl{background:var(--exam-soft)}
+.ln.pb{margin-top:.55rem}
+.text .split{font-family:var(--sans);font-size:.78rem;color:var(--exam);
+  border-top:1px dashed var(--exam);margin:.8rem .4rem .7rem 2.6rem;padding-top:.35rem}
+.text m{cursor:pointer;border-radius:.2rem;padding:.02rem .14rem}
+.text m[data-kind="sub"]{background:var(--teal-soft);box-shadow:inset 0 -2px 0 #a8ccc8}
+.text m[data-kind="gen"]{background:var(--gen-soft);box-shadow:inset 0 -2px 0 #a9bbd0}
+.text m[data-kind="mk"]{border-bottom:2px dotted var(--exam);font-style:italic}
+.text m.lit[data-kind="sub"]{background:var(--teal);color:#fff;box-shadow:none}
+.text m.lit[data-kind="gen"]{background:var(--gen);color:#fff;box-shadow:none}
+.text m.lit[data-kind="mk"]{background:var(--exam);color:#fff;border-bottom:none}
+.text.off-sub m[data-kind="sub"]{background:none;box-shadow:none}
+.text.off-gen m[data-kind="gen"]{background:none;box-shadow:none}
+
+/* 固定在底部的說明面板 */
+.panel{position:sticky;bottom:0;background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.75rem .9rem;margin-top:.8rem;box-shadow:0 -2px 10px rgba(23,40,47,.07)}
+.panel .k{font-size:.72rem;font-weight:600;border-radius:.2rem;padding:.06rem .42rem;color:var(--teal);background:var(--teal-soft);border:1px solid var(--teal)}
+.panel .k.g{color:var(--gen);background:var(--gen-soft);border-color:var(--gen)}
+.panel .k.e{color:var(--exam);background:var(--exam-soft);border-color:var(--exam)}
+.panel .ch{font-family:var(--serif);font-size:1rem;margin:.4rem 0 .3rem;color:var(--ink);line-height:1.75;overflow-wrap:anywhere}
+.panel .ch i{font-style:normal;color:var(--muted);padding:0 .28rem}
+.panel .nt{font-size:.88rem;color:#3d5059;margin:0}
+
+/* 舊工具點名複習 */
+.recall{background:#fff;border:1px solid var(--line);border-left:3px solid var(--muted);
+  border-radius:.3rem;padding:.75rem .85rem;margin:1.1rem 0 .9rem;font-size:.92rem;color:#3d5059}
+.recall b{color:var(--ink)}
+.recall ul{margin:.4rem 0 0;padding-left:1.1rem}
+.recall li{margin-bottom:.35rem}
+
+/* 抽句題 */
+.gap{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.9rem 1rem;margin:0 0 .9rem;font-family:var(--serif);font-size:1rem;line-height:1.9}
+.gap .blank{display:inline-block;min-width:9rem;border-bottom:2px solid var(--gen);color:var(--gen);text-align:center;font-family:var(--sans);font-size:.82rem}
+.gap .blank.filled{border-bottom-color:var(--teal);color:var(--ink);font-family:var(--serif);font-size:1rem;text-align:left;background:var(--teal-soft);border-radius:.2rem;padding:0 .25rem}
+.gap .lst{font-family:var(--sans);font-size:.85rem;color:var(--muted);display:block;margin-top:.5rem}
+.picks{display:flex;flex-direction:column;gap:.45rem;margin:0 0 .9rem}
+.picks button{font:inherit;font-family:var(--serif);font-size:.97rem;line-height:1.6;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:.3rem;padding:.55rem .8rem;cursor:pointer;text-align:left}
+.picks button:hover{border-color:var(--teal)}
+.picks button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.picks button[data-state="right"]{background:var(--teal-soft);border-color:var(--teal)}
+.picks button[data-state="wrong"]{background:var(--ground);color:var(--muted)}
+.why{font-size:.86rem;color:#3d5059;margin:.35rem 0 0}
+.why[hidden]{display:none}
+
+/* 收尾與頁尾 */
+.close{border-top:1px solid var(--line);margin-top:2rem;padding-top:1.1rem;font-size:.93rem;color:#3d5059}
+.close[hidden]{display:none}
+.close h2{font-size:1.1rem}
+.close ol{margin:.3rem 0 0;padding-left:1.15rem}
+.close li{margin-bottom:.5rem}
+.more{margin-top:1.5rem;font-size:.88rem}
+.more a{color:var(--teal)}
+.series{border-top:1px solid var(--line);margin-top:2rem;padding-top:1.1rem;font-size:.9rem;color:#3d5059}
+.series .back{font-family:var(--serif);font-size:1rem;color:var(--teal);text-decoration:none}
+.series .back:hover{text-decoration:underline}
+.series .back:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.series .note{font-size:.85rem;color:var(--muted);margin:.5rem 0 0}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+/* 本單元：放射狀網狀圖與第三步的歸格卡片 */
+.fig .lab{font-family:var(--sans);font-size:10px;fill:#3d5059}
+.fig .lab.s{font-size:9px;fill:var(--muted)}
+.fig .spoke{stroke:var(--line);stroke-width:2;fill:none}
+.fig .node.hub rect{stroke:var(--muted)}
+.fig .node.hub.on rect{stroke:var(--exam)}
+.yn{display:flex;gap:.45rem;align-items:center;flex-wrap:wrap;margin-top:.5rem;font-size:.9rem;color:var(--ink);font-weight:600}
+.yn button{font:inherit;font-weight:400;font-size:.82rem;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:.25rem;padding:.18rem .75rem;cursor:pointer}
+.yn button:hover{border-color:var(--teal)}
+.yn button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.qcard.open .yn{display:none}
+.qcard .bd .vd{display:block;font-weight:600;margin-bottom:.15rem}
+.qcard .bd .vd.ok{color:var(--teal)}
+.qcard .bd .vd.ng{color:var(--exam)}
+.qcard .bd q{quotes:none;font-family:var(--serif)}
+#q3w[hidden]{display:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>描述：一個主題，五種手法</h1>
+<p class="lede">走進餐廳，你大概不會多看燈光和格局一眼。這一篇先點出一個主題：餐廳用許多不起眼的手法，影響你吃多少、花多少；接著分成五項，一項一段說明。這是說明文五種基本結構裡的<b>描述</b>。這一頁也要你留意每一段裡的動詞：這篇的因果關係，大多不是靠 because 或 so，而是直接寫在動詞裡。</p>
+<p class="preview" id="pv" hidden>預覽模式：所有步驟、圖表、課文標記都已展開，進度不會存檔。學生拿到的一般連結不受影響。</p>
+<p class="resume" id="rs" hidden>上次做到一半，已經幫你接回來了。<button id="rst">重新開始</button></p>
+<p class="src">ALL+ 互動英語 10 月號 Unit 7（pp. 28–29）　The Hidden Science Behind Your Favorite Restaurants　全文 50 行　10/15 讀第 1–23 行，10/16 讀第 24–50 行</p>
+
+<!-- ═══ 第一步 ═══ -->
+<section class="step" id="s1">
+  <p class="stepno">第一步</p>
+  <h2>先點出主題，再預告要列舉<span class="tag">上層：組織方式</span></h2>
+  <p>描述文的開頭，通常要讓讀者知道三件事：要談的主題是什麼、這個主題為什麼跟你有關、後面會怎麼展開。這篇的前六行就把三件事交代完了。<b>點三個有底色的地方</b>。</p>
+  <div class="lead" id="ld">
+    When you walk into a restaurant, you probably don’t give much thought to its lighting or layout. A restaurant’s atmosphere is rarely accidental, though. Indeed, restaurants draw on <c data-t="t">a variety of subtle strategies</c> to <c data-t="e">shape your experience—and your spending</c>. <c data-t="p">Here are just some of the tricks</c> you can find hiding in plain sight.
+  </div>
+  <p class="score" id="sc">已標出 <em>0</em> / 3</p>
+  <div id="s1b" hidden>
+    <p>三個都標出來了。那麼——<b>第 5 到 6 行的 <q>Here are just some of the tricks</q> 在全文裡負責什麼？</b></p>
+    <div class="opts" id="q1">
+      <button>說明這些手法依用餐的先後，一步步發揮作用</button>
+      <button>強調這些手法擺在眼前，大多數人早就注意到了</button>
+      <button>預告要比較速食店和高級餐廳，看哪一種比較會賺錢</button>
+      <button data-ok="1">預告後面會舉出幾種手法，而且只是其中一部分</button>
+    </div>
+    <div class="said e" id="a1" hidden>
+      <b>預告後面會舉出幾種手法，而且只是其中一部分。</b>Here are 把讀者的注意力帶向後文；the tricks 接的是第 4 行的 <q>a variety of subtle strategies</q>，只是把 strategies 換成 tricks；some of 前面再加一個 just，表示作者只挑幾樣來講，並沒有列完。第 7 行起，五個小標題一個接一個出現，就是這裡預告的 tricks。
+      <br><br>
+      <b>描述文常這樣起手：</b>先用一個概括的名詞點出主題，例如 a variety of strategies、several features、many ways，再用 Here are、Let’s look at、include 這類說法告訴讀者，後面要一項一項說明。看到這種句子，就要準備數一數後面到底有幾項。
+      <br><br>
+      順帶一提，第 3 行的 <q>rarely accidental, though</q> 是九月號第八單元講過的反預期：作者先擋住「這只是湊巧」的想法。第 37 行的 <q>are no accident</q> 又用了一次。
+      <br><br>
+      <b>另外三個為什麼排除：</b>
+      <br><br>
+      「大多數人早就注意到了」——<b>這個最容易選</b>，因為 in plain sight 字面上是「看得清清楚楚」。可是這個片語說的是東西明明擺在眼前，大家卻沒有發現；第 1 到 2 行也說你 <q>probably don’t give much thought to its lighting or layout</q>。這個選項的方向剛好相反。
+      <br><br>
+      「依用餐的先後，一步步發揮作用」——這一句本身只有 just some of，沒有 first、then 或任何表示先後的字。some of 是從一堆手法裡挑出幾樣，不是排出步驟。
+      <br><br>
+      「比較速食店和高級餐廳，看哪一種比較會賺錢」——速食店和高級餐廳在後文確實出現過好幾次，可是作者從頭到尾沒有評比哪一種比較會賺錢，開頭這一句也沒有提到任何一種餐廳。
+    </div>
+    <button class="go" id="g1" hidden>整篇怎麼排？</button>
+  </div>
+</section>
+
+<!-- ═══ 第二步 ═══ -->
+<section class="step" id="s2" hidden>
+  <p class="stepno">第二步</p>
+  <h2>一個主題，分成五項<span class="tag">上層：怎麼認出來</span></h2>
+  <p>先回答：<b>這篇文章的推進方式，最接近下列哪一種？</b></p>
+  <div class="opts" id="q2">
+    <button data-ok="1">先提出一個主題，再分成幾項一項一項說明</button>
+    <button>五種手法各占一段，每段回答同一個為什麼</button>
+    <button>比較速食店和高級餐廳兩種經營方式的異同</button>
+    <button>依照用餐的先後，從進門點菜寫到起身離開</button>
+  </div>
+  <div class="said e" id="a2" hidden>
+    <b>先提出一個主題，再分成幾項說明。</b>這是說明文五種基本結構裡的<b>描述</b>（description）：一個主題，加上它的幾個部分、特徵或例子。第 4 行點出主題 <q>a variety of subtle strategies</q>，第 7、14、24、34、43 行的五個小標題各管一項：顏色、菜單的位置、音樂、座椅、燈光。五項之間沒有先後，也沒有哪一項造成哪一項，任兩段對調，文章照樣讀得通。
+    <br><br>
+    <b>這篇有一點要特別注意：每一段裡面其實都是因果。</b>第 9 行 <q>Warm colors stimulate appetite</q>，暖色是原因，刺激食慾是結果；第 27 到 28 行 <q>slow-tempo music causes diners to stay longer</q> 也一樣。可是整篇的排法是描述，不是因果。研究文本結構的 Meyer 指出，一篇文章最上層有一種結構，段落裡面可以套著另一種結構。判斷上層結構，要看作者怎麼安排整篇，而不是看某一段裡面怎麼寫。
+    <br><br>
+    <b>另外三個為什麼排除，每一個都是別種結構：</b>
+    <br><br>
+    「每段回答同一個為什麼」——這是十月號第三單元的多組並列因果，<b>這個最容易選</b>，因為每一段裡面確實都有因果。可是第三單元那四段的結果都一樣，都是「歐洲人害怕這種食物」，四段在回答同一個問題。這一篇五段的結果卻方向相反：暖色和快節奏音樂讓客人早點離開（第 11 行、第 31 行），軟椅和昏暗的燈光讓客人多留、多點（第 41 到 42 行、第 46 到 48 行）。五段不是在回答同一個問題，而是列出同一個主題底下的五種手法。
+    <br><br>
+    「比較速食店和高級餐廳」——這是<b>比較對照</b>。第 11 行 <q>In contrast</q>、第 30 行 <q>Meanwhile</q>、第 40 行 <q>do the opposite</q> 都是對比的訊號，可是對比只出現在段落裡面，第 14 到 23 行菜單那一段根本沒有提到這兩種餐廳。一個訊號詞管的是一段還是整篇，要分清楚。
+    <br><br>
+    「依照用餐的先後」——這是<b>序列</b>。如果照用餐的先後寫，點餐的事應該排在離開之前；可是第 43 行起的燈光那一段講的是點餐和甜點，反而排在第 34 行起請客人離開的座椅那一段後面。
+    <br><br>
+    下面這張圖是描述文的標準組織圖：<b>放射狀網狀圖</b>。中間是主題，周圍一項一格，格子之間不畫箭頭。<b>點任一格</b>，第四步的課文對應行會亮起來（課文還沒打開的話，先把行號記住就好）。
+  </div>
+  <figure class="fig" id="fig" hidden></figure>
+  <button class="go" id="g2" hidden>把內容放回網狀圖</button>
+</section>
+
+<div class="daybreak" id="db" hidden>
+  <b>10/16 的範圍從這裡開始：第 24–50 行</b>
+  第一、二步用的是 10/15 的第 1–23 行（開頭、顏色、菜單）。第三步以後會用到整篇，包含 10/16 的第 24–50 行（音樂、座椅、燈光）。如果你今天是 10/15，做到這裡可以先停，明天再接下去。（第二步的題目和圖已經提到音樂、座椅和燈光，先看到不影響。）
+</div>
+
+<!-- ═══ 第三步 ═══ -->
+<section class="step" id="s3" hidden>
+  <p class="stepno">第三步</p>
+  <h2>把內容放回網狀圖<span class="tag">上層：怎麼驗證</span></h2>
+  <p>怎麼確定這篇是描述，不是五組因果，也不是兩種餐廳的比較？<b>先找訊號詞，說出是哪一種結構，再把內容放進網狀圖，最後用一句話說出整篇。</b></p>
+  <p>訊號詞你在前兩步看過一部分，這裡全部列出來：第 4 行 <q>a variety of</q>、第 5 到 6 行 <q>Here are just some of the tricks</q>、第 7、14、24、34、43 行的五個小標題、第 19 行 <q>also</q>、第 20 行 <q>Even</q>。前兩個說「有好幾樣」，小標題一樣給一個名字，also 和 Even 則是在同一格裡再加一樣。整篇的訊號都在說「同一個主題底下還有哪些」，這就是描述。</p>
+  <p>下面六張卡片寫的是文章提到的手法或效果，<b>都換過說法，也沒有行號</b>。每一張判斷一次：它屬於網狀圖的哪一格？點下去就定了，不能改。</p>
+  <div class="qs" id="qs"></div>
+  <p class="score" id="sc3">已放 <em>0</em> / 6，第一次就放對 <em>0</em> 張</p>
+  <div class="said e" id="a3" hidden>
+    <b>六張都放得回去，而且每一張只放得進一格。這就是描述。</b>描述文裡的每一個細節都屬於某一格；放不進任何一格的句子，就不是這篇在講的事。
+    <br><br>
+    <b>最容易放錯的，是「吃得快、走得快」那兩張。</b>顏色那一段說暖色 <q>makes you dig in quickly and move on sooner</q>（第 10 到 11 行），音樂那一段也說快節奏音樂 <q>speeds up eating and pushes customers out the door faster</q>（第 30 到 31 行），只看結果一定會搞混。能分辨的是各格獨有的細節：「一看就餓」是顏色，因為刺激食慾的是暖色；「節奏」和「尖峰時段」是音樂。<b>判斷一個細節屬於哪一格，要找那一格獨有的字。</b>
+    <br><br>
+    <b>再注意一件事：五格之間沒有箭頭。</b>把音樂和座椅兩段對調，文章照樣成立。序列不能對調，因果鏈也不能對調；描述可以。這是分辨描述最快的方法。
+    <br><br>
+    <b>考卷上怎麼考：</b>主旨題的誘答最愛只寫其中一格，或者把段落裡的對比說成整篇的重點。下面試一題摘要題。
+  </div>
+  <div id="q3w" hidden>
+    <p><b>哪一句最適合當這篇文章的一句話摘要？</b></p>
+    <div class="picks" id="q3">
+      <button>Fast-food chains rush diners out while fancy restaurants keep them longer, so the two kinds of restaurant earn their money in opposite ways.</button>
+      <button>Studies have found that slow-tempo music causes diners to stay longer and spend up to 40 percent more on drinks than fast music.</button>
+      <button data-ok="1">Through color, menu layout, music, seating, and lighting, restaurants use small design choices to steer how long we stay and what we pay.</button>
+      <button>Restaurants plan each stage of a meal in order, from the colors that greet diners at the door to the dessert at the end.</button>
+    </div>
+    <div class="said e" id="a3b" hidden>
+      <b>第三句。</b>它把五格全部收進一句話：color、menu layout、music、seating、lighting 依序是五個小標題，後半句再說出這五格共同的作用。而且它沒有照抄課文：第 4 行的 <q>subtle strategies</q> 換成 small design choices，第 4 到 5 行的 <q>shape your experience—and your spending</q> 換成 steer how long we stay and what we pay。
+      <br><br>
+      <b>另外三個為什麼排除：</b>
+      <br><br>
+      「Studies have found that slow-tempo music …」——<b>這個最容易選</b>，因為它幾乎是第 27 到 29 行的原文，還有研究和數字，聽起來很有分量。可是它只是音樂那一格，一格代表不了整篇的五格。
+      <br><br>
+      「Fast-food chains rush diners out while fancy restaurants …」——這是把描述讀成比較對照。菜單那一格（第 14 到 23 行）沒有提到任何一種餐廳，這句話收不進它；作者也從來沒有說兩種餐廳賺錢的方式相反。
+      <br><br>
+      「Restaurants plan each stage of a meal in order …」——這是把描述讀成序列。文章沒有 first、then 這類表示先後的字，五格也不是照用餐的先後排：講點餐和甜點的燈光那一格，排在最後。
+    </div>
+  </div>
+  <button class="go" id="g3" hidden>看每一段裡的動詞</button>
+</section>
+
+<!-- ═══ 第四步 ═══ -->
+<section class="step" id="s4" hidden>
+  <p class="stepno">第四步</p>
+  <h2>因果寫在動詞裡<span class="tag b">下層：表示因果的動詞與使役結構</span></h2>
+  <p>第二步說過，這篇每一段裡面都是因果。可是全篇用連接詞表示因果的只有四處：第 12 行 <q>that’s why</q>、第 17 行 <q>so</q>、第 21 行 <q>as</q>、第 49 行 <q>so</q>。其他的因果，全部寫在動詞裡。英文表達「A 造成 B」有兩種寫法：一種用 because、so 把兩個子句接起來；另一種把原因放在主詞，結果放在動詞和它後面的部分，例如第 9 行 <q>Warm colors stimulate appetite</q>，暖色是原因，刺激食慾是結果。英文寫作教材（例如 Cambridge 的 Grammar and Beyond）把這一類<b>表示因果的動詞</b>和因果連接詞分開來教。這篇的動詞分成兩種：</p>
+  <p><b>一、一個動詞直接帶出結果。</b>stimulate appetite、raise energy levels、suppress hunger、guide your choices、boost spending、speeds up eating：主詞是原因，動詞加受詞就是結果。讀的時候要注意方向，stimulate 和 suppress 意思相反，考卷最常在這裡換字。</p>
+  <p><b>二、使役結構。</b>動詞後面先接受詞，再接一個說明「受詞因此做了什麼、變成怎樣」的部分，文法書把這個部分叫做受詞補語。make 後面接原形動詞或形容詞：第 10 行 <q>makes you dig in</q>、第 38 行 <q>make you physically uncomfortable</q>、第 48 行 <q>makes diners feel relaxed</q>。cause、encourage、invite 後面接不定詞 to V：第 22 行 <q>encourages customers to focus</q>、第 41 行 <q>invite you to stay</q>。push、nudge 後面接表示方向的片語：第 31 行 <q>pushes customers out the door</q>、第 39 行 <q>nudge you out the door</q>。</p>
+  <p>再看這些句子的主詞：Warm colors、slow-tempo music、the absence of dollar signs、Darkness，幾乎都不是人；受詞則是 you、diners、customers。<b>作者讓設計當主詞、讓客人當受詞</b>，全篇的主題「餐廳的手法在不知不覺中左右你」，就寫進了句子結構裡。</p>
+  <p>跟九月號第二單元的連接標記分清楚。連接標記（so、as a result、that’s why）把兩個句子或子句接起來，因果關係在兩句之間；這裡的因果在<b>同一個句子裡面</b>，原因是主詞，結果在動詞後面。題目問「什麼造成什麼」時，兩種都要會找。</p>
+  <p><b>點課文裡有底色的字</b>，同一條的字會一起亮起來。青色有兩條，一條是直接帶出結果的動詞，一條是使役結構；藍灰是段落裡的對立配對，也就是九月號第八單元教過的對比標記與對立配對，虛線底是把兩邊接起來的對比標記。青色和藍灰可以各自關掉，虛線底一直都在。</p>
+  <div class="modes">
+    <button id="m1" aria-pressed="true">表示因果的動詞（青）</button>
+    <button id="m2" aria-pressed="true">對立配對（藍灰）</button>
+  </div>
+  <div class="text" id="tx"></div>
+  <div class="panel" id="pn">
+    <span class="k" id="pk">線索</span>
+    <div class="ch" id="pc">點圖上的一格，或課文裡有底色的字</div>
+    <p class="nt" id="pt">青色是表示因果的動詞，分成直接帶出結果的動詞和使役結構兩條；藍灰是段落裡互相對立的兩邊，虛線底是把兩邊接起來的對比標記。</p>
+  </div>
+  <div class="recall">
+    <b>另外兩樣，前面單元教過，這篇自己確認得出來：</b>
+    <ul>
+      <li><b>回指整件事。</b>九月號第一、第四單元練過。第 10 行的 which 是非限定用法的關係代名詞，代替的是前面一整句：暖色刺激食慾、提高精力，<b>這件事</b>讓你吃得快、走得快。第 12 行 <q>that’s why</q> 的 that，指冷色抑制食慾這件事。第 31 到 32 行 <q>which is exactly what fast-food restaurants want</q>，which 代替的是快節奏音樂讓客人吃得快、走得快這整件事。往回找之前，先確定它代替的是一個名詞還是一整句。</li>
+      <li><b>確定程度的語言。</b>十月號第一單元練過的 hedges，這篇引用研究時幾乎每一句都有：第 1 行 probably、第 3 行 rarely、第 16 行 tend to、第 19 行 sometimes、第 28 行 <q>up to 40 percent</q>、第 38 到 39 行 <q>about 20 minutes</q>、第 47 行 <q>considerably more likely</q>、第 49 行 tend to。研究說的是「傾向」「比較可能」，不是「一定」。選項如果把 tend to 改成 always，就超出了文章的把握。</li>
+    </ul>
+  </div>
+  <p style="margin-top:1.1rem"><button class="go" id="g4">考卷怎麼考這種文章</button></p>
+</section>
+
+<!-- ═══ 第五步 ═══ -->
+<section class="step" id="s5" hidden>
+  <p class="stepno">第五步</p>
+  <h2>一格冒充整篇，兩格互相搬<span class="tag">上層：考點</span></h2>
+  <p>描述文的題目，誘答通常出在兩個地方：</p>
+  <p><b>一、一格冒充整篇。</b>主旨題的誘答常常只寫其中一格，而且照抄課文字面，例如慢節奏音樂讓客人在飲料上最多多花四成。這一格的內容是對的，但它只是五格之一。做法：先數文章有幾格，選項只涵蓋其中一格的，就不是主旨。</p>
+  <p><b>二、兩格互相搬。</b>細節題問其中一格，誘答就把另一格的效果接過來。這篇特別容易中招，因為五格的效果很接近，好幾格都跟「待多久」「花多少」有關。做法：回到題目問的那一段，找那一格獨有的細節。描述文也常考「文中沒有提到」的題目（EXCEPT、NOT），做法一樣：先在草稿紙上畫出網狀圖，再一個一個對選項。</p>
+  <p>試一題：<b>根據全文，昏暗的燈光對用餐的客人有什麼影響？</b></p>
+  <div class="opts en" id="q5">
+    <button>They stay longer at the table and spend more on drinks.</button>
+    <button data-ok="1">They worry less about what they order and treat themselves.</button>
+    <button>They grow more careful about calories and skip dessert.</button>
+    <button>They mainly enjoy the romantic mood the lighting was meant for.</button>
+  </div>
+  <div class="said e" id="a5" hidden>
+    <b>第二句。</b>先注意：它沒有照抄課文。第 48 到 49 行的 <q>less self-conscious about their choices</q> 換成 worry less about what they order，第 50 行的 <q>indulge a little more</q> 換成 treat themselves。<b>另外三句反而滿是課文裡的字。</b>大考的正解通常是改寫，照抄課文字面的選項反而要小心。
+    <br><br>
+    <b>另外三個為什麼排除：</b>
+    <br><br>
+    「mainly enjoy the romantic mood」——<b>這個最難排除</b>，因為 romantic mood 就是第 45 行的字。可是第 44 到 45 行寫的是 <q>don’t use dim lighting just to set a romantic mood</q>，just 的意思是「不只是為了」：浪漫的氣氛只是次要的理由，後面 Research shows 帶出的才是作者要說的重點。把次要的說成主要的，<b>層級錯了</b>。
+    <br><br>
+    「stay longer at the table and spend more on drinks」——這是第 27 到 29 行慢節奏音樂的效果。燈光那一段沒有提到飲料，也沒有說客人坐得比較久。<b>兩格互相搬了。</b>
+    <br><br>
+    「more careful about calories and skip dessert」——第 46 到 48 行說的剛好相反：客人點的熱量更高，也更可能點甜點。讀懂這一段的大意就排除得掉。
+  </div>
+  <button class="go" id="g5" hidden>最後一題</button>
+</section>
+
+<!-- ═══ 第六步 ═══ -->
+<section class="step" id="s6" hidden>
+  <p class="stepno">第六步</p>
+  <h2>把一句話放回去</h2>
+  <p>這就是考卷上的<b>篇章結構</b>題。下面把第 37 到 39 行那一句整句抽掉了，四個候選句只有一句放得進去。</p>
+  <div class="gap" id="gp">
+    Sit and Stay as Long as They Like
+    <br>
+    Take a closer look at the chairs next time you eat out. The hard stools and narrow seats in fast-food restaurants are no accident.
+    <span class="blank" id="bl">（空格）</span> Fancy restaurants do the opposite—plush, cushioned chairs invite you to stay, order another round, and slowly linger over dessert.
+  </div>
+  <div class="picks" id="q6">
+    <button>They are designed to make diners feel relaxed and less self-conscious about the food they order.</button>
+    <button>In these places, upbeat and loud music speeds up eating and pushes hungry customers out the door faster.</button>
+    <button data-ok="1">They are designed to make you physically uncomfortable after about 20 minutes and nudge you out the door.</button>
+    <button>Most diners, however, never notice how hard and narrow these seats really are until they stand up.</button>
+  </div>
+  <div class="said" id="a6" hidden>
+    <b>四個線索同時指向同一句。</b>這四句單獨看都說得通，沒有一句本身是錯的。要排除，得靠位置和線索。
+    <br><br>
+    <b>先講一個例外。</b>前面說大考的正解通常是改寫，但<b>抽句題不一樣</b>：抽掉的那一句就是原文，所以正解一定是原文。這一題要靠的是誘答哪裡接不上，不是比對字面。
+    <br><br>
+    <b>一、「不是意外」後面要說出用意。</b>空格前一句說 <q>The hard stools and narrow seats in fast-food restaurants are no accident</q>。不是意外，就是故意的，下一句得說出故意要做什麼。正解的 They 指的正是 stools and seats，are designed to 說出用意，make you physically uncomfortable 和 nudge you out the door 就是第四步的使役結構：椅子是原因，你坐不住、起身離開是結果。
+    <br><br>
+    <b>另外三個為什麼排除，各有一個明確的依據：</b>
+    <br><br>
+    <b>二、方向。</b>「make diners feel relaxed」也用 They are designed to 開頭，跟正解的句型一模一樣，<b>這個最容易選</b>。可是空格後面說高級餐廳 <q>do the opposite</q>，破折號後面接的是軟椅讓你留下來。如果速食店的硬椅讓人放鬆，高級餐廳的「相反做法」就變成讓人坐不住，跟 invite you to stay 衝突。這一句的字其實來自第 48 到 49 行的燈光那一段。
+    <br><br>
+    <b>三、歸屬。</b>「upbeat and loud music speeds up eating」是第 30 到 31 行音樂那一段的內容。空格後面破折號說明 the opposite 指的是 <q>plush, cushioned chairs</q>，所以前一句也必須在講椅子，不能換成音樂。
+    <br><br>
+    <b>四、替代。</b>do the opposite 的 do 代替前面某一個「做法」，而且做這件事的是餐廳：高級餐廳反過來做速食店做過的事。「Most diners … never notice」的主詞是客人，動作是沒注意到，高級餐廳沒辦法「反過來做」這件事。
+    <br><br>
+    再補一條對立配對：正解的 make you physically uncomfortable、nudge you out the door，對上後面的 invite you to stay；硬凳和窄座對上軟椅。<b>這一段的兩邊，就是靠這兩組字扣起來的。</b>
+  </div>
+  <p class="why" id="w6" hidden>考卷上不會有底色，也不會有行號。但你剛才用的四個線索，每一篇描述文都找得到。</p>
+</section>
+
+<!-- ═══ 第七步 ═══ -->
+<section class="close" id="s7" hidden>
+  <h2>帶著走的五句話</h2>
+  <ol>
+    <li><b>描述文一開頭就點出主題，再預告要列舉。</b>a variety of strategies、Here are just some of the tricks：概括的名詞說主題，Here are 說後面要一項一項講，just some of 表示只挑幾樣、沒有列完。</li>
+    <li><b>驗證方法：把內容放回網狀圖。</b>找出訊號詞（a variety of、some of、小標題、also），說出是描述，中間寫主題、周圍一項一格，再用一句話把每一格都收進去。任兩格對調文章照樣成立，就是描述。</li>
+    <li><b>上層和段落裡面可以是不同的結構。</b>這篇整篇是描述，每一段裡面是因果；In contrast、Meanwhile 出現在段落裡，不代表整篇是比較對照。先看訊號詞管的是一段還是整篇。</li>
+    <li><b>因果不一定靠連接詞，也可以寫在動詞裡。</b>stimulate、suppress、boost 直接帶出結果；使役結構 make + 受詞 + 原形動詞或形容詞、cause／encourage／invite + 受詞 + to V。主詞是原因，受詞後面是結果。</li>
+    <li><b>描述文的考點：一格冒充整篇、兩格互相搬。</b>主旨題的誘答只寫一格，細節題的誘答把另一格的效果接過來。先畫網狀圖，再找那一格獨有的字；遇到因果動詞，再檢查方向有沒有對調。</li>
+  </ol>
+  <p class="more"><a href="https://staresto-create.github.io/JCEE-vocab-questions/wordwheel.html">單字輪：把字拆成部件來記 →</a></p>
+</section>
+
+<nav class="series">
+  <a class="back" href="cohesion.html">← 回讀法練習總表</a>
+  <p class="note">總表上有目前可以做的所有單元，還有你累積到現在的讀法工具。</p>
+</nav>
+
+</div>
+
+<script>
+(function(){
+"use strict";
+function $(id){return document.getElementById(id);}
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;");}
+
+var KEY="cohesion-202610-u7-v1";
+
+var PREVIEW=false;
+var ST={tags:{},rows:{},q1:0,q2:0,q3:0,q5:0,q6:0,step:1};
+function save(){ if(PREVIEW) return; try{ localStorage.setItem(KEY, JSON.stringify(ST)); }catch(e){} }
+function load(){ try{ var r=localStorage.getItem(KEY); return r?JSON.parse(r):null; }catch(e){ return null; } }
+function wipe(){ try{ localStorage.removeItem(KEY); }catch(e){} location.reload(); }
+
+var TITLE="The Hidden Science Behind Your Favorite Restaurants";
+
+var LINES=[
+"When you walk into a restaurant, you probably don’t",
+"give much thought to its lighting or layout. A restaurant’s",
+"atmosphere is rarely accidental, though. Indeed,",
+"restaurants draw on a variety of subtle strategies to {shape|c-verb|1}",
+"{your experience—and your spending|c-verb|1}. Here are just some of",
+"the tricks you can find hiding in plain sight.",
+"Color Psychology: Why Red and Yellow Are Go-To Hues",
+"Fast-food giants like McDonald’s and KFC use red and",
+"yellow on purpose. {Warm colors|c-opp|1} {stimulate appetite|c-verb|2} and",
+"{raise energy levels|c-verb|3}, which {makes you dig in quickly and|c-cau|1}",
+"{move on sooner|c-cau|1}. {In contrast|c-mk|1}, {cool colors|c-opp|2} like blue and",
+"purple {suppress hunger|c-verb|4}, and that’s why you almost never",
+"see them used as the main colors in a restaurant.",
+"The Power of Menu Placement",
+"Restaurants carefully design menus to {guide your|c-verb|5}",
+"{choices|c-verb|5}. Studies show that customers tend to notice items",
+"placed in the top-right corner first, so restaurants often set",
+"aside that space for their most profitable dishes. Expensive",
+"items are also sometimes placed near the top to {make other|c-cau|2}",
+"{choices seem more reasonable|c-cau|2} by comparison. Even",
+"the absence of dollar signs can {boost spending|c-verb|6}, as",
+"it {encourages customers to focus|c-cau|3} on the food itself",
+"rather than the cost.",
+"How Music Controls Your Pace",
+"That relaxing background music playing in",
+"a nice restaurant is working against your wallet.",
+"Studies have found that {slow-tempo music|c-opp|3} {causes|c-cau|4}",
+"{diners to stay longer and spend|c-cau|4} up to 40 percent",
+"more on drinks than fast-paced music does.",
+"{Meanwhile|c-mk|2}, {upbeat, loud music|c-opp|4} {speeds up eating|c-verb|7}",
+"and {pushes customers out the door|c-cau|5} faster, which is",
+"exactly what fast-food restaurants want during busy",
+"rush hours.",
+"Sit and Stay as Long as They Like",
+"Take a closer look at the chairs next time you eat",
+"out. {The hard stools and narrow seats|c-opp|5} in fast-food",
+"restaurants are no accident. They are designed to",
+"{make you physically uncomfortable|c-cau|6} after about",
+"20 minutes and {nudge you out the door|c-cau|7}. Fancy",
+"restaurants {do the opposite|c-mk|3}—{plush, cushioned|c-opp|6}",
+"{chairs|c-opp|6} {invite you to stay|c-cau|8}, order another round, and",
+"slowly linger over dessert.",
+"Dim Lighting and Bigger Bills",
+"Fine dining restaurants don’t use dim lighting",
+"just to set a romantic mood. Research shows",
+"that diners in dimly lit environments order more",
+"calories and are considerably more likely to order",
+"dessert. Darkness {makes diners feel relaxed and less|c-cau|9}",
+"{self-conscious|c-cau|9} about their choices, so they tend to",
+"indulge a little more."
+];
+var INDENT={1:1,8:1,15:1,25:1,35:1,44:1};
+var HEAD={7:1,14:1,24:1,34:1,43:1};
+var SPLIT=24;
+var SPLIT_TEXT="以上是 10/15 的第 1–23 行。以下是 10/16 的第 24–50 行。";
+
+var CHAINS={
+ "c-verb":{k:"sub",n:"一個動詞直接帶出結果，七處。主詞是原因，動詞加受詞就是結果：第 4 到 5 行 shape your experience，這是全篇的總說；第 9 行 stimulate appetite 和第 12 行 suppress hunger 意思剛好相反，一個刺激食慾，一個抑制食慾；第 21 行 boost spending 的主詞是 the absence of dollar signs，連「沒有寫錢的符號」這件事都能當原因。考卷改寫時最常把這類動詞換成反義詞，讀選項要先確定方向。"},
+ "c-cau":{k:"sub",n:"使役結構，九處。動詞後面先接受詞，再接受詞補語，說明受詞因此做了什麼、變成怎樣。make 接原形動詞或形容詞：第 10 行 makes you dig in、第 19 到 20 行 make other choices seem、第 38 行 make you physically uncomfortable、第 48 行 makes diners feel relaxed。cause、encourage、invite 接 to V：第 22 行 encourages customers to focus、第 27 到 28 行 causes diners to stay、第 41 行 invite you to stay。push、nudge 接方向：第 31 行 pushes customers out the door、第 39 行 nudge you out the door。受詞幾乎都是 you、diners、customers：客人一直是受到影響的一方。"},
+ "c-opp":{k:"gen",n:"對立配對，三組六項，全部出現在段落裡面：第 9 行 Warm colors 對第 11 行 cool colors，第 27 行 slow-tempo music 對第 30 行 upbeat, loud music，第 36 行 The hard stools and narrow seats 對第 40 到 41 行 plush, cushioned chairs。每一組的兩邊，效果也剛好相反：一邊讓客人早點離開，一邊讓客人留下來。這是九月號第八單元的對比標記與對立配對，不過這篇的對立只管一段，不像第八單元那樣貫穿全篇，所以整篇不是比較對照。"},
+ "c-mk":{k:"mk",n:"對比標記，三處，每一處都在一組對立配對的中間：第 11 行 In contrast 接在暖色之後，第 30 行 Meanwhile 接在慢節奏音樂之後，第 40 行 do the opposite 接在硬椅之後。do the opposite 不是連接詞，而是用 do 代替前面速食店的做法，再用 the opposite 說出相反，功能跟 In contrast 一樣。"}
+};
+var LB={sub:"表示因果的動詞",gen:"對立配對",mk:"對比標記"};
+var CL={sub:"k",gen:"k g",mk:"k e"};
+
+var NODES=[
+ {nm:"餐廳的隱藏手法",en:"subtle strategies",a:1,b:6,
+  n:"第 1 到 6 行。主題：餐廳用許多不起眼的手法影響你的用餐經驗和花費。Here are just some of the tricks 預告後面要一項一項列出來。"},
+ {nm:"顏色",en:"Color Psychology",a:7,b:13,
+  n:"第 7 到 13 行。暖色刺激食慾、提高精力，讓你吃得快、走得快；冷色抑制食慾，所以很少當成主色。"},
+ {nm:"菜單的位置",en:"Menu Placement",a:14,b:23,
+  n:"第 14 到 23 行。右上角放最賺錢的菜，昂貴的菜放在上面讓其他選擇顯得合理，不寫錢的符號讓客人只想著菜。"},
+ {nm:"音樂",en:"Music",a:24,b:33,
+  n:"第 24 到 33 行。慢節奏音樂讓客人坐得久、在飲料上多花錢；快節奏音樂讓客人吃得快、早點離開。第二天從這一格開始。"},
+ {nm:"座椅",en:"Sit and Stay",a:34,b:42,
+  n:"第 34 到 42 行。速食店的硬凳和窄座讓人坐不久；高級餐廳反過來，用軟椅讓人多點一輪、慢慢吃甜點。"},
+ {nm:"燈光",en:"Dim Lighting",a:43,b:50,
+  n:"第 43 到 50 行。昏暗的燈光讓客人比較放鬆、不在意自己點了什麼，點的熱量更高，也更可能點甜點。"}
+];
+
+var SPOKES=["顏色","菜單的位置","音樂","座椅","燈光"];
+var ROWS=[
+ {f:"讓人一看就覺得餓，吃得快，也走得快。",ans:0,
+  note:"第 9 到 11 行。暖色 <q>stimulate appetite and raise energy levels</q>，接著 <q>makes you dig in quickly and move on sooner</q>。音樂那一格也有「吃得快、走得快」，差別在「一看就餓」：刺激食慾的是顏色。"},
+ {f:"店家把最賺錢的菜，放在客人目光最先落下的角落。",ans:1,
+  note:"第 16 到 18 行。客人 <q>tend to notice items placed in the top-right corner first</q>，餐廳就把那個位置留給 most profitable dishes。"},
+ {f:"節奏輕快又大聲，客人吃得快，尖峰時段也走得快。",ans:2,
+  note:"第 30 到 33 行。<q>upbeat, loud music speeds up eating</q>，正是速食店在 busy rush hours 想要的。跟顏色那一張的差別在「節奏」。"},
+ {f:"坐的地方又硬又窄，大約二十分鐘就讓人想起身。",ans:3,
+  note:"第 36 到 39 行。硬凳和窄座 <q>are designed to make you physically uncomfortable after about 20 minutes</q>。"},
+ {f:"客人比較不在意自己點了什麼，高熱量的菜和甜點也點了下去。",ans:4,
+  note:"第 46 到 50 行。在光線暗的地方，客人 <q>order more calories</q>，也更可能點甜點，因為黑暗讓他們比較不在意自己的選擇。"},
+ {f:"價格旁邊不寫錢的符號，客人只想著菜，不去想要花多少。",ans:1,
+  note:"第 20 到 23 行。<q>the absence of dollar signs can boost spending</q>，因為客人會 <q>focus on the food itself rather than the cost</q>。這一張跟右上角那一張同一格，前面還有一個 Even，表示同一格裡再加一樣。"}
+];
+
+var TL={t:"主題",e:"作用",p:"預告"};
+
+/* ---------- 通用：選擇題 ---------- */
+function quiz(qid,aid,gid,tag,after){
+  var done=false;
+  function settle(){
+    done=true;
+    var bs=$(qid).querySelectorAll("button");
+    for(var i=0;i<bs.length;i++){ bs[i].disabled=true; bs[i].dataset.state=bs[i].dataset.ok?"right":"wrong"; }
+    if(aid) $(aid).hidden=false;
+    if(gid) $(gid).hidden=false;
+    if(after) after();
+  }
+  $(qid).addEventListener("click",function(e){
+    var b=e.target.closest("button"); if(!b||done) return;
+    settle(); ST[tag]=1; save();
+  });
+  return settle;
+}
+function opener(gid,sid,extra){
+  $(gid).addEventListener("click",function(){
+    var n=parseInt(sid.replace(/\D/g,""),10);
+    if(ST.step<n) ST.step=n; save();
+    $(sid).hidden=false; if(extra) extra();
+    $(sid).scrollIntoView({behavior:"smooth",block:"start"});
+  });
+}
+function hlLines(a,b){
+  var rows=$("tx").querySelectorAll(".ln");
+  for(var r=0;r<rows.length;r++){ var n=+rows[r].dataset.n; rows[r].classList.toggle("hl", n>=a&&n<=b); }
+  var ms=$("tx").querySelectorAll("m");
+  for(var k=0;k<ms.length;k++) ms[k].classList.remove("lit");
+  if(rows.length){ var f=$("tx").querySelector('.ln[data-n="'+a+'"]'); if(f) f.scrollIntoView({behavior:"smooth",block:"center"}); }
+}
+
+/* ---------- 第一步 ---------- */
+function tagged(){ var n=0; for(var k in ST.tags) if(ST.tags[k]) n++; return n; }
+function paintTag(c){
+  if(c.classList.contains("got")) return;
+  c.classList.add("got");
+  var b=document.createElement("b"); b.textContent=TL[c.dataset.t]||"";
+  c.insertBefore(b, c.firstChild);
+}
+function afterTags(){
+  $("sc").innerHTML="已標出 <em>"+tagged()+"</em> / 3";
+  if(tagged()===3) $("s1b").hidden=false;
+}
+$("ld").addEventListener("click",function(e){
+  var c=e.target.closest("c"); if(!c) return;
+  if(ST.tags[c.dataset.t]) return;
+  ST.tags[c.dataset.t]=1; save(); paintTag(c); afterTags();
+});
+var set1=quiz("q1","a1","g1","q1");
+opener("g1","s2");
+
+/* ---------- 第二步：放射狀網狀圖 ---------- */
+function drawFig(){
+  if($("fig").firstChild) return;
+  $("fig").hidden=false;
+  var s='<svg viewBox="0 0 420 300" role="img" aria-label="放射狀網狀圖：中間是餐廳的隱藏手法，周圍五格是顏色、菜單的位置、音樂、座椅、燈光">';
+  var C={x:210,y:150};
+  var P=[[210,40],[352,112],[312,250],[108,250],[68,112]];
+  var i,d,x,y;
+  for(i=0;i<5;i++) s+='<path class="spoke" d="M'+C.x+' '+C.y+' L'+P[i][0]+' '+P[i][1]+'"/>';
+  d=NODES[0];
+  s+='<g class="node hub" data-i="0" tabindex="0" role="button">';
+  s+='<rect x="'+(C.x-66)+'" y="'+(C.y-29)+'" width="132" height="58" rx="8"/>';
+  s+='<text x="'+C.x+'" y="'+(C.y-9)+'" text-anchor="middle">'+esc(d.nm)+'</text>';
+  s+='<text class="n" x="'+C.x+'" y="'+(C.y+5)+'" text-anchor="middle">'+esc(d.en)+'</text>';
+  s+='<text class="n" x="'+C.x+'" y="'+(C.y+19)+'" text-anchor="middle">第 '+d.a+'–'+d.b+' 行</text>';
+  s+='</g>';
+  for(i=0;i<5;i++){
+    d=NODES[i+1]; x=P[i][0]; y=P[i][1];
+    s+='<g class="node" data-i="'+(i+1)+'" tabindex="0" role="button">';
+    s+='<rect x="'+(x-56)+'" y="'+(y-24)+'" width="112" height="48" rx="5"/>';
+    s+='<text x="'+x+'" y="'+(y-6)+'" text-anchor="middle">'+esc(d.nm)+'</text>';
+    s+='<text class="n" x="'+x+'" y="'+(y+7)+'" text-anchor="middle">'+esc(d.en)+'</text>';
+    s+='<text class="n" x="'+x+'" y="'+(y+19)+'" text-anchor="middle">第 '+d.a+'–'+d.b+' 行</text>';
+    s+='</g>';
+  }
+  s+='</svg><figcaption>中間是主題，周圍五格是五個小標題，照課文出現的順序順時針排。格子和中間之間只有線，沒有箭頭，格子彼此也不相連：五種手法各自獨立，任兩格對調都不影響。點任一格，第四步的課文對應行會亮起來。</figcaption>';
+  $("fig").innerHTML=s;
+  function hit(g){
+    var i=+g.dataset.i, d=NODES[i];
+    var gs=$("fig").querySelectorAll(".node");
+    for(var j=0;j<gs.length;j++) gs[j].classList.toggle("on", +gs[j].dataset.i===i);
+    hlLines(d.a,d.b);
+    $("pk").textContent=(i===0?"網狀圖的中心":"網狀圖的一格"); $("pk").className="k e";
+    $("pc").textContent=d.nm+"　"+d.en; $("pt").textContent=d.n;
+  }
+  $("fig").addEventListener("click",function(e){ var g=e.target.closest(".node"); if(g) hit(g); });
+  $("fig").addEventListener("keydown",function(e){
+    if(e.key!=="Enter"&&e.key!==" ") return;
+    var g=e.target.closest(".node"); if(g){ e.preventDefault(); hit(g); }
+  });
+}
+function afterQ2(){ drawFig(); $("db").hidden=false; }
+var set2=quiz("q2","a2","g2","q2",afterQ2);
+opener("g2","s3",buildRows);
+
+/* ---------- 第三步：把內容放回網狀圖 ---------- */
+var builtRows=false;
+function buildRows(){
+  if(builtRows) return; builtRows=true;
+  var h="";
+  for(var i=0;i<ROWS.length;i++){
+    var r=ROWS[i], bt="";
+    for(var k=0;k<SPOKES.length;k++) bt+='<button data-i="'+i+'" data-v="'+k+'">'+SPOKES[k]+'</button>';
+    h+='<div class="qcard" id="cd'+i+'"><div class="hd"><span class="qt">'+esc(r.f)+'</span></div>'+
+       '<span class="yn">屬於：'+bt+'</span>'+
+       '<span class="bd" id="bd'+i+'"></span></div>';
+  }
+  $("qs").innerHTML=h;
+  $("qs").addEventListener("click",function(e){
+    var b=e.target.closest("button"); if(!b) return;
+    var i=b.dataset.i; if(ST.rows[i]!==undefined&&ST.rows[i]!==null) return;
+    ST.rows[i]=+b.dataset.v; save(); paintRows();
+  });
+  paintRows();
+}
+function isSet(v){ return typeof v==="number"; }
+function judged(){ var n=0; for(var i=0;i<ROWS.length;i++) if(isSet(ST.rows[i])) n++; return n; }
+function rightRows(){ var n=0; for(var i=0;i<ROWS.length;i++) if(ST.rows[i]===ROWS[i].ans) n++; return n; }
+function paintRows(){
+  for(var i=0;i<ROWS.length;i++){
+    var el=$("cd"+i); if(!el) continue;
+    var v=ST.rows[i], r=ROWS[i];
+    el.classList.toggle("open",isSet(v));
+    if(isSet(v)){
+      var ok=(v===r.ans);
+      var head= ok ? ("放對了：這一張屬於「"+SPOKES[r.ans]+"」那一格。") : ("再看一次：這一張其實屬於「"+SPOKES[r.ans]+"」，不是「"+SPOKES[v]+"」。");
+      $("bd"+i).innerHTML='<span class="vd '+(ok?"ok":"ng")+'">'+head+'</span>'+r.note;
+    }
+  }
+  $("sc3").innerHTML="已放 <em>"+judged()+"</em> / "+ROWS.length+"，第一次就放對 <em>"+rightRows()+"</em> 張";
+  if(judged()>=ROWS.length){ $("a3").hidden=false; $("q3w").hidden=false; }
+}
+var set3=quiz("q3","a3b","g3","q3");
+opener("g3","s4",function(){ buildText(); drawFig(); });
+
+/* ---------- 第四步：課文與線索鏈 ---------- */
+function renderLine(str){
+  var out="",i=0;
+  while(i<str.length){
+    var a=str.indexOf("{",i);
+    if(a<0){ out+=esc(str.slice(i)); break; }
+    out+=esc(str.slice(i,a));
+    var b=str.indexOf("}",a), p=str.slice(a+1,b).split("|");
+    var id=p[1], it=p[2]||"1", k=CHAINS[id]?CHAINS[id].k:"sub";
+    out+='<m data-c="'+id+'" data-i="'+it+'" data-kind="'+k+'" tabindex="0">'+esc(p[0])+'</m>';
+    i=b+1;
+  }
+  return out;
+}
+var builtText=false;
+function buildText(){
+  if(builtText) return; builtText=true;
+  var h='<p class="ttl">'+renderLine(TITLE)+'</p>';
+  for(var i=0;i<LINES.length;i++){
+    var n=i+1;
+    if(SPLIT && n===SPLIT) h+='<p class="split">'+esc(SPLIT_TEXT)+'</p>';
+    var cls="ln";
+    if(HEAD[n]) cls+=" sub pb";
+    else if(INDENT[n]) cls+=" ind"+(n>1&&!HEAD[n-1]?" pb":"");
+    h+='<div class="'+cls+'" data-n="'+n+'"><i>'+((n%5===0)?n:"")+'</i><span>'+renderLine(LINES[i])+'</span></div>';
+  }
+  $("tx").innerHTML=h;
+}
+function lightChain(id){
+  var ms=$("tx").querySelectorAll("m"), items={}, order=[],i;
+  var gs=$("fig").querySelectorAll(".node");
+  for(i=0;i<gs.length;i++) gs[i].classList.remove("on");
+  var rows=$("tx").querySelectorAll(".ln");
+  for(i=0;i<rows.length;i++) rows[i].classList.remove("hl");
+  for(i=0;i<ms.length;i++){
+    if(ms[i].dataset.c===id){
+      ms[i].classList.add("lit");
+      var key=ms[i].dataset.i;
+      if(!items[key]){ items[key]=[]; order.push(key); }
+      items[key].push(ms[i].textContent);
+    } else ms[i].classList.remove("lit");
+  }
+  var c=CHAINS[id]; if(!c) return;
+  var parts=[];
+  for(var o=0;o<order.length;o++) parts.push(esc(items[order[o]].join(" ")));
+  $("pk").textContent=LB[c.k]; $("pk").className=CL[c.k];
+  $("pc").innerHTML=parts.join('<i>\u2192</i>');
+  $("pt").textContent=c.n;
+}
+$("tx").addEventListener("click",function(e){ var m=e.target.closest("m"); if(m) lightChain(m.dataset.c); });
+$("tx").addEventListener("keydown",function(e){
+  if(e.key!=="Enter"&&e.key!==" ") return;
+  var m=e.target.closest("m"); if(m){ e.preventDefault(); lightChain(m.dataset.c); }
+});
+function toggle(btn,cls){
+  btn.addEventListener("click",function(){
+    var on=btn.getAttribute("aria-pressed")==="true";
+    btn.setAttribute("aria-pressed",on?"false":"true");
+    $("tx").classList.toggle(cls,on);
+  });
+}
+toggle($("m1"),"off-sub");
+toggle($("m2"),"off-gen");
+opener("g4","s5");
+
+/* ---------- 第五步 ---------- */
+var set5=quiz("q5","a5","g5","q5");
+$("g5").addEventListener("click",function(){
+  if(ST.step<6) ST.step=6; save();
+  $("s6").hidden=false;
+  $("s6").scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+/* ---------- 第六步 ---------- */
+var done6=false;
+function settle6(){
+  done6=true;
+  var bs=$("q6").querySelectorAll("button");
+  for(var i=0;i<bs.length;i++){
+    bs[i].disabled=true; bs[i].dataset.state=bs[i].dataset.ok?"right":"wrong";
+    if(bs[i].dataset.ok){ $("bl").textContent=bs[i].textContent; $("bl").className="blank filled"; }
+  }
+  $("a6").hidden=false; $("w6").hidden=false; $("s7").hidden=false;
+}
+$("q6").addEventListener("click",function(e){
+  var b=e.target.closest("button"); if(!b||done6) return;
+  settle6(); ST.q6=1; save();
+  $("a6").scrollIntoView({behavior:"smooth",block:"nearest"});
+});
+
+/* ---------- 老師的預覽開關：網址加 ?all ---------- */
+function previewAll(){
+  PREVIEW=true;
+  $("pv").hidden=false;
+  var i,cs=$("ld").querySelectorAll("c");
+  for(i=0;i<cs.length;i++){ ST.tags[cs[i].dataset.t]=1; paintTag(cs[i]); }
+  afterTags(); set1();
+  $("s2").hidden=false; set2();
+  $("s3").hidden=false;
+  for(i=0;i<ROWS.length;i++) ST.rows[i]=ROWS[i].ans;
+  buildRows(); set3();
+  $("s4").hidden=false; buildText(); drawFig();
+  $("s5").hidden=false; set5();
+  $("s6").hidden=false; settle6();
+}
+
+/* ---------- 接回上次的進度 ---------- */
+$("rst").addEventListener("click",wipe);
+(function restore(){
+  if(/(^|[?&])all(=|&|$)/.test(location.search)){ previewAll(); return; }
+  var v=load(); if(!v) return;
+  ST=v;
+  if(!ST.tags) ST.tags={};
+  if(!ST.rows) ST.rows={};
+  if(!ST.step) ST.step=1;
+  if(!(tagged()||ST.step>1)) return;
+  $("rs").hidden=false;
+  var i,cs=$("ld").querySelectorAll("c");
+  for(i=0;i<cs.length;i++) if(ST.tags[cs[i].dataset.t]) paintTag(cs[i]);
+  afterTags();
+  if(ST.q1) set1();
+  if(ST.step>=2){ $("s2").hidden=false; if(ST.q2) set2(); }
+  if(ST.step>=3){ $("s3").hidden=false; buildRows(); if(ST.q3) set3(); }
+  if(ST.step>=4){ $("s4").hidden=false; buildText(); drawFig(); }
+  if(ST.step>=5){ $("s5").hidden=false; if(ST.q5) set5(); }
+  if(ST.step>=6){ $("s6").hidden=false; if(ST.q6) settle6(); }
+  var last=$("s"+(ST.step>=6?6:ST.step));
+  if(last) setTimeout(function(){ last.scrollIntoView({block:"start"}); },60);
+})();
+})();
+</script>
+</body>
+</html>
