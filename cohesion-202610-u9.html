@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>因果：一個原因，先甜後苦｜The Hidden Costs of Energy Drinks</title>
+<meta name="description" content="喝下一罐能量飲料，身體先後發生什麼事？這一頁教你認出一個原因帶出幾種結果的因果結構，還有隔著段落對上的反義詞。">
+<meta property="og:title" content="因果：一個原因，先甜後苦｜The Hidden Costs of Energy Drinks">
+<meta property="og:description" content="rush 對 crash，temporary 對 long-term：前面說好的，後面一個一個反過來。">
+<style>
+:root{
+  --ground:#f1f3f2; --ink:#17282f; --teal:#1f6f6a; --teal-soft:#dfeceb;
+  --muted:#77878d; --line:#cdd6d6; --exam:#b4661c; --exam-soft:#fdf4e7;
+  --gen:#4a6a90; --gen-soft:#e0e7f0;
+  --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+  --sans:"PingFang TC","Noto Sans TC","Microsoft JhengHei","Helvetica Neue",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-text-size-adjust:100%}
+.wrap{max-width:44rem;margin:0 auto;padding:1.6rem 1.1rem 4rem}
+h1{font-family:var(--serif);font-weight:600;font-size:1.6rem;line-height:1.3;margin:0 0 .55rem}
+.lede{margin:0 0 1.3rem;color:#3d5059;font-size:.95rem}
+.src{font-size:.8rem;color:var(--muted);margin:0 0 1.1rem}
+.resume{font-size:.85rem;color:var(--teal);background:var(--teal-soft);border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.resume[hidden],.preview[hidden]{display:none}
+.preview{font-size:.85rem;color:var(--exam);background:var(--exam-soft);
+  border:1px dashed var(--exam);border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.resume button{font:inherit;font-size:.82rem;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:.25rem;padding:.16rem .6rem;margin-left:.5rem;cursor:pointer}
+.resume button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.step{border-top:1px solid var(--line);padding-top:1.15rem;margin-top:1.6rem}
+.step[hidden]{display:none}
+.stepno{font-family:var(--serif);font-size:.82rem;color:var(--muted);margin:0 0 .2rem}
+h2{font-family:var(--serif);font-weight:600;font-size:1.2rem;margin:0 0 .5rem;color:var(--teal)}
+.step p{margin:0 0 .7rem;font-size:.95rem}
+.tag{display:inline-block;font-size:.72rem;font-weight:600;border-radius:.2rem;padding:.08rem .45rem;margin-left:.45rem;vertical-align:.12rem;color:var(--exam);background:var(--exam-soft);border:1px solid var(--exam)}
+.tag.b{color:var(--gen);background:var(--gen-soft);border-color:var(--gen)}
+
+/* 選擇題：中文用 .opts，英文選項加 .en，附小字說明加 .rg */
+.opts{display:flex;flex-direction:column;gap:.45rem;margin:.2rem 0 .8rem}
+.opts button{font:inherit;font-size:.95rem;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:.3rem;padding:.45rem .85rem;cursor:pointer;text-align:left}
+.opts button:hover{border-color:var(--teal)}
+.opts button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.opts button[data-state="right"]{background:var(--teal);border-color:var(--teal);color:#fff}
+.opts button[data-state="wrong"]{background:var(--ground);color:var(--muted)}
+.opts button[disabled]{cursor:default}
+.opts.en button{font-family:var(--serif);font-size:.97rem;line-height:1.6;padding:.55rem .8rem}
+.opts.en button[data-state="right"]{background:var(--teal-soft);border-color:var(--teal);color:var(--ink)}
+.opts.rg button i{display:block;font-style:normal;font-size:.82rem;color:var(--muted);margin-top:.12rem}
+.opts.rg button[data-state="right"] i{color:#dfeceb}
+
+/* 揭曉區塊 */
+.said{background:#fff;border-left:3px solid var(--teal);border-radius:.3rem;padding:.75rem .85rem;margin:.2rem 0 .9rem;font-size:.93rem;color:#3d5059}
+.said b{color:var(--ink);font-weight:600}
+.said[hidden]{display:none}
+.said.g{border-left-color:var(--gen)}
+.said.e{border-left-color:var(--exam)}
+.said q{quotes:none;font-family:var(--serif)}
+
+.go{font:inherit;font-size:.92rem;background:var(--ink);color:#fff;border:1px solid var(--ink);border-radius:.3rem;padding:.42rem 1.05rem;cursor:pointer}
+.go:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.go[hidden]{display:none}
+
+/* 第一步的可點標記 */
+.lead{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.9rem 1rem;margin:0 0 .7rem;font-family:var(--serif);font-size:1.02rem;line-height:1.95}
+.lead c{cursor:pointer;border-radius:.2rem;padding:.06rem .2rem;background:var(--exam-soft);box-shadow:inset 0 -2px 0 #ecc9a2}
+.lead c:hover{box-shadow:inset 0 -2px 0 var(--exam)}
+.lead c.got{background:var(--exam);color:#fff;box-shadow:none}
+.lead c b{font-family:var(--sans);font-size:.72rem;font-weight:600;background:#fff;color:var(--exam);border-radius:.2rem;padding:.02rem .3rem;margin-right:.3rem}
+.score{font-size:.9rem;color:var(--muted);margin:0 0 .8rem}
+.score em{font-style:normal;color:var(--exam);font-weight:600}
+
+/* 第三步的卡片（驗證方法通用容器） */
+.qs{display:flex;flex-direction:column;gap:.5rem;margin:0 0 .8rem}
+.qcard{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.6rem .85rem}
+.qcard .hd{display:flex;align-items:center;gap:.6rem;font-size:.95rem}
+.qcard .hd .qt{flex:1 1 auto;font-weight:600}
+.qcard .hd button{font:inherit;font-size:.8rem;background:#fff;color:var(--ink);border:1px solid var(--line);
+  border-radius:.25rem;padding:.18rem .7rem;cursor:pointer;flex:0 0 auto}
+.qcard .hd button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.qcard .bd{display:none;margin-top:.4rem;font-size:.92rem;color:#3d5059;line-height:1.75}
+.qcard.open .bd{display:block}
+.qcard.open .hd button{display:none}
+.qcard .bd .rf{display:block;color:var(--muted);font-size:.82rem;margin-top:.25rem}
+.qcard .bd .sw{display:block;font-family:var(--serif);background:var(--ground);border-radius:.3rem;
+  padding:.45rem .6rem;margin:.35rem 0;color:var(--ink);font-size:.93rem;line-height:1.7}
+.qcard .r{display:grid;grid-template-columns:1fr;gap:.1rem;margin-bottom:.4rem}
+@media(min-width:34rem){.qcard .r{grid-template-columns:5.5rem 1fr;gap:.5rem}}
+.qcard .r:last-child{margin-bottom:0}
+.qcard .r .k{font-size:.76rem;font-weight:600;color:var(--gen)}
+.qcard .r .v em{font-style:normal;color:var(--muted);font-size:.82rem;margin-left:.3rem}
+
+/* 圖表容器與通用節點 */
+.fig{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.7rem .5rem .4rem;margin:0 0 .7rem}
+.fig[hidden]{display:none}
+.fig svg{display:block;width:100%;height:auto;max-width:27rem;margin:0 auto}
+.fig figcaption{font-size:.85rem;color:#3d5059;margin:.35rem .5rem 0;line-height:1.65}
+.node{cursor:pointer}
+.node rect,.node circle,.node path.bx{fill:#fff;stroke:var(--line);stroke-width:2;stroke-linejoin:round}
+.node text{font-family:var(--sans);font-size:11px;fill:var(--ink);font-weight:600}
+.node tspan.n,.node text.n{font-size:9px;font-weight:400;fill:var(--muted)}
+.node.on rect,.node.on circle,.node.on path.bx{fill:var(--exam-soft);stroke:var(--exam);stroke-width:3}
+.node.on text{fill:var(--exam)}
+.node.on tspan.n,.node.on text.n{fill:var(--exam)}
+.guide{stroke:var(--line);stroke-width:2;fill:none;stroke-linejoin:round;stroke-linecap:round}
+.guide.dash{stroke-dasharray:5 4}
+.endlab{font-family:var(--sans);font-size:10.5px;font-weight:600}
+.endlab.l{fill:var(--teal)}
+.endlab.r{fill:var(--gen)}
+
+/* 分日分隔框 */
+.daybreak{border:1px dashed var(--exam);background:var(--exam-soft);border-radius:.4rem;
+  padding:.8rem .95rem;margin:1.6rem 0 0;font-size:.9rem;color:#3d5059;line-height:1.7}
+.daybreak b{display:block;color:var(--exam);font-family:var(--serif);font-size:1.02rem;margin-bottom:.3rem}
+.daybreak[hidden]{display:none}
+
+/* 課文與線索鏈 */
+.modes{display:flex;gap:.4rem;margin:0 0 .7rem;flex-wrap:wrap}
+.modes button{font:inherit;font-size:.84rem;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:.3rem;padding:.3rem .8rem;cursor:pointer}
+.modes button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.modes button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.text{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.9rem .6rem 1.1rem;font-family:var(--serif);font-size:1rem;line-height:1.85}
+.text .ttl{font-weight:600;font-size:1.06rem;margin:0 .4rem .7rem 2.6rem;line-height:1.45}
+.ln{display:flex;align-items:baseline;padding:.02rem 0;border-radius:.2rem}
+.ln>i{flex:0 0 2.2rem;text-align:right;padding-right:.55rem;font-family:var(--sans);font-style:normal;font-size:.68rem;color:var(--muted);line-height:1.9}
+.ln>span{flex:1 1 auto;overflow-wrap:anywhere}
+.ln.ind>span{padding-left:1.1rem}
+.ln.sub>span{font-weight:600}
+.ln.hl{background:var(--exam-soft)}
+.ln.pb{margin-top:.55rem}
+.text .split{font-family:var(--sans);font-size:.78rem;color:var(--exam);
+  border-top:1px dashed var(--exam);margin:.8rem .4rem .7rem 2.6rem;padding-top:.35rem}
+.text m{cursor:pointer;border-radius:.2rem;padding:.02rem .14rem}
+.text m[data-kind="sub"]{background:var(--teal-soft);box-shadow:inset 0 -2px 0 #a8ccc8}
+.text m[data-kind="gen"]{background:var(--gen-soft);box-shadow:inset 0 -2px 0 #a9bbd0}
+.text m[data-kind="mk"]{border-bottom:2px dotted var(--exam);font-style:italic}
+.text m.lit[data-kind="sub"]{background:var(--teal);color:#fff;box-shadow:none}
+.text m.lit[data-kind="gen"]{background:var(--gen);color:#fff;box-shadow:none}
+.text m.lit[data-kind="mk"]{background:var(--exam);color:#fff;border-bottom:none}
+.text.off-sub m[data-kind="sub"]{background:none;box-shadow:none}
+.text.off-gen m[data-kind="gen"]{background:none;box-shadow:none}
+
+/* 固定在底部的說明面板 */
+.panel{position:sticky;bottom:0;background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.75rem .9rem;margin-top:.8rem;box-shadow:0 -2px 10px rgba(23,40,47,.07)}
+.panel .k{font-size:.72rem;font-weight:600;border-radius:.2rem;padding:.06rem .42rem;color:var(--teal);background:var(--teal-soft);border:1px solid var(--teal)}
+.panel .k.g{color:var(--gen);background:var(--gen-soft);border-color:var(--gen)}
+.panel .k.e{color:var(--exam);background:var(--exam-soft);border-color:var(--exam)}
+.panel .ch{font-family:var(--serif);font-size:1rem;margin:.4rem 0 .3rem;color:var(--ink);line-height:1.75;overflow-wrap:anywhere}
+.panel .ch i{font-style:normal;color:var(--muted);padding:0 .28rem}
+.panel .nt{font-size:.88rem;color:#3d5059;margin:0}
+
+/* 舊工具點名複習 */
+.recall{background:#fff;border:1px solid var(--line);border-left:3px solid var(--muted);
+  border-radius:.3rem;padding:.75rem .85rem;margin:1.1rem 0 .9rem;font-size:.92rem;color:#3d5059}
+.recall b{color:var(--ink)}
+.recall ul{margin:.4rem 0 0;padding-left:1.1rem}
+.recall li{margin-bottom:.35rem}
+
+/* 抽句題 */
+.gap{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.9rem 1rem;margin:0 0 .9rem;font-family:var(--serif);font-size:1rem;line-height:1.9}
+.gap .blank{display:inline-block;min-width:9rem;border-bottom:2px solid var(--gen);color:var(--gen);text-align:center;font-family:var(--sans);font-size:.82rem}
+.gap .blank.filled{border-bottom-color:var(--teal);color:var(--ink);font-family:var(--serif);font-size:1rem;text-align:left;background:var(--teal-soft);border-radius:.2rem;padding:0 .25rem}
+.gap .lst{font-family:var(--sans);font-size:.85rem;color:var(--muted);display:block;margin-top:.5rem}
+.picks{display:flex;flex-direction:column;gap:.45rem;margin:0 0 .9rem}
+.picks button{font:inherit;font-family:var(--serif);font-size:.97rem;line-height:1.6;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:.3rem;padding:.55rem .8rem;cursor:pointer;text-align:left}
+.picks button:hover{border-color:var(--teal)}
+.picks button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.picks button[data-state="right"]{background:var(--teal-soft);border-color:var(--teal)}
+.picks button[data-state="wrong"]{background:var(--ground);color:var(--muted)}
+.why{font-size:.86rem;color:#3d5059;margin:.35rem 0 0}
+.why[hidden]{display:none}
+
+/* 收尾與頁尾 */
+.close{border-top:1px solid var(--line);margin-top:2rem;padding-top:1.1rem;font-size:.93rem;color:#3d5059}
+.close[hidden]{display:none}
+.close h2{font-size:1.1rem}
+.close ol{margin:.3rem 0 0;padding-left:1.15rem}
+.close li{margin-bottom:.5rem}
+.more{margin-top:1.5rem;font-size:.88rem}
+.more a{color:var(--teal)}
+.series{border-top:1px solid var(--line);margin-top:2rem;padding-top:1.1rem;font-size:.9rem;color:#3d5059}
+.series .back{font-family:var(--serif);font-size:1rem;color:var(--teal);text-decoration:none}
+.series .back:hover{text-decoration:underline}
+.series .back:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.series .note{font-size:.85rem;color:var(--muted);margin:.5rem 0 0}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+/* 本單元：放射狀網狀圖與第三步的歸格卡片 */
+.fig .lab{font-family:var(--sans);font-size:10px;fill:#3d5059}
+.fig .lab.s{font-size:9px;fill:var(--muted)}
+.fig .spoke{stroke:var(--line);stroke-width:2;fill:none}
+.fig .node.hub rect{stroke:var(--muted)}
+.fig .node.hub.on rect{stroke:var(--exam)}
+.yn{display:flex;gap:.45rem;align-items:center;flex-wrap:wrap;margin-top:.5rem;font-size:.9rem;color:var(--ink);font-weight:600}
+.yn button{font:inherit;font-weight:400;font-size:.82rem;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:.25rem;padding:.18rem .75rem;cursor:pointer}
+.yn button:hover{border-color:var(--teal)}
+.yn button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.qcard.open .yn{display:none}
+.qcard .bd .vd{display:block;font-weight:600;margin-bottom:.15rem}
+.qcard .bd .vd.ok{color:var(--teal)}
+.qcard .bd .vd.ng{color:var(--exam)}
+.qcard .bd q{quotes:none;font-family:var(--serif)}
+#q3w[hidden]{display:none}
+.fig .zone{fill:none;stroke:var(--line);stroke-width:1.5;stroke-dasharray:5 4}
+.fig .zl{font-family:var(--sans);font-size:10.5px;font-weight:600}
+.fig .zl.l{fill:var(--teal)}
+.fig .zl.r{fill:var(--gen)}
+.fig .arr{stroke:var(--muted);stroke-width:2;fill:none;stroke-linejoin:round;stroke-linecap:round}
+.fig .pivot{font-family:var(--serif);font-style:italic;font-size:11.5px;fill:var(--exam)}
+.fig .pn{font-family:var(--sans);font-size:9px;fill:var(--muted)}
+.fig .tw{font-family:var(--serif);font-style:italic;font-size:9px;fill:var(--exam)}
+.fig .arr.dash{stroke-dasharray:4 3}
+.fig .twz{font-family:var(--sans);font-size:10px;font-weight:600;fill:var(--exam)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>因果：一個原因，先甜後苦</h1>
+<p class="lede">熬夜讀書時打開一罐能量飲料，精神馬上就來了。這一篇先問：喝下去之後，身體到底發生了什麼事？接著依時間說明結果：先是短期的提神，作用退去之後反而更累，長期則會打亂作息。這是說明文五種基本結構裡的<b>因果</b>，而且是一個原因帶出幾種結果。下層要你留意隔著段落出現的反義詞：前面說好的，後面一個一個反過來。</p>
+<p class="preview" id="pv" hidden>預覽模式：所有步驟、圖表、課文標記都已展開，進度不會存檔。學生拿到的一般連結不受影響。</p>
+<p class="resume" id="rs" hidden>上次做到一半，已經幫你接回來了。<button id="rst">重新開始</button></p>
+<p class="src">ALL+ 互動英語 10 月號 Unit 9（p. 38）　The Hidden Costs of Energy Drinks　全文 30 行　10/20 一天讀完</p>
+
+<!-- ═══ 第一步 ═══ -->
+<section class="step" id="s1">
+  <p class="stepno">第一步</p>
+  <h2>先說好處，再問真正的結果<span class="tag">上層：組織方式</span></h2>
+  <p>因果的文章，開頭常常先交代一個現象，再用一個問題告訴讀者：後面要說明它造成什麼結果。這篇的前七行就是這樣安排的。<b>點三個有底色的地方</b>。</p>
+  <div class="lead" id="ld">
+    Pop open a cold energy drink, and you’re <c data-t="g">instantly hit with a sweet, bubbly rush</c> that promises to help you through a late-night study session. For many teenagers, these brightly colored beverages <c data-t="s">seem like the perfect solution to fatigue</c>. <c data-t="q">But what are their actual effects on your body?</c>
+  </div>
+  <p class="score" id="sc">已標出 <em>0</em> / 3</p>
+  <div id="s1b" hidden>
+    <p>三個都標出來了。那麼——<b>第 6 到 7 行的 <q>But what are their actual effects on your body?</q> 在全文裡負責什麼？</b></p>
+    <div class="opts" id="q1">
+      <button data-ok="1">預告後面要說明喝下去真正的結果，跟表面不同</button>
+      <button>預告後面要介紹能量飲料的成分和它製作的方式</button>
+      <button>暗示能量飲料對熬夜讀書其實一點幫助也沒有</button>
+      <button>預告後面要教青少年怎麼挑選適合的能量飲料</button>
+    </div>
+    <div class="said e" id="a1" hidden>
+      <b>預告後面要說明喝下去真正的結果，而且跟表面不同。</b>第 5 行的 seem like 說的是「看起來像」，第 7 行的 actual 說的是「實際上」，兩個字一前一後，中間再用 But 轉折：作者先說能量飲料看起來是解決疲勞的好辦法，再問它實際上對身體有什麼影響。問題裡的 effects 就是「結果」，所以讀者知道後面要一個一個說明結果。
+      <br><br>
+      <b>因果的文章常這樣起手：</b>先描述一個大家熟悉的現象，再用 what are the effects、why does this happen 這類問題帶出後文。問 effects，後面講結果；問 why，後面講原因。這篇的問題還多了一層：seem like 和 actual 對照，暗示結果會跟表面相反。
+      <br><br>
+      <b>另外三個為什麼排除：</b>
+      <br><br>
+      「暗示能量飲料對熬夜讀書其實一點幫助也沒有」——<b>這個最容易選</b>，因為 But 和 actual 確實在暗示問題。可是第 12 到 13 行說能量飲料會讓人 <q>feel more alert and energetic</q>，短期的提神是真的；作者要說的是好處只有一時，後面還要付出代價，不是完全沒有幫助。這是程度錯。
+      <br><br>
+      「介紹能量飲料的成分和它製作的方式」——第 8 到 10 行確實提到咖啡因、瓜拿納和糖，可是成分只是用來說明原因，文章從來沒有提到能量飲料怎麼製作。
+      <br><br>
+      「教青少年怎麼挑選適合的能量飲料」——第 26 到 28 行的建議是要小心咖啡因、不要依賴能量飲料，不是教讀者怎麼挑。
+    </div>
+    <button class="go" id="g1" hidden>整篇怎麼排？</button>
+  </div>
+</section>
+
+<!-- ═══ 第二步 ═══ -->
+<section class="step" id="s2" hidden>
+  <p class="stepno">第二步</p>
+  <h2>一個原因，依時間排出幾種結果<span class="tag">上層：怎麼認出來</span></h2>
+  <p>先回答：<b>這篇文章的推進方式，最接近下列哪一種？</b></p>
+  <div class="opts" id="q2">
+    <button>先說明一個問題，再提出專家建議的解決方法</button>
+    <button>比較能量飲料短期和長期的效果，評論優劣</button>
+    <button>依照時間，敘述一個學生熬夜讀書的一個晚上</button>
+    <button data-ok="1">先指出一個原因，再依時間說明它帶來的結果</button>
+  </div>
+  <div class="said e" id="a2" hidden>
+    <b>先指出一個原因，再依時間說明它帶來的結果。</b>這是說明文五種基本結構裡的<b>因果</b>（cause and effect）。原因只有一個：喝能量飲料，也就是第 8 到 10 行說的咖啡因、瓜拿納和糖刺激中樞神經。結果有三種，照時間排：第 11 到 15 行是馬上出現的提神和心跳加快；第 16 到 19 行是作用退去之後的 crash；第 19 到 22 行是長期依賴的後果。第 11 行的 thus 帶出第一個結果，第 17 行的 Once … wear off 和第 19 行的 Over time 把後兩個結果依時間接上。
+    <br><br>
+    <b>跟前面兩篇因果分清楚。</b>十月號第三單元是好幾組原因，各自導向同一個結果；九月號第八單元是一條單線的因果鏈，前一個結果變成下一個原因。這一篇是第三種：一個原因，帶出好幾種結果，結果之間照時間排。研究文本結構的 Meyer 描述因果結構時提到，因果可以分出好幾條路徑，也可以串成一條鏈；這一篇是從同一個原因分出三條路徑。結果之間照時間排，也不改變整篇是因果。
+    <br><br>
+    <b>另外三個為什麼排除，每一個都是別種結構：</b>
+    <br><br>
+    「先說明一個問題，再提出專家建議的解決方法」——這是上一篇 U8 的<b>問題與解決</b>，<b>這個最容易選</b>，因為第 25 到 28 行確實有 Health experts 的建議。可是建議只有一句，放在全文的結尾；文章大部分的篇幅在說明喝下去會怎樣，不是在說明怎麼處理。上一篇的治療有一整段，而且對準了問題的原因；這一篇的建議只是提醒讀者小心。
+    <br><br>
+    「比較能量飲料短期和長期的效果，評論優劣」——這是<b>比較對照</b>。短期和長期確實對照得很清楚，可是它們是同一個原因依時間出現的結果，第 17 行的 Once 和第 19 行的 Over time 說的是先後，不是兩樣東西並排比較。
+    <br><br>
+    「敘述一個學生熬夜讀書的一個晚上」——這是<b>序列</b>。第 3 到 4 行的 late-night study session 只是開頭的情境，文章裡沒有任何一個學生，也沒有一晚的經過。
+    <br><br>
+    下面這張圖是因果的標準組織圖：一個原因，箭頭指向幾個結果，結果由上到下照時間排。<b>點任一格</b>，第四步的課文對應行會亮起來（課文還沒打開的話，先把行號記住就好）。
+  </div>
+  <figure class="fig" id="fig" hidden></figure>
+  <button class="go" id="g2" hidden>把內容放回原因結果圖</button>
+</section>
+
+<!-- ═══ 第三步 ═══ -->
+<section class="step" id="s3" hidden>
+  <p class="stepno">第三步</p>
+  <h2>把內容放回原因結果圖<span class="tag">上層：怎麼驗證</span></h2>
+  <p>怎麼確定這篇是因果，而不是短期和長期的比較？<b>先找訊號詞，說出是哪一種結構，再把內容放進組織圖，最後用一句話說出整篇。</b></p>
+  <p>訊號詞分成兩種。表示因果的：第 7 行 effects、第 10 行 stimulate、第 11 行 thus 和 trigger、第 12 行 making you、第 20 行 disrupt、第 21 行 make it harder、第 29 行 Because。表示時間的：第 2 行 instantly、第 12 行 temporary、第 13 到 14 行 At the same time、第 17 行 Once、第 19 行 Over time、第 30 行 long-term。因果的字說明「什麼造成什麼」，時間的字把結果排出先後，兩種一起出現，就是一個原因依時間帶出幾種結果。</p>
+  <p>下面六張卡片寫的是文章裡的內容，<b>都換過說法，也沒有行號</b>。每一張判斷一次：它屬於組織圖的哪一格？點下去就定了，不能改。</p>
+  <div class="qs" id="qs"></div>
+  <p class="score" id="sc3">已放 <em>0</em> / 6，第一次就放對 <em>0</em> 張</p>
+  <div class="said e" id="a3" hidden>
+    <b>六張都放得回去，而且三種結果各有各的時間。這就是一個原因帶出幾種結果。</b>
+    <br><br>
+    <b>最容易放錯的是「心跳變快」和「比喝之前更累」這兩張。</b>心跳變快聽起來像壞處，很容易放到後面；可是第 13 到 14 行用 At the same time，說明它跟提神同時發生，屬於短期的結果。比喝之前更累則要看時間：第 17 行的 Once … wear off 說的是作用一退，還不是長期。長期那一格要找第 19 行的 Over time。<b>同樣是結果，要靠時間的字分開。</b>
+    <br><br>
+    <b>再看箭頭的方向。</b>三種結果都來自同一個原因，彼此之間沒有「前一個造成下一個」的關係：心跳變快並沒有造成 crash。這就是跟因果鏈不同的地方。
+    <br><br>
+    <b>考卷上怎麼考：</b>主旨題的誘答最愛只寫其中一種結果，或把專家的建議說成全文的重點。下面試一題摘要題。
+  </div>
+  <div id="q3w" hidden>
+    <p><b>哪一句最適合當這篇文章的一句話摘要？</b></p>
+    <div class="picks" id="q3">
+      <button>Energy drinks typically contain high levels of caffeine along with guarana and sugar, which stimulate the body’s central nervous system.</button>
+      <button data-ok="1">An energy drink gives a quick lift, but a slump soon follows, and relying on it can hurt sleep over time.</button>
+      <button>Teenagers should stop drinking energy drinks completely and ask health experts for safer ways to stay awake late at night.</button>
+      <button>Energy drinks work better than sleep in the short run but worse in the long run, so students must choose between them.</button>
+    </div>
+    <div class="said e" id="a3b" hidden>
+      <b>第二句。</b>它把原因和三種結果都收進一句話：quick lift 是短期的提神，a slump soon follows 是作用退去之後，relying on it … over time 是長期。而且它沒有照抄課文：第 2 行的 rush 換成 lift，第 16 行的 <q>the inevitable crash</q> 換成 a slump soon follows，第 20 到 22 行的 disrupt the body’s natural energy cycle 和 quality sleep 濃縮成 hurt sleep。
+      <br><br>
+      <b>另外三個為什麼排除：</b>
+      <br><br>
+      「Energy drinks typically contain high levels of caffeine …」——<b>這個最容易選</b>，因為它幾乎就是第 8 到 11 行的原文。可是它只寫了原因那一格，三種結果一個都沒有提到，而標題的 Hidden Costs 說的正是結果。
+      <br><br>
+      「Teenagers should stop drinking energy drinks completely …」——這是把全文讀成問題與解決，還加重了程度。第 26 到 28 行說的是要 <q>be cautious with caffeine</q>、不要依賴能量飲料，沒有說完全不能喝，也沒有說要去問專家。
+      <br><br>
+      「Energy drinks work better than sleep in the short run …」——這是把因果讀成比較對照。文章從來沒有拿能量飲料跟睡眠比較，第 21 到 22 行反而說依賴能量飲料會讓人更難睡好。
+    </div>
+  </div>
+  <button class="go" id="g3" hidden>看前後反過來的字</button>
+</section>
+
+<!-- ═══ 第四步 ═══ -->
+<section class="step" id="s4" hidden>
+  <p class="stepno">第四步</p>
+  <h2>前面說好的，後面反過來<span class="tag b">下層：跨段的反義詞</span></h2>
+  <p>這篇的結果前後相反：先是好處，後面是代價。作者沒有用 however 或 in contrast 一一交代，而是讓反義詞隔著段落對上。第 2 行的 rush（一股勁）對上第 16 行的 crash（一下子垮掉）；第 13 行的 alert and energetic 對上第 18 到 19 行的 more tired, anxious, or irritable；第 12 行的 temporary 對上第 30 行的 long-term。第 6 行的 perfect solution to fatigue 最有意思：說好要解決疲勞，第 18 行卻變成比喝之前更累。Halliday 和 Hasan 研究英文的銜接時，把反義詞列為詞彙銜接的一種：兩個字意思相反，讀者看到後一個字，就會想起前一個字。</p>
+  <p><b>跟九月號第八單元的對比標記與對立配對分清楚。</b>那一篇的對立成對出現在同一句裡，中間夾著 but、while 這類標記詞，例如 a farmer tends cows and pigs, but a diner orders beef and pork。這一篇的反義詞隔著一整段才對上，中間沒有標記詞，反義詞本身就告訴讀者：效果反轉了。讀的時候看到 crash，要能想到它對的是前面的 rush。</p>
+  <p>這對考試很重要。因果題的誘答常把短期和長期的結果對調，或把好處和代價對調；認得出成對的反義詞，就知道每一個字屬於哪一個時間、哪一邊。</p>
+  <p>第二色是前面單元教過的<b>概括名詞</b>，一個名詞收攏一整段內容。第 10 行 ingredients 往回收咖啡因、瓜拿納和糖；第 16 行 <q>The real catch</q> 往後指，先說「真正的麻煩在這裡」，同一句的後半才說出 crash；第 24 行 these effects 往回收第二、三段的所有結果；第 29 行 those quick boosts 再收一次短期的提神。</p>
+  <p><b>點課文裡有底色的字</b>，同一條的字會一起亮起來。青色有兩條，一條是一時的好處，一條是後面的代價，兩條的字一一相反；藍灰是概括名詞。兩色可以各自關掉。</p>
+  <div class="modes">
+    <button id="m1" aria-pressed="true">跨段的反義詞（青）</button>
+    <button id="m2" aria-pressed="true">概括名詞（藍灰）</button>
+  </div>
+  <div class="text" id="tx"></div>
+  <div class="panel" id="pn">
+    <span class="k" id="pk">線索</span>
+    <div class="ch" id="pc">點圖上的一格，或課文裡有底色的字</div>
+    <p class="nt" id="pt">青色是隔著段落對上的反義詞，分成一時的好處和後面的代價兩條；藍灰是概括名詞。</p>
+  </div>
+  <div class="recall">
+    <b>另外兩樣，前面單元教過，這篇自己確認得出來：</b>
+    <ul>
+      <li><b>換字。</b>九月號練過。第 1 行的 energy drink，到了第 4 到 5 行換成 <q>these brightly colored beverages</q>，第 8 行又換回 Energy drinks。these 告訴讀者前面提過，beverages 是比較正式的上義詞，brightly colored 則是從外觀來說。</li>
+      <li><b>表示因果的動詞與使役結構。</b>十月號第七單元練過。第 10 行 stimulate、第 11 行 trigger、第 20 行 disrupt 都是一個動詞直接帶出結果；第 12 到 13 行 <q>making you feel more alert and energetic</q> 和第 21 行 make it harder 是使役結構。這篇的因果連接詞只有第 11 行的 thus 和第 29 行的 Because，其他的因果都寫在動詞裡。</li>
+    </ul>
+  </div>
+  <p style="margin-top:1.1rem"><button class="go" id="g4">考卷怎麼考這種文章</button></p>
+</section>
+
+<!-- ═══ 第五步 ═══ -->
+<section class="step" id="s5" hidden>
+  <p class="stepno">第五步</p>
+  <h2>時間對調，程度加重<span class="tag">上層：考點</span></h2>
+  <p>一個原因帶出幾種結果的文章，誘答通常出在兩個地方：</p>
+  <p><b>一、時間對調。</b>把作用中的結果說成退去之後的結果，或把短期說成長期。這篇特別容易中招，因為心跳加快、更累、睡不好都是壞處，只看好壞分不出來。做法：回到題目問的時間點，找 At the same time、Once、Over time 這類字。</p>
+  <p><b>二、程度加重。</b>課文用 may、can、generally、be cautious，選項改成 always、never、completely。第 15 行說血壓 may rise，第 26 到 27 行說專家建議 be cautious、avoid depending，都不是「一定」或「完全不能」。雜誌第 39 頁 Reading Comprehension 第 1 題的選項裡，就有一個把「小心、不要依賴」加重成「完全避免」。</p>
+  <p>試一題：<b>根據全文，能量飲料的作用退去之後，會發生什麼事？</b></p>
+  <div class="opts en" id="q5">
+    <button>Your heart beats faster and your blood pressure may rise.</button>
+    <button data-ok="1">You can end up feeling worse than you did before drinking it.</button>
+    <button>Your body goes back to its natural energy cycle right away.</button>
+    <button>You feel more alert and energetic for the rest of the day.</button>
+  </div>
+  <div class="said e" id="a5" hidden>
+    <b>第二句。</b>先注意：它沒有照抄課文。第 18 到 19 行的 <q>more tired, anxious, or irritable than before</q> 換成 feeling worse than you did before drinking it，三個形容詞收成一個 worse。<b>另外三句反而滿是課文裡的字。</b>
+    <br><br>
+    <b>另外三個為什麼排除：</b>
+    <br><br>
+    「Your heart beats faster and your blood pressure may rise」——<b>這個最容易選</b>，因為它幾乎一字不改就是第 14 到 15 行，而且也是壞處。可是第 13 到 14 行的 At the same time 說明它跟提神同時發生，是作用中的結果，不是退去之後。這是時間對調。
+    <br><br>
+    「Your body goes back to its natural energy cycle right away」——第 20 到 21 行說的是依賴能量飲料會 <q>disrupt the body’s natural energy cycle</q>，打亂身體的能量週期，方向剛好相反。
+    <br><br>
+    「You feel more alert and energetic for the rest of the day」——alert and energetic 是第 13 行作用中的感覺，而第 12 行已經說那是 temporary。退去之後正好相反，讀懂 crash 就排除得掉。
+  </div>
+  <button class="go" id="g5" hidden>最後一題</button>
+</section>
+
+<!-- ═══ 第六步 ═══ -->
+<section class="step" id="s6" hidden>
+  <p class="stepno">第六步</p>
+  <h2>把一句話放回去</h2>
+  <p>這就是考卷上的<b>篇章結構</b>題。下面把第 11 到 13 行那一句整句抽掉了，四個候選句只有一句放得進去。</p>
+  <div class="gap" id="gp">
+    Energy drinks typically contain high levels of caffeine along with guarana and sugar, ingredients that stimulate the central nervous system.
+    <span class="blank" id="bl">（空格）</span> At the same time, your heart beats faster and your blood pressure may rise.
+  </div>
+  <div class="picks" id="q6">
+    <button>They can thus cause a long-term release of adrenaline, keeping you wide awake for several days.</button>
+    <button>However, most of these ingredients have little real effect on the bodies of young people.</button>
+    <button data-ok="1">They can thus trigger a temporary release of adrenaline, making you feel more alert and energetic.</button>
+    <button>Once the caffeine and sugar wear off, you may end up feeling more tired than before.</button>
+  </div>
+  <div class="said" id="a6" hidden>
+    <b>四個線索同時指向同一句。</b>這四句單獨看都說得通，沒有一句本身是錯的。要排除，得靠位置和線索。
+    <br><br>
+    <b>先講一個例外。</b>前面說大考的正解通常是改寫，但<b>抽句題不一樣</b>：抽掉的那一句就是原文，所以正解一定是原文。這一題要靠的是誘答哪裡接不上，不是比對字面。
+    <br><br>
+    <b>一、thus 要接上一句的原因，At the same time 要接一個結果。</b>前一句說成分 stimulate the central nervous system，這是原因；正解用 thus 接出結果：腎上腺素增加，人變得清醒。後一句的 At the same time 說「同時」，前面必須先有一個正在發生的結果，心跳加快才能跟它「同時」。
+    <br><br>
+    <b>另外三個為什麼排除，各有一個明確的依據：</b>
+    <br><br>
+    <b>二、反義詞。</b>「cause a long-term release of adrenaline」——<b>這個最容易選</b>，因為它跟正解一樣用 They can thus 開頭，也提到 adrenaline。可是它把 temporary 換成了反義詞 long-term。第 30 行的 long-term 屬於代價那一邊，好處那一邊只有一時；而且下一段第 16 行馬上說 crash，提神如果能維持好幾天，就不會有 crash。
+    <br><br>
+    <b>三、方向。</b>「most of these ingredients have little real effect」——這一句說成分沒什麼作用，後一句卻說心跳加快、血壓上升；第 23 到 25 行還說這些效果對青少年特別值得注意。However 轉過去的方向跟全文相反。
+    <br><br>
+    <b>四、時間。</b>「Once the caffeine and sugar wear off」——這是第 17 到 18 行的內容，屬於作用退去之後。放在這裡，後一句的 At the same time 就變成「退去的同時心跳加快」，時間接不上，而且第 16 行的 crash 還沒出現。
+    <br><br>
+    再補一條反義詞：正解的 temporary 和 alert and energetic，正好是後面 long-term 和 more tired 的反面。<b>空格裡要放的是好處那一邊的字，代價那一邊要等到第 16 行才開始。</b>
+  </div>
+  <p class="why" id="w6" hidden>考卷上不會有底色，也不會有行號。但你剛才用的四個線索，每一篇因果文都找得到。</p>
+</section>
+
+<!-- ═══ 第七步 ═══ -->
+<section class="close" id="s7" hidden>
+  <h2>帶著走的五句話</h2>
+  <ol>
+    <li><b>因果文常用一個問題預告後文。</b>問 effects，後面講結果；問 why，後面講原因。seem like 和 actual 一前一後，暗示結果跟表面相反。</li>
+    <li><b>驗證方法：一個原因，箭頭指向幾個結果，再用時間的字排出先後。</b>At the same time、Once … wear off、Over time 把結果分成作用中、退去之後、長期三格；三格都來自同一個原因，彼此不互相造成。</li>
+    <li><b>因果有三種排法，要分清楚。</b>幾組原因導向同一個結果（十月號第三單元）、一條單線的因果鏈（九月號第八單元）、一個原因帶出幾種結果（這一篇）。結尾有專家建議，不代表整篇是問題與解決。</li>
+    <li><b>下層：跨段的反義詞。</b>rush 對 crash、alert and energetic 對 more tired、temporary 對 long-term。中間沒有標記詞，反義詞本身就告訴你效果反轉了。</li>
+    <li><b>考點：時間對調，程度加重。</b>誘答常把作用中的結果搬到退去之後，或把 may、be cautious 改成 always、completely。先找時間的字，再看程度有沒有被加重。</li>
+  </ol>
+  <p class="more"><a href="https://staresto-create.github.io/JCEE-vocab-questions/wordwheel.html">單字輪：把字拆成部件來記 →</a></p>
+</section>
+
+<nav class="series">
+  <a class="back" href="cohesion.html">← 回讀法練習總表</a>
+  <p class="note">總表上有目前可以做的所有單元，還有你累積到現在的讀法工具。</p>
+</nav>
+
+</div>
+<script>
+(function(){
+"use strict";
+function $(id){return document.getElementById(id);}
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;");}
+
+var KEY="cohesion-202610-u9-v1";
+
+var PREVIEW=false;
+var ST={tags:{},rows:{},q1:0,q2:0,q3:0,q5:0,q6:0,step:1};
+function save(){ if(PREVIEW) return; try{ localStorage.setItem(KEY, JSON.stringify(ST)); }catch(e){} }
+function load(){ try{ var r=localStorage.getItem(KEY); return r?JSON.parse(r):null; }catch(e){ return null; } }
+function wipe(){ try{ localStorage.removeItem(KEY); }catch(e){} location.reload(); }
+
+var TITLE="The Hidden Costs of Energy Drinks";
+
+var LINES=[
+"Pop open a cold energy drink, and you’re",
+"instantly hit with a sweet, bubbly {rush|c-now|1} that",
+"promises to help you through a late-night",
+"study session. For many teenagers, these",
+"brightly colored beverages seem like the",
+"{perfect solution to fatigue|c-now|2}. But what are their",
+"actual effects on your body?",
+"Energy drinks typically contain high",
+"levels of caffeine along with guarana and",
+"sugar, {ingredients|c-gen|1} that stimulate the central",
+"nervous system. They can thus trigger a",
+"{temporary|c-now|3} release of adrenaline, making you",
+"feel more {alert and energetic|c-now|4}. At the same",
+"time, your heart beats faster and your blood",
+"pressure may rise.",
+"{The real catch|c-gen|2} is the inevitable {crash|c-aft|1}.",
+"Once the caffeine and sugar wear off, you",
+"may end up feeling {more tired, anxious, or|c-aft|2}",
+"{irritable|c-aft|2} than before. Over time, relying on",
+"energy drinks can disrupt the body’s natural",
+"energy cycle and make it harder to get quality",
+"sleep.",
+"Among teenagers, whose bodies and",
+"brains are still developing, {these effects|c-gen|3} are",
+"especially worth paying attention to. Health",
+"experts generally advise young people to be",
+"cautious with caffeine and avoid depending",
+"on energy drinks to get through the day.",
+"Because the truth is, {those quick boosts|c-gen|4} can",
+"come with significant {long-term|c-aft|3} costs."
+];
+var INDENT={1:1,8:1,16:1,23:1};
+var HEAD={};
+var SPLIT=null;
+var SPLIT_TEXT="";
+
+var CHAINS={
+ "c-now":{k:"sub",n:"一時的好處，四處，全在前兩段。第 2 行 rush 是喝下去那一股勁，第 6 行 perfect solution to fatigue 是讀者心裡的期待，第 12 行 temporary 先說好只有一時，第 13 行 alert and energetic 是作用中的感覺。這四處在後面各有一個反義詞：rush 對 crash，解決疲勞對更累，temporary 對 long-term，清醒有精神對煩躁疲倦。點代價那一條，看它們怎麼一一對上。"},
+ "c-aft":{k:"sub",n:"後面的代價，三處，從第 16 行開始。第 16 行 crash 對上第 2 行的 rush；第 18 到 19 行 more tired, anxious, or irritable 對上第 13 行的 alert and energetic，也推翻了第 6 行說的解決疲勞；第 30 行 long-term 對上第 12 行的 temporary。中間沒有 however 或 in contrast，反義詞本身就讓讀者知道效果反轉了。"},
+ "c-gen":{k:"gen",n:"概括名詞，四處，一個名詞收攏一整段內容。第 10 行 ingredients 往回收咖啡因、瓜拿納和糖；第 16 行 The real catch 往後指，同一句的後半才說出是 crash；第 24 行 these effects 往回收第二、三段的所有結果；第 29 行 those quick boosts 再收一次短期的提神，接著跟第 30 行的 long-term costs 對照，全篇就在這一句收尾。"}
+};
+var LB={sub:"跨段的反義詞",gen:"概括名詞",mk:"標記詞"};
+var CL={sub:"k",gen:"k g",mk:"k e"};
+
+var NODES=[
+ {nm:"開頭的問題",en:"actual effects?",a:1,b:7,
+  n:"第 1 到 7 行。先說能量飲料看起來是解決疲勞的好辦法，再用 But 問它實際上對身體有什麼影響。問 effects，後面就講結果。"},
+ {nm:"原因",en:"caffeine · guarana · sugar",a:8,b:10,
+  n:"第 8 到 10 行。咖啡因、瓜拿納和糖刺激中樞神經。這是整篇唯一的原因，後面三種結果都從這裡來。"},
+ {nm:"結果一：作用中",en:"alert · heart beats faster",a:11,b:15,
+  n:"第 11 到 15 行。thus 帶出第一個結果：腎上腺素短暫增加，人變得清醒；At the same time，心跳加快，血壓可能上升。"},
+ {nm:"結果二：退去之後",en:"the inevitable crash",a:16,b:19,
+  n:"第 16 到 19 行。Once … wear off：作用一退，人反而比喝之前更累、更焦慮、更煩躁。"},
+ {nm:"結果三：長期",en:"energy cycle · sleep",a:20,b:22,
+  n:"第 20 到 22 行。第 19 行後半的 Over time 開始講長期：依賴能量飲料會打亂身體的能量週期，也更難睡好。"},
+ {nm:"對青少年",en:"be cautious",a:23,b:30,
+  n:"第 23 到 30 行。身體和大腦還在發育的青少年更要注意；專家建議小心咖啡因、不要依賴能量飲料。最後一句用 quick boosts 對 long-term costs 收尾。"}
+];
+
+var SPOKES=["原因","作用中","退去之後","長期","對青少年"];
+var ROWS=[
+ {f:"咖啡因、瓜拿納和糖會刺激中樞神經。",ans:0,
+  note:"第 8 到 11 行。caffeine along with guarana and sugar，這些成分 <q>stimulate the central nervous system</q>。這是整篇的原因。"},
+ {f:"心跳變快，血壓也可能升高。",ans:1,
+  note:"第 13 到 15 行。<q>your heart beats faster</q>，血壓 <q>may rise</q>。它聽起來像壞處，可是 At the same time 說明它跟提神同時發生，屬於作用中。"},
+ {f:"糖和咖啡因的作用一過，人反而比喝之前更累、更煩躁。",ans:2,
+  note:"第 17 到 19 行。<q>Once the caffeine and sugar wear off</q>，你可能 <q>more tired, anxious, or irritable than before</q>。關鍵是 Once … wear off，還不是長期。"},
+ {f:"長期靠它撐精神，身體原本的作息會亂掉，也更難睡好。",ans:3,
+  note:"第 19 到 22 行。<q>Over time, relying on energy drinks can disrupt the body’s natural energy cycle</q>，也讓人更難睡好。"},
+ {f:"身體和大腦還在發育，這些影響更要留意。",ans:4,
+  note:"第 23 到 25 行。青少年 <q>whose bodies and brains are still developing</q>，所以這些影響 <q>especially worth paying attention to</q>。"},
+ {f:"腎上腺素短暫增加，讓人覺得清醒、有精神。",ans:1,
+  note:"第 11 到 13 行。<q>trigger a temporary release of adrenaline</q>，讓你覺得 <q>more alert and energetic</q>。thus 表示這是成分造成的第一個結果。"}
+];
+
+var TL={g:"好處",s:"表面",q:"問題"};
+
+/* ---------- 通用：選擇題 ---------- */
+function quiz(qid,aid,gid,tag,after){
+  var done=false;
+  function settle(){
+    done=true;
+    var bs=$(qid).querySelectorAll("button");
+    for(var i=0;i<bs.length;i++){ bs[i].disabled=true; bs[i].dataset.state=bs[i].dataset.ok?"right":"wrong"; }
+    if(aid) $(aid).hidden=false;
+    if(gid) $(gid).hidden=false;
+    if(after) after();
+  }
+  $(qid).addEventListener("click",function(e){
+    var b=e.target.closest("button"); if(!b||done) return;
+    settle(); ST[tag]=1; save();
+  });
+  return settle;
+}
+function opener(gid,sid,extra){
+  $(gid).addEventListener("click",function(){
+    var n=parseInt(sid.replace(/\D/g,""),10);
+    if(ST.step<n) ST.step=n; save();
+    $(sid).hidden=false; if(extra) extra();
+    $(sid).scrollIntoView({behavior:"smooth",block:"start"});
+  });
+}
+function hlLines(a,b){
+  var rows=$("tx").querySelectorAll(".ln");
+  for(var r=0;r<rows.length;r++){ var n=+rows[r].dataset.n; rows[r].classList.toggle("hl", n>=a&&n<=b); }
+  var ms=$("tx").querySelectorAll("m");
+  for(var k=0;k<ms.length;k++) ms[k].classList.remove("lit");
+  if(rows.length){ var f=$("tx").querySelector('.ln[data-n="'+a+'"]'); if(f) f.scrollIntoView({behavior:"smooth",block:"center"}); }
+}
+
+/* ---------- 第一步 ---------- */
+function tagged(){ var n=0; for(var k in ST.tags) if(ST.tags[k]) n++; return n; }
+function paintTag(c){
+  if(c.classList.contains("got")) return;
+  c.classList.add("got");
+  var b=document.createElement("b"); b.textContent=TL[c.dataset.t]||"";
+  c.insertBefore(b, c.firstChild);
+}
+function afterTags(){
+  $("sc").innerHTML="已標出 <em>"+tagged()+"</em> / 3";
+  if(tagged()===3) $("s1b").hidden=false;
+}
+$("ld").addEventListener("click",function(e){
+  var c=e.target.closest("c"); if(!c) return;
+  if(ST.tags[c.dataset.t]) return;
+  ST.tags[c.dataset.t]=1; save(); paintTag(c); afterTags();
+});
+var set1=quiz("q1","a1","g1","q1");
+opener("g1","s2");
+
+/* ---------- 第二步：原因結果圖（一因多果） ---------- */
+function drawFig(){
+  if($("fig").firstChild) return;
+  $("fig").hidden=false;
+  var s='<svg viewBox="0 0 420 340" role="img" aria-label="原因結果圖：一個原因，箭頭指向三個結果，結果由上到下照時間排">';
+  var B=[[110,8,200,46],[10,138,132,60],[196,74,214,54],[196,146,214,54],[196,218,214,54],[110,288,200,46]];
+  var TW=["instantly · At the same time","Once … wear off","Over time"];
+  s+='<path class="arr" d="M210 56 L210 70 L76 70 L76 132"/><path class="arr" d="M71 126 L76 133 L81 126"/>';
+  for(var k=0;k<3;k++){ var ty=B[k+2][1]+27;
+    s+='<path class="arr" d="M142 168 C166 168 170 '+ty+' 190 '+ty+'"/><path class="arr" d="M184 '+(ty-5)+' L191 '+ty+' L184 '+(ty+5)+'"/>';
+    s+='<text class="tw" x="408" y="'+(B[k+2][1]-3)+'" text-anchor="end">'+esc(TW[k])+'</text>'; }
+  s+='<path class="arr dash" d="M303 272 L303 280 L210 280 L210 286"/>';
+  s+='<text class="twz" x="16" y="226">一個原因</text><text class="twz" x="16" y="241">三個結果</text>';
+  for(var i=0;i<NODES.length;i++){
+    var d=NODES[i], b=B[i], x=b[0]+b[2]/2, y=b[1];
+    s+='<g class="node" data-i="'+i+'" tabindex="0" role="button">';
+    s+='<rect x="'+b[0]+'" y="'+y+'" width="'+b[2]+'" height="'+b[3]+'" rx="5"/>';
+    var mid=y+b[3]/2;
+    s+='<text x="'+x+'" y="'+(mid-6)+'" text-anchor="middle">'+esc(d.nm)+'</text>';
+    s+='<text class="n" x="'+x+'" y="'+(mid+7)+'" text-anchor="middle">'+esc(d.en)+'</text>';
+    s+='<text class="n" x="'+x+'" y="'+(mid+19)+'" text-anchor="middle">第 '+d.a+'–'+d.b+' 行</text>';
+    s+='</g>';
+  }
+  s+='</svg><figcaption>左邊是原因，三個箭頭從同一個原因出發，指向右邊三個結果；結果由上到下照時間排，格子上方的小字是課文裡表示時間的字。三個結果之間沒有箭頭，因為它們都來自同一個原因，彼此不互相造成。最上面是開頭的問題，最下面是給青少年的提醒。點任一格，第四步的課文對應行會亮起來。</figcaption>';
+  $("fig").innerHTML=s;
+  function hit(g){
+    var i=+g.dataset.i, d=NODES[i];
+    var gs=$("fig").querySelectorAll(".node");
+    for(var j=0;j<gs.length;j++) gs[j].classList.toggle("on", +gs[j].dataset.i===i);
+    hlLines(d.a,d.b);
+    $("pk").textContent="原因結果圖的一格"; $("pk").className="k e";
+    $("pc").textContent=d.nm+"　"+d.en; $("pt").textContent=d.n;
+  }
+  $("fig").addEventListener("click",function(e){ var g=e.target.closest(".node"); if(g) hit(g); });
+  $("fig").addEventListener("keydown",function(e){
+    if(e.key!=="Enter"&&e.key!==" ") return;
+    var g=e.target.closest(".node"); if(g){ e.preventDefault(); hit(g); }
+  });
+}
+function afterQ2(){ drawFig(); if($("db")) $("db").hidden=false; }
+var set2=quiz("q2","a2","g2","q2",afterQ2);
+opener("g2","s3",buildRows);
+
+/* ---------- 第三步：把內容放回組織圖 ---------- */
+var builtRows=false;
+function buildRows(){
+  if(builtRows) return; builtRows=true;
+  var h="";
+  for(var i=0;i<ROWS.length;i++){
+    var r=ROWS[i], bt="";
+    for(var k=0;k<SPOKES.length;k++) bt+='<button data-i="'+i+'" data-v="'+k+'">'+SPOKES[k]+'</button>';
+    h+='<div class="qcard" id="cd'+i+'"><div class="hd"><span class="qt">'+esc(r.f)+'</span></div>'+
+       '<span class="yn">屬於：'+bt+'</span>'+
+       '<span class="bd" id="bd'+i+'"></span></div>';
+  }
+  $("qs").innerHTML=h;
+  $("qs").addEventListener("click",function(e){
+    var b=e.target.closest("button"); if(!b) return;
+    var i=b.dataset.i; if(ST.rows[i]!==undefined&&ST.rows[i]!==null) return;
+    ST.rows[i]=+b.dataset.v; save(); paintRows();
+  });
+  paintRows();
+}
+function isSet(v){ return typeof v==="number"; }
+function judged(){ var n=0; for(var i=0;i<ROWS.length;i++) if(isSet(ST.rows[i])) n++; return n; }
+function rightRows(){ var n=0; for(var i=0;i<ROWS.length;i++) if(ST.rows[i]===ROWS[i].ans) n++; return n; }
+function paintRows(){
+  for(var i=0;i<ROWS.length;i++){
+    var el=$("cd"+i); if(!el) continue;
+    var v=ST.rows[i], r=ROWS[i];
+    el.classList.toggle("open",isSet(v));
+    if(isSet(v)){
+      var ok=(v===r.ans);
+      var head= ok ? ("放對了：這一張屬於「"+SPOKES[r.ans]+"」那一格。") : ("再看一次：這一張其實屬於「"+SPOKES[r.ans]+"」，不是「"+SPOKES[v]+"」。");
+      $("bd"+i).innerHTML='<span class="vd '+(ok?"ok":"ng")+'">'+head+'</span>'+r.note;
+    }
+  }
+  $("sc3").innerHTML="已放 <em>"+judged()+"</em> / "+ROWS.length+"，第一次就放對 <em>"+rightRows()+"</em> 張";
+  if(judged()>=ROWS.length){ $("a3").hidden=false; $("q3w").hidden=false; }
+}
+var set3=quiz("q3","a3b","g3","q3");
+opener("g3","s4",function(){ buildText(); drawFig(); });
+
+/* ---------- 第四步：課文與線索鏈 ---------- */
+function renderLine(str){
+  var out="",i=0;
+  while(i<str.length){
+    var a=str.indexOf("{",i);
+    if(a<0){ out+=esc(str.slice(i)); break; }
+    out+=esc(str.slice(i,a));
+    var b=str.indexOf("}",a), p=str.slice(a+1,b).split("|");
+    var id=p[1], it=p[2]||"1", k=CHAINS[id]?CHAINS[id].k:"sub";
+    out+='<m data-c="'+id+'" data-i="'+it+'" data-kind="'+k+'" tabindex="0">'+esc(p[0])+'</m>';
+    i=b+1;
+  }
+  return out;
+}
+var builtText=false;
+function buildText(){
+  if(builtText) return; builtText=true;
+  var h='<p class="ttl">'+renderLine(TITLE)+'</p>';
+  for(var i=0;i<LINES.length;i++){
+    var n=i+1;
+    if(SPLIT && n===SPLIT) h+='<p class="split">'+esc(SPLIT_TEXT)+'</p>';
+    var cls="ln";
+    if(HEAD[n]) cls+=" sub pb";
+    else if(INDENT[n]) cls+=" ind"+(n>1&&!HEAD[n-1]?" pb":"");
+    h+='<div class="'+cls+'" data-n="'+n+'"><i>'+((n%5===0)?n:"")+'</i><span>'+renderLine(LINES[i])+'</span></div>';
+  }
+  $("tx").innerHTML=h;
+}
+function lightChain(id){
+  var ms=$("tx").querySelectorAll("m"), items={}, order=[],i;
+  var gs=$("fig").querySelectorAll(".node");
+  for(i=0;i<gs.length;i++) gs[i].classList.remove("on");
+  var rows=$("tx").querySelectorAll(".ln");
+  for(i=0;i<rows.length;i++) rows[i].classList.remove("hl");
+  for(i=0;i<ms.length;i++){
+    if(ms[i].dataset.c===id){
+      ms[i].classList.add("lit");
+      var key=ms[i].dataset.i;
+      if(!items[key]){ items[key]=[]; order.push(key); }
+      items[key].push(ms[i].textContent);
+    } else ms[i].classList.remove("lit");
+  }
+  var c=CHAINS[id]; if(!c) return;
+  var parts=[];
+  for(var o=0;o<order.length;o++) parts.push(esc(items[order[o]].join(" ")));
+  $("pk").textContent=LB[c.k]; $("pk").className=CL[c.k];
+  $("pc").innerHTML=parts.join('<i>\u2192</i>');
+  $("pt").textContent=c.n;
+}
+$("tx").addEventListener("click",function(e){ var m=e.target.closest("m"); if(m) lightChain(m.dataset.c); });
+$("tx").addEventListener("keydown",function(e){
+  if(e.key!=="Enter"&&e.key!==" ") return;
+  var m=e.target.closest("m"); if(m){ e.preventDefault(); lightChain(m.dataset.c); }
+});
+function toggle(btn,cls){
+  btn.addEventListener("click",function(){
+    var on=btn.getAttribute("aria-pressed")==="true";
+    btn.setAttribute("aria-pressed",on?"false":"true");
+    $("tx").classList.toggle(cls,on);
+  });
+}
+toggle($("m1"),"off-sub");
+toggle($("m2"),"off-gen");
+opener("g4","s5");
+
+/* ---------- 第五步 ---------- */
+var set5=quiz("q5","a5","g5","q5");
+$("g5").addEventListener("click",function(){
+  if(ST.step<6) ST.step=6; save();
+  $("s6").hidden=false;
+  $("s6").scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+/* ---------- 第六步 ---------- */
+var done6=false;
+function settle6(){
+  done6=true;
+  var bs=$("q6").querySelectorAll("button");
+  for(var i=0;i<bs.length;i++){
+    bs[i].disabled=true; bs[i].dataset.state=bs[i].dataset.ok?"right":"wrong";
+    if(bs[i].dataset.ok){ $("bl").textContent=bs[i].textContent; $("bl").className="blank filled"; }
+  }
+  $("a6").hidden=false; $("w6").hidden=false; $("s7").hidden=false;
+}
+$("q6").addEventListener("click",function(e){
+  var b=e.target.closest("button"); if(!b||done6) return;
+  settle6(); ST.q6=1; save();
+  $("a6").scrollIntoView({behavior:"smooth",block:"nearest"});
+});
+
+/* ---------- 老師的預覽開關：網址加 ?all ---------- */
+function previewAll(){
+  PREVIEW=true;
+  $("pv").hidden=false;
+  var i,cs=$("ld").querySelectorAll("c");
+  for(i=0;i<cs.length;i++){ ST.tags[cs[i].dataset.t]=1; paintTag(cs[i]); }
+  afterTags(); set1();
+  $("s2").hidden=false; set2();
+  $("s3").hidden=false;
+  for(i=0;i<ROWS.length;i++) ST.rows[i]=ROWS[i].ans;
+  buildRows(); set3();
+  $("s4").hidden=false; buildText(); drawFig();
+  $("s5").hidden=false; set5();
+  $("s6").hidden=false; settle6();
+}
+
+/* ---------- 接回上次的進度 ---------- */
+$("rst").addEventListener("click",wipe);
+(function restore(){
+  if(/(^|[?&])all(=|&|$)/.test(location.search)){ previewAll(); return; }
+  var v=load(); if(!v) return;
+  ST=v;
+  if(!ST.tags) ST.tags={};
+  if(!ST.rows) ST.rows={};
+  if(!ST.step) ST.step=1;
+  if(!(tagged()||ST.step>1)) return;
+  $("rs").hidden=false;
+  var i,cs=$("ld").querySelectorAll("c");
+  for(i=0;i<cs.length;i++) if(ST.tags[cs[i].dataset.t]) paintTag(cs[i]);
+  afterTags();
+  if(ST.q1) set1();
+  if(ST.step>=2){ $("s2").hidden=false; if(ST.q2) set2(); }
+  if(ST.step>=3){ $("s3").hidden=false; buildRows(); if(ST.q3) set3(); }
+  if(ST.step>=4){ $("s4").hidden=false; buildText(); drawFig(); }
+  if(ST.step>=5){ $("s5").hidden=false; if(ST.q5) set5(); }
+  if(ST.step>=6){ $("s6").hidden=false; if(ST.q6) settle6(); }
+  var last=$("s"+(ST.step>=6?6:ST.step));
+  if(last) setTimeout(function(){ last.scrollIntoView({block:"start"}); },60);
+})();
+})();
+</script>
+</body>
+</html>
