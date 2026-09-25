@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>描述：一個主題，五項紀錄｜Nature’s Record-Breakers</title>
+<meta name="description" content="最大、最快、最有力、最長壽、最毒：這一頁教你認出一個主題分成幾項的描述結構，還有從一隻動物說到牠身上部位的部分與整體。">
+<meta property="og:title" content="描述：一個主題，五項紀錄｜Nature’s Record-Breakers">
+<meta property="og:description" content="藍鯨的心臟、遊隼的翅膀、水母的觸手：每一個部位都要接回牠所屬的那隻動物。">
+<style>
+:root{
+  --ground:#f1f3f2; --ink:#17282f; --teal:#1f6f6a; --teal-soft:#dfeceb;
+  --muted:#77878d; --line:#cdd6d6; --exam:#b4661c; --exam-soft:#fdf4e7;
+  --gen:#4a6a90; --gen-soft:#e0e7f0;
+  --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+  --sans:"PingFang TC","Noto Sans TC","Microsoft JhengHei","Helvetica Neue",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-text-size-adjust:100%}
+.wrap{max-width:44rem;margin:0 auto;padding:1.6rem 1.1rem 4rem}
+h1{font-family:var(--serif);font-weight:600;font-size:1.6rem;line-height:1.3;margin:0 0 .55rem}
+.lede{margin:0 0 1.3rem;color:#3d5059;font-size:.95rem}
+.src{font-size:.8rem;color:var(--muted);margin:0 0 1.1rem}
+.resume{font-size:.85rem;color:var(--teal);background:var(--teal-soft);border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.resume[hidden],.preview[hidden]{display:none}
+.preview{font-size:.85rem;color:var(--exam);background:var(--exam-soft);
+  border:1px dashed var(--exam);border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.resume button{font:inherit;font-size:.82rem;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:.25rem;padding:.16rem .6rem;margin-left:.5rem;cursor:pointer}
+.resume button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.step{border-top:1px solid var(--line);padding-top:1.15rem;margin-top:1.6rem}
+.step[hidden]{display:none}
+.stepno{font-family:var(--serif);font-size:.82rem;color:var(--muted);margin:0 0 .2rem}
+h2{font-family:var(--serif);font-weight:600;font-size:1.2rem;margin:0 0 .5rem;color:var(--teal)}
+.step p{margin:0 0 .7rem;font-size:.95rem}
+.tag{display:inline-block;font-size:.72rem;font-weight:600;border-radius:.2rem;padding:.08rem .45rem;margin-left:.45rem;vertical-align:.12rem;color:var(--exam);background:var(--exam-soft);border:1px solid var(--exam)}
+.tag.b{color:var(--gen);background:var(--gen-soft);border-color:var(--gen)}
+
+/* 選擇題：中文用 .opts，英文選項加 .en，附小字說明加 .rg */
+.opts{display:flex;flex-direction:column;gap:.45rem;margin:.2rem 0 .8rem}
+.opts button{font:inherit;font-size:.95rem;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:.3rem;padding:.45rem .85rem;cursor:pointer;text-align:left}
+.opts button:hover{border-color:var(--teal)}
+.opts button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.opts button[data-state="right"]{background:var(--teal);border-color:var(--teal);color:#fff}
+.opts button[data-state="wrong"]{background:var(--ground);color:var(--muted)}
+.opts button[disabled]{cursor:default}
+.opts.en button{font-family:var(--serif);font-size:.97rem;line-height:1.6;padding:.55rem .8rem}
+.opts.en button[data-state="right"]{background:var(--teal-soft);border-color:var(--teal);color:var(--ink)}
+.opts.rg button i{display:block;font-style:normal;font-size:.82rem;color:var(--muted);margin-top:.12rem}
+.opts.rg button[data-state="right"] i{color:#dfeceb}
+
+/* 揭曉區塊 */
+.said{background:#fff;border-left:3px solid var(--teal);border-radius:.3rem;padding:.75rem .85rem;margin:.2rem 0 .9rem;font-size:.93rem;color:#3d5059}
+.said b{color:var(--ink);font-weight:600}
+.said[hidden]{display:none}
+.said.g{border-left-color:var(--gen)}
+.said.e{border-left-color:var(--exam)}
+.said q{quotes:none;font-family:var(--serif)}
+
+.go{font:inherit;font-size:.92rem;background:var(--ink);color:#fff;border:1px solid var(--ink);border-radius:.3rem;padding:.42rem 1.05rem;cursor:pointer}
+.go:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.go[hidden]{display:none}
+
+/* 第一步的可點標記 */
+.lead{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.9rem 1rem;margin:0 0 .7rem;font-family:var(--serif);font-size:1.02rem;line-height:1.95}
+.lead c{cursor:pointer;border-radius:.2rem;padding:.06rem .2rem;background:var(--exam-soft);box-shadow:inset 0 -2px 0 #ecc9a2}
+.lead c:hover{box-shadow:inset 0 -2px 0 var(--exam)}
+.lead c.got{background:var(--exam);color:#fff;box-shadow:none}
+.lead c b{font-family:var(--sans);font-size:.72rem;font-weight:600;background:#fff;color:var(--exam);border-radius:.2rem;padding:.02rem .3rem;margin-right:.3rem}
+.score{font-size:.9rem;color:var(--muted);margin:0 0 .8rem}
+.score em{font-style:normal;color:var(--exam);font-weight:600}
+
+/* 第三步的卡片（驗證方法通用容器） */
+.qs{display:flex;flex-direction:column;gap:.5rem;margin:0 0 .8rem}
+.qcard{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.6rem .85rem}
+.qcard .hd{display:flex;align-items:center;gap:.6rem;font-size:.95rem}
+.qcard .hd .qt{flex:1 1 auto;font-weight:600}
+.qcard .hd button{font:inherit;font-size:.8rem;background:#fff;color:var(--ink);border:1px solid var(--line);
+  border-radius:.25rem;padding:.18rem .7rem;cursor:pointer;flex:0 0 auto}
+.qcard .hd button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.qcard .bd{display:none;margin-top:.4rem;font-size:.92rem;color:#3d5059;line-height:1.75}
+.qcard.open .bd{display:block}
+.qcard.open .hd button{display:none}
+.qcard .bd .rf{display:block;color:var(--muted);font-size:.82rem;margin-top:.25rem}
+.qcard .bd .sw{display:block;font-family:var(--serif);background:var(--ground);border-radius:.3rem;
+  padding:.45rem .6rem;margin:.35rem 0;color:var(--ink);font-size:.93rem;line-height:1.7}
+.qcard .r{display:grid;grid-template-columns:1fr;gap:.1rem;margin-bottom:.4rem}
+@media(min-width:34rem){.qcard .r{grid-template-columns:5.5rem 1fr;gap:.5rem}}
+.qcard .r:last-child{margin-bottom:0}
+.qcard .r .k{font-size:.76rem;font-weight:600;color:var(--gen)}
+.qcard .r .v em{font-style:normal;color:var(--muted);font-size:.82rem;margin-left:.3rem}
+
+/* 圖表容器與通用節點 */
+.fig{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.7rem .5rem .4rem;margin:0 0 .7rem}
+.fig[hidden]{display:none}
+.fig svg{display:block;width:100%;height:auto;max-width:27rem;margin:0 auto}
+.fig figcaption{font-size:.85rem;color:#3d5059;margin:.35rem .5rem 0;line-height:1.65}
+.node{cursor:pointer}
+.node rect,.node circle,.node path.bx{fill:#fff;stroke:var(--line);stroke-width:2;stroke-linejoin:round}
+.node text{font-family:var(--sans);font-size:11px;fill:var(--ink);font-weight:600}
+.node tspan.n,.node text.n{font-size:9px;font-weight:400;fill:var(--muted)}
+.node.on rect,.node.on circle,.node.on path.bx{fill:var(--exam-soft);stroke:var(--exam);stroke-width:3}
+.node.on text{fill:var(--exam)}
+.node.on tspan.n,.node.on text.n{fill:var(--exam)}
+.guide{stroke:var(--line);stroke-width:2;fill:none;stroke-linejoin:round;stroke-linecap:round}
+.guide.dash{stroke-dasharray:5 4}
+.endlab{font-family:var(--sans);font-size:10.5px;font-weight:600}
+.endlab.l{fill:var(--teal)}
+.endlab.r{fill:var(--gen)}
+
+/* 分日分隔框 */
+.daybreak{border:1px dashed var(--exam);background:var(--exam-soft);border-radius:.4rem;
+  padding:.8rem .95rem;margin:1.6rem 0 0;font-size:.9rem;color:#3d5059;line-height:1.7}
+.daybreak b{display:block;color:var(--exam);font-family:var(--serif);font-size:1.02rem;margin-bottom:.3rem}
+.daybreak[hidden]{display:none}
+
+/* 課文與線索鏈 */
+.modes{display:flex;gap:.4rem;margin:0 0 .7rem;flex-wrap:wrap}
+.modes button{font:inherit;font-size:.84rem;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:.3rem;padding:.3rem .8rem;cursor:pointer}
+.modes button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.modes button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.text{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.9rem .6rem 1.1rem;font-family:var(--serif);font-size:1rem;line-height:1.85}
+.text .ttl{font-weight:600;font-size:1.06rem;margin:0 .4rem .7rem 2.6rem;line-height:1.45}
+.ln{display:flex;align-items:baseline;padding:.02rem 0;border-radius:.2rem}
+.ln>i{flex:0 0 2.2rem;text-align:right;padding-right:.55rem;font-family:var(--sans);font-style:normal;font-size:.68rem;color:var(--muted);line-height:1.9}
+.ln>span{flex:1 1 auto;overflow-wrap:anywhere}
+.ln.ind>span{padding-left:1.1rem}
+.ln.sub>span{font-weight:600}
+.ln.hl{background:var(--exam-soft)}
+.ln.pb{margin-top:.55rem}
+.text .split{font-family:var(--sans);font-size:.78rem;color:var(--exam);
+  border-top:1px dashed var(--exam);margin:.8rem .4rem .7rem 2.6rem;padding-top:.35rem}
+.text m{cursor:pointer;border-radius:.2rem;padding:.02rem .14rem}
+.text m[data-kind="sub"]{background:var(--teal-soft);box-shadow:inset 0 -2px 0 #a8ccc8}
+.text m[data-kind="gen"]{background:var(--gen-soft);box-shadow:inset 0 -2px 0 #a9bbd0}
+.text m[data-kind="mk"]{border-bottom:2px dotted var(--exam);font-style:italic}
+.text m.lit[data-kind="sub"]{background:var(--teal);color:#fff;box-shadow:none}
+.text m.lit[data-kind="gen"]{background:var(--gen);color:#fff;box-shadow:none}
+.text m.lit[data-kind="mk"]{background:var(--exam);color:#fff;border-bottom:none}
+.text.off-sub m[data-kind="sub"]{background:none;box-shadow:none}
+.text.off-gen m[data-kind="gen"]{background:none;box-shadow:none}
+
+/* 固定在底部的說明面板 */
+.panel{position:sticky;bottom:0;background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.75rem .9rem;margin-top:.8rem;box-shadow:0 -2px 10px rgba(23,40,47,.07)}
+.panel .k{font-size:.72rem;font-weight:600;border-radius:.2rem;padding:.06rem .42rem;color:var(--teal);background:var(--teal-soft);border:1px solid var(--teal)}
+.panel .k.g{color:var(--gen);background:var(--gen-soft);border-color:var(--gen)}
+.panel .k.e{color:var(--exam);background:var(--exam-soft);border-color:var(--exam)}
+.panel .ch{font-family:var(--serif);font-size:1rem;margin:.4rem 0 .3rem;color:var(--ink);line-height:1.75;overflow-wrap:anywhere}
+.panel .ch i{font-style:normal;color:var(--muted);padding:0 .28rem}
+.panel .nt{font-size:.88rem;color:#3d5059;margin:0}
+
+/* 舊工具點名複習 */
+.recall{background:#fff;border:1px solid var(--line);border-left:3px solid var(--muted);
+  border-radius:.3rem;padding:.75rem .85rem;margin:1.1rem 0 .9rem;font-size:.92rem;color:#3d5059}
+.recall b{color:var(--ink)}
+.recall ul{margin:.4rem 0 0;padding-left:1.1rem}
+.recall li{margin-bottom:.35rem}
+
+/* 抽句題 */
+.gap{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.9rem 1rem;margin:0 0 .9rem;font-family:var(--serif);font-size:1rem;line-height:1.9}
+.gap .blank{display:inline-block;min-width:9rem;border-bottom:2px solid var(--gen);color:var(--gen);text-align:center;font-family:var(--sans);font-size:.82rem}
+.gap .blank.filled{border-bottom-color:var(--teal);color:var(--ink);font-family:var(--serif);font-size:1rem;text-align:left;background:var(--teal-soft);border-radius:.2rem;padding:0 .25rem}
+.gap .lst{font-family:var(--sans);font-size:.85rem;color:var(--muted);display:block;margin-top:.5rem}
+.picks{display:flex;flex-direction:column;gap:.45rem;margin:0 0 .9rem}
+.picks button{font:inherit;font-family:var(--serif);font-size:.97rem;line-height:1.6;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:.3rem;padding:.55rem .8rem;cursor:pointer;text-align:left}
+.picks button:hover{border-color:var(--teal)}
+.picks button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.picks button[data-state="right"]{background:var(--teal-soft);border-color:var(--teal)}
+.picks button[data-state="wrong"]{background:var(--ground);color:var(--muted)}
+.why{font-size:.86rem;color:#3d5059;margin:.35rem 0 0}
+.why[hidden]{display:none}
+
+/* 收尾與頁尾 */
+.close{border-top:1px solid var(--line);margin-top:2rem;padding-top:1.1rem;font-size:.93rem;color:#3d5059}
+.close[hidden]{display:none}
+.close h2{font-size:1.1rem}
+.close ol{margin:.3rem 0 0;padding-left:1.15rem}
+.close li{margin-bottom:.5rem}
+.more{margin-top:1.5rem;font-size:.88rem}
+.more a{color:var(--teal)}
+.series{border-top:1px solid var(--line);margin-top:2rem;padding-top:1.1rem;font-size:.9rem;color:#3d5059}
+.series .back{font-family:var(--serif);font-size:1rem;color:var(--teal);text-decoration:none}
+.series .back:hover{text-decoration:underline}
+.series .back:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.series .note{font-size:.85rem;color:var(--muted);margin:.5rem 0 0}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+/* 本單元：放射狀網狀圖與第三步的歸格卡片 */
+.fig .lab{font-family:var(--sans);font-size:10px;fill:#3d5059}
+.fig .lab.s{font-size:9px;fill:var(--muted)}
+.fig .spoke{stroke:var(--line);stroke-width:2;fill:none}
+.fig .node.hub rect{stroke:var(--muted)}
+.fig .node.hub.on rect{stroke:var(--exam)}
+.yn{display:flex;gap:.45rem;align-items:center;flex-wrap:wrap;margin-top:.5rem;font-size:.9rem;color:var(--ink);font-weight:600}
+.yn button{font:inherit;font-weight:400;font-size:.82rem;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:.25rem;padding:.18rem .75rem;cursor:pointer}
+.yn button:hover{border-color:var(--teal)}
+.yn button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.qcard.open .yn{display:none}
+.qcard .bd .vd{display:block;font-weight:600;margin-bottom:.15rem}
+.qcard .bd .vd.ok{color:var(--teal)}
+.qcard .bd .vd.ng{color:var(--exam)}
+.qcard .bd q{quotes:none;font-family:var(--serif)}
+#q3w[hidden]{display:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>描述：一個主題，五項紀錄</h1>
+<p class="lede">最大、最快、最有力、最長壽、最毒：這一篇介紹五種在某一方面拿第一的動物。開頭先點出主題，而且把後面要談的紀錄種類先列了出來；接著一個小標題談一項，一段一種動物。這是說明文五種基本結構裡的<b>描述</b>，跟第七單元同一種結構。這一頁也要你留意作者怎麼從一隻動物說到牠身上的某個部位：心臟、翅膀、觸手，這些字都要往前接回牠所屬的那隻動物。</p>
+<p class="preview" id="pv" hidden>預覽模式：所有步驟、圖表、課文標記都已展開，進度不會存檔。學生拿到的一般連結不受影響。</p>
+<p class="resume" id="rs" hidden>上次做到一半，已經幫你接回來了。<button id="rst">重新開始</button></p>
+<p class="src">ALL+ 互動英語 10 月號 Unit 11（pp. 44–45）　Nature’s Record-Breakers　全文 52 行　10/22 讀第 1–20 行，10/23 讀第 21–52 行</p>
+
+<!-- ═══ 第一步 ═══ -->
+<section class="step" id="s1">
+  <p class="stepno">第一步</p>
+  <h2>開頭先把項目列出來<span class="tag">上層：組織方式</span></h2>
+  <p>描述文的開頭，要讓讀者知道兩件事：要談的主題是什麼，後面會分成哪幾項。第七單元的開頭只說有 <q>a variety of subtle strategies</q>，沒有先說是哪幾種；這一篇更直接，前六行就把後面要談的紀錄種類列了出來。<b>點三個有底色的地方</b>。</p>
+  <div class="lead" id="ld">
+    The animal kingdom is the result of billions of years of evolution, which has produced creatures with an astonishing variety of abilities and adaptations. Among them are <c data-t="t">record-holders</c> that stand out for their <c data-t="p">size, speed, strength, or other remarkable traits</c>. <c data-t="r">From giant whales to tiny beetles</c>, these animals show how amazing life on Earth can be.
+  </div>
+  <p class="score" id="sc">已標出 <em>0</em> / 3</p>
+  <div id="s1b" hidden>
+    <p>三個都標出來了。那麼——<b>第 4 到 5 行的 <q>size, speed, strength, or other remarkable traits</q> 在全文裡負責什麼？</b></p>
+    <div class="opts" id="q1">
+      <button>列出每一種動物都同時具備的幾種特長</button>
+      <button data-ok="1">預告後面各段的紀錄種類，並照順序展開</button>
+      <button>比較這幾種動物，看哪一種能力最令人驚嘆</button>
+      <button>說明演化讓動物發展出各種不同的能力</button>
+    </div>
+    <div class="said e" id="a1" hidden>
+      <b>預告後面各段的紀錄種類，並照順序展開。</b>往後翻就對得上：size 是第 7 行的 <q>The Largest Animal Ever</q>，speed 是第 14 行的 <q>The Fastest Animal of All</q>，strength 是第 21 行的 <q>The Strongest Animal for Its Size</q>，順序跟這裡列的一模一樣。最後的 or other remarkable traits 沒有說出名字，後面的壽命（第 31 行）和毒性（第 44 行）兩格就放在這裡面。第 5 行的 <q>From giant whales to tiny beetles</q> 再補上範圍：從最大的鯨魚到很小的甲蟲，而鯨魚和甲蟲正好是後面的第一格和第三格。
+      <br><br>
+      <b>描述文常這樣起手：</b>先用一個概括的名詞點出主題，這裡是 record-holders；再把後面要談的項目列出來。看到開頭有一串並列的名詞，就先數一數有幾項，後面大概就有幾段。如果最後一項是 or other…、and so on 這類說法，表示後面還有沒點名的項目，段數會比列出的多。
+      <br><br>
+      <b>另外三個為什麼排除：</b>
+      <br><br>
+      「說明演化讓動物發展出各種不同的能力」——<b>這個最容易選</b>，因為第 1 到 3 行確實在講這件事：演化 <q>has produced creatures with an astonishing variety of abilities and adaptations</q>。可是那是前一句的內容，題目問的是第 4 到 5 行這一串名詞在做什麼。把前一句的內容當成這一句的功能，歸屬錯了。
+      <br><br>
+      「每一種動物都同時具備的幾種特長」——後面每一格只給一種動物一項紀錄。第 15 行說遊隼 <q>holds the record for speed</q>，只講速度，沒有說牠也最大或最有力。
+      <br><br>
+      「看哪一種能力最令人驚嘆」——這一串名詞只是並列，沒有 more、most 或任何評比的字；作者從頭到尾也沒有說五種動物裡哪一種最厲害。
+    </div>
+    <button class="go" id="g1" hidden>整篇怎麼排？</button>
+  </div>
+</section>
+
+<!-- ═══ 第二步 ═══ -->
+<section class="step" id="s2" hidden>
+  <p class="stepno">第二步</p>
+  <h2>一個主題，分成五項<span class="tag">上層：怎麼認出來</span></h2>
+  <p>先回答：<b>這篇文章的推進方式，最接近下列哪一種？</b></p>
+  <div class="opts" id="q2">
+    <button data-ok="1">先提出一個主題，再分項說明它底下的幾個例子</button>
+    <button>拿幾種動物互相比較，看哪一種的能力最強</button>
+    <button>依照動物出現在地球上的先後，由古到今介紹</button>
+    <button>每一段說出一種能力，再解釋它是怎麼演化來的</button>
+  </div>
+  <div class="said e" id="a2" hidden>
+    <b>先提出一個主題，再分項說明。</b>這是說明文五種基本結構裡的<b>描述</b>（description）：一個主題，加上它的幾個部分、特徵或例子。第 3 行點出主題 record-holders，第 7、14、21、31、44 行的五個小標題各管一項：體型、速度、力氣、壽命、毒性。五項之間沒有先後，也沒有哪一項造成哪一項，任兩段對調，文章照樣讀得通。
+    <br><br>
+    <b>跟第七單元比，這篇多了兩個訊號。</b>第一，開頭就把項目列出來了（第一步看過）。第二，五個小標題全部是最高級：Largest、Fastest、Strongest、Oldest、Most Venomous；而每一段的第一句，都用另一種說法把小標題再講一次：第 8 行 <q>No other creature is as large as the blue whale</q>、第 15 行 <q>holds the record for speed</q>、第 23 到 24 行 <q>undisputed champion</q>、第 33 行 <q>the longest-lived vertebrate on Earth</q>、第 45 到 46 行 <q>claims the title of the world’s most venomous animal</q>。說法換了五次，意思都是「第一名」。同一個意思在每一段開頭反覆出現，就表示這幾段是平行的幾項。
+    <br><br>
+    <b>每一段裡面的寫法也一樣。</b>先宣布紀錄，再給數字，接著拿一個讀者熟悉的東西來比：第 10 行 <q>roughly the size of a small car</q>、第 17 行 <q>far faster than the cheetah</q>、第 26 到 27 行 <q>like a person pulling six city buses</q>、第 37 到 38 行 <q>before the invention of the telescope</q>。五段用同一套順序寫，也是描述文常見的做法。
+    <br><br>
+    <b>另外三個為什麼排除，每一個都是別種結構：</b>
+    <br><br>
+    「拿幾種動物互相比較」——這是<b>比較對照</b>，<b>這個最容易選</b>，因為文章裡到處是比較的字：as large as、far faster than、For comparison。可是每一個比較都在同一段裡面，而且比的對象是段落外的東西：遊隼比的是獵豹，糞金龜比的是一個人。文章從來沒有拿藍鯨跟遊隼比，體型和速度本來也沒辦法比。研究文本結構的學者提醒過，訊號詞有時會誤導：比較的字出現在段落裡，不代表整篇是比較對照。
+    <br><br>
+    「依照動物出現在地球上的先後」——這是<b>序列</b>。文章沒有 first、then 或任何年代把五段串起來；唯一提到的長時間，是第 1 到 2 行的 billions of years of evolution，那只是開頭的背景。
+    <br><br>
+    「解釋它是怎麼演化來的」——這是<b>因果</b>。只有遊隼那一段說了原因：第 18 行 <q>By pulling in its wings and streamlining its body</q>。藍鯨那一段只給尺寸和食量，格陵蘭鯊那一段只給年齡的估計，都沒有說這項能力從哪裡來。
+    <br><br>
+    下面這張圖是描述文的標準組織圖：<b>放射狀網狀圖</b>，跟第七單元同一個形狀。中間是主題，周圍一項一格，格子之間不畫箭頭。<b>點任一格</b>，第四步的課文對應行會亮起來（課文還沒打開的話，先把行號記住就好）。
+  </div>
+  <figure class="fig" id="fig" hidden></figure>
+  <button class="go" id="g2" hidden>把內容放回網狀圖</button>
+</section>
+
+<div class="daybreak" id="db" hidden>
+  <b>10/23 的範圍從這裡開始：第 21–52 行</b>
+  第一、二步用的是 10/22 的第 1–20 行（開頭、藍鯨、遊隼）。第三步以後會用到整篇，包含 10/23 的第 21–52 行（糞金龜、格陵蘭鯊、箱形水母）。如果你今天是 10/22，做到這裡可以先停，明天再接下去。（第二步的說明和圖已經提到後面三格，先看到不影響。）
+</div>
+
+<!-- ═══ 第三步 ═══ -->
+<section class="step" id="s3" hidden>
+  <p class="stepno">第三步</p>
+  <h2>把內容放回網狀圖<span class="tag">上層：怎麼驗證</span></h2>
+  <p>怎麼確定這篇是描述，不是幾種動物的比較？<b>先找訊號詞，說出是哪一種結構，再把內容放進網狀圖，最後用一句話說出整篇。</b></p>
+  <p>訊號詞你在前兩步看過，這裡整理一次：第 3 行 <q>Among them are record-holders</q> 點出主題；第 4 到 5 行 <q>size, speed, strength, or other remarkable traits</q> 預告項目；第 7、14、21、31、44 行的五個小標題一項一個名字；每一段第一句再用 No other…as large as、holds the record for、undisputed champion、longest-lived、claims the title of 宣布這一格的第一名。整篇的訊號都在說「同一個主題底下還有哪一項」，這就是描述。</p>
+  <p>下面六張卡片寫的是文章提到的細節，<b>都換過說法，也沒有行號</b>。每一張判斷一次：它屬於網狀圖的哪一格？點下去就定了，不能改。</p>
+  <div class="qs" id="qs"></div>
+  <p class="score" id="sc3">已放 <em>0</em> / 6，第一次就放對 <em>0</em> 張</p>
+  <div class="said e" id="a3" hidden>
+    <b>六張都放得回去，而且每一張只放得進一格。這就是描述。</b>描述文裡的每一個細節都屬於某一格；放不進任何一格的句子，就不是這篇在講的事。
+    <br><br>
+    <b>最容易放錯的，是一萬五千年那一張。</b>巨型火山海綿不是格陵蘭鯊，很多人會以為它另成一格。可是它沒有自己的小標題，作者用第 38 到 40 行 <q>However, even these remarkable lifespans are surpassed</q> 把它接在格陵蘭鯊後面：同樣是壽命，脊椎動物以外還有活得更久的。<b>一格裡可以有不只一種動物，分格看的是小標題管的是哪一項紀錄。</b>第六步會再回到這一句。
+    <br><br>
+    <b>再注意一件事：五格之間沒有箭頭。</b>把遊隼和糞金龜兩段對調，文章照樣成立。序列不能對調，因果鏈也不能對調；描述可以。
+    <br><br>
+    <b>考卷上怎麼考：</b>主旨題的誘答最愛只寫其中一格，或者把段落裡的比較說成整篇的重點。下面試一題摘要題。
+  </div>
+  <div id="q3w" hidden>
+    <p><b>哪一句最適合當這篇文章的一句話摘要？</b></p>
+    <div class="picks" id="q3">
+      <button>The peregrine falcon holds the record for speed, reaching more than 380 kilometers per hour as it plunges toward its prey.</button>
+      <button>Once the five record-holders are compared side by side, the blue whale stands out as the most remarkable animal of all.</button>
+      <button>Evolution produced these animals one after another, beginning with the giant volcano sponge and ending with the box jellyfish.</button>
+      <button data-ok="1">Five animals each rank first in a different trait, from size and speed to lifespan and venom, showing nature’s diversity.</button>
+    </div>
+    <div class="said e" id="a3b" hidden>
+      <b>第四句。</b>它把五格全部收進一句話：size and speed to lifespan and venom 從第一格說到最後一格，中間的力氣用 from…to 帶過；後半句再說出這五格共同說明的事。它也沒有照抄課文：第 3 行的 <q>record-holders</q> 換成 rank first，第 2 到 3 行的 <q>an astonishing variety of abilities</q> 換成 showing nature’s diversity。
+      <br><br>
+      <b>另外三個為什麼排除：</b>
+      <br><br>
+      「The peregrine falcon holds the record for speed …」——<b>這個最容易選</b>，因為它幾乎是第 15 到 19 行的原文，還有精確的數字，看起來最紮實。可是它只是速度那一格，一格代表不了整篇的五格。
+      <br><br>
+      「Once the five record-holders are compared side by side …」——這是把描述讀成比較對照。作者沒有把五種動物放在一起評比，也沒有說藍鯨最了不起；第 8 行的 <q>No other creature is as large as the blue whale</q> 只管體型這一格。
+      <br><br>
+      「Evolution produced these animals one after another …」——這是把描述讀成序列。文章沒有任何表示先後的字；火山海綿出現在第 41 行，是壽命那一格的補充，不是第一個出現的動物。
+    </div>
+  </div>
+  <button class="go" id="g3" hidden>看每一格裡的部位</button>
+</section>
+
+<!-- ═══ 第四步 ═══ -->
+<section class="step" id="s4" hidden>
+  <p class="stepno">第四步</p>
+  <h2>從一隻動物說到牠的部位<span class="tag b">下層：部分與整體</span></h2>
+  <p>描述一隻動物，作者常常從整隻動物說到牠身上的某個部位，再用這個部位把紀錄說得具體。第 10 行 <q>Its heart is roughly the size of a small car</q>：藍鯨有多大很難想像，說牠的心臟跟一輛小汽車差不多大，就想像得到了。第 18 行 <q>By pulling in its wings and streamlining its body</q>：遊隼為什麼這麼快，答案就在翅膀和身體這兩個部位上。第 47 到 48 行 <q>tentacles covered with stinging cells</q>：從箱形水母說到牠的觸手，再從觸手說到觸手上的刺絲胞，一層套一層。</p>
+  <p>前一句說整體，後一句說它的一部分，兩句之間就靠這層關係接起來。語言學上把這種關係叫 meronymy，也就是<b>部分與整體</b>；Halliday 與 Matthiessen 把它列為詞彙銜接的一種，跟換字、原字重複、上義詞與下義詞並列。</p>
+  <p><b>跟上義詞與下義詞分清楚。</b>第 41 到 42 行 <q>the giant volcano sponge, a type of deep-sea sponge</q>：巨型火山海綿是深海海綿的<b>一種</b>，這是上義詞與下義詞。第 10 行的 heart 卻不是藍鯨的一種，而是藍鯨的<b>一部分</b>。分辨的方法很簡單：說得通 X is a kind of Y，是上下義；說得通 X is part of Y，是部分與整體。第 13 行的 <q>these tiny creatures</q> 指前一句的 krill，krill 是 creatures 的一種，所以那是上義詞，不是部分與整體。</p>
+  <p><b>讀的時候怎麼用：</b>看到 its、the 後面接一個身體部位，先往前找這個部位屬於誰。第 18 行的兩個 its 要特別小心，它們指的遊隼要到同一句的後半才以 the falcon 出現，離它們最近的名詞反而是前一句句尾的獵豹。考卷問「遊隼靠什麼達到這種速度」，答案就是這兩個部位。</p>
+  <p><b>點課文裡有底色的字</b>，同一條的字會一起亮起來。青色是部分與整體；藍灰是十月號第一單元教過的確定程度的語言，這篇的數字和推測幾乎都帶著它。兩色可以各自關掉。</p>
+  <div class="modes">
+    <button id="m1" aria-pressed="true">部分與整體（青）</button>
+    <button id="m2" aria-pressed="true">確定程度的語言（藍灰）</button>
+  </div>
+  <div class="text" id="tx"></div>
+  <div class="panel" id="pn">
+    <span class="k" id="pk">線索</span>
+    <div class="ch" id="pc">點圖上的一格，或課文裡有底色的字</div>
+    <p class="nt" id="pt">青色是動物身上的部位，每一個都要往前接回牠所屬的那隻動物；藍灰是表示約略、推測或限定範圍的字。</p>
+  </div>
+  <div class="recall">
+    <b>另外兩樣，前面單元教過，這篇自己確認得出來：</b>
+    <ul>
+      <li><b>讓步標記。</b>十月號第三單元練過。第 12 行 <q>Despite its massive size</q>、第 38 到 39 行 <q>However, even these remarkable lifespans</q>、第 50 到 51 行 <q>Although it appears fragile</q>。三處都在一格裡面帶出一件出乎意料的事：最大的動物靠最小的生物維生，最長壽的脊椎動物還不是活得最久的生物，看起來脆弱的反而最致命。文法上 Despite 後面接名詞片語，Although 後面接子句，However 是副詞，前後兩句各自完整。</li>
+      <li><b>概括名詞。</b>九月號第三、第四單元和十月號第九單元練過。第 19 到 20 行 <q>This adaptation</q> 收的是前一句的收攏翅膀、讓身體變成流線型；第 27 到 28 行 <q>This incredible strength</q> 收的是拉得動自身體重一千倍這件事；第 39 行 <q>these remarkable lifespans</q> 收的是活超過五百年。三個都是 this 或 these 加一個名詞，而且都加了 incredible、remarkable 這類形容詞，收回前文的同時也表達了作者的評價。</li>
+    </ul>
+  </div>
+  <p style="margin-top:1.1rem"><button class="go" id="g4">考卷怎麼考這種文章</button></p>
+</section>
+
+<!-- ═══ 第五步 ═══ -->
+<section class="step" id="s5" hidden>
+  <p class="stepno">第五步</p>
+  <h2>第一名的範圍，說法的把握<span class="tag">上層：考點</span></h2>
+  <p>第七單元講過描述文的兩個考點：一格冒充整篇，兩格互相搬。這一篇五格都是最高級，所以多了兩個出題的地方：</p>
+  <p><b>一、拿掉最高級的限定範圍。</b>這篇的第一名幾乎都帶著範圍：第 21 行 <q>for Its Size</q>、第 22 到 23 行 <q>relative to body weight</q>、第 17 到 18 行 <q>the fastest land animal</q>、第 33 行 <q>vertebrate</q>，還有第 20 行和第 51 行的 <q>one of</q>。誘答常常把這個範圍拿掉，例如把「以體重來算最有力」說成「最有力」。做法：選項裡有最高級，就回到課文找它後面的 for、on、of 或前面的名詞，確認範圍一樣大。</p>
+  <p><b>二、把推測說成定論。</b>第 32 行 <q>is believed to</q>、第 34 行 <q>Scientists estimate</q>、第 49 行 <q>In severe cases</q> 都在限制把握的程度。誘答常把它們拿掉，或換成 proven、always。做法跟十月號第一單元一樣：課文說「可能」「據估計」，選項說「一定」「已證實」，就超出了文章的把握。</p>
+  <p>試一題：<b>根據全文，下列哪一項敘述正確？</b></p>
+  <div class="opts en" id="q5">
+    <button>The Greenland shark is believed to be the longest-lived creature anywhere on Earth.</button>
+    <button>The peregrine falcon is far faster than the cheetah when both are running on land.</button>
+    <button data-ok="1">No animal with a backbone is thought to live longer than the Greenland shark.</button>
+    <button>The toxins of the box jellyfish kill anyone they touch within a few minutes.</button>
+  </div>
+  <div class="said e" id="a5" hidden>
+    <b>第三句。</b>先注意：它沒有照抄課文。第 33 行的 <q>vertebrate</q> 換成 animal with a backbone，第 32 行的 <q>is believed to</q> 換成 is thought to，第 33 行的 <q>the longest-lived</q> 換成 No…live longer than。範圍（有脊椎的動物）和把握（據信）都跟課文一樣。<b>另外三句反而滿是課文裡的字。</b>大考的正解通常是改寫，照抄課文字面的選項反而要小心。
+    <br><br>
+    <b>另外三個為什麼排除：</b>
+    <br><br>
+    「the longest-lived creature anywhere on Earth」——<b>這個最難排除</b>，因為 is believed to 和 longest-lived 都是第 32 到 33 行的原字，連把握的程度都保留了。可是課文說的是 vertebrate，選項換成 creature，範圍變大了。第 40 到 43 行馬上說有些無脊椎動物活得更久，火山海綿可以活到一萬五千年。<b>範圍錯了。</b>
+    <br><br>
+    「faster than the cheetah when both are running on land」——遊隼的速度是第 15 到 16 行 <q>During a hunting dive</q> 的速度，是在空中俯衝；第 17 到 18 行的 land animal 說的是獵豹。把獵豹的「陸地」接到遊隼身上，<b>歸屬錯了</b>。
+    <br><br>
+    「kill anyone they touch within a few minutes」——第 49 到 50 行的原文是 <q>In severe cases, these toxins can cause death within minutes</q>。In severe cases 限定在嚴重的情況，can 表示可能；選項兩個都拿掉，變成碰到就一定死。<b>把推測說成了定論。</b>
+  </div>
+  <button class="go" id="g5" hidden>最後一題</button>
+</section>
+
+<!-- ═══ 第六步 ═══ -->
+<section class="step" id="s6" hidden>
+  <p class="stepno">第六步</p>
+  <h2>把一句話放回去</h2>
+  <p>這就是考卷上的<b>篇章結構</b>題。下面把第 38 到 40 行那一句整句抽掉了，四個候選句只有一句放得進去。</p>
+  <div class="gap" id="gp">
+    The Oldest Living Vertebrate
+    <br>
+    The Greenland shark is believed to be the longest-lived vertebrate on Earth. Scientists estimate that some individuals can live over 500 years, which means some sharks alive today could have been swimming in the Arctic Ocean before the invention of the telescope.
+    <span class="blank" id="bl">（空格）</span> For example, the giant volcano sponge, a type of deep-sea sponge, is estimated to live for up to 15,000 years!
+  </div>
+  <div class="picks" id="q6">
+    <button>In fact, nothing else alive on Earth can survive for so long.</button>
+    <button>This incredible strength helps these sharks travel across surprisingly long distances.</button>
+    <button data-ok="1">However, even these remarkable lifespans are surpassed by those of some invertebrates.</button>
+    <button>However, even these remarkable lifespans are surpassed by those of some other sharks.</button>
+  </div>
+  <div class="said" id="a6" hidden>
+    <b>四個線索同時指向同一句。</b>這四句單獨看都說得通，沒有一句本身是錯的。要排除，得靠位置和線索。
+    <br><br>
+    <b>先講一個例外。</b>前面說大考的正解通常是改寫，但<b>抽句題不一樣</b>：抽掉的那一句就是原文，所以正解一定是原文。這一題要靠的是誘答哪裡接不上，不是比對字面。
+    <br><br>
+    <b>一、For example 要有一個上層的類別可以舉例。</b>空格後面第 41 行說 <q>For example, the giant volcano sponge</q>，所以空格那一句必須提出一群東西，火山海綿是其中一個例子。正解的 some invertebrates 就是這一群；第 31 行的小標題寫 Vertebrate，第 33 行寫 <q>vertebrate</q>，invertebrates 正好是它的相反。再加上 However 表示轉折，these remarkable lifespans 用概括名詞收回前一句的五百年，這一句前後都接得上。
+    <br><br>
+    <b>另外三個為什麼排除，各有一個明確的依據：</b>
+    <br><br>
+    <b>二、上下義。</b>「surpassed by those of some other sharks」跟正解只差最後兩個字，<b>這個最容易選</b>。可是後面舉的例子是第 41 到 42 行的 <q>a type of deep-sea sponge</q>，海綿不是鯊魚的一種。For example 帶出的例子，必須是前一句那個類別的下義詞；sharks 這個類別裝不下海綿。
+    <br><br>
+    <b>三、方向。</b>「nothing else alive on Earth can survive for so long」說再也沒有別的生物活得這麼久。可是下一句馬上舉出火山海綿可以活到一萬五千年，比五百年久得多。前一句說沒有，後一句舉出一個有的，方向剛好相反。
+    <br><br>
+    <b>四、歸屬。</b>「This incredible strength helps these sharks travel …」是照著第 27 到 30 行糞金龜那一段的句子改的，strength 是力氣那一格的紀錄。壽命這一格從頭到尾沒有提到力氣，這一句放進來，就把別格的內容搬進了這一格。
+    <br><br>
+    再補一條：這一句也說明了小標題為什麼寫 Vertebrate。如果寫成 The Oldest Living Animal，下一句的火山海綿就跟小標題衝突。<b>最高級的限定範圍，就是第五步說的考點。</b>
+  </div>
+  <p class="why" id="w6" hidden>考卷上不會有底色，也不會有行號。但你剛才用的四個線索，每一篇描述文都找得到。</p>
+</section>
+
+<!-- ═══ 第七步 ═══ -->
+<section class="close" id="s7" hidden>
+  <h2>帶著走的五句話</h2>
+  <ol>
+    <li><b>描述文的開頭常把項目先列出來。</b>size, speed, strength, or other remarkable traits：數一數有幾項，後面大概就有幾段；最後是 or other… 的話，後面還有沒點名的項目。</li>
+    <li><b>驗證方法：把內容放回網狀圖。</b>找出訊號詞（主題名詞、預告的項目、小標題），說出是描述，中間寫主題、周圍一項一格，再用一句話把每一格都收進去。任兩格對調文章照樣成立，就是描述。</li>
+    <li><b>同是描述，這篇的每一格都用同一套寫法。</b>先宣布第一名，再給數字，再拿熟悉的東西來比。比較的字只管一格，不代表整篇是比較對照。</li>
+    <li><b>部分與整體：從一隻動物說到牠的部位。</b>Its heart、its wings、tentacles、stinging cells 都要往前接回牠所屬的動物。說得通 X is part of Y 是部分與整體，說得通 X is a kind of Y 是上義詞與下義詞。</li>
+    <li><b>最高級的考點：範圍與把握。</b>for its size、land、vertebrate、one of 限定第一名的範圍；is believed to、estimate、In severe cases 限定說法的把握。選項拿掉其中一個，就不是課文的意思。</li>
+  </ol>
+  <p class="more"><a href="https://staresto-create.github.io/JCEE-vocab-questions/wordwheel.html">單字輪：把字拆成部件來記 →</a></p>
+</section>
+
+<nav class="series">
+  <a class="back" href="cohesion.html">← 回讀法練習總表</a>
+  <p class="note">總表上有目前可以做的所有單元，還有你累積到現在的讀法工具。</p>
+</nav>
+
+</div>
+<script>
+(function(){
+"use strict";
+function $(id){return document.getElementById(id);}
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;");}
+
+var KEY="cohesion-202610-u11-v1";
+
+var PREVIEW=false;
+var ST={tags:{},rows:{},q1:0,q2:0,q3:0,q5:0,q6:0,step:1};
+function save(){ if(PREVIEW) return; try{ localStorage.setItem(KEY, JSON.stringify(ST)); }catch(e){} }
+function load(){ try{ var r=localStorage.getItem(KEY); return r?JSON.parse(r):null; }catch(e){ return null; } }
+function wipe(){ try{ localStorage.removeItem(KEY); }catch(e){} location.reload(); }
+
+var TITLE="Nature’s Record-Breakers";
+
+var LINES=[
+"The animal kingdom is the result of billions of years of",
+"evolution, which has produced creatures with an astonishing",
+"variety of abilities and adaptations. Among them are record-holders",
+"that stand out for their size, speed, strength, or other remarkable",
+"traits. From giant whales to tiny beetles, these animals show how",
+"amazing life on Earth can be.",
+"The Largest Animal Ever",
+"No other creature is as large as the blue whale. It can grow to",
+"{about|c-hed|1} 30 meters long and weigh {around|c-hed|2} 200 tons—the largest",
+"animal to have ever lived. {Its heart|c-mer|1} is {roughly|c-hed|3} the size of a small car,",
+"and it must consume several tons of krill each day to support {its|c-mer|2}",
+"{body|c-mer|2}. Despite its massive size, the blue whale survives mainly on",
+"these tiny creatures.",
+"The Fastest Animal of All",
+"The peregrine falcon holds the record for speed. During a",
+"hunting dive, it can reach speeds of more than 380 kilometers",
+"per hour. This means it is far faster than the cheetah, the fastest",
+"land animal. By pulling in {its wings|c-mer|3} and streamlining {its body|c-mer|4}, the",
+"falcon becomes a living missile as it plunges toward its prey. This",
+"adaptation makes it one of nature’s most effective hunters.",
+"The Strongest Animal for Its Size",
+"When strength is measured relative",
+"to body weight, the dung beetle is the",
+"undisputed champion. Some species",
+"can pull more than 1,000 times their own",
+"weight. For comparison, that would be like",
+"a person pulling six city buses at once. This",
+"incredible strength helps dung beetles",
+"transport food across surprisingly long",
+"distances.",
+"The Oldest Living Vertebrate",
+"The Greenland shark {is believed to|c-hed|4}",
+"be the longest-lived vertebrate on Earth.",
+"{Scientists estimate|c-hed|5} that some individuals",
+"can live over 500 years, which means",
+"some sharks alive today {could have been|c-hed|6}",
+"swimming in the Arctic Ocean before the",
+"invention of the telescope. However,",
+"even these remarkable lifespans are",
+"surpassed by those of some invertebrates.",
+"For example, the giant volcano sponge, a",
+"type of deep-sea sponge, {is estimated to|c-hed|7}",
+"live for {up to|c-hed|8} 15,000 years!",
+"The Most Venomous Animal",
+"The box jellyfish claims the title of the",
+"world’s most venomous animal. Found in",
+"tropical waters, it has {tentacles|c-mer|5} covered with",
+"{stinging cells|c-mer|6} that release powerful toxins.",
+"{In severe cases|c-hed|9}, these toxins can cause",
+"death within minutes. Although it appears",
+"fragile, the box jellyfish is one of the",
+"ocean’s deadliest creatures."
+];
+var INDENT={1:1,8:1,15:1,22:1,32:1,45:1};
+var HEAD={7:1,14:1,21:1,31:1,44:1};
+var SPLIT=21;
+var SPLIT_TEXT="以上是 10/22 的第 1–20 行。以下是 10/23 的第 21–52 行。";
+
+var CHAINS={
+ "c-mer":{k:"sub",n:"部分與整體，六項。前一句先說整隻動物，後一句接著說牠身上的一個部位，兩句靠這層關係接起來：第 10 行 Its heart 是藍鯨的心臟，第 11 到 12 行 its body 是藍鯨的身體；第 18 行 its wings 和 its body 是遊隼的翅膀和身體，這兩個 its 指的是同一句後面才出現的 the falcon；第 47 到 48 行由箱形水母說到牠的觸手，再由觸手說到觸手上的刺絲胞，一層套一層。作者用部位把紀錄說得具體：心臟跟小汽車一樣大，體型有多大就想像得到；收起翅膀、身體變成流線型，就說明了遊隼為什麼能這麼快。"},
+ "c-hed":{k:"gen",n:"確定程度的語言，九處，十月號第一單元教過。分成兩種：放在數字前面，表示這是約略的數字，例如第 9 行 about、around，第 10 行 roughly，第 43 行 up to；放在整個說法前面，表示這是推測或估計，例如第 32 行 is believed to、第 34 行 Scientists estimate、第 36 行 could have been、第 42 行 is estimated to。第 49 行 In severe cases 則把「幾分鐘內致命」限定在嚴重的情況。注意分布：推測的說法幾乎都集中在壽命那一格，因為五百年的壽命沒有人能從頭觀察到尾，只能估計。"}
+};
+var LB={sub:"部分與整體",gen:"確定程度的語言",mk:"標記詞"};
+var CL={sub:"k",gen:"k g",mk:"k e"};
+
+var NODES=[
+ {nm:"紀錄保持者",en:"record-holders",a:1,b:6,
+  n:"第 1 到 6 行。主題：演化造就了許多能力非凡的動物，其中有一些是紀錄保持者。第 4 到 5 行先列出紀錄的種類，size、speed、strength 各占後面一格，or other remarkable traits 再把最後兩格包進來。"},
+ {nm:"體型：藍鯨",en:"No other … as large as",a:7,b:13,
+  n:"第 7 到 13 行。藍鯨長約三十公尺、重約兩百噸，是有史以來最大的動物；牠的心臟跟一輛小汽車差不多大，卻主要靠磷蝦這種小生物維生。"},
+ {nm:"速度：遊隼",en:"holds the record for",a:14,b:20,
+  n:"第 14 到 20 行。遊隼俯衝獵食時，時速超過三百八十公里，遠比陸地上最快的獵豹還快；靠的是收攏翅膀，讓身體變成流線型。"},
+ {nm:"力氣：糞金龜",en:"undisputed champion",a:21,b:30,
+  n:"第 21 到 30 行。以體重來衡量，力氣最大的是糞金龜：有些種類拉得動超過自身體重一千倍的東西，相當於一個人一次拉動六輛公車。第二天從這一格開始。"},
+ {nm:"壽命：格陵蘭鯊",en:"longest-lived",a:31,b:43,
+  n:"第 31 到 43 行。格陵蘭鯊是壽命最長的脊椎動物，有些個體可能活超過五百年；不過有些無脊椎動物活得更久，例如巨型火山海綿。這一格多了一種動物，可是沒有多一個小標題。"},
+ {nm:"毒性：箱形水母",en:"claims the title of",a:44,b:52,
+  n:"第 44 到 52 行。箱形水母是毒性最強的動物，觸手上布滿會釋放毒素的刺絲胞，嚴重的時候幾分鐘內就能致命；外表看起來脆弱，卻是海洋裡最致命的生物之一。"}
+];
+
+var SPOKES=["體型","速度","力氣","壽命","毒性"];
+var ROWS=[
+ {f:"每天得吃下好幾噸的小生物，才養得起那樣龐大的身軀。",ans:0,
+  note:"第 11 到 13 行。藍鯨 <q>must consume several tons of krill each day to support its body</q>，而且 <q>survives mainly on these tiny creatures</q>。這一張寫的是吃，可是這一格講的是體型：身體這麼大，才需要吃這麼多。"},
+ {f:"俯衝時把身體收成流線型，比陸地上跑得最快的動物還要快。",ans:1,
+  note:"第 17 到 19 行。遊隼 <q>far faster than the cheetah, the fastest land animal</q>，靠的是 <q>pulling in its wings and streamlining its body</q>。"},
+ {f:"靠著這股力氣，能把食物搬運到遠得驚人的地方。",ans:2,
+  note:"第 27 到 30 行。<q>This incredible strength helps dung beetles transport food across surprisingly long distances</q>。「遠」容易讓人聯想到速度，可是這一句的主詞是 strength：搬得遠靠的是力氣，不是跑得快。"},
+ {f:"今天還活著的某些個體，可能在望遠鏡發明之前就已經在海裡了。",ans:3,
+  note:"第 34 到 38 行。<q>some sharks alive today could have been swimming in the Arctic Ocean before the invention of the telescope</q>。作者拿一件讀者熟悉的歷史事件來對照，五百年的壽命就變得具體了。"},
+ {f:"外表看起來弱不禁風，卻是海洋裡最致命的生物之一。",ans:4,
+  note:"第 50 到 52 行。<q>Although it appears fragile, the box jellyfish is one of the ocean’s deadliest creatures</q>。"},
+ {f:"有一種生物的壽命還要更長，最久可以活到一萬五千年。",ans:3,
+  note:"第 38 到 43 行。這是巨型火山海綿，<q>is estimated to live for up to 15,000 years</q>。這一張最容易放錯，因為牠不是格陵蘭鯊，看起來像第六格。可是作者用 <q>However, even these remarkable lifespans are surpassed</q> 把牠接在格陵蘭鯊後面，當作壽命這一格的補充，並沒有給牠一個小標題。"}
+];
+
+var TL={t:"主題",p:"預告",r:"範圍"};
+
+/* ---------- 通用：選擇題 ---------- */
+function quiz(qid,aid,gid,tag,after){
+  var done=false;
+  function settle(){
+    done=true;
+    var bs=$(qid).querySelectorAll("button");
+    for(var i=0;i<bs.length;i++){ bs[i].disabled=true; bs[i].dataset.state=bs[i].dataset.ok?"right":"wrong"; }
+    if(aid) $(aid).hidden=false;
+    if(gid) $(gid).hidden=false;
+    if(after) after();
+  }
+  $(qid).addEventListener("click",function(e){
+    var b=e.target.closest("button"); if(!b||done) return;
+    settle(); ST[tag]=1; save();
+  });
+  return settle;
+}
+function opener(gid,sid,extra){
+  $(gid).addEventListener("click",function(){
+    var n=parseInt(sid.replace(/\D/g,""),10);
+    if(ST.step<n) ST.step=n; save();
+    $(sid).hidden=false; if(extra) extra();
+    $(sid).scrollIntoView({behavior:"smooth",block:"start"});
+  });
+}
+function hlLines(a,b){
+  var rows=$("tx").querySelectorAll(".ln");
+  for(var r=0;r<rows.length;r++){ var n=+rows[r].dataset.n; rows[r].classList.toggle("hl", n>=a&&n<=b); }
+  var ms=$("tx").querySelectorAll("m");
+  for(var k=0;k<ms.length;k++) ms[k].classList.remove("lit");
+  if(rows.length){ var f=$("tx").querySelector('.ln[data-n="'+a+'"]'); if(f) f.scrollIntoView({behavior:"smooth",block:"center"}); }
+}
+
+/* ---------- 第一步 ---------- */
+function tagged(){ var n=0; for(var k in ST.tags) if(ST.tags[k]) n++; return n; }
+function paintTag(c){
+  if(c.classList.contains("got")) return;
+  c.classList.add("got");
+  var b=document.createElement("b"); b.textContent=TL[c.dataset.t]||"";
+  c.insertBefore(b, c.firstChild);
+}
+function afterTags(){
+  $("sc").innerHTML="已標出 <em>"+tagged()+"</em> / 3";
+  if(tagged()===3) $("s1b").hidden=false;
+}
+$("ld").addEventListener("click",function(e){
+  var c=e.target.closest("c"); if(!c) return;
+  if(ST.tags[c.dataset.t]) return;
+  ST.tags[c.dataset.t]=1; save(); paintTag(c); afterTags();
+});
+var set1=quiz("q1","a1","g1","q1");
+opener("g1","s2");
+
+/* ---------- 第二步：放射狀網狀圖 ---------- */
+function drawFig(){
+  if($("fig").firstChild) return;
+  $("fig").hidden=false;
+  var s='<svg viewBox="0 0 420 300" role="img" aria-label="放射狀網狀圖：中間是紀錄保持者，周圍五格是體型、速度、力氣、壽命、毒性">';
+  var C={x:210,y:150};
+  var P=[[210,40],[352,112],[312,250],[108,250],[68,112]];
+  var i,d,x,y;
+  for(i=0;i<5;i++) s+='<path class="spoke" d="M'+C.x+' '+C.y+' L'+P[i][0]+' '+P[i][1]+'"/>';
+  d=NODES[0];
+  s+='<g class="node hub" data-i="0" tabindex="0" role="button">';
+  s+='<rect x="'+(C.x-66)+'" y="'+(C.y-29)+'" width="132" height="58" rx="8"/>';
+  s+='<text x="'+C.x+'" y="'+(C.y-9)+'" text-anchor="middle">'+esc(d.nm)+'</text>';
+  s+='<text class="n" x="'+C.x+'" y="'+(C.y+5)+'" text-anchor="middle">'+esc(d.en)+'</text>';
+  s+='<text class="n" x="'+C.x+'" y="'+(C.y+19)+'" text-anchor="middle">第 '+d.a+'–'+d.b+' 行</text>';
+  s+='</g>';
+  for(i=0;i<5;i++){
+    d=NODES[i+1]; x=P[i][0]; y=P[i][1];
+    s+='<g class="node" data-i="'+(i+1)+'" tabindex="0" role="button">';
+    s+='<rect x="'+(x-64)+'" y="'+(y-24)+'" width="128" height="48" rx="5"/>';
+    s+='<text x="'+x+'" y="'+(y-6)+'" text-anchor="middle">'+esc(d.nm)+'</text>';
+    s+='<text class="n" x="'+x+'" y="'+(y+7)+'" text-anchor="middle">'+esc(d.en)+'</text>';
+    s+='<text class="n" x="'+x+'" y="'+(y+19)+'" text-anchor="middle">第 '+d.a+'–'+d.b+' 行</text>';
+    s+='</g>';
+  }
+  s+='</svg><figcaption>中間是主題，周圍五格是五個小標題，照課文出現的順序順時針排。格子裡的英文，是每一段開頭宣布紀錄的說法，五種說法各不相同，說的都是「第一名」。格子和中間之間只有線，沒有箭頭，格子彼此也不相連：五項紀錄各自獨立，任兩格對調都不影響。點任一格，第四步的課文對應行會亮起來。</figcaption>';
+  $("fig").innerHTML=s;
+  function hit(g){
+    var i=+g.dataset.i, d=NODES[i];
+    var gs=$("fig").querySelectorAll(".node");
+    for(var j=0;j<gs.length;j++) gs[j].classList.toggle("on", +gs[j].dataset.i===i);
+    hlLines(d.a,d.b);
+    $("pk").textContent=(i===0?"網狀圖的中心":"網狀圖的一格"); $("pk").className="k e";
+    $("pc").textContent=d.nm+"　"+d.en; $("pt").textContent=d.n;
+  }
+  $("fig").addEventListener("click",function(e){ var g=e.target.closest(".node"); if(g) hit(g); });
+  $("fig").addEventListener("keydown",function(e){
+    if(e.key!=="Enter"&&e.key!==" ") return;
+    var g=e.target.closest(".node"); if(g){ e.preventDefault(); hit(g); }
+  });
+}
+function afterQ2(){ drawFig(); $("db").hidden=false; }
+var set2=quiz("q2","a2","g2","q2",afterQ2);
+opener("g2","s3",buildRows);
+
+/* ---------- 第三步：把內容放回網狀圖 ---------- */
+var builtRows=false;
+function buildRows(){
+  if(builtRows) return; builtRows=true;
+  var h="";
+  for(var i=0;i<ROWS.length;i++){
+    var r=ROWS[i], bt="";
+    for(var k=0;k<SPOKES.length;k++) bt+='<button data-i="'+i+'" data-v="'+k+'">'+SPOKES[k]+'</button>';
+    h+='<div class="qcard" id="cd'+i+'"><div class="hd"><span class="qt">'+esc(r.f)+'</span></div>'+
+       '<span class="yn">屬於：'+bt+'</span>'+
+       '<span class="bd" id="bd'+i+'"></span></div>';
+  }
+  $("qs").innerHTML=h;
+  $("qs").addEventListener("click",function(e){
+    var b=e.target.closest("button"); if(!b) return;
+    var i=b.dataset.i; if(ST.rows[i]!==undefined&&ST.rows[i]!==null) return;
+    ST.rows[i]=+b.dataset.v; save(); paintRows();
+  });
+  paintRows();
+}
+function isSet(v){ return typeof v==="number"; }
+function judged(){ var n=0; for(var i=0;i<ROWS.length;i++) if(isSet(ST.rows[i])) n++; return n; }
+function rightRows(){ var n=0; for(var i=0;i<ROWS.length;i++) if(ST.rows[i]===ROWS[i].ans) n++; return n; }
+function paintRows(){
+  for(var i=0;i<ROWS.length;i++){
+    var el=$("cd"+i); if(!el) continue;
+    var v=ST.rows[i], r=ROWS[i];
+    el.classList.toggle("open",isSet(v));
+    if(isSet(v)){
+      var ok=(v===r.ans);
+      var head= ok ? ("放對了：這一張屬於「"+SPOKES[r.ans]+"」那一格。") : ("再看一次：這一張其實屬於「"+SPOKES[r.ans]+"」，不是「"+SPOKES[v]+"」。");
+      $("bd"+i).innerHTML='<span class="vd '+(ok?"ok":"ng")+'">'+head+'</span>'+r.note;
+    }
+  }
+  $("sc3").innerHTML="已放 <em>"+judged()+"</em> / "+ROWS.length+"，第一次就放對 <em>"+rightRows()+"</em> 張";
+  if(judged()>=ROWS.length){ $("a3").hidden=false; $("q3w").hidden=false; }
+}
+var set3=quiz("q3","a3b","g3","q3");
+opener("g3","s4",function(){ buildText(); drawFig(); });
+
+/* ---------- 第四步：課文與線索鏈 ---------- */
+function renderLine(str){
+  var out="",i=0;
+  while(i<str.length){
+    var a=str.indexOf("{",i);
+    if(a<0){ out+=esc(str.slice(i)); break; }
+    out+=esc(str.slice(i,a));
+    var b=str.indexOf("}",a), p=str.slice(a+1,b).split("|");
+    var id=p[1], it=p[2]||"1", k=CHAINS[id]?CHAINS[id].k:"sub";
+    out+='<m data-c="'+id+'" data-i="'+it+'" data-kind="'+k+'" tabindex="0">'+esc(p[0])+'</m>';
+    i=b+1;
+  }
+  return out;
+}
+var builtText=false;
+function buildText(){
+  if(builtText) return; builtText=true;
+  var h='<p class="ttl">'+renderLine(TITLE)+'</p>';
+  for(var i=0;i<LINES.length;i++){
+    var n=i+1;
+    if(SPLIT && n===SPLIT) h+='<p class="split">'+esc(SPLIT_TEXT)+'</p>';
+    var cls="ln";
+    if(HEAD[n]) cls+=" sub pb";
+    else if(INDENT[n]) cls+=" ind"+(n>1&&!HEAD[n-1]?" pb":"");
+    h+='<div class="'+cls+'" data-n="'+n+'"><i>'+((n%5===0)?n:"")+'</i><span>'+renderLine(LINES[i])+'</span></div>';
+  }
+  $("tx").innerHTML=h;
+}
+function lightChain(id){
+  var ms=$("tx").querySelectorAll("m"), items={}, order=[],i;
+  var gs=$("fig").querySelectorAll(".node");
+  for(i=0;i<gs.length;i++) gs[i].classList.remove("on");
+  var rows=$("tx").querySelectorAll(".ln");
+  for(i=0;i<rows.length;i++) rows[i].classList.remove("hl");
+  for(i=0;i<ms.length;i++){
+    if(ms[i].dataset.c===id){
+      ms[i].classList.add("lit");
+      var key=ms[i].dataset.i;
+      if(!items[key]){ items[key]=[]; order.push(key); }
+      items[key].push(ms[i].textContent);
+    } else ms[i].classList.remove("lit");
+  }
+  var c=CHAINS[id]; if(!c) return;
+  var parts=[];
+  for(var o=0;o<order.length;o++) parts.push(esc(items[order[o]].join(" ")));
+  $("pk").textContent=LB[c.k]; $("pk").className=CL[c.k];
+  $("pc").innerHTML=parts.join('<i>\u2192</i>');
+  $("pt").textContent=c.n;
+}
+$("tx").addEventListener("click",function(e){ var m=e.target.closest("m"); if(m) lightChain(m.dataset.c); });
+$("tx").addEventListener("keydown",function(e){
+  if(e.key!=="Enter"&&e.key!==" ") return;
+  var m=e.target.closest("m"); if(m){ e.preventDefault(); lightChain(m.dataset.c); }
+});
+function toggle(btn,cls){
+  btn.addEventListener("click",function(){
+    var on=btn.getAttribute("aria-pressed")==="true";
+    btn.setAttribute("aria-pressed",on?"false":"true");
+    $("tx").classList.toggle(cls,on);
+  });
+}
+toggle($("m1"),"off-sub");
+toggle($("m2"),"off-gen");
+opener("g4","s5");
+
+/* ---------- 第五步 ---------- */
+var set5=quiz("q5","a5","g5","q5");
+$("g5").addEventListener("click",function(){
+  if(ST.step<6) ST.step=6; save();
+  $("s6").hidden=false;
+  $("s6").scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+/* ---------- 第六步 ---------- */
+var done6=false;
+function settle6(){
+  done6=true;
+  var bs=$("q6").querySelectorAll("button");
+  for(var i=0;i<bs.length;i++){
+    bs[i].disabled=true; bs[i].dataset.state=bs[i].dataset.ok?"right":"wrong";
+    if(bs[i].dataset.ok){ $("bl").textContent=bs[i].textContent; $("bl").className="blank filled"; }
+  }
+  $("a6").hidden=false; $("w6").hidden=false; $("s7").hidden=false;
+}
+$("q6").addEventListener("click",function(e){
+  var b=e.target.closest("button"); if(!b||done6) return;
+  settle6(); ST.q6=1; save();
+  $("a6").scrollIntoView({behavior:"smooth",block:"nearest"});
+});
+
+/* ---------- 老師的預覽開關：網址加 ?all ---------- */
+function previewAll(){
+  PREVIEW=true;
+  $("pv").hidden=false;
+  var i,cs=$("ld").querySelectorAll("c");
+  for(i=0;i<cs.length;i++){ ST.tags[cs[i].dataset.t]=1; paintTag(cs[i]); }
+  afterTags(); set1();
+  $("s2").hidden=false; set2();
+  $("s3").hidden=false;
+  for(i=0;i<ROWS.length;i++) ST.rows[i]=ROWS[i].ans;
+  buildRows(); set3();
+  $("s4").hidden=false; buildText(); drawFig();
+  $("s5").hidden=false; set5();
+  $("s6").hidden=false; settle6();
+}
+
+/* ---------- 接回上次的進度 ---------- */
+$("rst").addEventListener("click",wipe);
+(function restore(){
+  if(/(^|[?&])all(=|&|$)/.test(location.search)){ previewAll(); return; }
+  var v=load(); if(!v) return;
+  ST=v;
+  if(!ST.tags) ST.tags={};
+  if(!ST.rows) ST.rows={};
+  if(!ST.step) ST.step=1;
+  if(!(tagged()||ST.step>1)) return;
+  $("rs").hidden=false;
+  var i,cs=$("ld").querySelectorAll("c");
+  for(i=0;i<cs.length;i++) if(ST.tags[cs[i].dataset.t]) paintTag(cs[i]);
+  afterTags();
+  if(ST.q1) set1();
+  if(ST.step>=2){ $("s2").hidden=false; if(ST.q2) set2(); }
+  if(ST.step>=3){ $("s3").hidden=false; buildRows(); if(ST.q3) set3(); }
+  if(ST.step>=4){ $("s4").hidden=false; buildText(); drawFig(); }
+  if(ST.step>=5){ $("s5").hidden=false; if(ST.q5) set5(); }
+  if(ST.step>=6){ $("s6").hidden=false; if(ST.q6) settle6(); }
+  var last=$("s"+(ST.step>=6?6:ST.step));
+  if(last) setTimeout(function(){ last.scrollIntoView({block:"start"}); },60);
+})();
+})();
+</script>
+</body>
+</html>
