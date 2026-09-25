@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>因果的組織圖｜The Kitchen Favorites Once Thought to Be Deadly</title>
+
+<style>
+:root{
+  --ground:#f1f3f2; --ink:#17282f; --teal:#1f6f6a; --teal-soft:#dfeceb;
+  --muted:#77878d; --line:#cdd6d6; --exam:#b4661c; --exam-soft:#fdf4e7;
+  --ok:#2e6b4f; --ok-soft:#edf4ef;
+  --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+  --sans:"PingFang TC","Noto Sans TC","Microsoft JhengHei","Helvetica Neue",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-text-size-adjust:100%}
+.wrap{max-width:44rem;margin:0 auto;padding:1.6rem 1.1rem 4rem}
+h1{font-family:var(--serif);font-weight:600;font-size:1.6rem;line-height:1.3;margin:0 0 .55rem}
+.lede{margin:0 0 1.1rem;color:#3d5059;font-size:.95rem}
+.src{font-size:.8rem;color:var(--muted);margin:0 0 1.1rem}
+.preview{font-size:.85rem;color:var(--exam);background:var(--exam-soft);border:1px dashed var(--exam);
+  border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.preview[hidden]{display:none}
+.resume{font-size:.85rem;color:var(--teal);background:var(--teal-soft);border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.resume[hidden]{display:none}
+.resume button{font:inherit;font-size:.82rem;background:#fff;color:var(--ink);border:1px solid var(--line);
+  border-radius:.25rem;padding:.16rem .6rem;margin-left:.5rem;cursor:pointer}
+.step{border-top:1px solid var(--line);padding-top:1.15rem;margin-top:1.7rem}
+.step[hidden]{display:none}
+.stepno{font-family:var(--serif);font-size:.82rem;color:var(--muted);margin:0 0 .2rem}
+h2{font-family:var(--serif);font-weight:600;font-size:1.2rem;margin:0 0 .5rem;color:var(--teal)}
+p{margin:0 0 .7rem;font-size:.95rem}
+
+/* 組織圖：多列原因結果表 */
+.fig{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.7rem .5rem .5rem;margin:.2rem 0 .6rem}
+.fig svg{display:block;width:100%;height:auto;max-width:26rem;margin:0 auto}
+.bx rect{fill:#fff;stroke:var(--line);stroke-width:2}
+.bx text.fn{font-family:var(--sans);font-size:11px;font-weight:600;fill:var(--ink)}
+.bx text.en{font-family:var(--serif);font-size:8.5px;fill:var(--muted)}
+.bx text.rf{font-family:var(--sans);font-size:8.5px;fill:var(--muted)}
+.bx.aim rect{stroke:var(--teal);stroke-dasharray:6 4}
+.bx.on rect{fill:var(--ok-soft);stroke:var(--ok);stroke-width:2.5}
+.bx.on text.rf{fill:var(--ok);font-weight:600}
+.bx.sel rect{stroke:var(--teal);stroke-width:3}
+.lv text{font-family:var(--sans);font-size:9px;fill:var(--muted)}
+.cutline{stroke:var(--exam);stroke-width:2;stroke-dasharray:6 5}
+.frameline{stroke:var(--line);stroke-width:2;stroke-dasharray:5 4;fill:none}
+.cuttag{font-family:var(--sans);font-size:9px;font-weight:600;fill:var(--exam)}
+
+.panel{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.7rem .85rem;margin:0 0 .9rem}
+.panel .k{font-size:.72rem;font-weight:600;border-radius:.2rem;padding:.06rem .42rem;
+  color:var(--teal);background:var(--teal-soft);border:1px solid var(--teal)}
+.panel .q{font-family:var(--serif);font-size:.95rem;line-height:1.65;margin:.4rem 0 0;color:#3d5059}
+
+.pool{display:flex;flex-direction:column;gap:.4rem;margin:0 0 .8rem}
+.pool button{font:inherit;font-family:var(--serif);font-size:.93rem;line-height:1.55;background:#fff;color:var(--ink);
+  border:1px solid var(--line);border-radius:.3rem;padding:.5rem .7rem;cursor:pointer;text-align:left}
+.pool button:hover{border-color:var(--teal)}
+.pool button.pick{border-color:var(--teal);background:var(--teal-soft)}
+.pool button.gone{display:none}
+.hint{font-size:.85rem;color:var(--muted);margin:0 0 .8rem}
+.hint em{font-style:normal;color:var(--teal);font-weight:600}
+
+.opts{display:flex;flex-direction:column;gap:.45rem;margin:.2rem 0 .8rem}
+.opts button{font:inherit;font-size:.94rem;background:#fff;color:var(--ink);border:1px solid var(--line);
+  border-radius:.3rem;padding:.5rem .8rem;cursor:pointer;text-align:left}
+.opts button:hover{border-color:var(--teal)}
+.opts button[data-state="right"]{background:var(--ok-soft);border-color:var(--ok)}
+.opts button[data-state="wrong"]{background:var(--ground);color:var(--muted)}
+.opts button[disabled]{cursor:default}
+
+.said{background:#fff;border-left:3px solid var(--teal);border-radius:.3rem;padding:.75rem .85rem;
+  margin:.2rem 0 .9rem;font-size:.93rem;color:#3d5059}
+.said[hidden]{display:none}
+.said b{color:var(--ink)}
+.srcs{margin:.6rem 0 .9rem}
+.srcs .pair{font-family:var(--serif);font-size:.9rem;line-height:1.6;color:#3d5059;
+  border-left:2px solid var(--line);padding:.1rem 0 .1rem .6rem;margin:0 0 .5rem}
+.srcs .pair .t{display:block;font-family:var(--sans);font-size:.76rem;font-weight:600;color:var(--teal)}
+.go{font:inherit;font-size:.92rem;background:var(--ink);color:#fff;border:1px solid var(--ink);
+  border-radius:.3rem;padding:.42rem 1.05rem;cursor:pointer}
+.go[hidden]{display:none}
+
+.prompt{background:var(--exam-soft);border:1px solid #e8d3b4;border-radius:.4rem;padding:.75rem .85rem;
+  margin:0 0 .9rem;font-size:.92rem;color:#3d5059}
+.prompt b{color:var(--ink)}
+.cell{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.6rem .75rem}
+.cell+.cell{margin-top:.6rem}
+.cell .fn{font-size:.78rem;font-weight:600;color:var(--teal)}
+.cell .fn em{font-style:normal;color:var(--muted);font-weight:400;margin-left:.35rem}
+.cell textarea{width:100%;margin-top:.3rem;font-family:inherit;font-size:.93rem;line-height:1.6;
+  padding:.45rem .55rem;border:1px solid var(--line);border-radius:.3rem;background:#fff;color:var(--ink);resize:vertical}
+.bar{display:flex;gap:.5rem;flex-wrap:wrap;margin:.7rem 0}
+.bar button{font:inherit;font-size:.9rem;background:#fff;color:var(--ink);border:1px solid var(--ink);
+  border-radius:.3rem;padding:.38rem .9rem;cursor:pointer}
+.bar button.p{background:var(--ink);color:#fff}
+.bar button[disabled]{border-color:var(--line);color:var(--muted);cursor:default;background:#fff}
+pre.ai{background:#fff;border:1px solid var(--line);border-radius:.3rem;padding:.6rem .7rem;
+  font-size:.8rem;line-height:1.65;white-space:pre-wrap;margin:.4rem 0 0;color:#3d5059}
+.code{background:var(--teal-soft);border:1px solid var(--teal);border-radius:.4rem;padding:.7rem .85rem;margin:1.1rem 0 .5rem}
+.code .t{font-size:.8rem;font-weight:600;color:var(--teal);margin:0 0 .35rem}
+.code .v{font-family:var(--serif);font-size:1.15rem;letter-spacing:.04em;color:var(--ink);margin:0 0 .5rem}
+.series{border-top:1px solid var(--line);margin-top:2.2rem;padding-top:1.1rem;font-size:.9rem}
+.series a{font-family:var(--serif);font-size:1rem;color:var(--teal);text-decoration:none}
+.series a:hover{text-decoration:underline}
+.toast{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--ink);color:#fff;
+  padding:.45rem 1rem;border-radius:.3rem;font-size:.86rem;opacity:0;transition:opacity .2s;pointer-events:none}
+.toast.on{opacity:1}
+.food rect{fill:var(--ground);stroke:var(--line);stroke-width:1.5}
+.food text{font-family:var(--sans);font-size:11px;font-weight:600;fill:var(--ink)}
+.res rect{fill:#fff;stroke:var(--line);stroke-width:1.5;stroke-dasharray:3 3}
+.res text{font-family:var(--sans);font-size:9.5px;fill:#3d5059}
+.arr{stroke:var(--muted);stroke-width:1.5;fill:none}
+.hdr{font-family:var(--sans);font-size:9.5px;font-weight:600;fill:var(--muted)}
+.ghost rect{fill:var(--ground);stroke:var(--exam);stroke-width:1.5;stroke-dasharray:6 5}
+.ghost text{font-family:var(--sans);font-size:10px;font-weight:600;fill:var(--exam)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>因果的組織圖：四種食物，四組原因</h1>
+<p class="lede">上一份單元頁帶你讀完這篇食物的歷史。這一份把整篇壓成一張圖：最上面是開頭的問題，中間一種食物一列，左邊原因、右邊結果，最下面是結尾的共同原因。這個形狀叫<b>原因結果表</b>，看到一列一列並排的因果，就是它。</p>
+<p class="preview" id="pv" hidden>預覽模式：全部步驟與答案一次展開，進度不存檔。學生拿到的一般連結不受影響。</p>
+<p class="resume" id="rs" hidden>上次做到一半，已經幫你接回來了。<button id="rst">重新開始</button></p>
+<p class="src">ALL+ 互動英語 10 月號 Unit 3（pp. 12–13）　The Kitchen Favorites Once Thought to Be Deadly　全文 60 行</p>
+
+<!-- 第一步 -->
+<section class="step" id="s1">
+  <p class="stepno">第一步</p>
+  <h2>一種食物一列</h2>
+  <p>結果那一欄已經印好了，四種食物當年的下場都寫在右邊。你要放的是原因，另外還有開頭和結尾兩格。</p>
+  <p>六個位置各有各的功能。<b>八張句卡，只有六張放得進去</b>，而且都不是原句，是換過字的說法。</p>
+  <p class="hint" id="h1">先點一張句卡，再點圖上的格子。第一次就放對 <em id="n1">0</em> / 6</p>
+  <div class="pool" id="pool"></div>
+  <figure class="fig" id="fig"></figure>
+  <div class="panel" id="pn">
+    <span class="k" id="pk">這一格</span>
+    <p class="q" id="pq">點圖上任一個格子，看它裝的是哪一句。</p>
+  </div>
+  <div class="said" id="a1" hidden>
+    <b>兩張放不進去的是哪兩張。</b>一張說白鑞盤溶出的鉛真的毒死了吃番茄的人。它最容易放進番茄那一格，因為第 8 到 12 行確實講了這個故事；可是第 13 到 15 行作者說故事大概不是真的，溶出的鉛根本不足以致命。<b>作者不信的原因，不能填進原因那一格。</b>另一張說教宗喝過咖啡之後，大家的看法開始轉變。這件事在第 39 到 42 行，可是它講的是咖啡後來怎麼改觀，不是當初為什麼讓人害怕，<b>放錯了欄位</b>。
+    <br><br>
+    <b>八張句卡沒有一張跟課文一樣。</b>下面是六個位置的原文與行號，回去對一次。
+    <div class="srcs" id="src6"></div>
+  </div>
+  <button class="go" id="g1" hidden>下一步：拿掉一列看看</button>
+</section>
+
+<!-- 第二步 -->
+<section class="step" id="s2" hidden>
+  <p class="stepno">第二步</p>
+  <h2>拿掉一列測試</h2>
+  <p>怎麼確定這四列是並排的，不是一條鏈？<b>拿掉其中一列，看其他列還站不站得住。</b>按下面任一個按鈕，圖上那一列會真的拿掉。</p>
+  <div class="bar" id="cutbar">
+    <button data-r="1">拿掉番茄</button>
+    <button data-r="2">拿掉馬鈴薯</button>
+    <button data-r="3">拿掉咖啡</button>
+    <button data-r="4">拿掉鹽</button>
+    <button class="p" id="undo" hidden>把那一列放回去</button>
+  </div>
+  <p class="hint" id="cuth">四列都在。</p>
+  <div id="q2box" hidden>
+    <p>拿掉任何一列，另外三列的原因和結果都還講得通。<b>這說明了什麼？</b></p>
+    <div class="opts" id="q2">
+      <button>這篇其實是序列，四種食物照傳入的先後排</button>
+      <button data-ok="1">四組因果各自成立，前一組不是後一組的原因</button>
+      <button>拿掉的那一段不重要，作者本來可以不寫它</button>
+      <button>結尾的共同原因只需要番茄那一段就足夠了</button>
+    </div>
+    <div class="said" id="a2" hidden>
+      <b>四組因果各自成立。</b>番茄讓人害怕的原因，不會造成咖啡讓人害怕，所以拿掉番茄那一列，咖啡那一列照樣講得通。九月號第八單元的因果鏈就不一樣：那裡拿掉中間一環，後面每一環都接不上。<b>拿掉一列還站得住，是並列；拿掉一環就斷掉，是鏈。</b>
+      <br><br>
+      <b>另外三個為什麼排除：</b>「拿掉的那一段不重要」<b>最容易選</b>，因為其他三列確實不受影響。可是四列加起來，才是結尾那句 these old food fears 的證據，少一列，共同原因的例子就少一個。<b>各自成立不等於不重要。</b>「照傳入的先後排」是序列，但第 32 到 34 行說咖啡跟番茄、馬鈴薯差不多同時到，鹽也沒有傳入這件事。「只需要番茄那一段」範圍太小：第 52 到 53 行的 these old food fears 收的是四種食物，不只番茄。
+    </div>
+  </div>
+  <button class="go" id="g2" hidden>下一步：換成你自己的作文</button>
+</section>
+
+<!-- 第三步 -->
+<section class="step" id="s3" hidden>
+  <p class="stepno">第三步</p>
+  <h2>問了兩件事，兩件都要答</h2>
+  <p>這篇文章的開頭問了兩件事：從前為什麼怕，後來怎麼改觀。單元頁的第三步已經讓你看過，文章只把第一件答完整。寫作文時不要重蹈覆轍：學測作文常要你「說明原因，再說明後來的轉變」，如果題目問了兩件事，大綱裡就要兩件都有位置。</p>
+  <div class="prompt">
+    <b>試寫的題目：</b>有些東西一開始讓你抗拒，後來卻成了你離不開的一部分，例如一種食物、一個 App 或一個習慣。請寫一篇短文，第一段說明你當初為什麼排斥它，第二段說明後來怎麼改觀，以及你從這個經驗學到什麼。
+  </div>
+  <p>每一格寫一句中文要點就好，這一步先不寫英文。</p>
+  <div id="mine"></div>
+  <div class="bar">
+    <button class="p" id="cp">複製我寫的內容</button>
+    <button id="sv">存到瀏覽器</button>
+  </div>
+  <p class="hint">這一步沒有標準答案，站上不批改。複製之後貼給老師，或貼給 AI 也可以，下面這段指示會跟著一起複製。</p>
+  <pre class="ai" id="aib"></pre>
+  <div class="code">
+    <p class="t">做完了，把這一行貼到 Google Classroom 的作業回覆欄</p>
+    <p class="v" id="cv">—</p>
+    <div class="bar" style="margin:0">
+      <button class="p" id="cc">複製完成碼</button>
+      <button id="rfb">重新產生</button>
+    </div>
+    <p class="hint" style="margin:.5rem 0 0">老師只看這一行，不會看到你寫的內容。你寫的東西只留在這台裝置的瀏覽器裡。</p>
+  </div>
+</section>
+
+<nav class="series">
+  <a href="cohesion.html">← 回讀法練習總表</a>
+</nav>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+"use strict";
+function $(id){return document.getElementById(id);}
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;");}
+
+var KEY="outline-202610-u3-v1";
+var PREVIEW=false;
+var ST={put:{},first:{},miss:{},cut:0,cutTouched:0,q2:0,mine:{},step:1};
+function save(){ if(PREVIEW) return; try{ localStorage.setItem(KEY,JSON.stringify(ST)); }catch(e){} }
+function load(){ try{ var r=localStorage.getItem(KEY); return r?JSON.parse(r):null; }catch(e){ return null; } }
+function toast(m){ var t=$("toast"); t.textContent=m; t.classList.add("on");
+  setTimeout(function(){ t.classList.remove("on"); },1600); }
+
+/* 六格的位置：開頭、四列原因、結尾 */
+var CELLS=[
+ {id:"a",fn:"開頭的問題",   en:"the question",   rf:"第 1–5 行",   x:20, y:8,   w:300,h:46},
+ {id:"b",fn:"為什麼怕",     en:"cause",          rf:"第 6–17 行",  x:66, y:80,  w:170,h:46,row:1},
+ {id:"c",fn:"為什麼怕",     en:"cause",          rf:"第 18–30 行", x:66, y:132, w:170,h:46,row:2},
+ {id:"d",fn:"為什麼怕",     en:"cause",          rf:"第 31–42 行", x:66, y:184, w:170,h:46,row:3},
+ {id:"e",fn:"為什麼怕",     en:"cause",          rf:"第 43–51 行", x:66, y:236, w:170,h:46,row:4},
+ {id:"f",fn:"結尾：共同的原因",en:"the common root",rf:"第 52–60 行",x:20, y:294, w:300,h:46}
+];
+var ROWN=["","番茄","馬鈴薯","咖啡","鹽"];
+var RES=["","近兩百年不敢吃","一直懷疑","遭人排斥","名聲變壞"];
+
+var SENTS=[
+ {id:"d",t:"Church leaders tied it to the devil, perhaps partly because people simply liked it too much."},
+ {id:"x1",t:"Lead from pewter plates was strong enough to kill the rich diners who ate tomatoes off them."},
+ {id:"a",t:"Foods we now eat every day once filled Europeans with dread, so how did that change?"},
+ {id:"e",t:"A famous painting and tales of soldiers ruining fields gave it a gloomy image."},
+ {id:"c",t:"This plant really does carry poison in its leaves, and even safer farmed types did not calm Europeans."},
+ {id:"x2",t:"After the Pope tasted it and praised it, public opinion began to turn in its favor."},
+ {id:"f",t:"Being wary of the unknown is part of being human, and moving forward means setting such biases aside."},
+ {id:"b",t:"Its close resemblance to a poisonous berry probably worried people more than any metal plate did."}
+];
+var NOFIT={
+ x1:"這一張最容易放進番茄那一格。可是第 13 到 15 行作者說這個故事大概不是真的，溶出的鉛根本不足以致命。作者不信的原因，不能填進原因那一格。",
+ x2:"這一張講的是咖啡後來怎麼改觀（第 39 到 42 行），不是當初為什麼讓人害怕。圖上的格子要的是原因，這一張放錯了欄位。"
+};
+var SRCQ=[
+ {fn:"開頭的問題",rf:"第 1–5 行",t:"Today, we can\u2019t imagine life without tomatoes, potatoes, coffee, or salt. Yet Europeans once looked upon these everyday staples with terror and suspicion. So how did they go from feared foods to favorites?"},
+ {fn:"番茄：為什麼怕",rf:"第 15–17 行",t:"A more likely explanation is that tomatoes simply looked too much like belladonna berries, which really are deadly."},
+ {fn:"馬鈴薯：為什麼怕",rf:"第 18–26 行",t:"Potatoes, unlike tomatoes, do have genuine poisonous potential, since their leaves contain a real toxin. \u2026 Even so, Europeans remained deeply suspicious of potatoes when the vegetable first arrived from South America."},
+ {fn:"咖啡：為什麼怕",rf:"第 34–38 行",t:"the drink drew suspicion from Christian leaders, who branded it satanic. Why? Christians of the era were famously no fun, so perhaps they simply found it too enjoyable."},
+ {fn:"鹽：為什麼怕",rf:"第 44–50 行",t:"Leonardo da Vinci\u2019s famous painting The Last Supper shows Judas Iscariot knocking over salt, a detail that helped fuel the superstition that spilled salt brings misfortune. Stories of armies salting their enemies\u2019 farmland added to this dark reputation"},
+ {fn:"結尾：共同的原因",rf:"第 57–60 行",t:"they remind us that fearing the unfamiliar is simply human nature, and that progress often means learning to look past our own prejudices."}
+];
+
+var MINE=[
+ {id:"m1",fn:"開頭：今天和當初的落差",en:"the gap",ph:"現在離不開什麼？當初是什麼態度？"},
+ {id:"m2",fn:"當初排斥的原因",en:"causes",ph:"為什麼排斥它？可以寫兩個原因。"},
+ {id:"m3",fn:"後來怎麼改觀",en:"the change",ph:"發生了什麼事，讓你改變看法？"},
+ {id:"m4",fn:"收尾：學到的道理",en:"the lesson",ph:"這個經驗讓你學到什麼？"}
+];
+
+var AI=[
+"我是台灣的高中生，正在準備學測英文作文。下面是我列的中文大綱，題目要我說明當初為什麼排斥某樣東西，再說明後來怎麼改觀、學到什麼。",
+"",
+"請照以下規則給我意見：",
+"1. 先看第一格：有沒有把「今天」和「當初」擺在一起，讓讀者想問為什麼。",
+"2. 第二格寫的是不是真正的原因，還是只換句話重複「我不喜歡它」。",
+"3. 第三格有沒有寫出改觀的經過，而不是只說「後來就喜歡了」。題目問了兩件事，兩件都要答。",
+"4. 第四格的道理是不是從前三格自然得出來的。",
+"5. 不要幫我寫英文，也不要幫我補內容。",
+"6. 說明用中文。"
+].join("\n");
+
+/* ── 畫圖 ── */
+function drawFig(){
+  var s='<svg viewBox="0 0 340 348" role="img" aria-label="原因結果表：開頭的問題，四種食物各一列原因與結果，結尾的共同原因">';
+  s+='<text class="hdr" x="40" y="72" text-anchor="middle">食物</text>';
+  s+='<text class="hdr" x="151" y="72" text-anchor="middle">原因</text>';
+  s+='<text class="hdr" x="291" y="72" text-anchor="middle">結果</text>';
+  for(var i=0;i<CELLS.length;i++){
+    var c=CELLS[i];
+    if(c.row){
+      if(ST.cut===c.row){
+        s+='<g class="ghost"><rect x="20" y="'+c.y+'" width="310" height="'+c.h+'" rx="6"/>';
+        s+='<text x="175" y="'+(c.y+27)+'" text-anchor="middle">'+ROWN[c.row]+'這一列拿掉了</text></g>';
+        continue;
+      }
+      s+='<g class="food"><rect x="20" y="'+c.y+'" width="40" height="'+c.h+'" rx="6"/>';
+      s+='<text x="40" y="'+(c.y+27)+'" text-anchor="middle">'+ROWN[c.row]+'</text></g>';
+      s+='<path class="arr" d="M239 '+(c.y+23)+' L249 '+(c.y+23)+' M245 '+(c.y+19)+' L249 '+(c.y+23)+' L245 '+(c.y+27)+'"/>';
+      s+='<g class="res"><rect x="252" y="'+c.y+'" width="78" height="'+c.h+'" rx="6"/>';
+      s+='<text x="291" y="'+(c.y+27)+'" text-anchor="middle">'+RES[c.row]+'</text></g>';
+    }
+    var on=ST.put[c.id]?" on":"";
+    s+='<g class="bx'+on+'" data-id="'+c.id+'" tabindex="0" role="button">';
+    s+='<rect x="'+c.x+'" y="'+c.y+'" width="'+c.w+'" height="'+c.h+'" rx="6"/>';
+    s+='<text class="fn" x="'+(c.x+8)+'" y="'+(c.y+16)+'">'+esc(c.fn)+'</text>';
+    s+='<text class="en" x="'+(c.x+8)+'" y="'+(c.y+28)+'">'+esc(c.en)+'</text>';
+    s+='<text class="rf" x="'+(c.x+8)+'" y="'+(c.y+40)+'">'+(ST.put[c.id]?esc(c.rf):"待放")+'</text>';
+    s+='</g>';
+  }
+  s+='</svg>';
+  $("fig").innerHTML=s;
+}
+
+var pick=null;
+function drawPool(){
+  var h="";
+  for(var i=0;i<SENTS.length;i++)
+    h+='<button data-i="'+i+'" class="'+(ST.put[SENTS[i].id]?"gone":"")+'">'+esc(SENTS[i].t)+'</button>';
+  $("pool").innerHTML=h;
+}
+function done1(){ var n=0; for(var k in ST.put) if(ST.put[k]) n++; return n; }
+function first1(){ var n=0; for(var k in ST.first) if(ST.first[k]) n++; return n; }
+function showSrc(){
+  if($("src6").innerHTML) return;
+  var h="";
+  for(var i=0;i<SRCQ.length;i++)
+    h+='<div class="pair"><span class="t">'+esc(SRCQ[i].fn)+'　'+esc(SRCQ[i].rf)+'</span>'+esc(SRCQ[i].t)+'</div>';
+  $("src6").innerHTML=h;
+}
+function after1(){
+  if($("n1")) $("n1").textContent=first1();
+  if(done1()===6){
+    $("h1").innerHTML="\u516d\u683c\u90fd\u6eff\u4e86\u3002\u7b2c\u4e00\u6b21\u5c31\u653e\u5c0d <em id=\"n1\">"+first1()+"</em> / 6";
+    $("a1").hidden=false; $("g1").hidden=false; showSrc();
+  }
+}
+function show(id){
+  var c=null,i;
+  for(i=0;i<CELLS.length;i++) if(CELLS[i].id===id) c=CELLS[i];
+  if(!c) return;
+  var gs=$("fig").querySelectorAll(".bx");
+  for(i=0;i<gs.length;i++) gs[i].classList.toggle("sel", gs[i].dataset.id===id);
+  $("pk").textContent=(c.row?ROWN[c.row]+"：":"")+c.fn+"　"+(ST.put[id]?c.rf:"還沒放");
+  $("pq").textContent=ST.put[id]||"這一格還空著。";
+}
+function aim(on){
+  var gs=$("fig").querySelectorAll(".bx");
+  for(var i=0;i<gs.length;i++) if(!gs[i].classList.contains("on")) gs[i].classList.toggle("aim",on);
+}
+$("pool").addEventListener("click",function(e){
+  var b=e.target.closest("button"); if(!b) return;
+  var bs=$("pool").querySelectorAll("button");
+  for(var i=0;i<bs.length;i++) bs[i].classList.remove("pick");
+  b.classList.add("pick"); pick=+b.dataset.i; aim(true);
+});
+function hit(g){
+  var id=g.dataset.id;
+  if(pick===null || ST.put[id]){ show(id); return; }
+  var s=SENTS[pick];
+  if(NOFIT[s.id]){
+    ST.miss[id]=1; save();
+    $("pk").textContent="這一張沒有位置";
+    $("pq").textContent=NOFIT[s.id];
+    return;
+  }
+  if(s.id!==id){ ST.miss[id]=1; save(); toast("這一格要的不是這一張"); return; }
+  if(!ST.miss[id]) ST.first[id]=1;
+  ST.put[id]=s.t; save(); pick=null;
+  drawFig(); drawPool(); aim(false); show(id); after1();
+}
+$("fig").addEventListener("click",function(e){ var g=e.target.closest(".bx"); if(g) hit(g); });
+$("fig").addEventListener("keydown",function(e){
+  if(e.key!=="Enter"&&e.key!==" ") return;
+  var g=e.target.closest(".bx"); if(g){ e.preventDefault(); hit(g); }
+});
+$("g1").addEventListener("click",function(){
+  if(ST.step<2) ST.step=2; save();
+  $("s2").hidden=false; $("s2").scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+/* ── 第二步：拿掉一列 ── */
+function paintCut(){
+  drawFig();
+  var bs=$("cutbar").querySelectorAll("button[data-r]");
+  for(var i=0;i<bs.length;i++) bs[i].disabled=!!ST.cut;
+  $("undo").hidden=!ST.cut;
+  if(!ST.cut) $("cuth").textContent=ST.cutTouched?"四列都放回來了。換一列拿掉試試看，結果都一樣。":"四列都在。任選一列拿掉。";
+  else $("cuth").textContent=ROWN[ST.cut]+"這一列拿掉了。其他三列的原因和結果都還在，每一列自己就講得通。";
+  if(ST.cutTouched) $("q2box").hidden=false;
+}
+$("cutbar").addEventListener("click",function(e){
+  var b=e.target.closest("button[data-r]"); if(!b||ST.cut) return;
+  ST.cut=+b.dataset.r; ST.cutTouched=1; save(); paintCut();
+});
+$("undo").addEventListener("click",function(){ ST.cut=0; save(); paintCut(); });
+function settle2(){
+  var bs=$("q2").querySelectorAll("button");
+  for(var i=0;i<bs.length;i++){ bs[i].disabled=true; bs[i].dataset.state=bs[i].dataset.ok?"right":"wrong"; }
+  $("a2").hidden=false; $("g2").hidden=false;
+}
+$("q2").addEventListener("click",function(e){
+  var b=e.target.closest("button"); if(!b||ST.q2) return;
+  ST.q2=b.dataset.ok?1:2; save(); settle2();
+});
+$("g2").addEventListener("click",function(){
+  if(ST.step<3) ST.step=3; save();
+  paintCode(); $("s3").hidden=false;
+  $("s3").scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+/* ── 第三步 ── */
+function drawMine(){
+  var h="";
+  for(var i=0;i<MINE.length;i++){
+    var m=MINE[i];
+    h+='<div class="cell"><span class="fn">'+esc(m.fn)+'<em>'+esc(m.en)+'</em></span>'+
+       '<textarea id="'+m.id+'" rows="2" placeholder="'+esc(m.ph)+'"></textarea></div>';
+  }
+  $("mine").innerHTML=h;
+  for(var j=0;j<MINE.length;j++){
+    var el=$(MINE[j].id);
+    if(ST.mine[MINE[j].id]) el.value=ST.mine[MINE[j].id];
+    el.addEventListener("input",function(){ ST.mine[this.id]=this.value; save(); });
+  }
+  $("aib").textContent=AI;
+}
+function mkCode(){
+  var f=first1(), m=0, w=0, i;
+  for(var k in ST.miss) if(ST.miss[k]) m++;
+  for(i=0;i<MINE.length;i++){ var el=$(MINE[i].id); if(el&&el.value.trim()) w++; }
+  var seed=(f*31 + m*7 + w*13 + (ST.q2===1?5:0) + 10*211 + 3*101 + 1777) % 46656;
+  return "10-U3 "+f+"/6 大綱"+w+"/4 "+("000"+seed.toString(36).toUpperCase()).slice(-3);
+}
+function paintCode(){ $("cv").textContent=mkCode(); }
+$("rfb").addEventListener("click",paintCode);
+function copy(t){
+  function fb(){
+    var ta=document.createElement("textarea"); ta.value=t; document.body.appendChild(ta);
+    ta.select(); try{ document.execCommand("copy"); toast("已複製"); }catch(e){ toast("複製失敗，請手動選取"); }
+    document.body.removeChild(ta);
+  }
+  if(navigator.clipboard&&navigator.clipboard.writeText)
+    navigator.clipboard.writeText(t).then(function(){ toast("已複製"); },fb);
+  else fb();
+}
+$("cc").addEventListener("click",function(){ copy(mkCode()); });
+$("sv").addEventListener("click",function(){
+  for(var i=0;i<MINE.length;i++) ST.mine[MINE[i].id]=$(MINE[i].id).value;
+  save(); toast("已存在這台裝置的瀏覽器裡");
+});
+$("cp").addEventListener("click",function(){
+  var t=AI+"\n\n【我的大綱】\n";
+  for(var i=0;i<MINE.length;i++) t+=MINE[i].fn+"："+($(MINE[i].id).value||"（空白）")+"\n";
+  copy(t);
+});
+
+/* ── 預覽 ── */
+function previewAll(){
+  PREVIEW=true; $("pv").hidden=false;
+  for(var i=0;i<SENTS.length;i++) if(!NOFIT[SENTS[i].id]){ ST.put[SENTS[i].id]=SENTS[i].t; ST.first[SENTS[i].id]=1; }
+  drawPool(); drawMine(); after1();
+  $("s2").hidden=false; ST.cut=0; ST.cutTouched=1; paintCut(); ST.q2=1; settle2();
+  $("s3").hidden=false; paintCode();
+}
+
+/* ── 接回進度 ── */
+$("rst").addEventListener("click",function(){
+  try{ localStorage.removeItem(KEY); }catch(e){} location.reload();
+});
+(function restore(){
+  if(/(^|[?&])all(=|&|$)/.test(location.search)){ previewAll(); return; }
+  var v=load();
+  if(v){
+    ST=v;
+    if(!ST.put) ST.put={};
+    if(!ST.first) ST.first={};
+    if(!ST.miss) ST.miss={};
+    if(!ST.mine) ST.mine={};
+    if(!ST.step) ST.step=1;
+    if(!ST.cut) ST.cut=0;
+    if(!ST.cutTouched) ST.cutTouched=ST.cut?1:0;
+  }
+  drawPool(); drawMine(); paintCut();
+  if(done1()||ST.step>1) $("rs").hidden=false;
+  if(ST.step>=2) $("s2").hidden=false;
+  if(ST.q2) settle2();
+  if(ST.step>=3){ $("s3").hidden=false; paintCode(); }
+  after1();
+})();
+})();
+</script>
+</body>
+</html>
