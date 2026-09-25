@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>倒金字塔：科學新聞｜AI-Designed Vaccine Shows Promise in First Human Trial</title>
+<meta name="description" content="科學新聞也是倒金字塔。這一頁教你從尾巴砍砍看，再認出作者用來把話說得不滿的字。">
+<meta property="og:title" content="倒金字塔：科學新聞｜AI-Designed Vaccine">
+<meta property="og:description" content="砍掉最後一段，新聞還在，卻變成誇大。為什麼？">
+<style>
+:root{
+  --ground:#f1f3f2; --ink:#17282f; --teal:#1f6f6a; --teal-soft:#dfeceb;
+  --muted:#77878d; --line:#cdd6d6; --exam:#b4661c; --exam-soft:#fdf4e7;
+  --gen:#4a6a90; --gen-soft:#e0e7f0;
+  --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+  --sans:"PingFang TC","Noto Sans TC","Microsoft JhengHei","Helvetica Neue",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-text-size-adjust:100%}
+.wrap{max-width:44rem;margin:0 auto;padding:1.6rem 1.1rem 4rem}
+h1{font-family:var(--serif);font-weight:600;font-size:1.6rem;line-height:1.3;margin:0 0 .55rem}
+.lede{margin:0 0 1.3rem;color:#3d5059;font-size:.95rem}
+.src{font-size:.8rem;color:var(--muted);margin:0 0 1.1rem}
+.resume{font-size:.85rem;color:var(--teal);background:var(--teal-soft);border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.resume[hidden],.preview[hidden]{display:none}
+.preview{font-size:.85rem;color:var(--exam);background:var(--exam-soft);
+  border:1px dashed var(--exam);border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.resume button{font:inherit;font-size:.82rem;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:.25rem;padding:.16rem .6rem;margin-left:.5rem;cursor:pointer}
+.resume button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.step{border-top:1px solid var(--line);padding-top:1.15rem;margin-top:1.6rem}
+.step[hidden]{display:none}
+.stepno{font-family:var(--serif);font-size:.82rem;color:var(--muted);margin:0 0 .2rem}
+h2{font-family:var(--serif);font-weight:600;font-size:1.2rem;margin:0 0 .5rem;color:var(--teal)}
+.step p{margin:0 0 .7rem;font-size:.95rem}
+.tag{display:inline-block;font-size:.72rem;font-weight:600;border-radius:.2rem;padding:.08rem .45rem;margin-left:.45rem;vertical-align:.12rem;color:var(--exam);background:var(--exam-soft);border:1px solid var(--exam)}
+.tag.b{color:var(--gen);background:var(--gen-soft);border-color:var(--gen)}
+
+/* 選擇題：中文用 .opts，英文選項加 .en，附小字說明加 .rg */
+.opts{display:flex;flex-direction:column;gap:.45rem;margin:.2rem 0 .8rem}
+.opts button{font:inherit;font-size:.95rem;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:.3rem;padding:.45rem .85rem;cursor:pointer;text-align:left}
+.opts button:hover{border-color:var(--teal)}
+.opts button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.opts button[data-state="right"]{background:var(--teal);border-color:var(--teal);color:#fff}
+.opts button[data-state="wrong"]{background:var(--ground);color:var(--muted)}
+.opts button[disabled]{cursor:default}
+.opts.en button{font-family:var(--serif);font-size:.97rem;line-height:1.6;padding:.55rem .8rem}
+.opts.en button[data-state="right"]{background:var(--teal-soft);border-color:var(--teal);color:var(--ink)}
+.opts.rg button i{display:block;font-style:normal;font-size:.82rem;color:var(--muted);margin-top:.12rem}
+.opts.rg button[data-state="right"] i{color:#dfeceb}
+
+/* 揭曉區塊 */
+.said{background:#fff;border-left:3px solid var(--teal);border-radius:.3rem;padding:.75rem .85rem;margin:.2rem 0 .9rem;font-size:.93rem;color:#3d5059}
+.said b{color:var(--ink);font-weight:600}
+.said[hidden]{display:none}
+.said.g{border-left-color:var(--gen)}
+.said.e{border-left-color:var(--exam)}
+.said q{quotes:none;font-family:var(--serif)}
+
+.go{font:inherit;font-size:.92rem;background:var(--ink);color:#fff;border:1px solid var(--ink);border-radius:.3rem;padding:.42rem 1.05rem;cursor:pointer}
+.go:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.go[hidden]{display:none}
+
+/* 第一步的可點標記 */
+.lead{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.9rem 1rem;margin:0 0 .7rem;font-family:var(--serif);font-size:1.02rem;line-height:1.95}
+.lead c{cursor:pointer;border-radius:.2rem;padding:.06rem .2rem;background:var(--exam-soft);box-shadow:inset 0 -2px 0 #ecc9a2}
+.lead c:hover{box-shadow:inset 0 -2px 0 var(--exam)}
+.lead c.got{background:var(--exam);color:#fff;box-shadow:none}
+.lead c b{font-family:var(--sans);font-size:.72rem;font-weight:600;background:#fff;color:var(--exam);border-radius:.2rem;padding:.02rem .3rem;margin-right:.3rem}
+.score{font-size:.9rem;color:var(--muted);margin:0 0 .8rem}
+.score em{font-style:normal;color:var(--exam);font-weight:600}
+
+/* 第三步的卡片（驗證方法通用容器） */
+.qs{display:flex;flex-direction:column;gap:.5rem;margin:0 0 .8rem}
+.qcard{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.6rem .85rem}
+.qcard .hd{display:flex;align-items:center;gap:.6rem;font-size:.95rem}
+.qcard .hd .qt{flex:1 1 auto;font-weight:600}
+.qcard .hd button{font:inherit;font-size:.8rem;background:#fff;color:var(--ink);border:1px solid var(--line);
+  border-radius:.25rem;padding:.18rem .7rem;cursor:pointer;flex:0 0 auto}
+.qcard .hd button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.qcard .bd{display:none;margin-top:.4rem;font-size:.92rem;color:#3d5059;line-height:1.75}
+.qcard.open .bd{display:block}
+.qcard.open .hd button{display:none}
+.qcard .bd .rf{display:block;color:var(--muted);font-size:.82rem;margin-top:.25rem}
+.qcard .bd .sw{display:block;font-family:var(--serif);background:var(--ground);border-radius:.3rem;
+  padding:.45rem .6rem;margin:.35rem 0;color:var(--ink);font-size:.93rem;line-height:1.7}
+.qcard .r{display:grid;grid-template-columns:1fr;gap:.1rem;margin-bottom:.4rem}
+@media(min-width:34rem){.qcard .r{grid-template-columns:5.5rem 1fr;gap:.5rem}}
+.qcard .r:last-child{margin-bottom:0}
+.qcard .r .k{font-size:.76rem;font-weight:600;color:var(--gen)}
+.qcard .r .v em{font-style:normal;color:var(--muted);font-size:.82rem;margin-left:.3rem}
+
+/* 圖表容器與通用節點 */
+.fig{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.7rem .5rem .4rem;margin:0 0 .7rem}
+.fig[hidden]{display:none}
+.fig svg{display:block;width:100%;height:auto;max-width:27rem;margin:0 auto}
+.fig figcaption{font-size:.85rem;color:#3d5059;margin:.35rem .5rem 0;line-height:1.65}
+.node{cursor:pointer}
+.node rect,.node circle,.node path.bx{fill:#fff;stroke:var(--line);stroke-width:2;stroke-linejoin:round}
+.node text{font-family:var(--sans);font-size:11px;fill:var(--ink);font-weight:600}
+.node tspan.n,.node text.n{font-size:9px;font-weight:400;fill:var(--muted)}
+.node.on rect,.node.on circle,.node.on path.bx{fill:var(--exam-soft);stroke:var(--exam);stroke-width:3}
+.node.on text{fill:var(--exam)}
+.node.on tspan.n,.node.on text.n{fill:var(--exam)}
+.guide{stroke:var(--line);stroke-width:2;fill:none;stroke-linejoin:round;stroke-linecap:round}
+.guide.dash{stroke-dasharray:5 4}
+.endlab{font-family:var(--sans);font-size:10.5px;font-weight:600}
+.endlab.l{fill:var(--teal)}
+.endlab.r{fill:var(--gen)}
+
+/* 分日分隔框 */
+.daybreak{border:1px dashed var(--exam);background:var(--exam-soft);border-radius:.4rem;
+  padding:.8rem .95rem;margin:1.6rem 0 0;font-size:.9rem;color:#3d5059;line-height:1.7}
+.daybreak b{display:block;color:var(--exam);font-family:var(--serif);font-size:1.02rem;margin-bottom:.3rem}
+.daybreak[hidden]{display:none}
+
+/* 課文與線索鏈 */
+.modes{display:flex;gap:.4rem;margin:0 0 .7rem;flex-wrap:wrap}
+.modes button{font:inherit;font-size:.84rem;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:.3rem;padding:.3rem .8rem;cursor:pointer}
+.modes button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.modes button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.text{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.9rem .6rem 1.1rem;font-family:var(--serif);font-size:1rem;line-height:1.85}
+.text .ttl{font-weight:600;font-size:1.06rem;margin:0 .4rem .7rem 2.6rem;line-height:1.45}
+.ln{display:flex;align-items:baseline;padding:.02rem 0;border-radius:.2rem}
+.ln>i{flex:0 0 2.2rem;text-align:right;padding-right:.55rem;font-family:var(--sans);font-style:normal;font-size:.68rem;color:var(--muted);line-height:1.9}
+.ln>span{flex:1 1 auto;overflow-wrap:anywhere}
+.ln.ind>span{padding-left:1.1rem}
+.ln.sub>span{font-weight:600}
+.ln.hl{background:var(--exam-soft)}
+.ln.pb{margin-top:.55rem}
+.text .split{font-family:var(--sans);font-size:.78rem;color:var(--exam);
+  border-top:1px dashed var(--exam);margin:.8rem .4rem .7rem 2.6rem;padding-top:.35rem}
+.text m{cursor:pointer;border-radius:.2rem;padding:.02rem .14rem}
+.text m[data-kind="sub"]{background:var(--teal-soft);box-shadow:inset 0 -2px 0 #a8ccc8}
+.text m[data-kind="gen"]{background:var(--gen-soft);box-shadow:inset 0 -2px 0 #a9bbd0}
+.text m[data-kind="mk"]{border-bottom:2px dotted var(--exam);font-style:italic}
+.text m.lit[data-kind="sub"]{background:var(--teal);color:#fff;box-shadow:none}
+.text m.lit[data-kind="gen"]{background:var(--gen);color:#fff;box-shadow:none}
+.text m.lit[data-kind="mk"]{background:var(--exam);color:#fff;border-bottom:none}
+.text.off-sub m[data-kind="sub"]{background:none;box-shadow:none}
+.text.off-gen m[data-kind="gen"]{background:none;box-shadow:none}
+
+/* 固定在底部的說明面板 */
+.panel{position:sticky;bottom:0;background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.75rem .9rem;margin-top:.8rem;box-shadow:0 -2px 10px rgba(23,40,47,.07)}
+.panel .k{font-size:.72rem;font-weight:600;border-radius:.2rem;padding:.06rem .42rem;color:var(--teal);background:var(--teal-soft);border:1px solid var(--teal)}
+.panel .k.g{color:var(--gen);background:var(--gen-soft);border-color:var(--gen)}
+.panel .k.e{color:var(--exam);background:var(--exam-soft);border-color:var(--exam)}
+.panel .ch{font-family:var(--serif);font-size:1rem;margin:.4rem 0 .3rem;color:var(--ink);line-height:1.75;overflow-wrap:anywhere}
+.panel .ch i{font-style:normal;color:var(--muted);padding:0 .28rem}
+.panel .nt{font-size:.88rem;color:#3d5059;margin:0}
+
+/* 舊工具點名複習 */
+.recall{background:#fff;border:1px solid var(--line);border-left:3px solid var(--muted);
+  border-radius:.3rem;padding:.75rem .85rem;margin:1.1rem 0 .9rem;font-size:.92rem;color:#3d5059}
+.recall b{color:var(--ink)}
+.recall ul{margin:.4rem 0 0;padding-left:1.1rem}
+.recall li{margin-bottom:.35rem}
+
+/* 抽句題 */
+.gap{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.9rem 1rem;margin:0 0 .9rem;font-family:var(--serif);font-size:1rem;line-height:1.9}
+.gap .blank{display:inline-block;min-width:9rem;border-bottom:2px solid var(--gen);color:var(--gen);text-align:center;font-family:var(--sans);font-size:.82rem}
+.gap .blank.filled{border-bottom-color:var(--teal);color:var(--ink);font-family:var(--serif);font-size:1rem;text-align:left;background:var(--teal-soft);border-radius:.2rem;padding:0 .25rem}
+.gap .lst{font-family:var(--sans);font-size:.85rem;color:var(--muted);display:block;margin-top:.5rem}
+.picks{display:flex;flex-direction:column;gap:.45rem;margin:0 0 .9rem}
+.picks button{font:inherit;font-family:var(--serif);font-size:.97rem;line-height:1.6;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:.3rem;padding:.55rem .8rem;cursor:pointer;text-align:left}
+.picks button:hover{border-color:var(--teal)}
+.picks button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.picks button[data-state="right"]{background:var(--teal-soft);border-color:var(--teal)}
+.picks button[data-state="wrong"]{background:var(--ground);color:var(--muted)}
+.why{font-size:.86rem;color:#3d5059;margin:.35rem 0 0}
+.why[hidden]{display:none}
+
+/* 收尾與頁尾 */
+.close{border-top:1px solid var(--line);margin-top:2rem;padding-top:1.1rem;font-size:.93rem;color:#3d5059}
+.close[hidden]{display:none}
+.close h2{font-size:1.1rem}
+.close ol{margin:.3rem 0 0;padding-left:1.15rem}
+.close li{margin-bottom:.5rem}
+.more{margin-top:1.5rem;font-size:.88rem}
+.more a{color:var(--teal)}
+.series{border-top:1px solid var(--line);margin-top:2rem;padding-top:1.1rem;font-size:.9rem;color:#3d5059}
+.series .back{font-family:var(--serif);font-size:1rem;color:var(--teal);text-decoration:none}
+.series .back:hover{text-decoration:underline}
+.series .back:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.series .note{font-size:.85rem;color:var(--muted);margin:.5rem 0 0}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* 本單元：倒三角與砍尾巴 */
+.tier{cursor:pointer}
+.tier path{fill:#fff;stroke:var(--line);stroke-width:2;stroke-linejoin:round}
+.tier text{font-family:var(--sans);font-size:12px;fill:var(--ink);font-weight:600}
+.tier tspan.n{font-size:9.5px;font-weight:400;fill:var(--muted)}
+.tier.on path{fill:var(--exam-soft);stroke:var(--exam);stroke-width:3}
+.tier.on text,.tier.on tspan.n{fill:var(--exam)}
+.cut{display:flex;flex-direction:column;gap:.5rem;margin:0 0 .8rem}
+.para{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.7rem .85rem;font-family:var(--serif);font-size:.97rem;line-height:1.8}
+.para .hd{display:flex;justify-content:space-between;align-items:center;gap:.6rem;font-family:var(--sans);font-size:.78rem;color:var(--muted);margin-bottom:.35rem}
+.para .hd button{font:inherit;font-size:.78rem;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:.25rem;padding:.14rem .6rem;cursor:pointer;flex:0 0 auto}
+.para .hd button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.para.gone{background:var(--ground);border-style:dashed}
+.para.gone .bd{display:none}
+.para .gonemsg{display:none;font-family:var(--sans);font-size:.85rem;color:var(--muted)}
+.para.gone .gonemsg{display:block}
+.verdict{border-radius:.3rem;padding:.6rem .8rem;font-size:.9rem;margin:0 0 .8rem;border:1px solid var(--line);background:#fff;color:#3d5059}
+.verdict.ok{border-color:var(--teal);background:var(--teal-soft);color:var(--teal)}
+.verdict.no{border-color:var(--exam);background:var(--exam-soft);color:var(--exam)}
+.verdict.warn{border-color:var(--gen);background:var(--gen-soft);color:var(--gen)}
+#q3w[hidden]{display:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>倒金字塔：科學新聞</h1>
+<p class="lede">九月號第一單元練過倒金字塔：最重要的放最前面，從最後一段往上砍，新聞照樣成立。這一篇也是倒金字塔，只是換成<b>科學新聞</b>。科學新聞的最後一層放的是「還不確定」的話，這一層砍得掉，可是一砍，整則新聞就變成誇大。這一頁讓你自己砍砍看。</p>
+<p class="preview" id="pv" hidden>預覽模式：所有步驟、圖表、課文標記都已展開，進度不會存檔。學生拿到的一般連結不受影響。</p>
+<p class="resume" id="rs" hidden>上次做到一半，已經幫你接回來了。<button id="rst">重新開始</button></p>
+<p class="src">ALL+ 互動英語 10 月號 Unit 1（pp. 6–7）　AI-Designed Vaccine Shows Promise in First Human Trial　全文 31 行　10/1</p>
+
+<!-- ═══ 第一步 ═══ -->
+<section class="step" id="s1">
+  <p class="stepno">第一步</p>
+  <h2>導言先把大事講完<span class="tag">上層：組織方式</span></h2>
+  <p>新聞的第一段叫<b>導言</b>，要回答讀者最想知道的幾件事：發生了什麼、誰做的、在哪裡、為什麼重要。下面是第 1 到 9 行，<b>點三個有底色的地方</b>。</p>
+  <div class="lead" id="ld">
+    <c data-t="w">Researchers recently completed the first human trial</c> of a new vaccine designed with the help of artificial intelligence. <c data-t="p">Developed at the University of Cambridge</c>, the vaccine is intended to protect against many different coronaviruses <c data-t="n">instead of just one</c>. Scientists hope it could help people prepare for future outbreaks before they begin to spread widely.
+  </div>
+  <p class="score" id="sc">已標出 <em>0</em> / 3</p>
+  <div id="s1b" hidden>
+    <p>三個都標出來了。那麼——<b>第 1 到 9 行這一段，在整則新聞裡負責什麼工作？</b></p>
+    <div class="opts" id="q1">
+      <button>先交代試驗的細節，讓讀者判斷可不可信</button>
+      <button data-ok="1">把最重要的事一次講完，後面再慢慢補充</button>
+      <button>先說研究的限制，再一步一步說出成果</button>
+      <button>用一個病人的故事開頭，引起讀者興趣</button>
+    </div>
+    <div class="said e" id="a1" hidden>
+      <b>把最重要的事一次講完。</b>剛才標的三處剛好是新聞的基本問題：發生了什麼（第一次人體試驗完成了）、誰在哪裡做的（劍橋大學）、為什麼算新聞（一支疫苗對付很多種病毒，不是只對付一種）。讀者只讀這一段，就已經知道這則新聞在講什麼。
+      <br><br>
+      <b>注意導言最後一句。</b>第 7 行用的是 <q>Scientists hope it could help</q>：hope 是希望，could 是「可能」。科學新聞的導言報好消息，但連導言都不把話說滿。這一點第四步會再回來。
+      <br><br>
+      <b>另外三個為什麼排除：</b>
+      <br><br>
+      「先交代試驗的細節」——39 位志願者、安全、沒用針頭，這些細節在第 16 到 21 行，屬於第二層。<b>這個最容易選</b>，因為導言確實提到 human trial；可是導言只說「完成了試驗」，試驗怎麼做、結果如何，都留到後面。
+      <br><br>
+      「先說研究的限制」——方向反了。限制在第 22 到 27 行，是全篇的最後一層，不在開頭。
+      <br><br>
+      「用一個病人的故事開頭」——這是新聞的另一種寫法，叫華爾街日報式。這篇從頭到尾沒有出現任何一個人的故事，第一個字就是 Researchers。
+    </div>
+    <button class="go" id="g1" hidden>整篇是什麼形狀？</button>
+  </div>
+</section>
+
+<!-- ═══ 第二步 ═══ -->
+<section class="step" id="s2" hidden>
+  <p class="stepno">第二步</p>
+  <h2>又是倒金字塔<span class="tag">上層：怎麼認出來</span></h2>
+  <p>先回答：<b>這則新聞的組織方式，最接近下列哪一種？</b></p>
+  <div class="opts" id="q2">
+    <button>華爾街日報式：先說一個人的故事，結尾再回到這個人</button>
+    <button>序列：照時間先後，一步一步交代研究進行的經過</button>
+    <button>比較對照：把新疫苗跟一般疫苗一項一項比較優劣</button>
+    <button data-ok="1">倒金字塔：最重要的事放最前面，越往後的越次要</button>
+  </div>
+  <div class="said e" id="a2" hidden>
+    <b>倒金字塔。</b>第一段講完最重要的事，第二段補上做法和試驗結果，第三段再補上保留和將來的可能。三段的份量一段比一段輕，這就是倒金字塔。
+    <br><br>
+    <b>另外三個為什麼排除，每一個都是別種結構：</b>
+    <br><br>
+    「比較對照」——<b>這個最容易選</b>，因為第 10 到 11 行確實拿 <q>Most vaccines target a specific virus</q> 對上 <q>This new vaccine takes a different approach</q>。可是這一組對比只有兩句，用來說明新疫苗新在哪裡；作者沒有一項一項比，也沒有說哪一種比較好。<b>文章裡出現一次對比，不等於整篇是比較對照。</b>
+    <br><br>
+    「序列」——序列要有一連串的時間點往前推。這篇只有第 1 行的 <q>recently</q> 一個時間，其他全是現在的狀態和將來的可能。
+    <br><br>
+    「華爾街日報式」——這種寫法用一個人的故事開頭，結尾再回到同一個人身上。這篇沒有任何一個人的故事。
+    <br><br>
+    下面就是這篇的倒金字塔。跟九月號第一單元比一比：那一篇的最後一層是各界的反應，這一篇的最後一層是<b>研究人員自己的保留</b>。<b>點任一層</b>，第四步的課文對應行會亮起來（課文還沒打開的話，先把行號記住就好）。
+  </div>
+  <figure class="fig" id="fig" hidden></figure>
+  <button class="go" id="g2" hidden>那我來砍砍看</button>
+</section>
+
+<!-- ═══ 第三步 ═══ -->
+<section class="step" id="s3" hidden>
+  <p class="stepno">第三步</p>
+  <h2>砍尾巴，再寫一句摘要<span class="tag">上層：怎麼驗證</span></h2>
+  <p>驗證倒金字塔的方法跟九月號一樣：<b>從最後一段往上砍</b>，看剩下的內容還讀不讀得懂。按「砍掉」和「放回」，什麼順序都可以。</p>
+  <div class="cut" id="cut"></div>
+  <p class="verdict" id="vd">三段都在，這是完整的報導。</p>
+  <div class="said e" id="a3" hidden>
+    <b>從尾巴砍，導言一直都在，所以這篇確實是倒金字塔。</b>從頭砍就不行，導言一不見，讀者就不知道發生了什麼事。
+    <br><br>
+    <b>可是砍第三段的時候，要多想一步。</b>九月號那篇的最後一段是各界的反應，砍掉只是少了一些細節。這篇的最後一段放的是 <q>caution</q>、<q>still in an early stage</q>、<q>will be required</q>，全是研究人員自己的保留。這一段砍掉以後，新聞還是成立，只是讀者會以為疫苗已經成功了。
+    <br><br>
+    <b>所以科學新聞的摘要，不能只抓導言。</b>下面試一題。
+  </div>
+  <div id="q3w" hidden>
+    <p><b>哪一句最適合當這篇新聞的一句話摘要？</b></p>
+    <div class="picks" id="q3">
+      <button data-ok="1">An AI-built vaccine for many coronaviruses seemed safe in a first human test but needs bigger studies.</button>
+      <button>A new vaccine designed with AI has now been shown to protect people against many different coronaviruses.</button>
+      <button>Researchers gave a new vaccine to volunteers without a needle, using a high-pressure jet of liquid instead.</button>
+      <button>Most vaccines target one virus, so scientists hope to design vaccines for other groups of viruses.</button>
+    </div>
+    <div class="said e" id="a3b" hidden>
+      <b>第一句。</b>它把三層各收一句：做了什麼（first human test）、結果如何（seemed safe）、還差什麼（needs bigger studies）。而且它沒有照抄課文：AI-designed 寫成 AI-built，human trial 寫成 human test，larger trials 寫成 bigger studies。
+      <br><br>
+      <b>另外三個為什麼排除：</b>
+      <br><br>
+      「has now been shown to protect people」——<b>這個最容易選</b>，因為它就是導言的內容。但它把第三段的保留整個砍掉了：課文第 25 到 27 行說，有效性要等更大的試驗才能確認，這一句卻說已經證明。<b>砍掉但書的摘要，就是誇大。</b>
+      <br><br>
+      「without a needle, using a high-pressure jet of liquid」——第 20 到 21 行確實這樣寫，但那是第二層裡的一個細節。<b>細節不會是摘要。</b>
+      <br><br>
+      「Most vaccines target one virus, so…」——把第 10 行的對照組跟第 29 到 30 行的將來用途接在一起，還加了一個 so。課文沒有說「因為多數疫苗只對付一種病毒，所以要替別的病毒設計疫苗」，這個因果是選項自己加的。
+    </div>
+  </div>
+  <button class="go" id="g3" hidden>看作者怎麼把話說得不滿</button>
+</section>
+
+<!-- ═══ 第四步 ═══ -->
+<section class="step" id="s4" hidden>
+  <p class="stepno">第四步</p>
+  <h2>作者有多確定<span class="tag b">下層：確定程度的語言（hedging）</span></h2>
+  <p>科學新聞要一邊報好消息，一邊不把話說滿。作者用一組字來調整每一句的把握程度：hope、could、believe、if、caution、still、will be required。語言學家 Hyland 把這種字叫做 <b>hedges</b>。他的研究也發現，外語學生常常沒注意到這些字，就把「可能」讀成「已經」。</p>
+  <p>跟第十二單元的比較與程度的語言分清楚：那裡的 far more、less than 是在比<b>兩樣東西差多少</b>；這裡的字是在說<b>這件事有多確定是真的</b>。</p>
+  <p><b>點課文裡有底色的字</b>，同一條的字會一起亮起來。兩色可以各自關掉。</p>
+  <div class="modes">
+    <button id="m1" aria-pressed="true">確定程度的語言（青）</button>
+    <button id="m2" aria-pressed="true">換字（藍灰）</button>
+  </div>
+  <div class="text" id="tx"></div>
+  <div class="panel" id="pn">
+    <span class="k" id="pk">線索</span>
+    <div class="ch" id="pc">點圖上的一層，或課文裡有底色的字</div>
+    <p class="nt" id="pt">青色是表示「還不確定」的字，藍灰是同一個做法的三種說法。</p>
+  </div>
+  <div class="recall">
+    <b>另外兩樣，前面單元教過，這篇自己確認得出來：</b>
+    <ul>
+      <li><b>對比標記。</b>第 10 到 11 行 <q>Most vaccines</q> 對 <q>This new vaccine</q>，一句講一般的疫苗，一句講這支新疫苗。第 23 行的 <q>but</q> 和第 28 行的 <q>though</q> 則是另一種轉折：前面剛說完好消息，後面馬上收回一點。跟第八單元練過的一樣，看到它，作者要換邊了。</li>
+      <li><b>概括名詞。</b>第 22 行的 <q>the results</q> 一次收掉第 16 到 21 行的試驗結果：安全、有免疫反應、不用針頭。跟第三、第四單元練過的一樣，往前找之前，先確定它收的是一句還是一整片。</li>
+    </ul>
+  </div>
+  <p style="margin-top:1.1rem"><button class="go" id="g4">考卷怎麼考科學新聞</button></p>
+</section>
+
+<!-- ═══ 第五步 ═══ -->
+<section class="step" id="s5" hidden>
+  <p class="stepno">第五步</p>
+  <h2>科學新聞的兩個陷阱<span class="tag">上層：考點</span></h2>
+  <p>科學新聞的題目，誘答多半出在兩個地方：</p>
+  <p><b>一、把「可能」改成「已經」。</b>細節題最常見的誘答，是把原文的 hope、could、will be required 拿掉，讓一件還沒確定的事變成事實。看到選項說 proven、approved、has been shown，就回課文找那一句前面有沒有 hedge。</p>
+  <p><b>二、拿細節當主旨。</b>倒金字塔的主旨在導言，第二層、第三層的細節不會是主旨。這一點跟九月號第一單元一樣。</p>
+  <p>試一題：<b>Which of the following is TRUE about the vaccine, according to the passage?</b></p>
+  <div class="opts en" id="q5">
+    <button>It has already been approved for use against all coronaviruses.</button>
+    <button>It was given to the 39 volunteers by means of a needle.</button>
+    <button data-ok="1">Its effectiveness has yet to be proven in larger studies.</button>
+    <button>It protects against one virus better than most vaccines do.</button>
+  </div>
+  <div class="said e" id="a5" hidden>
+    <b>第三句。</b>先注意：它沒有照抄課文。<q>has yet to be proven</q> 是第 26 到 27 行 <q>before its effectiveness can be confirmed</q> 的改寫，<q>larger studies</q> 是 <q>larger trials</q> 的換字。大考的正解通常就是這樣換過字的；反過來說，跟原文最像的選項，不一定對。
+    <br><br>
+    <b>另外三個為什麼排除：</b>
+    <br><br>
+    <q>by means of a needle</q>——<b>這個最容易選</b>，因為 39 volunteers、needle 都是課文裡的字。但第 20 行寫的是 <q>without a needle</q>，差一個介系詞，意思就反了。
+    <br><br>
+    <q>already been approved for use against all coronaviruses</q>——這就是第一個陷阱：第 25 行說 <q>still in an early stage</q>，還要做更大的試驗，談不上核准。而且第 19 行寫的是 several coronaviruses，不是 all。
+    <br><br>
+    <q>protects against one virus better</q>——方向反了。第 6 到 7 行說這支疫苗對付 many different coronaviruses instead of just one，只對付一種病毒的是第 10 行的 Most vaccines。
+  </div>
+  <button class="go" id="g5" hidden>最後一題</button>
+</section>
+
+<!-- ═══ 第六步 ═══ -->
+<section class="step" id="s6" hidden>
+  <p class="stepno">第六步</p>
+  <h2>把一句話放回去</h2>
+  <p>這就是考卷上的<b>篇章結構</b>題。下面把第 15 到 16 行那一句整句抽掉了，四個候選句只有一句放得進去。</p>
+  <div class="gap" id="gp">
+    … Researchers made use of AI to identify features shared by many coronaviruses and combined them into a single vaccine.
+    <span class="blank" id="bl">（空格）</span>
+    In a trial involving 39 volunteers, the vaccine was found to be safe and produced immune responses against several coronaviruses. It was also given without a needle, using a high-pressure jet of liquid.
+  </div>
+  <div class="picks" id="q6">
+    <button data-ok="1">The goal is to train the immune system to recognize a broader range of viruses.</button>
+    <button>The goal is to make the vaccine easy to give to people without using a needle.</button>
+    <button>This allows the vaccine to target one specific virus more accurately than before.</button>
+    <button>The results, however, have not yet been confirmed by any of the larger trials.</button>
+  </div>
+  <div class="said" id="a6" hidden>
+    <b>四個線索同時指向同一句。</b>這四句單獨看都說得通，沒有一句本身是錯的。要排除，得靠位置和線索。
+    <br><br>
+    <b>先講一個例外。</b>前面說大考的正解通常是改寫，但<b>抽句題不一樣</b>：抽掉的就是原文那一句，所以正解一定是原文。這一題要靠的是另外三句哪裡接不上，不是比對字面。
+    <br><br>
+    <b>一、接得住前一句。</b>前一句說，研究人員找出很多冠狀病毒的共同特徵，合成一支疫苗。正解接著講目的：讓免疫系統認得 <q>a broader range of viruses</q>。「很多病毒的共同特徵」對上「更廣的範圍」，前後兩句是同一件事的做法和目的。
+    <br><br>
+    <b>另外三個為什麼排除，各有一個明確的依據：</b>
+    <br><br>
+    <b>二、位置。</b>不用針頭這件事，原文放在第 20 行，而且用 <q>It was also given</q> 開頭。also 表示這是另外補充的一件事，不是設計這支疫苗的目的。把它提到這裡，後面那句的 also 就沒有著落了。
+    <br><br>
+    <b>三、方向。</b><q>target one specific virus</q> 跟第 11 行 <q>This new vaccine takes a different approach</q> 相反。只鎖定一種病毒的，是第 10 行的 Most vaccines。
+    <br><br>
+    <b>四、指涉。</b><q>The results</q> 要先有試驗才有結果，可是試驗在空格的<b>下一句</b>才出現。這一句也最容易選，因為第 22 到 27 行真的有類似的保留，但它的位置在第三段，不在這裡。這就是倒金字塔的層次：保留放在最後一層。
+  </div>
+  <p class="why" id="w6" hidden>考卷上不會有底色，也不會有行號。但你剛才用的四個線索，每一篇科學新聞都用得上。</p>
+</section>
+
+<!-- ═══ 第七步 ═══ -->
+<section class="close" id="s7" hidden>
+  <h2>帶著走的五句話</h2>
+  <ol>
+    <li><b>科學新聞也是倒金字塔。</b>導言先交代發生了什麼、誰在哪裡做的、為什麼算新聞，後面一層一層補細節。</li>
+    <li><b>驗證方法：從尾巴砍。</b>砍到只剩導言還知道發生什麼事，就是倒金字塔；從頭砍，新聞就沒了。</li>
+    <li><b>科學新聞的最後一層放的是保留。</b>砍掉它，新聞還在，卻變成誇大。所以摘要要把「還不確定」一起寫進去。</li>
+    <li><b>下層：確定程度的語言（hedging）。</b>hope、could、believe、if、caution、still、will be required——看到這些字，那一句就只是「可能」，不是「已經」。</li>
+    <li><b>考卷的陷阱：把可能改成已經。</b>選項出現 proven、approved、has been shown，就回課文看原句前面有沒有 hedge。正解多半換過字，誘答反而照抄原文。</li>
+  </ol>
+  <p class="more"><a href="https://staresto-create.github.io/JCEE-vocab-questions/wordwheel.html">單字輪：把字拆成部件來記 →</a></p>
+</section>
+
+<nav class="series">
+  <a class="back" href="cohesion.html">← 回讀法練習總表</a>
+  <p class="note">總表上有目前可以做的所有單元，還有你累積到現在的讀法工具。</p>
+</nav>
+
+</div>
+
+<script>
+(function(){
+"use strict";
+function $(id){return document.getElementById(id);}
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;");}
+var KEY="cohesion-202610-u1-v1";
+var TITLE="AI-Designed Vaccine Shows Promise in First Human Trial";
+var LINES=[
+"Researchers recently completed the",
+"first human trial of a new vaccine designed",
+"with the help of artificial intelligence.",
+"Developed at the University of Cambridge,",
+"the vaccine is intended to protect against",
+"many different coronaviruses instead of just",
+"one. Scientists {hope|c-hedge|1} it {could|c-hedge|1} help people",
+"prepare for future outbreaks before they",
+"begin to spread widely.",
+"Most vaccines target a specific virus.",
+"This new vaccine takes {a different approach|c-meth|1}.",
+"Researchers made use of AI to identify",
+"features shared by many coronaviruses",
+"and combined them into a single vaccine.",
+"The goal is to train the immune system to",
+"recognize a broader range of viruses. In a",
+"trial involving 39 volunteers, the vaccine",
+"was found to be safe and produced immune",
+"responses against several coronaviruses.",
+"It was also given without a needle, using a",
+"high-pressure jet of liquid.",
+"All in all, the results have raised hopes",
+"among researchers, but they {caution|c-hedge|2} that",
+"{more testing is needed|c-hedge|2}. The vaccine is",
+"{still in an early stage|c-hedge|3}, and larger trials {will|c-hedge|4}",
+"{be required before its effectiveness can|c-hedge|4}",
+"{be confirmed|c-hedge|4}. {If|c-hedge|5} {the technology|c-meth|2} {proves|c-hedge|5}",
+"{successful|c-hedge|5}, though, {scientists believe|c-hedge|6} {the|c-meth|3}",
+"{same method|c-meth|3} {could|c-hedge|6} be used to develop",
+"vaccines against other groups of viruses in",
+"the future."
+];
+var INDENT={1:1,10:1,22:1};
+var SPLIT=null;
+var CHAINS={
+ "c-hedge":{k:"sub",n:"確定程度的語言，六處。導言只有一處（第 7 行 hope 和 could），第三段一口氣出現五處：caution、still in an early stage、will be required before…can be confirmed、If…proves successful、believe…could。倒金字塔越往下越次要，保留的話也就集中在最後一層。考卷的誘答常把這些字拿掉，讓「可能」變成「已經」。"},
+ "c-meth":{k:"gen",n:"換字，同一個做法換了三種說法：第 11 行 a different approach，第 27 行 the technology，第 28 到 29 行 the same method。三個說法指的都是第 12 到 14 行那件事：用 AI 找出很多病毒的共同特徵，合成一支疫苗。注意 the technology 指的不是第 20 行的無針頭接種。"}
+};
+var LB={sub:"確定程度的語言",gen:"換字"};
+var CL={sub:"k",gen:"k g"};
+var TIERS=[
+ {a:1,b:9,t:"導言",s:"第 1–9 行",n:"最重要的事：完成第一次人體試驗、劍橋大學、一支疫苗對付很多種病毒。連導言都用 hope 和 could，不把話說滿。"},
+ {a:10,b:21,t:"做法與試驗結果",s:"第 10–21 行",n:"補充細節：這支疫苗新在哪裡、怎麼設計、目的是什麼、試驗的結果，還有不用針頭。"},
+ {a:22,b:31,t:"保留與將來",s:"第 22–31 行",n:"研究人員自己的保留：還要更多試驗、還在很前面的階段；最後才講成功的話可能用在哪裡。這一層砍得掉，但砍掉就變成誇大。"}
+];
+var PARAS=[
+ {hd:"導言（第 1–9 行）",tx:"Researchers recently completed the first human trial of a new vaccine designed with the help of artificial intelligence. Developed at the University of Cambridge, the vaccine is intended to protect against many different coronaviruses instead of just one. Scientists hope it could help people prepare for future outbreaks before they begin to spread widely."},
+ {hd:"第二段（第 10–21 行）",tx:"Most vaccines target a specific virus. This new vaccine takes a different approach. … In a trial involving 39 volunteers, the vaccine was found to be safe and produced immune responses against several coronaviruses. It was also given without a needle, using a high-pressure jet of liquid."},
+ {hd:"第三段（第 22–31 行）",tx:"All in all, the results have raised hopes among researchers, but they caution that more testing is needed. The vaccine is still in an early stage, and larger trials will be required before its effectiveness can be confirmed. If the technology proves successful, though, …"}
+];
+var TL={w:"發生了什麼",p:"誰、在哪裡",n:"為什麼算新聞"};
+
+var PREVIEW=false;
+var ST={tags:{},cut:{},cutTouched:0,q1:0,q2:0,q3:0,q5:0,q6:0,step:1};
+function save(){ if(PREVIEW) return; try{ localStorage.setItem(KEY, JSON.stringify(ST)); }catch(e){} }
+function load(){ try{ var r=localStorage.getItem(KEY); return r?JSON.parse(r):null; }catch(e){ return null; } }
+function wipe(){ try{ localStorage.removeItem(KEY); }catch(e){} location.reload(); }
+
+function quiz(qid,aid,gid,tag,after){
+  var done=false;
+  function settle(){
+    done=true;
+    var bs=$(qid).querySelectorAll("button");
+    for(var i=0;i<bs.length;i++){ bs[i].disabled=true; bs[i].dataset.state=bs[i].dataset.ok?"right":"wrong"; }
+    if(aid) $(aid).hidden=false;
+    if(gid) $(gid).hidden=false;
+    if(after) after();
+  }
+  $(qid).addEventListener("click",function(e){
+    var b=e.target.closest("button"); if(!b||done) return;
+    settle(); ST[tag]=1; save();
+  });
+  return settle;
+}
+function opener(gid,sid,extra){
+  $(gid).addEventListener("click",function(){
+    var n=parseInt(sid.replace(/\D/g,""),10);
+    if(ST.step<n) ST.step=n; save();
+    $(sid).hidden=false; if(extra) extra();
+    $(sid).scrollIntoView({behavior:"smooth",block:"start"});
+  });
+}
+function hlLines(a,b){
+  var rows=$("tx").querySelectorAll(".ln");
+  for(var r=0;r<rows.length;r++){ var n=+rows[r].dataset.n; rows[r].classList.toggle("hl", n>=a&&n<=b); }
+  var ms=$("tx").querySelectorAll("m");
+  for(var k=0;k<ms.length;k++) ms[k].classList.remove("lit");
+  if(rows.length){ var f=$("tx").querySelector('.ln[data-n="'+a+'"]'); if(f) f.scrollIntoView({behavior:"smooth",block:"center"}); }
+}
+
+/* ---------- 第一步 ---------- */
+function tagged(){ var n=0; for(var k in ST.tags) if(ST.tags[k]) n++; return n; }
+function paintTag(c){
+  if(c.classList.contains("got")) return;
+  c.classList.add("got");
+  var b=document.createElement("b"); b.textContent=TL[c.dataset.t]||"";
+  c.insertBefore(b, c.firstChild);
+}
+function afterTags(){
+  $("sc").innerHTML="\u5df2\u6a19\u51fa <em>"+tagged()+"</em> / 3";
+  if(tagged()===3) $("s1b").hidden=false;
+}
+$("ld").addEventListener("click",function(e){
+  var c=e.target.closest("c"); if(!c) return;
+  if(ST.tags[c.dataset.t]) return;
+  ST.tags[c.dataset.t]=1; save(); paintTag(c); afterTags();
+});
+var set1=quiz("q1","a1","g1","q1");
+opener("g1","s2");
+
+/* ---------- 第二步：倒三角 ---------- */
+function drawFig(){
+  if($("fig").firstChild) return;
+  $("fig").hidden=false;
+  var pts=[[18,26,382,26,341,92,59,92],[57,97,343,97,302,163,98,163],[96,168,304,168,263,234,137,234]];
+  var s='<svg viewBox="0 0 400 250" role="img" aria-label="\u5012\u91d1\u5b57\u5854\u4e09\u5c64\uff1a\u5c0e\u8a00\u3001\u505a\u6cd5\u8207\u8a66\u9a57\u7d50\u679c\u3001\u4fdd\u7559\u8207\u5c07\u4f86">';
+  for(var i=0;i<3;i++){
+    var p=pts[i], t=TIERS[i], cy=(p[1]+p[5])/2;
+    s+='<g class="tier" data-i="'+i+'" tabindex="0" role="button">';
+    s+='<path d="M'+p[0]+' '+p[1]+' L'+p[2]+' '+p[3]+' L'+p[4]+' '+p[5]+' L'+p[6]+' '+p[7]+' Z"/>';
+    s+='<text x="200" y="'+(cy-1)+'" text-anchor="middle">'+esc(t.t)+'</text>';
+    s+='<text x="200" y="'+(cy+15)+'" text-anchor="middle"><tspan class="n">'+esc(t.s)+'</tspan></text>';
+    s+='</g>';
+  }
+  s+='</svg><figcaption>\u5bec\u5ea6\u4ee3\u8868\u91cd\u8981\u6027\uff0c\u8d8a\u5f80\u4e0b\u8d8a\u6b21\u8981\u3002\u9019\u7bc7\u7684\u6700\u4e0b\u9762\u4e00\u5c64\u653e\u7684\u662f\u7814\u7a76\u4eba\u54e1\u81ea\u5df1\u7684\u4fdd\u7559\u3002\u9ede\u4efb\u4e00\u5c64\uff0c\u7b2c\u56db\u6b65\u7684\u8ab2\u6587\u5c0d\u61c9\u884c\u6703\u4eae\u8d77\u4f86\u3002</figcaption>';
+  $("fig").innerHTML=s;
+  function hit(g){
+    var i=+g.dataset.i, t=TIERS[i];
+    var gs=$("fig").querySelectorAll(".tier");
+    for(var j=0;j<gs.length;j++) gs[j].classList.toggle("on", +gs[j].dataset.i===i);
+    hlLines(t.a,t.b);
+    $("pk").textContent="\u5012\u91d1\u5b57\u5854\u7684\u4e00\u5c64"; $("pk").className="k e";
+    $("pc").textContent=t.t+"\uff08"+t.s+"\uff09"; $("pt").textContent=t.n;
+  }
+  $("fig").addEventListener("click",function(e){ var g=e.target.closest(".tier"); if(g) hit(g); });
+  $("fig").addEventListener("keydown",function(e){
+    if(e.key!=="Enter"&&e.key!==" ") return;
+    var g=e.target.closest(".tier"); if(g){ e.preventDefault(); hit(g); }
+  });
+}
+var set2=quiz("q2","a2","g2","q2",drawFig);
+opener("g2","s3",buildCut);
+
+/* ---------- 第三步：砍尾巴＋摘要 ---------- */
+var builtCut=false;
+function buildCut(){
+  if(builtCut) return; builtCut=true;
+  var h="";
+  for(var i=0;i<PARAS.length;i++){
+    var p=PARAS[i];
+    h+='<div class="para" id="p'+i+'"><div class="hd"><span>'+esc(p.hd)+'</span>'+
+       '<button data-i="'+i+'" id="pb'+i+'">\u780d\u6389</button></div>'+
+       '<div class="bd">'+esc(p.tx)+'</div>'+
+       '<div class="gonemsg">\uff08\u5df2\u780d\u6389\uff09</div></div>';
+  }
+  $("cut").innerHTML=h;
+  $("cut").addEventListener("click",function(e){
+    var b=e.target.closest("button"); if(!b) return;
+    var i=b.dataset.i;
+    ST.cut[i]=ST.cut[i]?0:1; ST.cutTouched=1; save(); paintCut();
+  });
+  paintCut();
+}
+function paintCut(){
+  var left=[];
+  for(var i=0;i<3;i++){
+    var gone=!!ST.cut[i];
+    $("p"+i).classList.toggle("gone",gone);
+    $("pb"+i).textContent = gone ? "\u653e\u56de" : "\u780d\u6389";
+    if(!gone) left.push(i);
+  }
+  var v=$("vd"), msg, cls;
+  if(left.length===0){ msg="\u5168\u90e8\u780d\u5149\u4e86\uff0c\u4ec0\u9ebc\u90fd\u4e0d\u5269\u3002"; cls="no"; }
+  else if(left.indexOf(0)<0){ msg="\u5c0e\u8a00\u780d\u6389\u4e86\u3002\u8b80\u8005\u4e0d\u77e5\u9053\u5230\u5e95\u767c\u751f\u4e86\u4ec0\u9ebc\u4e8b\uff0c\u5269\u4e0b\u7684\u53ea\u662f\u7d30\u7bc0\u548c\u4fdd\u7559\u3002\u5012\u91d1\u5b57\u5854\u4e0d\u80fd\u5f9e\u982d\u780d\u3002"; cls="no"; }
+  else if(left.length===3){ msg="\u4e09\u6bb5\u90fd\u5728\uff0c\u9019\u662f\u5b8c\u6574\u7684\u5831\u5c0e\u3002"; cls=""; }
+  else if(left.indexOf(2)>=0){ msg="\u5c0e\u8a00\u9084\u5728\uff0c\u8b80\u8005\u9084\u77e5\u9053\u767c\u751f\u4ec0\u9ebc\u4e8b\u3002\u5c11\u4e86\u7b2c\u4e8c\u5c64\u7684\u7d30\u7bc0\uff0c\u4f46\u7814\u7a76\u4eba\u54e1\u7684\u4fdd\u7559\u9084\u5728\u3002"; cls="ok"; }
+  else if(left.length===2){ msg="\u5c0e\u8a00\u9084\u5728\uff0c\u65b0\u805e\u9084\u6210\u7acb\u3002\u53ef\u662f\u770b\u4e00\u4e0b\u6d88\u5931\u7684\u5b57\uff1acaution\u3001still in an early stage\u3001will be required\u3002\u6c92\u6709\u9019\u4e9b\u5b57\uff0c\u8b80\u8005\u6703\u4ee5\u70ba\u75ab\u82d7\u5df2\u7d93\u6210\u529f\u4e86\u3002"; cls="warn"; }
+  else { msg="\u53ea\u5269\u5c0e\u8a00\uff0c\u9084\u662f\u77e5\u9053\u767c\u751f\u4ec0\u9ebc\u4e8b\uff0c\u6240\u4ee5\u9019\u662f\u5012\u91d1\u5b57\u5854\u3002\u4e0d\u904e\u4fdd\u7559\u7684\u8a71\u53ea\u5269\u7b2c 7 \u884c\u7684 hope \u548c could \u4e86\u3002"; cls="warn"; }
+  v.textContent=msg; v.className="verdict"+(cls?" "+cls:"");
+  if(ST.cutTouched){ $("a3").hidden=false; $("q3w").hidden=false; }
+}
+var set3=quiz("q3","a3b","g3","q3");
+opener("g3","s4",function(){ buildText(); drawFig(); });
+
+/* ---------- 第四步：課文與線索鏈 ---------- */
+function renderLine(str){
+  var out="",i=0;
+  while(i<str.length){
+    var a=str.indexOf("{",i);
+    if(a<0){ out+=esc(str.slice(i)); break; }
+    out+=esc(str.slice(i,a));
+    var b=str.indexOf("}",a), p=str.slice(a+1,b).split("|");
+    var id=p[1], it=p[2]||"1", k=CHAINS[id]?CHAINS[id].k:"sub";
+    out+='<m data-c="'+id+'" data-i="'+it+'" data-kind="'+k+'" tabindex="0">'+esc(p[0])+'</m>';
+    i=b+1;
+  }
+  return out;
+}
+var builtText=false;
+function buildText(){
+  if(builtText) return; builtText=true;
+  var h='<p class="ttl">'+renderLine(TITLE)+'</p>';
+  for(var i=0;i<LINES.length;i++){
+    var n=i+1;
+    var cls="ln"+(INDENT[n]?" ind"+(n>1?" pb":""):"");
+    h+='<div class="'+cls+'" data-n="'+n+'"><i>'+((n%5===0)?n:"")+'</i><span>'+renderLine(LINES[i])+'</span></div>';
+  }
+  $("tx").innerHTML=h;
+}
+function lightChain(id){
+  var ms=$("tx").querySelectorAll("m"), items={}, order=[],i;
+  var gs=$("fig").querySelectorAll(".tier");
+  for(i=0;i<gs.length;i++) gs[i].classList.remove("on");
+  var rows=$("tx").querySelectorAll(".ln");
+  for(i=0;i<rows.length;i++) rows[i].classList.remove("hl");
+  for(i=0;i<ms.length;i++){
+    if(ms[i].dataset.c===id){
+      ms[i].classList.add("lit");
+      var key=ms[i].dataset.i;
+      if(!items[key]){ items[key]=[]; order.push(key); }
+      items[key].push(ms[i].textContent);
+    } else ms[i].classList.remove("lit");
+  }
+  var c=CHAINS[id]; if(!c) return;
+  var parts=[];
+  for(var o=0;o<order.length;o++) parts.push(esc(items[order[o]].join(" ")));
+  $("pk").textContent=LB[c.k]; $("pk").className=CL[c.k];
+  $("pc").innerHTML=parts.join('<i>\u2192</i>');
+  $("pt").textContent=c.n;
+}
+$("tx").addEventListener("click",function(e){ var m=e.target.closest("m"); if(m) lightChain(m.dataset.c); });
+$("tx").addEventListener("keydown",function(e){
+  if(e.key!=="Enter"&&e.key!==" ") return;
+  var m=e.target.closest("m"); if(m){ e.preventDefault(); lightChain(m.dataset.c); }
+});
+function toggle(btn,cls){
+  btn.addEventListener("click",function(){
+    var on=btn.getAttribute("aria-pressed")==="true";
+    btn.setAttribute("aria-pressed",on?"false":"true");
+    $("tx").classList.toggle(cls,on);
+  });
+}
+toggle($("m1"),"off-sub");
+toggle($("m2"),"off-gen");
+opener("g4","s5");
+
+/* ---------- 第五步 ---------- */
+var set5=quiz("q5","a5","g5","q5");
+$("g5").addEventListener("click",function(){
+  if(ST.step<6) ST.step=6; save();
+  $("s6").hidden=false;
+  $("s6").scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+/* ---------- 第六步 ---------- */
+var done6=false;
+function settle6(){
+  done6=true;
+  var bs=$("q6").querySelectorAll("button");
+  for(var i=0;i<bs.length;i++){
+    bs[i].disabled=true; bs[i].dataset.state=bs[i].dataset.ok?"right":"wrong";
+    if(bs[i].dataset.ok){ $("bl").textContent=bs[i].textContent; $("bl").className="blank filled"; }
+  }
+  $("a6").hidden=false; $("w6").hidden=false; $("s7").hidden=false;
+}
+$("q6").addEventListener("click",function(e){
+  var b=e.target.closest("button"); if(!b||done6) return;
+  settle6(); ST.q6=1; save();
+  $("a6").scrollIntoView({behavior:"smooth",block:"nearest"});
+});
+
+/* ---------- 老師的預覽開關：網址加 ?all ---------- */
+function previewAll(){
+  PREVIEW=true;
+  $("pv").hidden=false;
+  var i,cs=$("ld").querySelectorAll("c");
+  for(i=0;i<cs.length;i++){ ST.tags[cs[i].dataset.t]=1; paintTag(cs[i]); }
+  afterTags(); set1();
+  $("s2").hidden=false; set2();
+  $("s3").hidden=false; ST.cutTouched=1; buildCut(); set3();
+  $("s4").hidden=false; buildText(); drawFig();
+  $("s5").hidden=false; set5();
+  $("s6").hidden=false; settle6();
+}
+
+/* ---------- 接回上次的進度 ---------- */
+$("rst").addEventListener("click",wipe);
+(function restore(){
+  if(/(^|[?&])all(=|&|$)/.test(location.search)){ previewAll(); return; }
+  var v=load(); if(!v) return;
+  ST=v;
+  if(!ST.tags) ST.tags={};
+  if(!ST.cut) ST.cut={};
+  if(!ST.step) ST.step=1;
+  if(!(tagged()||ST.step>1)) return;
+  $("rs").hidden=false;
+  var i,cs=$("ld").querySelectorAll("c");
+  for(i=0;i<cs.length;i++) if(ST.tags[cs[i].dataset.t]) paintTag(cs[i]);
+  afterTags();
+  if(ST.q1) set1();
+  if(ST.step>=2){ $("s2").hidden=false; if(ST.q2) set2(); }
+  if(ST.step>=3){ $("s3").hidden=false; buildCut(); if(ST.q3) set3(); }
+  if(ST.step>=4){ $("s4").hidden=false; buildText(); drawFig(); }
+  if(ST.step>=5){ $("s5").hidden=false; if(ST.q5) set5(); }
+  if(ST.step>=6){ $("s6").hidden=false; if(ST.q6) settle6(); }
+  var last=$("s"+(ST.step>=6?6:ST.step));
+  if(last) setTimeout(function(){ last.scrollIntoView({block:"start"}); },60);
+})();
+})();
+</script>
+</body>
+</html>
