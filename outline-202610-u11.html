@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>描述的組織圖｜Nature’s Record-Breakers</title>
+
+<style>
+:root{
+  --ground:#f1f3f2; --ink:#17282f; --teal:#1f6f6a; --teal-soft:#dfeceb;
+  --muted:#77878d; --line:#cdd6d6; --exam:#b4661c; --exam-soft:#fdf4e7;
+  --ok:#2e6b4f; --ok-soft:#edf4ef;
+  --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+  --sans:"PingFang TC","Noto Sans TC","Microsoft JhengHei","Helvetica Neue",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-text-size-adjust:100%}
+.wrap{max-width:44rem;margin:0 auto;padding:1.6rem 1.1rem 4rem}
+h1{font-family:var(--serif);font-weight:600;font-size:1.6rem;line-height:1.3;margin:0 0 .55rem}
+.lede{margin:0 0 1.1rem;color:#3d5059;font-size:.95rem}
+.src{font-size:.8rem;color:var(--muted);margin:0 0 1.1rem}
+.preview{font-size:.85rem;color:var(--exam);background:var(--exam-soft);border:1px dashed var(--exam);
+  border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.preview[hidden]{display:none}
+.resume{font-size:.85rem;color:var(--teal);background:var(--teal-soft);border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.resume[hidden]{display:none}
+.resume button{font:inherit;font-size:.82rem;background:#fff;color:var(--ink);border:1px solid var(--line);
+  border-radius:.25rem;padding:.16rem .6rem;margin-left:.5rem;cursor:pointer}
+.step{border-top:1px solid var(--line);padding-top:1.15rem;margin-top:1.7rem}
+.step[hidden]{display:none}
+.stepno{font-family:var(--serif);font-size:.82rem;color:var(--muted);margin:0 0 .2rem}
+h2{font-family:var(--serif);font-weight:600;font-size:1.2rem;margin:0 0 .5rem;color:var(--teal)}
+p{margin:0 0 .7rem;font-size:.95rem}
+
+/* 組織圖：多列原因結果表 */
+.fig{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.7rem .5rem .5rem;margin:.2rem 0 .6rem}
+.fig svg{display:block;width:100%;height:auto;max-width:26rem;margin:0 auto}
+.bx rect{fill:#fff;stroke:var(--line);stroke-width:2}
+.bx text.fn{font-family:var(--sans);font-size:11px;font-weight:600;fill:var(--ink)}
+.bx text.en{font-family:var(--serif);font-size:8.5px;fill:var(--muted)}
+.bx text.rf{font-family:var(--sans);font-size:8.5px;fill:var(--muted)}
+.bx.aim rect{stroke:var(--teal);stroke-dasharray:6 4}
+.bx.on rect{fill:var(--ok-soft);stroke:var(--ok);stroke-width:2.5}
+.bx.on text.rf{fill:var(--ok);font-weight:600}
+.bx.sel rect{stroke:var(--teal);stroke-width:3}
+.lv text{font-family:var(--sans);font-size:9px;fill:var(--muted)}
+.cutline{stroke:var(--exam);stroke-width:2;stroke-dasharray:6 5}
+.frameline{stroke:var(--line);stroke-width:2;stroke-dasharray:5 4;fill:none}
+.cuttag{font-family:var(--sans);font-size:9px;font-weight:600;fill:var(--exam)}
+
+.panel{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.7rem .85rem;margin:0 0 .9rem}
+.panel .k{font-size:.72rem;font-weight:600;border-radius:.2rem;padding:.06rem .42rem;
+  color:var(--teal);background:var(--teal-soft);border:1px solid var(--teal)}
+.panel .q{font-family:var(--serif);font-size:.95rem;line-height:1.65;margin:.4rem 0 0;color:#3d5059}
+
+.pool{display:flex;flex-direction:column;gap:.4rem;margin:0 0 .8rem}
+.pool button{font:inherit;font-family:var(--serif);font-size:.93rem;line-height:1.55;background:#fff;color:var(--ink);
+  border:1px solid var(--line);border-radius:.3rem;padding:.5rem .7rem;cursor:pointer;text-align:left}
+.pool button:hover{border-color:var(--teal)}
+.pool button.pick{border-color:var(--teal);background:var(--teal-soft)}
+.pool button.gone{display:none}
+.hint{font-size:.85rem;color:var(--muted);margin:0 0 .8rem}
+.hint em{font-style:normal;color:var(--teal);font-weight:600}
+
+.opts{display:flex;flex-direction:column;gap:.45rem;margin:.2rem 0 .8rem}
+.opts button{font:inherit;font-size:.94rem;background:#fff;color:var(--ink);border:1px solid var(--line);
+  border-radius:.3rem;padding:.5rem .8rem;cursor:pointer;text-align:left}
+.opts button:hover{border-color:var(--teal)}
+.opts button[data-state="right"]{background:var(--ok-soft);border-color:var(--ok)}
+.opts button[data-state="wrong"]{background:var(--ground);color:var(--muted)}
+.opts button[disabled]{cursor:default}
+
+.said{background:#fff;border-left:3px solid var(--teal);border-radius:.3rem;padding:.75rem .85rem;
+  margin:.2rem 0 .9rem;font-size:.93rem;color:#3d5059}
+.said[hidden]{display:none}
+.said b{color:var(--ink)}
+.srcs{margin:.6rem 0 .9rem}
+.srcs .pair{font-family:var(--serif);font-size:.9rem;line-height:1.6;color:#3d5059;
+  border-left:2px solid var(--line);padding:.1rem 0 .1rem .6rem;margin:0 0 .5rem}
+.srcs .pair .t{display:block;font-family:var(--sans);font-size:.76rem;font-weight:600;color:var(--teal)}
+.go{font:inherit;font-size:.92rem;background:var(--ink);color:#fff;border:1px solid var(--ink);
+  border-radius:.3rem;padding:.42rem 1.05rem;cursor:pointer}
+.go[hidden]{display:none}
+
+.prompt{background:var(--exam-soft);border:1px solid #e8d3b4;border-radius:.4rem;padding:.75rem .85rem;
+  margin:0 0 .9rem;font-size:.92rem;color:#3d5059}
+.prompt b{color:var(--ink)}
+.cell{background:#fff;border:1px solid var(--line);border-radius:.4rem;padding:.6rem .75rem}
+.cell+.cell{margin-top:.6rem}
+.cell .fn{font-size:.78rem;font-weight:600;color:var(--teal)}
+.cell .fn em{font-style:normal;color:var(--muted);font-weight:400;margin-left:.35rem}
+.cell textarea{width:100%;margin-top:.3rem;font-family:inherit;font-size:.93rem;line-height:1.6;
+  padding:.45rem .55rem;border:1px solid var(--line);border-radius:.3rem;background:#fff;color:var(--ink);resize:vertical}
+.bar{display:flex;gap:.5rem;flex-wrap:wrap;margin:.7rem 0}
+.bar button{font:inherit;font-size:.9rem;background:#fff;color:var(--ink);border:1px solid var(--ink);
+  border-radius:.3rem;padding:.38rem .9rem;cursor:pointer}
+.bar button.p{background:var(--ink);color:#fff}
+.bar button[disabled]{border-color:var(--line);color:var(--muted);cursor:default;background:#fff}
+pre.ai{background:#fff;border:1px solid var(--line);border-radius:.3rem;padding:.6rem .7rem;
+  font-size:.8rem;line-height:1.65;white-space:pre-wrap;margin:.4rem 0 0;color:#3d5059}
+.code{background:var(--teal-soft);border:1px solid var(--teal);border-radius:.4rem;padding:.7rem .85rem;margin:1.1rem 0 .5rem}
+.code .t{font-size:.8rem;font-weight:600;color:var(--teal);margin:0 0 .35rem}
+.code .v{font-family:var(--serif);font-size:1.15rem;letter-spacing:.04em;color:var(--ink);margin:0 0 .5rem}
+.series{border-top:1px solid var(--line);margin-top:2.2rem;padding-top:1.1rem;font-size:.9rem}
+.series a{font-family:var(--serif);font-size:1rem;color:var(--teal);text-decoration:none}
+.series a:hover{text-decoration:underline}
+.toast{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--ink);color:#fff;
+  padding:.45rem 1rem;border-radius:.3rem;font-size:.86rem;opacity:0;transition:opacity .2s;pointer-events:none}
+.toast.on{opacity:1}
+.spoke{stroke:var(--line);stroke-width:2;fill:none}
+.bx.hub rect{stroke:var(--muted)}
+.bx.hub.on rect{stroke:var(--ok)}
+.bx.sw rect,.bx.hub.on.sw rect{stroke:var(--exam);stroke-width:2.5}
+.bx.sw text.fn{fill:var(--exam)}
+.warn{font-family:var(--sans);font-size:9.5px;font-weight:600;fill:var(--exam)}
+.okk{font-family:var(--sans);font-size:9.5px;font-weight:600;fill:var(--ok)}
+.hint ul{margin:.3rem 0 0;padding-left:1.1rem;color:var(--exam)}
+.hint ul.ok{color:var(--ok)}
+.hint li{margin-bottom:.2rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>描述的組織圖：一個主題，五項紀錄</h1>
+<p class="lede">上一份單元頁帶你讀完這篇自然界的紀錄之王。這一份把整篇整理成一張圖：中間是主題，周圍一項一格，格子之間不畫箭頭。這個形狀叫<b>放射狀網狀圖</b>，是描述文的標準圖，第七單元的餐廳那一篇用的也是這一張。文章先提出一個主題，再分成幾項說明它的部分、特徵或例子時，就用這種圖來整理。</p>
+<p class="preview" id="pv" hidden>預覽模式：全部步驟與答案一次展開，進度不存檔。學生拿到的一般連結不受影響。</p>
+<p class="resume" id="rs" hidden>上次做到一半，已經幫你接回來了。<button id="rst">重新開始</button></p>
+<p class="src">ALL+ 互動英語 10 月號 Unit 11（pp. 44–45）　Nature’s Record-Breakers　全文 52 行</p>
+
+<!-- 第一步 -->
+<section class="step" id="s1">
+  <p class="stepno">第一步</p>
+  <h2>中間一格，周圍五格</h2>
+  <p>每一格的名稱已經印好了：中間是主題，周圍是五個小標題。你要放的是每一格在說什麼。</p>
+  <p>六個位置各有各的內容。<b>八張句卡，只有六張放得進去</b>，而且都不是原句，是換過字的說法。</p>
+  <p class="hint" id="h1">先點一張句卡，再點圖上的格子。第一次就放對 <em id="n1">0</em> / 6</p>
+  <div class="pool" id="pool"></div>
+  <figure class="fig" id="fig"></figure>
+  <div class="panel" id="pn">
+    <span class="k" id="pk">這一格</span>
+    <p class="q" id="pq">點圖上任一個格子，看它裝的是哪一句。</p>
+  </div>
+  <div class="said" id="a1" hidden>
+    <b>兩張放不進去的是哪兩張。</b>一張說世界上沒有任何生物比格陵蘭鯊活得久。它最容易放進壽命那一格，因為 500 years 確實在第 35 行；可是第 33 行寫的是 <q>the longest-lived vertebrate on Earth</q>，只限脊椎動物，第 38 到 40 行接著說有些無脊椎動物活得更久。<b>把「脊椎動物裡最長壽」說成「所有生物裡最長壽」，就是範圍錯了</b>。另一張說藍鯨身體太大，得捕食大型動物才吃得飽。第 12 到 13 行寫的是 <q>survives mainly on these tiny creatures</q>，靠的是很小的生物，<b>方向剛好相反</b>。
+    <br><br>
+    <b>八張句卡沒有一張跟課文一樣。</b>下面是六個位置的原文與行號，回去對一次。
+    <div class="srcs" id="src6"></div>
+  </div>
+  <button class="go" id="g1" hidden>下一步：把格子換個位置看看</button>
+</section>
+
+<!-- 第二步 -->
+<section class="step" id="s2" hidden>
+  <p class="stepno">第二步</p>
+  <h2>對調測試</h2>
+  <p>第五單元德奧遊記的流程圖，兩站一對調，文章就接不上；第七單元的餐廳那一篇，周圍兩格對調卻照樣成立。這一篇呢？<b>按下面的按鈕，圖上的格子會真的換位置。</b>前兩個按鈕對調周圍的兩格，第三個按鈕把中心和其中一格互換。三種都試過，才會出題。</p>
+  <div class="bar" id="swbar">
+    <button data-s="1">對調速度和力氣</button>
+    <button data-s="2">對調體型和毒性</button>
+    <button data-s="3">把中心換成格陵蘭鯊</button>
+    <button class="p" id="undo" hidden>換回來</button>
+  </div>
+  <div class="hint" id="swh">六格照原來的位置排著。任選一種對調。</div>
+  <div id="q2box" hidden>
+    <p>周圍兩格對調，文章照樣成立；中心一換，就不成立了。<b>這說明了什麼？</b></p>
+    <div class="opts" id="q2">
+      <button>跟第五單元的德奧遊記一樣，格子一換就接不上</button>
+      <button>作者把最驚人的紀錄放在第一格，所以不能換</button>
+      <button data-ok="1">周圍五格可以任意對調，中心的主題卻不能換</button>
+      <button>壽命那一格多了一種動物，所以一定要排在最後</button>
+    </div>
+    <div class="said" id="a2" hidden>
+      <b>周圍五格可以任意對調，中心的主題卻不能換。</b>周圍的五格彼此平行，每一段的第一句都自己宣布這一格的紀錄，不靠前一段：第 15 行 The peregrine falcon holds the record for speed，第 45 行 The box jellyfish claims the title of…，段落之間也沒有 then、later 這類接前一段的字，所以誰先誰後都讀得通。中心不一樣，它跟周圍五格不在同一個層級：第 3 行的 record-holders 是一個類別，五種動物是這個類別底下的成員。格陵蘭鯊只是其中一種，放到中間，藍鯨和遊隼就收不進「格陵蘭鯊」底下。<b>周圍可以對調、中心不能換，就是描述；換了就接不上，是序列。</b>
+      <br><br>
+      <b>有一個地方要跟著動。</b>第 4 行的預告 size, speed, strength 是照後面段落的順序寫的；速度和力氣對調之後，這裡也要改成 size, strength, speed。不過這只是調整順序，內容一個字都不用改，跟序列那種一換就講不通不一樣。
+      <br><br>
+      <b>另外三個為什麼排除：</b>「跟第五單元的德奧遊記一樣，格子一換就接不上」<b>最容易選</b>，因為你做過那一篇的對調測試，結果是接不上。可是這一篇周圍兩格對調之後，圖上沒有出現任何警告，原因就是五段之間沒有表示先後的字。「作者把最驚人的紀錄放在第一格」，文章從來沒有替五項紀錄排名，藍鯨那一段也沒說牠的紀錄最驚人。「壽命那一格多了一種動物，所以要排在最後」也不對：第 38 到 40 行的 <q>However, even these remarkable lifespans are surpassed</q> 把火山海綿接在格陵蘭鯊後面，these remarkable lifespans 指的是同一格裡的五百年，沒有指到別的格子，整格搬到哪裡都一樣。
+    </div>
+  </div>
+  <button class="go" id="g2" hidden>下一步：換成你自己的作文</button>
+</section>
+
+<!-- 第三步 -->
+<section class="step" id="s3" hidden>
+  <p class="stepno">第三步</p>
+  <h2>用同一張圖列你的大綱</h2>
+  <p>學測作文常要你介紹一個人：先說出他有哪些長處，再說明他對你的意義。第一段就是一篇小小的描述文。用剛才那張圖列大綱，有三件事要照這篇學：</p>
+  <p><b>一、主題句先點出主題，再把要談的項目列出來。</b>像這篇第 4 到 5 行的 size, speed, strength, or other remarkable traits，你可以寫「我的表哥很會做三件事：修腳踏車、煮泡麵、安慰人」。讀者一看就知道後面有幾段。<b>二、每一格先用一句話說出長處，再給一個具體的例子或數字，最後拿一個讀者熟悉的東西來比。</b>這篇說糞金龜的力氣，就拿一個人拉六輛公車來比。寫成英文時可以這樣寫：He can fix a flat tire in five minutes, faster than the shop down the street.<b>三、格子之間不必排先後，但每一格都要回到主題句列出的項目。</b>寫完一格，問自己：這一格是不是主題句裡的一項？</p>
+  <div class="prompt">
+    <b>試寫的題目：</b>請寫一篇短文，介紹一位你很佩服的朋友或家人。第一段說明他有哪幾項讓你佩服的長處，每一項舉一個具體的例子；第二段說明他對你有什麼影響。
+  </div>
+  <p>每一格寫一句中文要點就好，這一步先不寫英文。</p>
+  <div id="mine"></div>
+  <div class="bar">
+    <button class="p" id="cp">複製我寫的內容</button>
+    <button id="sv">存到瀏覽器</button>
+  </div>
+  <p class="hint">這一步沒有標準答案，站上不批改。複製之後貼給老師，或貼給 AI 也可以，下面這段指示會跟著一起複製。</p>
+  <pre class="ai" id="aib"></pre>
+  <div class="code">
+    <p class="t">做完了，把這一行貼到 Google Classroom 的作業回覆欄</p>
+    <p class="v" id="cv">—</p>
+    <div class="bar" style="margin:0">
+      <button class="p" id="cc">複製完成碼</button>
+      <button id="rfb">重新產生</button>
+    </div>
+    <p class="hint" style="margin:.5rem 0 0">老師只看這一行，不會看到你寫的內容。你寫的東西只留在這台裝置的瀏覽器裡。</p>
+  </div>
+</section>
+
+<nav class="series">
+  <a href="cohesion.html">← 回讀法練習總表</a>
+</nav>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+"use strict";
+function $(id){return document.getElementById(id);}
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;");}
+
+var KEY="outline-202610-u11-v1";
+var PREVIEW=false;
+var ST={put:{},first:{},miss:{},sw:0,tS:0,tH:0,q2:0,mine:{},step:1};
+function save(){ if(PREVIEW) return; try{ localStorage.setItem(KEY,JSON.stringify(ST)); }catch(e){} }
+function load(){ try{ var r=localStorage.getItem(KEY); return r?JSON.parse(r):null; }catch(e){ return null; } }
+function toast(m){ var t=$("toast"); t.textContent=m; t.classList.add("on");
+  setTimeout(function(){ t.classList.remove("on"); },1600); }
+
+/* 六格：中心加周圍五格 */
+var CELLS=[
+ {id:"h",fn:"中心　主題",en:"record-holders",rf:"第 1–6 行"},
+ {id:"z",fn:"體型：藍鯨",en:"Largest Animal Ever",rf:"第 7–13 行"},
+ {id:"p",fn:"速度：遊隼",en:"Fastest Animal of All",rf:"第 14–20 行"},
+ {id:"g",fn:"力氣：糞金龜",en:"Strongest for Its Size",rf:"第 21–30 行"},
+ {id:"o",fn:"壽命：格陵蘭鯊",en:"Oldest Living Vertebrate",rf:"第 31–43 行"},
+ {id:"v",fn:"毒性：箱形水母",en:"Most Venomous Animal",rf:"第 44–52 行"}
+];
+/* 位置：0 是中心，1–5 是周圍（順時針） */
+var POS=[[190,190],[190,36],[316,118],[276,290],[104,290],[64,118]];
+/* 每一種狀態下，位置 0–5 放哪一格（CELLS 的索引） */
+var ORDERS={0:[0,1,2,3,4,5],1:[0,1,3,2,4,5],2:[0,5,2,3,4,1],3:[4,1,2,3,0,5]};
+var SAFE={
+ 1:["第 15 行的段首 The peregrine falcon 和第 22 行的段首 When strength is measured，都是自己交代這一段講什麼，不需要前一段。",
+    "唯一要跟著動的是第 4 行的預告：size, speed, strength 改成 size, strength, speed。只是換個順序，內容一個字都不用改。"],
+ 2:["第 8 行的段首 No other creature is as large as the blue whale 和第 45 行的段首 The box jellyfish，都在第一句就宣布這一格的紀錄。",
+    "第 5 行的 From giant whales to tiny beetles 說的是範圍從大到小，不是段落的先後；五段之間也沒有 then、later 這類表示先後的字。"]
+};
+var WARN3=["第 3 行的主題是 record-holders，好幾種紀錄保持者；格陵蘭鯊只是其中一種，當不了整篇的主題。",
+           "體型、速度、力氣、毒性四格講的都不是格陵蘭鯊，收不進「壽命」那一格底下。第 3 到 5 行預告的一串紀錄，擠到外圈只剩一格。"];
+
+var SENTS=[
+ {id:"o",t:"Among animals with a backbone, the Greenland shark may live the longest, some for over five centuries."},
+ {id:"x1",t:"No living thing on Earth lives longer than the Greenland shark, which can pass 500 years."},
+ {id:"h",t:"Over billions of years, evolution has produced animals that each beat all others in one special ability."},
+ {id:"p",t:"By tucking in its wings, the peregrine falcon dives faster than even the quickest runner on land."},
+ {id:"v",t:"Though it looks delicate, the box jellyfish carries stronger venom than any other animal."},
+ {id:"x2",t:"Because of its enormous size, the blue whale has to hunt large animals to feed its body."},
+ {id:"g",t:"Measured against its own weight, the dung beetle pulls loads that no other animal can match."},
+ {id:"z",t:"Bigger than any animal that has ever existed, the blue whale still lives mostly on tiny sea creatures."}
+];
+var NOFIT={
+ x1:"這一張最容易放進壽命那一格，因為 500 years 確實在第 35 行。可是第 33 行寫的是 the longest-lived vertebrate on Earth，只限脊椎動物；第 38 到 40 行接著說有些無脊椎動物活得更久。這一張把範圍擴大到所有生物，範圍錯了。",
+ x2:"這一張看起來屬於體型那一格，可是第 12 到 13 行寫的是藍鯨 survives mainly on these tiny creatures，靠的是很小的生物。這一張把方向說反了，所以哪一格都放不進去。"
+};
+var SRCQ=[
+ {fn:"中心　主題",rf:"第 1–5 行",t:"The animal kingdom is the result of billions of years of evolution \u2026 Among them are record-holders that stand out for their size, speed, strength, or other remarkable traits."},
+ {fn:"體型：藍鯨",rf:"第 8–13 行",t:"No other creature is as large as the blue whale. \u2026 Despite its massive size, the blue whale survives mainly on these tiny creatures."},
+ {fn:"速度：遊隼",rf:"第 15–19 行",t:"The peregrine falcon holds the record for speed. \u2026 By pulling in its wings and streamlining its body, the falcon becomes a living missile"},
+ {fn:"力氣：糞金龜",rf:"第 22–26 行",t:"When strength is measured relative to body weight, the dung beetle is the undisputed champion. Some species can pull more than 1,000 times their own weight."},
+ {fn:"壽命：格陵蘭鯊",rf:"第 32–40 行",t:"The Greenland shark is believed to be the longest-lived vertebrate on Earth. \u2026 However, even these remarkable lifespans are surpassed by those of some invertebrates."},
+ {fn:"毒性：箱形水母",rf:"第 45–52 行",t:"The box jellyfish claims the title of the world\u2019s most venomous animal. \u2026 Although it appears fragile, the box jellyfish is one of the ocean\u2019s deadliest creatures."}
+];
+
+var MINE=[
+ {id:"m1",fn:"中心：主題句",en:"the topic",ph:"他是誰？用一句話說他有哪幾項長處，像課文第 4 到 5 行那樣先把項目列出來。"},
+ {id:"m2",fn:"長處一",en:"strength 1",ph:"先說出長處，再給一個具體的例子或數字，最後拿一個熟悉的東西來比。"},
+ {id:"m3",fn:"長處二",en:"strength 2",ph:"另一項長處，跟長處一不重複，寫法跟長處一一樣。"},
+ {id:"m4",fn:"長處三",en:"strength 3",ph:"第三項長處。寫完問自己：它是不是主題句列出的項目之一？"}
+];
+
+var AI=[
+"我是台灣的高中生，正在準備學測英文作文。下面是我列的中文大綱，題目要我介紹一位我很佩服的朋友或家人：第一段說明他有哪幾項讓我佩服的長處，每一項舉一個具體的例子；第二段說明他對我有什麼影響。",
+"",
+"請照以下規則給我意見：",
+"1. 先看主題句：有沒有說出是誰，並且把後面要談的幾項長處先列出來。",
+"2. 三項長處是不是各講一件事，彼此沒有重複，順序也跟主題句列的一樣。",
+"3. 每一項長處有沒有配一個具體的例子或數字，而不是只寫「很厲害」「很好」；有沒有拿一個讀者熟悉的東西來比。",
+"4. 每一項長處是不是都回到主題句，是主題句列出的項目之一。",
+"5. 不要幫我寫英文，也不要幫我補內容。",
+"6. 說明用中文。"
+].join("\n");
+
+/* ── 畫圖 ── */
+function drawFig(){
+  var sw=ST.sw||0, ord=ORDERS[sw];
+  var s='<svg viewBox="0 0 380 330" role="img" aria-label="放射狀網狀圖：中間是紀錄保持者，周圍五格是體型、速度、力氣、壽命、毒性">';
+  var p,c,x,y,w,h,cls;
+  for(p=1;p<6;p++) s+='<path class="spoke" d="M'+POS[0][0]+' '+POS[0][1]+' L'+POS[p][0]+' '+POS[p][1]+'"/>';
+  for(p=0;p<6;p++){
+    c=CELLS[ord[p]]; x=POS[p][0]; y=POS[p][1];
+    w=p===0?128:124; h=p===0?56:48;
+    cls="bx"+(ST.put[c.id]?" on":"")+(p===0?" hub":"")+(sw&&ord[p]!==p?" sw":"");
+    s+='<g class="'+cls+'" data-id="'+c.id+'" tabindex="0" role="button">';
+    s+='<rect x="'+(x-w/2)+'" y="'+(y-h/2)+'" width="'+w+'" height="'+h+'" rx="6"/>';
+    s+='<text class="fn" x="'+x+'" y="'+(y-h/2+17)+'" text-anchor="middle">'+esc(c.fn)+'</text>';
+    s+='<text class="en" x="'+x+'" y="'+(y-h/2+30)+'" text-anchor="middle">'+esc(c.en)+'</text>';
+    s+='<text class="rf" x="'+x+'" y="'+(y-h/2+42)+'" text-anchor="middle">'+(ST.put[c.id]?esc(c.rf):"待放")+'</text>';
+    s+='</g>';
+  }
+  if(sw===1||sw===2) s+='<text class="okk" x="6" y="12">對調之後照樣成立</text>';
+  if(sw===3) s+='<text class="warn" x="190" y="238" text-anchor="middle">主題？</text><text class="warn" x="6" y="12">其他四格收不進中心</text>';
+  s+='</svg>';
+  $("fig").innerHTML=s;
+}
+
+var pick=null;
+function drawPool(){
+  var h="";
+  for(var i=0;i<SENTS.length;i++)
+    h+='<button data-i="'+i+'" class="'+(ST.put[SENTS[i].id]?"gone":"")+'">'+esc(SENTS[i].t)+'</button>';
+  $("pool").innerHTML=h;
+}
+function done1(){ var n=0; for(var k in ST.put) if(ST.put[k]) n++; return n; }
+function first1(){ var n=0; for(var k in ST.first) if(ST.first[k]) n++; return n; }
+function showSrc(){
+  if($("src6").innerHTML) return;
+  var h="";
+  for(var i=0;i<SRCQ.length;i++)
+    h+='<div class="pair"><span class="t">'+esc(SRCQ[i].fn)+'　'+esc(SRCQ[i].rf)+'</span>'+esc(SRCQ[i].t)+'</div>';
+  $("src6").innerHTML=h;
+}
+function after1(){
+  if($("n1")) $("n1").textContent=first1();
+  if(done1()===6){
+    $("h1").innerHTML="六格都滿了。第一次就放對 <em id=\"n1\">"+first1()+"</em> / 6";
+    $("a1").hidden=false; $("g1").hidden=false; showSrc();
+  }
+}
+function show(id){
+  var c=null,i;
+  for(i=0;i<CELLS.length;i++) if(CELLS[i].id===id) c=CELLS[i];
+  if(!c) return;
+  var gs=$("fig").querySelectorAll(".bx");
+  for(i=0;i<gs.length;i++) gs[i].classList.toggle("sel", gs[i].dataset.id===id);
+  $("pk").textContent=c.fn+"　"+(ST.put[id]?c.rf:"還沒放");
+  $("pq").textContent=ST.put[id]||"這一格還空著。";
+}
+function aim(on){
+  var gs=$("fig").querySelectorAll(".bx");
+  for(var i=0;i<gs.length;i++) if(!gs[i].classList.contains("on")) gs[i].classList.toggle("aim",on);
+}
+$("pool").addEventListener("click",function(e){
+  var b=e.target.closest("button"); if(!b) return;
+  var bs=$("pool").querySelectorAll("button");
+  for(var i=0;i<bs.length;i++) bs[i].classList.remove("pick");
+  b.classList.add("pick"); pick=+b.dataset.i; aim(true);
+});
+function hit(g){
+  var id=g.dataset.id;
+  if(pick===null || ST.put[id]){ show(id); return; }
+  var s=SENTS[pick];
+  if(NOFIT[s.id]){
+    ST.miss[id]=1; save();
+    $("pk").textContent="這一張沒有位置";
+    $("pq").textContent=NOFIT[s.id];
+    return;
+  }
+  if(s.id!==id){ ST.miss[id]=1; save(); toast("這一格要的不是這一張"); return; }
+  if(!ST.miss[id]) ST.first[id]=1;
+  ST.put[id]=s.t; save(); pick=null;
+  drawFig(); drawPool(); aim(false); show(id); after1();
+}
+$("fig").addEventListener("click",function(e){ var g=e.target.closest(".bx"); if(g) hit(g); });
+$("fig").addEventListener("keydown",function(e){
+  if(e.key!=="Enter"&&e.key!==" ") return;
+  var g=e.target.closest(".bx"); if(g){ e.preventDefault(); hit(g); }
+});
+$("g1").addEventListener("click",function(){
+  if(ST.step<2) ST.step=2; save();
+  $("s2").hidden=false; $("s2").scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+/* ── 第二步：對調測試 ── */
+function paintSw(){
+  drawFig();
+  var bs=$("swbar").querySelectorAll("button[data-s]");
+  for(var i=0;i<bs.length;i++) bs[i].disabled=!!ST.sw;
+  $("undo").hidden=!ST.sw;
+  var h,k,list;
+  if(!ST.sw){
+    if(ST.tS&&ST.tH) h="換回來了。三種對調都試過了，看下面的題目。";
+    else if(ST.tS) h="換回來了。周圍兩格對調沒問題，再試試把中心換掉。";
+    else if(ST.tH) h="換回來了。中心不能換，再試試對調周圍的兩格。";
+    else h="六格照原來的位置排著。任選一種對調。";
+    $("swh").textContent=h;
+  } else {
+    if(ST.sw===3){ h="中心一換，就不成立了：<ul>"; list=WARN3; }
+    else { h="對調之後，沒有一處接不上：<ul class=\"ok\">"; list=SAFE[ST.sw]; }
+    for(k=0;k<list.length;k++) h+="<li>"+esc(list[k])+"</li>";
+    $("swh").innerHTML=h+"</ul>";
+  }
+  if(ST.tS&&ST.tH) $("q2box").hidden=false;
+}
+$("swbar").addEventListener("click",function(e){
+  var b=e.target.closest("button[data-s]"); if(!b||ST.sw) return;
+  ST.sw=+b.dataset.s; if(ST.sw===3) ST.tH=1; else ST.tS=1; save(); paintSw();
+});
+$("undo").addEventListener("click",function(){ ST.sw=0; save(); paintSw(); });
+function settle2(){
+  var bs=$("q2").querySelectorAll("button");
+  for(var i=0;i<bs.length;i++){ bs[i].disabled=true; bs[i].dataset.state=bs[i].dataset.ok?"right":"wrong"; }
+  $("a2").hidden=false; $("g2").hidden=false;
+}
+$("q2").addEventListener("click",function(e){
+  var b=e.target.closest("button"); if(!b||ST.q2) return;
+  ST.q2=b.dataset.ok?1:2; save(); settle2();
+});
+$("g2").addEventListener("click",function(){
+  if(ST.step<3) ST.step=3; save();
+  paintCode(); $("s3").hidden=false;
+  $("s3").scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+/* ── 第三步 ── */
+function drawMine(){
+  var h="";
+  for(var i=0;i<MINE.length;i++){
+    var m=MINE[i];
+    h+='<div class="cell"><span class="fn">'+esc(m.fn)+'<em>'+esc(m.en)+'</em></span>'+
+       '<textarea id="'+m.id+'" rows="2" placeholder="'+esc(m.ph)+'"></textarea></div>';
+  }
+  $("mine").innerHTML=h;
+  for(var j=0;j<MINE.length;j++){
+    var el=$(MINE[j].id);
+    if(ST.mine[MINE[j].id]) el.value=ST.mine[MINE[j].id];
+    el.addEventListener("input",function(){ ST.mine[this.id]=this.value; save(); });
+  }
+  $("aib").textContent=AI;
+}
+function mkCode(){
+  var f=first1(), m=0, w=0, i;
+  for(var k in ST.miss) if(ST.miss[k]) m++;
+  for(i=0;i<MINE.length;i++){ var el=$(MINE[i].id); if(el&&el.value.trim()) w++; }
+  var seed=(f*31 + m*7 + w*13 + (ST.q2===1?5:0) + 10*211 + 11*101 + 1777) % 46656;
+  return "10-U11 "+f+"/6 大綱"+w+"/4 "+("000"+seed.toString(36).toUpperCase()).slice(-3);
+}
+function paintCode(){ $("cv").textContent=mkCode(); }
+$("rfb").addEventListener("click",paintCode);
+function copy(t){
+  function fb(){
+    var ta=document.createElement("textarea"); ta.value=t; document.body.appendChild(ta);
+    ta.select(); try{ document.execCommand("copy"); toast("已複製"); }catch(e){ toast("複製失敗，請手動選取"); }
+    document.body.removeChild(ta);
+  }
+  if(navigator.clipboard&&navigator.clipboard.writeText)
+    navigator.clipboard.writeText(t).then(function(){ toast("已複製"); },fb);
+  else fb();
+}
+$("cc").addEventListener("click",function(){ copy(mkCode()); });
+$("sv").addEventListener("click",function(){
+  for(var i=0;i<MINE.length;i++) ST.mine[MINE[i].id]=$(MINE[i].id).value;
+  save(); toast("已存在這台裝置的瀏覽器裡");
+});
+$("cp").addEventListener("click",function(){
+  var t=AI+"\n\n【我的大綱】\n";
+  for(var i=0;i<MINE.length;i++) t+=MINE[i].fn+"："+($(MINE[i].id).value||"（空白）")+"\n";
+  copy(t);
+});
+
+/* ── 預覽 ── */
+function previewAll(){
+  PREVIEW=true; $("pv").hidden=false;
+  for(var i=0;i<SENTS.length;i++) if(!NOFIT[SENTS[i].id]){ ST.put[SENTS[i].id]=SENTS[i].t; ST.first[SENTS[i].id]=1; }
+  drawPool(); drawMine(); after1();
+  $("s2").hidden=false; ST.sw=0; ST.tS=1; ST.tH=1; paintSw(); ST.q2=1; settle2();
+  $("s3").hidden=false; paintCode();
+}
+
+/* ── 接回進度 ── */
+$("rst").addEventListener("click",function(){
+  try{ localStorage.removeItem(KEY); }catch(e){} location.reload();
+});
+(function restore(){
+  if(/(^|[?&])all(=|&|$)/.test(location.search)){ previewAll(); return; }
+  var v=load();
+  if(v){
+    ST=v;
+    if(!ST.put) ST.put={};
+    if(!ST.first) ST.first={};
+    if(!ST.miss) ST.miss={};
+    if(!ST.mine) ST.mine={};
+    if(!ST.step) ST.step=1;
+    if(!ST.sw) ST.sw=0;
+  }
+  drawPool(); drawMine(); paintSw();
+  if(done1()||ST.step>1) $("rs").hidden=false;
+  if(ST.step>=2) $("s2").hidden=false;
+  if(ST.q2) settle2();
+  if(ST.step>=3){ $("s3").hidden=false; paintCode(); }
+  after1();
+})();
+})();
+</script>
+</body>
+</html>
