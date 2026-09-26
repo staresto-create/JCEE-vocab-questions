@@ -304,7 +304,7 @@ function cellSvg(c,x,y,w,h,extra){
   s+='<rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="6"/>';
   s+='<text class="fn" x="'+(x+8)+'" y="'+(y+17)+'">'+esc(c.fn)+'</text>';
   s+='<text class="en" x="'+(x+8)+'" y="'+(y+30)+'">'+esc(c.en)+'</text>';
-  s+='<text class="rf" x="'+(x+8)+'" y="'+(y+42)+'">'+(ST.put[c.id]?esc(c.rf):"待放")+'</text>';
+  s+='<text class="rf" x="'+(x+8)+'" y="'+(y+42)+'">'+(ST.put[c.id]?esc(c.rf):"放句卡")+'</text>';
   return s+'</g>';
 }
 function drawFig(){

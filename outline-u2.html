@@ -288,7 +288,7 @@ function drawFig(){
     s+='<g class="'+cl+'" data-id="'+c.id+'" tabindex="0" role="button">';
     s+='<rect x="'+BX+'" y="'+y+'" width="'+BW+'" height="'+BH+'" rx="6"/>';
     s+='<text class="hd" x="'+(BX+12)+'" y="'+(y+21)+'">'+esc(c.hd)+'</text>';
-    s+='<text class="rf" x="'+(BX+12)+'" y="'+(y+38)+'">'+(ST.put[c.id]?esc(c.rf):"待放")+'</text>';
+    s+='<text class="rf" x="'+(BX+12)+'" y="'+(y+38)+'">'+(ST.put[c.id]?esc(c.rf):"放句卡")+'</text>';
     s+='</g>';
   }
   s+='</svg>';

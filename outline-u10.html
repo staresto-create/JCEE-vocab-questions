@@ -310,7 +310,7 @@ function drawFig(){
     s+='<text class="fn" x="'+(BX+44)+'" y="'+(y+24)+'">'+esc(c.fn)+'</text>';
     s+='<text class="en" x="'+(BX+44)+'" y="'+(y+39)+'">'+esc(c.en)+'</text>';
     s+='<text class="rf" x="'+(BX+BW-12)+'" y="'+(y+39)+'" text-anchor="end">'+
-       (ST.put[c.id]?esc(c.rf):"待放")+'</text>';
+       (ST.put[c.id]?esc(c.rf):"放句卡")+'</text>';
     if(ST.mark&&c.q)
       s+='<text class="qmark" x="'+(BX+BW-16)+'" y="'+(y+24)+'" text-anchor="end">\u201c \u201d</text>';
     s+='</g>';

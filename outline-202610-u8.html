@@ -327,7 +327,7 @@ function drawFig(){
     s+='<rect x="'+(x-w/2)+'" y="'+y+'" width="'+w+'" height="60" rx="6"/>';
     s+='<text class="fn" x="'+x+'" y="'+(y+19)+'" text-anchor="middle">'+esc(c.fn)+'</text>';
     s+='<text class="en" x="'+x+'" y="'+(y+33)+'" text-anchor="middle">'+esc(c.en)+'</text>';
-    s+='<text class="rf" x="'+x+'" y="'+(y+47)+'" text-anchor="middle">'+(c.id===cut?"拿掉了":(ST.put[c.id]?esc(c.rf.replace("19–19","19")):"待放"))+'</text>';
+    s+='<text class="rf" x="'+x+'" y="'+(y+47)+'" text-anchor="middle">'+(c.id===cut?"拿掉了":(ST.put[c.id]?esc(c.rf.replace("19–19","19")):"放句卡"))+'</text>';
     s+='</g>';
   }
   if(sw===2) s+='<text class="okk" x="414" y="299" text-anchor="end">拿掉之後照樣成立</text>';

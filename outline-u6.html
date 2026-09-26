@@ -321,7 +321,7 @@ function drawFig(){
     s+='<rect class="chip" x="'+(BX+8)+'" y="'+(y+9)+'" width="'+CHIP+'" height="'+CHIP+'" rx="5"/>';
     s+='<text class="ltr" x="'+(BX+8+CHIP/2)+'" y="'+(y+28)+'" text-anchor="middle">'+c.ltr+'</text>';
     s+='<text class="hd" x="'+(BX+44)+'" y="'+(y+20)+'">'+esc(c.hd)+'</text>';
-    s+='<text class="rf" x="'+(BX+44)+'" y="'+(y+34)+'">'+(ST.put[c.id]?esc(c.rf):(bad?esc(c.rf):"待放"))+'</text>';
+    s+='<text class="rf" x="'+(BX+44)+'" y="'+(y+34)+'">'+(ST.put[c.id]?esc(c.rf):(bad?esc(c.rf):"放句卡"))+'</text>';
     if(ST.put[c.id]&&c.tag)
       s+='<text class="tag '+c.tk+'" x="'+(BX+BW-12)+'" y="'+(y+34)+'" text-anchor="end">'+esc(c.tag)+'</text>';
     s+='</g>';

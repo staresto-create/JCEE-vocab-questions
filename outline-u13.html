@@ -321,7 +321,7 @@ function drawFig(){
     s+='<text class="fn" x="'+(BX+60)+'" y="'+(y+21)+'">'+esc(c.fn)+'</text>';
     s+='<text class="en" x="'+(BX+60)+'" y="'+(y+37)+'">'+esc(c.en)+'</text>';
     s+='<text class="rf" x="'+(BX+BW-12)+'" y="'+(y+37)+'" text-anchor="end">'+
-       (ST.put[c.id]?esc(c.rf):"待放")+'</text>';
+       (ST.put[c.id]?esc(c.rf):"放句卡")+'</text>';
     if(ST.mark&&c.fin)
       s+='<text class="fintx" x="'+(BX+BW-12)+'" y="'+(y+20)+'" text-anchor="end">後面沒有 but</text>';
     s+='</g>';

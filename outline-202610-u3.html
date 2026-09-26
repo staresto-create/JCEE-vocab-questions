@@ -303,7 +303,7 @@ function drawFig(){
     s+='<rect x="'+c.x+'" y="'+c.y+'" width="'+c.w+'" height="'+c.h+'" rx="6"/>';
     s+='<text class="fn" x="'+(c.x+8)+'" y="'+(c.y+16)+'">'+esc(c.fn)+'</text>';
     s+='<text class="en" x="'+(c.x+8)+'" y="'+(c.y+28)+'">'+esc(c.en)+'</text>';
-    s+='<text class="rf" x="'+(c.x+8)+'" y="'+(c.y+40)+'">'+(ST.put[c.id]?esc(c.rf):"待放")+'</text>';
+    s+='<text class="rf" x="'+(c.x+8)+'" y="'+(c.y+40)+'">'+(ST.put[c.id]?esc(c.rf):"放句卡")+'</text>';
     s+='</g>';
   }
   s+='</svg>';

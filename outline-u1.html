@@ -292,7 +292,7 @@ function drawFig(){
     s+='<rect x="'+b.x+'" y="'+b.y+'" width="'+b.w+'" height="'+b.h+'" rx="6"/>';
     s+='<text class="fn" x="'+(b.x+10)+'" y="'+(b.y+21)+'">'+esc(c.fn)+'</text>';
     s+='<text class="en" x="'+(b.x+10)+'" y="'+(b.y+35)+'">'+esc(c.en)+'</text>';
-    s+='<text class="rf" x="'+(b.x+10)+'" y="'+(b.y+48)+'">'+(ST.put[c.id]?esc(c.rf):"待放")+'</text>';
+    s+='<text class="rf" x="'+(b.x+10)+'" y="'+(b.y+48)+'">'+(ST.put[c.id]?esc(c.rf):"放句卡")+'</text>';
     s+='</g>';
   }
   for(var j=0;j<shown;j++)
