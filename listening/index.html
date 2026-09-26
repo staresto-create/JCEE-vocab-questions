@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>英聽練習｜高中英語聽力測驗</title>
+<meta name="description" content="大考中心高中英語聽力測驗的官方試卷，逐題作答後看錄音稿與解析：關鍵在哪一句、誘答怎麼排除、容易聽錯的地方。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F6F1E4; --card:#FFFDF7; --ink:#221F1A; --ink-soft:#5B5648; --rule:#DCD3BB;
+  --crimson:#AE3626; --crimson-soft:#F3E3DE; --sage:#3E6E52; --sage-soft:#E3ECE3; --gold:#A9812E;
+  --serif:'Noto Serif TC','PingFang TC','Microsoft JhengHei',serif;
+  --sans:'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif;
+  --en:Georgia,'Times New Roman',serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.7;-webkit-text-size-adjust:100%}
+.wrap{max-width:46rem;margin:0 auto;padding:1.6rem 1rem 5rem}
+a{color:var(--crimson)}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--crimson);outline-offset:2px}
+header.top{border-bottom:3px double var(--ink);padding-bottom:.9rem;margin-bottom:1.2rem}
+.crumb{font-size:.85rem;color:var(--ink-soft);margin:0 0 .5rem}
+.crumb a{color:var(--ink-soft)}
+h1{font-family:var(--serif);font-weight:900;font-size:1.65rem;line-height:1.3;margin:0}
+h1 small{display:block;font-size:1rem;font-weight:500;color:var(--ink-soft);margin-top:.2rem}
+.lede{margin:.8rem 0 0;font-size:.95rem;color:#3d3a32}
+.panel{background:var(--card);border:1px solid var(--rule);border-radius:.4rem;padding:1rem 1rem .9rem;margin:1.2rem 0}
+.panel h2{font-family:var(--serif);font-size:1.05rem;margin:0 0 .5rem}
+.panel p{margin:.3rem 0;font-size:.93rem}
+audio{width:100%;margin:.4rem 0 .2rem}
+.links{font-size:.88rem;margin:.4rem 0 0;display:flex;flex-wrap:wrap;gap:.3rem .9rem}
+.steps{margin:.2rem 0 0;padding-left:1.4rem;font-size:.93rem}
+.steps li{margin:.15rem 0}
+nav.toc{display:flex;flex-wrap:wrap;gap:.35rem;margin:1rem 0 .4rem}
+nav.toc a{font-size:.88rem;text-decoration:none;border:1px solid var(--rule);background:var(--card);color:var(--ink);border-radius:.3rem;padding:.2rem .55rem}
+nav.toc a:hover{border-color:var(--crimson);color:var(--crimson)}
+.bar{display:flex;justify-content:space-between;align-items:center;gap:.6rem;flex-wrap:wrap;font-size:.88rem;color:var(--ink-soft);margin:.2rem 0 0}
+.bar button{font:inherit;font-size:.85rem;background:transparent;border:1px solid var(--rule);color:var(--ink-soft);border-radius:.3rem;padding:.2rem .6rem;cursor:pointer}
+section.sec{margin-top:2.6rem;scroll-margin-top:1rem}
+section.sec>h2{font-family:var(--serif);font-weight:900;font-size:1.3rem;margin:0 0 .6rem;padding-bottom:.3rem;border-bottom:2px solid var(--ink)}
+.goal{font-size:.9rem;color:var(--ink-soft);margin:.2rem 0}
+.goal b{color:var(--ink);font-weight:500}
+.howto{background:var(--sage-soft);border-left:4px solid var(--sage);padding:.6rem .8rem;margin:.8rem 0 1rem;font-size:.93rem;border-radius:0 .3rem .3rem 0}
+.howto b{color:var(--sage)}
+details.ex{border:1px dashed var(--rule);border-radius:.4rem;padding:.5rem .8rem;margin:0 0 1rem;background:#fbf8f0}
+details.ex summary{cursor:pointer;font-weight:500;color:var(--ink-soft);font-size:.92rem}
+.unit{background:var(--card);border:1px solid var(--rule);border-radius:.45rem;padding:1rem;margin:1rem 0;scroll-margin-top:1rem}
+.unit h3{font-family:var(--serif);font-size:1.12rem;margin:0 0 .6rem}
+.fig{margin:.3rem 0 .8rem}
+.fig img{display:block;max-width:100%;height:auto;border:1px solid var(--rule);background:#fff}
+.fig figcaption{font-size:.75rem;color:var(--ink-soft);margin-top:.2rem}
+.q{margin:.8rem 0 0;padding-top:.7rem;border-top:1px dotted var(--rule)}
+.q:first-of-type{border-top:0;padding-top:0}
+.qh{font-weight:700;margin:0 0 .35rem}
+.qh .pr{font-family:var(--en);font-weight:400;font-size:1.02rem;display:block;margin-top:.1rem}
+.qh .hint{font-weight:400;font-size:.82rem;color:var(--ink-soft);margin-left:.4rem}
+.opts{display:grid;gap:.35rem}
+.opts.letters{grid-template-columns:repeat(4,minmax(0,4rem))}
+.opt{font:inherit;text-align:left;display:flex;gap:.45rem;align-items:baseline;width:100%;background:#fff;color:var(--ink);border:1px solid var(--rule);border-radius:.35rem;padding:.45rem .6rem;cursor:pointer}
+.opts.letters .opt{justify-content:center;font-weight:700}
+.opt .l{font-weight:700;flex:none}
+.opt .t{font-family:var(--en);font-size:1.02rem}
+.opt:hover{border-color:var(--ink-soft)}
+.opt[aria-pressed=true]{border-color:var(--ink);background:#f1ece0;box-shadow:inset 0 0 0 1px var(--ink)}
+.opt.ok{border-color:var(--sage);background:var(--sage-soft);box-shadow:inset 0 0 0 1px var(--sage)}
+.opt.bad{border-color:var(--crimson);background:var(--crimson-soft);box-shadow:inset 0 0 0 1px var(--crimson)}
+.opt:disabled{cursor:default}
+.actions{margin:.9rem 0 0;display:flex;gap:.5rem;flex-wrap:wrap;align-items:center}
+.btn{font:inherit;font-weight:700;background:var(--crimson);color:#fff;border:0;border-radius:.35rem;padding:.45rem 1rem;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--ink-soft);border:1px solid var(--rule);font-weight:400}
+.score{font-size:.9rem;color:var(--ink-soft)}
+.reveal{display:none;margin-top:1rem}
+.unit.shown .reveal{display:block}
+.verdict{font-size:.92rem;margin:.4rem 0 0}
+.verdict .ok{color:var(--sage);font-weight:700}
+.verdict .bad{color:var(--crimson);font-weight:700}
+details.script{background:#fbf8f0;border:1px solid var(--rule);border-radius:.35rem;padding:.5rem .8rem;margin:.6rem 0}
+details.script summary{cursor:pointer;font-weight:700;font-size:.93rem}
+.script-body{margin:.5rem 0 .2rem}
+.script-body p{margin:.25rem 0;font-family:var(--en);font-size:1rem;line-height:1.6}
+.script-body p.zh{font-family:var(--sans);font-size:.88rem;color:var(--ink-soft)}
+.note{margin:1rem 0 0;padding-top:.6rem;border-top:1px solid var(--rule)}
+.note h4{font-family:var(--serif);font-size:1rem;margin:0 0 .3rem}
+.note h4 .a{font-family:var(--sans);font-size:.88rem;font-weight:500;color:var(--sage);margin-left:.4rem}
+.part{margin:.5rem 0}
+.part .lab{font-weight:700;font-size:.9rem;color:var(--crimson)}
+.part p,.part li{font-size:.94rem;margin:.15rem 0}
+.part ul{margin:.15rem 0;padding-left:1.2rem}
+.words{font-size:.92rem;background:#f6f1e4;border-radius:.3rem;padding:.45rem .6rem;margin:.5rem 0 0}
+.words .lab{font-weight:700;font-size:.85rem;color:var(--ink-soft);display:block}
+.fn{font-size:.86rem;color:#3d3a32;border-left:3px solid var(--gold);padding:.3rem .6rem;margin:.6rem 0 0;background:#fbf6ea}
+.foot{border-top:3px double var(--ink);margin-top:3rem;padding-top:1rem;font-size:.86rem;color:var(--ink-soft)}
+.foot p{margin:.3rem 0}
+@media (max-width:30rem){ .opts.letters{grid-template-columns:repeat(4,minmax(0,1fr))} h1{font-size:1.4rem} }
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+
+.paper{display:block;text-decoration:none;color:var(--ink);background:var(--card);border:1px solid var(--rule);border-radius:.45rem;padding:1rem;margin:1rem 0}
+.paper:hover{border-color:var(--crimson)}
+.paper .t{font-family:var(--serif);font-weight:900;font-size:1.15rem}
+.paper .m{font-size:.88rem;color:var(--ink-soft);margin-top:.2rem}
+.paper .d{font-size:.93rem;margin-top:.4rem}
+table.types{width:100%;border-collapse:collapse;font-size:.9rem;margin:.4rem 0 0}
+table.types th,table.types td{text-align:left;border-top:1px solid var(--rule);padding:.4rem .3rem;vertical-align:top}
+table.types th{font-weight:700;white-space:nowrap}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <p class="crumb"><a href="https://staresto-create.github.io/JCEE-vocab-questions/">題庫首頁</a></p>
+  <h1>英聽練習<small>大考中心高中英語聽力測驗</small></h1>
+  <p class="lede">這裡收的是大考中心公布過的英聽試卷，一卷一頁。每一題先作答，對完答案再看錄音內容和解析：關鍵在哪一句、誘答怎麼排除、容易聽錯的地方，以及那一題的場景與關鍵字詞。錄音內容、選項與答案都照大考中心的原文。</p>
+</header>
+
+<a class="paper" href="ref111.html">
+  <div class="t">英聽參考試卷</div>
+  <div class="m">111 學年度起適用　五大題　40 題　錄音內容依大考中心官方錄音稿</div>
+  <div class="d">題型與現行考試相同，包括 111 學年度起新增的長篇聽解。</div>
+</a>
+
+<div class="panel">
+  <h2>五大題各考什麼</h2>
+  <table class="types">
+    <tr><th>圖片聽解</th><td>第 1–8 題。前四題聽對話選圖；後四題看一張圖，選項只播不印，要選兩個。</td></tr>
+    <tr><th>對答</th><td>第 9–16 題。只播一句話，選最適當的回應。</td></tr>
+    <tr><th>簡短對話</th><td>第 17–24 題。對話播完才播題目，卷上只有選項。</td></tr>
+    <tr><th>短文聽解</th><td>第 25–32 題。題目和選項都印在卷上，播音前可以先讀。</td></tr>
+    <tr><th>長篇聽解</th><td>第 33–40 題。卷上有圖表或大綱可以記筆記，題目在播完後才播。</td></tr>
+  </table>
+  <p style="margin-top:.6rem">每一題都只播一次。</p>
+</div>
+
+<footer class="foot">
+  <p>資料出處：大考中心公布之高中英語聽力測驗試卷、錄音稿、參考答案與試題解析。</p>
+  <p><a href="https://staresto-create.github.io/JCEE-vocab-questions/">← 回題庫首頁</a></p>
+</footer>
+</div>
+</body>
+</html>
