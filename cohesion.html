@@ -62,6 +62,12 @@ h2{font-family:var(--serif);font-weight:600;font-size:1.15rem;margin:0 0 .7rem;c
   border-top:1px solid var(--line);margin:1.7rem 0 .6rem;padding-top:1rem}
 .month span{font-family:var(--sans);font-size:.8rem;font-weight:400;color:var(--muted);margin-left:.5rem}
 .tools h3{font-family:var(--serif);font-weight:600;font-size:1rem;color:var(--ink);margin:1.1rem 0 .4rem}
+.st{font-family:var(--sans);font-size:.72rem;font-weight:600;border-radius:.2rem;padding:.04rem .42rem;white-space:nowrap}
+.st.done{color:#fff;background:var(--teal);border:1px solid var(--teal)}
+.st.mid{color:var(--exam);background:#fff;border:1px dashed var(--exam)}
+.also .st{margin-left:.5rem;font-size:.72rem}
+.also .st.done{color:#fff}
+.also .st.mid{color:var(--exam)}
 </style>
 </head>
 <body>
@@ -73,6 +79,7 @@ h2{font-family:var(--serif);font-weight:600;font-size:1.15rem;margin:0 0 .7rem;c
 
 <h2>已經可以做的單元</h2>
 <p class="skip">每個單元有兩份：點卡片進去是單元頁；卡片下面那一條「組織圖練習」是同一篇文章的第二份，把整篇整理成一張圖，再把那張圖套到自己的作文上。先做單元頁，再做組織圖練習。</p>
+<p class="skip">卡片上的「已做完」「做到第幾步」只記得這台裝置、這個瀏覽器做過的。沒有標記，表示這裡沒有紀錄；如果你是在別台手機或電腦上做的，請以 Google Classroom 裡貼過的完成碼為準。</p>
 
 <h3 class="month">十月號<span>No. 263　10/1–10/29</span></h3>
 <p class="skip">編號跟著雜誌走。第 4、10 單元是對話，第 6、14 單元是寫作，這四個不在這個系列裡，所以編號會跳。十月號有兩篇因果、兩篇描述、兩篇序列，同一種結構換一篇文章再練一次，第二篇會比第一篇好認。</p>
@@ -283,5 +290,50 @@ h2{font-family:var(--serif);font-weight:600;font-size:1.15rem;margin:0 0 .7rem;c
 </div>
 
 </div>
+<script>
+(function(){
+"use strict";
+/* 各頁的進度鍵版本。預設 v1；哪一頁改版換了進度鍵，就在這裡改 */
+var VER={"cohesion-u1":"v4"};
+function read(stem){
+  try{
+    var r=localStorage.getItem(stem+"-"+(VER[stem]||"v1"));
+    return r?JSON.parse(r):null;
+  }catch(e){ return null; }
+}
+function status(href){
+  var m=/^((cohesion|outline)-[\w-]+)\.html$/.exec(href||"");
+  if(!m) return null;
+  var v=read(m[1]); if(!v) return null;
+  var step=+v.step||1;
+  if(m[2]==="cohesion"){
+    if(v.q6) return {c:"done",t:"\u5df2\u505a\u5b8c"};
+    return {c:"mid",t:"\u505a\u5230\u7b2c "+Math.min(step,6)+" \u6b65\uff0c\u5171 6 \u6b65"};
+  }
+  if(step>=3) return {c:"done",t:"\u5df2\u5230\u5b8c\u6210\u78bc\u90a3\u4e00\u6b65"};
+  return {c:"mid",t:"\u505a\u5230\u7b2c "+step+" \u6b65\uff0c\u5171 3 \u6b65"};
+}
+function badge(host,st,before){
+  var old=host.querySelector(".st"); if(old) old.parentNode.removeChild(old);
+  if(!st) return;
+  var b=document.createElement("span"); b.className="st "+st.c; b.textContent=st.t;
+  if(before) host.insertBefore(b,before); else host.appendChild(b);
+}
+function paint(){
+  var cs=document.querySelectorAll("a.card"),i;
+  for(i=0;i<cs.length;i++){
+    var top=cs[i].querySelector(".top"); if(!top) continue;
+    badge(top,status(cs[i].getAttribute("href")),top.querySelector(".dt"));
+  }
+  var ls=document.querySelectorAll(".also");
+  for(i=0;i<ls.length;i++){
+    var a=ls[i].querySelector("a"); if(!a) continue;
+    badge(ls[i],status(a.getAttribute("href")),null);
+  }
+}
+paint();
+window.addEventListener("pageshow",paint);
+})();
+</script>
 </body>
 </html>
