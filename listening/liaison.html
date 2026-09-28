@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>英聽連音卡｜高中英語聽力測驗</title>
+<meta name="description" content="播一小段大考中心英聽官方錄音，選出你聽到的是哪一句。練字跟字連在一起、念輕、省略時的聲音，每張卡都連回原題。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700;900&family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#F6F1E4;--card:#FFFDF7;--ink:#221F1A;--soft:#5B5648;--rule:#DCD3BB;--crimson:#AE3626;--crimson-soft:#F1DFD9;--sage:#3E6E52;--sage-soft:#DCE8DA;--gold:#A9812E;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif;line-height:1.7;-webkit-text-size-adjust:100%}
+.wrap{max-width:640px;margin:0 auto;padding:18px 16px 40px}
+.crumb{font-size:.85rem;color:var(--soft);margin:0 0 .4rem}.crumb a{color:var(--soft)}
+h1{font-family:'Noto Serif TC','PMingLiU',serif;font-weight:900;font-size:1.5rem;margin:0 0 4px}
+.sub{color:var(--soft);font-size:.92rem;margin:0 0 12px}
+details.how{font-size:.9rem;color:var(--soft);margin:0 0 14px}details.how summary{cursor:pointer;color:var(--ink)}
+details.how p{margin:.4rem 0}
+.vols{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 12px}
+.bar{height:6px;background:var(--rule);border-radius:3px;overflow:hidden;margin-bottom:14px}.bar i{display:block;height:100%;background:var(--sage);transition:width .3s}
+.card{background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:18px 16px;box-shadow:0 1px 0 rgba(34,31,26,.06),0 8px 24px rgba(34,31,26,.08)}
+.top{display:flex;justify-content:space-between;gap:8px;color:var(--soft);font-size:.85rem}
+.play{display:flex;gap:10px;margin:14px 0 6px}
+.btn{font:inherit;border:1px solid var(--rule);background:var(--paper);color:var(--ink);border-radius:10px;padding:10px 14px;cursor:pointer}
+.vols .btn{padding:6px 12px;font-size:.92rem}.vols .btn.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.btn.main{background:var(--crimson);border-color:var(--crimson);color:#fff;font-weight:700;flex:1}
+.btn:focus-visible,.opt:focus-visible,a:focus-visible{outline:2px solid var(--crimson);outline-offset:2px}
+.q{font-weight:700;margin:14px 0 8px}
+.opt{display:block;width:100%;text-align:left;font:inherit;font-family:Georgia,'Times New Roman',serif;font-size:1.02rem;border:1px solid var(--rule);background:var(--card);color:var(--ink);border-radius:10px;padding:11px 12px;margin:8px 0;cursor:pointer;line-height:1.5}
+.opt:disabled{cursor:default}
+.opt.ok{border-color:var(--sage);background:var(--sage-soft)}.opt.no{border-color:var(--crimson);background:var(--crimson-soft)}
+.key{font-weight:700;margin:8px 0 4px}.back{margin-top:16px;border-top:1px dashed var(--rule);padding-top:12px}
+.tag{display:inline-block;font-size:.8rem;border:1px solid var(--gold);color:var(--gold);border-radius:999px;padding:1px 10px;margin-bottom:6px}
+.en{font-family:Georgia,'Times New Roman',serif;font-size:1.05rem}.en b{color:var(--crimson);border-bottom:2px solid var(--crimson);font-weight:700}
+.kk{font-family:'Lucida Sans Unicode','Arial Unicode MS','Noto Sans',sans-serif;background:var(--paper);border-radius:8px;padding:6px 10px;margin:8px 0;overflow-x:auto;white-space:nowrap}
+.dis{margin:8px 0 0;padding:0;list-style:none}.dis li{margin:8px 0;font-size:.95rem}.dis .s{font-family:Georgia,serif}
+.src{font-size:.9rem;margin-top:10px}a{color:var(--sage)}
+.nav{display:flex;justify-content:flex-end;margin-top:14px}
+.hidden{display:none}
+.end{text-align:center}.end .n{font-size:2rem;font-weight:700;color:var(--sage)}
+.foot{margin-top:28px;font-size:.85rem;color:var(--soft)}.foot a{color:var(--soft)}
+@media (prefers-reduced-motion:reduce){.bar i{transition:none}}
+</style></head><body><div class="wrap">
+<p class="crumb"><a href="https://staresto-create.github.io/JCEE-vocab-questions/">題庫首頁</a>　›　<a href="index.html">英聽練習</a></p>
+<h1>英聽連音卡</h1>
+<p class="sub">每張卡是大考中心英聽官方錄音的一小段。先聽，再從四句裡選出你聽到的那一句。答錯的卡會在最後再出現一次。</p>
+<details class="how"><summary>這些卡在練什麼</summary>
+<p>英聽丟分，常常不是不認得字，而是字跟字連在一起、念得很輕或省略之後，一時聽不出是哪幾個字。這裡的卡片分成六類：子音接母音、母音接母音、相同子音只發一次、同化變音、消音、弱讀，每一卷六類各兩張。</p>
+<p>四個句子都合文法，只差在聲音，所以要靠耳朵分辨。答完會看到連音的地方、KK 音標和說明，可以只重聽那一小段，也可以放慢速度；每張卡都附上原題連結，可以回到那一題看完整的錄音內容和解析。</p>
+</details>
+<div class="vols" id="vols"></div>
+<div class="bar"><i id="bar"></i></div>
+<div id="app"><div class="card"><p>載入中…</p></div></div>
+<footer class="foot">
+<p>錄音出處：大考中心公布之高中英語聽力測驗參考試卷（111 學年度起適用）與試題示例 7 至 11 官方錄音檔。句子文字：參考試卷依大考中心官方錄音稿，試題示例依本站聽寫。</p>
+<p><a href="index.html">← 回英聽練習</a>　·　<a href="../cards/">單字記憶卡</a></p>
+</footer>
+</div>
+<audio id="au" preload="auto"></audio>
+<script>
+(function(){
+'use strict';
+var BASE='https://staresto-create.github.io/JCEE-vocab-questions/listening/';
+var au=document.getElementById('au');
+var ALL=[],VN={},VOLS=[],VOL,CARDS=[],i=0,score=0,Q=[],wrongSet=new Set();
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function shuffle(a){a=a.slice();for(var k=a.length-1;k>0;k--){var j=Math.floor(Math.random()*(k+1));var t=a[k];a[k]=a[j];a[j]=t}return a}
+function src(c,part){return 'liaison/'+c.vol+'_'+c.id+(part?'_p':'')+'.mp3'}
+function play(rate,s){au.pause();au.src=s||src(CARDS[Q[i]]);au.playbackRate=rate;au.currentTime=0;var p=au.play();if(p&&p.catch)p.catch(function(){})}
+function pageName(v){return v==='ref111'?'ref111.html':v+'.html'}
+function setVol(v){
+  au.pause();VOL=v;CARDS=ALL.filter(function(c){return c.vol===VOL});i=0;score=0;Q=CARDS.map(function(c,k){return k});wrongSet=new Set();
+  try{localStorage.setItem('jcee_liaison_vol',v)}catch(e){}
+  drawVols();render();
+}
+function drawVols(){
+  var el=document.getElementById('vols');
+  el.innerHTML=VOLS.map(function(v){return '<button class="btn'+(v[0]===VOL?' on':'')+'" data-v="'+v[0]+'">'+esc(v[1])+'</button>'}).join('');
+  el.querySelectorAll('.btn').forEach(function(b){b.onclick=function(){setVol(b.dataset.v)}});
+}
+function render(){
+  document.getElementById('bar').style.width=(Q.length?i/Q.length*100:0)+'%';
+  var app=document.getElementById('app');
+  if(i>=Q.length){
+    app.innerHTML='<div class="card end"><p>'+esc(VN[VOL])+' 這一組做完了</p><p class="n">'+score+' ／ '+CARDS.length+'</p><p>第一次就選對的張數'+(wrongSet.size?'；答錯的 '+wrongSet.size+' 張已經在後面各再練了一次':'')+'</p><button class="btn main" id="again">重新開始</button></div>';
+    document.getElementById('again').onclick=function(){setVol(VOL)};return;
+  }
+  var c=CARDS[Q[i]],retry=i>=CARDS.length;
+  var opts=shuffle([{t:c.ans,ok:true}].concat(c.dis.map(function(d){return {t:d[0],ok:false,why:d[1]}})));
+  app.innerHTML='<div class="card"><div class="top"><span>'+(retry?'再練一次':'第 '+(i+1)+' 張／共 '+CARDS.length+' 張')+'</span><span>'+esc(VN[c.vol])+' '+esc(c.q)+'</span></div>'+
+   '<div class="play"><button class="btn main" id="p1">▶ 播放</button><button class="btn" id="p2">慢一點</button></div>'+
+   '<p class="q">你聽到的是哪一句？</p>'+opts.map(function(o,k){return '<button class="opt" data-k="'+k+'">'+esc(o.t)+'</button>'}).join('')+
+   '<div class="back hidden" id="back"></div></div><div class="nav"><button class="btn hidden" id="next">下一張</button></div>';
+  document.getElementById('p1').onclick=function(){play(1)};document.getElementById('p2').onclick=function(){play(0.75)};
+  app.querySelectorAll('.opt').forEach(function(b){b.onclick=function(){
+    var o=opts[+b.dataset.k];
+    if(o.ok){if(!retry)score++}else if(!wrongSet.has(Q[i])){wrongSet.add(Q[i]);Q.push(Q[i])}
+    app.querySelectorAll('.opt').forEach(function(x){x.disabled=true;var oo=opts[+x.dataset.k];if(oo.ok)x.classList.add('ok');else if(x===b)x.classList.add('no')});
+    var bk=document.getElementById('back');
+    bk.innerHTML='<span class="tag">'+esc(c.cat)+'</span><div class="en">'+c.mark+'</div><p class="key">'+esc(c.key)+'</p>'+
+      '<div class="play"><button class="btn main" id="s1">▶ 只聽這一段</button><button class="btn" id="s2">慢一點</button></div><div class="kk">'+esc(c.kk)+'</div><p>'+esc(c.expl)+'</p>'+
+      '<p class="q" style="margin-bottom:0">其他三句差在哪裡</p><ul class="dis">'+opts.filter(function(x){return !x.ok}).map(function(x){return '<li><span class="s">'+esc(x.t)+'</span><br>'+esc(x.why)+'</li>'}).join('')+'</ul>'+
+      '<p class="src">出處：<a href="'+BASE+pageName(c.vol)+'#'+c.anchor+'" target="_blank" rel="noopener">'+esc(VN[c.vol])+' '+esc(c.q)+'（站上的題目與解析）</a></p>';
+    bk.classList.remove('hidden');
+    document.getElementById('s1').onclick=function(){play(1,src(c,true))};document.getElementById('s2').onclick=function(){play(0.75,src(c,true))};
+    var nx=document.getElementById('next');nx.classList.remove('hidden');
+    nx.onclick=function(){au.pause();i++;render();window.scrollTo(0,0);if(i<Q.length)play(1)};
+  }});
+}
+fetch('liaison_data.json').then(function(r){return r.json()}).then(function(D){
+  ALL=D.cards;VOLS=D.vols;VOLS.forEach(function(v){VN[v[0]]=v[1]});
+  var m=location.hash.match(/v=([a-z0-9]+)/),v=m&&VN[m[1]]?m[1]:null;
+  if(!v){try{var s=localStorage.getItem('jcee_liaison_vol');if(s&&VN[s])v=s}catch(e){}}
+  setVol(v||VOLS[0][0]);
+}).catch(function(){document.getElementById('app').innerHTML='<div class="card"><p>卡片資料沒有載入成功，請重新整理頁面。</p></div>'});
+})();
+</script></body></html>
