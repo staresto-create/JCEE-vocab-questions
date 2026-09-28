@@ -2,9 +2,9 @@
 <html lang="zh-Hant"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>英聽連音卡｜高中英語聽力測驗</title>
-<meta name="description" content="播一小段大考中心英聽官方錄音，選出你聽到的是哪一句。練字跟字連在一起、念輕、省略時的聲音，每張卡都連回原題。">
+<meta name="description" content="播一小段大考中心英聽官方錄音，選出你聽到的是哪一句。練字跟字連在一起、念輕、省略時的聲音，每張卡都附上出處。">
 <meta property="og:title" content="英聽連音卡｜聽官方錄音練連音、消音和弱讀">
-<meta property="og:description" content="看得懂、卻聽不懂？問題常常在連音、消音和弱讀。72 張卡，每張一小段大考中心官方錄音，四句選一，只能靠耳朵分辨。免費、不用註冊。">
+<meta property="og:description" content="看得懂、卻聽不懂？問題常常在連音、消音和弱讀。168 張卡，每張一小段大考中心官方錄音，四句選一，只能靠耳朵分辨。免費、不用註冊。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700;900&family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
 <style>
@@ -37,7 +37,7 @@ details.how p{margin:.4rem 0}
 .kk{font-family:'Lucida Sans Unicode','Arial Unicode MS','Noto Sans',sans-serif;background:var(--paper);border-radius:8px;padding:6px 10px;margin:8px 0;overflow-x:auto;white-space:nowrap}
 .dis{margin:8px 0 0;padding:0;list-style:none}.dis li{margin:8px 0;font-size:.95rem}.dis .s{font-family:Georgia,serif}
 .src{font-size:.9rem;margin-top:10px}a{color:var(--sage)}
-.nav{display:flex;justify-content:flex-end;margin-top:14px}
+.nav{display:flex;margin-top:16px}
 .hidden{display:none}
 .end{text-align:center}.end .n{font-size:2rem;font-weight:700;color:var(--sage)}
 .foot{margin-top:28px;font-size:.85rem;color:var(--soft)}.foot a{color:var(--soft)}
@@ -48,13 +48,14 @@ details.how p{margin:.4rem 0}
 <p class="sub">很多人英文「看得懂、卻聽不懂」，問題常常不在單字，而在連音、消音和弱讀：字跟字連在一起、有些音省略不念、有些字念得很輕，一時就聽不出是哪幾個字。每張卡是大考中心英聽官方錄音的一小段，先聽，再從四句裡選出你聽到的那一句。答錯的卡會在最後再出現一次。</p>
 <details class="how"><summary>這些卡在練什麼</summary>
 <p>卡片分成六類：子音接母音、母音接母音、相同子音只發一次、同化變音、消音、弱讀，每一卷六類各兩張。</p>
-<p>四個句子都合文法，只差在聲音，所以要靠耳朵分辨。答完會看到連音的地方、KK 音標和說明，可以只重聽那一小段，也可以放慢速度；每張卡都附上原題連結，可以回到那一題看完整的錄音內容和解析。</p>
+<p>四個句子都合文法，只差在聲音，所以要靠耳朵分辨。答完會看到連音的地方、KK 音標和說明，可以只重聽那一小段，也可以放慢速度；每張卡都附上出處：108 課綱六卷連回站上的原題，可以看完整的錄音內容和解析；99 課綱八卷站上沒有題目頁，出處連到大考中心的試題示例說明頁。</p>
+<p>卷別按鈕前面標「舊課綱」的八卷，是大考中心 102 到 109 年公布、依 99 課綱命題的參考試卷 1、2 和試題示例 1 到 6。舊卷的題型跟現在不同，但錄音一樣是大考中心的官方錄音，拿來練連音一樣合用。</p>
 </details>
 <div class="vols" id="vols"></div>
 <div class="bar"><i id="bar"></i></div>
 <div id="app"><div class="card"><p>載入中…</p></div></div>
 <footer class="foot">
-<p>錄音出處：大考中心公布之高中英語聽力測驗參考試卷（111 學年度起適用）與試題示例 7 至 11 官方錄音檔。句子文字：參考試卷依大考中心官方錄音稿，試題示例依本站聽寫。</p>
+<p>錄音出處：大考中心公布之高中英語聽力測驗參考試卷（111 學年度起適用）、試題示例 7 至 11，以及適用 99 課綱的參考試卷 1、2 與試題示例 1 至 6 官方錄音檔。句子文字：111 學年度起適用參考試卷依大考中心官方錄音稿，其餘各卷依本站聽寫。</p>
 <p><a href="index.html">← 回英聽練習</a>　·　<a href="../cards/">單字記憶卡</a></p>
 </footer>
 </div>
@@ -92,7 +93,7 @@ function render(){
   app.innerHTML='<div class="card"><div class="top"><span>'+(retry?'再練一次':'第 '+(i+1)+' 張／共 '+CARDS.length+' 張')+'</span><span>'+esc(VN[c.vol])+' '+esc(c.q)+'</span></div>'+
    '<div class="play"><button class="btn main" id="p1">▶ 播放</button><button class="btn" id="p2">慢一點</button></div>'+
    '<p class="q">你聽到的是哪一句？</p>'+opts.map(function(o,k){return '<button class="opt" data-k="'+k+'">'+esc(o.t)+'</button>'}).join('')+
-   '<div class="back hidden" id="back"></div></div><div class="nav"><button class="btn hidden" id="next">下一張</button></div>';
+   '<div class="back hidden" id="back"></div><div class="nav"><button class="btn main hidden" id="next">下一張 ▶</button></div></div>';
   document.getElementById('p1').onclick=function(){play(1)};document.getElementById('p2').onclick=function(){play(0.75)};
   app.querySelectorAll('.opt').forEach(function(b){b.onclick=function(){
     var o=opts[+b.dataset.k];
@@ -102,7 +103,7 @@ function render(){
     bk.innerHTML='<span class="tag">'+esc(c.cat)+'</span><div class="en">'+c.mark+'</div><p class="key">'+esc(c.key)+'</p>'+
       '<div class="play"><button class="btn main" id="s1">▶ 只聽這一段</button><button class="btn" id="s2">慢一點</button></div><div class="kk">'+esc(c.kk)+'</div><p>'+esc(c.expl)+'</p>'+
       '<p class="q" style="margin-bottom:0">其他三句差在哪裡</p><ul class="dis">'+opts.filter(function(x){return !x.ok}).map(function(x){return '<li><span class="s">'+esc(x.t)+'</span><br>'+esc(x.why)+'</li>'}).join('')+'</ul>'+
-      '<p class="src">出處：<a href="'+BASE+pageName(c.vol)+'#'+c.anchor+'" target="_blank" rel="noopener">'+esc(VN[c.vol])+' '+esc(c.q)+'（站上的題目與解析）</a></p>';
+      (c.src?'<p class="src">出處：<a href="'+c.src+'" target="_blank" rel="noopener">大考中心〈試題示例說明（適用於99課綱）〉'+esc(VN[c.vol].replace('舊課綱 ',''))+' '+esc(c.q)+'</a>（舊課綱試題示例，站上沒有題目頁）</p>':'<p class="src">出處：<a href="'+BASE+pageName(c.vol)+'#'+c.anchor+'" target="_blank" rel="noopener">'+esc(VN[c.vol])+' '+esc(c.q)+'（站上的題目與解析）</a></p>');
     bk.classList.remove('hidden');
     document.getElementById('s1').onclick=function(){play(1,src(c,true))};document.getElementById('s2').onclick=function(){play(0.75,src(c,true))};
     var nx=document.getElementById('next');nx.classList.remove('hidden');
