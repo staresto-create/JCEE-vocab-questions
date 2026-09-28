@@ -34,10 +34,10 @@ details.how p{margin:.4rem 0}
 .key{font-weight:700;margin:8px 0 4px}.back{margin-top:16px;border-top:1px dashed var(--rule);padding-top:12px}
 .tag{display:inline-block;font-size:.8rem;border:1px solid var(--gold);color:var(--gold);border-radius:999px;padding:1px 10px;margin-bottom:6px}
 .en{font-family:Georgia,'Times New Roman',serif;font-size:1.05rem}.en b{color:var(--crimson);border-bottom:2px solid var(--crimson);font-weight:700}
-.kk{font-family:'Lucida Sans Unicode','Arial Unicode MS','Noto Sans',sans-serif;background:var(--paper);border-radius:8px;padding:6px 10px;margin:8px 0;overflow-x:auto;white-space:nowrap}
+.kk{font-family:'Lucida Sans Unicode','Arial Unicode MS','Noto Sans',sans-serif;background:var(--paper);border-radius:8px;padding:6px 10px;margin:8px 0;line-height:1.7}
 .dis{margin:8px 0 0;padding:0;list-style:none}.dis li{margin:8px 0;font-size:.95rem}.dis .s{font-family:Georgia,serif}
 .src{font-size:.9rem;margin-top:10px}a{color:var(--sage)}
-.nav{display:flex;margin-top:16px}
+.nav{display:flex;gap:10px;margin-top:16px}
 .hidden{display:none}
 .end{text-align:center}.end .n{font-size:2rem;font-weight:700;color:var(--sage)}
 .foot{margin-top:28px;font-size:.85rem;color:var(--soft)}.foot a{color:var(--soft)}
@@ -65,14 +65,14 @@ details.how p{margin:.4rem 0}
 'use strict';
 var BASE='https://staresto-create.github.io/JCEE-vocab-questions/listening/';
 var au=document.getElementById('au');
-var ALL=[],VN={},VOLS=[],VOL,CARDS=[],i=0,score=0,Q=[],wrongSet=new Set();
+var ALL=[],VN={},VOLS=[],VOL,CARDS=[],i=0,score=0,Q=[],wrongSet=new Set(),done=new Set();
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 function shuffle(a){a=a.slice();for(var k=a.length-1;k>0;k--){var j=Math.floor(Math.random()*(k+1));var t=a[k];a[k]=a[j];a[j]=t}return a}
 function src(c,part){return 'liaison/'+c.vol+'_'+c.id+(part?'_p':'')+'.mp3'}
 function play(rate,s){au.pause();au.src=s||src(CARDS[Q[i]]);au.playbackRate=rate;au.currentTime=0;var p=au.play();if(p&&p.catch)p.catch(function(){})}
 function pageName(v){return v==='ref111'?'ref111.html':v+'.html'}
 function setVol(v){
-  au.pause();VOL=v;CARDS=ALL.filter(function(c){return c.vol===VOL});i=0;score=0;Q=CARDS.map(function(c,k){return k});wrongSet=new Set();
+  au.pause();VOL=v;CARDS=ALL.filter(function(c){return c.vol===VOL});i=0;score=0;Q=CARDS.map(function(c,k){return k});wrongSet=new Set();done=new Set();
   try{localStorage.setItem('jcee_liaison_vol',v)}catch(e){}
   drawVols();render();
 }
@@ -90,18 +90,19 @@ function render(){
   }
   var c=CARDS[Q[i]],retry=i>=CARDS.length;
   var opts=shuffle([{t:c.ans,ok:true}].concat(c.dis.map(function(d){return {t:d[0],ok:false,why:d[1]}})));
-  app.innerHTML='<div class="card"><div class="top"><span>'+(retry?'再練一次':'第 '+(i+1)+' 張／共 '+CARDS.length+' 張')+'</span><span>'+esc(VN[c.vol])+' '+esc(c.q)+'</span></div>'+
+  app.innerHTML='<div class="card"><div class="top"><span>'+(retry?'再練一次':'第 '+(i+1)+' 張／共 '+CARDS.length+' 張')+'</span><span>出自 '+esc(VN[c.vol])+' '+esc(c.q)+'</span></div>'+
    '<div class="play"><button class="btn main" id="p1">▶ 播放</button><button class="btn" id="p2">慢一點</button></div>'+
    '<p class="q">你聽到的是哪一句？</p>'+opts.map(function(o,k){return '<button class="opt" data-k="'+k+'">'+esc(o.t)+'</button>'}).join('')+
-   '<div class="back hidden" id="back"></div><div class="nav"><button class="btn main hidden" id="next">下一張 ▶</button></div></div>';
+   '<div class="back hidden" id="back"></div><div class="nav">'+(i>0?'<button class="btn" id="prev">◀ 上一張</button>':'')+'<button class="btn main hidden" id="next">下一張 ▶</button></div></div>';
+  var pv=document.getElementById('prev');if(pv)pv.onclick=function(){au.pause();i--;render();window.scrollTo(0,0)};
   document.getElementById('p1').onclick=function(){play(1)};document.getElementById('p2').onclick=function(){play(0.75)};
   app.querySelectorAll('.opt').forEach(function(b){b.onclick=function(){
     var o=opts[+b.dataset.k];
-    if(o.ok){if(!retry)score++}else if(!wrongSet.has(Q[i])){wrongSet.add(Q[i]);Q.push(Q[i])}
+    if(o.ok){if(!retry&&!done.has(i))score++}else if(!wrongSet.has(Q[i])){wrongSet.add(Q[i]);Q.push(Q[i])}done.add(i);
     app.querySelectorAll('.opt').forEach(function(x){x.disabled=true;var oo=opts[+x.dataset.k];if(oo.ok)x.classList.add('ok');else if(x===b)x.classList.add('no')});
     var bk=document.getElementById('back');
     bk.innerHTML='<span class="tag">'+esc(c.cat)+'</span><div class="en">'+c.mark+'</div><p class="key">'+esc(c.key)+'</p>'+
-      '<div class="play"><button class="btn main" id="s1">▶ 只聽這一段</button><button class="btn" id="s2">慢一點</button></div><div class="kk">'+esc(c.kk)+'</div><p>'+esc(c.expl)+'</p>'+
+      '<div class="play"><button class="btn main" id="s1">▶ 只聽這一段</button><button class="btn" id="s2">慢一點</button></div><div class="kk">'+esc(c.kk).replace(' → ','<br>→ ')+'</div><p>'+esc(c.expl)+'</p>'+
       '<p class="q" style="margin-bottom:0">其他三句差在哪裡</p><ul class="dis">'+opts.filter(function(x){return !x.ok}).map(function(x){return '<li><span class="s">'+esc(x.t)+'</span><br>'+esc(x.why)+'</li>'}).join('')+'</ul>'+
       (c.src?'<p class="src">出處：<a href="'+c.src+'" target="_blank" rel="noopener">大考中心〈試題示例說明（適用於99課綱）〉'+esc(VN[c.vol].replace('舊課綱 ',''))+' '+esc(c.q)+'</a>（舊課綱試題示例，站上沒有題目頁）</p>':'<p class="src">出處：<a href="'+BASE+pageName(c.vol)+'#'+c.anchor+'" target="_blank" rel="noopener">'+esc(VN[c.vol])+' '+esc(c.q)+'（站上的題目與解析）</a></p>');
     bk.classList.remove('hidden');
@@ -112,9 +113,10 @@ function render(){
 }
 fetch('liaison_data.json').then(function(r){return r.json()}).then(function(D){
   ALL=D.cards;VOLS=D.vols;VOLS.forEach(function(v){VN[v[0]]=v[1]});
-  var m=location.hash.match(/v=([a-z0-9]+)/),v=m&&VN[m[1]]?m[1]:null;
+  var m=location.hash.match(/v=([a-z0-9_]+)/),v=m&&VN[m[1]]?m[1]:null;
   if(!v){try{var s=localStorage.getItem('jcee_liaison_vol');if(s&&VN[s])v=s}catch(e){}}
   setVol(v||VOLS[0][0]);
+  var mc=location.hash.match(/c=(\d+)/);if(mc&&+mc[1]>=1&&+mc[1]<=CARDS.length){i=+mc[1]-1;render()}
 }).catch(function(){document.getElementById('app').innerHTML='<div class="card"><p>卡片資料沒有載入成功，請重新整理頁面。</p></div>'});
 })();
 </script></body></html>
