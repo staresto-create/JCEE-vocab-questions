@@ -402,7 +402,9 @@
   function show(id) { $(id).classList.remove('hide'); }
   function hide(id) { $(id).classList.add('hide'); }
   function esc(s) {
+    // 彎引號在中文字型裡排成全形，women’s 會看起來像 women’　s，所以顯示時換成直引號
     return String(s == null ? '' : s)
+      .replace(/[\u2018\u2019]/g, "'").replace(/[\u201C\u201D]/g, '"')
       .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
       .replace(/"/g, '&quot;');
   }
