@@ -12,7 +12,7 @@
 <style>
   :root{
     --paper:#F6F1E4; --paper-card:#FFFDF7; --ink:#221F1A; --ink-soft:#5B5648;
-    --rule:#DCD3BB; --crimson:#AE3626; --sage:#3E6E52;
+    --rule:#DCD3BB; --crimson:#AE3626; --sage:#3E6E52; --gold:#A9812E;
     --shadow: 0 1px 0 rgba(34,31,26,.06), 0 8px 24px rgba(34,31,26,.08);
   }
   *{box-sizing:border-box;}
@@ -68,6 +68,34 @@
   .done{text-align:center; padding:14px 0;}
   .done .big{font-family:'Noto Serif TC',serif; font-weight:900; font-size:25px; margin:0 0 6px;}
   footer{border-top:1px solid var(--rule); margin-top:26px; padding-top:14px; font-size:13px; color:var(--ink-soft);}
+  /* 學習統計 */
+  .st-head{display:flex; align-items:baseline; justify-content:space-between; gap:10px; flex-wrap:wrap;}
+  .st-count{font-size:13px; color:var(--ink-soft);}
+  .st-count b{color:var(--crimson); font-family:'IBM Plex Mono','Noto Sans TC',monospace; font-size:15px;}
+  .dist{display:flex; height:14px; border:1px solid var(--rule); border-radius:2px; overflow:hidden; margin:4px 0 14px; background:var(--paper);}
+  .dist span{display:block; height:100%;}
+  .lvl-list{list-style:none; margin:0; padding:0;}
+  .lvl-list li{margin:0 0 7px;}
+  .lvl-btn{display:flex; align-items:center; gap:10px; width:100%; text-align:left; cursor:pointer;
+           background:transparent; border:1px solid var(--rule); border-radius:3px; padding:10px 12px;
+           font:inherit; font-size:14.5px; color:var(--ink);}
+  .lvl-btn.on{border-color:var(--ink); background:#F1EADA;}
+  .lvl-btn[disabled]{cursor:default; opacity:.55;}
+  .lvl-btn:focus-visible{outline:2px solid var(--crimson); outline-offset:2px;}
+  .lvl-btn .sw{flex:0 0 12px; height:12px; border-radius:2px; border:1px solid rgba(34,31,26,.15);}
+  .lvl-btn .nm{flex:0 0 auto; font-weight:500;}
+  .lvl-btn .ex{flex:1 1 auto; font-size:12.5px; color:var(--ink-soft);}
+  .lvl-btn .n{flex:0 0 auto; font-family:'IBM Plex Mono','Noto Sans TC',monospace; font-size:14px; color:var(--crimson);}
+  .wl{margin:12px 0 0; padding-top:12px; border-top:1px dashed var(--rule);}
+  .wl-list{list-style:none; margin:0 0 4px; padding:0;}
+  .wl-list li{display:flex; align-items:baseline; gap:10px; padding:7px 0; border-bottom:1px solid #EFE8D6; font-size:14.5px; line-height:1.6;}
+  .wl-list .w{flex:0 0 auto; max-width:60%; font-family:'IBM Plex Mono','Noto Sans TC',monospace; font-weight:500; overflow-wrap:break-word;}
+  .wl-list .g{flex:1 1 auto; font-size:13px; color:var(--ink-soft); min-width:0;}
+  .wl-list .r{flex:0 0 auto; font-family:'IBM Plex Mono','Noto Sans TC',monospace; font-size:12px;}
+  .wl-list .r.ok{color:var(--sage);} .wl-list .r.no{color:var(--crimson);}
+  .wl-more{margin:8px 0 4px; background:none; border:none; padding:0; cursor:pointer; color:var(--crimson);
+           text-decoration:underline; font:inherit; font-size:14px;}
+  .wl .minor-btn{width:100%; margin-top:10px; flex:none;}
   .hide{display:none !important;}
 </style>
 </head>
@@ -86,7 +114,7 @@
       <p class="legend">★ 是 ALL+ 閱讀必考的五個單元，段考閱讀從這裡出。</p>
       <button class="big-btn" id="startBtn">開始練習</button>
       <p class="stat" id="homeStat"></p>
-      <div class="minor-row"><button class="minor-btn" id="clearBtn">清除我的進度</button></div>
+      <div class="minor-row"><button class="minor-btn" id="statsBtn">學習統計</button><button class="minor-btn" id="clearBtn">清除我的進度</button></div>
       <p class="note" style="margin:14px 0 0;">看到中文就把英文打出來，跟段考一樣要自己拼。大小寫、標點、冠詞和 his／her 這類代名詞不列入計分，介系詞要求完全正確。進度存在這台裝置裡，換手機不會跟著走。</p>
     </div>
   </section>
@@ -123,7 +151,23 @@
       <p class="big">這一輪練完了</p>
       <p class="note" id="doneNote"></p>
       <button class="big-btn" id="againBtn">再練一輪</button>
-      <div class="minor-row"><button class="minor-btn" id="homeBtn">回到首頁</button></div>
+      <div class="minor-row"><button class="minor-btn" id="homeBtn">回到首頁</button><button class="minor-btn" id="doneStatsBtn">學習統計</button></div>
+    </div>
+  </section>
+
+  <section id="stats" class="hide">
+    <div class="bar"><span id="statsScope"></span><a href="#" id="statsBack">回到首頁</a></div>
+    <div class="card">
+      <div class="st-head"><p class="lead">今天練過的字</p><span class="st-count" id="todayCount"></span></div>
+      <p class="note">列出今天在「開始練習」裡練過的字，右邊是今天拼錯或按「還不會」的次數。錯過的排在前面。</p>
+      <div id="todayBox"></div>
+    </div>
+    <div class="card">
+      <div class="st-head"><p class="lead">熟悉度分布</p><span class="st-count" id="distCount"></span></div>
+      <p class="note">依你拼對、拼錯的紀錄自動分級，一個字拼對三次才算過關。點任何一級，可以看那一級有哪些字。</p>
+      <div id="distBar" class="dist"></div>
+      <ul id="lvlList" class="lvl-list"></ul>
+      <div id="lvlBox"></div>
     </div>
   </section>
 
@@ -307,8 +351,8 @@ var DATA = null;
     var pool=buildPool(), d=due(pool);
     var q=shuffle(d.ready.slice()).concat(shuffle(d.fresh.slice()));
     if (!q.length) q=shuffle(pool.slice());
-    session={q:q, total:q.length, miss:{}};
-    $('home').classList.add('hide'); $('done').classList.add('hide'); $('quiz').classList.remove('hide');
+    session={q:q, total:q.length, miss:{}, free:false};
+    $('home').classList.add('hide'); $('done').classList.add('hide'); $('stats').classList.add('hide'); $('quiz').classList.remove('hide');
     next();
   }
 
@@ -378,7 +422,17 @@ var DATA = null;
   }
 
   function grade(card, ok){
-    var k=key(card), r=state.w[k]||{p:0,i:0,due:0};
+    var k=key(card);
+    if (session.free) {
+      // 從統計頁出發的練習不計入進度：拼對就放過，拼錯隔幾個再來
+      var it0=session.q.shift();
+      if (!ok) { session.miss[k]=(session.miss[k]||0)+1; session.q.splice(Math.min(GAP_MISS,session.q.length),0,it0); }
+      next(); return;
+    }
+    var r=state.w[k]||{p:0,i:0,due:0};
+    // 「今天練過的字」用：t 是最後練的日子，m 是當天拼錯的次數（換日歸零）
+    if (r.t !== today()) { r.t = today(); r.m = 0; }
+    if (!ok) r.m = (r.m||0) + 1;
     if (ok) {
       r.p=(r.p||0)+1;
       if (r.p>=PASS) { r.i=r.i?Math.min(r.i*2,30):1; r.due=today()+r.i; session.q.shift(); }
@@ -401,11 +455,109 @@ var DATA = null;
   function finish(){
     $('quiz').classList.add('hide'); $('done').classList.remove('hide');
     var m=Object.keys(session.miss).length;
-    $('doneNote').textContent = m ? ('這一輪 '+session.total+' 個，其中 '+m+' 個卡住過，過幾天會再出現。')
-                                  : ('這一輪 '+session.total+' 個，全部一次就拼出來。');
+    if (session.free) {
+      $('doneNote').textContent = '這一輪 '+session.total+' 個練完了。這是從學習統計開始的練習，不計入進度。';
+    } else {
+      $('doneNote').textContent = m ? ('這一輪 '+session.total+' 個，其中 '+m+' 個卡住過，過幾天會再出現。')
+                                    : ('這一輪 '+session.total+' 個，全部一次就拼出來。');
+    }
     renderHome();
   }
 
+  /* ---------- 學習統計 ---------- */
+  var LEVELS = [
+    { key:'new',  name:'還沒練', ex:'這個範圍裡還沒練過的字',      color:'var(--rule)' },
+    { key:'mid',  name:'練習中', ex:'拼對不到三次，或過關後又拼錯', color:'var(--gold)' },
+    { key:'pass', name:'已過關', ex:'拼對三次以上',                 color:'var(--sage)' }
+  ];
+  var LIST_STEP = 20, statsOpen = null, statsShown = LIST_STEP;
+  function levelOf(c){ var r=state.w[key(c)]; if (!r) return 'new'; return (r.p>=PASS) ? 'pass' : 'mid'; }
+  function row(c, right){
+    return '<li><span class="w">' + esc(answerOf(c)) + '</span><span class="g">' + esc(promptOf(c)) + '</span>' + (right||'') + '</li>';
+  }
+  function freeStart(list){
+    session={q:shuffle(list.slice()), total:list.length, miss:{}, free:true};
+    $('stats').classList.add('hide'); $('home').classList.add('hide'); $('done').classList.add('hide'); $('quiz').classList.remove('hide');
+    next();
+  }
+  function renderToday(pool){
+    var t=today();
+    var list=pool.filter(function(c){ var r=state.w[key(c)]; return r && r.t===t; });
+    list.sort(function(a,b){ return (state.w[key(b)].m||0)-(state.w[key(a)].m||0); });
+    var wrong=list.filter(function(c){ return state.w[key(c)].m>0; });
+    $('todayCount').innerHTML = list.length ? '<b>'+list.length+'</b> 個字，錯過的 <b>'+wrong.length+'</b> 個' : '';
+    var h='';
+    if (!list.length) {
+      h='<p class="note">今天還沒有練。回首頁按「開始練習」，練過的字會列在這裡。</p>';
+    } else {
+      h='<ul class="wl-list">'+list.map(function(c){
+        var m=state.w[key(c)].m||0;
+        return row(c, m ? '<span class="r no">錯 '+m+' 次</span>' : '<span class="r ok">一次就對</span>');
+      }).join('')+'</ul>';
+      if (wrong.length) h+='<div class="wl" style="border:0;padding:0;margin:0;"><button class="minor-btn" type="button" id="todayWrongBtn">把今天錯過的 '+wrong.length+' 個字再練一次（不計入進度）</button></div>';
+    }
+    $('todayBox').innerHTML=h;
+    var b=$('todayWrongBtn'); if (b) b.addEventListener('click', function(){ freeStart(wrong); });
+  }
+  function wordsAt(pool, lv){
+    var ws=pool.filter(function(c){ return levelOf(c)===lv; });
+    if (lv!=='new') ws.sort(function(a,b){
+      var ra=state.w[key(a)], rb=state.w[key(b)];
+      var d=(ra.p||0)-(rb.p||0); if (d) return d;           // 離過關越遠的越前面
+      return (ra.t||0)-(rb.t||0);                            // 一樣的話，越久沒練的越前面
+    });
+    return ws;
+  }
+  function renderDist(pool){
+    var cnt={new:0,mid:0,pass:0};
+    pool.forEach(function(c){ cnt[levelOf(c)]++; });
+    $('distCount').innerHTML='過關 <b>'+cnt.pass+'</b> / '+pool.length+' 個字';
+    $('distBar').innerHTML=LEVELS.map(function(L){
+      return cnt[L.key] ? '<span style="width:'+(cnt[L.key]/pool.length*100).toFixed(2)+'%;background:'+L.color+'"></span>' : '';
+    }).join('');
+    $('lvlList').innerHTML=LEVELS.map(function(L){
+      return '<li><button type="button" class="lvl-btn'+(statsOpen===L.key?' on':'')+'" data-lv="'+L.key+'"'+(cnt[L.key]?'':' disabled')+'>'+
+        '<span class="sw" style="background:'+L.color+'"></span><span class="nm">'+L.name+'</span>'+
+        '<span class="ex">'+L.ex+'</span><span class="n">'+cnt[L.key]+'</span></button></li>';
+    }).join('');
+    Array.prototype.forEach.call($('lvlList').querySelectorAll('.lvl-btn'), function(b){
+      b.addEventListener('click', function(){
+        var k=b.getAttribute('data-lv'); statsOpen=(statsOpen===k)?null:k; statsShown=LIST_STEP; renderDist(pool);
+      });
+    });
+    renderLevelBox(pool);
+  }
+  function renderLevelBox(pool){
+    var box=$('lvlBox');
+    if (!statsOpen) { box.innerHTML=''; return; }
+    var L=LEVELS.filter(function(x){ return x.key===statsOpen; })[0];
+    var ws=wordsAt(pool, statsOpen);
+    if (!ws.length) { statsOpen=null; box.innerHTML=''; return; }
+    var shown=ws.slice(0, statsShown);
+    var h='<div class="wl"><p class="note">「'+L.name+'」共 '+ws.length+' 個字'+
+      (statsOpen==='new' ? '，照字表順序排。' : statsOpen==='mid' ? '，離過關越遠的排越前面。' : '，越久沒練的排越前面。')+'</p>';
+    h+='<ul class="wl-list">'+shown.map(function(c){
+      var r=state.w[key(c)];
+      return row(c, (r && statsOpen==='mid') ? '<span class="r no">對 '+(r.p||0)+' 次</span>' : '');
+    }).join('')+'</ul>';
+    if (ws.length>shown.length) h+='<button type="button" class="wl-more" id="wlMore">再多顯示 '+Math.min(LIST_STEP, ws.length-shown.length)+' 個</button>';
+    h+='<button type="button" class="minor-btn" id="lvlPracBtn">用上面這 '+shown.length+' 個字練習（不計入進度）</button></div>';
+    box.innerHTML=h;
+    var m=$('wlMore'); if (m) m.addEventListener('click', function(){ statsShown+=LIST_STEP; renderLevelBox(pool); });
+    $('lvlPracBtn').addEventListener('click', function(){ freeStart(shown); });
+  }
+  function renderStats(){
+    var pool=buildPool(), s=SETS.flat[sel];
+    $('statsScope').textContent='範圍：'+s.g+'　'+s.label.replace('★','')+'　'+pool.length+' 個';
+    statsOpen=null; statsShown=LIST_STEP;
+    renderToday(pool); renderDist(pool);
+    $('home').classList.add('hide'); $('done').classList.add('hide'); $('quiz').classList.add('hide'); $('stats').classList.remove('hide');
+    window.scrollTo(0,0);
+  }
+
+  $('statsBtn').addEventListener('click', renderStats);
+  $('doneStatsBtn').addEventListener('click', renderStats);
+  $('statsBack').addEventListener('click', function(e){ e.preventDefault(); $('stats').classList.add('hide'); $('home').classList.remove('hide'); renderHome(); });
   $('startBtn').addEventListener('click', start);
   $('againBtn').addEventListener('click', start);
   $('homeBtn').addEventListener('click', function(){ $('done').classList.add('hide'); $('home').classList.remove('hide'); renderHome(); });
@@ -414,7 +566,8 @@ var DATA = null;
     if (!confirm('確定要清除這台裝置上的練習進度嗎？清掉之後所有字都會變回沒練過。')) return;
     state={v:1,w:{}}; saveState(); renderHome();
   });
-  window.addEventListener('hashchange', function(){ scope=parseScope(); SETS=makeSets(); sel=0; renderHome(); });
+  window.addEventListener('hashchange', function(){ scope=parseScope(); SETS=makeSets(); sel=0;
+    $('stats').classList.add('hide'); $('quiz').classList.add('hide'); $('done').classList.add('hide'); $('home').classList.remove('hide'); renderHome(); });
 
   // 資料檔：每次段考換這個檔名就好，介面不動
   var DATA_FILE = 'exam1.json';
@@ -431,7 +584,8 @@ var DATA = null;
       $('setGroups').innerHTML = '<p class="note">字庫載入失敗，請重新整理頁面試試。</p>';
     });
   window.__deck={ get state(){return state;}, DATA:DATA, hintFor:hintFor, buildPool:buildPool,
-    parseScope:parseScope, get SETS(){return SETS.flat;}, poolOf:poolOf, setSel:function(i){sel=i;}, norm:norm };
+    parseScope:parseScope, get SETS(){return SETS.flat;}, poolOf:poolOf, setSel:function(i){sel=i;}, norm:norm,
+    today:today, key:key, get session(){return session;}, renderStats:renderStats };
 })();
 </script>
 </body>
