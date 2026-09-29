@@ -68,7 +68,7 @@
   .done{text-align:center; padding:14px 0;}
   .done .big{font-family:'Noto Serif TC',serif; font-weight:900; font-size:25px; margin:0 0 6px;}
   footer{border-top:1px solid var(--rule); margin-top:26px; padding-top:14px; font-size:13px; color:var(--ink-soft);}
-  /* 學習統計 */
+  /* 練習紀錄 */
   .st-head{display:flex; align-items:baseline; justify-content:space-between; gap:10px; flex-wrap:wrap;}
   .st-count{font-size:13px; color:var(--ink-soft);}
   .st-count b{color:var(--crimson); font-family:'IBM Plex Mono','Noto Sans TC',monospace; font-size:15px;}
@@ -108,14 +108,14 @@
 
   <section id="home">
     <div class="card">
-      <p class="lead">看中文，把英文打出來</p>
+      <p class="lead">看中文，拼出英文</p>
       <p class="note">選一個範圍開始。答對的會往後推，答錯的當場再來。</p>
       <div id="setGroups"></div>
       <p class="legend">★ 是 ALL+ 閱讀必考的五個單元，段考閱讀從這裡出。</p>
       <button class="big-btn" id="startBtn">開始練習</button>
       <p class="stat" id="homeStat"></p>
-      <div class="minor-row"><button class="minor-btn" id="statsBtn">學習統計</button><button class="minor-btn" id="clearBtn">清除我的進度</button></div>
-      <p class="note" style="margin:14px 0 0;">看到中文就把英文打出來，跟段考一樣要自己拼。大小寫、標點、冠詞和 his／her 這類代名詞不列入計分，介系詞要求完全正確。進度存在這台裝置裡，換手機不會跟著走。</p>
+      <div class="minor-row"><button class="minor-btn" id="statsBtn">練習紀錄</button><button class="minor-btn" id="clearBtn">清除我的進度</button></div>
+      <p class="note" style="margin:14px 0 0;">看中文拼出英文。高二段考新增了手寫文意字彙的題型，單字要自己拼得出來才行。大小寫、標點、冠詞和 his／her 這類代名詞不列入計分，介系詞要求完全正確。進度存在這台裝置裡，換手機不會跟著走。</p>
     </div>
   </section>
 
@@ -127,7 +127,7 @@
       <p class="hint" id="hint"></p>
       <div id="typeBox">
         <input id="typed" class="typed" type="text" autocomplete="off" autocorrect="off"
-               autocapitalize="off" spellcheck="false" placeholder="把英文打出來">
+               autocapitalize="off" spellcheck="false" placeholder="輸入英文">
         <div class="minor-row">
           <button class="minor-btn" id="dunnoBtn">還不會</button>
           <button class="minor-btn ok" id="sendBtn">送出</button>
@@ -151,7 +151,7 @@
       <p class="big">這一輪練完了</p>
       <p class="note" id="doneNote"></p>
       <button class="big-btn" id="againBtn">再練一輪</button>
-      <div class="minor-row"><button class="minor-btn" id="homeBtn">回到首頁</button><button class="minor-btn" id="doneStatsBtn">學習統計</button></div>
+      <div class="minor-row"><button class="minor-btn" id="homeBtn">回到首頁</button><button class="minor-btn" id="doneStatsBtn">練習紀錄</button></div>
     </div>
   </section>
 
@@ -456,7 +456,7 @@ var DATA = null;
     $('quiz').classList.add('hide'); $('done').classList.remove('hide');
     var m=Object.keys(session.miss).length;
     if (session.free) {
-      $('doneNote').textContent = '這一輪 '+session.total+' 個練完了。這是從學習統計開始的練習，不計入進度。';
+      $('doneNote').textContent = '這一輪 '+session.total+' 個練完了。這是從練習紀錄開始的練習，不計入進度。';
     } else {
       $('doneNote').textContent = m ? ('這一輪 '+session.total+' 個，其中 '+m+' 個卡住過，過幾天會再出現。')
                                     : ('這一輪 '+session.total+' 個，全部一次就拼出來。');
@@ -464,7 +464,7 @@ var DATA = null;
     renderHome();
   }
 
-  /* ---------- 學習統計 ---------- */
+  /* ---------- 練習紀錄 ---------- */
   var LEVELS = [
     { key:'new',  name:'還沒練', ex:'這個範圍裡還沒練過的字',      color:'var(--rule)' },
     { key:'mid',  name:'練習中', ex:'拼對不到三次，或過關後又拼錯', color:'var(--gold)' },
