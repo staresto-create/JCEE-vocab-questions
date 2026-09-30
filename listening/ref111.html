@@ -245,5 +245,26 @@ for(var k in UNITS)paint(k);
 if(PREVIEW){var pb=document.createElement('p');pb.className='crumb';pb.textContent='預覽模式：所有答案與解析全部展開，作答不會記錄。';document.querySelector('header.top').appendChild(pb);}
 })();
 </script>
+<script>
+/* 中文字型把英文彎引號排成全形（I’m 看起來像 I’　m），顯示時只在中文字型的段落裡換成直引號；英文字型的逐字稿保持原樣 */
+(function(){
+  var RE=/[\u2018\u2019\u201C\u201D]/, CJK=/Noto Sans TC|Noto Serif TC|PingFang|JhengHei|PMingLiU/i;
+  function fix(root){
+    var w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,null), n, list=[];
+    while((n=w.nextNode())) if(RE.test(n.nodeValue)) list.push(n);
+    list.forEach(function(t){
+      var el=t.parentElement; if(!el) return;
+      var ff=getComputedStyle(el).fontFamily.split(',')[0];
+      if(CJK.test(ff)) t.nodeValue=t.nodeValue.replace(/[\u2018\u2019]/g,"'").replace(/[\u201C\u201D]/g,'"');
+    });
+  }
+  function run(){ fix(document.body);
+    new MutationObserver(function(ms){ ms.forEach(function(m){ m.addedNodes.forEach(function(a){
+      if(a.nodeType===1) fix(a); else if(a.nodeType===3 && a.parentElement) fix(a.parentElement); }); }); })
+      .observe(document.body,{childList:true,subtree:true});
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',run); else run();
+})();
+</script>
 </body>
 </html>
