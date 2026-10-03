@@ -241,6 +241,10 @@
     font-size:13px; line-height:1.8; color:var(--ink-soft); display:none; white-space:pre-line;
   }
   .note-box.show{display:block;}
+  /* 2026-10-03 難題延伸閱讀：樣式比照克漏字站 .why-readmore */
+  .why-readmore{margin-top:8px; white-space:normal;}
+  .why-readmore-hint{font-size:13px; color:var(--ink-soft); line-height:1.7; margin-bottom:6px; border-left:2px solid var(--sage); padding-left:8px; overflow-wrap:anywhere;}
+  .why-readmore a{font-family:'IBM Plex Mono','Noto Sans TC',monospace; font-size:12px; color:var(--sage); text-decoration:underline; overflow-wrap:anywhere;}
   .note-box::before{content:"深入解析　"; color:var(--sage); font-family:'Noto Serif TC',serif; font-weight:700;}
   .disc-box{
     margin-top:10px; padding:12px 14px; background:#FBF6E9; border-radius:3px; border:1px solid #E8DCA8;
@@ -527,6 +531,21 @@ details.skill[open] > summary::after{content:'－ 收合';}
 <script>
 function escNote(s){
   return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+// 2026-10-03 難題延伸閱讀：readMore 用的逸出函式（比照克漏字站 escapeHtml／escapeAttr）
+function escapeHtml(s){
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+function escapeAttr(s){
+  return escapeHtml(s).replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+}
+function readMoreHtml(rm){
+  if(!rm || !rm.url) return '';
+  let html = '<div class="why-readmore">';
+  if(rm.hint) html += '<div class="why-readmore-hint">'+escapeHtml(rm.hint)+'</div>';
+  html += '<a href="'+escapeAttr(rm.url)+'" target="_blank" rel="noopener">'
+    + escapeHtml(rm.label || '延伸閱讀') + ' ↗</a></div>';
+  return html;
 }
 function noteSecHtml(str){
   // 依【小標】切段：小標獨立一行、每段各自一個區塊。
@@ -850,6 +869,11 @@ function selectAnswer(letter, q){
     ? '<div class="note-body clamped">'+noteHtml+'</div>'
         + '<span class="note-toggle" onclick="toggleClamp(this)">展開全文 ▾</span>'
     : '<div class="note-body">'+noteHtml+'</div>';
+    // 延伸閱讀接在 note 框最後，收合時也看得到
+    noteBox.innerHTML += readMoreHtml(q.readMore);
+    noteBox.classList.add('show');
+  } else if(q.readMore && q.readMore.url){
+    noteBox.innerHTML = readMoreHtml(q.readMore);
     noteBox.classList.add('show');
   } else {
     noteBox.innerHTML = '';
