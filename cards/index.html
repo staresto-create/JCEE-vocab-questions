@@ -140,6 +140,9 @@
   .front-meta{font-family:'IBM Plex Mono','Noto Sans TC',monospace; font-size:12.5px; color:var(--ink-soft); margin:0;}
   .front-meta .pos{color:var(--crimson); font-weight:600;}
   .front-hint{font-size:12.5px; color:var(--ink-soft); margin:10px 0 0; line-height:1.75;}
+  .front-note{font-size:12.5px; color:var(--ink-soft); margin:0 0 12px; line-height:1.75;}
+  .opt .base{color:var(--ink-soft); font-size:.88em;}
+  .cf-fill{margin:0 0 16px;}
 
   .opts{list-style:none; margin:20px 0 0; padding:0;}
   .opts li{margin-bottom:9px;}
@@ -628,9 +631,12 @@
   // 回傳這個字在目前範圍內所有可用的出現方式
   function variantsOf(word) {
     if (isCF()) {
-      // 每個字兩種（c 中文選字、e 字選中文），組內同題每題一種（o 大考原題）
+      // 每個字三種（c 中文選字、e 字選中文、s 例句填空），組內同題每題一種（o 大考原題）
       var g = CFG[word], vs = [];
-      g.w.forEach(function (x, i) { vs.push('c|' + i); vs.push('e|' + i); });
+      g.w.forEach(function (x, i) {
+        vs.push('c|' + i); vs.push('e|' + i);
+        if (g.f && g.f[i]) vs.push('s|' + i);
+      });
       g.b.forEach(function (b, j) { vs.push('o|b' + j); });
       return vs;
     }
@@ -771,7 +777,8 @@
   var CF_LABEL = {
     c: '易混淆字　中文 → 英文',
     e: '易混淆字　英文 → 中文',
-    o: '易混淆字　大考原題'
+    o: '易混淆字　大考原題',
+    s: '易混淆字　例句填空'
   };
 
   // 中文欄有時附著英文用法（常用 dispose of），正面要把這個字本身遮掉，免得直接看到答案
@@ -790,6 +797,16 @@
              '<p class="front-hint">出自 ' + esc(b.e.src) + ' 的原題，四個選項是當年的原選項。</p>';
       opts = Object.keys(q.o).map(function (x) { return { key: x, text: q.o[x] }; });
       correct = q.a;
+    } else if (kind === 's') {
+      var fi = g.f[+parts[1]], hasBase = fi.o.some(function (o) { return typeof o !== 'string'; });
+      body = '<p class="front-note">說明：選項以同一組易混淆字為主，彼此的詞性不一定相同，先判斷空格需要哪一種詞性' +
+             (hasBase ? '；選項已改成句子需要的字形，括號裡是原形。' : '。') + '</p>' +
+             '<p class="front-frame">' + frameHTML(fi.s) + '</p>';
+      opts = fi.o.map(function (o, k) {
+        return typeof o === 'string' ? { key: 's' + k, text: o }
+                                     : { key: 's' + k, text: o[0], base: o[1] };
+      });
+      correct = 's0';
     } else {
       var i = +parts[1], w = g.w[i];
       if (kind === 'c') {
@@ -873,7 +890,8 @@
       btn.className = 'opt';
       btn.type = 'button';
       btn.setAttribute('data-key', o.key);
-      btn.innerHTML = '<span class="lt">' + LT[i] + '</span>' + esc(o.text);
+      btn.innerHTML = '<span class="lt">' + LT[i] + '</span>' + esc(o.text) +
+                      (o.base ? '<span class="base">（' + esc(o.base) + '）</span>' : '');
       btn.addEventListener('click', function () { answer(o.key, correct); });
       li.appendChild(btn);
       ul.appendChild(li);
@@ -1081,6 +1099,12 @@
     return h;
   }
 
+  function anOK(w) {
+    w = w.toLowerCase();
+    if (/^(hour|honest|honor|heir)/.test(w)) return true;
+    if (/^(uni|use|usu|ura|eu|one|once)/.test(w)) return false;
+    return /^[aeiou]/.test(w);
+  }
   function renderBackCF() {
     var c = session.current, g = CFG[c.word];
     var parts = c.variant.split('|');
@@ -1094,6 +1118,13 @@
       target = +parts[1];
     }
     var h = '<p class="verdict ' + (c.ok ? 'ok' : 'no') + '">' + (c.ok ? '答對了' : '答錯了') + '</p>';
+    if (parts[0] === 's') {
+      var fi = g.f[target], a = fi.o[0], shown = typeof a === 'string' ? a : a[0];
+      h += '<div class="bk-sec cf-fill"><p class="bk-en">' +
+           esc(fi.s).replace(/\b([Aa])\(n\)(?= _{2,})/, function (m, x) { return anOK(shown) ? x + 'n' : x; })
+                    .replace(/_{2,}/, '<b>' + esc(shown) + '</b>') + '</p>' +
+           '<p class="bk-zh">' + esc(fi.z) + '</p></div>';
+    }
     h += groupHTML(g, target, blk, true);
     return h;
   }
@@ -1489,7 +1520,7 @@
     cfLoading = true;
     hide('home'); hide('stats'); hide('gview'); show('loading');
     $('loading').textContent = '載入易混淆字組中…';
-    fetch('confusables_data.json', { cache: 'default' })
+    fetch('confusables_data.json?v=2', { cache: 'default' })
       .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
       .then(function (d) {
         CF = d; CFG = {};
@@ -1582,7 +1613,7 @@
     buildPool: buildPool, variantsOf: variantsOf, today: today, levelOf: levelOf, renderStats: renderStats,
     chooseVariant: chooseVariant, stemHTML: stemHTML, markedWord: markedWord,
     setState: function (s) { state = s; }, saveState: saveState, grade: grade,
-    get cf() { return CF; }, maskZh: maskZh, linkGroups: linkGroups
+    get cf() { return CF; }, maskZh: maskZh, linkGroups: linkGroups, renderFront: renderFront
   };
 })();
 </script>
