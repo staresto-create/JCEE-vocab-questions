@@ -261,6 +261,39 @@
   .wl-more{margin-top:10px; background:none; border:none; padding:0; cursor:pointer; color:var(--crimson); text-decoration:underline; font-size:13px; font-family:'Noto Sans TC',sans-serif;}
   .wl .minor-btn{width:100%; margin-top:12px;}
 
+  /* ---------- 兩副卡切換 ---------- */
+  .deck-tabs{display:flex; gap:0; margin:0 0 14px; border:1px solid var(--ink); border-radius:3px; overflow:hidden;}
+  .deck-tab{
+    flex:1 1 0; cursor:pointer; background:var(--paper-card); color:var(--ink);
+    border:none; padding:11px 8px; font-family:'Noto Serif TC',serif; font-weight:700; font-size:15px;
+  }
+  .deck-tab + .deck-tab{border-left:1px solid var(--ink);}
+  .deck-tab.on{background:var(--ink); color:var(--paper-card); cursor:default;}
+  .deck-tab:focus-visible, .opt:focus-visible, .big-btn:focus-visible, .minor-btn:focus-visible{outline:2px solid var(--crimson); outline-offset:2px;}
+
+  /* ---------- 易混淆字組 ---------- */
+  .cf-no{font-family:'Noto Serif TC',serif; font-weight:700; font-size:15px; color:var(--crimson); margin:0 0 10px;}
+  .cf-mem{margin:0 0 14px; font-size:14.5px; line-height:1.9; background:#F1EADA; border-radius:3px; padding:10px 12px;}
+  .cf-mem .lab, .cf-x .lab{font-size:12px; color:var(--sage); font-weight:700; display:block; margin-bottom:2px;}
+  .cf-list{list-style:none; margin:0 0 4px; padding:0;}
+  .cf-list li{padding:8px 10px; border-bottom:1px solid #EFE8D6; line-height:1.7;}
+  .cf-list li.me{background:var(--sage-soft); border-radius:3px; border-bottom-color:transparent;}
+  .cf-w{font-family:'Noto Serif TC',serif; font-weight:700; font-size:18px; margin-right:8px;}
+  .cf-kk{font-size:12.5px; color:var(--ink-soft); margin-right:8px; word-break:break-word;}
+  .cf-list .lvtag{margin-right:6px;}
+  .cf-kk .nw{white-space:nowrap;}
+  .cf-pos{font-size:12.5px; color:var(--crimson); font-weight:600; margin-right:6px;}
+  .cf-zh{font-size:14px;}
+  .cf-x{margin-top:16px; font-size:14px; line-height:1.95; word-break:break-word;}
+  .cf-none{margin:14px 0 0; font-size:13px; color:var(--ink-soft);}
+  .cf-wl{font-family:'Noto Serif TC',serif; font-weight:700; font-size:14px; color:var(--ink); margin-right:6px;}
+  .cf-more{margin-top:16px; border-top:1px dashed var(--rule); padding-top:12px;}
+  .cf-more summary{cursor:pointer; color:var(--crimson); font-size:13.5px; text-decoration:underline; list-style-position:inside;}
+  .cf-src{margin:14px 0 0; padding:0; list-style:none; font-size:12.5px; line-height:1.8;}
+  .cf-src li{margin-bottom:4px;}
+  .cf-src a, .cf-x a.gref, .cf-mem a.gref{color:var(--crimson);}
+  #gview .card{padding:20px 22px 22px; margin-bottom:14px;}
+
   @media (max-width:420px){
     body{padding:20px 12px 60px;}
     .front-word{font-size:28px;}
@@ -282,9 +315,13 @@
 
   <!-- ================= HOME ================= -->
   <section id="home" class="hide">
+    <div class="deck-tabs">
+      <button id="tabW" class="deck-tab" type="button">單字</button>
+      <button id="tabC" class="deck-tab" type="button">易混淆字組</button>
+    </div>
     <div class="card">
-      <p class="home-lead">用考過的字複習，不是背字典</p>
-      <p class="home-desc">
+      <p id="homeLead" class="home-lead">用考過的字複習，不是背字典</p>
+      <p id="homeDesc" class="home-desc">
         每一張卡片的字都真的在學測或指考詞彙題出現過，四個選項也是當年那一題的四個，三個錯的就是當年那三個。
         答對的字往後推，答錯的當場再來一次。
       </p>
@@ -346,10 +383,10 @@
 
     <div class="card">
       <div class="st-head">
-        <p class="st-title">今天做過的字</p>
+        <p id="todayTitle" class="st-title">今天做過的字</p>
         <span id="todayCount" class="st-count"></span>
       </div>
-      <p class="st-desc">列出今天在「開始複習」裡答過的字，右邊是最後一次的結果。自由練習不會列進來。</p>
+      <p id="todayDesc" class="st-desc">列出今天在「開始複習」裡答過的字，右邊是最後一次的結果。自由練習不會列進來。</p>
       <div id="todayBox"></div>
     </div>
 
@@ -358,11 +395,20 @@
         <p class="st-title">熟悉度分布</p>
         <span id="distCount" class="st-count"></span>
       </div>
-      <p class="st-desc">熟悉度是依你答對、答錯的紀錄算出來的，不必自己評分。點任何一級，可以看那一級有哪些字；答錯次數多、比較久沒碰到的字排在前面。</p>
+      <p id="distDesc" class="st-desc">熟悉度是依你答對、答錯的紀錄算出來的，不必自己評分。點任何一級，可以看那一級有哪些字；答錯次數多、比較久沒碰到的字排在前面。</p>
       <div id="distBar" class="dist"></div>
       <ul id="lvlList" class="lvl-list"></ul>
       <div id="lvlBox"></div>
     </div>
+  </section>
+
+  <!-- ================= 看一組 ================= -->
+  <section id="gview" class="hide">
+    <div class="bar">
+      <span id="gvScope"></span>
+      <button id="gvBack" class="quit">回到首頁</button>
+    </div>
+    <div id="gvCard" class="card"></div>
   </section>
 
   <footer class="foot">
@@ -380,7 +426,10 @@
 (function () {
   'use strict';
 
-  var STORE_KEY = 'jcee_cards_v1';
+  var STORE_KEY = 'jcee_cards_v1';          // 單字卡
+  var CF_STORE_KEY = 'jcee_cards_cf_v1';    // 易混淆字組，進度分開存
+  var CF_DUE_PER_ROUND = 24;                // 一輪最多帶幾組到期的
+  var CF_NEW_PER_ROUND = 8;                 // 一輪帶幾組新的（照組號，組號依考過的題數排）
   var DEFAULT_Y0 = 106, DEFAULT_Y1 = 115;
   var RELEARN_GAP = 6;      // 答錯的卡片隔幾張後再出現（同一張一再答錯就往後拉更遠）
   var RELEARN_MAX = 24;
@@ -393,7 +442,9 @@
   var NEW_PER_ROUND = 12;   // 一輪帶幾個新字（取一份考卷的詞彙題份量）
 
   var DATA = null, Q = null, W = null;
-  var state = null;         // { v, w:{word:{i,e,d,r,l,vv}}, day, done }
+  var CF = null, CFG = null;  // 易混淆字組：CF 是整個資料檔，CFG 以組號查組
+  var state = null;         // 目前這副卡的進度 { v, w:{key:{i,e,d,r,l,vv}}, day, done }
+  var states = {};          // 兩副卡各一份
   var scope = null;         // { y0, y1, st, lv, label, free }
   var session = null;
 
@@ -434,15 +485,22 @@
   }
 
   /* ---------------- 進度存取 ---------------- */
+  function isCF() { return !!(scope && scope.deck === 'cf'); }
+  function storeKey() { return isCF() ? CF_STORE_KEY : STORE_KEY; }
+  function useState() {
+    var k = storeKey();
+    if (!states[k]) states[k] = loadState();
+    state = states[k];
+  }
   function loadState() {
     var s = null;
-    try { s = JSON.parse(localStorage.getItem(STORE_KEY)); } catch (e) { s = null; }
+    try { s = JSON.parse(localStorage.getItem(storeKey())); } catch (e) { s = null; }
     if (!s || s.v !== 1 || typeof s.w !== 'object' || !s.w) s = { v: 1, w: {}, day: today(), done: 0 };
     if (s.day !== today()) { s.day = today(); s.done = 0; }
     return s;
   }
   function saveState() {
-    try { localStorage.setItem(STORE_KEY, JSON.stringify(state)); } catch (e) { /* 無痕模式等，略過 */ }
+    try { localStorage.setItem(storeKey(), JSON.stringify(state)); } catch (e) { /* 無痕模式等，略過 */ }
   }
 
   /* ---------------- 範圍參數 ---------------- */
@@ -480,15 +538,30 @@
       if (!any) lv = null;
     }
 
+    // 易混淆字組：#deck=cf，可加 g=1-40 指定組號範圍，view=12 直接看第 12 組
+    var deck = p.deck === 'cf' ? 'cf' : 'w';
+    var g0 = 1, g1 = 9999;
+    if (p.g) {
+      var mg = p.g.match(/^(\d{1,3})\s*(?:[-–~]\s*(\d{1,3}))?$/);
+      if (mg) { g0 = +mg[1]; g1 = mg[2] ? +mg[2] : +mg[1]; if (g0 > g1) { var t3 = g0; g0 = g1; g1 = t3; } }
+    }
+    var view = (p.view && /^\d{1,3}$/.test(p.view)) ? +p.view : 0;
+
     return {
       y0: y0, y1: y1, st: st, lv: lv,
+      deck: deck, g0: g0, g1: g1, view: view,
       label: p.t || '',
       free: p.mode === 'free',
-      custom: !!(p.y || p.st || p.lv)
+      custom: !!(p.y || p.st || p.lv || p.g)
     };
   }
 
   function scopeText() {
+    if (isCF()) {
+      var lo = Math.max(scope.g0, 1), hi = Math.min(scope.g1, CF.g.length);
+      if (lo === 1 && hi === CF.g.length) return '拼字相近的易混淆字組';
+      return '易混淆字組　·　' + (lo === hi ? '第 ' + lo + ' 組' : '第 ' + lo + '–' + hi + ' 組');
+    }
     var parts = [];
     parts.push(scope.y0 === scope.y1 ? (scope.y0 + ' 年') : (scope.y0 + '–' + scope.y1 + ' 年'));
     parts.push(scope.st === 'gsat' ? '學測' : scope.st === 'zhikao' ? '指考' : '學測＋指考');
@@ -502,6 +575,10 @@
     }
     return parts.join('　·　');
   }
+
+  // 數量的說法：單字卡說「個字」，易混淆字組說「組」
+  function cnt(n) { return '<b>' + n + '</b>' + (isCF() ? ' 組' : ' 個字'); }
+  function unitWord() { return isCF() ? '組' : '字'; }
 
   /* ---------------- 選字 ---------------- */
   function inRange(qid, sc) {
@@ -522,6 +599,11 @@
   }
   function buildPool(sc) {
     sc = sc || scope;
+    if (sc.deck === 'cf') {
+      // 照組號排：組號本來就是依組內的字考過的題數排的
+      return CF.g.filter(function (g) { return g.n >= sc.g0 && g.n <= sc.g1; })
+                 .map(function (g) { return String(g.n); });
+    }
     var pool = [];
     for (var k in W) {
       var w = W[k];
@@ -545,6 +627,13 @@
   /* ---------------- 出現方式 ---------------- */
   // 回傳這個字在目前範圍內所有可用的出現方式
   function variantsOf(word) {
+    if (isCF()) {
+      // 每個字兩種（c 中文選字、e 字選中文），組內同題每題一種（o 大考原題）
+      var g = CFG[word], vs = [];
+      g.w.forEach(function (x, i) { vs.push('c|' + i); vs.push('e|' + i); });
+      g.b.forEach(function (b, j) { vs.push('o|b' + j); });
+      return vs;
+    }
     var w = W[word], out = [];
     w.oc.forEach(function (o) {
       var qid = o[0];
@@ -565,6 +654,11 @@
     var used = (state.w[word] && state.w[word].vv) || [];
     var fresh = vs.filter(function (v) { return used.indexOf(v) === -1; });
     if (fresh.length) {
+      // 易混淆字組有大考原題的話先出原題：當年就是用這幾個字出題
+      if (isCF()) {
+        var orig = fresh.filter(function (v) { return v.charAt(0) === 'o'; });
+        if (orig.length) return pick(orig);
+      }
       // 沒用過的裡面，優先挑跟上次不同題的，這樣再遇到同一個字時
       // 換的是另一題的三個誘答，而不是同一題換個方向問
       var lastQ = used.length ? (used[used.length - 1].split('|')[1] || '') : '';
@@ -623,7 +717,7 @@
         total: custom.length, answered: 0, right: 0,
         newSeen: 0, pool: pool, current: null, miss: {}
       };
-      hide('home'); hide('done'); hide('stats'); show('quiz');
+      hide('home'); hide('done'); hide('stats'); hide('gview'); show('quiz');
       nextCard();
       return;
     }
@@ -639,9 +733,9 @@
     if (free) {
       queue = shuffle(pool.slice());
     } else {
-      var freshRound = shuffleWithin(fresh, function (k) { return W[k].oc.length; })
-                         .slice(0, NEW_PER_ROUND);
-      queue = due.slice(0, DUE_PER_ROUND).concat(freshRound);
+      var freshRound = isCF() ? fresh.slice(0, CF_NEW_PER_ROUND)
+                     : shuffleWithin(fresh, function (k) { return W[k].oc.length; }).slice(0, NEW_PER_ROUND);
+      queue = due.slice(0, isCF() ? CF_DUE_PER_ROUND : DUE_PER_ROUND).concat(freshRound);
     }
     if (!queue.length) { renderDone(free, 0, 0, pool); return; }
 
@@ -650,7 +744,7 @@
       total: queue.length, answered: 0, right: 0,
       newSeen: 0, pool: pool, current: null, miss: {}
     };
-    hide('home'); hide('done'); hide('stats'); show('quiz');
+    hide('home'); hide('done'); hide('stats'); hide('gview'); show('quiz');
     nextCard();
   }
 
@@ -674,6 +768,45 @@
     f: '搭配詞填空',
     m: '形近字辨識'
   };
+  var CF_LABEL = {
+    c: '易混淆字　中文 → 英文',
+    e: '易混淆字　英文 → 中文',
+    o: '易混淆字　大考原題'
+  };
+
+  // 中文欄有時附著英文用法（常用 dispose of），正面要把這個字本身遮掉，免得直接看到答案
+  function reEsc(t) { return t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+  function maskZh(zh, word) {
+    return String(zh).replace(new RegExp('\\b' + reEsc(word) + '[a-z]*', 'gi'), '___');
+  }
+
+  function renderFrontCF() {
+    var c = session.current, g = CFG[c.word];
+    var parts = c.variant.split('|'), kind = parts[0];
+    var body = '', opts = [], correct = '';
+    if (kind === 'o') {
+      var b = g.b[+parts[1].slice(1)], q = b.e.q;
+      body = '<p class="front-frame">' + frameHTML(q.s) + '</p>' +
+             '<p class="front-hint">出自 ' + esc(b.e.src) + ' 的原題，四個選項是當年的原選項。</p>';
+      opts = Object.keys(q.o).map(function (x) { return { key: x, text: q.o[x] }; });
+      correct = q.a;
+    } else {
+      var i = +parts[1], w = g.w[i];
+      if (kind === 'c') {
+        body = '<p class="front-zh">' + esc(maskZh(w.zh, w.w)) + '</p>' +
+               '<p class="front-meta"><span class="pos">' + esc(w.pos) + '</span></p>' +
+               '<p class="front-hint">下面這幾個字容易搞混，哪一個是這個意思？</p>';
+        opts = g.w.map(function (x, k) { return { key: 'w' + k, text: x.w }; });
+      } else {
+        body = '<p class="front-word">' + esc(w.w) + '</p>' +
+               '<p class="front-meta"><span class="pos">' + esc(w.pos) + '</span></p>' +
+               '<p class="front-hint">選出這個字的意思。其他選項是同一組的字的意思。</p>';
+        opts = g.w.map(function (x, k) { return { key: 'w' + k, text: maskZh(x.zh, x.w) }; });
+      }
+      correct = 'w' + i;
+    }
+    return { body: body, opts: opts, correct: correct, label: CF_LABEL[kind] };
+  }
 
   function frameHTML(txt) {
     return esc(txt).replace(/_{2,}/g, '<u>______</u>');
@@ -685,11 +818,14 @@
     var parts = c.variant.split('|');
     var qid = parts[1] || null;
 
-    $('modeTag').textContent = MODE_LABEL[kind];
-
     var body = '', opts = [], correct = '';
 
-    if (kind === 'e') {
+    if (isCF()) {
+      var r = renderFrontCF();
+      $('modeTag').textContent = r.label;
+      body = r.body; opts = r.opts; correct = r.correct;
+    } else if (kind === 'e') {
+      $('modeTag').textContent = MODE_LABEL[kind];
       var q = Q[qid], L = letterOf(word, qid);
       body = '<p class="front-word">' + esc(displayWord(word, qid)) + '</p>' +
              metaLine(q.gs[L]);
@@ -700,12 +836,14 @@
       opts = ls.map(function (x, i) { return { key: x, text: allOK ? bare[i] : q.gs[x] }; });
       correct = L;
     } else if (kind === 'z') {
+      $('modeTag').textContent = MODE_LABEL[kind];
       var q2 = Q[qid], L2 = letterOf(word, qid);
       body = '<p class="front-zh">' + esc(q2.gs[L2]) + '</p>' +
              '<p class="front-hint">四個選項都是這一題當年的原選項。</p>';
       opts = lettersOf(q2).map(function (x) { return { key: x, text: q2.o[x] }; });
       correct = L2;
     } else if (kind === 'f') {
+      $('modeTag').textContent = MODE_LABEL[kind];
       var q3 = Q[qid], L3 = letterOf(word, qid);
       var fr = w.fr[+parts[2]];
       body = '<p class="front-frame">' + frameHTML(fr[0]) + '</p>' +
@@ -713,6 +851,7 @@
       opts = lettersOf(q3).map(function (x) { return { key: x, text: q3.o[x] }; });
       correct = L3;
     } else { // m 形近字
+      $('modeTag').textContent = MODE_LABEL[kind];
       var first = primaryOcc(word);
       body = '<p class="front-zh">' + esc(Q[first[0]].gs[first[1]]) + '</p>' +
              '<p class="front-hint">四個拼法相近的字都在本站考過，選出符合上面意思的那一個。</p>';
@@ -725,7 +864,7 @@
     $('frontBody').innerHTML = body;
 
     var shuffled = shuffle(opts.slice());
-    var LT = ['A', 'B', 'C', 'D', 'E'];
+    var LT = ['A', 'B', 'C', 'D', 'E', 'F'];
     var ul = $('optList');
     ul.innerHTML = '';
     shuffled.forEach(function (o, i) {
@@ -857,8 +996,120 @@
     nextCard();
   }
 
+  /* ---------------- 易混淆字組的整組內容 ---------------- */
+  // 「第 2、23 組」裡的每個組號都做成連結。卡片背面開新分頁，免得打斷這一輪；看一組的頁面直接跳。
+  function linkGroups(html, newTab) {
+    return html.replace(/第\s*(\d{1,3}(?:\s*[、，,]\s*\d{1,3})*)\s*組/g, function (m, nums) {
+      var linked = nums.replace(/\d{1,3}/g, function (n) {
+        if (!CFG[n]) return n;
+        return '<a class="gref" href="#deck=cf&view=' + n + '"' +
+               (newTab ? ' target="_blank" rel="noopener"' : '') + '>' + n + '</a>';
+      });
+      return '第 ' + linked + ' 組';
+    });
+  }
+  function cfLevel(lv) { return lv + ' 級'; }
+  function cfExample(e, notes, who) {
+    var h = '<div class="bk-sec">';
+    h += '<span class="bk-src">' + (who ? '<span class="cf-wl">' + esc(who) + '</span>' : '') +
+         '<span class="seg">' + esc(e.src) + '</span></span>';
+    h += '<p class="bk-en">' + esc(e.en[0]) + '<b>' + esc(e.en[1]) + '</b>' + esc(e.en[2]) + '</p>';
+    if (e.zh) h += '<p class="bk-zh">' + esc(e.zh) + '</p>';
+    (notes || []).forEach(function (n) { h += '<p class="bk-role">' + esc(n) + '</p>'; });
+    h += '<a class="bk-link" href="' + esc(e.url) + '" target="_blank" rel="noopener">看原題與解析 →</a>';
+    return h + '</div>';
+  }
+  // 某個字要放哪一題當例題：字底下有就用字底下的；沒有的話，看組內同題有沒有一題正解是這個字
+  function cfExampleOf(g, i) {
+    var w = g.w[i];
+    if (w.e) return { e: w.e, nt: w.nt, blk: -1 };
+    for (var j = 0; j < g.b.length; j++) {
+      var q = g.b[j].e.q;
+      if (q.o[q.a].toLowerCase() === w.w.toLowerCase()) return { e: g.b[j].e, nt: g.b[j].nt, blk: j };
+    }
+    return null;
+  }
+  // target：剛才考的字（-1 表示沒有）；blk：剛才出的是第幾題組內同題（-1 表示不是）
+  function groupHTML(g, target, blk, newTab) {
+    var h = '<p class="cf-no">第 ' + g.n + ' 組</p>';
+    h += '<div class="cf-mem"><span class="lab">記憶點</span>' + linkGroups(esc(g.m), newTab) + '</div>';
+    h += '<ul class="cf-list">' + g.w.map(function (w, i) {
+      return '<li' + (i === target ? ' class="me"' : '') + '><span class="cf-w">' + esc(w.w) + '</span>' +
+             '<span class="cf-kk">[' + esc(w.kk).split('　').map(function (k) {
+               return '<span class="nw">' + k + '</span>';   // 兩種唸法之間才換行
+             }).join(' ') + ']</span>' +
+             '<span class="lvtag">' + cfLevel(w.lv) + '</span> ' +
+             '<span class="cf-pos">' + esc(w.pos) + '</span><span class="cf-zh">' + esc(w.zh) + '</span></li>';
+    }).join('') + '</ul>';
+
+    var shownBlk = {}, shownWord = {}, main = '';
+    if (blk >= 0) {
+      main = cfExample(g.b[blk].e, g.b[blk].nt, '');
+      shownBlk[blk] = 1;
+    } else if (target >= 0) {
+      var ex = cfExampleOf(g, target);
+      if (ex) {
+        main = cfExample(ex.e, ex.nt, '');
+        if (ex.blk >= 0) shownBlk[ex.blk] = 1;
+      } else {
+        main = '<p class="cf-none">' + esc(g.w[target].w) + ' 目前沒有大考例題。</p>';
+      }
+      shownWord[target] = 1;
+    }
+    h += main;
+    h += '<div class="cf-x"><span class="lab">怎麼分</span>' + linkGroups(esc(g.x), newTab) + '</div>';
+
+    // 其餘的例題與依據
+    var more = '', nEx = 0;
+    g.b.forEach(function (b, j) {
+      if (shownBlk[j]) return;
+      more += cfExample(b.e, b.nt, '組內同題'); nEx++;
+    });
+    g.w.forEach(function (w, i) {
+      if (shownWord[i] || !w.e) return;
+      more += cfExample(w.e, w.nt, w.w); nEx++;
+    });
+    var src = '<ul class="cf-src">' + g.s.map(function (s) {
+      return '<li><a href="' + esc(s[1]) + '" target="_blank" rel="noopener">' + esc(s[0]) + '</a></li>';
+    }).join('') + '</ul>';
+    if (target < 0 && blk < 0) {
+      h += more + '<div class="cf-more"><span class="lab" style="font-size:12px;color:var(--sage);font-weight:700">依據</span>' + src + '</div>';
+    } else {
+      h += '<details class="cf-more"><summary>' +
+           (nEx ? '整組其他例題（' + nEx + ' 題）與依據' : '依據') + '</summary>' + more + src + '</details>';
+    }
+    return h;
+  }
+
+  function renderBackCF() {
+    var c = session.current, g = CFG[c.word];
+    var parts = c.variant.split('|');
+    var target = -1, blk = -1;
+    if (parts[0] === 'o') {
+      blk = +parts[1].slice(1);
+      // 原題的正解如果是組內的字，就把那個字標出來
+      var q = g.b[blk].e.q, ans = q.o[q.a].toLowerCase();
+      g.w.forEach(function (w, i) { if (w.w.toLowerCase() === ans) target = i; });
+    } else {
+      target = +parts[1];
+    }
+    var h = '<p class="verdict ' + (c.ok ? 'ok' : 'no') + '">' + (c.ok ? '答對了' : '答錯了') + '</p>';
+    h += groupHTML(g, target, blk, true);
+    return h;
+  }
+
+  function renderGroupView() {
+    var g = CFG[scope.view];
+    if (!g) { scope.view = 0; renderHome(); return; }
+    $('gvScope').textContent = '易混淆字組　·　第 ' + g.n + ' 組';
+    $('gvCard').innerHTML = groupHTML(g, -1, -1, false);
+    hide('home'); hide('quiz'); hide('done'); hide('stats'); hide('loading'); show('gview');
+    window.scrollTo(0, 0);
+  }
+
   /* ---------------- 畫卡片背面 ---------------- */
   function renderBack() {
+    if (isCF()) { $('backCard').innerHTML = renderBackCF(); show('backCard'); finishBack(); return; }
     var c = session.current, word = c.word, w = W[word];
     var parts = c.variant.split('|');
     var qid = parts[1] || primaryOcc(word)[0];
@@ -902,7 +1153,11 @@
 
     $('backCard').innerHTML = h;
     show('backCard');
+    finishBack();
+  }
 
+  function finishBack() {
+    var c = session.current;
     var row = $('actRow');
     row.innerHTML = '';
     var b = document.createElement('button');
@@ -964,28 +1219,28 @@
 
     var lead, stat = '';
     if (answered === 0) {
-      lead = '今天沒有到期的字';
-      stat += '這個範圍裡的 <b>' + pool.length + '</b> 個字，你已經看過 <b>' + learned + '</b> 個。';
-      if (newLeft) stat += '<br>還有 <b>' + newLeft + '</b> 個新字沒開始。';
+      lead = '今天沒有到期的' + unitWord();
+      stat += '這個範圍裡的 ' + cnt(pool.length) + '，你已經看過 ' + cnt(learned) + '。';
+      if (newLeft) stat += '<br>還有 ' + cnt(newLeft) + '沒開始。';
     } else {
       lead = free ? '這一輪練完了' : '這一輪做完了';
       stat += '做了 <b>' + answered + '</b> 張，答對 <b>' + Math.round(right / answered * 100) + '</b>%。';
       if (free) {
-        stat += '<br>自由練習不計入進度，這一輪答對的字不會排進複習。要留紀錄請回首頁按「開始複習」。';
+        stat += '<br>自由練習不計入進度，這一輪答對的' + unitWord() + '不會排進複習。要留紀錄請回首頁按「開始複習」。';
       } else {
-        stat += '<br>這個範圍累計看過 <b>' + learned + '</b> 個字，還有 <b>' + newLeft + '</b> 個新字沒開始。';
+        stat += '<br>這個範圍累計看過 ' + cnt(learned) + '，還有 ' + cnt(newLeft) + '沒開始。';
         if (newLeft || dueLater.length) stat += '<br>按「繼續練」就接著下一輪。';
       }
     }
     if (nextDay !== null) {
       var days = nextDay - t;
       stat += '<br>下一批到期是' + (days <= 0 ? '現在' : days === 1 ? '明天' : (days + ' 天後'));
-      stat += '，共 ' + dueLater.filter(function (d) { return d === nextDay; }).length + ' 個字。';
+      stat += '，共 ' + dueLater.filter(function (d) { return d === nextDay; }).length + (isCF() ? ' 組。' : ' 個字。');
     }
     $('doneLead').textContent = lead;
     $('doneStat').innerHTML = stat;
     $('againBtn').textContent = (answered === 0 && newLeft === 0) ? '自由練習' : '繼續練';
-    hide('quiz'); hide('home'); hide('stats'); show('done');
+    hide('quiz'); hide('home'); hide('stats'); hide('gview'); show('done');
     window.scrollTo(0, 0);
   }
 
@@ -1001,6 +1256,7 @@
     var box = $('rangeRow');
     if (!box) return;
     box.innerHTML = '';
+    if (isCF()) return;
     RANGES.forEach(function (r, i) {
       var n = buildPool({ y0: r.y0, y1: r.y1, st: r.st, lv: scope.lv }).length;
       var here = (scope.y0 === r.y0 && scope.y1 === r.y1 && scope.st === r.st);
@@ -1024,21 +1280,33 @@
       if (s.d <= t) due++;
     });
     $('scopeLine').textContent = (scope.label ? scope.label + '　·　' : '') + scopeText() +
-      '　·　' + pool.length + ' 字';
+      '　·　' + pool.length + (isCF() ? ' 組' : ' 字');
+
+    $('tabW').classList.toggle('on', !isCF());
+    $('tabC').classList.toggle('on', isCF());
+    if (isCF()) {
+      $('homeLead').textContent = '容易搞混的字，一組一組記';
+      $('homeDesc').textContent = '每一組都是拼法或字根相近、或是唸法相同，容易搞混的字，其中不少就是大考拿來當誘答的字。' +
+        '每次從一組裡挑一個字考，答完可以看整組怎麼分。答對的組往後推，答錯的當場再來一次。';
+    } else {
+      $('homeLead').textContent = '用考過的字複習，不是背字典';
+      $('homeDesc').textContent = '每一張卡片的字都真的在學測或指考詞彙題出現過，四個選項也是當年那一題的四個，三個錯的就是當年那三個。' +
+        '答對的字往後推，答錯的當場再來一次。';
+    }
 
     var h = '';
     if (!learned) {
-      h += '這個範圍有 <b>' + pool.length + '</b> 個字，全部還沒開始。';
+      h += '這個範圍有 ' + cnt(pool.length) + '，全部還沒開始。';
     } else {
-      h += '今天到期 <b>' + due + '</b> 個字';
-      h += '，沒開始過的還有 <b>' + fresh + '</b> 個。';
-      h += '<br>累計已經看過 <b>' + learned + '</b> 個字。';
+      h += '今天到期 ' + cnt(due);
+      h += '，沒開始過的還有 ' + cnt(fresh) + '。';
+      h += '<br>累計已經看過 ' + cnt(learned) + '。';
     }
     $('homeStat').innerHTML = h;
     renderRanges();
     $('startBtn').disabled = pool.length === 0;
-    if (pool.length === 0) $('startBtn').textContent = '這個範圍沒有字';
-    hide('quiz'); hide('done'); hide('stats'); show('home');
+    $('startBtn').textContent = pool.length === 0 ? (isCF() ? '這個範圍沒有字組' : '這個範圍沒有字') : '開始複習';
+    hide('quiz'); hide('done'); hide('stats'); hide('gview'); hide('loading'); show('home');
   }
 
   /* ---------------- 練習紀錄 ---------------- */
@@ -1066,16 +1334,22 @@
     return 'ok';
   }
   function glossShort(word) {
+    if (isCF()) return CFG[word].t;
     var o = primaryOcc(word), q = Q[o[0]];
     var g = (q.gs && q.gs[o[1]]) || q.g[o[1]] || '';
     return stripPos(g);
   }
   function wordLink(word) {
+    if (isCF()) return '#deck=cf&view=' + word;
     var o = primaryOcc(word), q = Q[o[0]];
     return (q.st === 'gsat' ? '../gsat/' : '../zhikao/') +
            '#set-' + encodeURIComponent(o[0]) + '|單字記憶卡';
   }
   function wordRow(word, right) {
+    if (isCF()) {
+      return '<li><a class="w" href="' + wordLink(word) + '" target="_blank" rel="noopener">第 ' + word + ' 組</a>' +
+             '<span class="g">' + esc(glossShort(word)) + '</span>' + (right || '') + '</li>';
+    }
     var o = primaryOcc(word);
     return '<li><a class="w" href="' + wordLink(word) + '" target="_blank" rel="noopener">' +
            esc(displayWord(word, o[0])) + '</a><span class="g">' + esc(glossShort(word)) + '</span>' +
@@ -1095,16 +1369,16 @@
       return d || (a < b ? -1 : 1);
     });
     $('todayCount').innerHTML = list.length
-      ? '<b>' + list.length + '</b> 個字，答錯或猜的 <b>' + wrong.length + '</b> 個' : '';
+      ? cnt(list.length) + '，答錯或猜的 ' + cnt(wrong.length) : '';
     var h = '';
     if (!list.length) {
-      h = '<p class="wl-note">今天還沒有做卡片。回首頁按「開始複習」，做過的字會列在這裡。</p>';
+      h = '<p class="wl-note">今天還沒有做卡片。回首頁按「開始複習」，做過的' + unitWord() + '會列在這裡。</p>';
     } else {
       h += '<ul class="wl-list">' + list.map(function (k) {
         return wordRow(k, state.w[k].k
           ? '<span class="r ok">對</span>' : '<span class="r no">錯</span>');
       }).join('') + '</ul>';
-      if (wrong.length) h += practiceBtn('todayWrongBtn', '把今天錯的 ' + wrong.length + ' 個字再練一次（不計入進度）');
+      if (wrong.length) h += practiceBtn('todayWrongBtn', '把今天錯的 ' + wrong.length + (isCF() ? ' 組' : ' 個字') + '再練一次（不計入進度）');
     }
     $('todayBox').innerHTML = h;
     var b = $('todayWrongBtn');
@@ -1130,7 +1404,7 @@
     LEVELS.forEach(function (L) { cnt[L.key] = 0; });
     pool.forEach(function (k) { cnt[levelOf(k)]++; });
     var seen = pool.length - cnt['new'];
-    $('distCount').innerHTML = '看過 <b>' + seen + '</b> / ' + pool.length + ' 個字';
+    $('distCount').innerHTML = '看過 <b>' + seen + '</b> / ' + pool.length + (isCF() ? ' 組' : ' 個字');
 
     $('distBar').innerHTML = LEVELS.map(function (L) {
       if (!cnt[L.key]) return '';
@@ -1142,7 +1416,7 @@
       return '<li><button type="button" class="lvl-btn' + (statsOpen === L.key ? ' on' : '') +
              '" data-lv="' + L.key + '"' + (cnt[L.key] ? '' : ' disabled') + '>' +
              '<span class="sw" style="background:' + L.color + '"></span>' +
-             '<span class="nm">' + L.name + '</span><span class="ex">' + L.ex + '</span>' +
+             '<span class="nm">' + L.name + '</span><span class="ex">' + L.ex.replace('的字', '的' + unitWord()) + '</span>' +
              '<span class="n">' + cnt[L.key] + '</span></button></li>';
     }).join('');
     Array.prototype.forEach.call($('lvlList').querySelectorAll('.lvl-btn'), function (b) {
@@ -1164,8 +1438,9 @@
     if (!ws.length) { statsOpen = null; box.innerHTML = ''; return; }
     var shown = ws.slice(0, statsShown);
     var h = '<div class="wl">';
-    h += '<p class="wl-note">「' + L.name + '」共 ' + ws.length + ' 個字' +
-         (statsOpen === 'new' ? '，考過越多次的排越前面' : '，答錯次數多、比較久沒碰到的排前面') + '。點字可以看原題。</p>';
+    h += '<p class="wl-note">「' + L.name + '」共 ' + ws.length + (isCF() ? ' 組' : ' 個字') +
+         (statsOpen === 'new' ? (isCF() ? '，照組號排' : '，考過越多次的排越前面') : '，答錯次數多、比較久沒碰到的排前面') +
+         (isCF() ? '。點組號可以看整組。</p>' : '。點字可以看原題。</p>');
     h += '<ul class="wl-list">' + shown.map(function (k) {
       var s = state.w[k];
       var r = (s && s.l) ? '<span class="r no">錯 ' + s.l + ' 次</span>' : '';
@@ -1175,7 +1450,7 @@
       h += '<button id="wlMore" class="wl-more" type="button">再多顯示 ' +
            Math.min(LIST_STEP, ws.length - shown.length) + ' 個</button>';
     }
-    h += practiceBtn('lvlPracBtn', '用上面這 ' + shown.length + ' 個字自由練習（不計入進度）');
+    h += practiceBtn('lvlPracBtn', '用上面這 ' + shown.length + (isCF() ? ' 組' : ' 個字') + '自由練習（不計入進度）');
     h += '</div>';
     box.innerHTML = h;
     var m = $('wlMore');
@@ -1186,10 +1461,14 @@
   function renderStats() {
     var pool = buildPool();
     $('statsScope').textContent = (scope.label ? scope.label + '　·　' : '') + scopeText() +
-      '　·　' + pool.length + ' 字';
+      '　·　' + pool.length + (isCF() ? ' 組' : ' 字');
+    $('todayTitle').textContent = '今天做過的' + unitWord();
+    $('todayDesc').textContent = '列出今天在「開始複習」裡答過的' + unitWord() + '，右邊是最後一次的結果。自由練習不會列進來。';
+    $('distDesc').textContent = '熟悉度是依你答對、答錯的紀錄算出來的，不必自己評分。點任何一級，可以看那一級有哪些' +
+      unitWord() + '；答錯次數多、比較久沒碰到的' + unitWord() + '排在前面。';
     renderToday(pool);
     renderDist(pool);
-    hide('home'); hide('quiz'); hide('done'); show('stats');
+    hide('home'); hide('quiz'); hide('done'); hide('gview'); show('stats');
     window.scrollTo(0, 0);
   }
 
@@ -1198,10 +1477,39 @@
     DATA = data; Q = data.q; W = data.w;
     // 補上 id 欄位，背面連結要用
     for (var k in Q) Q[k].id = k;
-    state = loadState();
     scope = parseScope();
+    route(true);
+  }
+
+  // 易混淆字組的資料只有用到時才載入，只練單字的人不必多等
+  var cfLoading = false;
+  function ensureCF(done) {
+    if (CF) { done(); return; }
+    if (cfLoading) return;
+    cfLoading = true;
+    hide('home'); hide('stats'); hide('gview'); show('loading');
+    $('loading').textContent = '載入易混淆字組中…';
+    fetch('confusables_data.json', { cache: 'default' })
+      .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+      .then(function (d) {
+        CF = d; CFG = {};
+        d.g.forEach(function (g) { CFG[g.n] = g; });
+        cfLoading = false;
+        done();
+      })
+      .catch(function () {
+        cfLoading = false;
+        $('loading').textContent = '易混淆字組載入失敗，請重新整理頁面試試。';
+      });
+  }
+
+  // 依網址決定畫面。first：剛打開頁面時才照 mode=free 直接開始自由練習
+  function route(first) {
+    if (scope.deck === 'cf' && !CF) { ensureCF(function () { route(first); }); return; }
+    useState();
     hide('loading');
-    if (scope.free) { startSession(true); return; }
+    if (scope.view) { renderGroupView(); return; }
+    if (first && scope.free) { startSession(true); return; }
     renderHome();
   }
 
@@ -1221,15 +1529,32 @@
     $('statsBtn').addEventListener('click', function () { statsOpen = null; renderStats(); });
     $('doneStatsBtn').addEventListener('click', function () { statsOpen = null; renderStats(); });
     $('statsBack').addEventListener('click', renderHome);
+    $('gvBack').addEventListener('click', function () {
+      location.hash = '#deck=cf' + (scope.g0 > 1 || scope.g1 < 9999 ? '&g=' + scope.g0 + '-' + scope.g1 : '');
+    });
+    // 切換兩副卡：記住單字卡原本的網址（老師的指定連結），切回來時還原
+    var lastWHash = '';
+    $('tabW').addEventListener('click', function () {
+      if (!isCF()) return;
+      location.hash = lastWHash || '#';
+    });
+    $('tabC').addEventListener('click', function () {
+      if (isCF()) return;
+      lastWHash = location.hash;
+      location.hash = '#deck=cf';
+    });
     $('resetBtn').addEventListener('click', function () {
-      if (!window.confirm('確定要清除這台裝置上的所有複習進度嗎？清掉之後所有的字都會變回新字。')) return;
-      state = { v: 1, w: {}, day: today(), done: 0 };
+      var msg = isCF()
+        ? '確定要清除這台裝置上「易混淆字組」的複習進度嗎？清掉之後所有的組都會變回新的，單字卡的進度不受影響。'
+        : '確定要清除這台裝置上「單字」的複習進度嗎？清掉之後所有的字都會變回新字，易混淆字組的進度不受影響。';
+      if (!window.confirm(msg)) return;
+      state = states[storeKey()] = { v: 1, w: {}, day: today(), done: 0 };
       saveState();
       renderHome();
     });
     window.addEventListener('hashchange', function () {
       scope = parseScope();
-      renderHome();
+      route(false);
     });
   }
 
@@ -1256,7 +1581,8 @@
     get session() { return session; },
     buildPool: buildPool, variantsOf: variantsOf, today: today, levelOf: levelOf, renderStats: renderStats,
     chooseVariant: chooseVariant, stemHTML: stemHTML, markedWord: markedWord,
-    setState: function (s) { state = s; }, saveState: saveState, grade: grade
+    setState: function (s) { state = s; }, saveState: saveState, grade: grade,
+    get cf() { return CF; }, maskZh: maskZh, linkGroups: linkGroups
   };
 })();
 </script>
