@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>單字記憶卡 · 出題範圍與連結產生器</title>
-<meta name="description" content="勾選年份、站別與字級，產生一條指定範圍的單字記憶卡連結，貼給學生就能用。免費、無廣告。">
+<meta name="description" content="勾選年份、站別與字級，或指定易混淆字組的組號，產生一條指定範圍的記憶卡連結，貼給學生就能用。免費、無廣告。">
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -79,6 +79,15 @@
   .chip.mini{font-size:12.5px; padding:6px 11px;}
 
   .yrow{display:flex; align-items:center; gap:9px; flex-wrap:wrap;}
+  .findrow{display:flex; gap:8px; align-items:stretch;}
+  .findrow input{flex:1 1 auto; min-width:0;}
+  .findrow .chip{flex:0 0 auto;}
+  .fres{font-size:12.5px; color:var(--ink-soft); line-height:1.8; margin:6px 0 0;}
+  .fres .warn{color:var(--crimson);}
+  details.glist{margin-top:10px; font-size:13px; color:var(--ink-soft);}
+  details.glist summary{cursor:pointer; color:var(--ink);}
+  details.glist ol{margin:8px 0 0; padding-left:0; list-style:none; max-height:280px; overflow:auto; line-height:1.85;}
+  details.glist li .no{font-family:'IBM Plex Mono','Noto Sans TC',monospace; color:var(--sage); margin-right:6px;}
   select, input[type=text]{
     font-family:'IBM Plex Mono','Noto Sans TC',monospace; font-size:14px; color:var(--ink);
     background:var(--paper-card); border:1px solid var(--rule); border-radius:3px;
@@ -155,6 +164,30 @@
       </p>
 
       <div class="field">
+        <span class="flabel">卡片</span>
+        <div class="chips" id="deckChips"></div>
+      </div>
+
+      <div id="cfFields" style="display:none;">
+        <div class="field">
+          <span class="flabel">組號（可留空）</span>
+          <input type="text" id="gIn" maxlength="200" placeholder="例如：1-20, 45, 51">
+          <p class="fhint">留空等於全部的組。範圍用 - 連起來，不同的組號用逗號隔開。組號大致依組內的字在大考出現的次數排，前面的組考得比較多。</p>
+        </div>
+        <div class="field">
+          <span class="flabel">用單字找組</span>
+          <div class="findrow">
+            <input type="text" id="wIn" maxlength="300" placeholder="例如：effect, desert, adapt">
+            <button type="button" id="wBtn" class="chip mini">加入這些字的組</button>
+          </div>
+          <p class="fhint">輸入課文或講義上的字，用逗號隔開，按下按鈕就把這些字所在的組加進上面的組號。</p>
+          <p id="wRes" class="fres"></p>
+        </div>
+        <details class="glist" id="gList"><summary>看包含哪些組</summary><ol></ol></details>
+      </div>
+
+      <div id="wFields">
+      <div class="field">
         <span class="flabel">年份</span>
         <div class="yrow">
           <select id="y0"></select>
@@ -174,6 +207,7 @@
         <span class="flabel">字級</span>
         <div class="chips" id="lvChips"></div>
         <p class="fhint">字級依大考中心《高中英文參考詞彙表》（111 學年度起適用）。片語與超出詞彙表的字沒有級別，另外列。全部勾選等於不設限。</p>
+      </div>
       </div>
 
       <div class="field">
@@ -207,6 +241,10 @@
       <p>
         答對的字會過一陣子才再出現，答錯的當場再來一次；要是答對了但其實是猜的，學生可以自己按「剛才是猜的」，系統就當作沒記住。
       </p>
+      <p>
+        選「易混淆字組」的話，一張卡就是一組字。每次從組裡挑一個字出題，題型有中文選英文、英文選中文和例句填空；組裡有幾個字當年出現在同一題的，就先出那一題大考原題。
+        翻到背面是整組的字，每個字都有 KK 音標、字級和中文，還有記憶點和怎麼分；考過的字附上當年那一句，點一下就跳回原題。答對的組往後推，答錯的組當場再來一次。
+      </p>
 
       <h3>幾件先說清楚的</h3>
       <p>
@@ -218,8 +256,14 @@
         不必回來這一頁重新產生。
       </p>
       <p>
-        <b>字源是歷屆考題。</b>全部取自本站學測 500 題、指考 343 題詞彙題的所有選項，共 2,113 個字。
+        <b>學生也可以自己用。</b>易混淆字組的首頁有一行連到這一頁，學生想只練其中幾組，可以自己選好組號，產生練習連結。
+      </p>
+      <p>
+        <b>單字卡的字源是歷屆考題。</b>全部取自本站學測 500 題、指考 343 題詞彙題的所有選項，共 2,113 個字。
         這裡不收詞彙表裡沒考過的字——這個站的價值在於「這個字真的考過、當年真的用這三個字騙人」。
+      </p>
+      <p>
+        <b>易混淆字組另有收錄依據。</b>每一組是拼法、字根相近或唸法相同的字，參考台灣升學考試常見的易混淆字整理，所以也收了沒考過的字；考過的字一律附上當年的句子。
       </p>
       <p>
         免費、無廣告之非營利自學題庫，歡迎自由分享。
@@ -239,7 +283,8 @@
   'use strict';
 
   var BASE = location.href.replace(/teacher\.html.*$/, '');
-  var Q = null, W = null;
+  var Q = null, W = null, CFT = null, NG = 0, WG = {};
+  var deck = 'w';
   var st = 'both';
   var lv = { n: {1:1,2:1,3:1,4:1,5:1,6:1}, p: true, x: true };
   var years = [];
@@ -310,8 +355,115 @@
     return BASE + '#' + p.join('&');
   }
 
+  /* ---------- 易混淆字組 ---------- */
+  // 讀組號欄：「1-20, 45，51」→ 組號集合，另回報看不懂與超出範圍的部分
+  function parseG(text) {
+    var set = {}, bad = [], out = [];
+    String(text || '').split(/[,，、;；\s]+/).forEach(function (tok) {
+      if (!tok) return;
+      var m = tok.match(/^(\d{1,3})(?:[-–~～](\d{1,3}))?$/);
+      if (!m) { bad.push(tok); return; }
+      var a = +m[1], b = m[2] ? +m[2] : a;
+      if (a > b) { var t = a; a = b; b = t; }
+      for (var n = a; n <= b; n++) { if (n >= 1 && n <= NG) set[n] = 1; else if (out.indexOf(tok) < 0) out.push(tok); }
+    });
+    return { set: set, bad: bad, out: out };
+  }
+  function sortedNums(set) { return Object.keys(set).map(Number).sort(function (a, b) { return a - b; }); }
+  // 組號集合 → 網址用的寫法 1-20,45,51
+  function gParam(ns) {
+    var out = [], a = null, b = null;
+    ns.forEach(function (n) {
+      if (a === null) { a = b = n; return; }
+      if (n === b + 1) { b = n; return; }
+      out.push(a === b ? String(a) : a + '-' + b); a = b = n;
+    });
+    if (a !== null) out.push(a === b ? String(a) : a + '-' + b);
+    return out.join(',');
+  }
+  function groupsOf(word) {
+    var k = word.toLowerCase();
+    if (WG[k]) return WG[k];
+    if (W[k] && W[k].cg) return W[k].cg;           // 變化形，例如 impressed → impress 的組
+    return null;
+  }
+  function addWords() {
+    var raw = $('wIn').value, found = [], miss = [], add = {};
+    raw.split(/[,，、;；\n]+/).forEach(function (tok) {
+      tok = tok.trim().replace(/\s+/g, ' ');
+      if (!tok) return;
+      var gs = groupsOf(tok);
+      if (!gs && tok.indexOf(' ') > 0) {                // 沒用逗號隔開的幾個字，拆開再找
+        tok.split(' ').forEach(function (t) { var g2 = groupsOf(t); if (g2) { found.push(t); g2.forEach(function (n) { add[n] = 1; }); } else if (t.length > 3) miss.push(t); });   // of、up 這類小字不回報
+        return;
+      }
+      if (gs) { found.push(tok); gs.forEach(function (n) { add[n] = 1; }); } else miss.push(tok);
+    });
+    var cur = parseG($('gIn').value).set, before = sortedNums(cur).length;
+    for (var n in add) cur[n] = 1;
+    if (sortedNums(add).length) $('gIn').value = gParam(sortedNums(cur)).replace(/,/g, ', ');
+    var h = '';
+    if (found.length) h += '找到 ' + found.length + ' 個字，新增 ' + (sortedNums(cur).length - before) + ' 組。';
+    if (miss.length) h += '<span class="warn">這些字不在任何一組：' + esc(miss.join('、')) + '</span>';
+    $('wRes').innerHTML = h;
+    refresh();
+  }
+  function cfWordCount(ns) {
+    var seen = {};
+    ns.forEach(function (n) { CFT[n].split('／').forEach(function (w) { seen[w] = 1; }); });
+    return Object.keys(seen).length;
+  }
+  function refreshCF() {
+    var r = parseG($('gIn').value), ns = sortedNums(r.set);
+    var empty = !$('gIn').value.trim();
+    if (empty) { ns = []; for (var i = 1; i <= NG; i++) ns.push(i); }
+    var box = $('count'), msg = '';
+    if (r.bad.length) msg += '<br><span class="warn">看不懂的組號已略過：' + esc(r.bad.join('、')) + '</span>';
+    if (r.out.length) msg += '<br><span class="warn">目前只有第 1–' + NG + ' 組，超出的已略過：' + esc(r.out.join('、')) + '</span>';
+    if (!ns.length) {
+      box.className = 'count zero';
+      box.innerHTML = '<span class="warn">還沒有指定任何一組，學生點進去會是空的。請填組號，或用單字找組。</span>' + msg;
+    } else {
+      box.className = 'count';
+      box.innerHTML = '共 <b>' + ns.length + '</b> 組、<b>' + cfWordCount(ns) + '</b> 個字。' +
+        '<br><span class="sub2">記憶卡以組為單位，學生每次從一組裡挑一個字作答，答完看整組怎麼分。</span>' + msg;
+    }
+    var ol = $('gList').querySelector('ol');
+    ol.innerHTML = ns.map(function (n) { return '<li><span class="no">第 ' + n + ' 組</span>' + esc(CFT[n]) + '</li>'; }).join('');
+    $('gList').querySelector('summary').textContent = '看包含哪些組（' + ns.length + ' 組）';
+
+    var p = ['deck=cf'];
+    if (!empty && ns.length && ns.length < NG) p.push('g=' + gParam(ns));
+    var lab = cleanLabel($('label').value);
+    if (lab) p.push('t=' + lab);
+    setOut(BASE + '#' + p.join('&'), ns.length === 0);
+  }
+  function setOut(url, off) {
+    $('urlbox').textContent = url;
+    $('openBtn').setAttribute('href', url);
+    $('copyBtn').disabled = off;
+    $('openBtn').style.pointerEvents = off ? 'none' : '';
+    $('openBtn').style.opacity = off ? '.45' : '';
+    $('copyBtn').textContent = '複製連結';
+  }
+  function setDeck(v) {
+    deck = v; drawDecks();
+    $('wFields').style.display = deck === 'w' ? '' : 'none';
+    $('cfFields').style.display = deck === 'cf' ? '' : 'none';
+    refresh();
+  }
+  function drawDecks() {
+    var box = $('deckChips'); box.innerHTML = '';
+    var opts = [['w', '單字']];
+    if (CFT) opts.push(['cf', '易混淆字組']);
+    opts.forEach(function (o) {
+      box.appendChild(chip(o[1], deck === o[0], function () { setDeck(o[0]); }));
+    });
+  }
+
   /* ---------- 畫面 ---------- */
   function refresh() {
+    if (deck === 'cf') { refreshCF(); return; }
     var y0 = +$('y0').value, y1 = +$('y1').value;
     if (y0 > y1) { var t = y0; y0 = y1; y1 = t; $('y0').value = y0; $('y1').value = y1; }
 
@@ -327,13 +479,7 @@
         (c.w < 20 ? '<br><span class="warn">字數偏少，學生大概幾分鐘就練完了。</span>' : '');
     }
 
-    var url = buildURL(y0, y1);
-    $('urlbox').textContent = url;
-    $('openBtn').setAttribute('href', url);
-    $('copyBtn').disabled = (c.w === 0);
-    $('openBtn').style.pointerEvents = c.w === 0 ? 'none' : '';
-    $('openBtn').style.opacity = c.w === 0 ? '.45' : '';
-    $('copyBtn').textContent = '複製連結';
+    setOut(buildURL(y0, y1), c.w === 0);
   }
 
   function chip(text, on, onclick, mini) {
@@ -407,7 +553,11 @@
   }
 
   function boot(data) {
-    Q = data.q; W = data.w;
+    Q = data.q; W = data.w; CFT = data.cft || null;
+    if (CFT) {
+      NG = Object.keys(CFT).length;
+      for (var n in CFT) CFT[n].split('／').forEach(function (w) { (WG[w.toLowerCase()] = WG[w.toLowerCase()] || []).push(+n); });
+    }
     fillYears();
     drawYearPresets();
     drawStations();
@@ -415,14 +565,18 @@
     $('y0').addEventListener('change', refresh);
     $('y1').addEventListener('change', refresh);
     $('label').addEventListener('input', refresh);
+    $('gIn').addEventListener('input', refresh);
+    $('wBtn').addEventListener('click', addWords);
+    $('wIn').addEventListener('keydown', function (e) { if (e.key === 'Enter') { e.preventDefault(); addWords(); } });
     $('copyBtn').addEventListener('click', copyURL);
-    refresh();
+    // 從易混淆字組首頁點進來（teacher.html#cf）就先選好易混淆字組
+    if (CFT && /^#cf\b/.test(location.hash)) setDeck('cf'); else { drawDecks(); refresh(); }
     $('loading').style.display = 'none';
     $('app').style.display = '';
     $('app').classList.remove('hide');
   }
 
-  fetch('cards_data.json', { cache: 'default' })
+  fetch('cards_data.json?v=2', { cache: 'default' })
     .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
     .then(boot)
     .catch(function () { $('loading').textContent = '字庫載入失敗，請重新整理頁面試試。'; });
@@ -432,7 +586,9 @@
     url: function () { return $('urlbox').textContent; },
     setStation: function (v) { st = v; drawStations(); refresh(); },
     setLevels: function (o) { lv = o; drawLevels(); refresh(); },
-    count: count
+    count: count,
+    setDeck: setDeck,
+    parseG: parseG
   };
 })();
 </script>

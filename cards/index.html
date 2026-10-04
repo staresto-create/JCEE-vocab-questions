@@ -4,12 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>單字記憶卡 · 學測指考英文字彙</title>
-<meta name="description" content="用學測、指考詞彙題考過的字做間隔複習。四個選項就是當年那一題的四個，答對的往後推，答錯的當場再來。免費、無廣告。">
+<meta name="description" content="用學測、指考詞彙題考過的字做間隔複習。四個選項就是當年那一題的四個，答對的往後推，答錯的當場再來。另有易混淆字組 315 組，一組一組記。免費、無廣告。">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="高中英文自學題庫">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:title" content="單字記憶卡 · 學測指考英文字彙">
-<meta property="og:description" content="81～115 年學測與指考詞彙題的答案＋誘答選項，全部收錄，共 2,113 個字。不是從字表抄的，是考卷上真的考過的。四個選項就是當年那一題的四個，答對的往後推，答錯的當場再來。免費、無廣告。">
+<meta property="og:description" content="81～115 年學測與指考詞彙題的答案＋誘答選項，全部收錄，共 2,113 個字。不是從字表抄的，是考卷上真的考過的。四個選項就是當年那一題的四個。另有易混淆字組 315 組，拼法或字根相近、或是唸法相同的字放在一起比較。答對的往後推，答錯的當場再來。免費、無廣告。">
 <meta property="og:url" content="https://staresto-create.github.io/JCEE-vocab-questions/cards/">
 <meta property="og:image" content="https://staresto-create.github.io/JCEE-vocab-questions/cards/cards-og-cover.png?v=2">
 <meta property="og:image:width" content="1200">
@@ -17,7 +17,7 @@
 <meta property="og:image:alt" content="單字記憶卡：81～115 年，共 2,113 個字">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="單字記憶卡 · 學測指考英文字彙">
-<meta name="twitter:description" content="81～115 年學測與指考詞彙題的答案＋誘答選項，全部收錄，共 2,113 個字。不是從字表抄的，是考卷上真的考過的。四個選項就是當年那一題的四個，答對的往後推，答錯的當場再來。免費、無廣告。">
+<meta name="twitter:description" content="81～115 年學測與指考詞彙題的答案＋誘答選項，全部收錄，共 2,113 個字。不是從字表抄的，是考卷上真的考過的。四個選項就是當年那一題的四個。另有易混淆字組 315 組，拼法或字根相近、或是唸法相同的字放在一起比較。答對的往後推，答錯的當場再來。免費、無廣告。">
 <meta name="twitter:image" content="https://staresto-create.github.io/JCEE-vocab-questions/cards/cards-og-cover.png?v=2">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -197,6 +197,10 @@
   .bk-role b{color:var(--crimson);}
   .bk-col{margin-top:14px; font-size:13px; color:var(--ink-soft); line-height:1.85; word-break:break-word;}
   .bk-col .lab{font-family:'IBM Plex Mono','Noto Sans TC',monospace; font-size:10.5px; letter-spacing:.08em; color:var(--sage); display:block; margin-bottom:3px;}
+  .bk-cf{margin-top:14px; font-size:13px; color:var(--ink-soft); line-height:1.85; word-break:break-word;}
+  .bk-cf .lab{font-family:'IBM Plex Mono','Noto Sans TC',monospace; font-size:10.5px; letter-spacing:.08em; color:var(--sage); display:block; margin-bottom:3px;}
+  .bk-cf a{display:block; color:var(--crimson); text-decoration:underline;}
+  .bk-cf a b{font-weight:700;}
   .bk-link{
     display:inline-block; margin-top:14px; font-family:'IBM Plex Mono','Noto Sans TC',monospace;
     font-size:11.5px; color:var(--crimson); text-decoration:underline;
@@ -444,7 +448,7 @@
   var DUE_PER_ROUND = 24;   // 一輪最多帶幾個到期的字
   var NEW_PER_ROUND = 12;   // 一輪帶幾個新字（取一份考卷的詞彙題份量）
 
-  var DATA = null, Q = null, W = null;
+  var DATA = null, Q = null, W = null, CFT = null;
   var CF = null, CFG = null;  // 易混淆字組：CF 是整個資料檔，CFG 以組號查組
   var state = null;         // 目前這副卡的進度 { v, w:{key:{i,e,d,r,l,vv}}, day, done }
   var states = {};          // 兩副卡各一份
@@ -541,18 +545,25 @@
       if (!any) lv = null;
     }
 
-    // 易混淆字組：#deck=cf，可加 g=1-40 指定組號範圍，view=12 直接看第 12 組
+    // 易混淆字組：#deck=cf，可加 g=1-20,45,51 指定組號（範圍與單一組號以逗號隔開），view=12 直接看第 12 組
     var deck = p.deck === 'cf' ? 'cf' : 'w';
-    var g0 = 1, g1 = 9999;
+    var gs = null;                       // null = 全部的組
     if (p.g) {
-      var mg = p.g.match(/^(\d{1,3})\s*(?:[-–~]\s*(\d{1,3}))?$/);
-      if (mg) { g0 = +mg[1]; g1 = mg[2] ? +mg[2] : +mg[1]; if (g0 > g1) { var t3 = g0; g0 = g1; g1 = t3; } }
+      gs = {};
+      p.g.split(/[,，、]/).forEach(function (tok) {
+        var mg = tok.trim().match(/^(\d{1,3})\s*(?:[-–~]\s*(\d{1,3}))?$/);
+        if (!mg) return;
+        var a = +mg[1], b = mg[2] ? +mg[2] : +mg[1];
+        if (a > b) { var t3 = a; a = b; b = t3; }
+        for (var n = a; n <= b; n++) gs[n] = 1;
+      });
+      if (!Object.keys(gs).length) gs = null;
     }
     var view = (p.view && /^\d{1,3}$/.test(p.view)) ? +p.view : 0;
 
     return {
       y0: y0, y1: y1, st: st, lv: lv,
-      deck: deck, g0: g0, g1: g1, view: view,
+      deck: deck, gs: gs, view: view,
       label: p.t || '',
       free: p.mode === 'free',
       custom: !!(p.y || p.st || p.lv || p.g)
@@ -561,9 +572,10 @@
 
   function scopeText() {
     if (isCF()) {
-      var lo = Math.max(scope.g0, 1), hi = Math.min(scope.g1, CF.g.length);
-      if (lo === 1 && hi === CF.g.length) return '拼字相近的易混淆字組';
-      return '易混淆字組　·　' + (lo === hi ? '第 ' + lo + ' 組' : '第 ' + lo + '–' + hi + ' 組');
+      var ns = CF.g.filter(function (g) { return !scope.gs || scope.gs[g.n]; }).map(function (g) { return g.n; });
+      if (ns.length === CF.g.length) return '拼字相近的易混淆字組';
+      var segs = rangeSegs(ns);
+      return '易混淆字組　·　' + (segs.length <= 6 ? '第 ' + segs.join('、') + ' 組' : '指定的組');
     }
     var parts = [];
     parts.push(scope.y0 === scope.y1 ? (scope.y0 + ' 年') : (scope.y0 + '–' + scope.y1 + ' 年'));
@@ -571,12 +583,24 @@
     if (scope.lv) {
       var ns = Object.keys(scope.lv.n).map(Number).sort(function (a, b) { return a - b; });
       var seg = [];
-      if (ns.length) seg.push(ns.length === 1 ? (ns[0] + ' 級') : (ns[0] + '–' + ns[ns.length - 1] + ' 級'));
+      if (ns.length) seg.push(rangeSegs(ns).join('、') + ' 級');
       if (scope.lv.p) seg.push('片語');
       if (scope.lv.x) seg.push('超綱');
       parts.push(seg.join('、'));
     }
     return parts.join('　·　');
+  }
+
+  // 排好序的數字壓成區段：[1,2,3,5] → ['1–3', '5']
+  function rangeSegs(ns) {
+    var out = [], a = null, b = null;
+    ns.forEach(function (n) {
+      if (a === null) { a = b = n; return; }
+      if (n === b + 1) { b = n; return; }
+      out.push(a === b ? String(a) : a + '–' + b); a = b = n;
+    });
+    if (a !== null) out.push(a === b ? String(a) : a + '–' + b);
+    return out;
   }
 
   // 數量的說法：單字卡說「個字」，易混淆字組說「組」
@@ -604,7 +628,7 @@
     sc = sc || scope;
     if (sc.deck === 'cf') {
       // 照組號排：組號本來就是依組內的字考過的題數排的
-      return CF.g.filter(function (g) { return g.n >= sc.g0 && g.n <= sc.g1; })
+      return CF.g.filter(function (g) { return !sc.gs || sc.gs[g.n]; })
                  .map(function (g) { return String(g.n); });
     }
     var pool = [];
@@ -1179,6 +1203,8 @@
       h += '<div class="bk-col"><span class="lab">' + colLab + '</span>' + esc(q.col) + '</div>';
     }
 
+    h += cfLinksHTML(word, w);
+
     h += '<a class="bk-link" href="' + (q.st === 'gsat' ? '../gsat/' : '../zhikao/') +
          '#set-' + encodeURIComponent(q.id || qid) + '|單字記憶卡" target="_blank" rel="noopener">看原題與完整解析 →</a>';
 
@@ -1203,6 +1229,20 @@
     }
     show('actRow');
     updateBar();
+  }
+
+  // 這個字（或它的原形）收在易混淆字組的哪幾組：資料在 cards_data.json 的 w.cg、w.cb、cft
+  function cfLinksHTML(word, w) {
+    if (!w.cg || !w.cg.length || !CFT) return '';
+    var base = w.cb || word;
+    var h = '<div class="bk-cf"><span class="lab">易混淆字組</span>' +
+            esc(base) + ' 和其他易混淆的字放在一起比較，點開看怎麼分：';
+    w.cg.forEach(function (n) {
+      var t = CFT[n] || '';
+      var title = t.split('／').map(function (x) { return x === base ? '<b>' + esc(x) + '</b>' : esc(x); }).join('／');
+      h += '<a href="#deck=cf&view=' + n + '" target="_blank" rel="noopener">第 ' + n + ' 組　' + title + '&nbsp;→</a>';
+    });
+    return h + '</div>';
   }
 
   // 畫線同義字題：題幹用 @@字@@ 標出畫線的字，沒有空格
@@ -1287,7 +1327,10 @@
     var box = $('rangeRow');
     if (!box) return;
     box.innerHTML = '';
-    if (isCF()) return;
+    if (isCF()) {
+      box.innerHTML = '想只練其中幾組，或某一課的字所在的組，可以到<a class="rg" href="teacher.html#cf">出題範圍與連結</a>選好組號，產生自己的練習連結。';
+      return;
+    }
     RANGES.forEach(function (r, i) {
       var n = buildPool({ y0: r.y0, y1: r.y1, st: r.st, lv: scope.lv }).length;
       var here = (scope.y0 === r.y0 && scope.y1 === r.y1 && scope.st === r.st);
@@ -1505,7 +1548,7 @@
 
   /* ---------------- 啟動 ---------------- */
   function boot(data) {
-    DATA = data; Q = data.q; W = data.w;
+    DATA = data; Q = data.q; W = data.w; CFT = data.cft || null;
     // 補上 id 欄位，背面連結要用
     for (var k in Q) Q[k].id = k;
     scope = parseScope();
@@ -1535,8 +1578,10 @@
   }
 
   // 依網址決定畫面。first：剛打開頁面時才照 mode=free 直接開始自由練習
+  var cfHomeHash = '#deck=cf';
   function route(first) {
     if (scope.deck === 'cf' && !CF) { ensureCF(function () { route(first); }); return; }
+    if (scope.deck === 'cf' && !scope.view) cfHomeHash = location.hash || '#deck=cf';
     useState();
     hide('loading');
     if (scope.view) { renderGroupView(); return; }
@@ -1561,7 +1606,7 @@
     $('doneStatsBtn').addEventListener('click', function () { statsOpen = null; renderStats(); });
     $('statsBack').addEventListener('click', renderHome);
     $('gvBack').addEventListener('click', function () {
-      location.hash = '#deck=cf' + (scope.g0 > 1 || scope.g1 < 9999 ? '&g=' + scope.g0 + '-' + scope.g1 : '');
+      location.hash = cfHomeHash;   // 回到點進來之前的範圍（老師指定的組號與作業名稱都保留）
     });
     // 切換兩副卡：記住單字卡原本的網址（老師的指定連結），切回來時還原
     var lastWHash = '';
@@ -1591,7 +1636,7 @@
 
   function init() {
     wire();
-    fetch('cards_data.json', { cache: 'default' })
+    fetch('cards_data.json?v=2', { cache: 'default' })
       .then(function (r) {
         if (!r.ok) throw new Error('HTTP ' + r.status);
         return r.json();

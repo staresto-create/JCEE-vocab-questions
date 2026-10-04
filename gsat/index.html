@@ -187,6 +187,7 @@
   .gloss-line .g-word{font-weight:600; overflow-wrap:anywhere;}
   .gloss-line.is-answer{color:var(--crimson);}
   .gloss-line .g-pron{font-family:'IBM Plex Mono','Noto Sans TC',monospace; color:var(--ink-soft); font-size:12px; opacity:.75;}
+  .gloss-line .g-pron .pr2{display:block; white-space:nowrap;}
   .gloss-line .g-level{font-family:'IBM Plex Mono','Noto Sans TC',monospace; color:var(--gold); font-size:11px;}
   .gloss-line .g-zh{color:var(--ink-soft); font-family:'Noto Sans TC',sans-serif; overflow-wrap:anywhere;}
   .level-note{margin-top:14px; padding-top:10px; border-top:1px dashed var(--rule); font-size:11px; color:var(--ink-soft); line-height:1.6;}
@@ -820,13 +821,23 @@ function selectAnswer(letter, q){
     if(idx > -1){ wb.splice(idx,1); setWrongBook(wb); }
   }
 
+  // 名詞、動詞唸法不同的字（例：content、produce）分行列出，詞性縮寫和右邊的中文一致
+  function pronHTML(p){
+    if(!p) return '';
+    if(p.indexOf('　')<0) return '['+p+']';
+    const ab={'名詞':'n.','動詞':'v.','形容詞':'adj.'};
+    return p.split('　').map(x=>{
+      const m=/^（(.+?)）(.+)$/.exec(x);
+      return '<span class="pr2">'+(m ? (ab[m[1]]||m[1])+' ['+m[2]+']' : '['+x+']')+'</span>';
+    }).join('');
+  }
   document.getElementById('explainZh').textContent = q.sz || '（無中譯）';
   const gloss = document.getElementById('explainGloss');
   gloss.innerHTML = ['A','B','C','D'].filter(L=>q.o[L]).map(L=>{
     const isAns = L === q.a;
     return '<div class="gloss-line'+(isAns?' is-answer':'')+'">'+
       '<span>'+L+'</span><span class="g-word">'+q.o[L]+'</span>'+
-      '<span class="g-pron">'+(q.p && q.p[L] ? '['+q.p[L]+']' : '')+'</span>'+
+      '<span class="g-pron">'+pronHTML(q.p && q.p[L])+'</span>'+
       '<span class="g-level">'+(q.l[L] ? '['+q.l[L]+']' : '') +'</span>'+
       '<span class="g-zh">'+(q.g[L] || '（查無中譯）')+'</span></div>';
   }).join('');
