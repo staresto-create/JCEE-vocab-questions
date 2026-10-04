@@ -186,6 +186,15 @@
         <details class="glist" id="gList"><summary>看包含哪些組</summary><ol></ol></details>
       </div>
 
+      <div id="poFields" style="display:none;">
+        <div class="field">
+          <span class="flabel">字級</span>
+          <div class="chips" id="poLvChips"></div>
+          <p class="fhint">依卡片上這個字的字級（大考中心《高中英文參考詞彙表》）。五、六級的字學生不一定熟悉另一個意思，可以只勾一到四級。全部勾選等於不設限。</p>
+        </div>
+        <details class="glist" id="poList"><summary>看包含哪些字</summary><ol></ol></details>
+      </div>
+
       <div id="wFields">
       <div class="field">
         <span class="flabel">年份</span>
@@ -245,6 +254,11 @@
         選「易混淆字組」的話，一張卡就是一組字。每次從組裡挑一個字出題，題型有中文選英文、英文選中文和例句填空；組裡有幾個字當年出現在同一題的，就先出那一題大考原題。
         翻到背面是整組的字，每個字都有 KK 音標、字級和中文，還有記憶點和怎麼分；考過的字附上當年那一句，點一下就跳回原題。答對的組往後推，答錯的組當場再來一次。
       </p>
+      <p>
+        選「字彙選義」的話，一張卡就是一個字。這些字學生多半只熟一種意思或詞性，大考考的卻是另一種，例如 book 當動詞是「預訂」。
+        有大考原題的字先出原題，原題是文意選填的話，選項從當年的選項裡挑出詞性相同、最容易混淆的幾個；下一次輪到這個字，就換成中文選字，例如「哪一個字當動詞時是『預訂』？」，四個選項都真的有不常見的意思。
+        翻到背面有學生最熟的意思、原題考的意思、原句和中譯、怎麼看出來，以及常見搭配，點一下就跳回原題。
+      </p>
 
       <h3>幾件先說清楚的</h3>
       <p>
@@ -256,7 +270,7 @@
         不必回來這一頁重新產生。
       </p>
       <p>
-        <b>學生也可以自己用。</b>易混淆字組的首頁有一行連到這一頁，學生想只練其中幾組，可以自己選好組號，產生練習連結。
+        <b>學生也可以自己用。</b>易混淆字組和字彙選義的首頁都有一行連到這一頁，學生想只練其中幾組或某些字級，可以自己選好範圍，產生練習連結。
       </p>
       <p>
         <b>單字卡的字源是歷屆考題。</b>全部取自本站學測 500 題、指考 343 題詞彙題的所有選項，共 2,113 個字。
@@ -264,6 +278,9 @@
       </p>
       <p>
         <b>易混淆字組另有收錄依據。</b>每一組是拼法、字根相近或唸法相同的字，參考台灣升學考試常見的易混淆字整理，所以也收了沒考過的字；考過的字一律附上當年的句子。
+      </p>
+      <p>
+        <b>字彙選義的字也都出自歷屆考題。</b>135 個字取自本站的詞彙題、克漏字、文意選填和閱讀測驗，也參考了教學圈整理的一字多義。其中 113 個字有以它為答案的考題；其餘 22 個字，另一個意思出現在考題文章裡，卡片背面附上那一句。
       </p>
       <p>
         免費、無廣告之非營利自學題庫，歡迎自由分享。
@@ -284,6 +301,7 @@
 
   var BASE = location.href.replace(/teacher\.html.*$/, '');
   var Q = null, W = null, CFT = null, NG = 0, WG = {};
+  var PO = null, poLoading = false, poLv = {1:1,2:1,3:1,4:1,5:1,6:1};
   var deck = 'w';
   var st = 'both';
   var lv = { n: {1:1,2:1,3:1,4:1,5:1,6:1}, p: true, x: true };
@@ -438,6 +456,62 @@
     if (lab) p.push('t=' + lab);
     setOut(BASE + '#' + p.join('&'), ns.length === 0);
   }
+  /* ---------- 字彙選義 ---------- */
+  function poParam() {
+    var ns = [], i;
+    for (i = 1; i <= 6; i++) if (poLv[i]) ns.push(i);
+    if (ns.length === 6) return '';
+    return gParam(ns);
+  }
+  function refreshPO() {
+    var box = $('count');
+    if (!PO) {
+      box.className = 'count'; box.innerHTML = '載入字彙選義中…';
+      setOut('', true);
+      if (!poLoading) {
+        poLoading = true;
+        fetch('polysemy_data.json?v=1', { cache: 'default' })
+          .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+          .then(function (d) { PO = d; poLoading = false; if (deck === 'po') refresh(); })
+          .catch(function () { poLoading = false; box.innerHTML = '<span class="warn">字彙選義載入失敗，請重新整理頁面試試。</span>'; });
+      }
+      return;
+    }
+    var ws = PO.w.filter(function (x) { return poLv[x.lv]; })
+                 .sort(function (a, b) { return (a.lv - b.lv) || (a.n - b.n); });
+    var nq = ws.filter(function (x) { return x.q1; }).length;
+    if (!ws.length) {
+      box.className = 'count zero';
+      box.innerHTML = '<span class="warn">這個範圍一個字也沒有，學生點進去會是空的。請至少勾一個字級。</span>';
+    } else {
+      box.className = 'count';
+      box.innerHTML = '共 <b>' + ws.length + '</b> 個字，其中 <b>' + nq + '</b> 個有大考原題。' +
+        '<br><span class="sub2">記憶卡以字為單位，有原題的字先考原題，下一次再考中文選字。</span>';
+    }
+    var ol = $('poList').querySelector('ol');
+    ol.innerHTML = ws.map(function (x) {
+      return '<li><span class="no">' + esc(x.w) + '</span>' + esc(x.m) + '（' + x.lv + ' 級）</li>';
+    }).join('');
+    $('poList').querySelector('summary').textContent = '看包含哪些字（' + ws.length + ' 個）';
+    var p = ['deck=po'], lp = poParam();
+    if (lp) p.push('lv=' + lp);
+    var lab = cleanLabel($('label').value);
+    if (lab) p.push('t=' + lab);
+    setOut(BASE + '#' + p.join('&'), ws.length === 0);
+  }
+  function drawPOLevels() {
+    var box = $('poLvChips'); box.innerHTML = '';
+    for (var i = 1; i <= 6; i++) (function (n) {
+      box.appendChild(chip(n + ' 級', !!poLv[n], function () {
+        if (poLv[n]) delete poLv[n]; else poLv[n] = 1;
+        drawPOLevels(); refresh();
+      }, true));
+    })(i);
+    box.appendChild(chip('全選', false, function () {
+      poLv = {1:1,2:1,3:1,4:1,5:1,6:1}; drawPOLevels(); refresh();
+    }, true));
+  }
+
   function setOut(url, off) {
     $('urlbox').textContent = url;
     $('openBtn').setAttribute('href', url);
@@ -450,12 +524,14 @@
     deck = v; drawDecks();
     $('wFields').style.display = deck === 'w' ? '' : 'none';
     $('cfFields').style.display = deck === 'cf' ? '' : 'none';
+    $('poFields').style.display = deck === 'po' ? '' : 'none';
     refresh();
   }
   function drawDecks() {
     var box = $('deckChips'); box.innerHTML = '';
     var opts = [['w', '單字']];
     if (CFT) opts.push(['cf', '易混淆字組']);
+    opts.push(['po', '字彙選義']);
     opts.forEach(function (o) {
       box.appendChild(chip(o[1], deck === o[0], function () { setDeck(o[0]); }));
     });
@@ -464,6 +540,7 @@
   /* ---------- 畫面 ---------- */
   function refresh() {
     if (deck === 'cf') { refreshCF(); return; }
+    if (deck === 'po') { refreshPO(); return; }
     var y0 = +$('y0').value, y1 = +$('y1').value;
     if (y0 > y1) { var t = y0; y0 = y1; y1 = t; $('y0').value = y0; $('y1').value = y1; }
 
@@ -562,6 +639,7 @@
     drawYearPresets();
     drawStations();
     drawLevels();
+    drawPOLevels();
     $('y0').addEventListener('change', refresh);
     $('y1').addEventListener('change', refresh);
     $('label').addEventListener('input', refresh);
@@ -570,7 +648,9 @@
     $('wIn').addEventListener('keydown', function (e) { if (e.key === 'Enter') { e.preventDefault(); addWords(); } });
     $('copyBtn').addEventListener('click', copyURL);
     // 從易混淆字組首頁點進來（teacher.html#cf）就先選好易混淆字組
-    if (CFT && /^#cf\b/.test(location.hash)) setDeck('cf'); else { drawDecks(); refresh(); }
+    if (CFT && /^#cf\b/.test(location.hash)) setDeck('cf');
+    else if (/^#po\b/.test(location.hash)) setDeck('po');
+    else { drawDecks(); refresh(); }
     $('loading').style.display = 'none';
     $('app').style.display = '';
     $('app').classList.remove('hide');

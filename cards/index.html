@@ -1440,6 +1440,12 @@
         el.textContent = r.label + ' ' + n;
         box.appendChild(el);
       });
+      box.appendChild(document.createElement('br'));
+      box.appendChild(document.createTextNode('想指定字級、加上作業名稱，可以到'));
+      var tl = document.createElement('a');
+      tl.className = 'rg'; tl.setAttribute('href', 'teacher.html#po'); tl.textContent = '出題範圍與連結';
+      box.appendChild(tl);
+      box.appendChild(document.createTextNode('產生自己的練習連結。'));
       return;
     }
     RANGES.forEach(function (r, i) {
