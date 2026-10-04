@@ -331,7 +331,7 @@
     <div class="deck-tabs">
       <button id="tabW" class="deck-tab" type="button">單字</button>
       <button id="tabC" class="deck-tab" type="button">易混淆字組</button>
-      <button id="tabP" class="deck-tab" type="button">字彙選義</button>
+      <button id="tabP" class="deck-tab" type="button">一字多義</button>
     </div>
     <div class="card">
       <p id="homeLead" class="home-lead">用考過的字複習，不是背字典</p>
@@ -442,7 +442,7 @@
 
   var STORE_KEY = 'jcee_cards_v1';          // 單字卡
   var CF_STORE_KEY = 'jcee_cards_cf_v1';    // 易混淆字組，進度分開存
-  var PO_STORE_KEY = 'jcee_cards_po_v1';    // 字彙選義，進度分開存
+  var PO_STORE_KEY = 'jcee_cards_po_v1';    // 一字多義，進度分開存
   var CF_DUE_PER_ROUND = 24;                // 一輪最多帶幾組到期的
   var CF_NEW_PER_ROUND = 8;                 // 一輪帶幾組新的（照組號，組號依考過的題數排）
   var DEFAULT_Y0 = 106, DEFAULT_Y1 = 115;
@@ -458,7 +458,7 @@
 
   var DATA = null, Q = null, W = null, CFT = null;
   var CF = null, CFG = null;  // 易混淆字組：CF 是整個資料檔，CFG 以組號查組
-  var PO = null, POW = null;  // 字彙選義：PO 是整個資料檔，POW 以卡號查卡
+  var PO = null, POW = null;  // 一字多義：PO 是整個資料檔，POW 以卡號查卡
   var state = null;         // 目前這副卡的進度 { v, w:{key:{i,e,d,r,l,vv}}, day, done }
   var states = {};          // 三副卡各一份
   var scope = null;         // { y0, y1, st, lv, label, free }
@@ -556,7 +556,7 @@
     }
 
     // 易混淆字組：#deck=cf，可加 g=1-20,45,51 指定組號（範圍與單一組號以逗號隔開），view=12 直接看第 12 組
-    // 字彙選義：#deck=po，可加 lv=1-4 指定字級，view=12 直接看第 12 張卡
+    // 一字多義：#deck=po，可加 lv=1-4 指定字級，view=12 直接看第 12 張卡
     var deck = p.deck === 'cf' ? 'cf' : p.deck === 'po' ? 'po' : 'w';
     var gs = null;                       // null = 全部的組
     if (p.g) {
@@ -590,9 +590,9 @@
       return '易混淆字組　·　' + (segs.length <= 6 ? '第 ' + segs.join('、') + ' 組' : '指定的組');
     }
     if (isPO()) {
-      if (!scope.lv) return '字彙選義';
+      if (!scope.lv) return '一字多義';
       var pn = Object.keys(scope.lv.n).map(Number).sort(function (a, b) { return a - b; });
-      return '字彙選義　·　' + rangeSegs(pn).join('、') + ' 級';
+      return '一字多義　·　' + rangeSegs(pn).join('、') + ' 級';
     }
     var parts = [];
     parts.push(scope.y0 === scope.y1 ? (scope.y0 + ' 年') : (scope.y0 + '–' + scope.y1 + ' 年'));
@@ -716,7 +716,7 @@
         var orig = fresh.filter(function (v) { return v.charAt(0) === 'o'; });
         if (orig.length) return pick(orig);
       }
-      // 字彙選義也是先出原題，再用中文選字換個方式問
+      // 一字多義也是先出原題，再用中文選字換個方式問
       if (isPO()) return fresh.indexOf('1|') >= 0 ? '1|' : fresh[0];
       // 沒用過的裡面，優先挑跟上次不同題的，這樣再遇到同一個字時
       // 換的是另一題的三個誘答，而不是同一題換個方向問
@@ -828,7 +828,7 @@
     f: '搭配詞填空',
     m: '形近字辨識'
   };
-  var PO_LABEL = { '1': '字彙選義　大考原題', '2': '字彙選義　中文選字' };
+  var PO_LABEL = { '1': '一字多義　大考原題', '2': '一字多義　中文選字' };
   var CF_LABEL = {
     c: '易混淆字　中文 → 英文',
     e: '易混淆字　英文 → 中文',
@@ -887,13 +887,13 @@
       var q = x.q1, pc = q.url.indexOf('passage-completion') >= 0;
       body = '<p class="front-frame">' + frameHTML(q.s) + '</p>' +
              '<p class="front-hint">出自 ' + esc(q.src) + (pc
-               ? '，選項是從原題的選項中挑出詞性相同、最容易混淆的幾個。</p>'
+               ? '。原題的選項比較多，這裡只列出詞性相同、最容易混淆的幾個。</p>'
                : '，選項是當年的原選項。</p>');
       opts = Object.keys(q.o).map(function (k) { return { key: k, text: q.o[k] }; });
       correct = q.a;
     } else {
       body = '<p class="po-q">' + esc(x.t2.q) + '</p>' +
-             '<p class="front-hint">四個字都有你不一定熟悉的另一個意思，只有一個是題目說的這個。</p>';
+             '<p class="front-hint">這四個字都有你不一定熟悉的意思，符合題目的只有一個。</p>';
       opts = x.t2.o.map(function (o, k) { return { key: 't' + k, text: o }; });
       correct = 't' + x.t2.a;
     }
@@ -1213,7 +1213,7 @@
     window.scrollTo(0, 0);
   }
 
-  /* ---------------- 字彙選義的整張卡 ---------------- */
+  /* ---------------- 一字多義的整張卡 ---------------- */
   // variant：'1' 原題、'2' 中文選字、'' 看整張卡（沒有作答）
   function poHTML(x, variant) {
     var h = '<div class="bk-head"><span class="bk-word">' + esc(x.w) + '</span>' +
@@ -1242,7 +1242,7 @@
   function renderPOView() {
     var x = POW[scope.view];
     if (!x) { scope.view = 0; renderHome(); return; }
-    $('gvScope').textContent = '字彙選義　·　' + x.w;
+    $('gvScope').textContent = '一字多義　·　' + x.w;
     $('gvCard').innerHTML = poHTML(x, '');
     hide('home'); hide('quiz'); hide('done'); hide('stats'); hide('loading'); show('gview');
     window.scrollTo(0, 0);
@@ -1441,11 +1441,11 @@
         box.appendChild(el);
       });
       box.appendChild(document.createElement('br'));
-      box.appendChild(document.createTextNode('想指定字級、加上作業名稱，可以到'));
+      box.appendChild(document.createTextNode('想只練某幾級的字，可以到'));
       var tl = document.createElement('a');
       tl.className = 'rg'; tl.setAttribute('href', 'teacher.html#po'); tl.textContent = '出題範圍與連結';
       box.appendChild(tl);
-      box.appendChild(document.createTextNode('產生自己的練習連結。'));
+      box.appendChild(document.createTextNode('勾選字級，產生自己的練習連結。'));
       return;
     }
     RANGES.forEach(function (r, i) {
@@ -1477,9 +1477,9 @@
     $('tabC').classList.toggle('on', isCF());
     $('tabP').classList.toggle('on', isPO());
     if (isPO()) {
-      $('homeLead').textContent = '熟悉的字，大考考的是另一個意思';
-      $('homeDesc').textContent = '這 ' + PO.n + ' 個字，你大概只熟其中一種意思或詞性，大考考的卻是另一種，例如 book 當動詞是「預訂」。' +
-        '其中 ' + PO.withq + ' 個字有大考原題，先用原題考，再用中文選字換個方式問；其餘的字只用中文選字考，背面附考題文章裡的原句。' +
+      $('homeLead').textContent = '你熟悉的字，大考考的卻是另一個意思';
+      $('homeDesc').textContent = '這 ' + PO.n + ' 個字，你多半只熟悉其中一種意思或詞性，大考考的卻是另一種，例如 book 當動詞是「預訂」。' +
+        '其中 ' + PO.withq + ' 個字有大考原題，第一次先考原題，下一次再改考中文選字；其餘的字沒有原題，只考中文選字，卡片背面附上考題文章裡的原句。' +
         '答對的字往後推，答錯的當場再來一次。';
     } else if (isCF()) {
       $('homeLead').textContent = '容易搞混的字，一組一組記';
@@ -1706,14 +1706,14 @@
       });
   }
 
-  // 字彙選義的資料也是用到時才載入
+  // 一字多義的資料也是用到時才載入
   var poLoading = false;
   function ensurePO(done) {
     if (PO) { done(); return; }
     if (poLoading) return;
     poLoading = true;
     hide('home'); hide('stats'); hide('gview'); show('loading');
-    $('loading').textContent = '載入字彙選義中…';
+    $('loading').textContent = '載入一字多義中…';
     fetch('polysemy_data.json?v=1', { cache: 'default' })
       .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
       .then(function (d) {
@@ -1724,7 +1724,7 @@
       })
       .catch(function () {
         poLoading = false;
-        $('loading').textContent = '字彙選義載入失敗，請重新整理頁面試試。';
+        $('loading').textContent = '一字多義載入失敗，請重新整理頁面試試。';
       });
   }
 
@@ -1782,7 +1782,7 @@
       var msg = isCF()
         ? '確定要清除這台裝置上「易混淆字組」的複習進度嗎？清掉之後所有的組都會變回新的，其他兩副卡的進度不受影響。'
         : isPO()
-        ? '確定要清除這台裝置上「字彙選義」的複習進度嗎？清掉之後所有的字都會變回新的，其他兩副卡的進度不受影響。'
+        ? '確定要清除這台裝置上「一字多義」的複習進度嗎？清掉之後所有的字都會變回新的，其他兩副卡的進度不受影響。'
         : '確定要清除這台裝置上「單字」的複習進度嗎？清掉之後所有的字都會變回新字，其他兩副卡的進度不受影響。';
       if (!window.confirm(msg)) return;
       state = states[storeKey()] = { v: 1, w: {}, day: today(), done: 0 };
