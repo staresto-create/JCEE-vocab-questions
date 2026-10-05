@@ -3083,7 +3083,62 @@
   "label": "學測",
   "yearLabel": "104 (學測)",
   "zh": "一個成功的企業不應該把獲利當作最主要的目標。",
-  "en": "A successful business should not consider profit as its main goal."
+  "en": "A successful business should not regard profit as its main goal.",
+  "answerSource": "大考中心 104 學年度學科能力測驗國、英非選擇題評分說明（選才電子報第 247 期）",
+  "altAnswers": [
+   "business / enterprise / company",
+   "view / regard",
+   "profit / profits / earning profit(s) / making profit(s)",
+   "its / the",
+   "main / primary / major / most important",
+   "goal. / objective.",
+   "官方另列不用 regard…as 的寫法：should not make (earning) profit(s) {its / the} {primary / main / most important / major} {goal. / objective.}"
+  ],
+  "officialWords": [
+   "「成功的」successful",
+   "「企業」business/enterprise",
+   "「獲利」make profit(s)",
+   "「把……當作」regard…as",
+   "「最主要的」major/primary",
+   "「目標」goal",
+   "「應該」should"
+  ],
+  "officialWordsSource": "大考中心 104 學年度學科能力測驗國、英非選擇題評分說明（選才電子報第 247 期）",
+  "explanation": {
+   "pattern": [
+    "regard A as B（把 A 當作 B）：A 是 profit，B 是 its main goal。官方另收 view A as B，意思相同。中文「把獲利當作」的「把」字提示了受詞在動詞後面，英文照 regard + 受詞 + as + 名詞的順序寫。",
+    "should not + 原形動詞：should 是助動詞，not 直接放在 should 後面，再接原形 regard，不寫 should not to regard。",
+    "官方另列一種不用 as 的寫法：make + 受詞 + 名詞（把…當成…），寫成 should not make profit its main goal，受詞是 profit，its main goal 補充說明受詞。"
+   ],
+   "collocation": [
+    "make (a) profit（獲利、賺錢）——profit 是做生意扣掉成本之後賺到的錢（劍橋詞典：money that is earned in trade or business after paying the costs of producing and selling goods and services）。官方 profit 與 profits 都收，前面也可以加 earning 或 making。形容詞是 profitable，95 年學測第 8 題的答案就是 profitable（quite profitable，相當賺錢）。",
+    "the main objective／goal（主要目標）——官方「目標」兩收：goal／objective。85 年推薦甄選第 1 題的答案就是 objective，題幹 The main ___ of this test 與本題的 main goal 同一個組合。",
+    "a successful business（成功的企業）——閱卷召集人說明指出，「成功的」要用形容詞 successful，有不少考生詞性用錯。名詞 success、動詞 succeed、副詞 successfully。"
+   ],
+   "confusable": [
+    "consider／regard——兩個字都能表示「把…看作…」，接法不同。regard 常用 regard + 受詞 + as；consider 最常見的接法是 consider + 受詞 + (to be) + 名詞或形容詞，例：consider profit (to be) its main goal。consider 後面加 as 也是標準用法：《韋氏英語用法簡明詞典》認為 as 的寫法合乎慣用，劍橋〈Consider or regard?〉則建議不加 as。查 [[ngram|Google Books Ngram]]（Google 統計英文書籍裡各種說法逐年出現比率的工具，英文語料 1800 至 2022 年），2022 年英文書籍裡，is considered as a 出現的比率與 is regarded as a、is considered to be a 相當，三者都只有 is considered a 的三分之一左右。本題官方參考答案只收 view／regard…as，所以要用 as，就寫 regard 或 view。",
+    "profit／benefit——閱卷召集人說明指出，企業的「獲利」指利潤，要寫 profit(s)，不寫 benefits。benefit 是好處、益處，不是做生意賺到的錢。"
+   ],
+   "mustHave": [
+    "中文「最主要的」看起來像最高級，英文用 main、primary、major 其中一個就夠了，不能寫 the most main goal。閱卷召集人說明點名，這樣寫是重複了最高級的概念。要用最高級，就寫 the most important goal，官方也收。",
+    "中文「目標」前面沒有「它的」，英文的 goal 是可數名詞，單數前面一定要有限定詞，官方寫 its 或 the。",
+    "中文「一個成功的企業」泛指任何一家企業，英文寫 A successful business，用不定冠詞 a。"
+   ],
+   "refs": [
+    {
+     "label": "83 年學測克漏字第 29 題（regard A as B）",
+     "url": "https://staresto-create.github.io/grammar-cloze-test/q/g83-29-2/"
+    },
+    {
+     "label": "95 年學測第 8 題（profitable）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0218"
+    },
+    {
+     "label": "85 年推薦甄選第 1 題（objective）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0021"
+    }
+   ]
+  }
  },
  {
   "id": 199,
@@ -3091,7 +3146,57 @@
   "label": "學測",
   "yearLabel": "104 (學測)",
   "zh": "它應該負起社會責任，以增進大眾的福祉。",
-  "en": "It should take on social responsibility to improve public welfare."
+  "en": "It should take on its social responsibility to improve public welfare.",
+  "answerSource": "大考中心 104 學年度學科能力測驗國、英非選擇題評分說明（選才電子報第 247 期）",
+  "altAnswers": [
+   "take on / take up / take / shoulder / bear / assume",
+   "its / the",
+   "social responsibility / social responsibilities",
+   "to / and",
+   "improve / enhance / promote / increase",
+   "public / the public's / people's",
+   "welfare. / well-being. / wellbeing.",
+   "自 public 起，官方另列：{the well-being / the wellbeing / the welfare} of {the public / people}."
+  ],
+  "officialWords": [
+   "「應該」should",
+   "「負起」take up/bear/shoulder",
+   "「社會的」social",
+   "「責任」responsibility",
+   "「增進」increase",
+   "「大眾的」public",
+   "「福祉」welfare/wellbeing"
+  ],
+  "officialWordsSource": "大考中心 104 學年度學科能力測驗國、英非選擇題評分說明（選才電子報第 247 期）",
+  "explanation": {
+   "pattern": [
+    "to + 原形動詞表示目的（＝ in order to）。中文的「以…」「為了…」就是這個訊號。",
+    "官方另收 and：It should take on its social responsibility and improve public welfare.，把「負起責任」與「增進福祉」寫成兩件並列的事，兩個動詞都接在 should 後面，所以 improve 用原形。用 to 是把「增進福祉」當成負起責任的目的，兩式都成立。",
+    "「大眾的福祉」官方收兩種接法：public welfare（形容詞 public 放在名詞前面）、the public's welfare（名詞 the public 的所有格），也可以用 of 接在後面，寫 the welfare of the public。閱卷召集人說明舉的正是 to enhance public／the public's well-being／welfare 與 to enhance the well-being／welfare of the public。"
+   ],
+   "collocation": [
+    "take on (a) responsibility（負起責任）——本題要用的這一組。take on 在這裡的意思是接下某個工作或責任（劍橋詞典：to accept a particular job or responsibility）。官方另收 take up、shoulder、bear、assume。responsibility 的其他常考組合，見 111 年學測中譯英第 2 題的解析；95 年學測文意選填第 32 題的答案就是 responsibility。",
+    "social responsibility（社會責任）——閱卷召集人說明指出，responsibilities 拼錯的考生不少。字尾是 -ibility，不是 -ability。官方單數與複數都收。",
+    "improve／enhance／promote／increase welfare（增進福祉）——官方四個動詞都收。"
+   ],
+   "confusable": [
+    "welfare／well-being／benefit——閱卷召集人說明指出，「福祉」要寫 well-being 或 welfare，不是 benefits。劍橋詞典的釋義：well-being 是身心健康、快樂的狀態；welfare 在這裡指身心的健康與幸福（physical and mental health and happiness），另一個常見的意思是政府給需要的人的救助；benefit 是好處、益處。well-being 的連字號官方兩式都收：well-being／wellbeing。"
+   ],
+   "mustHave": [
+    "中文「它」指的是上一句的企業，英文寫 It，「它的責任」的所有格寫 its，不加撇號。",
+    "中文「負起社會責任」前面沒有「它的」，英文的 social responsibility 前面官方一律寫了 its 或 the，不能光寫 take on social responsibility。"
+   ],
+   "refs": [
+    {
+     "label": "111 年學測中譯英第 2 題（responsibility）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-137"
+    },
+    {
+     "label": "95 年學測文意選填第 32 題（responsibility）",
+     "url": "https://staresto-create.github.io/passage-completion/#hard-Vy95_32"
+    }
+   ]
+  }
  },
  {
   "id": 200,
@@ -3099,7 +3204,40 @@
   "label": "指考",
   "yearLabel": "104 (指考)",
   "zh": "台灣便利商店的密集度是全世界最高的，平均每兩千人就有一家。",
-  "en": "Taiwan has the highest density of convenience stores in the world, with an average of one store for every 2,000 people."
+  "en": "Taiwan has the highest density of convenience stores in the world, with one store for every 2,000 people on average.",
+  "answerSource": "大考中心 104 學年度指定科目考試英文考科非選擇題閱卷評分原則說明",
+  "altAnswers": [
+   "with one store for every 2,000 people on average / on average there is one store for every 2,000 people（後者是完整的子句，接在前半句後面要用分號或連接詞）"
+  ],
+  "explanation": {
+   "pattern": [
+    "the + 最高級 + 名詞 + in the world（全世界最…的）：the highest density。最高級形容詞前面加 the，in the world 交代比較的範圍。",
+    "中文「台灣便利商店的密集度是全世界最高的」，主詞是「密集度」；英文可以照中文寫 The density of convenience stores in Taiwan is the highest in the world.，也可以讓 Taiwan 當主詞，寫 Taiwan has the highest density of…。兩種都對，後者把「台灣」放在句首，句子比較短。",
+    "逗號後面的 with one store for every 2,000 people on average，用 with 帶出名詞片語，補充說明前面的「密集度最高」到底有多密。閱卷召集人說明舉的正是這個寫法；另一種寫法是 on average there is one store for every 2,000 people，用 there is 寫成完整的子句。"
+   ],
+   "collocation": [
+    "on average（平均而言）——位置有彈性，可以放在句尾、句首，也可以插在句中。劍橋詞典的例句：On average, a person's income is highest when they are in their mid-50s.／The city's police chief says they arrest, on average, 300 people each day.。100 年學測第 15 題的答案是 average（the average rainfall，平均雨量），字詞搭配欄就收了 on average；83 年聯考第 1 題的答案也是 average（名詞，平均數）。",
+    "one store for every 2,000 people（每兩千人一家）——for every + 數字 + 名詞表示比例。",
+    "the density of + 名詞（…的密集度）——density 指一個地方的人或東西相對於面積的多寡（劍橋詞典：the number of people or things in a place in relation to the size of the place），例：population density（人口密度）。"
+   ],
+   "confusable": [
+    "convenience store／convenient store——閱卷召集人說明指出，很多考生把「便利商店」寫成 convenient stores。convenient 是形容詞「方便的」，convenient stores 的意思只是「方便的商店」；「便利商店」是複合名詞 convenience store，前面那個字用名詞 convenience，劍橋詞典把 convenience store 收成名詞詞條。"
+   ],
+   "mustHave": [
+    "中文「便利商店」看不出單複數，這裡講的是全台灣的便利商店，英文寫複數 convenience stores。",
+    "中文「平均每兩千人就有一家」的「一家」是量詞，英文要把名詞補出來，寫 one store。"
+   ],
+   "refs": [
+    {
+     "label": "100 年學測第 15 題（on average）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0300"
+    },
+    {
+     "label": "83 年聯考第 1 題（average）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/zhikao/#q-ZK0304"
+    }
+   ]
+  }
  },
  {
   "id": 201,
@@ -3107,7 +3245,49 @@
   "label": "指考",
   "yearLabel": "104 (指考)",
   "zh": "除了購買生活必需品，顧客也可以在這些商店繳費，甚至領取網路訂購之物品。",
-  "en": "Besides purchasing daily necessities, customers can also pay bills and even pick up items ordered online at these stores."
+  "en": "Besides purchasing daily necessities, customers can also pay bills and even pick up goods ordered online at these stores.",
+  "answerSource": "大考中心 104 學年度指定科目考試英文考科非選擇題閱卷評分原則說明",
+  "altAnswers": [
+   "pay bills / pay fees"
+  ],
+  "explanation": {
+   "pattern": [
+    "Besides + V-ing, S + also + V…：Besides 是介系詞，後面接名詞或動名詞，所以「購買」要寫成 purchasing。前半是介系詞片語，用逗號與後面隔開；後半才是主要子句，主詞 customers 不能省。同一個句型見 113 年學測中譯英第 2 題的解析，那一題官方收了 Besides、Aside from、Apart from、In addition to 四式。",
+    "goods ordered online 是把關係子句 which were ordered online 簡化成分詞片語。步驟：將 which were 省略，視子句的動詞與先行詞的關係，現在分詞的意思接近主動的動詞，過去分詞通常帶被動的意思（英國文化協會 LearnEnglish〈Participle clauses〉），所以主動用現在分詞 V-ing，被動用過去分詞。這裡是顧客在網路上訂購 goods，goods 這一邊是被動，用過去分詞 ordered。與 106 年指考中譯英第 1 題的 an event held by different cities 是同一個結構。",
+    "can also pay bills and even pick up goods：兩個動詞 pay 與 pick up 都接在 can 後面，用 and 連接，所以都用原形；even（甚至）放在 pick up 前面，加強語氣。"
+   ],
+   "collocation": [
+    "daily necessities（生活必需品）——閱卷召集人說明指出，很多考生不熟這個說法，寫成 necessary living things。necessity 在這裡是可數名詞，指生活上需要的東西（劍橋詞典：something that you need, especially in order to live），所以寫複數 necessities。",
+    "purchase（購買）——動詞與名詞同形。103 年指考文意選填第 28 題考的是名詞 make a purchase（進行購買）；108 年學測文意選填第 34 題的答案 purchases 也是名詞，指買來的東西。",
+    "pick up（領取）——pick up goods／a package（取貨、領包裹）。"
+   ],
+   "confusable": [
+    "bill／fee／fine——閱卷召集人說明指出，「繳費」要寫 pay bills 或 pay fees，很多考生誤寫成 pay fines 或 pay money of the store。劍橋詞典的釋義：bill 是帳單、要你付的款項；fee 是為某項服務或權利付的費用；fine 是罰款，因為違反規定或法律而要付的錢。所以 pay fines 的意思變成「繳罰款」。",
+    "order／book——閱卷召集人說明指出，有些考生用 booked 代替 ordered，用法不正確。劍橋詞典的釋義：order 是要求對方製作、供應或送來某樣東西；book 是預訂未來某個時間的座位、房間等。網路上買的是商品，要用 order。"
+   ],
+   "mustHave": [
+    "中文「網路訂購之物品」的修飾語「網路訂購」放在名詞前面，英文的分詞片語要放在名詞後面：goods ordered online。",
+    "中文「顧客也可以」的主詞是「顧客」，英文的 customers 是泛指，用複數，不加 the。"
+   ],
+   "refs": [
+    {
+     "label": "113 年學測中譯英第 2 題（Besides）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-141"
+    },
+    {
+     "label": "106 年指考中譯英第 1 題（held by）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-204"
+    },
+    {
+     "label": "103 年指考文意選填第 28 題（make a purchase）",
+     "url": "https://staresto-create.github.io/passage-completion/#hard-Vz103_28"
+    },
+    {
+     "label": "108 年學測文意選填第 34 題（purchases）",
+     "url": "https://staresto-create.github.io/passage-completion/#hard-Vy108_34"
+    }
+   ]
+  }
  },
  {
   "id": 202,
