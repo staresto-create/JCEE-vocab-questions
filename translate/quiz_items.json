@@ -976,7 +976,55 @@
   "label": "學測",
   "yearLabel": "105 (學測)",
   "zh": "相較於他們父母的世代，現今年輕人享受較多的自由和繁榮。",
-  "en": "Compared to their parents' generation, young people today enjoy more freedom and prosperity."
+  "en": "Compared to their parents' generation, today's young people enjoy more freedom and prosperity.",
+  "answerSource": "大考中心 105 年學測英文考科非選擇題評分標準說明（選才電子報第 259 期）",
+  "altAnswers": [
+   "Compared to / Compared with / In comparison with",
+   "their parents' generation, / the generation of their parents,",
+   "today's young people / today's youngsters / today's youth",
+   "more / greater",
+   "自 today's 起，官方另列把「現今」放在主詞前面的寫法：{now / nowadays / today} {the youth / youngsters / young people}，now、nowadays、today 後面的逗號可加可不加。"
+  ],
+  "officialWords": [
+   "「相較於」compared with/to",
+   "「父母的」parents'",
+   "「世代」generation",
+   "「年輕人」young people",
+   "「享受」enjoy",
+   "「自由」freedom",
+   "「繁榮」prosperity"
+  ],
+  "officialWordsSource": "大考中心 105 年學測英文考科非選擇題評分標準說明（選才電子報第 259 期）",
+  "explanation": {
+   "pattern": [
+    "Compared to／with + 名詞（和…相比）放在句首，後面加逗號，再接主要子句。比較的兩邊要對得上：和「他們父母的世代」相比的是「現今年輕人」，所以主要子句的主詞是 today's young people。官方另收 In comparison with；閱卷召集人說明也提到，這個片語放在主要子句前面或後面都可以。",
+    "parents' generation 是複數名詞的所有格。parents 字尾已經有 s，所有格只加撇號，寫 parents'；寫成 parent's 就變成「一位家長的」。官方另收 the generation of their parents，用 of 表示所屬，就不必寫所有格。"
+   ],
+   "collocation": [
+    "enjoy freedom and prosperity（享受自由和繁榮）——本題要用的這一組。「較多的」官方兩式都收：more／greater。freedom 的另一個常考用法是 freedom from + 名詞（免於…），81 年聯考第 1 題考的就是 freedom from worry。",
+    "prosperity（繁榮）——閱卷召集人說明指出，不少考生沒有譯出「繁榮」，或是拼錯字。動詞是 prosper，形容詞是 prosperous。93 年指考（敏督利補考）第 3 題的答案就是 prosperity（economic prosperity，經濟繁榮）；99 年學測文意選填第 40 題的答案是動詞 prosper。",
+    "「年輕人」官方三收：young people／youngsters／youth。youth 指年輕人這個群體時，單獨用要加 the，寫 the youth；前面已經有 today's，就不再加 the。"
+   ],
+   "mustHave": [
+    "中文「父母的世代」英文非寫所有格不可。閱卷召集人說明點名，考生常常忘了寫所有格；parents 是複數，撇號放在 s 後面。",
+    "中文「現今年輕人」把「現今」直接放在名詞前面，英文的 today 要放在名詞前面，就得改成所有格 today's young people；不用所有格的話，就把 today 放到句首，寫 today(,) young people enjoy…，官方兩種都收。",
+    "中文「較多的自由和繁榮」看不出可數或不可數，英文的 freedom 與 prosperity 都是不可數名詞，前面不加 a、後面不加 s，「較多的」用 more。"
+   ],
+   "refs": [
+    {
+     "label": "81 年聯考第 1 題（freedom from）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/zhikao/#q-ZK0324"
+    },
+    {
+     "label": "93 年指考（敏督利補考）第 3 題（prosperity）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/zhikao/#q-ZK0093"
+    },
+    {
+     "label": "99 年學測文意選填第 40 題（prosper）",
+     "url": "https://staresto-create.github.io/passage-completion/#hard-Vy99_40"
+    }
+   ]
+  }
  },
  {
   "id": 113,
@@ -984,7 +1032,70 @@
   "label": "學測",
   "yearLabel": "105 (學測)",
   "zh": "但是在這個快速改變的世界中，他們必須學習如何有效地因應新的挑戰。",
-  "en": "However, in this rapidly changing world, they must learn how to effectively cope with new challenges."
+  "en": "However, in this fast-changing world, they must learn how to effectively deal with new challenges.",
+  "answerSource": "大考中心 105 年學測英文考科非選擇題評分標準說明（選才電子報第 259 期）",
+  "altAnswers": [
+   "However, / But(,) / Yet, / Nonetheless, / Nevertheless,",
+   "fast-changing / rapidly-changing",
+   "must / need to / have to / should",
+   "learn how to / learn to",
+   "deal with / react to / respond to / handle",
+   "官方另列副詞放在句尾的寫法：learn (how) to {react to / respond to / deal with / handle} new challenges effectively."
+  ],
+  "officialWords": [
+   "「快速改變的」rapidly/fast-changing",
+   "「世界」world",
+   "「學習」learn",
+   "「有效地」effectively",
+   "「新的挑戰」new challenges"
+  ],
+  "officialWordsSource": "大考中心 105 年學測英文考科非選擇題評分標準說明（選才電子報第 259 期）",
+  "explanation": {
+   "pattern": [
+    "must + 原形動詞：must、should 是助動詞，後面直接接原形 learn，不加 to；need to、have to 則一定要有 to。官方四式都收，閱卷召集人說明特別點名，must／should 後面加 to 是常見的錯誤。",
+    "learn (how) to + 原形動詞（學習如何…）：how 可寫可不寫，官方兩式都收。至於 effectively 的位置，放在 to 和 deal with 之間，或放在句尾寫成 deal with new challenges effectively，官方也兩種都收。",
+    "However, 放在句首，後面加逗號，承接上一句「享受較多的自由和繁榮」，轉到「但必須學習因應新的挑戰」。官方另收 But、Yet、Nonetheless、Nevertheless；其中只有 But 後面的逗號可加可不加。"
+   ],
+   "collocation": [
+    "deal with new challenges（因應新的挑戰）——官方四收：react to／respond to／deal with／handle。cope with 在中文也常譯成「因應、應付」，109 年學測克漏字第 18 題的答案就是 cope with；不過本題官方參考答案沒有列這一個。",
+    "fast-changing（快速改變的）：副詞 fast 修飾現在分詞 changing，兩個字合起來當形容詞，放在名詞 world 前面修飾它。連字號的作用是告訴讀者哪兩個字是一組：fast 也可以當形容詞，加了連字號，才看得出它修飾的是 changing，而不是 world。官方另收 rapidly-changing；一般寫作的慣例是 -ly 副詞後面不加連字號，寫成 rapidly changing，因為 -ly 結尾一看就是副詞，不會讀錯（《芝加哥格式手冊》連字號表：-ly 副詞加分詞，放在名詞前後都不加連字號，如 highly paid）。同樣的道理，a man-eating shark（吃人的鯊魚）的 man-eating 也要加連字號：man 是 eating 的受詞，兩個字合起來修飾 shark。",
+    "challenge（挑戰）——閱卷召集人說明指出，challenges 拼錯的考生不少。這個字的常考組合與站上的歷屆考法，見 106 年學測中譯英第 2 題的解析。"
+   ],
+   "confusable": [
+    "effectively／efficiently——閱卷召集人說明指出，不少考生把「有效地」寫成 efficiently。劍橋《English Grammar Today》的〈Efficient or effective?〉這樣區分：efficient 指做事迅速、有條理；effective 指能帶來想要的結果。本題的「有效地因應」講的是結果，所以用 effectively。兩組字站上都考過：97 年指考克漏字第 20 題的答案是 efficiently（work more efficiently，運作更有效率），88 年推薦甄選第 9 題的答案是 efficient；112 年學測文意選填第 24 題與 109 年指考文意選填第 29 題的答案則都是 effective。"
+   ],
+   "mustHave": [
+    "中文「有效地因應」的「有效地」修飾的是「因應」這個動作，英文要用副詞 effectively，不能用形容詞 effective。",
+    "中文「新的挑戰」看不出單複數，這裡泛指往後會遇到的各種挑戰，英文寫複數 challenges。",
+    "中文「必須」後面直接接動作，英文選 must 就接原形，選 have to、need to 就要有 to，不能寫成 must to。"
+   ],
+   "refs": [
+    {
+     "label": "109 年學測克漏字第 18 題（cope with）",
+     "url": "https://staresto-create.github.io/grammar-cloze-test/q/g109-18-1/"
+    },
+    {
+     "label": "97 年指考克漏字第 20 題（efficiently）",
+     "url": "https://staresto-create.github.io/zhikao-cloze-test/q/z97-20/"
+    },
+    {
+     "label": "88 年推薦甄選第 9 題（efficient）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0084"
+    },
+    {
+     "label": "112 年學測文意選填第 24 題（effective）",
+     "url": "https://staresto-create.github.io/passage-completion/#hard-Vy112_24"
+    },
+    {
+     "label": "109 年指考文意選填第 29 題（effective）",
+     "url": "https://staresto-create.github.io/passage-completion/#hard-Vz109_29"
+    },
+    {
+     "label": "106 年學測中譯英第 2 題（challenge）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-203"
+    }
+   ]
+  }
  },
  {
   "id": 114,
@@ -992,7 +1103,45 @@
   "label": "指考",
   "yearLabel": "105 (指考)",
   "zh": "蚊子一旦叮咬過某些傳染病的患者，就可能將病毒傳給其他人。",
-  "en": "Once mosquitoes bite patients with certain infectious diseases, they can potentially transmit the virus to others."
+  "en": "Once mosquitoes bite patients with certain infectious diseases, they can transmit the virus to other people.",
+  "answerSource": "大考中心 105 年指考英文考科非選擇題評分標準說明（選才電子報第 264 期）",
+  "altAnswers": [
+   "Once / As soon as",
+   "bite / have bitten",
+   "infectious / contagious",
+   "transmit / pass / pass on",
+   "the virus / the viruses"
+  ],
+  "explanation": {
+   "pattern": [
+    "Once + S + V…, S + can + V（一旦…，就可能…）：once 在這裡是連接詞，帶出時間副詞子句，官方另收 As soon as；官方〈評分標準說明〉列出的基本句型就是 Once／As soon as …, S can …。子句裡用現在式 bite，官方也收現在完成式 have bitten，表示先叮咬、後傳染；不寫 will bite，因為時間副詞子句習慣用現在式代替未來式。",
+    "patients with certain infectious diseases：介系詞 with 表示「帶有」，整串放在 patients 後面修飾，等於 patients who have certain infectious diseases。閱卷召集人說明另舉 some people who have infectious diseases、victims with some infectious diseases，兩種都可以得分。"
+   ],
+   "collocation": [
+    "transmit the virus to other people（將病毒傳給其他人）——本題要用的這一組，句型是 transmit sth to sb；官方另收 pass (on) sth to sb。",
+    "virus（病毒）——官方 the virus、the viruses 兩式都收。102 年學測第 12 題的答案就是 virus（build up protection against the virus），常見組合是 catch／get a virus（染上病毒）。",
+    "an infectious disease（傳染病）是固定說法。110 年指考第 9 題的答案就是 infectious：People with an infectious illness should avoid going to public places…，句中的 people with 與本題的 patients with 是同一種用法。"
+   ],
+   "confusable": [
+    "contagious／infectious——官方兩個都收，〈評分標準說明〉列的是 contagious。韋氏辭典的辨析：contagious 指經由直接或間接接觸，從一個人傳給另一個人；infectious 指由細菌、病毒這類病原體引起。所以會經由接觸傳染的病一定是 infectious，infectious 的病卻不一定是 contagious，例如食物中毒。兩個字也都有比喻的用法，如 contagious laughter、infectious enthusiasm。",
+    "patients／patience——閱卷召集人說明點名，有考生把 patients（病人）寫成 patience（耐心）。兩個字的發音幾乎相同：patient 當名詞是「病人」，複數 patients；patience 是不可數名詞「耐心」，它的形容詞 patient 是「有耐心的」。"
+   ],
+   "mustHave": [
+    "中文「蚊子」看不出單複數，這裡泛指所有的蚊子，英文寫複數 mosquitoes。閱卷召集人說明點名，mosquitoes 是考生常拼錯的字。",
+    "中文後半句「就可能將病毒傳給其他人」沒有主詞，英文得補上 they，指的是前面的 mosquitoes。",
+    "中文「可能」在英文用 can 表示，講的是蚊子有這個能力；官方參考答案沒有再另加 possibly、potentially 這類副詞。"
+   ],
+   "refs": [
+    {
+     "label": "110 年指考第 9 題（infectious）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/zhikao/#q-ZK0009"
+    },
+    {
+     "label": "102 年學測第 12 題（virus）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0327"
+    }
+   ]
+  }
  },
  {
   "id": 115,
@@ -1000,7 +1149,53 @@
   "label": "指考",
   "yearLabel": "105 (指考)",
   "zh": "它們在人類中快速散播疾病，造成的死亡遠超乎我們所能想像。",
-  "en": "They spread diseases rapidly among humans, causing more deaths than we can imagine."
+  "en": "They spread diseases among humans rapidly, causing more deaths than we can imagine.",
+  "answerSource": "大考中心 105 年指考英文考科非選擇題評分標準說明（選才電子報第 264 期）",
+  "altAnswers": [
+   "They spread / They can spread",
+   "humans / human beings / people",
+   "rapidly / quickly / very rapidly / very quickly",
+   ", causing / and cause / and lead to / and result in / , bringing about",
+   "more deaths / far more deaths",
+   "imagine / fancy",
+   "自 more deaths 起，官方另列：deaths (far) beyond our imagination."
+  ],
+  "explanation": {
+   "pattern": [
+    "對等子句簡化為分詞構句：S + V…, and + V… → S + V…, V-ing…。兩個子句的主詞相同時，去掉 and 與重複的主詞，動詞改為分詞（主動用 V-ing、被動用 p.p.）；擺在句尾逗號之後的分詞構句，多半表示前面那件事所造成的結果。",
+    "還原成完整寫法是 They spread diseases among humans rapidly and cause more deaths than we can imagine.；官方 and cause、and lead to、and result in 三式也都收。",
+    "more + 名詞 + than we can imagine（多到超乎我們所能想像）：比較級 more 後面接名詞，再用 than 帶出比較的對象。官方另收 deaths beyond our imagination；兩種寫法前面都可以加 far（遠遠），把「遠超乎」的「遠」譯出來。閱卷召集人說明另舉 causing death that is far beyond our imagination、the death they cause is far beyond what we can imagine，兩種都可以得分。",
+    "spread diseases among humans rapidly：情狀副詞 rapidly 放在動詞加受詞的後面，不放在動詞和受詞中間，所以不寫 spread rapidly diseases。官方把 (very) quickly／rapidly 放在 among humans 之後。"
+   ],
+   "collocation": [
+    "spread diseases（散播疾病）——本題要用的這一組。spread 三態同形（spread-spread-spread），這裡是現在式。往外延伸：a disease spreads（疾病蔓延）、a rumor spreads（謠言傳開），92 年學測補考第 7 題考的就是後者；107 年指考文意選填第 28 題的答案也是 spread。",
+    "beyond（超出…的範圍）：beyond our imagination（超乎想像）。93 年指考克漏字第 24 題的答案就是 beyond（see implications beyond the obvious，看出表面之外的含意），107 年學測克漏字第 20 題的答案也是 beyond（venture beyond，冒險跨出）。",
+    "death（死亡）——指一件件死亡、可以算人數時是可數名詞，寫 more deaths；指死亡這件事本身時不可數。"
+   ],
+   "mustHave": [
+    "中文「它們」指的是上一句的蚊子，英文寫 They，動詞用複數 spread，不加 s。",
+    "中文「造成的死亡…」前面沒有連接詞，直接用逗號接下去；英文必須用分詞 causing 或連接詞 and 把兩件事接起來。",
+    "中文「疾病」看不出單複數，這裡指各種疾病，英文寫複數 diseases。閱卷召集人說明點名，有考生把 diseases 拼成 diseaces。"
+   ],
+   "refs": [
+    {
+     "label": "92 年學測補考第 7 題（spread）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0172"
+    },
+    {
+     "label": "107 年指考文意選填第 28 題（spread）",
+     "url": "https://staresto-create.github.io/passage-completion/#hard-Vz107_28"
+    },
+    {
+     "label": "93 年指考克漏字第 24 題（beyond）",
+     "url": "https://staresto-create.github.io/zhikao-cloze-test/q/z93-24/"
+    },
+    {
+     "label": "107 年學測克漏字第 20 題（beyond）",
+     "url": "https://staresto-create.github.io/grammar-cloze-test/q/g107-20-1/"
+    }
+   ]
+  }
  },
  {
   "id": 116,
