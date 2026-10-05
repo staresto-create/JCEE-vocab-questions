@@ -3164,7 +3164,66 @@
   "label": "學測",
   "yearLabel": "100 (學測)",
   "zh": "臺灣的夜市早已被認為足以代表我們的在地文化。",
-  "en": "Taiwan's night markets have long been considered representative of our local culture."
+  "en": "Taiwan's night markets have long been considered to represent our local culture.",
+  "answerSource": "大考中心 100 年學科能力測驗英文考科非選擇題評分說明（選才電子報第 199 期）",
+  "altAnswers": [
+   "Taiwan's night markets / Night markets in Taiwan / The night markets in Taiwan",
+   "have long been / have already been",
+   "regarded / recognized / considered / known / thought of + as representing / as a (good) symbol of",
+   "considered / known / thought / recognized + to (well) represent / to (be able to) represent",
+   "our / the"
+  ],
+  "officialWords": [
+   "「夜市」night markets",
+   "「在地文化」local culture"
+  ],
+  "officialWordsSource": "大考中心 100 年學科能力測驗英文考科非選擇題評分說明（選才電子報第 199 期）",
+  "explanation": {
+   "pattern": [
+    "整句的骨架是 S + have been + p.p.：Taiwan's night markets（主詞） + have long been considered + to represent our local culture。主詞的核心是複數名詞 markets，所以助動詞用 have。",
+    "中文的「早已」是時態的訊號：這件事從過去做到現在、狀態還在，所以主要動詞用現在完成式 have been considered。選才電子報列出的基本句型就是 have long been regarded as。",
+    "中文的「被認為」有「被」字，英文也用被動 be + p.p.。認為夜市代表在地文化的是一般人，是誰不必說也不重要；這一句談的是夜市，所以 night markets 當主詞，動詞寫成被動 have been considered。",
+    "be considered to + 原形動詞（被認為…）：主動是 consider + 受詞 + to + 原形動詞，改成被動時，原來的受詞 night markets 移到主詞的位置。劍橋文法〈Consider or regard?〉列的接法就是 consider + 受詞 + to be／to have。官方另收 regarded／recognized／considered／known／thought of + as，as 後面接名詞或動名詞，所以 represent 要寫成 representing，也可以寫 as a (good) symbol of。consider 後面加不加 as，劍橋與韋氏說法不同，見 104 年學測中譯英第 1 題的解析；本題官方 consider 兩種接法都收。"
+   ],
+   "collocation": [
+    "long（很久）——副詞，放在 have 與 been 中間：have long been。牛津高階說明，表示時間長短的 (for) long 在肯定句裡一般不單獨用，肯定句要寫 (for) a long time；不過 long 放在助動詞與過去分詞中間是另一種用法，onestopenglish（麥克米倫）談 long 的專文就舉 Smoking has long been linked to lung cancer 為例，與本題同型。官方 long、already 兩式都收。",
+    "represent（代表、象徵）——劍橋詞典：to be a sign or symbol of something，例句 To many people the White House represents the identity of the United States。拆開是 re- + present，來自拉丁文 repraesentare「使出現在眼前、展示」，其中 praesentare 字面是「擺在面前」；re- 在這裡可能只是加強語氣（Etymonline）。104 年學測克漏字第 24 題的答案就是 represent（孔雀用來象徵統治家族的地位與財富）；86 年推薦甄選第 17 題考 stands for 的同義字，答案是 represents。",
+    "a symbol of（…的象徵）——官方另收 as a (good) symbol of。106 年學測文意選填第 33 題的答案就是 symbols（were considered to be symbols of eternal life），連 be considered to be 也與本題同型；104 年學測文意選填第 38 題的答案也是 symbol（any symbol of their national unity）。",
+    "representative（具代表性的）——represent 的形容詞，105 年學測第 14 題的答案就是 representative（a typical or representative sample，具代表性的樣本）。本題官方樹收的是動詞 represent 與名詞 symbol，沒有收 be representative of 的寫法。"
+   ],
+   "mustHave": [
+    "中文「夜市」看不出單複數，這裡泛指台灣各地的夜市，英文寫複數 night markets，動詞用 have。選才電子報的評分說明點名，有考生把 night markets 連寫成 nightmarkets，或把 culture 拼成 colture。",
+    "中文「臺灣的夜市」用「的」表示所屬，英文官方收三式：所有格 Taiwan's night markets，或把 in Taiwan 放在名詞後面，寫 night markets in Taiwan、the night markets in Taiwan。",
+    "中文的「足以」，官方用 well 或 be able to 表示，兩個都放在括號裡，可寫可不寫：to (well) represent、to (be able to) represent。本站的參考答案沒有寫出來。",
+    "中文「我們的在地文化」寫 our local culture，官方另收 the local culture。選才電子報列的標的詞彙就是 local culture。"
+   ],
+   "refs": [
+    {
+     "label": "104 年學測克漏字第 24 題（represent）",
+     "url": "https://staresto-create.github.io/grammar-cloze-test/q/g104-24-2/"
+    },
+    {
+     "label": "86 年推薦甄選第 17 題（represents）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0057"
+    },
+    {
+     "label": "106 年學測文意選填第 33 題（symbols）",
+     "url": "https://staresto-create.github.io/passage-completion/#hard-Vy106_33"
+    },
+    {
+     "label": "104 年學測文意選填第 38 題（symbol）",
+     "url": "https://staresto-create.github.io/passage-completion/#hard-Vy104_38"
+    },
+    {
+     "label": "105 年學測第 14 題（representative）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0374"
+    },
+    {
+     "label": "104 年學測中譯英第 1 題（consider／regard）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-198"
+    }
+   ]
+  }
  },
  {
   "id": 185,
@@ -3172,7 +3231,57 @@
   "label": "學測",
   "yearLabel": "100 (學測)",
   "zh": "每年它們都吸引了成千上萬來自不同國家的觀光客。",
-  "en": "Every year, they attract tens of thousands of tourists from different countries."
+  "en": "Every year they attract thousands and thousands of tourists from different countries.",
+  "answerSource": "大考中心 100 年學科能力測驗英文考科非選擇題評分說明（選才電子報第 199 期）",
+  "altAnswers": [
+   "Every year / Each year",
+   "they / the (night) markets",
+   "hundreds and thousands of / thousands and thousands of / hundreds and hundreds of / hundreds of thousands of / millions of / thousands of",
+   "tourists / visitors",
+   "(coming) from",
+   "(many) different / many",
+   "countries / nations"
+  ],
+  "officialWords": [
+   "「吸引」attract",
+   "「成千上萬」hundreds and thousands of",
+   "「觀光客」tourists/visitors"
+  ],
+  "officialWordsSource": "大考中心 100 年學科能力測驗英文考科非選擇題評分說明（選才電子報第 199 期）",
+  "explanation": {
+   "pattern": [
+    "整句的骨架是 S + V + O：Every year（時間副詞） + they（主詞） + attract + thousands and thousands of tourists from different countries（受詞）。官方句首收 Every year、Each year 兩式。",
+    "每年反覆發生的事實用現在簡單式，句首的 every year 就是那個標記。先找標記，再決定時態，比憑語感可靠得多。",
+    "介系詞片語放在名詞後面修飾。中文把「來自不同國家」擺在「觀光客」前面，英文的 from different countries 要放在 tourists 後面。官方在 from 前面另收 coming，可寫可不寫。"
+   ],
+   "collocation": [
+    "attract（吸引）——選才電子報列的標的詞彙就是 attract。95 年學測克漏字第 27 題的答案就是 attracts（and attracts those fans that prefer a quieter, more complicated game）；86 年推薦甄選第 19 題考 appeals to 的同義字，答案也是 attracts。名詞 attraction 見 101 年學測中譯英第 2 題的 tourist attractions。",
+    "thousands of（成千上萬的）——thousand 表示「很多」、前面沒有確切數字時用複數 thousands，後面接 of，劍橋詞典的例句是 The damage will cost thousands of dollars to repair；前面有確切數字時不加 s，例 three thousand。官方收六式：hundreds and thousands of、thousands and thousands of、hundreds and hundreds of、hundreds of thousands of、millions of、thousands of；選才電子報列的標的詞彙是 hundreds and thousands of。六式之中，hundreds of thousands of 中間是 of，意思是好幾個十萬（100,000 唸作 one hundred thousand），也就是「數十萬」；hundreds and thousands of 中間是 and，是把「數以百計」與「數以千計」並列。",
+    "tourist／visitor（觀光客）——官方兩式都收。劍橋詞典 tourist 是為了遊玩、通常在度假時到一個地方去的人（someone who visits a place for pleasure and interest, usually while on holiday），例句 Millions of tourists visit Rome every year 與本題幾乎同型；visitor 是來訪的人，範圍較廣（someone who visits a person or place）。"
+   ],
+   "mustHave": [
+    "中文「它們」指的是上一句的夜市，英文寫 they，動詞用複數 attract，不加 s。官方另收 the (night) markets。",
+    "中文「觀光客」與「國家」看不出單複數，這裡都是泛指，英文寫複數 tourists、countries。選才電子報的評分說明點名，有考生把 countries 拼成 countrys：子音加 y 結尾的名詞，複數要把 y 改成 i，再加 -es。"
+   ],
+   "refs": [
+    {
+     "label": "95 年學測克漏字第 27 題（attracts）",
+     "url": "https://staresto-create.github.io/grammar-cloze-test/q/g95-27-3/"
+    },
+    {
+     "label": "86 年推薦甄選第 19 題（attracts）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0059"
+    },
+    {
+     "label": "101 年學測中譯英第 2 題（tourist attractions）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-191"
+    },
+    {
+     "label": "110 年學測中譯英第 1 題（each year）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-130"
+    }
+   ]
+  }
  },
  {
   "id": 186,
@@ -3180,10 +3289,61 @@
   "label": "指考",
   "yearLabel": "100 (指考)",
   "zh": "日本的核電廠爆炸已經引起全球對核子能源安全的疑慮。",
-  "en": "The explosion at the nuclear power plant in Japan has aroused global concern about the safety of nuclear energy.",
+  "en": "The explosion at the nuclear power plant in Japan has aroused global concerns about the safety of nuclear energy.",
+  "answerSource": "大考中心 100 學年度指定科目考試英文考科非選擇題評分標準說明",
   "altAnswers": [
-   "The explosion at Japan's nuclear power plant has raised global concerns about the safety of nuclear energy."
-  ]
+   "The explosion of / The explosion at",
+   "the nuclear (power) plant in Japan / the Japanese nuclear (power) plant / Japan's nuclear (power) plant",
+   "has caused / has resulted in / has brought about / has led to / has given rise to / has triggered / has raised / has aroused",
+   "global / worldwide + concerns / worries",
+   "for / about / over / with / on",
+   "the safety of nuclear energy / nuclear safety",
+   "concerns / safety concerns + for / about / over / with / on + the safety of nuclear energy / nuclear power + around the globe / around the world / all over the globe / all over the world / worldwide"
+  ],
+  "explanation": {
+   "pattern": [
+    "整句的骨架是 S + has + p.p. + 受詞：The explosion at the nuclear power plant in Japan（主詞） + has aroused + global concerns about the safety of nuclear energy。主詞的核心是單數名詞 explosion，所以助動詞用 has。官方〈評分標準說明〉列出的基本句型就是 … has caused …。",
+    "中文的「已經」是時態的訊號：這件事從過去做到現在、狀態還在，所以主要動詞用現在完成式 has aroused。",
+    "介系詞片語放在名詞後面修飾。中文把「日本的核電廠」擺在「爆炸」前面，英文寫 the explosion at the nuclear power plant in Japan，at 帶出爆炸的地點，官方也收 of；「對核子能源安全的疑慮」同理，about the safety of nuclear energy 放在 concerns 後面。"
+   ],
+   "collocation": [
+    "arouse／raise concerns（引起疑慮）——官方收 caused、resulted in、brought about、led to、given rise to、triggered、raised、aroused 八種。arouse 是使人產生某種感覺（劍橋詞典：to cause someone to have a particular feeling）；劍橋詞典 concern 條目的搭配也收 raise a concern，例句 Several workers raised concerns about levels of radiation at the site。110 年指考中譯英第 1 題的解析收過 arouse one's curiosity；101 年學測文意選填第 35 題的答案是 raise（raise Asians' awareness，提高亞洲人的意識）。",
+    "concern（疑慮、擔憂）——劍橋詞典標可數、不可數兩用，搭配有 concern about、concern over、concern for。官方樹寫複數 concerns，另收 worries，後面的介系詞收 for、about、over、with、on 五個。95 年指考文意選填第 37 題的答案是形容詞 concerned（being very concerned about their careers，非常在意自己的職涯）。",
+    "explosion（爆炸）——動詞是 explode。94 年學測第 8 題的答案就是 explosions（a series of powerful explosions，一連串猛烈的爆炸）；92 年學測第 5 題的答案是 exploded，那一題是另一個意思「勃然大怒」（exploded with anger）。",
+    "nuclear energy（核能）——劍橋詞典 energy 條目的例句就有 nuclear energy；官方另收 nuclear power。「核電廠」寫 nuclear power plant，官方把 power 放在括號裡。safety 是 safe 的名詞，99 年學測克漏字第 29 題的答案就是 safety（these safety issues，這些安全問題）。"
+   ],
+   "mustHave": [
+    "中文「日本的核電廠」用「的」表示所屬，英文官方收三式：the nuclear power plant in Japan、the Japanese nuclear power plant、Japan's nuclear power plant。",
+    "中文把「全球」擺在「疑慮」前面，英文官方收兩種擺法：形容詞 global、worldwide 放在 concerns 前面；或把地點放到句尾，寫 concerns about the safety of nuclear energy around the world，也可以寫 all over the world、worldwide。",
+    "中文「疑慮」看不出單複數，官方用複數 concerns、worries。"
+   ],
+   "refs": [
+    {
+     "label": "94 年學測第 8 題（explosions）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0203"
+    },
+    {
+     "label": "92 年學測第 5 題（exploded）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0155"
+    },
+    {
+     "label": "95 年指考文意選填第 37 題（concerned）",
+     "url": "https://staresto-create.github.io/passage-completion/#hard-Vz95_37"
+    },
+    {
+     "label": "99 年學測克漏字第 29 題（safety）",
+     "url": "https://staresto-create.github.io/grammar-cloze-test/q/g99-29-3/"
+    },
+    {
+     "label": "101 年學測文意選填第 35 題（raise）",
+     "url": "https://staresto-create.github.io/passage-completion/#hard-Vy101_35"
+    },
+    {
+     "label": "110 年指考中譯英第 1 題（arouse one's curiosity）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-132"
+    }
+   ]
+  }
  },
  {
   "id": 187,
@@ -3192,9 +3352,58 @@
   "yearLabel": "100 (指考)",
   "zh": "科學家正尋求安全、乾淨又不昂貴的綠色能源，以滿足我們對電的需求。",
   "en": "Scientists are seeking safe, clean, and inexpensive green energy to satisfy our need for electricity.",
+  "answerSource": "大考中心 100 學年度指定科目考試英文考科非選擇題評分標準說明",
   "altAnswers": [
-   "Scientists are seeking safe, clean, and inexpensive green energy to meet our electricity needs."
-  ]
+   "seeking / searching for / looking for",
+   "safe, clean, and",
+   "inexpensive / economical / reasonably priced / affordable",
+   "green / eco-friendly",
+   "energy (source(s))",
+   "aiming to / (in order) to / so as to + satisfy / meet / fulfill",
+   "with an aim of / for the purpose of / with a view to + satisfying / meeting / fulfilling",
+   "our demand(s) / need(s) / requirement(s)",
+   "for / of electricity"
+  ],
+  "explanation": {
+   "pattern": [
+    "現在進行式 be + V-ing：中文「正尋求」的「正」是時態的訊號，講的是現在正在進行的事。劍橋文法說明，現在進行式用來說說話當下正在進行的事。官方〈評分標準說明〉列出的基本句型就是 … are Ving … to …。",
+    "to + 原形動詞表示目的（＝ in order to）。中文的「以…」「為了…」就是這個訊號。本題的「以滿足我們對電的需求」用的就是「以」：尋求綠色能源，目的是滿足用電的需求，英文寫 to satisfy our need for electricity。官方另收 in order to、so as to、aiming to。",
+    "官方另收一組後面接動名詞的寫法：for the purpose of、with a view to、with an aim of。這三組最後的 of、to 都是介系詞，後面的動詞要改成 V-ing，寫 for the purpose of satisfying our need for electricity。"
+   ],
+   "collocation": [
+    "seek（尋求）——劍橋詞典標為正式用語（formal），意思是設法找到或得到（to try to find or get something），三態是 seek-sought-sought。官方另收 search for、look for。",
+    "inexpensive（不昂貴的）——拆開是 in-（不） + expensive（昂貴的），劍橋詞典列的同義字是 cheap。官方另收 economical、reasonably priced、affordable；104 年學測第 3 題的答案就是 affordable（a more affordable LED TV，比較負擔得起的 LED 電視）。",
+    "meet／satisfy one's needs（滿足需求）——官方另收 fulfill，needs 也可以換成 demands、requirements。103 年指考文意選填第 25 題的答案就是 needs（have all their needs satisfied）；107 年學測第 3 題的答案是 fulfill（fulfill our dreams，實現夢想），第 2 題的答案是 requirements（course requirements，課程要求）。",
+    "eco-friendly（環保的）——官方與 green 並列。複合形容詞，中間的連字號不能省略。要講一種一種的能源，官方寫 energy source(s)。"
+   ],
+   "mustHave": [
+    "中文「科學家」看不出單複數，這裡泛指從事研究的人，英文寫複數 scientists，be 動詞用 are。",
+    "中文用頓號與「又」把三個形容詞串起來，英文的並列在最後一項前面必須放 and，寫 safe, clean, and inexpensive；官方參考答案在 and 前面也有逗號。",
+    "中文「對電的需求」把「對電」擺在「需求」前面，英文寫 our need for electricity，for 帶出需要的東西，放在 need 後面，官方也收 of。劍橋詞典 need 的搭配就是 need for，例句 There's a growing need for cheap housing in the larger cities。need、demand、requirement 官方單複數都收。"
+   ],
+   "refs": [
+    {
+     "label": "103 年指考文意選填第 25 題（needs）",
+     "url": "https://staresto-create.github.io/passage-completion/#hard-Vz103_25"
+    },
+    {
+     "label": "104 年學測第 3 題（affordable）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0348"
+    },
+    {
+     "label": "107 年學測第 3 題（fulfill）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0393"
+    },
+    {
+     "label": "107 年學測第 2 題（requirements）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0392"
+    },
+    {
+     "label": "102 年學測中譯英第 2 題（現在進行式、目的不定詞）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-109"
+    }
+   ]
+  }
  },
  {
   "id": 188,
