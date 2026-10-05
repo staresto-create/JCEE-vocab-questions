@@ -937,7 +937,66 @@
   "label": "學測",
   "yearLabel": "102 (學測)",
   "zh": "都會地區的高房價對社會產生了嚴重的影響。",
-  "en": "High housing prices in urban areas have had a serious impact on society."
+  "en": "High housing prices in urban areas have produced serious impacts on society.",
+  "answerSource": "大考中心 102 年學科能力測驗英文考科非選擇題評分說明（選才電子報第 223 期）",
+  "altAnswers": [
+   "house / housing",
+   "urban areas / city areas",
+   "produced / created / resulted in",
+   "serious / severe",
+   "effects / impacts / influences",
+   "on / in",
+   "society / the society"
+  ],
+  "officialWords": [
+   "「高房價」high house prices",
+   "「都會地區」urban/city areas",
+   "「產生了」has produced/created",
+   "「嚴重的」serious",
+   "「影響」effect/influence/impact"
+  ],
+  "officialWordsSource": "大考中心 102 年學科能力測驗英文考科非選擇題評分說明（選才電子報第 223 期）",
+  "explanation": {
+   "pattern": [
+    "整句的骨架是 S + have + p.p. + 受詞：High housing prices in urban areas（主詞） + have produced + serious impacts on society。主詞的核心是複數名詞 prices，所以助動詞用 have。選才電子報列標的詞彙時寫的是 has produced，那是把動詞單獨列出來；放進本句，官方參考答案寫的是 have。",
+    "介系詞片語放在名詞後面修飾。中文把「都會地區」擺在「高房價」前面，英文的 in urban areas 是介系詞片語，要放在 prices 後面，寫 high housing prices in urban areas。閱卷召集人說明舉的正是 high house prices in city areas。"
+   ],
+   "collocation": [
+    "have an impact on（對…產生影響）——impact、effect、influence 官方三個字都收，後面接 on，官方另收 in。劍橋詞典 impact 的釋義就寫明是對某個情況或某個人產生的影響（a powerful effect that something, especially something new, has on a situation or person）；閱卷召集人說明舉的寫法是 serious effects on society。85 年推薦甄選第 11 題的答案就是 impact，題幹 the serious impact of noise on their hearing 與本題同一組；103 年學測文意選填第 37 題的答案也是 impact（has had a great impact on）。",
+    "serious／severe（嚴重的）——官方兩式都收。99 年學測第 12 題的答案就是 severe（severe damage，嚴重的損害）。",
+    "influence（影響）——除了當名詞，也可以當動詞：96 年指考文意選填第 33 題的答案就是動詞 influence（influence what people buy，影響人們買什麼）。"
+   ],
+   "confusable": [
+    "effect／affect——effect 是名詞「影響、效果」，affect 是動詞「影響」（劍橋文法〈Affect or effect?〉）。本題的 serious effects on society 前面有形容詞 serious，用的是名詞，所以寫 effect；要是改用動詞，寫法就變成 have seriously affected society。"
+   ],
+   "mustHave": [
+    "中文「高房價」的「高」形容的是價格，英文的 price 用 high／low 說高低（劍橋詞典 price 條目的搭配就是 high price、low price），寫 high prices；這裡泛指各地的房價，price 用複數。",
+    "中文的「產生了」沒有時態，英文得選一個：這件事從過去做到現在、影響還在，所以用現在完成式 have produced。",
+    "中文「對社會」沒有冠詞，英文的 society 要不要加 the？官方參考答案把 the 放在括號裡，on society、on the society 都給分；劍橋詞典把 society 這個意思標為可數、不可數兩用。"
+   ],
+   "refs": [
+    {
+     "label": "85 年推薦甄選第 11 題（impact）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0031"
+    },
+    {
+     "label": "103 年學測文意選填第 37 題（impact）",
+     "url": "https://staresto-create.github.io/passage-completion/#hard-Vy103_37"
+    },
+    {
+     "label": "99 年學測第 12 題（severe）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0282"
+    },
+    {
+     "label": "96 年指考文意選填第 33 題（influence）",
+     "url": "https://staresto-create.github.io/passage-completion/#hard-Vz96_33"
+    },
+    {
+     "label": "107 年指考中譯英第 2 題（has produced）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-119"
+    }
+   ]
+  }
  },
  {
   "id": 109,
@@ -945,7 +1004,58 @@
   "label": "學測",
   "yearLabel": "102 (學測)",
   "zh": "政府正推出新的政策，以滿足人們的住房需求。",
-  "en": "The government is introducing new policies to meet people's housing needs."
+  "en": "The government is launching new policies to meet people's housing needs.",
+  "answerSource": "大考中心 102 年學科能力測驗英文考科非選擇題評分說明（選才電子報第 223 期）",
+  "altAnswers": [
+   "putting forward / launching",
+   "satisfy / meet",
+   "needs / demands"
+  ],
+  "officialWords": [
+   "「政府」government",
+   "「推出」put forward",
+   "「政策」policies",
+   "「滿足」to satisfy"
+  ],
+  "officialWordsSource": "大考中心 102 年學科能力測驗英文考科非選擇題評分說明（選才電子報第 223 期）",
+  "explanation": {
+   "pattern": [
+    "現在進行式 be + V-ing：中文「正推出」的「正」是時態的訊號，講的是現在正在進行的事。劍橋文法說明，現在進行式用來說說話當下正在進行的事。主詞 The government 是單數，be 動詞用 is。選才電子報列出的基本句型就有現在進行式 is + ving。",
+    "to + 原形動詞表示目的（＝ in order to）。中文的「以…」「為了…」就是這個訊號。本題的「以滿足人們的住房需求」用的就是「以」：推出新政策，目的是滿足住房需求，英文寫 to meet people's housing needs。"
+   ],
+   "collocation": [
+    "put forward／launch a policy（推出政策）——官方兩式都收。劍橋詞典 put forward 是把想法或計畫提出來讓人考慮（to suggest a plan or person, for other people to consider），launch 是開始推行一項計畫、推出新的東西（to begin something such as a plan or introduce something new such as a product）。put forward 是片語動詞，現在進行式寫 is putting forward。",
+    "meet／satisfy one's needs（滿足需求）——官方兩式都收，needs 也可以換成 demands。103 年指考文意選填第 25 題的答案就是 needs（have all their needs satisfied）。satisfy 的名詞是 satisfaction，96 年指考文意選填第 38 題的答案就是 satisfaction。閱卷召集人說明指出，有考生把 satisfy 拼成 satisefy。",
+    "housing（住房、住宅）——劍橋詞典標為不可數名詞（buildings for people to live in），常放在名詞前面當修飾語：housing needs（住房需求）、housing prices（房價）。"
+   ],
+   "confusable": [
+    "policy／police——閱卷召集人說明點名，有考生把 policy 寫成 police。policy 是「政策」，複數 policies；police 是「警察」。"
+   ],
+   "mustHave": [
+    "中文「政府」沒有冠詞，英文的 government 指治理國家的那一群人（劍橋詞典：the group of people who officially control a country），這裡講的是本國政府，前面加 the。閱卷召集人說明另外點名，government 常漏寫中間的 n。",
+    "中文「新的政策」看不出單複數，英文的 policy 是可數名詞，官方寫複數 new policies：y 改成 i，再加 -es。",
+    "中文「人們的住房需求」要寫所有格。people 本身已經是複數，字尾沒有 s，所有格加 's，寫 people's（劍橋文法：children、men、people、women 這類不規則複數加 's）。字尾已經有 s 的複數只加撇號，見 105 年學測中譯英第 1 題的 parents'。",
+    "中文「需求」看不出單複數，英文官方兩式都用複數：needs、demands。"
+   ],
+   "refs": [
+    {
+     "label": "103 年指考文意選填第 25 題（needs）",
+     "url": "https://staresto-create.github.io/passage-completion/#hard-Vz103_25"
+    },
+    {
+     "label": "96 年指考文意選填第 38 題（satisfaction）",
+     "url": "https://staresto-create.github.io/passage-completion/#hard-Vz96_38"
+    },
+    {
+     "label": "104 年學測中譯英第 2 題（目的不定詞）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-199"
+    },
+    {
+     "label": "105 年學測中譯英第 1 題（parents'）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-112"
+    }
+   ]
+  }
  },
  {
   "id": 110,
@@ -954,12 +1064,55 @@
   "yearLabel": "102 (指考)",
   "zh": "對現今的許多學生而言，在課業與課外活動間取得平衡是一大挑戰。",
   "en": "For many students today, striking a balance between schoolwork and extracurricular activities is a great challenge.",
+  "answerSource": "大考中心 102 學年度指定科目考試英文考科非選擇題評分標準說明",
   "altAnswers": [
    "today, / nowadays,",
    "schoolwork / academic work",
    "great / big"
   ],
-  "answerSource": "大考中心 102 學年度指定科目考試英文考科非選擇題評分標準說明"
+  "explanation": {
+   "pattern": [
+    "動名詞當主詞：中文「在課業與課外活動間取得平衡」是一件事，英文用動名詞片語 striking a balance between schoolwork and extracurricular activities 當主詞，動詞用單數 is。官方〈評分標準說明〉列出的基本句型就是 For ..., Ving ... is ...。",
+    "For + 人（對…而言）放在句首，後面加逗號，再接主要子句：For many students today, …。官方另收 nowadays，today 與 nowadays 都放在 students 後面。"
+   ],
+   "collocation": [
+    "strike a balance between A and B（在 A 與 B 之間取得平衡）——劍橋詞典的說明是兩件事各顧到一部分，不偏向其中一邊（If you strike a balance between two things, you accept parts of both things…）。balance 另一個常見的說法是 lose one's balance（失去平衡）：103 年學測第 11 題的答案就是 balance；形容詞是 balanced，110 年指考克漏字第 15 題的答案就是 balanced。閱卷召集人說明指出，有考生把 balance 拼成 bellence。",
+    "extracurricular activities（課外活動）——拆開是 extra-（在…之外） + curricular（課程的），劍橋詞典：not part of the usual school or college course。92 年指考克漏字第 21 題的答案就是 extracurricular（extracurricular reading materials，課外讀物）。",
+    "schoolwork／academic work（課業）——官方兩式都收。schoolwork 是不可數名詞（劍橋詞典），不加 s。",
+    "challenge（挑戰）——閱卷召集人說明指出，有考生把 challenge 拼成 chellege。這個字的常考組合與站上的歷屆考法，見 106 年學測中譯英第 2 題的解析。"
+   ],
+   "mustHave": [
+    "中文「對…而言」英文只寫 For + 人，不加 to say。閱卷召集人說明把 For many today student to say 列為中式英文；官方把 today 放在 students 後面，要放在名詞前面，就得改成所有格 today's，見 105 年學測中譯英第 1 題的解析。",
+    "中文「許多學生」的「學生」看不出單複數，英文的 many 後面接複數名詞（劍橋文法：many with plural nouns），寫 many students。",
+    "中文「一大挑戰」的「一」與「大」都要譯出來：challenge 是可數名詞，單數前面要有 a，「大」寫 great 或 big。閱卷召集人說明點名，有考生漏譯「許多學生」的「許多」與「一大挑戰」的「大」。"
+   ],
+   "refs": [
+    {
+     "label": "103 年指考中譯英第 1 題（動名詞當主詞）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-196"
+    },
+    {
+     "label": "103 年學測第 11 題（balance）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0341"
+    },
+    {
+     "label": "110 年指考克漏字第 15 題（balanced）",
+     "url": "https://staresto-create.github.io/zhikao-cloze-test/q/z110-15/"
+    },
+    {
+     "label": "92 年指考克漏字第 21 題（extracurricular）",
+     "url": "https://staresto-create.github.io/zhikao-cloze-test/q/z92-21/"
+    },
+    {
+     "label": "106 年學測中譯英第 2 題（challenge）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-203"
+    },
+    {
+     "label": "105 年學測中譯英第 1 題（today's）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-112"
+    }
+   ]
+  }
  },
  {
   "id": 111,
@@ -968,7 +1121,53 @@
   "yearLabel": "102 (指考)",
   "zh": "有效的時間管理是每位有責任感的學生必須學習的首要課題。",
   "en": "Effective time management is the primary concern for every responsible student.",
-  "answerSource": "大考中心 102 學年度指定科目考試英文考科非選擇題評分標準說明"
+  "answerSource": "大考中心 102 學年度指定科目考試英文考科非選擇題評分標準說明",
+  "explanation": {
+   "pattern": [
+    "整句的骨架是 S + be + 補語：Effective time management（主詞） + is + the primary concern for every responsible student。主詞講的是時間管理這一件事，動詞用單數 is。",
+    "中文「必須學習的首要課題」，官方寫 the primary concern。concern 在這裡是名詞，指對人重要、得放在心上的事（劍橋詞典：something that is important to you）；官方用 the primary concern 一個名詞片語涵蓋「必須學習的首要課題」，沒有另外譯出「必須學習」。"
+   ],
+   "collocation": [
+    "time management（時間管理）——management 是動詞 manage 加名詞字尾 -ment，劍橋詞典標為不可數名詞。95 年學測克漏字第 16 題的答案就是 manage（manage money，管理金錢）。",
+    "effective（有效的）——112 年學測文意選填第 24 題的答案是 effective（be more effective than）；109 年指考文意選填第 29 題的答案也是 effective（an effective remedy，有效的療法）。",
+    "primary（首要的、主要的）——劍橋詞典：more important than anything else; main，只放在名詞前面。副詞是 primarily：90 年聯考第 10 題的答案就是 primarily（focus primarily on，主要聚焦於）。",
+    "responsible（有責任感的）——放在名詞前面形容人，劍橋詞典：having good judgment and the ability to act correctly and make decisions on your own。另一個意思是 be responsible for（負責；造成），100 年學測文意選填第 35 題與 97 年指考克漏字第 17 題考的都是這個用法。名詞 responsibility 的常考組合，見 111 年學測中譯英第 2 題的解析。"
+   ],
+   "mustHave": [
+    "中文「每位…學生」英文用 every，後面接單數名詞（劍橋文法：every + singular noun），寫 every responsible student，student 不加 s。",
+    "中文「首要課題」前面沒有「這個」，英文的 concern 在這個意思可數、不可數兩用（劍橋詞典）；這裡指最重要的那一件事，官方寫 the primary concern，the 不能省。"
+   ],
+   "refs": [
+    {
+     "label": "95 年學測克漏字第 16 題（manage）",
+     "url": "https://staresto-create.github.io/grammar-cloze-test/q/g95-16-1/"
+    },
+    {
+     "label": "112 年學測文意選填第 24 題（effective）",
+     "url": "https://staresto-create.github.io/passage-completion/#hard-Vy112_24"
+    },
+    {
+     "label": "109 年指考文意選填第 29 題（effective）",
+     "url": "https://staresto-create.github.io/passage-completion/#hard-Vz109_29"
+    },
+    {
+     "label": "90 年聯考第 10 題（primarily）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/zhikao/#q-ZK0234"
+    },
+    {
+     "label": "100 年學測文意選填第 35 題（responsible for）",
+     "url": "https://staresto-create.github.io/passage-completion/#hard-Vy100_35"
+    },
+    {
+     "label": "97 年指考克漏字第 17 題（responsible for）",
+     "url": "https://staresto-create.github.io/zhikao-cloze-test/q/z97-17/"
+    },
+    {
+     "label": "111 年學測中譯英第 2 題（responsibility）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-137"
+    }
+   ]
+  }
  },
  {
   "id": 112,
