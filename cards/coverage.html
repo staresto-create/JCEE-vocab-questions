@@ -118,7 +118,7 @@ footer.foot a{color:var(--crimson)}
       <summary>怎麼算「考過」</summary>
       <p id="scopeText"></p>
       <p>字形變化算不算同一個字，依詞彙表〈編輯原則〉：複數、動詞變化、比較級與最高級，以及加上 <span class="af">-ly</span>、<span class="af">-ness</span>、<span class="af">-less</span>、<span class="af">-ment</span>、<span class="af">re-</span>、<span class="af">non-</span>、否定字首 <span class="af">un-／in-／im-／ir-／il-</span> 的字，還有 <span class="af">-ing</span>、<span class="af">-ed</span> 結尾的形容詞，詞彙表都不另列，所以算回原來的詞條。<span class="af">-able／-ible</span>、<span class="af">-ful</span>、<span class="af">-er／-or</span> 這幾類則不算回去：詞彙表有收的，各自是一個詞條；詞彙表沒收的，就不算考過任何詞條。</p>
-      <p>少數字拼法看起來是字形變化，意思卻已經不同，這幾個另外排除，例如題目裡的 projected 是「預測」，詞彙表的 project 卻是「計畫」。本站考過、但詞彙表沒收的字，也不在這份清單裡。</p>
+      <p>少數字拼法看起來是字形變化，意思卻已經不同，這幾個另外排除，例如題目裡的 projected 是「預測」，詞彙表的 project 卻是「計畫」。本題庫詞彙題考過、但詞彙表沒收的字，也不在這份清單裡。</p>
     </details>
   </section>
 
@@ -260,7 +260,7 @@ function render(){
 fetch('coverage_data.json').then(function(r){if(!r.ok)throw new Error(r.status);return r.json();}).then(function(d){
   D=d;
   var g=d.scope.gsat, z=d.scope.zhikao;
-  $('#scopeText').textContent='範圍是本站兩個單字題庫：學測 '+g[0]+' 到 '+g[1]+' 年共 '+g[2]+' 題，指考（含早年的聯考）'+z[0]+' 到 '+z[1]+' 年共 '+z[2]+' 題。只要這個字出現在四個選項裡，不論是答案還是誘答，都算考過；片語不算，題幹與文章裡出現的字也不算。';
+  $('#scopeText').textContent='範圍是兩個單字題庫：學測 '+g[0]+' 到 '+g[1]+' 年共 '+g[2]+' 題，指考（含早年的聯考）'+z[0]+' 到 '+z[1]+' 年共 '+z[2]+' 題。只要這個字出現在四個選項裡，不論是答案還是誘答，都算考過；片語不算，題幹與文章裡出現的字也不算。';
   $('#lede').textContent='大考中心《高中英文參考詞彙表》第二到第六級共 5,007 個詞條，這份清單逐一標出哪些字在學測、指考的詞彙題考過：學測 '+g[0]+' 到 '+g[1]+' 年、指考 '+z[0]+' 到 '+z[1]+' 年，一共 '+fmt(g[2]+z[2])+' 題。考過的字附上題號，點下去就是原題與解析。';
   buildTable();
   mkBtns($('#lvRow'),[[0,'全部'],[2,'第 2 級'],[3,'第 3 級'],[4,'第 4 級'],[5,'第 5 級'],[6,'第 6 級']],'lv');
@@ -272,7 +272,7 @@ fetch('coverage_data.json').then(function(r){if(!r.ok)throw new Error(r.status);
   render();
   var f=$('#foot');
   f.appendChild(document.createElement('br'));
-  f.appendChild(document.createTextNode('資料更新：'+d.updated+'。詞彙表著作權屬財團法人大學入學考試中心基金會，本清單僅供非營利教學使用。免費、無廣告的非營利自學題庫。'));
+  f.appendChild(document.createTextNode('資料更新：'+d.updated+'。詞彙表著作權屬財團法人大學入學考試中心基金會，本清單只供非營利教學使用。免費、無廣告的非營利自學題庫。'));
 }).catch(function(){
   $('#body').innerHTML='<p class="empty">讀不到 coverage_data.json。這個頁面要跟資料檔放在同一個資料夾。</p>';
 });
