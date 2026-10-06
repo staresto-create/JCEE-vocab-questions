@@ -3093,7 +3093,55 @@
   "label": "學測",
   "yearLabel": "98 (學測)",
   "zh": "大部分學生不習慣自己解決問題，他們總是期待老師提供標準答案。",
-  "en": "Most students are not used to solving problems on their own; they always expect teachers to provide standard answers."
+  "en": "Most students are not used to solving problems by themselves; they always expect their teachers to provide standard answers.",
+  "answerSource": "大考中心 98 學測英文考科非選擇題評分標準說明",
+  "altAnswers": [
+   "used to / in the habit of",
+   "; / and",
+   "provide / provide them with"
+  ],
+  "explanation": {
+   "pattern": [
+    "整句是兩個完整的句子：Most students（主詞） + are not used to + solving problems by themselves；they（主詞） + always expect + their teachers（受詞） + to provide standard answers。官方〈評分標準說明〉點明，第一句評量的是以 Most students 為主詞的基本句型。",
+    "分號連接兩個關係緊密、各自完整的句子。中文用逗號一路連下去很順，英文不行——這兩段各有主詞與動詞，中間要嘛用分號，要嘛加一個連接詞，只放逗號就變成兩個句子沒有連接詞連接。官方收分號與 and 兩式。",
+    "be used to + 名詞或動名詞（習慣於…）：這裡的 to 是介系詞，後面接動名詞 solving，不接原形 solve。長得像的說法有三個，一次分清楚：used to + 原形動詞 ＝ 過去曾經（現在不是了）；be／get used to + 名詞或動名詞 ＝ 習慣於；be used to + 原形動詞 ＝ 被用來做……。本題是第二個。111 年學測克漏字第 17 題考的是第一個（plane windows used to be square，飛機窗戶以前是方的）。",
+    "先找標記，再決定時態。「總是」就是那個標記——現在簡單式講的是通常如此、反覆如此的事，所以用 expect；前半「不習慣」講的也是學生現在的狀態，be 動詞用 are。"
+   ],
+   "collocation": [
+    "be accustomed to／be in the habit of（習慣於…）——官方另收 be in the habit of + V-ing，of 是介系詞，後面同樣接動名詞；劍橋詞典的例句是 Judy is in the habit of sleeping late on Sundays（茱蒂習慣星期天睡晚一點）。83 年推薦甄選第 2 題的答案 accustomed 也是同一個意思（I'm quite accustomed to the weather in Taiwan，我已經很習慣台灣的天氣了），該題的字詞搭配欄也註明 to 是介系詞。",
+    "expect sb to V（期待某人做某事）——劍橋詞典 expect 這個意思是認為某人應該做某件事（to think that someone should behave in a particular way or do a particular thing）。受詞 their teachers 是要做這件事的人，後面接不定詞 to provide。",
+    "provide（提供）——官方另收 provide them with standard answers。劍橋詞典並列兩種接法，provide sth for sb 與 provide sb with sth，例句 provide viable social services for poorer families／provide poorer families with viable social services（為較貧窮的家庭提供可行的社會服務）。",
+    "solve a problem（解決問題）——81 年聯考第 5 題的答案就是 solve（John still could not solve it，約翰還是解不出來），該題的字詞搭配欄也收了 solve a puzzle、solve a mystery。standard（標準的）——99 年指考文意選填第 22 題的答案就是 standard（There are no standard rules for textese，火星文沒有標準規則）。",
+    "by themselves（靠自己、沒有別人幫忙）——劍橋詞典 (all) by yourself 的釋義是獨自一人，或沒有任何人幫忙（alone or without help from anyone else）。on their own 也有這個意思，劍橋把「沒有任何人幫忙」這一義標為主要用於英式英文（mainly UK）；官方參考答案寫的是 by themselves。"
+   ],
+   "mustHave": [
+    "中文「自己解決問題」的「自己」，英文寫反身代名詞，要與主詞一致：主詞是 Most students，所以寫 by themselves。",
+    "中文「期待老師」的「老師」前面沒有「他們的」，官方參考答案寫 their teachers，指的是學生自己的老師；「標準答案」泛指各種答案，用複數 standard answers。",
+    "中文後半「他們總是期待」的主詞「他們」承接前面的「大部分學生」，英文後半要有主詞 they，不能省。"
+   ],
+   "refs": [
+    {
+     "label": "111 年學測克漏字第 17 題（used to be）",
+     "url": "https://staresto-create.github.io/grammar-cloze-test/q/g111-17-2/"
+    },
+    {
+     "label": "83 年推薦甄選第 2 題（accustomed）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0002"
+    },
+    {
+     "label": "109 年指考補考中譯英第 1 題（分號）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-128"
+    },
+    {
+     "label": "81 年聯考第 5 題（solve）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/zhikao/#q-ZK0328"
+    },
+    {
+     "label": "99 年指考文意選填第 22 題（standard）",
+     "url": "https://staresto-create.github.io/passage-completion/#hard-Vz99_22"
+    }
+   ]
+  }
  },
  {
   "id": 177,
@@ -3101,7 +3149,47 @@
   "label": "學測",
   "yearLabel": "98 (學測)",
   "zh": "除了用功讀書獲取知識外，學生也應該培養獨立思考的能力。",
-  "en": "In addition to studying hard to acquire knowledge, students should also cultivate the ability to think independently."
+  "en": "In addition to studying hard to gain knowledge, students should also develop the ability to think independently.",
+  "answerSource": "大考中心 98 學測英文考科非選擇題評分標準說明",
+  "altAnswers": [
+   "In addition to / Besides",
+   "gain / obtain / get",
+   "the ability to think independently / independent thinking skills / independent thinking abilities"
+  ],
+  "explanation": {
+   "pattern": [
+    "In addition to + V-ing, S + also + V…：In addition to 的 to 是介系詞，不是不定詞的 to，後面接名詞或動名詞，所以「用功讀書」要寫成 studying hard。前半是介系詞片語，用逗號與後面隔開；後半才是主要子句，主詞 students 不能省。同一個句型見 113 年學測中譯英第 2 題的解析，那一題官方收了 Besides、Aside from、Apart from、In addition to 四式。官方〈評分標準說明〉點明，本題評量的就是 Besides + V-ing, S + V 這個基本句型。",
+    "to + 原形動詞表示目的（＝ in order to）。中文的「以…」「為了…」就是這個訊號。本題中文沒有這兩個字，不過「用功讀書獲取知識」的先後關係就是目的：用功讀書是為了獲取知識，英文寫 to gain knowledge。",
+    "should 是助動詞，後面直接接原形 develop，不加 to；also 放在 should 與 develop 中間。"
+   ],
+   "collocation": [
+    "develop an ability（培養能力）——官方參考答案用 develop 譯「培養」。the ability to + 原形動詞 是「做…的能力」：the ability to think independently；官方另收 independent thinking skills／abilities，形容詞 independent 放在名詞前面。develop 往外延伸的說法，見 76 年大學聯考中譯英第 3 題的解析。",
+    "gain／obtain／get knowledge（獲取知識）——官方三個都收。101 年學測中譯英第 1 題用的也是 gain（have gained international attention，受到國際重視）。",
+    "independent（獨立的）——拆開是 in-（不） + depend（依靠） + -ent（…的）。depend 來自拉丁文 dependere「從…垂下」，由 de-（往下） + pendere（懸掛）組成（Etymonline）；不靠在別人身上吊著，就是獨立。同一個字根還有 pendant（墜飾）、append（附加）。115 年學測文意選填第 27 題的答案就是 depend on（may depend on a person's physical condition，可能取決於一個人的身體狀況）。"
+   ],
+   "mustHave": [
+    "中文「獨立思考的能力」把修飾語都擺在「能力」前面；英文寫 the ability to think independently，「思考」改成不定詞 to think 放在 ability 後面，「獨立」改成副詞 independently 修飾 think。",
+    "中文「獲取知識」的「知識」沒有單複數，這裡泛指知識，英文寫 knowledge，前面不加冠詞、字尾不加 s。"
+   ],
+   "refs": [
+    {
+     "label": "113 年學測中譯英第 2 題（Besides + V-ing）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-141"
+    },
+    {
+     "label": "76 年大學聯考中譯英第 3 題（develop an ability）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-23"
+    },
+    {
+     "label": "101 年學測中譯英第 1 題（gain）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-190"
+    },
+    {
+     "label": "115 年學測文意選填第 27 題（depend on）",
+     "url": "https://staresto-create.github.io/passage-completion/#hard-Vy115_27"
+    }
+   ]
+  }
  },
  {
   "id": 178,
@@ -3109,7 +3197,60 @@
   "label": "指考",
   "yearLabel": "98 (指考)",
   "zh": "玉山是東亞第一高峰，以生態多樣聞名。",
-  "en": "Mt. Jade is the highest mountain in East Asia and is well known for its biological diversity."
+  "en": "Mt. Jade is the highest mountain in East Asia, and it is known for its ecological diversity.",
+  "answerSource": "大考中心 98 指考英文考科非選擇題評分標準說明（選才電子報第 180 期）",
+  "altAnswers": [
+   "Jade Mountain / Mt. Jade / Yushan",
+   "highest / tallest",
+   "mountain / peak",
+   ", (which is) / , and it is",
+   "known / noted / renowned / famous",
+   "diverse wildlife / diverse ecology / ecological diversity"
+  ],
+  "explanation": {
+   "pattern": [
+    "整句的骨架是 S + be + 補語：Mt. Jade（主詞） + is + the highest mountain in East Asia（補語），逗號後面再說它以什麼聞名。",
+    "the + 最高級 + 名詞 + in East Asia（東亞最…的）：the highest mountain。最高級形容詞前面加 the，in East Asia 交代比較的範圍。",
+    "後半官方收兩種接法，並排看：[, and it is known for its ecological diversity] 用 and 接一個完整的句子，主詞 it 指的是 Mt. Jade；[, (which is) known for its ecological diversity] 是非限定關係子句，逗號 + which 補充說明前面的先行詞 Mt. Jade，把 which is 省略，就成了分詞片語 known for…。官方〈評分標準說明〉點明，本題評量的是分詞片語句法。",
+    "分詞片語的步驟：將 which is 省略，視子句的動詞與先行詞的關係，現在分詞的意思接近主動的動詞，過去分詞通常帶被動的意思（英國文化協會 LearnEnglish〈Participle clauses〉），所以主動用現在分詞 V-ing，被動用過去分詞。這裡的 known 本來就是 be known for 裡的過去分詞，省略 which is 之後直接留下 known for…。與 106 年指考中譯英第 1 題的 an event held by different cities 是同一個結構。"
+   ],
+   "collocation": [
+    "be known／noted／renowned／famous for（以…聞名）——官方四個都收，後面都接 for。劍橋詞典 renowned 的釋義就是 famous for something，例句 The region is renowned for its outstanding natural beauty（這個地區以絕美的自然景觀聞名）；noted for 的例句是 Summerhill school was noted for its progressive policies。114 年學測文意選填第 21 題的答案就是 noted（this cathedral is noted for…，這座大教堂以…著稱），那一篇前一句用 famous，後一句改用 noted。famous 與 popular 的分別，見 101 年學測中譯英第 2 題的解析。",
+    "ecological diversity（生態多樣性）——官方另收 diverse wildlife（多樣的野生動物）、diverse ecology（多樣的生態）。ecology 拆開是 eco（住處） + -logy（研究），來自希臘文 oikos「房子、住處」加上 -logia「研究」（Etymonline）；economy（經濟）也來自同一個 oikos。106 年指考第 9 題的答案就是 ecological（significant ecological changes，重大的生態變化）。",
+    "diverse（多樣的）是形容詞，名詞是 diversity，動詞是 diversify。97 年指考第 10 題的答案就是 diversify（decided to diversify its products，決定讓產品多樣化）。"
+   ],
+   "mustHave": [
+    "中文「東亞第一高峰」的「第一」，英文用最高級 the highest 表示，不寫 the first；「峰」官方收 mountain 與 peak。",
+    "中文「以生態多樣聞名」沒有主詞；英文用 and 接下去時，要補主詞 it 與 be 動詞 is，用分詞片語就不必。its 是 it 的所有格，不加撇號；it's 是 it is。",
+    "山名官方收 Jade Mountain、Mt. Jade、Yushan 三式；Mt. 是 Mount 的縮寫，第一個字母大寫，後面加句點。"
+   ],
+   "refs": [
+    {
+     "label": "104 年指考中譯英第 1 題（the highest）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-200"
+    },
+    {
+     "label": "106 年指考中譯英第 1 題（分詞片語）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-204"
+    },
+    {
+     "label": "101 年學測中譯英第 2 題（famous／popular）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-191"
+    },
+    {
+     "label": "114 年學測文意選填第 21 題（noted）",
+     "url": "https://staresto-create.github.io/passage-completion/#hard-Vy114_21"
+    },
+    {
+     "label": "106 年指考第 9 題（ecological）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/zhikao/#q-ZK0059"
+    },
+    {
+     "label": "97 年指考第 10 題（diversify）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/zhikao/#q-ZK0162"
+    }
+   ]
+  }
  },
  {
   "id": 179,
@@ -3117,7 +3258,55 @@
   "label": "指考",
   "yearLabel": "98 (指考)",
   "zh": "大家在網路上投票給它，要讓它成為世界七大奇觀之一。",
-  "en": "Many people voted online for it to be made one of the Seven Wonders of the World."
+  "en": "People are voting for it online to make it one of the Seven Wonders of the World.",
+  "answerSource": "大考中心 98 指考英文考科非選擇題評分標準說明（選才電子報第 180 期）",
+  "altAnswers": [
+   "People are / Everyone is",
+   "voting (for it) / voted (it)",
+   "on the web / on the website / on the Internet / online",
+   "make it / help it become",
+   "the Seven Wonders of the World / the Seven Wonders in the World / the world's Seven Wonders"
+  ],
+  "explanation": {
+   "pattern": [
+    "整句的骨架是 S + be + V-ing + 不定詞：People（主詞） + are voting for it online + to make it one of the Seven Wonders of the World。",
+    "現在進行式 be + V-ing：官方〈評分標準說明〉點明，這一句評量的是進行式。劍橋文法說明，現在進行式用來說說話當下正在進行的事。中文「大家在網路上投票」沒有「正」字，光看中文看不出是正在投，還是已經投完；官方兩式都收，並排看：[People are voting for it online]（現在進行式）投票還在進行，結果還沒出來；[People voted online]（過去簡單式）投票已經結束，是過去的一件事——劍橋文法說明，過去簡單式用來講過去某個確定時間發生的事。主詞的單複數也要對：People 是複數，be 動詞用 are；Everyone 是單數，用 is。",
+    "to + 原形動詞表示目的（＝ in order to）。中文的「以…」「為了…」就是這個訊號。本題中文沒有這兩個字，不過「要讓它成為…」的「要」說的就是投票的目的，英文寫 to make it…。",
+    "make + 受詞 + 名詞（使…成為…）：make it one of the Seven Wonders of the World。劍橋詞典 make 的這個意思是 to cause to be, to become，例句 It's the good weather that makes Spain such a popular tourist destination（讓西班牙成為熱門觀光地的，是好天氣）。make 後面接形容詞的同一個結構，見 103 年指考中譯英第 1 題的解析（make schoolchildren overweight）。官方另收 help it become。"
+   ],
+   "collocation": [
+    "vote for（投票給…）——劍橋詞典 vote 的接法有 vote for／against（投票支持／反對）、vote on（就…投票表決）。官方把 for it 放在括號裡，可寫可不寫。110 年指考第 10 題的答案 ballots 是「選票」（paper ballots，紙本選票），該題的字詞搭配欄收了 cast a ballot（投票）。",
+    "online（在網路上）——劍橋詞典把 online 收為副詞，例句 Do you like to shop online?（你喜歡上網買東西嗎？）。online 是副詞，前面不加 on；官方另收 on the web、on the website、on the Internet，這三式要有 on the。",
+    "the Seven Wonders of the World（世界七大奇觀）——wonder 在這裡是可數名詞，指令人驚嘆、讚嘆的人或事物（劍橋詞典：someone or something that causes such feelings，即 great surprise and admiration）。95 年學測第 4 題的答案 wondered 是動詞「好奇、想知道」（Have you ever wondered how…，你是否曾經好奇…）。官方另收 the world's Seven Wonders。"
+   ],
+   "mustHave": [
+    "中文「大家」，官方寫 People 或 Everyone；Everyone 是單數，be 動詞用 is。",
+    "中文「七大奇觀之一」的「之一」寫成 one of，one of 後面的名詞一律要用複數：one of the Seven Wonders。",
+    "中文「投票給它，要讓它成為」兩個「它」都要寫出來：vote for it、make it；make 後面的 it 不能省。"
+   ],
+   "refs": [
+    {
+     "label": "100 年指考中譯英第 2 題（現在進行式）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-187"
+    },
+    {
+     "label": "103 年指考中譯英第 1 題（make + 受詞 + 形容詞）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-196"
+    },
+    {
+     "label": "108 年學測中譯英第 1 題（one of）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-120"
+    },
+    {
+     "label": "110 年指考第 10 題（ballots）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/zhikao/#q-ZK0010"
+    },
+    {
+     "label": "95 年學測第 4 題（wondered）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0214"
+    }
+   ]
+  }
  },
  {
   "id": 180,
