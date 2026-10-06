@@ -1558,13 +1558,12 @@
    ],
    "mustHave": [
     "中文的「已成為」沒有時態，英文得選一個：這件事從 2007 年到現在、狀態還在，所以用現在完成式 has become。",
-    "從過去延續到現在 → 現在完成式",
-    "means 這個字把單複數藏起來了。one of 後面的名詞一律要用複數，但 means 作「方法、工具」解時單複數同形——Collins 明載這個用法的單數與複數是同一個形。同一份考卷的字彙題（108 年學測第 2 題）考的正是這個字。",
+    "one of 後面的名詞一律要用複數；means 作「方法、工具」解時單複數同形，複數也寫 means——Collins 明載這個用法的單數與複數是同一個形。means 是另一個字，不是 mean 的另一個意思；同一份考卷的字彙題（108 年學測第 2 題）考的是形容詞 mean（刻薄的）。",
     "另外一處中文不必寫、英文非寫不可：「營運」在中文是動詞，接在 since 後面要改成名詞 operation，前面還得加所有格 its。"
    ],
    "refs": [
     {
-     "label": "108 年學測第 2 題（同一份考卷，means 單複數同形）",
+     "label": "108 年學測第 2 題（mean，刻薄的）",
      "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0407"
     },
     {
@@ -3126,7 +3125,63 @@
   "label": "學測",
   "yearLabel": "99 (學測)",
   "zh": "在過去，腳踏車主要是作為一種交通工具。",
-  "en": "In the past, bicycles were mainly used as a means of transportation."
+  "en": "In the past, bicycles were used mainly as a means of transportation.",
+  "answerSource": "大考中心 99 年學測英文考科非選擇題評分說明（選才電子報第 187 期）",
+  "altAnswers": [
+   "In the past, / In the old days,",
+   "bicycles / bikes",
+   "served / were used",
+   "mainly / primarily / chiefly"
+  ],
+  "officialWords": [
+   "「腳踏車」bicycle/bike",
+   "「交通工具」a means of transportation",
+   "「主要」mainly"
+  ],
+  "officialWordsSource": "大考中心 99 年學測英文考科非選擇題評分說明（選才電子報第 187 期）",
+  "explanation": {
+   "pattern": [
+    "整句的骨架是 S + be + p.p. + as + 名詞：In the past（時間副詞） + bicycles（主詞） + were used mainly + as a means of transportation。主詞是複數名詞 bicycles，所以 be 動詞用 were。",
+    "已經結束的過去用過去簡單式，句首的 in the past 就是那個標記。先找標記，再決定時態，比憑語感可靠得多。官方句首另收 In the old days。",
+    "中文「作為一種交通工具」沒有「被」字，看不出主動還是被動。要用哪一個，看的是這一句在談誰——這一句談的是腳踏車，用的人是誰不必說也不重要，所以 bicycles 當主詞，動詞寫成被動 were used。官方另收主動的 served as，寫 bicycles served mainly as a means of transportation；served 是一般動詞，前面不加 were。選才電子報列出的基本句型就是 served as／were used as。"
+   ],
+   "collocation": [
+    "a means of transportation（一種交通工具）——means（方法、手段）是另一個字，不是 mean 的另一個意思。劍橋英漢詞典把 means 另列一個詞條，名詞，複數也是 means；字尾的 s 不表示複數，單數也寫 a means，例句 We need to find some other means of transportation（我們需要找其他交通工具了）。110 年學測文意選填第 39 題的答案就是 means（serve as a powerful means to improve your health，改善健康的有力方法），連 serve as 也與本題同型。108 年學測第 2 題考的是另一個字，形容詞 mean（刻薄的）。means of transportation 往外延伸的說法，見 108 年學測中譯英第 1 題的解析。",
+    "transportation（運輸、交通工具）——動詞是 transport。拆開是 trans-（越過） + port（搬運），來自拉丁文 transportare「運過去」，其中 portare 是「搬運」（Etymonline）；同一個字根還有 import（進口）、export（出口）、portable（可攜帶的）。95 年學測第 11 題的答案就是 transportation（public transportation projects，大眾運輸建設）。",
+    "serve as（充當、作為）——官方另收的寫法。108 年學測克漏字第 21 題的答案就是 serve as（Pineapple leaves can serve as a substitute for leather，鳳梨葉可以當作皮革的替代品）。",
+    "mainly／primarily／chiefly（主要地）——官方三個都收，都放在 as 前面，修飾的是 as a means of transportation 這一段。98 年指考參考試卷第 3 題的答案就是 primarily（was primarily due to lower demands，主要是因為需求下降）。"
+   ],
+   "mustHave": [
+    "中文「腳踏車」看不出單複數，這裡泛指過去的腳踏車，英文寫複數 bicycles，be 動詞用 were。官方另收 bikes。",
+    "中文的「一種」寫成冠詞 a：a means of transportation。means 雖然字尾有 s，在這裡是單數，所以前面可以加 a。"
+   ],
+   "refs": [
+    {
+     "label": "108 年學測中譯英第 1 題（means of transportation）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-120"
+    },
+    {
+     "label": "110 年學測文意選填第 39 題（a means）",
+     "url": "https://staresto-create.github.io/passage-completion/#hard-Vy110_39"
+    },
+    {
+     "label": "108 年學測第 2 題（mean，刻薄的）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0407"
+    },
+    {
+     "label": "95 年學測第 11 題（transportation）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0221"
+    },
+    {
+     "label": "108 年學測克漏字第 21 題（serve as）",
+     "url": "https://staresto-create.github.io/grammar-cloze-test/q/g108-21-2/"
+    },
+    {
+     "label": "98 年指考參考試卷第 3 題（primarily）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/zhikao/#q-ZK0336"
+    }
+   ]
+  }
  },
  {
   "id": 181,
@@ -3134,7 +3189,60 @@
   "label": "學測",
   "yearLabel": "99 (學測)",
   "zh": "然而，騎腳踏車現在已經成為一種熱門的休閒活動。",
-  "en": "However, cycling has now become a popular leisure activity."
+  "en": "However, cycling has become a popular leisure activity now.",
+  "answerSource": "大考中心 99 年學測英文考科非選擇題評分說明（選才電子報第 187 期）",
+  "altAnswers": [
+   "However, / But",
+   "riding bicycles / bicycle-riding / cycling / bicycling",
+   "leisure / recreational",
+   "today / now / nowadays"
+  ],
+  "officialWords": [
+   "「然而」however",
+   "「休閒」leisure/recreational",
+   "「活動」activity"
+  ],
+  "officialWordsSource": "大考中心 99 年學測英文考科非選擇題評分說明（選才電子報第 187 期）",
+  "explanation": {
+   "pattern": [
+    "整句的骨架是 S + has become + 補語：cycling（主詞） + has become + a popular leisure activity。",
+    "動名詞當主詞：中文「騎腳踏車」是一件事，英文用動名詞 cycling 當主詞，動詞用單數，所以助動詞用 has。官方收四式：riding bicycles、bicycle-riding、cycling、bicycling。",
+    "中文的「已經」是時態的訊號：這件事從過去做到現在、狀態還在，所以主要動詞用現在完成式 has become。",
+    "However, 放在句首，後面加逗號，承接上一句「過去主要是交通工具」，轉到「現在成為休閒活動」。官方另收 But，樹裡的 But 後面沒有逗號。"
+   ],
+   "collocation": [
+    "leisure activity（休閒活動）——leisure 是名詞，指不用工作、也沒有其他事要做的時間（劍橋詞典：the time when you are not working or doing other duties），放在 activity 前面修飾；劍橋詞典的例句就有 leisure activities（休閒活動）、leisure time（空閒時間）。官方另收形容詞 recreational，劍橋詞典 recreational 的搭配同樣有 recreational activities。",
+    "activity（活動）——84 年學測克漏字第 37 題的答案就是 activity（Another fun activity is shopping at the open market，另一個好玩的活動是逛露天市集），講的也是休閒的事。",
+    "popular（熱門的、受歡迎的）——popular 的字源，以及 popular 與 famous 的分別，見 101 年學測中譯英第 2 題的解析。100 年學測文意選填第 31 題的答案就是 popular（this popular snack）。",
+    "cycling（騎腳踏車）——bicycle 拆開是 bi-（二） + cycle（輪），cycle 來自希臘文 kyklos「圓、輪子」（Etymonline），兩個輪子就是腳踏車。cycle 當動詞是騎腳踏車，動名詞就是本題的主詞 cycling。"
+   ],
+   "mustHave": [
+    "中文「現在已經成為」的「現在」，官方放在句尾，收 today、now、nowadays 三個。",
+    "中文「一種熱門的休閒活動」的「一種」寫成冠詞 a，形容詞 popular 放在 leisure 前面：a popular leisure activity。"
+   ],
+   "refs": [
+    {
+     "label": "84 年學測克漏字第 37 題（activity）",
+     "url": "https://staresto-create.github.io/grammar-cloze-test/q/g84-37-2/"
+    },
+    {
+     "label": "101 年學測中譯英第 2 題（popular）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-191"
+    },
+    {
+     "label": "100 年學測文意選填第 31 題（popular）",
+     "url": "https://staresto-create.github.io/passage-completion/#hard-Vy100_31"
+    },
+    {
+     "label": "105 年學測中譯英第 2 題（However）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-113"
+    },
+    {
+     "label": "102 年指考中譯英第 1 題（動名詞當主詞）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-110"
+    }
+   ]
+  }
  },
  {
   "id": 182,
@@ -3142,10 +3250,74 @@
   "label": "指考",
   "yearLabel": "99 (指考)",
   "zh": "近二十年來我國的出生率快速下滑。",
-  "en": "The birth rate in our country has declined sharply in the last twenty years.",
+  "en": "In the last twenty years, our country's birthrate has sharply declined.",
+  "answerSource": "大考中心 99 學年度指定科目考試英文考科非選擇題評分標準說明（選才電子報第 192 期）",
   "altAnswers": [
-   "The birth rate in our country has rapidly declined over the past two decades."
-  ]
+   "For / Over / In + the past / the last + twenty years / two decades",
+   "our country's / our nation's / Taiwan's",
+   "has been + declining / dropping / falling / decreasing + rapidly / sharply / dramatically / steeply / drastically / quickly",
+   "has + rapidly / sharply / dramatically / quickly + declined / dropped / fallen / decreased"
+  ],
+  "explanation": {
+   "pattern": [
+    "整句的骨架是 S + has + p.p.：In the last twenty years（時間副詞） + our country's birthrate（主詞） + has sharply declined。主詞的核心是單數名詞 birthrate，所以助動詞用 has。",
+    "In the last twenty years 這類「近…年來」的時間副詞，配的是現在完成式，寫 has declined，不寫 declined。官方〈評分標準說明〉也點明，本題評量的是現在完成式（現在完成進行式）。",
+    "官方現在完成式與現在完成進行式兩式都收。兩式講的都是從過去延續到現在的事，差別在著眼點：英國文化協會 LearnEnglish〈Present perfect simple and continuous〉的說明是，現在完成式通常著眼在結果，現在完成進行式通常著眼在動作本身；講一直持續到現在的動作時，兩式都可以用，差別只在強調的地方。並排看：[has sharply declined]（現在完成式）著眼在結果，出生率到現在已經降低了；[has been declining sharply]（現在完成進行式）著眼在下滑的過程，二十年來一路在降，到現在還在降。兩式的副詞位置也不同：現在完成式的 sharply 放在 has 與過去分詞中間，現在完成進行式的 sharply 放在句尾。",
+    "克漏字站考過兩次現在完成進行式，都是到現在還在進行的事：97 年學測克漏字第 16 題的答案是 have been using（for at least 4,000 years，至少用了四千年，今天還在用），111 年學測克漏字第 12 題的答案是 have been springing（Since the 1970s，自 1970 年代起不斷冒出來）。87 年學測克漏字第 34 題正好相反：時間標記是 by 1980，終點在過去，所以答案是過去完成式 had decreased，現在完成進行式 has been decreasing 是誘答選項。先找標記，再決定時態，比憑語感可靠得多。"
+   ],
+   "collocation": [
+    "birthrate（出生率）——官方樹寫成一個字。劍橋詞典寫成兩個字 birth rate；韋氏詞典的主詞條也是 birth rate，另收連寫的 birthrate，兩種寫法都成立。",
+    "decline（下降、衰退）——113 年學測克漏字第 19 題的答案就是 declined（叫人起床這一行，在鬧鐘普及之後沒落了）。官方另收 decrease、drop、fall，109 年學測第 4 題的答案就是 decreased（the country's exports decreased by 40 percent，出口銳減四成）。decline 另一個意思是「婉拒」，95 年學測第 7 題的答案就是這個意思（decline Jack's invitation）。",
+    "sharply／rapidly（急遽地、快速地）——官方收 rapidly、sharply、dramatically、quickly，進行式那一式另收 steeply、drastically。99 年學測第 12 題的題幹就有 a sharp decline in harvests（收成大幅減少）；100 年指考文意選填第 26 題的答案是 rapid（be in rapid decline，急遽衰退），這兩題都是形容詞放在名詞 decline 前面。98 年指考參考試卷第 8 題的答案是 drastic（a drastic change，劇烈的改變）。",
+    "decade（十年）——劍橋詞典：a period of ten years。官方的 two decades 就是 twenty years。"
+   ],
+   "mustHave": [
+    "中文「我國的出生率」用「的」表示所屬，英文官方收三式：our country's birthrate、our nation's birthrate、Taiwan's birthrate。",
+    "中文「近二十年來」放在句首，英文的時間片語也放在句首，後面加逗號。官方收 For、Over、In 三個介系詞，後面接 the past 或 the last，再接 twenty years 或 two decades。"
+   ],
+   "refs": [
+    {
+     "label": "107 年學測中譯英第 1 題（in recent years 與現在完成式）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-116"
+    },
+    {
+     "label": "97 年學測克漏字第 16 題（have been using）",
+     "url": "https://staresto-create.github.io/grammar-cloze-test/q/g97-16-1/"
+    },
+    {
+     "label": "111 年學測克漏字第 12 題（have been springing）",
+     "url": "https://staresto-create.github.io/grammar-cloze-test/q/g111-12-1/"
+    },
+    {
+     "label": "87 年學測克漏字第 34 題（had decreased）",
+     "url": "https://staresto-create.github.io/grammar-cloze-test/q/g87-34-2/"
+    },
+    {
+     "label": "113 年學測克漏字第 19 題（declined）",
+     "url": "https://staresto-create.github.io/grammar-cloze-test/q/g113-19-2/"
+    },
+    {
+     "label": "109 年學測第 4 題（decreased）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0424"
+    },
+    {
+     "label": "95 年學測第 7 題（decline，婉拒）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0217"
+    },
+    {
+     "label": "99 年學測第 12 題（a sharp decline）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0282"
+    },
+    {
+     "label": "100 年指考文意選填第 26 題（rapid decline）",
+     "url": "https://staresto-create.github.io/passage-completion/#hard-Vz100_26"
+    },
+    {
+     "label": "98 年指考參考試卷第 8 題（drastic）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/zhikao/#q-ZK0340"
+    }
+   ]
+  }
  },
  {
   "id": 183,
@@ -3153,10 +3325,63 @@
   "label": "指考",
   "yearLabel": "99 (指考)",
   "zh": "這可能導致我們未來人力資源的嚴重不足。",
-  "en": "This may result in a serious shortage of human resources in the future.",
+  "en": "This may result in a serious shortage of (our) human resources in the future.",
+  "answerSource": "大考中心 99 學年度指定科目考試英文考科非選擇題評分標準說明（選才電子報第 192 期）",
   "altAnswers": [
-   "This may lead to a severe shortage of human resources in our future."
-  ]
+   "may / can",
+   "lead to / cause / result in / bring about",
+   "a severe / a serious + shortage / lack",
+   "severe deficiency / severe scarcity",
+   "manpower / human resources / workforce"
+  ],
+  "explanation": {
+   "pattern": [
+    "整句的骨架是 S + may + 原形動詞 + 受詞：This（主詞） + may result in + a serious shortage of (our) human resources in the future（受詞）。",
+    "中文的「可能」用助動詞 may 表示，後面接原形 result in；官方另收 can。",
+    "This 指的是前一句「出生率快速下滑」這整件事，所以用單數的 This。"
+   ],
+   "collocation": [
+    "result in（造成、導致）——本題要用的這一組。往外延伸：lead to、give rise to、bring about 後面都接結果；方向相反的是 result from、stem from（起因於）。官方收 lead to、cause、result in、bring about 四式。97 年指考克漏字第 22 題的答案就是 results in；92 年指考克漏字第 25 題的答案是 leads to；93 年學測第 11 題的答案是 brought about。cause 與 lead to 的分別，見 112 年學測中譯英第 1 題的解析。",
+    "shortage（短缺、不足）——劍橋詞典：a situation in which there is not enough of something，例句 The long hot summer has led to serious water shortages，連 lead to 與 serious 都與本題同型。a shortage of + 名詞 是「…的短缺」，介系詞用 of。101 年指考第 1 題的答案就是 shortage（a water shortage，缺水）。官方另收 lack，以及 deficiency、scarcity。",
+    "severe／serious（嚴重的）——官方兩個都收。99 年學測第 12 題的答案就是 severe（suffered severe damage from a storm，在暴風中受到嚴重損害），該題的字詞搭配欄也收了 severe shortage。",
+    "human resources／manpower／workforce（人力資源、人力）——官方三個都收。劍橋詞典 manpower 是能夠工作的人手（the supply of people who are able to work），也收 manpower shortages（人力短缺）。107 年學測克漏字第 22 題的答案是 resource（the ultimate renewable resource，最終極的可再生資源）。"
+   ],
+   "mustHave": [
+    "中文「嚴重不足」的「不足」，英文寫成名詞 shortage，前面加冠詞 a 與形容詞 serious：a serious shortage of。官方另收 severe deficiency、severe scarcity，這兩式前面沒有 a。",
+    "中文的「我們」，官方參考答案沒有列進樹裡；前一句已經說了 our country，不寫也清楚，所以本站把 our 放在括號裡，可寫可不寫。",
+    "中文「未來」放在「人力資源」前面，英文寫成時間片語 in the future，放在句尾。"
+   ],
+   "refs": [
+    {
+     "label": "97 年指考克漏字第 22 題（results in）",
+     "url": "https://staresto-create.github.io/zhikao-cloze-test/q/z97-22/"
+    },
+    {
+     "label": "92 年指考克漏字第 25 題（leads to）",
+     "url": "https://staresto-create.github.io/zhikao-cloze-test/q/z92-25/"
+    },
+    {
+     "label": "93 年學測第 11 題（brought about）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0191"
+    },
+    {
+     "label": "112 年學測中譯英第 1 題（cause／lead to）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-138"
+    },
+    {
+     "label": "101 年指考第 1 題（shortage）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/zhikao/#q-ZK0113"
+    },
+    {
+     "label": "99 年學測第 12 題（severe）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0282"
+    },
+    {
+     "label": "107 年學測克漏字第 22 題（resource）",
+     "url": "https://staresto-create.github.io/grammar-cloze-test/q/g107-22-2/"
+    }
+   ]
+  }
  },
  {
   "id": 184,
