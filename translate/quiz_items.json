@@ -2879,7 +2879,39 @@
   "label": "學測",
   "yearLabel": "94 (學測)",
   "zh": "人類對外太空所知非常有限，但長久以來我們對它卻很感興趣。",
-  "en": "Humans know very little about outer space, but we have long been fascinated by it."
+  "en": "Humans know very little about outer space, but we have long been fascinated by it.",
+  "explanation": {
+   "pattern": [
+    "S + V…, but + S + V…：but 連接兩個完整的句子，前半 Humans know very little about outer space，後半 we have long been fascinated by it。中文的「…，但…卻…」，英文只寫一個 but，「卻」不必另外翻。兩個子句要用連接詞連起來，一個就夠了。",
+    "先找標記，再決定時態。「長久以來」就是那個標記——這件事從過去做到現在、狀態還在，所以後半句用現在完成式 have long been fascinated。",
+    "前後兩半的時態不一樣，並排看：[Humans know very little about outer space]（現在簡單式）講的是人類現在所知的狀態；[we have long been fascinated by it]（現在完成式）講的是從過去到現在一直如此。劍橋文法說明，現在完成式講的是到現在為止的時間，也就是發生在過去、與現在有關聯的事。"
+   ],
+   "collocation": [
+    "be fascinated by（對…深感興趣）——劍橋詞典 fascinated 的釋義是極有興趣（extremely interested），例句 They were absolutely fascinated by the game。97 年指考第 8 題的答案就是 fascinated，題幹寫 Throughout history, people have been fascinated by the mystery of what lies beyond our planet（意思是自古以來，人們一直對地球以外的奧秘深感興趣），與本題同樣是 have been fascinated by，講的也是太空。中文「很感興趣」也可以寫 be very interested in，fascinated 的語氣比 interested 強。",
+    "long（很久）——副詞，放在 have 與 been 中間：have long been，與 100 年學測中譯英第 1 題 have long been considered 的 long 同一個位置。韋氏詞典 long 當副詞的釋義是很長一段時間（for or during a long time），例句 They have long been devoted friends。也可以把 for a long time 放在句尾：we have been fascinated by it for a long time。",
+    "know very little about（對…所知非常有限）——劍橋文法〈Little, a little, few, a few〉說明，little 與 few 帶否定的意思，very little 就是不多、幾乎沒有；a little 則是有一些。並排看：[know very little about outer space]（所知非常有限）／[know a little about outer space]（知道一些）。少了一個 a，意思就差很多。",
+    "outer space（外太空）——劍橋詞典的釋義是地球大氣層以外的那一部分太空（the part of space that is beyond Earth's atmosphere），標為不可數名詞，不加 a，也不寫成複數。"
+   ],
+   "mustHave": [
+    "中文前半的主詞是「人類」，後半換成「我們」；主詞換了，後半的 we 非寫不可。",
+    "中文「對它」的「它」指的是前半句的外太空，英文用 it，放在 by 後面。",
+    "中文「人類」沒有單複數，這裡泛指所有的人，英文寫複數 Humans，不加 the；也可以寫 Human beings。"
+   ],
+   "refs": [
+    {
+     "label": "100 年學測中譯英第 1 題（have long been）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-184"
+    },
+    {
+     "label": "97 年指考第 8 題（fascinated）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/zhikao/#q-ZK0160"
+    },
+    {
+     "label": "110 年試辦考試中譯英第 2 題（連接詞一個就夠）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-135"
+    }
+   ]
+  }
  },
  {
   "id": 155,
@@ -2887,7 +2919,42 @@
   "label": "學測",
   "yearLabel": "94 (學測)",
   "zh": "太空科技的快速發展，使我們得以探索它的奧秘。",
-  "en": "The rapid development of space technology allows us to explore its mysteries."
+  "en": "The rapid development of space technology allows us to explore its mysteries.",
+  "explanation": {
+   "pattern": [
+    "整句的骨架是 S + allows + 受詞 + to V：The rapid development of space technology（主詞） + allows + us + to explore its mysteries。主詞的核心是單數名詞 development，所以動詞用單數 allows。",
+    "allow sb to V（讓某人可以做某事）：主詞是 the rapid development（一件事），受詞是 us，後面接不定詞 to explore。",
+    "先找標記，再決定時態。本句沒有時間的標記，講的是一般的事實，所以用現在簡單式 allows。並排看同樣以 The rapid development of 開頭的 96 年指考中譯英第 1 題：[The rapid development of space technology allows us to explore its mysteries.]（現在簡單式）講的是一般的事實；[The rapid development of mass transportation has gradually shortened the distance between urban and rural areas.]（現在完成式）中文有「已」，講的是從過去到現在、結果還在。"
+   ],
+   "collocation": [
+    "allow／enable sb to V（使某人得以做某事）——中文「使我們得以」，allow、enable 都可以用。劍橋詞典 enable 的釋義是讓某人有能力做某事，或讓某事成為可能（to make someone able to do something, or to make something possible），後面接 to + 原形動詞，例句 Computerization should enable us to cut production costs by half。也可以寫 make it possible for us to explore…。",
+    "explore（探索）——劍橋詞典的釋義是到一個地方搜尋、發現其中的事物（to search a place and discover things about it），例句 Robots, rather than astronauts, explore space now（如今探索太空的是機器人，不是太空人）。101 年學測第 3 題的答案就是 explore（explore different cultures，探索不同的文化）。",
+    "mystery（奧秘）——劍橋詞典的釋義是還沒有人解釋或理解的奇怪、未知的事物（something strange or not known that has not yet been explained or understood），例句 The book tries to explain some of the mysteries of life。「奧秘」在這裡不只一件，英文用複數 mysteries。",
+    "the rapid development of（…的快速發展）——rapid 放在 development 前面，of 帶出發展的是什麼，與 96 年指考中譯英第 1 題 the rapid development of mass transportation 同一個寫法。"
+   ],
+   "mustHave": [
+    "中文「它的奧秘」的「它」指的是上一句的外太空，英文寫 its。its 是 it 的所有格，不加撇號；it's 是 it is。這一句若單獨出現，its 容易讀成指 space technology，寫成 the mysteries of outer space 就不會誤會。",
+    "中文「快速發展」在這裡當名詞用，英文用名詞 development，前面的修飾語用形容詞 rapid，不用副詞 rapidly。"
+   ],
+   "refs": [
+    {
+     "label": "96 年指考中譯英第 1 題（The rapid development of）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-166"
+    },
+    {
+     "label": "109 年指考補考中譯英第 2 題（allow sb to V）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-129"
+    },
+    {
+     "label": "101 年學測第 3 題（explore）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0303"
+    },
+    {
+     "label": "98 年指考中譯英第 1 題（its 不加撇號）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-178"
+    }
+   ]
+  }
  },
  {
   "id": 156,
@@ -2896,9 +2963,44 @@
   "yearLabel": "94 (指考)",
   "zh": "身為地球村的成員，我們不應把自己侷限在這個小島上。",
   "en": "As members of the global village, we should not confine ourselves to this small island.",
+  "answerSource": "大考中心 94 年度指定科目考試非選擇題評分標準說明（選才通訊 2005 年八月號）",
   "altAnswers": [
-   "confine / limit"
-  ]
+   "limit / confine / restrict + ourselves to this small island"
+  ],
+  "explanation": {
+   "pattern": [
+    "As + 名詞, S + should not + V：As members of the global village（身為地球村的成員）放在句首，逗號後面接主要子句 we should not confine ourselves to this small island。官方〈評分標準說明〉點明，第一句評量的是 as members、limit ourselves to 等重要字詞。",
+    "as 在這裡是介系詞，後面接名詞，意思是「身為、作為」。劍橋詞典 as 當介系詞的釋義是說明人或事物的用途或性質（used to describe the purpose or quality of someone or something），例句 She works as a waitress。",
+    "confine 的主動與被動，並排看：[we should not confine ourselves to this small island]（主動，受詞是反身代名詞 ourselves，侷限自己的是我們自己）／[Learning is no longer confined to formal education]（被動，109 年指考補考中譯英第 1 題，侷限這件事是外界加在學習身上的）。"
+   ],
+   "collocation": [
+    "limit／confine／restrict oneself to（把自己侷限在）——官方三個都收。劍橋詞典 limit 一條收了 limit yourself to sth，例句 Older investors do not have to limit themselves to corporate bonds；confine 的釋義是以某種方式限制一項活動、一個人或一個問題（to limit an activity, person, or problem in some way）。105 年學測第 4 題的題幹兩個字都用到了：Maggie has been physically confined to her wheelchair…, she does not limit herself to indoor activities（她沒有把自己侷限在室內活動），後半與本題幾乎同型。90 年學測第 3 題的答案是 restricted（not restricted to one country，不侷限於某一個國家）。",
+    "the global village（地球村）——劍橋詞典的釋義是把世界各國看作透過現代通訊與貿易緊密相連的整體（all the countries of the world when thought of as being closely connected by modern communication and trade），前面要加 the。詞典的例句 As citizens of the global village, we cannot ignore our obligations to others 與本題的句型一樣。"
+   ],
+   "mustHave": [
+    "中文「把自己侷限」的「自己」沒有形態變化，英文得看受詞跟主詞是不是同一批人：這一句前後都是 we，所以用反身代名詞 ourselves，不寫 us。",
+    "中文「成員」沒有單複數，主詞是 we，英文寫複數 members。",
+    "confine、limit、restrict 後面的 to 是介系詞，帶出侷限的範圍：confine ourselves to this small island。"
+   ],
+   "refs": [
+    {
+     "label": "105 年學測第 4 題（confined、limit herself to）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0364"
+    },
+    {
+     "label": "90 年學測第 3 題（restricted）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0108"
+    },
+    {
+     "label": "109 年指考補考中譯英第 1 題（be confined to）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-128"
+    },
+    {
+     "label": "110 年試辦考試中譯英第 2 題（ourselves）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-135"
+    }
+   ]
+  }
  },
  {
   "id": 157,
@@ -2906,10 +3008,44 @@
   "label": "指考",
   "yearLabel": "94 (指考)",
   "zh": "我們不但應該參與國際性的活動，並且應該展現我們自己的文化特色。",
-  "en": "We should not only participate in international affairs but also exhibit our distinctive cultural characteristics.",
+  "en": "We should not only participate in international activities but also show our own cultural characteristics.",
+  "answerSource": "大考中心 94 年度指定科目考試非選擇題評分標準說明（選才通訊 2005 年八月號）",
   "altAnswers": [
-   "exhibit / showcase"
-  ]
+   "We should not only participate in international activities(,) but also",
+   "(try to) + show / promote",
+   "our own cultural + characteristics / features"
+  ],
+  "explanation": {
+   "pattern": [
+    "not only A but also B（不但 A，而且 B）：A、B 要用同樣的形式，本句兩邊都是原形動詞開頭的動詞片語：participate in international activities、show our own cultural characteristics，都接在 should 後面。官方〈評分標準說明〉點明，第二句評量的是 participate、international activities、cultural characteristics 等字詞與 not only... but also 句型。",
+    "劍橋文法〈Not only … but also〉說明，not only 放在子句開頭時主詞與動詞要倒裝；本句的 not only 不在句首，所以不倒裝。並排看：[We should not only participate in…]（not only 在 should 後面，不倒裝）／[Not only should we participate in…, but we should also show…]（not only 在句首，should 移到主詞 we 前面）。",
+    "官方另有兩處可寫可不寫：but also 前面的逗號，以及 but also 後面的 try to。"
+   ],
+   "collocation": [
+    "participate in（參與）——劍橋詞典把 participate 標為不及物動詞，釋義是參加或投入一項活動（to take part in or become involved in an activity），後面要有 in 才能接活動，例句 She never participates in any of our discussions。也可以寫 take part in。",
+    "show／promote（展現、推廣）——官方兩個都收。劍橋詞典 promote 的釋義是鼓勵人們喜歡、購買、使用或支持某樣東西（to encourage people to like, buy, use, do, or support something），所以 promote our culture 帶有「推廣」的意思。104 年學測第 11 題的答案就是 promote（To promote the new product…，為了推廣新產品）。",
+    "characteristic／feature（特色）——官方兩個都收。劍橋詞典 characteristic 的釋義是人或事物典型、顯著的特質（a typical or noticeable quality of someone or something），feature 是典型的特質或重要的部分（a typical quality or an important part of something）。81 年聯考第 10 題的答案是 feature（My apartment has one feature I like，我的公寓有一個我喜歡的地方）。"
+   ],
+   "mustHave": [
+    "中文「我們自己的文化特色」的「自己的」，英文寫 our own，own 放在所有格 our 後面。",
+    "中文「國際性的活動」「文化特色」都沒有單複數，這裡講的不只一個，英文寫複數 activities、characteristics。",
+    "中文「並且應該」又說了一次「應該」；英文的 should 寫一次就好，兩件事都接在同一個 should 後面。"
+   ],
+   "refs": [
+    {
+     "label": "103 年學測中譯英第 2 題（not only 放在句首要倒裝）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-195"
+    },
+    {
+     "label": "104 年學測第 11 題（promote）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0356"
+    },
+    {
+     "label": "81 年聯考第 10 題（feature）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/zhikao/#q-ZK0333"
+    }
+   ]
+  }
  },
  {
   "id": 158,
