@@ -742,7 +742,32 @@
   "label": "大學聯考",
   "yearLabel": "90 (大學聯考)",
   "zh": "昨天晚上我感覺有點不舒服。",
-  "en": "I didn't feel quite well last night."
+  "en": "I didn't feel quite well last night.",
+  "explanation": {
+   "pattern": [
+    "S + feel + 形容詞：feel 在這裡講的是身體的感覺，後面接形容詞。well 在這裡是形容詞，意思是健康的、沒有生病；劍橋詞典 well 當形容詞的例句就是 I don't feel well。同樣的接法還有 feel dizzy（覺得頭昏）、feel tired（覺得累）。",
+    "先找標記，再決定時態。句尾的 last night 就是那個標記：昨天晚上是過去一段明確、已經結束的時間，所以用過去簡單式。否定句的過去由助動詞 did 表示，後面的動詞回到原形，寫 I didn't feel，不寫 I didn't felt。",
+    "並排看：[I didn't feel quite well last night]（過去簡單式）講的是昨天晚上；[I don't feel quite well now]（現在簡單式）講的是此刻。中文兩句的「感覺」寫法一樣，英文得靠時態把時間分開。"
+   ],
+   "collocation": [
+    "not quite（不完全）——劍橋文法〈Quite〉說明，not quite 常用來表示「不完全」（not completely），例句 The door was not quite closed（門沒有完全關上）。didn't feel quite well 就是「不算完全舒服」，正好對上中文的「有點不舒服」。91 年學測補考克漏字第 22 題考過同一個 not quite：it is not quite as simple as that（事情沒有那麼簡單）。",
+    "「有點不舒服」也可以寫 I didn't feel very well 或 I felt a bit unwell。劍橋詞典 unwell 的釋義是不舒服、生病（not well; ill），例句 If you feel unwell, tell the teacher（如果覺得不舒服，就告訴老師）。"
+   ],
+   "mustHave": [
+    "中文的「感覺」在這裡不能寫成 think，think 講的是想法，不是身體的感覺。",
+    "中文「感覺」本身看不出時間，英文得靠動詞的時態表示出來：昨天晚上已經過去，所以寫 didn't feel。"
+   ],
+   "refs": [
+    {
+     "label": "110 年試辦考試中譯英第 1 題（feel + 形容詞）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-134"
+    },
+    {
+     "label": "91 年學測補考克漏字第 22 題（not quite）",
+     "url": "https://staresto-create.github.io/grammar-cloze-test/q/g91makeup-22-1/"
+    }
+   ]
+  }
  },
  {
   "id": 89,
@@ -750,15 +775,73 @@
   "label": "大學聯考",
   "yearLabel": "90 (大學聯考)",
   "zh": "我的媽媽要我去看中醫師。",
-  "en": "My mother wanted me to go to the Chinese herbalist."
+  "en": "My mother wanted me to go to a Chinese medicine doctor.",
+  "explanation": {
+   "pattern": [
+    "want + 人 + to V（要某人做某事）：My mother（主詞） + wanted + me（受詞） + to go to a Chinese medicine doctor（不定詞）。劍橋文法〈Want〉說明，want 後面可以接受詞再接不定詞，例句 The teacher wants her to do the exams again next year；want 不接 that 子句，不寫 My mother wanted that I go…。同樣接「人 + to V」的還有 encourage、allow。",
+    "先找標記，再決定時態。這一句本身沒有時間詞，標記在前一句：90 年聯考這五句連起來是一段話，第 1 句的 last night 已經把時間定在過去，媽媽要我去看醫生也是那時候的事，所以用過去簡單式 wanted。",
+    "並排看：[My mother wanted me to go…]（過去簡單式）講的是昨天晚上那一次；[My mother wants me to go…]（現在簡單式）講的是她現在的想法。"
+   ],
+   "collocation": [
+    "go to a doctor／see a doctor（看醫生）——劍橋詞典 doctor 的例句 You should see a doctor about that cough（你咳成這樣，應該去看醫生）；同一個詞條也收 the doctor's，指醫生看診的地方，例句 He went to the doctor's this morning for a check-up。中文的「看醫生」不是用眼睛看，英文寫 go to 或 see，不寫 look at。",
+    "a Chinese medicine doctor（中醫師）——也可以寫 a doctor of traditional Chinese medicine。原句寫的 herbalist，劍橋詞典的釋義是種植或販賣藥草的人（a person who grows or sells herbs for use as medicine），講的是藥草商，不是看診的醫師，所以這次改掉。106 年指考第 10 題的題幹 Traditional Chinese medical practices include herbal remedies，講的就是中醫的草藥療法，答案是 herbal（草藥的）。"
+   ],
+   "mustHave": [
+    "中文「要我去」的「我」是 want 的受詞，英文用受格 me，不寫 I。",
+    "中文「去看中醫師」沒有說是哪一位，英文要加冠詞：泛指任何一位中醫師，寫 a Chinese medicine doctor。原句寫的 the 表示說話的雙方都知道是哪一位，中文看不出這一層。"
+   ],
+   "refs": [
+    {
+     "label": "90 年大學聯考中譯英第 1 題（last night）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-88"
+    },
+    {
+     "label": "95 年學測中譯英第 2 題（encourage + 人 + to V）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-161"
+    },
+    {
+     "label": "106 年指考第 10 題（herbal）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/zhikao/#q-ZK0060"
+    }
+   ]
+  }
  },
  {
   "id": 90,
   "year": 90,
   "label": "大學聯考",
   "yearLabel": "90 (大學聯考)",
-  "zh": "她說中葯比西葯自然。",
-  "en": "She said that Chinese medicine is more natural than Western medicine."
+  "zh": "她說中藥比西藥自然。",
+  "en": "She said that Chinese medicine is more natural than Western medicine.",
+  "explanation": {
+   "pattern": [
+    "S + said + that 子句：She（主詞） + said + that Chinese medicine is more natural than Western medicine。said 後面接 that 引導的子句當受詞，交代她說了什麼；劍橋文法〈Reported speech: indirect speech〉說明，間接引述的 that 常常省略，口語尤其如此。",
+    "主要子句與 that 子句的時態各自決定。說這句話是過去的事，主要子句用 said；that 子句講的是她對中藥的看法，到現在仍然成立，所以可以維持現在式 is。英國文化協會 LearnEnglish 說明，說話的內容如果到現在仍然成立，不一定要改時態。並排看：[She said that Chinese medicine is more natural…]（她的看法現在仍然成立）／[She said that Chinese medicine was more natural…]（配合過去式 said，往前退一個時態）。兩種都成立。",
+    "比較級 more + 形容詞 + than：劍橋文法說明，三個音節以上的形容詞，比較級前面加 more。natural 有三個音節，所以寫 more natural，不寫 naturaler。than 前後是比較的兩樣東西，Chinese medicine 對 Western medicine，兩邊都是藥，比較才對得上。"
+   ],
+   "collocation": [
+    "natural（自然的）——劍橋詞典的釋義是存在於自然、不是人做出來的（as found in nature and not involving anything made or done by people），例句 People say that breast-feeding is better than bottle-feeding because it's more natural，用的也是 more natural。93 年學測第 8 題的題幹 made of natural ingredients, with no artificial flavors added（用天然原料製成，不添加人工香料），答案 artificial（人工的）正好和 natural 相反。",
+    "Chinese medicine／Western medicine（中藥、西藥）——medicine 可以指醫學，也可以指藥。劍橋詞典 medicine 的例子收了 Western medicine，也收 She knows a lot about herbal medicines（她很懂草藥）。本題泛指中藥、西藥整體，不加冠詞。"
+   ],
+   "mustHave": [
+    "中文「她說」後面直接接說的內容，英文要用 that 子句，子句裡要有自己的主詞 Chinese medicine 與動詞 is。",
+    "中文的「比」英文用比較級表示：more natural than，比較的兩樣東西放在 than 的前後。"
+   ],
+   "refs": [
+    {
+     "label": "84 年學測中譯英第 3 題（said 與過去完成式）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-100"
+    },
+    {
+     "label": "112 年學測中譯英第 1 題（主要子句與 that 子句的時態）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-138"
+    },
+    {
+     "label": "93 年學測第 8 題（artificial）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0188"
+    }
+   ]
+  }
  },
  {
   "id": 91,
@@ -766,7 +849,38 @@
   "label": "大學聯考",
   "yearLabel": "90 (大學聯考)",
   "zh": "我生病的時候通常都會去看西醫。",
-  "en": "When I am ill, I usually go to a Western medical doctor."
+  "en": "When I am ill, I usually go to a Western medical doctor.",
+  "explanation": {
+   "pattern": [
+    "When + S + V…, S + V…：When I am ill 是時間副詞子句，逗號後面是主要子句 I usually go to a Western medical doctor。when 子句放在前面時，後面通常加逗號，再接主要子句。",
+    "先找標記，再決定時態。usually（通常）就是那個標記：講的是每次生病都這樣做的習慣，所以用現在簡單式，when 子句與主要子句都用現在式 am、go。並排看前兩句：[My mother wanted me to go…]（過去簡單式）講的是昨天晚上那一次；[I usually go to a Western medical doctor]（現在簡單式）講的是一向的習慣。",
+    "usually 是頻率副詞，擺一般動詞之前：I usually go…，不寫 I go usually…。劍橋文法〈Usually〉說明，usually 多半放在主詞與主要動詞中間，或放在 be 動詞、助動詞後面，例句 Children usually enjoy visits to the zoo。"
+   ],
+   "collocation": [
+    "a Western medical doctor（西醫）——也可以寫 a doctor of Western medicine。劍橋詞典 Western medicine 的釋義是西方國家通行的治療方式，例如用藥與開刀（the range of treatments for illness or injury that is usual in Western countries, such as the use of drugs and operations）。"
+   ],
+   "confusable": [
+    "ill／sick（生病的）——劍橋文法〈Ill or sick?〉說明，兩個字都是形容詞，都可以放在 be、feel、look 這類動詞後面；放在名詞前面多用 sick，例如 a sick child，一般不寫 an ill child。另外，be sick 在英式英文常指嘔吐，在美式英文泛指生病。96 年學測第 15 題的題幹 Tom was very ill a week ago, but now he looks healthy，ill 也放在 be 動詞後面。"
+   ],
+   "mustHave": [
+    "中文「通常都會去」的「會」講的是習慣，不是未來，英文不寫 will go；現在簡單式本身就表示習慣。",
+    "中文的「西醫」在這裡指醫師，英文要寫成人 a Western medical doctor，不寫 Western medicine（西醫學）。"
+   ],
+   "refs": [
+    {
+     "label": "90 年大學聯考中譯英第 2 題（過去簡單式）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-89"
+    },
+    {
+     "label": "109 年學測中譯英第 1 題（頻率副詞的位置）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-124"
+    },
+    {
+     "label": "96 年學測第 15 題（ill）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0240"
+    }
+   ]
+  }
  },
  {
   "id": 92,
@@ -774,7 +888,38 @@
   "label": "大學聯考",
   "yearLabel": "90 (大學聯考)",
   "zh": "但是現在我想我有另外的選擇了。",
-  "en": "But now I guess I have another choice."
+  "en": "But now I guess I have another choice.",
+  "explanation": {
+   "pattern": [
+    "先找標記，再決定時態。now（現在）就是那個標記，所以用現在簡單式 have。中文的「了」講的是情況有了改變，英文不必另外找一個字對應，用 now 加現在式就表示出來。",
+    "並排看整段的時態：[I didn't feel quite well last night]（過去簡單式）昨天晚上；[I usually go to a Western medical doctor]（現在簡單式）一向的習慣；[now I guess I have another choice]（現在簡單式）此刻的情況。",
+    "But 放在句首，承接上一句「通常都會去看西醫」，轉到「現在有另一個選擇」。97 年學測中譯英第 2 題也是 But 開頭的句子，官方〈評分原則說明〉點明，那一句評量的是以 But／Yet／However 開頭的句子。However 後面要加逗號；But 後面的逗號可加可不加。"
+   ],
+   "collocation": [
+    "I guess（我想）——劍橋詞典 guess 的釋義之一是認為某件事是真的或可能是真的，但不確定（used when you believe something is true or likely but are not certain），例句 I guess I should start looking for a lawyer。I guess 後面直接接子句 I have another choice，that 省略。也可以寫 I think。",
+    "choice（選擇）——劍橋詞典的例句 I'd prefer not to work, but I don't have much choice（我寧可不工作，但沒什麼選擇）。中文的「另外的選擇」也可以寫 another option。"
+   ],
+   "confusable": [
+    "another／other：another 是 an 和 other 合成的一個字，後面接單數名詞，例如 another choice（另一個選擇）；other 接複數名詞或不可數名詞，例如 other choices。劍橋文法〈Other, others, the other or another?〉說明，other 放在單數可數名詞前面時，前面一定要有限定詞，所以不寫 I have other choice。103 年學測克漏字第 18 題的答案就是 another（another traveler came down the road，另一位旅人沿路走來）；102 年指考第 6 題的題幹也有 a second opinion from another doctor（另一位醫師的意見）。"
+   ],
+   "mustHave": [
+    "中文「我想我有」連用兩個「我」，英文也要兩個主詞：I guess（主要子句） + I have another choice（受詞子句），兩個 I 都不能省。"
+   ],
+   "refs": [
+    {
+     "label": "97 年學測中譯英第 2 題（句首的 But）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-169"
+    },
+    {
+     "label": "103 年學測克漏字第 18 題（another）",
+     "url": "https://staresto-create.github.io/grammar-cloze-test/q/g103-18-1/"
+    },
+    {
+     "label": "102 年指考第 6 題（another doctor）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/zhikao/#q-ZK0108"
+    }
+   ]
+  }
  },
  {
   "id": 93,
