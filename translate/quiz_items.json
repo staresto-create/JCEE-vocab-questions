@@ -491,7 +491,55 @@
   "label": "大學聯考",
   "yearLabel": "82 (大學聯考)",
   "zh": "這個月，我的運氣真是好得我都不敢相信。",
-  "en": "This month I have been so lucky that I can hardly believe it. (My luck has been so good this month that I can hardly believe it.)"
+  "en": "This month I have been so lucky that I can hardly believe it.",
+  "altAnswers": [
+   "My luck has been so good this month that I can hardly believe it."
+  ],
+  "explanation": {
+   "pattern": [
+    "82 年大學聯考五題（48 至 52）連成一段，講這個月的好運：48 先總說這個月運氣好得不敢相信，49 至 51 再照時間順序舉出三件好事：月初數學月考考了九十分，月中父親送了一部電腦當生日禮物，前幾天英語演講比賽得了第二名，52 最後總結，說這輩子運氣從來沒有這麼好過。五句講的時間各不相同：48 講這個月到現在，49 至 51 講這個月裡已經過去的三個時間，52 講從出生到現在。",
+    "先找標記，再決定時態。「這個月」還沒過完，好運從月初一直延續到現在，所以用現在完成式 have been。劍橋文法〈Past simple or present perfect?〉說明，現在完成式講的是到現在為止的時間，常和 today、this year 這類表示「到現在為止」的時間詞連用；同一頁把 We haven't seen Diana this week（這個星期到現在都還沒見到黛安娜）和 We didn't see Diana last week（上個星期沒見到黛安娜）放在一起對照。並排看：[This month I have been so lucky…]（這個月還沒過完，好運延續到現在）／[Last month I was very lucky.]（上個月已經過去，用過去簡單式）。This month 前面不加介系詞，和 85 年大學聯考中譯英第 2 題的 This spring vacation 是同一條規則。",
+    "so + 形容詞 + that 子句（…得…）：中文「好得我都不敢相信」，「好」講的是程度，「不敢相信」是結果，英文用 so lucky that I can hardly believe it 把兩件事接成一句。so 修飾形容詞 lucky，that 帶出結果，和 88 年大學聯考中譯英第 2 題的 so late that… 是同一個句型。劍橋文法〈So〉說明，so 放在形容詞或副詞前面，表示程度很高，常和 that 連用；同一頁的例句 It was so dark (that) we could hardly see（天色暗得我們幾乎看不見），連 hardly 都和本題一樣，括號也說明了 that 可以省略。",
+    "can hardly + 原形動詞（幾乎不能…）：中文「都不敢相信」不是真的不敢，是說好運多到難以相信，英文寫 can hardly believe，不寫 dare not believe。劍橋文法〈Hardly〉說明，hardly 本身就有否定的意思，指「幾乎完全不」，通常放在情態動詞或第一個助動詞後面，例句 I can hardly wait（我等不及了）。hardly 已經是否定，前面不再加 not，不寫 can't hardly。believe 後面要有受詞，it 指的就是這個月的好運。"
+   ],
+   "collocation": [
+    "lucky（幸運的）——劍橋詞典的釋義是碰巧遇到好事（having good things happen to you by chance），例句 They're lucky to have such a nice office to work in（他們很幸運，有這麼好的辦公室可以工作）。109 年指考第 1 題的題幹 He feels lucky to have colleagues like them 也是人當主詞、用 lucky 形容。",
+    "can't believe one's luck（好運到不敢相信）——劍橋詞典 luck 的例句 Then I met this gorgeous woman and I couldn't believe my luck（後來我遇見了這位漂亮的女子，簡直不敢相信自己的好運），所以本題也可以寫 I can hardly believe my luck。"
+   ],
+   "confusable": [
+    "lucky／luck——lucky 是形容詞，形容人碰上好事；luck 是名詞，指運氣。劍橋文法〈Luck and lucky〉說明，兩個字講的都是碰巧遇到的好事，不是靠自己努力得來的；luck 是不可數名詞，前面不加 a，例句 I've had a lot of luck with jobs over the years，不寫 I've had a luck。中文「我的運氣真是好」主詞是「運氣」，英文常換成人當主詞，寫 I have been lucky；要照中文用「運氣」當主詞，就用名詞 luck，寫成 My luck has been so good…，也就是本題「也可以這樣寫」的那一句。"
+   ],
+   "mustHave": [
+    "「這個月」還沒過完，好運延續到現在，用現在完成式 have been。",
+    "believe 後面要有受詞 it；中文「不敢相信」沒寫相信什麼，英文非寫不可。"
+   ],
+   "refs": [
+    {
+     "label": "88 年大學聯考中譯英第 2 題（so … that）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-79"
+    },
+    {
+     "label": "85 年大學聯考中譯英第 2 題（This spring vacation）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-64"
+    },
+    {
+     "label": "84 年推薦甄選第 7 題（could hardly swallow）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0017"
+    },
+    {
+     "label": "82 年聯考第 8 題（barely (=hardly=scarcely)）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/zhikao/#q-ZK0321"
+    },
+    {
+     "label": "109 年指考第 1 題（feels lucky）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/zhikao/#q-ZK0021"
+    },
+    {
+     "label": "82 年大學聯考中譯英第 2 題（同一段的下一題）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-49"
+    }
+   ]
+  }
  },
  {
   "id": 49,
@@ -499,7 +547,44 @@
   "label": "大學聯考",
   "yearLabel": "82 (大學聯考)",
   "zh": "月初，我的數學月考考了九十分。",
-  "en": "Early this month, I received a score of 90 on the monthly math exam. (Early this month, I scored 90 on the monthly math exam.)"
+  "en": "Early this month, I received a score of 90 on the monthly math exam.",
+  "altAnswers": [
+   "Early this month, I scored 90 on the monthly math exam."
+  ],
+  "explanation": {
+   "pattern": [
+    "先找標記，再決定時態。「月初」是這個月裡一個已經過去的時間，月考早就考完，所以用過去簡單式 received。48 的 This month 講的是到現在為止的一段時間，用現在完成式；本題的 Early this month 指的是過去一個明確的時間，用過去簡單式。劍橋文法〈Past simple or present perfect?〉說明，講過去明確的時間，用過去簡單式。並排看：[This month I have been so lucky…]（48：這個月到現在）／[Early this month, I received a score of 90…]（49：月初那一次，已經過去了）。",
+    "中文「我的數學月考考了九十分」，字面上排在前面的是「我的數學月考」，可是考九十分的是「我」，英文要用 I 當主詞：I received a score of 90，月考放在 on 後面。英文每個句子都要有主詞，主詞要找的是做這件事的人。",
+    "Early this month（這個月初）：early 修飾後面的 this month，前面不加介系詞，不寫 In early this month，道理和 48 的 This month 相同。時間副詞放在句首，後面加逗號。",
+    "考試前面的介系詞：in 和 on 兩種都有人用。劍橋詞典 score 的例句有 She scored 18 out of 20 in the spelling test，美式英文的例句寫 A student from Gettysburg scored a perfect 1600 points on the college entrance exam。本題庫的英文用美式，所以寫 on the monthly math exam，和 89 年大學聯考中譯英第 4 題的 do well on a test 相同。"
+   ],
+   "collocation": [
+    "score（分數；考得幾分）——名詞 score 在劍橋詞典的釋義是一個人在測驗或考試拿到的分數（the number of points someone gets on a test or in an examination），寫 receive／get a score of 90。動詞 score 指在測驗或考試拿到幾分（to get a particular number of points on a test or in an examination），劍橋標明主要是美式用法，例句 She did well in her exam, scoring 85，所以本題也可以寫 I scored 90 on the monthly math exam。109 年學測第 2 題的題幹 passing the exam with a nearly perfect score 也是名詞 score。",
+    "monthly exam（月考）——monthly 的釋義是每個月一次的（happening or produced once a month），例句 monthly payments（每月付的款項）。math 是美式的寫法，劍橋詞典標為 US；英式寫 maths。"
+   ],
+   "mustHave": [
+    "月考已經考完，用過去簡單式 received（或 scored）。",
+    "考九十分的是「我」，主詞寫 I，月考放在 on 後面。"
+   ],
+   "refs": [
+    {
+     "label": "89 年大學聯考中譯英第 4 題（do well on a test）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-86"
+    },
+    {
+     "label": "109 年學測第 2 題（score）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0422"
+    },
+    {
+     "label": "81 年聯考第 8 題（test score）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/zhikao/#q-ZK0331"
+    },
+    {
+     "label": "82 年大學聯考中譯英第 3 題（同一段的下一題）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-50"
+    }
+   ]
+  }
  },
  {
   "id": 50,
@@ -507,7 +592,41 @@
   "label": "大學聯考",
   "yearLabel": "82 (大學聯考)",
   "zh": "月中，父親送我一部電腦當生日禮物。",
-  "en": "In the middle of the month, Father gave me a computer as my birthday gift."
+  "en": "In the middle of the month, my father gave me a computer as my birthday gift.",
+  "explanation": {
+   "pattern": [
+    "原英文寫 Father gave me…，把 Father 當成名字來用。劍橋詞典 father 註明，Father 當稱呼是正式或過時的用法（formal or old-fashioned），例句 Please may I go, Father?；一般講到自己的父親，寫 my father，例句 My father took me to watch the football every Saturday（我爸爸每個星期六都帶我去看足球賽）。中文「父親」前面沒寫「我的」，英文的名詞要交代是誰的父親，所以改成 my father。",
+    "give 是授與動詞，接法是 give sb sth 或 give sth to sb，本句用的是前者：gave me a computer。劍橋文法〈Objects〉說明，間接受詞通常是人，放在直接受詞前面；改用 to 帶出收到東西的人，直接受詞就放在前面，例句 He always gives the class too much homework／He always gives too much homework to the class。所以本題也可以寫 my father gave a computer to me。97 年學測中譯英第 2 題的 bring you even more joy 也是這種接法。",
+    "as + 名詞（當作…）：中文「當生日禮物」，英文用介系詞 as，寫 as my birthday gift。劍橋文法〈As〉說明，as 加名詞，講的是人或東西的角色或用途，例句 I worked as a waiter when I was a student（我當學生的時候當過服務生）；同一頁也提醒，as 不能換成 like。",
+    "先找標記，再決定時態。「月中」也是這個月裡已經過去的時間，送電腦的事已經發生，所以用過去簡單式 gave。give 是不規則動詞，三態是 give、gave、given。"
+   ],
+   "collocation": [
+    "a birthday present／gift（生日禮物）——劍橋詞典 present 的例句是 a birthday/Christmas/wedding present，gift 的例句是 a birthday/wedding gift，兩個字都可以用。也可以寫 for my birthday：92 年指考第 7 題的題幹 he has just received a new cell phone for his birthday（他剛收到新手機當生日禮物）。",
+    "in the middle of the month（月中）——劍橋詞典 middle 的釋義之一是一段時間的開頭和結尾之間（The middle of a period of time is a point between the beginning and the end of that period），例句 The noise woke us up in the middle of the night（那聲音在半夜把我們吵醒）。"
+   ],
+   "mustHave": [
+    "「父親」前面要寫 my，交代是誰的父親。",
+    "give sb sth 先接人、再接東西：gave me a computer。"
+   ],
+   "refs": [
+    {
+     "label": "97 年學測中譯英第 2 題（bring sb sth）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-169"
+    },
+    {
+     "label": "92 年指考第 7 題（for his birthday）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/zhikao/#q-ZK0211"
+    },
+    {
+     "label": "106 年學測第 11 題（the birthday card she gave him）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0386"
+    },
+    {
+     "label": "82 年大學聯考中譯英第 4 題（同一段的下一題）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-51"
+    }
+   ]
+  }
  },
  {
   "id": 51,
@@ -515,7 +634,40 @@
   "label": "大學聯考",
   "yearLabel": "82 (大學聯考)",
   "zh": "前幾天，英語演講比賽我得了第二名。",
-  "en": "A few days ago, I was placed second in the English speech contest. (A few days ago, I won second place in the English speech contest.)"
+  "en": "A few days ago, I won second place in the English speech contest.",
+  "explanation": {
+   "pattern": [
+    "原英文寫 I was placed second，括號裡另附 I won second place。劍橋詞典 place 當「得到某個名次」講的時候，註明被動的 be placed 是英式用法（UK also be placed）；本題庫的英文用美式，所以英文改用 won second place 這一句。",
+    "A few days ago（前幾天）：ago 放在一段時間的後面，指從過去某一點到現在。劍橋文法〈Ago〉提醒，ago 通常和過去簡單式連用，不和現在完成式連用，例句 I received his letter four days ago，不寫 I have received his letter four days ago。所以寫 won，不寫 have won。96 年學測第 15 題的題幹 Tom was very ill a week ago, but now he looks healthy 也是 ago 配過去式。",
+    "中文「英語演講比賽我得了第二名」把比賽放在最前面，可是得第二名的是「我」，英文的主詞是 I，比賽放在句尾，用 in 帶出：I won second place in the English speech contest。劍橋詞典 place 的例句 He placed second in the World Championships，比賽前面用的也是 in。"
+   ],
+   "collocation": [
+    "win／take second place（得到第二名）——劍橋詞典 place 的例句 Our team finished in second place（我們隊得了第二名）、He took third place in the marathon last year（他去年跑馬拉松得了第三名）。102 年學測第 14 題的題幹 This year he practiced day and night and finally won first place in the contest 也用 win。place 當動詞也可以，美式寫 I placed second in the English speech contest。",
+    "speech contest（演講比賽）——劍橋詞典 contest 的釋義是比誰做得比別人好、通常會頒獎的比賽（a competition to do better than other people, usually in which prizes are given），例句 a dance/sports contest。103 年指考第 8 題的題幹 she has won several medals for her school in national speech contests 用的就是 speech contests。"
+   ],
+   "mustHave": [
+    "ago 配過去簡單式 won，不寫 have won。",
+    "得名的是「我」，主詞寫 I，比賽用 in 放在句尾。"
+   ],
+   "refs": [
+    {
+     "label": "102 年學測第 14 題（won first place in the contest）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0329"
+    },
+    {
+     "label": "103 年指考第 8 題（speech contests）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/zhikao/#q-ZK0088"
+    },
+    {
+     "label": "96 年學測第 15 題（a week ago）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0240"
+    },
+    {
+     "label": "82 年大學聯考中譯英第 5 題（同一段的下一題）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-52"
+    }
+   ]
+  }
  },
  {
   "id": 52,
@@ -523,7 +675,40 @@
   "label": "大學聯考",
   "yearLabel": "82 (大學聯考)",
   "zh": "這輩子，我的運氣從來沒有這麼好過。",
-  "en": "I have never been so lucky in my life."
+  "en": "I have never been so lucky in my life.",
+  "explanation": {
+   "pattern": [
+    "現在完成式 + never … in my life（這輩子從來沒有…過）：中文「這輩子…從來沒有…過」講的是從出生到現在的經驗，英文用現在完成式 have never been。劍橋文法〈Present perfect simple (I have worked)〉說明，現在完成式可以講到現在為止的經驗，常和 ever、never、before、in my life 這類時間詞連用。106 年指考第 7 題的題幹 Peter has never been on time to meetings or appointments 也是 has never been。",
+    "never 的位置：never 放在 have 和過去分詞中間，寫 have never been，不寫 never have been。劍橋文法〈Word order: never〉說明，現在完成式的 never 通常放在 have 和主要動詞中間，例句 I have never travelled alone before。",
+    "so lucky 的 so 是「這麼」：48 的 so 後面接 that 帶出結果，本題的 so 單獨修飾 lucky，意思是「像這個月這麼幸運」。劍橋文法〈So〉說明，so 修飾形容詞時，意思是「到這麼大的程度」（to such a great extent）。so 後面接形容詞；要接名詞，就用 such，同一頁說明 so 不放在「形容詞 + 名詞」前面，所以改用名詞 luck，要寫 I have never had such good luck in my life；luck 是不可數名詞，such 後面不加 a（見 48 的說明）。",
+    "整段五句的動詞並排看：48 [have been]（現在完成式：這個月到現在）／49 [received]、50 [gave]、51 [won]（過去簡單式：月初、月中、前幾天，各是過去一個明確的時間）／52 [have never been]（現在完成式：從出生到現在）。頭尾兩句講到現在為止的一段時間，用現在完成式；中間三句各講一件已經過去的事，用過去簡單式。"
+   ],
+   "collocation": [
+    "in my life（這輩子）——中文「這輩子」寫 in my life，放在句尾。劍橋文法〈Present perfect simple (I have worked)〉的例句 It was the best decision I have ever made in my life（那是我這輩子做過最好的決定），in my life 也和現在完成式連用。"
+   ],
+   "mustHave": [
+    "「從來沒有…過」講的是到現在為止的經驗，寫現在完成式 have never been。",
+    "中文主詞是「我的運氣」，英文和 48 一樣用 I 當主詞，lucky 形容人。"
+   ],
+   "refs": [
+    {
+     "label": "106 年指考第 7 題（has never been）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/zhikao/#q-ZK0057"
+    },
+    {
+     "label": "94 年學測中譯英第 1 題（現在完成式）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-154"
+    },
+    {
+     "label": "93 年學測中譯英第 1 題（has never been）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-146"
+    },
+    {
+     "label": "82 年大學聯考中譯英第 1 題（同一段的第一題）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-48"
+    }
+   ]
+  }
  },
  {
   "id": 53,
