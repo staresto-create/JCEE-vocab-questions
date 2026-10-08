@@ -573,14 +573,16 @@
       if (!Object.keys(gs).length) gs = null;
     }
     var view = (p.view && /^\d{1,3}$/.test(p.view)) ? +p.view : 0;
+    // 單字卡：n=3 表示只出在範圍內考過 3 次以上的字（答案和誘答都算，一題算一次）
+    var mn = (p.n && /^[2-9]$/.test(p.n)) ? +p.n : 1;
     if (deck === 'po' && lv) { lv.p = false; lv.x = false; if (!Object.keys(lv.n).length) lv = null; }
 
     return {
-      y0: y0, y1: y1, st: st, lv: lv,
+      y0: y0, y1: y1, st: st, lv: lv, mn: mn,
       deck: deck, gs: gs, view: view,
       label: p.t || '',
       free: p.mode === 'free',
-      custom: !!(p.y || p.st || p.lv || p.g)
+      custom: !!(p.y || p.st || p.lv || p.g || p.n)
     };
   }
 
@@ -607,6 +609,7 @@
       if (scope.lv.x) seg.push('超綱');
       parts.push(seg.join('、'));
     }
+    if (scope.mn > 1) parts.push('考過 ' + scope.mn + ' 次以上');
     return parts.join('　·　');
   }
 
@@ -660,9 +663,9 @@
     for (var k in W) {
       var w = W[k];
       if (!w.c || !lvOK(w, sc)) continue;
-      var hit = false;
-      for (var i = 0; i < w.oc.length; i++) { if (inRange(w.oc[i][0], sc)) { hit = true; break; } }
-      if (hit) pool.push(k);
+      var hit = 0;
+      for (var i = 0; i < w.oc.length; i++) { if (inRange(w.oc[i][0], sc)) hit++; }
+      if (hit && hit >= (sc.mn || 1)) pool.push(k);
     }
     // 新字排序：考過越多次的排前面，其次是年份越近的排前面
     pool.sort(function (a, b) {

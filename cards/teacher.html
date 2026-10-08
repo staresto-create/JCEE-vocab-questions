@@ -66,6 +66,7 @@
     color:var(--sage); display:block; margin-bottom:8px;
   }
   .fhint{font-size:12px; color:var(--ink-soft); line-height:1.8; margin:6px 0 0;}
+  .fhint a{color:var(--crimson);}
 
   .chips{display:flex; flex-wrap:wrap; gap:7px;}
   .chip{
@@ -217,6 +218,12 @@
         <div class="chips" id="lvChips"></div>
         <p class="fhint">字級依大考中心《高中英文參考詞彙表》（111 學年度起適用）。片語與超出詞彙表的字沒有級別，另外列。全部勾選等於不設限。</p>
       </div>
+
+      <div class="field">
+        <span class="flabel">考過幾次</span>
+        <div class="chips" id="mnChips"></div>
+        <p class="fhint">只出考過這麼多次以上的字，適合先練最常考的字。次數在上面選的年份和站別裡算：這個字在幾題詞彙題的選項裡出現過，答案和誘答都算。記憶卡一個字形一張卡，individual 和 individually 是兩張卡，次數也分開算，所以和<a href="coverage.html">詞彙表覆蓋清單</a>把字形併成一個詞條算的次數不一定相同。</p>
+      </div>
       </div>
 
       <div class="field">
@@ -307,6 +314,7 @@
   var deck = 'w';
   var st = 'both';
   var lv = { n: {1:1,2:1,3:1,4:1,5:1,6:1}, p: true, x: true };
+  var mn = 1;               // 考過幾次以上：1 是不限
   var years = [];
 
   function $(id) { return document.getElementById(id); }
@@ -335,9 +343,11 @@
     for (k in W) {
       var w = W[k];
       if (!w.c || !lvOK(w)) continue;
+      var hit = 0;
       for (i = 0; i < w.oc.length; i++) {
-        if (inRange(w.oc[i][0], y0, y1, station)) { nw++; break; }
+        if (inRange(w.oc[i][0], y0, y1, station)) hit++;
       }
+      if (hit && hit >= mn) nw++;
     }
     return { q: nq, w: nw };
   }
@@ -370,6 +380,7 @@
     var p = ['y=' + (y0 === y1 ? y0 : y0 + '-' + y1)];
     if (st !== 'both') p.push('st=' + st);
     if (!allLevels()) p.push('lv=' + lvParam());
+    if (mn > 1) p.push('n=' + mn);
     var lab = cleanLabel($('label').value);
     if (lab) p.push('t=' + lab);
     return BASE + '#' + p.join('&');
@@ -554,7 +565,7 @@
     } else {
       box.className = 'count';
       box.innerHTML = '取自 <b>' + c.q + '</b> 題，共 <b>' + c.w + '</b> 個字。' +
-        '<br><span class="sub2">記憶卡以字為單位，學生做的是這 ' + c.w + ' 個字；題數是這些字的出處，不受字級篩選影響。</span>' +
+        '<br><span class="sub2">記憶卡以字為單位，學生做的是這 ' + c.w + ' 個字；題數是這些字的出處，不受字級和考過次數的篩選影響。</span>' +
         (c.w < 20 ? '<br><span class="warn">字數偏少，學生大概幾分鐘就練完了。</span>' : '');
     }
 
@@ -589,6 +600,12 @@
     box.appendChild(chip('全選', false, function () {
       lv = { n: {1:1,2:1,3:1,4:1,5:1,6:1}, p: true, x: true }; drawLevels(); refresh();
     }, true));
+  }
+  function drawMin() {
+    var box = $('mnChips'); box.innerHTML = '';
+    [[1, '不限'], [2, '2 次以上'], [3, '3 次以上'], [4, '4 次以上'], [5, '5 次以上']].forEach(function (o) {
+      box.appendChild(chip(o[1], mn === o[0], function () { mn = o[0]; drawMin(); refresh(); }, true));
+    });
   }
   function drawYearPresets() {
     var box = $('yPresets'); box.innerHTML = '';
@@ -640,7 +657,7 @@
     fillYears();
     drawYearPresets();
     drawStations();
-    drawLevels();
+    drawLevels(); drawMin();
     drawPOLevels();
     $('y0').addEventListener('change', refresh);
     $('y1').addEventListener('change', refresh);
@@ -668,6 +685,7 @@
     url: function () { return $('urlbox').textContent; },
     setStation: function (v) { st = v; drawStations(); refresh(); },
     setLevels: function (o) { lv = o; drawLevels(); refresh(); },
+    setMin: function (v) { mn = v; drawMin(); refresh(); },
     count: count,
     setDeck: setDeck,
     parseG: parseG
