@@ -363,7 +363,33 @@
   "label": "大學聯考",
   "yearLabel": "80 (大學聯考)",
   "zh": "我生長在鄉下的一個小村落。",
-  "en": "I grew up in a small village in the country."
+  "en": "I grew up in a small village in the country.",
+  "explanation": {
+   "pattern": [
+    "80 年大學聯考五題（41 至 45）連成一段，講小時候住的鄉下：41 說自己在鄉下的小村落長大，42 說那時家附近有一條清澈的小溪，43 說夏天常到那裡游泳、釣魚，44 轉回現在，說溪水髒得連魚都不能活，45 最後說不知道什麼時候才能再見到童年的美景。前三句講的是過去，44 講的是一路變到現在的結果，45 講的是將來。",
+    "grow up + in + 地方（在某地長大）：中文「我生長在鄉下」，英文寫 I grew up in…，在哪裡長大用 in 帶出。劍橋詞典 grow up 的例句 I grew up in Scotland，括號裡的解釋是小時候住在那裡（= I lived there when I was young）；美式的例句 She grew up on a Pennsylvania farm 講的也是在鄉下長大。",
+    "介系詞片語放在名詞後面修飾。中文把「鄉下」擺在「小村落」前面，英文的 in the country 是介系詞片語，要放在 village 後面，寫 a small village in the country。"
+   ],
+   "collocation": [
+    "the country／the countryside（鄉下）——劍橋詞典 country 當「鄉下」講的釋義是城鎮、都市與工業區以外的土地（land that is not in towns, cities, or industrial areas…），例句 Would you prefer to live in the country instead of a town?；countryside 的釋義相同，例句 The countryside around there is beautiful。所以本題也可以寫 a small village in the countryside。"
+   ],
+   "confusable": [
+    "the country／countries——劍橋詞典說明，country 當「鄉下」講時用單數、前面加 the（live in the country）；寫成複數 countries，意思就成了「國家」。本題寫 in the country，the 不能省。"
+   ],
+   "mustHave": [
+    "中文「鄉下」前面沒有冠詞，英文要寫 the country；少了 the，country 讀起來就成了「國家」。"
+   ],
+   "refs": [
+    {
+     "label": "96 年指考中譯英第 1 題（the country）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-166"
+    },
+    {
+     "label": "80 年大學聯考中譯英第 2 題（同一段的下一題）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-42"
+    }
+   ]
+  }
  },
  {
   "id": 42,
@@ -371,7 +397,41 @@
   "label": "大學聯考",
   "yearLabel": "80 (大學聯考)",
   "zh": "那時，我家附近有一條清澈的小溪。",
-  "en": "At that time, there was a clear brook near the house where I lived."
+  "en": "At that time, there was a clear brook near the house where I lived.",
+  "altAnswers": [
+   "At that time, there was a clear stream near the house where I lived."
+  ],
+  "explanation": {
+   "pattern": [
+    "There + be + 名詞（某處有某物）：中文「我家附近有一條清澈的小溪」，排在前面的「我家附近」是地點，不是主詞，「有」講的是那裡有一條小溪。英文每個句子都要有主詞，這時用 there was 帶出：there was a clear brook near the house…，不寫 Near my house had a clear brook。劍橋文法〈There is, there's and there are〉說明，第一次提到某個人或某樣東西存在時，用 there is／there are；本題講的是過去，is 改成 was。",
+    "the house where I lived：中文只寫「我家」，英文寫 the house where I lived，交代是那時住的房子。關係詞用哪一個，把名詞代進關係子句就看得出來：the house + I lived （in the house）。代進去以後，house 前面要補介系詞 in，在子句裡是地方副詞，所以用 where，也可以寫 in which。83 年學測中譯英第 2 題的 peaceful forests, where they can get away from the crowds 用的是同一條規則。也可以寫得簡單一點：near my house。"
+   ],
+   "collocation": [
+    "brook／stream（小溪）——劍橋詞典 brook 的釋義就是小溪（a small stream），美式的例句 A brook runs past the house（一條小溪從房子旁邊流過），和本題講的幾乎一樣。stream 更常用，89 年學測第 10 題的題幹 the students sat down by the stream（學生在小溪邊坐下來）用的就是它，所以本題也可以寫 a clear stream。",
+    "clear（清澈的）——劍橋詞典的釋義是純淨、看得穿（pure or easy to see through），例句 The water in the lake is so clear that you can see the bottom（湖水清澈得可以看到湖底），句型和 44 的 so filthy that… 一樣。"
+   ],
+   "mustHave": [
+    "中文「我家附近有…」沒有主詞，英文要用 there was 帶出，句子才完整。"
+   ],
+   "refs": [
+    {
+     "label": "83 年學測中譯英第 2 題（把名詞代進關係子句）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-94"
+    },
+    {
+     "label": "89 年學測第 10 題（by the stream）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0100"
+    },
+    {
+     "label": "80 年大學聯考中譯英第 1 題（同一段的前一題）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-41"
+    },
+    {
+     "label": "80 年大學聯考中譯英第 3 題（同一段的下一題）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-43"
+    }
+   ]
+  }
  },
  {
   "id": 43,
@@ -379,7 +439,38 @@
   "label": "大學聯考",
   "yearLabel": "80 (大學聯考)",
   "zh": "我夏天常到那裡游泳、釣魚。",
-  "en": "I used to go swimming and fishing there in the summer."
+  "en": "I used to go swimming and fishing there in the summer.",
+  "explanation": {
+   "pattern": [
+    "used to + 原形動詞（以前常常…，現在不這樣了）：中文「我夏天常到那裡游泳、釣魚」講的是小時候的習慣，下一題說溪水現在髒得連魚都不能活，可見現在已經不能這樣了，所以用 used to 最貼切。劍橋文法〈Used to〉說明，used to 講的是過去的事，現在已經不是這樣了，可以指重複發生的動作，也可以指過去的狀態；同一頁的例句 We used to go to the seaside every summer when I was a kid（小時候我們每年夏天都會去海邊），和本題的句型幾乎一樣。劍橋文法〈Used to〉也提醒，used to 前面不加 be，不寫 I was used to go…。98 年指考參考試卷第 8 題的題幹 Jack used to be stingy, but now he is unusually generous 也是 used to 和 now 前後對照，就像本題和下一題。",
+    "would 也可以講過去的習慣，本題也可以寫 I would go swimming and fishing there in the summer。would 只能講過去的動作，不能講過去的狀態；used to 兩種都可以。劍橋文法〈Used to〉的例句 We used to live in Manchester，不寫 We would live in Manchester。本題的「游泳、釣魚」是動作，用 would 沒有問題。"
+   ],
+   "mustHave": [
+    "中文「常到那裡游泳、釣魚」沒說現在還去不去，英文用 used to 交代現在已經不這樣了；used to 本身就有「以前常常」的意思，不再另加 often。"
+   ],
+   "refs": [
+    {
+     "label": "83 年大學聯考中譯英第 1 題（used to）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-53"
+    },
+    {
+     "label": "87 年大學聯考中譯英第 3 題（would 只講動作）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-75"
+    },
+    {
+     "label": "98 年指考參考試卷第 8 題（used to … now）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/zhikao/#q-ZK0340"
+    },
+    {
+     "label": "80 年大學聯考中譯英第 2 題（同一段的前一題）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-42"
+    },
+    {
+     "label": "80 年大學聯考中譯英第 4 題（同一段的下一題）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-44"
+    }
+   ]
+  }
  },
  {
   "id": 44,
@@ -387,7 +478,46 @@
   "label": "大學聯考",
   "yearLabel": "80 (大學聯考)",
   "zh": "現在溪水髒得連魚都不能活。",
-  "en": "Now the water in the brook has become so filthy that fish cannot live in it."
+  "en": "Now the water in the brook has become so filthy that fish cannot live in it.",
+  "altAnswers": [
+   "Now the water in the brook has become so dirty that fish cannot live in it."
+  ],
+  "explanation": {
+   "pattern": [
+    "so + 形容詞 + that 子句（…得…）：中文「髒得連魚都不能活」，「髒」講的是程度，「魚都不能活」是結果，英文用 so filthy that fish cannot live in it 把兩件事接成一句。so 修飾形容詞 filthy，that 帶出結果，和 88 年大學聯考中譯英第 2 題的 so late that… 是同一個句型。劍橋文法〈So〉說明，so 放在形容詞或副詞前面，表示程度很高，常和 that 連用，例句 He's so lazy that he never helps out with the housework（他懶到從來不幫忙做家事）。42 引的劍橋詞典 clear 例句 The water in the lake is so clear that you can see the bottom 也是這個句型，正好和本題前後對照：以前溪水清澈，現在髒得連魚都不能活。",
+    "先找標記，再決定時態。「現在」溪水髒了，是從以前清澈一路變到現在的結果，變髒的狀態到現在還在，所以用現在完成式 has become。劍橋文法〈Past simple or present perfect?〉說明，現在完成式講的是到現在為止的時間，事情發生在過去，但和現在有關。99 年學測中譯英第 2 題「騎腳踏車現在已經成為一種熱門的休閒活動」也用 has become。並排看：[At that time, there was a clear brook…]（42：那時的情形，過去簡單式）／[Now the water in the brook has become so filthy…]（44：變到現在，現在完成式）。寫 is so filthy 也成立，只講現在的情形，不帶出「變了」的意思。",
+    "連 … 都：中文「連魚都不能活」，本題庫的英文沒有把「連」譯出來，寫 fish cannot live in it 意思已經清楚；要強調也可以加 even，寫 even fish cannot live in it。劍橋詞典 even 的釋義是表示某件事令人意外、不尋常或極端（used to show that something is surprising, unusual, unexpected, or extreme）。"
+   ],
+   "collocation": [
+    "filthy／dirty（骯髒的）——一般寫 dirty 就可以，寫成 so dirty that fish cannot live in it，意思和本題完全一樣。filthy 比 dirty 更強，劍橋詞典的釋義是極髒、髒得令人不舒服（extremely or unpleasantly dirty），釋義本身就是拿 dirty 來解釋，例句 Wash your hands - they're filthy!。也可以寫 polluted（受污染的），107 年學測克漏字第 24 題考的就是 polluted waters（受污染的水域）。"
+   ],
+   "mustHave": [
+    "中文「不能活」沒寫在哪裡活，英文要用 in it 交代在溪水裡：fish cannot live in it，it 指的就是 the water in the brook。",
+    "中文「溪水」兩個字，英文寫 the water in the brook，介系詞片語 in the brook 放在 water 後面修飾。"
+   ],
+   "refs": [
+    {
+     "label": "88 年大學聯考中譯英第 2 題（so … that）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-79"
+    },
+    {
+     "label": "99 年學測中譯英第 2 題（has become）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-181"
+    },
+    {
+     "label": "107 年學測克漏字第 24 題（polluted waters）",
+     "url": "https://staresto-create.github.io/grammar-cloze-test/q/g107-24-2/"
+    },
+    {
+     "label": "80 年大學聯考中譯英第 3 題（同一段的前一題）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-43"
+    },
+    {
+     "label": "80 年大學聯考中譯英第 5 題（同一段的下一題）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-45"
+    }
+   ]
+  }
  },
  {
   "id": 45,
@@ -395,7 +525,53 @@
   "label": "大學聯考",
   "yearLabel": "80 (大學聯考)",
   "zh": "我不知道甚麼時候才能再見到童年的美景。",
-  "en": "I have no idea when I'll be able to see that beautiful view I remember from my childhood."
+  "en": "I have no idea when I'll be able to see the beautiful scenery of my childhood again.",
+  "explanation": {
+   "pattern": [
+    "疑問詞 + 主詞 + 動詞：when I'll be able to see… 不是問句，when 帶出的是一個名詞子句，接在 I have no idea 後面，說明不知道的是什麼，句尾不加問號。子句裡照直述句的語序寫 when I'll be able to see，不寫 when will I be able to see。劍橋文法〈Reported speech: indirect speech〉說明，間接引述以 wh- 開頭的問句時，子句用直述句的語序（主詞 + 動詞），不用問句的語序，也不加問號，例句 I asked her where the bus station was（不寫 where was the bus station）。",
+    "when 子句裡用不用 will，要看 when 做的是什麼。本題的 when 問的是「什麼時候」，帶出的是名詞子句，講將來就照樣用 will。劍橋文法〈When〉把兩種用法分開說明：間接問句的例句 I wonder when the new computers will arrive 用 will；when 當連接詞、意思是「…的時候」，講將來時子句裡用現在簡單式，例句 When the new park opens, I'll go there every day，不寫 When the new park will open。並排看：[I have no idea when I'll be able to see…]（不知道什麼時候，名詞子句，用 will）／[When I go back to the village, I'll see…]（等我回去的時候，副詞子句，用現在簡單式）。85 年學測中譯英第 1 題的 what the hotels of the future will look like 也是名詞子句裡用 will。",
+    "will be able to（將來能…）：中文「才能再見到」講的是將來，英文要用 will，可是 will 和 can 都是情態助動詞，不能連用，所以把 can 換成 be able to。劍橋文法〈Be expressions (be able to, be due to)〉說明，be able to 和 can 一樣講能力，常用在不能用 can 的地方，例如另一個情態助動詞後面，例句 She won't be able to concentrate，不寫 She won't can concentrate。",
+    "整段五句的動詞並排看：41 [grew up]、42 [was]、[lived]、43 [used to go]（小時候的事）／44 [has become]（變到現在的結果）／45 [have]（現在說的話）、[will be able to see]（將來）。中文的動詞沒有時態變化，要靠「那時」「現在」「什麼時候才能」這些字，以及前後文判斷時間。"
+   ],
+   "collocation": [
+    "have no idea（完全不知道）——劍橋詞典 idea 的例句 \"Where's Serge?\" \"I've no idea.\"、You have no idea what I just said, do you?，後面一樣可以接 wh- 子句。88 年學測克漏字第 40 題那一篇也寫 But I had no idea where I was（可是我完全不知道自己在哪裡）。寫 I don't know when… 也可以。",
+    "scenery（風景）——劍橋詞典標為不可數名詞，前面不加 a。釋義是自然環境的整體樣貌，尤其指美景（the general appearance of the natural environment, especially when it is beautiful），例句 They stopped at the top of the hill to admire the scenery。93 年指考第 8 題的題幹 the breathtaking scenery along the coast highway between Hualien and Ilan 也用 scenery 講美景。",
+    "childhood（童年）——劍橋詞典的釋義是一個人還是孩子的那段時間（the time when someone is a child），例句 She spent most of her childhood on a farm in Texas。98 年指考第 2 題的題幹 Spending most of his childhood in Spain 和詞典例句是同一個說法；114 年學測第 3 題的題幹 many of my childhood memories 則把 childhood 放在名詞前面當修飾語。"
+   ],
+   "confusable": [
+    "scenery／view——scenery 是不可數名詞，講一個地方自然環境的整體樣貌；view 是可數名詞，劍橋詞典的釋義是從某個地點看得到的景象（what you can see from a particular place），例句 The view from the top of the mountain is breathtaking。「童年的美景」講的是整個鄉下的景色，不是從某一點看出去的那一幕，所以用 scenery 比較貼切。"
+   ],
+   "refs": [
+    {
+     "label": "85 年學測中譯英第 1 題（名詞子句裡用 will）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-103"
+    },
+    {
+     "label": "85 年大學聯考中譯英第 5 題（scenery）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-67"
+    },
+    {
+     "label": "93 年指考第 8 題（scenery）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/zhikao/#q-ZK0200"
+    },
+    {
+     "label": "88 年學測克漏字第 40 題（had no idea where I was）",
+     "url": "https://staresto-create.github.io/grammar-cloze-test/q/g88-40-3/"
+    },
+    {
+     "label": "98 年指考第 2 題（childhood）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/zhikao/#q-ZK0144"
+    },
+    {
+     "label": "114 年學測第 3 題（childhood memories）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0483"
+    },
+    {
+     "label": "80 年大學聯考中譯英第 1 題（同一段的第一題）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-41"
+    }
+   ]
+  }
  },
  {
   "id": 46,
