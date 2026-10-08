@@ -323,7 +323,27 @@
   "label": "大學聯考",
   "yearLabel": "79 (大學聯考)",
   "zh": "昨天早上我出門的時候，天氣相當暖和。",
-  "en": "It was quite warm when I left home yesterday morning."
+  "en": "It was quite warm when I left home yesterday morning.",
+  "altAnswers": [
+   "The weather was quite warm when I left home yesterday morning."
+  ],
+  "explanation": {
+   "pattern": [
+    "79 年大學聯考五題（36 至 40）連成一段，講天氣一變就著涼了：36 說昨天早上出門時天氣相當暖和，37 所以沒穿毛衣，只穿了一件襯衫，38 到了下午溫度卻急速下降，39 雖然晚上比平常早回家，還是覺得有點不舒服，40 說今天又打噴嚏又頭痛，最好馬上去看醫生。36 至 39 講的是昨天的事，40 講的是今天。"
+   ],
+   "collocation": [
+    "quite（相當）——劍橋詞典把 quite 的意思分成兩種：英式英文常指「還算、有點，但不到完全」（a little or a lot but not completely），例句 I'm quite tired but I can certainly walk a little further；美式英文常指「很、在很大的程度上」（to a large degree），例句 School is quite different from what it once was。中文「相當暖和」兩種讀法都說得通。"
+   ],
+   "mustHave": [
+    "中文「天氣相當暖和」的主詞是「天氣」，英文常換成 it 當主詞，寫 It was quite warm；這個 it 不指任何東西，是替句子補上主詞。劍橋文法〈It〉說明，it 可以當「空」的主詞，因為它不指任何特定的東西，例句 I know it's going to rain today!。寫 The weather was quite warm 也可以。"
+   ],
+   "refs": [
+    {
+     "label": "79 年大學聯考中譯英第 2 題（同一段的下一題）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-37"
+    }
+   ]
+  }
  },
  {
   "id": 37,
@@ -331,7 +351,30 @@
   "label": "大學聯考",
   "yearLabel": "79 (大學聯考)",
   "zh": "所以我沒有穿毛衣，只穿了一件襯衫。",
-  "en": "Therefore, I didn't wear a sweater but only a shirt."
+  "en": "Therefore, I didn't wear a sweater but only a shirt.",
+  "explanation": {
+   "pattern": [
+    "Therefore（所以、因此）：上一句天氣暖和是原因，本句沒穿毛衣是結果，用 Therefore 帶出。Therefore 是轉承語，不是連接詞。它只能擺在句首或句中，不能拿它把兩個句子用逗號連起來——那樣就變成兩個句子沒有連接詞連接。本題的 Therefore 放在句首，前面一句已經用句號結束。",
+    "not A but B（不是 A，而是 B）：中文「沒有穿毛衣，只穿了一件襯衫」，前半說沒穿什麼，後半說實際穿了什麼，英文用 not … but … 接成一句：I didn't wear a sweater but only a shirt。not 寫在 didn't 裡面，but 後面的 only a shirt 和前面的 a sweater 一樣是 wear 的受詞，所以 wear 不必再寫一次。劍橋詞典 but 的例句 She's not a painter but a writer，括號裡的解釋是她是作家，不是畫家（= she is a writer, not a painter）；同一個詞條的 This is not caused by evil, but by simple ignorance 也是 not 和 but 後面放同一類的成分。only 對應中文的「只」。"
+   ],
+   "mustHave": [
+    "中文後半「只穿了一件襯衫」沒寫主詞，英文用 but 接在同一句裡，主詞沿用前面的 I；要是拆成兩句，後一句就得補上主詞，寫 I wore only a shirt。"
+   ],
+   "refs": [
+    {
+     "label": "110 年學測中譯英第 2 題（Therefore 是轉承語）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-131"
+    },
+    {
+     "label": "79 年大學聯考中譯英第 1 題（同一段的前一題）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-36"
+    },
+    {
+     "label": "79 年大學聯考中譯英第 3 題（同一段的下一題）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-38"
+    }
+   ]
+  }
  },
  {
   "id": 38,
@@ -339,7 +382,35 @@
   "label": "大學聯考",
   "yearLabel": "79 (大學聯考)",
   "zh": "但是到了下午，溫度卻急速下降了。",
-  "en": "But the temperature dropped sharply in the afternoon."
+  "en": "But the temperature dropped sharply in the afternoon.",
+  "altAnswers": [
+   "But the temperature dropped suddenly in the afternoon."
+  ],
+  "explanation": {
+   "pattern": [
+    "中文「但是到了下午，溫度卻急速下降了」，「但是」和「卻」講的是同一個轉折，英文只用一個 But，放在句首，帶出和上一句相反的情形：早上暖和，下午變冷。"
+   ],
+   "collocation": [
+    "drop sharply（急遽下降）——sharply 的釋義是快速而突然地（quickly and suddenly），劍橋詞典的例句 Road deaths fell sharply last year（去年道路死亡人數急遽下降）和本題同樣放在動詞後面。照這個釋義，寫成 dropped suddenly 或 dropped quickly 也表達得出「急速下降」。99 年指考中譯英第 1 題「出生率快速下滑」寫的是 has sharply declined。"
+   ],
+   "mustHave": [
+    "中文「到了下午」是時間，不是主詞；英文的主詞是 the temperature，in the afternoon 放在句尾。"
+   ],
+   "refs": [
+    {
+     "label": "99 年指考中譯英第 1 題（sharply）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-182"
+    },
+    {
+     "label": "79 年大學聯考中譯英第 2 題（同一段的前一題）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-37"
+    },
+    {
+     "label": "79 年大學聯考中譯英第 4 題（同一段的下一題）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-39"
+    }
+   ]
+  }
  },
  {
   "id": 39,
@@ -347,7 +418,41 @@
   "label": "大學聯考",
   "yearLabel": "79 (大學聯考)",
   "zh": "雖然晚上比往常早回家，我還是覺得有點不舒服。",
-  "en": "Though I got back home earlier than usual in the evening, I still felt slightly under the weather."
+  "en": "Though I got back home earlier than usual in the evening, I still didn't feel very well.",
+  "explanation": {
+   "pattern": [
+    "中文「雖然…還是…」，英文只用一個連接詞：用 though 帶出讓步的子句，另一個子句前面不再加 but。劍橋文法〈Although or though?〉說明，although、though 是從屬連接詞，帶出的子句是從屬子句，要有一個主要子句才完整。「還是」用副詞 still 表示，still 不是連接詞，可以和 though 一起用。劍橋文法〈Conjunctions: contrasting〉的例句 Although it rained a lot, we've still enjoyed our holiday 也是 although 子句加上 still。",
+    "S + feel + 形容詞：feel 在這裡講的是身體的感覺，後面接形容詞。well 在這裡是形容詞，意思是健康的、沒有生病；劍橋詞典 well 當形容詞的例句就是 I don't feel well。中文「有點不舒服」，英文用否定的 didn't feel very well 表達；90 年大學聯考中譯英第 1 題「昨天晚上我感覺有點不舒服」，寫的是 I didn't feel quite well last night。"
+   ],
+   "collocation": [
+    "than usual（比平常）——usual 前面不加 the。劍橋詞典 usual 的例句 There was more rainfall than usual this summer in the mountain areas（今年夏天山區的雨量比往年多）；89 年學測第 2 題的題幹 Jane got home earlier than usual 也是這樣寫。"
+   ],
+   "mustHave": [
+    "「雖然」用 though 帶出，另一個子句前面不加 but。"
+   ],
+   "refs": [
+    {
+     "label": "84 年學測中譯英第 5 題（雖然…，不加 but）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-102"
+    },
+    {
+     "label": "90 年大學聯考中譯英第 1 題（didn't feel quite well）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-88"
+    },
+    {
+     "label": "89 年學測第 2 題（earlier than usual）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0092"
+    },
+    {
+     "label": "79 年大學聯考中譯英第 3 題（同一段的前一題）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-38"
+    },
+    {
+     "label": "79 年大學聯考中譯英第 5 題（同一段的下一題）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-40"
+    }
+   ]
+  }
  },
  {
   "id": 40,
@@ -355,7 +460,53 @@
   "label": "大學聯考",
   "yearLabel": "79 (大學聯考)",
   "zh": "今天我不但打噴嚏而且頭痛，我想我最好馬上去看醫生。",
-  "en": "Not only am I sneezing today, but I also have a headache. I think I had better see a doctor right away."
+  "en": "Not only am I sneezing today, but I also have a headache. I think I had better see a doctor right away.",
+  "explanation": {
+   "pattern": [
+    "not only A but also B（不但 A，而且 B）：本句把 not only 放在句首加強語氣，後面的主詞和動詞要倒裝。劍橋文法〈Not only … but also〉說明，not only 放在子句開頭時，主詞與動詞要倒裝；沒有助動詞或 be 動詞時，補上 do、does、did，例句 Not only did she forget my birthday, but she also didn't even apologise for forgetting it。本句的動詞是現在進行式 am sneezing，已經有 am，所以把 am 移到主詞 I 前面，寫 Not only am I sneezing。but 後面的子句照一般語序，also 放在主詞後面：but I also have a headache。103 年學測克漏字第 24 題那一篇的 Not only will the summit lose its tourist attraction, but the disappearance of the snows will also cause… 也是 not only 放在句首，把 will 移到主詞前面。",
+    "先找標記，再決定時態。「今天」打噴嚏、頭痛，講的是現在的情形，和前面四句講的昨天不同，改用現在式。打噴嚏是今天一陣一陣在發生的事，用現在進行式 am sneezing。劍橋文法〈Present continuous (I am working)〉說明，現在進行式可以講說話前後這段時間的暫時狀態，例句 Her mother's living with her at the moment。have a headache 的 have 講的是「有」，是一種狀態，用現在簡單式。",
+    "had better + 原形動詞（最好…）：had 看起來是過去式，講的卻是現在或將來應該做的事。劍橋文法〈Had better〉說明，had better 講的是現在或將來應該做的事，形式一律是 had，不寫 have better，後面接不帶 to 的原形動詞，例句 It's five o'clock. I'd better go now before the traffic gets too bad，不寫 I'd better to go now。本題寫 I had better see a doctor，see 用原形。劍橋文法〈Had better〉也說明，had better 的語氣很強，表示不這樣做就會有不好的後果。",
+    "中文是一句，英文寫成兩句：中文「今天我不但打噴嚏而且頭痛，我想我最好馬上去看醫生」用逗號一路接下去；英文的 Not only… but… 已經是一個完整的句子，I think… 又是另一個，兩句之間沒有連接詞，所以在 headache 後面用句號斷開，不用逗號。",
+    "整段五句的動詞並排看：36 [was]、[left]／37 [didn't wear]／38 [dropped]／39 [got]、[didn't feel]（昨天的事，過去簡單式）／40 [am sneezing]（今天正在發生）、[have]（現在的狀態）、[think]、[had better see]（現在的想法與該做的事）。中文的動詞沒有時態變化，要靠「昨天早上」「下午」「晚上」「今天」這些字判斷時間。"
+   ],
+   "collocation": [
+    "sneeze（打噴嚏）——劍橋詞典的例句 I couldn't stop sneezing（我噴嚏打個不停）；109 年學測克漏字那一篇開頭就是 When a person sneezes, the droplets can spread diseases（人打噴嚏時，飛沫會傳播疾病）。",
+    "right away（立刻）——劍橋詞典的釋義是立刻（immediately），例句 I'll call them right away, because if I wait, I'll probably forget to do it；99 年學測第 15 題的題幹 was sent to the hospital right away 也用這個說法。"
+   ],
+   "mustHave": [
+    "中文「我想我最好…」，think 後面的子句要有主詞 I：I think I had better…，不寫 I think had better…。"
+   ],
+   "refs": [
+    {
+     "label": "94 年指考中譯英第 2 題（not only … but also）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-157"
+    },
+    {
+     "label": "103 年學測克漏字第 24 題（Not only will the summit…）",
+     "url": "https://staresto-create.github.io/grammar-cloze-test/q/g103-24-2/"
+    },
+    {
+     "label": "83 年大學聯考中譯英第 2 題（現在進行式）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-54"
+    },
+    {
+     "label": "103 年指考第 5 題（I'd better stay away from it）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/zhikao/#q-ZK0085"
+    },
+    {
+     "label": "109 年學測克漏字第 21 題（When a person sneezes）",
+     "url": "https://staresto-create.github.io/grammar-cloze-test/q/g109-21-2/"
+    },
+    {
+     "label": "99 年學測第 15 題（right away）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0285"
+    },
+    {
+     "label": "79 年大學聯考中譯英第 1 題（同一段的第一題）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-36"
+    }
+   ]
+  }
  },
  {
   "id": 41,
