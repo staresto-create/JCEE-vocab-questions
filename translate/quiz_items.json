@@ -283,7 +283,27 @@
   "label": "大學聯考",
   "yearLabel": "78 (大學聯考)",
   "zh": "讀小學的時候，我身體很虛弱，並且常感冒。",
-  "en": "When I was in elementary school, I was very weak and often caught colds."
+  "en": "When I was in elementary school, I was very weak and often caught colds.",
+  "altAnswers": [
+   "When I was an elementary school student, I was very weak and often caught colds."
+  ],
+  "explanation": {
+   "pattern": [
+    "78 年大學聯考五題（31 至 35）連成一段，講一個人從小體弱，靠運動變得強壯：31 說讀小學的時候身體很虛弱、常感冒，32 說上了國中以後就儘量找機會運動，33 說功課一直很繁重，還是每天慢跑半小時，34 說六年不斷的鍛鍊，不但更強壯，也長得更高，35 說現在大家都無法相信從前又矮又瘦。31 講的是小學時候的事，32 至 34 講的是從上國中一直到現在，35 講的是現在。"
+   ],
+   "collocation": [
+    "catch a cold（感冒）——劍橋詞典 catch 的這個意思是染上疾病（to get an illness, especially one caused by bacteria or a virus），例句 He caught a cold on holiday；cold 當「感冒」講時是可數名詞，例句 I have a cold、She caught a cold at school。本題的「常感冒」講的是小學時候不只一次感冒，所以寫複數 caught colds。"
+   ],
+   "mustHave": [
+    "中文「我身體很虛弱」，排在前面的是「身體」，英文卻用人當主詞，寫 I was very weak；劍橋詞典 weak 的釋義就是身體不強壯（not physically strong）。後半「並且常感冒」沒寫主詞，英文用 and 接在同一句裡，主詞沿用前面的 I；要是拆成兩句，後一句就得補上主詞 I。"
+   ],
+   "refs": [
+    {
+     "label": "78 年大學聯考中譯英第 2 題（同一段的下一題）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-32"
+    }
+   ]
+  }
  },
  {
   "id": 32,
@@ -291,7 +311,49 @@
   "label": "大學聯考",
   "yearLabel": "78 (大學聯考)",
   "zh": "自從上了國中以後，我就儘量找機會運動。",
-  "en": "Ever since I entered junior high school, I have been trying hard to find opportunities for exercise."
+  "en": "Ever since I entered junior high school, I have been trying hard to find opportunities for exercise.",
+  "altAnswers": [
+   "Ever since I entered junior high school, I have tried hard to find opportunities to exercise."
+  ],
+  "explanation": {
+   "pattern": [
+    "Ever since + 過去的時間點，主要子句用現在完成式：上國中是過去某一年的事，since 子句用過去簡單式 entered；從那時起一直到現在都在找機會運動，主要子句用現在完成進行式 have been trying。劍橋文法〈Since〉說明，since 帶出過去某個時間點的動作或事件時，since 子句可以用過去簡單式，主要子句用現在完成式，例句 They haven't received any junk mail since they moved house；同一頁也說明，ever since 是 since 加強語氣的說法。95 年指考克漏字第 16 題的答案就是 Ever：Ever since pre-Hispanic times, Lake Catemaco has been a centre for alternative medicine…，主要子句也是現在完成式。",
+    "先找標記，再決定時態。這一句的標記就在句首——since 一出現，主要子句的時態就定了。100 年學測克漏字第 21 題那一篇正好把兩種時態並排：It was given the kind of welcome it has been getting ever since。was given 講的是 1999 年首演那一次，過去簡單式；has been getting ever since 講的是從那時起一直到現在，現在完成進行式。",
+    "現在完成式和現在完成進行式兩式講的都是從過去延續到現在的事，差別在著眼點：英國文化協會 LearnEnglish〈Present perfect simple and continuous〉的說明是，現在完成式通常著眼在結果，現在完成進行式通常著眼在動作本身；講一直持續到現在的動作時，兩式都可以用，差別只在強調的地方。並排看：[I have been trying hard to find…]（現在完成進行式）著眼在找機會這個動作，從上國中一直找到現在；[I have tried hard to find…]（現在完成式）也說得通。"
+   ],
+   "collocation": [
+    "opportunity for + 名詞／opportunity to + 原形動詞（做…的機會）——本題的 exercise 當名詞，寫 opportunities for exercise；exercise 當動詞，就寫 opportunities to exercise。劍橋詞典 opportunity 的例句 a new opportunity for prosperity（for + 名詞）、Everyone will have an opportunity to comment（to + 原形動詞）。劍橋文法〈Word choice: possibility, occasion, or opportunity?〉也說明，「做某件事的機會」用 opportunity，不用 possibility 或 occasion，例句 The trip to Paris gave me an opportunity to speak French。"
+   ],
+   "mustHave": [
+    "enter 後面直接接地方，不加介系詞：entered junior high school，不寫 entered in junior high school。劍橋文法〈Word patterns: enter a place〉的例句 I entered the classroom，不寫 I entered in the classroom。"
+   ],
+   "refs": [
+    {
+     "label": "108 年學測中譯英第 1 題（Since 與現在完成式）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-120"
+    },
+    {
+     "label": "99 年指考中譯英第 1 題（現在完成進行式）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-182"
+    },
+    {
+     "label": "95 年指考克漏字第 16 題（Ever since）",
+     "url": "https://staresto-create.github.io/zhikao-cloze-test/q/z95-16/"
+    },
+    {
+     "label": "100 年學測克漏字第 21 題（was given 對 has been getting ever since）",
+     "url": "https://staresto-create.github.io/grammar-cloze-test/q/g100-21-2/"
+    },
+    {
+     "label": "78 年大學聯考中譯英第 1 題（同一段的前一題）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-31"
+    },
+    {
+     "label": "78 年大學聯考中譯英第 3 題（同一段的下一題）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-33"
+    }
+   ]
+  }
  },
  {
   "id": 33,
@@ -299,7 +361,41 @@
   "label": "大學聯考",
   "yearLabel": "78 (大學聯考)",
   "zh": "雖然功課一直很繁重，我還是每天慢跑半小時。",
-  "en": "Although my schoolwork has been heavy, I have managed to jog for half an hour every day."
+  "en": "Although my schoolwork has been heavy, I have managed to jog for half an hour every day.",
+  "altAnswers": [
+   "Although my schoolwork is heavy, I still jog for half an hour every day."
+  ],
+  "explanation": {
+   "pattern": [
+    "中文「雖然…還是…」，英文只用一個連接詞：用 although 帶出讓步的子句，另一個子句前面不再加 but。劍橋文法〈Although or though?〉說明，although、though 是從屬連接詞，帶出的子句是從屬子句，要有一個主要子句才完整。本題的「還是」沒有寫成 still，而是用 have managed to（設法做到了）表達：功課再重，每天慢跑還是做到了。",
+    "先找標記，再決定時態。「一直」說的是從上國中到現在功課都很繁重，用現在完成式 has been heavy；每天慢跑也是從那時一直做到現在，用現在完成式 have managed。劍橋文法〈Past simple or present perfect?〉說明，現在完成式講的是到現在為止的時間，事情發生在過去，但和現在有關。要是只講現在的習慣，用現在簡單式也可以：Although my schoolwork is heavy, I still jog for half an hour every day，「還是」就用副詞 still 表示。劍橋文法〈Present simple (I work)〉說明，現在簡單式可以講經常、習慣性的事，例句 I read every night before I go to sleep。"
+   ],
+   "collocation": [
+    "manage to + 原形動詞（設法做到…）——劍橋詞典 manage 的釋義是做到某件事，特別是困難的事（to succeed in doing or dealing with something, especially something difficult），例句 I only just managed to finish on time（我好不容易才及時完成）。110 年學測第 5 題的題幹 The skydiver managed to land safely after jumping out of the aircraft, even though her parachute failed to open in midair（降落傘在半空中沒打開，跳傘者還是設法安全著陸）和本題一樣，一邊講困難，一邊用 managed to 講還是做到了。",
+    "heavy（繁重的）——劍橋詞典 heavy 有一個意思是需要很多工作和力氣的（involving a lot of work and effort），例句 a heavy workload/schedule（繁重的工作量、緊湊的行程）。schoolwork 是在學校或家裡做的功課（studying done at school or at home）。"
+   ],
+   "mustHave": [
+    "「雖然」用 although 帶出，另一個子句前面不加 but。"
+   ],
+   "refs": [
+    {
+     "label": "84 年學測中譯英第 5 題（雖然…，不加 but）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-102"
+    },
+    {
+     "label": "110 年學測第 5 題（managed to）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0440"
+    },
+    {
+     "label": "78 年大學聯考中譯英第 2 題（同一段的前一題）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-32"
+    },
+    {
+     "label": "78 年大學聯考中譯英第 4 題（同一段的下一題）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-34"
+    }
+   ]
+  }
  },
  {
   "id": 34,
@@ -307,7 +403,60 @@
   "label": "大學聯考",
   "yearLabel": "78 (大學聯考)",
   "zh": "六年繼續不斷的鍛鍊使我不但更加強壯，而且也長得更高。",
-  "en": "Six years of constant training has made me not only stronger but also taller."
+  "en": "Six years of constant training has made me not only stronger but also taller.",
+  "altAnswers": [
+   "Six years of constant exercise has made me not only stronger but also taller."
+  ],
+  "explanation": {
+   "pattern": [
+    "make + 受詞 + 形容詞（使…變得…）：made me stronger、made me taller。劍橋詞典 make 的這個意思是 to cause to be, to become。103 年指考中譯英第 1 題的 make schoolchildren overweight、93 年指考中譯英第 1 題的 make our lives more comfortable 是同一個結構。",
+    "not only A but also B（不但 A，而且 B）：A、B 要用同樣的形式，本句兩邊都是形容詞比較級 stronger、taller，都接在 made me 後面。劍橋文法〈Not only … but also〉的例句 The car not only is economical but also feels good to drive，not only 後面和 but also 後面也是同樣的形式。本句的 not only 不在句首，所以不倒裝；79 年大學聯考中譯英第 5 題把 Not only 放在句首，主詞和動詞就要倒裝。",
+    "先找標記，再決定時態。六年的鍛鍊從上國中一直到現在，結果是現在更強壯、更高，用現在完成式 has made。劍橋文法〈Past simple or present perfect?〉說明，現在完成式講的是到現在為止的時間，事情發生在過去，但和現在有關。",
+    "主詞 Six years of constant training 配單數 has。中文「六年繼續不斷的鍛鍊」講的是一段時間的長度，英文把一段時間看成一個整體，動詞用單數。瑞典隆德大學的學術英文寫作指南 AWELU〈Sums of money and periods of time〉說明，金額、時間長度當主詞時動詞用單數，不跟名詞片語裡的核心字一致，例句 Five years is the maximum sentence for that offence。道理和 time 一樣：時間是一個量，不是一個一個能數的東西，所以說 spend less time，不說 fewer time；劍橋文法〈Countability: less or fewer?〉的例句 Now I spend less time travelling to work，不寫 fewer time。six years 看起來是複數，講的卻是一整段時間，所以動詞用單數 has made。"
+   ],
+   "collocation": [
+    "constant（不斷的）——劍橋詞典的釋義是常常發生或一直發生的（happening a lot or all the time），例句 machines that are in constant use（一直在使用的機器）。副詞 constantly 當過兩次答案：88 年推薦甄選第 2 題 Mr. Wang changes his mind constantly，102 年學測第 8 題 Women's fashions are constantly changing。",
+    "training／exercise（鍛鍊）——劍橋詞典 training 的釋義是學會某項工作或活動所需技能的過程，training 沒有複數，不寫 trainings（劍橋文法〈Countability: training〉）。本題講的是每天慢跑，寫 32 用過的 exercise 也可以：Six years of constant exercise has made me…。"
+   ],
+   "mustHave": [
+    "中文「不但…而且也…」，not only 後面和 but also 後面要放同樣的形式，本句兩邊都是比較級：not only stronger but also taller。",
+    "Six years of constant training 講的是一整段時間，動詞用單數 has。"
+   ],
+   "refs": [
+    {
+     "label": "103 年指考中譯英第 1 題（make + 受詞 + 形容詞）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-196"
+    },
+    {
+     "label": "93 年指考中譯英第 1 題（make our lives more comfortable）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-148"
+    },
+    {
+     "label": "94 年指考中譯英第 2 題（not only … but also）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-157"
+    },
+    {
+     "label": "79 年大學聯考中譯英第 5 題（Not only 放在句首要倒裝）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-40"
+    },
+    {
+     "label": "88 年推薦甄選第 2 題（constantly）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0077"
+    },
+    {
+     "label": "102 年學測第 8 題（constantly）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0323"
+    },
+    {
+     "label": "78 年大學聯考中譯英第 3 題（同一段的前一題）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-33"
+    },
+    {
+     "label": "78 年大學聯考中譯英第 5 題（同一段的下一題）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-35"
+    }
+   ]
+  }
  },
  {
   "id": 35,
@@ -315,7 +464,38 @@
   "label": "大學聯考",
   "yearLabel": "78 (大學聯考)",
   "zh": "現在大家都說他們無法相信我從前又矮又瘦。",
-  "en": "Now everyone says that they cannot believe that I was short and thin before."
+  "en": "Now everyone says that they cannot believe that I was short and thin before.",
+  "altAnswers": [
+   "Now everyone says that they cannot believe that I used to be short and thin."
+  ],
+  "explanation": {
+   "pattern": [
+    "everyone（每個人、大家）配單數動詞：everyone says。劍橋文法〈Everyone, everybody, everything, everywhere〉說明，everyone 要配單數動詞，例句 Everybody knows the truth。後面再提到這些人時，代名詞用 they：劍橋詞典 they 的這個意思是指性別不知道或不必說出來的人（used to refer to a person whose gender is not known or does not need to be mentioned），例句 Everyone should do what they think is best。寫成 he or she、his or her 也可以，只是每提一次就多出兩個字，句子顯得累贅；劍橋文法〈Sexist language〉說明，雖然有些人不接受，用 they、their 同時指男女在今天的英文愈來愈普遍，例句 Every student must show their identity card on entering the examination room，比寫成 his identity card 好。本題寫 everyone says that they cannot believe…，動詞用單數 says，代名詞用 they。101 年指考第 3 題的題幹 Almost everyone is immediately attracted to her when they first see her 也是這樣：is 是單數，後面用 they。",
+    "說這句話的是現在，「無法相信」也是現在的事，用現在式 says、cannot believe；「從前又矮又瘦」是過去的樣子，用過去式 was。也可以寫 used to be：劍橋文法〈Used to〉說明，used to 講的是過去的事，現在已經不是這樣了，可以指重複發生的動作，也可以指過去的狀態，例句 That white house over there used to belong to my family。used to 本身就有「以前是這樣，現在不是了」的意思，寫 that I used to be short and thin，句尾就不再加 before。",
+    "整段五句的動詞並排看：31 [was]、[caught]（讀小學時候的事，過去簡單式）／32 [entered]（上國中那時，過去簡單式）、[have been trying]（從那時一直到現在）／33 [has been]、[have managed]（從上國中到現在）／34 [has made]（六年鍛鍊到現在的結果）／35 [says]、[cannot believe]（現在）、[was]（從前的樣子）。中文的動詞沒有時態變化，要靠「讀小學的時候」「自從…以後」「一直」「現在」「從前」這些字判斷時間。"
+   ],
+   "mustHave": [
+    "everyone 配單數動詞 says；中文「從前」講的是過去，believe 後面的子句用過去式 was，也可以寫 used to be。"
+   ],
+   "refs": [
+    {
+     "label": "101 年指考第 3 題（everyone … they）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/zhikao/#q-ZK0115"
+    },
+    {
+     "label": "80 年大學聯考中譯英第 3 題（used to）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-43"
+    },
+    {
+     "label": "78 年大學聯考中譯英第 4 題（同一段的前一題）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-34"
+    },
+    {
+     "label": "78 年大學聯考中譯英第 1 題（同一段的第一題）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-31"
+    }
+   ]
+  }
  },
  {
   "id": 36,
