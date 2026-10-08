@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>單字逆序表 · 從字尾找字</title>
+<meta name="description" content="大考中心《高中英文參考詞彙表》第一到第六級全部的字，從最後一個字母往前排，同樣結尾的字排在一起。輸入字尾就能找出所有這樣結尾的字，也標出學測、指考詞彙題考過的字。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="高中英文自學題庫">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:title" content="單字逆序表 · 從字尾找字">
+<meta property="og:description" content="詞彙表第一到第六級 6,158 個字，從字尾倒過來排：picture、future、architecture 排在一起，-tion、-ment、-able 也各自成串。輸入字尾就能找字，可依級別篩選，考過的字連到原題。">
+<meta property="og:url" content="https://staresto-create.github.io/JCEE-vocab-questions/cards/reverse.html">
+<meta property="og:image" content="https://staresto-create.github.io/JCEE-vocab-questions/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+:root{
+  --paper:#F6F1E4; --paper-card:#FFFDF7; --ink:#221F1A; --ink-soft:#5B5648; --rule:#DCD3BB;
+  --crimson:#AE3626; --crimson-soft:#D8C6BE; --sage:#3E6E52; --sage-soft:#CBD9C9; --gold:#A9812E; --gold-soft:#EFE3C4;
+  --serif:"Times New Roman",Times,"Liberation Serif","Noto Serif","PingFang TC","Noto Sans TC","Microsoft JhengHei",serif;
+  --sans:"PingFang TC","Noto Sans TC","Microsoft JhengHei","Helvetica Neue",system-ui,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,Menlo,Consolas,"Noto Sans TC",monospace;
+  --wcol:11.6rem;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.7;-webkit-text-size-adjust:100%}
+.wrap{max-width:48rem;margin:0 auto;padding:1.4rem 1rem 4rem}
+header.top{border-bottom:3px double var(--ink);padding-bottom:.6rem;margin-bottom:1.2rem}
+h1{font-family:var(--serif);font-weight:600;font-size:1.7rem;line-height:1.25;margin:0}
+.sub{font-family:var(--mono);font-size:.75rem;color:var(--ink-soft);margin-top:.2rem}
+.lede{font-size:.95rem;margin:0 0 1.2rem}
+.lede a{color:var(--crimson)}
+.ex{font-family:var(--mono);white-space:nowrap}
+.ex b{color:var(--crimson);font-weight:600}
+.card{background:var(--paper-card);border:1px solid var(--rule);border-radius:3px;padding:1rem 1rem 1.1rem;margin:0 0 1.4rem;
+  box-shadow:0 1px 0 rgba(34,31,26,.06),0 8px 24px rgba(34,31,26,.08)}
+h2{font-family:var(--serif);font-size:1.2rem;font-weight:600;margin:0 0 .6rem}
+.card p{margin:.4rem 0 0;font-size:.92rem}
+.card p:first-of-type{margin-top:0}
+.key{list-style:none;margin:.5rem 0 0;padding:0;font-size:.9rem}
+.key li{padding:.3rem 0}
+details{margin-top:.6rem;font-size:.9rem}
+summary{cursor:pointer;color:var(--crimson);font-weight:600}
+summary:focus-visible,button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid var(--crimson);outline-offset:2px}
+details p{margin:.5rem 0 0}
+.af{white-space:nowrap}
+.tag{display:inline-block;font-size:.72rem;line-height:1.5;border-radius:.9rem;padding:0 .5rem;margin-left:.4rem;vertical-align:.1em;border:1px solid;white-space:nowrap}
+.t0{color:var(--sage);border-color:var(--sage);background:var(--sage-soft)}
+.t1{color:#7A5B18;border-color:var(--gold);background:var(--gold-soft)}
+.tools{padding:.6rem 0 .5rem;border-bottom:1px solid var(--rule);margin-bottom:.4rem}
+.row{display:flex;flex-wrap:wrap;gap:.3rem;margin:.3rem 0}
+.row .lb{font-size:.8rem;color:var(--ink-soft);align-self:center;margin-right:.2rem;min-width:2.2em}
+.row button{font:inherit;font-size:.82rem;padding:.2rem .55rem;background:var(--paper-card);color:var(--ink);border:1px solid var(--rule);border-radius:3px;cursor:pointer}
+.row button[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:var(--paper-card)}
+#sufRow button{font-family:var(--mono);font-size:.8rem}
+input[type=search]{width:100%;font:inherit;font-family:var(--mono);font-size:.95rem;padding:.4rem .6rem;border:1px solid var(--rule);border-radius:3px;background:var(--paper-card);color:var(--ink);margin-top:.3rem}
+.count{font-size:.85rem;color:var(--ink-soft);margin:.5rem 0 .3rem}
+h3{font-family:var(--serif);font-size:1.1rem;font-weight:600;margin:1.4rem 0 .2rem}
+h3 .end{font-family:var(--mono);color:var(--crimson)}
+h3 span.n{font-family:var(--sans);font-size:.82rem;color:var(--ink-soft);font-weight:400;margin-left:.4rem}
+ul.list{list-style:none;margin:0;padding:0}
+ul.list li{padding:.4rem 0;border-bottom:1px solid var(--rule)}
+.ln{display:flex;align-items:baseline;flex-wrap:wrap}
+.w{font-family:var(--mono);font-size:1rem;min-width:var(--wcol);text-align:right;padding-right:.8rem;white-space:nowrap;box-sizing:border-box}
+.w b{color:var(--crimson);font-weight:700}
+.pos{font-family:var(--mono);font-size:.76rem;color:var(--ink-soft)}
+.lv{font-size:.76rem;color:var(--ink-soft);margin-left:.5rem;white-space:nowrap}
+.more-info{margin-left:var(--wcol);font-size:.85rem;color:var(--ink-soft);line-height:1.6}
+.gl{color:var(--ink)}
+.ent{font-family:var(--mono);font-size:.8rem}
+.refs{margin-top:.15rem;font-size:.78rem;line-height:1.6}
+.refs .fm{font-family:var(--mono);font-size:.82rem;font-weight:600;color:var(--ink);margin-right:.3rem}
+.refs a{display:inline-block;color:var(--crimson);background:#F7ECE8;border:1px solid var(--crimson-soft);border-radius:3px;padding:0 .35rem;margin:.1rem .25rem .1rem 0;text-decoration:none}
+.refs a:hover{background:#F1DDD6}
+.refs a .k{color:var(--ink-soft);font-size:.92em}
+.empty{padding:1.2rem 0;color:var(--ink-soft)}
+.more{display:block;margin:1rem auto 0;font:inherit;font-size:.9rem;padding:.45rem 1.2rem;background:var(--paper-card);border:1px solid var(--ink);border-radius:3px;cursor:pointer}
+footer.foot{margin-top:2.4rem;padding-top:.9rem;border-top:1px solid var(--rule);font-size:.8rem;color:var(--ink-soft);line-height:1.9}
+footer.foot a{color:var(--crimson)}
+@media (max-width:480px){
+  :root{--wcol:8rem}
+  .card{padding:.8rem .7rem .9rem}
+  .w{font-size:.92rem;padding-right:.5rem}
+  .more-info{margin-left:0;padding-left:.2rem}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1>單字逆序表</h1>
+    <div class="sub">從字尾找字 · 高中英文參考詞彙表第一到第六級</div>
+  </header>
+
+  <p class="lede" id="lede">一般字典照第一個字母排，這份表反過來，從最後一個字母往前排。這樣一來，同樣結尾的字就會排在一起：<span class="ex">pic<b>ture</b></span>、<span class="ex">fu<b>ture</b></span>、<span class="ex">architec<b>ture</b></span> 是同一串，<span class="ex">-tion</span>、<span class="ex">-ment</span>、<span class="ex">-able</span> 也各自成串。記住一個熟悉的字，就能順著字尾帶出一整串拼法相同的字。</p>
+
+  <section class="card" aria-labelledby="h-use">
+    <h2 id="h-use">怎麼用</h2>
+    <p>在下面的搜尋框輸入字尾，例如 <span class="ex">ture</span>，就會列出所有這樣結尾的字，並依字尾前面的字母再分成小組，<span class="ex">-cture</span>、<span class="ex">-sture</span>、<span class="ex">-lture</span> 各自排在一起。也可以直接點常見字尾的按鈕。每個字都向右對齊，字尾上下對齊，一眼就看得出哪些字結尾相同。</p>
+    <p>級別按鈕可以只留下想看的級別，例如程度還在打底的同學，可以先只看一到四級。</p>
+    <ul class="key">
+      <li><span class="tag t0" style="margin-left:0">考過原形</span>　這個字出現在學測或指考詞彙題的選項裡，附上中文意思和題號，點題號就是原題與解析。</li>
+      <li><span class="tag t1" style="margin-left:0">只考過其他字形</span>　這個字本身沒考過，考過的是它的字形變化，例如 bring 考過的是 brought，表上會標出實際考的字。</li>
+    </ul>
+    <details>
+      <summary>收哪些字、怎麼算「考過」</summary>
+      <p id="scopeText"></p>
+      <p>詞彙表一個詞條有兩種寫法的，例如 <span class="ex">actor/actress</span>、<span class="ex">toward/towards</span>，兩種寫法各列一字；動詞後面加 <span class="af">(ment)</span> 的，例如 <span class="ex">accomplish(ment)</span>，動詞和 <span class="af">-ment</span> 名詞也各列一字，因為兩個字的字尾不同，會排在不同的地方。代名詞的各個格（he、him、his、himself）也各列一字。a.m.、TV 這類縮寫不列。同一個字在詞彙表出現兩次的，只列級別較低的那一次。</p>
+      <p>「考過」的算法和<a href="coverage.html">詞彙表覆蓋清單</a>相同：只要這個字出現在詞彙題的四個選項裡，答案和誘答都算，片語不算。字形變化依詞彙表〈編輯原則〉算回原來的字，例如複數、動詞變化、比較級，以及加上 <span class="af">-ly</span>、<span class="af">-ness</span>、否定字首的字。覆蓋清單只收二到六級，這份表另外把一級也算進來。</p>
+    </details>
+  </section>
+
+  <div class="tools" id="tools">
+    <input type="search" id="q" placeholder="輸入字尾，例如 ture" aria-label="輸入字尾" autocomplete="off" autocapitalize="none" spellcheck="false">
+    <div class="row" id="sufRow" role="group" aria-label="常見字尾"><span class="lb">常見</span></div>
+    <div class="row" id="lvRow" role="group" aria-label="依級別篩選"><span class="lb">級別</span></div>
+    <div class="row" id="stRow" role="group" aria-label="依考過與否篩選"><span class="lb">考過</span></div>
+  </div>
+  <p class="count" id="count" aria-live="polite"></p>
+  <div id="body"><p class="empty">載入字表中…</p></div>
+
+  <footer class="foot" id="foot">
+    <a href="../">回題庫首頁</a>　·　<a href="./">單字記憶卡</a>　·　<a href="coverage.html">詞彙表覆蓋清單</a>　·　<a href="../roots/">字根家族表</a>　·　<a href="freq.html">學測全卷用字統計</a>
+  </footer>
+</div>
+
+<script>
+(function(){
+'use strict';
+var $=function(s){return document.querySelector(s);};
+var PAGE=400;
+var SUF=['tion','sion','ture','ment','ness','ity','ance','ence','able','ible','ful','less','ous','ive','al','ic','ly','ize','ify','ate','er','or','ist','ship','ward','ight','ought'];
+var D=null, state={q:'', lv:[1,2,3,4,5,6], st:0}, limit=PAGE;
+
+function fmt(n){return n.toLocaleString('en-US');}
+function key(w){return w.normalize('NFKD').toLowerCase().replace(/[^a-z]/g,'');}
+function clean(q){return key(q||'');}
+
+function readHash(){
+  var h=(location.hash||'').replace(/^#/,''), p={};
+  h.split('&').forEach(function(kv){var i=kv.indexOf('=');if(i>0)p[kv.slice(0,i)]=decodeURIComponent(kv.slice(i+1));});
+  state.q=p.q||'';
+  var lv=(p.lv||'').split(/[,.]/).map(Number).filter(function(x){return x>=1&&x<=6;});
+  state.lv=lv.length?lv:[1,2,3,4,5,6];
+  state.st=p.s==='1'?1:0;
+}
+function writeHash(){
+  var a=[];
+  if(clean(state.q))a.push('q='+clean(state.q));
+  if(state.lv.length<6)a.push('lv='+state.lv.slice().sort().join(','));
+  if(state.st)a.push('s=1');
+  var h=a.length?'#'+a.join('&'):location.pathname+location.search;
+  try{history.replaceState(null,'',h);}catch(e){}
+}
+
+function mkBtn(box,label,fn){
+  var b=document.createElement('button'); b.type='button'; b.textContent=label;
+  b.addEventListener('click',fn); box.appendChild(b); return b;
+}
+function syncButtons(){
+  var q=clean(state.q);
+  Array.prototype.forEach.call($('#sufRow').querySelectorAll('button'),function(b){b.setAttribute('aria-pressed',b.getAttribute('data-v')===q?'true':'false');});
+  Array.prototype.forEach.call($('#lvRow').querySelectorAll('button'),function(b){b.setAttribute('aria-pressed',state.lv.indexOf(+b.getAttribute('data-v'))>=0?'true':'false');});
+  Array.prototype.forEach.call($('#stRow').querySelectorAll('button'),function(b){b.setAttribute('aria-pressed',+b.getAttribute('data-v')===state.st?'true':'false');});
+}
+function go(){limit=PAGE;syncButtons();render();writeHash();}
+
+// 把字尾標紅：只標字母部分的最後 n 個字母
+function wordHTML(w,n){
+  var span=document.createElement('span'); span.className='w';
+  if(!n){span.textContent=w;return span;}
+  var cnt=0, i=w.length;
+  while(i>0&&cnt<n){i--; if(/[a-z]/i.test(w[i].normalize('NFKD')[0]))cnt++;}
+  span.appendChild(document.createTextNode(w.slice(0,i)));
+  var b=document.createElement('b'); b.textContent=w.slice(i); span.appendChild(b);
+  return span;
+}
+function refLink(x){
+  var q=D.q[x[0]], site=D.sites[q[0]], a=document.createElement('a');
+  a.href='../'+(q[0]==='gsat'?'gsat':'zhikao')+'/#q-'+encodeURIComponent(x[0]); a.target='_blank'; a.rel='noopener';
+  a.append(q[1]);
+  var k=document.createElement('span'); k.className='k'; k.textContent=x[1]==='a'?'（答案）':'（誘答）'; a.appendChild(k);
+  a.title=site.n+'　'+q[1];
+  return a;
+}
+
+function render(){
+  var body=$('#body'); body.innerHTML='';
+  var q=clean(state.q);
+  var rows=D.rows.filter(function(r){
+    return state.lv.indexOf(r[1])>=0 && (!state.st||r[3]<2) && (!q||r.k.slice(-q.length)===q);
+  });
+  var lvTxt=state.lv.length===6?'第一到第六級':'第 '+state.lv.slice().sort().join('、')+' 級';
+  if(q){
+    $('#count').textContent=lvTxt+'裡，以 -'+q+' 結尾的字有 '+fmt(rows.length)+' 個'+(state.st?'（只列考過的字）':'')+'。';
+  }else{
+    $('#count').textContent=lvTxt+'共 '+fmt(rows.length)+' 個字'+(state.st?'（只列考過的字）':'')+'，依字尾倒過來的字母順序排列。';
+  }
+  if(!rows.length){
+    var e=document.createElement('p');e.className='empty';
+    e.textContent=q?'沒有以 -'+q+' 結尾的字。可以把字尾縮短一兩個字母，或改選其他級別再試一次。':'這個條件下沒有字。';
+    body.appendChild(e);return;
+  }
+  // 分組：有字尾時，看字尾前面再多一個字母；沒有字尾時，看最後一個字母
+  var gl=q?q.length+1:1, per={};
+  function gk(r){return r.k.length<=gl?r.k:r.k.slice(-gl);}
+  rows.forEach(function(r){var g=gk(r);per[g]=(per[g]||0)+1;});
+  var cur=null, ul=null, shown=rows.slice(0,limit);
+  shown.forEach(function(r){
+    var g=gk(r);
+    if(g!==cur){
+      cur=g;
+      var h=document.createElement('h3'), en=document.createElement('span');
+      en.className='end'; en.textContent=(g.length<gl&&g===q)?q:'-'+g;
+      h.appendChild(en);
+      var n=document.createElement('span'); n.className='n'; n.textContent=fmt(per[g])+' 個字'; h.appendChild(n);
+      body.appendChild(h);
+      ul=document.createElement('ul'); ul.className='list'; body.appendChild(ul);
+    }
+    var li=document.createElement('li'), ln=document.createElement('div'); ln.className='ln';
+    ln.appendChild(wordHTML(r[0],q?q.length:0));
+    var p=document.createElement('span'); p.className='pos'; p.textContent=r[2]; ln.appendChild(p);
+    var lv=document.createElement('span'); lv.className='lv'; lv.textContent=r[1]+' 級'; ln.appendChild(lv);
+    if(r[3]<2){var t=document.createElement('span'); t.className='tag t'+r[3]; t.textContent=r[3]===0?'考過原形':'只考過其他字形'; ln.appendChild(t);}
+    li.appendChild(ln);
+    if(r[5]||r[6]||r[4].length){
+      var mi=document.createElement('div'); mi.className='more-info';
+      if(r[5]){var g2=document.createElement('div'); g2.className='gl'; g2.textContent=r[5]; mi.appendChild(g2);}
+      if(r[6]){var en2=document.createElement('div'); en2.append('詞彙表寫作 '); var s=document.createElement('span'); s.className='ent'; s.textContent=r[6]; en2.appendChild(s); mi.appendChild(en2);}
+      if(r[4].length){
+        var rf=document.createElement('div'); rf.className='refs';
+        r[4].forEach(function(f){
+          var line=document.createElement('div');
+          if(f[0].toLowerCase()!==r[0].toLowerCase()){var fm=document.createElement('span');fm.className='fm';fm.textContent=f[0];line.appendChild(fm);}
+          f[1].forEach(function(x){line.appendChild(refLink(x));});
+          rf.appendChild(line);
+        });
+        mi.appendChild(rf);
+      }
+      li.appendChild(mi);
+    }
+    ul.appendChild(li);
+  });
+  if(rows.length>limit){
+    var m=document.createElement('button'); m.type='button'; m.className='more';
+    m.textContent='再顯示 '+fmt(Math.min(PAGE,rows.length-limit))+' 個（還有 '+fmt(rows.length-limit)+' 個）';
+    m.addEventListener('click',function(){limit+=PAGE;render();});
+    body.appendChild(m);
+  }
+}
+
+fetch('reverse_data.json').then(function(r){if(!r.ok)throw new Error(r.status);return r.json();}).then(function(d){
+  D=d; d.rows.forEach(function(r){r.k=key(r[0]);});
+  var g=d.scope.gsat, z=d.scope.zhikao, tot=0, tt=0;
+  Object.keys(d.stats).forEach(function(l){tot+=d.stats[l].n; tt+=d.stats[l].t;});
+  $('#scopeText').textContent='字表取自大考中心《高中英文參考詞彙表》（111 學年度起適用）第一到第六級全部 6,012 個詞條，拆開不同寫法以後一共 '+fmt(tot)+' 個字。考過與否看的是本題庫兩個單字題庫：學測 '+g[0]+' 到 '+g[1]+' 年共 '+g[2]+' 題，指考（含早年的聯考）'+z[0]+' 到 '+z[1]+' 年共 '+z[2]+' 題，其中考過或考過其他字形的字有 '+fmt(tt)+' 個。';
+  SUF.forEach(function(s){var b=mkBtn($('#sufRow'),'-'+s,function(){state.q=(clean(state.q)===s)?'':s;$('#q').value=state.q;go();});b.setAttribute('data-v',s);});
+  [1,2,3,4,5,6].forEach(function(l){var b=mkBtn($('#lvRow'),'第 '+l+' 級',function(){
+    var i=state.lv.indexOf(l); if(i>=0){if(state.lv.length>1)state.lv.splice(i,1);}else state.lv.push(l); go();});b.setAttribute('data-v',l);});
+  [[0,'全部的字'],[1,'只看考過的字']].forEach(function(it){var b=mkBtn($('#stRow'),it[1],function(){state.st=it[0];go();});b.setAttribute('data-v',it[0]);});
+  readHash(); $('#q').value=state.q; syncButtons();
+  var tm=null;
+  $('#q').addEventListener('input',function(e){clearTimeout(tm);tm=setTimeout(function(){state.q=e.target.value;limit=PAGE;syncButtons();render();writeHash();},150);});
+  window.addEventListener('hashchange',function(){readHash();$('#q').value=state.q;syncButtons();limit=PAGE;render();});
+  render();
+  var f=$('#foot');
+  f.appendChild(document.createElement('br'));
+  f.appendChild(document.createTextNode('資料更新：'+d.updated+'。中文意思只附在考過的字上，取自本題庫單字題的選項說明。詞彙表著作權屬財團法人大學入學考試中心基金會，本表只供非營利教學使用。免費、無廣告的非營利自學題庫。'));
+}).catch(function(){
+  $('#body').innerHTML='<p class="empty">讀不到 reverse_data.json。這個頁面要跟資料檔放在同一個資料夾。</p>';
+});
+})();
+</script>
+</body>
+</html>
