@@ -403,7 +403,46 @@
   "label": "大學聯考",
   "yearLabel": "81 (大學聯考)",
   "zh": "老實說，一直到昨天我才知道他已經去美國了。",
-  "en": "To tell the truth, not until yesterday did I know he had gone to the United States."
+  "en": "To tell the truth, not until yesterday did I know he had gone to the United States.",
+  "explanation": {
+   "pattern": [
+    "81 年大學聯考兩題（46、47）各是一句獨立的話，不連成一段。",
+    "not until + 時間 + 倒裝句（直到…才…）：中文「一直到昨天我才知道」，意思是昨天以前都不知道，昨天才知道，所以英文用否定的 not … until。先寫出一般語序的句子 I didn't know he had gone to the United States until yesterday（我到昨天才知道他已經去美國了），再把 not until yesterday 搬到句首強調，主要子句就要倒裝：助動詞 did 移到主詞 I 前面，know 用原形，寫成 not until yesterday did I know…。劍橋文法〈Inversion〉說明，not 加介系詞片語或子句放在句首時，主詞和動詞要倒裝，例句 Not till I got home did I realise my wallet was missing（我到家才發現錢包不見了）。",
+    "同一個意思有三種寫法，並排看：[I didn't know he had gone to the United States until yesterday.]（一般語序）／[Not until yesterday did I know he had gone to the United States.]（not until 放在句首，主要子句倒裝）／[It was not until yesterday that I knew he had gone to the United States.]（強調句，that 後面照一般語序，不倒裝）。88 年學測克漏字第 39 題考的就是 It was not until … that …，91 年指考第 10 題的題幹 it was not until two hours later that electricity was restored 也是這個句型。",
+    "先找標記，再決定時態。他去美國在前，我知道在後，兩件事都在過去，所以把先發生的那一件退一個時態，用過去完成式 had gone 標出來；知道是昨天的事，用過去簡單式。劍橋文法〈Past perfect simple (I had worked)〉說明，過去完成式講的是到過去某一個時間點為止的事，就像現在完成式講的是到現在為止的事。並排看：[He has gone to the United States.]（到說話的現在，他已經去了）／[I didn't know he had gone to the United States.]（到我知道的那時候，他已經去了）。",
+    "gone 和 been：「已經去美國了」是說他人已經在美國，還沒回來，用 gone。劍橋文法〈Been or gone?〉說明，去了還沒回來用 gone，去過又回來了用 been，例句 Joan's just gone to the shop. She'll be back in about ten minutes（瓊恩剛去商店，大約十分鐘後回來）／Joan's just been to the shop. She bought some cakes（瓊恩剛去過商店，買了一些蛋糕）。"
+   ],
+   "collocation": [
+    "to tell (you) the truth（老實說）——劍橋詞典的釋義是「我得承認」（I have to admit），例句 To tell the truth, I couldn't hear a word he said（老實說，他說的話我一個字也沒聽見）。放在句首，後面加逗號。",
+    "the United States（美國）——劍橋文法〈Geographical places〉說明，城市、國家、洲的名字前面不加 the，少數國名要加，例如 the United Kingdom、the USA，the United States 也是這一類。"
+   ],
+   "mustHave": [
+    "not until yesterday 放在句首，主要子句倒裝：did I know，did 後面接原形 know。",
+    "去美國在知道之前，寫過去完成式 had gone；人還在美國，用 gone，不用 been。"
+   ],
+   "refs": [
+    {
+     "label": "88 年學測克漏字第 39 題（It was not until … that …）",
+     "url": "https://staresto-create.github.io/grammar-cloze-test/q/g88-39-3/"
+    },
+    {
+     "label": "91 年指考第 10 題（it was not until … that …）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/zhikao/#q-ZK0224"
+    },
+    {
+     "label": "84 年學測中譯英第 2 題（what had happened）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-99"
+    },
+    {
+     "label": "84 年學測中譯英第 3 題（said that she had rung）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-100"
+    },
+    {
+     "label": "81 年大學聯考中譯英第 2 題（同一年的另一題）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-47"
+    }
+   ]
+  }
  },
  {
   "id": 47,
@@ -411,7 +450,40 @@
   "label": "大學聯考",
   "yearLabel": "81 (大學聯考)",
   "zh": "首先，我要說明清楚，我並不反對你的意見。",
-  "en": "To begin with, I want to make it clear that I don't disagree with your opinion."
+  "en": "To begin with, I want to make it clear that I don't disagree with your opinion.",
+  "explanation": {
+   "pattern": [
+    "To begin with（首先）：放在句首，後面加逗號。劍橋詞典 to begin with 的一個用法是帶出第一個重要的理由，例句 The hotel was awful! To begin with, our room was far too small（那家旅館糟透了！首先，我們的房間太小了）。To begin with 通常是列舉的第一項，後面還會接第二項、第三項：95 年學測克漏字第 28 題那一篇，就是用 To begin with、In addition、Finally 串成一條列舉鏈。",
+    "make it clear that…（說清楚…）：中文「我要說明清楚，我並不反對你的意見」，要說清楚的是後面那一整句。make 後面先接受詞，再接形容詞 clear；可是真正的受詞是 that 子句 that I don't disagree with your opinion，太長，就先用 it 占住受詞的位置，把 that 子句放到後面，這個 it 就是虛受詞。劍橋文法〈It〉說明，find、consider 這類動詞常用 it + 形容詞 + that 子句或不定詞，先用 it 預告後面的受詞，例句 I find it amazing that they've never stopped arguing about football。99 年學測克漏字第 23 題考的就是虛受詞：makes it easier for them to bruise。韋氏詞典 clear 的例句 She has made it abundantly clear that she does not support us，也是 make it clear that…。",
+    "don't disagree with（並不反對）：disagree 的意思是意見不同，前面加 don't，就是「並不是意見不同」，和中文「並不反對」一樣，只說自己不反對，沒有說完全同意。劍橋詞典 disagree 的釋義是意見、想法不同（to not have the same opinion, idea, etc.），例句 I strongly disagree with (= do not accept) the decision that has been made（我非常不同意已經做成的決定）。"
+   ],
+   "collocation": [
+    "disagree with sb／sth（不同意某人、某事）——劍橋詞典把 disagree 標為不及物動詞，後面要先接 with，再接人或意見，例句 I'm afraid I have to disagree with you（恐怕我不能同意你的看法）、I disagree with you about that（那件事我和你看法不同）。名詞是 disagreement：108 年學測第 7 題的題幹 It can be used to show, for example, disagreement or lack of interest。",
+    "opinion（意見、看法）——劍橋詞典的釋義是對某事、某人的想法或看法（a thought or belief about something or someone），例句 What's your opinion about the matter?（你對這件事有什麼看法？）"
+   ],
+   "mustHave": [
+    "make 後面先放虛受詞 it，再接 clear 和 that 子句：make it clear that…。",
+    "disagree 是不及物動詞，後面接 with 再接意見：disagree with your opinion。"
+   ],
+   "refs": [
+    {
+     "label": "95 年學測克漏字第 28 題（To begin with … In addition … Finally）",
+     "url": "https://staresto-create.github.io/grammar-cloze-test/q/g95-28-3/"
+    },
+    {
+     "label": "99 年學測克漏字第 23 題（虛受詞 it）",
+     "url": "https://staresto-create.github.io/grammar-cloze-test/q/g99-23-2/"
+    },
+    {
+     "label": "108 年學測第 7 題（disagreement）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0412"
+    },
+    {
+     "label": "81 年大學聯考中譯英第 1 題（同一年的另一題）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-46"
+    }
+   ]
+  }
  },
  {
   "id": 48,
