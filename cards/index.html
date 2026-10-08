@@ -863,7 +863,7 @@
       correct = q.a;
     } else if (kind === 's') {
       var fi = g.f[+parts[1]], hasBase = fi.o.some(function (o) { return typeof o !== 'string'; });
-      body = '<p class="front-note">說明：選項以同一組易混淆字為主，彼此的詞性不一定相同，先判斷空格需要哪一種詞性' +
+      body = '<p class="front-note">說明：這一題依大考詞彙題的題型編寫，不是大考原題；選項以同一組易混淆字為主，彼此的詞性不一定相同，先判斷空格需要哪一種詞性' +
              (hasBase ? '；選項已改成句子需要的字形，括號裡是原形。' : '。') + '</p>' +
              '<p class="front-frame">' + frameHTML(fi.s) + '</p>';
       opts = fi.o.map(function (o, k) {
