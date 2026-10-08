@@ -459,7 +459,45 @@
   "label": "大學聯考",
   "yearLabel": "83 (大學聯考)",
   "zh": "我弟弟過去經常整日虛混，一件有意義的事也不做。",
-  "en": "My brother used to fool around all day long, not doing anything meaningful."
+  "en": "My brother used to fool around all day long, not doing anything meaningful.",
+  "explanation": {
+   "pattern": [
+    "83 年大學聯考五題（53 至 57）連成一段，講弟弟的轉變：53 說他以前整天虛混，54 說他現在用功，對未來也有計劃，55 問是什麼讓他改變這麼多，56 回答是高中老師發現了他的潛力，一直鼓勵他，57 說弟弟會永遠記得、感謝這位老師。五句講的時間各不相同：53 講以前的習慣，54 講現在，55、56 講已經發生的改變，57 講弟弟現在說的話和將來的心意。",
+    "used to + 原形動詞（以前常常…，現在不這樣了）：中文「過去經常整日虛混」，英文寫 used to fool around。劍橋文法〈Used to〉說明，used to 講的是過去的事，現在已經不是這樣了，可以指重複發生的動作，也可以指過去的狀態。下一題說他「現在」努力用功，正好是「現在不這樣了」，所以用 used to 最貼切。「過去」和「經常」英文不必各譯一個字，used to 本身就帶有這兩個意思。劍橋文法〈Used to〉也提醒，used to 前面不加 be，不寫 My brother was used to fool around。並排看：[My brother used to fool around all day long.]（以前常常這樣，現在不是了）／[Now, he is studying very hard.]（現在的情形）。98 年指考參考試卷第 8 題的題幹 Jack used to be stingy, but now he is unusually generous 也是 used to 和 now 前後對照。",
+    "S + V…, not V-ing…：not doing anything meaningful 是分詞構句，放在句尾逗號之後，補充說明前面的「整日虛混」是怎樣的情形，意思等於 and he did not do anything meaningful。兩個子句的主詞相同時，去掉 and 與重複的主詞，動詞改為分詞；要改成否定，就把 not 放在分詞前面。劍橋文法〈Negation in non-finite clauses〉說明，分詞片語這類沒有主詞的子句，否定時加上 not，例句 She left the house very quietly, not wishing to alarm anyone（她靜悄悄地離開家，不想驚動任何人），和本題的結構相同。",
+    "anything + 形容詞：「一件有意義的事也不做」寫 not doing anything meaningful。nothing、something、anything 這類代名詞，修飾的字詞要放在後面，88 年大學聯考中譯英第 3 題的 have nothing to do 用的是同一條規則。劍橋文法〈Pronouns: indefinite (-body, -one, -thing, -where)〉說明，這類代名詞後面可以加形容詞，讓意思更具體，小標題舉的例子就是 somewhere nice。否定的寫法有兩種，並排看：[not doing anything meaningful]（not … anything）／[doing nothing meaningful]（nothing 本身就是否定）。"
+   ],
+   "collocation": [
+    "fool around（虛混、無所事事）——劍橋詞典 fool around 的一個意思是把時間花在沒有用處的事情上（to spend your time doing nothing useful），例句 We spent the afternoon fooling around on the beach（我們整個下午在海灘上閒晃）。也可以寫 mess around，劍橋詞典的釋義是把時間花在不重要的事情上，沒有特別的目的或計畫（to spend time doing various things that are not important, without any particular purpose or plan）。",
+    "meaningful（有意義的）——劍橋詞典的釋義是有用、重要、有價值的（useful, serious, or important），例句 Having the opportunity to work would make retirement more meaningful for many senior citizens（有機會工作，會讓許多長者的退休生活更有意義）。"
+   ],
+   "mustHave": [
+    "「過去經常」寫 used to + 原形動詞 fool，used to 前面不加 be。",
+    "形容詞 meaningful 放在 anything 後面。"
+   ],
+   "refs": [
+    {
+     "label": "87 年大學聯考中譯英第 1 題（used to）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-73"
+    },
+    {
+     "label": "98 年指考參考試卷第 8 題（used to … now）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/zhikao/#q-ZK0340"
+    },
+    {
+     "label": "84 年學測中譯英第 5 題（something meaningful）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-102"
+    },
+    {
+     "label": "88 年大學聯考中譯英第 3 題（have nothing to do）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-80"
+    },
+    {
+     "label": "83 年大學聯考中譯英第 2 題（同一段的下一題）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-54"
+    }
+   ]
+  }
  },
  {
   "id": 54,
@@ -467,7 +505,39 @@
   "label": "大學聯考",
   "yearLabel": "83 (大學聯考)",
   "zh": "現在，他努力用功，並且對未來有明確的計劃。",
-  "en": "Now, he is studying very hard; besides, he has a clear plan for the future."
+  "en": "Now, he is studying very hard and has a clear plan for the future.",
+  "explanation": {
+   "pattern": [
+    "原英文寫 Now, he is studying very hard; besides, he has a clear plan for the future.，用 besides 接後半句。besides 放在句首當連接副詞時，意思是「再說、而且」，朗文詞典註明這個用法多用在口語，用來再補一個理由，例句 I need the money. And besides, when I agree to do something, I do it。劍橋詞典的例句 She won't mind if you're late - besides, it's hardly your fault（她不會介意你遲到，再說那也不是你的錯），besides 帶出的也是另一個理由。本題「努力用功，並且對未來有明確的計劃」只是把現在的兩個情形並列，不是在補理由，所以改用 and 把兩個動詞接起來：he is studying very hard and has a clear plan for the future。",
+    "and 連接兩個動作：主詞 he 後面接 is studying … and has …，兩個動詞共用一個主詞，has 前面不必再寫 he。兩個動詞的時態也可以不一樣，各自看講的是什麼。",
+    "現在進行式講現在這段時間的情形：「現在，他努力用功」講的是他這陣子的情形，和以前的虛混對照，用現在進行式 is studying。劍橋文法〈Present continuous (I am working)〉說明，現在進行式可以講說話前後這段時間的暫時狀態，例句 Her mother's living with her at the moment。寫現在簡單式 he studies very hard 也成立，講的是他現在一向的習慣。has a clear plan 的 have 講的是「擁有」，是一種狀態，用現在簡單式。並排看：[he used to fool around]（以前的習慣）／[he is studying very hard]（現在這段時間的情形）。"
+   ],
+   "collocation": [
+    "a plan for sth（為某事做的計劃）——plan 是可數名詞，「一個明確的計劃」寫 a clear plan；計劃是為了什麼，用 for 帶出：a clear plan for the future。劍橋詞典的例句 What are your plans for this weekend?（你這個週末有什麼計劃？）、You need to sit down and think about your plans for retirement（你得坐下來好好想想退休的計劃）。"
+   ],
+   "mustHave": [
+    "「並且」只是把兩個情形並列，用 and 接，不用 besides。",
+    "plan 是可數名詞，寫 a clear plan。"
+   ],
+   "refs": [
+    {
+     "label": "85 年學測中譯英第 3 題（In addition 與 Besides）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-105"
+    },
+    {
+     "label": "85 年大學聯考中譯英第 4 題（現在進行式）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-66"
+    },
+    {
+     "label": "83 年大學聯考中譯英第 1 題（同一段的前一題）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-53"
+    },
+    {
+     "label": "83 年大學聯考中譯英第 3 題（同一段的下一題）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-55"
+    }
+   ]
+  }
  },
  {
   "id": 55,
@@ -475,7 +545,44 @@
   "label": "大學聯考",
   "yearLabel": "83 (大學聯考)",
   "zh": "是什麼使得他在行為和態度上有這樣明顯的改變呢？",
-  "en": "What changed him so obviously in his behavior and attitude?"
+  "en": "What brought about such an obvious change in his behavior and attitude?",
+  "explanation": {
+   "pattern": [
+    "原英文寫 What changed him so obviously in his behavior and attitude?。中文「有這樣明顯的改變」的「改變」是名詞，英文也寫成名詞 change，再用 bring about（帶來、造成）當動詞：What brought about such an obvious change in his behavior and attitude?。改變發生在哪一方面，英文用 a change in sth 帶出；寫成 changed him so obviously in his behavior and attitude，in his behavior and attitude 接在副詞 so obviously 後面，不如 a change in his behavior and attitude 清楚自然。110 年學測第 6 題的題幹 brought about a revolutionary change in society 用的就是這個搭配。",
+    "疑問詞當主詞，不加 do：What brought about…? 的 what 是這個問句的主詞，後面直接接動詞，改變已經發生，用過去式 brought，不寫 What did bring about…。劍橋文法〈Questions: wh- questions〉說明，what、who、which、whose 當主詞或主詞的一部分時，不用助動詞，詞序是主詞 + 動詞，例句 What fell off the wall?、Who bought this?。並排看：[What brought about such an obvious change?]（what 是主詞，不加 did）／[What did his teacher do?]（what 是受詞，主詞是 his teacher，要加 did）。",
+    "such + a／an + 形容詞 + 名詞：「這樣明顯的改變」寫 such an obvious change。劍橋文法〈Such or so?〉說明，such 後面接名詞片語，so 後面接形容詞或副詞；名詞片語前面有 a／an 時，such 放在 a／an 前面，不寫 a so obvious change。obvious 的開頭是母音，不定冠詞用 an。並排看：[such an obvious change]（such + 名詞片語）／[The change was so obvious.]（so + 形容詞）。109 年學測第 5 題的題幹 for such a long time that… 也是 such + a + 形容詞 + 名詞。"
+   ],
+   "collocation": [
+    "bring about（帶來、造成）——劍橋詞典的釋義是讓某件事發生（to cause something to happen），美式詞典的例句 Harold's working to bring about changes in the industry（哈洛德正努力為這個產業帶來改變）。三態是 bring、brought、brought。93 年學測第 11 題的答案也是 brought about（The week-long rainfall has brought about landslides and flooding in the mountain areas）。",
+    "a change in sth（某方面的改變）——劍橋詞典 change 當名詞的例句 a change in lifestyle（生活方式的改變）、Let me know if there's any change in the situation。98 年指考參考試卷第 8 題的題幹 There has been a(n) drastic change in his attitude 講的也是態度上的改變。behavior 是美式拼法，英式寫 behaviour。"
+   ],
+   "mustHave": [
+    "what 是主詞，後面直接接過去式 brought，不加 did。",
+    "such 放在 an 前面：such an obvious change。"
+   ],
+   "refs": [
+    {
+     "label": "110 年學測第 6 題（brought about a revolutionary change）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0441"
+    },
+    {
+     "label": "93 年學測第 11 題（brought about）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0191"
+    },
+    {
+     "label": "109 年學測第 5 題（such a long time）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0425"
+    },
+    {
+     "label": "98 年指考參考試卷第 8 題（change in his attitude）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/zhikao/#q-ZK0340"
+    },
+    {
+     "label": "83 年大學聯考中譯英第 4 題（同一段的下一題）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-56"
+    }
+   ]
+  }
  },
  {
   "id": 56,
@@ -486,7 +593,39 @@
   "en": "It was his high school teacher that discovered his potential and kept encouraging him.",
   "altAnswers": [
    "that / who"
-  ]
+  ],
+  "explanation": {
+   "pattern": [
+    "It was + 強調的部分 + that／who + 句子其餘的部分（強調句）：「是他的高中老師發現了他的潛力」回答上一題的「是什麼」，要強調的是「他的高中老師」。先寫出不強調的句子 His high school teacher discovered his potential and kept encouraging him，再把要強調的 his high school teacher 搬到 It was 後面，句子其餘的部分 discovered his potential and kept encouraging him 放在 that 後面，就成了本題：[It was] his high school teacher [that] discovered his potential and kept encouraging him。劍橋文法〈Cleft sentences〉說明，強調句把一個訊息分成兩個子句，要強調的新資訊放在 it 子句裡，that 後面是對方已經知道的部分，例句 It was Nina's car that got broken into!（遭小偷闖進去的是妮娜的車！）。本題的新資訊是「高中老師」，對方已經知道的是「有人讓他改變了」。判斷是不是強調句，把 It was 和 that 拿掉，剩下的 his high school teacher discovered his potential and kept encouraging him 還是一個完整的句子。",
+    "that 和 who 都可以：劍橋文法同一頁說明，強調的部分是人的時候，可以用 who 代替 that，例句 It was my husband who (or that) you spoke to on the phone。101 年指考第 8 題的題幹 it is usually the parents who should be held accountable 用的就是 who。發現潛力是過去的事，所以寫 It was；講現在的事才用 It is。",
+    "keep + V-ing（持續、反覆做）：「不斷地鼓勵他」寫 kept encouraging him。keep 後面接動名詞，不接不定詞，不寫 keep to encourage。劍橋詞典 keep 的一個意思是不停地做某件事，或一再地做（to continue doing something without stopping, or to do it repeatedly），例句 He keeps trying to distract me（他一直想讓我分心）。and 連接 discovered 和 kept encouraging 兩個動作，兩個都是過去式，共用前面的 that。"
+   ],
+   "collocation": [
+    "discover one's potential（發現某人的潛力）——劍橋詞典 potential 當名詞的釋義是一個人或事物發展、成就或成功的能力（someone's or something's ability to develop, achieve, or succeed），例句 You have the potential to reach the top of your profession（你有能力爬到這一行的頂端）。96 年學測第 2 題的答案就是 potential（already showed his great potential for baseball when he was still a teenager）。discover 也有發掘人才的意思，劍橋詞典 discover 的一個意思是注意到一個人有特別的能力，並幫助他成功（to notice that a person has a special ability or quality and to help them to become successful）。"
+   ],
+   "mustHave": [
+    "強調「他的高中老師」，寫 It was … that（或 who）…；發現潛力是過去的事，用 was。",
+    "keep 後面接 V-ing：kept encouraging。"
+   ],
+   "refs": [
+    {
+     "label": "101 年指考第 8 題（it is … the parents who…）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/zhikao/#q-ZK0120"
+    },
+    {
+     "label": "96 年學測第 2 題（potential）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0227"
+    },
+    {
+     "label": "77 年大學聯考中譯英第 3 題（keep + V-ing）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-28"
+    },
+    {
+     "label": "83 年大學聯考中譯英第 5 題（同一段的下一題）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-57"
+    }
+   ]
+  }
  },
  {
   "id": 57,
@@ -494,7 +633,36 @@
   "label": "大學聯考",
   "yearLabel": "83 (大學聯考)",
   "zh": "弟弟說他會永遠記得並感謝這位老師。",
-  "en": "My younger brother says that he will forever remember and be grateful to his teacher."
+  "en": "My younger brother says that he will forever remember and be grateful to his teacher.",
+  "explanation": {
+   "pattern": [
+    "says that he will…：弟弟說這句話是現在的事，用現在簡單式 says；他會永遠記得是將來的事，that 子句用 will。劍橋文法〈Reported speech: indirect speech〉說明，說的話到現在還是真的、還有關係時，引述的動詞可以用現在簡單式，例句 Sheila says they're closing the motorway tomorrow for repairs。要是把弟弟說話改成過去的事，that 子句裡的 will 就要退成 would：劍橋文法的例句 He said, 'Jane will be late.' → He said that Jane would be late。並排看：[My younger brother says that he will …]（現在說，will 不變）／[My younger brother said that he would …]（過去說，will 退成 would）。84 年學測中譯英第 3 題的 said that she had rung 也是說話在過去，子句往回退一個時態。",
+    "兩個動詞共用一個受詞：remember and be grateful to his teacher，his teacher 同時是 remember 的受詞，也是 grateful to 的受詞。拆開來看是 remember his teacher 和 be grateful to his teacher，所以 grateful 後面的 to 不能省，不寫 remember and be grateful his teacher。",
+    "forever（永遠）：will forever remember 的 forever 放在 will 和動詞中間。劍橋詞典 forever 的釋義是永遠（for all time），例句 I like the house but I don't imagine I'll live there forever。也可以寫 always：劍橋詞典 always 的一個意思就是 for ever，例句 I'll always remember you（我會永遠記得你）。",
+    "整段五句的動詞並排看：53 [used to fool around]（以前的習慣）／54 [is studying]、[has]（現在的情形）／55 [brought about]、56 [It was]、[discovered]、[kept encouraging]（已經發生的改變與原因，過去簡單式）／57 [says]（現在說的話）、[will … remember]（將來）。中文的動詞沒有時態變化，要靠「過去」「現在」「會永遠」這些字，以及前後文判斷時間。"
+   ],
+   "collocation": [
+    "be grateful to sb for sth（為某事感謝某人）——劍橋詞典 grateful 的釋義是表達感謝，特別是對另一個人（showing or expressing thanks, especially to another person），感謝的對象用 to 帶出，例句 We're very grateful to everyone who has helped us；感謝的事情用 for 帶出，例句 I'm grateful for your love and support。87 年聯考第 7 題的題幹 We are grateful for his generosity… 用的就是 grateful for。"
+   ],
+   "mustHave": [
+    "說話是現在，用 says；子句講將來，用 will。",
+    "be grateful 後面接 to：be grateful to his teacher。"
+   ],
+   "refs": [
+    {
+     "label": "84 年學測中譯英第 3 題（said that she had rung）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-100"
+    },
+    {
+     "label": "87 年聯考第 7 題（grateful for）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/zhikao/#q-ZK0270"
+    },
+    {
+     "label": "83 年大學聯考中譯英第 1 題（同一段的第一題）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-53"
+    }
+   ]
+  }
  },
  {
   "id": 58,
@@ -1873,7 +2041,41 @@
   "label": "學測",
   "yearLabel": "83 (學測)",
   "zh": "對於什麼是最佳的渡假方式，大家都有不同的看法。",
-  "en": "Everyone has different opinions about what the best way to spend a vacation is."
+  "en": "Everyone has different opinions about what the best way to spend a vacation is.",
+  "explanation": {
+   "pattern": [
+    "83 年學測五題（93 至 97）連成一段，講大家怎麼過假期：93 先總說大家對最好的度假方式看法不同，94 至 97 再分成四種人來說：有些人去森林，有些人去大都市，還有一些人去海邊，少數人留在家裡。英文用 Some people …、Others …、Still others …、A few people … 一層一層列下去。五句講的都是一般的情形，不是哪一次發生的事，所以動詞都用現在簡單式。",
+    "疑問詞 + 主詞 + 動詞：what the best way to spend a vacation is 不是問句，what 帶出的是一個名詞子句，當介系詞 about 的受詞。子句裡照直述句的語序寫，主詞 the best way to spend a vacation 放前面，be 動詞 is 放最後。劍橋文法〈Reported speech: indirect speech〉說明，間接引述以 wh- 開頭的問句時，子句用直述句的語序（主詞 + 動詞），不用問句的語序，也不加問號，例句 I asked her where the bus station was（不寫 where was the bus station）。原本的問句 Where is the bus station? 變成子句，主詞 the bus station 要移到 be 動詞前面；本題原本的問句是 What is the best way to spend a vacation?，變成子句也是把主詞移到 is 前面。並排看：[What is the best way to spend a vacation?]（問句）／[Everyone has different opinions about what the best way to spend a vacation is.]（名詞子句放在句子裡，不是在發問）。",
+    "Everyone 當主詞，動詞用單數：中文「大家」指的是所有的人，英文的 everyone 卻要當單數看，動詞寫 has，不寫 have。道理在 every：every 的意思是「每一個」，後面接單數名詞（every student），everyone 就是「每一個人」，一個一個算，所以動詞用單數。劍橋文法〈Everyone, everybody, everything, everywhere〉說明，everyone、everybody 指的是全部的人，但是動詞用單數，例句 Everybody knows the truth。換成複數的 people 也可以，動詞就要用 have：People have different opinions about…。"
+   ],
+   "collocation": [
+    "have different opinions about／on sth（對某事看法不同）——劍橋詞典 opinion 的釋義是對某事、某人的想法或看法（a thought or belief about something or someone），例句 What's your opinion about the matter?、People tend to have strong opinions on capital punishment（大家對死刑往往有強烈的看法）。「不同的看法」不只一種，寫複數 different opinions。",
+    "a way to V／a way of V-ing（做某事的方法）——劍橋文法〈Way〉說明，way 當「方法」講的時候，後面可以接不定詞，也可以接 of + V-ing，例句 There's an easier way to do that（或 There's an easier way of doing that）。所以本題也可以寫 the best way of spending a vacation。",
+    "spend a vacation（度假、過假期）——spend 除了花錢，也指把時間用在某件事上，或在某個地方度過一段時間（to use time doing something or being somewhere）。劍橋文法〈Where〉的例句 The hotel where we spent our honeymoon has been demolished（我們度蜜月的那家旅館已經拆了），spend our honeymoon 和本題的 spend a vacation 是同樣的搭配。vacation 是美式說法，英式說 holiday。"
+   ],
+   "mustHave": [
+    "what 子句用直述句的語序：主詞 the best way to spend a vacation 放前面，is 放最後。",
+    "Everyone 當主詞，動詞用單數 has。"
+   ],
+   "refs": [
+    {
+     "label": "89 年大學聯考中譯英第 3 題（疑問詞 + 主詞 + 動詞）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-85"
+    },
+    {
+     "label": "85 年大學聯考中譯英第 1 題（take a vacation）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-63"
+    },
+    {
+     "label": "93 年學測文意選填第 35 題（Some … Others … Still others …）",
+     "url": "https://staresto-create.github.io/passage-completion/#hard-Vy93_35"
+    },
+    {
+     "label": "83 年學測中譯英第 2 題（同一段的下一題）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-94"
+    }
+   ]
+  }
  },
  {
   "id": 94,
@@ -1881,7 +2083,48 @@
   "label": "學測",
   "yearLabel": "83 (學測)",
   "zh": "有些人喜歡到寧靜的森林中去，在那兒他們可以暫時遠離人群。",
-  "en": "Some people like to go to peaceful forests, where they can get away from the crowds temporarily."
+  "en": "Some people like to go to peaceful forests, where they can get away from the crowds temporarily.",
+  "explanation": {
+   "pattern": [
+    "Some people …（有些人…）：「有些人…，有些人卻…，還有一些人…」是把一群人分成幾種來說，第一種用 Some people 開頭，第二種用 Others，第三種用 Still others（見 95、96）。劍橋文法〈Some〉說明，some 重讀的時候，用來和 others、all 這類字對比，例句 Why do some people live longer than other people?（some，不是全部）。",
+    "where 帶出關係子句：「到寧靜的森林中去，在那兒他們可以暫時遠離人群」，「在那兒」指的就是森林，英文用 where 接在 forests 後面。關係詞用哪一個，把名詞代進關係子句就看得出來：peaceful forests + they can get away from the crowds temporarily （in the forests）。代進去以後，forests 前面要補介系詞 in，在子句裡是「在森林裡」這個地方副詞，不是主詞，也不是受詞，所以用 where，也可以寫 in which；只寫 which 就少了 in。並排看：[peaceful forests, where they can get away from the crowds]（代進去是 in the forests，地方副詞，用 where）／[peaceful forests, which are quiet and calm]（代進去是 the forests are quiet and calm，forests 當主詞，用 which）。83 年學測克漏字第 17 題考的也是這一點：England was probably the first country in Europe where ordinary people used umbrellas against the rain，把 the country 代進子句是 ordinary people used umbrellas against the rain （in the country），所以用 where。where 的叫法兩說並陳：台灣的高中文法教學稱為關係副詞，劍橋文法則列在關係代名詞之下（Where as a relative pronoun）；叫法不同，用法相同。",
+    "where 前面的逗號：本題英文在 forests 後面加了逗號，把 where 子句當成補充說明，也就是說，寧靜的森林本來就是那樣的地方，在那兒可以暫時遠離人群。這種子句稱為非限定關係子句。劍橋文法〈Relative clauses: defining and non-defining〉說明，非限定關係子句提供的是額外的資訊，讀者不需要它也知道講的是誰或什麼，書寫時要用逗號隔開。不加逗號也成立，意思就變成指出是哪一種森林。並排看：[Some people like to go to peaceful forests, where they can get away from the crowds.]（補充說明，加逗號）／[The hotel where we spent our honeymoon has been demolished.]（指出是哪一家旅館，不加逗號）。"
+   ],
+   "collocation": [
+    "get away from（離開、躲開）——劍橋詞典的釋義是離開或逃離某人、某地，常指不容易離開的情況（to leave or escape from a person or place, often when it is difficult to do this），例句 We walked to the next beach to get away from the crowds（我們走到下一個海灘，避開人潮），和本題的 get away from the crowds 寫法相同。crowd 是可數名詞，the crowds 指擁擠的人群、人潮。",
+    "temporarily（暫時地）——劍橋詞典的釋義是不會持久、不會一直如此（in a way that does not last for long or for ever），例句 This office is closed temporarily for redecoration（這間辦公室暫時關閉重新裝修）。91 年指考第 10 題的答案就是 temporarily（A power failure temporarily darkened the whole city）；形容詞 temporary 是 92 年學測第 4 題的答案。"
+   ],
+   "mustHave": [
+    "中文「在那兒」指的是森林，英文不另起一句，用 where 接在 forests 後面。",
+    "把 forests 代進子句是 in the forests，是地方副詞，所以用 where（或 in which），不用 which。"
+   ],
+   "refs": [
+    {
+     "label": "83 年學測克漏字第 17 題（where）",
+     "url": "https://staresto-create.github.io/grammar-cloze-test/q/g83-17-1/"
+    },
+    {
+     "label": "101 年學測中譯英第 2 題（where 帶出關係子句）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-191"
+    },
+    {
+     "label": "94 年指考克漏字第 23 題（把先行詞代回子句）",
+     "url": "https://staresto-create.github.io/zhikao-cloze-test/q/z94-23/"
+    },
+    {
+     "label": "91 年指考第 10 題（temporarily）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/zhikao/#q-ZK0224"
+    },
+    {
+     "label": "92 年學測第 4 題（temporary）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0154"
+    },
+    {
+     "label": "83 年學測中譯英第 3 題（同一段的下一題）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-95"
+    }
+   ]
+  }
  },
  {
   "id": 95,
@@ -1889,7 +2132,44 @@
   "label": "學測",
   "yearLabel": "83 (學測)",
   "zh": "有些人卻寧願到大都市去，因為他們可以參觀博物館或購物。",
-  "en": "Others, however, prefer to go to big cities because they can visit museums or go shopping."
+  "en": "Others, however, prefer to go to big cities because they can visit museums or go shopping.",
+  "explanation": {
+   "pattern": [
+    "Others（其他人）：others 是代名詞，替代的是 other people，名詞已經含在字裡，所以後面直接接動詞 prefer，不再接名詞，不寫 Others people，也不寫 Other prefer。劍橋文法〈Other, others, the other or another?〉說明，other 當代名詞、指不只一個人或東西時，要用複數 others，例句 Some scientists think we should reduce the number of flights to prevent global warming; others disagree（不寫 other disagree）。這句例句和本題一樣，前面先說 some，後面再用 others 帶出另一群人。並排看：[Other people prefer to go to big cities.]（other 放在名詞前面，不加 s）／[Others prefer to go to big cities.]（others 單獨用，等於 other people）。",
+    "however 放在句子中間：中文「有些人卻寧願…」的「卻」表示轉折，英文用 however。however 可以放在句首（However, others prefer…），也可以像本題一樣放在主詞後面，前後都要加逗號。劍橋詞典 however 的例句 There may, however, be other reasons that we don't know about（不過，也可能有其他我們不知道的原因），however 就放在句子中間。But 是連接詞，要放在句首，寫 But others prefer…。",
+    "prefer to + 原形動詞（比較喜歡做某事）：「寧願到大都市去」寫 prefer to go。劍橋文法〈Prefer〉說明，prefer 後面可以接不定詞，也可以接 V-ing，接不定詞比較常見；不定詞要有 to，不寫 prefer go。要把兩樣擺在一起比，比下去的那一樣用 to 帶出，例句 We prefer going by ferry to flying，不寫 prefer … than。84 年大學聯考中譯英第 5 題的「寧可」用的是 would rather，後面接原形動詞，不加 to。並排看：[Others prefer to go to big cities.]（prefer 後面加 to）／[Others would rather go to big cities.]（would rather 後面不加 to）。",
+    "because 帶出原因：because 後面接完整的句子 they can visit museums or go shopping。or 連接 visit museums 和 go shopping 兩件事，兩個動詞都是原形，共用前面的 can。"
+   ],
+   "collocation": [
+    "go shopping（去購物）——go + V-ing 講的是需要走動的一般活動。劍橋文法〈Go〉說明，講到這類活動時用 go + V-ing，例句 Jack and his dad have gone fishing until later this evening、It was pouring with rain and all we could do was to go shopping（雨下得很大，我們只能去逛街購物）。"
+   ],
+   "mustHave": [
+    "Others 單獨當主詞，後面不再接 people。",
+    "prefer 後面接 to + 原形動詞 go。"
+   ],
+   "refs": [
+    {
+     "label": "83 年推薦甄選第 3 題（disturbs others）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0003"
+    },
+    {
+     "label": "95 年指考克漏字第 29 題（Some people … Others …）",
+     "url": "https://staresto-create.github.io/zhikao-cloze-test/q/z95-29/"
+    },
+    {
+     "label": "84 年學測克漏字第 34 題（those who prefer to stay in town）",
+     "url": "https://staresto-create.github.io/grammar-cloze-test/q/g84-34-2/"
+    },
+    {
+     "label": "84 年大學聯考中譯英第 5 題（would rather）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-62"
+    },
+    {
+     "label": "83 年學測中譯英第 4 題（同一段的下一題）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-96"
+    }
+   ]
+  }
  },
  {
   "id": 96,
@@ -1897,7 +2177,40 @@
   "label": "學測",
   "yearLabel": "83 (學測)",
   "zh": "還有一些人喜歡到海邊去，讓海浪沖走他們的煩惱。",
-  "en": "Still others like to go to the beach to let the waves wash away their troubles."
+  "en": "Still others like to go to the beach to let the waves wash away their troubles.",
+  "explanation": {
+   "pattern": [
+    "Still others（還有一些人）：前面先說了 Some people、Others，第三群人用 Still others。93 年學測文意選填第 35 題考的就是這種列舉：Some say… Others say… Still others say… 是三層平行列舉，Still others 表示「還有一些人」。others 是代名詞，名詞已經含在字裡，所以後面直接接動詞 like，不寫 Still other like。still 在這裡的意思是「再、更」，劍橋詞典 still 的一個意思是程度或數量更進一步（to an even greater degree or in an even greater amount），例句 Still more snow fell overnight（夜裡又下了更多的雪）。",
+    "不定詞 to V 表示目的：「到海邊去，讓海浪沖走他們的煩惱」，去海邊的目的是讓海浪沖走煩惱，英文用 to let 帶出。劍橋文法〈In order to〉說明，in order to 加原形動詞表示目的；平常說話只寫 to 也可以，劍橋文法〈Infinitives with and without to〉的例句 We came here to work, not to play（我們來這裡是為了工作，不是為了玩），to work、to play 講的都是來這裡的目的。本題有兩個 to，作用不同，並排看：go [to the beach]（介系詞 to，後面接地方）／[to let the waves wash away their troubles]（不定詞 to，後面接原形動詞）。",
+    "let + 受詞 + 原形動詞（讓某人、某物做某事）：let the waves wash away their troubles，wash 用原形，不加 to。劍橋文法〈Let, let's〉說明，let 後面接受詞，再接不帶 to 的不定詞，也就是原形動詞，例句 She let me look at the photos（不寫 let me to look）。105 年學測第 7 題的題幹 before she lets her students use it on their own 也是 let + 受詞 + 原形。"
+   ],
+   "collocation": [
+    "wash sth away（沖走）——劍橋詞典的釋義是水或雨把東西沖掉、帶走（If water or rain washes something away, it removes it or carries it away）。中文「讓海浪沖走他們的煩惱」是比喻，英文同樣用 wash away。劍橋詞典把這個片語動詞列為 wash something away，受詞可以放在 wash 和 away 中間，也可以放在 away 後面：wash their troubles away／wash away their troubles。",
+    "troubles（煩惱）——劍橋詞典 trouble 的釋義是問題或困難（problems or difficulties），講一個人的種種煩惱時常用複數 troubles，例句 She thought her troubles would be over once she'd got divorced（她以為離了婚，煩惱就會結束）。也可以寫 worries，劍橋詞典 worry 當名詞的例句 health/financial worries（健康上、經濟上的煩惱）。"
+   ],
+   "mustHave": [
+    "let 後面接受詞 the waves，再接原形動詞 wash，不加 to。",
+    "第三群人寫 Still others，others 後面不再接名詞。"
+   ],
+   "refs": [
+    {
+     "label": "93 年學測文意選填第 35 題（Still others）",
+     "url": "https://staresto-create.github.io/passage-completion/#hard-Vy93_35"
+    },
+    {
+     "label": "105 年學測第 7 題（lets her students use it）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0367"
+    },
+    {
+     "label": "87 年大學聯考中譯英第 2 題（不定詞 to V 表示目的）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-74"
+    },
+    {
+     "label": "83 年學測中譯英第 5 題（同一段的下一題）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-97"
+    }
+   ]
+  }
  },
  {
   "id": 97,
@@ -1905,7 +2218,37 @@
   "label": "學測",
   "yearLabel": "83 (學測)",
   "zh": "有少數人則決定留在家裡，做一些像打掃屋子之類的事。",
-  "en": "A few people, on the other hand, decide to stay at home and do things like cleaning the house."
+  "en": "A few people, on the other hand, decide to stay at home and do things like cleaning the house.",
+  "explanation": {
+   "pattern": [
+    "a few 和 few：「有少數人」只是說人數不多，寫 A few people。few 前面不加 a，意思偏向「很少、不夠」。劍橋文法〈Word choice: few or a few?〉說明，few 講的是太少、不夠的少數，用法稍微正式；只是單純說數量少，就用 a few。並排看：[Luckily, I had a few opportunities to speak English during my trip.]（幸好旅途中有幾次機會說英文，a few 單純說數量少）／[Unfortunately, I have few opportunities to speak English.]（可惜很少有機會說英文，few 帶有不夠的語氣）。本題只是列出第四種人，沒有「太少」的意思，所以寫 a few。",
+    "on the other hand 放在句子中間：中文「則」表示和前面說的情形對照，英文用 on the other hand，放在主詞後面，前後都加逗號。劍橋詞典的例句 My husband likes classical music – I, on the other hand, like all kinds（我先生喜歡古典音樂，我則什麼音樂都喜歡）；95 年學測克漏字第 27 題的原文 Baseball, on the other hand, seems more mental 也放在主詞後面。95 的 however 也是放在這個位置。",
+    "and 連接兩個動作：decide to 後面接 stay at home and do things…，stay、do 兩個動詞都是原形，共用前面的 decide to。劍橋詞典 stay 的例句 Because of the snow, children were told to stay at home（因為下雪，孩子們都要待在家裡）。",
+    "like + V-ing（像是…）：things like cleaning the house 的 like 不是動詞「喜歡」，是介系詞，意思是「像是、例如」，用來舉例。介系詞後面接名詞或動名詞，所以寫 cleaning，不寫 clean。劍橋詞典 like 的一個意思就是 such as，例句 She looks best in bright, vibrant colours, like red and pink；劍橋文法〈Such as〉說明，such as 和 like 都可以帶出例子，such as 比較正式，多用在書面，所以本題也可以寫 things such as cleaning the house。84 年大學聯考中譯英第 4 題講過，接名詞的時候用 such as，接完整的句子用 For example。",
+    "整段五句的動詞並排看：93 [has]／94 [like]、[can get away]／95 [prefer]、[can visit … or go]／96 [like]／97 [decide]。五句講的都是大家一向的喜好與做法，所以都用現在簡單式。劍橋文法〈Present simple (I work)〉說明，現在簡單式可以講我們認為目前一直是真的事情，例句 I really love my job。要是改成講去年暑假那一次，動詞就要換成過去簡單式。並排看：[A few people decide to stay at home.]（一般的情形，現在簡單式）／[Last summer, a few people decided to stay at home.]（去年暑假那一次，過去簡單式）。"
+   ],
+   "collocation": [
+    "clean the house（打掃屋子）——劍橋詞典 clean 的釋義是去掉東西上的髒污（to remove dirt from something），例句 I'm going to clean the windows this morning。放在介系詞 like 後面就變成 cleaning the house。也可以寫 do housework（做家事）：劍橋詞典 housework 的釋義是讓家裡保持乾淨整齊的工作（the work of keeping a house clean and tidy），標為不可數名詞，不加 s，例句 I hate doing housework。"
+   ],
+   "mustHave": [
+    "「有少數人」寫 a few people，不寫 few people。",
+    "like 在這裡是介系詞，後面接 V-ing：things like cleaning the house。"
+   ],
+   "refs": [
+    {
+     "label": "95 年學測克漏字第 27 題（on the other hand）",
+     "url": "https://staresto-create.github.io/grammar-cloze-test/q/g95-27-3/"
+    },
+    {
+     "label": "84 年大學聯考中譯英第 4 題（For example 與 such as）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-61"
+    },
+    {
+     "label": "83 年學測中譯英第 1 題（同一段的第一題）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-93"
+    }
+   ]
+  }
  },
  {
   "id": 98,
@@ -6104,7 +6447,7 @@
   "explanation": {
    "pattern": [
     "整句的骨架是 S + have become + 補語：The locations（主詞） + where these movies were shot（修飾主詞的關係子句） + have become + popular tourist attractions。主詞的核心是複數名詞 locations，所以助動詞用 have。",
-    "where these movies were shot 是關係子句，修飾前面的 locations，說明是哪些地點。where 可以換成 in which，官方兩式都收。where 的叫法兩說並陳：台灣的高中文法教學稱為關係副詞，劍橋文法則列在關係代名詞之下（Where as a relative pronoun）；叫法不同，用法相同。",
+    "where these movies were shot 是關係子句，修飾前面的 locations，說明是哪些地點。關係詞用哪一個，把名詞代進關係子句就看得出來：the locations + these movies were shot （in the locations）。代進去以後，locations 前面要補介系詞 in，在子句裡是地方副詞，不是主詞，也不是受詞，所以用 where；where 可以換成 in which，官方兩式都收。where 的叫法兩說並陳：台灣的高中文法教學稱為關係副詞，劍橋文法則列在關係代名詞之下（Where as a relative pronoun）；叫法不同，用法相同。",
     "中文「拍攝這些電影」沒有「被」字，看不出主動還是被動。要用哪一個，看的是這一句在談誰——這一句談的是這些電影，拍的人是誰不必說也不重要，所以 these movies 當子句的主詞，動詞寫成被動 were shot；拍攝發生在過去，be 動詞用過去式 were。選才電子報列出的基本句型就是關係子句與被動式 be + p.p.。"
    ],
    "collocation": [
@@ -6141,6 +6484,10 @@
     {
      "label": "100 年學測文意選填第 31 題（popular）",
      "url": "https://staresto-create.github.io/passage-completion/#hard-Vy100_31"
+    },
+    {
+     "label": "83 年學測中譯英第 2 題（把名詞代進關係子句）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-94"
     }
    ]
   }
