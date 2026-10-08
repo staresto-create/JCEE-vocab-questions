@@ -28,6 +28,7 @@ header.top{border-bottom:3px double var(--ink);padding-bottom:.6rem;margin-botto
 h1{font-family:var(--serif);font-weight:600;font-size:1.7rem;line-height:1.25;margin:0}
 .sub{font-family:var(--mono);font-size:.75rem;color:var(--ink-soft);margin-top:.2rem}
 .lede{font-size:.95rem;margin:0 0 1.2rem;color:var(--ink)}
+.lede a{color:var(--crimson)}
 .card{background:var(--paper-card);border:1px solid var(--rule);border-radius:3px;padding:1rem 1rem 1.1rem;margin:0 0 1.4rem;
   box-shadow:0 1px 0 rgba(34,31,26,.06),0 8px 24px rgba(34,31,26,.08)}
 h2{font-family:var(--serif);font-size:1.2rem;font-weight:600;margin:0 0 .6rem}
@@ -75,6 +76,7 @@ ul.list{list-style:none;margin:0;padding:0}
 ul.list li{padding:.45rem 0;border-bottom:1px solid var(--rule)}
 .w{font-family:var(--serif);font-size:1.05rem;font-weight:600}
 .pos{font-family:var(--mono);font-size:.78rem;color:var(--ink-soft);margin-left:.4rem}
+.tag.tn{border-color:var(--rule);color:var(--ink-soft);background:transparent}
 .refs{margin-top:.2rem;font-size:.8rem;line-height:1.6}
 .refs .fm{font-family:var(--serif);font-size:.92rem;font-weight:600;margin-right:.3rem}
 .refs a{display:inline-block;color:var(--crimson);background:#F7ECE8;border:1px solid var(--crimson-soft);border-radius:3px;padding:0 .35rem;margin:.1rem .25rem .1rem 0;text-decoration:none}
@@ -118,6 +120,7 @@ footer.foot a{color:var(--crimson)}
       <summary>怎麼算「考過」</summary>
       <p id="scopeText"></p>
       <p>字形變化算不算同一個字，依詞彙表〈編輯原則〉：複數、動詞變化、比較級與最高級，以及加上 <span class="af">-ly</span>、<span class="af">-ness</span>、<span class="af">-less</span>、<span class="af">-ment</span>、<span class="af">re-</span>、<span class="af">non-</span>、否定字首 <span class="af">un-／in-／im-／ir-／il-</span> 的字，還有 <span class="af">-ing</span>、<span class="af">-ed</span> 結尾的形容詞，詞彙表都不另列，所以算回原來的詞條。<span class="af">-able／-ible</span>、<span class="af">-ful</span>、<span class="af">-er／-or</span> 這幾類則不算回去：詞彙表有收的，各自是一個詞條；詞彙表沒收的，就不算考過任何詞條。</p>
+      <p>考過幾次，算的是這個詞條在幾題詞彙題的選項裡出現過，答案和誘答都算；同一個詞條的不同字形出現在同一題，只算一次。選「依考過的次數」，考過最多次的字排在最前面。</p>
       <p>少數字拼法看起來是字形變化，意思卻已經不同，這幾個另外排除，例如題目裡的 projected 是「預測」，詞彙表的 project 卻是「計畫」。本題庫詞彙題考過、但詞彙表沒收的字，也不在這份清單裡。</p>
     </details>
   </section>
@@ -125,6 +128,7 @@ footer.foot a{color:var(--crimson)}
   <div class="tools" id="tools">
     <div class="row" id="lvRow" role="group" aria-label="依級別篩選"><span class="lb">級別</span></div>
     <div class="row" id="stRow" role="group" aria-label="依狀態篩選"><span class="lb">狀態</span></div>
+    <div class="row" id="orRow" role="group" aria-label="排列方式"><span class="lb">排列</span></div>
     <input type="search" id="q" placeholder="搜尋單字，例如 abrupt" aria-label="搜尋單字">
   </div>
   <p class="count" id="count" aria-live="polite"></p>
@@ -141,7 +145,7 @@ footer.foot a{color:var(--crimson)}
 var $=function(s){return document.querySelector(s);};
 var ST=['考過原形','只考過其他字形','未考過'];
 var PAGE=400;                       // 一次畫出的字數，其餘按「再顯示」
-var D=null, state={lv:0, st:-1, q:''}, limit=PAGE;
+var D=null, state={lv:0, st:-1, q:'', o:0}, limit=PAGE;
 
 function fmt(n){return n.toLocaleString('en-US');}
 function pct(a,b){return (Math.round(1000*a/b)/10).toFixed(1)+'%';}
@@ -152,12 +156,14 @@ function readHash(){
   var lv=+p.lv; state.lv=(lv>=2&&lv<=6)?lv:0;
   var st=+p.s; state.st=(p.s!==undefined&&st>=0&&st<=2)?st:-1;
   state.q=p.q||'';
+  state.o=p.o==='n'?1:0;
 }
 function writeHash(){
   var a=[];
   if(state.lv)a.push('lv='+state.lv);
   if(state.st>=0)a.push('s='+state.st);
   if(state.q.trim())a.push('q='+encodeURIComponent(state.q.trim()));
+  if(state.o)a.push('o=n');
   var h=a.length?'#'+a.join('&'):location.pathname+location.search;
   try{history.replaceState(null,'',h);}catch(e){}
 }
@@ -172,7 +178,7 @@ function buildTable(){
     var wo=Math.round(48*s.o/s.n/max), wd=Math.round(48*s.d/s.n/max);
     h+='<tr><td>第 '+l+' 級</td><td class="pct">'+pct(s.o+s.d,s.n)+'<span class="bars"><span class="bar" style="width:'+wo+'px"></span><span class="bar d" style="width:'+wd+'px"></span></span></td>'+
        '<td>'+fmt(s.o+s.d)+'／'+fmt(s.n)+split(s.o,s.d)+'</td>'+
-       '<td class="lk"><a href="#lv='+l+'&s=2" data-lv="'+l+'">看未考過</a><a href="./#y=81-115&lv='+l+'">記憶卡</a></td></tr>';
+       '<td class="lk"><a href="#lv='+l+'&o=n" data-top="'+l+'">最常考</a><a href="#lv='+l+'&s=2" data-lv="'+l+'">看未考過</a><a href="./#y=81-115&lv='+l+'">記憶卡</a></td></tr>';
   });
   h+='<tr class="total"><td>合計</td><td class="pct">'+pct(tot.o+tot.d,tot.n)+'</td><td>'+fmt(tot.o+tot.d)+'／'+fmt(tot.n)+split(tot.o,tot.d)+'</td><td></td></tr></tbody>';
   t.innerHTML=h;
@@ -180,7 +186,11 @@ function buildTable(){
     a.addEventListener('click',function(e){e.preventDefault();state.lv=+a.getAttribute('data-lv');state.st=2;state.q='';$('#q').value='';
       syncButtons();limit=PAGE;render();writeHash();$('#tools').scrollIntoView({behavior:'smooth'});});
   });
-  $('#covNote').textContent='綠色是考過原形，黃色是只考過其他字形；「記憶卡」會開啟這一級考過的字。四級考過的比例最高，超過一半；六級是考試說明說「偶爾」才會出現的一級，考過的比例也最低，不到兩成。';
+  Array.prototype.forEach.call(t.querySelectorAll('a[data-top]'),function(a){
+    a.addEventListener('click',function(e){e.preventDefault();state.lv=+a.getAttribute('data-top');state.st=-1;state.o=1;state.q='';$('#q').value='';
+      syncButtons();limit=PAGE;render();writeHash();$('#tools').scrollIntoView({behavior:'smooth'});});
+  });
+  $('#covNote').textContent='綠色是考過原形，黃色是只考過其他字形；「最常考」會把這一級的字依考過的次數排列，「記憶卡」會開啟這一級考過的字。四級考過的比例最高，超過一半；六級是考試說明說「偶爾」才會出現的一級，考過的比例也最低，不到兩成。';
 }
 
 function mkBtns(box,items,key){
@@ -193,6 +203,12 @@ function mkBtns(box,items,key){
 function syncButtons(){
   Array.prototype.forEach.call($('#lvRow').querySelectorAll('button'),function(b){b.setAttribute('aria-pressed',+b.getAttribute('data-v')===state.lv?'true':'false');});
   Array.prototype.forEach.call($('#stRow').querySelectorAll('button'),function(b){b.setAttribute('aria-pressed',+b.getAttribute('data-v')===state.st?'true':'false');});
+  Array.prototype.forEach.call($('#orRow').querySelectorAll('button'),function(b){b.setAttribute('aria-pressed',+b.getAttribute('data-v')===state.o?'true':'false');});
+}
+// 每個詞條考過幾題：各字形的題號合在一起算，同一題只算一次
+function nq(r){
+  if(r.nq===undefined){var s={};r[4].forEach(function(f){f[1].forEach(function(x){s[x[0]]=1;});});r.nq=Object.keys(s).length;}
+  return r.nq;
 }
 
 function refLink(r){
@@ -217,18 +233,31 @@ function render(){
   var rows=D.rows.filter(function(r){
     return (!state.lv||r[1]===state.lv)&&(state.st<0||r[3]===state.st)&&match(r,q);
   });
-  var cnt='符合的詞條 '+fmt(rows.length)+' 個';
-  if(!state.lv&&state.st<0&&!q)cnt='第二到第六級共 '+fmt(rows.length)+' 個詞條，依級別再依字母排列';
+  if(state.o){
+    // 依考過的次數：次數多的在前，次數一樣的照原本的級別、字母順序
+    rows=rows.map(function(r,i){return [r,i];}).sort(function(a,b){return (nq(b[0])-nq(a[0]))||(a[1]-b[1]);}).map(function(x){return x[0];});
+  }
+  var cnt='符合的詞條 '+fmt(rows.length)+' 個'+(state.o?'，依考過的次數排列':'');
+  if(!state.lv&&state.st<0&&!q)cnt='第二到第六級共 '+fmt(rows.length)+' 個詞條，'+(state.o?'依考過的次數排列，次數一樣的依級別再依字母':'依級別再依字母排列');
   $('#count').textContent=cnt;
   if(!rows.length){var e=document.createElement('p');e.className='empty';e.textContent='這個條件下沒有詞條。清掉搜尋或改選其他級別再試一次。';body.appendChild(e);return;}
 
-  var cur=0, ul=null, shown=rows.slice(0,limit);
+  var cur=null, ul=null, shown=rows.slice(0,limit), per={};
+  if(state.o)rows.forEach(function(r){per[nq(r)]=(per[nq(r)]||0)+1;});
   shown.forEach(function(r){
-    if(r[1]!==cur){
-      cur=r[1];
-      var s=D.stats[cur], h=document.createElement('h3');
-      h.textContent='第 '+cur+' 級';
-      var sp=document.createElement('span'); sp.textContent='考過 '+fmt(s.o+s.d)+'／'+fmt(s.n)+'（'+pct(s.o+s.d,s.n)+'）'; h.appendChild(sp);
+    var gk=state.o?nq(r):r[1];
+    if(gk!==cur){
+      cur=gk;
+      var h=document.createElement('h3'), sp=document.createElement('span');
+      if(state.o){
+        h.textContent=cur?'考過 '+cur+' 次':'未考過';
+        sp.textContent=fmt(per[cur])+' 個詞條';
+      }else{
+        var s=D.stats[cur];
+        h.textContent='第 '+cur+' 級';
+        sp.textContent='考過 '+fmt(s.o+s.d)+'／'+fmt(s.n)+'（'+pct(s.o+s.d,s.n)+'）';
+      }
+      h.appendChild(sp);
       body.appendChild(h);
       ul=document.createElement('ul'); ul.className='list'; body.appendChild(ul);
     }
@@ -236,6 +265,7 @@ function render(){
     var w=document.createElement('span'); w.className='w'; w.textContent=r[0]; top.appendChild(w);
     var p=document.createElement('span'); p.className='pos'; p.textContent=r[2]; top.appendChild(p);
     var t=document.createElement('span'); t.className='tag t'+r[3]; t.textContent=ST[r[3]]; top.appendChild(t);
+    if(state.o||nq(r)){var tn=document.createElement('span'); tn.className='tag tn'; tn.textContent=state.o?'第 '+r[1]+' 級':'共 '+nq(r)+' 次'; top.appendChild(tn);}
     li.appendChild(top);
     if(r[4].length){
       var rf=document.createElement('div'); rf.className='refs';
@@ -263,8 +293,18 @@ fetch('coverage_data.json').then(function(r){if(!r.ok)throw new Error(r.status);
   $('#scopeText').textContent='範圍是兩個單字題庫：學測 '+g[0]+' 到 '+g[1]+' 年共 '+g[2]+' 題，指考（含早年的聯考）'+z[0]+' 到 '+z[1]+' 年共 '+z[2]+' 題。只要這個字出現在四個選項裡，不論是答案還是誘答，都算考過；片語不算，題幹與文章裡出現的字也不算。';
   $('#lede').textContent='大考中心《高中英文參考詞彙表》第二到第六級共 5,007 個詞條，這份清單逐一標出哪些字在學測、指考的詞彙題考過：學測 '+g[0]+' 到 '+g[1]+' 年、指考 '+z[0]+' 到 '+z[1]+' 年，一共 '+fmt(g[2]+z[2])+' 題。考過的字附上題號，點下去就是原題與解析。';
   buildTable();
+  // 最常考的字：算出考過三次以上的詞條數與次數最多的字，寫在開頭說明後面；「依考過的次數排列」做成連結
+  var top=0, n3=0; d.rows.forEach(function(r){var k=nq(r); if(k>top)top=k; if(k>=3)n3++;});
+  var tw=d.rows.filter(function(r){return nq(r)===top;}).map(function(r){return r[0];});
+  var ld=$('#lede'), la=document.createElement('a');
+  la.href='#o=n'; la.textContent='依考過的次數排列';
+  la.addEventListener('click',function(e){e.preventDefault();state.o=1;limit=PAGE;syncButtons();render();writeHash();$('#tools').scrollIntoView({behavior:'smooth'});});
+  ld.appendChild(document.createTextNode('想知道哪些字最常考，可以改成'));
+  ld.appendChild(la);
+  ld.appendChild(document.createTextNode('：考過三次以上的詞條有 '+fmt(n3)+' 個，最多的是 '+tw.join('、')+'（'+top+' 次）。'));
   mkBtns($('#lvRow'),[[0,'全部'],[2,'第 2 級'],[3,'第 3 級'],[4,'第 4 級'],[5,'第 5 級'],[6,'第 6 級']],'lv');
   mkBtns($('#stRow'),[[-1,'全部'],[0,'考過原形'],[1,'只考過其他字形'],[2,'未考過']],'st');
+  mkBtns($('#orRow'),[[0,'依級別與字母'],[1,'依考過的次數']],'o');
   readHash(); $('#q').value=state.q; syncButtons();
   var tm=null;
   $('#q').addEventListener('input',function(e){clearTimeout(tm);tm=setTimeout(function(){state.q=e.target.value;limit=PAGE;render();writeHash();},150);});
