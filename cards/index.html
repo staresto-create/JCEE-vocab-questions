@@ -186,6 +186,7 @@
     border:1px solid var(--rule); border-radius:2px; padding:2px 6px; color:var(--ink-soft);
   }
   .bk-gloss{font-size:14.5px; line-height:1.85; margin:6px 0 0;}
+  .bk-sub{font-size:12.5px; font-weight:700; color:var(--ink-soft); margin:18px 0 0; letter-spacing:.04em;}
   .bk-sec{margin-top:16px; padding-left:11px; border-left:2px solid var(--sage);}
   .bk-src{
     font-family:'IBM Plex Mono','Noto Sans TC',monospace; font-size:10.5px; letter-spacing:.08em;
@@ -336,7 +337,7 @@
     <div class="card">
       <p id="homeLead" class="home-lead">用考過的字複習，不是背字典</p>
       <p id="homeDesc" class="home-desc">
-        每一張卡片的字都真的在學測或指考詞彙題出現過，四個選項也是當年那一題的四個，三個錯的就是當年那三個。
+        每一張卡片的字都真的在學測或指考詞彙題出現過，四個選項也是當年那一題的四個，三個錯的就是當年那三個。其中 206 個字另有例句填空，做過一次之後才會出，卡片上會標明不是大考原題。
         答對的字往後推，答錯的當場再來一次。
       </p>
       <button id="startBtn" class="big-btn">開始複習</button>
@@ -434,7 +435,7 @@
 </div>
 <script>
 /* 單字記憶卡 · 引擎
-   資料：cards_data.json（同資料夾）
+   資料：cards_data.json（同資料夾）；單字卡的例句填空另放 practice_data.json
    進度：localStorage，鍵 jcee_cards_v1
    排程：簡化 SM-2，只決定「何時再出現」 */
 (function () {
@@ -459,6 +460,7 @@
   var DATA = null, Q = null, W = null, CFT = null;
   var CF = null, CFG = null;  // 易混淆字組：CF 是整個資料檔，CFG 以組號查組
   var PO = null, POW = null;  // 一字多義：PO 是整個資料檔，POW 以卡號查卡
+  var PX = null;            // 單字卡的例句填空：以卡片字查題，題目另外編寫、不是大考原題
   var state = null;         // 目前這副卡的進度 { v, w:{key:{i,e,d,r,l,vv}}, day, done }
   var states = {};          // 三副卡各一份
   var scope = null;         // { y0, y1, st, lv, label, free }
@@ -702,11 +704,17 @@
       if (inRange(f[1])) out.push('f|' + f[1] + '|' + i);
     });
     if (w.fm && w.fm.length >= 3) out.push('m|');
+    // 例句填空：另外編寫的句子，不受年份範圍限制（字本身已經在範圍內）
+    ((PX && PX[word]) || []).forEach(function (x, i) { out.push('p|' + i); });
     return out;
   }
   // 挑一個最久沒用過的出現方式
   function chooseVariant(word) {
     var vs = variantsOf(word);
+    // 單字卡第一次遇到的字先用大考原題的選項考，例句填空等做過一次之後才出
+    if (!isCF() && !isPO() && !state.w[word]) {
+      vs = vs.filter(function (v) { return v.charAt(0) !== 'p'; });
+    }
     if (!vs.length) return null;
     var used = (state.w[word] && state.w[word].vv) || [];
     var fresh = vs.filter(function (v) { return used.indexOf(v) === -1; });
@@ -826,7 +834,8 @@
     e: '英文 → 中文',
     z: '中文 → 英文',
     f: '搭配詞填空',
-    m: '形近字辨識'
+    m: '形近字辨識',
+    p: '例句填空'
   };
   var PO_LABEL = { '1': '一字多義　大考原題', '2': '一字多義　中文選字' };
   var CF_LABEL = {
@@ -942,6 +951,13 @@
              '<p class="front-hint">出自 ' + esc(yearTag(qid)) + ' 的原題，四個選項是當年的原選項。</p>';
       opts = lettersOf(q3).map(function (x) { return { key: x, text: q3.o[x] }; });
       correct = L3;
+    } else if (kind === 'p') {
+      $('modeTag').textContent = MODE_LABEL[kind];
+      var px = PX[word][+parts[1]];
+      body = '<p class="front-frame">' + frameHTML(px.s) + '</p>' +
+             '<p class="front-hint">這一題依大考詞彙題的題型編寫，不是大考原題；答案是歷屆詞彙題考過的字，換一個句子練習這個字的用法。</p>';
+      opts = px.o.map(function (o, k) { return { key: 'p' + k, text: o }; });
+      correct = 'p' + px.a;
     } else { // m 形近字
       $('modeTag').textContent = MODE_LABEL[kind];
       var first = primaryOcc(word);
@@ -1259,7 +1275,8 @@
     }
     var c = session.current, word = c.word, w = W[word];
     var parts = c.variant.split('|');
-    var qid = parts[1] || primaryOcc(word)[0];
+    var isP = parts[0] === 'p';
+    var qid = (!isP && parts[1]) || primaryOcc(word)[0];
     var L = letterOf(word, qid);
     var q = Q[qid];
 
@@ -1271,7 +1288,21 @@
     if (w.kk) h += '<span class="bk-kk">[' + esc(w.kk) + ']</span>';
     h += '<span class="lvtag">' + esc(levelText(w)) + '</span>';
     h += '</div>';
-    h += '<p class="bk-gloss">' + esc(q.g[L]) + '</p>';
+
+    if (isP) {
+      // 例句填空：先放練習句與中譯，下面再接這個字在大考的那一題。
+      // 不放大考那一題的釋義當標題：練習句的意思可能和大考那一題不同，中譯已經說清楚
+      var px = PX[word][+parts[1]];
+      h += '<div class="bk-sec">';
+      h += '<span class="bk-src"><span class="seg">例句填空</span></span>';
+      h += '<p class="bk-en">' + esc(px.s).replace(/_{2,}/, '<b>' + esc(px.o[px.a]) + '</b>') + '</p>';
+      h += '<p class="bk-zh">' + esc(px.z) + '</p>';
+      h += '</div>';
+      h += '<p class="bk-sub">這個字在大考</p>';
+      h += '<p class="bk-gloss">' + esc(q.g[L]) + '</p>';
+    } else {
+      h += '<p class="bk-gloss">' + esc(q.g[L]) + '</p>';
+    }
 
     // 例句
     h += '<div class="bk-sec">';
@@ -1488,6 +1519,7 @@
     } else {
       $('homeLead').textContent = '用考過的字複習，不是背字典';
       $('homeDesc').textContent = '每一張卡片的字都真的在學測或指考詞彙題出現過，四個選項也是當年那一題的四個，三個錯的就是當年那三個。' +
+        '其中 206 個字另有例句填空，做過一次之後才會出，卡片上會標明不是大考原題。' +
         '答對的字往後推，答錯的當場再來一次。';
     }
 
@@ -1797,6 +1829,11 @@
 
   function init() {
     wire();
+    // 例句填空資料載入失敗不影響其他題型，只是不出例句填空
+    fetch('practice_data.json?v=1', { cache: 'default' })
+      .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+      .then(function (d) { PX = d.p; })
+      .catch(function () { PX = null; });
     fetch('cards_data.json?v=2', { cache: 'default' })
       .then(function (r) {
         if (!r.ok) throw new Error('HTTP ' + r.status);
