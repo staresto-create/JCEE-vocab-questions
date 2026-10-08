@@ -224,7 +224,33 @@
   "label": "大學聯考",
   "yearLabel": "77 (大學聯考)",
   "zh": "英語是一種重要的語言，所以很多人都在學習。",
-  "en": "English is an important language, so many people are learning it."
+  "en": "English is an important language, so many people are learning it.",
+  "altAnswers": [
+   "Many people are learning English because it is an important language."
+  ],
+  "explanation": {
+   "pattern": [
+    "77 年大學聯考五題（26 至 30）連成一段，談怎麼學會說英語：26 說英語是一種重要的語言，所以很多人都在學，27 說許多中國學生認為學說英語很難，28 說只要經常練習，任何困難都可以克服，29 說會背對話並不表示會說英語，30 說最重要的是能用英語說出自己想說的話。",
+    "so 帶出結果：中文只寫了「所以」，英文用 so 帶出結果，原因放在前面。劍橋文法〈Conjunctions: causes, reasons, results and purpose〉說明，so 帶出的子句要放在後面。也可以改用 because 帶出原因，並排看：[English is an important language, so many people are learning it.]（so 帶出結果）／[Many people are learning English because it is an important language.]（because 帶出原因）。兩句都只用一個連接詞，because 和 so 不同時用。"
+   ],
+   "mustHave": [
+    "中文「很多人都在學習」沒說學什麼，因為前半句剛講過英語，承前省略了。英文補出受詞 it，指前面的 English，寫 are learning it。要是改用 because，前半句先寫出 learning English，後面的 because 子句再用 it 指它。"
+   ],
+   "refs": [
+    {
+     "label": "88 年大學聯考中譯英第 3 題（so 帶出結果）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-80"
+    },
+    {
+     "label": "89 年大學聯考中譯英第 4 題（because 和 so 只用一個）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-86"
+    },
+    {
+     "label": "77 年大學聯考中譯英第 2 題（同一段的下一題）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-27"
+    }
+   ]
+  }
  },
  {
   "id": 27,
@@ -232,7 +258,52 @@
   "label": "大學聯考",
   "yearLabel": "77 (大學聯考)",
   "zh": "許多中國學生認為學習說英語很難。",
-  "en": "Many Chinese students think that it is very hard to learn to speak English."
+  "en": "Many Chinese students think that it is very hard to learn to speak English.",
+  "altAnswers": [
+   "Many Chinese students find it very hard to learn to speak English.",
+   "Many Chinese students think that learning to speak English is very hard."
+  ],
+  "explanation": {
+   "pattern": [
+    "it 當虛主詞：中文「學習說英語很難」，主詞是「學習說英語」這件事，英文寫成不定詞片語 to learn to speak English。這個主詞很長，放在句首不好讀，所以先用 it 占住主詞的位置，真正的主詞挪到句尾：it is very hard to learn to speak English。劍橋文法〈It〉說明，it 可以預告句子真正的主詞，特別是真正的主詞是 to + 原形動詞或 that 子句的時候，例句 It was nice to talk with them again，比較正式的寫法是 To talk with them again was nice。109 年指考第 10 題的題幹 it is not easy for people to get decently paid jobs 也是同一個結構。",
+    "find it + 形容詞 + to + 原形動詞（覺得做某事…）：中文「認為學習說英語很難」，也可以寫成 Many Chinese students find it very hard to learn to speak English。find 的受詞是學說英語這件事，寫成不定詞 to learn to speak English 太長，就先用 it 占住受詞的位置，把它放到後面，這個 it 就是虛受詞。劍橋文法〈It〉說明，find、consider 這類動詞常用 it + 形容詞 + to 不定詞或 that 子句，先用 it 預告後面的受詞，例句 I find it surprising to see so many people here；it 不能省，同一頁的例句 I find it amazing that they've never stopped arguing about football，不寫 I find amazing that…。88 年推薦甄選第 3 題的題幹 Many students find it hard to focus on their studies when holidays are approaching，句型和本題一樣。81 年大學聯考中譯英第 2 題的 make it clear that… 也是虛受詞。",
+    "三種寫法並排看：[Many Chinese students think that it is very hard to learn to speak English.]（it 當虛主詞，真正的主詞 to learn to speak English 在句尾）／[Many Chinese students find it very hard to learn to speak English.]（it 當虛受詞，真正的受詞 to learn to speak English 在句尾）／[Many Chinese students think that learning to speak English is very hard.]（動名詞片語 learning to speak English 當主詞，動詞用單數 is）。",
+    "learn to + 原形動詞（學會做某事）：後面接不定詞，不接動名詞。中文「學習說英語」講的是學會說，寫 learn to speak English。"
+   ],
+   "mustHave": [
+    "think 後面的子句要有主詞：用 it 先占住主詞的位置，寫 think that it is very hard to…，it 不能省；改用 find 時，it 占住的是受詞的位置，寫 find it very hard to…，it 也不能省。"
+   ],
+   "refs": [
+    {
+     "label": "76 年大學聯考中譯英第 3 題（虛主詞改寫）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-23"
+    },
+    {
+     "label": "109 年學測中譯英第 2 題（learn to）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-125"
+    },
+    {
+     "label": "109 年指考第 10 題（it is not easy for people to…）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/zhikao/#q-ZK0030"
+    },
+    {
+     "label": "88 年推薦甄選第 3 題（find it hard to）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0078"
+    },
+    {
+     "label": "81 年大學聯考中譯英第 2 題（虛受詞 it）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-47"
+    },
+    {
+     "label": "77 年大學聯考中譯英第 1 題（同一段的前一題）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-26"
+    },
+    {
+     "label": "77 年大學聯考中譯英第 3 題（同一段的下一題）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-28"
+    }
+   ]
+  }
  },
  {
   "id": 28,
@@ -267,7 +338,38 @@
   "label": "大學聯考",
   "yearLabel": "77 (大學聯考)",
   "zh": "會背課本上的對話，並不表示會說英語。",
-  "en": "Memorizing the dialogues in the text does not mean that you are able to speak English."
+  "en": "Memorizing the dialogues in the text does not mean that you are able to speak English.",
+  "altAnswers": [
+   "Memorizing the dialogues in the textbook does not mean that you can speak English."
+  ],
+  "explanation": {
+   "pattern": [
+    "動名詞當主詞：中文前半講的是背對話這一件事，英文用動名詞片語 Memorizing the dialogues in the text 當主詞，動詞用單數，所以否定寫 does not mean。",
+    "mean that + 子句（表示、代表…）：劍橋詞典 mean 的釋義之一是表達或代表某個想法或事實（to express or represent something such as an idea, thought, or fact），例句 These figures mean that almost six percent of the working population is unemployed（這些數字表示有將近百分之六的勞動人口失業）。本題的 that 子句說明背對話並不代表什麼：that you are able to speak English。",
+    "中文「會說英語」的「會」講的是能力，寫 are able to speak 或 can speak 都可以。劍橋文法〈Be expressions (be able to, be due to)〉說明，be able to 和 can 一樣講能力。"
+   ],
+   "collocation": [
+    "memorize（背、記住）——劍橋詞典的釋義是把東西記到能一字不差記得的程度（to learn something so that you will remember it exactly），例句 When I was at school, we were required to memorize a poem every week（我讀書的時候，每週都得背一首詩）。",
+    "text／textbook（教科書）——劍橋詞典 text 有一個意思是課程裡要讀的書（a book or piece of writing that you study as part of a course），所以 the dialogues in the text 說得通；寫 textbook 更清楚，劍橋詞典的釋義是給學習某一科的人用、內容詳細的書（a book that contains detailed information about a subject for people who are studying that subject），指的就是學生上課用的書。"
+   ],
+   "mustHave": [
+    "中文「並不表示會說英語」沒寫是誰會說，英文的 that 子句要補出主詞，這裡用泛指的 you，和 28 的 you can overcome any difficulty 一樣。"
+   ],
+   "refs": [
+    {
+     "label": "97 年學測中譯英第 1 題（動名詞當主詞）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-168"
+    },
+    {
+     "label": "77 年大學聯考中譯英第 3 題（同一段的前一題）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-28"
+    },
+    {
+     "label": "77 年大學聯考中譯英第 5 題（同一段的下一題）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-30"
+    }
+   ]
+  }
  },
  {
   "id": 30,
@@ -275,7 +377,40 @@
   "label": "大學聯考",
   "yearLabel": "77 (大學聯考)",
   "zh": "最重要的是，要能用英語說自己想說的話。",
-  "en": "The most important thing is that you should be able to say whatever you want to say in English."
+  "en": "The most important thing is that you should be able to say whatever you want to say in English.",
+  "altAnswers": [
+   "The most important thing is that you should be able to say what you want to say in English."
+  ],
+  "explanation": {
+   "pattern": [
+    "should be able to（應該要能…）：中文「要能」，「要」是應該，「能」講的是能力。should 和 can 都是情態助動詞，不能連用，所以把 can 換成 be able to。劍橋文法〈Be expressions (be able to, be due to)〉說明，be able to 和 can 一樣講能力，常用在不能用 can 的地方，例如另一個情態助動詞後面，例句 She won't be able to concentrate，不寫 She won't can concentrate。80 年大學聯考中譯英第 5 題的 will be able to 也是同一個道理。",
+    "whatever（任何…的東西）：whatever you want to say 的意思是你想說的任何話。劍橋文法〈However, whatever, whichever, whenever, wherever, whoever〉說明，wh- 疑問詞加上 -ever 會改變意思，whatever 的意思是「任何東西」（anything at all），例句 Please take whatever you want from the fridge if you feel hungry。whatever 一個字做兩件事：它是 say 的受詞，同時帶出 you want to say 這個子句，所以後面不再寫 anything 或 it。86 年推薦甄選第 13 題的題幹 I could buy whatever I want 也是這樣用。寫 what you want to say（你想說的話）也可以。"
+   ],
+   "collocation": [
+    "in + 語言（用某種語言）——劍橋詞典 in 的例句 They spoke in Russian the whole time（他們從頭到尾都說俄語）。本題寫 say … in English。"
+   ],
+   "mustHave": [
+    "中文「要能用英語說」沒寫是誰，英文的 that 子句要補出主詞，這裡用泛指的 you：that you should be able to say…。"
+   ],
+   "refs": [
+    {
+     "label": "80 年大學聯考中譯英第 5 題（will be able to）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-45"
+    },
+    {
+     "label": "86 年推薦甄選第 13 題（whatever I want）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0053"
+    },
+    {
+     "label": "77 年大學聯考中譯英第 4 題（同一段的前一題）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-29"
+    },
+    {
+     "label": "77 年大學聯考中譯英第 1 題（同一段的第一題）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-26"
+    }
+   ]
+  }
  },
  {
   "id": 31,
