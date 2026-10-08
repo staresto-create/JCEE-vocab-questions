@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>學測全卷用字統計 · 背到幾級才夠</title>
+<meta name="description" content="83 到 115 學年度學測 35 份試卷，文章、題目與選項全部算進來，依大考中心《高中英文參考詞彙表》分級：背到四級，試卷裡 95.4% 的字都在範圍內。每個字列出出現在幾份試卷、一共幾次和出現的年份。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="高中英文自學題庫">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:title" content="學測全卷用字統計 · 背到幾級才夠">
+<meta property="og:description" content="學測 35 份試卷的所有文章、題目與選項，依大考中心詞彙表分級：背到四級，試卷裡 95.4% 的字都在範圍內；五、六級的字一半只出現在一份試卷裡。">
+<meta property="og:url" content="https://staresto-create.github.io/JCEE-vocab-questions/cards/freq.html">
+<meta property="og:image" content="https://staresto-create.github.io/JCEE-vocab-questions/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+:root{
+  --paper:#F6F1E4; --paper-card:#FFFDF7; --ink:#221F1A; --ink-soft:#5B5648; --rule:#DCD3BB;
+  --crimson:#AE3626; --crimson-soft:#D8C6BE; --sage:#3E6E52; --sage-soft:#CBD9C9; --gold:#A9812E; --gold-soft:#EFE3C4;
+  --serif:"Times New Roman",Times,"Liberation Serif","Noto Serif","PingFang TC","Noto Sans TC","Microsoft JhengHei",serif;
+  --sans:"PingFang TC","Noto Sans TC","Microsoft JhengHei","Helvetica Neue",system-ui,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,Menlo,Consolas,"Noto Sans TC",monospace;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.7;-webkit-text-size-adjust:100%}
+.wrap{max-width:48rem;margin:0 auto;padding:1.4rem 1rem 4rem}
+header.top{border-bottom:3px double var(--ink);padding-bottom:.6rem;margin-bottom:1.2rem}
+h1{font-family:var(--serif);font-weight:600;font-size:1.7rem;line-height:1.25;margin:0}
+.sub{font-family:var(--mono);font-size:.75rem;color:var(--ink-soft);margin-top:.2rem}
+.lede{font-size:.95rem;margin:0 0 1.2rem;color:var(--ink)}
+.lede a{color:var(--crimson)}
+.card{background:var(--paper-card);border:1px solid var(--rule);border-radius:3px;padding:1rem 1rem 1.1rem;margin:0 0 1.4rem;
+  box-shadow:0 1px 0 rgba(34,31,26,.06),0 8px 24px rgba(34,31,26,.08)}
+h2{font-family:var(--serif);font-size:1.2rem;font-weight:600;margin:0 0 .6rem}
+.tbl-wrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.88rem}
+th,td{padding:.42rem .35rem;border-bottom:1px solid var(--rule);text-align:right;white-space:nowrap}
+th{font-weight:600;font-size:.78rem;line-height:1.3;color:var(--ink-soft);border-bottom:1px solid var(--ink);vertical-align:bottom}
+.bars{display:block;line-height:0;margin-top:.2rem}
+td.lk a{display:block;font-size:.8rem;line-height:1.5}
+.af{white-space:nowrap}
+.sp{display:block;font-size:.72rem;color:var(--ink-soft);font-weight:400;margin-top:.1rem}
+.dot{display:inline-block;margin-left:0;width:.5rem;height:.5rem;background:var(--sage);margin-right:.2rem;vertical-align:.05em}
+.dot.d{background:var(--gold)}
+th:first-child,td:first-child{text-align:left}
+td.pct{font-family:var(--mono);font-weight:600;color:var(--crimson)}
+tr.total td{border-top:1px solid var(--ink);border-bottom:none;font-weight:600}
+.bar{display:inline-block;height:.4rem;background:var(--sage)}
+.bar.d{background:var(--gold)}
+td a{color:var(--crimson)}
+.tnote{font-size:.85rem;color:var(--ink-soft);margin:.7rem 0 0}
+blockquote{margin:1rem 0 0;padding:.6rem .8rem;border-left:3px solid var(--crimson-soft);background:#FBF7EC;font-size:.9rem}
+blockquote p{margin:0}
+blockquote .src{margin-top:.35rem;font-size:.8rem;color:var(--ink-soft)}
+blockquote a{color:var(--crimson)}
+.key{list-style:none;margin:0;padding:0;font-size:.9rem}
+.key li{padding:.3rem 0}
+details{margin-top:.6rem;font-size:.9rem}
+summary{cursor:pointer;color:var(--crimson);font-weight:600}
+summary:focus-visible,button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid var(--crimson);outline-offset:2px}
+details p{margin:.5rem 0 0}
+.tag{display:inline-block;font-size:.72rem;line-height:1.5;border-radius:.9rem;padding:0 .5rem;margin-left:.4rem;vertical-align:.1em;border:1px solid}
+.t0{color:var(--sage);border-color:var(--sage);background:var(--sage-soft)}
+.t1{color:#7A5B18;border-color:var(--gold);background:var(--gold-soft)}
+.t2{color:var(--ink-soft);border-color:var(--rule);background:#fff}
+.tools{padding:.6rem 0 .5rem;border-bottom:1px solid var(--rule);margin-bottom:.4rem}
+.row{display:flex;flex-wrap:wrap;gap:.3rem;margin:.3rem 0}
+.row .lb{font-size:.8rem;color:var(--ink-soft);align-self:center;margin-right:.2rem;min-width:2.2em}
+.row button{font:inherit;font-size:.82rem;padding:.2rem .55rem;background:var(--paper-card);color:var(--ink);border:1px solid var(--rule);border-radius:3px;cursor:pointer}
+.row button[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:var(--paper-card)}
+input[type=search]{width:100%;font:inherit;font-size:.92rem;padding:.4rem .6rem;border:1px solid var(--rule);border-radius:3px;background:var(--paper-card);color:var(--ink);margin-top:.3rem}
+.count{font-size:.85rem;color:var(--ink-soft);margin:.5rem 0 .3rem}
+h3{font-family:var(--serif);font-size:1.1rem;font-weight:600;margin:1.4rem 0 .2rem}
+h3 span{font-family:var(--sans);font-size:.82rem;color:var(--ink-soft);font-weight:400;margin-left:.4rem}
+ul.list{list-style:none;margin:0;padding:0}
+ul.list li{padding:.45rem 0;border-bottom:1px solid var(--rule)}
+.w{font-family:var(--serif);font-size:1.05rem;font-weight:600}
+.pos{font-family:var(--mono);font-size:.78rem;color:var(--ink-soft);margin-left:.4rem}
+.tag.tn{border-color:var(--rule);color:var(--ink-soft);background:transparent}
+.refs{margin-top:.2rem;font-size:.8rem;line-height:1.6}
+.refs .fm{font-family:var(--serif);font-size:.92rem;font-weight:600;margin-right:.3rem}
+.refs a{display:inline-block;color:var(--crimson);background:#F7ECE8;border:1px solid var(--crimson-soft);border-radius:3px;padding:0 .35rem;margin:.1rem .25rem .1rem 0;text-decoration:none}
+.refs a:hover{background:#F1DDD6}
+.refs a .k{color:var(--ink-soft);font-size:.92em}
+.refs div+div{margin-top:.1rem}
+.empty{padding:1.2rem 0;color:var(--ink-soft)}
+.more{display:block;margin:1rem auto 0;font:inherit;font-size:.9rem;padding:.45rem 1.2rem;background:var(--paper-card);border:1px solid var(--ink);border-radius:3px;cursor:pointer}
+footer.foot{margin-top:2.4rem;padding-top:.9rem;border-top:1px solid var(--rule);font-size:.8rem;color:var(--ink-soft);line-height:1.9}
+footer.foot a{color:var(--crimson)}
+@media (max-width:400px){.card{padding:.8rem .7rem .9rem}th,td{padding:.4rem .25rem}}
+
+.cum td.pct .bar{background:var(--sage-soft)}
+.cum tr.hi td{font-weight:600}
+.cum tr.hi .bar{background:var(--sage)}
+.meta{display:block;font-size:.82rem;color:var(--ink-soft);margin-top:.15rem}
+.meta b{font-family:var(--mono);color:var(--ink);font-weight:600}
+.yrs{display:block;font-size:.8rem;color:var(--ink-soft);margin-top:.1rem;line-height:1.55}
+.cv{font-size:.8rem;color:var(--crimson);margin-left:.5rem;white-space:nowrap}
+.tag.tq{color:var(--crimson);border-color:var(--crimson-soft);background:#F7ECE8}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1>學測全卷用字統計</h1>
+    <div class="sub">學測 83–115 · 35 份試卷 × 高中英文參考詞彙表</div>
+  </header>
+
+  <p class="lede" id="lede">83 到 115 學年度學測 35 份試卷，文章、題目和選項全部算進來，看每個字出現在幾份試卷、一共出現幾次，再依大考中心《高中英文參考詞彙表》分級。</p>
+
+  <section class="card" aria-labelledby="h-cum">
+    <h2 id="h-cum">背到第幾級，試卷裡的字有多少在範圍內</h2>
+    <div class="tbl-wrap"><table class="cum" id="cumTable"></table></div>
+    <p class="tnote" id="cumNote"></p>
+  </section>
+
+  <section class="card" aria-labelledby="h-dist">
+    <h2 id="h-dist">各級的字在幾份試卷出現過</h2>
+    <div class="tbl-wrap"><table id="distTable"></table></div>
+    <p class="tnote" id="distNote"></p>
+    <details>
+      <summary>怎麼算</summary>
+      <p id="scopeText"></p>
+      <p>字形一律算回詞彙表的詞條：went 算 go，studies 算 study，eventually 算 eventual，unknown 算 know，-ing、-ed 形容詞算回動詞；另外 reader 算 read、explorer 算 explore，-er、-or 的字也算回原字。有連字號的字拆開來算，片語也拆成單字來算；人名、地名、機構名稱等專有名詞不算。</p>
+      <p>「份數」是這個字出現在幾份試卷裡，最多 35 份；「次數」是 35 份試卷合計出現幾次。清單先依份數排列，份數一樣再看次數。份數比次數更能看出年年都會用到的字，因為只看次數的話，一篇講蜜蜂的閱讀測驗就能讓 bee 排到很前面。</p>
+      <p>有些字主要出現在閱讀測驗的題目裡，例如 Which of the following is true according to the passage? 這一句的 following、true、according、passage，清單上標成「題目用語」：學生先看懂題目才能作答，所以這些字照樣排名。</p>
+      <p><a href="coverage.html">詞彙表覆蓋清單</a>算的是學測、指考詞彙題的選項，這一頁算的是整份學測試卷，兩邊的數字不能拿來互相比較；清單上每個字旁邊的「詞彙題」連結，會開啟這個字在覆蓋清單上的那一列。</p>
+    </details>
+  </section>
+
+  <div class="tools" id="tools">
+    <div class="row" id="lvRow" role="group" aria-label="依級別篩選"><span class="lb">級別</span></div>
+    <div class="row" id="pRow" role="group" aria-label="依出現份數篩選"><span class="lb">份數</span></div>
+    <div class="row" id="tRow" role="group" aria-label="只看題目用語"><span class="lb">類別</span></div>
+    <input type="search" id="q" placeholder="搜尋單字，例如 passage" aria-label="搜尋單字">
+  </div>
+  <p class="count" id="count" aria-live="polite"></p>
+  <div id="body"><p class="empty">載入清單中…</p></div>
+
+  <footer class="foot" id="foot">
+    <a href="../">回題庫首頁</a>　·　<a href="./">單字記憶卡</a>　·　<a href="coverage.html">詞彙表覆蓋清單</a>　·　<a href="../roots/">字根家族表</a>
+  </footer>
+</div>
+
+<script>
+(function(){
+'use strict';
+var $=function(s){return document.querySelector(s);};
+var PAGE=400;
+var D=null, state={lv:-1, p:0, t:0, q:''}, limit=PAGE;
+var PF={0:function(){return true;},10:function(n){return n>=10;},5:function(n){return n>=5;},24:function(n){return n>=2&&n<=4;},1:function(n){return n===1;}};
+function fmt(n){return n.toLocaleString('en-US');}
+function lvName(l){return l?'第 '+l+' 級':'詞彙表沒收的字';}
+
+function readHash(){
+  var h=(location.hash||'').replace(/^#/,''), p={};
+  h.split('&').forEach(function(kv){var i=kv.indexOf('=');if(i>0)p[kv.slice(0,i)]=decodeURIComponent(kv.slice(i+1));});
+  var lv=+p.lv; state.lv=(p.lv!==undefined&&(lv===0||(lv>=2&&lv<=6)))?lv:-1;
+  state.p=PF.hasOwnProperty(p.p)?+p.p:0;
+  state.t=p.t==='1'?1:0;
+  state.q=p.q||'';
+}
+function writeHash(){
+  var a=[];
+  if(state.lv>=0)a.push('lv='+state.lv);
+  if(state.p)a.push('p='+state.p);
+  if(state.t)a.push('t=1');
+  if(state.q.trim())a.push('q='+encodeURIComponent(state.q.trim()));
+  var h=a.length?'#'+a.join('&'):location.pathname+location.search;
+  try{history.replaceState(null,'',h);}catch(e){}
+}
+
+function buildTables(){
+  var h='<thead><tr><th>背到</th><th>累計</th><th>這一級</th></tr></thead><tbody>';
+  D.cov.forEach(function(c){
+    h+='<tr'+(c.l===4?' class="hi"':'')+'><td>第 '+c.l+' 級</td><td class="pct">'+c.cum.toFixed(1)+'%<span class="bars"><span class="bar" style="width:'+Math.round(c.cum*1.4)+'px"></span></span></td><td>'+c.own.toFixed(1)+'%</td></tr>';
+  });
+  h+='<tr class="total"><td>詞彙表沒收的字</td><td></td><td>'+D.oov.toFixed(1)+'%</td></tr></tbody>';
+  $('#cumTable').innerHTML=h;
+  $('#cumNote').textContent='一級字就占了試卷用字的四分之三；背到四級，試卷裡 '+D.cov[3].cum.toFixed(1)+'% 的字都在範圍內，背到六級是 '+D.cov[5].cum.toFixed(1)+'%。分母是扣掉專有名詞以後的 '+fmt(D.den)+' 個字次。';
+  var t='<thead><tr><th>級別</th><th>出現過／詞條</th><th>10 份以上</th><th>5 份以上</th><th>只出現 1 份</th></tr></thead><tbody>';
+  D.dist.forEach(function(x){
+    t+='<tr><td><a href="#lv='+x.l+'" data-lv="'+x.l+'">第 '+x.l+' 級</a></td><td>'+fmt(x.n)+'／'+fmt(x.size)+'</td><td>'+fmt(x.p10)+'</td><td>'+fmt(x.p5)+'</td><td>'+fmt(x.p1)+'</td></tr>';
+  });
+  t+='</tbody>';
+  $('#distTable').innerHTML=t;
+  var d5=D.dist[3], d6=D.dist[4];
+  $('#distNote').textContent='「5 份以上」包含 10 份以上的字。四級以上的字很少每年都出現：五級出現過的 '+fmt(d5.n)+' 個字裡，'+fmt(d5.p1)+' 個只出現在一份試卷；六級出現過的 '+fmt(d6.n)+' 個字裡，'+fmt(d6.p1)+' 個只出現一次。一級字詞彙表收 '+fmt(D.size1)+' 個，試卷裡出現過 '+fmt(D.lv1)+' 個，所以清單不列一級字。點級別可以看那一級的字。';
+  Array.prototype.forEach.call(document.querySelectorAll('#distTable a[data-lv]'),function(a){
+    a.addEventListener('click',function(e){e.preventDefault();state.lv=+a.getAttribute('data-lv');state.p=0;state.t=0;state.q='';$('#q').value='';
+      syncButtons();limit=PAGE;render();writeHash();$('#tools').scrollIntoView({behavior:'smooth'});});
+  });
+}
+
+function mkBtns(box,items,key){
+  items.forEach(function(it){
+    var b=document.createElement('button'); b.type='button'; b.textContent=it[1]; b.setAttribute('data-v',it[0]);
+    b.addEventListener('click',function(){state[key]=it[0];limit=PAGE;syncButtons();render();writeHash();});
+    box.appendChild(b);
+  });
+}
+function syncButtons(){
+  [['#lvRow','lv'],['#pRow','p'],['#tRow','t']].forEach(function(x){
+    Array.prototype.forEach.call($(x[0]).querySelectorAll('button'),function(b){b.setAttribute('aria-pressed',+b.getAttribute('data-v')===state[x[1]]?'true':'false');});
+  });
+}
+function match(r,q){
+  if(!q)return true;
+  if(r[0].toLowerCase().indexOf(q)>=0)return true;
+  return r[7]&&r[7].toLowerCase().indexOf(q)>=0;
+}
+var ORDER=[2,3,4,5,6,0];
+function render(){
+  var body=$('#body'); body.innerHTML='';
+  var q=state.q.trim().toLowerCase();
+  var rows=D.rows.filter(function(r){
+    return (state.lv<0||r[1]===state.lv)&&PF[state.p](r[3])&&(!state.t||r[6])&&match(r,q);
+  });
+  rows=rows.map(function(r,i){return [r,i];}).sort(function(a,b){return (ORDER.indexOf(a[0][1])-ORDER.indexOf(b[0][1]))||(a[1]-b[1]);}).map(function(x){return x[0];});
+  var all=state.lv<0&&!state.p&&!state.t&&!q;
+  $('#count').textContent=all?'二到六級出現過的詞條 '+fmt(rows.filter(function(r){return r[1];}).length)+' 個，加上詞彙表沒收、出現在 2 份以上試卷的字；每一級依份數再依次數排列':'符合的字 '+fmt(rows.length)+' 個，每一級依份數再依次數排列';
+  if(!rows.length){var e=document.createElement('p');e.className='empty';e.textContent='這個條件下沒有字。清掉搜尋或改選其他條件再試一次。';body.appendChild(e);return;}
+  var per={}; rows.forEach(function(r){per[r[1]]=(per[r[1]]||0)+1;});
+  var cur=null, ul=null;
+  rows.slice(0,limit).forEach(function(r){
+    if(r[1]!==cur){
+      cur=r[1];
+      var h=document.createElement('h3'), sp=document.createElement('span');
+      h.textContent=lvName(cur);
+      sp.textContent=fmt(per[cur])+' 個'+(cur===0?'（只列出現在 2 份以上試卷的字）':'');
+      h.appendChild(sp); body.appendChild(h);
+      ul=document.createElement('ul'); ul.className='list'; body.appendChild(ul);
+    }
+    var li=document.createElement('li'), top=document.createElement('div');
+    var w=document.createElement('span'); w.className='w'; w.textContent=r[0]; top.appendChild(w);
+    if(r[2]){var p=document.createElement('span'); p.className='pos'; p.textContent=r[2]; top.appendChild(p);}
+    if(r[6]){var t=document.createElement('span'); t.className='tag tq'; t.textContent='題目用語'; top.appendChild(t);}
+    if(r[1]){var a=document.createElement('a'); a.className='cv'; a.href='coverage.html#q='+encodeURIComponent(r[0]); a.textContent='詞彙題 →'; a.title='看這個字在覆蓋清單上的那一列'; top.appendChild(a);}
+    li.appendChild(top);
+    var m=document.createElement('span'); m.className='meta';
+    m.innerHTML='出現在 <b>'+r[3]+'</b> 份試卷，一共 <b>'+fmt(r[4])+'</b> 次';
+    if(r[7])m.appendChild(document.createTextNode('；試卷裡多半是 '+r[7]));
+    li.appendChild(m);
+    var y=document.createElement('span'); y.className='yrs'; y.textContent=r[5]; li.appendChild(y);
+    ul.appendChild(li);
+  });
+  if(rows.length>limit){
+    var mb=document.createElement('button'); mb.type='button'; mb.className='more';
+    mb.textContent='再顯示 '+fmt(Math.min(PAGE,rows.length-limit))+' 個（還有 '+fmt(rows.length-limit)+' 個）';
+    mb.addEventListener('click',function(){limit+=PAGE;render();});
+    body.appendChild(mb);
+  }
+}
+
+fetch('freq_data.json').then(function(r){if(!r.ok)throw new Error(r.status);return r.json();}).then(function(d){
+  D=d;
+  $('#scopeText').textContent='範圍是 83 到 115 學年度的學測正式考試，加上 91、92 年補考，一共 '+d.papers+' 份試卷；83 到 88 年的詞彙題在本題庫標成「推薦甄選」，那其實就是同一份學測，所以併入同一年。參考試卷和試辦考試沒有正式施測，內容也和正式考試重複，所以不算。每一份試卷都算了詞彙、克漏字、文意選填、篇章結構、閱讀測驗、混合題的文章、題目和選項，一共 '+fmt(d.ntok)+' 個字次；翻譯題的參考答案是本題庫寫的，作文題目以中文為主，英聽沒有公布逐字稿，這三種都沒有算。';
+  buildTables();
+  mkBtns($('#lvRow'),[[-1,'全部'],[2,'第 2 級'],[3,'第 3 級'],[4,'第 4 級'],[5,'第 5 級'],[6,'第 6 級'],[0,'詞彙表沒收']],'lv');
+  mkBtns($('#pRow'),[[0,'全部'],[10,'10 份以上'],[5,'5 份以上'],[24,'2–4 份'],[1,'只出現 1 份']],'p');
+  mkBtns($('#tRow'),[[0,'全部'],[1,'只看題目用語']],'t');
+  readHash(); $('#q').value=state.q; syncButtons();
+  var tm=null;
+  $('#q').addEventListener('input',function(e){clearTimeout(tm);tm=setTimeout(function(){state.q=e.target.value;limit=PAGE;render();writeHash();},150);});
+  window.addEventListener('hashchange',function(){readHash();$('#q').value=state.q;syncButtons();limit=PAGE;render();});
+  render();
+  var f=$('#foot');
+  f.appendChild(document.createElement('br'));
+  f.appendChild(document.createTextNode('資料更新：'+d.updated+'。試題著作權屬財團法人大學入學考試中心基金會，本統計只供非營利教學使用。免費、無廣告的非營利自學題庫。'));
+}).catch(function(){
+  $('#body').innerHTML='<p class="empty">讀不到 freq_data.json。這個頁面要跟資料檔放在同一個資料夾。</p>';
+});
+})();
+</script>
+</body>
+</html>
