@@ -729,6 +729,7 @@
     "as long as 引導條件子句，意思是「只要」，等於 provided that、if。條件子句用現在式：as long as the method is correct，不寫 will be。",
     "難易形容詞的句型：S + be + difficult／easy／hard + to V。主詞就是後面那個動詞的意義受詞，所以不定詞後面不再補受詞——寫 English reading ability is not difficult to develop it 是錯的。",
     "擺在一起看就清楚了：This book is easy to read.（不寫 to read it）／The problem is difficult to solve.（不寫 to solve it）／English reading ability is not difficult to develop.（不寫 to develop it）",
+    "為什麼不寫 to be developed：English reading ability is not difficult to develop. 背後有一個沒寫出來的培養能力的人，完整的意思是 It is not difficult (for people) to develop English reading ability.。培養能力的是 people，English reading ability 只是搬到句首的受詞，所以不定詞照樣用主動的 to develop，不寫 English reading ability is not difficult to be developed。劍橋詞典 please 的例句 he did what he could to please her, but she was hard to please 也是這樣：取悅她的是別人，she 只是取悅的對象，please 照樣用主動。",
     "也可以用虛主詞改寫：It is not difficult to develop English reading ability. 兩種都成立，差別在焦點——原句把「英文的閱讀能力」擺前面當主詞，談的就是它。",
     "In fact 是轉承語，不是連接詞，擺句首要用逗號隔開，不能拿它把兩個句子連起來。"
    ],
@@ -741,6 +742,12 @@
     "中文的「英文的閱讀能力」沒有冠詞、也沒有單複數，英文得決定：這裡講的是泛指的、抽象的能力，前面不加冠詞、字尾也不加 s，寫 English reading ability。要指某個人的能力才寫 your reading ability。",
     "泛指的抽象能力 → 不加冠詞 English reading ability",
     "另外兩處中文不必寫、英文非寫不可：中文的「只要…並不難…」是前後呼應的一組，英文只留 as long as 一個連接詞；「方法」在中文不必說是哪一個，英文要寫 the method，指的是前面談到的那個方法。"
+   ],
+   "refs": [
+    {
+     "label": "74 年大學聯考中譯英第 2 題（不寫 to be written）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-12"
+    }
    ]
   }
  },
@@ -8085,7 +8092,40 @@
   "label": "指考研究用試卷",
   "yearLabel": "100 (指考研究用試卷)",
   "zh": "我們必須體認到每個孩子生來就有不同的興趣與天賦。",
-  "en": "We must recognize that every child is born with different interests and talents."
+  "en": "We must realize that every child is born with different interests and talents.",
+  "answerSource": "大考中心 100 學年度英文考科研究用試卷參考答案",
+  "altAnswers": [
+   "should / must / need to / have to",
+   "know / be aware / realize / understand",
+   "that every + child / kid",
+   "is born with different interests and + talents / gifts"
+  ],
+  "explanation": {
+   "pattern": [
+    "100 年指考研究用試卷兩題（188、189）是連貫式翻譯：188 說每個孩子生來就有不同的興趣與天賦，189 接著說學校應該提供好的環境，幫助學生發展個人特質。",
+    "S + must + 原形動詞 + that 子句：We must realize that every child is born with…。that 帶出的名詞子句當 realize 的受詞，說明體認到的是什麼；that 可以省略。官方的助動詞收 should、must、need to、have to，動詞收 know、be aware、realize、understand。be aware 的 aware 是形容詞，前面一定要有 be：We must be aware that…；95 年學測中譯英第 1 題講過，be aware 後面也可以直接接 that 子句。",
+    "every + 單數名詞 + 單數動詞：every child is born…。劍橋文法〈Every〉說明，every 後面接單數名詞；every 帶出的名詞當主詞時，動詞用單數，例句 Every player wants to be in a winning team，不寫 Every player want…。"
+   ],
+   "collocation": [
+    "be born with（生來就有）——劍橋詞典 born 的釋義之一是以某種狀態開始生命（having started life in a particular way），例句 Stevie Wonder was born blind（史提夫汪達天生失明）。be born with + 名詞 講的是生下來就有的東西：is born with different interests and talents。",
+    "talent／gift（天賦）——官方兩個都收。劍橋詞典 talent 的釋義是天生擅長某件事的能力，尤其是沒有人教就會的（a natural skill or ability to be good at something, especially without being taught），例句 Her talent for music showed at an early age（她的音樂天賦很早就顯露出來）。這裡講的天賦不只一種，寫複數 talents。",
+    "recognize 也有「承認某件事是真的」的意思，劍橋詞典的例句 He sadly recognized (that) he would die childless；不過官方的參考答案沒有收 recognize，本題庫照官方寫 realize。"
+   ],
+   "mustHave": [
+    "中文「興趣與天賦」看不出單複數，每個孩子的興趣、天賦不只一種，英文寫複數 interests、talents。",
+    "must、should 是助動詞，後面直接接原形，不加 to；need to、have to 則一定要有 to。"
+   ],
+   "refs": [
+    {
+     "label": "95 年學測中譯英第 1 題（be aware that）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-160"
+    },
+    {
+     "label": "94 年指考研究用試卷中譯英第 1 題（every + 單數名詞）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-158"
+    }
+   ]
+  }
  },
  {
   "id": 189,
@@ -8093,7 +8133,39 @@
   "label": "指考研究用試卷",
   "yearLabel": "100 (指考研究用試卷)",
   "zh": "學校應該提供一個好的環境，來幫助學生發展個人特質。",
-  "en": "Schools should provide a good environment to help students develop their personal characteristics."
+  "en": "Schools should provide a good environment to help students develop their personal characteristics.",
+  "answerSource": "大考中心 100 學年度英文考科研究用試卷參考答案",
+  "altAnswers": [
+   "a good / a fine + circumstance / environment / condition",
+   "good / fine + environments / conditions / surroundings / circumstances",
+   "to + help / aid / assist",
+   "develop / expand",
+   "(their) + personal / individual + characteristics / qualities / traits"
+  ],
+  "explanation": {
+   "pattern": [
+    "to + 原形動詞表示目的（= in order to）。中文的「以…」「為了…」就是這個訊號。本題的「來幫助學生…」用的是「來」：學校提供好環境，目的是幫助學生發展個人特質，英文寫 to help students…。",
+    "help + 受詞 + 原形動詞（幫助某人做某事）：help students develop…。劍橋文法〈Word patterns: help〉說明，help 後面接另一個動詞時，那個動詞用不定詞，to 可寫可不寫：help someone (to) do something，例句 I helped Mary do her homework；不寫 help someone doing something。官方另收 aid、assist。",
+    "provide + 物（提供…）：provide a good environment。98 年學測中譯英第 1 題講過，provide 還有 provide sth for sb 與 provide sb with sth 兩種接法；本題只說提供什麼，沒寫給誰，provide 後面直接接 a good environment。"
+   ],
+   "collocation": [
+    "environment（環境）——劍橋詞典的釋義之一是你生活或工作的狀況，以及這些狀況怎麼影響你的感受或做事的成效（the conditions that you live or work in and the way that they influence how you feel or how effectively you can work），例句 As a parent you try to create a stable home environment。這個意思的 environment 可數，單數寫 a good environment，官方也收複數 good environments。官方另收的 surroundings 恆用複數：劍橋文法〈Countability: surroundings〉說明，surroundings 沒有單數形，不寫 a surrounding。",
+    "personal characteristics（個人特質）——劍橋詞典 characteristic 的釋義是人或事物典型、顯著的特質（a typical or noticeable quality of someone or something）。官方另收 qualities、traits，形容詞另收 individual；their 可寫可不寫。"
+   ],
+   "mustHave": [
+    "中文「學校應該提供」的「學校」泛指所有的學校，英文用不加 the 的複數 Schools，94 年指考研究用試卷中譯英第 1 題講過這個道理；「個人特質」看不出單複數，每個學生的特質不只一種，寫複數 characteristics。"
+   ],
+   "refs": [
+    {
+     "label": "98 年學測中譯英第 1 題（provide 的接法）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-176"
+    },
+    {
+     "label": "94 年指考研究用試卷中譯英第 1 題（不加 the 的複數泛指一類）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-158"
+    }
+   ]
+  }
  },
  {
   "id": 190,
