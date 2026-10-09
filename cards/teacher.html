@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>單字記憶卡 · 出題範圍與連結產生器</title>
-<meta name="description" content="勾選年份、站別與字級，或指定易混淆字組的組號，產生一條指定範圍的記憶卡連結，貼給學生就能用。免費、無廣告。">
+<meta name="description" content="勾選年份、題庫與字級，或指定易混淆字組的組號，產生一條指定範圍的記憶卡連結，貼給學生就能用。免費、無廣告。">
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -208,7 +208,7 @@
       </div>
 
       <div class="field">
-        <span class="flabel">站別</span>
+        <span class="flabel">題庫</span>
         <div class="chips" id="stChips"></div>
         <p class="fhint">指考英文只考到 110 學年度，111 學年度起改制為分科測驗，不考英文。</p>
       </div>
@@ -222,7 +222,7 @@
       <div class="field">
         <span class="flabel">考過幾次</span>
         <div class="chips" id="mnChips"></div>
-        <p class="fhint">只出考過這麼多次以上的字，適合先練最常考的字。次數在上面選的年份和站別裡算：這個字在幾題詞彙題的選項裡出現過，答案和誘答都算。記憶卡一個字形一張卡，individual 和 individually 是兩張卡，次數也分開算，所以和<a href="coverage.html">詞彙表覆蓋清單</a>把字形併成一個詞條算的次數不一定相同。</p>
+        <p class="fhint">只出考過這麼多次以上的字，適合先練最常考的字。次數在上面選的年份和題庫裡算：這個字在幾題詞彙題的選項裡出現過，答案和誘答都算。記憶卡一個字形一張卡，individual 和 individually 是兩張卡，次數也分開算，所以和<a href="coverage.html">詞彙表覆蓋清單</a>把字形併成一個詞條算的次數不一定相同。</p>
       </div>
       </div>
 
@@ -282,7 +282,7 @@
       </p>
       <p>
         <b>單字卡的字源是歷屆考題。</b>全部取自本題庫學測 500 題、指考 343 題詞彙題的所有選項，共 2,113 個字。
-        這裡不收詞彙表裡沒考過的字——這個站的價值在於「這個字真的考過、當年真的用這三個字騙人」。
+        這裡不收詞彙表裡沒考過的字——記憶卡的價值在於「這個字真的考過、當年真的用這三個字騙人」。
         例句填空的 231 題是依大考詞彙題題型編寫的句子，答案同樣是詞彙題考過的字；每一題都核對過答案只有一個、選項詞性一致，誘答換進句子裡都說不通。
       </p>
       <p>
@@ -561,7 +561,7 @@
     var box = $('count');
     if (c.w === 0) {
       box.className = 'count zero';
-      box.innerHTML = '<span class="warn">這個範圍一個字也沒有，學生點進去會是空的。請放寬年份、站別或字級。</span>';
+      box.innerHTML = '<span class="warn">這個範圍一個字也沒有，學生點進去會是空的。請放寬年份、題庫或字級。</span>';
     } else {
       box.className = 'count';
       box.innerHTML = '取自 <b>' + c.q + '</b> 題，共 <b>' + c.w + '</b> 個字。' +
