@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>學測各科級分差距與英文字數</title>
+<meta name="description" content="依大考中心 92 到 115 學年度學測統計資料，比較國文、英文、數學、社會或自然四科哪一科考生之間的級分差距最大；另附 83 到 115 學年度學測英文試卷逐年的英文字數。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="高中英文自學題庫">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:title" content="學測各科級分差距與英文字數">
+<meta property="og:description" content="92 到 115 學年度，英文在社會組四科有 16 年、在自然組四科有 17 年是考生級分差距最大的一科；學測英文試卷從 83 學年度的 1,641 字增加到 115 學年度的 3,302 字。">
+<meta property="og:url" content="https://staresto-create.github.io/JCEE-vocab-questions/gsat-trends/">
+<meta property="og:image" content="https://staresto-create.github.io/JCEE-vocab-questions/gsat-trends/gsat_word_count.png">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+:root{
+  --paper:#F6F1E4; --paper-card:#FFFDF7; --ink:#221F1A; --ink-soft:#5B5648; --rule:#DCD3BB;
+  --crimson:#AE3626; --crimson-soft:#D8C6BE; --sage:#3E6E52; --sage-soft:#CBD9C9; --gold:#A9812E; --gold-soft:#EFE3C4;
+  --serif:"Times New Roman",Times,"Liberation Serif","Noto Serif","PingFang TC","Noto Sans TC","Microsoft JhengHei",serif;
+  --sans:"PingFang TC","Noto Sans TC","Microsoft JhengHei","Helvetica Neue",system-ui,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,Menlo,Consolas,"Noto Sans TC",monospace;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.7;-webkit-text-size-adjust:100%}
+.wrap{max-width:48rem;margin:0 auto;padding:1.4rem 1rem 4rem}
+header.top{border-bottom:3px double var(--ink);padding-bottom:.6rem;margin-bottom:1.2rem}
+h1{font-family:var(--serif);font-weight:600;font-size:1.7rem;line-height:1.25;margin:0}
+.sub{font-family:var(--mono);font-size:.75rem;color:var(--ink-soft);margin-top:.2rem}
+.lede{font-size:.95rem;margin:0 0 1.2rem;color:var(--ink)}
+.lede a{color:var(--crimson)}
+.card{background:var(--paper-card);border:1px solid var(--rule);border-radius:3px;padding:1rem 1rem 1.1rem;margin:0 0 1.4rem;
+  box-shadow:0 1px 0 rgba(34,31,26,.06),0 8px 24px rgba(34,31,26,.08)}
+h2{font-family:var(--serif);font-size:1.2rem;font-weight:600;margin:0 0 .6rem}
+.tbl-wrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.88rem}
+th,td{padding:.42rem .35rem;border-bottom:1px solid var(--rule);text-align:right;white-space:nowrap}
+th{font-weight:600;font-size:.78rem;line-height:1.3;color:var(--ink-soft);border-bottom:1px solid var(--ink);vertical-align:bottom}
+.bars{display:block;line-height:0;margin-top:.2rem}
+td.lk a{display:block;font-size:.8rem;line-height:1.5}
+.af{white-space:nowrap}
+.sp{display:block;font-size:.72rem;color:var(--ink-soft);font-weight:400;margin-top:.1rem}
+.dot{display:inline-block;margin-left:0;width:.5rem;height:.5rem;background:var(--sage);margin-right:.2rem;vertical-align:.05em}
+.dot.d{background:var(--gold)}
+th:first-child,td:first-child{text-align:left}
+td.pct{font-family:var(--mono);font-weight:600;color:var(--crimson)}
+tr.total td{border-top:1px solid var(--ink);border-bottom:none;font-weight:600}
+.bar{display:inline-block;height:.4rem;background:var(--sage)}
+.bar.d{background:var(--gold)}
+td a{color:var(--crimson)}
+.tnote{font-size:.85rem;color:var(--ink-soft);margin:.7rem 0 0}
+blockquote{margin:1rem 0 0;padding:.6rem .8rem;border-left:3px solid var(--crimson-soft);background:#FBF7EC;font-size:.9rem}
+blockquote p{margin:0}
+blockquote .src{margin-top:.35rem;font-size:.8rem;color:var(--ink-soft)}
+blockquote a{color:var(--crimson)}
+.key{list-style:none;margin:0;padding:0;font-size:.9rem}
+.key li{padding:.3rem 0}
+details{margin-top:.6rem;font-size:.9rem}
+summary{cursor:pointer;color:var(--crimson);font-weight:600}
+summary:focus-visible,button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid var(--crimson);outline-offset:2px}
+details p{margin:.5rem 0 0}
+.tag{display:inline-block;font-size:.72rem;line-height:1.5;border-radius:.9rem;padding:0 .5rem;margin-left:.4rem;vertical-align:.1em;border:1px solid}
+.t0{color:var(--sage);border-color:var(--sage);background:var(--sage-soft)}
+.t1{color:#7A5B18;border-color:var(--gold);background:var(--gold-soft)}
+.t2{color:var(--ink-soft);border-color:var(--rule);background:#fff}
+.tools{padding:.6rem 0 .5rem;border-bottom:1px solid var(--rule);margin-bottom:.4rem}
+.row{display:flex;flex-wrap:wrap;gap:.3rem;margin:.3rem 0}
+.row .lb{font-size:.8rem;color:var(--ink-soft);align-self:center;margin-right:.2rem;min-width:2.2em}
+.row button{font:inherit;font-size:.82rem;padding:.2rem .55rem;background:var(--paper-card);color:var(--ink);border:1px solid var(--rule);border-radius:3px;cursor:pointer}
+.row button[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:var(--paper-card)}
+input[type=search]{width:100%;font:inherit;font-size:.92rem;padding:.4rem .6rem;border:1px solid var(--rule);border-radius:3px;background:var(--paper-card);color:var(--ink);margin-top:.3rem}
+.count{font-size:.85rem;color:var(--ink-soft);margin:.5rem 0 .3rem}
+h3{font-family:var(--serif);font-size:1.1rem;font-weight:600;margin:1.4rem 0 .2rem}
+h3 span{font-family:var(--sans);font-size:.82rem;color:var(--ink-soft);font-weight:400;margin-left:.4rem}
+ul.list{list-style:none;margin:0;padding:0}
+ul.list li{padding:.45rem 0;border-bottom:1px solid var(--rule)}
+.w{font-family:var(--serif);font-size:1.05rem;font-weight:600}
+.pos{font-family:var(--mono);font-size:.78rem;color:var(--ink-soft);margin-left:.4rem}
+.tag.tn{border-color:var(--rule);color:var(--ink-soft);background:transparent}
+.refs{margin-top:.2rem;font-size:.8rem;line-height:1.6}
+.refs .fm{font-family:var(--serif);font-size:.92rem;font-weight:600;margin-right:.3rem}
+.refs a{display:inline-block;color:var(--crimson);background:#F7ECE8;border:1px solid var(--crimson-soft);border-radius:3px;padding:0 .35rem;margin:.1rem .25rem .1rem 0;text-decoration:none}
+.refs a:hover{background:#F1DDD6}
+.refs a .k{color:var(--ink-soft);font-size:.92em}
+.refs div+div{margin-top:.1rem}
+.empty{padding:1.2rem 0;color:var(--ink-soft)}
+.more{display:block;margin:1rem auto 0;font:inherit;font-size:.9rem;padding:.45rem 1.2rem;background:var(--paper-card);border:1px solid var(--ink);border-radius:3px;cursor:pointer}
+footer.foot{margin-top:2.4rem;padding-top:.9rem;border-top:1px solid var(--rule);font-size:.8rem;color:var(--ink-soft);line-height:1.9}
+footer.foot a{color:var(--crimson)}
+@media (max-width:400px){.card{padding:.8rem .7rem .9rem}th,td{padding:.4rem .25rem}}
+
+
+figure{margin:1.2rem 0}
+figure img{display:block;width:100%;max-width:540px;height:auto;margin:0 auto;border:1px solid var(--rule)}
+figcaption{font-size:.85rem;color:var(--ink-soft);margin-top:.5rem;line-height:1.7}
+figcaption a{color:var(--crimson)}
+details{margin-top:.8rem;font-size:.9rem}
+details summary{cursor:pointer;color:var(--crimson)}
+details p{margin:.5rem 0}
+details a{color:var(--crimson)}
+.card p{margin:0 0 .7rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1>學測各科級分差距與英文字數</h1>
+    <div class="sub">學測 92–115 級分統計 · 83–115 英文字數</div>
+  </header>
+
+  <p class="lede">這一頁用大考中心公布的資料整理兩件事情：學測各科考生之間的級分差距有多大，以及歷屆學測英文試卷要讀多少英文字。</p>
+
+  <section class="card" aria-labelledby="h-sd">
+    <h2 id="h-sd">哪一科的考生級分差距最大</h2>
+    <p>下面兩張圖比的是每一科考生之間的級分差距有多大。以 115 學年度為例，國文中間一半的考生擠在 9 到 12 級分，前後只差 4 個級分；英文中間一半的考生從 5 級分排到 11 級分，前後差了 7 個級分。也就是說，國文的考生大多集中在中間，英文的考生則從低分到高分散得很開。</p>
+    <p>圖上的數字是「標準差」，用大考中心 92 到 115 學年度各科的級分人數算出來。數字越大，表示這一科考生之間的級分差距越大。</p>
+    <p>大考中心的級分統計是每一科全體考生的分布，沒有依社會組、自然組分開計算。圖上的「社會組」指國文、英文、數學、社會四科的組合，「自然組」指國文、英文、數學、自然四科的組合，不是只算社會組或自然組考生的成績。110 學年度以前數學只有一科，兩張圖用的是同一份數學成績；111 學年度起數學分成 A、B，社會組取數學 B，自然組取數學 A。</p>
+    <figure>
+      <img src="gsat_spread_social.png" width="1080" height="1350" alt="社會組四科（國文、英文、數學、社會）92 到 115 學年度的級分標準差折線圖。英文有 16 年是四科中最大的一科。" loading="lazy">
+      <figcaption>社會組四科級分標準差（92 至 115 學年度）。24 年裡，英文有 16 年是四科中考生級分差距最大的一科。108 課綱的 111 到 115 學年度，5 年中有 4 年是英文最大，111 學年度是數學 B 最大。<br>資料來源：<a href="https://www.ceec.edu.tw/xmdoc?xsmsid=0J018604485538810196" target="_blank" rel="noopener">大考中心學測統計資料 ↗</a></figcaption>
+    </figure>
+    <figure>
+      <img src="gsat_spread_science.png" width="1080" height="1350" alt="自然組四科（國文、英文、數學、自然）92 到 115 學年度的級分標準差折線圖。英文有 17 年是四科中最大的一科。" loading="lazy">
+      <figcaption>自然組四科級分標準差（92 至 115 學年度）。24 年裡，英文有 17 年是四科中考生級分差距最大的一科；111 到 115 學年度，5 年都是英文最大。<br>資料來源：<a href="https://www.ceec.edu.tw/xmdoc?xsmsid=0J018604485538810196" target="_blank" rel="noopener">大考中心學測統計資料 ↗</a></figcaption>
+    </figure>
+    <p>級分差距大，不表示英文比較容易拿高級分。以 115 學年度為例，英文 10 級分以上的考生占 39.5%，國文是 65.7%。</p>
+    <details>
+      <summary>怎麼算</summary>
+      <p>每一年、每一科都用 0 到 15 級分各有多少考生，算出這一科級分的標準差；缺考的考生不算。級分人數取自大考中心各年度的學測統計圖表：92 到 96 學年度和 111 到 114 學年度用〈各科級分人數分布表〉，97 到 110 學年度和 115 學年度用〈各科級分人數百分比累計表〉，兩種表都列出每一個級分的人數。</p>
+      <p>「中間一半的考生」是把考生從低分排到高分，取第 25% 到第 75% 的考生所在的級分，同樣出自 115 學年度的級分人數。</p>
+    </details>
+  </section>
+
+  <section class="card" aria-labelledby="h-wc">
+    <h2 id="h-wc">歷屆學測英文試卷的英文字數</h2>
+    <p>用大考中心公布的 83 到 115 學年度學測英文試卷 Word 檔，逐年計算整份試卷的英文字數：83 學年度 1,641 字，100 學年度 2,717 字，115 學年度 3,302 字，115 學年度是 83 學年度的 2.0 倍。圖表只算英文單詞，不算中文、選項代號、題號、配分和數字。</p>
+    <figure>
+      <img src="gsat_word_count.png" width="1080" height="1350" alt="83 到 115 學年度學測英文試卷的英文字數折線圖，從 83 學年度的 1,641 字增加到 115 學年度的 3,302 字。" loading="lazy">
+      <figcaption>學測英文試卷的英文字數（83 至 115 學年度正式考試）。<br>資料來源：<a href="https://www.ceec.edu.tw/xmfile?xsmsid=0J052424829869345634" target="_blank" rel="noopener">大考中心學測歷年試題 ↗</a></figcaption>
+    </figure>
+    <p><a href="https://staresto-create.github.io/grammar-cloze-test/">學測克漏字</a>首頁的〈兩個難度標籤怎麼看〉也算過綜合測驗這一大題：83 到 90 學年度平均每一個空格要讀 18 字，105 到 115 學年度是 37 字，閱讀量同樣翻了一倍。</p>
+    <p>常聽到「學測英文四千多字」的說法，是用 Word 的「字數統計」數整份試卷得到的。Word 會把每一個中文字算成一個字，所以封面的作答注意事項、各大題的說明、中譯英和作文題目的中文都會算進去，選項代號和題號也算。下表把整份試卷拆成三部分，三欄的合計就接近 Word 數出來的字數。</p>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th>學年度</th><th>英文單詞<span class="sp">圖表畫的是這一欄</span></th><th>選項代號、題號等</th><th>中文字</th><th>合計</th></tr></thead>
+      <tbody>
+          <tr><td>83</td><td>1,641</td><td>292</td><td>760</td><td class="pct">2,693</td></tr>
+          <tr><td>84</td><td>2,049</td><td>304</td><td>677</td><td class="pct">3,030</td></tr>
+          <tr><td>85</td><td>1,770</td><td>296</td><td>816</td><td class="pct">2,882</td></tr>
+          <tr><td>86</td><td>2,716</td><td>296</td><td>521</td><td class="pct">3,533</td></tr>
+          <tr><td>87</td><td>2,176</td><td>319</td><td>543</td><td class="pct">3,038</td></tr>
+          <tr><td>88</td><td>2,591</td><td>339</td><td>549</td><td class="pct">3,479</td></tr>
+          <tr><td>89</td><td>2,819</td><td>312</td><td>464</td><td class="pct">3,595</td></tr>
+          <tr><td>90</td><td>2,598</td><td>264</td><td>639</td><td class="pct">3,501</td></tr>
+          <tr><td>91</td><td>2,711</td><td>280</td><td>678</td><td class="pct">3,669</td></tr>
+          <tr><td>92</td><td>2,560</td><td>292</td><td>659</td><td class="pct">3,511</td></tr>
+          <tr><td>93</td><td>2,509</td><td>304</td><td>549</td><td class="pct">3,362</td></tr>
+          <tr><td>94</td><td>2,439</td><td>315</td><td>551</td><td class="pct">3,305</td></tr>
+          <tr><td>95</td><td>2,681</td><td>286</td><td>545</td><td class="pct">3,512</td></tr>
+          <tr><td>96</td><td>2,579</td><td>295</td><td>590</td><td class="pct">3,464</td></tr>
+          <tr><td>97</td><td>2,718</td><td>290</td><td>624</td><td class="pct">3,632</td></tr>
+          <tr><td>98</td><td>2,745</td><td>296</td><td>630</td><td class="pct">3,671</td></tr>
+          <tr><td>99</td><td>2,860</td><td>289</td><td>598</td><td class="pct">3,747</td></tr>
+          <tr><td>100</td><td>2,717</td><td>290</td><td>676</td><td class="pct">3,683</td></tr>
+          <tr><td>101</td><td>2,887</td><td>297</td><td>790</td><td class="pct">3,974</td></tr>
+          <tr><td>102</td><td>2,961</td><td>321</td><td>753</td><td class="pct">4,035</td></tr>
+          <tr><td>103</td><td>2,966</td><td>302</td><td>854</td><td class="pct">4,122</td></tr>
+          <tr><td>104</td><td>3,053</td><td>314</td><td>875</td><td class="pct">4,242</td></tr>
+          <tr><td>105</td><td>3,080</td><td>297</td><td>892</td><td class="pct">4,269</td></tr>
+          <tr><td>106</td><td>2,920</td><td>299</td><td>846</td><td class="pct">4,065</td></tr>
+          <tr><td>107</td><td>3,036</td><td>310</td><td>941</td><td class="pct">4,287</td></tr>
+          <tr><td>108</td><td>2,937</td><td>298</td><td>961</td><td class="pct">4,196</td></tr>
+          <tr><td>109</td><td>3,034</td><td>300</td><td>948</td><td class="pct">4,282</td></tr>
+          <tr><td>110</td><td>3,033</td><td>330</td><td>959</td><td class="pct">4,322</td></tr>
+          <tr><td>111</td><td>3,257</td><td>270</td><td>850</td><td class="pct">4,377</td></tr>
+          <tr><td>112</td><td>3,240</td><td>257</td><td>894</td><td class="pct">4,391</td></tr>
+          <tr><td>113</td><td>3,222</td><td>274</td><td>962</td><td class="pct">4,458</td></tr>
+          <tr><td>114</td><td>3,160</td><td>250</td><td>891</td><td class="pct">4,301</td></tr>
+          <tr><td>115</td><td>3,302</td><td>250</td><td>938</td><td class="pct">4,490</td></tr>
+      </tbody>
+    </table></div>
+    <p class="tnote">Word 和其他文書軟體斷字的方式不完全一樣，用不同軟體數同一份試卷，字數會差一些。</p>
+    <details>
+      <summary>怎麼算</summary>
+      <p>每一年都用大考中心「學測歷年試題」頁公布的英文試卷 Word 檔，早年的 .doc 檔先轉成 .docx 再算。整份試卷從封面算到作文題目，頁首頁尾不算。「英文單詞」只算含英文字母的詞，人名、地名也算；(A)(B)(C)(D) 這類選項代號，以及題號、配分、年份等數字，算在「選項代號、題號等」這一欄。補考、參考試卷和試辦考試都不算。</p>
+      <p>83 到 92 學年度的試卷還有對話、配合題、短詩閱讀、簡答題等題型，本題庫沒有全部收錄，所以這一頁的字數直接從大考中心的試卷算。<a href="../cards/freq.html">學測全卷用字統計</a>只算詞彙、克漏字、文意選填、篇章結構、閱讀測驗、混合題六種題型，另外收了 91、92 年補考，字形一律算回詞彙表的詞條，專有名詞也不算，所以兩頁的總數不一樣。</p>
+    </details>
+  </section>
+
+  <p class="tnote">本頁的標準差與字數由本題庫依大考中心公布的資料自行計算：級分人數取自各年度〈各科級分人數分布表〉〈各科級分人數百分比累計表〉，字數取自大考中心公布的歷屆正式考試試卷 Word 檔。數字如果和大考中心公告的資料有出入，請以大考中心的資料為準。發現錯誤，歡迎透過各題庫內的 Google 表單回報，我會核對更正。</p>
+
+  <footer class="foot">
+    <a href="../">回題庫首頁</a>　·　<a href="../cards/freq.html">學測全卷用字統計</a><br>
+    資料更新：2026-10-09。免費、無廣告的非營利自學題庫。
+  </footer>
+</div>
+</body>
+</html>
