@@ -12,7 +12,7 @@
   ],
   "explanation": {
    "pattern": [
-    "73 年大學聯考十題（1 至 10）各是一句獨立的話，不連成一段。",
+    "73 年大學聯考十題（1 至 10）各是一句獨立的話，不是連貫式翻譯。",
     "with + 方式（用…做某事）：中文「點頭表示贊同」，「點頭」是動詞，英文把它寫成名詞 a nod，用 with 帶出表示的方式：indicated approval with a nod。75 年大學聯考中譯英第 5 題的 greets me with a smile 也是這樣，打招呼的方式用 with 帶出。也可以直接用動詞 nod：He nodded in approval，劍橋詞典 nod 的例句 She tasted the sauce and nodded in approval（她嚐了嚐醬汁，點頭表示滿意）。",
     "兩種寫法並排看：[He indicated approval with a nod.]（動詞是 indicated，nod 當名詞，用 with 帶出）／[He nodded in approval.]（動詞就是 nodded，贊同的意思用 in approval 帶出）。"
    ],
@@ -160,7 +160,29 @@
   "label": "大學聯考",
   "yearLabel": "73 (大學聯考)",
   "zh": "運動對健康有益。",
-  "en": "Exercise is good for one's health."
+  "en": "Exercise is good for one's health.",
+  "altAnswers": [
+   "Exercise is good for your health.",
+   "Exercise is good for health."
+  ],
+  "explanation": {
+   "pattern": [
+    "be good for + 名詞（對…有益）：中文「對健康有益」，英文寫 is good for one's health，有益的對象用 for 帶出。劍橋詞典 health 的例句 Regular exercise is good for your health（規律運動有益健康）。88 年大學聯考中譯英第 4 題用的也是這一組，比較兩種習慣時把 good 換成比較級 better：better for health。",
+    "one's 和 your：原句的 one's health 是泛指每一個人的健康，語氣比較正式；劍橋詞典的例句寫 your health，這個 your 不是指聽話的人，一樣是泛指。也可以不加所有格，寫 good for health。"
+   ],
+   "collocation": [
+    "exercise（運動）——劍橋詞典把「為了讓身體強壯健康而做的活動」這個意思的 exercise 標為可數也可不可數；泛指運動這件事時不加 a、不加 s，例句 Swimming is my favourite form of exercise。本題泛指運動，寫 Exercise is good…。要講一節一節的動作，才用可數的 exercises，例句 I do stomach exercises most days（我幾乎每天都做腹部運動）。"
+   ],
+   "mustHave": [
+    "中文「運動」沒有冠詞，英文泛指運動這件事時寫 exercise，不加 an，動詞用單數 is。"
+   ],
+   "refs": [
+    {
+     "label": "88 年大學聯考中譯英第 4 題（better for health）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-81"
+    }
+   ]
+  }
  },
  {
   "id": 7,
@@ -168,7 +190,16 @@
   "label": "大學聯考",
   "yearLabel": "73 (大學聯考)",
   "zh": "我的腳踏車，上禮拜被偷了。",
-  "en": "My bicycle was stolen last Sunday."
+  "en": "My bicycle was stolen last week.",
+  "altAnswers": [
+   "Someone stole my bicycle last week."
+  ],
+  "explanation": {
+   "pattern": [
+    "過去簡單式的被動 was + 過去分詞：中文「我的腳踏車上禮拜被偷了」，腳踏車是小偷拿走的東西，主詞是 my bicycle，動詞寫成被動 was stolen；偷的人是誰不知道，所以不寫 by…。上禮拜是過去的事，be 動詞用過去式 was。劍橋文法〈Passive: forms〉說明，被動最常見的形式是 be + 過去分詞，過去簡單式寫 was／were + 過去分詞。並排看：[Someone stole my bicycle last week.]（主動，主詞是偷的人）／[My bicycle was stolen last week.]（被動，主詞是遭竊的腳踏車）。",
+    "steal 和 rob：劍橋文法〈Rob or steal?〉說明，steal 的受詞是拿走的東西，rob 的受詞是遭搶的人或地方，例句 Our car was stolen from outside our house last week，句型和本題一樣；不寫 rob + 拿走的東西，所以不寫 My bicycle was robbed。steal 的三態是 steal、stole、stolen。"
+   ]
+  }
  },
  {
   "id": 8,
@@ -176,7 +207,26 @@
   "label": "大學聯考",
   "yearLabel": "73 (大學聯考)",
   "zh": "大多數的學生，都不曉得如何使用圖書館。",
-  "en": "Most students do not know how to use a library."
+  "en": "Most students do not know how to use a library.",
+  "altAnswers": [
+   "Most students don't know how to use the library."
+  ],
+  "explanation": {
+   "pattern": [
+    "how to + 原形動詞（如何做某事）：中文「不曉得如何使用圖書館」，英文寫 do not know how to use a library，疑問詞 how 加不定詞，整串當名詞用，這裡當 know 的受詞。同型的還有 what to do（該做什麼）、where to go（該去哪裡）。105 年學測中譯英第 2 題的 learn how to effectively deal with new challenges 也是這個句型。",
+    "most 的兩種用法：中文「大多數的學生」泛指一般的學生。most 可以當形容詞，直接放在名詞前面，意思是「大部分的」，和 many、some 一樣，所以寫 most students，不寫 most of students。most 也可以當代名詞，意思是「大部分的人、大部分的東西」，這時後面不能直接接名詞，要用介系詞 of 帶出是哪一群裡的大部分，of 後面的名詞要加 the 這類字，指特定的一群：most of the students in our class。84 年大學聯考中譯英第 5 題講過 most 的兩種用法。"
+   ],
+   "refs": [
+    {
+     "label": "105 年學測中譯英第 2 題（learn how to）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-113"
+    },
+    {
+     "label": "84 年大學聯考中譯英第 5 題（most 的兩種用法）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-62"
+    }
+   ]
+  }
  },
  {
   "id": 9,
@@ -184,7 +234,29 @@
   "label": "大學聯考",
   "yearLabel": "73 (大學聯考)",
   "zh": "我在今天的報紙上，看到一則很有趣的新聞。",
-  "en": "I read an interesting piece of news in today's newspaper."
+  "en": "I read an interesting piece of news in today's newspaper.",
+  "altAnswers": [
+   "I read a very interesting piece of news in today's newspaper.",
+   "I read a very interesting news story in today's paper."
+  ],
+  "explanation": {
+   "pattern": [
+    "a piece of news（一則新聞）：news 是不可數名詞，前面不加 a，動詞用單數。要說「一則新聞」，寫 a piece of news，劍橋詞典 news 的例句 That's the best piece of news I've heard for a long time!（這是我好久以來聽到最好的消息！）。86 年大學聯考中譯英第 3 題講過 news 不加 a。也可以把可數的 story 放在 news 後面，寫 a news story。",
+    "看報紙用 read：中文說「在報紙上看到」，英文看文字用 read，不用 see。劍橋詞典 newspaper 的例句 I read about it in the newspaper（我在報紙上讀到這件事）；報紙上的內容用介系詞 in 帶出：in today's newspaper。read 的過去式拼法不變，唸作 /red/。"
+   ],
+   "collocation": [
+    "today's newspaper（今天的報紙）——today 加所有格 's，修飾 newspaper。口語常把 newspaper 說成 paper：today's paper。"
+   ],
+   "mustHave": [
+    "中文「一則很有趣的新聞」，英文不能寫 an interesting news，要寫 an interesting piece of news；中文的「很」可以譯成 very：a very interesting piece of news。"
+   ],
+   "refs": [
+    {
+     "label": "86 年大學聯考中譯英第 3 題（news 不加 a）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-70"
+    }
+   ]
+  }
  },
  {
   "id": 10,
@@ -192,7 +264,38 @@
   "label": "大學聯考",
   "yearLabel": "73 (大學聯考)",
   "zh": "要學好英文，必須下功夫。",
-  "en": "If you want to learn English well, you have to work hard."
+  "en": "If you want to learn English well, you have to work hard.",
+  "altAnswers": [
+   "To learn English well, you must work hard.",
+   "If you want to learn English well, you have to make an effort."
+  ],
+  "explanation": {
+   "pattern": [
+    "If + 現在簡單式（如果…）：中文「要學好英文」，意思是「如果想學好英文」，英文寫 If you want to learn English well，條件子句用現在簡單式 want。也可以用不定詞表示目的：To learn English well, you must work hard，to + 原形動詞放在句首，意思是為了學好英文。",
+    "have to／must + 原形動詞（必須…）：中文「必須下功夫」，英文寫 you have to work hard，也可以寫 you must work hard。105 年學測中譯英第 2 題講過，must 是助動詞，後面直接接原形，不加 to；have to 則一定要有 to，不寫 must to。"
+   ],
+   "collocation": [
+    "work hard／make an effort（下功夫）——中文「下功夫」就是努力，英文寫 work hard，也可以寫 make an effort，劍橋詞典 effort 的例句 If we could all make an effort to keep this office tidier it would help（要是大家都努力讓辦公室整齊一點，會有幫助）。93 年學測中譯英第 2 題的 as long as we work hard 也用 work hard。",
+    "learn English well（學好英文）——well 是副詞，放在 learn English 後面，修飾 learn；不寫 learn well English。"
+   ],
+   "mustHave": [
+    "中文「要學好英文，必須下功夫」兩個子句都沒有主詞，英文要補上泛指的 you：If you want to…, you have to…。88 年大學聯考中譯英第 5 題的「只要睡飽」也是補泛指的 you。"
+   ],
+   "refs": [
+    {
+     "label": "105 年學測中譯英第 2 題（must 不加 to）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-113"
+    },
+    {
+     "label": "93 年學測中譯英第 2 題（work hard）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-147"
+    },
+    {
+     "label": "88 年大學聯考中譯英第 5 題（補泛指的 you）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-82"
+    }
+   ]
+  }
  },
  {
   "id": 11,
@@ -206,7 +309,7 @@
   ],
   "explanation": {
    "pattern": [
-    "74 年大學聯考五題（11 至 15）各是一句獨立的話，不連成一段。",
+    "74 年大學聯考五題（11 至 15）各是一句獨立的話，不是連貫式翻譯。",
     "be worth + V-ing（值得做某事）：中文「值得仔細閱讀」，英文寫 is worth reading carefully。劍橋文法〈Worth or worthwhile?〉說明，worth 是形容詞，只放在 be、seem、look 這類動詞後面；be worth doing something 是常用的說法，意思是某件事有用或重要到值得去做，例句 We decided it wasn't worth going all the way to London to buy books we could get on the Internet。worth 後面接動名詞 reading，不接不定詞，所以不寫 worth to read。讀這篇文章的是讀者，這篇文章只是讀的對象，所以英文照樣用主動的 reading，不寫被動的 worth being read。95 年指考篇章結構第 42 題的答案句 trying to write in a way that is interesting and worth reading，用的也是 worth reading。",
     "主詞就是讀的對象：讀的是這篇文章，所以 reading 後面不再補受詞，不寫 This article is worth reading it。道理和 76 年大學聯考中譯英第 3 題的難易形容詞一樣：English reading ability is not difficult to develop，develop 後面也不寫 it。英文也可以用 it 開頭，把讀的對象放到 reading 後面，劍橋文法同一頁的例句 Is it worth phoning her, do you think? 就是這個寫法。並排看：[This article is worth reading carefully.]（主詞 this article 就是讀的對象，reading 後面不寫 it）／[It is worth reading this article carefully.]（it 開頭，讀的對象 this article 放在 reading 後面）。"
    ],
@@ -367,7 +470,7 @@
   ],
   "explanation": {
    "pattern": [
-    "75 年大學聯考五題（16 至 20）連成一段，講每天到社區送信的郵差：16 說每天早晨有一位穿綠色制服的人把信件送到社區來，17 說不管晴天或下雨，天天都看得到他，18 說有掛號信要給我們，他就會按門鈴，19 說他認識附近的每一個人，我們每一個人也都認識他，20 說有時候上學途中遇到他，他就微笑跟我打招呼。五句講的都是平常的習慣。",
+    "75 年大學聯考五題（16 至 20）是連貫式翻譯，講每天到社區送信的郵差：16 說每天早晨有一位穿綠色制服的人把信件送到社區來，17 說不管晴天或下雨，天天都看得到他，18 說有掛號信要給我們，他就會按門鈴，19 說他認識附近的每一個人，我們每一個人也都認識他，20 說有時候上學途中遇到他，他就微笑跟我打招呼。五句講的都是平常的習慣。",
     "a man in a green uniform（穿綠色制服的人）：中文「有一位穿綠色制服的人，把信件送到…」，句子的主角是送信的人，英文直接拿 a man 當主詞，「穿綠色制服」用介系詞片語 in a green uniform 放在 a man 後面修飾，動詞只有一個 delivers。劍橋詞典 in 的釋義之一是穿著（wearing），例句 Do you recognize that man in the grey suit?（你認得那個穿灰色西裝的男人嗎？）。也可以寫 a man wearing a green uniform，wearing 帶出的分詞片語一樣放在 a man 後面。不寫 A man wears a green uniform delivers mail，那樣一個句子裡有兩個動詞，中間沒有連接詞。",
     "現在簡單式講習慣：每天早晨都來送信，是一再發生的事，用現在簡單式 delivers。劍橋文法〈Present simple (I work)〉說明，現在簡單式可以講經常、習慣性的事，例句 I read every night before I go to sleep。"
    ],
@@ -543,7 +646,7 @@
   ],
   "explanation": {
    "pattern": [
-    "76 年大學聯考五題（21 至 25）連成一段，談怎麼讀英文：21 說很多學生不太注意讀書的方法，以至於浪費許多寶貴的時間，22 說他們讀了好幾年英文，還是看不懂相當容易的文章，23 說只要方法正確，英文的閱讀能力並不難培養，24 說老師還沒講解課文之前，一定要自己先讀兩三遍，25 說不要讀太難的文章，也不要一遇到生字就查字典。21 至 23 講的是一般的情形，24、25 是給讀者的建議。",
+    "76 年大學聯考五題（21 至 25）是連貫式翻譯，談怎麼讀英文：21 說很多學生不太注意讀書的方法，以至於浪費許多寶貴的時間，22 說他們讀了好幾年英文，還是看不懂相當容易的文章，23 說只要方法正確，英文的閱讀能力並不難培養，24 說老師還沒講解課文之前，一定要自己先讀兩三遍，25 說不要讀太難的文章，也不要一遇到生字就查字典。21 至 23 講的是一般的情形，24、25 是給讀者的建議。",
     "so + little + 名詞 + that 子句（少到…以至於…）：中文「不太注意…，以至於浪費…」，前面講的是程度，「以至於」帶出結果，英文用 so little attention that… 把兩件事接成一句。so 除了放在形容詞、副詞前面，也可以放在 much、many、little、few 前面：劍橋文法〈So〉說明，so 可以用在 much、many、little、few 前面，例句 You've eaten so little and I've eaten so much!。本題的 so 修飾 little，little 修飾 attention，that 帶出結果 they waste a lot of precious time。80 年大學聯考中譯英第 4 題的 so filthy that…、88 年大學聯考中譯英第 2 題的 so late that… 是同一個句型，差別只在 so 後面接的是形容詞、副詞，還是 little 這類講數量的字。",
     "little 和 a little 意思相反：中文「不太注意」是說注意得很少、幾乎沒有，英文寫 little attention，前面不加 a。劍橋文法〈Little, a little, few, a few〉說明，little、few 帶否定的意思，指比預期或希望的少（not as much as may be expected or wished for），例句 They had little money to spend（他們沒什麼錢可以花）；a little、a few 的意思是「一些」，例句 She saves a little money every month（她每個月存一點錢）。並排看：[pay little attention]（幾乎不注意）／[pay a little attention]（注意一些）。little 和 a little 都接不可數名詞，attention 是不可數名詞。",
     "也可以不用 so … that，改用連接詞 so 帶出結果，並排看：[Many students pay so little attention to reading skills that they waste…]（so … that 接成一句）／[Many students do not pay much attention to the way they read, so they waste…]（so 當連接詞帶出結果，和 77 年大學聯考中譯英第 1 題一樣）。劍橋文法〈Little, a little, few, a few〉把 little 的意思解釋成 not much（不多），所以中文「不太注意」寫 do not pay much attention 也可以。"
@@ -744,7 +847,7 @@
   ],
   "explanation": {
    "pattern": [
-    "77 年大學聯考五題（26 至 30）連成一段，談怎麼學會說英語：26 說英語是一種重要的語言，所以很多人都在學，27 說許多中國學生認為學說英語很難，28 說只要經常練習，任何困難都可以克服，29 說會背對話並不表示會說英語，30 說最重要的是能用英語說出自己想說的話。",
+    "77 年大學聯考五題（26 至 30）是連貫式翻譯，談怎麼學會說英語：26 說英語是一種重要的語言，所以很多人都在學，27 說許多中國學生認為學說英語很難，28 說只要經常練習，任何困難都可以克服，29 說會背對話並不表示會說英語，30 說最重要的是能用英語說出自己想說的話。",
     "so 帶出結果：中文只寫了「所以」，英文用 so 帶出結果，原因放在前面。劍橋文法〈Conjunctions: causes, reasons, results and purpose〉說明，so 帶出的子句要放在後面。也可以改用 because 帶出原因，並排看：[English is an important language, so many people are learning it.]（so 帶出結果）／[Many people are learning English because it is an important language.]（because 帶出原因）。兩句都只用一個連接詞，because 和 so 不同時用。"
    ],
    "mustHave": [
@@ -938,7 +1041,7 @@
   ],
   "explanation": {
    "pattern": [
-    "78 年大學聯考五題（31 至 35）連成一段，講一個人從小體弱，靠運動變得強壯：31 說讀小學的時候身體很虛弱、常感冒，32 說上了國中以後就儘量找機會運動，33 說功課一直很繁重，還是每天慢跑半小時，34 說六年不斷的鍛鍊，不但更強壯，也長得更高，35 說現在大家都無法相信從前又矮又瘦。31 講的是小學時候的事，32 至 34 講的是從上國中一直到現在，35 講的是現在。"
+    "78 年大學聯考五題（31 至 35）是連貫式翻譯，講一個人從小體弱，靠運動變得強壯：31 說讀小學的時候身體很虛弱、常感冒，32 說上了國中以後就儘量找機會運動，33 說功課一直很繁重，還是每天慢跑半小時，34 說六年不斷的鍛鍊，不但更強壯，也長得更高，35 說現在大家都無法相信從前又矮又瘦。31 講的是小學時候的事，32 至 34 講的是從上國中一直到現在，35 講的是現在。"
    ],
    "collocation": [
     "catch a cold（感冒）——劍橋詞典 catch 的這個意思是染上疾病（to get an illness, especially one caused by bacteria or a virus），例句 He caught a cold on holiday；cold 當「感冒」講時是可數名詞，例句 I have a cold、She caught a cold at school。本題的「常感冒」講的是小學時候不只一次感冒，所以寫複數 caught colds。"
@@ -1158,7 +1261,7 @@
   ],
   "explanation": {
    "pattern": [
-    "79 年大學聯考五題（36 至 40）連成一段，講天氣一變就著涼了：36 說昨天早上出門時天氣相當暖和，37 所以沒穿毛衣，只穿了一件襯衫，38 到了下午溫度卻急速下降，39 雖然晚上比平常早回家，還是覺得有點不舒服，40 說今天又打噴嚏又頭痛，最好馬上去看醫生。36 至 39 講的是昨天的事，40 講的是今天。"
+    "79 年大學聯考五題（36 至 40）是連貫式翻譯，講天氣一變就著涼了：36 說昨天早上出門時天氣相當暖和，37 所以沒穿毛衣，只穿了一件襯衫，38 到了下午溫度卻急速下降，39 雖然晚上比平常早回家，還是覺得有點不舒服，40 說今天又打噴嚏又頭痛，最好馬上去看醫生。36 至 39 講的是昨天的事，40 講的是今天。"
    ],
    "collocation": [
     "quite（相當）——劍橋詞典把 quite 的意思分成兩種：英式英文常指「還算、有點，但不到完全」（a little or a lot but not completely），例句 I'm quite tired but I can certainly walk a little further；美式英文常指「很、在很大的程度上」（to a large degree），例句 School is quite different from what it once was。中文「相當暖和」兩種讀法都說得通。"
@@ -1346,7 +1449,7 @@
   "en": "I grew up in a small village in the country.",
   "explanation": {
    "pattern": [
-    "80 年大學聯考五題（41 至 45）連成一段，講小時候住的鄉下：41 說自己在鄉下的小村落長大，42 說那時家附近有一條清澈的小溪，43 說夏天常到那裡游泳、釣魚，44 轉回現在，說溪水髒得連魚都不能活，45 最後說不知道什麼時候才能再見到童年的美景。前三句講的是過去，44 講的是一路變到現在的結果，45 講的是將來。",
+    "80 年大學聯考五題（41 至 45）是連貫式翻譯，講小時候住的鄉下：41 說自己在鄉下的小村落長大，42 說那時家附近有一條清澈的小溪，43 說夏天常到那裡游泳、釣魚，44 轉回現在，說溪水髒得連魚都不能活，45 最後說不知道什麼時候才能再見到童年的美景。前三句講的是過去，44 講的是一路變到現在的結果，45 講的是將來。",
     "grow up + in + 地方（在某地長大）：中文「我生長在鄉下」，英文寫 I grew up in…，在哪裡長大用 in 帶出。劍橋詞典 grow up 的例句 I grew up in Scotland，括號裡的解釋是小時候住在那裡（= I lived there when I was young）；美式的例句 She grew up on a Pennsylvania farm 講的也是在鄉下長大。",
     "介系詞片語放在名詞後面修飾。中文把「鄉下」擺在「小村落」前面，英文的 in the country 是介系詞片語，要放在 village 後面，寫 a small village in the country。"
    ],
@@ -1562,7 +1665,7 @@
   "en": "To tell the truth, not until yesterday did I know he had gone to the United States.",
   "explanation": {
    "pattern": [
-    "81 年大學聯考兩題（46、47）各是一句獨立的話，不連成一段。",
+    "81 年大學聯考兩題（46、47）各是一句獨立的話，不是連貫式翻譯。",
     "not until + 時間 + 倒裝句（直到…才…）：中文「一直到昨天我才知道」，意思是昨天以前都不知道，昨天才知道，所以英文用否定的 not … until。先寫出一般語序的句子 I didn't know he had gone to the United States until yesterday（我到昨天才知道他已經去美國了），再把 not until yesterday 搬到句首強調，主要子句就要倒裝：助動詞 did 移到主詞 I 前面，know 用原形，寫成 not until yesterday did I know…。劍橋文法〈Inversion〉說明，not 加介系詞片語或子句放在句首時，主詞和動詞要倒裝，例句 Not till I got home did I realise my wallet was missing（我到家才發現錢包不見了）。",
     "同一個意思有三種寫法，並排看：[I didn't know he had gone to the United States until yesterday.]（一般語序）／[Not until yesterday did I know he had gone to the United States.]（not until 放在句首，主要子句倒裝）／[It was not until yesterday that I knew he had gone to the United States.]（強調句，that 後面照一般語序，不倒裝）。88 年學測克漏字第 39 題考的就是 It was not until … that …，91 年指考第 10 題的題幹 it was not until two hours later that electricity was restored 也是這個句型。",
     "先找標記，再決定時態。他去美國在前，我知道在後，兩件事都在過去，所以把先發生的那一件退一個時態，用過去完成式 had gone 標出來；知道是昨天的事，用過去簡單式。劍橋文法〈Past perfect simple (I had worked)〉說明，過去完成式講的是到過去某一個時間點為止的事，就像現在完成式講的是到現在為止的事。並排看：[He has gone to the United States.]（到說話的現在，他已經去了）／[I didn't know he had gone to the United States.]（到我知道的那時候，他已經去了）。",
@@ -1653,7 +1756,7 @@
   ],
   "explanation": {
    "pattern": [
-    "82 年大學聯考五題（48 至 52）連成一段，講這個月的好運：48 先總說這個月運氣好得不敢相信，49 至 51 再照時間順序舉出三件好事：月初數學月考考了九十分，月中父親送了一部電腦當生日禮物，前幾天英語演講比賽得了第二名，52 最後總結，說這輩子運氣從來沒有這麼好過。五句講的時間各不相同：48 講這個月到現在，49 至 51 講這個月裡已經過去的三個時間，52 講從出生到現在。",
+    "82 年大學聯考五題（48 至 52）是連貫式翻譯，講這個月的好運：48 先總說這個月運氣好得不敢相信，49 至 51 再照時間順序舉出三件好事：月初數學月考考了九十分，月中父親送了一部電腦當生日禮物，前幾天英語演講比賽得了第二名，52 最後總結，說這輩子運氣從來沒有這麼好過。五句講的時間各不相同：48 講這個月到現在，49 至 51 講這個月裡已經過去的三個時間，52 講從出生到現在。",
     "先找標記，再決定時態。「這個月」還沒過完，好運從月初一直延續到現在，所以用現在完成式 have been。劍橋文法〈Past simple or present perfect?〉說明，現在完成式講的是到現在為止的時間，常和 today、this year 這類表示「到現在為止」的時間詞連用；同一頁把 We haven't seen Diana this week（這個星期到現在都還沒見到黛安娜）和 We didn't see Diana last week（上個星期沒見到黛安娜）放在一起對照。並排看：[This month I have been so lucky…]（這個月還沒過完，好運延續到現在）／[Last month I was very lucky.]（上個月已經過去，用過去簡單式）。This month 前面不加介系詞，和 85 年大學聯考中譯英第 2 題的 This spring vacation 是同一條規則。",
     "so + 形容詞 + that 子句（…得…）：中文「好得我都不敢相信」，「好」講的是程度，「不敢相信」是結果，英文用 so lucky that I can hardly believe it 把兩件事接成一句。so 修飾形容詞 lucky，that 帶出結果，和 88 年大學聯考中譯英第 2 題的 so late that… 是同一個句型。劍橋文法〈So〉說明，so 放在形容詞或副詞前面，表示程度很高，常和 that 連用；同一頁的例句 It was so dark (that) we could hardly see（天色暗得我們幾乎看不見），連 hardly 都和本題一樣，括號也說明了 that 可以省略。",
     "can hardly + 原形動詞（幾乎不能…）：中文「都不敢相信」不是真的不敢，是說好運多到難以相信，英文寫 can hardly believe，不寫 dare not believe。劍橋文法〈Hardly〉說明，hardly 本身就有否定的意思，指「幾乎完全不」，通常放在情態動詞或第一個助動詞後面，例句 I can hardly wait（我等不及了）。hardly 已經是否定，前面不再加 not，不寫 can't hardly。believe 後面要有受詞，it 指的就是這個月的好運。"
@@ -1875,7 +1978,7 @@
   "en": "My brother used to fool around all day long, not doing anything meaningful.",
   "explanation": {
    "pattern": [
-    "83 年大學聯考五題（53 至 57）連成一段，講弟弟的轉變：53 說他以前整天虛混，54 說他現在用功，對未來也有計劃，55 問是什麼讓他改變這麼多，56 回答是高中老師發現了他的潛力，一直鼓勵他，57 說弟弟會永遠記得、感謝這位老師。五句講的時間各不相同：53 講以前的習慣，54 講現在，55、56 講已經發生的改變，57 講弟弟現在說的話和將來的心意。",
+    "83 年大學聯考五題（53 至 57）是連貫式翻譯，講弟弟的轉變：53 說他以前整天虛混，54 說他現在用功，對未來也有計劃，55 問是什麼讓他改變這麼多，56 回答是高中老師發現了他的潛力，一直鼓勵他，57 說弟弟會永遠記得、感謝這位老師。五句講的時間各不相同：53 講以前的習慣，54 講現在，55、56 講已經發生的改變，57 講弟弟現在說的話和將來的心意。",
     "used to + 原形動詞（以前常常…，現在不這樣了）：中文「過去經常整日虛混」，英文寫 used to fool around。劍橋文法〈Used to〉說明，used to 講的是過去的事，現在已經不是這樣了，可以指重複發生的動作，也可以指過去的狀態。下一題說他「現在」努力用功，正好是「現在不這樣了」，所以用 used to 最貼切。「過去」和「經常」英文不必各譯一個字，used to 本身就帶有這兩個意思。劍橋文法〈Used to〉也提醒，used to 前面不加 be，不寫 My brother was used to fool around。並排看：[My brother used to fool around all day long.]（以前常常這樣，現在不是了）／[Now, he is studying very hard.]（現在的情形）。98 年指考參考試卷第 8 題的題幹 Jack used to be stingy, but now he is unusually generous 也是 used to 和 now 前後對照。",
     "S + V…, not V-ing…：not doing anything meaningful 是分詞構句，放在句尾逗號之後，補充說明前面的「整日虛混」是怎樣的情形，意思等於 and he did not do anything meaningful。兩個子句的主詞相同時，去掉 and 與重複的主詞，動詞改為分詞；要改成否定，就把 not 放在分詞前面。劍橋文法〈Negation in non-finite clauses〉說明，分詞片語這類沒有主詞的子句，否定時加上 not，例句 She left the house very quietly, not wishing to alarm anyone（她靜悄悄地離開家，不想驚動任何人），和本題的結構相同。",
     "anything + 形容詞：「一件有意義的事也不做」寫 not doing anything meaningful。nothing、something、anything 這類代名詞，修飾的字詞要放在後面，88 年大學聯考中譯英第 3 題的 have nothing to do 用的是同一條規則。劍橋文法〈Pronouns: indefinite (-body, -one, -thing, -where)〉說明，這類代名詞後面可以加形容詞，讓意思更具體，小標題舉的例子就是 somewhere nice。否定的寫法有兩種，並排看：[not doing anything meaningful]（not … anything）／[doing nothing meaningful]（nothing 本身就是否定）。"
@@ -2086,7 +2189,7 @@
   "en": "Life in Taiwan has changed quite a lot over the past ten years.",
   "explanation": {
    "pattern": [
-    "84 年大學聯考五題（58 至 62）連成一段，講台灣這十年來生活的改變：58 先總說生活變了很多，59、60 說年輕的一代有新的生活方式，和父母那一輩不同，61 舉年輕人的例子，62 再講老一輩。58 講的是從十年前到現在的變化，用現在完成式；59 至 62 講的是現在的情形，用現在簡單式。",
+    "84 年大學聯考五題（58 至 62）是連貫式翻譯，講台灣這十年來生活的改變：58 先總說生活變了很多，59、60 說年輕的一代有新的生活方式，和父母那一輩不同，61 舉年輕人的例子，62 再講老一輩。58 講的是從十年前到現在的變化，用現在完成式；59 至 62 講的是現在的情形，用現在簡單式。",
     "現在完成式 + over the past + 一段時間：「最近十年變了很多」，變化從十年前開始，一直到現在，寫 has changed … over the past ten years。劍橋文法說明，現在完成式講的是到現在為止的時間，也就是發生在過去、與現在有關聯的事。101 年學測第 11 題的題幹 The ideas about family have changed ___ in the past twenty years 也是這樣寫。並排看：[Life in Taiwan has changed quite a lot over the past ten years.]（從十年前到現在，現在完成式）／[Life in Taiwan changed quite a lot in the 1980s.]（1980 年代，過去一段已經結束的時間，過去簡單式）。",
     "Life in Taiwan（台灣的生活）：life 指某個地方的生活方式時是不可數名詞，前面不加冠詞，劍橋詞典的例句 She appreciates life in the United States（她很喜歡美國的生活）。主詞 life 是單數，助動詞用 has。"
    ],
@@ -2274,7 +2377,7 @@
   "en": "Whenever we have a vacation, I'll travel somewhere in Taiwan.",
   "explanation": {
    "pattern": [
-    "85 年大學聯考五題（63 至 67）連成一段，講放假到台灣各地旅行：63 說每次放假都去旅行，64、65 說今年春假去了墾丁，66、67 說已經在計畫暑假去東部。五句講的時間各不相同，時態也各不相同：63 講習慣，64、65 講過去，66 講現在，67 講將來。",
+    "85 年大學聯考五題（63 至 67）是連貫式翻譯，講放假到台灣各地旅行：63 說每次放假都去旅行，64、65 說今年春假去了墾丁，66、67 說已經在計畫暑假去東部。五句講的時間各不相同，時態也各不相同：63 講習慣，64、65 講過去，66 講現在，67 講將來。",
     "Whenever + 現在簡單式（每次…）：whenever 的意思是每一次、任何時候，劍橋詞典的例句 Whenever I go there they seem to be asleep（每次我去那裡，他們好像都在睡覺）。whenever 帶出的子句講的是每一次都會發生的事，子句裡用現在簡單式 we have a vacation。也可以寫 Every time we have a vacation。",
     "講習慣的事，最常用現在簡單式。劍橋文法〈Present simple (I work)〉說明，講規律、習慣的事用現在簡單式，常和 always、often、usually、sometimes、never 這些頻率副詞連用，例句 We usually fly to France when we go（我們去法國通常搭飛機）。所以本題也可以寫 I travel somewhere in Taiwan。原英文寫 I'll travel，用的是 will：劍橋文法〈Will〉另外說明，will 也可以講常常發生的事（events that happen often）。也就是說，這裡的 I'll 講的是習慣，不是將來，原句保留。並排看：[Whenever we have a vacation, I travel somewhere in Taiwan.]（現在簡單式講習慣，最常見）／[Whenever we have a vacation, I'll travel somewhere in Taiwan.]（will 也可以講常常發生的事）。",
     "somewhere in Taiwan（台灣某個地方）：somewhere 是副詞，本身就有「在某處、到某處」的意思，前面不加 to。劍橋詞典 somewhere 的例句 Can we go somewhere and talk?（我們可以找個地方談談嗎？），go 後面直接接 somewhere。"
@@ -2466,7 +2569,7 @@
   "en": "We are about to enter the 21st century.",
   "explanation": {
    "pattern": [
-    "86 年是 1997 年，離 2000 年只剩三年，所以這一段開頭說「我們即將進入二十一世紀」。86 年這五題連成一段：68 至 70 講人會活得更長久，是好消息；71、72 講隨之而來的問題。",
+    "86 年是 1997 年，離 2000 年只剩三年，所以這一段開頭說「我們即將進入二十一世紀」。86 年這五題是連貫式翻譯：68 至 70 講人會活得更長久，是好消息；71、72 講隨之而來的問題。",
     "be about to + 原形動詞（即將…）：中文「即將」說的是很快就要發生的事，英文寫 be about to。劍橋文法〈Future: other expressions to talk about the future〉說明，be about to 加原形動詞，用來講預期很快就會發生的事，例句 The ferry is about to leave（渡輪就要開了）。be 動詞要依主詞變化，主詞是 we，所以寫 we are about to enter。",
     "原英文寫 We are going into the 21st century，用的是現在進行式。現在進行式也可以講將來，可是劍橋文法〈Future: present continuous to talk about the future〉說明，這種用法表示已經決定好、安排好的計畫，例句 I am taking the train to Paris tomorrow（我明天搭火車去巴黎）。進入新世紀不是誰安排的計畫，而是時間到了就會發生的事，中文又寫了「即將」，所以改用 be about to。",
     "be about to 後面不加 in three years 這類時間詞。劍橋文法同一頁提醒，有時間詞時不用 be about to，改用現在簡單式，例句 The coach leaves in five minutes!，不寫 The coach is about to leave in five minutes!。要說三年後進入新世紀，可以寫 We will enter the 21st century in three years。"
@@ -2678,7 +2781,7 @@
   "en": "I used to go to the bookstore,",
   "explanation": {
    "pattern": [
-    "這一句只有前半句：句尾是逗號，後面接 74 的「主要是隨便看看一些書」，兩題合起來才是一個完整的句子。87 年這五題連成一段，前三題講以前，後兩題講現在。",
+    "這一句只有前半句：句尾是逗號，後面接 74 的「主要是隨便看看一些書」，兩題合起來才是一個完整的句子。87 年這五題是連貫式翻譯，前三題講以前，後兩題講現在。",
     "used to + 原形動詞（以前常常…，現在不這樣了）：中文「以前，我常常到書店去」，英文寫 I used to go to the bookstore。劍橋文法〈Used to〉說明，used to 講的是過去的事，現在已經不是這樣了，可以指重複發生的動作，也可以指過去的狀態。這一段最後一句說現在再也沒時間了，正好是「現在不這樣了」，所以用 used to 最貼切。",
     "「以前」和「常常」英文不必各譯一個字。used to 本身就帶有「以前」和「常常」的意思，寫 I used to go to the bookstore 就夠了；要把「常常」譯出來，也可以寫 I used to go to the bookstore often。",
     "先找標記，再決定時態。「以前」是標記，講的是過去的習慣。並排看兩種寫法：[I used to go to the bookstore]（used to，說的是以前常去、現在不去了）／[In the past, I often went to the bookstore]（過去簡單式 + often，只說以前常去，沒有說現在怎樣）。兩句都對，這一段後面講到現在沒時間去，所以用 used to 前後最連貫。",
@@ -3306,7 +3409,7 @@
   "explanation": {
    "pattern": [
     "want + 人 + to V（要某人做某事）：My mother（主詞） + wanted + me（受詞） + to go to a Chinese medicine doctor（不定詞）。劍橋文法〈Want〉說明，want 後面可以接受詞再接不定詞，例句 The teacher wants her to do the exams again next year；want 不接 that 子句，不寫 My mother wanted that I go…。同樣接「人 + to V」的還有 encourage、allow。",
-    "先找標記，再決定時態。這一句本身沒有時間詞，標記在前一句：90 年聯考這五句連起來是一段話，第 1 句的 last night 已經把時間定在過去，媽媽要我去看醫生也是那時候的事，所以用過去簡單式 wanted。",
+    "先找標記，再決定時態。這一句本身沒有時間詞，標記在前一句：90 年聯考這五句是連貫式翻譯，第 1 句的 last night 已經把時間定在過去，媽媽要我去看醫生也是那時候的事，所以用過去簡單式 wanted。",
     "並排看：[My mother wanted me to go…]（過去簡單式）講的是昨天晚上那一次；[My mother wants me to go…]（現在簡單式）講的是她現在的想法。"
    ],
    "collocation": [
@@ -3457,7 +3560,7 @@
   "en": "Everyone has different opinions about what the best way to spend a vacation is.",
   "explanation": {
    "pattern": [
-    "83 年學測五題（93 至 97）連成一段，講大家怎麼過假期：93 先總說大家對最好的度假方式看法不同，94 至 97 再分成四種人來說：有些人去森林，有些人去大都市，還有一些人去海邊，少數人留在家裡。英文用 Some people …、Others …、Still others …、A few people … 一層一層列下去。五句講的都是一般的情形，不是哪一次發生的事，所以動詞都用現在簡單式。",
+    "83 年學測五題（93 至 97）是連貫式翻譯，講大家怎麼過假期：93 先總說大家對最好的度假方式看法不同，94 至 97 再分成四種人來說：有些人去森林，有些人去大都市，還有一些人去海邊，少數人留在家裡。英文用 Some people …、Others …、Still others …、A few people … 一層一層列下去。五句講的都是一般的情形，不是哪一次發生的事，所以動詞都用現在簡單式。",
     "疑問詞 + 主詞 + 動詞：what the best way to spend a vacation is 不是問句，what 帶出的是一個名詞子句，當介系詞 about 的受詞。子句裡照直述句的語序寫，主詞 the best way to spend a vacation 放前面，be 動詞 is 放最後。劍橋文法〈Reported speech: indirect speech〉說明，間接引述以 wh- 開頭的問句時，子句用直述句的語序（主詞 + 動詞），不用問句的語序，也不加問號，例句 I asked her where the bus station was（不寫 where was the bus station）。原本的問句 Where is the bus station? 變成子句，主詞 the bus station 要移到 be 動詞前面；本題原本的問句是 What is the best way to spend a vacation?，變成子句也是把主詞移到 is 前面。並排看：[What is the best way to spend a vacation?]（問句）／[Everyone has different opinions about what the best way to spend a vacation is.]（名詞子句放在句子裡，不是在發問）。",
     "Everyone 當主詞，動詞用單數：中文「大家」指的是所有的人，英文的 everyone 卻要當單數看，動詞寫 has，不寫 have。道理在 every：every 的意思是「每一個」，後面接單數名詞（every student），everyone 就是「每一個人」，一個一個算，所以動詞用單數。劍橋文法〈Everyone, everybody, everything, everywhere〉說明，everyone、everybody 指的是全部的人，但是動詞用單數，例句 Everybody knows the truth。換成複數的 people 也可以，動詞就要用 have：People have different opinions about…。"
    ],
@@ -3672,7 +3775,7 @@
   "en": "On my way home yesterday, I saw a little girl crying by the roadside.",
   "explanation": {
    "pattern": [
-    "84 年學測五題（98 至 102）連成一段，講昨天回家路上遇到一個哭泣的小女孩：98 看到她在路邊哭，99 跑過去問她，100 她說按了門鈴卻沒人開門，101 陪她等媽媽回來，102 晚了半個鐘頭才回到家。五句講的都是昨天的事，所以主要的動詞都用過去簡單式；100、102 句子裡各有兩件事一先一後，先發生的那一件用過去完成式。",
+    "84 年學測五題（98 至 102）是連貫式翻譯，講昨天回家路上遇到一個哭泣的小女孩：98 看到她在路邊哭，99 跑過去問她，100 她說按了門鈴卻沒人開門，101 陪她等媽媽回來，102 晚了半個鐘頭才回到家。五句講的都是昨天的事，所以主要的動詞都用過去簡單式；100、102 句子裡各有兩件事一先一後，先發生的那一件用過去完成式。",
     "see + O + V-ing（看到某人正在做某事）：「看到一個小女孩在路邊哭泣」，看到的時候她正在哭，英文寫 saw a little girl crying。劍橋文法〈Hear, see, etc. + object + infinitive or -ing〉說明，see、hear 這類動詞的受詞後面可以接原形動詞，也可以接 V-ing：原形動詞通常強調看到、聽到整件事從頭到尾，V-ing 通常強調動作正在進行、還沒結束，例句 Maria heard him coming up the stairs towards her room。並排看：[I saw a little girl crying by the roadside.]（看到的時候她正在哭）／[I saw a little girl cross the road.]（看到她從路的這一邊走到那一邊，整件事從頭到尾）。101 的 Seeing her crying so bitterly 用的是同一個句型。",
     "home 當副詞，前面不加 to：劍橋文法〈House or home?〉說明，home 和 get、go、come、arrive 這類表示移動的動詞連用時是副詞，不加 to，例句 I'm going home now（不寫 going to home）。所以「在回家的路上」寫 on my way home；要去的是別的地方才加 to，像 89 年大學聯考中譯英第 3 題的 on his way to school。劍橋詞典 way 的例句 I popped into the grocer's on the way home from work to get some cheese（下班回家的路上，我順道進雜貨店買了點起司）。",
     "先找標記，再決定時態。yesterday（昨天）是過去的時間，看到這件事用過去簡單式 saw。"
