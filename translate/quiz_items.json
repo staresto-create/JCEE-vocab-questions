@@ -165,7 +165,43 @@
   "label": "大學聯考",
   "yearLabel": "76 (大學聯考)",
   "zh": "很多學生都不太注意讀書的方法，以至於浪費許多寶貴的時間。",
-  "en": "Many students pay so little attention to reading skills that they waste a lot of precious time."
+  "en": "Many students pay so little attention to reading skills that they waste a lot of precious time.",
+  "altAnswers": [
+   "Many students do not pay much attention to the way they read, so they waste a lot of precious time."
+  ],
+  "explanation": {
+   "pattern": [
+    "76 年大學聯考五題（21 至 25）連成一段，談怎麼讀英文：21 說很多學生不太注意讀書的方法，以至於浪費許多寶貴的時間，22 說他們讀了好幾年英文，還是看不懂相當容易的文章，23 說只要方法正確，英文的閱讀能力並不難培養，24 說老師還沒講解課文之前，一定要自己先讀兩三遍，25 說不要讀太難的文章，也不要一遇到生字就查字典。21 至 23 講的是一般的情形，24、25 是給讀者的建議。",
+    "so + little + 名詞 + that 子句（少到…以至於…）：中文「不太注意…，以至於浪費…」，前面講的是程度，「以至於」帶出結果，英文用 so little attention that… 把兩件事接成一句。so 除了放在形容詞、副詞前面，也可以放在 much、many、little、few 前面：劍橋文法〈So〉說明，so 可以用在 much、many、little、few 前面，例句 You've eaten so little and I've eaten so much!。本題的 so 修飾 little，little 修飾 attention，that 帶出結果 they waste a lot of precious time。80 年大學聯考中譯英第 4 題的 so filthy that…、88 年大學聯考中譯英第 2 題的 so late that… 是同一個句型，差別只在 so 後面接的是形容詞、副詞，還是 little 這類講數量的字。",
+    "little 和 a little 意思相反：中文「不太注意」是說注意得很少、幾乎沒有，英文寫 little attention，前面不加 a。劍橋文法〈Little, a little, few, a few〉說明，little、few 帶否定的意思，指比預期或希望的少（not as much as may be expected or wished for），例句 They had little money to spend（他們沒什麼錢可以花）；a little、a few 的意思是「一些」，例句 She saves a little money every month（她每個月存一點錢）。並排看：[pay little attention]（幾乎不注意）／[pay a little attention]（注意一些）。little 和 a little 都接不可數名詞，attention 是不可數名詞。",
+    "也可以不用 so … that，改用連接詞 so 帶出結果，並排看：[Many students pay so little attention to reading skills that they waste…]（so … that 接成一句）／[Many students do not pay much attention to the way they read, so they waste…]（so 當連接詞帶出結果，和 77 年大學聯考中譯英第 1 題一樣）。劍橋文法〈Little, a little, few, a few〉把 little 的意思解釋成 not much（不多），所以中文「不太注意」寫 do not pay much attention 也可以。"
+   ],
+   "collocation": [
+    "reading skills（閱讀技巧）——這一段談的是怎麼讀英文，「讀書的方法」本題庫寫 reading skills。劍橋詞典 skill 的釋義是因為練習過而能把一件事做好的能力（an ability to do an activity or job well, especially because you have practised it）。要照中文寫「方法」，可以寫 the way they read（他們讀的方式）；劍橋文法〈Way〉說明，way 可以當「方法」講。23 的「方法正確」寫的是 the method。",
+    "precious time（寶貴的時間）——劍橋詞典 precious 的釋義是因為稀少、昂貴或重要而很有價值（of great value because of being rare, expensive, or important），例句 It might avoid wasting precious time（這樣也許可以避免浪費寶貴的時間），和本題的 waste … precious time 是同一組搭配。"
+   ],
+   "mustHave": [
+    "中文「以至於浪費許多寶貴的時間」沒寫是誰浪費，英文的 that 子句要補上主詞 they，指前面的 many students：that they waste a lot of precious time。"
+   ],
+   "refs": [
+    {
+     "label": "80 年大學聯考中譯英第 4 題（so filthy that）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-44"
+    },
+    {
+     "label": "88 年大學聯考中譯英第 2 題（so late that）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-79"
+    },
+    {
+     "label": "77 年大學聯考中譯英第 1 題（so 帶出結果）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-26"
+    },
+    {
+     "label": "76 年大學聯考中譯英第 2 題（同一段的下一題）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-22"
+    }
+   ]
+  }
  },
  {
   "id": 22,
@@ -173,7 +209,38 @@
   "label": "大學聯考",
   "yearLabel": "76 (大學聯考)",
   "zh": "他們讀英文讀了好幾年，還是看不懂相當容易的文章。",
-  "en": "They have studied English for many years, but they still cannot understand articles which are rather easy."
+  "en": "They have studied English for many years, but they still cannot understand articles which are rather easy.",
+  "altAnswers": [
+   "Although they have studied English for many years, they still cannot understand articles which are rather easy."
+  ],
+  "explanation": {
+   "pattern": [
+    "先找標記，再決定時態。「讀了好幾年」是從幾年前一直讀到現在，現在還在讀，用現在完成式 have studied … for many years。劍橋文法〈Past simple or present perfect?〉說明，現在完成式講的是到現在為止的時間，事情發生在過去，但和現在有關；同一頁把 I haven't seen her for over 20 years（到現在已經二十多年沒見到她）和 I didn't see her for over 20 years and then I bumped into her last week（有二十多年沒見到她，上週卻碰到了）放在一起對照。for + 一段時間講的是持續多久，要用哪一個時態，看那段時間到現在結束了沒有。並排看：[They have studied English for many years.]（讀到現在，還在讀）／[They studied English for many years.]（那幾年已經過去，現在不讀了）。本題的學生讀到現在，還是看不懂文章，所以用現在完成式。",
+    "but 和 still：中文「還是看不懂」前面沒寫「但是」，英文兩個子句要用連接詞接起來，這裡用 but。still 表示情況一直沒有改變，劍橋文法〈Still〉說明，still 在否定句裡要放在助動詞或情態助動詞前面，例句 I still can't find Kay's phone number，所以寫 they still cannot understand，不寫 they cannot still understand。也可以用 although 帶出讓步的子句：Although they have studied English for many years, they still cannot understand…，although 和 but 只用一個，和 78 年大學聯考中譯英第 3 題一樣。",
+    "rather + 形容詞（相當…）：rather easy 是「相當容易」。劍橋文法〈Rather〉說明，rather 放在形容詞、副詞前面加強語氣，意思和 quite 相近，比 quite 正式，常用來表示出乎意料（We often use it to express something unexpected or surprising）。本題用 rather easy 正好：讀了好幾年英文，連相當容易的文章都看不懂，是出乎意料的事。91 年學測第 15 題的題幹 His behavior at the party last night seemed rather out of place. Many of us were quite surprised. 也是這種語氣，後一句就說大家都很驚訝。"
+   ],
+   "mustHave": [
+    "中文「還是看不懂」沒寫是誰看不懂，英文的第二個子句要補上主詞 they：but they still cannot understand…。「他們」指的是 21 那些不太注意讀書方法的學生。"
+   ],
+   "refs": [
+    {
+     "label": "78 年大學聯考中譯英第 3 題（雖然…，不加 but）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-33"
+    },
+    {
+     "label": "91 年學測第 15 題（rather out of place）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0135"
+    },
+    {
+     "label": "76 年大學聯考中譯英第 1 題（同一段的前一題）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-21"
+    },
+    {
+     "label": "76 年大學聯考中譯英第 3 題（同一段的下一題）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-23"
+    }
+   ]
+  }
  },
  {
   "id": 23,
@@ -208,7 +275,47 @@
   "label": "大學聯考",
   "yearLabel": "76 (大學聯考)",
   "zh": "在老師還沒有講解課文之前，一定要自己先讀兩三遍。",
-  "en": "Before your teacher explains the text to you, you must go over it two or three times."
+  "en": "Before your teacher explains the text to you, you must go over it two or three times.",
+  "altAnswers": [
+   "Before your teacher explains the text to you, you must read it by yourself two or three times."
+  ],
+  "explanation": {
+   "pattern": [
+    "Before + 現在式：老師講解課文是還沒發生的事，但 before 帶出的時間子句用現在式，寫 Before your teacher explains the text，不寫 will explain。劍橋文法〈Before〉說明，before 帶出的子句用現在式時，可以指將來，例句 Before I go to work, I jog for at least an hour，不寫 Before I will go to work。107 年學測中譯英第 2 題的 When a typhoon strikes 也是這樣：講將來的事，when、before、after、until、as soon as 帶出的時間副詞子句都用現在式，不用 will。",
+    "中文「在老師還沒有講解課文之前」，「還沒有…之前」是中文的習慣說法，英文的 before 本身就是「在…之前」，照事情本身寫肯定句 Before your teacher explains…，不加 not。劍橋文法〈Before〉說明，before 的意思是比所說的時間或事件早（earlier than the time or event mentioned）；寫成 Before your teacher doesn't explain…，意思就變成「在老師不講解之前」，說不通。",
+    "explain + 事情 + to + 人（向某人解釋某事）：劍橋文法〈Explain〉說明，explain 後面接要解釋的事，聽的人用 to 帶出，例句 Can you explain the route to me?，不寫 Can you explain me the route?。本題寫 explains the text to you，不寫 explains you the text。"
+   ],
+   "collocation": [
+    "go over（仔細讀、複習）——劍橋詞典 go over 的釋義之一是研讀或講解某樣東西（to study or explain something），例句 I always go over my notes just before I go into an exam（我進考場前總會把筆記再看一遍）。本題寫 go over it two or three times，it 指前面的 the text。寫 read it two or three times 也可以。",
+    "by yourself（自己、不靠別人）——中文「自己先讀」，本題庫的英文沒有把「自己」譯出來，因為 before 子句已經交代是在老師講解之前讀；要譯出來就寫 by yourself。劍橋詞典 (all) by yourself 的釋義是獨自一人，或沒有任何人幫忙（alone or without help from anyone else）。98 年學測中譯英第 1 題的官方參考答案寫的是 by themselves。",
+    "text（課文）——劍橋詞典 text 有一個意思是課程裡要讀的書或文章（a book or piece of writing that you study as part of a course）。77 年大學聯考中譯英第 4 題的 the dialogues in the text 也是這個意思。"
+   ],
+   "mustHave": [
+    "中文「一定要自己先讀兩三遍」沒寫是誰要讀，英文要補上主詞，這裡用泛指的 you，和前半句的 your teacher 前後一致：you must go over it…。「課文」在後半句再提到時用 it，不再重複寫 the text。"
+   ],
+   "refs": [
+    {
+     "label": "107 年學測中譯英第 2 題（時間副詞子句用現在式）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-117"
+    },
+    {
+     "label": "98 年學測中譯英第 1 題（by themselves）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-176"
+    },
+    {
+     "label": "77 年大學聯考中譯英第 4 題（the text）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-29"
+    },
+    {
+     "label": "76 年大學聯考中譯英第 3 題（同一段的前一題）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-23"
+    },
+    {
+     "label": "76 年大學聯考中譯英第 5 題（同一段的下一題）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-25"
+    }
+   ]
+  }
  },
  {
   "id": 25,
@@ -216,7 +323,42 @@
   "label": "大學聯考",
   "yearLabel": "76 (大學聯考)",
   "zh": "不要讀太難的文章，也不要遇到生字就立刻查字典。",
-  "en": "Don't read articles which are too difficult for you and don't look up a new word in a dictionary the moment you see it, either."
+  "en": "Don't read articles which are too difficult for you and don't look up a new word in a dictionary the moment you see it, either.",
+  "altAnswers": [
+   "Don't read articles which are too difficult for you and don't look up a new word in a dictionary as soon as you see it, either."
+  ],
+  "explanation": {
+   "pattern": [
+    "祈使句：中文「不要讀…，也不要…」是給讀者的建議，英文用祈使句 Don't + 原形動詞。英文每個句子都要有主詞，祈使句是例外：劍橋文法〈Imperative clauses (Be quiet!)〉說明，祈使句通常沒有主詞，說話的對象就是主詞，動詞用原形，例句 Don't be late。所以本題兩個子句都以 Don't 開頭；寫成 You don't read… 是直述句，意思變成「你不讀…」。",
+    "either（也不）：中文「也不要」，英文在否定句的句尾用 either，不用 also、too。劍橋文法〈Either〉說明，either 當副詞放在否定的動詞後面，例句 She doesn't like eggs and she doesn't like fish either；〈Also, as well or too?〉也說明，連接兩個否定的意思時用 either，不用 also、as well、too。本題寫 and don't look up a new word…, either。",
+    "the moment (that) + 子句（一…就…）：中文「遇到生字就立刻查字典」，「一…就…」英文可以寫 the moment you see it。劍橋詞典 moment 的例句 The moment (that) I get the money I'll send the ticket，括號裡注明 the moment 等於 as soon as。the moment 帶出的也是時間子句，動詞用現在式 see。寫 as soon as you see it 也可以。",
+    "整段五句的動詞並排看：21 [pay]（現在簡單式：一般的情形）／22 [have studied]（現在完成式：讀到現在）、[cannot understand]（現在）／23 [is]（現在簡單式）／24 [explains]（before 子句用現在式指將來）、[must go over]／25 [Don't read]、[don't look up]（祈使句，動詞用原形）。21 至 23 講一般的情形，24、25 是給讀者的建議。"
+   ],
+   "collocation": [
+    "look up + 字 + in a dictionary（查字典）——look up 是動詞加介副詞的片語動詞，受詞是名詞時可以放在 up 後面，也可以放在中間：look up a new word、look a new word up；受詞是代名詞時一定要放在中間。劍橋文法〈Phrasal verbs〉說明，受詞是人稱代名詞（me、you、him、us 等）時，一律放在介副詞前面，例句 Would you like me to hand them out?，不寫 hand out them。劍橋詞典 look up 的例句 If you don't know what the word means, look it up in a dictionary，寫的就是 look it up，不寫 look up it。94 年指考克漏字第 12 題的 looked up 是另一個意思「抬頭」，後面沒有受詞。"
+   ],
+   "mustHave": [
+    "中文「遇到生字」沒寫是誰遇到，英文的 the moment 子句要補上主詞 you：the moment you see it，it 指前面的 a new word。"
+   ],
+   "refs": [
+    {
+     "label": "107 年學測中譯英第 2 題（時間副詞子句用現在式）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-117"
+    },
+    {
+     "label": "94 年指考克漏字第 12 題（looked up 抬頭）",
+     "url": "https://staresto-create.github.io/zhikao-cloze-test/q/z94-12/"
+    },
+    {
+     "label": "76 年大學聯考中譯英第 4 題（同一段的前一題）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-24"
+    },
+    {
+     "label": "76 年大學聯考中譯英第 1 題（同一段的第一題）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-21"
+    }
+   ]
+  }
  },
  {
   "id": 26,
