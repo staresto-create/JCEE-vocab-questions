@@ -124,8 +124,31 @@
   "year": 75,
   "label": "大學聯考",
   "yearLabel": "75 (大學聯考)",
-  "zh": "今天早晨有一位穿綠色制服的人，把信件送到我們的社區來。",
-  "en": "Every morning a man in a green uniform delivers mail to our community."
+  "zh": "每天早晨有一位穿綠色制服的人，把信件送到我們的社區來。",
+  "en": "Every morning a man in a green uniform delivers mail to our community.",
+  "altAnswers": [
+   "Every morning a man wearing a green uniform delivers mail to our community."
+  ],
+  "explanation": {
+   "pattern": [
+    "75 年大學聯考五題（16 至 20）連成一段，講每天到社區送信的郵差：16 說每天早晨有一位穿綠色制服的人把信件送到社區來，17 說不管晴天或下雨，天天都看得到他，18 說有掛號信要給我們，他就會按門鈴，19 說他認識附近的每一個人，我們每一個人也都認識他，20 說有時候上學途中遇到他，他就微笑跟我打招呼。五句講的都是平常的習慣。",
+    "a man in a green uniform（穿綠色制服的人）：中文「有一位穿綠色制服的人，把信件送到…」，句子的主角是送信的人，英文直接拿 a man 當主詞，「穿綠色制服」用介系詞片語 in a green uniform 放在 a man 後面修飾，動詞只有一個 delivers。劍橋詞典 in 的釋義之一是穿著（wearing），例句 Do you recognize that man in the grey suit?（你認得那個穿灰色西裝的男人嗎？）。也可以寫 a man wearing a green uniform，wearing 帶出的分詞片語一樣放在 a man 後面。不寫 A man wears a green uniform delivers mail，那樣一個句子裡有兩個動詞，中間沒有連接詞。",
+    "現在簡單式講習慣：每天早晨都來送信，是一再發生的事，用現在簡單式 delivers。劍橋文法〈Present simple (I work)〉說明，現在簡單式可以講經常、習慣性的事，例句 I read every night before I go to sleep。"
+   ],
+   "collocation": [
+    "deliver mail（送信）——劍橋詞典 deliver 的釋義是把貨品、信件、包裹送到別人的住處或工作的地方（to take goods, letters, parcels, etc. to people's houses or places of work），例句 Mail is delivered to our office twice a day（信件一天送到我們辦公室兩次）。"
+   ],
+   "mustHave": [
+    "中文「信件」沒有單複數，英文寫 mail 時是不可數名詞，不加 s，前面也不加 a：delivers mail，不寫 delivers mails。劍橋詞典把「信件」這個意思的 mail 標為不可數（例句 She spent the morning reading and answering her mail），寫成可數的 mails 是另一個意思，指電子郵件。道理和 furniture、luggage 一樣：劍橋文法〈Nouns: countable and uncountable〉說明，指一類東西總稱的名詞是不可數名詞，不加 a／an、不接數字，也不用複數，例句 We're going to get new furniture for the living room，不寫 a new furniture 或 new furnitures。mail 指的是寄來的信件整批，不是一封一封數。要一封一封數，就寫 letters：deliver letters to our community。",
+    "中文「有一位…的人」的「有」不必譯出來，英文直接用 a man 當主詞；要用 there is 帶出，後面就得加關係代名詞：There is a man in a green uniform who delivers mail…。"
+   ],
+   "refs": [
+    {
+     "label": "75 年大學聯考中譯英第 2 題（同一段的下一題）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-17"
+    }
+   ]
+  }
  },
  {
   "id": 17,
@@ -133,7 +156,33 @@
   "label": "大學聯考",
   "yearLabel": "75 (大學聯考)",
   "zh": "無論是晴天或下雨，天天都可以看到他。",
-  "en": "Rain or shine, we can see him every day."
+  "en": "Rain or shine, we can see him every day.",
+  "altAnswers": [
+   "Whether it is sunny or rainy, we can see him every day."
+  ],
+  "explanation": {
+   "pattern": [
+    "rain or shine（不管晴天或下雨）：中文「無論是晴天或下雨」，英文有現成的說法 rain or shine，放在句首，後面加逗號。劍橋詞典 rain or shine 的釋義是不管發生什麼事（whatever happens），例句 Come rain or shine, I'll see you on Thursday（不管怎樣，我們星期四見）。",
+    "也可以用 whether … or 帶出子句：Whether it is sunny or rainy, we can see him every day。劍橋文法〈Whether〉說明，whether … or 帶出兩個選項；同一頁也說明，whether … or not 常用來表示「不管是不是…都一樣」（it's not important if），例句 He always said what he thought, whether it was polite or not。本題把晴天、下雨兩個選項都寫出來，道理一樣。whether 子句也要有主詞，談天氣用 it：whether it is sunny or rainy，和 79 年大學聯考中譯英第 1 題的 It was quite warm 一樣。"
+   ],
+   "mustHave": [
+    "中文「天天都可以看到他」沒寫是誰看到，英文要補上主詞，這裡用 we，指社區裡的人，和 19 的 every one of us 一致。"
+   ],
+   "refs": [
+    {
+     "label": "79 年大學聯考中譯英第 1 題（it 當主詞談天氣）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-36"
+    },
+    {
+     "label": "75 年大學聯考中譯英第 1 題（同一段的前一題）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-16"
+    },
+    {
+     "label": "75 年大學聯考中譯英第 3 題（同一段的下一題）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-18"
+    }
+   ]
+  }
  },
  {
   "id": 18,
@@ -141,7 +190,41 @@
   "label": "大學聯考",
   "yearLabel": "75 (大學聯考)",
   "zh": "如果有掛號信要送給我們，他就會在門口按一下鈴。",
-  "en": "Whenever he has registered letters for us, he will ring the doorbell."
+  "en": "Whenever he has registered letters for us, he will ring the doorbell.",
+  "altAnswers": [
+   "If there is a registered letter for us, he rings the doorbell."
+  ],
+  "explanation": {
+   "pattern": [
+    "Whenever + 現在簡單式（每次…）：中文「如果有掛號信要送給我們，他就會…」，講的是每次有掛號信都這樣，所以英文用 whenever，子句裡用現在簡單式 he has。85 年大學聯考中譯英第 1 題的 Whenever we have a vacation 也是這樣寫。寫 if 也可以：If there is a registered letter for us…。",
+    "will 講習慣：主要子句的 he will ring the doorbell 講的不是將來，是他一向會這麼做。劍橋文法〈Will〉說明，will 可以用來講經常發生的事（We use will to refer to events that happen often）。85 年大學聯考中譯英第 1 題的 I'll travel somewhere in Taiwan 也是這個用法。寫現在簡單式 he rings the doorbell 也可以，一樣講習慣。"
+   ],
+   "collocation": [
+    "registered letter（掛號信）——劍橋詞典 registered mail 的釋義是用特別的方式處理信件或包裹、確保不會遺失的寄送服務（a way of sending letters or packages by using a service that deals with them in a special way and makes sure they do not get lost），例句 You'd better send the check (by) registered mail。一封一封的掛號信寫 registered letters。",
+    "ring the doorbell（按門鈴）——中文「按一下鈴」，英文用 ring，讓門鈴響。劍橋詞典 doorbell 的例句 He rang the doorbell twice（他按了兩次門鈴）。"
+   ],
+   "mustHave": [
+    "中文「如果有掛號信要送給我們」沒寫是誰有，英文要補上主詞：寫 he has registered letters for us，主詞是郵差；也可以用 there is 帶出：If there is a registered letter for us，和 80 年大學聯考中譯英第 2 題的 there was a clear brook 一樣。"
+   ],
+   "refs": [
+    {
+     "label": "85 年大學聯考中譯英第 1 題（Whenever、will 講習慣）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-63"
+    },
+    {
+     "label": "80 年大學聯考中譯英第 2 題（there was）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-42"
+    },
+    {
+     "label": "75 年大學聯考中譯英第 2 題（同一段的前一題）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-17"
+    },
+    {
+     "label": "75 年大學聯考中譯英第 4 題（同一段的下一題）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-19"
+    }
+   ]
+  }
  },
  {
   "id": 19,
@@ -149,7 +232,33 @@
   "label": "大學聯考",
   "yearLabel": "75 (大學聯考)",
   "zh": "他認識我們附近的每一個人，而我們每一個人也都認識他。",
-  "en": "He knows everyone in our neighborhood, and everyone of us also knows him."
+  "en": "He knows everyone in our neighborhood, and every one of us also knows him.",
+  "altAnswers": [
+   "He knows everyone in our neighborhood, and all of us know him, too."
+  ],
+  "explanation": {
+   "pattern": [
+    "everyone 和 every one：原英文寫 everyone of us，要改成兩個字 every one of us。劍橋文法〈Every〉說明，寫成一個字的 everyone 意思是「每個人」，例句 Everyone enjoyed themselves；後面接 of 加代名詞或限定詞時，要寫成兩個字 every one of，例句 There are 107 two-letter words in the dictionary and John Catto … knows every one of them。本題前半的 everyone in our neighborhood 是「附近的每一個人」，寫一個字；後半「我們每一個人」後面接 of us，寫 every one of us。",
+    "every one of us 講的是我們之中的每一個，動詞配 one 用單數 knows，不寫 know。劍橋文法〈Every〉也說明，every 指主詞時動詞用單數，例句 Every player wants to be in a winning team。改用 all of us 當主詞，動詞就用複數 know：all of us know him, too。"
+   ],
+   "mustHave": [
+    "後半「我們每一個人也都認識他」，英文的主詞是 every one of us，動詞用單數 knows。"
+   ],
+   "refs": [
+    {
+     "label": "78 年大學聯考中譯英第 5 題（everyone 配單數動詞）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-35"
+    },
+    {
+     "label": "75 年大學聯考中譯英第 3 題（同一段的前一題）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-18"
+    },
+    {
+     "label": "75 年大學聯考中譯英第 5 題（同一段的下一題）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-20"
+    }
+   ]
+  }
  },
  {
   "id": 20,
@@ -157,7 +266,34 @@
   "label": "大學聯考",
   "yearLabel": "75 (大學聯考)",
   "zh": "有時候我在上學的途中遇到他，他就以微笑跟我打招呼。",
-  "en": "Sometimes I meet him on my way to school, and he greets me with a smile."
+  "en": "Sometimes I meet him on my way to school, and he greets me with a smile.",
+  "altAnswers": [
+   "Sometimes I run into him on my way to school, and he greets me with a smile."
+  ],
+  "explanation": {
+   "pattern": [
+    "整段五句的動詞並排看：16 [delivers]／17 [can see]／18 [has]、[will ring]／19 [knows]／20 [meet]、[greets]。五句講的都是平常的習慣，用現在簡單式；18 的 will 講的也是習慣，不是將來。劍橋文法〈Present simple (I work)〉說明，現在簡單式可以講經常、習慣性的事，例句 I read every night before I go to sleep。中文的動詞沒有時態變化，要靠「每天早晨」「天天」「有時候」這些字判斷是習慣，不寫過去式。",
+    "greet + 人 + with + 方式（用…跟某人打招呼）：中文「以微笑跟我打招呼」，英文寫 greets me with a smile，打招呼的方式用 with 帶出。劍橋詞典 greet 的例句 The teacher greeted each child with a friendly \"Hello!\"（老師用一聲親切的「哈囉」跟每個孩子打招呼）。"
+   ],
+   "collocation": [
+    "on one's way to + 地點（在去…的路上）——所有格要和主詞一致：I 寫 on my way to school，he 寫 on his way to school。89 年大學聯考中譯英第 3 題寫的是 on his way to school。",
+    "meet／run into（遇到）——中文「遇到他」，寫 meet him 就可以；要強調是碰巧遇到，寫 run into him，劍橋詞典 run into 的釋義是碰到認識的人，事先沒有料到（to meet someone you know when you are not expecting to）。"
+   ],
+   "refs": [
+    {
+     "label": "89 年大學聯考中譯英第 3 題（on his way to school）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-85"
+    },
+    {
+     "label": "75 年大學聯考中譯英第 4 題（同一段的前一題）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-19"
+    },
+    {
+     "label": "75 年大學聯考中譯英第 1 題（同一段的第一題）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-16"
+    }
+   ]
+  }
  },
  {
   "id": 21,
