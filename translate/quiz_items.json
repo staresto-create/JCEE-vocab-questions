@@ -5,7 +5,30 @@
   "label": "大學聯考",
   "yearLabel": "73 (大學聯考)",
   "zh": "他點頭表示贊同。",
-  "en": "He indicated approval with a nod."
+  "en": "He indicated approval with a nod.",
+  "altAnswers": [
+   "He nodded in approval.",
+   "He showed his approval with a nod."
+  ],
+  "explanation": {
+   "pattern": [
+    "73 年大學聯考十題（1 至 10）各是一句獨立的話，不連成一段。",
+    "with + 方式（用…做某事）：中文「點頭表示贊同」，「點頭」是動詞，英文把它寫成名詞 a nod，用 with 帶出表示的方式：indicated approval with a nod。75 年大學聯考中譯英第 5 題的 greets me with a smile 也是這樣，打招呼的方式用 with 帶出。也可以直接用動詞 nod：He nodded in approval，劍橋詞典 nod 的例句 She tasted the sauce and nodded in approval（她嚐了嚐醬汁，點頭表示滿意）。",
+    "兩種寫法並排看：[He indicated approval with a nod.]（動詞是 indicated，nod 當名詞，用 with 帶出）／[He nodded in approval.]（動詞就是 nodded，贊同的意思用 in approval 帶出）。"
+   ],
+   "collocation": [
+    "a nod of approval／nod in approval（點頭表示贊同）——劍橋詞典 approval 的例句 The teacher gave the student a nod of approval（老師對學生點頭表示讚許）。要講「同意對方的說法」，劍橋詞典 nod 另有例句 Many people in the audience nodded in agreement（台下很多人點頭表示同意）。"
+   ],
+   "mustHave": [
+    "中文「點頭表示贊同」沒有冠詞，英文要分：nod 當名詞是可數的，一次點頭寫 a nod；approval 在劍橋詞典標為不可數，前面不加 a，寫 indicated approval。"
+   ],
+   "refs": [
+    {
+     "label": "75 年大學聯考中譯英第 5 題（greets me with a smile）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-20"
+    }
+   ]
+  }
  },
  {
   "id": 2,
@@ -13,7 +36,31 @@
   "label": "大學聯考",
   "yearLabel": "73 (大學聯考)",
   "zh": "我深信寫日記的價值。",
-  "en": "I am convinced of the value of keeping a diary."
+  "en": "I am convinced of the value of keeping a diary.",
+  "altAnswers": [
+   "I am convinced that keeping a diary is valuable.",
+   "I firmly believe in the value of keeping a diary."
+  ],
+  "explanation": {
+   "pattern": [
+    "be convinced of + 名詞／be convinced that + 子句（深信…）：中文「我深信寫日記的價值」，英文寫 I am convinced of the value of keeping a diary，深信的內容用 of 帶出。convinced 是形容詞，意思是確信（certain），所以前面要有 be 動詞 am；劍橋詞典的例句 I'm convinced (that) she is lying，後面也可以接 that 子句。把中文改成「我深信寫日記是有價值的」，就寫 I am convinced that keeping a diary is valuable。",
+    "of 後面接動名詞：the value of keeping a diary 的 of 是介系詞，「寫日記」要寫成動名詞 keeping a diary，不寫 the value of keep a diary。109 年指考中譯英第 2 題的 the fun of exploring cultural treasures 也是這樣，of 是介系詞，後面一律接動名詞。",
+    "兩種寫法並排看：[I am convinced of the value of keeping a diary.]（convinced 後面接 of + 名詞）／[I am convinced that keeping a diary is valuable.]（convinced 後面接 that 子句，子句的主詞是動名詞片語 keeping a diary，動詞用單數 is）。"
+   ],
+   "collocation": [
+    "keep a diary（寫日記）——中文說「寫」日記，英文常用 keep，指每天固定記下來。劍橋詞典 keep 的釋義是固定記錄事情，以後可以查閱（to make a regular record of events or other information so that you can refer to it later），例句 I've kept a diary for twelve years now（我寫日記已經十二年了）。",
+    "believe in（相信…有用、是對的）——劍橋詞典的釋義是確信某件事有效、是對的（to be confident that something is effective and right），例句 They don't believe in living together before marriage。「深信寫日記的價值」也可以寫 I firmly believe in the value of keeping a diary。"
+   ],
+   "mustHave": [
+    "中文「我深信」的「深信」是動詞，英文的 convinced 是形容詞，前面一定要有 be 動詞：I am convinced of…，不寫 I convinced of…。"
+   ],
+   "refs": [
+    {
+     "label": "109 年指考中譯英第 2 題（the fun of exploring）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-127"
+    }
+   ]
+  }
  },
  {
   "id": 3,
@@ -21,7 +68,35 @@
   "label": "大學聯考",
   "yearLabel": "73 (大學聯考)",
   "zh": "就交通安全而言，台北大部分駕駛員應該再受教育。",
-  "en": "As far as traffic safety is concerned, most drivers in Taipei should be reeducated."
+  "en": "As far as traffic safety is concerned, most drivers in Taipei should be reeducated.",
+  "altAnswers": [
+   "When it comes to traffic safety, most drivers in Taipei should be reeducated.",
+   "As far as traffic safety is concerned, most of the drivers in Taipei should be reeducated."
+  ],
+  "explanation": {
+   "pattern": [
+    "As far as + 名詞 + is concerned（就…而言）：放在句首，後面加逗號，再接主要子句。劍橋詞典 concerned 把 as far as something is concerned 解釋為談到或想到某件事的時候（if we are discussing or thinking about a particular thing），例句 As far as unemployment's concerned, a change of policy on job creation would be a good idea。也可以寫 When it comes to traffic safety, …。",
+    "被動語態 should be + 過去分詞：中文「駕駛員應該再受教育」，駕駛員是接受教育的一方，英文要寫成被動 should be reeducated。should 是助動詞，後面接原形 be，再接過去分詞 reeducated。並排看：[Most drivers in Taipei should reeducate themselves.]（主動，駕駛員自己再進修）／[Most drivers in Taipei should be reeducated.]（被動，駕駛員接受別人的教育）。",
+    "most 的兩種用法：most 可以當形容詞，直接放在名詞前面，意思是「大部分的」，和 many、some 一樣，所以寫 most drivers in Taipei，不寫 most of drivers。most 也可以當代名詞，意思是「大部分的人、大部分的東西」，這時後面不能直接接名詞，要用介系詞 of 帶出是哪一群裡的大部分，of 後面的名詞要加 the 這類字，指特定的一群：most of the drivers in Taipei。84 年大學聯考中譯英第 5 題講過 most 的兩種用法。"
+   ],
+   "collocation": [
+    "reeducate（再教育）——美式字典寫成一個字 reeducate，英式的劍橋詞典寫成 re-educate，釋義是讓人接受新的訓練（to give someone training in new tasks, activities, etc.）。re- 是字首，意思是「再」。",
+    "traffic safety（交通安全）——safety 指防止意外，和 road safety、food safety 同一類。110 年學測中譯英第 2 題講過 safety 和 security 的分別。"
+   ],
+   "mustHave": [
+    "中文用「受」表示駕駛員是接受教育的一方，英文要寫成被動：should be reeducated，不寫 should reeducate。"
+   ],
+   "refs": [
+    {
+     "label": "84 年大學聯考中譯英第 5 題（most 的兩種用法）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-62"
+    },
+    {
+     "label": "110 年學測中譯英第 2 題（safety 和 security）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-131"
+    }
+   ]
+  }
  },
  {
   "id": 4,
@@ -29,7 +104,31 @@
   "label": "大學聯考",
   "yearLabel": "73 (大學聯考)",
   "zh": "假如當時受到鼓勵和幫助，他就不會失敗了。",
-  "en": "Given encouragement and help, he would not have failed."
+  "en": "Given encouragement and help, he would not have failed.",
+  "altAnswers": [
+   "If he had been given encouragement and help, he would not have failed.",
+   "Had he been given encouragement and help, he would not have failed."
+  ],
+  "explanation": {
+   "pattern": [
+    "與過去事實相反的假設語氣：中文「假如當時受到鼓勵和幫助，他就不會失敗了」，講的是過去沒有發生的事，他其實沒有得到鼓勵和幫助，也真的失敗了。假設語氣的動詞倒推一個時態：與現在事實相反，用過去式；與過去事實相反，用過去完成式。所以條件子句寫 If he had been given…，主要子句寫 would not have failed。劍橋文法〈Conditionals: if〉說明，想像過去不同的情況和不同的結果，條件子句用 if + 過去完成式，主要子句用 would + have + 過去分詞，例句 If I had played better, I would have won.（我沒打好，也沒贏。）",
+    "過去分詞片語當條件：本題的英文把條件子句 If he had been given encouragement and help 簡化成 Given encouragement and help。英國文化協會 LearnEnglish〈Participle clauses〉說明，過去分詞片語可以表示和 if 相近的條件，例句 Used in this way, participles can make your writing more concise。他是得到鼓勵和幫助的一方，所以用過去分詞 given。84 年學測中譯英第 4 題講過，被動的分詞構句保留過去分詞。",
+    "三種寫法並排看：[If he had been given encouragement and help, he would not have failed.]（if 子句，過去完成式）／[Had he been given encouragement and help, he would not have failed.]（拿掉 if，把 had 移到主詞前面）／[Given encouragement and help, he would not have failed.]（過去分詞片語）。劍橋文法〈Conditionals: other expressions (unless, should, as long as)〉說明，正式的場合可以拿掉 if，把 had 移到主詞前面，例句 Had I known you were waiting outside, I would have invited you to come in。",
+    "和事實對照：[He failed.]（過去簡單式，講真正發生的事）／[He would not have failed.]（would + have + 過去分詞，講和過去事實相反的想像）。"
+   ],
+   "collocation": [
+    "encouragement（鼓勵）——劍橋詞典標為不可數，前面不加 a，例句 Children need lots of encouragement from their parents（孩子需要父母很多的鼓勵）。help 當名詞也不加 a，寫 encouragement and help。"
+   ],
+   "mustHave": [
+    "中文「他就不會失敗了」沒有標時態，英文要看「當時」判斷是過去，而且和事實相反，主要子句寫 would not have failed，不寫 would not fail。"
+   ],
+   "refs": [
+    {
+     "label": "84 年學測中譯英第 4 題（被動的分詞構句）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-101"
+    }
+   ]
+  }
  },
  {
   "id": 5,
@@ -37,7 +136,23 @@
   "label": "大學聯考",
   "yearLabel": "73 (大學聯考)",
   "zh": "強大的國防是和平與自由最確切的保證。",
-  "en": "A strong national defense is the most certain guarantee of peace and freedom."
+  "en": "A strong national defense is the most certain guarantee of peace and freedom.",
+  "altAnswers": [
+   "A strong national defense is the surest guarantee of peace and freedom.",
+   "A strong national defense is the best guarantee of peace and freedom."
+  ],
+  "explanation": {
+   "pattern": [
+    "guarantee of + 名詞（…的保證）：中文「和平與自由最確切的保證」，英文寫 the most certain guarantee of peace and freedom，保證的內容用 of 帶出。劍橋詞典 guarantee 的例句 A product as good as that is a guarantee of commercial success（那麼好的產品，一定會在商業上成功）。",
+    "最高級前面加 the：「最確切的」寫 the most certain。certain 的意思是確定、可靠，劍橋詞典 certain 的釋義提到確實有效（known to be … effective）。也可以寫 the surest guarantee，劍橋詞典 sure 的例句 There is only one sure way of finding out the truth；sure 只有一個音節，最高級寫 surest。寫 the best guarantee 也可以。"
+   ],
+   "collocation": [
+    "national defense（國防）——defense 是美式拼法，英式拼成 defence，劍橋詞典 defense 標為 defence 的美式拼法。"
+   ],
+   "mustHave": [
+    "中文「最確切的保證」沒有冠詞，英文的最高級前面要加 the：the most certain guarantee。"
+   ]
+  }
  },
  {
   "id": 6,
