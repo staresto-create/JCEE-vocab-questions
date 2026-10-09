@@ -85,7 +85,30 @@
   "label": "大學聯考",
   "yearLabel": "74 (大學聯考)",
   "zh": "這一篇文章值得仔細閱讀。",
-  "en": "This article is worth reading carefully."
+  "en": "This article is worth reading carefully.",
+  "altAnswers": [
+   "It is worth reading this article carefully."
+  ],
+  "explanation": {
+   "pattern": [
+    "74 年大學聯考五題（11 至 15）各是一句獨立的話，不連成一段。",
+    "be worth + V-ing（值得做某事）：中文「值得仔細閱讀」，英文寫 is worth reading carefully。劍橋文法〈Worth or worthwhile?〉說明，worth 是形容詞，只放在 be、seem、look 這類動詞後面；be worth doing something 是常用的說法，意思是某件事有用或重要到值得去做，例句 We decided it wasn't worth going all the way to London to buy books we could get on the Internet。worth 後面接動名詞 reading，不接不定詞，所以不寫 worth to read。讀這篇文章的是讀者，這篇文章只是讀的對象，所以英文照樣用主動的 reading，不寫被動的 worth being read。95 年指考篇章結構第 42 題的答案句 trying to write in a way that is interesting and worth reading，用的也是 worth reading。",
+    "主詞就是讀的對象：讀的是這篇文章，所以 reading 後面不再補受詞，不寫 This article is worth reading it。道理和 76 年大學聯考中譯英第 3 題的難易形容詞一樣：English reading ability is not difficult to develop，develop 後面也不寫 it。英文也可以用 it 開頭，把讀的對象放到 reading 後面，劍橋文法同一頁的例句 Is it worth phoning her, do you think? 就是這個寫法。並排看：[This article is worth reading carefully.]（主詞 this article 就是讀的對象，reading 後面不寫 it）／[It is worth reading this article carefully.]（it 開頭，讀的對象 this article 放在 reading 後面）。"
+   ],
+   "mustHave": [
+    "中文的「值得」是動詞，英文的 worth 是形容詞，前面一定要有 be 動詞：This article is worth reading，不寫 This article worths reading。"
+   ],
+   "refs": [
+    {
+     "label": "76 年大學聯考中譯英第 3 題（主詞就是後面動詞的對象）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-23"
+    },
+    {
+     "label": "95 年指考篇章結構第 42 題（worth reading）",
+     "url": "https://staresto-create.github.io/discourse-structure/q/dz95-42/"
+    }
+   ]
+  }
  },
  {
   "id": 12,
@@ -93,7 +116,34 @@
   "label": "大學聯考",
   "yearLabel": "74 (大學聯考)",
   "zh": "中國字很難寫嗎？",
-  "en": "Is it very hard to write Chinese characters?"
+  "en": "Is it very hard to write Chinese characters?",
+  "altAnswers": [
+   "Are Chinese characters very hard to write?",
+   "Is writing Chinese characters very hard?"
+  ],
+  "explanation": {
+   "pattern": [
+    "it 當虛主詞：中文「中國字很難寫嗎？」，難的是寫中國字這件事，英文寫成不定詞片語 to write Chinese characters。英文習慣先用 it 占住主詞的位置，真正的主詞挪到句尾：Is it very hard to write Chinese characters?。劍橋文法〈It〉說明，it 可以預告句子真正的主詞，特別是真正的主詞是 to + 原形動詞或 that 子句的時候，例句 It was nice to talk with them again。77 年大學聯考中譯英第 2 題的 it is very hard to learn to speak English 也是同一個結構。",
+    "三種寫法並排看：[Is it very hard to write Chinese characters?]（it 當虛主詞，真正的主詞 to write Chinese characters 在句尾）／[Are Chinese characters very hard to write?]（Chinese characters 當主詞，write 後面不再寫 them，也不寫被動的 to be written，和 76 年大學聯考中譯英第 3 題的 not difficult to develop 一樣）／[Is writing Chinese characters very hard?]（動名詞片語 writing Chinese characters 當主詞，動詞用單數 is）。",
+    "為什麼不寫 to be written：Are Chinese characters very hard to write? 背後有一個沒寫出來的寫字的人，完整的意思是 Is it very hard (for people) to write Chinese characters?。寫字的是 people，Chinese characters 只是搬到句首的受詞，所以不定詞照樣用主動的 to write，不寫 Are Chinese characters very hard to be written?。劍橋詞典 please 的例句 he did what he could to please her, but she was hard to please 也是這樣：取悅她的是別人，she 只是取悅的對象，please 照樣用主動。"
+   ],
+   "collocation": [
+    "Chinese characters（中國字）——character 指寫字或印刷用的字母、數字或符號，劍橋詞典 character 的例句 The address was written in Chinese characters（地址是用中國字寫的）。中文說的「字」是一個一個寫出來的字，英文用 character，不寫 Chinese words。"
+   ],
+   "mustHave": [
+    "中文「中國字很難寫嗎？」的主詞是「中國字」。英文用 it 開頭時，主詞換成 it，真正的主詞 to write Chinese characters 放到句尾；直接拿 Chinese characters 當主詞時，複數的主詞配 are，問句寫 Are Chinese characters very hard to write?。"
+   ],
+   "refs": [
+    {
+     "label": "77 年大學聯考中譯英第 2 題（it 當虛主詞）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-27"
+    },
+    {
+     "label": "76 年大學聯考中譯英第 3 題（難易形容詞）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-23"
+    }
+   ]
+  }
  },
  {
   "id": 13,
@@ -101,7 +151,28 @@
   "label": "大學聯考",
   "yearLabel": "74 (大學聯考)",
   "zh": "那一位戴黃帽子的外國人是誰？",
-  "en": "Who is the foreigner that is wearing a yellow hat?"
+  "en": "Who is the foreigner that is wearing a yellow hat?",
+  "altAnswers": [
+   "Who is the foreigner wearing a yellow hat?",
+   "Who is that foreigner in a yellow hat?"
+  ],
+  "explanation": {
+   "pattern": [
+    "Who 放在句首：中文「…的外國人是誰？」把「是誰」放在句尾，英文的疑問詞 who 放在句首，後面接 be 動詞 is 和主詞 the foreigner：Who is the foreigner…?。",
+    "關係子句修飾名詞：that is wearing a yellow hat 放在 the foreigner 後面，說明是哪一位外國人。that 一方面把子句接在 the foreigner 後面，做的是連接詞的工作，一方面又當子句裡 is wearing 的主詞，所以不能省略。劍橋文法〈Relative pronouns〉說明，關係代名詞當子句的受詞時才可以省略；本題的 that 是主詞，不能省。",
+    "who 或 that：劍橋文法同一頁說明，指人的關係代名詞一般用 who，that 也可以指人，語氣比較口語。教學上則常說，句子以疑問詞 who 開頭時，關係代名詞改用 that，避免兩個 who 連在一起，本題就是這樣寫：Who is the foreigner that is wearing a yellow hat?。",
+    "三種寫法並排看：[Who is the foreigner that is wearing a yellow hat?]（關係子句）／[Who is the foreigner wearing a yellow hat?]（分詞片語 wearing a yellow hat）／[Who is that foreigner in a yellow hat?]（介系詞片語 in a yellow hat）。三種修飾語都放在 foreigner 後面；75 年大學聯考中譯英第 1 題的 a man in a green uniform、a man wearing a green uniform 也是這樣寫。"
+   ],
+   "mustHave": [
+    "中文把「戴黃帽子的」放在「外國人」前面，英文的修飾語要放在 foreigner 後面：the foreigner that is wearing a yellow hat。"
+   ],
+   "refs": [
+    {
+     "label": "75 年大學聯考中譯英第 1 題（in a green uniform、wearing a green uniform）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-16"
+    }
+   ]
+  }
  },
  {
   "id": 14,
@@ -109,7 +180,30 @@
   "label": "大學聯考",
   "yearLabel": "74 (大學聯考)",
   "zh": "天氣一天比一天熱起來了。",
-  "en": "It is getting hotter day by day."
+  "en": "It is getting hotter day by day.",
+  "altAnswers": [
+   "The weather is getting hotter day by day.",
+   "It is getting hotter and hotter."
+  ],
+  "explanation": {
+   "pattern": [
+    "現在進行式講逐漸的變化：中文「熱起來了」講的是天氣正在變熱，現在還在變，英文用現在進行式 is getting。劍橋文法〈Present continuous (I am working)〉說明，現在進行式可以講逐漸的變化（a gradual change），例句 Maria, 37, is getting better and doctors are optimistic she will make a full recovery。中文的「了」在這裡講的是情況有了變化，不是過去的事，所以不寫過去式。並排看：[It is hot today.]（現在簡單式，講今天的狀態）／[It is getting hotter day by day.]（現在進行式，講天氣正在一天天變熱）。",
+    "get + 比較級（變得更…）：get 後面接形容詞，意思是變得，hot 改成比較級 hotter。hot 是一個母音加一個子音結尾，比較級要重複字尾的 t，寫 hotter，不寫 hoter；劍橋文法〈Comparison: adjectives〉列的例子是 bigger、hotter、thinner。",
+    "比較級 and 比較級，意思是「越來越…」：劍橋文法同一頁說明，講人或事物正在變化、某種性質越來越強時，可以用兩個 -er 的比較級中間加 and，例句 The weather is getting hotter and hotter，後面不接 than。所以「天氣一天比一天熱」也可以寫 It is getting hotter and hotter。"
+   ],
+   "collocation": [
+    "day by day（一天比一天）——劍橋詞典的釋義是每天，或隨著每一天過去越來越…（every day, or more and more as each day passes），例句 The demand for this product is increasing day by day（這項產品的需求一天比一天多）。"
+   ],
+   "mustHave": [
+    "中文「天氣一天比一天熱起來了」的主詞是「天氣」，英文常換成 it 當主詞，寫 It is getting hotter；這個 it 不指任何東西，是替句子補上主詞。劍橋文法〈It〉說明，it 可以當「空」的主詞，因為它不指任何特定的東西，例句 I know it's going to rain today!。79 年大學聯考中譯英第 1 題的 It was quite warm 也是這樣寫。寫 The weather is getting hotter day by day 也可以。"
+   ],
+   "refs": [
+    {
+     "label": "79 年大學聯考中譯英第 1 題（it 當主詞談天氣）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-36"
+    }
+   ]
+  }
  },
  {
   "id": 15,
@@ -117,7 +211,34 @@
   "label": "大學聯考",
   "yearLabel": "74 (大學聯考)",
   "zh": "我不是告訴過你，我到車站的時候他們已經走了嗎？",
-  "en": "Haven't I told you that they had already gone when I got to the station?"
+  "en": "Haven't I told you that they had already gone when I got to the station?",
+  "altAnswers": [
+   "Didn't I tell you that they had already left when I got to the station?",
+   "Didn't I tell you that they had already gone when I arrived at the station?"
+  ],
+  "explanation": {
+   "pattern": [
+    "否定問句（不是…嗎？）：中文「我不是告訴過你…嗎？」不是真的在問有沒有說，是說話的人認為自己說過，要對方想起來。英文用否定的問句：Haven't I told you…?。劍橋文法〈Questions: yes-no questions (Are you feeling cold?)〉說明，否定的是非問句通常用來確認自己相信或預料是對的事，例句 Isn't that Pauline's car?。89 年學測克漏字第 19 題考的就是否定問句 Didn't you…?。",
+    "Haven't I told you 或 Didn't I tell you：告訴是以前的事，沒說是什麼時候，現在完成式和過去簡單式都可以用。劍橋文法〈British and American English〉說明，現在完成式在美式英文裡比較少用，美式英文常在英式英文用現在完成式的地方用過去簡單式，例句 Did I already ask you that?（英式寫 Have I already asked you that?）。用 Didn't 時，後面接原形 tell，不寫 Didn't I told you。",
+    "先找標記，再決定時態。他們走在前，我到車站在後，兩件事都在過去，所以把先發生的那一件退一個時態，用過去完成式 had already gone 標出來；到車站用過去簡單式 got。劍橋文法〈Past perfect simple (I had worked)〉說明，過去完成式講的是到過去某一個時間點為止的事，就像現在完成式講的是到現在為止的事。並排看：[I got to the station.]（過去簡單式，我到了車站）／[They had already gone.]（過去完成式，我到之前他們已經走了）／[Haven't I told you…?]（現在完成式，到現在為止我已經告訴過你）。81 年大學聯考中譯英第 1 題的 he had gone to the United States 也是這樣標出先後。「已經走了」也可以寫 had already left。"
+   ],
+   "collocation": [
+    "get to + 地點（到達）——劍橋詞典 get 的一個意思是到達某個地方（to reach or arrive at a particular place），例句 If you get to the restaurant before us, just wait at the bar。也可以寫 arrive at the station：劍橋文法〈Word patterns: arrive somewhere〉說明，到達建築物這類地點用 arrive at，到達城市、國家用 arrive in，不寫 arrive to。寫 reach 時，後面直接接地點：reach the station。"
+   ],
+   "mustHave": [
+    "中文「我到車站的時候他們已經走了」有兩件事，中文沒有標時態，英文要分出先後：先走的寫 had already gone，後到的寫 got。"
+   ],
+   "refs": [
+    {
+     "label": "89 年學測克漏字第 19 題（否定問句 Didn't you）",
+     "url": "https://staresto-create.github.io/grammar-cloze-test/q/g89-19-1/"
+    },
+    {
+     "label": "81 年大學聯考中譯英第 1 題（had gone）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-46"
+    }
+   ]
+  }
  },
  {
   "id": 16,
