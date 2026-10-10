@@ -5272,6 +5272,709 @@
      "list": "sister"
     }
    ]
+  },
+  {
+   "key": "fect / fic",
+   "zh": "做",
+   "note": "拉丁文 facere「做」。加上字首以後，fac 常變成 fect 或 fic，字首決定怎麼做：往外做出來（effect 效果、efficient 做得出成果的）、對著做（affect 影響）、往裡面做（infect 感染）、徹底做完（perfect 完美的）、做到一半離開，也就是做不到（defect 缺點、deficit 不足額）、補上、供應得上（sufficient 足夠的）、往前做（profit 利潤、proficiency 精通）。affection 原本是心受到作用以後的狀態，後來縮窄成「喜愛」。這一族還有 fact／fac、feat／fair 兩支，排在後面。特別注意 fiction 雖然也有 fic，卻來自另一個拉丁字 fingere「捏塑」。",
+   "items": [
+    {
+     "w": "affect",
+     "lv": 2,
+     "kk": "əˈfɛkt",
+     "p": "af 朝向 + fect 做",
+     "g": "v. 對著…做→影響；感動",
+     "refs": [
+      {
+       "s": "gcz",
+       "id": "G93_24_2",
+       "t": "學測克漏字 93年 第24格",
+       "k": "a"
+      },
+      {
+       "s": "zcz",
+       "id": "Z95_24",
+       "t": "指考克漏字 95年 第24格",
+       "k": "d"
+      }
+     ]
+    },
+    {
+     "w": "effect",
+     "lv": 2,
+     "kk": "ɪˈfɛkt",
+     "p": "ef（ex）往外 + fect 做",
+     "g": "n. 做出來的東西→效果、影響",
+     "refs": [
+      {
+       "s": "zhikao",
+       "id": "ZK0332",
+       "t": "81聯考 單字Q9",
+       "k": "d"
+      },
+      {
+       "s": "ep",
+       "id": "86",
+       "t": "作文字彙表 86學年 side effects"
+      }
+     ]
+    },
+    {
+     "w": "effective",
+     "lv": 2,
+     "kk": "ɪˈfɛktɪv",
+     "p": "effect 效果 + -ive",
+     "g": "adj. 有效的",
+     "refs": [
+      {
+       "s": "gsat",
+       "id": "V0167",
+       "t": "92學測補考 單字Q2",
+       "k": "d"
+      },
+      {
+       "s": "gcz",
+       "id": "G99_25_2",
+       "t": "學測克漏字 99年 第25格",
+       "k": "d"
+      },
+      {
+       "s": "gcz",
+       "id": "G93_24_2",
+       "t": "學測克漏字 93年 第24格",
+       "k": "d"
+      }
+     ]
+    },
+    {
+     "w": "perfect",
+     "lv": 2,
+     "kk": "（形容詞）ˈpɝfɪkt　（動詞）pɚˈfɛkt",
+     "p": "per 徹底 + fect 做",
+     "g": "adj. 徹底做完的→完美的；v. 使完美"
+    },
+    {
+     "w": "efficient",
+     "lv": 3,
+     "kk": "ɪˈfɪʃənt",
+     "p": "ef（ex 往外）+ fic 做 + -ient",
+     "g": "adj. 做得出成果的→有效率的",
+     "refs": [
+      {
+       "s": "gsat",
+       "id": "V0084",
+       "t": "88推薦甄選 單字Q9",
+       "k": "a"
+      },
+      {
+       "s": "gsat",
+       "id": "V0405",
+       "t": "107學測 單字Q15",
+       "k": "d"
+      },
+      {
+       "s": "gsat",
+       "id": "V0307",
+       "t": "101學測 單字Q7",
+       "k": "d"
+      }
+     ]
+    },
+    {
+     "w": "sufficient",
+     "lv": 3,
+     "kk": "səˈfɪʃənt",
+     "p": "suf（sub 往上）+ fic 做 + -ient（拉丁文 sufficere 補上、供應）",
+     "g": "adj. 補上去、供應得上→足夠的",
+     "refs": [
+      {
+       "s": "gsat",
+       "id": "V0202",
+       "t": "94學測 單字Q7",
+       "k": "d"
+      },
+      {
+       "s": "zhikao",
+       "id": "ZK0256",
+       "t": "88聯考 單字Q3",
+       "k": "a"
+      },
+      {
+       "s": "ep",
+       "id": "107",
+       "t": "作文字彙表 107學年 sufficient funds"
+      }
+     ]
+    },
+    {
+     "w": "profit",
+     "lv": 3,
+     "kk": "ˈprɑfɪt",
+     "p": "pro 往前 + fit（拉丁文 proficere 進展）",
+     "g": "n. 往前進展→利潤、收益；v. 獲益",
+     "refs": [
+      {
+       "s": "gsat",
+       "id": "V0387",
+       "t": "106學測 單字Q12",
+       "k": "d"
+      },
+      {
+       "s": "zhikao",
+       "id": "ZK0011",
+       "t": "109指考補考 單字Q1",
+       "k": "d"
+      },
+      {
+       "s": "gcz",
+       "id": "G99_30_3",
+       "t": "學測克漏字 99年 第30格",
+       "k": "d"
+      }
+     ]
+    },
+    {
+     "w": "infection",
+     "lv": 4,
+     "kk": "ɪnˈfɛkʃən",
+     "p": "infect 感染 + -ion",
+     "g": "n. 感染"
+    },
+    {
+     "w": "perfection",
+     "lv": 4,
+     "kk": "pɚˈfɛkʃən",
+     "p": "perfect 使完美 + -ion",
+     "g": "n. 完美",
+     "refs": [
+      {
+       "s": "zhikao",
+       "id": "ZK0243",
+       "t": "89聯考 單字Q4",
+       "k": "a"
+      },
+      {
+       "s": "ep",
+       "id": "104",
+       "t": "作文字彙表 104學年 expect nothing but perfection"
+      }
+     ]
+    },
+    {
+     "w": "efficiency",
+     "lv": 4,
+     "kk": "ɪˈfɪʃənsi",
+     "p": "efficient 有效率的 + -cy",
+     "g": "n. 效率",
+     "refs": [
+      {
+       "s": "tr",
+       "id": "121",
+       "t": "中譯英 108(學測) 第121題"
+      }
+     ]
+    },
+    {
+     "w": "affection",
+     "lv": 5,
+     "kk": "əˈfɛkʃən",
+     "p": "affect 作用於 + -ion（拉丁文 affectio 心的狀態）",
+     "g": "n. 心受到作用以後的狀態→喜愛、感情",
+     "refs": [
+      {
+       "s": "zhikao",
+       "id": "ZK0052",
+       "t": "106指考 單字Q2",
+       "k": "d"
+      },
+      {
+       "s": "zhikao",
+       "id": "ZK0298",
+       "t": "84聯考 單字Q5",
+       "k": "d"
+      },
+      {
+       "s": "ep",
+       "id": "115",
+       "t": "作文字彙表 115學年 affection"
+      }
+     ]
+    },
+    {
+     "w": "infect",
+     "lv": 5,
+     "kk": "ɪnˈfɛkt",
+     "p": "in 往裡面 + fect 做",
+     "g": "v. 放進去浸染→感染；使（情緒）感染",
+     "refs": [
+      {
+       "s": "gsat",
+       "id": "V0325",
+       "t": "102學測 單字Q10",
+       "k": "d"
+      }
+     ]
+    },
+    {
+     "w": "deficit",
+     "lv": 5,
+     "kk": "ˈdɛfəsɪt",
+     "p": "拉丁文 deficit「它不夠」（de 離開 + fic 做）",
+     "g": "n. 做得不夠的部分→不足額、赤字"
+    },
+    {
+     "w": "affectionate",
+     "lv": 6,
+     "kk": "əˈfɛkʃənət",
+     "p": "affection + -ate",
+     "g": "adj. 充滿感情的、深情的",
+     "refs": [
+      {
+       "s": "zhikao",
+       "id": "ZK0109",
+       "t": "102指考 單字Q7",
+       "k": "d"
+      }
+     ]
+    },
+    {
+     "w": "infectious",
+     "lv": 6,
+     "kk": "ɪnˈfɛkʃəs",
+     "p": "infection 感染 + -ous",
+     "g": "adj. 傳染性的；有感染力的",
+     "refs": [
+      {
+       "s": "zhikao",
+       "id": "ZK0009",
+       "t": "110指考 單字Q9",
+       "k": "a"
+      },
+      {
+       "s": "tr",
+       "id": "114",
+       "t": "中譯英 105(指考) 第114題"
+      }
+     ]
+    },
+    {
+     "w": "defect",
+     "lv": 6,
+     "kk": "（名詞）ˈdifɛkt　（動詞）dɪˈfɛkt",
+     "p": "de 離開 + fect 做",
+     "g": "n. 沒做好的地方→缺點、瑕疵；v. 叛逃、脫離（某陣營）",
+     "refs": [
+      {
+       "s": "zhikao",
+       "id": "ZK0107",
+       "t": "102指考 單字Q5",
+       "k": "d"
+      }
+     ]
+    },
+    {
+     "w": "proficiency",
+     "lv": 6,
+     "kk": "prəˈfɪʃənsi",
+     "p": "proficient 精通的 + -cy",
+     "g": "n. 精通、熟練",
+     "refs": [
+      {
+       "s": "tr",
+       "id": "174",
+       "t": "中譯英 97(指考研究用試卷卷二) 第174題"
+      }
+     ]
+    }
+   ],
+   "dropped": [
+    {
+     "why": "來自拉丁文 fingere「捏塑」→捏造、虛構，跟 facere 無關",
+     "list": "fiction"
+    }
+   ]
+  },
+  {
+   "key": "fact / fac",
+   "zh": "做（facere 的另外兩種面貌）",
+   "note": "fact 是 facere 的過去分詞 factum「做過的事」，所以是「事實」。factor 原本是做事的人，後來在數學裡指「因數」，再引申成促成結果的「因素」；factory 是做東西的地方→工廠，manufacture 是用手做→製造，satisfy 是做得足夠→使滿意。facil 是拉丁文 facilis「容易的」（容易做的），也是從 facere 來的：facility 是讓事情容易做的東西→設施，facilitate 是使容易→促進，faculty 是做事的能力→才能，後來也指一門學問、大學裡的學院，再指全體教師；difficulty 是 dis（否定）加上 facilis，不容易→困難，至於 difficult，是後來從 difficulty 去掉 -y 變出來的。",
+   "items": [
+    {
+     "w": "fact",
+     "lv": 1,
+     "kk": "fækt",
+     "p": "拉丁文 factum 做過的事",
+     "g": "n. 做過的事→事實",
+     "refs": [
+      {
+       "s": "zcz",
+       "id": "Z102_18",
+       "t": "指考克漏字 102年 第18格",
+       "k": "d"
+      },
+      {
+       "s": "tr",
+       "id": "125",
+       "t": "中譯英 109(學測) 第125題"
+      },
+      {
+       "s": "tr",
+       "id": "82",
+       "t": "中譯英 88(大學聯考) 第82題"
+      }
+     ]
+    },
+    {
+     "w": "factory",
+     "lv": 1,
+     "kk": "ˈfæktəri",
+     "p": "fact 做 + -ory",
+     "g": "n. 做東西的地方→工廠"
+    },
+    {
+     "w": "difficult",
+     "lv": 1,
+     "kk": "ˈdɪfəˌkʌlt",
+     "p": "從 difficulty 去掉 -y 變來的（dif（dis 否定）+ ficult，來自拉丁文 facilis 容易的）",
+     "g": "adj. 不容易的→困難的",
+     "refs": [
+      {
+       "s": "gcz",
+       "id": "G113_14_1",
+       "t": "學測克漏字 113年 第14格",
+       "k": "a"
+      },
+      {
+       "s": "zcz",
+       "id": "Z95_21",
+       "t": "指考克漏字 95年 第21格",
+       "k": "d"
+      },
+      {
+       "s": "tr",
+       "id": "203",
+       "t": "中譯英 106(學測) 第203題"
+      }
+     ]
+    },
+    {
+     "w": "factor",
+     "lv": 2,
+     "kk": "ˈfæktɚ",
+     "p": "fact 做 + -or",
+     "g": "n. 做事的人→（數學）因數→促成結果的因素",
+     "refs": [
+      {
+       "s": "gsat",
+       "id": "V0416",
+       "t": "108學測 單字Q11",
+       "k": "a"
+      }
+     ]
+    },
+    {
+     "w": "satisfy",
+     "lv": 2,
+     "kk": "ˈsætɪsˌfaɪ",
+     "p": "satis 足夠 + fy（facere 做）",
+     "g": "v. 做得足夠→使滿意",
+     "refs": [
+      {
+       "s": "gsat",
+       "id": "V0002",
+       "t": "83推薦甄選 單字Q2",
+       "k": "d"
+      },
+      {
+       "s": "zhikao",
+       "id": "ZK0268",
+       "t": "87聯考 單字Q5",
+       "k": "d"
+      },
+      {
+       "s": "zcz",
+       "id": "Z95_28",
+       "t": "指考克漏字 95年 第28格",
+       "k": "d"
+      }
+     ]
+    },
+    {
+     "w": "difficulty",
+     "lv": 2,
+     "kk": "ˈdɪfəˌkʌlti",
+     "p": "拉丁文 difficultas（dis 否定 + facilis 容易的）",
+     "g": "n. 困難",
+     "refs": [
+      {
+       "s": "tr",
+       "id": "28",
+       "t": "中譯英 77(大學聯考) 第28題"
+      }
+     ]
+    },
+    {
+     "w": "satisfactory",
+     "lv": 3,
+     "kk": "ˌsætɪsˈfæktəri",
+     "p": "satisfy 使滿意（拉丁文 satisfacere 做得足夠）+ -ory",
+     "g": "adj. 令人滿意的",
+     "refs": [
+      {
+       "s": "zhikao",
+       "id": "ZK0336",
+       "t": "98指考參考試卷（99 課綱適用） 單字Q3",
+       "k": "d"
+      }
+     ]
+    },
+    {
+     "w": "manufacture",
+     "lv": 4,
+     "kk": "ˌmænjəˈfækʧɚ",
+     "p": "manu（拉丁文 manus 手）+ fact（facere 做）+ -ure",
+     "g": "n./v. 用手做→製造",
+     "refs": [
+      {
+       "s": "gsat",
+       "id": "V0198",
+       "t": "94學測 單字Q3",
+       "k": "d"
+      }
+     ]
+    },
+    {
+     "w": "manufacturer",
+     "lv": 4,
+     "kk": "ˌmænjəˈfækʧərɚ",
+     "p": "manufacture 製造 + -er",
+     "g": "n. 製造商",
+     "refs": [
+      {
+       "s": "gsat",
+       "id": "V0423",
+       "t": "109學測 單字Q3",
+       "k": "a"
+      }
+     ]
+    },
+    {
+     "w": "satisfaction",
+     "lv": 4,
+     "kk": "ˌsætɪsˈfækʃən",
+     "p": "satisfy 使滿意（拉丁文 satisfacere）+ -tion",
+     "g": "n. 滿意",
+     "refs": [
+      {
+       "s": "gcz",
+       "id": "G94_28_3",
+       "t": "學測克漏字 94年 第28格",
+       "k": "d"
+      }
+     ]
+    },
+    {
+     "w": "facility",
+     "lv": 4,
+     "kk": "fəˈsɪləti",
+     "p": "facil（拉丁文 facilis 容易的）+ -ity",
+     "g": "n. 讓事情容易做的東西→設施；便利；（做事的）才能",
+     "refs": [
+      {
+       "s": "gsat",
+       "id": "V0406",
+       "t": "108學測 單字Q1",
+       "k": "d"
+      },
+      {
+       "s": "gsat",
+       "id": "V0366",
+       "t": "105學測 單字Q6",
+       "k": "d"
+      },
+      {
+       "s": "zhikao",
+       "id": "ZK0148",
+       "t": "98指考 單字Q6",
+       "k": "d"
+      }
+     ]
+    },
+    {
+     "w": "facilitate",
+     "lv": 5,
+     "kk": "fəˈsɪləˌteɪt",
+     "p": "facil 容易的 + -itate",
+     "g": "v. 使容易→促進",
+     "refs": [
+      {
+       "s": "zhikao",
+       "id": "ZK0253",
+       "t": "89聯考 單字Q14",
+       "k": "a"
+      },
+      {
+       "s": "zhikao",
+       "id": "ZK0103",
+       "t": "102指考 單字Q1",
+       "k": "d"
+      },
+      {
+       "s": "gcz",
+       "id": "G114_12_1",
+       "t": "學測克漏字 114年 第12格",
+       "k": "d"
+      }
+     ]
+    },
+    {
+     "w": "faculty",
+     "lv": 5,
+     "kk": "ˈfækəlti",
+     "p": "facul（拉丁文 facultas 能力，來自 facilis 容易的）+ -ty",
+     "g": "n. 能力；（大學的）全體教師；學院",
+     "refs": [
+      {
+       "s": "zhikao",
+       "id": "ZK0119",
+       "t": "101指考 單字Q7",
+       "k": "d"
+      },
+      {
+       "s": "zhikao",
+       "id": "ZK0140",
+       "t": "99指考 單字Q8",
+       "k": "d"
+      }
+     ]
+    },
+    {
+     "w": "faction",
+     "lv": 6,
+     "kk": "ˈfækʃən",
+     "p": "fact（拉丁文 facere 做）+ -ion",
+     "g": "n. 一起做事的一群人→派系"
+    }
+   ],
+   "dropped": []
+  },
+  {
+   "key": "feat / fair",
+   "zh": "做（facere 經法文的一支）",
+   "note": "facere 經古法文進入英文，拼法變成 feat、fair、fash。feature 是做出來的樣子→特色、五官；defeat 是把做好的拆掉→打敗；affair 是古法文 à faire「要做的事」→事情、事務；fashion 是做出來的樣子→流行、方式，跟上一支的 faction 同源。特別注意 feather 只是拼法巧合；traffic 看起來也像，Etymonline 卻說它來源不確定，所以不收進這一家。",
+   "items": [
+    {
+     "w": "feature",
+     "lv": 2,
+     "kk": "ˈfiʧɚ",
+     "p": "feat（拉丁文 facere 做）+ -ure",
+     "g": "n. 做出來的樣子→特色；五官；專題報導；v. 以…為特色；由…主演",
+     "refs": [
+      {
+       "s": "zhikao",
+       "id": "ZK0333",
+       "t": "81聯考 單字Q10",
+       "k": "a"
+      },
+      {
+       "s": "zhikao",
+       "id": "ZK0145",
+       "t": "98指考 單字Q3",
+       "k": "d"
+      },
+      {
+       "s": "gcz",
+       "id": "G99課綱學測參考用試卷_17_1",
+       "t": "學測克漏字 99年 第17格",
+       "k": "d"
+      }
+     ]
+    },
+    {
+     "w": "affair",
+     "lv": 2,
+     "kk": "əˈfɛr",
+     "p": "af（法文 à 去）+ fair（法文 faire 做）",
+     "g": "n. 要去做的事→事情、事務；（引起議論的）事件；外遇",
+     "refs": [
+      {
+       "s": "zhikao",
+       "id": "ZK0273",
+       "t": "87聯考 單字Q10",
+       "k": "a"
+      },
+      {
+       "s": "zhikao",
+       "id": "ZK0042",
+       "t": "107指考 單字Q2",
+       "k": "d"
+      },
+      {
+       "s": "gcz",
+       "id": "G101_16_1",
+       "t": "學測克漏字 101年 第16格",
+       "k": "d"
+      }
+     ]
+    },
+    {
+     "w": "fashion",
+     "lv": 2,
+     "kk": "ˈfæʃən",
+     "p": "古法文 façon 樣子（來自拉丁文 factio 做）",
+     "g": "n. 做出來的樣子→流行、時尚；方式",
+     "refs": [
+      {
+       "s": "gsat",
+       "id": "V0482",
+       "t": "114學測 單字Q2",
+       "k": "d"
+      },
+      {
+       "s": "gcz",
+       "id": "G101_16_1",
+       "t": "學測克漏字 101年 第16格",
+       "k": "d"
+      },
+      {
+       "s": "tr",
+       "id": "118",
+       "t": "中譯英 107(指考) 第118題"
+      }
+     ]
+    },
+    {
+     "w": "defeat",
+     "lv": 4,
+     "kk": "dɪˈfit",
+     "p": "de（dis 反）+ feat 做（古法文 desfait 拆掉的）",
+     "g": "v. 把做好的拆掉→打敗；n. 失敗；擊敗",
+     "refs": [
+      {
+       "s": "gsat",
+       "id": "V0229",
+       "t": "96學測 單字Q4",
+       "k": "d"
+      },
+      {
+       "s": "gsat",
+       "id": "V0155",
+       "t": "92學測 單字Q5",
+       "k": "d"
+      }
+     ]
+    }
+   ],
+   "dropped": [
+    {
+     "why": "Etymonline 說來源不確定，不能確定跟 facere 有關",
+     "list": "traffic"
+    },
+    {
+     "why": "來自古英文 feðer，日耳曼語來源，只是拼法巧合",
+     "list": "feather"
+    }
+   ]
   }
  ],
  "sites": {
