@@ -23073,7 +23073,7 @@
   {
    "key": "ambi-（amb-）",
    "zh": "兩邊、四處",
-   "note": "ambi- 來自拉丁文，意思是「兩邊、四處」。ambiguous 是往兩邊都說得通 → 模稜兩可的。ambition 的來源很有意思：古羅馬想當官的人要四處走動拉票，這個「四處走動」後來就變成了「雄心、抱負」。",
+   "note": "ambi- 來自拉丁文，原本的意思是「四周、四處」，在英文裡最常見的意思是「兩邊、兩個」。ambiguous 用「兩邊」來記：拉丁文 ambiguus 是「有兩種意思的」，往兩邊都說得通 → 模稜兩可的。ambition 用的是「四處」：古羅馬想當官的人要四處走動拉票，這個「四處走動」後來就變成了「雄心、抱負」。兩棲類 amphibian 的 amphi- 是同源的希臘文字首，意思一樣是「兩邊、兩種」：amphi + bios（生命），「過兩種生活」，這個字詞彙表沒有收。",
    "subs": [
     {
      "t": "兩邊、四處",
@@ -23082,8 +23082,8 @@
        "w": "ambiguous",
        "lv": 4,
        "kk": "æmˈbɪgjuəs",
-       "p": "ambi 兩邊 + gu（拉丁文 agere 驅趕）+ -ous",
-       "g": "adj. 心思在兩邊之間晃來晃去→模稜兩可的",
+       "p": "ambi 兩邊 + gu（拉丁文 agere 驅動）+ -ous",
+       "g": "adj. 拉丁文 ambiguus 是「有兩種意思的」→往兩邊都說得通→模稜兩可的",
        "refs": [
         {
          "s": "gsat",
@@ -25196,6 +25196,3357 @@
     {
      "why": "award、reward、coward：ward 不是「朝…方向」。",
      "list": "award、reward 的 ward 來自古法文，跟 guard（看守）同一家，原意是「觀察後決定」；coward 是古法文 coart，來自 coe（尾巴），夾著尾巴逃跑的人 → 懦夫。"
+    }
+   ],
+   "kind": "suffix"
+  },
+  {
+   "key": "-able（-ible）",
+   "zh": "可以（被）…的；有…性質的",
+   "note": "-able 加在動詞後面，意思多半是「可以（被）…的」：accept（接受）加上 -able 是 acceptable（可以接受的），predict（預測）變成 predictable（可以預測的）。加在名詞後面，意思是「有…的、值得…的」，像 comfortable（有舒適感的）、valuable（有價值的）。-ible 跟 -able 是同一個字尾，怎麼拼有個大致的規則：拿掉字尾以後還是一個完整的英文字，多半用 -able（acceptable → accept）；拿掉以後不是一個字，多半用 -ible（visible → vis）。不過也有例外，像 accessible、flexible 拿掉 -ible 還是一個字，所以拼不出來的時候還是要查字典。",
+   "subs": [
+    {
+     "t": "動詞 + -able → 可以（被）…的",
+     "items": [
+      {
+       "w": "acceptable",
+       "lv": 3,
+       "kk": "əkˈsɛptəbəl",
+       "p": "accept 接受 + -able",
+       "g": "adj. 可以接受的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0273",
+         "t": "99學測 單字Q3",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "countable",
+       "lv": 3,
+       "kk": "ˈkaʊntəbəl",
+       "p": "count 數 + -able",
+       "g": "adj. 可以數的、可數的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0448",
+         "t": "110學測 單字Q13",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "enjoyable",
+       "lv": 3,
+       "kk": "ɪnˈʤɔɪəbəl",
+       "p": "enjoy 享受 + -able",
+       "g": "adj. 令人愉快的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0300",
+         "t": "100學測 單字Q15",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "agreeable",
+       "lv": 4,
+       "kk": "əˈgriəbəl",
+       "p": "agree 同意 + -able",
+       "g": "adj. 令人愉快的；欣然同意的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0456",
+         "t": "111學測 單字Q6",
+         "k": "a"
+        }
+       ]
+      },
+      {
+       "w": "admirable",
+       "lv": 4,
+       "kk": "ˈædmɚəbəl",
+       "p": "admire 欽佩 + -able",
+       "g": "adj. 令人欽佩的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0299",
+         "t": "100學測 單字Q14",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0300",
+         "t": "84聯考 單字Q7",
+         "k": "a"
+        }
+       ]
+      },
+      {
+       "w": "desirable",
+       "lv": 3,
+       "kk": "dɪˈzaɪɚəbəl",
+       "p": "desire 渴望 + -able",
+       "g": "adj. 值得擁有的、理想的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0288",
+         "t": "100學測 單字Q3",
+         "k": "a"
+        },
+        {
+         "s": "gsat",
+         "id": "V0110",
+         "t": "90學測 單字Q5",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "comparable",
+       "lv": 5,
+       "kk": "ˈkɑmprəbəl",
+       "p": "compare 比較 + -able",
+       "g": "adj. 可以相比的、比得上的",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0137",
+         "t": "99指考 單字Q5",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "considerable",
+       "lv": 3,
+       "kk": "kənˈsɪdərəbəl",
+       "p": "consider 考慮 + -able",
+       "g": "adj. 值得考慮的→相當大的、可觀的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0311",
+         "t": "101學測 單字Q11",
+         "k": "a"
+        },
+        {
+         "s": "gsat",
+         "id": "V0110",
+         "t": "90學測 單字Q5",
+         "k": "a"
+        },
+        {
+         "s": "gsat",
+         "id": "V0413",
+         "t": "108學測 單字Q8",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "measurable",
+       "lv": 4,
+       "kk": "ˈmɛʒərəbəl",
+       "p": "measure 測量 + -able",
+       "g": "adj. 可以測量的"
+      },
+      {
+       "w": "noticeable",
+       "lv": 5,
+       "kk": "ˈnoʊtəsəbəl",
+       "p": "notice 注意到 + -able",
+       "g": "adj. 看得出來的、明顯的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0434",
+         "t": "109學測 單字Q14",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0321",
+         "t": "82聯考 單字Q8",
+         "k": "a"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0019",
+         "t": "109指考補考 單字Q9",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "reliable",
+       "lv": 3,
+       "kk": "rɪˈlaɪəbəl",
+       "p": "rely 依賴 + -able",
+       "g": "adj. 可以依賴的→可靠的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0261",
+         "t": "98學測 單字Q6",
+         "k": "a"
+        },
+        {
+         "s": "gsat",
+         "id": "V0405",
+         "t": "107學測 單字Q15",
+         "k": "d"
+        },
+        {
+         "s": "gsat",
+         "id": "V0235",
+         "t": "96學測 單字Q10",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "tolerable",
+       "lv": 4,
+       "kk": "ˈtɑlɚəbəl",
+       "p": "tolerate 忍受 + -able",
+       "g": "adj. 可以忍受的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0397",
+         "t": "107學測 單字Q7",
+         "k": "d"
+        },
+        {
+         "s": "gsat",
+         "id": "V0320",
+         "t": "102學測 單字Q5",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "dispensable",
+       "lv": 6,
+       "kk": "dɪˈspɛnsəbəl",
+       "p": "dispense 分發、省掉 + -able",
+       "g": "adj. 可以省掉的、不是必要的",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0120",
+         "t": "101指考 單字Q8",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "indispensable",
+       "lv": 5,
+       "kk": "ˌɪndɪˈspɛnsəbəl",
+       "p": "in 否定 + dispensable 可以省掉的",
+       "g": "adj. 不能省掉的→不可或缺的",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0022",
+         "t": "109指考 單字Q2",
+         "k": "a"
+        },
+        {
+         "s": "ep",
+         "id": "96",
+         "t": "作文字彙表 96學年 indispensable"
+        }
+       ]
+      },
+      {
+       "w": "disposable",
+       "lv": 6,
+       "kk": "dɪˈspoʊzəbəl",
+       "p": "dispose 丟掉 + -able",
+       "g": "adj. 用完就可以丟的→拋棄式的",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0300",
+         "t": "84聯考 單字Q7",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "portable",
+       "lv": 4,
+       "kk": "ˈpɔrtəbəl",
+       "p": "port 帶、搬運 + -able",
+       "g": "adj. 可以帶著走的→手提的、攜帶式的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0183",
+         "t": "93學測 單字Q3",
+         "k": "a"
+        },
+        {
+         "s": "gsat",
+         "id": "V0265",
+         "t": "98學測 單字Q10",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0035",
+         "t": "108指考 單字Q5",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "variable",
+       "lv": 5,
+       "kk": "ˈvɛriəbəl",
+       "p": "vary 變化 + -able",
+       "g": "adj. 會變的、多變的；n. 變數"
+      },
+      {
+       "w": "sustainable",
+       "lv": 5,
+       "kk": "səˈsteɪnəbəl",
+       "p": "sustain 維持 + -able",
+       "g": "adj. 能一直維持下去的→永續的"
+      },
+      {
+       "w": "applicable",
+       "lv": 6,
+       "kk": "ˈæplɪkəbəl",
+       "p": "apply 應用 + -able",
+       "g": "adj. 適用的"
+      },
+      {
+       "w": "irritable",
+       "lv": 6,
+       "kk": "ˈɪrətəbəl",
+       "p": "irritate 激怒 + -able",
+       "g": "adj. 容易生氣的、暴躁的"
+      },
+      {
+       "w": "changeable",
+       "lv": 1,
+       "kk": "ˈʧeɪnʤəbəl",
+       "p": "change 改變 + -able",
+       "g": "adj. 會變的、易變的",
+       "base": "change",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0307",
+         "t": "101學測 單字Q7",
+         "k": "d"
+        },
+        {
+         "s": "zcz",
+         "id": "Z99_14",
+         "t": "指考克漏字 99年 第14格",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "manageable",
+       "lv": 2,
+       "kk": "ˈmænɪʤəbəl",
+       "p": "manage 處理 + -able",
+       "g": "adj. 可以應付的、容易處理的",
+       "base": "manage",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0122",
+         "t": "91學測 單字Q2",
+         "k": "a"
+        },
+        {
+         "s": "gsat",
+         "id": "V0251",
+         "t": "97學測 單字Q11",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0199",
+         "t": "93指考 單字Q7",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "affordable",
+       "lv": 3,
+       "kk": "əˈfɔrdəbəl",
+       "p": "afford 負擔得起 + -able",
+       "g": "adj. 負擔得起的、價格合理的",
+       "base": "afford",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0348",
+         "t": "104學測 單字Q3",
+         "k": "a"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0022",
+         "t": "109指考 單字Q2",
+         "k": "d"
+        },
+        {
+         "s": "tr",
+         "id": "118",
+         "t": "中譯英 107(指考) 第118題"
+        }
+       ]
+      },
+      {
+       "w": "predictable",
+       "lv": 4,
+       "kk": "prɪˈdɪktəbəl",
+       "p": "predict 預測 + -able",
+       "g": "adj. 可以預測的",
+       "base": "predict",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0183",
+         "t": "93學測 單字Q3",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0343",
+         "t": "98指考參考試卷（99 課綱適用） 單字Q6",
+         "k": "a"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0267",
+         "t": "87聯考 單字Q4",
+         "k": "a"
+        }
+       ]
+      },
+      {
+       "w": "unforgettable",
+       "lv": 1,
+       "kk": "ˌʌnfɚˈgɛtəbəl",
+       "p": "un 否定 + forget 忘記 + -able",
+       "g": "adj. 忘不了的、令人難忘的",
+       "base": "forget",
+       "refs": [
+        {
+         "s": "zcz",
+         "id": "Z94_20",
+         "t": "指考克漏字 94年 第20格",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "available",
+       "lv": 2,
+       "kk": "əˈveɪləbəl",
+       "p": "avail 有用、利用 + -able",
+       "g": "adj. 可以利用的→可取得的；有空的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0202",
+         "t": "94學測 單字Q7",
+         "k": "a"
+        },
+        {
+         "s": "gsat",
+         "id": "V0457",
+         "t": "111學測 單字Q7",
+         "k": "d"
+        },
+        {
+         "s": "zcz",
+         "id": "Z94_20",
+         "t": "指考克漏字 94年 第20格",
+         "k": "a"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "t": "名詞 + -able → 有…的、值得…的",
+     "items": [
+      {
+       "w": "comfortable",
+       "lv": 1,
+       "kk": "ˈkʌmfɚtəbəl",
+       "p": "comfort 舒適 + -able",
+       "g": "adj. 舒適的、舒服的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0288",
+         "t": "100學測 單字Q3",
+         "k": "d"
+        },
+        {
+         "s": "tr",
+         "id": "148",
+         "t": "中譯英 93(指考) 第148題"
+        }
+       ]
+      },
+      {
+       "w": "valuable",
+       "lv": 2,
+       "kk": "ˈvæljuəbəl",
+       "p": "value 價值 + -able",
+       "g": "adj. 有價值的、貴重的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0219",
+         "t": "95學測 單字Q9",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0174",
+         "t": "95指考 單字Q2",
+         "k": "d"
+        },
+        {
+         "s": "ep",
+         "id": "97",
+         "t": "作文字彙表 97學年 valuable"
+        }
+       ]
+      },
+      {
+       "w": "invaluable",
+       "lv": 6,
+       "kk": "ɪnˈvæljʊəbəl",
+       "p": "in（這裡表示「無法」）+ valuable",
+       "g": "adj. 價值大到估不出來→非常寶貴的"
+      },
+      {
+       "w": "fashionable",
+       "lv": 3,
+       "kk": "ˈfæʃənəbəl",
+       "p": "fashion 流行 + -able",
+       "g": "adj. 流行的、時髦的",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0234",
+         "t": "90聯考 單字Q10",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0267",
+         "t": "87聯考 單字Q4",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "favorable",
+       "lv": 4,
+       "kk": "ˈfeɪvɚəbəl",
+       "p": "favor 好感、贊同 + -able",
+       "g": "adj. 有利的；贊同的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0448",
+         "t": "110學測 單字Q13",
+         "k": "d"
+        },
+        {
+         "s": "gsat",
+         "id": "V0376",
+         "t": "106學測 單字Q1",
+         "k": "d"
+        },
+        {
+         "s": "gsat",
+         "id": "V0212",
+         "t": "95學測 單字Q2",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "honorable",
+       "lv": 5,
+       "kk": "ˈɑnərəbəl",
+       "p": "honor 榮譽 + -able",
+       "g": "adj. 光榮的；可敬的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0077",
+         "t": "88推薦甄選 單字Q2",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0136",
+         "t": "99指考 單字Q4",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "knowledgeable",
+       "lv": 6,
+       "kk": "ˈnɑlɪʤəbəl",
+       "p": "knowledge 知識 + -able",
+       "g": "adj. 知識豐富的、博學的"
+      },
+      {
+       "w": "memorable",
+       "lv": 4,
+       "kk": "ˈmɛmɚəbəl",
+       "p": "memory 記憶 + -able",
+       "g": "adj. 值得記住的→難忘的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0183",
+         "t": "93學測 單字Q3",
+         "k": "d"
+        },
+        {
+         "s": "ep",
+         "id": "100",
+         "t": "作文字彙表 100學年 memorable"
+        },
+        {
+         "s": "ep",
+         "id": "94",
+         "t": "作文字彙表 94學年 memorable"
+        }
+       ]
+      },
+      {
+       "w": "profitable",
+       "lv": 4,
+       "kk": "ˈprɑfətəbəl",
+       "p": "profit 利潤 + -able",
+       "g": "adj. 有利潤的、有益的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0218",
+         "t": "95學測 單字Q8",
+         "k": "a"
+        },
+        {
+         "s": "gsat",
+         "id": "V0236",
+         "t": "96學測 單字Q11",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "reasonable",
+       "lv": 3,
+       "kk": "ˈrizənəbəl",
+       "p": "reason 道理 + -able",
+       "g": "adj. 合理的；（價格）公道的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0412",
+         "t": "108學測 單字Q7",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0175",
+         "t": "95指考 單字Q3",
+         "k": "d"
+        },
+        {
+         "s": "zcz",
+         "id": "Z109_12",
+         "t": "指考克漏字 109年 第12格",
+         "k": "a"
+        }
+       ]
+      },
+      {
+       "w": "remarkable",
+       "lv": 4,
+       "kk": "rɪˈmɑrkəbəl",
+       "p": "remark 注意、評論 + -able",
+       "g": "adj. 值得注意的→非凡的、出色的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0457",
+         "t": "111學測 單字Q7",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0154",
+         "t": "97指考 單字Q2",
+         "k": "a"
+        }
+       ]
+      },
+      {
+       "w": "respectable",
+       "lv": 4,
+       "kk": "rɪˈspɛktəbəl",
+       "p": "respect 尊敬 + -able",
+       "g": "adj. 值得尊敬的、體面的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0110",
+         "t": "90學測 單字Q5",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "suitable",
+       "lv": 2,
+       "kk": "ˈsutəbəl",
+       "p": "suit 適合 + -able",
+       "g": "adj. 適合的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0249",
+         "t": "97學測 單字Q9",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "charitable",
+       "lv": 6,
+       "kk": "ˈʧærətəbəl",
+       "p": "charity 慈善 + -able",
+       "g": "adj. 慈善的；寬厚的"
+      },
+      {
+       "w": "miserable",
+       "lv": 4,
+       "kk": "ˈmɪzɚəbəl",
+       "p": "miser（拉丁文 miser 可憐的）+ -able",
+       "g": "adj. 悲慘的、痛苦的",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0282",
+         "t": "86聯考 單字Q9",
+         "k": "d"
+        },
+        {
+         "s": "gcz",
+         "id": "G109_21_2",
+         "t": "學測克漏字 109年 第21格",
+         "k": "d"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "t": "字根 + -able／-ible（拿掉字尾不是英文字）",
+     "items": [
+      {
+       "w": "capable",
+       "lv": 3,
+       "kk": "ˈkeɪpəbəl",
+       "p": "cap（拉丁文 capere 拿）+ -able",
+       "g": "adj. 拿得住的→有能力的（be capable of）",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0250",
+         "t": "97學測 單字Q10",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0282",
+         "t": "86聯考 單字Q9",
+         "k": "d"
+        },
+        {
+         "s": "gcz",
+         "id": "G103_23_2",
+         "t": "學測克漏字 103年 第23格",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "durable",
+       "lv": 4,
+       "kk": "ˈdʊrəbəl",
+       "p": "dur（拉丁文 durare 持續）+ -able",
+       "g": "adj. 能持續的→耐用的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0420",
+         "t": "108學測 單字Q15",
+         "k": "d"
+        },
+        {
+         "s": "gsat",
+         "id": "V0368",
+         "t": "105學測 單字Q8",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0115",
+         "t": "101指考 單字Q3",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "probable",
+       "lv": 3,
+       "kk": "ˈprɑbəbəl",
+       "p": "prob（拉丁文 probare 證明）+ -able",
+       "g": "adj. 可以證明的→很可能的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0321",
+         "t": "102學測 單字Q6",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "stable",
+       "lv": 3,
+       "kk": "ˈsteɪbəl",
+       "p": "sta（拉丁文 stare 站）+ -ble",
+       "g": "adj. 站得穩的→穩定的",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0064",
+         "t": "105指考 單字Q4",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "notable",
+       "lv": 6,
+       "kk": "ˈnoʊtəbəl",
+       "p": "not（拉丁文 notare 注意）+ -able",
+       "g": "adj. 值得注意的→著名的、顯著的"
+      },
+      {
+       "w": "formidable",
+       "lv": 6,
+       "kk": "ˈfɔrmɪdəbəl",
+       "p": "formid（拉丁文 formido 恐懼）+ -able",
+       "g": "adj. 令人害怕的→可怕的；難對付的"
+      },
+      {
+       "w": "hospitable",
+       "lv": 6,
+       "kk": "ˈhɑspɪtəbəl",
+       "p": "hospit（拉丁文 hospes 客人；主人）+ -able",
+       "g": "adj. 好客的"
+      },
+      {
+       "w": "inevitable",
+       "lv": 5,
+       "kk": "ɪnˈɛvətəbəl",
+       "p": "in 否定 + evit（拉丁文 evitare 避開）+ -able",
+       "g": "adj. 避不開的→不可避免的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0001",
+         "t": "83推薦甄選 單字Q1",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0248",
+         "t": "89聯考 單字Q9",
+         "k": "a"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0184",
+         "t": "94指考 單字Q2",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "innumerable",
+       "lv": 6,
+       "kk": "ɪˈnjumərəbəl",
+       "p": "in 否定 + numer（拉丁文 numerus 數目）+ -able",
+       "g": "adj. 數不清的"
+      },
+      {
+       "w": "liable",
+       "lv": 6,
+       "kk": "ˈlaɪəbəl",
+       "p": "li（可能來自古法文 lier 綁住）+ -able",
+       "g": "adj. 受約束的→有責任的；容易…的（be liable to）"
+      },
+      {
+       "w": "sociable",
+       "lv": 6,
+       "kk": "ˈsoʊʃəbəl",
+       "p": "soci（拉丁文 socius 夥伴）+ -able",
+       "g": "adj. 喜歡交際的、友善的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0412",
+         "t": "108學測 單字Q7",
+         "k": "d"
+        },
+        {
+         "s": "gsat",
+         "id": "V0250",
+         "t": "97學測 單字Q10",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0133",
+         "t": "99指考 單字Q1",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "viable",
+       "lv": 5,
+       "kk": "ˈvaɪəbəl",
+       "p": "vi（法文 vie 生命）+ -able",
+       "g": "adj. 能活下去的→可行的"
+      },
+      {
+       "w": "vulnerable",
+       "lv": 5,
+       "kk": "ˈvʌlnərəbəl",
+       "p": "vulner（拉丁文 vulnus 傷口）+ -able",
+       "g": "adj. 容易受傷的、脆弱的"
+      },
+      {
+       "w": "possible",
+       "lv": 1,
+       "kk": "ˈpɑsəbəl",
+       "p": "poss（拉丁文 posse 能夠）+ -ible",
+       "g": "adj. 可能的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0001",
+         "t": "83推薦甄選 單字Q1",
+         "k": "d"
+        },
+        {
+         "s": "gcz",
+         "id": "G104_25_2",
+         "t": "學測克漏字 104年 第25格",
+         "k": "d"
+        },
+        {
+         "s": "zcz",
+         "id": "Z98_15",
+         "t": "指考克漏字 98年 第15格",
+         "k": "a"
+        }
+       ]
+      },
+      {
+       "w": "visible",
+       "lv": 3,
+       "kk": "ˈvɪzəbəl",
+       "p": "vis 看 + -ible",
+       "g": "adj. 看得見的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0457",
+         "t": "111學測 單字Q7",
+         "k": "a"
+        },
+        {
+         "s": "gsat",
+         "id": "V0020",
+         "t": "84推薦甄選 單字Q10",
+         "k": "a"
+        },
+        {
+         "s": "gsat",
+         "id": "V0171",
+         "t": "92學測補考 單字Q6",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "credible",
+       "lv": 6,
+       "kk": "ˈkrɛdəbəl",
+       "p": "cred（拉丁文 credere 相信）+ -ible",
+       "g": "adj. 可以相信的、可信的",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0120",
+         "t": "101指考 單字Q8",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "incredible",
+       "lv": 4,
+       "kk": "ɪnˈkrɛdəbəl",
+       "p": "in 否定 + credible 可信的",
+       "g": "adj. 難以置信的→驚人的"
+      },
+      {
+       "w": "edible",
+       "lv": 6,
+       "kk": "ˈɛdəbəl",
+       "p": "ed（拉丁文 edere 吃）+ -ible",
+       "g": "adj. 可以吃的"
+      },
+      {
+       "w": "eligible",
+       "lv": 5,
+       "kk": "ˈɛlɪʤəbəl",
+       "p": "elig（拉丁文 eligere 挑選）+ -ible",
+       "g": "adj. 可以被選上的→有資格的（be eligible for）",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0480",
+         "t": "113學測 單字Q10",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0069",
+         "t": "105指考 單字Q9",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0120",
+         "t": "101指考 單字Q8",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "feasible",
+       "lv": 6,
+       "kk": "ˈfizəbəl",
+       "p": "feas（古法文 faire 做）+ -ible",
+       "g": "adj. 做得到的→可行的",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0245",
+         "t": "89聯考 單字Q6",
+         "k": "a"
+        }
+       ]
+      },
+      {
+       "w": "flexible",
+       "lv": 4,
+       "kk": "ˈflɛksəbəl",
+       "p": "flex 彎 + -ible",
+       "g": "adj. 可以彎的→有彈性的、靈活的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0346",
+         "t": "104學測 單字Q1",
+         "k": "a"
+        },
+        {
+         "s": "gsat",
+         "id": "V0371",
+         "t": "105學測 單字Q11",
+         "k": "d"
+        },
+        {
+         "s": "gsat",
+         "id": "V0336",
+         "t": "103學測 單字Q6",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "accessible",
+       "lv": 5,
+       "kk": "ækˈsɛsəbəl",
+       "p": "access 進入 + -ible",
+       "g": "adj. 可以進入的、可以取得的"
+      },
+      {
+       "w": "compatible",
+       "lv": 5,
+       "kk": "kəmˈpætəbəl",
+       "p": "compat（拉丁文 compati 一起承受）+ -ible",
+       "g": "adj. 能和睦相處的；相容的",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0030",
+         "t": "109指考 單字Q10",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "defensible",
+       "lv": 4,
+       "kk": "dɪˈfɛnsəbəl",
+       "p": "defens（defend 保衛）+ -ible",
+       "g": "adj. 可以防守的；站得住腳的"
+      },
+      {
+       "w": "permissible",
+       "lv": 6,
+       "kk": "pɚˈmɪsəbəl",
+       "p": "permiss（permit 允許）+ -ible",
+       "g": "adj. 可以允許的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0430",
+         "t": "109學測 單字Q10",
+         "k": "a"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0022",
+         "t": "109指考 單字Q2",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "responsible",
+       "lv": 2,
+       "kk": "riˈspɑnsəbəl",
+       "p": "respons（respond 回應）+ -ible",
+       "g": "adj. 要負責回應的→負責任的；造成…的（be responsible for）",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0034",
+         "t": "85推薦甄選 單字Q14",
+         "k": "d"
+        },
+        {
+         "s": "tr",
+         "id": "111",
+         "t": "中譯英 102(指考) 第111題"
+        },
+        {
+         "s": "ep",
+         "id": "91",
+         "t": "作文字彙表 91學年 be responsible for + N／V-ing"
+        }
+       ]
+      },
+      {
+       "w": "sensible",
+       "lv": 3,
+       "kk": "ˈsɛnsəbəl",
+       "p": "sens（拉丁文 sentire 感覺）+ -ible",
+       "g": "adj. 有判斷力的→明智的、合理的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0265",
+         "t": "98學測 單字Q10",
+         "k": "a"
+        },
+        {
+         "s": "gsat",
+         "id": "V0413",
+         "t": "108學測 單字Q8",
+         "k": "d"
+        },
+        {
+         "s": "gcz",
+         "id": "G85_39_2",
+         "t": "學測克漏字 85年 第39格",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "horrible",
+       "lv": 3,
+       "kk": "ˈhɔrəbəl",
+       "p": "horr（拉丁文 horrere 發抖）+ -ible",
+       "g": "adj. 令人發抖的→可怕的；糟透的",
+       "refs": [
+        {
+         "s": "gcz",
+         "id": "G103_23_2",
+         "t": "學測克漏字 103年 第23格",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "terrible",
+       "lv": 1,
+       "kk": "ˈtɛrəbəl",
+       "p": "terr（拉丁文 terrere 嚇）+ -ible",
+       "g": "adj. 可怕的；糟透的",
+       "refs": [
+        {
+         "s": "tr",
+         "id": "138",
+         "t": "中譯英 112(學測) 第138題"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "dropped": [
+    {
+     "why": "table、cable、fable、syllable、vegetable：able 不是字尾。",
+     "list": "這幾個字拿掉 able 以後都不是一個字，也沒有「可以…的」意思：table 是桌子，syllable 是音節。vegetable 雖然來自拉丁文 vegetabilis（生長的），意思早就跟「可以…的」無關。"
+    },
+    {
+     "why": "enable、disable：able 是整個字，不是字尾。",
+     "list": "這兩個字是字首加上 able（能夠的）：enable 是 en（使）+ able，「使能夠」；disable 是 dis（否定）+ able，「使失去能力」。"
+    }
+   ],
+   "kind": "suffix"
+  },
+  {
+   "key": "-ful",
+   "zh": "充滿…的、有…的",
+   "note": "-ful 就是 full（滿的），只少一個 l，加在名詞後面變成形容詞，意思是「充滿…的、有…的」：care（小心）變成 careful（小心的），help（幫助）變成 helpful（有幫助的）。少數加在動詞後面，像 forget 變成 forgetful（健忘的）。另一個用法是加在名詞後面，變成「一…的量」，像 handful（一把），這時候它是名詞。-ful 的反義常常是 -less：careful ↔ careless，useful ↔ useless，harmful ↔ harmless；不過 helpless 是「無助的」，不是 helpful 的反義。",
+   "subs": [
+    {
+     "t": "名詞（少數是動詞）+ -ful → 形容詞「充滿…的、有…的」",
+     "items": [
+      {
+       "w": "careful",
+       "lv": 1,
+       "kk": "ˈkɛrfəl",
+       "p": "care 小心 + -ful",
+       "g": "adj. 小心的、仔細的",
+       "refs": [
+        {
+         "s": "gcz",
+         "id": "G84_23_1",
+         "t": "學測克漏字 84年 第23格",
+         "k": "d"
+        },
+        {
+         "s": "tr",
+         "id": "193",
+         "t": "中譯英 101(指考) 第193題"
+        },
+        {
+         "s": "tr",
+         "id": "11",
+         "t": "中譯英 74(大學聯考) 第11題"
+        }
+       ]
+      },
+      {
+       "w": "helpful",
+       "lv": 1,
+       "kk": "ˈhɛlpfəl",
+       "p": "help 幫助 + -ful",
+       "g": "adj. 有幫助的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0106",
+         "t": "90學測 單字Q1",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "useful",
+       "lv": 1,
+       "kk": "ˈjusfəl",
+       "p": "use 用處 + -ful",
+       "g": "adj. 有用的"
+      },
+      {
+       "w": "beautiful",
+       "lv": 1,
+       "kk": "ˈbjutəfəl",
+       "p": "beauty 美 + -ful",
+       "g": "adj. 美麗的",
+       "refs": [
+        {
+         "s": "tr",
+         "id": "67",
+         "t": "中譯英 85(大學聯考) 第67題"
+        },
+        {
+         "s": "tr",
+         "id": "45",
+         "t": "中譯英 80(大學聯考) 第45題"
+        }
+       ]
+      },
+      {
+       "w": "wonderful",
+       "lv": 1,
+       "kk": "ˈwʌndɚfəl",
+       "p": "wonder 驚奇 + -ful",
+       "g": "adj. 令人驚奇的→極好的"
+      },
+      {
+       "w": "successful",
+       "lv": 1,
+       "kk": "səkˈsɛsfəl",
+       "p": "success 成功 + -ful",
+       "g": "adj. 成功的",
+       "refs": [
+        {
+         "s": "tr",
+         "id": "198",
+         "t": "中譯英 104(學測) 第198題"
+        },
+        {
+         "s": "tr",
+         "id": "175",
+         "t": "中譯英 97(指考研究用試卷卷二) 第175題"
+        }
+       ]
+      },
+      {
+       "w": "powerful",
+       "lv": 2,
+       "kk": "ˈpaʊɚfəl",
+       "p": "power 力量 + -ful",
+       "g": "adj. 強大的、有力的"
+      },
+      {
+       "w": "painful",
+       "lv": 2,
+       "kk": "ˈpeɪnfəl",
+       "p": "pain 痛 + -ful",
+       "g": "adj. 疼痛的；痛苦的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0158",
+         "t": "92學測 單字Q8",
+         "k": "d"
+        },
+        {
+         "s": "tr",
+         "id": "218",
+         "t": "中譯英 97(英文寫作能力研究用試卷·克漏式翻譯) 第218題"
+        }
+       ]
+      },
+      {
+       "w": "peaceful",
+       "lv": 2,
+       "kk": "ˈpisfəl",
+       "p": "peace 和平 + -ful",
+       "g": "adj. 和平的；寧靜的",
+       "refs": [
+        {
+         "s": "tr",
+         "id": "94",
+         "t": "中譯英 83(學測) 第94題"
+        }
+       ]
+      },
+      {
+       "w": "harmful",
+       "lv": 3,
+       "kk": "ˈhɑrmfəl",
+       "p": "harm 傷害 + -ful",
+       "g": "adj. 有害的",
+       "refs": [
+        {
+         "s": "zcz",
+         "id": "Z99_14",
+         "t": "指考克漏字 99年 第14格",
+         "k": "a"
+        },
+        {
+         "s": "tr",
+         "id": "192",
+         "t": "中譯英 101(指考) 第192題"
+        }
+       ]
+      },
+      {
+       "w": "hopeful",
+       "lv": 3,
+       "kk": "ˈhoʊpfəl",
+       "p": "hope 希望 + -ful",
+       "g": "adj. 抱有希望的；有希望的"
+      },
+      {
+       "w": "cheerful",
+       "lv": 3,
+       "kk": "ˈʧɪrfəl",
+       "p": "cheer 歡呼、快樂 + -ful",
+       "g": "adj. 快樂的、開朗的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0417",
+         "t": "108學測 單字Q12",
+         "k": "d"
+        },
+        {
+         "s": "gsat",
+         "id": "V0011",
+         "t": "84推薦甄選 單字Q1",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0309",
+         "t": "83聯考 單字Q6",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "colorful",
+       "lv": 3,
+       "kk": "ˈkʌlɚfəl",
+       "p": "color 顏色 + -ful",
+       "g": "adj. 色彩豐富的；多采多姿的"
+      },
+      {
+       "w": "doubtful",
+       "lv": 3,
+       "kk": "ˈdaʊtfəl",
+       "p": "doubt 懷疑 + -ful",
+       "g": "adj. 懷疑的；不確定的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0001",
+         "t": "83推薦甄選 單字Q1",
+         "k": "a"
+        },
+        {
+         "s": "gsat",
+         "id": "V0389",
+         "t": "106學測 單字Q14",
+         "k": "d"
+        },
+        {
+         "s": "gsat",
+         "id": "V0106",
+         "t": "90學測 單字Q1",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "fearful",
+       "lv": 3,
+       "kk": "ˈfɪrfəl",
+       "p": "fear 害怕 + -ful",
+       "g": "adj. 害怕的；可怕的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0299",
+         "t": "100學測 單字Q14",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "hateful",
+       "lv": 3,
+       "kk": "ˈheɪtfəl",
+       "p": "hate 恨 + -ful",
+       "g": "adj. 可恨的、討厭的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0091",
+         "t": "89學測 單字Q1",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "joyful",
+       "lv": 3,
+       "kk": "ˈʤɔɪfəl",
+       "p": "joy 喜悅 + -ful",
+       "g": "adj. 快樂的、高興的"
+      },
+      {
+       "w": "playful",
+       "lv": 3,
+       "kk": "ˈpleɪfəl",
+       "p": "play 玩 + -ful",
+       "g": "adj. 愛玩的、頑皮的"
+      },
+      {
+       "w": "thankful",
+       "lv": 3,
+       "kk": "ˈθæŋkfəl",
+       "p": "thank 感謝 + -ful",
+       "g": "adj. 感謝的、感激的"
+      },
+      {
+       "w": "truthful",
+       "lv": 3,
+       "kk": "ˈtruθfəl",
+       "p": "truth 真實 + -ful",
+       "g": "adj. 誠實的、真實的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0106",
+         "t": "90學測 單字Q1",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0100",
+         "t": "93敏督利颱風受災地區考生補救考試 單字Q10",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "youthful",
+       "lv": 4,
+       "kk": "ˈjuθfəl",
+       "p": "youth 青春 + -ful",
+       "g": "adj. 年輕的、有朝氣的",
+       "refs": [
+        {
+         "s": "zcz",
+         "id": "Z92_19",
+         "t": "指考克漏字 92年 第19格",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "meaningful",
+       "lv": 3,
+       "kk": "ˈminɪŋfəl",
+       "p": "meaning 意義 + -ful",
+       "g": "adj. 有意義的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0417",
+         "t": "108學測 單字Q12",
+         "k": "d"
+        },
+        {
+         "s": "tr",
+         "id": "102",
+         "t": "中譯英 84(學測) 第102題"
+        },
+        {
+         "s": "tr",
+         "id": "53",
+         "t": "中譯英 83(大學聯考) 第53題"
+        }
+       ]
+      },
+      {
+       "w": "thoughtful",
+       "lv": 4,
+       "kk": "ˈθɔtfəl",
+       "p": "thought 思考 + -ful",
+       "g": "adj. 體貼的；深思的"
+      },
+      {
+       "w": "respectful",
+       "lv": 4,
+       "kk": "rɪˈspɛktfəl",
+       "p": "respect 尊敬 + -ful",
+       "g": "adj. 表示尊敬的、有禮貌的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0064",
+         "t": "87推薦甄選 單字Q4",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0007",
+         "t": "110指考 單字Q7",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "skillful",
+       "lv": 3,
+       "kk": "ˈskɪlfəl",
+       "p": "skill 技能 + -ful",
+       "g": "adj. 熟練的、有技巧的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0200",
+         "t": "94學測 單字Q5",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "faithful",
+       "lv": 4,
+       "kk": "ˈfeɪθfəl",
+       "p": "faith 忠誠、信念 + -ful",
+       "g": "adj. 忠實的、忠誠的",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0104",
+         "t": "102指考 單字Q2",
+         "k": "a"
+        }
+       ]
+      },
+      {
+       "w": "graceful",
+       "lv": 4,
+       "kk": "ˈgreɪsfəl",
+       "p": "grace 優雅 + -ful",
+       "g": "adj. 優雅的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0106",
+         "t": "90學測 單字Q1",
+         "k": "a"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0218",
+         "t": "91指考 單字Q4",
+         "k": "d"
+        },
+        {
+         "s": "ep",
+         "id": "100",
+         "t": "作文字彙表 100學年 graceful"
+        }
+       ]
+      },
+      {
+       "w": "grateful",
+       "lv": 4,
+       "kk": "ˈgreɪtfəl",
+       "p": "grate（拉丁文 gratus 令人愉快的）+ -ful",
+       "g": "adj. 感激的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0253",
+         "t": "97學測 單字Q13",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0144",
+         "t": "98指考 單字Q2",
+         "k": "d"
+        },
+        {
+         "s": "zcz",
+         "id": "Z103_19",
+         "t": "指考克漏字 103年 第19格",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "delightful",
+       "lv": 4,
+       "kk": "dɪˈlaɪtfəl",
+       "p": "delight 欣喜 + -ful",
+       "g": "adj. 令人愉快的"
+      },
+      {
+       "w": "dreadful",
+       "lv": 5,
+       "kk": "ˈdrɛdfəl",
+       "p": "dread 恐懼 + -ful",
+       "g": "adj. 可怕的；糟透的"
+      },
+      {
+       "w": "awful",
+       "lv": 3,
+       "kk": "ˈɔfəl",
+       "p": "awe 敬畏 + -ful",
+       "g": "adj. 原意是「令人敬畏的」→可怕的、糟透的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0362",
+         "t": "105學測 單字Q2",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "shameful",
+       "lv": 4,
+       "kk": "ˈʃeɪmfəl",
+       "p": "shame 羞恥 + -ful",
+       "g": "adj. 可恥的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0234",
+         "t": "96學測 單字Q9",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "lawful",
+       "lv": 4,
+       "kk": "ˈlɔfəl",
+       "p": "law 法律 + -ful",
+       "g": "adj. 合法的"
+      },
+      {
+       "w": "plentiful",
+       "lv": 4,
+       "kk": "ˈplɛntɪfəl",
+       "p": "plenty 大量 + -ful",
+       "g": "adj. 大量的、豐富的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0218",
+         "t": "95學測 單字Q8",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "healthful",
+       "lv": 6,
+       "kk": "ˈhɛlθfəl",
+       "p": "health 健康 + -ful",
+       "g": "adj. 有益健康的"
+      },
+      {
+       "w": "mournful",
+       "lv": 6,
+       "kk": "ˈmoʊrnfəl",
+       "p": "mourn 哀悼 + -ful",
+       "g": "adj. 悲傷的、哀痛的"
+      },
+      {
+       "w": "sorrowful",
+       "lv": 6,
+       "kk": "ˈsɑroʊfəl",
+       "p": "sorrow 悲傷 + -ful",
+       "g": "adj. 悲傷的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0279",
+         "t": "99學測 單字Q9",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0006",
+         "t": "110指考 單字Q6",
+         "k": "a"
+        },
+        {
+         "s": "gcz",
+         "id": "G87_21_1",
+         "t": "學測克漏字 87年 第21格",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "stressful",
+       "lv": 2,
+       "kk": "ˈstrɛsfəl",
+       "p": "stress 壓力 + -ful",
+       "g": "adj. 壓力大的",
+       "base": "stress",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0251",
+         "t": "97學測 單字Q11",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "fruitful",
+       "lv": 1,
+       "kk": "ˈfrutfəl",
+       "p": "fruit 果實 + -ful",
+       "g": "adj. 結很多果實的→有成果的",
+       "base": "fruit",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0109",
+         "t": "90學測 單字Q4",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "disgraceful",
+       "lv": 6,
+       "kk": "dɪsˈgreɪsfəl",
+       "p": "disgrace 恥辱 + -ful",
+       "g": "adj. 丟臉的、可恥的",
+       "base": "disgrace",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0019",
+         "t": "109指考補考 單字Q9",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "forgetful",
+       "lv": 1,
+       "kk": "fɚˈgɛtfəl",
+       "p": "forget 忘記 + -ful",
+       "g": "adj. 健忘的",
+       "base": "forget",
+       "refs": [
+        {
+         "s": "zcz",
+         "id": "Z109R_11",
+         "t": "指考克漏字 109年 第11格",
+         "k": "d"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "t": "名詞 + -ful → 名詞「一…的量」",
+     "items": [
+      {
+       "w": "handful",
+       "lv": 3,
+       "kk": "ˈhændˌfʊl",
+       "p": "hand 手 + -ful",
+       "g": "n. 一把；少數（a handful of）"
+      }
+     ]
+    }
+   ],
+   "dropped": [],
+   "kind": "suffix"
+  },
+  {
+   "key": "-less",
+   "zh": "沒有…的",
+   "note": "-less 來自古英文 -leas（沒有…、免於…），跟 less（較少）拼法一樣，來源卻不同。它加在名詞後面變成形容詞，意思是「沒有…的」：care 變成 careless（粗心的），home 變成 homeless（無家可歸的）。要特別小心的是 priceless，它不是「沒有價值」，而是「價值大到無法估價」→ 無價的，跟 invaluable 一樣容易猜反。regardless 是「不管、不顧」，常用 regardless of。",
+   "subs": [
+    {
+     "t": "名詞（少數是動詞）+ -less → 形容詞「沒有…的」",
+     "items": [
+      {
+       "w": "careless",
+       "lv": 1,
+       "kk": "ˈkɛrlɪs",
+       "p": "care 小心 + -less",
+       "g": "adj. 粗心的",
+       "base": "care",
+       "refs": [
+        {
+         "s": "ep",
+         "id": "97",
+         "t": "作文字彙表 97學年 careless"
+        },
+        {
+         "s": "ep",
+         "id": "92",
+         "t": "作文字彙表 92學年 careless"
+        }
+       ]
+      },
+      {
+       "w": "helpless",
+       "lv": 1,
+       "kk": "ˈhɛlplɪs",
+       "p": "help 幫助 + -less",
+       "g": "adj. 無助的",
+       "base": "help",
+       "refs": [
+        {
+         "s": "ep",
+         "id": "99",
+         "t": "作文字彙表 99學年 helpless"
+        }
+       ]
+      },
+      {
+       "w": "homeless",
+       "lv": 1,
+       "kk": "ˈhoʊmlɪs",
+       "p": "home 家 + -less",
+       "g": "adj. 無家可歸的（the homeless 遊民）",
+       "base": "home",
+       "refs": [
+        {
+         "s": "ep",
+         "id": "98",
+         "t": "作文字彙表 98學年 homeless"
+        }
+       ]
+      },
+      {
+       "w": "meaningless",
+       "lv": 2,
+       "kk": "ˈminɪŋlɪs",
+       "p": "meaning 意義 + -less",
+       "g": "adj. 沒有意義的",
+       "base": "meaning",
+       "refs": [
+        {
+         "s": "tr",
+         "id": "123",
+         "t": "中譯英 108(指考) 第123題"
+        }
+       ]
+      },
+      {
+       "w": "priceless",
+       "lv": 6,
+       "kk": "ˈpraɪslɪs",
+       "p": "price 價格 + -less",
+       "g": "adj. 價格高到算不出來→無價的、非常珍貴的"
+      },
+      {
+       "w": "regardless",
+       "lv": 5,
+       "kk": "rɪˈgɑrdlɪs",
+       "p": "regard 注意、考慮 + -less",
+       "g": "adv. 不管、不顧（regardless of）"
+      },
+      {
+       "w": "reckless",
+       "lv": 6,
+       "kk": "ˈrɛkləs",
+       "p": "reck（古英文「在意」）+ -less",
+       "g": "adj. 不在意後果的→魯莽的",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0019",
+         "t": "109指考補考 單字Q9",
+         "k": "a"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0307",
+         "t": "83聯考 單字Q4",
+         "k": "a"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0147",
+         "t": "98指考 單字Q5",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "relentless",
+       "lv": 6,
+       "kk": "rɪˈlɛntlɪs",
+       "p": "relent 放鬆、讓步 + -less",
+       "g": "adj. 不放鬆的→持續猛烈的、無情的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0085",
+         "t": "88推薦甄選 單字Q10",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "ruthless",
+       "lv": 6,
+       "kk": "ˈruθlɪs",
+       "p": "ruth（中古英文「憐憫」）+ -less",
+       "g": "adj. 沒有憐憫心的→殘忍的"
+      }
+     ]
+    }
+   ],
+   "dropped": [
+    {
+     "why": "unless、bless：less 不是字尾。",
+     "list": "unless 原本是 on less（than），意思是「除非」；bless 來自古英文 bletsian（祝福）。兩個字都沒有「沒有…的」意思。"
+    }
+   ],
+   "kind": "suffix"
+  },
+  {
+   "key": "-ous",
+   "zh": "充滿…的、有…性質的",
+   "note": "-ous 來自拉丁文 -osus（充滿…的），加在名詞後面變成形容詞，意思是「充滿…的、有…性質的」：danger（危險）變成 dangerous，fame（名聲）變成 famous。加上 -ous 時，原本的字常常會變一點拼法：mystery → mysterious，humor → humorous，glamour → glamorous，courage → courageous。另外有不少 -ous 的字，前面是拉丁文字根，拿掉 -ous 不是一個英文字，像 obvious、enormous、generous，這些只能整個字記。",
+   "subs": [
+    {
+     "t": "英文名詞（少數是動詞）+ -ous",
+     "items": [
+      {
+       "w": "dangerous",
+       "lv": 1,
+       "kk": "ˈdeɪnʤərəs",
+       "p": "danger 危險 + -ous",
+       "g": "adj. 危險的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0016",
+         "t": "84推薦甄選 單字Q6",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "famous",
+       "lv": 1,
+       "kk": "ˈfeɪməs",
+       "p": "fame 名聲 + -ous",
+       "g": "adj. 有名的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0286",
+         "t": "100學測 單字Q1",
+         "k": "d"
+        },
+        {
+         "s": "tr",
+         "id": "140",
+         "t": "中譯英 113(學測) 第140題"
+        }
+       ]
+      },
+      {
+       "w": "nervous",
+       "lv": 2,
+       "kk": "ˈnɝvəs",
+       "p": "nerve 神經 + -ous",
+       "g": "adj. 緊張的"
+      },
+      {
+       "w": "humorous",
+       "lv": 3,
+       "kk": "ˈhjumɚəs",
+       "p": "humor 幽默 + -ous",
+       "g": "adj. 幽默的",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0262",
+         "t": "88聯考 單字Q9",
+         "k": "d"
+        },
+        {
+         "s": "ep",
+         "id": "97",
+         "t": "作文字彙表 97學年 humorous"
+        },
+        {
+         "s": "ep",
+         "id": "90",
+         "t": "作文字彙表 90學年 humorous"
+        }
+       ]
+      },
+      {
+       "w": "mysterious",
+       "lv": 4,
+       "kk": "mɪsˈtɪriəs",
+       "p": "mystery 神祕 + -ous",
+       "g": "adj. 神祕的"
+      },
+      {
+       "w": "poisonous",
+       "lv": 4,
+       "kk": "ˈpɔɪznəs",
+       "p": "poison 毒 + -ous",
+       "g": "adj. 有毒的"
+      },
+      {
+       "w": "mountainous",
+       "lv": 4,
+       "kk": "ˈmaʊntənəs",
+       "p": "mountain 山 + -ous",
+       "g": "adj. 多山的"
+      },
+      {
+       "w": "courageous",
+       "lv": 4,
+       "kk": "kəˈreɪʤəs",
+       "p": "courage 勇氣 + -ous",
+       "g": "adj. 勇敢的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0256",
+         "t": "98學測 單字Q1",
+         "k": "d"
+        },
+        {
+         "s": "ep",
+         "id": "104",
+         "t": "作文字彙表 104學年 courageous"
+        }
+       ]
+      },
+      {
+       "w": "glorious",
+       "lv": 4,
+       "kk": "ˈglɔriəs",
+       "p": "glory 光榮 + -ous",
+       "g": "adj. 光榮的；壯麗的",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0182",
+         "t": "95指考 單字Q10",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "joyous",
+       "lv": 6,
+       "kk": "ˈʤɔɪəs",
+       "p": "joy 喜悅 + -ous",
+       "g": "adj. 快樂的、令人高興的",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0067",
+         "t": "105指考 單字Q7",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "envious",
+       "lv": 5,
+       "kk": "ˈɛnviəs",
+       "p": "envy 羨慕 + -ous",
+       "g": "adj. 羨慕的、嫉妒的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0126",
+         "t": "91學測 單字Q6",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0211",
+         "t": "92指考 單字Q7",
+         "k": "a"
+        },
+        {
+         "s": "ep",
+         "id": "103",
+         "t": "作文字彙表 103學年 be envious of sb"
+        }
+       ]
+      },
+      {
+       "w": "furious",
+       "lv": 4,
+       "kk": "ˈfjʊriəs",
+       "p": "fury 憤怒（拉丁文 furiosus）+ -ous",
+       "g": "adj. 狂怒的；猛烈的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0355",
+         "t": "104學測 單字Q10",
+         "k": "a"
+        },
+        {
+         "s": "gsat",
+         "id": "V0484",
+         "t": "114學測 單字Q4",
+         "k": "d"
+        },
+        {
+         "s": "gsat",
+         "id": "V0171",
+         "t": "92學測補考 單字Q6",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "luxurious",
+       "lv": 4,
+       "kk": "lʌgˈʒʊriəs",
+       "p": "luxury 奢侈 + -ous",
+       "g": "adj. 奢華的"
+      },
+      {
+       "w": "marvelous",
+       "lv": 3,
+       "kk": "ˈmɑrvələs",
+       "p": "marvel 奇蹟、驚奇 + -ous",
+       "g": "adj. 令人驚奇的→極好的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0202",
+         "t": "94學測 單字Q7",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0292",
+         "t": "85聯考 單字Q9",
+         "k": "a"
+        }
+       ]
+      },
+      {
+       "w": "monstrous",
+       "lv": 6,
+       "kk": "ˈmɑnstrəs",
+       "p": "monster 怪物 + -ous",
+       "g": "adj. 怪物般的→巨大的；駭人的"
+      },
+      {
+       "w": "miraculous",
+       "lv": 6,
+       "kk": "məˈrækjələs",
+       "p": "miracle 奇蹟 + -ous",
+       "g": "adj. 奇蹟般的"
+      },
+      {
+       "w": "disastrous",
+       "lv": 6,
+       "kk": "dɪzˈæstrəs",
+       "p": "disaster 災難 + -ous",
+       "g": "adj. 災難性的"
+      },
+      {
+       "w": "prosperous",
+       "lv": 4,
+       "kk": "ˈprɑspɚəs",
+       "p": "prosper 繁榮 + -ous",
+       "g": "adj. 繁榮的、富裕的",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0015",
+         "t": "109指考補考 單字Q5",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0136",
+         "t": "99指考 單字Q4",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "religious",
+       "lv": 3,
+       "kk": "rɪˈlɪʤəs",
+       "p": "religion 宗教 + -ous",
+       "g": "adj. 宗教的；虔誠的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0245",
+         "t": "97學測 單字Q5",
+         "k": "d"
+        },
+        {
+         "s": "tr",
+         "id": "216",
+         "t": "中譯英 97(英文寫作能力研究用試卷·克漏式翻譯) 第216題"
+        }
+       ]
+      },
+      {
+       "w": "cautious",
+       "lv": 5,
+       "kk": "ˈkɔʃəs",
+       "p": "caution 小心 + -ous",
+       "g": "adj. 小心的、謹慎的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0447",
+         "t": "110學測 單字Q12",
+         "k": "d"
+        },
+        {
+         "s": "gsat",
+         "id": "V0109",
+         "t": "90學測 單字Q4",
+         "k": "d"
+        },
+        {
+         "s": "gsat",
+         "id": "V0043",
+         "t": "86推薦甄選 單字Q3",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "ambitious",
+       "lv": 4,
+       "kk": "æmˈbɪʃəs",
+       "p": "ambition 雄心 + -ous",
+       "g": "adj. 有雄心的、有抱負的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0216",
+         "t": "95學測 單字Q6",
+         "k": "d"
+        },
+        {
+         "s": "gsat",
+         "id": "V0044",
+         "t": "86推薦甄選 單字Q4",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0201",
+         "t": "93指考 單字Q9",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "suspicious",
+       "lv": 4,
+       "kk": "səˈspɪʃəs",
+       "p": "suspicion 懷疑 + -ous",
+       "g": "adj. 可疑的；起疑心的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0397",
+         "t": "107學測 單字Q7",
+         "k": "d"
+        },
+        {
+         "s": "gsat",
+         "id": "V0355",
+         "t": "104學測 單字Q10",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0248",
+         "t": "89聯考 單字Q9",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "superstitious",
+       "lv": 6,
+       "kk": "ˌsupɚˈstɪʃəs",
+       "p": "superstition 迷信 + -ous",
+       "g": "adj. 迷信的"
+      },
+      {
+       "w": "infectious",
+       "lv": 6,
+       "kk": "ɪnˈfɛkʃəs",
+       "p": "infection 感染 + -ous",
+       "g": "adj. 傳染性的；有感染力的",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0009",
+         "t": "110指考 單字Q9",
+         "k": "a"
+        },
+        {
+         "s": "tr",
+         "id": "114",
+         "t": "中譯英 105(指考) 第114題"
+        }
+       ]
+      },
+      {
+       "w": "nutritious",
+       "lv": 4,
+       "kk": "njuˈtrɪʃəs",
+       "p": "nutrition 營養 + -ous",
+       "g": "adj. 有營養的"
+      },
+      {
+       "w": "contagious",
+       "lv": 5,
+       "kk": "kənˈteɪʤəs",
+       "p": "contagion 接觸傳染 + -ous",
+       "g": "adj. 接觸傳染的；會感染別人的",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0028",
+         "t": "109指考 單字Q8",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0040",
+         "t": "108指考 單字Q10",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0050",
+         "t": "107指考 單字Q10",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "spacious",
+       "lv": 5,
+       "kk": "ˈspeɪʃəs",
+       "p": "space 空間 + -ous",
+       "g": "adj. 寬敞的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0171",
+         "t": "92學測補考 單字Q6",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "ridiculous",
+       "lv": 5,
+       "kk": "rɪˈdɪkjələs",
+       "p": "ridicule 嘲笑 + -ous",
+       "g": "adj. 荒謬的、可笑的"
+      },
+      {
+       "w": "vigorous",
+       "lv": 6,
+       "kk": "ˈvɪgɚəs",
+       "p": "vigor 活力 + -ous",
+       "g": "adj. 有活力的；強而有力的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0447",
+         "t": "110學測 單字Q12",
+         "k": "d"
+        },
+        {
+         "s": "gsat",
+         "id": "V0434",
+         "t": "109學測 單字Q14",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0035",
+         "t": "108指考 單字Q5",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "rigorous",
+       "lv": 6,
+       "kk": "ˈrɪgərəs",
+       "p": "rigor 嚴格 + -ous",
+       "g": "adj. 嚴格的；嚴謹的"
+      },
+      {
+       "w": "glamorous",
+       "lv": 6,
+       "kk": "ˈglæmərəs",
+       "p": "glamour 魅力 + -ous",
+       "g": "adj. 有魅力的、光鮮亮麗的"
+      },
+      {
+       "w": "mischievous",
+       "lv": 6,
+       "kk": "ˈmɪsʧɪvəs",
+       "p": "mischief 惡作劇 + -ous",
+       "g": "adj. 愛惡作劇的、調皮的"
+      },
+      {
+       "w": "outrageous",
+       "lv": 6,
+       "kk": "aʊˈtreɪʤəs",
+       "p": "outrage 暴行、憤慨 + -ous",
+       "g": "adj. 駭人聽聞的；令人憤慨的",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0182",
+         "t": "95指考 單字Q10",
+         "k": "a"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0009",
+         "t": "110指考 單字Q9",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "courteous",
+       "lv": 5,
+       "kk": "ˈkɝtiəs",
+       "p": "court 宮廷 + -eous",
+       "g": "adj. 有宮廷禮儀的→有禮貌的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0091",
+         "t": "89學測 單字Q1",
+         "k": "a"
+        },
+        {
+         "s": "gsat",
+         "id": "V0343",
+         "t": "103學測 單字Q13",
+         "k": "d"
+        },
+        {
+         "s": "gsat",
+         "id": "V0167",
+         "t": "92學測補考 單字Q2",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "gracious",
+       "lv": 4,
+       "kk": "ˈgreɪʃəs",
+       "p": "grace 優雅、恩典 + -ous",
+       "g": "adj. 親切的、有禮的"
+      },
+      {
+       "w": "numerous",
+       "lv": 4,
+       "kk": "ˈnumɚəs",
+       "p": "number（拉丁文 numerus 數目）+ -ous",
+       "g": "adj. 很多的、眾多的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0368",
+         "t": "105學測 單字Q8",
+         "k": "a"
+        },
+        {
+         "s": "gsat",
+         "id": "V0336",
+         "t": "103學測 單字Q6",
+         "k": "d"
+        },
+        {
+         "s": "gsat",
+         "id": "V0034",
+         "t": "85推薦甄選 單字Q14",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "continuous",
+       "lv": 4,
+       "kk": "kənˈtɪnjʊəs",
+       "p": "continue 繼續 + -ous",
+       "g": "adj. 連續不斷的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0308",
+         "t": "101學測 單字Q8",
+         "k": "a"
+        }
+       ]
+      },
+      {
+       "w": "fabulous",
+       "lv": 5,
+       "kk": "ˈfæbjələs",
+       "p": "fable 寓言 + -ous",
+       "g": "adj. 像傳說一樣的→極好的、驚人的",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0019",
+         "t": "109指考補考 單字Q9",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "vicious",
+       "lv": 5,
+       "kk": "ˈvɪʃəs",
+       "p": "vice 罪惡 + -ous",
+       "g": "adj. 邪惡的；兇猛的"
+      },
+      {
+       "w": "precious",
+       "lv": 3,
+       "kk": "ˈprɛʃəs",
+       "p": "price（拉丁文 pretium 價格）+ -ous",
+       "g": "adj. 價格高的→珍貴的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0218",
+         "t": "95學測 單字Q8",
+         "k": "d"
+        },
+        {
+         "s": "gsat",
+         "id": "V0142",
+         "t": "91學測補考 單字Q7",
+         "k": "d"
+        },
+        {
+         "s": "tr",
+         "id": "21",
+         "t": "中譯英 76(大學聯考) 第21題"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "t": "拉丁文字根 + -ous（拿掉字尾不是英文字）",
+     "items": [
+      {
+       "w": "various",
+       "lv": 3,
+       "kk": "ˈvɛriəs",
+       "p": "vari（拉丁文 varius 變化的、各種的）+ -ous",
+       "g": "adj. 各式各樣的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0277",
+         "t": "99學測 單字Q7",
+         "k": "d"
+        },
+        {
+         "s": "gsat",
+         "id": "V0239",
+         "t": "96學測 單字Q14",
+         "k": "d"
+        },
+        {
+         "s": "gsat",
+         "id": "V0142",
+         "t": "91學測補考 單字Q7",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "jealous",
+       "lv": 3,
+       "kk": "ˈʤɛləs",
+       "p": "jeal（希臘文 zelos 熱忱、競爭心，偶爾指嫉妒；跟 zeal 同源）+ -ous",
+       "g": "adj. 嫉妒的"
+      },
+      {
+       "w": "curious",
+       "lv": 2,
+       "kk": "ˈkjʊriəs",
+       "p": "cur（拉丁文 cura 關心）+ -ious",
+       "g": "adj. 好奇的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0011",
+         "t": "84推薦甄選 單字Q1",
+         "k": "d"
+        },
+        {
+         "s": "gcz",
+         "id": "G109_25_2",
+         "t": "學測克漏字 109年 第25格",
+         "k": "d"
+        },
+        {
+         "s": "tr",
+         "id": "132",
+         "t": "中譯英 110(指考) 第132題"
+        }
+       ]
+      },
+      {
+       "w": "serious",
+       "lv": 1,
+       "kk": "ˈsɪriəs",
+       "p": "seri（拉丁文 serius 嚴肅的）+ -ous",
+       "g": "adj. 嚴肅的；嚴重的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0016",
+         "t": "84推薦甄選 單字Q6",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0307",
+         "t": "83聯考 單字Q4",
+         "k": "d"
+        },
+        {
+         "s": "gcz",
+         "id": "G87_33_2",
+         "t": "學測克漏字 87年 第33格",
+         "k": "a"
+        }
+       ]
+      },
+      {
+       "w": "obvious",
+       "lv": 2,
+       "kk": "ˈɑbviəs",
+       "p": "ob 在…路上 + vi（拉丁文 via 路）+ -ous",
+       "g": "adj. 就在路上擋著的→明顯的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0028",
+         "t": "85推薦甄選 單字Q8",
+         "k": "a"
+        },
+        {
+         "s": "gsat",
+         "id": "V0286",
+         "t": "100學測 單字Q1",
+         "k": "d"
+        },
+        {
+         "s": "gsat",
+         "id": "V0235",
+         "t": "96學測 單字Q10",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "previous",
+       "lv": 3,
+       "kk": "ˈpriviəs",
+       "p": "pre 在前 + vi（拉丁文 via 路）+ -ous",
+       "g": "adj. 走在前面那段路上的→先前的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0043",
+         "t": "86推薦甄選 單字Q3",
+         "k": "a"
+        },
+        {
+         "s": "gsat",
+         "id": "V0126",
+         "t": "91學測 單字Q6",
+         "k": "d"
+        },
+        {
+         "s": "gsat",
+         "id": "V0028",
+         "t": "85推薦甄選 單字Q8",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "anxious",
+       "lv": 3,
+       "kk": "ˈæŋʃəs",
+       "p": "anx（拉丁文 angere 勒緊）+ -ious",
+       "g": "adj. 心被勒緊的→焦慮的；渴望的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0398",
+         "t": "107學測 單字Q8",
+         "k": "a"
+        },
+        {
+         "s": "gsat",
+         "id": "V0216",
+         "t": "95學測 單字Q6",
+         "k": "a"
+        },
+        {
+         "s": "gsat",
+         "id": "V0265",
+         "t": "98學測 單字Q10",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "generous",
+       "lv": 2,
+       "kk": "ˈʤɛnɚəs",
+       "p": "gener（拉丁文 genus 出身）+ -ous",
+       "g": "adj. 出身高貴的→慷慨的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0047",
+         "t": "86推薦甄選 單字Q7",
+         "k": "d"
+        },
+        {
+         "s": "gsat",
+         "id": "V0008",
+         "t": "83推薦甄選 單字Q8",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0212",
+         "t": "92指考 單字Q8",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "enormous",
+       "lv": 4,
+       "kk": "ɪˈnɔrməs",
+       "p": "e（ex 超出）+ norm 標準 + -ous",
+       "g": "adj. 超出標準的→巨大的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0487",
+         "t": "114學測 單字Q7",
+         "k": "a"
+        },
+        {
+         "s": "gsat",
+         "id": "V0456",
+         "t": "111學測 單字Q6",
+         "k": "d"
+        },
+        {
+         "s": "gsat",
+         "id": "V0369",
+         "t": "105學測 單字Q9",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "tremendous",
+       "lv": 4,
+       "kk": "trɪˈmɛndəs",
+       "p": "tremend（拉丁文 tremere 發抖）+ -ous",
+       "g": "adj. 令人發抖的→巨大的、驚人的",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0040",
+         "t": "108指考 單字Q10",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0203",
+         "t": "93指考 單字Q11",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0262",
+         "t": "88聯考 單字Q9",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "delicious",
+       "lv": 2,
+       "kk": "dɪˈlɪʃəs",
+       "p": "delic（拉丁文 delicia 喜悅）+ -ious",
+       "g": "adj. 美味的",
+       "refs": [
+        {
+         "s": "tr",
+         "id": "159",
+         "t": "中譯英 94(指考研究用試卷) 第159題"
+        }
+       ]
+      },
+      {
+       "w": "gorgeous",
+       "lv": 5,
+       "kk": "ˈgɔrʤəs",
+       "p": "gorge（古法文「喉嚨」，可能跟項鍊有關；來源不確定）+ -ous",
+       "g": "adj. 非常漂亮的、華麗的",
+       "refs": [
+        {
+         "s": "gcz",
+         "id": "G84_38_2",
+         "t": "學測克漏字 84年 第38格",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "conscious",
+       "lv": 3,
+       "kk": "ˈkɑnʃəs",
+       "p": "con 一起 + sci（拉丁文 scire 知道）+ -ous",
+       "g": "adj. 意識到的；有知覺的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0126",
+         "t": "91學測 單字Q6",
+         "k": "a"
+        },
+        {
+         "s": "gsat",
+         "id": "V0196",
+         "t": "94學測 單字Q1",
+         "k": "d"
+        },
+        {
+         "s": "gsat",
+         "id": "V0154",
+         "t": "92學測 單字Q4",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "conscientious",
+       "lv": 6,
+       "kk": "ˌkɑnʃiˈɛnʃəs",
+       "p": "conscience 良心 + -tious",
+       "g": "adj. 憑良心的→認真負責的",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0218",
+         "t": "91指考 單字Q4",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "ambiguous",
+       "lv": 4,
+       "kk": "æmˈbɪgjuəs",
+       "p": "ambi 兩邊 + gu（拉丁文 agere 驅動）+ -ous",
+       "g": "adj. 拉丁文 ambiguus 是「有兩種意思的」→往兩邊都說得通→模稜兩可的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0076",
+         "t": "88推薦甄選 單字Q1",
+         "k": "a"
+        },
+        {
+         "s": "gsat",
+         "id": "V0454",
+         "t": "111學測 單字Q4",
+         "k": "d"
+        },
+        {
+         "s": "ep",
+         "id": "112",
+         "t": "作文字彙表 112學年 ambiguous"
+        }
+       ]
+      },
+      {
+       "w": "anonymous",
+       "lv": 5,
+       "kk": "əˈnɑnəməs",
+       "p": "an 沒有 + onym 名字 + -ous",
+       "g": "adj. 沒有名字的→匿名的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0099",
+         "t": "89學測 單字Q9",
+         "k": "d"
+        },
+        {
+         "s": "gcz",
+         "id": "G113_14_1",
+         "t": "學測克漏字 113年 第14格",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "unanimous",
+       "lv": 6,
+       "kk": "juˈnænəməs",
+       "p": "un（uni 一）+ anim 心 + -ous",
+       "g": "adj. 大家一條心→全體一致的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0099",
+         "t": "89學測 單字Q9",
+         "k": "a"
+        }
+       ]
+      },
+      {
+       "w": "dubious",
+       "lv": 6,
+       "kk": "ˈdjubiəs",
+       "p": "dub（拉丁文 dubium 懷疑）+ -ious",
+       "g": "adj. 懷疑的；可疑的"
+      },
+      {
+       "w": "notorious",
+       "lv": 6,
+       "kk": "noʊˈtɔriəs",
+       "p": "not（拉丁文 notus 知道的）+ -orious",
+       "g": "adj. 人人都知道的（壞名聲）→惡名昭彰的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0094",
+         "t": "89學測 單字Q4",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0323",
+         "t": "82聯考 單字Q10",
+         "k": "a"
+        }
+       ]
+      },
+      {
+       "w": "tedious",
+       "lv": 6,
+       "kk": "ˈtidiəs",
+       "p": "ted（拉丁文 taedium 厭倦）+ -ious",
+       "g": "adj. 冗長乏味的",
+       "refs": [
+        {
+         "s": "zcz",
+         "id": "Z110_11",
+         "t": "指考克漏字 110年 第11格",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "simultaneous",
+       "lv": 6,
+       "kk": "ˌsaɪmlˈteɪniəs",
+       "p": "simul（拉丁文 simul 同時）+ -taneous",
+       "g": "adj. 同時發生的",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0161",
+         "t": "97指考 單字Q9",
+         "k": "a"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0057",
+         "t": "106指考 單字Q7",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "spontaneous",
+       "lv": 6,
+       "kk": "spɑnˈteɪniəs",
+       "p": "spont（拉丁文 sponte 自願）+ -aneous",
+       "g": "adj. 自發的、自然而然的",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0262",
+         "t": "88聯考 單字Q9",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "miscellaneous",
+       "lv": 6,
+       "kk": "ˌmɪsəˈleɪniəs",
+       "p": "miscell（拉丁文 miscere 混合）+ -aneous",
+       "g": "adj. 混雜的、各式各樣的"
+      },
+      {
+       "w": "indigenous",
+       "lv": 5,
+       "kk": "ɪnˈdɪʤənəs",
+       "p": "indi（在裡面）+ gen（生）+ -ous",
+       "g": "adj. 本地出生的→本土的、原住民的"
+      }
+     ]
+    }
+   ],
+   "dropped": [],
+   "kind": "suffix"
+  },
+  {
+   "key": "-some",
+   "zh": "有…傾向的、令人…的",
+   "note": "-some 來自古英文，加在名詞、動詞或形容詞後面變成形容詞，意思是「有…傾向的、令人…的」：trouble（麻煩）變成 troublesome（令人煩惱的），tire（使疲倦）變成 tiresome（令人厭煩的）。handsome 的意思轉了彎：原本是「拿起來順手的」，後來變成「好看的」。",
+   "subs": [
+    {
+     "t": "名詞、動詞、形容詞 + -some",
+     "items": [
+      {
+       "w": "troublesome",
+       "lv": 4,
+       "kk": "ˈtrʌbəlsəm",
+       "p": "trouble 麻煩 + -some",
+       "g": "adj. 令人煩惱的、麻煩的"
+      },
+      {
+       "w": "tiresome",
+       "lv": 6,
+       "kk": "ˈtaɪrsəm",
+       "p": "tire 使疲倦 + -some",
+       "g": "adj. 令人厭煩的"
+      },
+      {
+       "w": "lonesome",
+       "lv": 6,
+       "kk": "ˈloʊnsəm",
+       "p": "lone 孤單的 + -some",
+       "g": "adj. 寂寞的、孤單的"
+      },
+      {
+       "w": "wholesome",
+       "lv": 6,
+       "kk": "ˈhoʊlsəm",
+       "p": "whole（古英文「健康的」）+ -some",
+       "g": "adj. 有益健康的；健全的"
+      },
+      {
+       "w": "awesome",
+       "lv": 6,
+       "kk": "ˈɔsəm",
+       "p": "awe 敬畏 + -some",
+       "g": "adj. 令人敬畏的；很棒的"
+      },
+      {
+       "w": "handsome",
+       "lv": 2,
+       "kk": "ˈhænsəm",
+       "p": "hand 手 + -some",
+       "g": "adj. 原意是「拿起來順手的」→英俊的；可觀的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0091",
+         "t": "89學測 單字Q1",
+         "k": "d"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "dropped": [],
+   "kind": "suffix"
+  },
+  {
+   "key": "-proof",
+   "zh": "防…的、耐…的",
+   "note": "-proof 就是 proof，原本的意思是「證據；經得起考驗的」，加在名詞後面變成形容詞「防…的、耐…的」：water（水）變成 waterproof（防水的），fire（火）變成 fireproof（防火的）。日常生活裡還常看到 soundproof（隔音的）、bulletproof（防彈的），這兩個字詞彙表沒有收。",
+   "subs": [
+    {
+     "t": "名詞 + -proof → 形容詞「防…的」",
+     "items": [
+      {
+       "w": "proof",
+       "lv": 3,
+       "kk": "pruf",
+       "p": "本身就是字",
+       "g": "n. 證據；adj. 經得起…的、防…的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0444",
+         "t": "110學測 單字Q9",
+         "k": "d"
+        },
+        {
+         "s": "zcz",
+         "id": "Z93M_19",
+         "t": "指考克漏字 93年 第19格",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "waterproof",
+       "lv": 6,
+       "kk": "ˈwɔtɚˌpruf",
+       "p": "water 水 + -proof",
+       "g": "adj. 防水的"
+      },
+      {
+       "w": "fireproof",
+       "lv": 6,
+       "kk": "ˈfaɪrˌpruf",
+       "p": "fire 火 + -proof",
+       "g": "adj. 防火的、耐火的"
+      }
+     ]
+    }
+   ],
+   "dropped": [],
+   "kind": "suffix"
+  },
+  {
+   "key": "-ish",
+   "zh": "像…的、有…傾向的",
+   "note": "-ish 加在名詞後面，意思是「像…的、有…傾向的」，常常帶有負面的意思：child（小孩）變成 childish，是「幼稚的」；fool（傻瓜）變成 foolish（愚蠢的）；self（自己）變成 selfish（自私的）。要稱讚一個人像孩子一樣天真，要說 childlike，不說 childish。",
+   "subs": [
+    {
+     "t": "名詞、形容詞 + -ish → 形容詞",
+     "items": [
+      {
+       "w": "childish",
+       "lv": 2,
+       "kk": "ˈʧaɪldɪʃ",
+       "p": "child 小孩 + -ish",
+       "g": "adj. 像小孩的→幼稚的",
+       "refs": [
+        {
+         "s": "zcz",
+         "id": "Z93_21",
+         "t": "指考克漏字 93年 第21格",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "foolish",
+       "lv": 2,
+       "kk": "ˈfulɪʃ",
+       "p": "fool 傻瓜 + -ish",
+       "g": "adj. 愚蠢的"
+      },
+      {
+       "w": "selfish",
+       "lv": 2,
+       "kk": "ˈsɛlfɪʃ",
+       "p": "self 自己 + -ish",
+       "g": "adj. 只顧自己的→自私的"
+      },
+      {
+       "w": "stylish",
+       "lv": 6,
+       "kk": "ˈstaɪlɪʃ",
+       "p": "style 風格、時尚 + -ish",
+       "g": "adj. 時髦的、有型的"
+      }
+     ]
+    }
+   ],
+   "dropped": [
+    {
+     "why": "punish、finish、establish、vanish、cherish、publish：-ish 不是「像…的」。",
+     "list": "這些字都是動詞，結尾的 -ish 來自法文的動詞變化（像 finir 的 finiss-）；publish 原本是 publier，後來才比照 finish 這類字改成 -ish 結尾。這個 -ish 跟形容詞字尾 -ish 是兩回事，也沒有「像…的」意思。"
     }
    ],
    "kind": "suffix"
