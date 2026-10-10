@@ -108,6 +108,8 @@
   .minor-btn:hover{border-color:var(--ink); background:#F1EADA;}
   .note{font-size:12.5px; color:var(--ink-soft); line-height:1.85; margin:16px 0 0;}
   .note a{color:var(--crimson);}
+  .how summary{cursor:pointer; color:var(--crimson); font-weight:600;}
+  .how p{margin:8px 0 0;}
 
   /* ---------- QUIZ ---------- */
   .bar{
@@ -355,6 +357,12 @@
       <p class="note">
         進度存在這台裝置的瀏覽器裡，換手機或換電腦不會跟著走，清除瀏覽器資料也會一起消失。
       </p>
+      <details class="note how">
+        <summary>記憶卡怎麼決定一個字什麼時候再出現？</summary>
+        <p>每答對一次，這個字下一次出現的時間就往後推，而且越推越遠：第一次答對隔 2 天，第二次隔 4 天，之後間隔大約每次乘上 2.5 倍，變成隔 10 天、隔 27 天，最長隔一年。答錯的字，這一輪隔幾張就會再出現一次，隔天也會再排一次；常答錯的字，之後間隔也拉長得比較慢。這樣排是故意的：快要忘記的時候再考一次，記得最牢，所以答對的字過幾天又出現，並不是出錯。</p>
+        <p>單字和一字多義一輪最多帶 24 個到期的字和 12 個新字，易混淆字組一輪最多帶 24 組到期的和 8 組新的；做完按「繼續練」就是下一輪，要做幾輪由你決定。三副卡用同一套規則，進度分開記。</p>
+        <p>這些都由你的瀏覽器自己計算，不用註冊，作答紀錄也不會傳到網路上，所以換手機、換瀏覽器或用無痕模式，進度不會跟著走。</p>
+      </details>
     </div>
   </section>
 
