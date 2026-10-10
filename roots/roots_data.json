@@ -4748,6 +4748,281 @@
     }
    ],
    "dropped": []
+  },
+  {
+   "key": "tract",
+   "zh": "拉",
+   "note": "拉丁文 trahere「拉」。字首決定往哪裡拉：拉過來（attract，吸引）、拉出來（extract，提煉）、拉開（distract，使分心）、往下拉掉（subtract，減去）、從具體的東西拉出來（abstract，抽象的）。contract 的兩個意思來自同一個字：把雙方拉在一起是「合約」，把東西拉在一起就是「收縮」。特別注意 track 長得很像，Etymonline 卻說它來源不確定，多半來自日耳曼語，不是這一家。",
+   "items": [
+    {
+     "w": "contract",
+     "lv": 2,
+     "kk": "ˈkɑntrækt",
+     "p": "con 一起 + tract 拉",
+     "g": "n. 把雙方拉在一起的約→合約；v. 收縮；感染",
+     "refs": [
+      {
+       "s": "gsat",
+       "id": "V0298",
+       "t": "100學測 單字Q13",
+       "k": "d"
+      }
+     ]
+    },
+    {
+     "w": "attract",
+     "lv": 3,
+     "kk": "əˈtrækt",
+     "p": "at 朝向 + tract 拉",
+     "g": "v. 拉過來→吸引",
+     "refs": [
+      {
+       "s": "gsat",
+       "id": "V0059",
+       "t": "86推薦甄選 單字Q19",
+       "k": "a"
+      },
+      {
+       "s": "gcz",
+       "id": "G95_27_3",
+       "t": "學測克漏字 95年 第27格",
+       "k": "a"
+      },
+      {
+       "s": "gcz",
+       "id": "G108_30_3",
+       "t": "學測克漏字 108年 第30格",
+       "k": "d"
+      }
+     ]
+    },
+    {
+     "w": "attractive",
+     "lv": 3,
+     "kk": "əˈtræktɪv",
+     "p": "attract 吸引 + -ive",
+     "g": "adj. 吸引人的",
+     "refs": [
+      {
+       "s": "gcz",
+       "id": "G84_29_1",
+       "t": "學測克漏字 84年 第29格",
+       "k": "a"
+      }
+     ]
+    },
+    {
+     "w": "subtract",
+     "lv": 3,
+     "kk": "səbˈtrækt",
+     "p": "sub 往下 + tract 拉",
+     "g": "v. 往下拉掉→減去",
+     "refs": [
+      {
+       "s": "gsat",
+       "id": "V0317",
+       "t": "102學測 單字Q2",
+       "k": "d"
+      }
+     ]
+    },
+    {
+     "w": "attraction",
+     "lv": 4,
+     "kk": "əˈtrækʃən",
+     "p": "attract 吸引 + -ion",
+     "g": "n. 吸引力；吸引人的地方（景點）",
+     "refs": [
+      {
+       "s": "gcz",
+       "id": "G101_16_1",
+       "t": "學測克漏字 101年 第16格",
+       "k": "a"
+      },
+      {
+       "s": "tr",
+       "id": "191",
+       "t": "中譯英 101(學測) 第191題"
+      }
+     ]
+    },
+    {
+     "w": "abstract",
+     "lv": 4,
+     "kk": "ˈæbstrækt",
+     "p": "abs 離開 + tract 拉",
+     "g": "adj. 從具體的東西拉出來的→抽象的；n. 摘要"
+    },
+    {
+     "w": "contractor",
+     "lv": 5,
+     "kk": "ˈkɑntræktɚ",
+     "p": "contract 承包 + -or",
+     "g": "n. 承包商"
+    },
+    {
+     "w": "distract",
+     "lv": 5,
+     "kk": "dɪˈstrækt",
+     "p": "dis 分開 + tract 拉",
+     "g": "v. 把注意力拉開→使分心",
+     "refs": [
+      {
+       "s": "ep",
+       "id": "95",
+       "t": "作文字彙表 95學年 distracted"
+      }
+     ]
+    },
+    {
+     "w": "distraction",
+     "lv": 6,
+     "kk": "dɪˈstrækʃən",
+     "p": "distract 使分心 + -ion",
+     "g": "n. 分心；使人分心的事"
+    },
+    {
+     "w": "extract",
+     "lv": 6,
+     "kk": "ɪkˈstrækt",
+     "p": "ex 往外 + tract 拉",
+     "g": "v. 拉出來→提煉；拔出；n. 摘錄"
+    },
+    {
+     "w": "abstraction",
+     "lv": 6,
+     "kk": "æbˈstrækʃən",
+     "p": "abstract 抽取 + -ion",
+     "g": "n. 抽象概念"
+    }
+   ],
+   "dropped": [
+    {
+     "why": "Etymonline 說來源不確定，多半來自日耳曼語，跟 trahere 無關",
+     "list": "track"
+    }
+   ]
+  },
+  {
+   "key": "treat / trait",
+   "zh": "處理；畫出的線條（同一字根經法文的一支）",
+   "note": "trahere 有一個反覆形 tractare，意思是「拉來拉去」→處理、對待，經古法文進入英文，拼法變成 treat、trait。treat 原意是「處理、商議」，所以 treaty 是商議出來的「條約」；retreat 是往回拉→撤退。trait 原意是畫出來的一筆線條，後來變成「特徵」；portrait 是往前畫出來，也就是把人畫出來→肖像；trace 則是拉出來留下的痕跡。特別注意 strait、traitor 長得像，卻是別的字根。",
+   "items": [
+    {
+     "w": "treat",
+     "lv": 1,
+     "kk": "trit",
+     "p": "拉丁文 tractare 處理（trahere 拉 的反覆形）",
+     "g": "v. 對待；治療；請客；n. 款待",
+     "refs": [
+      {
+       "s": "zcz",
+       "id": "Z98參_17",
+       "t": "指考克漏字 99年 第17格",
+       "k": "d"
+      },
+      {
+       "s": "ep",
+       "id": "98",
+       "t": "作文字彙表 98學年 treat sb to + N"
+      }
+     ]
+    },
+    {
+     "w": "treatment",
+     "lv": 1,
+     "kk": "ˈtritmənt",
+     "p": "treat 對待；治療 + -ment",
+     "g": "n. 治療；對待",
+     "refs": [
+      {
+       "s": "gsat",
+       "id": "V0093",
+       "t": "89學測 單字Q3",
+       "k": "d"
+      }
+     ]
+    },
+    {
+     "w": "portrait",
+     "lv": 3,
+     "kk": "ˈpɔrtrət",
+     "p": "por（pro 往前）+ trait 畫",
+     "g": "n. 把人畫出來→肖像、畫像"
+    },
+    {
+     "w": "trace",
+     "lv": 3,
+     "kk": "treɪs",
+     "p": "拉丁文 tractus 拉出的痕跡",
+     "g": "n. 痕跡；v. 追溯、追蹤；描摹",
+     "refs": [
+      {
+       "s": "gsat",
+       "id": "V0382",
+       "t": "106學測 單字Q7",
+       "k": "a"
+      },
+      {
+       "s": "gsat",
+       "id": "V0069",
+       "t": "87推薦甄選 單字Q9",
+       "k": "a"
+      }
+     ]
+    },
+    {
+     "w": "retreat",
+     "lv": 4,
+     "kk": "rɪˈtrit",
+     "p": "re 回 + treat（拉丁文 trahere 拉）",
+     "g": "v./n. 往回拉→撤退",
+     "refs": [
+      {
+       "s": "gsat",
+       "id": "V0237",
+       "t": "96學測 單字Q12",
+       "k": "d"
+      },
+      {
+       "s": "zhikao",
+       "id": "ZK0013",
+       "t": "109指考補考 單字Q3",
+       "k": "d"
+      },
+      {
+       "s": "zcz",
+       "id": "Z105_15",
+       "t": "指考克漏字 105年 第15格",
+       "k": "a"
+      }
+     ]
+    },
+    {
+     "w": "trait",
+     "lv": 5,
+     "kk": "treɪt",
+     "p": "拉丁文 tractus 畫出的線條",
+     "g": "n. 畫出來的一筆→特徵、特質"
+    },
+    {
+     "w": "treaty",
+     "lv": 5,
+     "kk": "ˈtriti",
+     "p": "拉丁文 tractatus（協商；跟 treat 同源）",
+     "g": "n. 條約"
+    }
+   ],
+   "dropped": [
+    {
+     "why": "來自拉丁文 stringere「綁緊」，跟 strict 同源",
+     "list": "strait"
+    },
+    {
+     "why": "來自拉丁文 tradere「交出去」，出賣別人的人",
+     "list": "traitor"
+    }
+   ]
   }
  ],
  "sites": {
