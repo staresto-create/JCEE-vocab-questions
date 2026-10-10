@@ -4428,7 +4428,7 @@
      "lv": 5,
      "kk": "kəˈrʌpt",
      "p": "cor 徹底 + rupt 斷",
-     "g": "adj. 徹底斷掉、敗壞的→腐敗的；v. 使腐敗",
+     "g": "adj. 徹底斷掉、敗壞的→腐敗的、貪腐的；v. 使腐敗；使（檔案）損毀",
      "refs": [
       {
        "s": "zhikao",
@@ -4476,7 +4476,7 @@
      "lv": 5,
      "kk": "ɪˈrʌpt",
      "p": "e（ex）往外 + rupt 斷",
-     "g": "v. 衝破出來→（火山）爆發"
+     "g": "v. 衝破出來→（火山）爆發；（衝突等）突然爆發"
     }
    ],
    "dropped": []
@@ -4491,7 +4491,7 @@
      "lv": 2,
      "kk": "prɛs",
      "p": "拉丁文 premere 壓",
-     "g": "v. 壓、按；催促；n. 報刊、新聞界",
+     "g": "v. 壓、按；催促；n. 新聞界、媒體",
      "refs": [
       {
        "s": "gsat",
@@ -4531,7 +4531,7 @@
      "lv": 2,
      "kk": "ɪkˈsprɛs",
      "p": "ex 往外 + press 壓",
-     "g": "v. 把心裡的話壓出來→表達；adj. 快速的",
+     "g": "v. 把心裡的話壓出來→表達；adj. 快遞的、特快的",
      "refs": [
       {
        "s": "gsat",
@@ -4892,7 +4892,7 @@
      "w": "abstraction",
      "lv": 6,
      "kk": "æbˈstrækʃən",
-     "p": "abstract 抽取 + -ion",
+     "p": "abstract 抽象的 + -ion",
      "g": "n. 抽象概念"
     }
    ],
@@ -4905,8 +4905,8 @@
   },
   {
    "key": "treat / trait",
-   "zh": "處理；畫出的線條（同一字根經法文的一支）",
-   "note": "trahere 有一個反覆形 tractare，意思是「拉來拉去」→處理、對待，經古法文進入英文，拼法變成 treat、trait。treat 原意是「處理、商議」，所以 treaty 是商議出來的「條約」；retreat 是往回拉→撤退。trait 原意是畫出來的一筆線條，後來變成「特徵」；portrait 是往前畫出來，也就是把人畫出來→肖像；trace 則是拉出來留下的痕跡。特別注意 strait、traitor 長得像，卻是別的字根。",
+   "zh": "拉（trahere 經法文的一支）",
+   "note": "trahere「拉」經古法文進入英文的字，拼法常變成 treat、trait。其中 treat 來自反覆形 tractare，意思是「拉來拉去」→處理、對待；treat 原意是「處理、商議」，所以 treaty 是商議出來的「條約」。trait 和 trace 則來自過去分詞 tractus，也就是「拉出來的一道」：trait 原意是畫出來的一筆線條，後來變成「特徵」；trace 是拉出來留下的痕跡。retreat 也是過去分詞這一支：古法文 retrere 是「往回拉」，它的過去分詞 retrait 就是往回拉→撤退；拼法雖然跟 treat 一樣，卻不是從 tractare 來的。portrait 是往前畫出來，也就是把人畫出來→肖像。特別注意 strait、traitor 長得像，卻是別的字根。",
    "items": [
     {
      "w": "treat",
@@ -4933,7 +4933,7 @@
      "lv": 1,
      "kk": "ˈtritmənt",
      "p": "treat 對待；治療 + -ment",
-     "g": "n. 治療；對待",
+     "g": "n. 治療；待遇、對待",
      "refs": [
       {
        "s": "gsat",
@@ -4975,7 +4975,7 @@
      "w": "retreat",
      "lv": 4,
      "kk": "rɪˈtrit",
-     "p": "re 回 + treat（拉丁文 trahere 拉）",
+     "p": "re 往回 + treat 拉（古法文 retrere「往回拉」，來自拉丁文 retrahere）",
      "g": "v./n. 往回拉→撤退",
      "refs": [
       {
@@ -5019,8 +5019,257 @@
      "list": "strait"
     },
     {
-     "why": "來自拉丁文 tradere「交出去」，出賣別人的人",
+     "why": "來自拉丁文 tradere「交出去」（把人交給敵人→出賣），跟 tradition 同源，跟 trahere 無關",
      "list": "traitor"
+    }
+   ]
+  },
+  {
+   "key": "sist",
+   "zh": "站",
+   "note": "拉丁文 sistere「站、站穩」，跟 stare「站」同一個字根。字首決定站在哪裡、怎麼站：站到旁邊（assist，幫忙）、站在上面不走（insist，堅持）、一路站到底（persist，堅持不懈）、站著對抗（resist，抵抗）、站在一起（consist，由…組成）、站出來（exist，存在）。exist 是 ex 加上 sistere，因為 x 本身就帶有 s 的音，sist 的 s 就省掉了，所以拼法只看得到 ist。consistent 字面上是「站在一起」，引申成「意見相合」，後來才有「前後一致的」這個意思。特別注意 sister 只是拼法巧合，它是日耳曼語來的字。",
+   "items": [
+    {
+     "w": "insist",
+     "lv": 2,
+     "kk": "ɪnˈsɪst",
+     "p": "in 在…上 + sist 站",
+     "g": "v. 站在上面不走→堅持；堅稱、堅決要求",
+     "refs": [
+      {
+       "s": "gsat",
+       "id": "V0276",
+       "t": "99學測 單字Q6",
+       "k": "d"
+      },
+      {
+       "s": "gsat",
+       "id": "V0204",
+       "t": "94學測 單字Q9",
+       "k": "d"
+      }
+     ]
+    },
+    {
+     "w": "exist",
+     "lv": 2,
+     "kk": "ɪgˈzɪst",
+     "p": "ex 往外 + ist（拉丁文 sistere 站）",
+     "g": "v. 站出來→存在"
+    },
+    {
+     "w": "existence",
+     "lv": 2,
+     "kk": "ɪgˈzɪstəns",
+     "p": "exist 存在 + -ence",
+     "g": "n. 存在；生活、生存"
+    },
+    {
+     "w": "assist",
+     "lv": 3,
+     "kk": "əˈsɪst",
+     "p": "as 朝向 + sist 站",
+     "g": "v. 站到旁邊→幫助",
+     "refs": [
+      {
+       "s": "gcz",
+       "id": "G93_22_2",
+       "t": "學測克漏字 93年 第22格",
+       "k": "d"
+      }
+     ]
+    },
+    {
+     "w": "assistant",
+     "lv": 3,
+     "kk": "əˈsɪstənt",
+     "p": "assist 協助 + -ant",
+     "g": "n. 助理",
+     "refs": [
+      {
+       "s": "gsat",
+       "id": "V0452",
+       "t": "111學測 單字Q2",
+       "k": "a"
+      },
+      {
+       "s": "ep",
+       "id": "113",
+       "t": "作文字彙表 113學年 an assistant"
+      }
+     ]
+    },
+    {
+     "w": "resist",
+     "lv": 3,
+     "kk": "rɪˈzɪst",
+     "p": "re 反 + sist 站",
+     "g": "v. 站著對抗→抵抗；忍住、抗拒（誘惑）",
+     "refs": [
+      {
+       "s": "gsat",
+       "id": "V0276",
+       "t": "99學測 單字Q6",
+       "k": "a"
+      },
+      {
+       "s": "gsat",
+       "id": "V0204",
+       "t": "94學測 單字Q9",
+       "k": "a"
+      },
+      {
+       "s": "gsat",
+       "id": "V0123",
+       "t": "91學測 單字Q3",
+       "k": "d"
+      }
+     ]
+    },
+    {
+     "w": "assistance",
+     "lv": 4,
+     "kk": "əˈsɪstəns",
+     "p": "assist 協助 + -ance",
+     "g": "n. 幫助、協助",
+     "refs": [
+      {
+       "s": "tr",
+       "id": "173",
+       "t": "中譯英 97(指考研究用試卷卷一) 第173題"
+      }
+     ]
+    },
+    {
+     "w": "consist",
+     "lv": 4,
+     "kk": "kənˈsɪst",
+     "p": "con 一起 + sist 站",
+     "g": "v. 站在一起→（consist of）由…組成；（consist in）在於",
+     "refs": [
+      {
+       "s": "gsat",
+       "id": "V0204",
+       "t": "94學測 單字Q9",
+       "k": "d"
+      }
+     ]
+    },
+    {
+     "w": "consistent",
+     "lv": 4,
+     "kk": "kənˈsɪstənt",
+     "p": "con 一起 + sist 站 + -ent",
+     "g": "adj. 站在一起、意見相合的→一致的、前後一貫的、始終如一的",
+     "refs": [
+      {
+       "s": "zhikao",
+       "id": "ZK0007",
+       "t": "110指考 單字Q7",
+       "k": "a"
+      },
+      {
+       "s": "zhikao",
+       "id": "ZK0132",
+       "t": "100指考 單字Q10",
+       "k": "a"
+      },
+      {
+       "s": "zcz",
+       "id": "Z94_20",
+       "t": "指考克漏字 94年 第20格",
+       "k": "d"
+      }
+     ]
+    },
+    {
+     "w": "resistance",
+     "lv": 4,
+     "kk": "rɪˈzɪstəns",
+     "p": "resist 抵抗 + -ance",
+     "g": "n. 抵抗；抵抗力；阻力"
+    },
+    {
+     "w": "persist",
+     "lv": 5,
+     "kk": "pɚˈsɪst",
+     "p": "per 徹底 + sist 站",
+     "g": "v. 站到底不放棄→堅持不懈；持續",
+     "refs": [
+      {
+       "s": "gsat",
+       "id": "V0204",
+       "t": "94學測 單字Q9",
+       "k": "d"
+      },
+      {
+       "s": "zhikao",
+       "id": "ZK0116",
+       "t": "101指考 單字Q4",
+       "k": "a"
+      },
+      {
+       "s": "ep",
+       "id": "104",
+       "t": "作文字彙表 104學年 persist in + V-ing"
+      }
+     ]
+    },
+    {
+     "w": "insistence",
+     "lv": 6,
+     "kk": "ɪnˈsɪstəns",
+     "p": "insist 堅持 + -ence",
+     "g": "n. 堅持"
+    },
+    {
+     "w": "persistence",
+     "lv": 6,
+     "kk": "pɚˈsɪstəns",
+     "p": "persist 堅持不懈 + -ence",
+     "g": "n. 毅力；持續"
+    },
+    {
+     "w": "persistent",
+     "lv": 6,
+     "kk": "pɚˈsɪstənt",
+     "p": "persist 堅持不懈 + -ent",
+     "g": "adj. 堅持不懈的；持續的",
+     "refs": [
+      {
+       "s": "zhikao",
+       "id": "ZK0075",
+       "t": "104指考 單字Q5",
+       "k": "d"
+      }
+     ]
+    },
+    {
+     "w": "resistant",
+     "lv": 6,
+     "kk": "rɪˈzɪstənt",
+     "p": "resist 抵抗 + -ant",
+     "g": "adj. 抵抗的；耐…的（water-resistant 防潑水的）",
+     "refs": [
+      {
+       "s": "zhikao",
+       "id": "ZK0057",
+       "t": "106指考 單字Q7",
+       "k": "d"
+      },
+      {
+       "s": "zhikao",
+       "id": "ZK0149",
+       "t": "98指考 單字Q7",
+       "k": "d"
+      }
+     ]
+    }
+   ],
+   "dropped": [
+    {
+     "why": "來自古英文 sweostor，日耳曼語來源，只是拼法巧合",
+     "list": "sister"
     }
    ]
   }
