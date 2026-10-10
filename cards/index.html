@@ -4,12 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>單字記憶卡 · 學測指考英文字彙</title>
-<meta name="description" content="用學測、指考詞彙題考過的字做間隔複習。四個選項就是當年那一題的四個，答對的往後推，答錯的當場再來。另有易混淆字組 316 組，一組一組記；一字多義 135 字，練你熟悉的字在大考考的另一個意思。免費、無廣告。">
+<meta name="description" content="用學測、指考詞彙題考過的字做間隔複習。四個選項就是當年那一題的四個，答對的往後推，答錯的當場再來。另有易混淆字組 317 組，一組一組記；一字多義 135 字，練你熟悉的字在大考考的另一個意思。免費、無廣告。">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="高中英文自學題庫">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:title" content="單字記憶卡 · 學測指考英文字彙">
-<meta property="og:description" content="81～115 年學測與指考詞彙題的答案＋誘答選項，全部收錄，共 2,113 個字。不是從字表抄的，是考卷上真的考過的。四個選項就是當年那一題的四個。另有易混淆字組 316 組，拼法或字根相近、或是唸法相同的字放在一起比較；一字多義 135 字，練你熟悉的字在大考考的另一個意思。答對的往後推，答錯的當場再來。免費、無廣告。">
+<meta property="og:description" content="81～115 年學測與指考詞彙題的答案＋誘答選項，全部收錄，共 2,113 個字。不是從字表抄的，是考卷上真的考過的。四個選項就是當年那一題的四個。另有易混淆字組 317 組，拼法或字根相近、或是唸法相同的字放在一起比較；一字多義 135 字，練你熟悉的字在大考考的另一個意思。答對的往後推，答錯的當場再來。免費、無廣告。">
 <meta property="og:url" content="https://staresto-create.github.io/JCEE-vocab-questions/cards/">
 <meta property="og:image" content="https://staresto-create.github.io/JCEE-vocab-questions/cards/cards-og-cover.png?v=2">
 <meta property="og:image:width" content="1200">
@@ -17,7 +17,7 @@
 <meta property="og:image:alt" content="單字記憶卡：81～115 年，共 2,113 個字">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="單字記憶卡 · 學測指考英文字彙">
-<meta name="twitter:description" content="81～115 年學測與指考詞彙題的答案＋誘答選項，全部收錄，共 2,113 個字。不是從字表抄的，是考卷上真的考過的。四個選項就是當年那一題的四個。另有易混淆字組 316 組，拼法或字根相近、或是唸法相同的字放在一起比較；一字多義 135 字，練你熟悉的字在大考考的另一個意思。答對的往後推，答錯的當場再來。免費、無廣告。">
+<meta name="twitter:description" content="81～115 年學測與指考詞彙題的答案＋誘答選項，全部收錄，共 2,113 個字。不是從字表抄的，是考卷上真的考過的。四個選項就是當年那一題的四個。另有易混淆字組 317 組，拼法或字根相近、或是唸法相同的字放在一起比較；一字多義 135 字，練你熟悉的字在大考考的另一個意思。答對的往後推，答錯的當場再來。免費、無廣告。">
 <meta name="twitter:image" content="https://staresto-create.github.io/JCEE-vocab-questions/cards/cards-og-cover.png?v=2">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -1131,13 +1131,15 @@
     h += '<a class="bk-link" href="' + esc(e.url) + '" target="_blank" rel="noopener">看原題與解析 →</a>';
     return h + '</div>';
   }
+  // 原題正解是不是組內這個字：同一個字，或只多了副詞字尾 -ly（unanimous → unanimously）
+  function cfSame(ans, w) { ans = ans.toLowerCase(); w = w.toLowerCase(); return ans === w || ans === w + 'ly'; }
   // 某個字要放哪一題當例題：字底下有就用字底下的；沒有的話，看組內同題有沒有一題正解是這個字
   function cfExampleOf(g, i) {
     var w = g.w[i];
     if (w.e) return { e: w.e, nt: w.nt, blk: -1 };
     for (var j = 0; j < g.b.length; j++) {
       var q = g.b[j].e.q;
-      if (q.o[q.a].toLowerCase() === w.w.toLowerCase()) return { e: g.b[j].e, nt: g.b[j].nt, blk: j };
+      if (cfSame(q.o[q.a], w.w)) return { e: g.b[j].e, nt: g.b[j].nt, blk: j };
     }
     return null;
   }
@@ -1207,7 +1209,7 @@
       blk = +parts[1].slice(1);
       // 原題的正解如果是組內的字，就把那個字標出來
       var q = g.b[blk].e.q, ans = q.o[q.a].toLowerCase();
-      g.w.forEach(function (w, i) { if (w.w.toLowerCase() === ans) target = i; });
+      g.w.forEach(function (w, i) { if (cfSame(ans, w.w)) target = i; });
     } else {
       target = +parts[1];
     }
