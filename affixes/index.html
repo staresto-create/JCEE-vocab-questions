@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>字首字尾表｜高中英文參考詞彙表</title>
-<meta name="description" content="把大考中心《高中英文參考詞彙表》裡帶字首的字按字首分組，每個字附 KK 音標、拆解與意思，考過的字直接連到歷屆試題，每一組另附看起來像、其實不是的假朋友。">
+<meta name="description" content="把大考中心《高中英文參考詞彙表》裡帶字首、字尾的字按字首、字尾分組，每個字附 KK 音標、拆解與意思，考過的字直接連到歷屆試題，每一組另附看起來像、其實不是的假朋友。">
 <meta property="og:title" content="字首字尾表｜高中英文參考詞彙表">
-<meta property="og:description" content="re-、pre-、sub-、ad-、over- 等三十六組字首，一千四百五十四個字，其中八百六十八個字連得到學測、指考、克漏字、中譯英與作文的歷屆考題。">
+<meta property="og:description" content="三十六組字首、五組字尾，一千五百六十一個字，其中九百三十二個字連得到學測、指考、克漏字、中譯英與作文的歷屆考題。">
 <style>
 :root{
   --ground:#f1f3f2; --ink:#17282f; --teal:#1f6f6a; --teal-soft:#dfeceb;
@@ -34,6 +34,8 @@ nav{margin:0 0 1.6rem;display:flex;flex-wrap:wrap;gap:.3rem}
 nav a{font-family:var(--serif);font-size:.9rem;text-decoration:none;color:var(--teal);
   border:1px solid var(--line);background:#fff;border-radius:.3rem;padding:.26rem .5rem}
 nav a:hover{background:var(--teal-soft)}
+nav .navlab{font-size:.8rem;color:var(--muted);align-self:center;margin-right:.15rem}
+nav .navbr{flex-basis:100%;height:0}
 section{margin:0 0 2.4rem;scroll-margin-top:1rem}
 h2{font-family:var(--serif);font-size:1.24rem;margin:0 0 .1rem;font-weight:600}
 h2 span{font-family:var(--sans);font-size:.92rem;color:#3d5059;margin-left:.5rem;font-weight:400}
@@ -71,7 +73,7 @@ details .list{color:#3d5059}
 <body>
 <div class="wrap">
   <h1>字首字尾表</h1>
-  <p class="lede">把大考中心《高中英文參考詞彙表》（111 學年度起適用）裡帶字首的字，按字首分組，同一個字首再依意思分成幾小組。一、二級的熟字也收進來，先從認得的字看懂字首的意思，再拿去拆不認得的字；只想看難字，可以用級別篩選。每一組後面附假朋友，那些是看起來像、其實不是這個字首的字，或照字面拆會猜錯意思的字。字根另見<a href="../roots/">字根家族表</a>。目前收三十六組常用字首，字尾陸續補上。</p>
+  <p class="lede">把大考中心《高中英文參考詞彙表》（111 學年度起適用）裡帶字首、字尾的字，按字首、字尾分組，同一個字首或字尾再依意思分成幾小組。一、二級的熟字也收進來，先從認得的字看懂字首的意思，再拿去拆不認得的字；只想看難字，可以用級別篩選。每一組後面附假朋友，那些是看起來像、其實不是這個字首的字，或照字面拆會猜錯意思的字。字根另見<a href="../roots/">字根家族表</a>。目前收三十六組常用字首、五組字尾，其他字尾陸續補上。同一個字有字首也有字尾的，兩邊都收，像 unify 在 uni- 和 -fy 兩組都查得到。</p>
 
   <div class="tools">
     <input type="search" id="q" placeholder="搜尋單字、拆解或意思" aria-label="搜尋">
@@ -79,7 +81,7 @@ details .list{color:#3d5059}
   </div>
   <p class="count" id="count"></p>
 
-  <nav id="nav" aria-label="字首"></nav>
+  <nav id="nav" aria-label="字首與字尾"></nav>
   <div id="body"></div>
 
   <div class="foot" id="foot"></div>
@@ -93,7 +95,7 @@ function render(){
   const nav=$('#nav'), body=$('#body');
   nav.innerHTML=''; body.innerHTML='';
   const q=state.q.trim().toLowerCase();
-  let shown=0, total=0, ffShown=0;
+  let ffShown=0; const allW=new Set(), shownW=new Set(); let lastKind=null;
   const ffHit=x=>q && !state.lv.size && !state.examOnly && (x.why+' '+x.list).toLowerCase().includes(q);
 
   const keep=it=>{
@@ -105,11 +107,17 @@ function render(){
   };
   DATA.groups.forEach((g,gi)=>{
     const subs=g.subs.map(sb=>({t:sb.t,items:sb.items.filter(keep)}));
-    g.subs.forEach(sb=>total+=sb.items.length);
+    g.subs.forEach(sb=>sb.items.forEach(it=>allW.add(it.w)));
     const cnt=subs.reduce((a,sb)=>a+sb.items.length,0);
     const ffs=q?(g.dropped||[]).filter(ffHit):(g.dropped||[]);
     if(!cnt && !(q && ffs.length)) return;
-    shown+=cnt; if(q) ffShown+=ffs.length;
+    subs.forEach(sb=>sb.items.forEach(it=>shownW.add(it.w))); if(q) ffShown+=ffs.length;
+    const kind=g.kind==='suffix'?'suffix':'prefix';
+    if(kind!==lastKind){
+      if(lastKind){const br=document.createElement('span');br.className='navbr';nav.appendChild(br);}
+      const lb=document.createElement('span');lb.className='navlab';lb.textContent=kind==='suffix'?'字尾':'字首';nav.appendChild(lb);
+      lastKind=kind;
+    }
 
     const a=document.createElement('a');
     a.href='#g'+gi; a.textContent=g.key.split('（')[0]; a.title=g.key+'　'+(g.zh||''); nav.appendChild(a);
@@ -170,15 +178,16 @@ function render(){
     body.appendChild(sec);
   });
 
-  if(!shown && !ffShown){
+  if(!shownW.size && !ffShown){
     const e=document.createElement('p'); e.className='empty';
     e.textContent='這個條件下沒有字。清掉搜尋或級別再試一次。';
     body.appendChild(e);
   }
-  let linked=0; DATA.groups.forEach(g=>g.subs.forEach(sb=>sb.items.forEach(it=>{if(it.refs&&it.refs.length)linked++;})));
+  const linkedW=new Set(); DATA.groups.forEach(g=>g.subs.forEach(sb=>sb.items.forEach(it=>{if(it.refs&&it.refs.length)linkedW.add(it.w);}))); const linked=linkedW.size, total=allW.size, shown=shownW.size;
+  const nPre=DATA.groups.filter(g=>g.kind!=='suffix').length, nSuf=DATA.groups.length-nPre;
   $('#count').textContent = (state.q||state.lv.size||state.examOnly)
     ? '符合的字 '+shown+' 個'+(ffShown?'，另有 '+ffShown+' 則假朋友說明提到這個字':'')+'，全表共 '+total.toLocaleString('en-US')+' 個'
-    : '共 '+DATA.groups.length+' 組字首、'+total.toLocaleString('en-US')+' 個字，其中 '+linked.toLocaleString('en-US')+' 個字附了考古題連結';
+    : '共 '+nPre+' 組字首'+(nSuf?'、'+nSuf+' 組字尾':'')+'、'+total.toLocaleString('en-US')+' 個字，其中 '+linked.toLocaleString('en-US')+' 個字附了考古題連結';
 }
 
 function buildLv(){
