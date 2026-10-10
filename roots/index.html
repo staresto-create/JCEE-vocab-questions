@@ -6,7 +6,7 @@
 <title>字根家族表｜高中英文參考詞彙表</title>
 <meta name="description" content="把大考中心《高中英文參考詞彙表》裡拆得動的字，按字根收成一家一家，每個字附拆解與意思，考過的字直接連到歷屆試題。">
 <meta property="og:title" content="字根家族表｜高中英文參考詞彙表">
-<meta property="og:description" content="十五個字根家族，二百五十個字，其中一百四十一個字連得到學測、指考、克漏字與作文的歷屆考題。">
+<meta property="og:description" content="十七個字根家族，二百六十五個字，其中一百五十四個字連得到學測、指考、克漏字與作文的歷屆考題。">
 <style>
 :root{
   --ground:#f1f3f2; --ink:#17282f; --teal:#1f6f6a; --teal-soft:#dfeceb;
@@ -43,6 +43,7 @@ ul{list-style:none;margin:0;padding:0}
 li{padding:.55rem 0;border-top:1px solid var(--line)}
 li:last-child{border-bottom:1px solid var(--line)}
 .w{font-family:var(--serif);font-size:1.06rem;font-weight:600}
+.kk{font-size:.85rem;color:var(--muted);margin-left:.45rem}
 .badge{font-size:.72rem;color:var(--muted);border:1px solid var(--line);background:#fff;
   border-radius:.9rem;padding:.02rem .4rem;margin-left:.45rem;vertical-align:.08em}
 .p{font-size:.9rem;color:var(--teal);margin-top:.1rem}
@@ -123,6 +124,7 @@ function render(){
       const li=document.createElement('li');
       const w=document.createElement('div');
       const nm=document.createElement('span'); nm.className='w'; nm.textContent=it.w; w.appendChild(nm);
+      if(it.kk){const k=document.createElement('span');k.className='kk';k.textContent='['+it.kk+']';w.appendChild(k);}
       if(it.lv){const b=document.createElement('span');b.className='badge';b.textContent='第 '+it.lv+' 級';w.appendChild(b);}
       li.appendChild(w);
       const p=document.createElement('div'); p.className='p'; p.textContent=it.p; li.appendChild(p);
