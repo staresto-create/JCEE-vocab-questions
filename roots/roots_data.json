@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "note": "字根家族表。母體為大考中心《高中英文參考詞彙表》（111 學年度起適用）5,992 詞；先定字根，再把整家收齊，不分級別。各字依詞彙表級別排序。標「考過」的是這個字在本題庫實際考過的地方，只算這個字當過選項（單字題、克漏字）、參考答案（中譯英）或字彙表條目（作文）的題目，出現在題幹和文章內文的不算；同一個字最多列三筆。",
- "updated": "2026-10-10",
+ "updated": "2026-10-11",
  "groups": [
   {
    "key": "tain / ten",
@@ -4355,6 +4355,131 @@
      "list": "interrupt（inter 在中間 + rupt 斷）　detergent（de 去掉 + tergere 擦）"
     }
    ]
+  },
+  {
+   "key": "rupt",
+   "zh": "破、斷",
+   "note": "拉丁文 rumpere「打破、弄斷」。字首決定怎麼斷：從中間斷開（interrupt）、往外衝破（erupt）、斷成兩半（disrupt）、斷掉離開（abrupt）、徹底斷掉壞了（corrupt）。bankrupt 來自義大利文 banca rotta「斷掉的長凳」：banca 是錢莊放錢做生意的長凳，rotta 是「斷了的」，後來英文照拉丁文改拼成 rupt。傳說錢莊倒閉時，人們會把它的長凳打斷，不過 Etymonline 認為這多半只是比喻。route（路線）也是這一家的遠親：拉丁文 via rupta 是「硬開出來的路」，routine（例行公事，也就是每天走的固定路線）再從 route 延伸出來。",
+   "items": [
+    {
+     "w": "interrupt",
+     "lv": 3,
+     "kk": "ˌɪntəˈrʌpt",
+     "p": "inter 在中間 + rupt 斷",
+     "g": "v. 從中間打斷→打擾；中斷",
+     "refs": [
+      {
+       "s": "gsat",
+       "id": "V0170",
+       "t": "92學測補考 單字Q5",
+       "k": "a"
+      },
+      {
+       "s": "gsat",
+       "id": "V0263",
+       "t": "98學測 單字Q8",
+       "k": "d"
+      },
+      {
+       "s": "gsat",
+       "id": "V0187",
+       "t": "93學測 單字Q7",
+       "k": "d"
+      }
+     ]
+    },
+    {
+     "w": "bankrupt",
+     "lv": 4,
+     "kk": "ˈbæŋkˌrʌpt",
+     "p": "bank（義大利文 banca 錢莊的長凳）+ rupt 斷",
+     "g": "adj. 破產的；v. 使破產；n. 破產者"
+    },
+    {
+     "w": "interruption",
+     "lv": 4,
+     "kk": "ˌɪntəˈrʌpʃən",
+     "p": "interrupt + -ion",
+     "g": "n. 打斷、打擾；中斷"
+    },
+    {
+     "w": "abrupt",
+     "lv": 5,
+     "kk": "əˈbrʌpt",
+     "p": "ab 離開 + rupt 斷",
+     "g": "adj. 突然斷掉的→突然的；（態度）唐突的",
+     "refs": [
+      {
+       "s": "zhikao",
+       "id": "ZK0020",
+       "t": "109指考補考 單字Q10",
+       "k": "a"
+      },
+      {
+       "s": "zhikao",
+       "id": "ZK0226",
+       "t": "90聯考 單字Q2",
+       "k": "d"
+      }
+     ]
+    },
+    {
+     "w": "corrupt",
+     "lv": 5,
+     "kk": "kəˈrʌpt",
+     "p": "cor 徹底 + rupt 斷",
+     "g": "adj. 徹底斷掉、敗壞的→腐敗的；v. 使腐敗",
+     "refs": [
+      {
+       "s": "zhikao",
+       "id": "ZK0339",
+       "t": "98指考參考試卷（99 課綱適用） 單字Q7",
+       "k": "d"
+      }
+     ]
+    },
+    {
+     "w": "corruption",
+     "lv": 5,
+     "kk": "kəˈrʌpʃən",
+     "p": "corrupt + -ion",
+     "g": "n. 貪汙、腐敗"
+    },
+    {
+     "w": "disrupt",
+     "lv": 5,
+     "kk": "dɪsˈrʌpt",
+     "p": "dis 分開 + rupt 斷",
+     "g": "v. 打斷、擾亂",
+     "refs": [
+      {
+       "s": "zhikao",
+       "id": "ZK0096",
+       "t": "93敏督利颱風受災地區考生補救考試 單字Q6",
+       "k": "a"
+      },
+      {
+       "s": "gcz",
+       "id": "G114_12_1",
+       "t": "學測克漏字 114年 第12格",
+       "k": "a"
+      },
+      {
+       "s": "ep",
+       "id": "106",
+       "t": "作文字彙表 106學年 traffic is disrupted / obstructed"
+      }
+     ]
+    },
+    {
+     "w": "erupt",
+     "lv": 5,
+     "kk": "ɪˈrʌpt",
+     "p": "e（ex）往外 + rupt 斷",
+     "g": "v. 衝破出來→（火山）爆發"
+    }
+   ],
+   "dropped": []
   }
  ],
  "sites": {
