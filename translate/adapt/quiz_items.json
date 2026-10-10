@@ -332,12 +332,12 @@
   "label": "改編練習",
   "yearLabel": "改編練習（三）",
   "flagNote": "本題庫改編練習：主題取自 105 年學測閱讀測驗〈小發明家的故事〉，照現行學測中譯英的版面擬題（兩句一組），參考譯法與解析由本題庫撰寫，不是大考中心的試題，也沒有官方評分原則。",
-  "zh": "喜歡動手做東西的高中生，常會利用課餘時間參加發明比賽。",
-  "en": "High school students who like making things often enter invention contests in their free time.",
+  "zh": "喜歡動手做東西的學生，常會利用課餘時間參加發明比賽。",
+  "en": "Students who like making things often enter invention contests in their free time.",
   "chunks": [
    {
-    "zh": "高中生，",
-    "en": "High school students"
+    "zh": "學生，",
+    "en": "Students"
    },
    {
     "zh": "喜歡動手做東西的",
@@ -358,12 +358,12 @@
    "enter / take part in / participate in",
    "contests / competitions",
    "in their free time / in their spare time / after school",
-   "另一種寫法：High school students who enjoy making things often use their free time to enter invention competitions."
+   "另一種寫法：Students who enjoy making things often use their free time to enter invention competitions."
   ],
   "explanation": {
    "pattern": [
-    "整句的骨幹是 S + V + O：主詞 High school students + 動詞 often enter + 受詞 invention contests + 修飾語 in their free time。中文把「喜歡動手做東西的」擺在「高中生」前面；英文要用關係子句放在名詞後面修飾。",
-    "關代用哪一個，把名詞代進關係子句就看得出來：High school students + （students）like making things。代進去以後 students 是這個子句的主詞，又是指人，所以用主格關代 who，寫 that 也可以。關係子句的動詞要配合先行詞 students，用複數的 like，不寫 likes。",
+    "整句的骨幹是 S + V + O：主詞 Students + 動詞 often enter + 受詞 invention contests + 修飾語 in their free time。中文把「喜歡動手做東西的」擺在「學生」前面；英文要用關係子句放在名詞後面修飾。",
+    "關代用哪一個，把名詞代進關係子句就看得出來：Students + （students）like making things。代進去以後 students 是這個子句的主詞，又是指人，所以用主格關代 who，寫 that 也可以。關係子句的動詞要配合先行詞 students，用複數的 like，不寫 likes。",
     "「常會」講的是平常的習慣，所以用現在簡單式，often 放在 enter 前面。like 是動名詞、不定詞都能接的動詞，寫 like making things 或 like to make things 都對；enjoy 則只接動名詞，寫 enjoy making things，不寫 enjoy to make things。"
    ],
    "collocation": [
@@ -375,7 +375,7 @@
     "enter、participate in 與 join：enter 後面直接接比賽；participate in 要加 in，in 不能省；join 多半接團體或社團。Lisa entered a photo contest with a picture of her cat.（Lisa 拿她家貓咪的照片參加攝影比賽）／Over fifty students participated in the speech contest.（五十多位學生參加了這場演講比賽）／Ben joined the science club last year.（Ben 去年加入了科學社）。"
    ],
    "mustHave": [
-    "中文的「高中生」與「比賽」都看不出單複數，英文得各選一個：這一句是泛指，所以用複數 students，enter 與 like 都不加 s；比賽不只一場，也用複數 contests。",
+    "中文的「學生」與「比賽」都看不出單複數，英文得各選一個：這一句是泛指，所以用複數 students，enter 與 like 都不加 s；比賽不只一場，也用複數 contests。",
     "泛指 → 複數 students、contests",
     "另外兩處中文不必寫、英文非寫不可：「喜歡動手做東西的」在中文只用一個「的」，英文得用關係代名詞 who 帶出子句；「課餘時間」在中文不必說是誰的時間，英文得寫出 their。"
    ],
@@ -400,8 +400,8 @@
   },
   "internalNote": {
    "_說明": "命題端量測，網站不顯示，供審稿使用",
-   "中文字數": 25,
-   "英文字數": 15,
+   "中文字數": 24,
+   "英文字數": 13,
    "句構": "複雜句：S（students + who 關係子句）+ often + V + O + in their free time（現在簡單式）",
    "標的詞彙": [
     "who 關係子句（students who like making things）",
@@ -507,16 +507,16 @@
   "label": "改編練習",
   "yearLabel": "改編練習（四）",
   "flagNote": "本題庫改編練習：主題取自 100 年學測閱讀測驗〈從受傷到助人的籃球員〉，照現行學測中譯英的版面擬題（兩句一組），參考譯法與解析由本題庫撰寫，不是大考中心的試題，也沒有官方評分原則。",
-  "zh": "許多學生運動員受傷後無法上場比賽，只能在場邊替隊友加油。",
-  "en": "After getting injured, many student athletes cannot compete in games and can only cheer for their teammates from the sidelines.",
+  "zh": "許多運動員受傷後無法上場比賽，只能在場邊替隊友加油。",
+  "en": "After getting injured, many athletes cannot compete in games and can only cheer for their teammates from the sidelines.",
   "chunks": [
    {
     "zh": "受傷後",
     "en": "After getting injured,"
    },
    {
-    "zh": "許多學生運動員無法上場比賽，",
-    "en": "many student athletes cannot compete in games"
+    "zh": "許多運動員無法上場比賽，",
+    "en": "many athletes cannot compete in games"
    },
    {
     "zh": "只能替隊友加油",
@@ -533,13 +533,13 @@
    "compete in games / play in games",
    "cheer for their teammates / cheer their teammates on",
    "from the sidelines / on the sidelines / at the side of the field / court",
-   "另一種寫法：Many student athletes cannot play in games after they get injured; they can only cheer their teammates on from the sidelines.",
-   "另一種寫法：After getting hurt, many student athletes are unable to compete in games and can only cheer for their teammates from the sidelines."
+   "另一種寫法：Many athletes cannot play in games after they get injured; they can only cheer their teammates on from the sidelines.",
+   "另一種寫法：After getting hurt, many athletes are unable to compete in games and can only cheer for their teammates from the sidelines."
   ],
   "explanation": {
    "pattern": [
-    "骨幹：S + cannot V1 + and can only V2。主詞 many student athletes 後面有兩個動作，英文用 and 連起來，主詞只寫一次。cannot 和 can 都是助動詞，後面接原形 compete、cheer。",
-    "After getting injured：after 在這裡當介系詞，後面要接名詞或動名詞，所以寫 getting injured，不寫 After injured 或 After get injured。還原成完整的子句是 After they get injured，after 改當連接詞，後面接主詞加動詞，兩種都對。至於省略主詞的寫法，前提是受傷的人就是主要子句的主詞 many student athletes。",
+    "骨幹：S + cannot V1 + and can only V2。主詞 many athletes 後面有兩個動作，英文用 and 連起來，主詞只寫一次。cannot 和 can 都是助動詞，後面接原形 compete、cheer。",
+    "After getting injured：after 在這裡當介系詞，後面要接名詞或動名詞，所以寫 getting injured，不寫 After injured 或 After get injured。還原成完整的子句是 After they get injured，after 改當連接詞，後面接主詞加動詞，兩種都對。至於省略主詞的寫法，前提是受傷的人就是主要子句的主詞 many athletes。",
     "can only + 原形動詞與 cheer for + 人：can 是助動詞，後面接原形動詞，所以寫 can only cheer，不寫 can only cheering 或 can only to cheer。cheer for + 人是「替……加油」，for 帶出支持的對象：We cheered for our class team at the sports day.（運動會上我們替班隊加油。）也可以寫 cheer their teammates on，受詞放在 cheer 和 on 中間。"
    ],
    "collocation": [
@@ -548,7 +548,7 @@
     "get injured（受傷）——get + 過去分詞常用來講突然發生、多半是意外的事，get injured、get hurt 都很常見；寫 be injured 也對。injure 是及物動詞，寫成 After injuring 就少了受詞。往外延伸：a knee injury（膝傷）、the risk of injury（受傷的風險）。"
    ],
    "mustHave": [
-    "中文「許多學生運動員」看不出單複數，英文 many 後面接可數名詞，要寫複數 athletes。student 在這裡當形容詞用，修飾後面的 athletes，所以不加 s，不寫 students athletes。",
+    "中文「許多運動員」看不出單複數，英文 many 後面接可數名詞，要寫複數 athletes，不寫 many athlete。",
     "many 之後 → 複數 athletes",
     "另外兩處中文不必寫、英文非寫不可：「隊友」在中文不必說是誰的，英文要寫出所有格 their teammates；「場邊」指的是邊線外的那一塊地方，英文習慣用複數加定冠詞，寫 the sidelines。"
    ],
@@ -558,7 +558,7 @@
      "url": "https://staresto-create.github.io/reading-comprehension/p/g100p3.html"
     },
     {
-     "label": "106 年指考中譯英第 2 題（student athletes）",
+     "label": "106 年指考中譯英第 2 題（athletes）",
      "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-205"
     },
     {
@@ -573,8 +573,8 @@
   },
   "internalNote": {
    "_說明": "命題端量測，網站不顯示，供審稿使用",
-   "中文字數": 26,
-   "英文字數": 20,
+   "中文字數": 24,
+   "英文字數": 19,
    "句構": "S + cannot V1 + and can only V2，句首 After + V-ing",
    "標的詞彙": [
     "After getting injured",
@@ -623,7 +623,7 @@
   "explanation": {
    "pattern": [
     "骨幹：However, + S + V1 + O + and + V2 + to V。主詞 some of them 後面有兩個動作 develop 和 hope，用 and 連起來。However 是副詞，承接上一句「只能在場邊替隊友加油」，轉到找到新的方向；它放在句首要加逗號，但不能當連接詞把兩個子句接成一句，要接成一句得用 but。",
-    "時態：這兩句講的是受傷的學生運動員常見的情形，不是某一個人過去的經歷，所以整段用現在簡單式 develop、hope。句中的「後來」「將來」只交代事情的先後：later 說的是受傷之後過了一段時間，in the future 說的是想做的事情還在後面，兩個都不會把這一句改成過去式或未來式。寫成 later developed，就像在講某一次已經發生的事。",
+    "時態：這兩句講的是受傷的運動員常見的情形，不是某一個人過去的經歷，所以整段用現在簡單式 develop、hope。句中的「後來」「將來」只交代事情的先後：later 說的是受傷之後過了一段時間，in the future 說的是想做的事情還在後面，兩個都不會把這一句改成過去式或未來式。寫成 later developed，就像在講某一次已經發生的事。",
     "hope to + 原形動詞（希望做……）：hope 後面接不定詞，寫 hope to help；也可以接 that 子句，寫 hope that they can help。to 後面只能接原形動詞，所以不能寫 hope to can help；要把「能」寫出來，就改用 that 子句。"
    ],
    "collocation": [
@@ -632,7 +632,7 @@
     "help injured athletes（幫助受傷的運動員）——injured 是過去分詞當形容詞，放在名詞前面，表示「受了傷的」：an injured player（受傷的球員）。in the future（將來）放在句尾，改用 someday 也可以。往外延伸：the injured（傷者，the + 形容詞指一群人）、one day（有一天）。"
    ],
    "mustHave": [
-    "中文「其中有些人」的「其中」指的是上一句受傷的學生運動員，英文要寫 some of them，them 就是這群人，讀者才知道這一句講的是誰。只寫 some people 就變成泛指一般人，和上一句接不起來。",
+    "中文「其中有些人」的「其中」指的是上一句受傷的運動員，英文要寫 some of them，them 就是這群人，讀者才知道這一句講的是誰。只寫 some people 就變成泛指一般人，和上一句接不起來。",
     "「受傷的運動員」泛指 → 複數 athletes",
     "另外一處中文不必寫、英文非寫不可：中文「熱愛」是動詞，英文用 develop a passion for 來寫；passion 當「熱愛」講是可數名詞，單數前面一定要有 a 或所有格，所以寫 develop a passion for sports medicine，不寫 develop passion for。前面有所有格時就不再加 a，例如 her passion for fashion。"
    ],
@@ -758,16 +758,16 @@
   "label": "改編練習",
   "yearLabel": "改編練習（五）",
   "flagNote": "本題庫改編練習：主題取自 91 年學測閱讀測驗〈辦公室休閒服飾的興起與優勢〉，照現行學測中譯英的版面擬題（兩句一組），參考譯法與解析由本題庫撰寫，不是大考中心的試題，也沒有官方評分原則。",
-  "zh": "原因之一是，學生穿著舒適的衣服時，上課比較容易專心。",
-  "en": "One reason is that it is easier for students to focus in class when they wear comfortable clothes.",
+  "zh": "原因之一是，他們穿著舒適的衣服時，上課比較容易專心。",
+  "en": "One reason is that it is easier for them to focus in class when they wear comfortable clothes.",
   "chunks": [
    {
     "zh": "原因之一是，",
     "en": "One reason is that"
    },
    {
-    "zh": "學生比較容易",
-    "en": "it is easier for students"
+    "zh": "他們比較容易",
+    "en": "it is easier for them"
    },
    {
     "zh": "上課專心。",
@@ -780,17 +780,18 @@
   ],
   "altAnswers": [
    "One reason / One of the reasons",
-   "it is easier for students to focus / students find it easier to focus / students can focus better",
+   "it is easier for them to focus / they find it easier to focus / they can focus better",
+   "for them / for students",
    "focus / concentrate",
    "wear / are wearing / are dressed in",
    "clothes / clothing",
-   "另一種寫法：One reason is that students can pay more attention in class when they wear comfortable clothes."
+   "另一種寫法：One reason is that they can pay more attention in class when they wear comfortable clothes."
   ],
   "explanation": {
    "pattern": [
-    "這一句的骨幹是 One reason is that + S + V：主詞是 One reason，be 動詞後面接 that 子句，說明原因的內容。第二句用 One reason 承接第一句，說明學校放寬規定的其中一個原因。reason 本身已經是「原因」，寫成 The reason is because… 意思重複，寫作文用 that 最穩當。",
-    "It is + 形容詞 + for + 人 + to V：這一句真正的主詞是 to focus in class（上課專心）這個動作。英文不習慣把不定詞放在句首，先用 It 占住主詞的位置，把 to focus in class 移到後面。照中文語序寫成 students are easier to focus 是最常見的錯誤：easy 後面接 to V 時，句首的主詞必須是那個動作的對象（He is easy to talk to. 和他聊天很容易），不能是做動作的人。上課專心的是學生自己，所以要由 for students 交代是誰。比較的對象前後文已經清楚，easier 後面不必寫出 than。",
-    "when they wear comfortable clothes 是表示時間的副詞子句。主要子句已經用了 students，when 子句就改用代名詞 they，但主詞不能省；講的是一般的情況，動詞用現在簡單式 wear。"
+    "這一句的骨幹是 One reason is that + S + V：主詞是 One reason，be 動詞後面接 that 子句，說明原因的內容。第二句用 One reason 承接第一句，說明學校放寬規定的其中一個原因；「他們」指的就是第一句的學生。reason 本身已經是「原因」，寫成 The reason is because… 意思重複，寫作文用 that 最穩當。",
+    "It is + 形容詞 + for + 人 + to V：這一句真正的主詞是 to focus in class（上課專心）這個動作。英文不習慣把不定詞放在句首，先用 It 占住主詞的位置，把 to focus in class 移到後面。照中文語序寫成 they are easier to focus 是最常見的錯誤：easy 後面接 to V 時，句首的主詞必須是那個動作的對象（He is easy to talk to. 和他聊天很容易），不能是做動作的人。上課專心的是學生自己，所以要由 for them 交代是誰。比較的對象前後文已經清楚，easier 後面不必寫出 than。",
+    "when they wear comfortable clothes 是表示時間的副詞子句。for them 和 they 指的都是第一句的學生，when 子句的主詞不能省；講的是一般的情況，動詞用現在簡單式 wear。"
    ],
    "collocation": [
     "comfortable clothes（舒適的衣服）——本題要用的這一組。同一篇原文寫的正是這個說法：Another reason is that people seem happier and more productive when they are wearing comfortable clothes.（另一個原因是，人穿著舒服的衣服時，似乎比較快樂，工作效率也比較高。）同一段稍早的 One reason is that it’s easier for a company to attract new employees… 也和本題同一個句型。往外延伸：feel comfortable（覺得自在）、comfortable shoes（好穿的鞋子）。",
@@ -800,8 +801,8 @@
     "wear／put on（穿）——wear 講的是身上穿著的狀態，put on 講的是穿上去的那個動作，本題講的是穿著，用 wear。並排看：Many students wear hoodies to school in winter.（冬天許多學生穿帽 T 上學。）／It was cold, so I put on my jacket before I left home.（天氣很冷，所以我出門前穿上了外套。）"
    ],
    "mustHave": [
-    "中文的「學生」看不出單複數，英文得選一個：這裡泛指一般的學生，用複數 students；when 子句裡指的是同一群人，代名詞也要用複數 they。",
-    "泛指 → 複數 students；改寫成 One of the reasons 時 → 複數 reasons",
+    "中文的「他們」放在哪裡都一樣寫，英文卻要看位置：在介系詞 for 後面是受詞，用受格 them；在 when 子句裡當主詞，用主格 they。寫成 for they 是常見的錯誤。",
+    "介系詞後面 → 受格 them；子句的主詞 → 主格 they",
     "另外兩處中文不必寫、英文非寫不可：中文沒有和 It 對應的字，英文句首卻少不了這個 It；「上課」寫成 in class，前面不加冠詞，寫成 in the class 就變成指某一個特定的班。"
    ],
    "refs": [
@@ -827,7 +828,7 @@
    "_說明": "命題端量測，網站不顯示，供審稿使用",
    "中文字數": 23,
    "英文字數": 18,
-   "句構": "One reason is that + It is + adj + for + 人 + to V + when 子句；四段：One reason is that / it is easier for students / to focus in class / when they wear comfortable clothes.",
+   "句構": "One reason is that + It is + adj + for + 人 + to V + when 子句；四段：One reason is that / it is easier for them / to focus in class / when they wear comfortable clothes.",
    "標的詞彙": [
     "One reason is that",
     "It is easier for + 人 + to V",
@@ -843,12 +844,12 @@
   "label": "改編練習",
   "yearLabel": "改編練習（六）",
   "flagNote": "本題庫改編練習：主題取自 98 年指考閱讀測驗〈網路非法音樂下載的問題與後果〉，照現行學測中譯英的版面擬題（兩句一組），參考譯法與解析由本題庫撰寫，不是大考中心的試題，也沒有官方評分原則。",
-  "zh": "許多高中生習慣從網路上免費下載影片和漫畫，並和朋友分享。",
-  "en": "Many high school students are used to downloading videos and comics online for free and sharing them with their friends.",
+  "zh": "許多人習慣從網路上免費下載影片和漫畫，並和朋友分享。",
+  "en": "Many people are used to downloading videos and comics online for free and sharing them with their friends.",
   "chunks": [
    {
-    "zh": "許多高中生",
-    "en": "Many high school students"
+    "zh": "許多人",
+    "en": "Many people"
    },
    {
     "zh": "習慣下載影片和漫畫，",
@@ -864,18 +865,19 @@
    }
   ],
   "altAnswers": [
+   "Many people / A lot of people",
    "are used to / are accustomed to / are in the habit of / have the habit of",
    "videos / video clips",
    "online / from the Internet",
    "and sharing / and then sharing / and share",
    "their friends / friends",
-   "另一種寫法：Many high school students are in the habit of downloading free videos and comics online and sharing them with their friends."
+   "另一種寫法：Many people are in the habit of downloading free videos and comics online and sharing them with their friends."
   ],
   "explanation": {
    "pattern": [
-    "整句的骨幹是 S + be used to + V-ing + and + V-ing：Many high school students（主詞） + are used to + downloading videos and comics online for free + and sharing them with their friends。「習慣」講的是現在的狀態，be 動詞用 are。",
+    "整句的骨幹是 S + be used to + V-ing + and + V-ing：Many people（主詞） + are used to + downloading videos and comics online for free + and sharing them with their friends。「習慣」講的是現在的狀態；people 本身就是複數，所以 be 動詞用 are。",
     "be used to 的 to 是介系詞，不是不定詞的 to，所以後面接名詞或動名詞，寫 downloading，不寫 download。98 年學測中譯英第 1 題也是這樣寫：Most students are not used to solving problems by themselves（大部分學生不習慣自己解決問題）。至於 used to + 原形動詞，講的是過去的習慣：I used to buy CDs.（我以前會買 CD。）99 年學測克漏字第 16 題的錯誤選項就是 used to。",
-    "and 後面的 sharing 和 downloading 一樣是 to 的受詞，所以也寫 V-ing。寫成 and share 的話，share 就和 are 一樣是主詞 students 的動詞，意思是「習慣下載，也會和朋友分享」，和中文差不多，也算對；不要寫成 and shared 或 and to share。"
+    "and 後面的 sharing 和 downloading 一樣是 to 的受詞，所以也寫 V-ing。寫成 and share 的話，share 就和 are 一樣是主詞 people 的動詞，意思是「習慣下載，也會和朋友分享」，和中文差不多，也算對；不要寫成 and shared 或 and to share。"
    ],
    "collocation": [
     "download sth online（從網路上下載）——本題要用的這一組。online 在這裡是副詞，前面不加介系詞；換成名詞就寫 from the Internet，Internet 前面固定加 the。原文寫的是 over the Internet，意思相同，見 98 年指考閱讀測驗〈網路非法音樂下載的問題與後果〉：Downloading music over the Internet is pretty common among high school and college students.（在高中生和大學生之間，從網路下載音樂相當普遍。）往外延伸：upload a video（上傳影片）、download an app（下載應用程式）。",
@@ -910,8 +912,8 @@
   },
   "internalNote": {
    "_說明": "命題端量測，網站不顯示，供審稿使用",
-   "中文字數": 26,
-   "英文字數": 20,
+   "中文字數": 24,
+   "英文字數": 18,
    "句構": "S + be used to + V-ing + and + V-ing（簡單句，兩個動名詞並列）",
    "標的詞彙": [
     "be used to + V-ing",
@@ -958,7 +960,7 @@
   ],
   "explanation": {
    "pattern": [
-    "整句的骨幹是 S + may not realize + that 子句：they（主詞） + may not realize + that downloading or sharing these files without the creators’ permission is against the law（受詞）。they 指上一句的高中生；may 後面接原形 realize。that 子句講的是一般的事實，所以用現在簡單式 is。",
+    "整句的骨幹是 S + may not realize + that 子句：they（主詞） + may not realize + that downloading or sharing these files without the creators’ permission is against the law（受詞）。they 指上一句的 many people；may 後面接原形 realize。that 子句講的是一般的事實，所以用現在簡單式 is。",
     "that 子句的主詞是動名詞片語 downloading or sharing these files without the creators’ permission。中文可以直接拿「下載或分享這些檔案」當主詞，英文的動詞卻不能直接當主詞，要改成動名詞。動名詞講的是「下載或分享」這一件事，所以動詞用單數 is，不能看到旁邊的 files、creators 就寫成 are。驗算的方法是用 it 代進去：it is against the law。原文第一句 Downloading music over the Internet is pretty common… 用的也是動名詞當主詞。",
     "也可以先用 it 占住主詞的位置，再把真正的主詞改成不定詞挪到句尾：it is against the law to download or share these files…。漏掉 it、寫成 is illegal to share…，句子就沒有主詞了。"
    ],
@@ -1005,12 +1007,12 @@
   "label": "改編練習",
   "yearLabel": "改編練習（七）",
   "flagNote": "本題庫改編練習：主題取自 102 年指考閱讀測驗〈非洲學校走向數位化〉，照現行學測中譯英的版面擬題（兩句一組），參考譯法與解析由本題庫撰寫，不是大考中心的試題，也沒有官方評分原則。",
-  "zh": "現在台灣許多高中生上課時會用平板電腦查資料、寫報告。",
-  "en": "In Taiwan, many high school students now use tablets in class to look up information and write reports.",
+  "zh": "現在台灣許多學生上課時會用平板電腦查資料、寫報告。",
+  "en": "In Taiwan, many students now use tablets in class to look up information and write reports.",
   "chunks": [
    {
-    "zh": "台灣許多高中生",
-    "en": "In Taiwan, many high school students"
+    "zh": "台灣許多學生",
+    "en": "In Taiwan, many students"
    },
    {
     "zh": "現在上課時會用平板電腦",
@@ -1026,17 +1028,17 @@
    }
   ],
   "altAnswers": [
-   "In Taiwan, many high school students / Many high school students in Taiwan / Students at many high schools in Taiwan",
+   "In Taiwan, many students / Many students in Taiwan",
    "now use / Nowadays, … use / Today, … use",
    "tablets / tablet computers",
    "in class / during class",
    "look up information / search for information",
    "write reports / work on reports",
-   "另一種寫法：Nowadays, many high school students in Taiwan use tablet computers during class to search for information and write reports."
+   "另一種寫法：Nowadays, many students in Taiwan use tablet computers during class to search for information and write reports."
   ],
   "explanation": {
    "pattern": [
-    "整句的骨幹是 S + V + O + to V：主詞是 many high school students，動詞是 use，受詞是 tablets，to look up information and write reports 說明用平板做什麼。地點 In Taiwan 可以放在句首，後面加逗號；也可以放在名詞後面，寫成 many high school students in Taiwan。中文把「台灣」放在「高中生」前面，英文的地點片語則要放在句首或名詞後面。",
+    "整句的骨幹是 S + V + O + to V：主詞是 many students，動詞是 use，受詞是 tablets，to look up information and write reports 說明用平板做什麼。地點 In Taiwan 可以放在句首，後面加逗號；也可以放在名詞後面，寫成 many students in Taiwan。中文把「台灣」放在「學生」前面，英文的地點片語則要放在句首或名詞後面。",
     "中文的「現在……會」講的是目前的習慣，所以用現在簡單式 use，不寫成 will use；now 放在一般動詞前面，也可以改用 Nowadays 放在句首。主詞 students 是複數，use 不加 s。",
     "and 連接兩個不定詞，第二個 to 省略：還原回去是 to look up information and to write reports。中文用頓號並列「查資料、寫報告」，英文要用 and 接起來，不能只用逗號。"
    ],
@@ -1049,7 +1051,7 @@
     "look up 和 look for：look up 是在工具裡查資訊，例如 I looked up the word on my phone.（我用手機查了這個字。）look for 是尋找一樣東西或一個人，例如 I’m looking for my calculator.（我在找我的計算機。）本題的「查資料」是在平板上查資訊，所以用 look up。"
    ],
    "mustHave": [
-    "中文的「高中生」「平板電腦」「報告」都沒有單複數，英文得各選一個：many 後面一定接可數名詞的複數，所以是 students，動詞 use 不加 s；學生用的平板、寫的報告都不只一份，泛指時也用複數。",
+    "中文的「學生」「平板電腦」「報告」都沒有單複數，英文得各選一個：many 後面一定接可數名詞的複數，所以是 students，動詞 use 不加 s；學生用的平板、寫的報告都不只一份，泛指時也用複數。",
     "泛指 → 複數 students、tablets、reports",
     "另外一處中文不必寫、英文非寫不可：「資料」寫成 information，是不可數名詞，不加 s，前面也不加 an；寫成 informations 是常見的錯誤。"
    ],
@@ -1066,8 +1068,8 @@
   },
   "internalNote": {
    "_說明": "命題端量測，網站不顯示，供審稿使用",
-   "中文字數": 24,
-   "英文字數": 18,
+   "中文字數": 23,
+   "英文字數": 16,
    "句構": "S + V + O + to V and V（現在簡單式）",
    "標的詞彙": [
     "look up information",
@@ -1184,16 +1186,16 @@
   "label": "改編練習",
   "yearLabel": "改編練習（八）",
   "flagNote": "本題庫改編練習：主題取自 98 年指考閱讀測驗〈女兒帶去上班日：賦權女性與性別平等〉，照現行學測中譯英的版面擬題（兩句一組），參考譯法與解析由本題庫撰寫，不是大考中心的試題，也沒有官方評分原則。",
-  "zh": "寒暑假期間，有些學生會到父母的工作場所待上一整天。",
-  "en": "During summer or winter vacation, some students spend a whole day at their parents’ workplaces.",
+  "zh": "寒暑假期間，有些孩子會到父母的工作場所待上一整天。",
+  "en": "During summer or winter vacation, some children spend a whole day at their parents’ workplaces.",
   "chunks": [
    {
     "zh": "寒暑假期間，",
     "en": "During summer or winter vacation,"
    },
    {
-    "zh": "有些學生會",
-    "en": "some students spend"
+    "zh": "有些孩子會",
+    "en": "some children spend"
    },
    {
     "zh": "待上一整天。",
@@ -1208,14 +1210,14 @@
    "During summer or winter vacation, / During summer and winter vacations, / During their summer or winter break,",
    "a whole day / an entire day",
    "workplaces / workplace / places of work",
-   "另一種寫法：Some students spend an entire day at the place where their parents work during summer or winter vacation."
+   "另一種寫法：Some children spend an entire day at the place where their parents work during summer or winter vacation."
   ],
   "explanation": {
    "pattern": [
-    "整句的骨幹是 S + spend + 時間 + at + 地方：some students（主詞） + spend（動詞） + a whole day（花掉的時間） + at their parents’ workplaces（在哪裡）。spend 的受詞是時間，「待在哪裡」另外用介系詞 at 帶出來，所以不寫 spend a whole day their parents’ workplaces，也不寫 stay a whole day。",
-    "中文的「會」在這裡說的是常有的事，不是未來要發生的事，所以英文用現在簡單式 spend，不寫 will spend。主詞 some students 是複數，動詞不加 -s。",
+    "整句的骨幹是 S + spend + 時間 + at + 地方：some children（主詞） + spend（動詞） + a whole day（花掉的時間） + at their parents’ workplaces（在哪裡）。spend 的受詞是時間，「待在哪裡」另外用介系詞 at 帶出來，所以不寫 spend a whole day their parents’ workplaces，也不寫 stay a whole day。",
+    "中文的「會」在這裡說的是常有的事，不是未來要發生的事，所以英文用現在簡單式 spend，不寫 will spend。主詞 some children 是複數，動詞不加 -s。",
     "During summer or winter vacation 是交代時間的介系詞片語，照中文的語序放在句首，後面要加逗號，和主詞隔開；也可以放到句尾，寫成 …at their parents’ workplaces during summer or winter vacation.，放在句尾時不加逗號。",
-    "時間片語不能放進主詞和動詞中間，寫成 some students during summer or winter vacation spend…，讀起來就斷斷續續。"
+    "時間片語不能放進主詞和動詞中間，寫成 some children during summer or winter vacation spend…，讀起來就斷斷續續。"
    ],
    "collocation": [
     "spend + 時間 + at + 地方（在某個地方待上一段時間）——本題要用的這一組。「待上一整天」用 spend a whole day，地點用 at 帶出：spend the afternoon at the library（在圖書館待一下午）。本題庫收的 83 年學測中譯英第 1 題也用 spend 接時間：what the best way to spend a vacation is（什麼是最佳的渡假方式）。往外延伸：spend + 時間 + V-ing（花時間做……）、spend + 時間 + with + 人（和某人一起度過）、all day（一整天）。",
@@ -1225,7 +1227,7 @@
    "mustHave": [
     "中文的「寒暑假」看不出是一個假期還是兩個，英文得決定：寫 summer or winter vacation，意思是寒假或暑假其中一個，vacation 用單數；寫 summer and winter vacations，兩個假期都算在內，vacations 用複數。兩種都說得通。",
     "「會」表示常有的事 → 現在簡單式 spend",
-    "另外兩處中文不必寫、英文非寫不可：「父母的工作場所」要寫出所有格 their parents’，parents 是複數，撇號放在 s 後面；每位學生的父母各在不同的地方上班，所以參考譯法用複數 workplaces，把父母看成在同一個地方上班，寫單數 workplace 也通。"
+    "另外兩處中文不必寫、英文非寫不可：「父母的工作場所」要寫出所有格 their parents’，parents 是複數，撇號放在 s 後面；每個孩子的父母各在不同的地方上班，所以參考譯法用複數 workplaces，把父母看成在同一個地方上班，寫單數 workplace 也通。"
    ],
    "refs": [
     {
@@ -1244,7 +1246,7 @@
   },
   "internalNote": {
    "_說明": "命題端量測，網站不顯示，供審稿使用",
-   "中文字數": 22,
+   "中文字數": 23,
    "英文字數": 15,
    "句構": "時間片語, + S + spend + 時間 + at + 地方（簡單句，現在簡單式）",
    "標的詞彙": [
@@ -1262,12 +1264,12 @@
   "label": "改編練習",
   "yearLabel": "改編練習（八）",
   "flagNote": "本題庫改編練習：主題取自 98 年指考閱讀測驗〈女兒帶去上班日：賦權女性與性別平等〉，照現行學測中譯英的版面擬題（兩句一組），參考譯法與解析由本題庫撰寫，不是大考中心的試題，也沒有官方評分原則。",
-  "zh": "這樣的經驗讓學生提早接觸各種職業，也讓他們更能體會父母的辛苦。",
-  "en": "This experience exposes students to various careers early and helps them better understand how hard their parents work.",
+  "zh": "這樣的經驗讓孩子提早接觸各種職業，也讓他們更能體會父母的辛苦。",
+  "en": "This experience exposes children to various careers early and helps them better understand how hard their parents work.",
   "chunks": [
    {
-    "zh": "這樣的經驗讓學生",
-    "en": "This experience exposes students"
+    "zh": "這樣的經驗讓孩子",
+    "en": "This experience exposes children"
    },
    {
     "zh": "提早接觸各種職業，",
@@ -1284,16 +1286,16 @@
   ],
   "altAnswers": [
    "This experience / Such an experience",
-   "exposes students to / helps students get to know / helps students learn about",
+   "exposes children to / helps children get to know / helps children learn about",
    "various careers / different jobs / different kinds of jobs / various occupations",
    "early / earlier / at an early age",
    "helps them better understand / helps them understand better",
-   "另一種寫法：Through this experience, students are exposed to various careers early and can better understand how hard their parents work."
+   "另一種寫法：Through this experience, children are exposed to various careers early and can better understand how hard their parents work."
   ],
   "explanation": {
    "pattern": [
     "整句的骨幹是 S + V1 + O + to N + and + V2 + O + V：and 連接 exposes 與 helps，第二個動詞前面不必再寫一次主詞。",
-    "expose + 人 + to + N（讓某人接觸……）：中文的「讓學生接觸」正好對上這個結構，經驗是主詞，學生是受詞，接觸的東西用介系詞 to 帶出來。換成學生當主詞，就要寫成 students are exposed to various careers。「接觸」不能照字面寫成 contact，contact 是「和某人聯絡」。",
+    "expose + 人 + to + N（讓某人接觸……）：中文的「讓孩子接觸」正好對上這個結構，經驗是主詞，孩子是受詞，接觸的東西用介系詞 to 帶出來。換成孩子當主詞，就要寫成 children are exposed to various careers。「接觸」不能照字面寫成 contact，contact 是「和某人聯絡」。",
     "help + 人 + V：help 後面的受詞可以直接接原形動詞，也可以接 to V。how hard their parents work 是名詞子句，當 understand 的受詞，還原成問句是 How hard do their parents work?；放進句子裡就不再是問句，所以拿掉 do，改回「主詞 + 動詞」的語序。"
    ],
    "collocation": [
@@ -1586,16 +1588,16 @@
   "label": "改編練習",
   "yearLabel": "改編練習（十）",
   "flagNote": "本題庫改編練習：主題取自 100 年指考閱讀測驗〈博士學位的發展與過剩問題〉，照現行學測中譯英的版面擬題（兩句一組），參考譯法與解析由本題庫撰寫，不是大考中心的試題，也沒有官方評分原則。",
-  "zh": "因此，在選擇科系之前，高中生應該先想想自己喜歡什麼、擅長什麼。",
-  "en": "Therefore, before choosing a major, high school students should first think about what they like and what they are good at.",
+  "zh": "因此，在選擇科系之前，應該先想想自己喜歡什麼、擅長什麼。",
+  "en": "Therefore, before choosing a major, students should first think about what they like and what they are good at.",
   "chunks": [
    {
     "zh": "因此，在選擇科系之前，",
     "en": "Therefore, before choosing a major,"
    },
    {
-    "zh": "高中生應該先想想",
-    "en": "high school students should first think about"
+    "zh": "應該先想想",
+    "en": "students should first think about"
    },
    {
     "zh": "自己喜歡什麼、",
@@ -1610,19 +1612,21 @@
    "Therefore, / Thus, / So,",
    "before choosing / before they choose / before deciding on",
    "a major / a college major / their majors",
-   "high school students / senior high school students",
+   "students / high school students",
    "think about / consider",
    "what they like / what they are interested in",
    "what they are good at / what they do well",
-   "另一種寫法：Therefore, high school students should first think about what they like and what they are good at before they choose their majors.",
-   "另一種寫法：So before high school students choose a major, they should first think about their interests and strengths.",
-   "另一種寫法：Thus, high school students should consider their interests and strengths before they decide which department to apply to."
+   "另一種寫法：Therefore, students should first think about what they like and what they are good at before they choose their majors.",
+   "另一種寫法：So before students choose a major, they should first think about their interests and strengths.",
+   "另一種寫法：Thus, students should consider their interests and strengths before they decide which department to apply to.",
+   "另一種寫法：Therefore, before choosing a major, we should first think about what we like and what we are good at.",
+   "另一種寫法：Therefore, before choosing a major, you should first think about what you like and what you are good at."
   ],
   "explanation": {
    "pattern": [
     "骨幹是 S + should + V + O：should 是助動詞，後面接原形動詞 think；中文的「先」寫成 first，放在助動詞和動詞中間。think about 的受詞是兩個用 and 連起來的名詞子句：what they like 和 what they are good at。句首的 Therefore 承接上一句；therefore 是副詞，不是連接詞，所以放在新句子開頭、後面加逗號，要和前一句寫成同一句就得用分號或 and。",
     "名詞子句用直述句的語序：「自己喜歡什麼」是把問句「他們喜歡什麼？」放進句子裡當受詞，這時它當名詞用，不再是問句，所以寫成主詞在前、動詞在後的 what they like，不寫 what do they like；同樣寫 what they are good at，不寫 what are they good at。歷屆試題也是這樣：83 年學測的 about what the best way to spend a vacation is、85 年學測的 Have you ever wondered what the hotels of the future will look like?",
-    "before + V-ing：這裡的 before 當介系詞，後面接動名詞，所以寫 choosing，不寫 before choose。做 choosing 這個動作的就是主詞 high school students，兩邊一致才能這樣寫；也可以寫成子句 before they choose a major。歷屆試題還有 before going on stage、before buying food。"
+    "before + V-ing：這裡的 before 當介系詞，後面接動名詞，所以寫 choosing，不寫 before choose。做 choosing 這個動作的就是主詞 students，兩邊一致才能這樣寫；也可以寫成子句 before they choose a major。歷屆試題還有 before going on stage、before buying food。"
    ],
    "collocation": [
     "choose a major（選科系）——本題要用的這一組。美國大學生的「主修科系」叫 major，「選科系」就說 choose a major；major 也可以當動詞，「主修……」是 major in + 科目。往外延伸：change majors（轉系）、a double major（雙主修）、a minor（輔系）。",
@@ -1632,9 +1636,9 @@
     "major／department：major 指學生主修的科目，department 指大學裡負責那個科目的系所單位。並排看：Her major is history.（她主修歷史。）／The history department is on the third floor.（歷史系的辦公室在三樓。）選要讀什麼說 choose a major；申請的是大學裡的系，就說 apply to a department。"
    ],
    "mustHave": [
-    "中文的「自己喜歡什麼」沒有寫主詞，英文的名詞子句卻一定要有主詞：what they like 的 they 指前面的 high school students；主詞是複數，所以用 they、are，不寫 he、is。",
-    "「自己」→ they；泛指高中生 → 複數 students",
-    "另外兩處中文不必寫、英文非寫不可：「科系」前面要有冠詞 a（a major），或改成複數加所有格 their majors；「想想」寫 think 時後面要有 about，「擅長什麼」要寫出 be 動詞 are 和介系詞 at，寫成 think what they good at 就漏了兩個字。"
+    "中文這一句沒有寫主詞，該先想想的是誰，讀者從上下文就看得出來；英文的句子卻一定要有主詞，得補上一個。參考譯法補 students，指正要選科系的學生；寫 we（連自己也算進去）或 you（直接對讀者說）也通。不寫 they，因為 they 會指回上一句畢業了的 some people。",
+    "沒有主詞 → 補 students（或 we、you）",
+    "另外兩處中文不必寫、英文非寫不可：「科系」前面要有冠詞 a（a major），或改成複數加所有格 their majors；兩個名詞子句也得寫出主詞，而且要和句子的主詞一致（students 配 they，we 配 we，you 配 you），「擅長什麼」還要寫出 are 和 at。"
    ],
    "refs": [
     {
@@ -1661,8 +1665,8 @@
   },
   "internalNote": {
    "_說明": "命題端量測，網站不顯示，供審稿使用",
-   "中文字數": 27,
-   "英文字數": 21,
+   "中文字數": 24,
+   "英文字數": 19,
    "句構": "Therefore, before + V-ing, S + should + first + V + O（兩個 what 名詞子句用 and 連接）",
    "標的詞彙": [
     "before + V-ing",
