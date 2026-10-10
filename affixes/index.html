@@ -6,7 +6,7 @@
 <title>字首字尾表｜高中英文參考詞彙表</title>
 <meta name="description" content="把大考中心《高中英文參考詞彙表》裡帶字首的字按字首分組，每個字附 KK 音標、拆解與意思，考過的字直接連到歷屆試題，每一組另附看起來像、其實不是的假朋友。">
 <meta property="og:title" content="字首字尾表｜高中英文參考詞彙表">
-<meta property="og:description" content="re-、un-、in-、dis-、ex-、con- 六組字首，七百七十一個字，其中四百七十九個字連得到學測、指考、克漏字、中譯英與作文的歷屆考題。">
+<meta property="og:description" content="re-、pre-、sub-、de-、inter- 等十三組字首，一千零四十九個字，其中六百四十三個字連得到學測、指考、克漏字、中譯英與作文的歷屆考題。">
 <style>
 :root{
   --ground:#f1f3f2; --ink:#17282f; --teal:#1f6f6a; --teal-soft:#dfeceb;
@@ -71,7 +71,7 @@ details .list{color:#3d5059}
 <body>
 <div class="wrap">
   <h1>字首字尾表</h1>
-  <p class="lede">把大考中心《高中英文參考詞彙表》（111 學年度起適用）裡帶字首的字，按字首分組，同一個字首再依意思分成幾小組。一、二級的熟字也收進來，先從認得的字看懂字首的意思，再拿去拆不認得的字；只想看難字，可以用級別篩選。每一組後面附假朋友，那些是看起來像、其實不是這個字首的字，或照字面拆會猜錯意思的字。字根另見<a href="../roots/">字根家族表</a>。目前先收六組常用字首，其他字首和字尾陸續補上。</p>
+  <p class="lede">把大考中心《高中英文參考詞彙表》（111 學年度起適用）裡帶字首的字，按字首分組，同一個字首再依意思分成幾小組。一、二級的熟字也收進來，先從認得的字看懂字首的意思，再拿去拆不認得的字；只想看難字，可以用級別篩選。每一組後面附假朋友，那些是看起來像、其實不是這個字首的字，或照字面拆會猜錯意思的字。字根另見<a href="../roots/">字根家族表</a>。目前收十三組常用字首，其他字首和字尾陸續補上。</p>
 
   <div class="tools">
     <input type="search" id="q" placeholder="搜尋單字、拆解或意思" aria-label="搜尋">
@@ -93,7 +93,8 @@ function render(){
   const nav=$('#nav'), body=$('#body');
   nav.innerHTML=''; body.innerHTML='';
   const q=state.q.trim().toLowerCase();
-  let shown=0, total=0;
+  let shown=0, total=0, ffShown=0;
+  const ffHit=x=>q && !state.lv.size && !state.examOnly && (x.why+' '+x.list).toLowerCase().includes(q);
 
   const keep=it=>{
       if(state.lv.size && !state.lv.has(it.lv)) return false;
@@ -106,8 +107,9 @@ function render(){
     const subs=g.subs.map(sb=>({t:sb.t,items:sb.items.filter(keep)}));
     g.subs.forEach(sb=>total+=sb.items.length);
     const cnt=subs.reduce((a,sb)=>a+sb.items.length,0);
-    if(!cnt) return;
-    shown+=cnt;
+    const ffs=q?(g.dropped||[]).filter(ffHit):(g.dropped||[]);
+    if(!cnt && !(q && ffs.length)) return;
+    shown+=cnt; if(q) ffShown+=ffs.length;
 
     const a=document.createElement('a');
     a.href='#g'+gi; a.textContent=g.key; nav.appendChild(a);
@@ -153,12 +155,13 @@ function render(){
     sec.appendChild(ul);
     });
 
-    if(g.dropped && g.dropped.length){
+    if(ffs.length){
       const d=document.createElement('details');
+      if(q) d.open=true;
       const s=document.createElement('summary');
       s.textContent='假朋友：看起來像、其實不是，或照字面拆會猜錯的字';
       d.appendChild(s);
-      g.dropped.forEach(x=>{
+      ffs.forEach(x=>{
         const t=document.createElement('p'); t.className='why'; t.textContent=x.why; d.appendChild(t);
         const l=document.createElement('p'); l.className='list'; l.textContent=x.list; d.appendChild(l);
       });
@@ -167,15 +170,15 @@ function render(){
     body.appendChild(sec);
   });
 
-  if(!shown){
+  if(!shown && !ffShown){
     const e=document.createElement('p'); e.className='empty';
     e.textContent='這個條件下沒有字。清掉搜尋或級別再試一次。';
     body.appendChild(e);
   }
   let linked=0; DATA.groups.forEach(g=>g.subs.forEach(sb=>sb.items.forEach(it=>{if(it.refs&&it.refs.length)linked++;})));
   $('#count').textContent = (state.q||state.lv.size||state.examOnly)
-    ? '符合的字 '+shown+' 個，全表共 '+total+' 個'
-    : '共 '+DATA.groups.length+' 組字首、'+total+' 個字，其中 '+linked+' 個字附了考古題連結';
+    ? '符合的字 '+shown+' 個'+(ffShown?'，另有 '+ffShown+' 則假朋友說明提到這個字':'')+'，全表共 '+total.toLocaleString('en-US')+' 個'
+    : '共 '+DATA.groups.length+' 組字首、'+total.toLocaleString('en-US')+' 個字，其中 '+linked.toLocaleString('en-US')+' 個字附了考古題連結';
 }
 
 function buildLv(){

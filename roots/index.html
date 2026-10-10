@@ -91,7 +91,8 @@ function render(){
   const nav=$('#nav'), body=$('#body');
   nav.innerHTML=''; body.innerHTML='';
   const q=state.q.trim().toLowerCase();
-  let shown=0, total=0;
+  let shown=0, total=0, ffShown=0;
+  const ffHit=x=>q && !state.lv.size && !state.examOnly && (x.why+' '+x.list).toLowerCase().includes(q);
 
   DATA.groups.forEach((g,gi)=>{
     total+=g.items.length;
@@ -102,8 +103,9 @@ function render(){
       const refTxt=(it.refs||[]).map(r=>r.t).join(' ');
       return (it.w+' '+it.p+' '+it.g+' '+refTxt).toLowerCase().includes(q);
     });
-    if(!items.length) return;
-    shown+=items.length;
+    const ffs=q?(g.dropped||[]).filter(ffHit):(g.dropped||[]);
+    if(!items.length && !(q && ffs.length)) return;
+    shown+=items.length; if(q) ffShown+=ffs.length;
 
     const a=document.createElement('a');
     a.href='#g'+gi; a.textContent=g.key; nav.appendChild(a);
@@ -144,12 +146,13 @@ function render(){
     });
     sec.appendChild(ul);
 
-    if(g.dropped && g.dropped.length){
+    if(ffs.length){
       const d=document.createElement('details');
+      if(q) d.open=true;
       const s=document.createElement('summary');
-      s.textContent='看起來像、其實不是這一家的字';
+      s.textContent='假朋友：看起來像、其實不是這一家的字';
       d.appendChild(s);
-      g.dropped.forEach(x=>{
+      ffs.forEach(x=>{
         const t=document.createElement('p'); t.className='why'; t.textContent=x.why; d.appendChild(t);
         const l=document.createElement('p'); l.className='list'; l.textContent=x.list; d.appendChild(l);
       });
@@ -158,15 +161,15 @@ function render(){
     body.appendChild(sec);
   });
 
-  if(!shown){
+  if(!shown && !ffShown){
     const e=document.createElement('p'); e.className='empty';
     e.textContent='這個條件下沒有字。清掉搜尋或級別再試一次。';
     body.appendChild(e);
   }
   let linked=0; DATA.groups.forEach(g=>g.items.forEach(it=>{if(it.refs&&it.refs.length)linked++;}));
   $('#count').textContent = (state.q||state.lv.size||state.examOnly)
-    ? '符合的字 '+shown+' 個，全表共 '+total+' 個'
-    : '共 '+DATA.groups.length+' 個字根家族、'+total+' 個字，其中 '+linked+' 個字附了考古題連結';
+    ? '符合的字 '+shown+' 個'+(ffShown?'，另有 '+ffShown+' 則假朋友說明提到這個字':'')+'，全表共 '+total.toLocaleString('en-US')+' 個'
+    : '共 '+DATA.groups.length+' 個字根家族、'+total.toLocaleString('en-US')+' 個字，其中 '+linked.toLocaleString('en-US')+' 個字附了考古題連結';
 }
 
 function buildLv(){
