@@ -281,6 +281,42 @@
     font-weight:700;
     color:var(--stamp);
   }
+  .flag-box{
+    display:none;
+    font-size:12.5px;
+    line-height:1.75;
+    color:var(--muted);
+    background:var(--paper2, #faf7f0);
+    border:1px dashed var(--rule);
+    border-radius:6px;
+    padding:8px 12px;
+    margin-bottom:12px;
+  }
+  .flag-box.show{display:block;}
+  .chunks-box{
+    display:none;
+    margin-top:12px;
+    padding-top:10px;
+    border-top:1px dashed var(--rule);
+    font-size:14px;
+    line-height:1.7;
+  }
+  .chunks-box.show{display:block;}
+  .chunks-box .ck-label{
+    font-size:12px;
+    color:var(--muted);
+    letter-spacing:1px;
+    margin-bottom:2px;
+  }
+  .chunks-box .ck-note{
+    font-size:12px;
+    color:var(--muted);
+    opacity:.85;
+    margin-bottom:6px;
+  }
+  .chunks-box ol{margin:0;padding-left:22px;}
+  .chunks-box li{margin-bottom:4px;}
+  .chunks-box .ck-zh{display:block;font-size:12.5px;color:var(--muted);}
   .ans-source{
     display:none;
     margin-top:8px;
@@ -506,7 +542,9 @@ details.skill[open] > summary::after{content:'－ 收合';}
         <b>92 年怎麼沒有題目？</b><br>
         那一年學測考的是簡答題——讀一篇英文短文，再用英文回答問題，不是中譯英；91、92 兩年的指考也都沒有考翻譯。前面 86 到 90 年並沒有缺，那幾年的題目來自當時的大學聯考，每年 5 題。有興趣了解簡答題的同學，可以到<a href="https://staresto-create.github.io/mixed-format/" style="color:#9C2C1E;font-weight:700;">混合題題庫</a>看看——那是 111 學年度起才有的題型，作答方式裡也有簡答。<br>
         年度列表裡的 <b>91</b> 只有 6 題，全部來自大考中心的「英文寫作能力研究用試卷」，不是正式考試的題目，說明見下方「91 年那 6 題是什麼」。97 年另有 5 題來自大考中心另一份英文寫作能力研究用試卷，也在同一段說明。<br>
-        本題庫收錄 73–115 年、共 218 題。
+        本題庫收錄 73–115 年、共 218 題。<br>
+        <b>「改編練習」是什麼？</b><br>
+        年度列表最後的「改編練習」不是大考中心的試題，是本題庫照現行學測中譯英的版面擬的 10 組、20 題：一組兩句、前後相連，主題多半取自歷屆學測、指考閱讀測驗的文章，參考譯法與解析由本題庫撰寫，沒有官方評分原則，也不算進上面的 218 題。按下對答案之後，多了一欄「分段給分」，可以照段替自己算分。
       </div>
     </div>
 
@@ -631,6 +669,7 @@ details.skill[open] > summary::after{content:'－ 收合';}
         <div class="ctx-label">這一題是短文挖空，請依上下文作答</div>
         <div id="ctxText"></div>
       </div>
+      <div class="flag-box" id="flagBox"></div>
       <div class="zh-text" id="zhText"></div>
       <textarea id="userInput" placeholder="請輸入你的英文翻譯……"></textarea>
       <div class="btn-row">
@@ -642,6 +681,11 @@ details.skill[open] > summary::after{content:'－ 收合';}
         <div class="label" id="revealLabel">參考譯法</div>
         <div class="en-model" id="enModel"></div>
         <div class="ans-source" id="ansSource"></div>
+        <div class="chunks-box" id="chunksBox">
+          <div class="ck-label">分段給分</div>
+          <div class="ck-note">一段 1 分，四段共 4 分；一段裡錯一處扣 0.5 分，錯兩處那一段就是 0 分。分段方式是本題庫參考校內閱卷的做法擬的，不是大考中心公布的評分方式。</div>
+          <ol id="chunksList"></ol>
+        </div>
         <div class="alt-answers" id="altAnswers">
           <div class="alt-label">也可以這樣寫</div>
           <div class="alt-note">大括弧 { } 裡面用斜線隔開的寫法，寫其中一個就可以了。</div>
@@ -753,12 +797,15 @@ function startFromSetHash(){
    與 #set- 的差別：#q- 落在整份試卷之中，#set- 走的是指定的那一組。
    網址形狀：#q-<題目ID>　例：#q-127 */
 function startFromHash(){
-  const m = (location.hash || '').match(/^#q-(\d+)$/);
+  const m = (location.hash || '').match(/^#q-(\d+|TA-[\w-]+)$/);
   if(!m) return false;
   const target = ALL_ITEMS.find(it => String(it.id) === m[1]);
   if(!target) return false;
-  const pool = ALL_ITEMS.filter(it => it.year === target.year && it.label === target.label)
-                        .sort((a, b) => Number(a.id) - Number(b.id));
+  /* 改編練習以 yearLabel 分組（同一組兩題），照資料檔的順序 */
+  const pool = target.year === ADAPT
+    ? ALL_ITEMS.filter(it => it.yearLabel === target.yearLabel)
+    : ALL_ITEMS.filter(it => it.year === target.year && it.label === target.label)
+               .sort((a, b) => Number(a.id) - Number(b.id));
   const idx = pool.findIndex(it => String(it.id) === String(target.id));
   queue = pool;
   currentRangeLabel = target.yearLabel;
@@ -769,21 +816,28 @@ function startFromHash(){
   return true;
 }
 
+const ADAPT = "改編練習";
 async function loadItems(){
   const res = await fetch("quiz_items.json");
   ALL_ITEMS = await res.json();
+  /* 改編練習另放 adapt/quiz_items.json，讀不到時歷屆題目照常可用 */
+  try{
+    const r2 = await fetch("adapt/quiz_items.json");
+    if(r2.ok) ALL_ITEMS = ALL_ITEMS.concat(await r2.json());
+  }catch(e){}
   buildYearGrid();
   startFromSetHash() || startFromHash();
 }
 
 function buildYearGrid(){
-  const years = [...new Set(ALL_ITEMS.map(i => i.year))].sort((a,b)=>b-a);   // 年度新→舊
+  const years = [...new Set(ALL_ITEMS.filter(i => i.year !== ADAPT).map(i => i.year))].sort((a,b)=>b-a);   // 年度新→舊
+  if(ALL_ITEMS.some(i => i.year === ADAPT)) years.push(ADAPT);   // 改編練習排在最後
   const grid = document.getElementById("yearGrid");
   grid.innerHTML = "";
   years.forEach(y => {
     const chip = document.createElement("div");
     chip.className = "year-chip";
-    chip.textContent = y + "年";
+    chip.textContent = y === ADAPT ? ADAPT : y + "年";
     chip.dataset.year = y;
     chip.addEventListener("click", () => chip.classList.toggle("selected"));
     grid.appendChild(chip);
@@ -800,7 +854,7 @@ document.getElementById("selWrongOnly").addEventListener("click", ()=>{
   const wrong = getWrongBook();
   const wrongYears = new Set(wrong.map(w=>w.year));
   document.querySelectorAll("#yearGrid .year-chip").forEach(c=>{
-    if(wrongYears.has(Number(c.dataset.year))) c.classList.add("selected");
+    if(wrongYears.has(c.dataset.year) || wrongYears.has(Number(c.dataset.year))) c.classList.add("selected");
     else c.classList.remove("selected");
   });
 });
@@ -819,14 +873,16 @@ function getMode(){
 
 document.getElementById("startBtn").addEventListener("click", ()=>{
   const selectedYears = [...document.querySelectorAll("#yearGrid .year-chip.selected")]
-      .map(c => Number(c.dataset.year));
+      .map(c => c.dataset.year === ADAPT ? ADAPT : Number(c.dataset.year));
   if(selectedYears.length === 0){ alert("請至少選擇一個年度"); return; }
   queue = ALL_ITEMS.filter(i => selectedYears.includes(i.year));
   if(getMode() === "shuffle"){
     queue = shuffle(queue);
   }
   currentRangeLabel = selectedYears.length === [...new Set(ALL_ITEMS.map(i=>i.year))].length
-      ? "全部年度" : (selectedYears[0] + "–" + selectedYears[selectedYears.length-1] + " 等 " + selectedYears.length + " 個年度");
+      ? "全部年度"
+      : (selectedYears.length === 1 && selectedYears[0] === ADAPT) ? ADAPT
+      : (selectedYears[0] + "–" + selectedYears[selectedYears.length-1] + " 等 " + selectedYears.length + " 個年度");
   qIndex = 0; correctCount = 0; attemptedCount = 0; sessionWrong = [];
   showView("quiz");
   renderQuestion();
@@ -854,6 +910,14 @@ function renderQuestion(){
   const item = queue[qIndex];
   document.getElementById("questionCard").dataset.tag = item.yearLabel;
   document.getElementById("zhText").textContent = item.zh;
+  const flagBox = document.getElementById("flagBox");
+  if(item.flagNote){
+    flagBox.textContent = item.flagNote;
+    flagBox.classList.add("show");
+  }else{
+    flagBox.textContent = "";
+    flagBox.classList.remove("show");
+  }
   const ctxBox = document.getElementById("ctxBox");
   if(item.context){
     document.getElementById("ctxText").innerHTML =
@@ -892,6 +956,17 @@ document.getElementById("revealBtn").addEventListener("click", ()=>{
     document.getElementById("revealLabel").textContent = "參考譯法（本題庫整理）";
     srcBox.textContent = "";
     srcBox.classList.remove("show");
+  }
+
+  const ckBox = document.getElementById("chunksBox");
+  const ckList = document.getElementById("chunksList");
+  if(Array.isArray(item.chunks) && item.chunks.length){
+    ckList.innerHTML = item.chunks.map(c => '<li>' + escapeHtml(c.en)
+        + '<span class="ck-zh">' + escapeHtml(c.zh) + '</span></li>').join("");
+    ckBox.classList.add("show");
+  }else{
+    ckList.innerHTML = "";
+    ckBox.classList.remove("show");
   }
 
   const altBox = document.getElementById("altAnswers");
