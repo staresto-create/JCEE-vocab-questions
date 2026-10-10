@@ -4263,6 +4263,98 @@
      "list": "nominate　anonymous　synonym　antonym"
     }
    ]
+  },
+  {
+   "key": "terr",
+   "zh": "使害怕",
+   "note": "拉丁文 terrere「使害怕」。terrible 和 terrific 一開始都是「令人害怕的」，後來意思都弱化成「程度很大」，最後才分道揚鑣：terrible 變成「很糟的」，terrific 卻變成「極好的」，兩個字的意思剛好相反，要特別小心。deter 是 de（離開）加上 ter（嚇），「把人嚇走」→ 嚇阻。特別注意 territory、terrace 的 terr 多半是拉丁文 terra（土地），跟「嚇」無關；determine 開頭也是 deter，卻是 de + termin（界限），跟 deter 不是同一家。",
+   "items": [
+    {
+     "w": "terrible",
+     "lv": 1,
+     "kk": "ˈtɛrəbəl",
+     "p": "terr 嚇 + -ible",
+     "g": "adj. 原意是「令人害怕的」→可怕的；後來弱化成「很糟的」",
+     "refs": [
+      {
+       "s": "tr",
+       "id": "138",
+       "t": "中譯英 112(學測) 第138題"
+      }
+     ]
+    },
+    {
+     "w": "terrorism",
+     "lv": 2,
+     "kk": "ˈtɛrəˌrɪzəm",
+     "p": "terror + -ism",
+     "g": "n. 恐怖主義"
+    },
+    {
+     "w": "terrorist",
+     "lv": 2,
+     "kk": "ˈtɛrərɪst",
+     "p": "terror + -ist",
+     "g": "n. 恐怖分子；adj. 恐怖主義的"
+    },
+    {
+     "w": "terrific",
+     "lv": 3,
+     "kk": "təˈrɪfɪk",
+     "p": "terr 嚇 + -ific（拉丁文 facere 做）",
+     "g": "adj. 原意是「令人害怕的」→很大的、很嚴重的→極好的",
+     "refs": [
+      {
+       "s": "gsat",
+       "id": "V0212",
+       "t": "95學測 單字Q2",
+       "k": "d"
+      }
+     ]
+    },
+    {
+     "w": "terror",
+     "lv": 4,
+     "kk": "ˈtɛrɚ",
+     "p": "terr 嚇 + -or（名詞字尾）",
+     "g": "n. 恐懼；令人恐懼的人或事"
+    },
+    {
+     "w": "terrify",
+     "lv": 5,
+     "kk": "ˈtɛrəˌfaɪ",
+     "p": "terr 嚇 + -ify",
+     "g": "v. 使非常害怕",
+     "refs": [
+      {
+       "s": "ep",
+       "id": "95",
+       "t": "作文字彙表 95學年 terrified"
+      }
+     ]
+    },
+    {
+     "w": "deter",
+     "lv": 6,
+     "kk": "dɪˈtɝ",
+     "p": "de 離開 + ter（拉丁文 terrere 嚇）",
+     "g": "v. 把人嚇走→嚇阻、阻止"
+    }
+   ],
+   "dropped": [
+    {
+     "why": "多半來自拉丁文 terra「土地」，與本字根無關",
+     "list": "territory（也有學者認為跟 terrere「嚇」有關，原意是「警告別人不准進來的地方」）　terrace"
+    },
+    {
+     "why": "開頭也是 deter，卻是 de + termin「界限」",
+     "list": "determine　determination"
+    },
+    {
+     "why": "字串巧合",
+     "list": "interrupt（inter 在中間 + rupt 斷）　detergent（de 去掉 + tergere 擦）"
+    }
+   ]
   }
  ],
  "sites": {
