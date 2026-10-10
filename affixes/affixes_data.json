@@ -3340,7 +3340,7 @@
    ]
   },
   {
-   "key": "in-／im-／il-／ir-",
+   "key": "in-（im-／il-／ir-）",
    "zh": "否定；進入、在裡面",
    "note": "in- 來自拉丁文，有兩個意思：一個是否定，像 incredible、invisible；另一個是進入、在裡面，再延伸成朝向、在…上面，像 include、inject、insult。這兩個意思長得一模一樣，只能看整個字的意思來判斷。im-、il-、ir- 都是 in- 的變形：後面接 b、m、p 時變成 im-（impossible、import），接 l 時變成 il-（illegal、illustrate），接 r 時變成 ir-（irrational），念起來比較順。否定這一組裡有幾個字不容易看出 in- 是否定，正好拿來記：individual（不能再分割的 → 個人）、infant（還不會說話的 → 嬰兒）、injure（做不正當的事 → 傷害）、immediate（中間沒隔著東西 → 立即的）、immense（量不出來的 → 巨大的）。",
    "subs": [
@@ -9070,7 +9070,7 @@
    ]
   },
   {
-   "key": "con-／com-／col-／cor-／co-",
+   "key": "con-（com-／col-／cor-／co-）",
    "zh": "一起；徹底",
    "note": "con- 來自拉丁文 com-，基本意思是「一起、共同」：connect 是綁在一起，compare 是放在一起比，companion 是一起吃麵包（pan）的人 → 同伴。很多字裡的 con- 看不出「一起」，而是表示「徹底、加強語氣」，像 confirm（使更穩固）、convince（徹底說贏）、consume（全部拿光）。拼法會跟著後面的字母變：接 b、m、p 變成 com-（combine、commit、compete），接 l 變成 col-（collect），接 r 變成 cor-（correct），接母音或 h 常變成 co-（cooperate、coherent），其他多半是 con-。",
    "subs": [
@@ -14581,7 +14581,7 @@
     },
     {
      "why": "superior、supreme、supervise：開頭是 super-（在上面），不是 sub-。",
-     "list": "sup 後面接 er 或 re 的，多半是 super-，意思跟 sub- 相反：superior 是在上面的 → 較好的、上司；supreme 是 super 的最高級 → 最高的；supervise 是從上面看 → 監督。"
+     "list": "sup 後面接 er 或 re 的，多半是 super-，意思跟 sub- 相反：superior 是在上面的 → 較好的、上司；supreme 是 super 的最高級 → 最高的；supervise 是從上面看 → 監督。這幾個字收在 super- 那一組。"
     }
    ]
   },
@@ -16848,6 +16848,4293 @@
     {
      "why": "contract、contractor：不是 contra- 開頭。",
      "list": "contract 是 con（一起）+ tract（拉），「把雙方拉在一起」→ 合約；也有「收縮」的意思。這兩個字收在 con- 那一組。"
+    }
+   ]
+  },
+  {
+   "key": "super-（sur-）",
+   "zh": "在上面、超過",
+   "note": "super- 來自拉丁文，意思是「在上面、超過」，像 supervise（從上面看 → 監督）、superior（在比較上面的 → 較好的）。super- 經過法文以後常常變成 sur-，像 surface（在上面的那一面 → 表面）、survive（活過了 → 倖存）、surprise（從上面突然抓住 → 使驚訝）。看到 sur 開頭的字，先想想能不能拆成「在上面、超過」。",
+   "subs": [
+    {
+     "t": "在上面、超過",
+     "items": [
+      {
+       "w": "super",
+       "lv": 2,
+       "kk": "ˈsupɚ",
+       "p": "super 本身就是字首",
+       "g": "adj. 超級的、極好的",
+       "refs": [
+        {
+         "s": "tr",
+         "id": "116",
+         "t": "中譯英 107(學測) 第116題"
+        }
+       ]
+      },
+      {
+       "w": "supermarket",
+       "lv": 1,
+       "kk": "ˈsupɚˌmɑrkɪt",
+       "p": "super 超級 + market 市場",
+       "g": "n. 超級市場"
+      },
+      {
+       "w": "superb",
+       "lv": 5,
+       "kk": "sʊˈpɝb",
+       "p": "拉丁文 superbus（高高在上的），來自 super",
+       "g": "adj. 高人一等的→極好的、一流的",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0067",
+         "t": "105指考 單字Q7",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "superior",
+       "lv": 3,
+       "kk": "suˈpɪriɚ",
+       "p": "super 在上面 + -ior（拉丁文的比較級）",
+       "g": "adj. 在比較上面的→較好的、較高的；n. 上司",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0249",
+         "t": "97學測 單字Q9",
+         "k": "a"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0133",
+         "t": "99指考 單字Q1",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "superiority",
+       "lv": 6,
+       "kk": "səˌpɪriˈɔrəti",
+       "p": "superior + -ity",
+       "g": "n. 優越、優勢"
+      },
+      {
+       "w": "supreme",
+       "lv": 5,
+       "kk": "səˈprim",
+       "p": "拉丁文 supremus（最高的），是 super 的最高級",
+       "g": "adj. 最高的"
+      },
+      {
+       "w": "superficial",
+       "lv": 6,
+       "kk": "ˌsupɚˈfɪʃəl",
+       "p": "super 在上面 + fici（拉丁文 facies 臉、外觀）+ -al",
+       "g": "adj. 只在表面上的→表面的；膚淺的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0188",
+         "t": "93學測 單字Q8",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0097",
+         "t": "93敏督利颱風受災地區考生補救考試 單字Q7",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0239",
+         "t": "90聯考 單字Q15",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "supervise",
+       "lv": 5,
+       "kk": "ˈsupɚˌvaɪz",
+       "p": "super 在上面 + vise 看",
+       "g": "v. 從上面看著→監督、管理"
+      },
+      {
+       "w": "supervision",
+       "lv": 5,
+       "kk": "ˌsupɚˈvɪʒən",
+       "p": "supervise 的名詞",
+       "g": "n. 監督、管理",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0066",
+         "t": "105指考 單字Q6",
+         "k": "a"
+        },
+        {
+         "s": "zcz",
+         "id": "Z108_14",
+         "t": "指考克漏字 108年 第14格",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "supervisor",
+       "lv": 5,
+       "kk": "ˌsupɚˈvaɪzɚ",
+       "p": "supervise + -or",
+       "g": "n. 監督者、主管"
+      },
+      {
+       "w": "superintendent",
+       "lv": 6,
+       "kk": "ˌsupərɪnˈtɛndənt",
+       "p": "super 在上面 + intend（拉丁文 intendere 留意）+ -ent",
+       "g": "n. 在上面看管的人→主管、督導"
+      },
+      {
+       "w": "superstition",
+       "lv": 5,
+       "kk": "ˌsupɚˈstɪʃən",
+       "p": "super 在上面 + stit（拉丁文 stare 站）+ -ion",
+       "g": "n. 迷信（字面是「站在上面」，怎麼變成「迷信」，字源學者說法不一）",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0106",
+         "t": "102指考 單字Q4",
+         "k": "d"
+        },
+        {
+         "s": "ep",
+         "id": "84",
+         "t": "作文字彙表 84學年 superstition"
+        }
+       ]
+      },
+      {
+       "w": "superstitious",
+       "lv": 6,
+       "kk": "ˌsupɚˈstɪʃəs",
+       "p": "superstition 的形容詞",
+       "g": "adj. 迷信的"
+      },
+      {
+       "w": "surface",
+       "lv": 2,
+       "kk": "ˈsɝfɪs",
+       "p": "sur（super 在上面）+ face 臉、面",
+       "g": "n. 在上面的那一面→表面；v. 浮出水面"
+      },
+      {
+       "w": "surname",
+       "lv": 6,
+       "kk": "ˈsɝˌneɪm",
+       "p": "sur（super 在上面、額外）+ name 名字",
+       "g": "n. 名字之外再加上的名字→姓"
+      },
+      {
+       "w": "surpass",
+       "lv": 6,
+       "kk": "sɚˈpæs",
+       "p": "sur（super 超過）+ pass 經過",
+       "g": "v. 超過去→超越、勝過",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0152",
+         "t": "98指考 單字Q10",
+         "k": "a"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0058",
+         "t": "106指考 單字Q8",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "surplus",
+       "lv": 5,
+       "kk": "ˈsɝplʌs",
+       "p": "sur（super 超過）+ plus 更多",
+       "g": "n. 超出來的部分→過剩；盈餘"
+      },
+      {
+       "w": "surrender",
+       "lv": 4,
+       "kk": "səˈrɛndɚ",
+       "p": "sur（super 在上面）+ render 交出",
+       "g": "v. 交上去→投降；交出",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0316",
+         "t": "102學測 單字Q1",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "surround",
+       "lv": 3,
+       "kk": "səˈraʊnd",
+       "p": "sur（super 在上面）+ round（原本是拉丁文 undare 起浪）",
+       "g": "v. 原意是水漫過來，後來受 round（圓）影響→包圍、環繞",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0399",
+         "t": "107學測 單字Q9",
+         "k": "a"
+        },
+        {
+         "s": "ep",
+         "id": "106",
+         "t": "作文字彙表 106學年 be surrounded by + N"
+        }
+       ]
+      },
+      {
+       "w": "surroundings",
+       "lv": 4,
+       "kk": "səˈraʊndɪŋz",
+       "p": "surround + -ings",
+       "g": "n. 周圍的環境"
+      },
+      {
+       "w": "survey",
+       "lv": 3,
+       "kk": "sɚˈveɪ",
+       "p": "sur（super 在上面）+ vey（拉丁文 videre 看）",
+       "g": "v. 從上面看→俯瞰；調查；n. 調查",
+       "refs": [
+        {
+         "s": "zcz",
+         "id": "Z92_18",
+         "t": "指考克漏字 92年 第18格",
+         "k": "d"
+        },
+        {
+         "s": "ep",
+         "id": "108",
+         "t": "作文字彙表 108學年 conduct a survey"
+        }
+       ]
+      },
+      {
+       "w": "surveillance",
+       "lv": 5,
+       "kk": "sɚˈveɪləns",
+       "p": "sur（super 在上面）+ veill（法文 veiller 看守）+ -ance",
+       "g": "n. 從上面看守→監視"
+      },
+      {
+       "w": "surprise",
+       "lv": 1,
+       "kk": "səˈpraɪz",
+       "p": "sur（super 在上面）+ prise（法文 prendre 抓）",
+       "g": "v. 從上面突然抓住→使驚訝；n. 驚訝；驚喜",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0301",
+         "t": "101學測 單字Q1",
+         "k": "a"
+        },
+        {
+         "s": "zcz",
+         "id": "Z94_16",
+         "t": "指考克漏字 94年 第16格",
+         "k": "a"
+        },
+        {
+         "s": "ep",
+         "id": "95",
+         "t": "作文字彙表 95學年 surprise"
+        }
+       ]
+      },
+      {
+       "w": "surprised",
+       "lv": 1,
+       "kk": "səˈpraɪzd",
+       "p": "surprise + -ed",
+       "g": "adj. 感到驚訝的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0007",
+         "t": "83推薦甄選 單字Q7",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "survive",
+       "lv": 2,
+       "kk": "sɚˈvaɪv",
+       "p": "sur（super 超過）+ vive 活",
+       "g": "v. 活過了→倖存；比…活得久",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0221",
+         "t": "91指考 單字Q7",
+         "k": "d"
+        },
+        {
+         "s": "gcz",
+         "id": "G110_22_2",
+         "t": "學測克漏字 110年 第22格",
+         "k": "a"
+        },
+        {
+         "s": "gcz",
+         "id": "G96_30_3",
+         "t": "學測克漏字 96年 第30格",
+         "k": "a"
+        }
+       ]
+      },
+      {
+       "w": "survival",
+       "lv": 2,
+       "kk": "sɚˈvaɪvəl",
+       "p": "survive + -al",
+       "g": "n. 倖存、存活",
+       "refs": [
+        {
+         "s": "zcz",
+         "id": "Z93M_19",
+         "t": "指考克漏字 93年 第19格",
+         "k": "a"
+        }
+       ]
+      },
+      {
+       "w": "survivor",
+       "lv": 3,
+       "kk": "sɚˈvaɪvɚ",
+       "p": "survive + -or",
+       "g": "n. 倖存者"
+      }
+     ]
+    }
+   ],
+   "dropped": [
+    {
+     "why": "surgeon、surgery、surgical：開頭的 sur 不是 sur-。",
+     "list": "這三個字來自希臘文 kheir（手）+ ergon（工作），「用手做的工作」→ 外科手術；surgeon 是外科醫生。"
+    }
+   ]
+  },
+  {
+   "key": "en-（em-）",
+   "zh": "使…；放進、在裡面",
+   "note": "en- 最常見的用法是加在形容詞或名詞前面，把它變成動詞，意思是「使…、使處於…」：enlarge 是使變大，encourage 是使有勇氣，endanger 是使陷入危險。另一個意思是「放進、在裡面」，像 enclose（關在裡面 → 圍起來；附上）、envelope（把信包在裡面 → 信封）。en- 碰到 b、m、p 開頭的字會變成 em-，像 embrace、employ。en- 是經過法文來的 in-，所以意思跟 in- 的「進入、在裡面」相通；energy、enthusiasm 的 en- 則來自希臘文，意思一樣是「在裡面」。",
+   "subs": [
+    {
+     "t": "使…、使處於（加在形容詞、名詞前面變成動詞）",
+     "items": [
+      {
+       "w": "enable",
+       "lv": 3,
+       "kk": "ɪnˈeɪbəl",
+       "p": "en 使 + able 能夠的",
+       "g": "v. 使能夠"
+      },
+      {
+       "w": "enlarge",
+       "lv": 4,
+       "kk": "ɪnˈlɑrʤ",
+       "p": "en 使 + large 大的",
+       "g": "v. 使變大→擴大、放大",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0297",
+         "t": "84聯考 單字Q4",
+         "k": "a"
+        }
+       ]
+      },
+      {
+       "w": "enlargement",
+       "lv": 4,
+       "kk": "ɪnˈlɑrʤmənt",
+       "p": "enlarge + -ment",
+       "g": "n. 擴大；放大的照片"
+      },
+      {
+       "w": "enrich",
+       "lv": 6,
+       "kk": "ɪnˈrɪʧ",
+       "p": "en 使 + rich 豐富的",
+       "g": "v. 使豐富、使富有"
+      },
+      {
+       "w": "enrichment",
+       "lv": 6,
+       "kk": "ɪnˈrɪʧmənt",
+       "p": "enrich + -ment",
+       "g": "n. 充實、豐富"
+      },
+      {
+       "w": "ensure",
+       "lv": 4,
+       "kk": "ɪnˈʃʊr",
+       "p": "en 使 + sure 確定的",
+       "g": "v. 使確定→確保",
+       "refs": [
+        {
+         "s": "tr",
+         "id": "139",
+         "t": "中譯英 112(學測) 第139題"
+        },
+        {
+         "s": "tr",
+         "id": "131",
+         "t": "中譯英 110(學測) 第131題"
+        }
+       ]
+      },
+      {
+       "w": "endanger",
+       "lv": 4,
+       "kk": "ɪnˈdeɪnʤɚ",
+       "p": "en 使處於 + danger 危險",
+       "g": "v. 使陷入危險→危害",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0205",
+         "t": "94學測 單字Q10",
+         "k": "d"
+        },
+        {
+         "s": "gcz",
+         "id": "G96_30_3",
+         "t": "學測克漏字 96年 第30格",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "encourage",
+       "lv": 2,
+       "kk": "ɪnˈkɝɪʤ",
+       "p": "en 使有 + courage 勇氣",
+       "g": "v. 使有勇氣→鼓勵",
+       "refs": [
+        {
+         "s": "gcz",
+         "id": "G109_26_3",
+         "t": "學測克漏字 109年 第26格",
+         "k": "a"
+        },
+        {
+         "s": "gcz",
+         "id": "G87_38_2",
+         "t": "學測克漏字 87年 第38格",
+         "k": "a"
+        },
+        {
+         "s": "tr",
+         "id": "119",
+         "t": "中譯英 107(指考) 第119題"
+        }
+       ]
+      },
+      {
+       "w": "encouragement",
+       "lv": 2,
+       "kk": "ɛnˈkɝɪʤmənt",
+       "p": "encourage + -ment",
+       "g": "n. 鼓勵",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0215",
+         "t": "91指考 單字Q1",
+         "k": "a"
+        },
+        {
+         "s": "tr",
+         "id": "4",
+         "t": "中譯英 73(大學聯考) 第4題"
+        },
+        {
+         "s": "ep",
+         "id": "104",
+         "t": "作文字彙表 104學年 encouragement"
+        }
+       ]
+      },
+      {
+       "w": "enforce",
+       "lv": 4,
+       "kk": "ɪnˈfɔrs",
+       "p": "en 使有 + force 力量",
+       "g": "v. 使產生效力→執行、實施（法律）",
+       "refs": [
+        {
+         "s": "tr",
+         "id": "131",
+         "t": "中譯英 110(學測) 第131題"
+        }
+       ]
+      },
+      {
+       "w": "enforcement",
+       "lv": 4,
+       "kk": "ɛnˈfɔrsmənt",
+       "p": "enforce + -ment",
+       "g": "n. 執行、實施",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0008",
+         "t": "110指考 單字Q8",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "entitle",
+       "lv": 5,
+       "kk": "ɪnˈtaɪtl",
+       "p": "en 使有 + title 名稱、頭銜",
+       "g": "v. 給…名稱→為…命名；給…權利（be entitled to）",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0080",
+         "t": "104指考 單字Q10",
+         "k": "a"
+        },
+        {
+         "s": "ep",
+         "id": "102",
+         "t": "作文字彙表 102學年 be entitled to + V"
+        }
+       ]
+      },
+      {
+       "w": "enlighten",
+       "lv": 6,
+       "kk": "ɪnˈlaɪtn",
+       "p": "en 使 + lighten 照亮",
+       "g": "v. 使明白、啟發"
+      },
+      {
+       "w": "enlightenment",
+       "lv": 6,
+       "kk": "ɪnˈlaɪtnmənt",
+       "p": "enlighten + -ment",
+       "g": "n. 啟發；啟蒙"
+      },
+      {
+       "w": "enjoy",
+       "lv": 1,
+       "kk": "ɪnˈʤɔɪ",
+       "p": "en 使 + joy 快樂",
+       "g": "v. 使自己快樂→享受、喜歡",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0059",
+         "t": "86推薦甄選 單字Q19",
+         "k": "d"
+        },
+        {
+         "s": "tr",
+         "id": "137",
+         "t": "中譯英 111(學測) 第137題"
+        },
+        {
+         "s": "tr",
+         "id": "127",
+         "t": "中譯英 109(指考) 第127題"
+        }
+       ]
+      },
+      {
+       "w": "enjoyable",
+       "lv": 3,
+       "kk": "ˌɛnˈʤɔɪəbəl",
+       "p": "enjoy + -able",
+       "g": "adj. 令人愉快的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0300",
+         "t": "100學測 單字Q15",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "enjoyment",
+       "lv": 1,
+       "kk": "ɪnˈʤɔɪmənt",
+       "p": "enjoy + -ment",
+       "g": "n. 樂趣、享受",
+       "refs": [
+        {
+         "s": "gcz",
+         "id": "G94_28_3",
+         "t": "學測克漏字 94年 第28格",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "endure",
+       "lv": 4,
+       "kk": "ɪnˈdjʊr",
+       "p": "en（in 使）+ dure（拉丁文 durus 硬）",
+       "g": "v. 讓自己硬起來→忍受；持久"
+      },
+      {
+       "w": "endurance",
+       "lv": 6,
+       "kk": "ɪnˈdjʊrəns",
+       "p": "endure + -ance",
+       "g": "n. 忍耐力、耐力"
+      },
+      {
+       "w": "enhance",
+       "lv": 6,
+       "kk": "ɪnˈhæns",
+       "p": "en 使 + hance（拉丁文 altus 高）",
+       "g": "v. 使變高→提高、增強"
+      },
+      {
+       "w": "enhancement",
+       "lv": 6,
+       "kk": "ɪnˈhænsmənt",
+       "p": "enhance + -ment",
+       "g": "n. 提高、增強"
+      },
+      {
+       "w": "envision",
+       "lv": 5,
+       "kk": "ɪnˈvɪʒən",
+       "p": "en 使 + vision 景象",
+       "g": "v. 在心裡形成景象→想像、展望"
+      },
+      {
+       "w": "embarrass",
+       "lv": 4,
+       "kk": "ɪmˈbærəs",
+       "p": "em 使 + barrass（義大利文 imbarrare 用柵欄擋住）",
+       "g": "v. 用柵欄擋住、使人進退不得→使尷尬、使困窘",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0380",
+         "t": "106學測 單字Q5",
+         "k": "a"
+        },
+        {
+         "s": "gcz",
+         "id": "G88_34_3",
+         "t": "學測克漏字 88年 第34格",
+         "k": "a"
+        },
+        {
+         "s": "ep",
+         "id": "103",
+         "t": "作文字彙表 103學年 embarrassing"
+        }
+       ]
+      },
+      {
+       "w": "embarrassment",
+       "lv": 4,
+       "kk": "ɪmˈbærəsmənt",
+       "p": "embarrass + -ment",
+       "g": "n. 尷尬；令人尷尬的人或事",
+       "refs": [
+        {
+         "s": "ep",
+         "id": "109",
+         "t": "作文字彙表 109學年 blush with embarrassment"
+        },
+        {
+         "s": "ep",
+         "id": "94",
+         "t": "作文字彙表 94學年 embarrassment"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "t": "放進、在裡面",
+     "items": [
+      {
+       "w": "enclose",
+       "lv": 4,
+       "kk": "ɪnˈkloʊz",
+       "p": "en 在裡面 + close 關",
+       "g": "v. 關在裡面→圍起來；（隨信）附上",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0386",
+         "t": "106學測 單字Q11",
+         "k": "a"
+        },
+        {
+         "s": "gsat",
+         "id": "V0469",
+         "t": "112學測 單字Q9",
+         "k": "d"
+        },
+        {
+         "s": "gsat",
+         "id": "V0318",
+         "t": "102學測 單字Q3",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "envelope",
+       "lv": 1,
+       "kk": "ˈɛnvəˌloʊp",
+       "p": "en 在裡面 + velope（古法文 voloper 包）",
+       "g": "n. 把信包在裡面的東西→信封"
+      },
+      {
+       "w": "enroll",
+       "lv": 6,
+       "kk": "ɪnˈroʊl",
+       "p": "en 放進 + roll 名冊",
+       "g": "v. 寫進名冊→註冊、入學"
+      },
+      {
+       "w": "enrollment",
+       "lv": 6,
+       "kk": "ɪnˈroʊlmənt",
+       "p": "enroll + -ment",
+       "g": "n. 註冊、入學；註冊人數"
+      },
+      {
+       "w": "engage",
+       "lv": 3,
+       "kk": "ɪnˈgeɪʤ",
+       "p": "en 放進 + gage（古法文 gage 抵押、保證）",
+       "g": "v. 立下保證、投入其中→參與、使忙於；訂婚",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0033",
+         "t": "108指考 單字Q3",
+         "k": "a"
+        },
+        {
+         "s": "ep",
+         "id": "103",
+         "t": "作文字彙表 103學年 be engaged in + N／V-ing"
+        }
+       ]
+      },
+      {
+       "w": "engagement",
+       "lv": 3,
+       "kk": "ɪnˈgeɪʤmənt",
+       "p": "engage + -ment",
+       "g": "n. 訂婚；約定；參與",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0349",
+         "t": "104學測 單字Q4",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "endorse",
+       "lv": 5,
+       "kk": "ɪnˈdɔrs",
+       "p": "en 在…上面 + dorse（拉丁文 dorsum 背面）",
+       "g": "v. 在文件背面簽名→背書；贊同、支持"
+      },
+      {
+       "w": "endorsement",
+       "lv": 5,
+       "kk": "ɪnˈdɔrsmənt",
+       "p": "endorse + -ment",
+       "g": "n. 贊同、支持；背書"
+      },
+      {
+       "w": "endeavor",
+       "lv": 6,
+       "kk": "ɪnˈdɛvɚ",
+       "p": "en 放進 + deavor（法文 devoir 責任）",
+       "g": "n./v. 把事情當成自己的責任→努力"
+      },
+      {
+       "w": "embrace",
+       "lv": 5,
+       "kk": "ɪmˈbreɪs",
+       "p": "em 在裡面 + brace（拉丁文 bracchium 手臂）",
+       "g": "v. 抱進手臂裡→擁抱；欣然接受",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0012",
+         "t": "109指考補考 單字Q2",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "employ",
+       "lv": 2,
+       "kk": "ɪmˈplɔɪ",
+       "p": "em 在裡面 + ploy（拉丁文 plicare 折）",
+       "g": "v. 把人捲進工作裡→雇用；使用",
+       "refs": [
+        {
+         "s": "tr",
+         "id": "151",
+         "t": "中譯英 93(指考研究用試卷) 第151題"
+        }
+       ]
+      },
+      {
+       "w": "employee",
+       "lv": 2,
+       "kk": "ˌɛmplɔɪˈi",
+       "p": "employ + -ee",
+       "g": "n. 受雇者、員工"
+      },
+      {
+       "w": "employer",
+       "lv": 2,
+       "kk": "ɪmˈplɔɪɚ",
+       "p": "employ + -er",
+       "g": "n. 雇主"
+      },
+      {
+       "w": "employment",
+       "lv": 2,
+       "kk": "ɪmˈplɔɪmənt",
+       "p": "employ + -ment",
+       "g": "n. 雇用；就業",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0160",
+         "t": "92學測 單字Q10",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "envy",
+       "lv": 3,
+       "kk": "ˈɛnvi",
+       "p": "en（in 朝向）+ vy（拉丁文 videre 看）",
+       "g": "n./v. 一直盯著別人看→羨慕、嫉妒"
+      },
+      {
+       "w": "envious",
+       "lv": 5,
+       "kk": "ˈɛnviəs",
+       "p": "envy + -ous",
+       "g": "adj. 羨慕的、嫉妒的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0126",
+         "t": "91學測 單字Q6",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0211",
+         "t": "92指考 單字Q7",
+         "k": "a"
+        },
+        {
+         "s": "ep",
+         "id": "103",
+         "t": "作文字彙表 103學年 be envious of sb"
+        }
+       ]
+      },
+      {
+       "w": "energy",
+       "lv": 2,
+       "kk": "ˈɛnɚʤi",
+       "p": "en 在裡面 + erg（希臘文 ergon 工作）+ -y",
+       "g": "n. 在裡面做工的力量→能量；精力",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0215",
+         "t": "95學測 單字Q5",
+         "k": "d"
+        },
+        {
+         "s": "gsat",
+         "id": "V0137",
+         "t": "91學測補考 單字Q2",
+         "k": "d"
+        },
+        {
+         "s": "gsat",
+         "id": "V0100",
+         "t": "89學測 單字Q10",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "energetic",
+       "lv": 3,
+       "kk": "ˌɛnɚˈʤɛtɪk",
+       "p": "energy 的形容詞",
+       "g": "adj. 精力充沛的"
+      },
+      {
+       "w": "enthusiasm",
+       "lv": 4,
+       "kk": "ɪnˈθuziˌæzəm",
+       "p": "en 在裡面 + thus（希臘文 theos 神）+ -iasm",
+       "g": "n. 心裡有神→熱忱、熱情",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0023",
+         "t": "109指考 單字Q3",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0194",
+         "t": "93指考 單字Q2",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "enthusiastic",
+       "lv": 5,
+       "kk": "ɪnˌθuziˈæstɪk",
+       "p": "enthusiasm 的形容詞",
+       "g": "adj. 熱心的、熱情的",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0218",
+         "t": "91指考 單字Q4",
+         "k": "d"
+        },
+        {
+         "s": "ep",
+         "id": "94",
+         "t": "作文字彙表 94學年 enthusiastic"
+        }
+       ]
+      },
+      {
+       "w": "emphasis",
+       "lv": 4,
+       "kk": "ˈɛmfəsɪs",
+       "p": "em 在裡面 + phasis（希臘文 phainein 顯示）",
+       "g": "n. 在裡面顯示出來→強調；重點",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0497",
+         "t": "115學測 單字Q7",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0087",
+         "t": "103指考 單字Q7",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "emphasize",
+       "lv": 2,
+       "kk": "ˈɛmfəˌsaɪz",
+       "p": "emphasis 的動詞",
+       "g": "v. 強調",
+       "refs": [
+        {
+         "s": "gcz",
+         "id": "G114_13_1",
+         "t": "學測克漏字 114年 第13格",
+         "k": "d"
+        },
+        {
+         "s": "gcz",
+         "id": "G99_22_2",
+         "t": "學測克漏字 99年 第22格",
+         "k": "d"
+        },
+        {
+         "s": "gcz",
+         "id": "G88_32_3",
+         "t": "學測克漏字 88年 第32格",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "encyclopedia",
+       "lv": 6,
+       "kk": "ɪnˌsaɪkləˈpidiə",
+       "p": "en 在裡面 + cyclo 圓圈 + pedia（希臘文 paideia 教育）",
+       "g": "n. 把所有學問圍在一個圓圈裡→百科全書"
+      }
+     ]
+    }
+   ],
+   "dropped": [
+    {
+     "why": "enemy：開頭的 en 是表示否定的 in-。",
+     "list": "enemy 來自拉丁文 inimicus：in（不）+ amicus（朋友），「不是朋友」→ 敵人。照「使…」拆會拆不通。"
+    }
+   ]
+  },
+  {
+   "key": "ad-（ac-／af-／ag-／al-／an-／ap-／ar-／as-／at-／a-）",
+   "zh": "朝向、靠近、加上",
+   "note": "ad- 來自拉丁文，意思是「朝向、靠近」，再延伸成「加上、去做」，像 admit（讓人進去）、adapt（使適合）。ad- 是變形最多的字首：d 碰到後面的子音，常常變成跟那個子音一樣，念起來比較順，所以有 accept、affect、aggressive、allocate、announce、apply、arrange、assist、attract。也就是說，看到 a 後面跟著兩個一樣的子音，先想想是不是 ad-。碰到 sc、sp 開頭的字根時，ad- 會縮成 a-，像 ascend、aspect；經過法文的字也常常只剩 a-，像 agree、achieve、amount。下面照變形分組，方便看出 ad- 怎麼跟著後面的字母變。",
+   "subs": [
+    {
+     "t": "ad-",
+     "items": [
+      {
+       "w": "add",
+       "lv": 1,
+       "kk": "æd",
+       "p": "ad 加上 + d（拉丁文 -dere 放）",
+       "g": "v. 放上去→加、增加",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0328",
+         "t": "81聯考 單字Q5",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "addition",
+       "lv": 2,
+       "kk": "əˈdɪʃən",
+       "p": "add + -ition",
+       "g": "n. 加法；增加的人或物",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0295",
+         "t": "100學測 單字Q10",
+         "k": "d"
+        },
+        {
+         "s": "tr",
+         "id": "177",
+         "t": "中譯英 98(學測) 第177題"
+        },
+        {
+         "s": "tr",
+         "id": "175",
+         "t": "中譯英 97(指考研究用試卷卷二) 第175題"
+        }
+       ]
+      },
+      {
+       "w": "additional",
+       "lv": 3,
+       "kk": "əˈdɪʃənəl",
+       "p": "addition + -al",
+       "g": "adj. 額外的、附加的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0077",
+         "t": "88推薦甄選 單字Q2",
+         "k": "d"
+        },
+        {
+         "s": "gcz",
+         "id": "G108_18_1",
+         "t": "學測克漏字 108年 第18格",
+         "k": "d"
+        },
+        {
+         "s": "zcz",
+         "id": "Z96_21",
+         "t": "指考克漏字 96年 第21格",
+         "k": "a"
+        }
+       ]
+      },
+      {
+       "w": "adapt",
+       "lv": 4,
+       "kk": "əˈdæpt",
+       "p": "ad 朝向 + apt 適合的",
+       "g": "v. 使適合→適應；改編",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0079",
+         "t": "88推薦甄選 單字Q4",
+         "k": "a"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0080",
+         "t": "104指考 單字Q10",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0331",
+         "t": "81聯考 單字Q8",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "adaptation",
+       "lv": 6,
+       "kk": "ˌædæpˈteɪʃən",
+       "p": "adapt + -ation",
+       "g": "n. 適應；改編（的作品）"
+      },
+      {
+       "w": "adequate",
+       "lv": 4,
+       "kk": "ˈædəkwɪt",
+       "p": "ad 朝向 + equ 相等 + -ate",
+       "g": "adj. 跟需要的一樣多→足夠的、適當的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0405",
+         "t": "107學測 單字Q15",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0074",
+         "t": "104指考 單字Q4",
+         "k": "a"
+        }
+       ]
+      },
+      {
+       "w": "adjust",
+       "lv": 4,
+       "kk": "əˈʤʌst",
+       "p": "ad 朝向 + just（拉丁文 juxta 靠近）",
+       "g": "v. 挪近、對齊→調整；適應",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0229",
+         "t": "96學測 單字Q4",
+         "k": "a"
+        },
+        {
+         "s": "gcz",
+         "id": "G106_23_2",
+         "t": "學測克漏字 106年 第23格",
+         "k": "a"
+        },
+        {
+         "s": "ep",
+         "id": "110",
+         "t": "作文字彙表 110學年 adjust to + N"
+        }
+       ]
+      },
+      {
+       "w": "adjustment",
+       "lv": 4,
+       "kk": "əˈʤʌstmənt",
+       "p": "adjust + -ment",
+       "g": "n. 調整；適應",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0442",
+         "t": "110學測 單字Q7",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "admire",
+       "lv": 3,
+       "kk": "ədˈmaɪr",
+       "p": "ad 朝向 + mire（拉丁文 mirari 驚奇）",
+       "g": "v. 看著覺得驚奇→欽佩、讚賞"
+      },
+      {
+       "w": "admiration",
+       "lv": 4,
+       "kk": "ˌædməˈreɪʃən",
+       "p": "admire + -ation",
+       "g": "n. 欽佩、讚賞"
+      },
+      {
+       "w": "admirable",
+       "lv": 4,
+       "kk": "ˈædmɚəbəl",
+       "p": "admire + -able",
+       "g": "adj. 令人欽佩的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0299",
+         "t": "100學測 單字Q14",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0300",
+         "t": "84聯考 單字Q7",
+         "k": "a"
+        }
+       ]
+      },
+      {
+       "w": "admit",
+       "lv": 2,
+       "kk": "ədˈmɪt",
+       "p": "ad 朝向 + mit 送",
+       "g": "v. 讓人進去→准許進入；承認",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0214",
+         "t": "95學測 單字Q4",
+         "k": "d"
+        },
+        {
+         "s": "gsat",
+         "id": "V0108",
+         "t": "90學測 單字Q3",
+         "k": "d"
+        },
+        {
+         "s": "zcz",
+         "id": "Z107_14",
+         "t": "指考克漏字 107年 第14格",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "admission",
+       "lv": 4,
+       "kk": "ədˈmɪʃən",
+       "p": "admit 的名詞",
+       "g": "n. 准許進入、入學；入場費；承認",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0230",
+         "t": "96學測 單字Q5",
+         "k": "d"
+        },
+        {
+         "s": "tr",
+         "id": "126",
+         "t": "中譯英 109(指考) 第126題"
+        }
+       ]
+      },
+      {
+       "w": "adopt",
+       "lv": 4,
+       "kk": "əˈdɑpt",
+       "p": "ad 朝向 + opt 選擇",
+       "g": "v. 選來當自己的→採用；收養",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0243",
+         "t": "97學測 單字Q3",
+         "k": "d"
+        },
+        {
+         "s": "gsat",
+         "id": "V0079",
+         "t": "88推薦甄選 單字Q4",
+         "k": "d"
+        },
+        {
+         "s": "ep",
+         "id": "96",
+         "t": "作文字彙表 96學年 adopt"
+        }
+       ]
+      },
+      {
+       "w": "adore",
+       "lv": 5,
+       "kk": "əˈdɔr",
+       "p": "ad 朝向 + ore（拉丁文 orare 祈禱）",
+       "g": "v. 對著祈禱→崇拜；非常喜愛",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0079",
+         "t": "88推薦甄選 單字Q4",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "adolescent",
+       "lv": 5,
+       "kk": "ˌædəlˈɛsənt",
+       "p": "ad 朝向 + olesc（拉丁文 alescere 長大）+ -ent",
+       "g": "n. 正在長大的人→青少年；adj. 青春期的"
+      },
+      {
+       "w": "adolescence",
+       "lv": 6,
+       "kk": "ˌædəlˈɛsəns",
+       "p": "adolescent 的名詞",
+       "g": "n. 青春期"
+      },
+      {
+       "w": "adult",
+       "lv": 2,
+       "kk": "əˈdʌlt",
+       "p": "adolescent 的同一家，拉丁文 adultus（已經長大的）",
+       "g": "n. 已經長大的人→成年人；adj. 成年的"
+      },
+      {
+       "w": "adventure",
+       "lv": 3,
+       "kk": "ədˈvɛnʧɚ",
+       "p": "ad 朝向 + vent 來 + -ure",
+       "g": "n. 將要來的事→冒險",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0384",
+         "t": "106學測 單字Q9",
+         "k": "d"
+        },
+        {
+         "s": "ep",
+         "id": "93",
+         "t": "作文字彙表 93學年 adventure"
+        }
+       ]
+      },
+      {
+       "w": "adverse",
+       "lv": 5,
+       "kk": "ædˈvɝs",
+       "p": "ad 朝向 + verse 轉",
+       "g": "adj. 轉過來對著你的→不利的、有害的"
+      },
+      {
+       "w": "advertise",
+       "lv": 3,
+       "kk": "ˈædvɚˌtaɪz",
+       "p": "ad 朝向 + vert 轉",
+       "g": "v. 把大家的注意力轉過來→登廣告、宣傳",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0232",
+         "t": "96學測 單字Q7",
+         "k": "d"
+        },
+        {
+         "s": "tr",
+         "id": "122",
+         "t": "中譯英 108(指考) 第122題"
+        },
+        {
+         "s": "ep",
+         "id": "107",
+         "t": "作文字彙表 107學年 mislead sb into V-ing / misleading advertising"
+        }
+       ]
+      },
+      {
+       "w": "advertisement",
+       "lv": 3,
+       "kk": "ˌædvɚˈtaɪzmənt",
+       "p": "advertise + -ment",
+       "g": "n. 廣告",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0316",
+         "t": "82聯考 單字Q3",
+         "k": "d"
+        },
+        {
+         "s": "ep",
+         "id": "97",
+         "t": "作文字彙表 97學年 advertisement"
+        }
+       ]
+      },
+      {
+       "w": "advice",
+       "lv": 2,
+       "kk": "ədˈvaɪs",
+       "p": "ad 朝向 + vice（拉丁文 visum 看到的）",
+       "g": "n. 在我看來的意思→看法→建議、忠告",
+       "refs": [
+        {
+         "s": "gcz",
+         "id": "G84_37_2",
+         "t": "學測克漏字 84年 第37格",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "advise",
+       "lv": 3,
+       "kk": "ədˈvaɪz",
+       "p": "advice 的動詞",
+       "g": "v. 建議、勸告",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0411",
+         "t": "108學測 單字Q6",
+         "k": "d"
+        },
+        {
+         "s": "gsat",
+         "id": "V0335",
+         "t": "103學測 單字Q5",
+         "k": "d"
+        },
+        {
+         "s": "gsat",
+         "id": "V0240",
+         "t": "96學測 單字Q15",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "adviser",
+       "lv": 3,
+       "kk": "ədˈvaɪzɚ",
+       "p": "advise + -er",
+       "g": "n. 顧問；導師"
+      },
+      {
+       "w": "advocate",
+       "lv": 5,
+       "kk": "ˈædvəˌkeɪt",
+       "p": "ad 朝向 + voc 叫 + -ate",
+       "g": "v. 為…發聲→提倡、擁護；n. 提倡者"
+      },
+      {
+       "w": "addict",
+       "lv": 4,
+       "kk": "ˈædɪkt",
+       "p": "ad 朝向 + dict 說",
+       "g": "n. 原意是「被判給別人的人」→上癮的人；v. 使沉迷",
+       "refs": [
+        {
+         "s": "zcz",
+         "id": "Z107參_13",
+         "t": "指考克漏字 107年 第13格",
+         "k": "d"
+        },
+        {
+         "s": "zcz",
+         "id": "Z101_13",
+         "t": "指考克漏字 101年 第13格",
+         "k": "d"
+        },
+        {
+         "s": "ep",
+         "id": "101",
+         "t": "作文字彙表 101學年 be addicted to + N"
+        }
+       ]
+      },
+      {
+       "w": "addiction",
+       "lv": 6,
+       "kk": "əˈdɪkʃən",
+       "p": "addict + -ion",
+       "g": "n. 上癮、沉迷"
+      },
+      {
+       "w": "address",
+       "lv": 2,
+       "kk": "əˈdrɛs",
+       "p": "ad 朝向 + dress（拉丁文 directus 直的）",
+       "g": "v. 直直對著→向…講話；處理（問題）；n. 地址；演說",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0489",
+         "t": "114學測 單字Q9",
+         "k": "d"
+        },
+        {
+         "s": "tr",
+         "id": "197",
+         "t": "中譯英 103(指考) 第197題"
+        }
+       ]
+      },
+      {
+       "w": "administer",
+       "lv": 6,
+       "kk": "ədˈmɪnəstɚ",
+       "p": "ad 朝向 + minister 服務",
+       "g": "v. 去服務→管理；給（藥）"
+      },
+      {
+       "w": "administration",
+       "lv": 5,
+       "kk": "ədˌmɪnəˈstreɪʃən",
+       "p": "administer 的名詞",
+       "g": "n. 管理；行政；政府"
+      },
+      {
+       "w": "administrative",
+       "lv": 5,
+       "kk": "ədˈmɪnəˌstreɪtɪv",
+       "p": "administration 的形容詞",
+       "g": "adj. 管理的、行政的"
+      },
+      {
+       "w": "administrator",
+       "lv": 5,
+       "kk": "ədˈmɪnəˌstreɪtɚ",
+       "p": "administer + -ator",
+       "g": "n. 管理者、行政人員"
+      }
+     ]
+    },
+    {
+     "t": "ac-（ad- 碰到 c、q）",
+     "items": [
+      {
+       "w": "accept",
+       "lv": 2,
+       "kk": "əkˈsɛpt",
+       "p": "ac 朝向 + cept 拿",
+       "g": "v. 拿過來→接受",
+       "refs": [
+        {
+         "s": "ep",
+         "id": "104",
+         "t": "作文字彙表 104學年 accept sb as they are"
+        }
+       ]
+      },
+      {
+       "w": "acceptable",
+       "lv": 3,
+       "kk": "əkˈsɛptəbəl",
+       "p": "accept + -able",
+       "g": "adj. 可接受的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0273",
+         "t": "99學測 單字Q3",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "acceptance",
+       "lv": 4,
+       "kk": "əkˈsɛptəns",
+       "p": "accept + -ance",
+       "g": "n. 接受",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0164",
+         "t": "96指考 單字Q2",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "access",
+       "lv": 4,
+       "kk": "ˈæksɛs",
+       "p": "ac 朝向 + cess 走",
+       "g": "n. 走近的路→進入的途徑；使用的權利；v. 取用",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0029",
+         "t": "85推薦甄選 單字Q9",
+         "k": "a"
+        },
+        {
+         "s": "gsat",
+         "id": "V0383",
+         "t": "106學測 單字Q8",
+         "k": "d"
+        },
+        {
+         "s": "gsat",
+         "id": "V0068",
+         "t": "87推薦甄選 單字Q8",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "accessible",
+       "lv": 5,
+       "kk": "ækˈsɛsəbəl",
+       "p": "access + -ible",
+       "g": "adj. 可以進入的、可以取得的"
+      },
+      {
+       "w": "accessory",
+       "lv": 6,
+       "kk": "ækˈsɛsəri",
+       "p": "access + -ory",
+       "g": "n. 附加上去的東西→配件、飾品"
+      },
+      {
+       "w": "accident",
+       "lv": 2,
+       "kk": "ˈæksədənt",
+       "p": "ac 朝向 + cid（拉丁文 cadere 落下）+ -ent",
+       "g": "n. 突然落到身上的事→意外",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0190",
+         "t": "93學測 單字Q10",
+         "k": "d"
+        },
+        {
+         "s": "tr",
+         "id": "130",
+         "t": "中譯英 110(學測) 第130題"
+        }
+       ]
+      },
+      {
+       "w": "accidental",
+       "lv": 4,
+       "kk": "ˌæksəˈdɛntəl",
+       "p": "accident + -al",
+       "g": "adj. 意外的、偶然的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0056",
+         "t": "86推薦甄選 單字Q16",
+         "k": "d"
+        },
+        {
+         "s": "gsat",
+         "id": "V0028",
+         "t": "85推薦甄選 單字Q8",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0322",
+         "t": "82聯考 單字Q9",
+         "k": "a"
+        }
+       ]
+      },
+      {
+       "w": "accelerate",
+       "lv": 5,
+       "kk": "ækˈsɛləˌreɪt",
+       "p": "ac 朝向 + celer（拉丁文 celer 快）+ -ate",
+       "g": "v. 使更快→加速",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0468",
+         "t": "112學測 單字Q8",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "acclaim",
+       "lv": 6,
+       "kk": "əˈkleɪm",
+       "p": "ac 朝向 + claim 喊",
+       "g": "v./n. 對著喊好→喝采、讚揚"
+      },
+      {
+       "w": "accommodate",
+       "lv": 5,
+       "kk": "əˈkɑməˌdeɪt",
+       "p": "ac 朝向 + commod（拉丁文 commodus 合適的）+ -ate",
+       "g": "v. 使合適→容納；提供住宿",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0090",
+         "t": "103指考 單字Q10",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0253",
+         "t": "89聯考 單字Q14",
+         "k": "d"
+        },
+        {
+         "s": "gcz",
+         "id": "G115_16_2",
+         "t": "學測克漏字 115年 第16格",
+         "k": "a"
+        }
+       ]
+      },
+      {
+       "w": "accommodation",
+       "lv": 5,
+       "kk": "əˌkɑməˈdeɪʃən",
+       "p": "accommodate + -ion",
+       "g": "n. 住處、住宿"
+      },
+      {
+       "w": "accompany",
+       "lv": 4,
+       "kk": "əˈkʌmpəni",
+       "p": "ac 朝向 + company 同伴",
+       "g": "v. 當同伴→陪伴；伴奏",
+       "refs": [
+        {
+         "s": "ep",
+         "id": "98",
+         "t": "作文字彙表 98學年 accompany"
+        }
+       ]
+      },
+      {
+       "w": "accomplish",
+       "lv": 4,
+       "kk": "əˈkɑmplɪʃ",
+       "p": "ac 朝向 + complish（拉丁文 complere 完成）",
+       "g": "v. 完成、達成"
+      },
+      {
+       "w": "accomplishment",
+       "lv": 4,
+       "kk": "əˈkɑmplɪʃmənt",
+       "p": "accomplish + -ment",
+       "g": "n. 成就；完成",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0349",
+         "t": "104學測 單字Q4",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0194",
+         "t": "93指考 單字Q2",
+         "k": "d"
+        },
+        {
+         "s": "gcz",
+         "id": "G95_26_3",
+         "t": "學測克漏字 95年 第26格",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "accord",
+       "lv": 5,
+       "kk": "əˈkɔrd",
+       "p": "ac 朝向 + cord（拉丁文 cor 心）",
+       "g": "n./v. 心對著心→一致、符合",
+       "refs": [
+        {
+         "s": "tr",
+         "id": "130",
+         "t": "中譯英 110(學測) 第130題"
+        },
+        {
+         "s": "tr",
+         "id": "149",
+         "t": "中譯英 93(指考) 第149題"
+        }
+       ]
+      },
+      {
+       "w": "accordance",
+       "lv": 6,
+       "kk": "əˈkɔrdəns",
+       "p": "accord + -ance",
+       "g": "n. 一致（in accordance with 依照）"
+      },
+      {
+       "w": "accordingly",
+       "lv": 6,
+       "kk": "əˈkɔrdɪŋli",
+       "p": "according + -ly",
+       "g": "adv. 照著做→相應地；因此",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0285",
+         "t": "99學測 單字Q15",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0142",
+         "t": "99指考 單字Q10",
+         "k": "a"
+        },
+        {
+         "s": "gcz",
+         "id": "G106_26_3",
+         "t": "學測克漏字 106年 第26格",
+         "k": "a"
+        }
+       ]
+      },
+      {
+       "w": "account",
+       "lv": 2,
+       "kk": "əˈkaʊnt",
+       "p": "ac 朝向 + count 計算",
+       "g": "n. 算給人看的→帳戶、帳目；說明；v. 解釋（account for）",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0342",
+         "t": "103學測 單字Q12",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0315",
+         "t": "82聯考 單字Q2",
+         "k": "d"
+        },
+        {
+         "s": "ep",
+         "id": "103",
+         "t": "作文字彙表 103學年 account for + 比例"
+        }
+       ]
+      },
+      {
+       "w": "accountant",
+       "lv": 4,
+       "kk": "əˈkaʊntənt",
+       "p": "account + -ant",
+       "g": "n. 會計師",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0217",
+         "t": "91指考 單字Q3",
+         "k": "a"
+        }
+       ]
+      },
+      {
+       "w": "accounting",
+       "lv": 5,
+       "kk": "əˈkaʊntɪŋ",
+       "p": "account + -ing",
+       "g": "n. 會計"
+      },
+      {
+       "w": "accountable",
+       "lv": 6,
+       "kk": "əˈkaʊntəbəl",
+       "p": "account + -able",
+       "g": "adj. 要能說明交代的→有責任的",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0120",
+         "t": "101指考 單字Q8",
+         "k": "a"
+        }
+       ]
+      },
+      {
+       "w": "accumulate",
+       "lv": 6,
+       "kk": "əˈkjumjəˌleɪt",
+       "p": "ac 朝向 + cumul（拉丁文 cumulus 堆）+ -ate",
+       "g": "v. 往上堆→累積",
+       "refs": [
+        {
+         "s": "zcz",
+         "id": "Z103_11",
+         "t": "指考克漏字 103年 第11格",
+         "k": "a"
+        }
+       ]
+      },
+      {
+       "w": "accumulation",
+       "lv": 6,
+       "kk": "əˌkjumjəˈleɪʃən",
+       "p": "accumulate + -ion",
+       "g": "n. 累積"
+      },
+      {
+       "w": "accurate",
+       "lv": 3,
+       "kk": "ˈækjɚət",
+       "p": "ac 朝向 + cur（拉丁文 cura 用心）+ -ate",
+       "g": "adj. 用心做出來的→準確的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0273",
+         "t": "99學測 單字Q3",
+         "k": "d"
+        },
+        {
+         "s": "gsat",
+         "id": "V0188",
+         "t": "93學測 單字Q8",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0199",
+         "t": "93指考 單字Q7",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "accuracy",
+       "lv": 4,
+       "kk": "ˈækjərəsi",
+       "p": "accurate 的名詞",
+       "g": "n. 準確",
+       "refs": [
+        {
+         "s": "gcz",
+         "id": "G105_25_2",
+         "t": "學測克漏字 105年 第25格",
+         "k": "a"
+        }
+       ]
+      },
+      {
+       "w": "accuse",
+       "lv": 4,
+       "kk": "əˈkjuz",
+       "p": "ac 朝向 + cuse（拉丁文 causa 案子）",
+       "g": "v. 把案子指向某人→控告、指責",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0083",
+         "t": "88推薦甄選 單字Q8",
+         "k": "d"
+        },
+        {
+         "s": "ep",
+         "id": "95",
+         "t": "作文字彙表 95學年 accuse"
+        }
+       ]
+      },
+      {
+       "w": "accusation",
+       "lv": 6,
+       "kk": "ˌækjəˈzeɪʃən",
+       "p": "accuse + -ation",
+       "g": "n. 控告、指責"
+      },
+      {
+       "w": "accustom",
+       "lv": 6,
+       "kk": "əˈkʌstəm",
+       "p": "ac 朝向 + custom 習慣",
+       "g": "v. 使習慣（be accustomed to）",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0002",
+         "t": "83推薦甄選 單字Q2",
+         "k": "a"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0338",
+         "t": "98指考參考試卷（99 課綱適用） 單字Q5",
+         "k": "d"
+        },
+        {
+         "s": "gcz",
+         "id": "G84_29_1",
+         "t": "學測克漏字 84年 第29格",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "acquaint",
+       "lv": 5,
+       "kk": "əˈkweɪnt",
+       "p": "ac 朝向 + quaint（拉丁文 cognitus 知道的）",
+       "g": "v. 使知道→使認識、使熟悉",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0220",
+         "t": "95學測 單字Q10",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0299",
+         "t": "84聯考 單字Q6",
+         "k": "a"
+        }
+       ]
+      },
+      {
+       "w": "acquaintance",
+       "lv": 4,
+       "kk": "əˈkweɪntəns",
+       "p": "acquaint + -ance",
+       "g": "n. 認識的人；認識"
+      },
+      {
+       "w": "acquire",
+       "lv": 4,
+       "kk": "əˈkwaɪr",
+       "p": "ac 朝向 + quire（拉丁文 quaerere 尋求）",
+       "g": "v. 去尋求→取得；學到",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0400",
+         "t": "107學測 單字Q10",
+         "k": "d"
+        },
+        {
+         "s": "gsat",
+         "id": "V0220",
+         "t": "95學測 單字Q10",
+         "k": "d"
+        },
+        {
+         "s": "zcz",
+         "id": "Z105_11",
+         "t": "指考克漏字 105年 第11格",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "acquisition",
+       "lv": 5,
+       "kk": "ˌækwəˈzɪʃən",
+       "p": "acquire 的名詞",
+       "g": "n. 取得；學習（語言）"
+      }
+     ]
+    },
+    {
+     "t": "af-（ad- 碰到 f）",
+     "items": [
+      {
+       "w": "affect",
+       "lv": 2,
+       "kk": "əˈfɛkt",
+       "p": "af 朝向 + fect 做",
+       "g": "v. 對著…做→影響；感動",
+       "refs": [
+        {
+         "s": "gcz",
+         "id": "G93_24_2",
+         "t": "學測克漏字 93年 第24格",
+         "k": "a"
+        },
+        {
+         "s": "zcz",
+         "id": "Z95_24",
+         "t": "指考克漏字 95年 第24格",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "affection",
+       "lv": 5,
+       "kk": "əˈfɛkʃən",
+       "p": "affect + -ion",
+       "g": "n. 心被打動→喜愛、感情",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0052",
+         "t": "106指考 單字Q2",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0298",
+         "t": "84聯考 單字Q5",
+         "k": "d"
+        },
+        {
+         "s": "ep",
+         "id": "115",
+         "t": "作文字彙表 115學年 affection"
+        }
+       ]
+      },
+      {
+       "w": "affectionate",
+       "lv": 6,
+       "kk": "əˈfɛkʃənət",
+       "p": "affection + -ate",
+       "g": "adj. 充滿感情的、深情的",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0109",
+         "t": "102指考 單字Q7",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "affirm",
+       "lv": 6,
+       "kk": "əˈfɝm",
+       "p": "af 朝向 + firm 穩固的",
+       "g": "v. 使穩固→斷言、肯定"
+      },
+      {
+       "w": "affiliate",
+       "lv": 6,
+       "kk": "əˈfɪliˌeɪt",
+       "p": "af 朝向 + fili（拉丁文 filius 兒子）+ -ate",
+       "g": "v. 收為兒子→使隸屬、加入；n. 分支機構"
+      },
+      {
+       "w": "affair",
+       "lv": 2,
+       "kk": "əˈfɛr",
+       "p": "af（法文 à 去）+ fair（法文 faire 做）",
+       "g": "n. 要去做的事→事務；事件",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0273",
+         "t": "87聯考 單字Q10",
+         "k": "a"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0042",
+         "t": "107指考 單字Q2",
+         "k": "d"
+        },
+        {
+         "s": "gcz",
+         "id": "G101_16_1",
+         "t": "學測克漏字 101年 第16格",
+         "k": "d"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "t": "ag-（ad- 碰到 g）",
+     "items": [
+      {
+       "w": "aggression",
+       "lv": 5,
+       "kk": "əˈgrɛʃən",
+       "p": "ag 朝向 + gress 走 + -ion",
+       "g": "n. 朝著別人走過去→侵略；攻擊性"
+      },
+      {
+       "w": "aggressive",
+       "lv": 4,
+       "kk": "əˈgrɛsɪv",
+       "p": "ag 朝向 + gress 走 + -ive",
+       "g": "adj. 有攻擊性的；積極進取的",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0172",
+         "t": "96指考 單字Q10",
+         "k": "d"
+        },
+        {
+         "s": "gcz",
+         "id": "G112_19_2",
+         "t": "學測克漏字 112年 第19格",
+         "k": "d"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "t": "al-（ad- 碰到 l）",
+     "items": [
+      {
+       "w": "allocate",
+       "lv": 5,
+       "kk": "ˈæləˌkeɪt",
+       "p": "al 朝向 + locate 放",
+       "g": "v. 放到某個地方→分配、撥給"
+      },
+      {
+       "w": "ally",
+       "lv": 5,
+       "kk": "ˈælaɪ",
+       "p": "al 朝向 + ly（拉丁文 ligare 綁）",
+       "g": "n. 綁在一起的一方→盟友、同盟國；v. 結盟"
+      },
+      {
+       "w": "alliance",
+       "lv": 5,
+       "kk": "əˈlaɪəns",
+       "p": "ally 的名詞",
+       "g": "n. 聯盟、同盟",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0186",
+         "t": "94指考 單字Q4",
+         "k": "d"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "t": "an-（ad- 碰到 n）",
+     "items": [
+      {
+       "w": "announce",
+       "lv": 3,
+       "kk": "əˈnaʊns",
+       "p": "an 朝向 + nounce（拉丁文 nuntiare 報告，來自 nuntius 信差）",
+       "g": "v. 把消息帶給大家→宣布、宣告",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0157",
+         "t": "92學測 單字Q7",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0096",
+         "t": "93敏督利颱風受災地區考生補救考試 單字Q6",
+         "k": "d"
+        },
+        {
+         "s": "zcz",
+         "id": "Z108_15",
+         "t": "指考克漏字 108年 第15格",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "announcement",
+       "lv": 3,
+       "kk": "əˈnaʊnsmɛnt",
+       "p": "announce + -ment",
+       "g": "n. 宣布；公告",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0370",
+         "t": "105學測 單字Q10",
+         "k": "d"
+        },
+        {
+         "s": "gcz",
+         "id": "G111_14_1",
+         "t": "學測克漏字 111年 第14格",
+         "k": "d"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "t": "ap-（ad- 碰到 p）",
+     "items": [
+      {
+       "w": "appear",
+       "lv": 1,
+       "kk": "əˈpɪr",
+       "p": "ap 朝向 + pear（拉丁文 parere 出現）",
+       "g": "v. 出現；似乎",
+       "refs": [
+        {
+         "s": "gcz",
+         "id": "G91_29_1",
+         "t": "學測克漏字 91年 第29格",
+         "k": "d"
+        },
+        {
+         "s": "zcz",
+         "id": "Z93_23",
+         "t": "指考克漏字 93年 第23格",
+         "k": "d"
+        },
+        {
+         "s": "tr",
+         "id": "143",
+         "t": "中譯英 114(學測) 第143題"
+        }
+       ]
+      },
+      {
+       "w": "appearance",
+       "lv": 2,
+       "kk": "əˈpɪrəns",
+       "p": "appear + -ance",
+       "g": "n. 出現；外表",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0260",
+         "t": "98學測 單字Q5",
+         "k": "d"
+        },
+        {
+         "s": "ep",
+         "id": "104",
+         "t": "作文字彙表 104學年 judge sb by their appearance"
+        }
+       ]
+      },
+      {
+       "w": "apparent",
+       "lv": 4,
+       "kk": "əˈpærənt",
+       "p": "appear 的形容詞",
+       "g": "adj. 看得出來的→明顯的；表面上的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0281",
+         "t": "99學測 單字Q11",
+         "k": "a"
+        },
+        {
+         "s": "gsat",
+         "id": "V0480",
+         "t": "113學測 單字Q10",
+         "k": "d"
+        },
+        {
+         "s": "gsat",
+         "id": "V0438",
+         "t": "110學測 單字Q3",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "appeal",
+       "lv": 3,
+       "kk": "əˈpil",
+       "p": "ap 朝向 + peal（拉丁文 appellare 呼喚，來自 pellere 推動）",
+       "g": "v./n. 向…呼喚→懇求；上訴；吸引",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0479",
+         "t": "113學測 單字Q9",
+         "k": "a"
+        },
+        {
+         "s": "gsat",
+         "id": "V0380",
+         "t": "106學測 單字Q5",
+         "k": "d"
+        },
+        {
+         "s": "gsat",
+         "id": "V0025",
+         "t": "85推薦甄選 單字Q5",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "applaud",
+       "lv": 6,
+       "kk": "əˈplɔd",
+       "p": "ap 朝向 + plaud（拉丁文 plaudere 拍手）",
+       "g": "v. 對著拍手→鼓掌；稱讚",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0446",
+         "t": "110學測 單字Q11",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "applause",
+       "lv": 5,
+       "kk": "əˈplɔz",
+       "p": "applaud 的名詞",
+       "g": "n. 掌聲",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0138",
+         "t": "99指考 單字Q6",
+         "k": "a"
+        },
+        {
+         "s": "ep",
+         "id": "100",
+         "t": "作文字彙表 100學年 a round of applause"
+        },
+        {
+         "s": "ep",
+         "id": "92",
+         "t": "作文字彙表 92學年 a round of applause"
+        }
+       ]
+      },
+      {
+       "w": "apply",
+       "lv": 2,
+       "kk": "əˈplaɪ",
+       "p": "ap 朝向 + ply（拉丁文 plicare 折）",
+       "g": "v. 折上去、貼上去→塗抹；應用；申請",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0206",
+         "t": "94學測 單字Q11",
+         "k": "d"
+        },
+        {
+         "s": "zcz",
+         "id": "Z107_20",
+         "t": "指考克漏字 107年 第20格",
+         "k": "a"
+        },
+        {
+         "s": "tr",
+         "id": "126",
+         "t": "中譯英 109(指考) 第126題"
+        }
+       ]
+      },
+      {
+       "w": "appliance",
+       "lv": 5,
+       "kk": "əˈplaɪəns",
+       "p": "apply + -ance",
+       "g": "n. 應用的器具→（家用）電器",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0246",
+         "t": "97學測 單字Q6",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0148",
+         "t": "98指考 單字Q6",
+         "k": "a"
+        },
+        {
+         "s": "ep",
+         "id": "96",
+         "t": "作文字彙表 96學年 appliance"
+        }
+       ]
+      },
+      {
+       "w": "applicable",
+       "lv": 6,
+       "kk": "ˈæplɪkəbəl",
+       "p": "apply + -able",
+       "g": "adj. 適用的"
+      },
+      {
+       "w": "applicant",
+       "lv": 4,
+       "kk": "ˈæpləkənt",
+       "p": "apply + -ant",
+       "g": "n. 申請人",
+       "refs": [
+        {
+         "s": "ep",
+         "id": "105",
+         "t": "作文字彙表 105學年 an applicant"
+        }
+       ]
+      },
+      {
+       "w": "application",
+       "lv": 4,
+       "kk": "ˌæpləˈkeɪʃən",
+       "p": "apply + -ation",
+       "g": "n. 申請；應用；應用程式",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0087",
+         "t": "103指考 單字Q7",
+         "k": "d"
+        },
+        {
+         "s": "gcz",
+         "id": "G109_17_1",
+         "t": "學測克漏字 109年 第17格",
+         "k": "a"
+        },
+        {
+         "s": "tr",
+         "id": "174",
+         "t": "中譯英 97(指考研究用試卷卷二) 第174題"
+        }
+       ]
+      },
+      {
+       "w": "appoint",
+       "lv": 4,
+       "kk": "əˈpɔɪnt",
+       "p": "ap 朝向 + point 點",
+       "g": "v. 指著點定→任命；約定（時間）",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0410",
+         "t": "108學測 單字Q5",
+         "k": "d"
+        },
+        {
+         "s": "gsat",
+         "id": "V0379",
+         "t": "106學測 單字Q4",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "appointment",
+       "lv": 4,
+       "kk": "əˈpɔɪntmənt",
+       "p": "appoint + -ment",
+       "g": "n. 約會、預約；任命",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0061",
+         "t": "87推薦甄選 單字Q1",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "appreciate",
+       "lv": 2,
+       "kk": "əˈpriʃɪˌeɪt",
+       "p": "ap 朝向 + preci（拉丁文 pretium 價格）+ -ate",
+       "g": "v. 為…定出價值→欣賞；感激；增值",
+       "refs": [
+        {
+         "s": "zcz",
+         "id": "Z100_12",
+         "t": "指考克漏字 100年 第12格",
+         "k": "d"
+        },
+        {
+         "s": "ep",
+         "id": "94",
+         "t": "作文字彙表 94學年 appreciate"
+        }
+       ]
+      },
+      {
+       "w": "appreciation",
+       "lv": 4,
+       "kk": "əˌpriʃiˈeɪʃən",
+       "p": "appreciate + -ion",
+       "g": "n. 欣賞；感激",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0091",
+         "t": "93敏督利颱風受災地區考生補救考試 單字Q1",
+         "k": "a"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0146",
+         "t": "98指考 單字Q4",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0165",
+         "t": "96指考 單字Q3",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "approach",
+       "lv": 2,
+       "kk": "əˈproʊʧ",
+       "p": "ap 朝向 + proach（拉丁文 prope 靠近）",
+       "g": "v. 靠近→接近；n. 方法",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0078",
+         "t": "88推薦甄選 單字Q3",
+         "k": "a"
+        },
+        {
+         "s": "gsat",
+         "id": "V0479",
+         "t": "113學測 單字Q9",
+         "k": "d"
+        },
+        {
+         "s": "gsat",
+         "id": "V0280",
+         "t": "99學測 單字Q10",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "approximate",
+       "lv": 6,
+       "kk": "əˈprɑksəmɪt",
+       "p": "ap 朝向 + proxim（拉丁文 proximus 最近的）+ -ate",
+       "g": "adj. 很接近的→大約的",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0202",
+         "t": "93指考 單字Q10",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0223",
+         "t": "91指考 單字Q9",
+         "k": "d"
+        },
+        {
+         "s": "ep",
+         "id": "103",
+         "t": "作文字彙表 103學年 roughly／approximately"
+        }
+       ]
+      },
+      {
+       "w": "appropriate",
+       "lv": 4,
+       "kk": "əˈproʊprɪɪt",
+       "p": "ap 朝向 + propri（拉丁文 proprius 自己的）+ -ate",
+       "g": "adj. 拿來當成自己的、正合身的→適當的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0065",
+         "t": "87推薦甄選 單字Q5",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "approve",
+       "lv": 3,
+       "kk": "əˈpruv",
+       "p": "ap 朝向 + prove 證明",
+       "g": "v. 試過認為可以→贊成；批准",
+       "refs": [
+        {
+         "s": "gcz",
+         "id": "G111學測英文參考試卷_17_1",
+         "t": "學測克漏字 111年 第17格",
+         "k": "d"
+        },
+        {
+         "s": "zcz",
+         "id": "Z104_12",
+         "t": "指考克漏字 104年 第12格",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "approval",
+       "lv": 4,
+       "kk": "əˈpruvəl",
+       "p": "approve + -al",
+       "g": "n. 贊成；批准",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0008",
+         "t": "110指考 單字Q8",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0193",
+         "t": "93指考 單字Q1",
+         "k": "d"
+        },
+        {
+         "s": "tr",
+         "id": "1",
+         "t": "中譯英 73(大學聯考) 第1題"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "t": "ar-（ad- 碰到 r）",
+     "items": [
+      {
+       "w": "arrange",
+       "lv": 2,
+       "kk": "əˈreɪnʤ",
+       "p": "ar 朝向 + range 排列",
+       "g": "v. 排好→安排；整理"
+      },
+      {
+       "w": "arrangement",
+       "lv": 2,
+       "kk": "əˈreɪnʤmənt",
+       "p": "arrange + -ment",
+       "g": "n. 安排；排列",
+       "refs": [
+        {
+         "s": "gcz",
+         "id": "G95_26_3",
+         "t": "學測克漏字 95年 第26格",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "arrest",
+       "lv": 3,
+       "kk": "ɚˈɛst",
+       "p": "ar 朝向 + rest（拉丁文 restare 停住）",
+       "g": "v./n. 使停住→逮捕",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0205",
+         "t": "94學測 單字Q10",
+         "k": "a"
+        },
+        {
+         "s": "gsat",
+         "id": "V0241",
+         "t": "97學測 單字Q1",
+         "k": "d"
+        },
+        {
+         "s": "ep",
+         "id": "93",
+         "t": "作文字彙表 93學年 arrest"
+        }
+       ]
+      },
+      {
+       "w": "arrive",
+       "lv": 1,
+       "kk": "əˈraɪv",
+       "p": "ar 朝向 + rive（拉丁文 ripa 河岸）",
+       "g": "v. 靠岸→到達"
+      },
+      {
+       "w": "arrival",
+       "lv": 2,
+       "kk": "əˈraɪvəl",
+       "p": "arrive + -al",
+       "g": "n. 到達"
+      },
+      {
+       "w": "arrogant",
+       "lv": 5,
+       "kk": "ˈɛrəgənt",
+       "p": "ar 朝向 + rog（拉丁文 rogare 要求）+ -ant",
+       "g": "adj. 把不屬於自己的往自己身上要→傲慢的",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0086",
+         "t": "103指考 單字Q6",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0211",
+         "t": "92指考 單字Q7",
+         "k": "d"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "t": "as-（ad- 碰到 s）",
+     "items": [
+      {
+       "w": "assemble",
+       "lv": 4,
+       "kk": "əˈsɛmbəl",
+       "p": "as 朝向 + semble（拉丁文 similis 相像的）",
+       "g": "v. 使相像、湊在一起→集合；組裝",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0290",
+         "t": "85聯考 單字Q7",
+         "k": "a"
+        },
+        {
+         "s": "gcz",
+         "id": "G102_19_1",
+         "t": "學測克漏字 102年 第19格",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "assembly",
+       "lv": 4,
+       "kk": "əˈsɛmbli",
+       "p": "assemble 的名詞",
+       "g": "n. 集會；組裝"
+      },
+      {
+       "w": "assert",
+       "lv": 5,
+       "kk": "əˈsɝt",
+       "p": "as 朝向 + sert（拉丁文 serere 連接）",
+       "g": "v. 把說法跟自己緊緊連在一起→斷言、堅稱"
+      },
+      {
+       "w": "assess",
+       "lv": 5,
+       "kk": "əˈsɛs",
+       "p": "as 朝向 + sess（拉丁文 sedere 坐）",
+       "g": "v. 坐到旁邊來看→評估"
+      },
+      {
+       "w": "assessment",
+       "lv": 5,
+       "kk": "əˈsɛsmənt",
+       "p": "assess + -ment",
+       "g": "n. 評估"
+      },
+      {
+       "w": "assign",
+       "lv": 4,
+       "kk": "əˈsaɪn",
+       "p": "as 朝向 + sign 記號",
+       "g": "v. 標上記號指定給人→分配、指派",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0198",
+         "t": "93指考 單字Q6",
+         "k": "d"
+        },
+        {
+         "s": "gcz",
+         "id": "G102_19_1",
+         "t": "學測克漏字 102年 第19格",
+         "k": "a"
+        }
+       ]
+      },
+      {
+       "w": "assignment",
+       "lv": 4,
+       "kk": "əˈsaɪnmənt",
+       "p": "assign + -ment",
+       "g": "n. 分配的工作→作業、任務"
+      },
+      {
+       "w": "assist",
+       "lv": 3,
+       "kk": "əˈsɪst",
+       "p": "as 朝向 + sist 站",
+       "g": "v. 站到旁邊→幫助",
+       "refs": [
+        {
+         "s": "gcz",
+         "id": "G93_22_2",
+         "t": "學測克漏字 93年 第22格",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "assistance",
+       "lv": 4,
+       "kk": "əˈsɪstəns",
+       "p": "assist + -ance",
+       "g": "n. 幫助",
+       "refs": [
+        {
+         "s": "tr",
+         "id": "173",
+         "t": "中譯英 97(指考研究用試卷卷一) 第173題"
+        }
+       ]
+      },
+      {
+       "w": "assistant",
+       "lv": 3,
+       "kk": "əˈsɪstənt",
+       "p": "assist + -ant",
+       "g": "n. 助理",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0452",
+         "t": "111學測 單字Q2",
+         "k": "a"
+        },
+        {
+         "s": "ep",
+         "id": "113",
+         "t": "作文字彙表 113學年 an assistant"
+        }
+       ]
+      },
+      {
+       "w": "associate",
+       "lv": 4,
+       "kk": "əˈsoʊʃɪˌeɪt",
+       "p": "as 朝向 + soci（拉丁文 socius 夥伴）+ -ate",
+       "g": "v. 結為夥伴→聯想；交往；n. 夥伴",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0449",
+         "t": "110學測 單字Q14",
+         "k": "d"
+        },
+        {
+         "s": "gsat",
+         "id": "V0408",
+         "t": "108學測 單字Q3",
+         "k": "d"
+        },
+        {
+         "s": "gsat",
+         "id": "V0367",
+         "t": "105學測 單字Q7",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "association",
+       "lv": 4,
+       "kk": "əˌsoʊʃiˈeɪʃən",
+       "p": "associate + -ion",
+       "g": "n. 協會；聯想",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0215",
+         "t": "91指考 單字Q1",
+         "k": "d"
+        },
+        {
+         "s": "zcz",
+         "id": "Z104_18",
+         "t": "指考克漏字 104年 第18格",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "assume",
+       "lv": 3,
+       "kk": "əˈsum",
+       "p": "as 朝向 + sume 拿",
+       "g": "v. 拿到自己身上→承擔；假定",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0303",
+         "t": "101學測 單字Q3",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0114",
+         "t": "101指考 單字Q2",
+         "k": "a"
+        },
+        {
+         "s": "ep",
+         "id": "95",
+         "t": "作文字彙表 95學年 assume"
+        }
+       ]
+      },
+      {
+       "w": "assumption",
+       "lv": 5,
+       "kk": "əˈsʌmpʃən",
+       "p": "assume 的名詞",
+       "g": "n. 假定；承擔"
+      },
+      {
+       "w": "assure",
+       "lv": 4,
+       "kk": "əˈʃʊr",
+       "p": "as 朝向 + sure 確定的",
+       "g": "v. 使確定→向…保證、使放心",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0357",
+         "t": "104學測 單字Q12",
+         "k": "a"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0141",
+         "t": "99指考 單字Q9",
+         "k": "d"
+        },
+        {
+         "s": "gcz",
+         "id": "G88_37_3",
+         "t": "學測克漏字 88年 第37格",
+         "k": "a"
+        }
+       ]
+      },
+      {
+       "w": "assurance",
+       "lv": 4,
+       "kk": "əˈʃʊrəns",
+       "p": "assure + -ance",
+       "g": "n. 保證；把握",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0390",
+         "t": "106學測 單字Q15",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "assault",
+       "lv": 5,
+       "kk": "əˈsɔlt",
+       "p": "as 朝向 + sault（拉丁文 saltus 跳）",
+       "g": "n./v. 跳到人身上→攻擊、襲擊",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0498",
+         "t": "115學測 單字Q8",
+         "k": "a"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "t": "at-（ad- 碰到 t）",
+     "items": [
+      {
+       "w": "attach",
+       "lv": 4,
+       "kk": "əˈtæʧ",
+       "p": "at 朝向 + tach（古法文 estachier 固定在木樁上）",
+       "g": "v. 固定上去→附上、貼上",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0181",
+         "t": "93學測 單字Q1",
+         "k": "d"
+        },
+        {
+         "s": "gsat",
+         "id": "V0025",
+         "t": "85推薦甄選 單字Q5",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0317",
+         "t": "82聯考 單字Q4",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "attachment",
+       "lv": 4,
+       "kk": "əˈtæʧmənt",
+       "p": "attach + -ment",
+       "g": "n. 附件；依戀",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0315",
+         "t": "101學測 單字Q15",
+         "k": "d"
+        },
+        {
+         "s": "zcz",
+         "id": "Z107_11",
+         "t": "指考克漏字 107年 第11格",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "attack",
+       "lv": 1,
+       "kk": "əˈtæk",
+       "p": "attach 的同一家（義大利文 attaccare 連上）",
+       "g": "v./n. 衝上去跟對方連在一起打→攻擊",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0292",
+         "t": "100學測 單字Q7",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "attain",
+       "lv": 6,
+       "kk": "əˈteɪn",
+       "p": "at 朝向 + tain（拉丁文 tangere 碰）",
+       "g": "v. 碰到→達到",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0070",
+         "t": "87推薦甄選 單字Q10",
+         "k": "a"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0293",
+         "t": "85聯考 單字Q10",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "attainment",
+       "lv": 6,
+       "kk": "əˈteɪnmənt",
+       "p": "attain + -ment",
+       "g": "n. 達到；成就"
+      },
+      {
+       "w": "attempt",
+       "lv": 2,
+       "kk": "əˈtɛmpt",
+       "p": "at 朝向 + tempt 試",
+       "g": "v./n. 去試→嘗試、企圖",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0012",
+         "t": "84推薦甄選 單字Q2",
+         "k": "a"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0329",
+         "t": "81聯考 單字Q6",
+         "k": "d"
+        },
+        {
+         "s": "gcz",
+         "id": "G87_24_1",
+         "t": "學測克漏字 87年 第24格",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "attend",
+       "lv": 2,
+       "kk": "əˈtɛnd",
+       "p": "at 朝向 + tend 伸",
+       "g": "v. 把心思伸過去→出席；照顧（attend to）"
+      },
+      {
+       "w": "attendance",
+       "lv": 5,
+       "kk": "əˈtɛndəns",
+       "p": "attend + -ance",
+       "g": "n. 出席；出席人數"
+      },
+      {
+       "w": "attendant",
+       "lv": 6,
+       "kk": "əˈtɛndənt",
+       "p": "attend + -ant",
+       "g": "n. 服務人員",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0053",
+         "t": "106指考 單字Q3",
+         "k": "d"
+        },
+        {
+         "s": "zcz",
+         "id": "Z92_28",
+         "t": "指考克漏字 92年 第28格",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "attention",
+       "lv": 2,
+       "kk": "əˈtɛnʃən",
+       "p": "attend 的名詞",
+       "g": "n. 注意",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0294",
+         "t": "100學測 單字Q9",
+         "k": "a"
+        },
+        {
+         "s": "tr",
+         "id": "190",
+         "t": "中譯英 101(學測) 第190題"
+        },
+        {
+         "s": "tr",
+         "id": "83",
+         "t": "中譯英 89(大學聯考) 第83題"
+        }
+       ]
+      },
+      {
+       "w": "attract",
+       "lv": 3,
+       "kk": "əˈtrækt",
+       "p": "at 朝向 + tract 拉",
+       "g": "v. 拉過來→吸引",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0059",
+         "t": "86推薦甄選 單字Q19",
+         "k": "a"
+        },
+        {
+         "s": "gcz",
+         "id": "G95_27_3",
+         "t": "學測克漏字 95年 第27格",
+         "k": "a"
+        },
+        {
+         "s": "gcz",
+         "id": "G108_30_3",
+         "t": "學測克漏字 108年 第30格",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "attraction",
+       "lv": 4,
+       "kk": "əˈtrækʃən",
+       "p": "attract + -ion",
+       "g": "n. 吸引力；吸引人的地方",
+       "refs": [
+        {
+         "s": "gcz",
+         "id": "G101_16_1",
+         "t": "學測克漏字 101年 第16格",
+         "k": "a"
+        },
+        {
+         "s": "tr",
+         "id": "191",
+         "t": "中譯英 101(學測) 第191題"
+        }
+       ]
+      },
+      {
+       "w": "attractive",
+       "lv": 3,
+       "kk": "əˈtræktɪv",
+       "p": "attract + -ive",
+       "g": "adj. 吸引人的",
+       "refs": [
+        {
+         "s": "gcz",
+         "id": "G84_29_1",
+         "t": "學測克漏字 84年 第29格",
+         "k": "a"
+        }
+       ]
+      },
+      {
+       "w": "attribute",
+       "lv": 5,
+       "kk": "əˈtrɪbjut",
+       "p": "at 朝向 + tribute 給",
+       "g": "v. 歸給→歸因於（attribute A to B）；n. 特質"
+      }
+     ]
+    },
+    {
+     "t": "a-（ad- 碰到 sc、sp，或經過法文縮成 a-）",
+     "items": [
+      {
+       "w": "ascend",
+       "lv": 6,
+       "kk": "əˈsɛnd",
+       "p": "a（ad 朝向）+ scend 爬",
+       "g": "v. 往上爬→上升、登上",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0079",
+         "t": "104指考 單字Q9",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "aspect",
+       "lv": 4,
+       "kk": "ˈæspɛkt",
+       "p": "a（ad 朝向）+ spect 看",
+       "g": "n. 朝著看到的那一面→方面",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0332",
+         "t": "81聯考 單字Q9",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "aspire",
+       "lv": 6,
+       "kk": "əˈspaɪr",
+       "p": "a（ad 朝向）+ spire 呼吸",
+       "g": "v. 朝著…喘氣→渴望、立志"
+      },
+      {
+       "w": "agree",
+       "lv": 1,
+       "kk": "əˈgri",
+       "p": "a（法文 à 朝向）+ gree（拉丁文 gratus 喜歡的）",
+       "g": "v. 合乎心意→同意"
+      },
+      {
+       "w": "agreement",
+       "lv": 1,
+       "kk": "əˈgrimənt",
+       "p": "agree + -ment",
+       "g": "n. 同意；協議",
+       "refs": [
+        {
+         "s": "gcz",
+         "id": "G102_29_3",
+         "t": "學測克漏字 102年 第29格",
+         "k": "d"
+        },
+        {
+         "s": "gcz",
+         "id": "G95_26_3",
+         "t": "學測克漏字 95年 第26格",
+         "k": "d"
+        },
+        {
+         "s": "zcz",
+         "id": "Z94_16",
+         "t": "指考克漏字 94年 第16格",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "agreeable",
+       "lv": 4,
+       "kk": "əˈgriəbəl",
+       "p": "agree + -able",
+       "g": "adj. 令人愉快的；欣然同意的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0456",
+         "t": "111學測 單字Q6",
+         "k": "a"
+        }
+       ]
+      },
+      {
+       "w": "achieve",
+       "lv": 3,
+       "kk": "əˈʧiv",
+       "p": "a（法文 à 朝向）+ chieve（拉丁文 caput 頭）",
+       "g": "v. 做到頭→達成、完成",
+       "refs": [
+        {
+         "s": "gcz",
+         "id": "G111學測英文參考試卷_18_1",
+         "t": "學測克漏字 111年 第18格",
+         "k": "d"
+        },
+        {
+         "s": "zcz",
+         "id": "Z104_13",
+         "t": "指考克漏字 104年 第13格",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "achievement",
+       "lv": 3,
+       "kk": "əˈʧivmənt",
+       "p": "achieve + -ment",
+       "g": "n. 成就"
+      },
+      {
+       "w": "amount",
+       "lv": 2,
+       "kk": "əˈmaʊnt",
+       "p": "a（法文 à 朝向）+ mount（拉丁文 mons 山）",
+       "g": "v. 堆到像山那麼高→總計為（amount to）；n. 數量、總數",
+       "refs": [
+        {
+         "s": "tr",
+         "id": "119",
+         "t": "中譯英 107(指考) 第119題"
+        }
+       ]
+      },
+      {
+       "w": "amuse",
+       "lv": 4,
+       "kk": "əˈmjuz",
+       "p": "a（法文 à 使）+ muse 出神",
+       "g": "v. 使人看得出神→逗樂、使開心",
+       "refs": [
+        {
+         "s": "zcz",
+         "id": "Z97_29",
+         "t": "指考克漏字 97年 第29格",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "amusement",
+       "lv": 4,
+       "kk": "əˈmjuzmənt",
+       "p": "amuse + -ment",
+       "g": "n. 樂趣；娛樂"
+      },
+      {
+       "w": "align",
+       "lv": 6,
+       "kk": "əˈlaɪn",
+       "p": "a（法文 à 朝向）+ lign（法文 ligne 線）",
+       "g": "v. 對成一直線→排列整齊；使一致"
+      },
+      {
+       "w": "avenue",
+       "lv": 3,
+       "kk": "ˈævəˌnju",
+       "p": "a（法文 à 朝向）+ venue（拉丁文 venire 來）",
+       "g": "n. 走過來的路→大道"
+      }
+     ]
+    }
+   ],
+   "dropped": [
+    {
+     "why": "advance、advantage：ad 是後來誤加的。",
+     "list": "這兩個字來自拉丁文 abante（ab + ante「在前面」），本來寫成 avance、avantage，十六世紀時有人以為是 ad- 開頭，才加了 d。advance 是往前 → 前進；advantage 是站在前面的位置 → 優勢。"
+    },
+    {
+     "why": "acknowledge：開頭的 ac 不是 ad- 的變形。",
+     "list": "acknowledge 的 a 是古英文的 on，來自 oncnawan（認得）；後來跟 knowledge 混在一起的時候，才多出一個 c。所以它跟 accept、access 不是同一種 ac-。"
+    },
+    {
+     "why": "astonish：看起來是 as- 開頭，其實是 ex-。",
+     "list": "astonish 來自古法文 estoner：es（ex 往外）+ ton（拉丁文 tonare 打雷），「像被雷打到一樣」→ 使驚訝。"
+    }
+   ]
+  },
+  {
+   "key": "a-（an-）",
+   "zh": "在…上、處於…狀態；沒有、不",
+   "note": "a- 有兩個來源，意思完全不同。第一個來自古英文 on（在…上），加在名詞或動詞前面，變成表示「在某個地方、處於某種狀態」的字：aboard 是在船上、車上，asleep 是在睡著的狀態；ashamed 的 a- 則是古英文的加強語氣。其中 asleep、awake、alive、ashamed 這類當形容詞用的字，通常放在 be 動詞後面，不放在名詞前面：可以說 The baby is asleep.，要放在名詞前面就改用 a sleeping baby；同樣地，alive 的名詞前面用 living。第二個 a- 來自希臘文，意思是「沒有、不」，碰到母音開頭的字會變成 an-，像 atom（切不開的）、anonymous（沒有名字的）。",
+   "subs": [
+    {
+     "t": "在…上、處於…狀態（來自古英文）",
+     "items": [
+      {
+       "w": "aboard",
+       "lv": 3,
+       "kk": "əˈboʊrd",
+       "p": "a 在…上 + board 船板",
+       "g": "adv./prep. 在船上、車上、飛機上"
+      },
+      {
+       "w": "abroad",
+       "lv": 1,
+       "kk": "əˈbrɔd",
+       "p": "a 在 + broad 寬廣的",
+       "g": "adv. 在寬廣的地方→在國外、到國外",
+       "refs": [
+        {
+         "s": "tr",
+         "id": "203",
+         "t": "中譯英 106(學測) 第203題"
+        }
+       ]
+      },
+      {
+       "w": "ahead",
+       "lv": 2,
+       "kk": "əˈhɛd",
+       "p": "a 在 + head 前頭",
+       "g": "adv. 在前頭→在前面；提前",
+       "refs": [
+        {
+         "s": "zcz",
+         "id": "Z109_20",
+         "t": "指考克漏字 109年 第20格",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "around",
+       "lv": 1,
+       "kk": "əˈraʊnd",
+       "p": "a 在 + round 圓",
+       "g": "adv./prep. 在一圈上→在周圍；大約",
+       "refs": [
+        {
+         "s": "gcz",
+         "id": "G104_27_3",
+         "t": "學測克漏字 104年 第27格",
+         "k": "d"
+        },
+        {
+         "s": "gcz",
+         "id": "G85_36_2",
+         "t": "學測克漏字 85年 第36格",
+         "k": "d"
+        },
+        {
+         "s": "gcz",
+         "id": "G83_12_1",
+         "t": "學測克漏字 83年 第12格",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "aside",
+       "lv": 3,
+       "kk": "əˈsaɪd",
+       "p": "a 在 + side 旁邊",
+       "g": "adv. 在旁邊→到一邊；除了…以外（aside from）"
+      },
+      {
+       "w": "apart",
+       "lv": 3,
+       "kk": "əˈpɑrt",
+       "p": "a（法文 à 朝向）+ part 一邊",
+       "g": "adv. 到一邊去→分開；相隔",
+       "refs": [
+        {
+         "s": "gcz",
+         "id": "G107_27_3",
+         "t": "學測克漏字 107年 第27格",
+         "k": "d"
+        },
+        {
+         "s": "gcz",
+         "id": "G101_23_2",
+         "t": "學測克漏字 101年 第23格",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "asleep",
+       "lv": 2,
+       "kk": "əˈslip",
+       "p": "a 處於 + sleep 睡",
+       "g": "adj. 睡著的",
+       "refs": [
+        {
+         "s": "gcz",
+         "id": "G107_27_3",
+         "t": "學測克漏字 107年 第27格",
+         "k": "a"
+        },
+        {
+         "s": "ep",
+         "id": "94",
+         "t": "作文字彙表 94學年 fall asleep"
+        }
+       ]
+      },
+      {
+       "w": "awake",
+       "lv": 3,
+       "kk": "əˈweɪk",
+       "p": "a 處於 + wake 醒",
+       "g": "adj. 醒著的；v. 醒來、喚醒",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0273",
+         "t": "99學測 單字Q3",
+         "k": "a"
+        },
+        {
+         "s": "gsat",
+         "id": "V0060",
+         "t": "86推薦甄選 單字Q20",
+         "k": "a"
+        },
+        {
+         "s": "gcz",
+         "id": "G88_16_1",
+         "t": "學測克漏字 88年 第16格",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "awaken",
+       "lv": 3,
+       "kk": "əˈweɪkən",
+       "p": "awake + -en",
+       "g": "v. 喚醒；使覺悟"
+      },
+      {
+       "w": "alive",
+       "lv": 2,
+       "kk": "əˈlaɪv",
+       "p": "a 處於 + live 活",
+       "g": "adj. 活著的"
+      },
+      {
+       "w": "ashamed",
+       "lv": 4,
+       "kk": "əˈʃeɪmd",
+       "p": "a（古英文的加強語氣）+ shamed（古英文 scamian 羞愧）",
+       "g": "adj. 感到羞愧的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0389",
+         "t": "106學測 單字Q14",
+         "k": "d"
+        },
+        {
+         "s": "gsat",
+         "id": "V0353",
+         "t": "104學測 單字Q8",
+         "k": "d"
+        },
+        {
+         "s": "ep",
+         "id": "109",
+         "t": "作文字彙表 109學年 ashamed"
+        }
+       ]
+      },
+      {
+       "w": "aloud",
+       "lv": 2,
+       "kk": "əˈlaʊd",
+       "p": "a 處於 + loud 大聲的",
+       "g": "adv. 出聲地、大聲地"
+      },
+      {
+       "w": "astray",
+       "lv": 6,
+       "kk": "əˈstreɪ",
+       "p": "a 處於 + stray 走散",
+       "g": "adv. 走散的→迷路；誤入歧途（go astray）"
+      },
+      {
+       "w": "awhile",
+       "lv": 6,
+       "kk": "əˈhwaɪl",
+       "p": "a 一 + while 一段時間",
+       "g": "adv. 一會兒"
+      }
+     ]
+    },
+    {
+     "t": "沒有、不（希臘文 a-、an-）",
+     "items": [
+      {
+       "w": "atom",
+       "lv": 4,
+       "kk": "ˈætəm",
+       "p": "a 不 + tom（希臘文 temnein 切）",
+       "g": "n. 切不開的東西→原子"
+      },
+      {
+       "w": "atomic",
+       "lv": 4,
+       "kk": "əˈtɑmɪk",
+       "p": "atom + -ic",
+       "g": "adj. 原子的"
+      },
+      {
+       "w": "anonymous",
+       "lv": 5,
+       "kk": "əˈnɑnəməs",
+       "p": "an 沒有 + onym 名字 + -ous",
+       "g": "adj. 沒有名字的→匿名的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0099",
+         "t": "89學測 單字Q9",
+         "k": "d"
+        },
+        {
+         "s": "gcz",
+         "id": "G113_14_1",
+         "t": "學測克漏字 113年 第14格",
+         "k": "d"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "dropped": [
+    {
+     "why": "alone：不是 a- 加上 lone。",
+     "list": "alone 原本是 all one（完全一個人），後來才縮成 alone；lone 反而是從 alone 再縮出來的，lonely 則是 lone 加上 -ly。"
+    }
+   ]
+  },
+  {
+   "key": "ab-（abs-）",
+   "zh": "離開、偏離",
+   "note": "ab- 來自拉丁文，意思是「離開、偏離」，像 absent（不在那裡）、abnormal（偏離正常）。碰到 c、t 開頭的字根時常常變成 abs-，像 abstract（從具體的東西拉出來 → 抽象的）。ab- 跟 ad-（朝向）意思正好相反，ab 是離開，ad 是靠近，可以配在一起記。",
+   "subs": [
+    {
+     "t": "離開、偏離",
+     "items": [
+      {
+       "w": "absent",
+       "lv": 2,
+       "kk": "ˈæbsənt",
+       "p": "ab 離開 + sent（拉丁文 esse 存在）",
+       "g": "adj. 不在那裡的→缺席的；心不在焉的",
+       "refs": [
+        {
+         "s": "gcz",
+         "id": "G107_27_3",
+         "t": "學測克漏字 107年 第27格",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "absence",
+       "lv": 2,
+       "kk": "ˈæbsəns",
+       "p": "absent 的名詞",
+       "g": "n. 缺席；缺乏"
+      },
+      {
+       "w": "abnormal",
+       "lv": 5,
+       "kk": "æbˈnɔrməl",
+       "p": "ab 偏離 + normal 正常的",
+       "g": "adj. 偏離正常的→不正常的、反常的",
+       "refs": [
+        {
+         "s": "tr",
+         "id": "133",
+         "t": "中譯英 110(指考) 第133題"
+        }
+       ]
+      },
+      {
+       "w": "abuse",
+       "lv": 5,
+       "kk": "əˈbjuz",
+       "p": "ab 偏離 + use 使用",
+       "g": "v./n. 偏離正當的用法→濫用；虐待",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0107",
+         "t": "102指考 單字Q5",
+         "k": "a"
+        },
+        {
+         "s": "ep",
+         "id": "96",
+         "t": "作文字彙表 96學年 abuse"
+        }
+       ]
+      },
+      {
+       "w": "abrupt",
+       "lv": 5,
+       "kk": "əˈbrʌpt",
+       "p": "ab 離開 + rupt 斷",
+       "g": "adj. 突然斷掉的→突然的；（態度）唐突的",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0020",
+         "t": "109指考補考 單字Q10",
+         "k": "a"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0226",
+         "t": "90聯考 單字Q2",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "absorb",
+       "lv": 4,
+       "kk": "əbˈsɔrb",
+       "p": "ab 離開 + sorb（拉丁文 sorbere 吸）",
+       "g": "v. 吸走→吸收；使專心（be absorbed in）",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0055",
+         "t": "106指考 單字Q5",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "abstract",
+       "lv": 4,
+       "kk": "ˈæbstrækt",
+       "p": "abs 離開 + tract 拉",
+       "g": "adj. 從具體的東西拉出來的→抽象的；n. 摘要"
+      },
+      {
+       "w": "abstraction",
+       "lv": 6,
+       "kk": "æbˈstrækʃən",
+       "p": "abstract + -ion",
+       "g": "n. 抽象的概念"
+      },
+      {
+       "w": "absolute",
+       "lv": 4,
+       "kk": "ˈæbsəˌlut",
+       "p": "ab 離開 + solute（拉丁文 solvere 鬆開）",
+       "g": "adj. 從一切限制裡鬆開的→完全的、絕對的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0458",
+         "t": "111學測 單字Q8",
+         "k": "d"
+        },
+        {
+         "s": "gsat",
+         "id": "V0313",
+         "t": "101學測 單字Q13",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0032",
+         "t": "108指考 單字Q2",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "absurd",
+       "lv": 5,
+       "kk": "əbˈsɝd",
+       "p": "ab（這裡可能只是加強語氣）+ surd（拉丁文 surdus 聾的、聲音悶的）",
+       "g": "adj. 可能原指走了調的→荒謬的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0447",
+         "t": "110學測 單字Q12",
+         "k": "a"
+        }
+       ]
+      },
+      {
+       "w": "abolish",
+       "lv": 5,
+       "kk": "əˈbɑlɪʃ",
+       "p": "ab 離開 + ol（拉丁文 abolere 毀掉，ol 可能跟 adolescent 的「長大」同源）+ -ish",
+       "g": "v. 毀掉、取消→廢除",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0105",
+         "t": "102指考 單字Q3",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0151",
+         "t": "98指考 單字Q9",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "abundant",
+       "lv": 5,
+       "kk": "əˈbʌndənt",
+       "p": "ab 離開 + und（拉丁文 unda 波浪）+ -ant",
+       "g": "adj. 波浪滿出來的→豐富的、大量的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0430",
+         "t": "109學測 單字Q10",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0183",
+         "t": "94指考 單字Q1",
+         "k": "a"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0074",
+         "t": "104指考 單字Q4",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "abundance",
+       "lv": 6,
+       "kk": "əˈbʌndəns",
+       "p": "abundant 的名詞",
+       "g": "n. 豐富、大量"
+      },
+      {
+       "w": "abound",
+       "lv": 6,
+       "kk": "əˈbaʊnd",
+       "p": "abundant 的動詞",
+       "g": "v. 大量存在、充滿"
+      },
+      {
+       "w": "aboriginal",
+       "lv": 6,
+       "kk": "ˌæbəˈrɪʤənəl",
+       "p": "ab 從 + origin 起源 + -al",
+       "g": "adj. 從最初就在的→原住民的；n. 原住民"
+      }
+     ]
+    }
+   ],
+   "dropped": [
+    {
+     "why": "abandon：不是 ab- 開頭。",
+     "list": "abandon 來自古法文 a bandon（交給別人處置），把東西交出去不再管 → 拋棄、放棄。"
+    },
+    {
+     "why": "abbreviate：開頭的 ab 其實是 ad-（朝向）。",
+     "list": "abbreviate 是 ad + brevi（短），「使變短」→ 縮寫，ad- 碰到 b 變成 ab-。跟表示「離開」的 ab- 沒有關係。"
+    }
+   ]
+  },
+  {
+   "key": "mis-",
+   "zh": "錯誤地、不好地",
+   "note": "mis- 加在動詞或名詞前面，意思是「錯誤地、不好地」：mislead 是帶錯方向，misunderstand 是理解錯了，misfortune 是不好的運氣。mis- 來自古英文，詞彙表裡用到它的字不多，但都很常考，拆開來就懂。",
+   "subs": [
+    {
+     "t": "錯誤地、不好地",
+     "items": [
+      {
+       "w": "mistake",
+       "lv": 1,
+       "kk": "mɪˈsteɪk",
+       "p": "mis 錯誤地 + take 拿",
+       "g": "n. 錯誤；v. 拿錯→弄錯、誤認（mistake A for B）",
+       "refs": [
+        {
+         "s": "ep",
+         "id": "93",
+         "t": "作文字彙表 93學年 mistake A for B"
+        },
+        {
+         "s": "ep",
+         "id": "91",
+         "t": "作文字彙表 91學年 learn from one's mistakes"
+        },
+        {
+         "s": "ep",
+         "id": "90",
+         "t": "作文字彙表 90學年 mistake A for B"
+        }
+       ]
+      },
+      {
+       "w": "mislead",
+       "lv": 4,
+       "kk": "mɪsˈlid",
+       "p": "mis 錯誤地 + lead 帶領",
+       "g": "v. 帶錯方向→誤導",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0014",
+         "t": "109指考補考 單字Q4",
+         "k": "a"
+        },
+        {
+         "s": "ep",
+         "id": "107",
+         "t": "作文字彙表 107學年 mislead sb into V-ing / misleading advertising"
+        },
+        {
+         "s": "ep",
+         "id": "95",
+         "t": "作文字彙表 95學年 mislead"
+        }
+       ]
+      },
+      {
+       "w": "misleading",
+       "lv": 4,
+       "kk": "mɪsˈlidɪŋ",
+       "p": "mislead + -ing",
+       "g": "adj. 誤導人的",
+       "base": "mislead",
+       "refs": [
+        {
+         "s": "ep",
+         "id": "107",
+         "t": "作文字彙表 107學年 mislead sb into V-ing / misleading advertising"
+        }
+       ]
+      },
+      {
+       "w": "misunderstand",
+       "lv": 4,
+       "kk": "ˌmɪsʌndɚˈstænd",
+       "p": "mis 錯誤地 + understand 理解",
+       "g": "v. 誤會、誤解",
+       "refs": [
+        {
+         "s": "ep",
+         "id": "95",
+         "t": "作文字彙表 95學年 misunderstand"
+        }
+       ]
+      },
+      {
+       "w": "misunderstanding",
+       "lv": 4,
+       "kk": "ˌmɪsʌndɚˈstændɪŋ",
+       "p": "misunderstand + -ing",
+       "g": "n. 誤會",
+       "base": "misunderstand",
+       "refs": [
+        {
+         "s": "ep",
+         "id": "95",
+         "t": "作文字彙表 95學年 misunderstanding"
+        }
+       ]
+      },
+      {
+       "w": "misfortune",
+       "lv": 4,
+       "kk": "mɪsˈfɔrʧən",
+       "p": "mis 不好的 + fortune 運氣",
+       "g": "n. 壞運氣→不幸",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0013",
+         "t": "109指考補考 單字Q3",
+         "k": "a"
+        }
+       ]
+      },
+      {
+       "w": "mischief",
+       "lv": 4,
+       "kk": "ˈmɪsʧəf",
+       "p": "mis 不好地 + chief（古法文 chever 有了結局，來自拉丁文 caput 頭）",
+       "g": "n. 結局不好→惡作劇、調皮；損害",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0248",
+         "t": "97學測 單字Q8",
+         "k": "d"
+        },
+        {
+         "s": "ep",
+         "id": "96",
+         "t": "作文字彙表 96學年 mischief"
+        },
+        {
+         "s": "ep",
+         "id": "90",
+         "t": "作文字彙表 90學年 mischief"
+        }
+       ]
+      },
+      {
+       "w": "mischievous",
+       "lv": 6,
+       "kk": "ˈmɪsʧɪvəs",
+       "p": "mischief 的形容詞",
+       "g": "adj. 愛惡作劇的、調皮的"
+      }
+     ]
+    }
+   ],
+   "dropped": [
+    {
+     "why": "mission、missile、missionary：開頭不是 mis-。",
+     "list": "mis 後面多了一個 s，是字根 miss（送），跟 transmit、submit 的 mit 同一家：mission 是派出去做的事 → 任務；missile 是射出去的東西 → 飛彈；missionary 是派出去傳教的人 → 傳教士。"
+    },
+    {
+     "why": "misery、miserable：不是 mis- 開頭。",
+     "list": "這兩個字來自拉丁文 miser（可憐的、不幸的），misery 是痛苦、悲慘，miserable 是悲慘的。"
+    }
+   ]
+  },
+  {
+   "key": "anti-（ant-）",
+   "zh": "反對、對抗",
+   "note": "anti- 來自希臘文，意思是「反對、對抗」，碰到母音開頭的字會變成 ant-。詞彙表裡用到 anti- 的字不多，可是課外讀物和新聞常常看到，像 anti-war（反戰）、antibody（抗體），學會了很好用。要小心的是 ante-（在前面），它跟 anti- 只差一個字母，意思完全不同，見下面的假朋友。",
+   "subs": [
+    {
+     "t": "反對、對抗",
+     "items": [
+      {
+       "w": "antibiotic",
+       "lv": 6,
+       "kk": "ˌæntɪbaɪˈɑtɪk",
+       "p": "anti 對抗 + bio 生命 + -tic",
+       "g": "n. 對抗細菌這類生物的藥→抗生素"
+      },
+      {
+       "w": "antonym",
+       "lv": 6,
+       "kk": "ˈæntəˌnɪm",
+       "p": "ant 相反 + onym 名字",
+       "g": "n. 意思相反的字→反義字"
+      }
+     ]
+    }
+   ],
+   "dropped": [
+    {
+     "why": "anticipate、anticipation：開頭看起來是 anti-，其實是 ante-（在前面）。",
+     "list": "anticipate 是 ante（在前面、事先）+ cip（拉丁文 capere 拿），「事先拿到」→ 預期、期待。"
+    },
+    {
+     "why": "antique：也是 ante-，不是 anti-。",
+     "list": "antique 來自拉丁文 antiquus（古老的），跟 ante（在前面）有關，「很早以前的」→ 古董；古老的。"
     }
    ]
   }
