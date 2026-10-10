@@ -289,7 +289,7 @@
         <b>易混淆字組另有收錄依據。</b>每一組是拼法、字根相近或唸法相同的字，參考台灣升學考試常見的易混淆字整理，所以也收了沒考過的字；考過的字一律附上當年的句子。
       </p>
       <p>
-        <b>一字多義的字同樣出自歷屆考題。</b>這 135 個字取自本題庫的詞彙題、克漏字、文意選填和閱讀測驗，選字時也參考了教學圈整理的一字多義清單。其中 113 個字有以這個字為答案的考題；其餘 22 個字沒有，不過它的另一個意思出現在考題文章裡，卡片背面就附上那一句。
+        <b>一字多義的字同樣出自歷屆考題。</b>這 135 個字取自本題庫的詞彙題、克漏字、文意選填和閱讀測驗，選字時也參考了教學圈整理的一字多義清單。其中 110 個字有以這個字為答案的考題；其餘 25 個字沒有，不過它的另一個意思出現在考題文章裡，卡片背面就附上那一句。
       </p>
       <p>
         免費、無廣告的非營利自學題庫，歡迎自由分享。
@@ -483,7 +483,7 @@
       setOut('', true);
       if (!poLoading) {
         poLoading = true;
-        fetch('polysemy_data.json?v=1', { cache: 'default' })
+        fetch('polysemy_data.json?v=2', { cache: 'default' })
           .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
           .then(function (d) { PO = d; poLoading = false; if (deck === 'po') refresh(); })
           .catch(function () { poLoading = false; box.innerHTML = '<span class="warn">一字多義載入失敗，請重新整理頁面試試。</span>'; });

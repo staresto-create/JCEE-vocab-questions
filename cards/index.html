@@ -1749,7 +1749,7 @@
     poLoading = true;
     hide('home'); hide('stats'); hide('gview'); show('loading');
     $('loading').textContent = '載入一字多義中…';
-    fetch('polysemy_data.json?v=1', { cache: 'default' })
+    fetch('polysemy_data.json?v=2', { cache: 'default' })
       .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
       .then(function (d) {
         PO = d; POW = {};
