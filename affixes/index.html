@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>字根家族表｜高中英文參考詞彙表</title>
-<meta name="description" content="把大考中心《高中英文參考詞彙表》裡拆得動的字，按字根收成一家一家，每個字附拆解與意思，考過的字直接連到歷屆試題。">
-<meta property="og:title" content="字根家族表｜高中英文參考詞彙表">
-<meta property="og:description" content="十五個字根家族，二百五十個字，其中一百四十一個字連得到學測、指考、克漏字與作文的歷屆考題。">
+<title>字首字尾表｜高中英文參考詞彙表</title>
+<meta name="description" content="把大考中心《高中英文參考詞彙表》裡帶字首的字按字首分組，每個字附 KK 音標、拆解與意思，考過的字直接連到歷屆試題，每一組另附看起來像、其實不是的假朋友。">
+<meta property="og:title" content="字首字尾表｜高中英文參考詞彙表">
+<meta property="og:description" content="re-、un-、in-、dis-、ex-、con- 六組字首，七百七十一個字，其中四百七十九個字連得到學測、指考、克漏字、中譯英與作文的歷屆考題。">
 <style>
 :root{
   --ground:#f1f3f2; --ink:#17282f; --teal:#1f6f6a; --teal-soft:#dfeceb;
@@ -37,6 +37,8 @@ nav a:hover{background:var(--teal-soft)}
 section{margin:0 0 2.4rem;scroll-margin-top:1rem}
 h2{font-family:var(--serif);font-size:1.24rem;margin:0 0 .1rem;font-weight:600}
 h2 span{font-family:var(--sans);font-size:.92rem;color:#3d5059;margin-left:.5rem;font-weight:400}
+h3{font-size:.95rem;margin:1.1rem 0 .3rem;color:var(--teal);font-weight:600}
+.kk{font-size:.85rem;color:var(--muted);margin-left:.45rem}
 .note{font-size:.9rem;color:#3d5059;margin:.35rem 0 1rem;max-width:40em;
   border-left:3px solid var(--teal-soft);padding-left:.7rem}
 ul{list-style:none;margin:0;padding:0}
@@ -68,8 +70,8 @@ details .list{color:#3d5059}
 </head>
 <body>
 <div class="wrap">
-  <h1>字根家族表</h1>
-  <p class="lede">大考中心《高中英文參考詞彙表》（111 學年度起適用）收 5,992 個詞條，其中拆得動的字按字根收成一家一家。先定字根，再把整家收齊，不分級別——一、二級的字排在前面，用來推後面五、六級的字。每一家後面附同形異源的假朋友，那些是看起來像、其實不同家的字。字首另見<a href="../affixes/">字首字尾表</a>。</p>
+  <h1>字首字尾表</h1>
+  <p class="lede">把大考中心《高中英文參考詞彙表》（111 學年度起適用）裡帶字首的字，按字首分組，同一個字首再依意思分成幾小組。一、二級的熟字也收進來，先從認得的字看懂字首的意思，再拿去拆不認得的字；只想看難字，可以用級別篩選。每一組後面附假朋友，那些是看起來像、其實不是這個字首的字，或照字面拆會猜錯意思的字。字根另見<a href="../roots/">字根家族表</a>。目前先收六組常用字首，其他字首和字尾陸續補上。</p>
 
   <div class="tools">
     <input type="search" id="q" placeholder="搜尋單字、拆解或意思" aria-label="搜尋">
@@ -77,7 +79,7 @@ details .list{color:#3d5059}
   </div>
   <p class="count" id="count"></p>
 
-  <nav id="nav" aria-label="字根家族"></nav>
+  <nav id="nav" aria-label="字首"></nav>
   <div id="body"></div>
 
   <div class="foot" id="foot"></div>
@@ -93,17 +95,19 @@ function render(){
   const q=state.q.trim().toLowerCase();
   let shown=0, total=0;
 
-  DATA.groups.forEach((g,gi)=>{
-    total+=g.items.length;
-    const items=g.items.filter(it=>{
+  const keep=it=>{
       if(state.lv.size && !state.lv.has(it.lv)) return false;
       if(state.examOnly && !(it.refs && it.refs.length)) return false;
       if(!q) return true;
       const refTxt=(it.refs||[]).map(r=>r.t).join(' ');
       return (it.w+' '+it.p+' '+it.g+' '+refTxt).toLowerCase().includes(q);
-    });
-    if(!items.length) return;
-    shown+=items.length;
+  };
+  DATA.groups.forEach((g,gi)=>{
+    const subs=g.subs.map(sb=>({t:sb.t,items:sb.items.filter(keep)}));
+    g.subs.forEach(sb=>total+=sb.items.length);
+    const cnt=subs.reduce((a,sb)=>a+sb.items.length,0);
+    if(!cnt) return;
+    shown+=cnt;
 
     const a=document.createElement('a');
     a.href='#g'+gi; a.textContent=g.key; nav.appendChild(a);
@@ -116,12 +120,16 @@ function render(){
     sec.appendChild(h);
     if(g.note){const n=document.createElement('p');n.className='note';n.textContent=g.note;sec.appendChild(n);}
 
+    subs.forEach(sb=>{
+    if(!sb.items.length) return;
+    const h3=document.createElement('h3'); h3.textContent=sb.t; sec.appendChild(h3);
     const ul=document.createElement('ul');
-    items.forEach(it=>{
+    sb.items.forEach(it=>{
       const li=document.createElement('li');
       const w=document.createElement('div');
       const nm=document.createElement('span'); nm.className='w'; nm.textContent=it.w; w.appendChild(nm);
-      if(it.lv){const b=document.createElement('span');b.className='badge';b.textContent='第 '+it.lv+' 級';w.appendChild(b);}
+      if(it.kk){const k=document.createElement('span');k.className='kk';k.textContent='['+it.kk+']';w.appendChild(k);}
+      if(it.lv){const b=document.createElement('span');b.className='badge';b.textContent=it.base?('衍生自 '+it.base+'（第 '+it.lv+' 級）'):('第 '+it.lv+' 級');w.appendChild(b);}
       li.appendChild(w);
       const p=document.createElement('div'); p.className='p'; p.textContent=it.p; li.appendChild(p);
       const gg=document.createElement('div'); gg.className='g'; gg.textContent=it.g; li.appendChild(gg);
@@ -143,11 +151,12 @@ function render(){
       ul.appendChild(li);
     });
     sec.appendChild(ul);
+    });
 
     if(g.dropped && g.dropped.length){
       const d=document.createElement('details');
       const s=document.createElement('summary');
-      s.textContent='看起來像、其實不是這一家的字';
+      s.textContent='假朋友：看起來像、其實不是，或照字面拆會猜錯的字';
       d.appendChild(s);
       g.dropped.forEach(x=>{
         const t=document.createElement('p'); t.className='why'; t.textContent=x.why; d.appendChild(t);
@@ -163,10 +172,10 @@ function render(){
     e.textContent='這個條件下沒有字。清掉搜尋或級別再試一次。';
     body.appendChild(e);
   }
-  let linked=0; DATA.groups.forEach(g=>g.items.forEach(it=>{if(it.refs&&it.refs.length)linked++;}));
+  let linked=0; DATA.groups.forEach(g=>g.subs.forEach(sb=>sb.items.forEach(it=>{if(it.refs&&it.refs.length)linked++;})));
   $('#count').textContent = (state.q||state.lv.size||state.examOnly)
     ? '符合的字 '+shown+' 個，全表共 '+total+' 個'
-    : '共 '+DATA.groups.length+' 個字根家族、'+total+' 個字，其中 '+linked+' 個字附了考古題連結';
+    : '共 '+DATA.groups.length+' 組字首、'+total+' 個字，其中 '+linked+' 個字附了考古題連結';
 }
 
 function buildLv(){
@@ -190,14 +199,14 @@ function buildLv(){
   }
 }
 
-fetch('roots_data.json').then(r=>r.json()).then(d=>{
+fetch('affixes_data.json').then(r=>r.json()).then(d=>{
   DATA=d;
   buildLv();
   $('#q').addEventListener('input',e=>{state.q=e.target.value;render();});
   $('#foot').textContent=d.note+' 資料更新：'+d.updated+'。標「考過」的字可以點進本題庫看那一題的原文；拆解與中文說明是本題庫整理的，字源依 Online Etymology Dictionary 查證；詞彙表著作權屬財團法人大學入學考試中心基金會，本表只供非營利教學使用。';
   render();
 }).catch(()=>{
-  $('#body').innerHTML='<p class="empty">讀不到 roots_data.json。這個頁面要跟資料檔放在同一個資料夾。</p>';
+  $('#body').innerHTML='<p class="empty">讀不到 affixes_data.json。這個頁面要跟資料檔放在同一個資料夾。</p>';
 });
 </script>
 </body>
