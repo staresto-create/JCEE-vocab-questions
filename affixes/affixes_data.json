@@ -10523,7 +10523,7 @@
       {
        "w": "communism",
        "lv": 5,
-       "kk": "ˈkɑmjʊˌnɪzəm",
+       "kk": "ˈkɑmjəˌnɪzəm",
        "p": "commun 共同的 + -ism",
        "g": "n. 財產共有的主義→共產主義"
       },
@@ -38384,6 +38384,2713 @@
      "list": "human 來自拉丁文 humanus（人的），整個字是一起借進英文的，不是 hu 加上 man。"
     }
    ],
+   "kind": "suffix"
+  },
+  {
+   "key": "-ness",
+   "zh": "…的狀態、…的性質",
+   "note": "-ness 是英文本來就有的字尾，幾乎可以加在任何形容詞後面，把它變成名詞「…的狀態、…的性質」：happy 變成 happiness（快樂），aware 變成 awareness（意識）。字尾是 y 的，要先把 y 改成 i（happy → happiness、lazy → laziness）。詞彙表很少另外列 -ness 的字，因為看得懂形容詞，就看得懂加了 -ness 的名詞；這一組只收詞彙表有列的，以及本站考過的。business 是個例外，它原本是 busy 加上 -ness「忙碌的狀態」，後來才變成「生意、事情」。",
+   "subs": [
+    {
+     "t": "形容詞 + -ness → 名詞",
+     "items": [
+      {
+       "w": "happiness",
+       "lv": 1,
+       "kk": "ˈhæpɪnɪs",
+       "p": "happy 快樂的 + -ness",
+       "g": "n. 快樂、幸福",
+       "base": "happy",
+       "refs": [
+        {
+         "s": "tr",
+         "id": "165",
+         "t": "中譯英 96(學測) 第165題"
+        }
+       ]
+      },
+      {
+       "w": "awareness",
+       "lv": 3,
+       "kk": "əˈwɛrnɪs",
+       "p": "aware 意識到的 + -ness",
+       "g": "n. 意識、認知",
+       "base": "aware",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0301",
+         "t": "84聯考 單字Q8",
+         "k": "a"
+        },
+        {
+         "s": "ep",
+         "id": "109",
+         "t": "作文字彙表 109學年 awareness"
+        }
+       ]
+      },
+      {
+       "w": "consciousness",
+       "lv": 3,
+       "kk": "ˈkɑnʃəsnɪs",
+       "p": "conscious 有意識的 + -ness",
+       "g": "n. 意識；知覺",
+       "base": "conscious",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0091",
+         "t": "93敏督利颱風受災地區考生補救考試 單字Q1",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "madness",
+       "lv": 1,
+       "kk": "ˈmædnɪs",
+       "p": "mad 瘋狂的 + -ness",
+       "g": "n. 瘋狂",
+       "base": "mad",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0014",
+         "t": "84推薦甄選 單字Q4",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "laziness",
+       "lv": 1,
+       "kk": "ˈleɪzɪnɪs",
+       "p": "lazy 懶惰的 + -ness",
+       "g": "n. 懶惰",
+       "base": "lazy",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0243",
+         "t": "89聯考 單字Q4",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "business",
+       "lv": 1,
+       "kk": "ˈbɪznɪs",
+       "p": "busy 忙碌的 + -ness",
+       "g": "n. 原意是「忙碌的狀態」→生意、商業；事情",
+       "refs": [
+        {
+         "s": "zcz",
+         "id": "Z98_11",
+         "t": "指考克漏字 98年 第11格",
+         "k": "d"
+        },
+        {
+         "s": "tr",
+         "id": "121",
+         "t": "中譯英 108(學測) 第121題"
+        },
+        {
+         "s": "tr",
+         "id": "198",
+         "t": "中譯英 104(學測) 第198題"
+        }
+       ]
+      },
+      {
+       "w": "witness",
+       "lv": 4,
+       "kk": "ˈwɪtnɪs",
+       "p": "wit（古英文「知道」）+ -ness",
+       "g": "n. 原意是「知道的事」→目擊者、證人；v. 目擊",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0284",
+         "t": "99學測 單字Q14",
+         "k": "a"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0299",
+         "t": "84聯考 單字Q6",
+         "k": "d"
+        },
+        {
+         "s": "ep",
+         "id": "103",
+         "t": "作文字彙表 103學年 witness"
+        }
+       ]
+      },
+      {
+       "w": "wilderness",
+       "lv": 5,
+       "kk": "ˈwɪldɚnɪs",
+       "p": "古英文 wildeor（野獸；wild 野生的 + deor 動物）+ -ness",
+       "g": "n. 野獸出沒的地方→荒野"
+      }
+     ]
+    }
+   ],
+   "dropped": [
+    {
+     "why": "harness：-ness 不是字尾。",
+     "list": "harness 來自古法文 harneis（裝備、馬具），拿掉 ness 不是一個字。"
+    }
+   ],
+   "kind": "suffix"
+  },
+  {
+   "key": "-ity（-ty）",
+   "zh": "…的性質、…的狀態",
+   "note": "-ity 和 -ty 來自拉丁文 -itas，加在形容詞後面變成名詞「…的性質、…的狀態」：equal 變成 equality（平等），safe 變成 safety（安全）。加上 -ity 時常常要變拼法：-ble 變成 -bility（able → ability、possible → possibility），-ous 變成 -osity（curious → curiosity、generous → generosity）。唸法也要注意：-ity 前面那個音節要重讀，所以重音常常跟著移動，像 ˈpɝsənəl → ˌpɝsəˈnæləti（personality）、ˈpʌblɪk → pʌbˈlɪsəti（publicity）。",
+   "subs": [
+    {
+     "t": "形容詞 + -ity → 名詞",
+     "items": [
+      {
+       "w": "ability",
+       "lv": 1,
+       "kk": "əˈbɪləti",
+       "p": "able 能夠的 + -ility",
+       "g": "n. 能力",
+       "refs": [
+        {
+         "s": "tr",
+         "id": "145",
+         "t": "中譯英 115(學測) 第145題"
+        },
+        {
+         "s": "tr",
+         "id": "177",
+         "t": "中譯英 98(學測) 第177題"
+        },
+        {
+         "s": "tr",
+         "id": "23",
+         "t": "中譯英 76(大學聯考) 第23題"
+        }
+       ]
+      },
+      {
+       "w": "disability",
+       "lv": 4,
+       "kk": "ˌdɪsəˈbɪləti",
+       "p": "dis 否定 + ability 能力",
+       "g": "n. 失能、身心障礙"
+      },
+      {
+       "w": "capability",
+       "lv": 5,
+       "kk": "ˌkeɪpəˈbɪləti",
+       "p": "capable 有能力的 + -ility",
+       "g": "n. 能力"
+      },
+      {
+       "w": "possibility",
+       "lv": 2,
+       "kk": "ˌpɑsəˈbɪləti",
+       "p": "possible 可能的 + -ility",
+       "g": "n. 可能性",
+       "refs": [
+        {
+         "s": "gcz",
+         "id": "G105_25_2",
+         "t": "學測克漏字 105年 第25格",
+         "k": "d"
+        },
+        {
+         "s": "zcz",
+         "id": "Z97_25",
+         "t": "指考克漏字 97年 第25格",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "responsibility",
+       "lv": 3,
+       "kk": "rɪˌspɑnsəˈbɪləti",
+       "p": "responsible 負責的 + -ility",
+       "g": "n. 責任",
+       "refs": [
+        {
+         "s": "gcz",
+         "id": "G108_24_2",
+         "t": "學測克漏字 108年 第24格",
+         "k": "d"
+        },
+        {
+         "s": "tr",
+         "id": "137",
+         "t": "中譯英 111(學測) 第137題"
+        },
+        {
+         "s": "tr",
+         "id": "199",
+         "t": "中譯英 104(學測) 第199題"
+        }
+       ]
+      },
+      {
+       "w": "credibility",
+       "lv": 5,
+       "kk": "ˌkrɛdəˈbɪləti",
+       "p": "credible 可信的 + -ility",
+       "g": "n. 可信度"
+      },
+      {
+       "w": "flexibility",
+       "lv": 5,
+       "kk": "ˌflɛksəˈbɪləti",
+       "p": "flexible 有彈性的 + -ility",
+       "g": "n. 彈性、靈活"
+      },
+      {
+       "w": "stability",
+       "lv": 5,
+       "kk": "stəˈbɪləti",
+       "p": "stable 穩定的 + -ility",
+       "g": "n. 穩定",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0176",
+         "t": "95指考 單字Q4",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "liability",
+       "lv": 5,
+       "kk": "ˌlaɪəˈbɪləti",
+       "p": "liable 有責任的 + -ility",
+       "g": "n. 法律責任；負債",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0465",
+         "t": "112學測 單字Q5",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "activity",
+       "lv": 2,
+       "kk": "ækˈtɪvəti",
+       "p": "active 活躍的 + -ity",
+       "g": "n. 活動",
+       "refs": [
+        {
+         "s": "gcz",
+         "id": "G84_37_2",
+         "t": "學測克漏字 84年 第37格",
+         "k": "a"
+        },
+        {
+         "s": "tr",
+         "id": "145",
+         "t": "中譯英 115(學測) 第145題"
+        },
+        {
+         "s": "tr",
+         "id": "110",
+         "t": "中譯英 102(指考) 第110題"
+        }
+       ]
+      },
+      {
+       "w": "creativity",
+       "lv": 4,
+       "kk": "ˌkrieɪˈtɪvəti",
+       "p": "creative 有創造力的 + -ity",
+       "g": "n. 創造力",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0111",
+         "t": "90學測 單字Q6",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0106",
+         "t": "102指考 單字Q4",
+         "k": "a"
+        },
+        {
+         "s": "tr",
+         "id": "142",
+         "t": "中譯英 114(學測) 第142題"
+        }
+       ]
+      },
+      {
+       "w": "productivity",
+       "lv": 5,
+       "kk": "ˌproʊdʌkˈtɪvəti",
+       "p": "productive 有生產力的 + -ity",
+       "g": "n. 生產力",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0199",
+         "t": "94學測 單字Q4",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "sensitivity",
+       "lv": 5,
+       "kk": "ˌsɛnsəˈtɪvəti",
+       "p": "sensitive 敏感的 + -ity",
+       "g": "n. 敏感；體貼"
+      },
+      {
+       "w": "captivity",
+       "lv": 6,
+       "kk": "kæpˈtɪvəti",
+       "p": "captive 被俘的 + -ity",
+       "g": "n. 囚禁、圈養"
+      },
+      {
+       "w": "curiosity",
+       "lv": 4,
+       "kk": "ˌkjʊriˈɑsəti",
+       "p": "curious 好奇的 + -osity",
+       "g": "n. 好奇心"
+      },
+      {
+       "w": "generosity",
+       "lv": 4,
+       "kk": "ˌʤɛnəˈrɑsəti",
+       "p": "generous 慷慨的 + -osity",
+       "g": "n. 慷慨",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0366",
+         "t": "105學測 單字Q6",
+         "k": "a"
+        },
+        {
+         "s": "gsat",
+         "id": "V0465",
+         "t": "112學測 單字Q5",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0270",
+         "t": "87聯考 單字Q7",
+         "k": "a"
+        }
+       ]
+      },
+      {
+       "w": "ambiguity",
+       "lv": 6,
+       "kk": "ˌæmbɪˈgjuəti",
+       "p": "ambiguous 模稜兩可的 + -ity",
+       "g": "n. 模稜兩可",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0082",
+         "t": "103指考 單字Q2",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "equality",
+       "lv": 4,
+       "kk": "iˈkwɑləti",
+       "p": "equal 平等的 + -ity",
+       "g": "n. 平等"
+      },
+      {
+       "w": "reality",
+       "lv": 2,
+       "kk": "riˈæləti",
+       "p": "real 真實的 + -ity",
+       "g": "n. 現實、真實",
+       "refs": [
+        {
+         "s": "tr",
+         "id": "143",
+         "t": "中譯英 114(學測) 第143題"
+        }
+       ]
+      },
+      {
+       "w": "personality",
+       "lv": 2,
+       "kk": "ˌpɝsəˈnæləti",
+       "p": "personal 個人的 + -ity",
+       "g": "n. 個性、人格",
+       "refs": [
+        {
+         "s": "tr",
+         "id": "150",
+         "t": "中譯英 93(指考研究用試卷) 第150題"
+        }
+       ]
+      },
+      {
+       "w": "nationality",
+       "lv": 4,
+       "kk": "ˌnæʃəˈnæləti",
+       "p": "national 國家的 + -ity",
+       "g": "n. 國籍"
+      },
+      {
+       "w": "originality",
+       "lv": 5,
+       "kk": "əˌrɪʤəˈnæləti",
+       "p": "original 原創的 + -ity",
+       "g": "n. 獨創性",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0019",
+         "t": "84推薦甄選 單字Q9",
+         "k": "a"
+        }
+       ]
+      },
+      {
+       "w": "morality",
+       "lv": 5,
+       "kk": "məˈræləti",
+       "p": "moral 道德的 + -ity",
+       "g": "n. 道德"
+      },
+      {
+       "w": "mortality",
+       "lv": 5,
+       "kk": "mɔrˈtæləti",
+       "p": "mortal 會死的 + -ity",
+       "g": "n. 死亡率；必死性"
+      },
+      {
+       "w": "mentality",
+       "lv": 6,
+       "kk": "mɛnˈtæləti",
+       "p": "mental 心智的 + -ity",
+       "g": "n. 心態、思維方式"
+      },
+      {
+       "w": "vitality",
+       "lv": 6,
+       "kk": "vaɪˈtæləti",
+       "p": "vital 生命的 + -ity",
+       "g": "n. 活力"
+      },
+      {
+       "w": "humanity",
+       "lv": 4,
+       "kk": "hjuˈmænəti",
+       "p": "human 人的 + -ity",
+       "g": "n. 人類；人性、人道",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0042",
+         "t": "86推薦甄選 單字Q2",
+         "k": "d"
+        },
+        {
+         "s": "zcz",
+         "id": "Z98_11",
+         "t": "指考克漏字 98年 第11格",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "electricity",
+       "lv": 3,
+       "kk": "ɪˌlɛkˈtrɪsəti",
+       "p": "electric 電的 + -ity",
+       "g": "n. 電",
+       "refs": [
+        {
+         "s": "tr",
+         "id": "187",
+         "t": "中譯英 100(指考) 第187題"
+        }
+       ]
+      },
+      {
+       "w": "publicity",
+       "lv": 4,
+       "kk": "pʌbˈlɪsəti",
+       "p": "public 公眾的 + -ity",
+       "g": "n. 宣傳；眾所周知",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0209",
+         "t": "94學測 單字Q14",
+         "k": "a"
+        },
+        {
+         "s": "ep",
+         "id": "107",
+         "t": "作文字彙表 107學年 publicity"
+        }
+       ]
+      },
+      {
+       "w": "simplicity",
+       "lv": 6,
+       "kk": "sɪmˈplɪsəti",
+       "p": "simple 簡單的 + -icity",
+       "g": "n. 簡單、樸素"
+      },
+      {
+       "w": "complexity",
+       "lv": 5,
+       "kk": "kəmˈplɛksəti",
+       "p": "complex 複雜的 + -ity",
+       "g": "n. 複雜"
+      },
+      {
+       "w": "density",
+       "lv": 5,
+       "kk": "ˈdɛnsəti",
+       "p": "dense 密集的 + -ity",
+       "g": "n. 密度",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0474",
+         "t": "113學測 單字Q4",
+         "k": "d"
+        },
+        {
+         "s": "tr",
+         "id": "200",
+         "t": "中譯英 104(指考) 第200題"
+        }
+       ]
+      },
+      {
+       "w": "diversity",
+       "lv": 4,
+       "kk": "daɪˈvɝsəti",
+       "p": "diverse 多樣的 + -ity",
+       "g": "n. 多樣性",
+       "refs": [
+        {
+         "s": "tr",
+         "id": "178",
+         "t": "中譯英 98(指考) 第178題"
+        }
+       ]
+      },
+      {
+       "w": "intensity",
+       "lv": 4,
+       "kk": "ɪnˈtɛnsəti",
+       "p": "intense 強烈的 + -ity",
+       "g": "n. 強度、強烈",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0111",
+         "t": "90學測 單字Q6",
+         "k": "a"
+        },
+        {
+         "s": "gsat",
+         "id": "V0080",
+         "t": "88推薦甄選 單字Q5",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "purity",
+       "lv": 6,
+       "kk": "ˈpjʊrəti",
+       "p": "pure 純淨的 + -ity",
+       "g": "n. 純淨、純度"
+      },
+      {
+       "w": "maturity",
+       "lv": 4,
+       "kk": "məˈʧʊrəti",
+       "p": "mature 成熟的 + -ity",
+       "g": "n. 成熟",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0366",
+         "t": "105學測 單字Q6",
+         "k": "d"
+        },
+        {
+         "s": "gsat",
+         "id": "V0339",
+         "t": "103學測 單字Q9",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "security",
+       "lv": 3,
+       "kk": "sɪˈkjʊrəti",
+       "p": "secure 安全的 + -ity",
+       "g": "n. 安全；保全",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0169",
+         "t": "92學測補考 單字Q4",
+         "k": "a"
+        },
+        {
+         "s": "gsat",
+         "id": "V0366",
+         "t": "105學測 單字Q6",
+         "k": "d"
+        },
+        {
+         "s": "gsat",
+         "id": "V0210",
+         "t": "94學測 單字Q15",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "sincerity",
+       "lv": 4,
+       "kk": "sɪnˈsɛrəti",
+       "p": "sincere 真誠的 + -ity",
+       "g": "n. 真誠",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0465",
+         "t": "112學測 單字Q5",
+         "k": "a"
+        },
+        {
+         "s": "ep",
+         "id": "109",
+         "t": "作文字彙表 109學年 sincerity"
+        },
+        {
+         "s": "ep",
+         "id": "99",
+         "t": "作文字彙表 99學年 lack sincerity / doubt sb's sincerity"
+        }
+       ]
+      },
+      {
+       "w": "similarity",
+       "lv": 3,
+       "kk": "ˌsɪməˈlærəti",
+       "p": "similar 相似的 + -ity",
+       "g": "n. 相似之處",
+       "refs": [
+        {
+         "s": "zcz",
+         "id": "Z107_11",
+         "t": "指考克漏字 107年 第11格",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "familiarity",
+       "lv": 6,
+       "kk": "fəˌmɪliˈærəti",
+       "p": "familiar 熟悉的 + -ity",
+       "g": "n. 熟悉",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0176",
+         "t": "95指考 單字Q4",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "popularity",
+       "lv": 4,
+       "kk": "ˌpɑpjəˈlærəti",
+       "p": "popular 受歡迎的 + -ity",
+       "g": "n. 受歡迎",
+       "refs": [
+        {
+         "s": "zcz",
+         "id": "Z97_25",
+         "t": "指考克漏字 97年 第25格",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "majority",
+       "lv": 3,
+       "kk": "məˈʤɔrəti",
+       "p": "major 較大的 + -ity",
+       "g": "n. 大多數"
+      },
+      {
+       "w": "minority",
+       "lv": 2,
+       "kk": "maɪˈnɔrəti",
+       "p": "minor 較小的 + -ity",
+       "g": "n. 少數；少數族群"
+      },
+      {
+       "w": "priority",
+       "lv": 4,
+       "kk": "praɪˈɔrəti",
+       "p": "prior 優先的 + -ity",
+       "g": "n. 優先、優先考慮的事",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0210",
+         "t": "94學測 單字Q15",
+         "k": "a"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0092",
+         "t": "93敏督利颱風受災地區考生補救考試 單字Q2",
+         "k": "a"
+        },
+        {
+         "s": "ep",
+         "id": "113",
+         "t": "作文字彙表 113學年 in order of priority"
+        }
+       ]
+      },
+      {
+       "w": "superiority",
+       "lv": 6,
+       "kk": "səˌpɪriˈɔrəti",
+       "p": "superior 較好的 + -ity",
+       "g": "n. 優越"
+      },
+      {
+       "w": "eternity",
+       "lv": 6,
+       "kk": "ɪˈtɝnəti",
+       "p": "eternal 永恆的 + -ity",
+       "g": "n. 永恆"
+      },
+      {
+       "w": "fertility",
+       "lv": 6,
+       "kk": "fɚˈtɪləti",
+       "p": "fertile 肥沃的、能生育的 + -ity",
+       "g": "n. 肥沃；生育力"
+      },
+      {
+       "w": "hostility",
+       "lv": 5,
+       "kk": "hɑsˈtɪləti",
+       "p": "hostile 敵對的 + -ity",
+       "g": "n. 敵意"
+      },
+      {
+       "w": "humidity",
+       "lv": 4,
+       "kk": "hjuˈmɪdəti",
+       "p": "humid 潮濕的 + -ity",
+       "g": "n. 濕度",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0474",
+         "t": "113學測 單字Q4",
+         "k": "a"
+        },
+        {
+         "s": "ep",
+         "id": "84",
+         "t": "作文字彙表 84學年 humidity"
+        }
+       ]
+      },
+      {
+       "w": "gravity",
+       "lv": 5,
+       "kk": "ˈgrævəti",
+       "p": "grave 嚴重的（拉丁文 gravis 重的）+ -ity",
+       "g": "n. 地心引力；嚴重性"
+      },
+      {
+       "w": "vanity",
+       "lv": 6,
+       "kk": "ˈvænəti",
+       "p": "vain 自負的、徒勞的 + -ity",
+       "g": "n. 虛榮",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0042",
+         "t": "86推薦甄選 單字Q2",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "continuity",
+       "lv": 6,
+       "kk": "ˌkɑntəˈnuəti",
+       "p": "continuous 連續的 + -ity",
+       "g": "n. 連續性"
+      }
+     ]
+    },
+    {
+     "t": "形容詞 + -ty → 名詞",
+     "items": [
+      {
+       "w": "safety",
+       "lv": 2,
+       "kk": "ˈseɪfti",
+       "p": "safe 安全的 + -ty",
+       "g": "n. 安全",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0042",
+         "t": "86推薦甄選 單字Q2",
+         "k": "a"
+        },
+        {
+         "s": "gcz",
+         "id": "G99_29_3",
+         "t": "學測克漏字 99年 第29格",
+         "k": "a"
+        },
+        {
+         "s": "tr",
+         "id": "131",
+         "t": "中譯英 110(學測) 第131題"
+        }
+       ]
+      },
+      {
+       "w": "certainty",
+       "lv": 5,
+       "kk": "ˈsɝtənti",
+       "p": "certain 確定的 + -ty",
+       "g": "n. 確定、把握",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0093",
+         "t": "93敏督利颱風受災地區考生補救考試 單字Q3",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "cruelty",
+       "lv": 4,
+       "kk": "ˈkruəlti",
+       "p": "cruel 殘忍的 + -ty",
+       "g": "n. 殘忍"
+      },
+      {
+       "w": "honesty",
+       "lv": 3,
+       "kk": "ˈɑnɪsti",
+       "p": "honest 誠實的 + -y",
+       "g": "n. 誠實"
+      },
+      {
+       "w": "modesty",
+       "lv": 4,
+       "kk": "ˈmɑdəsti",
+       "p": "modest 謙虛的 + -y",
+       "g": "n. 謙虛",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0080",
+         "t": "88推薦甄選 單字Q5",
+         "k": "a"
+        }
+       ]
+      },
+      {
+       "w": "loyalty",
+       "lv": 4,
+       "kk": "ˈlɔɪəlti",
+       "p": "loyal 忠誠的 + -ty",
+       "g": "n. 忠誠",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0093",
+         "t": "93敏督利颱風受災地區考生補救考試 單字Q3",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "royalty",
+       "lv": 6,
+       "kk": "ˈrɔɪəlti",
+       "p": "royal 皇家的 + -ty",
+       "g": "n. 皇室成員；版稅"
+      },
+      {
+       "w": "specialty",
+       "lv": 5,
+       "kk": "ˈspɛʃəlti",
+       "p": "special 特別的 + -ty",
+       "g": "n. 專長；特產"
+      },
+      {
+       "w": "anxiety",
+       "lv": 4,
+       "kk": "æŋˈzaɪəti",
+       "p": "anxious 焦慮的 + -iety",
+       "g": "n. 焦慮",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0283",
+         "t": "99學測 單字Q13",
+         "k": "d"
+        },
+        {
+         "s": "ep",
+         "id": "92",
+         "t": "作文字彙表 92學年 anxiety"
+        }
+       ]
+      },
+      {
+       "w": "variety",
+       "lv": 3,
+       "kk": "vəˈraɪəti",
+       "p": "various 各種的 + -iety",
+       "g": "n. 多樣、種類（a variety of）",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0045",
+         "t": "86推薦甄選 單字Q5",
+         "k": "a"
+        },
+        {
+         "s": "gsat",
+         "id": "V0453",
+         "t": "111學測 單字Q3",
+         "k": "d"
+        },
+        {
+         "s": "gcz",
+         "id": "G104_28_3",
+         "t": "學測克漏字 104年 第28格",
+         "k": "a"
+        }
+       ]
+      },
+      {
+       "w": "penalty",
+       "lv": 4,
+       "kk": "ˈpɛnəlti",
+       "p": "penal 刑罰的 + -ty",
+       "g": "n. 處罰；罰款；（球賽）罰球",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0403",
+         "t": "107學測 單字Q13",
+         "k": "a"
+        }
+       ]
+      },
+      {
+       "w": "casualty",
+       "lv": 6,
+       "kk": "ˈkæʒuəlti",
+       "p": "casual 偶然的 + -ty",
+       "g": "n. 意外的受害者→死傷人員"
+      },
+      {
+       "w": "sovereignty",
+       "lv": 5,
+       "kk": "ˈsɑvrɪnti",
+       "p": "sovereign 至高的 + -ty",
+       "g": "n. 主權"
+      },
+      {
+       "w": "duty",
+       "lv": 2,
+       "kk": "ˈdjuti",
+       "p": "due 應付的 + -ty",
+       "g": "n. 義務；職責；關稅"
+      },
+      {
+       "w": "warranty",
+       "lv": 6,
+       "kk": "ˈwɔrənti",
+       "p": "warrant 保證 + -y",
+       "g": "n. 保證書、保固",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0010",
+         "t": "110指考 單字Q10",
+         "k": "d"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "t": "字根 + -ity／-ty（拿掉字尾不是英文字）",
+     "items": [
+      {
+       "w": "hospitality",
+       "lv": 6,
+       "kk": "ˌhɑspɪˈtæləti",
+       "p": "hospital（拉丁文 hospes 客人、主人；跟 hospitable、hospital 同源）+ -ity",
+       "g": "n. 好客、款待"
+      },
+      {
+       "w": "cavity",
+       "lv": 6,
+       "kk": "ˈkævəti",
+       "p": "cav（拉丁文 cavus 中空的，跟 cave 同源）+ -ity",
+       "g": "n. 洞、腔；蛀牙"
+      },
+      {
+       "w": "difficulty",
+       "lv": 2,
+       "kk": "ˈdɪfəˌkʌlti",
+       "p": "拉丁文 difficultas（dis 否定 + facilis 容易的）；difficult 反而是從 difficulty 變來的",
+       "g": "n. 困難",
+       "refs": [
+        {
+         "s": "tr",
+         "id": "28",
+         "t": "中譯英 77(大學聯考) 第28題"
+        }
+       ]
+      },
+      {
+       "w": "property",
+       "lv": 3,
+       "kk": "ˈprɑpɚti",
+       "p": "propr（拉丁文 proprius 自己的；跟 proper 同源）+ -ty",
+       "g": "n. 財產；性質",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0031",
+         "t": "108指考 單字Q1",
+         "k": "a"
+        }
+       ]
+      },
+      {
+       "w": "poverty",
+       "lv": 3,
+       "kk": "ˈpɑvɚti",
+       "p": "拉丁文 paupertas（pauper 貧窮的，跟 poor 同源）",
+       "g": "n. 貧窮",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0013",
+         "t": "109指考補考 單字Q3",
+         "k": "d"
+        },
+        {
+         "s": "ep",
+         "id": "91",
+         "t": "作文字彙表 91學年 poverty"
+        }
+       ]
+      },
+      {
+       "w": "beauty",
+       "lv": 2,
+       "kk": "ˈbjuti",
+       "p": "古法文 biauté（bel 美的 + -té）",
+       "g": "n. 美；美人"
+      },
+      {
+       "w": "treaty",
+       "lv": 5,
+       "kk": "ˈtriti",
+       "p": "拉丁文 tractatus（協商；跟 treat 同源）",
+       "g": "n. 條約"
+      },
+      {
+       "w": "identity",
+       "lv": 2,
+       "kk": "aɪˈdɛntəti",
+       "p": "ident（拉丁文 idem 相同的）+ -ity",
+       "g": "n. 身分；認同",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0416",
+         "t": "108學測 單字Q11",
+         "k": "d"
+        },
+        {
+         "s": "gsat",
+         "id": "V0363",
+         "t": "105學測 單字Q3",
+         "k": "d"
+        },
+        {
+         "s": "gsat",
+         "id": "V0266",
+         "t": "98學測 單字Q11",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "quality",
+       "lv": 2,
+       "kk": "ˈkwɑləti",
+       "p": "qual（拉丁文 qualis 什麼樣的）+ -ity",
+       "g": "n. 品質；特質",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0137",
+         "t": "91學測補考 單字Q2",
+         "k": "d"
+        },
+        {
+         "s": "gcz",
+         "id": "G102_20_1",
+         "t": "學測克漏字 102年 第20格",
+         "k": "d"
+        },
+        {
+         "s": "tr",
+         "id": "159",
+         "t": "中譯英 94(指考研究用試卷) 第159題"
+        }
+       ]
+      },
+      {
+       "w": "quantity",
+       "lv": 2,
+       "kk": "ˈkwɑntəti",
+       "p": "quant（拉丁文 quantus 多少）+ -ity",
+       "g": "n. 數量",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0111",
+         "t": "90學測 單字Q6",
+         "k": "d"
+        },
+        {
+         "s": "gcz",
+         "id": "G105_25_2",
+         "t": "學測克漏字 105年 第25格",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "authority",
+       "lv": 4,
+       "kk": "əˈθɔrəti",
+       "p": "author（拉丁文 auctor 創始者）+ -ity",
+       "g": "n. 權威；當局",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0210",
+         "t": "94學測 單字Q15",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "capacity",
+       "lv": 4,
+       "kk": "kəˈpæsəti",
+       "p": "cap（拉丁文 capere 拿）+ -acity",
+       "g": "n. 容量；能力",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0315",
+         "t": "101學測 單字Q15",
+         "k": "a"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0037",
+         "t": "108指考 單字Q7",
+         "k": "d"
+        },
+        {
+         "s": "ep",
+         "id": "113",
+         "t": "作文字彙表 113學年 capacity"
+        }
+       ]
+      },
+      {
+       "w": "celebrity",
+       "lv": 5,
+       "kk": "səˈlɛbrəti",
+       "p": "celebr（拉丁文 celeber 有名的）+ -ity",
+       "g": "n. 名人",
+       "refs": [
+        {
+         "s": "ep",
+         "id": "108",
+         "t": "作文字彙表 108學年 a celebrity"
+        }
+       ]
+      },
+      {
+       "w": "charity",
+       "lv": 4,
+       "kk": "ˈʧærəti",
+       "p": "char（拉丁文 carus 親愛的）+ -ity",
+       "g": "n. 慈善；慈善機構",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0247",
+         "t": "97學測 單字Q7",
+         "k": "a"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0216",
+         "t": "91指考 單字Q2",
+         "k": "d"
+        },
+        {
+         "s": "ep",
+         "id": "107",
+         "t": "作文字彙表 107學年 go to charity"
+        }
+       ]
+      },
+      {
+       "w": "clarity",
+       "lv": 5,
+       "kk": "ˈklærəti",
+       "p": "clar（拉丁文 clarus 清楚的）+ -ity",
+       "g": "n. 清楚、清晰"
+      },
+      {
+       "w": "commodity",
+       "lv": 5,
+       "kk": "kəˈmɑdəti",
+       "p": "commod（拉丁文 commodus 便利的）+ -ity",
+       "g": "n. 商品"
+      },
+      {
+       "w": "community",
+       "lv": 4,
+       "kk": "kəˈmjunəti",
+       "p": "commun（拉丁文 communis 共同的）+ -ity",
+       "g": "n. 社區；團體",
+       "refs": [
+        {
+         "s": "tr",
+         "id": "16",
+         "t": "中譯英 75(大學聯考) 第16題"
+        },
+        {
+         "s": "ep",
+         "id": "107",
+         "t": "作文字彙表 107學年 hold a community event"
+        }
+       ]
+      },
+      {
+       "w": "dignity",
+       "lv": 4,
+       "kk": "ˈdɪgnəti",
+       "p": "dign（拉丁文 dignus 值得的）+ -ity",
+       "g": "n. 尊嚴",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0080",
+         "t": "88推薦甄選 單字Q5",
+         "k": "d"
+        },
+        {
+         "s": "gsat",
+         "id": "V0081",
+         "t": "88推薦甄選 單字Q6",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0193",
+         "t": "93指考 單字Q1",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "entity",
+       "lv": 5,
+       "kk": "ˈɛntəti",
+       "p": "ent（拉丁文 esse 存在）+ -ity",
+       "g": "n. 實體"
+      },
+      {
+       "w": "equity",
+       "lv": 5,
+       "kk": "ˈɛkwəti",
+       "p": "equ（拉丁文 aequus 公平的）+ -ity",
+       "g": "n. 公平；股權"
+      },
+      {
+       "w": "facility",
+       "lv": 4,
+       "kk": "fəˈsɪləti",
+       "p": "facil（拉丁文 facilis 容易的）+ -ity",
+       "g": "n. 設施；便利",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0406",
+         "t": "108學測 單字Q1",
+         "k": "d"
+        },
+        {
+         "s": "gsat",
+         "id": "V0366",
+         "t": "105學測 單字Q6",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0148",
+         "t": "98指考 單字Q6",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "integrity",
+       "lv": 5,
+       "kk": "ɪnˈtɛgrəti",
+       "p": "integr（拉丁文 integer 完整的）+ -ity",
+       "g": "n. 正直；完整",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0465",
+         "t": "112學測 單字Q5",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0177",
+         "t": "95指考 單字Q5",
+         "k": "a"
+        },
+        {
+         "s": "ep",
+         "id": "99",
+         "t": "作文字彙表 99學年 integrity / professional integrity"
+        }
+       ]
+      },
+      {
+       "w": "longevity",
+       "lv": 6,
+       "kk": "lɑnˈʤɛvəti",
+       "p": "long 長 + ev（拉丁文 aevum 時代、壽命）+ -ity",
+       "g": "n. 長壽"
+      },
+      {
+       "w": "necessity",
+       "lv": 3,
+       "kk": "nəˈsɛsəti",
+       "p": "necess（拉丁文 necesse 必要的）+ -ity",
+       "g": "n. 必需品；必要",
+       "refs": [
+        {
+         "s": "tr",
+         "id": "201",
+         "t": "中譯英 104(指考) 第201題"
+        },
+        {
+         "s": "ep",
+         "id": "96",
+         "t": "作文字彙表 96學年 necessity"
+        }
+       ]
+      },
+      {
+       "w": "opportunity",
+       "lv": 3,
+       "kk": "ˌɑpɚˈtjunəti",
+       "p": "opportun（拉丁文 opportunus：ob 朝向 + portus 港口）+ -ity",
+       "g": "n. 原意是「風吹向港口」→機會",
+       "refs": [
+        {
+         "s": "gcz",
+         "id": "G108_24_2",
+         "t": "學測克漏字 108年 第24格",
+         "k": "d"
+        },
+        {
+         "s": "tr",
+         "id": "32",
+         "t": "中譯英 78(大學聯考) 第32題"
+        }
+       ]
+      },
+      {
+       "w": "prosperity",
+       "lv": 4,
+       "kk": "prɑˈspɛrəti",
+       "p": "prosper（拉丁文 prosperus 順利的）+ -ity",
+       "g": "n. 繁榮",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0093",
+         "t": "93敏督利颱風受災地區考生補救考試 單字Q3",
+         "k": "a"
+        },
+        {
+         "s": "tr",
+         "id": "112",
+         "t": "中譯英 105(學測) 第112題"
+        }
+       ]
+      },
+      {
+       "w": "solidarity",
+       "lv": 6,
+       "kk": "ˌsɑləˈdærəti",
+       "p": "solid 堅固的（法文 solidarité）+ -arity",
+       "g": "n. 團結"
+      },
+      {
+       "w": "unity",
+       "lv": 3,
+       "kk": "ˈjunəti",
+       "p": "un（拉丁文 unus 一）+ -ity",
+       "g": "n. 團結、統一"
+      },
+      {
+       "w": "university",
+       "lv": 2,
+       "kk": "ˌjunəˈvɝsəti",
+       "p": "univers（拉丁文 universus 全體的，跟 universe 同源）+ -ity",
+       "g": "n. 師生合成的一整個團體→大學",
+       "refs": [
+        {
+         "s": "tr",
+         "id": "205",
+         "t": "中譯英 106(指考) 第205題"
+        }
+       ]
+      },
+      {
+       "w": "utility",
+       "lv": 5,
+       "kk": "juˈtɪləti",
+       "p": "ut（拉丁文 uti 使用）+ -ility",
+       "g": "n. 效用；（水、電、瓦斯）公用事業"
+      },
+      {
+       "w": "faculty",
+       "lv": 5,
+       "kk": "ˈfækəlti",
+       "p": "facul（拉丁文 facilis 容易的→facultas 能力）+ -ty",
+       "g": "n. 能力；（大學的）全體教師；學院",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0119",
+         "t": "101指考 單字Q7",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0140",
+         "t": "99指考 單字Q8",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "liberty",
+       "lv": 3,
+       "kk": "ˈlɪbɚti",
+       "p": "liber（拉丁文 liber 自由的）+ -ty",
+       "g": "n. 自由",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0042",
+         "t": "86推薦甄選 單字Q2",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "majesty",
+       "lv": 6,
+       "kk": "ˈmæʤɪsti",
+       "p": "majes（拉丁文 major 較大的）+ -ty",
+       "g": "n. 雄偉、莊嚴；陛下"
+      },
+      {
+       "w": "society",
+       "lv": 2,
+       "kk": "səˈsaɪəti",
+       "p": "soci（拉丁文 socius 夥伴）+ -ety",
+       "g": "n. 社會；協會",
+       "refs": [
+        {
+         "s": "tr",
+         "id": "108",
+         "t": "中譯英 102(學測) 第108題"
+        },
+        {
+         "s": "ep",
+         "id": "115",
+         "t": "作文字彙表 115學年 an aging society"
+        },
+        {
+         "s": "ep",
+         "id": "105",
+         "t": "作文字彙表 105學年 a highly competitive society"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "dropped": [
+    {
+     "why": "city、pity、party、county、deputy、dynasty：不能拆成「形容詞 + -ity／-ty」。",
+     "list": "city 和 pity 在拉丁文裡其實也是 -itas（civis 市民 + -itas、pius 虔誠的 + -itas），但英文沒有對應的形容詞，所以不能拆開來記；party、county、deputy、dynasty 則根本不是這個字尾：party 來自古法文 partie（一部分），county 來自拉丁文 comitatus，deputy 來自法文 député（被委派的人），dynasty 來自希臘文 dynasteia（統治）。"
+    }
+   ],
+   "kind": "suffix"
+  },
+  {
+   "key": "-th",
+   "zh": "…的程度、…的狀態",
+   "note": "-th 是英文本來就有的古老字尾，加在形容詞後面變成名詞，意思是「…的程度、…的狀態」：warm 變成 warmth（溫暖），deep 變成 depth（深度）。加上 -th 時常常要變母音：long → length、strong → strength、broad → breadth、wide → width、young → youth、true → truth。少數加在動詞後面，像 grow → growth；death（死亡）也是這個字尾，跟 die、dead 同源。",
+   "subs": [
+    {
+     "t": "形容詞 + -th → 名詞",
+     "items": [
+      {
+       "w": "warmth",
+       "lv": 3,
+       "kk": "wɔrmθ",
+       "p": "warm 溫暖的 + -th",
+       "g": "n. 溫暖；熱情"
+      },
+      {
+       "w": "depth",
+       "lv": 2,
+       "kk": "dɛpθ",
+       "p": "deep 深的 + -th",
+       "g": "n. 深度"
+      },
+      {
+       "w": "length",
+       "lv": 2,
+       "kk": "lɛŋθ",
+       "p": "long 長的 + -th",
+       "g": "n. 長度"
+      },
+      {
+       "w": "strength",
+       "lv": 3,
+       "kk": "strɛŋθ",
+       "p": "strong 強壯的 + -th",
+       "g": "n. 力量；優點",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0223",
+         "t": "95學測 單字Q13",
+         "k": "d"
+        },
+        {
+         "s": "gcz",
+         "id": "G99課綱學測參考用試卷_17_1",
+         "t": "學測克漏字 99年 第17格",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "width",
+       "lv": 2,
+       "kk": "wɪdθ",
+       "p": "wide 寬的 + -th",
+       "g": "n. 寬度"
+      },
+      {
+       "w": "breadth",
+       "lv": 6,
+       "kk": "brɛdθ",
+       "p": "broad 寬廣的 + -th",
+       "g": "n. 寬度；廣度"
+      },
+      {
+       "w": "truth",
+       "lv": 2,
+       "kk": "truθ",
+       "p": "true 真實的 + -th",
+       "g": "n. 事實、真相",
+       "refs": [
+        {
+         "s": "tr",
+         "id": "46",
+         "t": "中譯英 81(大學聯考) 第46題"
+        }
+       ]
+      },
+      {
+       "w": "youth",
+       "lv": 2,
+       "kk": "juθ",
+       "p": "young 年輕的 + -th",
+       "g": "n. 青春；年輕人"
+      },
+      {
+       "w": "health",
+       "lv": 1,
+       "kk": "hɛlθ",
+       "p": "hal（古英文「完整的、健康的」，跟 whole 同源）+ -th",
+       "g": "n. 健康",
+       "refs": [
+        {
+         "s": "gcz",
+         "id": "G110試辦考試_11_1",
+         "t": "學測克漏字 110年 第11格",
+         "k": "d"
+        },
+        {
+         "s": "gcz",
+         "id": "G92補考_21_1",
+         "t": "學測克漏字 92年 第21格",
+         "k": "d"
+        },
+        {
+         "s": "zcz",
+         "id": "Z93M_19",
+         "t": "指考克漏字 93年 第19格",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "wealth",
+       "lv": 2,
+       "kk": "wɛlθ",
+       "p": "weal（古字「福利、幸福」）+ -th",
+       "g": "n. 財富"
+      }
+     ]
+    },
+    {
+     "t": "動詞 + -th → 名詞",
+     "items": [
+      {
+       "w": "growth",
+       "lv": 2,
+       "kk": "groʊθ",
+       "p": "grow 成長 + -th",
+       "g": "n. 成長；增長",
+       "refs": [
+        {
+         "s": "tr",
+         "id": "122",
+         "t": "中譯英 108(指考) 第122題"
+        }
+       ]
+      },
+      {
+       "w": "death",
+       "lv": 1,
+       "kk": "dɛθ",
+       "p": "古英文 deaþ（跟 die、dead 同源）",
+       "g": "n. 死亡",
+       "refs": [
+        {
+         "s": "tr",
+         "id": "115",
+         "t": "中譯英 105(指考) 第115題"
+        }
+       ]
+      },
+      {
+       "w": "birth",
+       "lv": 2,
+       "kk": "bɝθ",
+       "p": "bear 生 + -th（經由古北歐語 burðr）",
+       "g": "n. 出生",
+       "refs": [
+        {
+         "s": "ep",
+         "id": "115",
+         "t": "作文字彙表 115學年 the birth rate keeps falling"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "dropped": [
+    {
+     "why": "earth、bath、month、mouth、north、south、faith、myth、path、cloth、booth：th 不是字尾。",
+     "list": "這幾個字拿掉 th 以後不是現代英文的形容詞或動詞，所以不能當成這個字尾來拆；faith 來自古法文 feid（信仰），myth 來自希臘文 mythos（故事）。"
+    }
+   ],
+   "kind": "suffix"
+  },
+  {
+   "key": "-tude",
+   "zh": "…的狀態、…的程度",
+   "note": "-tude 來自拉丁文 -tudo，加在形容詞字根後面，變成「…的狀態、…的程度」的抽象名詞：solus（單獨）變成 solitude（孤獨），gratus（感謝的）變成 gratitude（感激）。latitude（緯度）和 longitude（經度）常常一起考：latus 是「寬」，longus 是「長」，地圖古時候的寬度方向就是緯度，長度方向就是經度。",
+   "subs": [
+    {
+     "t": "字根 + -tude → 抽象名詞",
+     "items": [
+      {
+       "w": "attitude",
+       "lv": 3,
+       "kk": "ˈætəˌtjud",
+       "p": "義大利文 attitudine（姿勢；來自拉丁文 aptus 合適的）",
+       "g": "n. 態度",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0215",
+         "t": "95學測 單字Q5",
+         "k": "a"
+        },
+        {
+         "s": "tr",
+         "id": "55",
+         "t": "中譯英 83(大學聯考) 第55題"
+        },
+        {
+         "s": "ep",
+         "id": "110",
+         "t": "作文字彙表 110學年 attitude"
+        }
+       ]
+      },
+      {
+       "w": "gratitude",
+       "lv": 4,
+       "kk": "ˈgrætəˌtjud",
+       "p": "grati（拉丁文 gratus 感謝的、令人愉快的）+ -tude",
+       "g": "n. 感激",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0363",
+         "t": "105學測 單字Q3",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0193",
+         "t": "93指考 單字Q1",
+         "k": "a"
+        },
+        {
+         "s": "ep",
+         "id": "105",
+         "t": "作文字彙表 105學年 express gratitude to sb for + N"
+        }
+       ]
+      },
+      {
+       "w": "solitude",
+       "lv": 6,
+       "kk": "ˈsɑləˌtjud",
+       "p": "soli（拉丁文 solus 單獨）+ -tude",
+       "g": "n. 孤獨、獨處"
+      },
+      {
+       "w": "altitude",
+       "lv": 6,
+       "kk": "ˈæltəˌtjud",
+       "p": "alti（拉丁文 altus 高）+ -tude",
+       "g": "n. 高度、海拔"
+      },
+      {
+       "w": "latitude",
+       "lv": 6,
+       "kk": "ˈlætəˌtjud",
+       "p": "lati（拉丁文 latus 寬）+ -tude",
+       "g": "n. 緯度",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0440",
+         "t": "110學測 單字Q5",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "longitude",
+       "lv": 6,
+       "kk": "ˈlɑnʤəˌtjud",
+       "p": "longi（拉丁文 longus 長）+ -tude",
+       "g": "n. 經度"
+      }
+     ]
+    }
+   ],
+   "dropped": [],
+   "kind": "suffix"
+  },
+  {
+   "key": "-dom",
+   "zh": "…的狀態；…的領域",
+   "note": "-dom 來自古英文 dom（判斷、狀態），多半加在形容詞或名詞後面，意思是「…的狀態」或「…統治的領域」：free 變成 freedom（自由），wise 變成 wisdom（智慧），king 變成 kingdom（王國）；boredom（無聊）是少數加在動詞 bore（使厭煩）後面的例子。",
+   "subs": [
+    {
+     "t": "形容詞、名詞 + -dom",
+     "items": [
+      {
+       "w": "freedom",
+       "lv": 2,
+       "kk": "ˈfridəm",
+       "p": "free 自由的 + -dom",
+       "g": "n. 自由",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0324",
+         "t": "81聯考 單字Q1",
+         "k": "a"
+        },
+        {
+         "s": "tr",
+         "id": "112",
+         "t": "中譯英 105(學測) 第112題"
+        },
+        {
+         "s": "tr",
+         "id": "5",
+         "t": "中譯英 73(大學聯考) 第5題"
+        }
+       ]
+      },
+      {
+       "w": "wisdom",
+       "lv": 3,
+       "kk": "ˈwɪzdəm",
+       "p": "wise 有智慧的 + -dom",
+       "g": "n. 智慧",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0091",
+         "t": "93敏督利颱風受災地區考生補救考試 單字Q1",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "kingdom",
+       "lv": 3,
+       "kk": "ˈkɪŋdəm",
+       "p": "king 國王 + -dom",
+       "g": "n. 王國"
+      },
+      {
+       "w": "boredom",
+       "lv": 5,
+       "kk": "ˈboʊrdəm",
+       "p": "bore 使厭煩 + -dom",
+       "g": "n. 無聊"
+      }
+     ]
+    }
+   ],
+   "dropped": [
+    {
+     "why": "random、seldom：-dom 不是字尾。",
+     "list": "random 來自古法文 randon（猛衝），seldom 是古英文 seldan（很少），都不是「…的狀態」。"
+    }
+   ],
+   "kind": "suffix"
+  },
+  {
+   "key": "-hood",
+   "zh": "…的時期、…的身分、…的關係",
+   "note": "-hood 來自古英文 had（狀態、身分），加在表示人的名詞後面，意思是「當…的時期、…的身分或關係」：child 變成 childhood（童年），mother 變成 motherhood（母親的身分），neighbor 變成 neighborhood（鄰里、附近）。likelihood（可能性）是少數加在形容詞 likely 後面的例子。",
+   "subs": [
+    {
+     "t": "名詞 + -hood",
+     "items": [
+      {
+       "w": "childhood",
+       "lv": 2,
+       "kk": "ˈʧaɪldˌhʊd",
+       "p": "child 小孩 + -hood",
+       "g": "n. 童年",
+       "refs": [
+        {
+         "s": "tr",
+         "id": "45",
+         "t": "中譯英 80(大學聯考) 第45題"
+        }
+       ]
+      },
+      {
+       "w": "neighborhood",
+       "lv": 3,
+       "kk": "ˈneɪbɚˌhʊd",
+       "p": "neighbor 鄰居 + -hood",
+       "g": "n. 鄰里、附近地區",
+       "refs": [
+        {
+         "s": "tr",
+         "id": "19",
+         "t": "中譯英 75(大學聯考) 第19題"
+        }
+       ]
+      },
+      {
+       "w": "brotherhood",
+       "lv": 6,
+       "kk": "ˈbrʌðɚˌhʊd",
+       "p": "brother 兄弟 + -hood",
+       "g": "n. 手足之情；兄弟會"
+      },
+      {
+       "w": "motherhood",
+       "lv": 6,
+       "kk": "ˈmʌðɚˌhʊd",
+       "p": "mother 母親 + -hood",
+       "g": "n. 母親的身分"
+      },
+      {
+       "w": "likelihood",
+       "lv": 5,
+       "kk": "ˈlaɪklɪˌhʊd",
+       "p": "likely 可能的 + -hood",
+       "g": "n. 可能性"
+      }
+     ]
+    }
+   ],
+   "dropped": [],
+   "kind": "suffix"
+  },
+  {
+   "key": "-ship",
+   "zh": "…的身分、關係、技能",
+   "note": "-ship 來自古英文 -scipe（狀態、身分），跟船 ship 沒有關係。它加在名詞後面，意思是「…的身分、關係、技能」：friend 變成 friendship（友誼），member 變成 membership（會員身分），leader 變成 leadership（領導能力）。hardship 是少數加在形容詞後面的例子。worship 也是這個字尾：worth（價值）加上 -ship，原意是「值得尊敬」，後來變成「崇拜」。",
+   "subs": [
+    {
+     "t": "名詞、形容詞 + -ship",
+     "items": [
+      {
+       "w": "friendship",
+       "lv": 2,
+       "kk": "ˈfrɛndˌʃɪp",
+       "p": "friend 朋友 + -ship",
+       "g": "n. 友誼",
+       "refs": [
+        {
+         "s": "gcz",
+         "id": "G110試辦考試_11_1",
+         "t": "學測克漏字 110年 第11格",
+         "k": "d"
+        },
+        {
+         "s": "tr",
+         "id": "205",
+         "t": "中譯英 106(指考) 第205題"
+        }
+       ]
+      },
+      {
+       "w": "relationship",
+       "lv": 2,
+       "kk": "rɪˈleɪʃənˌʃɪp",
+       "p": "relation 關係 + -ship",
+       "g": "n. 關係",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0428",
+         "t": "109學測 單字Q8",
+         "k": "d"
+        },
+        {
+         "s": "gcz",
+         "id": "G99課綱學測參考用試卷_25_2",
+         "t": "學測克漏字 99年 第25格",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "leadership",
+       "lv": 2,
+       "kk": "ˈlidɚˌʃɪp",
+       "p": "leader 領袖 + -ship",
+       "g": "n. 領導能力；領導階層",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0266",
+         "t": "98學測 單字Q11",
+         "k": "a"
+        },
+        {
+         "s": "ep",
+         "id": "104",
+         "t": "作文字彙表 104學年 leadership"
+        }
+       ]
+      },
+      {
+       "w": "membership",
+       "lv": 2,
+       "kk": "ˈmɛmbɚˌʃɪp",
+       "p": "member 會員 + -ship",
+       "g": "n. 會員身分；全體會員"
+      },
+      {
+       "w": "ownership",
+       "lv": 3,
+       "kk": "ˈoʊnɚˌʃɪp",
+       "p": "owner 擁有者 + -ship",
+       "g": "n. 所有權",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0428",
+         "t": "109學測 單字Q8",
+         "k": "a"
+        }
+       ]
+      },
+      {
+       "w": "partnership",
+       "lv": 4,
+       "kk": "ˈpɑrtnɚˌʃɪp",
+       "p": "partner 夥伴 + -ship",
+       "g": "n. 合夥關係"
+      },
+      {
+       "w": "citizenship",
+       "lv": 5,
+       "kk": "ˈsɪtəznˌʃɪp",
+       "p": "citizen 公民 + -ship",
+       "g": "n. 公民身分、國籍"
+      },
+      {
+       "w": "championship",
+       "lv": 4,
+       "kk": "ˈʧæmpɪənˌʃɪp",
+       "p": "champion 冠軍 + -ship",
+       "g": "n. 冠軍賽；冠軍頭銜"
+      },
+      {
+       "w": "scholarship",
+       "lv": 3,
+       "kk": "ˈskɑlɚˌʃɪp",
+       "p": "scholar 學者 + -ship",
+       "g": "n. 獎學金；學問",
+       "refs": [
+        {
+         "s": "ep",
+         "id": "91",
+         "t": "作文字彙表 91學年 scholarship"
+        }
+       ]
+      },
+      {
+       "w": "sponsorship",
+       "lv": 5,
+       "kk": "ˈspɑnsɚˌʃɪp",
+       "p": "sponsor 贊助者 + -ship",
+       "g": "n. 贊助"
+      },
+      {
+       "w": "dictatorship",
+       "lv": 6,
+       "kk": "dɪkˈteɪtɚˌʃɪp",
+       "p": "dictator 獨裁者 + -ship",
+       "g": "n. 獨裁統治"
+      },
+      {
+       "w": "sportsmanship",
+       "lv": 6,
+       "kk": "ˈspoʊrtsmənˌʃɪp",
+       "p": "sportsman 運動員 + -ship",
+       "g": "n. 運動家精神",
+       "refs": [
+        {
+         "s": "tr",
+         "id": "205",
+         "t": "中譯英 106(指考) 第205題"
+        }
+       ]
+      },
+      {
+       "w": "hardship",
+       "lv": 4,
+       "kk": "ˈhɑrdˌʃɪp",
+       "p": "hard 艱難的 + -ship",
+       "g": "n. 艱難、困苦",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0403",
+         "t": "107學測 單字Q13",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0314",
+         "t": "82聯考 單字Q1",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "worship",
+       "lv": 5,
+       "kk": "ˈwɝʃəp",
+       "p": "worth 價值 + -ship",
+       "g": "n./v. 原意是「值得尊敬」→崇拜"
+      }
+     ]
+    }
+   ],
+   "dropped": [
+    {
+     "why": "ship、spaceship：ship 是「船」，不是字尾。",
+     "list": "這兩個字的 ship 是名詞「船」：spaceship 是 space（太空）+ ship（船）→ 太空船。字尾 -ship 跟船只是拼法剛好一樣。"
+    }
+   ],
+   "kind": "suffix"
+  },
+  {
+   "key": "-age",
+   "zh": "…的動作、結果、集合、費用、場所",
+   "note": "-age 來自法文，加在動詞或名詞後面變成名詞，意思很多：可以是動作或結果（marriage 結婚、usage 用法），可以是一整批東西（baggage 行李），可以是費用（postage 郵資），也可以是場所（orphanage 孤兒院）。shortage（短缺）、storage（儲藏）、percentage（百分比）也都是這個字尾。",
+   "subs": [
+    {
+     "t": "動詞、名詞 + -age",
+     "items": [
+      {
+       "w": "marriage",
+       "lv": 2,
+       "kk": "ˈmærɪʤ",
+       "p": "marry 結婚 + -age",
+       "g": "n. 婚姻",
+       "refs": [
+        {
+         "s": "gcz",
+         "id": "G92_29_2",
+         "t": "學測克漏字 92年 第29格",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "carriage",
+       "lv": 3,
+       "kk": "ˈkærɪʤ",
+       "p": "carry 載運 + -age",
+       "g": "n. 馬車；車廂"
+      },
+      {
+       "w": "passage",
+       "lv": 3,
+       "kk": "ˈpæsɪʤ",
+       "p": "pass 通過 + -age",
+       "g": "n. 通道；（文章的）一段"
+      },
+      {
+       "w": "usage",
+       "lv": 4,
+       "kk": "ˈjusɪʤ",
+       "p": "use 使用 + -age",
+       "g": "n. 用法；使用量"
+      },
+      {
+       "w": "storage",
+       "lv": 5,
+       "kk": "ˈstoʊrɪʤ",
+       "p": "store 儲存 + -age",
+       "g": "n. 儲藏、儲存空間"
+      },
+      {
+       "w": "shortage",
+       "lv": 5,
+       "kk": "ˈʃɔrtɪʤ",
+       "p": "short 不足的 + -age",
+       "g": "n. 短缺",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0113",
+         "t": "101指考 單字Q1",
+         "k": "a"
+        },
+        {
+         "s": "zcz",
+         "id": "Z109_13",
+         "t": "指考克漏字 109年 第13格",
+         "k": "d"
+        },
+        {
+         "s": "tr",
+         "id": "183",
+         "t": "中譯英 99(指考) 第183題"
+        }
+       ]
+      },
+      {
+       "w": "coverage",
+       "lv": 5,
+       "kk": "ˈkʌvərɪʤ",
+       "p": "cover 涵蓋；報導 + -age",
+       "g": "n. 新聞報導；涵蓋範圍；保險範圍",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0123",
+         "t": "100指考 單字Q1",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "percentage",
+       "lv": 4,
+       "kk": "pɚˈsɛntɪʤ",
+       "p": "percent 百分之… + -age",
+       "g": "n. 百分比",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0409",
+         "t": "108學測 單字Q4",
+         "k": "d"
+        },
+        {
+         "s": "tr",
+         "id": "144",
+         "t": "中譯英 115(學測) 第144題"
+        },
+        {
+         "s": "ep",
+         "id": "103",
+         "t": "作文字彙表 103學年 percentage"
+        }
+       ]
+      },
+      {
+       "w": "postage",
+       "lv": 4,
+       "kk": "ˈpoʊstɪʤ",
+       "p": "post 郵寄 + -age",
+       "g": "n. 郵資"
+      },
+      {
+       "w": "package",
+       "lv": 1,
+       "kk": "ˈpækɪʤ",
+       "p": "pack 包裝 + -age",
+       "g": "n. 包裹",
+       "refs": [
+        {
+         "s": "tr",
+         "id": "192",
+         "t": "中譯英 101(指考) 第192題"
+        },
+        {
+         "s": "tr",
+         "id": "193",
+         "t": "中譯英 101(指考) 第193題"
+        }
+       ]
+      },
+      {
+       "w": "baggage",
+       "lv": 3,
+       "kk": "ˈbægɪʤ",
+       "p": "bag 袋子 + -age",
+       "g": "n. 行李（不可數）"
+      },
+      {
+       "w": "luggage",
+       "lv": 3,
+       "kk": "ˈlʌgɪʤ",
+       "p": "lug 用力拖 + -age",
+       "g": "n. 行李（不可數）"
+      },
+      {
+       "w": "bandage",
+       "lv": 4,
+       "kk": "ˈbændɪʤ",
+       "p": "band 帶子 + -age",
+       "g": "n. 繃帶"
+      },
+      {
+       "w": "orphanage",
+       "lv": 6,
+       "kk": "ˈɔrfənɪʤ",
+       "p": "orphan 孤兒 + -age",
+       "g": "n. 孤兒院"
+      },
+      {
+       "w": "cottage",
+       "lv": 4,
+       "kk": "ˈkɑtɪʤ",
+       "p": "cot（古字「小屋」）+ -age",
+       "g": "n. 小屋、農舍"
+      }
+     ]
+    },
+    {
+     "t": "字根 + -age（拿掉字尾不是英文字）",
+     "items": [
+      {
+       "w": "heritage",
+       "lv": 5,
+       "kk": "ˈhɛrətɪʤ",
+       "p": "herit（古法文 heriter 繼承）+ -age",
+       "g": "n. 遺產、文化遺產"
+      },
+      {
+       "w": "advantage",
+       "lv": 3,
+       "kk": "ədˈvæntɪʤ",
+       "p": "avant（古法文「在前面」）+ -age",
+       "g": "n. 站在前面的位置→優勢",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0477",
+         "t": "113學測 單字Q7",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0216",
+         "t": "91指考 單字Q2",
+         "k": "d"
+        },
+        {
+         "s": "gcz",
+         "id": "G108_24_2",
+         "t": "學測克漏字 108年 第24格",
+         "k": "a"
+        }
+       ]
+      },
+      {
+       "w": "disadvantage",
+       "lv": 4,
+       "kk": "ˌdɪsədˈvæntɪʤ",
+       "p": "dis 否定 + advantage 優勢",
+       "g": "n. 劣勢、缺點"
+      },
+      {
+       "w": "courage",
+       "lv": 2,
+       "kk": "ˈkɝɪʤ",
+       "p": "cour（拉丁文 cor 心）+ -age",
+       "g": "n. 勇氣"
+      },
+      {
+       "w": "damage",
+       "lv": 2,
+       "kk": "ˈdæmɪʤ",
+       "p": "dam（拉丁文 damnum 損失）+ -age",
+       "g": "n./v. 損害",
+       "refs": [
+        {
+         "s": "tr",
+         "id": "116",
+         "t": "中譯英 107(學測) 第116題"
+        },
+        {
+         "s": "ep",
+         "id": "114",
+         "t": "作文字彙表 114學年 severe damage"
+        },
+        {
+         "s": "ep",
+         "id": "110",
+         "t": "作文字彙表 110學年 ecological damage / the ecological balance"
+        }
+       ]
+      },
+      {
+       "w": "message",
+       "lv": 2,
+       "kk": "ˈmɛsɪʤ",
+       "p": "mess（拉丁文 missus 送出）+ -age",
+       "g": "n. 送出去的話→訊息",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0332",
+         "t": "81聯考 單字Q9",
+         "k": "d"
+        },
+        {
+         "s": "gcz",
+         "id": "G84_27_1",
+         "t": "學測克漏字 84年 第27格",
+         "k": "d"
+        },
+        {
+         "s": "zcz",
+         "id": "Z91_24",
+         "t": "指考克漏字 91年 第24格",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "language",
+       "lv": 1,
+       "kk": "ˈlæŋgwɪʤ",
+       "p": "langu（古法文 langue 舌頭）+ -age",
+       "g": "n. 語言",
+       "refs": [
+        {
+         "s": "tr",
+         "id": "174",
+         "t": "中譯英 97(指考研究用試卷卷二) 第174題"
+        },
+        {
+         "s": "tr",
+         "id": "26",
+         "t": "中譯英 77(大學聯考) 第26題"
+        }
+       ]
+      },
+      {
+       "w": "village",
+       "lv": 2,
+       "kk": "ˈvɪlɪʤ",
+       "p": "vill（拉丁文 villa 農莊）+ -age",
+       "g": "n. 村莊",
+       "refs": [
+        {
+         "s": "tr",
+         "id": "156",
+         "t": "中譯英 94(指考) 第156題"
+        },
+        {
+         "s": "tr",
+         "id": "41",
+         "t": "中譯英 80(大學聯考) 第41題"
+        }
+       ]
+      },
+      {
+       "w": "voyage",
+       "lv": 4,
+       "kk": "ˈvɔɪɪʤ",
+       "p": "拉丁文 viaticum（旅費，來自 via 路）",
+       "g": "n. 航行、旅程"
+      },
+      {
+       "w": "garage",
+       "lv": 3,
+       "kk": "gəˈrɑʒ",
+       "p": "gar（法文 garer 停放）+ -age",
+       "g": "n. 車庫；修車廠"
+      },
+      {
+       "w": "massage",
+       "lv": 5,
+       "kk": "məˈsɑʒ",
+       "p": "mass（法文 masser 按摩）+ -age",
+       "g": "n./v. 按摩"
+      },
+      {
+       "w": "beverage",
+       "lv": 6,
+       "kk": "ˈbɛvərɪʤ",
+       "p": "bever（古法文 bevre 喝）+ -age",
+       "g": "n. 飲料"
+      },
+      {
+       "w": "hostage",
+       "lv": 5,
+       "kk": "ˈhɑstɪʤ",
+       "p": "古法文 ostage（人質；再往前的來源不確定）",
+       "g": "n. 人質"
+      }
+     ]
+    }
+   ],
+   "dropped": [
+    {
+     "why": "page、cage、wage、rage、image、cabbage、sausage、garbage、mortgage：age 不是這個字尾。",
+     "list": "這幾個字的 age 是原本拼字的一部分：page 來自拉丁文 pagina，cage 來自 cavea，rage 來自 rabies，image 來自 imago，cabbage 來自古法文 caboche（頭），sausage 來自 salsicia；wage 和 mortgage 的 gage 是古法文「抵押、保證」（mortgage 原意是「死的抵押」→房貸）；garbage 的來源不確定。"
+    }
+   ],
+   "kind": "suffix"
+  },
+  {
+   "key": "-ism",
+   "zh": "…主義、…的做法、…的現象",
+   "note": "-ism 來自希臘文 -ismos，加在名詞或形容詞後面，意思是「…主義、…的做法、…的現象」：capital（資本）變成 capitalism（資本主義），tour 變成 tourism（觀光業）。-ism 常常跟 -ist 配成一對，-ism 是主義或做法，-ist 是信這個主義或做這件事的人：optimism 是樂觀主義，optimist 是樂觀的人；journalism 是新聞業，journalist 是記者。",
+   "subs": [
+    {
+     "t": "名詞、形容詞 + -ism",
+     "items": [
+      {
+       "w": "tourism",
+       "lv": 3,
+       "kk": "ˈtʊrɪzəm",
+       "p": "tour 旅遊 + -ism",
+       "g": "n. 觀光業"
+      },
+      {
+       "w": "optimism",
+       "lv": 5,
+       "kk": "ˈɑptəˌmɪzəm",
+       "p": "optim（拉丁文 optimus 最好的）+ -ism",
+       "g": "n. 樂觀"
+      },
+      {
+       "w": "pessimism",
+       "lv": 5,
+       "kk": "ˈpɛsəˌmɪzəm",
+       "p": "pessim（拉丁文 pessimus 最壞的）+ -ism",
+       "g": "n. 悲觀"
+      },
+      {
+       "w": "criticism",
+       "lv": 4,
+       "kk": "ˈkrɪtəˌsɪzəm",
+       "p": "critic 評論家 + -ism",
+       "g": "n. 批評；評論"
+      },
+      {
+       "w": "journalism",
+       "lv": 5,
+       "kk": "ˈʤɝnəˌlɪzəm",
+       "p": "journal 報刊 + -ism",
+       "g": "n. 新聞業、新聞工作"
+      },
+      {
+       "w": "realism",
+       "lv": 5,
+       "kk": "ˈriəˌlɪzəm",
+       "p": "real 真實的 + -ism",
+       "g": "n. 現實主義；寫實主義"
+      },
+      {
+       "w": "racism",
+       "lv": 5,
+       "kk": "ˈreɪsɪzəm",
+       "p": "race 種族 + -ism",
+       "g": "n. 種族歧視"
+      },
+      {
+       "w": "terrorism",
+       "lv": 2,
+       "kk": "ˈtɛrəˌrɪzəm",
+       "p": "terror 恐怖 + -ism",
+       "g": "n. 恐怖主義"
+      },
+      {
+       "w": "nationalism",
+       "lv": 6,
+       "kk": "ˈnæʃənəˌlɪzəm",
+       "p": "national 國家的 + -ism",
+       "g": "n. 民族主義、國家主義"
+      },
+      {
+       "w": "capitalism",
+       "lv": 4,
+       "kk": "ˈkæpətəˌlɪzəm",
+       "p": "capital 資本 + -ism",
+       "g": "n. 資本主義"
+      },
+      {
+       "w": "socialism",
+       "lv": 6,
+       "kk": "ˈsoʊʃəˌlɪzəm",
+       "p": "social 社會的 + -ism",
+       "g": "n. 社會主義"
+      },
+      {
+       "w": "communism",
+       "lv": 5,
+       "kk": "ˈkɑmjəˌnɪzəm",
+       "p": "commun（法文「共同的」）+ -ism",
+       "g": "n. 共產主義"
+      },
+      {
+       "w": "mechanism",
+       "lv": 5,
+       "kk": "ˈmɛkəˌnɪzəm",
+       "p": "mechan（希臘文 mekhane 機械）+ -ism",
+       "g": "n. 機制；機械裝置"
+      },
+      {
+       "w": "organism",
+       "lv": 5,
+       "kk": "ˈɔrgəˌnɪzəm",
+       "p": "organ（希臘文 organon 器官）+ -ism",
+       "g": "n. 有機體、生物"
+      }
+     ]
+    }
+   ],
+   "dropped": [],
    "kind": "suffix"
   }
  ],
