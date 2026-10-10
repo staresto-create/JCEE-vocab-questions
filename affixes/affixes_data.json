@@ -3331,11 +3331,11 @@
    "dropped": [
     {
      "why": "unanimous：開頭的 un 不是表示否定的 un-。",
-     "list": "是 uni（一）的變形，再加上 anim（心），「大家一條心」→ 全體一致的。照否定的 un- 拆，會拆成「沒有心」。"
+     "list": "是 uni（一）的變形，再加上 anim（心），「大家一條心」→ 全體一致的。照否定的 un- 拆，會拆成「沒有心」。這個字收在 uni- 那一組。"
     },
     {
      "why": "union、unique、uniform、unit、unite、universe：開頭是 uni（一）。",
-     "list": "不是 un- 加上 ion、ique。uniform 是「單一的形式」→ 制服，不是「沒有形式」。"
+     "list": "不是 un- 加上 ion、ique。uniform 是「單一的形式」→ 制服，不是「沒有形式」。這幾個字收在 uni- 那一組。"
     }
    ]
   },
@@ -21135,6 +21135,2132 @@
     {
      "why": "antique：也是 ante-，不是 anti-。",
      "list": "antique 來自拉丁文 antiquus（古老的），跟 ante（在前面）有關，「很早以前的」→ 古董；古老的。"
+    }
+   ]
+  },
+  {
+   "key": "over-",
+   "zh": "在上面；越過；翻轉；過度",
+   "note": "over- 就是英文的 over，加在動詞或名詞前面，意思跟 over 本身一樣：在上面（overhead 在頭頂上）、越過（overcome 越過去 → 克服）、翻轉（overturn 翻過來）、太多（overwork 工作過度）。拆的時候先想 over 在句子裡怎麼用，再看是哪一個意思。overlook 是個常考的字：從上面看過去是「俯瞰」，目光越過去沒看到就成了「忽略」，兩個意思都要記。",
+   "subs": [
+    {
+     "t": "在上面、在外面",
+     "items": [
+      {
+       "w": "overhead",
+       "lv": 5,
+       "kk": "ˌoʊvɚˈhɛd",
+       "p": "over 在上面 + head 頭",
+       "g": "adv./adj. 在頭頂上（的）；n. 經常開支"
+      },
+      {
+       "w": "overcoat",
+       "lv": 4,
+       "kk": "ˈoʊvɚˌkoʊt",
+       "p": "over 在外面 + coat 外套",
+       "g": "n. 穿在最外面的外套→大衣"
+      },
+      {
+       "w": "overlap",
+       "lv": 6,
+       "kk": "ˌoʊvɚˈlæp",
+       "p": "over 在上面 + lap 疊",
+       "g": "v./n. 疊在上面→重疊"
+      },
+      {
+       "w": "oversee",
+       "lv": 5,
+       "kk": "ˌoʊvɚˈsi",
+       "p": "over 在上面 + see 看",
+       "g": "v. 從上面看著→監督"
+      },
+      {
+       "w": "overwhelm",
+       "lv": 5,
+       "kk": "ˌoʊvɚˈwɛlm",
+       "p": "over 在上面 + whelm（中古英文「翻覆」）",
+       "g": "v. 從上面整個蓋住→壓倒；使不知所措",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0012",
+         "t": "109指考補考 單字Q2",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "overall",
+       "lv": 5,
+       "kk": "ˌoʊvɚˈɔl",
+       "p": "over 在上面 + all 全部",
+       "g": "adj. 涵蓋全部的→整體的、全面的；adv. 整體來說"
+      }
+     ]
+    },
+    {
+     "t": "越過、從頭到尾",
+     "items": [
+      {
+       "w": "overcome",
+       "lv": 4,
+       "kk": "ˈoʊvɚˌkʌm",
+       "p": "over 越過 + come 來",
+       "g": "v. 越過去→克服、戰勝",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0314",
+         "t": "101學測 單字Q14",
+         "k": "d"
+        },
+        {
+         "s": "tr",
+         "id": "135",
+         "t": "中譯英 110(試辦考試) 第135題"
+        },
+        {
+         "s": "tr",
+         "id": "28",
+         "t": "中譯英 77(大學聯考) 第28題"
+        }
+       ]
+      },
+      {
+       "w": "overflow",
+       "lv": 6,
+       "kk": "ˌoʊvɚˈfloʊ",
+       "p": "over 越過 + flow 流",
+       "g": "v./n. 流過邊緣→溢出、氾濫",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0138",
+         "t": "99指考 單字Q6",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "overhear",
+       "lv": 6,
+       "kk": "ˌoʊvɚˈhɪr",
+       "p": "over 越過 + hear 聽",
+       "g": "v. 大概是聽到說話的人沒打算讓你聽到的範圍→無意中聽到"
+      },
+      {
+       "w": "overlook",
+       "lv": 4,
+       "kk": "ˈoʊvɚˌlʊk",
+       "p": "over 越過 + look 看",
+       "g": "v. 從上面看過去→俯瞰；目光越過去沒看到→忽略",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0431",
+         "t": "109學測 單字Q11",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0167",
+         "t": "96指考 單字Q5",
+         "k": "d"
+        },
+        {
+         "s": "gcz",
+         "id": "G88_38_3",
+         "t": "學測克漏字 88年 第38格",
+         "k": "a"
+        }
+       ]
+      },
+      {
+       "w": "overnight",
+       "lv": 4,
+       "kk": "ˈoʊvɚˈnaɪt",
+       "p": "over 從頭到尾 + night 夜",
+       "g": "adv. 過一整夜→一夜之間；adj. 過夜的"
+      },
+      {
+       "w": "overseas",
+       "lv": 3,
+       "kk": "ˈoʊvɚˈsiz",
+       "p": "over 越過 + seas 海",
+       "g": "adj./adv. 越過大海的→海外的；在國外"
+      },
+      {
+       "w": "overtake",
+       "lv": 5,
+       "kk": "ˌoʊvɚˈteɪk",
+       "p": "over 越過 + take 拿",
+       "g": "v. 追過去→超過、趕上；（災難）突然降臨"
+      }
+     ]
+    },
+    {
+     "t": "翻轉",
+     "items": [
+      {
+       "w": "overthrow",
+       "lv": 4,
+       "kk": "ˈoʊvɚˌθroʊ",
+       "p": "over 翻轉 + throw 丟",
+       "g": "v. 翻倒→推翻（政權）",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0275",
+         "t": "99學測 單字Q5",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "overturn",
+       "lv": 5,
+       "kk": "ˌoʊvɚˈtɝn",
+       "p": "over 翻轉 + turn 轉",
+       "g": "v. 翻過來→打翻；推翻（判決）",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0498",
+         "t": "115學測 單字Q8",
+         "k": "d"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "t": "太多、過度",
+     "items": [
+      {
+       "w": "overdo",
+       "lv": 6,
+       "kk": "ˌoʊvɚˈdu",
+       "p": "over 過度 + do 做",
+       "g": "v. 做得太過頭"
+      },
+      {
+       "w": "overwork",
+       "lv": 6,
+       "kk": "ˌoʊvɚˈwɝk",
+       "p": "over 過度 + work 工作",
+       "g": "v./n. 工作過度"
+      }
+     ]
+    }
+   ],
+   "dropped": []
+  },
+  {
+   "key": "under-",
+   "zh": "在下面；不足；承擔",
+   "note": "under- 就是英文的 under，意思是「在下面」，像 underground（地面下）、underline（在下面畫線）。在下面再延伸，就有「不足、比較低」（underestimate 估得太低），以及「從下面接過來、承擔」（undertake 承擔、undergo 經歷）。under- 和 over- 常常配成一對記：overestimate 高估、underestimate 低估。",
+   "subs": [
+    {
+     "t": "在下面、在裡面",
+     "items": [
+      {
+       "w": "underground",
+       "lv": 2,
+       "kk": "ˈʌndɚˌgraʊnd",
+       "p": "under 在下面 + ground 地面",
+       "g": "adj./adv. 地下的、在地下；n. 地下鐵"
+      },
+      {
+       "w": "underline",
+       "lv": 5,
+       "kk": "ˈʌndɚˌlaɪn",
+       "p": "under 在下面 + line 線",
+       "g": "v. 在下面畫線→畫底線；強調",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0012",
+         "t": "109指考補考 單字Q2",
+         "k": "a"
+        }
+       ]
+      },
+      {
+       "w": "underneath",
+       "lv": 6,
+       "kk": "ˌʌndɚˈniθ",
+       "p": "under 在下面 + neath（古英文 neothan 在下面）",
+       "g": "prep./adv. 在…下面",
+       "refs": [
+        {
+         "s": "zcz",
+         "id": "Z93M_27",
+         "t": "指考克漏字 93年 第27格",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "underpass",
+       "lv": 6,
+       "kk": "ˈʌndɚˌpæs",
+       "p": "under 在下面 + pass 通過",
+       "g": "n. 從下面穿過的路→地下道"
+      },
+      {
+       "w": "underwear",
+       "lv": 3,
+       "kk": "ˈʌndɚˌwɛr",
+       "p": "under 在下面 + wear 穿",
+       "g": "n. 穿在裡面的衣服→內衣"
+      },
+      {
+       "w": "underlying",
+       "lv": 3,
+       "kk": "ˌʌndɚˈlaɪɪŋ",
+       "p": "under 在下面 + lying 躺著",
+       "g": "adj. 躺在底下的→潛在的、根本的"
+      },
+      {
+       "w": "undermine",
+       "lv": 5,
+       "kk": "ˈʌndɚˌmaɪn",
+       "p": "under 在下面 + mine 挖",
+       "g": "v. 從底下挖→暗中破壞、削弱",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0078",
+         "t": "104指考 單字Q8",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "underway",
+       "lv": 6,
+       "kk": "ˌʌndɚˈweɪ",
+       "p": "under 在…之中 + way 路",
+       "g": "adj. 在路上的→進行中的"
+      }
+     ]
+    },
+    {
+     "t": "不足、次一等",
+     "items": [
+      {
+       "w": "underestimate",
+       "lv": 6,
+       "kk": "ˌʌndɚˈɛstəˌmeɪt",
+       "p": "under 不足 + estimate 估計",
+       "g": "v. 估得太低→低估"
+      },
+      {
+       "w": "undergraduate",
+       "lv": 5,
+       "kk": "ˌʌndɚˈgræʤuɪt",
+       "p": "under 在…之下 + graduate 已經畢業的人",
+       "g": "n. 還沒取得學位、排在畢業生下面的學生→大學部學生"
+      }
+     ]
+    },
+    {
+     "t": "從下面承擔、經歷",
+     "items": [
+      {
+       "w": "undergo",
+       "lv": 5,
+       "kk": "ˌʌndɚˈgoʊ",
+       "p": "under 在下面 + go 走",
+       "g": "v. 從底下走過→經歷、接受（手術、改變）"
+      },
+      {
+       "w": "undertake",
+       "lv": 5,
+       "kk": "ˈʌndɚˌteɪk",
+       "p": "under 在下面 + take 拿",
+       "g": "v. 從底下接過來→承擔、著手做",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0084",
+         "t": "103指考 單字Q4",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0196",
+         "t": "93指考 單字Q4",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0220",
+         "t": "91指考 單字Q6",
+         "k": "d"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "dropped": [
+    {
+     "why": "understand：under 在這裡大概不是「在下面」。",
+     "list": "Etymonline 認為 understand 的 under 可能是「在…之間、在…面前」，站在事物中間 → 理解，確切的來源學者還沒有定論。記的時候不要拆成「站在下面」。"
+    }
+   ]
+  },
+  {
+   "key": "out-",
+   "zh": "往外、在外面；超過、勝過",
+   "note": "out- 就是英文的 out，意思是「往外、在外面」，像 outdoor（門外的 → 戶外的）、output（放出來的東西 → 產量）。有些 out- 的字可以跟片語對照著記：outbreak 就是從 break out（爆發）來的，outcome 可以對照 come out（出來），outset 可以對照 set out（出發）。另一個意思是「超過、勝過」，像 outnumber（數目比…多）。",
+   "subs": [
+    {
+     "t": "往外、在外面",
+     "items": [
+      {
+       "w": "outside",
+       "lv": 1,
+       "kk": "ˈaʊtˈsaɪd",
+       "p": "out 在外面 + side 邊",
+       "g": "n./adv./prep. 外面；在外面"
+      },
+      {
+       "w": "outsider",
+       "lv": 5,
+       "kk": "ˌaʊtˈsaɪdɚ",
+       "p": "outside + -er",
+       "g": "n. 局外人"
+      },
+      {
+       "w": "outdoor",
+       "lv": 3,
+       "kk": "ˈaʊtˌdoʊr",
+       "p": "out 在外面 + door 門",
+       "g": "adj. 門外的→戶外的"
+      },
+      {
+       "w": "outdoors",
+       "lv": 3,
+       "kk": "ˈaʊtˈdoʊrz",
+       "p": "outdoor + -s",
+       "g": "adv. 在戶外"
+      },
+      {
+       "w": "outer",
+       "lv": 3,
+       "kk": "ˈaʊtɚ",
+       "p": "out + -er（比較級）",
+       "g": "adj. 比較外面的→外部的、外層的",
+       "refs": [
+        {
+         "s": "tr",
+         "id": "154",
+         "t": "中譯英 94(學測) 第154題"
+        }
+       ]
+      },
+      {
+       "w": "outward",
+       "lv": 6,
+       "kk": "ˈaʊtwɚd",
+       "p": "out 往外 + -ward 朝…方向",
+       "g": "adj. 向外的；外表的；adv. 向外",
+       "refs": [
+        {
+         "s": "gcz",
+         "id": "G96_24_2",
+         "t": "學測克漏字 96年 第24格",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "outwards",
+       "lv": 6,
+       "kk": "ˈaʊtwɚdz",
+       "p": "outward + -s",
+       "g": "adv. 向外"
+      },
+      {
+       "w": "outskirts",
+       "lv": 6,
+       "kk": "ˈaʊtˌskɝts",
+       "p": "out 在外面 + skirts 邊緣",
+       "g": "n. 城市的外圍→郊區"
+      },
+      {
+       "w": "outline",
+       "lv": 3,
+       "kk": "ˈaʊtˌlaɪn",
+       "p": "out 在外面 + line 線",
+       "g": "n. 外面那一圈線→輪廓；大綱；v. 概述"
+      },
+      {
+       "w": "outlaw",
+       "lv": 6,
+       "kk": "ˈaʊtˌlɔ",
+       "p": "out 在外面 + law 法律",
+       "g": "n. 被放在法律保護之外的人→不法之徒；v. 宣布…為非法"
+      },
+      {
+       "w": "outbreak",
+       "lv": 6,
+       "kk": "ˈaʊtˌbreɪk",
+       "p": "out 往外 + break 爆（break out）",
+       "g": "n. 突然爆出來→（戰爭、疾病）爆發",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0210",
+         "t": "92指考 單字Q6",
+         "k": "a"
+        }
+       ]
+      },
+      {
+       "w": "outcome",
+       "lv": 4,
+       "kk": "ˈaʊtˌkʌm",
+       "p": "out 往外 + come 來",
+       "g": "n. 最後出來的東西→結果",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0004",
+         "t": "83推薦甄選 單字Q4",
+         "k": "a"
+        },
+        {
+         "s": "gsat",
+         "id": "V0416",
+         "t": "108學測 單字Q11",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "outlook",
+       "lv": 6,
+       "kk": "ˈaʊtˌlʊk",
+       "p": "out 往外 + look 看",
+       "g": "n. 往外看到的→景色；前景；看法"
+      },
+      {
+       "w": "outset",
+       "lv": 6,
+       "kk": "ˈaʊtˌsɛt",
+       "p": "out 往外 + set 出發",
+       "g": "n. 開始（at the outset）"
+      },
+      {
+       "w": "output",
+       "lv": 5,
+       "kk": "ˈaʊtˌpʊt",
+       "p": "out 往外 + put 放",
+       "g": "n. 放出來的東西→產量；輸出"
+      },
+      {
+       "w": "outlet",
+       "lv": 5,
+       "kk": "ˈaʊtˌlɛt",
+       "p": "out 往外 + let 讓",
+       "g": "n. 讓東西出去的地方→出口；發洩管道；插座；暢貨中心"
+      },
+      {
+       "w": "outgoing",
+       "lv": 6,
+       "kk": "ˈaʊtˌgoʊɪŋ",
+       "p": "out 往外 + going 走",
+       "g": "adj. 往外走的→外向的；即將離職的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0234",
+         "t": "96學測 單字Q9",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0172",
+         "t": "96指考 單字Q10",
+         "k": "d"
+        },
+        {
+         "s": "ep",
+         "id": "93",
+         "t": "作文字彙表 93學年 outgoing"
+        }
+       ]
+      },
+      {
+       "w": "outing",
+       "lv": 6,
+       "kk": "ˈaʊtɪŋ",
+       "p": "out 出去 + -ing",
+       "g": "n. 出去玩→郊遊、短途旅行"
+      },
+      {
+       "w": "outfit",
+       "lv": 5,
+       "kk": "ˈaʊtˌfɪt",
+       "p": "out 往外 + fit 裝備",
+       "g": "n. 一整套服裝、裝備"
+      },
+      {
+       "w": "outstanding",
+       "lv": 4,
+       "kk": "ˌaʊtˈstændɪŋ",
+       "p": "out 往外 + standing 站著",
+       "g": "adj. 站出來的→傑出的；（帳款）未付的"
+      }
+     ]
+    },
+    {
+     "t": "超過、勝過、徹底",
+     "items": [
+      {
+       "w": "outnumber",
+       "lv": 6,
+       "kk": "ˌaʊtˈnʌmbɚ",
+       "p": "out 超過 + number 數目",
+       "g": "v. 數目比…多",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0024",
+         "t": "109指考 單字Q4",
+         "k": "a"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0063",
+         "t": "105指考 單字Q3",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "outright",
+       "lv": 6,
+       "kk": "ˈaʊtˌraɪt",
+       "p": "out 徹底 + right 直接",
+       "g": "adv. 完全地；當場；adj. 徹底的、直率的"
+      }
+     ]
+    }
+   ],
+   "dropped": [
+    {
+     "why": "outrage、outrageous：不是 out- 加上 rage。",
+     "list": "outrage 來自古法文 outrage，是 outre（超過，來自拉丁文 ultra）加上字尾 -age，「超過限度的事」→ 暴行；憤慨。後來大家把它聯想成 out + rage（憤怒），意思也跟著偏向「憤怒」。"
+    }
+   ]
+  },
+  {
+   "key": "fore-",
+   "zh": "在前面、事先",
+   "note": "fore- 就是英文的 fore（前面），意思跟拉丁文來的 pre- 一樣，是「在前面、事先」，像 forecast（事先算出來 → 預報）。before 是 be（在）加上 fore，forward 是 fore 加上 -ward（朝…方向），forth 也跟 fore 同一家。",
+   "subs": [
+    {
+     "t": "在前面、事先",
+     "items": [
+      {
+       "w": "forecast",
+       "lv": 4,
+       "kk": "ˈfɔrˌkæst",
+       "p": "fore 事先 + cast 投、算",
+       "g": "v./n. 事先算出來→預測、預報",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0014",
+         "t": "109指考補考 單字Q4",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0068",
+         "t": "105指考 單字Q8",
+         "k": "d"
+        },
+        {
+         "s": "ep",
+         "id": "87",
+         "t": "作文字彙表 87學年 forecast"
+        }
+       ]
+      },
+      {
+       "w": "before",
+       "lv": 1,
+       "kk": "bɪˈfoʊr",
+       "p": "be 在 + fore 前面",
+       "g": "prep./adv./conj. 在…之前",
+       "refs": [
+        {
+         "s": "gcz",
+         "id": "G105_23_2",
+         "t": "學測克漏字 105年 第23格",
+         "k": "d"
+        },
+        {
+         "s": "gcz",
+         "id": "G97_27_3",
+         "t": "學測克漏字 97年 第27格",
+         "k": "d"
+        },
+        {
+         "s": "gcz",
+         "id": "G88_39_3",
+         "t": "學測克漏字 88年 第39格",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "beforehand",
+       "lv": 6,
+       "kk": "bɪˈfɔrˌhænd",
+       "p": "before 在前 + hand 手",
+       "g": "adv. 事先",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0184",
+         "t": "93學測 單字Q4",
+         "k": "a"
+        },
+        {
+         "s": "gcz",
+         "id": "G108_28_3",
+         "t": "學測克漏字 108年 第28格",
+         "k": "d"
+        },
+        {
+         "s": "zcz",
+         "id": "Z97_28",
+         "t": "指考克漏字 97年 第28格",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "forward",
+       "lv": 2,
+       "kk": "ˈfɔrwɚd",
+       "p": "fore 前面 + -ward 朝…方向",
+       "g": "adv. 向前；adj. 前面的；v. 轉寄",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0340",
+         "t": "103學測 單字Q10",
+         "k": "d"
+        },
+        {
+         "s": "ep",
+         "id": "84",
+         "t": "作文字彙表 84學年 look forward to + V-ing"
+        }
+       ]
+      },
+      {
+       "w": "forth",
+       "lv": 2,
+       "kk": "foʊrθ",
+       "p": "跟 fore 同一家，意思是「往前」",
+       "g": "adv. 向前、向外（back and forth 來回）",
+       "refs": [
+        {
+         "s": "tr",
+         "id": "167",
+         "t": "中譯英 96(指考) 第167題"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "dropped": [
+    {
+     "why": "foreign、foreigner、forest：不是 fore- 開頭。",
+     "list": "foreign 來自拉丁文 foris（在門外），門外的 → 外國的。forest 一般認為也跟 foris 有關，可能原本指「王室圍場外面的林地」→ 森林，不過來源還沒有定論。"
+    },
+    {
+     "why": "forever：不是 fore- 開頭。",
+     "list": "forever 是 for（持續）+ ever（永遠），「一直到永遠」→ 永遠。"
+    }
+   ]
+  },
+  {
+   "key": "for-",
+   "zh": "離開、去掉；反對；完全",
+   "note": "for- 來自古英文，跟 fore-（前面）在英文裡是兩個不同的字首，要分清楚，雖然兩者遠古同源。for- 的意思是「離開、去掉」，也延伸成「反對」和「完全」：forget 是抓不住、從腦中溜走，forbid 是下令反對，forgive 是完全給出去、不再追討。詞彙表裡用到 for- 的字不多，但 forget、forgive 都是一、二級的熟字，正好拿來記。",
+   "subs": [
+    {
+     "t": "離開、去掉；反對；完全",
+     "items": [
+      {
+       "w": "forget",
+       "lv": 1,
+       "kk": "fɚˈgɛt",
+       "p": "for 離開 + get 抓住",
+       "g": "v. 抓不住、從腦中溜走→忘記",
+       "refs": [
+        {
+         "s": "gcz",
+         "id": "G113_20_2",
+         "t": "學測克漏字 113年 第20格",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "forgive",
+       "lv": 2,
+       "kk": "fɚˈgɪv",
+       "p": "for 完全 + give 給",
+       "g": "v. 完全給出去、不再追討→原諒",
+       "refs": [
+        {
+         "s": "ep",
+         "id": "109",
+         "t": "作文字彙表 109學年 forgive sb for + V-ing"
+        },
+        {
+         "s": "ep",
+         "id": "97",
+         "t": "作文字彙表 97學年 forgive"
+        },
+        {
+         "s": "ep",
+         "id": "93",
+         "t": "作文字彙表 93學年 forgive"
+        }
+       ]
+      },
+      {
+       "w": "forbid",
+       "lv": 4,
+       "kk": "fɚˈbɪd",
+       "p": "for 反對 + bid 命令",
+       "g": "v. 下令反對→禁止"
+      },
+      {
+       "w": "forsake",
+       "lv": 6,
+       "kk": "fɚˈseɪk",
+       "p": "for 完全 + sake（古英文 sacan 爭執）",
+       "g": "v. 完全推開、不再承認→拋棄、放棄"
+      }
+     ]
+    }
+   ],
+   "dropped": []
+  },
+  {
+   "key": "be-",
+   "zh": "在…；使…、加強語氣",
+   "note": "be- 來自古英文 bi（在…旁邊、在…），跟英文的 by 同一家。第一種用法是加在名詞或副詞前面，變成表示位置的介系詞或副詞：behind 是在後面，beside 是在旁邊，between 是在兩者之間。因為 be- 就是 by，所以 because 原本是 by cause（由於這個原因），behalf 是「站在某人那一邊」。第二種用法是加在動詞或形容詞前面，意思是「使…」或只是加強語氣，像 beloved（深愛的）、belong（屬於）。",
+   "subs": [
+    {
+     "t": "在…（加在名詞、副詞前面變成介系詞或副詞）",
+     "items": [
+      {
+       "w": "behind",
+       "lv": 1,
+       "kk": "bɪˈhaɪnd",
+       "p": "be 在 + hind 後面",
+       "g": "prep./adv. 在…後面",
+       "refs": [
+        {
+         "s": "zcz",
+         "id": "Z93M_27",
+         "t": "指考克漏字 93年 第27格",
+         "k": "a"
+        },
+        {
+         "s": "ep",
+         "id": "108",
+         "t": "作文字彙表 108學年 be close behind"
+        },
+        {
+         "s": "ep",
+         "id": "101",
+         "t": "作文字彙表 101學年 fall behind"
+        }
+       ]
+      },
+      {
+       "w": "below",
+       "lv": 1,
+       "kk": "bəˈloʊ",
+       "p": "be 在 + low 低處",
+       "g": "prep./adv. 在…下面",
+       "refs": [
+        {
+         "s": "gcz",
+         "id": "G83_18_1",
+         "t": "學測克漏字 83年 第18格",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "beneath",
+       "lv": 3,
+       "kk": "bɪˈniθ",
+       "p": "be 在 + neath（古英文 neothan 在下面）",
+       "g": "prep. 在…下面"
+      },
+      {
+       "w": "beside",
+       "lv": 1,
+       "kk": "bɪˈsaɪd",
+       "p": "be 在 + side 旁邊",
+       "g": "prep. 在…旁邊",
+       "refs": [
+        {
+         "s": "gcz",
+         "id": "G112_15_1",
+         "t": "學測克漏字 112年 第15格",
+         "k": "d"
+        },
+        {
+         "s": "gcz",
+         "id": "G103_24_2",
+         "t": "學測克漏字 103年 第24格",
+         "k": "d"
+        },
+        {
+         "s": "gcz",
+         "id": "G101_19_1",
+         "t": "學測克漏字 101年 第19格",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "besides",
+       "lv": 3,
+       "kk": "bɪˈsaɪdz",
+       "p": "beside + -s",
+       "g": "adv. 此外；prep. 除了…之外還有",
+       "refs": [
+        {
+         "s": "gcz",
+         "id": "G112_15_1",
+         "t": "學測克漏字 112年 第15格",
+         "k": "d"
+        },
+        {
+         "s": "gcz",
+         "id": "G103_24_2",
+         "t": "學測克漏字 103年 第24格",
+         "k": "d"
+        },
+        {
+         "s": "gcz",
+         "id": "G101_19_1",
+         "t": "學測克漏字 101年 第19格",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "between",
+       "lv": 1,
+       "kk": "bəˈtwin",
+       "p": "be 在 + tween（古英文 tweon 二）",
+       "g": "prep. 在兩者之間",
+       "refs": [
+        {
+         "s": "gcz",
+         "id": "G93_27_3",
+         "t": "學測克漏字 93年 第27格",
+         "k": "a"
+        },
+        {
+         "s": "gcz",
+         "id": "G105_29_3",
+         "t": "學測克漏字 105年 第29格",
+         "k": "d"
+        },
+        {
+         "s": "gcz",
+         "id": "G104_17_1",
+         "t": "學測克漏字 104年 第17格",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "beyond",
+       "lv": 2,
+       "kk": "bɪˈjɑnd",
+       "p": "be 在 + yond（古英文 geond 那邊）",
+       "g": "prep./adv. 在…的那一邊→超出",
+       "refs": [
+        {
+         "s": "gcz",
+         "id": "G107_20_1",
+         "t": "學測克漏字 107年 第20格",
+         "k": "a"
+        },
+        {
+         "s": "gcz",
+         "id": "G108_26_3",
+         "t": "學測克漏字 108年 第26格",
+         "k": "d"
+        },
+        {
+         "s": "gcz",
+         "id": "G87_22_1",
+         "t": "學測克漏字 87年 第22格",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "because",
+       "lv": 1,
+       "kk": "bɪˈkɔz",
+       "p": "be（by 由於）+ cause 原因",
+       "g": "conj. 由於這個原因→因為",
+       "refs": [
+        {
+         "s": "gcz",
+         "id": "G94_26_3",
+         "t": "學測克漏字 94年 第26格",
+         "k": "a"
+        },
+        {
+         "s": "gcz",
+         "id": "G92補考_29_2",
+         "t": "學測克漏字 92年 第29格",
+         "k": "a"
+        },
+        {
+         "s": "gcz",
+         "id": "G86_21_1",
+         "t": "學測克漏字 86年 第21格",
+         "k": "a"
+        }
+       ]
+      },
+      {
+       "w": "behalf",
+       "lv": 5,
+       "kk": "bɪˈhæf",
+       "p": "be（by）+ half 一邊",
+       "g": "n. 站在某人那一邊→代表（on behalf of）",
+       "refs": [
+        {
+         "s": "ep",
+         "id": "100",
+         "t": "作文字彙表 100學年 on behalf of + N"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "t": "使…、加強語氣（加在動詞、形容詞前面）",
+     "items": [
+      {
+       "w": "become",
+       "lv": 1,
+       "kk": "bɪˈkʌm",
+       "p": "be + come 來",
+       "g": "v. 來到某種狀態→變成；適合",
+       "refs": [
+        {
+         "s": "gcz",
+         "id": "G91_29_1",
+         "t": "學測克漏字 91年 第29格",
+         "k": "a"
+        },
+        {
+         "s": "gcz",
+         "id": "G99課綱學測參考用試卷_30_3",
+         "t": "學測克漏字 99年 第30格",
+         "k": "d"
+        },
+        {
+         "s": "tr",
+         "id": "143",
+         "t": "中譯英 114(學測) 第143題"
+        }
+       ]
+      },
+      {
+       "w": "behave",
+       "lv": 2,
+       "kk": "bɪˈheɪv",
+       "p": "be 加強語氣 + have 持有",
+       "g": "v. 好好持守自己→表現；守規矩",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0166",
+         "t": "92學測補考 單字Q1",
+         "k": "d"
+        },
+        {
+         "s": "ep",
+         "id": "110",
+         "t": "作文字彙表 110學年 behave oneself"
+        }
+       ]
+      },
+      {
+       "w": "behavior",
+       "lv": 4,
+       "kk": "bɪˈheɪvjɚ",
+       "p": "behave 的名詞",
+       "g": "n. 行為、舉止",
+       "refs": [
+        {
+         "s": "zcz",
+         "id": "Z91_24",
+         "t": "指考克漏字 91年 第24格",
+         "k": "d"
+        },
+        {
+         "s": "tr",
+         "id": "55",
+         "t": "中譯英 83(大學聯考) 第55題"
+        }
+       ]
+      },
+      {
+       "w": "belong",
+       "lv": 1,
+       "kk": "bəˈlɔŋ",
+       "p": "be 加強語氣 + long（古英文 langian 相關、隨著）",
+       "g": "v. 屬於",
+       "refs": [
+        {
+         "s": "ep",
+         "id": "91",
+         "t": "作文字彙表 91學年 belong to"
+        }
+       ]
+      },
+      {
+       "w": "belongings",
+       "lv": 5,
+       "kk": "bɪˈlɔŋɪŋz",
+       "p": "belong + -ings",
+       "g": "n. 屬於自己的東西→隨身物品、財物",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0042",
+         "t": "107指考 單字Q2",
+         "k": "d"
+        },
+        {
+         "s": "ep",
+         "id": "98",
+         "t": "作文字彙表 98學年 belongings"
+        },
+        {
+         "s": "ep",
+         "id": "97",
+         "t": "作文字彙表 97學年 belongings"
+        }
+       ]
+      },
+      {
+       "w": "beloved",
+       "lv": 5,
+       "kk": "bɪˈlʌvəd",
+       "p": "be 加強語氣 + loved 被愛的",
+       "g": "adj. 深愛的、心愛的",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0211",
+         "t": "92指考 單字Q7",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "betray",
+       "lv": 5,
+       "kk": "bɪˈtreɪ",
+       "p": "be 加強語氣 + tray（古法文 trair 背叛，來自拉丁文 tradere 交出去；跟 traitor 同一家）",
+       "g": "v. 背叛；洩漏"
+      }
+     ]
+    }
+   ],
+   "dropped": [
+    {
+     "why": "beware：開頭的 be 是動詞 be，不是字首 be-。",
+     "list": "beware 大概是 be ware（要小心）連在一起寫成的，ware 是古英文的「小心的」→ 當心、提防。"
+    },
+    {
+     "why": "benefit、beneficial：開頭的 bene 是另一個字首。",
+     "list": "bene- 來自拉丁文 bene（好），benefit 是「做好事」→ 好處；收在 bene- 那一組。"
+    }
+   ]
+  },
+  {
+   "key": "bene-",
+   "zh": "好",
+   "note": "bene- 來自拉丁文 bene（好），benefit 是「做好事」→ 好處。它常常跟 mal-（壞）配成一對記：bene- 是好，mal- 是壞，像 malnutrition（營養不良）、malfunction（故障）。mal- 的字詞彙表沒有收，不過課外文章常常看到，學會了很好用。",
+   "subs": [
+    {
+     "t": "好",
+     "items": [
+      {
+       "w": "benefit",
+       "lv": 3,
+       "kk": "ˈbɛnəfɪt",
+       "p": "bene 好 + fit（拉丁文 facere 做）",
+       "g": "n. 做好事→好處、利益；v. 對…有益；受益",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0419",
+         "t": "108學測 單字Q14",
+         "k": "d"
+        },
+        {
+         "s": "gsat",
+         "id": "V0151",
+         "t": "92學測 單字Q1",
+         "k": "d"
+        },
+        {
+         "s": "gcz",
+         "id": "G99課綱學測參考用試卷_25_2",
+         "t": "學測克漏字 99年 第25格",
+         "k": "a"
+        }
+       ]
+      },
+      {
+       "w": "beneficial",
+       "lv": 5,
+       "kk": "ˌbɛnəˈfɪʃəl",
+       "p": "benefit 的形容詞",
+       "g": "adj. 有益的",
+       "refs": [
+        {
+         "s": "tr",
+         "id": "160",
+         "t": "中譯英 95(學測) 第160題"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "dropped": [
+    {
+     "why": "beneath：不是 bene- 開頭。",
+     "list": "beneath 是 be（在）+ neath（在下面），「在下面」，收在 be- 那一組。"
+    }
+   ]
+  },
+  {
+   "key": "uni-",
+   "zh": "一",
+   "note": "uni- 來自拉丁文 unus（一），像 uniform（大家同一個樣子 → 制服）、unique（獨一無二的）。unanimous 開頭只剩 un，可是跟否定的 un- 無關，是 uni 加上 anim（心），「大家一條心」→ 全體一致的。universe 是「轉成一整個」→ 宇宙，university 原本指師生合成的一整個團體 → 大學。",
+   "subs": [
+    {
+     "t": "一",
+     "items": [
+      {
+       "w": "uniform",
+       "lv": 1,
+       "kk": "ˈjunəˌfɔrm",
+       "p": "uni 一 + form 形狀",
+       "g": "adj. 一樣的、一致的；n. 大家同一個樣子的衣服→制服",
+       "refs": [
+        {
+         "s": "tr",
+         "id": "16",
+         "t": "中譯英 75(大學聯考) 第16題"
+        }
+       ]
+      },
+      {
+       "w": "unique",
+       "lv": 3,
+       "kk": "juˈnik",
+       "p": "uni 一 + -que",
+       "g": "adj. 獨一無二的；獨特的",
+       "refs": [
+        {
+         "s": "gcz",
+         "id": "G109_25_2",
+         "t": "學測克漏字 109年 第25格",
+         "k": "a"
+        },
+        {
+         "s": "gcz",
+         "id": "G87_21_1",
+         "t": "學測克漏字 87年 第21格",
+         "k": "a"
+        }
+       ]
+      },
+      {
+       "w": "unit",
+       "lv": 2,
+       "kk": "ˈjunɪt",
+       "p": "unity 的變形",
+       "g": "n. 單一的一個→單位；單元",
+       "refs": [
+        {
+         "s": "zcz",
+         "id": "Z95_13",
+         "t": "指考克漏字 95年 第13格",
+         "k": "d"
+        },
+        {
+         "s": "tr",
+         "id": "46",
+         "t": "中譯英 81(大學聯考) 第46題"
+        }
+       ]
+      },
+      {
+       "w": "unite",
+       "lv": 3,
+       "kk": "juˈnaɪt",
+       "p": "uni 一 + -te",
+       "g": "v. 使合成一個→團結、聯合",
+       "refs": [
+        {
+         "s": "tr",
+         "id": "46",
+         "t": "中譯英 81(大學聯考) 第46題"
+        }
+       ]
+      },
+      {
+       "w": "unity",
+       "lv": 3,
+       "kk": "ˈjunəti",
+       "p": "uni 一 + -ty",
+       "g": "n. 團結、統一"
+      },
+      {
+       "w": "union",
+       "lv": 3,
+       "kk": "ˈjunjən",
+       "p": "uni 一 + -on",
+       "g": "n. 合而為一→聯盟；工會"
+      },
+      {
+       "w": "unify",
+       "lv": 6,
+       "kk": "ˈjunəˌfaɪ",
+       "p": "uni 一 + -fy 使",
+       "g": "v. 使成為一體→統一"
+      },
+      {
+       "w": "unification",
+       "lv": 6,
+       "kk": "ˌjunəfəˈkeɪʃən",
+       "p": "unify 的名詞",
+       "g": "n. 統一"
+      },
+      {
+       "w": "unanimous",
+       "lv": 6,
+       "kk": "juˈnænəməs",
+       "p": "un（uni 一）+ anim 心 + -ous",
+       "g": "adj. 大家一條心→全體一致的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0099",
+         "t": "89學測 單字Q9",
+         "k": "a"
+        }
+       ]
+      },
+      {
+       "w": "universe",
+       "lv": 2,
+       "kk": "ˈjunəˌvɝs",
+       "p": "uni 一 + verse 轉",
+       "g": "n. 轉成一整個→宇宙"
+      },
+      {
+       "w": "universal",
+       "lv": 4,
+       "kk": "ˌjunəˈvɝsəl",
+       "p": "universe + -al",
+       "g": "adj. 全體的→普遍的、全世界的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0343",
+         "t": "103學測 單字Q13",
+         "k": "d"
+        },
+        {
+         "s": "gsat",
+         "id": "V0309",
+         "t": "101學測 單字Q9",
+         "k": "d"
+        },
+        {
+         "s": "gsat",
+         "id": "V0076",
+         "t": "88推薦甄選 單字Q1",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "university",
+       "lv": 2,
+       "kk": "ˌjunəˈvɝsəti",
+       "p": "universe + -ity",
+       "g": "n. 師生合成的一整個團體→大學",
+       "refs": [
+        {
+         "s": "tr",
+         "id": "205",
+         "t": "中譯英 106(指考) 第205題"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "dropped": []
+  },
+  {
+   "key": "數量字首（mono-／bi-／tri-／hemi-／multi-）",
+   "zh": "一、二、三、一半、多",
+   "note": "這一組收的是表示數量的字首，除了上一組的 uni-（一），還有 mono-（一、單一）、bi-（二）、tri-（三）、hemi-（一半）、multi-（多）。這些字首在詞彙表裡的字不多，但意思很固定，拆開來就懂，像 bicycle 是兩個輪子，triangle 是三個角。trivial 和 biscuit 的來源比較有意思：trivial 原本是「三條路交會的地方」，也就是人人都會經過的公共場所，到處都有的東西就成了「平凡的」，再變成「瑣碎的、不重要的」；biscuit 是「烤兩次」的麵包 → 餅乾。",
+   "subs": [
+    {
+     "t": "mono-（一、單一）",
+     "items": [
+      {
+       "w": "monopoly",
+       "lv": 5,
+       "kk": "məˈnɑpəli",
+       "p": "mono 單一 + poly（希臘文 polein 賣）",
+       "g": "n. 只有一個賣家→壟斷、獨占"
+      },
+      {
+       "w": "monotony",
+       "lv": 6,
+       "kk": "məˈnɑtəni",
+       "p": "mono 單一 + tony（希臘文 tonos 聲調）",
+       "g": "n. 一直是同一個聲調→單調、無聊",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0056",
+         "t": "106指考 單字Q6",
+         "k": "a"
+        },
+        {
+         "s": "ep",
+         "id": "106",
+         "t": "作文字彙表 106學年 relieve / break the monotony of + N"
+        },
+        {
+         "s": "ep",
+         "id": "105",
+         "t": "作文字彙表 105學年 break / relieve the monotony of sth"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "t": "bi-（二、兩次）",
+     "items": [
+      {
+       "w": "bicycle",
+       "lv": 1,
+       "kk": "ˈbaɪsɪkəl",
+       "p": "bi 二 + cycle 輪",
+       "g": "n. 兩個輪子的車→腳踏車",
+       "refs": [
+        {
+         "s": "tr",
+         "id": "180",
+         "t": "中譯英 99(學測) 第180題"
+        },
+        {
+         "s": "tr",
+         "id": "7",
+         "t": "中譯英 73(大學聯考) 第7題"
+        }
+       ]
+      },
+      {
+       "w": "bilateral",
+       "lv": 6,
+       "kk": "baɪˈlætərəl",
+       "p": "bi 二 + lateral 邊的",
+       "g": "adj. 雙方的、雙邊的"
+      },
+      {
+       "w": "billion",
+       "lv": 2,
+       "kk": "ˈbɪljən",
+       "p": "bi 二 + (m)illion 百萬",
+       "g": "n. 十億（原本是百萬的二次方）"
+      },
+      {
+       "w": "biscuit",
+       "lv": 2,
+       "kk": "ˈbɪskɪt",
+       "p": "bis 兩次 + cuit（拉丁文 coctus 煮過的）",
+       "g": "n. 烤兩次的麵包→餅乾"
+      }
+     ]
+    },
+    {
+     "t": "tri-（三）",
+     "items": [
+      {
+       "w": "triangle",
+       "lv": 2,
+       "kk": "ˈtraɪˌæŋgəl",
+       "p": "tri 三 + angle 角",
+       "g": "n. 三角形"
+      },
+      {
+       "w": "triple",
+       "lv": 5,
+       "kk": "ˈtrɪpəl",
+       "p": "tri 三 + -ple 倍",
+       "g": "adj. 三倍的、三重的；v. 變成三倍"
+      },
+      {
+       "w": "trillion",
+       "lv": 6,
+       "kk": "ˈtrɪljən",
+       "p": "tri 三 + (m)illion 百萬",
+       "g": "n. 兆（一萬億）"
+      },
+      {
+       "w": "trivial",
+       "lv": 5,
+       "kk": "ˈtrɪviəl",
+       "p": "tri 三 + via（拉丁文 via 路）+ -al",
+       "g": "adj. 三條路交會的公共場所、到處都有的→平凡的→瑣碎的、不重要的",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0340",
+         "t": "98指考參考試卷（99 課綱適用） 單字Q8",
+         "k": "d"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "t": "hemi-（一半）",
+     "items": [
+      {
+       "w": "hemisphere",
+       "lv": 6,
+       "kk": "ˈhɛməsˌfɪr",
+       "p": "hemi 一半 + sphere 球",
+       "g": "n. 半個球→半球"
+      }
+     ]
+    },
+    {
+     "t": "multi-（多）",
+     "items": [
+      {
+       "w": "multiple",
+       "lv": 4,
+       "kk": "ˈmʌltəpəl",
+       "p": "multi 多 + -ple 倍",
+       "g": "adj. 多樣的、多重的；n. 倍數",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0487",
+         "t": "114學測 單字Q7",
+         "k": "d"
+        },
+        {
+         "s": "gcz",
+         "id": "G112_12_1",
+         "t": "學測克漏字 112年 第12格",
+         "k": "a"
+        }
+       ]
+      },
+      {
+       "w": "multiply",
+       "lv": 3,
+       "kk": "ˈmʌltəˌplaɪ",
+       "p": "multi 多 + -ply 倍",
+       "g": "v. 使變多→增加；乘"
+      }
+     ]
+    }
+   ],
+   "dropped": [
+    {
+     "why": "semester：不是 semi-（一半）。",
+     "list": "semester 來自拉丁文 sex（六）+ mensis（月），「六個月」→ 學期。"
+    }
+   ]
+  },
+  {
+   "key": "tele-",
+   "zh": "遠",
+   "note": "tele- 來自希臘文 tele（在遠處），像 telephone（從遠處傳來的聲音 → 電話）、television（看到遠處的影像 → 電視）。這一組的字後半常常是另一個希臘文字根：phone 是聲音，scope 是看，graph 是寫，可以跟 microphone、microscope、autograph 對照著記。",
+   "subs": [
+    {
+     "t": "遠",
+     "items": [
+      {
+       "w": "telephone",
+       "lv": 1,
+       "kk": "ˈtɛləˌfoʊn",
+       "p": "tele 遠 + phone 聲音",
+       "g": "n. 從遠處傳來的聲音→電話"
+      },
+      {
+       "w": "television",
+       "lv": 1,
+       "kk": "ˈtɛləˌvɪʒən",
+       "p": "tele 遠 + vision 影像",
+       "g": "n. 看到遠處的影像→電視",
+       "refs": [
+        {
+         "s": "tr",
+         "id": "104",
+         "t": "中譯英 85(學測) 第104題"
+        }
+       ]
+      },
+      {
+       "w": "telescope",
+       "lv": 4,
+       "kk": "ˈtɛləˌskoʊp",
+       "p": "tele 遠 + scope 看",
+       "g": "n. 看遠處的工具→望遠鏡"
+      },
+      {
+       "w": "telegraph",
+       "lv": 4,
+       "kk": "ˈtɛləˌgræf",
+       "p": "tele 遠 + graph 寫",
+       "g": "n. 寫到遠方的訊息→電報"
+      },
+      {
+       "w": "telecommunications",
+       "lv": 6,
+       "kk": "ˌtɛlɪkəˌmjunəˈkeɪʃənz",
+       "p": "tele 遠 + communications 通訊",
+       "g": "n. 遠距離通訊→電信"
+      }
+     ]
+    }
+   ],
+   "dropped": []
+  },
+  {
+   "key": "auto-",
+   "zh": "自己",
+   "note": "auto- 來自希臘文 autos（自己），像 automatic（自己會動的 → 自動的）、autobiography（自己寫自己的一生 → 自傳）。auto 單獨使用時，是 automobile（汽車）的縮寫。",
+   "subs": [
+    {
+     "t": "自己",
+     "items": [
+      {
+       "w": "automatic",
+       "lv": 3,
+       "kk": "ˌɔtəˈmætɪk",
+       "p": "希臘文 automatos（自己會動的）",
+       "g": "adj. 自己會動的→自動的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0258",
+         "t": "98學測 單字Q3",
+         "k": "a"
+        },
+        {
+         "s": "gsat",
+         "id": "V0369",
+         "t": "105學測 單字Q9",
+         "k": "d"
+        },
+        {
+         "s": "gsat",
+         "id": "V0352",
+         "t": "104學測 單字Q7",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "automobile",
+       "lv": 3,
+       "kk": "ˈɔtəməˌbil",
+       "p": "auto 自己 + mobile 會動的",
+       "g": "n. 自己會動的車→汽車"
+      },
+      {
+       "w": "auto",
+       "lv": 3,
+       "kk": "ˈɔtoʊ",
+       "p": "automobile 的縮寫",
+       "g": "n. 汽車"
+      },
+      {
+       "w": "autobiography",
+       "lv": 4,
+       "kk": "ˌɔtəbaɪˈɑgrəfi",
+       "p": "auto 自己 + bio 生命 + graphy 寫",
+       "g": "n. 自己寫自己的一生→自傳"
+      },
+      {
+       "w": "autograph",
+       "lv": 4,
+       "kk": "ˈɔtəˌgræf",
+       "p": "auto 自己 + graph 寫",
+       "g": "n. 自己親手寫的→親筆簽名"
+      },
+      {
+       "w": "autonomy",
+       "lv": 5,
+       "kk": "ɔˈtɑnəmi",
+       "p": "auto 自己 + nomy（希臘文 nomos 法律）",
+       "g": "n. 自己訂法律→自治、自主"
+      }
+     ]
+    }
+   ],
+   "dropped": []
+  },
+  {
+   "key": "sym-（syn-）",
+   "zh": "一起、相同",
+   "note": "sym-、syn- 來自希臘文 syn（一起、相同），意思跟拉丁文來的 con- 一樣。後面接 b、m、p 開頭的字根時寫成 sym-（symbol、symmetry、sympathy），接 s 時常常縮成 sy-（system），其他大多寫成 syn-（synonym、syndrome）。synonym（同義字）正好跟 anti- 那一組的 antonym（反義字）配成一對。",
+   "subs": [
+    {
+     "t": "一起、相同",
+     "items": [
+      {
+       "w": "symbol",
+       "lv": 2,
+       "kk": "ˈsɪmbəl",
+       "p": "sym 一起 + bol（希臘文 ballein 丟）",
+       "g": "n. 丟在一起拿來對照的東西→象徵；符號",
+       "refs": [
+        {
+         "s": "gcz",
+         "id": "G94_22_2",
+         "t": "學測克漏字 94年 第22格",
+         "k": "d"
+        },
+        {
+         "s": "ep",
+         "id": "112",
+         "t": "作文字彙表 112學年 a symbol of"
+        }
+       ]
+      },
+      {
+       "w": "symbolic",
+       "lv": 5,
+       "kk": "sɪmˈbɑlɪk",
+       "p": "symbol + -ic",
+       "g": "adj. 象徵的"
+      },
+      {
+       "w": "symbolize",
+       "lv": 6,
+       "kk": "ˈsɪmbəˌlaɪz",
+       "p": "symbol + -ize",
+       "g": "v. 象徵",
+       "refs": [
+        {
+         "s": "tr",
+         "id": "212",
+         "t": "中譯英 100(指考研究用試卷卷二) 第212題"
+        }
+       ]
+      },
+      {
+       "w": "symmetry",
+       "lv": 6,
+       "kk": "ˈsɪmɪtri",
+       "p": "sym 相同 + metry 測量",
+       "g": "n. 兩邊量起來一樣→對稱"
+      },
+      {
+       "w": "sympathy",
+       "lv": 4,
+       "kk": "ˈsɪmpəθi",
+       "p": "sym 一起 + pathy 感受",
+       "g": "n. 一起感受→同情；贊同",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0082",
+         "t": "103指考 單字Q2",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0246",
+         "t": "89聯考 單字Q7",
+         "k": "d"
+        },
+        {
+         "s": "ep",
+         "id": "99",
+         "t": "作文字彙表 99學年 sympathy"
+        }
+       ]
+      },
+      {
+       "w": "sympathetic",
+       "lv": 4,
+       "kk": "ˌsɪmpəˈθɛtɪk",
+       "p": "sympathy 的形容詞",
+       "g": "adj. 同情的；贊同的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0006",
+         "t": "83推薦甄選 單字Q6",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0132",
+         "t": "100指考 單字Q10",
+         "k": "d"
+        },
+        {
+         "s": "zcz",
+         "id": "Z98_18",
+         "t": "指考克漏字 98年 第18格",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "sympathize",
+       "lv": 6,
+       "kk": "ˈsɪmpəˌθaɪz",
+       "p": "sympathy 的動詞",
+       "g": "v. 同情；贊同"
+      },
+      {
+       "w": "symphony",
+       "lv": 6,
+       "kk": "ˈsɪmfəni",
+       "p": "sym 一起 + phony 聲音",
+       "g": "n. 很多聲音一起響→交響樂"
+      },
+      {
+       "w": "symptom",
+       "lv": 5,
+       "kk": "ˈsɪmptəm",
+       "p": "sym 一起 + ptom（希臘文 piptein 落下）",
+       "g": "n. 跟疾病一起落到身上的→症狀；徵兆",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0159",
+         "t": "97指考 單字Q7",
+         "k": "a"
+        },
+        {
+         "s": "gcz",
+         "id": "G106_17_1",
+         "t": "學測克漏字 106年 第17格",
+         "k": "a"
+        },
+        {
+         "s": "ep",
+         "id": "86",
+         "t": "作文字彙表 86學年 symptom"
+        }
+       ]
+      },
+      {
+       "w": "syndrome",
+       "lv": 5,
+       "kk": "ˈsɪnˌdroʊm",
+       "p": "syn 一起 + drome（希臘文 dromos 跑）",
+       "g": "n. 一起跑出來的一組症狀→症候群"
+      },
+      {
+       "w": "synonym",
+       "lv": 6,
+       "kk": "ˈsɪnəˌnɪm",
+       "p": "syn 相同 + onym 名字",
+       "g": "n. 意思相同的字→同義字"
+      },
+      {
+       "w": "synthetic",
+       "lv": 6,
+       "kk": "sɪnˈθɛtɪk",
+       "p": "syn 一起 + thet（希臘文 tithenai 放）+ -ic",
+       "g": "adj. 放在一起做成的→合成的、人造的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0044",
+         "t": "86推薦甄選 單字Q4",
+         "k": "d"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "dropped": []
+  },
+  {
+   "key": "micro-",
+   "zh": "小、微",
+   "note": "micro- 來自希臘文 mikros（小），像 microscope（看小東西的工具 → 顯微鏡）。跟 tele- 那一組對照著記：telescope 看遠的，microscope 看小的。",
+   "subs": [
+    {
+     "t": "小、微",
+     "items": [
+      {
+       "w": "microscope",
+       "lv": 4,
+       "kk": "ˈmaɪkrəˌskoʊp",
+       "p": "micro 小 + scope 看",
+       "g": "n. 看小東西的工具→顯微鏡"
+      },
+      {
+       "w": "microphone",
+       "lv": 3,
+       "kk": "ˈmaɪkrəˌfoʊn",
+       "p": "micro 小 + phone 聲音",
+       "g": "n. 把小聲音放大的工具→麥克風"
+      },
+      {
+       "w": "microwave",
+       "lv": 3,
+       "kk": "ˈmaɪkroʊˌweɪv",
+       "p": "micro 小 + wave 波",
+       "g": "n. 波長很短的電磁波→微波；微波爐"
+      }
+     ]
+    }
+   ],
+   "dropped": []
+  },
+  {
+   "key": "ambi-（amb-）",
+   "zh": "兩邊、四處",
+   "note": "ambi- 來自拉丁文，意思是「兩邊、四處」。ambiguous 是往兩邊都說得通 → 模稜兩可的。ambition 的來源很有意思：古羅馬想當官的人要四處走動拉票，這個「四處走動」後來就變成了「雄心、抱負」。",
+   "subs": [
+    {
+     "t": "兩邊、四處",
+     "items": [
+      {
+       "w": "ambiguous",
+       "lv": 4,
+       "kk": "æmˈbɪgjuəs",
+       "p": "ambi 兩邊 + gu（拉丁文 agere 驅趕）+ -ous",
+       "g": "adj. 心思在兩邊之間晃來晃去→模稜兩可的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0076",
+         "t": "88推薦甄選 單字Q1",
+         "k": "a"
+        },
+        {
+         "s": "gsat",
+         "id": "V0454",
+         "t": "111學測 單字Q4",
+         "k": "d"
+        },
+        {
+         "s": "ep",
+         "id": "112",
+         "t": "作文字彙表 112學年 ambiguous"
+        }
+       ]
+      },
+      {
+       "w": "ambiguity",
+       "lv": 6,
+       "kk": "ˌæmbɪˈgjuəti",
+       "p": "ambiguous 的名詞",
+       "g": "n. 模稜兩可",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0082",
+         "t": "103指考 單字Q2",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "ambition",
+       "lv": 3,
+       "kk": "æmˈbɪʃən",
+       "p": "amb（ambi 四處）+ it（拉丁文 ire 走）+ -ion",
+       "g": "n. 古羅馬人四處走動拉票→雄心、抱負",
+       "refs": [
+        {
+         "s": "zhikao",
+         "id": "ZK0127",
+         "t": "100指考 單字Q5",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0272",
+         "t": "87聯考 單字Q9",
+         "k": "d"
+        }
+       ]
+      },
+      {
+       "w": "ambitious",
+       "lv": 4,
+       "kk": "æmˈbɪʃəs",
+       "p": "ambition 的形容詞",
+       "g": "adj. 有雄心的、有抱負的",
+       "refs": [
+        {
+         "s": "gsat",
+         "id": "V0216",
+         "t": "95學測 單字Q6",
+         "k": "d"
+        },
+        {
+         "s": "gsat",
+         "id": "V0044",
+         "t": "86推薦甄選 單字Q4",
+         "k": "d"
+        },
+        {
+         "s": "zhikao",
+         "id": "ZK0201",
+         "t": "93指考 單字Q9",
+         "k": "d"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "dropped": []
+  },
+  {
+   "key": "mid-",
+   "zh": "中間",
+   "note": "mid- 就是古英文的 mid（中間），像 midnight（夜的正中間 → 午夜）。amid 是 a（在）加上 mid，意思是「在…之中」，比較正式，多半出現在書面文章裡。",
+   "subs": [
+    {
+     "t": "中間",
+     "items": [
+      {
+       "w": "middle",
+       "lv": 1,
+       "kk": "ˈmɪdəl",
+       "p": "跟 mid 同一家",
+       "g": "n./adj. 中間（的）",
+       "refs": [
+        {
+         "s": "tr",
+         "id": "126",
+         "t": "中譯英 109(指考) 第126題"
+        },
+        {
+         "s": "tr",
+         "id": "50",
+         "t": "中譯英 82(大學聯考) 第50題"
+        }
+       ]
+      },
+      {
+       "w": "midnight",
+       "lv": 2,
+       "kk": "ˈmɪdˌnaɪt",
+       "p": "mid 中間 + night 夜",
+       "g": "n. 夜的正中間→午夜"
+      },
+      {
+       "w": "midst",
+       "lv": 5,
+       "kk": "mɪdst",
+       "p": "mid 中間 + 副詞字尾 -s，-t 是後來才多出來的",
+       "g": "n. 中間（in the midst of 在…之中）"
+      },
+      {
+       "w": "amid",
+       "lv": 6,
+       "kk": "əˈmɪd",
+       "p": "a 在 + mid 中間",
+       "g": "prep. 在…之中"
+      },
+      {
+       "w": "amidst",
+       "lv": 6,
+       "kk": "əˈmɪdst",
+       "p": "amid + 副詞字尾 -s，-t 是後來才多出來的",
+       "g": "prep. 在…之中（同 amid）"
+      }
+     ]
+    }
+   ],
+   "dropped": []
+  },
+  {
+   "key": "non-",
+   "zh": "不、非",
+   "note": "non- 來自拉丁文 non（不），意思是單純的「不、非」。它跟 un-、in- 不一樣的地方是比較中性：un-、in- 常常表示「相反」，non- 只是單純的否定，說「不屬於這一類」。例如 inhuman 是「沒人性的」，nonhuman 只是「非人類的」。",
+   "subs": [
+    {
+     "t": "不、非",
+     "items": [
+      {
+       "w": "nonprofit",
+       "lv": 5,
+       "kk": "nɑnˈprɑfɪt",
+       "p": "non 不 + profit 利潤",
+       "g": "adj. 不以營利為目的的→非營利的"
+      },
+      {
+       "w": "nonsense",
+       "lv": 4,
+       "kk": "ˈnɑnsɛns",
+       "p": "non 不 + sense 意義",
+       "g": "n. 沒有意義的話→胡說、廢話"
+      }
+     ]
+    }
+   ],
+   "dropped": [
+    {
+     "why": "none：不是 non- 加上 e。",
+     "list": "none 來自古英文 nan，就是 ne（不）+ an（一），「沒有一個」→ 一個也沒有。"
     }
    ]
   }
