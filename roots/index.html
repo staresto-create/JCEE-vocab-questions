@@ -60,6 +60,13 @@ details .list{color:#3d5059}
   margin:.1rem .28rem .1rem 0;text-decoration:none}
 .refs a:hover{background:#f9e8d2}
 .refs a:focus-visible{outline:2px solid var(--exam);outline-offset:1px}
+.also{margin-top:.3rem;font-size:.82rem;line-height:1.5;color:var(--muted)}
+.also a{color:var(--teal);text-decoration:none;border-bottom:1px dotted var(--teal);margin-left:.25rem}
+.also a:hover{border-bottom-style:solid}
+.xs{margin:.2rem 0 .6rem;font-size:.9rem}
+.xs a{color:var(--teal)}
+.only{margin:.2rem 0 .6rem;font-size:.9rem;color:var(--ink)}
+.only button{margin-left:.5rem;font:inherit;font-size:.85rem;color:var(--teal);background:var(--teal-soft);border:1px solid var(--line);border-radius:.25rem;padding:.05rem .45rem;cursor:pointer}
 .refs a .k{color:var(--muted);font-size:.92em}
 .foot{border-top:3px double var(--ink);margin-top:2.4rem;padding-top:1rem;
   font-size:.86rem;color:#3d5059;max-width:40em}
@@ -86,11 +93,15 @@ details .list{color:#3d5059}
 
 <script>
 const $=s=>document.querySelector(s);
-let DATA=null, state={q:'', lv:new Set(), examOnly:false};
+let DATA=null, state={q:'', lv:new Set(), examOnly:false, w:''};
+let LEX={}, OTHER=null, otherLoading=false;
 
 function render(){
   const nav=$('#nav'), body=$('#body');
   nav.innerHTML=''; body.innerHTML='';
+  if(state.w){const o=document.createElement('p');o.className='only';o.append('只顯示 '+state.w+' 這個字出現的組');
+    const c=document.createElement('button');c.type='button';c.textContent='看全表';c.onclick=()=>{state.w='';history.replaceState(null,'',location.pathname);render();};o.appendChild(c);body.appendChild(o);}
+  else if(state.q.trim()){xsearch(body);}
   const q=state.q.trim().toLowerCase();
   let shown=0, total=0, ffShown=0;
   const ffHit=x=>q && !state.lv.size && !state.examOnly && (x.why+' '+x.list).toLowerCase().includes(q);
@@ -100,6 +111,7 @@ function render(){
     const items=g.items.filter(it=>{
       if(state.lv.size && !state.lv.has(it.lv)) return false;
       if(state.examOnly && !(it.refs && it.refs.length)) return false;
+      if(state.w) return it.w===state.w;
       if(!q) return true;
       const refTxt=(it.refs||[]).map(r=>r.t).join(' ');
       return (it.w+' '+it.p+' '+it.g+' '+refTxt).toLowerCase().includes(q);
@@ -144,6 +156,8 @@ function render(){
         });
         li.appendChild(rf);
       }
+      if(it.aff && it.aff.length){const al=document.createElement('div'); al.className='also'; al.append('字首字尾表：');
+        const x=document.createElement('a'); x.href='../affixes/#w='+encodeURIComponent(it.w); x.textContent=it.aff.join('、'); x.title='到字首字尾表看 '+it.w; al.appendChild(x); li.appendChild(al);}
       ul.appendChild(li);
     });
     sec.appendChild(ul);
@@ -169,7 +183,7 @@ function render(){
     body.appendChild(e);
   }
   let linked=0; DATA.groups.forEach(g=>g.items.forEach(it=>{if(it.refs&&it.refs.length)linked++;}));
-  $('#count').textContent = (state.q||state.lv.size||state.examOnly)
+  $('#count').textContent = (state.q||state.w||state.lv.size||state.examOnly)
     ? '符合的字 '+shown+' 個'+(ffShown?'，另有 '+ffShown+' 則假朋友說明提到這個字':'')+'，全表共 '+total.toLocaleString('en-US')+' 個'
     : '共 '+DATA.groups.length+' 個字根家族、'+total.toLocaleString('en-US')+' 個字，其中 '+linked.toLocaleString('en-US')+' 個字附了考古題連結';
 }
@@ -195,12 +209,28 @@ function buildLv(){
   }
 }
 
+function xsearch(body){
+  const q=state.q.trim().toLowerCase(); if(!q) return;
+  if(!OTHER){ if(!otherLoading){otherLoading=true; fetch('../affixes/affixes_data.json').then(r=>r.json()).then(d=>{OTHER=d;render();}).catch(()=>{});} return; }
+  const seen=new Set();
+  OTHER.groups.forEach(g=>g.subs.forEach(sb=>sb.items.forEach(it=>{const e=LEX[it.w]||{};if((it.w+' '+it.p+' '+(e.g||'')).toLowerCase().includes(q))seen.add(it.w);})));
+  if(!seen.size) return;
+  const p=document.createElement('p');p.className='xs';
+  const a=document.createElement('a');a.href='../affixes/#q='+encodeURIComponent(state.q.trim());
+  a.textContent='字首字尾表也有 '+seen.size+' 個符合「'+state.q.trim()+'」的字 →';p.appendChild(a);body.appendChild(p);
+}
+function readHash(){
+  const h=decodeURIComponent(location.hash.slice(1));
+  if(h.startsWith('w=')){state.w=h.slice(2);state.q='';$('#q').value='';}
+  else if(h.startsWith('q=')){state.w='';state.q=h.slice(2);$('#q').value=state.q;}
+}
 Promise.all([fetch('roots_data.json').then(r=>r.json()),fetch('../lexicon/lexicon_data.json').then(r=>r.json())]).then(([d,lex])=>{
-  const W=lex.words, m=it=>Object.assign(it,W[it.w]||{},{p:it.p});
+  LEX=lex.words; const W=lex.words, m=it=>Object.assign(it,W[it.w]||{},{p:it.p});
   d.groups.forEach(g=>g.items.forEach(m));
   DATA=d;
   buildLv();
-  $('#q').addEventListener('input',e=>{state.q=e.target.value;render();});
+  $('#q').addEventListener('input',e=>{state.q=e.target.value;state.w='';render();});
+  readHash(); window.addEventListener('hashchange',()=>{readHash();render();});
   $('#foot').textContent=d.note+' 資料更新：'+d.updated+'。標「考過」的字可以點進本題庫看那一題的原文；拆解與中文說明是本題庫整理的，字源依 Online Etymology Dictionary 查證；詞彙表著作權屬財團法人大學入學考試中心基金會，本表只供非營利教學使用。';
   render();
 }).catch(()=>{
