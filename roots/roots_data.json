@@ -6,7 +6,7 @@
   {
    "key": "tain / ten",
    "zh": "握住、保持",
-   "note": "拉丁文 tenere「握住、抓著不放」。字首決定握的方向：往回握、從底下握、朝目標握。特別注意 attain 不是這個家族——它來自 attingere = ad 朝向 + tangere 觸碰，跟 contact、tangible、intact 同源，是最容易拆錯的字。另外 -en 結尾的 shorten、tighten、soften、frighten 那一批也與本字根無關，那是把形容詞變動詞的字尾。",
+   "note": "拉丁文 tenere「握住、抓著不放」。字首決定握的方向：往回握、從底下握、朝目標握。特別注意 attain 不是這個家族——它來自 attingere = ad 朝向 + tangere 觸碰，跟 contact、tangible、intact 同源，收在 tact 那個家族，是最容易拆錯的字。另外 -en 結尾的 shorten、tighten、soften、frighten 那一批也與本字根無關，那是把形容詞變動詞的字尾。",
    "items": [
     {
      "w": "contain",
@@ -83,7 +83,7 @@
      "list": "attend　attention　intend　intense　intensity　intensive　intention　extend　extent　extension　extensive　intensify　intent　tendency　tender　tense　tension　contend　contention　attendance　attendant　pretend　superintendent　tentative　competence　competent　consistent　persistent　insistence　persistence　existence"
     },
     {
-     "why": "來自 tangere「觸碰」",
+     "why": "來自 tangere「觸碰」，收在 tact 那個家族",
      "list": "attain(ment)"
     },
     {
@@ -2380,6 +2380,315 @@
     {
      "why": "來自拉丁文 medicus「醫生」，dic 只是拼法巧合",
      "list": "medicine、medical、medication"
+    }
+   ]
+  },
+  {
+   "key": "sume / sumpt",
+   "zh": "拿",
+   "note": "拉丁文 sumere「拿、取」，過去分詞是 sumptus，所以這個家族有 sume、sumpt 兩種拼法：動詞是 -sume，名詞是 -sumption。assume 是拿到自己身上→承擔，也指還沒證實就先當作是真的→假定；presume 是事先拿來當真→推測；consume 是全部拿光→消耗、吃喝；resume 是再拿起來做→（中斷後）重新開始。當名詞的 résumé（履歷）是從法文借來的，法文 résumer 是「摘要」，履歷就是把經歷摘要寫下來。",
+   "items": [
+    {
+     "w": "assume",
+     "p": "as 朝向 + sume 拿"
+    },
+    {
+     "w": "consume",
+     "p": "con 徹底 + sume 拿"
+    },
+    {
+     "w": "consumer",
+     "p": "consume 消費 + -er"
+    },
+    {
+     "w": "assumption",
+     "p": "assume 假定 + -tion（m 後面加 p）"
+    },
+    {
+     "w": "consumption",
+     "p": "consume 消耗 + -tion（m 後面加 p）"
+    },
+    {
+     "w": "presume",
+     "p": "pre 事先 + sume 拿"
+    },
+    {
+     "w": "resume",
+     "p": "re 再 + sume 拿"
+    }
+   ],
+   "dropped": [
+    {
+     "list": "sum、summary、summarize、summit",
+     "why": "來自拉丁文 summus「最高的」（sum 原本是「總數」，summit 是「頂峰」），跟 sumere「拿」無關"
+    },
+    {
+     "list": "summon",
+     "why": "sum 是 sub（在下面）變來的，summon 來自拉丁文 summonere「私下提醒」，字根是 monere「警告、提醒」，跟 sumere 無關"
+    }
+   ]
+  },
+  {
+   "key": "fend / fens",
+   "zh": "打、撞",
+   "note": "拉丁文 -fendere「打、撞」只出現在合成字裡，過去分詞是 -fensus，所以這個家族有 fend、fens 兩種拼法：動詞是 -fend，名詞、形容詞多半是 -fense、-fensive。defend 是 de（離開）+ fend，把打過來的攻擊擋開→防守、保衛，在法庭上就是辯護，defendant 是要替自己辯護的人→被告；offend 是 of（ob 對著）+ fend，迎面打過去→冒犯，offensive 也保留「攻擊的」意思。fence 是 defense 去掉開頭的 de 變來的，原本就是「防衛」，後來指用來防衛的圍欄。美式拼成 defense、offense，英式拼成 defence、offence。",
+   "items": [
+    {
+     "w": "fence",
+     "p": "defense 去掉開頭的 de 縮短而成"
+    },
+    {
+     "w": "defend",
+     "p": "de 離開 + fend 打"
+    },
+    {
+     "w": "defense",
+     "p": "defend 的名詞"
+    },
+    {
+     "w": "defensible",
+     "p": "defens（defend 保衛）+ -ible"
+    },
+    {
+     "w": "defensive",
+     "p": "defend 防守 + -sive"
+    },
+    {
+     "w": "offend",
+     "p": "of（ob 對著）+ fend 打"
+    },
+    {
+     "w": "offense",
+     "p": "offend 的名詞"
+    },
+    {
+     "w": "offensive",
+     "p": "offend 冒犯 + -sive"
+    },
+    {
+     "w": "defendant",
+     "p": "defend 辯護 + -ant"
+    }
+   ],
+   "dropped": []
+  },
+  {
+   "key": "tact / tag / teg",
+   "zh": "碰",
+   "note": "拉丁文 tangere「碰、觸摸」，過去分詞是 tactus，所以這個家族有 tact 這種拼法；tangere 的字根部分是 tag，所以也會拼成 tag、teg。contact 是碰在一起→接觸、聯絡；contagious 是碰到就會傳的→接觸傳染的；contaminate 是碰在一起弄髒→污染。in（否定）加上這個字根，就是「沒被碰過的」：intact 是完好如初的，拉丁文 integer 是完整的，integrate 是使完整→整合，integrity 是完整、沒被動過→正直、誠實；2 級的 entire 也是從 integer 經過法文變來的，拼法已經看不出字根。attain 是 at（朝向）+ tain，碰到→達到，拼法跟 tain/ten「握住」那個家族一樣，其實是這個家族的字。",
+   "items": [
+    {
+     "w": "contact",
+     "p": "con 一起 + tact 碰"
+    },
+    {
+     "w": "entire",
+     "p": "來自拉丁文 integer 完整的（in 否定 + teg 碰），經古法文 entier 進入英文"
+    },
+    {
+     "w": "intact",
+     "p": "in 否定 + tact 碰"
+    },
+    {
+     "w": "contagious",
+     "p": "con 一起 + tag（碰）+ -ious"
+    },
+    {
+     "w": "contaminate",
+     "p": "contamin（拉丁文 contamen 接觸：con 一起 + tag 碰）+ -ate"
+    },
+    {
+     "w": "integrate",
+     "p": "integr（拉丁文 integer 完整的：in 否定 + teg 碰）+ -ate"
+    },
+    {
+     "w": "integration",
+     "p": "integrate 整合 + -ion"
+    },
+    {
+     "w": "integrity",
+     "p": "integr（拉丁文 integer 完整的：in 否定 + teg 碰）+ -ity"
+    },
+    {
+     "w": "attain",
+     "p": "at 朝向 + tain（拉丁文 tangere 碰）"
+    },
+    {
+     "w": "attainment",
+     "p": "attain 達到 + -ment"
+    }
+   ],
+   "dropped": [
+    {
+     "list": "tactic",
+     "why": "來自希臘文 taktikos「排列的」（排兵布陣），不是拉丁文 tangere「碰」；Etymonline 雖然把兩者歸到同一個古老的字根，但進入英文時已經是不同的字、不同的意思"
+    },
+    {
+     "list": "tangle",
+     "why": "Etymonline 說可能來自北歐語，跟拉丁文 tangere 無關"
+    },
+    {
+     "list": "tangerine",
+     "why": "來自北非港口 Tangier（丹吉爾），橘子最早從那裡運到英國"
+    },
+    {
+     "list": "tag",
+     "why": "Etymonline 說來源不確定，跟拉丁文 tangere 無關"
+    }
+   ]
+  },
+  {
+   "key": "nov",
+   "zh": "新的",
+   "note": "拉丁文 novus「新的」，跟英文的 new 同源。novel 當名詞來自義大利文 novella「新的故事」，後來指長篇小說；當形容詞來自拉丁文 novellus「新的」，意思是「新穎的」。novice 是新來的人→新手；innovation 是 in（往裡面）+ nov，帶進新的東西→創新。renew（更新）是英文的 re + new，是仿照拉丁文 renovare 造出來的字，所以不收進這個家族，見字首字尾表的 re-。",
+   "items": [
+    {
+     "w": "novel",
+     "p": "名詞來自義大利文 novella 新的故事；形容詞來自拉丁文 novellus 新的（兩者都源自 novus 新的）"
+    },
+    {
+     "w": "novelist",
+     "p": "novel 小說 + -ist"
+    },
+    {
+     "w": "innovation",
+     "p": "in 往裡面 + nov 新 + -ation"
+    },
+    {
+     "w": "innovative",
+     "p": "innovate 創新 + -ive"
+    },
+    {
+     "w": "novice",
+     "p": "nov 新 + -ice（拉丁文 novicius 新來的）"
+    }
+   ],
+   "dropped": []
+  },
+  {
+   "key": "viv / vit",
+   "zh": "活、生命",
+   "note": "拉丁文 vivere「活」、vivus「活的」、vita「生命」，所以這個家族有 viv、vit 兩種拼法。survive 是 sur（super 超過）+ vive，活過了某個時間點或某場災難→倖存，也指比某人活得久；revive 是再活過來→復甦、使恢復；vivid 是活生生的→生動的、鮮明的。vital 原本是「生命的」，後來指對生存不可缺少的→極重要的；vitality 是生命力→活力。vitamin 是 1912 年波蘭生化學家 Casimir Funk 造的字，當時以為這類物質含有胺基酸，就把 vita（生命）和 amine（胺）合成 vitamine；後來知道它們的化學成分不是這樣，才把字尾的 e 去掉。",
+   "items": [
+    {
+     "w": "survive",
+     "p": "sur（super 超過）+ vive 活"
+    },
+    {
+     "w": "survival",
+     "p": "survive 倖存 + -al"
+    },
+    {
+     "w": "survivor",
+     "p": "survive 倖存 + -or"
+    },
+    {
+     "w": "vivid",
+     "p": "viv（拉丁文 vivus 活的）+ -id"
+    },
+    {
+     "w": "vitamin",
+     "p": "vita 生命 + amine 胺（去掉 e）"
+    },
+    {
+     "w": "vital",
+     "p": "vit（拉丁文 vita 生命）+ -al"
+    },
+    {
+     "w": "vitality",
+     "p": "vital 生命的 + -ity"
+    },
+    {
+     "w": "revive",
+     "p": "re 再 + vive 活"
+    },
+    {
+     "w": "revival",
+     "p": "revive 復甦 + -al"
+    }
+   ],
+   "dropped": [
+    {
+     "list": "inevitable",
+     "why": "in 否定 + e（ex 往外）+ vit（拉丁文 vitare 避開）+ -able，vit 是「避開」，不是「生命」"
+    },
+    {
+     "list": "invite、invitation",
+     "why": "來自拉丁文 invitare，Etymonline 說這個字來源不確定，所以不能拆成 in + vit（生命）"
+    },
+    {
+     "list": "longevity",
+     "why": "long 長 + ev（拉丁文 aevum 一生、時代）+ -ity，中間的 vit 是 ev 的 v 接上 -ity 的 it，不是字根"
+    },
+    {
+     "list": "activity、creativity、productivity、sensitivity、captivity",
+     "why": "這些字是 -ive 結尾的形容詞加上 -ity，像 creative + -ity → creativity（activity、captivity 在拉丁文就已經這樣組成），中間的 vit 不是字根"
+    }
+   ]
+  },
+  {
+   "key": "vac / vacu",
+   "zh": "空的",
+   "note": "拉丁文 vacare「空著、沒有事做」，形容詞是 vacuus「空的」，所以這個家族有 vac、vacu 兩種拼法。vacant 是空的、（職位）空缺的，vacancy 是空缺、空房；vacation 是不用上班上課、空出來的時間→假期；vacuum 是空的地方→真空，也是 vacuum cleaner（吸塵器）的簡稱；evacuate 是 e（ex 往外）+ vacu，把人清空→撤離、疏散。2 級的 avoid 也是這個家族的字：古法文 esvuidier 是「清空」，avoid 在中古英文原本有「清空、離開」等意思，現在都不用了；Etymonline 說現在「避開」的意思對應古法文 eviter（避開），可能是跟它混在一起才有的。avoid 的拼法已經看不出 vac。vain（徒勞的）、vanish（消失）、vanity（虛榮）的拉丁文 vanus「空的」跟 vacare 來自同一個古老字根，意思也是「空」，另外收在下一個家族 van。",
+   "items": [
+    {
+     "w": "vacation",
+     "p": "vacate 空出 + -ion"
+    },
+    {
+     "w": "avoid",
+     "p": "a（原本是古法文 es 往外）+ void（古法文 vuidier 空著，源頭是拉丁文 vacare）"
+    },
+    {
+     "w": "vacant",
+     "p": "vac（拉丁文 vacare 空）+ -ant"
+    },
+    {
+     "w": "vacancy",
+     "p": "vacant 空的 → vacancy"
+    },
+    {
+     "w": "vacuum",
+     "p": "vacu（拉丁文 vacuus 空的）+ -um（拉丁文中性字尾，形容詞當名詞用）"
+    },
+    {
+     "w": "evacuate",
+     "p": "e（ex）往外 + vacu 空 + -ate"
+    }
+   ],
+   "dropped": [
+    {
+     "list": "vaccine",
+     "why": "來自拉丁文 vacca「母牛」，因為最早的疫苗是用牛痘做的，跟 vacare 無關"
+    }
+   ]
+  },
+  {
+   "key": "van",
+   "zh": "空的、徒勞的",
+   "note": "拉丁文 vanus「空的、徒勞的」。vain 原本是「空的、沒有價值的」→徒勞的，in vain 是白費力氣；後來也用來說人太在意自己的外表或成就→自負的、虛榮的，vanity 就是虛榮。vanish 來自拉丁文 evanescere，e（ex 往外）+ van，變空→消失。Etymonline 把 vanus 跟上一個家族 vac 的 vacare 歸到同一個古老字根，兩個字的意思都是「空」。",
+   "items": [
+    {
+     "w": "vanish",
+     "p": "van（拉丁文 vanus 空的）+ -ish；整個字是古法文動詞 esvanir 的變化形 esvaniss- 縮短而成，-ish 不是「像…的」"
+    },
+    {
+     "w": "vain",
+     "p": "來自拉丁文 vanus 空的"
+    },
+    {
+     "w": "vanity",
+     "p": "vain 自負的、徒勞的 + -ity"
+    }
+   ],
+   "dropped": [
+    {
+     "list": "vanilla",
+     "why": "來自西班牙文 vainilla「小豆莢」，跟 vanus 無關"
+    },
+    {
+     "list": "van",
+     "why": "是 caravan（篷車、車隊）的縮短，跟 vanus 無關"
     }
    ]
   }
