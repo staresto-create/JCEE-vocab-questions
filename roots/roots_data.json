@@ -2854,6 +2854,158 @@
      "why": "re + 古法文 -greter，可能來自日耳曼語「哭泣」，跟 regere 無關"
     }
    ]
+  },
+  {
+   "key": "brev / brief",
+   "zh": "短",
+   "note": "拉丁文 brevis「短的」。brief 是短的→短暫的、簡短的；brief 當名詞最早指官方發出的文書，後來也指簡短的文字、摘要，所以 briefcase 是裝文件的扁平手提包→公事包。abbreviate 是 ad（朝向）+ breviare（使變短），把字縮短→縮寫，名詞是 abbreviation。",
+   "items": [
+    {
+     "w": "brief",
+     "p": "brief（拉丁文 brevis 短的）"
+    },
+    {
+     "w": "briefcase",
+     "p": "brief 文件 + case 容器"
+    },
+    {
+     "w": "abbreviate",
+     "p": "ab（ad 朝向）+ brevi（拉丁文 brevis 短的）+ -ate"
+    }
+   ],
+   "dropped": []
+  },
+  {
+   "key": "sol",
+   "zh": "單獨",
+   "note": "拉丁文 solus「單獨的、唯一的」。sole 是唯一的；solo 是經過義大利文的「單獨」，用在音樂上就是獨奏、獨唱；solitary 是單獨的、孤獨的；solitude 是孤獨、獨處。腳底、鞋底的 sole 是另一個字，來自拉丁文 solea（鞋底）。",
+   "items": [
+    {
+     "w": "sole",
+     "p": "sole（拉丁文 solus 單獨的、唯一的）"
+    },
+    {
+     "w": "solo",
+     "p": "solo（義大利文 solo 單獨，來自拉丁文 solus）"
+    },
+    {
+     "w": "solitary",
+     "p": "solit（拉丁文 solus 單獨）+ -ary"
+    },
+    {
+     "w": "solitude",
+     "p": "soli（拉丁文 solus 單獨）+ -tude"
+    }
+   ],
+   "dropped": [
+    {
+     "list": "isolate、isolation",
+     "why": "isolated 經法文 isolé 來自義大利文 isolato，源頭是拉丁文 insulatus「變成一座島」（insula 島），isolate 是從 isolated 倒推出來的動詞；像一座島那樣跟外界隔開→隔離，跟 solus 無關"
+    },
+    {
+     "list": "solve、solution、resolve、dissolve",
+     "why": "來自拉丁文 solvere「鬆開」，跟 solus 無關"
+    },
+    {
+     "list": "solid、solidarity",
+     "why": "來自拉丁文 solidus「堅固的、完整的」，跟 solus 無關"
+    },
+    {
+     "list": "soldier",
+     "why": "來自中世紀拉丁文 soldarius「領薪餉的人」，薪餉 soldum 這個字從羅馬金幣 solidus 而來，跟 solus 無關"
+    },
+    {
+     "list": "solar",
+     "why": "來自拉丁文 sol「太陽」，跟 solus 無關"
+    },
+    {
+     "list": "console（v. 安慰）、consolation",
+     "why": "來自拉丁文 consolari「安慰」（solari 安慰），跟 solus 無關；當名詞的 console 是另一個字，來自法文 console「托架」，字源不確定"
+    },
+    {
+     "list": "solemn",
+     "why": "來自拉丁文 sollemnis「每年固定舉行的、正式的」，跟 solus 無關"
+    }
+   ]
+  },
+  {
+   "key": "opt",
+   "zh": "選擇",
+   "note": "拉丁文 optare「選擇、希望」。opt 是選擇；option 是選擇、選項，optional 是可以選擇的→選修的、非必要的；adopt 是 ad（朝向）+ optare，選來當自己的→採用、收養。",
+   "items": [
+    {
+     "w": "option",
+     "p": "opt 選擇 + -ion"
+    },
+    {
+     "w": "adopt",
+     "p": "ad 朝向 + opt 選擇"
+    },
+    {
+     "w": "opt",
+     "p": "opt（拉丁文 optare 選擇、希望）"
+    },
+    {
+     "w": "optional",
+     "p": "option 選擇 + -al"
+    }
+   ],
+   "dropped": [
+    {
+     "list": "optimism、optimistic",
+     "why": "來自拉丁文 optimus「最好的」，不是 optare「選擇」，另收在 optim 這個家族"
+    }
+   ]
+  },
+  {
+   "key": "optim",
+   "zh": "最好的",
+   "note": "拉丁文 optimus「最好的」，是 bonus（好的）的最高級。哲學家萊布尼茲用 optimum 指「最大的善」，法文 optimisme 原本是一種學說，認為這個世界是所有可能的世界裡最好的，英文 optimism 從這裡來，後來指樂觀；optimistic 是 optimist（樂觀的人）加 -ic→樂觀的。",
+   "items": [
+    {
+     "w": "optimistic",
+     "p": "optimist 樂觀的人 + -ic"
+    },
+    {
+     "w": "optimism",
+     "p": "optim（拉丁文 optimus 最好的）+ -ism"
+    }
+   ],
+   "dropped": [
+    {
+     "list": "opt、option、optional、adopt",
+     "why": "來自拉丁文 optare「選擇」，不是 optimus「最好的」，另收在 opt 這個家族"
+    }
+   ]
+  },
+  {
+   "key": "path",
+   "zh": "感受；受苦",
+   "note": "希臘文 pathos「感受」，跟 pathein「受苦」有關。sympathy 是 sym（syn 一起）+ pathos，一起感受→同情、贊同；sympathize、sympathetic 是它的動詞、形容詞。pathetic 原本是觸動情感的，後來指令人憐憫的→可憐的，到了二十世紀又多了「差勁到可笑」的意思。",
+   "items": [
+    {
+     "w": "sympathy",
+     "p": "sym 一起 + pathy 感受"
+    },
+    {
+     "w": "sympathetic",
+     "p": "sympathy 同情 + -etic"
+    },
+    {
+     "w": "pathetic",
+     "p": "path（希臘文 pathos 感受）+ -etic"
+    },
+    {
+     "w": "sympathize",
+     "p": "sympathy 同情 + -ize"
+    }
+   ],
+   "dropped": [
+    {
+     "list": "path",
+     "why": "來自古英文 pæþ「小路」，是日耳曼語的字，字源不確定，跟希臘文 pathos 無關"
+    }
+   ]
   }
  ],
  "sites": {
