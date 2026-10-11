@@ -79,8 +79,24 @@
      "list": "sentence　tennis　mountain　mountainous　curtain　fountain　captain　kindergarten　certain　certainty　stain　utensil　patent　potent　potential"
     },
     {
-     "why": "屬於 tendere「伸展」那個家族，見第二批",
-     "list": "attend　attention　intend　intense　intensity　intensive　intention　extend　extent　extension　extensive　intensify　intent　tendency　tender　tense　tension　contend　contention　attendance　attendant　pretend　superintendent　tentative　competence　competent　consistent　persistent　insistence　persistence　existence"
+     "why": "來自拉丁文 tendere「伸展」，收在 tend / tens / tent 那個家族",
+     "list": "attend　attention　intend　intense　intensity　intensive　intention　extend　extent　extension　extensive　intensify　intent　tendency　tense　tension　contend　contention　attendance　attendant　pretend　superintendent"
+    },
+    {
+     "why": "來自拉丁文 tentare「摸、試」，收在 tempt / tent 那個家族",
+     "list": "tentative"
+    },
+    {
+     "why": "形容詞 tender 來自拉丁文 tener「柔軟的、嬌嫩的」，跟 tenere 無關",
+     "list": "tender"
+    },
+    {
+     "why": "來自拉丁文 competere「一起追求、相稱」，是 com 一起 + petere 追求，跟 tenere 無關",
+     "list": "competence　competent"
+    },
+    {
+     "why": "來自拉丁文 sistere「站」，收在 sist 那個家族",
+     "list": "consistent　persistent　insistence　persistence　existence"
     },
     {
      "why": "來自 tangere「觸碰」，收在 tact 那個家族",
@@ -3006,6 +3022,178 @@
      "why": "來自古英文 pæþ「小路」，是日耳曼語的字，字源不確定，跟希臘文 pathos 無關"
     }
    ]
+  },
+  {
+   "key": "nounce / nunci",
+   "zh": "報告、宣布",
+   "note": "拉丁文 nuntius「信差」，動詞 nuntiare 是報告、宣布。announce 是 ad（朝向）+ nuntiare，把消息帶給大家→宣布，announcement 是它的名詞。pronounce 是 pro（往外、公開）+ nuntiare，原本是公開宣布，後來也指把字說出來→發音。名詞 pronunciation 的拼法照拉丁文 pronuntiatio，寫成 nunci，不寫成 pronounciation。",
+   "items": [
+    {
+     "w": "announce",
+     "p": "an 朝向 + nounce（拉丁文 nuntiare 報告，來自 nuntius 信差）"
+    },
+    {
+     "w": "announcement",
+     "p": "announce 宣布 + -ment"
+    },
+    {
+     "w": "pronounce",
+     "p": "pro 往外 + nounce 宣布"
+    },
+    {
+     "w": "pronunciation",
+     "p": "pronounce 發音 + -ation（拼法照拉丁文 pronuntiatio，ounce 變成 unci）"
+    }
+   ],
+   "dropped": [
+    {
+     "list": "noun",
+     "why": "來自拉丁文 nomen「名字」，跟 nuntius 無關"
+    }
+   ]
+  },
+  {
+   "key": "tempt / tent",
+   "zh": "摸、試",
+   "note": "拉丁文 temptare「摸、試探」，是 tentare（觸摸、嘗試）的變體。tempt 在英文最早的意思就是引誘人做壞事，temptation 是誘惑；attempt 是 ad（朝向）+ temptare，去試→嘗試、企圖；tentative 來自 tentare，嘗試性的→暫定的、猶豫的。",
+   "items": [
+    {
+     "w": "attempt",
+     "p": "at 朝向 + tempt 試"
+    },
+    {
+     "w": "tempt",
+     "p": "tempt（拉丁文 temptare 摸、試探）"
+    },
+    {
+     "w": "temptation",
+     "p": "tempt 引誘 + -ation"
+    },
+    {
+     "w": "tentative",
+     "p": "tent（拉丁文 tentare 嘗試）+ -ative"
+    }
+   ],
+   "dropped": [
+    {
+     "list": "contempt",
+     "why": "來自拉丁文 contemnere「輕視」，字根是 temnere（輕視），跟 temptare 無關"
+    },
+    {
+     "list": "tent",
+     "why": "來自拉丁文 tendere「伸展」，指繃在支架上的獸皮或布，收在 tend 那個家族"
+    },
+    {
+     "list": "temporary",
+     "why": "來自拉丁文 tempus「時間」，跟 temptare 無關"
+    }
+   ]
+  },
+  {
+   "key": "tort / tor",
+   "zh": "扭",
+   "note": "拉丁文 torquere「扭」，過去分詞是 tortus。torture 來自拉丁文 tortura（扭絞），引申為拷問、折磨；torment 來自拉丁文 tormentum，可以指扭成的繩索、投石機，也指刑具→折磨；retort 是扭回去、丟回去→尖銳地回嘴、反駁；torch 可能也來自 torquere，原本應該是扭成一束的東西，後來指用扭成束的麻絮沾蠟做成的火把。",
+   "items": [
+    {
+     "w": "torture",
+     "p": "tort（拉丁文 torquere 扭）+ -ure"
+    },
+    {
+     "w": "torment",
+     "p": "tor（拉丁文 torquere 扭）+ -ment"
+    },
+    {
+     "w": "torch",
+     "p": "torch（古法文 torche，可能來自拉丁文 torquere 扭）"
+    },
+    {
+     "w": "retort",
+     "p": "re 反 + tort 扭"
+    }
+   ],
+   "dropped": [
+    {
+     "list": "tortoise",
+     "why": "字源不確定：一說來自拉丁文 tartaruchus「陰間的」，也有人認為來自 tortus「扭曲的」，指烏龜腳的形狀，所以不收在這個家族"
+    }
+   ]
+  },
+  {
+   "key": "mand",
+   "zh": "交付、命令",
+   "note": "拉丁文 mandare「交付、命令」，大概來自 manus（手）+ dare（給），字面上是交到別人手上。demand 來自拉丁文 demandare（交付任務），到了中世紀拉丁文變成「要求」；command 來自拉丁文 commendare（託付），受 mandare 影響改拼成 mand。commendare 也是英文 commend（稱讚、託付）的來源，這時拼成 mend，所以 recommend 是 re + commend→推薦、建議。mandate 是命令→授權、強制規定。",
+   "items": [
+    {
+     "w": "command",
+     "p": "com（可能是加強）+ mand 命令"
+    },
+    {
+     "w": "commander",
+     "p": "command 指揮 + -er"
+    },
+    {
+     "w": "demand",
+     "p": "de 加強語氣 + mand 命令"
+    },
+    {
+     "w": "recommend",
+     "p": "re（可能是加強）+ commend 稱讚、託付"
+    },
+    {
+     "w": "recommendation",
+     "p": "recommend 推薦 + -ation"
+    },
+    {
+     "w": "mandate",
+     "p": "mand（拉丁文 mandare 交付、命令）+ -ate"
+    }
+   ],
+   "dropped": [
+    {
+     "list": "amend、mend",
+     "why": "amend 來自拉丁文 emendare「改正」，是 ex（去掉）+ menda（缺點），跟 mandare 無關；mend 來自古法文 amender 的縮短形式"
+    },
+    {
+     "list": "tremendous",
+     "why": "來自拉丁文 tremere「發抖」，跟 mandare 無關"
+    }
+   ]
+  },
+  {
+   "key": "domin",
+   "zh": "主人",
+   "note": "拉丁文 dominus「主人」，來自 domus「房子」，原本是一家之主。dominate 來自 dominari（統治），是支配、在…中占主要地位，dominant 是占優勢的；domain 來自拉丁文 dominium（財產、統治權），原本是領地，後來指知識、活動的領域，現在也指網域。danger 原本是主人的權力、加害的權力，落在別人的掌控下就有危險，所以「危險」這個意思先在法文出現，拼法又受拉丁文 damnum（損害）影響；dangerous、endanger 都從 danger 來。madam 來自古法文 ma dame（我的女士），再往上是拉丁文 mea domina，domina 是一家的女主人。domestic 直接從 domus 來，家裡的→國內的，跟這個家族同源。",
+   "items": [
+    {
+     "w": "dangerous",
+     "p": "danger 危險 + -ous"
+    },
+    {
+     "w": "danger",
+     "p": "danger（古法文 dangier 主人的權力、加害的權力，來自拉丁文 dominus 主人）"
+    },
+    {
+     "w": "dominate",
+     "p": "domin（拉丁文 dominari 統治，來自 dominus 主人）+ -ate"
+    },
+    {
+     "w": "dominant",
+     "p": "domin（拉丁文 dominari 統治）+ -ant"
+    },
+    {
+     "w": "endanger",
+     "p": "en 使處於 + danger 危險"
+    },
+    {
+     "w": "domain",
+     "p": "domain（法文 domaine 領地，來自拉丁文 dominium 財產、統治權）"
+    },
+    {
+     "w": "madam",
+     "p": "ma 我的 + dam 女士（古法文 dame，來自拉丁文 domina 一家的女主人）"
+    }
+   ],
+   "dropped": []
   }
  ],
  "sites": {
