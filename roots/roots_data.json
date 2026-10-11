@@ -6817,6 +6817,527 @@
     }
    ],
    "dropped": []
+  },
+  {
+   "key": "vid / vis",
+   "zh": "看",
+   "note": "拉丁文 videre 是「看」，過去分詞是 visus，所以這一家有 vid、vis 兩種拼法；經過法文進入英文的字，則常寫成 view、vey、vice。vid 這一支：video 在拉丁文就是「我看」；evident 是看得出來的→明顯的，evidence 是讓人看得出來的東西→證據；provide 是事先看好、備好→提供。vis 這一支：vision 是看的能力→視力，也是看到未來的樣子→願景；visible 是看得見的，visual 是視覺的；visit 是去看→拜訪，revise 是再看一次→修訂，supervise 是從上面看著→監督；television 是看到遠處的影像，visa 是「看過的文件」→簽證。經過法文的這一支：view 是看到的東西→景色，也是看事情的方式→看法；review、preview、interview 分別是再看一次、事先看、互相看；survey 是從上面看→調查；advice 是「在我看來」→建議，advise 是它的動詞；envy 原本是用不懷好意的眼光看人→羨慕、嫉妒。要特別注意的是，下面這些字雖然長得像，卻都不是這一家：divide、individual、dividend、devise、device 裡的 vid、vis、vice 來自拉丁文 dividere「分開」；convey 的 vey 來自 via「路」；vice（罪惡）來自 vitium「缺點」；vivid 的 viv 則來自 vivus「活的」。",
+   "items": [
+    {
+     "w": "video",
+     "lv": 1,
+     "kk": "ˈvɪdiˌoʊ",
+     "p": "vid（拉丁文 video 我看）",
+     "g": "n. 影片、錄影；v. 錄影"
+    },
+    {
+     "w": "visit",
+     "lv": 1,
+     "kk": "ˈvɪzɪt",
+     "p": "vis（拉丁文 visitare「常去看」，由 visere「去看」變來）",
+     "g": "v./n. 去看→拜訪、參觀；v. 瀏覽（網站）",
+     "refs": [
+      {
+       "s": "tr",
+       "id": "140",
+       "t": "中譯英 113(學測) 第140題"
+      },
+      {
+       "s": "tr",
+       "id": "95",
+       "t": "中譯英 83(學測) 第95題"
+      }
+     ]
+    },
+    {
+     "w": "visitor",
+     "lv": 1,
+     "kk": "ˈvɪzɪtɚ",
+     "p": "visit 拜訪 + -or",
+     "g": "n. 訪客",
+     "refs": [
+      {
+       "s": "zhikao",
+       "id": "ZK0228",
+       "t": "90聯考 單字Q4",
+       "k": "d"
+      },
+      {
+       "s": "tr",
+       "id": "126",
+       "t": "中譯英 109(指考) 第126題"
+      }
+     ]
+    },
+    {
+     "w": "television",
+     "lv": 1,
+     "kk": "ˈtɛləˌvɪʒən",
+     "p": "tele 遠 + vision 影像",
+     "g": "n. 看到遠處的影像→電視",
+     "refs": [
+      {
+       "s": "tr",
+       "id": "104",
+       "t": "中譯英 85(學測) 第104題"
+      }
+     ]
+    },
+    {
+     "w": "interview",
+     "lv": 1,
+     "kk": "ˈɪntɚˌvju",
+     "p": "inter 互相 + view 看",
+     "g": "n./v. 面對面互相看→面試；訪問"
+    },
+    {
+     "w": "view",
+     "lv": 2,
+     "kk": "vju",
+     "p": "view（古法文 veue 看到的東西，來自拉丁文 videre）",
+     "g": "n. 看到的景色；視線、視野；看法、觀點；v. 看；看待",
+     "refs": [
+      {
+       "s": "ep",
+       "id": "94",
+       "t": "作文字彙表 94學年 from sb's point of view"
+      }
+     ]
+    },
+    {
+     "w": "review",
+     "lv": 2,
+     "kk": "rɪˈvju",
+     "p": "re 再 + view 看",
+     "g": "v./n. 再看一次→複習；檢討、審查；評論",
+     "refs": [
+      {
+       "s": "zhikao",
+       "id": "ZK0258",
+       "t": "88聯考 單字Q5",
+       "k": "d"
+      },
+      {
+       "s": "zhikao",
+       "id": "ZK0299",
+       "t": "84聯考 單字Q6",
+       "k": "d"
+      },
+      {
+       "s": "ep",
+       "id": "92",
+       "t": "作文字彙表 92學年 review"
+      }
+     ]
+    },
+    {
+     "w": "provide",
+     "lv": 2,
+     "kk": "prəˈvaɪd",
+     "p": "pro 事先 + vide 看",
+     "g": "v. 事先看好、備好→提供",
+     "refs": [
+      {
+       "s": "tr",
+       "id": "189",
+       "t": "中譯英 100(指考研究用試卷卷一) 第189題"
+      },
+      {
+       "s": "tr",
+       "id": "176",
+       "t": "中譯英 98(學測) 第176題"
+      },
+      {
+       "s": "tr",
+       "id": "162",
+       "t": "中譯英 95(指考) 第162題"
+      }
+     ]
+    },
+    {
+     "w": "advice",
+     "lv": 2,
+     "kk": "ədˈvaɪs",
+     "p": "ad 朝向 + vice（拉丁文 visum 看到的；古法文寫成 avis，d 是後來照拉丁文補回去的）",
+     "g": "n. 「在我看來」→看法→建議、忠告",
+     "refs": [
+      {
+       "s": "gcz",
+       "id": "G84_37_2",
+       "t": "學測克漏字 84年 第37格",
+       "k": "d"
+      }
+     ]
+    },
+    {
+     "w": "vision",
+     "lv": 3,
+     "kk": "ˈvɪʒən",
+     "p": "vis（拉丁文 videre 看）+ -ion",
+     "g": "n. 視力；遠見、願景；（想像或夢中看到的）景象",
+     "refs": [
+      {
+       "s": "gsat",
+       "id": "V0301",
+       "t": "101學測 單字Q1",
+       "k": "d"
+      },
+      {
+       "s": "zhikao",
+       "id": "ZK0216",
+       "t": "91指考 單字Q2",
+       "k": "d"
+      },
+      {
+       "s": "ep",
+       "id": "111",
+       "t": "作文字彙表 111學年 with the vision of"
+      }
+     ]
+    },
+    {
+     "w": "visible",
+     "lv": 3,
+     "kk": "ˈvɪzəbəl",
+     "p": "vis 看 + -ible",
+     "g": "adj. 看得見的；明顯的",
+     "refs": [
+      {
+       "s": "gsat",
+       "id": "V0457",
+       "t": "111學測 單字Q7",
+       "k": "a"
+      },
+      {
+       "s": "gsat",
+       "id": "V0020",
+       "t": "84推薦甄選 單字Q10",
+       "k": "a"
+      },
+      {
+       "s": "gsat",
+       "id": "V0171",
+       "t": "92學測補考 單字Q6",
+       "k": "d"
+      }
+     ]
+    },
+    {
+     "w": "advise",
+     "lv": 3,
+     "kk": "ədˈvaɪz",
+     "p": "advice 的動詞",
+     "g": "v. 建議、勸告",
+     "refs": [
+      {
+       "s": "gsat",
+       "id": "V0411",
+       "t": "108學測 單字Q6",
+       "k": "d"
+      },
+      {
+       "s": "gsat",
+       "id": "V0335",
+       "t": "103學測 單字Q5",
+       "k": "d"
+      },
+      {
+       "s": "gsat",
+       "id": "V0240",
+       "t": "96學測 單字Q15",
+       "k": "d"
+      }
+     ]
+    },
+    {
+     "w": "adviser",
+     "lv": 3,
+     "kk": "ədˈvaɪzɚ",
+     "p": "advise 建議 + -er（也寫成 advisor）",
+     "g": "n. 顧問"
+    },
+    {
+     "w": "advisor",
+     "lv": 3,
+     "kk": "ədˈvaɪzɚ",
+     "p": "advise 建議 + -or（adviser 的另一種拼法）",
+     "g": "n. 顧問"
+    },
+    {
+     "w": "survey",
+     "lv": 3,
+     "kk": "（動詞）sɚˈveɪ　（名詞）ˈsɝˌveɪ",
+     "p": "sur（super 在上面）+ vey（拉丁文 videre 看）",
+     "g": "v. 從上面看→仔細察看、審視；（做問卷）調查；n. 調查",
+     "refs": [
+      {
+       "s": "zcz",
+       "id": "Z92_18",
+       "t": "指考克漏字 92年 第18格",
+       "k": "d"
+      },
+      {
+       "s": "ep",
+       "id": "108",
+       "t": "作文字彙表 108學年 conduct a survey"
+      }
+     ]
+    },
+    {
+     "w": "envy",
+     "lv": 3,
+     "kk": "ˈɛnvi",
+     "p": "en（in 對著）+ vy（拉丁文 videre 看）",
+     "g": "n./v. 用不懷好意的眼光看人→羨慕、嫉妒"
+    },
+    {
+     "w": "visual",
+     "lv": 4,
+     "kk": "ˈvɪʒuəl",
+     "p": "vis 看 + -ual",
+     "g": "adj. 視覺的",
+     "refs": [
+      {
+       "s": "gsat",
+       "id": "V0245",
+       "t": "97學測 單字Q5",
+       "k": "d"
+      }
+     ]
+    },
+    {
+     "w": "evident",
+     "lv": 4,
+     "kk": "ˈɛvədənt",
+     "p": "e（ex）往外 + vid 看 + -ent",
+     "g": "adj. 看得出來的→明顯的",
+     "refs": [
+      {
+       "s": "gsat",
+       "id": "V0415",
+       "t": "108學測 單字Q10",
+       "k": "d"
+      },
+      {
+       "s": "gsat",
+       "id": "V0398",
+       "t": "107學測 單字Q8",
+       "k": "d"
+      },
+      {
+       "s": "gsat",
+       "id": "V0355",
+       "t": "104學測 單字Q10",
+       "k": "d"
+      }
+     ]
+    },
+    {
+     "w": "evidence",
+     "lv": 4,
+     "kk": "ˈɛvədəns",
+     "p": "evident 明顯的 → evidence",
+     "g": "n. 證據",
+     "refs": [
+      {
+       "s": "gsat",
+       "id": "V0173",
+       "t": "92學測補考 單字Q8",
+       "k": "a"
+      },
+      {
+       "s": "ep",
+       "id": "95",
+       "t": "作文字彙表 95學年 evidence"
+      }
+     ]
+    },
+    {
+     "w": "revise",
+     "lv": 4,
+     "kk": "rɪˈvaɪz",
+     "p": "re 再 + vise（拉丁文 videre 看）",
+     "g": "v. 再看一次→修訂、修改",
+     "refs": [
+      {
+       "s": "gsat",
+       "id": "V0269",
+       "t": "98學測 單字Q14",
+       "k": "a"
+      },
+      {
+       "s": "gsat",
+       "id": "V0314",
+       "t": "101學測 單字Q14",
+       "k": "d"
+      },
+      {
+       "s": "gcz",
+       "id": "G113_19_2",
+       "t": "學測克漏字 113年 第19格",
+       "k": "d"
+      }
+     ]
+    },
+    {
+     "w": "revision",
+     "lv": 4,
+     "kk": "rɪˈvɪʒən",
+     "p": "revise 修改 + -ion（去掉 e）",
+     "g": "n. 再看一次→修訂、修改"
+    },
+    {
+     "w": "viewer",
+     "lv": 5,
+     "kk": "ˈvjuɚ",
+     "p": "view 看 + -er",
+     "g": "n. 觀眾"
+    },
+    {
+     "w": "viewpoint",
+     "lv": 5,
+     "kk": "ˈvjuˌpɔɪnt",
+     "p": "view 看法 + point 點",
+     "g": "n. 看事情的位置→觀點"
+    },
+    {
+     "w": "envision",
+     "lv": 5,
+     "kk": "ɪnˈvɪʒən",
+     "p": "en 使 + vision 景象",
+     "g": "v. 在心裡形成景象→想像、展望"
+    },
+    {
+     "w": "supervise",
+     "lv": 5,
+     "kk": "ˈsupɚˌvaɪz",
+     "p": "super 在上面 + vise 看",
+     "g": "v. 從上面看著→監督、管理"
+    },
+    {
+     "w": "supervision",
+     "lv": 5,
+     "kk": "ˌsupɚˈvɪʒən",
+     "p": "supervise 監督 + -ion（去掉 e）",
+     "g": "n. 監督、管理",
+     "refs": [
+      {
+       "s": "zhikao",
+       "id": "ZK0066",
+       "t": "105指考 單字Q6",
+       "k": "a"
+      },
+      {
+       "s": "zcz",
+       "id": "Z108_14",
+       "t": "指考克漏字 108年 第14格",
+       "k": "d"
+      }
+     ]
+    },
+    {
+     "w": "supervisor",
+     "lv": 5,
+     "kk": "ˈsupɚˌvaɪzɚ",
+     "p": "supervise 監督 + -or",
+     "g": "n. 主管、監督者；指導者"
+    },
+    {
+     "w": "provision",
+     "lv": 5,
+     "kk": "prəˈvɪʒən",
+     "p": "provide 提供 + -sion（de 變成 s）",
+     "g": "n. 供應；（複數）糧食、補給品；（法律、合約的）條款",
+     "refs": [
+      {
+       "s": "gsat",
+       "id": "V0495",
+       "t": "115學測 單字Q5",
+       "k": "d"
+      }
+     ]
+    },
+    {
+     "w": "envious",
+     "lv": 5,
+     "kk": "ˈɛnviəs",
+     "p": "envy 羨慕 + -ous（y 變成 i）",
+     "g": "adj. 羨慕的、嫉妒的",
+     "refs": [
+      {
+       "s": "gsat",
+       "id": "V0126",
+       "t": "91學測 單字Q6",
+       "k": "d"
+      },
+      {
+       "s": "zhikao",
+       "id": "ZK0211",
+       "t": "92指考 單字Q7",
+       "k": "a"
+      },
+      {
+       "s": "ep",
+       "id": "103",
+       "t": "作文字彙表 103學年 be envious of sb"
+      }
+     ]
+    },
+    {
+     "w": "visa",
+     "lv": 5,
+     "kk": "ˈvizə",
+     "p": "vis（拉丁文 charta visa「看過的文件」）",
+     "g": "n. 簽證"
+    },
+    {
+     "w": "preview",
+     "lv": 6,
+     "kk": "ˈpriˌvju",
+     "p": "pre 事先 + view 看",
+     "g": "n./v. 事先看→預覽、試映；預告片；v. 預習",
+     "refs": [
+      {
+       "s": "zhikao",
+       "id": "ZK0048",
+       "t": "107指考 單字Q8",
+       "k": "d"
+      }
+     ]
+    },
+    {
+     "w": "provisional",
+     "lv": 6,
+     "kk": "prəˈvɪʒənəl",
+     "p": "provision 供應、預備 + -al",
+     "g": "adj. 先備著用的→暫時的"
+    },
+    {
+     "w": "advisory",
+     "lv": 6,
+     "kk": "ədˈvaɪzəri",
+     "p": "advise 建議 + -ory",
+     "g": "adj. 顧問的、諮詢的"
+    }
+   ],
+   "dropped": [
+    {
+     "why": "來自拉丁文 dividere「分開」，跟 videre（看）無關；devise（設計）和 device（裝置）在古法文原本是「把東西分好、安排好」的意思，也是從 dividere 來的",
+     "list": "divide、division、individual、dividend、devise、device"
+    },
+    {
+     "why": "跟 survey 一樣拼成 -vey，卻來自通俗拉丁文 conviare「陪著上路」：com 一起 + via 路，跟 videre 無關",
+     "list": "convey"
+    },
+    {
+     "why": "vice（罪惡、惡習）來自拉丁文 vitium「缺點、毛病」，跟 advice 的 vice 無關",
+     "list": "vice"
+    },
+    {
+     "why": "viv 來自拉丁文 vivus「活的」（跟 survive、vital 同一家），不是 vid",
+     "list": "vivid"
+    }
+   ]
   }
  ],
  "sites": {
