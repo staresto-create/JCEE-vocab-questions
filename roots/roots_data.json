@@ -7338,6 +7338,128 @@
      "list": "vivid"
     }
    ]
+  },
+  {
+   "key": "pel / puls",
+   "zh": "推",
+   "note": "拉丁文 pellere「推、驅動」，過去分詞是 pulsus，所以這一家有 pel、puls 兩種拼法：動詞多半是 -pel，名詞、形容詞常變成 -puls-。compel 原本是把牲畜趕到一起（com 一起），用在人身上就是強迫，compulsory 是被推著非做不可的→強制的、必修的；propel 是往前推→推動；impulse 是推向某處的力量→衝動；pulse 是血管一下一下的推動、敲打→脈搏。最常見的 push 也是這一家：它經過古法文 pousser，來自拉丁文 pulsare（一再推、敲打），也就是 pellere 表示反覆動作的形式。appeal 來自拉丁文 appellare（向人開口、稱呼），一般認為是從 appellere（ad 朝向 + pellere 推）來的。appellere 是「推向、駛向」，常用來說把船駛向岸邊；字源學者推測，向人開口就好比把船靠向對方，所以引申出呼籲、懇求、上訴。至於「吸引人」這個意思，要到二十世紀初才出現。同一家的還有 expel（驅逐）、repel（擊退），詞彙表未收。",
+   "items": [
+    {
+     "w": "push",
+     "lv": 1,
+     "kk": "pʊʃ",
+     "p": "push（古法文 pousser，來自拉丁文 pulsare 一再推、敲打，是 pellere 的反覆形）",
+     "g": "v./n. 推；按（按鈕）；逼迫、催促；推銷",
+     "refs": [
+      {
+       "s": "gcz",
+       "id": "G101_30_3",
+       "t": "學測克漏字 101年 第30格",
+       "k": "d"
+      },
+      {
+       "s": "ep",
+       "id": "115",
+       "t": "作文字彙表 115學年 push a stroller"
+      }
+     ]
+    },
+    {
+     "w": "appeal",
+     "lv": 3,
+     "kk": "əˈpil",
+     "p": "ap 朝向 + peal（拉丁文 appellare 呼喚，來自 pellere 推動）",
+     "g": "v./n. 向…呼喚→呼籲、懇求；上訴；吸引（力）",
+     "refs": [
+      {
+       "s": "gsat",
+       "id": "V0479",
+       "t": "113學測 單字Q9",
+       "k": "a"
+      },
+      {
+       "s": "gsat",
+       "id": "V0380",
+       "t": "106學測 單字Q5",
+       "k": "d"
+      },
+      {
+       "s": "gsat",
+       "id": "V0025",
+       "t": "85推薦甄選 單字Q5",
+       "k": "d"
+      }
+     ]
+    },
+    {
+     "w": "compel",
+     "lv": 5,
+     "kk": "kəmˈpɛl",
+     "p": "com 一起 + pel 趕、推",
+     "g": "v. 趕到一起→強迫、迫使"
+    },
+    {
+     "w": "compulsory",
+     "lv": 5,
+     "kk": "kəmˈpʌlsəri",
+     "p": "com 一起 + puls 趕、推 + -ory",
+     "g": "adj. 被推著非做不可的→強制的、義務的；必修的",
+     "refs": [
+      {
+       "s": "gsat",
+       "id": "V0476",
+       "t": "113學測 單字Q6",
+       "k": "a"
+      }
+     ]
+    },
+    {
+     "w": "impulse",
+     "lv": 5,
+     "kk": "ˈɪmpʌls",
+     "p": "im 朝向 + puls 推（拉丁文 impellere 推向，過去分詞 impulsus）",
+     "g": "n. 推向某處的力量→衝動、一時的念頭",
+     "refs": [
+      {
+       "s": "gsat",
+       "id": "V0190",
+       "t": "93學測 單字Q10",
+       "k": "a"
+      },
+      {
+       "s": "zhikao",
+       "id": "ZK0023",
+       "t": "109指考 單字Q3",
+       "k": "d"
+      },
+      {
+       "s": "ep",
+       "id": "109",
+       "t": "作文字彙表 109學年 buy sth on impulse"
+      }
+     ]
+    },
+    {
+     "w": "pulse",
+     "lv": 5,
+     "kk": "pʌls",
+     "p": "puls（拉丁文 pulsus 推、敲打，指血管一下一下的跳動）",
+     "g": "n. 脈搏；（音樂的）強烈節拍；（光、聲、電的）脈衝；v. 跳動、搏動"
+    },
+    {
+     "w": "propel",
+     "lv": 6,
+     "kk": "prəˈpɛl",
+     "p": "pro 往前 + pel 推",
+     "g": "v. 往前推→推動、推進"
+    }
+   ],
+   "dropped": [
+    {
+     "why": "結尾的 -pel 跟 compel、propel 一樣，卻跟 pellere 無關：chapel 來自中古拉丁文 cappella（小斗篷），相傳最早指存放聖馬丁斗篷的小聖堂→小教堂、禮拜堂；gospel 是古英文 godspel，「好消息」→福音",
+     "list": "chapel、gospel"
+    }
+   ]
   }
  ],
  "sites": {
