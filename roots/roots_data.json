@@ -2691,6 +2691,169 @@
      "why": "是 caravan（篷車、車隊）的縮短，跟 vanus 無關"
     }
    ]
+  },
+  {
+   "key": "term / termin",
+   "zh": "界線、終點",
+   "note": "拉丁文 terminus「終點、界線」。term 原本是界線，一段時間劃出界線就是「期限、學期」；這個字在中世紀拉丁文又有「說法、定義」的意思，所以也指「術語」。determine 是 de（離開）+ terminare（劃出界線），先把界線劃清楚→決定；terminal 是在終點的→（疾病）末期的，當名詞是鐵路的終點站，後來機場的航廈也叫 terminal。",
+   "items": [
+    {
+     "w": "term",
+     "p": "term（拉丁文 terminus 終點、界線）"
+    },
+    {
+     "w": "determine",
+     "p": "de 離開 + termin 界限"
+    },
+    {
+     "w": "determination",
+     "p": "determine 決定 + -ation（去掉 e）"
+    },
+    {
+     "w": "terminal",
+     "p": "term（拉丁文 terminus 終點）+ -al"
+    }
+   ],
+   "dropped": []
+  },
+  {
+   "key": "fract / frag",
+   "zh": "打破",
+   "note": "拉丁文 frangere「打破」，這個家族有 fract、frag 兩種拼法。fraction 是打破的一部分→分數、一小部分；fragment 是打下來的一塊→碎片；fracture 是打斷→骨折、斷裂；fragile 是容易打破的→易碎的。",
+   "items": [
+    {
+     "w": "fragile",
+     "p": "frag（拉丁文 frangere 打破）+ -ile"
+    },
+    {
+     "w": "fraction",
+     "p": "fract（拉丁文 frangere 打破）+ -ion"
+    },
+    {
+     "w": "fragment",
+     "p": "frag（拉丁文 frangere 打破）+ -ment"
+    },
+    {
+     "w": "fracture",
+     "p": "fract（拉丁文 frangere 打破）+ -ure"
+    }
+   ],
+   "dropped": [
+    {
+     "list": "fragrant、fragrance",
+     "why": "來自拉丁文 fragrare「散發（香）氣味」，跟 frangere「打破」無關"
+    }
+   ]
+  },
+  {
+   "key": "aud / audi",
+   "zh": "聽",
+   "note": "拉丁文 audire「聽」。audience 是在聽的人→聽眾、觀眾；audio 是聲音的、錄音的；auditorium 字面是「聽的地方」→禮堂；audit 原本是「聽」，早期查帳是口頭進行的，所以引申為審計、查帳，到現在也指不拿學分去聽課→旁聽。",
+   "items": [
+    {
+     "w": "audience",
+     "p": "audi（拉丁文 audire 聽）+ -ence"
+    },
+    {
+     "w": "audio",
+     "p": "audio-（拉丁文 audire 聽）"
+    },
+    {
+     "w": "auditorium",
+     "p": "audit（拉丁文 audire 聽）+ -orium"
+    },
+    {
+     "w": "audit",
+     "p": "audit（拉丁文 auditus 聆聽，來自 audire 聽）"
+    }
+   ],
+   "dropped": [
+    {
+     "list": "applaud",
+     "why": "ap（ad 朝向）+ plaud（拉丁文 plaudere 拍手），跟 audire「聽」無關"
+    },
+    {
+     "list": "fraud",
+     "why": "來自拉丁文 fraus「欺騙」，字源不明，跟 audire「聽」無關"
+    }
+   ]
+  },
+  {
+   "key": "rect / reg",
+   "zh": "直；引導、統治",
+   "note": "拉丁文 regere「引導、統治」，也有「使直」的意思，它的源頭是更古老的字根 reg-「走直線」；相關的 rectus 是「直的、正確的」，所以這個家族有 rect、reg 兩種拼法。correct 是徹底弄直→改正、正確的；direct 是把方向拉直→指引、直接的；erect 是 e（往外、往上）加上弄直→直立的、豎立；rectangle 是有直角的形狀→長方形。拉丁文 regula 是「規則、直尺」，所以 regular 是照規則的→規律的，regulate 是用規則來管；region 原本指界線、範圍，後來指地區；regime 是統治的方式→政權。",
+   "items": [
+    {
+     "w": "correct",
+     "p": "cor 徹底 + rect 直"
+    },
+    {
+     "w": "direct",
+     "p": "di（dis 分開）+ rect（拉丁文 regere 引導、使直）"
+    },
+    {
+     "w": "direction",
+     "p": "direct 指引 + -ion"
+    },
+    {
+     "w": "director",
+     "p": "direct 指導 + -or"
+    },
+    {
+     "w": "region",
+     "p": "reg（拉丁文 regere 引導、統治）+ -ion"
+    },
+    {
+     "w": "regular",
+     "p": "regul（拉丁文 regula 規則、直尺）+ -ar"
+    },
+    {
+     "w": "rectangle",
+     "p": "rect（拉丁文 rectus 直的、正確的）+ angle 角"
+    },
+    {
+     "w": "regional",
+     "p": "region 地區 + -al"
+    },
+    {
+     "w": "regulate",
+     "p": "regul（拉丁文 regula 規則）+ -ate"
+    },
+    {
+     "w": "regulation",
+     "p": "regulate 規範 + -ion"
+    },
+    {
+     "w": "directory",
+     "p": "direct 指引 + -ory"
+    },
+    {
+     "w": "erect",
+     "p": "e（ex）往外 + rect 直"
+    },
+    {
+     "w": "regime",
+     "p": "來自拉丁文 regimen 統治（reg 統治）"
+    },
+    {
+     "w": "directive",
+     "p": "direct 指引 + -ive"
+    }
+   ],
+   "dropped": [
+    {
+     "list": "register、registration",
+     "why": "re（回）+ 拉丁文 gerere「帶」，帶回來記下→登記，跟 regere 無關；只有後來的一部分意思受到 regere 的影響"
+    },
+    {
+     "list": "regard",
+     "why": "re + 古法文 garder「注意、看」，跟 guard 同源，跟 regere 無關"
+    },
+    {
+     "list": "regret",
+     "why": "re + 古法文 -greter，可能來自日耳曼語「哭泣」，跟 regere 無關"
+    }
+   ]
   }
  ],
  "sites": {
