@@ -6219,6 +6219,168 @@
      "list": "superficial"
     }
    ]
+  },
+  {
+   "key": "scrib / script",
+   "zh": "寫",
+   "note": "拉丁文 scribere「寫」，過去分詞是 scriptus，所以這一家有 scribe、script 兩種拼法：動詞多半是 -scribe，名詞和形容詞把 be 換成 p，變成 -script、-scription、-scriptive，像 describe → description、descriptive。前面加的字首不同，意思也跟著變：describe 是寫下來→描述，prescribe 是事先寫好→規定、開處方，subscribe 是在文件下面簽上名字→訂閱，transcript 是照著抄到另一張紙上→文字紀錄、成績單。manuscript 是用手（manu）寫的稿子，script 是寫下來的東西，也就是劇本、腳本。",
+   "items": [
+    {
+     "w": "describe",
+     "lv": 2,
+     "kk": "dɪˈskraɪb",
+     "p": "de 往下 + scribe 寫",
+     "g": "v. 寫下來→描述",
+     "refs": [
+      {
+       "s": "gcz",
+       "id": "G91_28_1",
+       "t": "學測克漏字 91年 第28格",
+       "k": "a"
+      }
+     ]
+    },
+    {
+     "w": "description",
+     "lv": 2,
+     "kk": "dɪˈskrɪpʃən",
+     "p": "describe 描述 + -tion（be 變成 p）",
+     "g": "n. 描述",
+     "refs": [
+      {
+       "s": "gcz",
+       "id": "G103_21_2",
+       "t": "學測克漏字 103年 第21格",
+       "k": "a"
+      }
+     ]
+    },
+    {
+     "w": "descriptive",
+     "lv": 5,
+     "kk": "dɪˈskrɪptɪv",
+     "p": "describe 描述（拉丁文 descriptus）+ -ive",
+     "g": "adj. 描述的",
+     "refs": [
+      {
+       "s": "gsat",
+       "id": "V0430",
+       "t": "109學測 單字Q10",
+       "k": "d"
+      },
+      {
+       "s": "gsat",
+       "id": "V0065",
+       "t": "87推薦甄選 單字Q5",
+       "k": "d"
+      },
+      {
+       "s": "zhikao",
+       "id": "ZK0060",
+       "t": "106指考 單字Q10",
+       "k": "d"
+      }
+     ]
+    },
+    {
+     "w": "prescribe",
+     "lv": 5,
+     "kk": "prɪˈskraɪb",
+     "p": "pre 事先 + scribe 寫",
+     "g": "v. 事先寫好→開處方；規定",
+     "refs": [
+      {
+       "s": "ep",
+       "id": "86",
+       "t": "作文字彙表 86學年 a prescription / prescribe + N"
+      }
+     ]
+    },
+    {
+     "w": "prescription",
+     "lv": 5,
+     "kk": "prɪˈskrɪpʃən",
+     "p": "prescribe 開藥方 + -tion（be 變成 p）",
+     "g": "n. 處方、藥方",
+     "refs": [
+      {
+       "s": "zhikao",
+       "id": "ZK0171",
+       "t": "96指考 單字Q9",
+       "k": "d"
+      },
+      {
+       "s": "gcz",
+       "id": "G94_28_3",
+       "t": "學測克漏字 94年 第28格",
+       "k": "d"
+      },
+      {
+       "s": "ep",
+       "id": "86",
+       "t": "作文字彙表 86學年 a prescription / prescribe + N"
+      }
+     ]
+    },
+    {
+     "w": "script",
+     "lv": 5,
+     "kk": "skrɪpt",
+     "p": "script（拉丁文 scriptum 寫下來的東西）",
+     "g": "n. 寫下來的東西→劇本、腳本；筆跡；文字"
+    },
+    {
+     "w": "subscribe",
+     "lv": 6,
+     "kk": "səbˈskraɪb",
+     "p": "sub 在下面 + scribe 寫",
+     "g": "v. 在文件下面簽名→訂閱、訂購；（subscribe to）贊同（某種看法）"
+    },
+    {
+     "w": "subscription",
+     "lv": 6,
+     "kk": "səbˈskrɪpʃən",
+     "p": "subscribe 訂閱 + -tion（be 變成 p）",
+     "g": "n. 訂閱、訂購",
+     "refs": [
+      {
+       "s": "zcz",
+       "id": "Z94_26",
+       "t": "指考克漏字 94年 第26格",
+       "k": "d"
+      }
+     ]
+    },
+    {
+     "w": "transcript",
+     "lv": 6,
+     "kk": "ˈtrænˌskrɪpt",
+     "p": "trans 越過 + script 寫",
+     "g": "n. 照著抄到另一張紙上→文字紀錄；成績單",
+     "refs": [
+      {
+       "s": "zhikao",
+       "id": "ZK0171",
+       "t": "96指考 單字Q9",
+       "k": "d"
+      },
+      {
+       "s": "zhikao",
+       "id": "ZK0315",
+       "t": "82聯考 單字Q2",
+       "k": "d"
+      }
+     ]
+    },
+    {
+     "w": "manuscript",
+     "lv": 6,
+     "kk": "ˈmænjəˌskrɪpt",
+     "p": "manu 手 + script 寫",
+     "g": "n. 用手寫的→手稿；（出版前的）原稿"
+    }
+   ],
+   "dropped": []
   }
  ],
  "sites": {
