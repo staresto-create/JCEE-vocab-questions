@@ -7460,6 +7460,278 @@
      "list": "chapel、gospel"
     }
    ]
+  },
+  {
+   "key": "dict / dic",
+   "zh": "說",
+   "note": "拉丁文 dicere「說」，過去分詞是 dictus，所以這一家大多拼成 dict：predict 是事先說出來→預測，contradict 是說相反的話→反駁、矛盾，verdict 是說出真話→裁決，dictate 是說出來讓人寫下→口述、命令，dictator 是說了就算的人→獨裁者，dictionary 是收集字詞的書。addict 的拉丁文 addictus 原本是羅馬的法律用語，指被法官判給債主抵債的人，後來變成「把自己交給某件事」→上癮。condition 是大家一起說好的→條件，也指狀況。另一支是 dicare「宣告」，跟 dicere 原本可能是同一個字：indicate 是指出、顯示，index 是指出內容在哪裡的清單→索引，dedicate 是宣告把東西獻出去→奉獻。還有幾個字也是這一家的遠親：preach（講道）來自拉丁文 praedicare「公開宣告」，judge（法官）來自拉丁文 iudex「說出法律的人」，judicial（司法的）、prejudice（偏見）又是從 iudex 變來的；不過這些字拼法差太多，不收進來。",
+   "items": [
+    {
+     "w": "dictionary",
+     "lv": 1,
+     "kk": "ˈdɪkʃəˌnɛri",
+     "p": "diction（拉丁文 dictio 說的話、字詞）+ -ary",
+     "g": "n. 收集字詞的書→字典",
+     "refs": [
+      {
+       "s": "tr",
+       "id": "25",
+       "t": "中譯英 76(大學聯考) 第25題"
+      }
+     ]
+    },
+    {
+     "w": "condition",
+     "lv": 2,
+     "kk": "kənˈdɪʃən",
+     "p": "con 一起 + dit（拉丁文 dicere 說；原本拼成 condicio，t 是後來才改的）+ -ion",
+     "g": "n. 大家一起說好的→條件；狀況；（身體的）疾病、毛病",
+     "refs": [
+      {
+       "s": "gsat",
+       "id": "V0274",
+       "t": "99學測 單字Q4",
+       "k": "d"
+      },
+      {
+       "s": "gcz",
+       "id": "G104_28_3",
+       "t": "學測克漏字 104年 第28格",
+       "k": "d"
+      },
+      {
+       "s": "tr",
+       "id": "105",
+       "t": "中譯英 85(學測) 第105題"
+      }
+     ]
+    },
+    {
+     "w": "indicate",
+     "lv": 2,
+     "kk": "ˈɪndəˌkeɪt",
+     "p": "in 朝向 + dic 說、指 + -ate",
+     "g": "v. 指出、顯示",
+     "refs": [
+      {
+       "s": "zcz",
+       "id": "Z107_20",
+       "t": "指考克漏字 107年 第20格",
+       "k": "d"
+      },
+      {
+       "s": "tr",
+       "id": "1",
+       "t": "中譯英 73(大學聯考) 第1題"
+      }
+     ]
+    },
+    {
+     "w": "predict",
+     "lv": 4,
+     "kk": "prɪˈdɪkt",
+     "p": "pre 事先 + dict 說",
+     "g": "v. 事先說出來→預測",
+     "refs": [
+      {
+       "s": "gsat",
+       "id": "V0408",
+       "t": "108學測 單字Q3",
+       "k": "a"
+      },
+      {
+       "s": "gsat",
+       "id": "V0337",
+       "t": "103學測 單字Q7",
+       "k": "d"
+      },
+      {
+       "s": "gcz",
+       "id": "G111學測英文參考試卷_17_1",
+       "t": "學測克漏字 111年 第17格",
+       "k": "d"
+      }
+     ]
+    },
+    {
+     "w": "prediction",
+     "lv": 4,
+     "kk": "prɪˈdɪkʃən",
+     "p": "predict 預測 + -ion",
+     "g": "n. 預測",
+     "refs": [
+      {
+       "s": "zhikao",
+       "id": "ZK0214",
+       "t": "92指考 單字Q10",
+       "k": "d"
+      }
+     ]
+    },
+    {
+     "w": "addict",
+     "lv": 4,
+     "kk": "（名詞）ˈædɪkt　（動詞）əˈdɪkt",
+     "p": "ad 朝向 + dict 說",
+     "g": "n. 原意是「被判給別人的人」→上癮的人；…迷；v. 使上癮、使沉迷",
+     "refs": [
+      {
+       "s": "zcz",
+       "id": "Z107參_13",
+       "t": "指考克漏字 107年 第13格",
+       "k": "d"
+      },
+      {
+       "s": "zcz",
+       "id": "Z101_13",
+       "t": "指考克漏字 101年 第13格",
+       "k": "d"
+      },
+      {
+       "s": "ep",
+       "id": "101",
+       "t": "作文字彙表 101學年 be addicted to + N"
+      }
+     ]
+    },
+    {
+     "w": "indication",
+     "lv": 4,
+     "kk": "ˌɪndəˈkeɪʃən",
+     "p": "indicate 指出 + -ion",
+     "g": "n. 跡象、徵兆；表示",
+     "refs": [
+      {
+       "s": "zhikao",
+       "id": "ZK0305",
+       "t": "83聯考 單字Q2",
+       "k": "a"
+      },
+      {
+       "s": "zhikao",
+       "id": "ZK0281",
+       "t": "86聯考 單字Q8",
+       "k": "d"
+      }
+     ]
+    },
+    {
+     "w": "contradiction",
+     "lv": 5,
+     "kk": "ˌkɑntrəˈdɪkʃən",
+     "p": "contradict 反駁；矛盾 + -ion",
+     "g": "n. 矛盾；反駁"
+    },
+    {
+     "w": "verdict",
+     "lv": 5,
+     "kk": "ˈvɝdɪkt",
+     "p": "ver 真實 + dict 說",
+     "g": "n. 說出真話→（陪審團的）裁決；判斷、意見"
+    },
+    {
+     "w": "index",
+     "lv": 5,
+     "kk": "ˈɪndɛks",
+     "p": "in 朝向 + dex（拉丁文 dicare 宣告、指出）",
+     "g": "n. 指出東西在哪裡→索引；指數、指標",
+     "refs": [
+      {
+       "s": "zhikao",
+       "id": "ZK0061",
+       "t": "105指考 單字Q1",
+       "k": "d"
+      }
+     ]
+    },
+    {
+     "w": "dedicate",
+     "lv": 5,
+     "kk": "ˈdɛdəˌkeɪt",
+     "p": "de 離開 + dic 宣告 + -ate",
+     "g": "v. 宣告把東西獻出去→奉獻、致力；（把作品）題獻給；把（時間、空間、經費）專用於"
+    },
+    {
+     "w": "dictate",
+     "lv": 6,
+     "kk": "ˈdɪkˌteɪt",
+     "p": "dict 說 + -ate（拉丁文 dictare 反覆說、規定）",
+     "g": "v. 說給人寫下來→口述；命令、支配"
+    },
+    {
+     "w": "dictation",
+     "lv": 6,
+     "kk": "dɪkˈteɪʃən",
+     "p": "dictate 口述 + -ion",
+     "g": "n. 口述；聽寫"
+    },
+    {
+     "w": "dictator",
+     "lv": 6,
+     "kk": "ˈdɪkˌteɪtɚ",
+     "p": "dictate 命令 + -or",
+     "g": "n. 獨裁者"
+    },
+    {
+     "w": "dictatorship",
+     "lv": 6,
+     "kk": "dɪkˈteɪtɚˌʃɪp",
+     "p": "dictator 獨裁者 + -ship",
+     "g": "n. 獨裁統治；獨裁政權"
+    },
+    {
+     "w": "contradict",
+     "lv": 6,
+     "kk": "ˌkɑntrəˈdɪkt",
+     "p": "contra 相反 + dict 說",
+     "g": "v. 說相反的話→反駁；與…矛盾",
+     "refs": [
+      {
+       "s": "zhikao",
+       "id": "ZK0024",
+       "t": "109指考 單字Q4",
+       "k": "d"
+      },
+      {
+       "s": "zhikao",
+       "id": "ZK0129",
+       "t": "100指考 單字Q7",
+       "k": "d"
+      }
+     ]
+    },
+    {
+     "w": "addiction",
+     "lv": 6,
+     "kk": "əˈdɪkʃən",
+     "p": "addict 使上癮 + -ion",
+     "g": "n. 上癮、沉迷"
+    },
+    {
+     "w": "dedication",
+     "lv": 6,
+     "kk": "ˌdɛdəˈkeɪʃən",
+     "p": "dedicate 奉獻 + -ion",
+     "g": "n. 奉獻、投入；（書前的）題獻詞"
+    },
+    {
+     "w": "unconditional",
+     "lv": 6,
+     "kk": "ˌʌnkənˈdɪʃənəl",
+     "p": "un 不 + conditional 有條件的",
+     "g": "adj. 無條件的"
+    }
+   ],
+   "dropped": [
+    {
+     "why": "這幾個字的 dit 來自拉丁文 dare「給」和 -dere「放」這兩類動詞的過去分詞（addere→additus、edere→editus、tradere→traditus），跟 dicere 無關",
+     "list": "addition、additional、edition、tradition、traditional"
+    },
+    {
+     "why": "來自拉丁文 medicus「醫生」，dic 只是拼法巧合",
+     "list": "medicine、medical、medication"
+    }
+   ]
   }
  ],
  "sites": {
