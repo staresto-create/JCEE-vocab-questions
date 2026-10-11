@@ -2638,7 +2638,7 @@
     },
     {
      "list": "activity、creativity、productivity、sensitivity、captivity",
-     "why": "這些字是 -ive 結尾的形容詞加上 -ity，像 creative + -ity → creativity（activity、captivity 在拉丁文就已經這樣組成），中間的 vit 不是字根"
+     "why": "這些字是 -ive 結尾的形容詞加上 -ity，像 creative + -ity → creativity（activity、captivity 在拉丁文就已經這樣組成），中間的 vit 不是字根；activity 收在 act / ag 那個家族"
     }
    ]
   },
@@ -3428,6 +3428,265 @@
     {
      "list": "prize",
      "why": "當「獎品、獎賞」時來自古法文 pris「價格、價值、獎賞」，再往上是拉丁文 pretium「價格、獎賞」，跟 price 同源，不是這個家族"
+    }
+   ]
+  },
+  {
+   "key": "polit / polic",
+   "zh": "城市、公民",
+   "note": "希臘文 polis「城市、城邦」，polites 是住在城裡的「公民」，politikos 是「公民的、跟國家和公共事務有關的」。political 經拉丁文 politicus 來，是政治的；politics 原本是治理國家的學問，後來也指政治活動和個人的政治立場；politician 是 politics + -ian，原本指精通政治的人，現在指政治人物。希臘文 politeia 是「國家、治理、公民身分」，經拉丁文 politia 到法文，一支成了 policy，從治理的學問變成治理的方針→政策；另一支成了 police，原本也是治理、行政，十八世紀從法文借來「維持治安」的意思，1800 年左右才指警察組織。policy 當「保險單」時是另一個字，經義大利文 polizza 來，跟 polis 不同源。metropolitan 來自希臘文 metropolis「母城」，meter（母親）+ polis（城市），原本是教會用語，指省會城市的主教，十六世紀才有「首都的、大都市的」意思。",
+   "items": [
+    {
+     "w": "police",
+     "p": "police（希臘文 politeia 治理國家，經拉丁文 politia、法文 police）"
+    },
+    {
+     "w": "policeman",
+     "p": "police 警察 + -man"
+    },
+    {
+     "w": "policy",
+     "p": "poli（希臘文 politeia 治理國家，經拉丁文 politia、古法文 policie）+ -cy"
+    },
+    {
+     "w": "political",
+     "p": "politic（希臘文 politikos 公民的）+ -al"
+    },
+    {
+     "w": "politician",
+     "p": "politics 政治 + -ian"
+    },
+    {
+     "w": "politics",
+     "p": "politic（希臘文 politikos 公民的、國家的）+ -s"
+    },
+    {
+     "w": "metropolitan",
+     "p": "metro（希臘文 meter 母親）+ polit（polis 城市）+ -an"
+    }
+   ],
+   "dropped": [
+    {
+     "list": "polite",
+     "why": "來自拉丁文 politus「磨光的、精緻的」，是 polire「磨光」的過去分詞，跟 polish 同源：磨光的→舉止文雅的→有禮貌的。跟 polis 無關"
+    },
+    {
+     "list": "polish",
+     "why": "來自拉丁文 polire「磨光、使光滑」，跟 polite 同源，跟 polis 無關"
+    },
+    {
+     "list": "holy",
+     "why": "來自古英文 halig「神聖的」，再往上是原始印歐語 *kailo-「完整的、沒有損傷的」，跟 health 同源，跟 polis 無關"
+    },
+    {
+     "list": "cosmopolitan",
+     "why": "字源確實是 polis：來自希臘文 kosmopolites「世界公民」，kosmos（世界）+ polites（公民），但《高中英文參考詞彙表》沒有這個字"
+    }
+   ]
+  },
+  {
+   "key": "form",
+   "zh": "形狀、形式",
+   "note": "拉丁文 forma「形狀、外形、樣子」，動詞 formare 是「塑形、做成」；forma 本身的來源不明，有一說認為經伊特拉斯坎語來自希臘文 morphe。字首決定怎麼塑形：in 是塑形，比喻成教導、訓練，後來才指告知，re 是重新塑形→改革，trans 是從一種形狀換到另一種→徹底改變，con 是塑成一樣的形狀→遵守、順從，uni 是只有一種形狀→一致的，後來指制服。formal 是合乎形式的→正式的。format 原本指書的開本大小，二十世紀才指電腦資料的格式。formula 是 forma 的指小形「小形式」，原本是儀式裡固定的說法、規則，後來指數學公式、化學式；formulate 是把想法化成公式→詳細制定。platform 來自法文 plateforme「平的形狀」，plat（平）+ forme（形狀），英文最早（十六世紀）指計畫、方案，不久也指高起來的平面，後來才有月台、政見、網路平台的意思。",
+   "items": [
+    {
+     "w": "uniform",
+     "p": "uni 一 + form 形狀"
+    },
+    {
+     "w": "form",
+     "p": "form（拉丁文 forma 形狀）"
+    },
+    {
+     "w": "formal",
+     "p": "form 形式 + -al"
+    },
+    {
+     "w": "platform",
+     "p": "plat（法文 plat 平的）+ form 形狀"
+    },
+    {
+     "w": "inform",
+     "p": "in 進入 + form 形狀"
+    },
+    {
+     "w": "information",
+     "p": "inform 通知 + -ation"
+    },
+    {
+     "w": "formation",
+     "p": "form 形成 + -ation"
+    },
+    {
+     "w": "formula",
+     "p": "formula（拉丁文 formula 小形式、規則，是 forma 形狀的指小形）"
+    },
+    {
+     "w": "reform",
+     "p": "re 再 + form 形狀"
+    },
+    {
+     "w": "transform",
+     "p": "trans 轉換 + form 形狀"
+    },
+    {
+     "w": "informative",
+     "p": "inform 告知 + -ative"
+    },
+    {
+     "w": "format",
+     "p": "format（近代拉丁文 liber formatus「做成某種形狀的書」，formatus 是 formare 塑形的過去分詞）"
+    },
+    {
+     "w": "conform",
+     "p": "con 一起 + form 形狀"
+    },
+    {
+     "w": "transformation",
+     "p": "transform 轉變 + -ation"
+    },
+    {
+     "w": "formulate",
+     "p": "formula 公式 + -ate"
+    }
+   ],
+   "dropped": [
+    {
+     "list": "perform　performance　performer",
+     "why": "來自古法文 parfornir「做完、完成」，par（徹底）+ fornir（提供），後來受古法文 forme「形狀」影響才拼成 perform，原本跟形狀無關"
+    },
+    {
+     "list": "former",
+     "why": "來自古英文 forma「第一的」，跟 foremost 同源，不是拉丁文 forma"
+    },
+    {
+     "list": "formidable",
+     "why": "來自拉丁文 formido「恐懼」，令人害怕的→難對付的，跟 forma 無關"
+    },
+    {
+     "list": "deform",
+     "why": "字源確實是 de + formare（弄壞形狀），但《高中英文參考詞彙表》沒有這個字"
+    }
+   ]
+  },
+  {
+   "key": "act / ag",
+   "zh": "做、驅動",
+   "note": "拉丁文 agere「使動起來、驅趕向前；做、執行」，過去分詞是 actus，所以這個家族有 ag 和 act 兩種拼法。act 是做的事→行為，也指法案、戲劇的一幕；actor 原本是做事的人，十六世紀才指演員。actual 原本是跟行動有關的，後來指實際存在的→實際的。exact 來自 exigere，ex（出）+ agere，有「趕出來」和「完成、衡量」的意思，過去分詞 exactus 是做得很精細的→精確的。transaction 來自 transigere，trans（穿過）+ agere，原本指雙方各讓一步把爭議談妥，後來指一筆完成的生意→交易。react、interact 是英文自己加字首組成的字。agent 是做事的人→代理人；agency 是代理機構；agenda 是「要做的事情」，現在指會議的議程。navigate 是 navis（船）+ agere，駕船航行；ambiguous 來自 ambigere「到處走、拿不定主意」，ambi（兩邊、四周）+ agere，所以是模稜兩可的。",
+   "items": [
+    {
+     "w": "act",
+     "p": "act（拉丁文 actus 做的事，是 agere 做的過去分詞）"
+    },
+    {
+     "w": "action",
+     "p": "act 行動 + -ion"
+    },
+    {
+     "w": "actor",
+     "p": "act 演 + -or"
+    },
+    {
+     "w": "actress",
+     "p": "actor 演員 + -ess"
+    },
+    {
+     "w": "active",
+     "p": "act 行動 + -ive"
+    },
+    {
+     "w": "activity",
+     "p": "active 活躍的 + -ity"
+    },
+    {
+     "w": "actual",
+     "p": "act（拉丁文 actus 行動）+ -ual"
+    },
+    {
+     "w": "exact",
+     "p": "ex 出 + act（拉丁文 agere 驅趕）"
+    },
+    {
+     "w": "react",
+     "p": "re 回 + act 做"
+    },
+    {
+     "w": "reaction",
+     "p": "react 反應 + -ion"
+    },
+    {
+     "w": "interact",
+     "p": "inter 互相 + act 做"
+    },
+    {
+     "w": "interaction",
+     "p": "interact 互動 + -ion"
+    },
+    {
+     "w": "agent",
+     "p": "ag（拉丁文 agere 做）+ -ent"
+    },
+    {
+     "w": "agency",
+     "p": "ag（拉丁文 agere 做）+ -ency"
+    },
+    {
+     "w": "ambiguous",
+     "p": "ambi 兩邊 + gu（拉丁文 agere 驅動）+ -ous"
+    },
+    {
+     "w": "activist",
+     "p": "active 積極的 + -ist"
+    },
+    {
+     "w": "transaction",
+     "p": "trans 穿過 + act（拉丁文 agere 做）+ -ion"
+    },
+    {
+     "w": "agenda",
+     "p": "agenda（拉丁文 agenda 要做的事情，來自 agere 做）"
+    },
+    {
+     "w": "radioactive",
+     "p": "radio（拉丁文 radius 光線）+ active 活躍的"
+    },
+    {
+     "w": "ambiguity",
+     "p": "ambiguous 模稜兩可的 + -ity"
+    },
+    {
+     "w": "navigate",
+     "p": "nav（拉丁文 navis 船）+ ig（agere 驅動）+ -ate"
+    },
+    {
+     "w": "navigation",
+     "p": "navigate 航行；導航 + -ion"
+    }
+   ],
+   "dropped": [
+    {
+     "list": "compact　impact",
+     "why": "來自拉丁文 pangere「釘牢、固定」：compact 是 com（一起）+ pangere，緊緊釘在一起→緊密的；impact 是 in（進入）+ pangere，撞進去→衝擊。跟 agere 無關"
+    },
+    {
+     "list": "practice　practical　practitioner",
+     "why": "來自希臘文 praktikos「適合行動的」，再往上是 prassein「做」，意思很像，但走的是希臘文，跟拉丁文 agere 無關"
+    },
+    {
+     "list": "exaggerate",
+     "why": "來自拉丁文 exaggerare「堆高」，agger 是「一堆」，跟 agere 無關"
+    },
+    {
+     "list": "character　characteristic　characterize",
+     "why": "來自希臘文 kharakter「刻下的記號」，再往上是 kharassein「刻」，act 只是拼法上的巧合"
+    },
+    {
+     "list": "examine　exam　examination　essay",
+     "why": "essay 來自晚期拉丁文 exagium「秤重」，出自 exigere（ex + agere）；examine 來自拉丁文 examen「秤、衡量的工具」，Etymonline 說很可能也是從 exigere 來。都跟這個家族有關，但意思轉得太遠，不列入條目"
+    },
+    {
+     "list": "enact",
+     "why": "是 en + act（演出；制定成法律），但《高中英文參考詞彙表》沒有這個字"
     }
    ]
   }

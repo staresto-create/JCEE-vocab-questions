@@ -12,14 +12,6 @@
      "t": "再一次",
      "items": [
       {
-       "w": "react",
-       "p": "re 再 + act 做"
-      },
-      {
-       "w": "reaction",
-       "p": "react + -ion"
-      },
-      {
        "w": "recreation",
        "p": "re 再 + create 創造"
       },
@@ -551,6 +543,14 @@
       {
        "w": "redundancy",
        "p": "re 回 + und（拉丁文 unda 波浪）+ -ancy"
+      },
+      {
+       "w": "react",
+       "p": "re 回 + act 做"
+      },
+      {
+       "w": "reaction",
+       "p": "react 反應 + -ion"
       }
      ]
     },
@@ -1162,11 +1162,11 @@
       },
       {
        "w": "information",
-       "p": "inform + -ation"
+       "p": "inform 通知 + -ation"
       },
       {
        "w": "informative",
-       "p": "inform + -ative"
+       "p": "inform 告知 + -ative"
       },
       {
        "w": "ingredient",
@@ -2276,16 +2276,16 @@
       {
        "w": "evolution",
        "p": "evolve 的名詞"
+      },
+      {
+       "w": "exact",
+       "p": "ex 出 + act（拉丁文 agere 驅趕）"
       }
      ]
     },
     {
      "t": "徹底、做到底",
      "items": [
-      {
-       "w": "exact",
-       "p": "ex 徹底 + act（拉丁文 agere 做）"
-      },
       {
        "w": "exaggerate",
        "p": "ex 徹底 + agger（堆）+ -ate"
@@ -4021,7 +4021,7 @@
       },
       {
        "w": "transformation",
-       "p": "transform + -ation"
+       "p": "transform 轉變 + -ation"
       },
       {
        "w": "transition",
@@ -4144,7 +4144,7 @@
       },
       {
        "w": "interaction",
-       "p": "interact + -ion"
+       "p": "interact 互動 + -ion"
       },
       {
        "w": "interview",
@@ -6636,7 +6636,7 @@
       },
       {
        "w": "ambiguity",
-       "p": "ambiguous 的名詞"
+       "p": "ambiguous 模稜兩可的 + -ity"
       },
       {
        "w": "ambition",
@@ -10400,7 +10400,7 @@
       },
       {
        "w": "agency",
-       "p": "agent 代理人 → agency"
+       "p": "ag（拉丁文 agere 做）+ -ency"
       },
       {
        "w": "emergency",
@@ -10522,7 +10522,7 @@
       },
       {
        "w": "policy",
-       "p": "希臘文 politeia（治理國家；跟 politics 同源）"
+       "p": "poli（希臘文 politeia 治理國家，經拉丁文 politia、古法文 policie）+ -cy"
       }
      ]
     }
@@ -10796,7 +10796,7 @@
       },
       {
        "w": "transaction",
-       "p": "transact 交易 + -ion"
+       "p": "trans 穿過 + act（拉丁文 agere 做）+ -ion"
       },
       {
        "w": "attraction",
