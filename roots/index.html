@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>字根家族表｜高中英文參考詞彙表</title>
-<meta name="description" content="把大考中心《高中英文參考詞彙表》裡拆得動的字，按字根收成一家一家，每個字附拆解與意思，考過的字直接連到歷屆試題。">
+<meta name="description" content="把大考中心《高中英文參考詞彙表》裡可以用字根拆解的字，依字根分成一個個家族，每個字附拆解與意思，考過的字直接連到歷屆試題。">
 <meta property="og:title" content="字根家族表｜高中英文參考詞彙表">
 <meta property="og:description" content="三十三個字根家族，四百六十九個字，其中二百八十二個字連得到學測、指考、克漏字與作文的歷屆考題。">
 <style>
@@ -77,7 +77,7 @@ details .list{color:#3d5059}
 <body>
 <div class="wrap">
   <h1>字根家族表</h1>
-  <p class="lede">大考中心《高中英文參考詞彙表》（111 學年度起適用）收 5,992 個詞條，其中拆得動的字按字根收成一家一家。先定字根，再把整家收齊，不分級別——一、二級的字排在前面，用來推後面五、六級的字。每一家後面附同形異源的假朋友，那些是看起來像、其實不同家的字。字首另見<a href="../affixes/">字首字尾表</a>。</p>
+  <p class="lede">把大考中心《高中英文參考詞彙表》（111 學年度起適用）5,992 個詞條裡可以用字根拆解的字，依字根分組，同一個字根的字收在同一個家族裡，不分級別全部收齊。一、二級的熟字排在前面，先從認得的字看懂字根的意思，再拿去推五、六級的難字。每個家族後面列出容易拆錯的字，那些是看起來像、其實不是這個字根的字。字首、字尾另見<a href="../affixes/">字首字尾表</a>。</p>
 
   <div class="tools">
     <input type="search" id="q" placeholder="搜尋單字、拆解或意思" aria-label="搜尋">
@@ -166,7 +166,7 @@ function render(){
       const d=document.createElement('details');
       if(q) d.open=true;
       const s=document.createElement('summary');
-      s.textContent='假朋友：看起來像、其實不是這一家的字';
+      s.textContent='容易拆錯的字：看起來像這個家族的字，其實不是';
       d.appendChild(s);
       ffs.forEach(x=>{
         const t=document.createElement('p'); t.className='why'; t.textContent=x.why; d.appendChild(t);
@@ -184,7 +184,7 @@ function render(){
   }
   let linked=0; DATA.groups.forEach(g=>g.items.forEach(it=>{if(it.refs&&it.refs.length)linked++;}));
   $('#count').textContent = (state.q||state.w||state.lv.size||state.examOnly)
-    ? '符合的字 '+shown+' 個'+(ffShown?'，另有 '+ffShown+' 則假朋友說明提到這個字':'')+'，全表共 '+total.toLocaleString('en-US')+' 個'
+    ? '符合的字 '+shown+' 個'+(ffShown?'，另有 '+ffShown+' 則「容易拆錯的字」說明提到這個字':'')+'，全表共 '+total.toLocaleString('en-US')+' 個'
     : '共 '+DATA.groups.length+' 個字根家族、'+total.toLocaleString('en-US')+' 個字，其中 '+linked.toLocaleString('en-US')+' 個字附了考古題連結';
 }
 
