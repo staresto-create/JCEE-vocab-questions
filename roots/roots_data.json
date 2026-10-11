@@ -2047,7 +2047,7 @@
      "list": "absent、present、represent"
     },
     {
-     "why": "來自拉丁文 descendere：de 向下 + scandere 爬，往下爬→下降；家世、血統。跟 scent（氣味）無關，倒是 scent 的 c 可能就是受 descent、ascent 的拼法影響才加上的",
+     "why": "來自拉丁文 descendere：de 向下 + scandere 爬，往下爬→下降；家世、血統。跟 scent（氣味）無關，倒是 scent 的 c 可能就是受 descent、ascent 的拼法影響才加上的；收在 scend / scent 那個家族",
      "list": "descent"
     }
    ]
@@ -3194,6 +3194,242 @@
     }
    ],
    "dropped": []
+  },
+  {
+   "key": "scend / scent",
+   "zh": "爬",
+   "note": "拉丁文 scandere「爬」。ascend 是 ad（朝向）+ scandere，往上爬→上升、登上；descend 是 de（往下）+ scandere，往下爬→下降，也指從祖先傳下來；名詞 descent 是下降，最早的意思是血統、家世，拼法跟著法文的 descente，所以結尾是 t。scan 也來自 scandere：最早是照韻律的節拍念詩、分析詩句，後來變成逐一仔細察看，到了二十世紀又有瀏覽、掃描的意思。scale 當「規模、比例、刻度」或「攀登」時，來自拉丁文 scala（梯子），也是從 scandere 來；當「秤」「鱗片」時是另一個來源。escalator 是 1900 年造的商標名，用 escalade（用梯子爬城牆，經法文來自義大利文 scalata，再往上是 scala 梯子）加上 elevator 的 -ator，所以電扶梯也是這個家族的字。",
+   "items": [
+    {
+     "w": "descend",
+     "p": "de 往下 + scend 爬"
+    },
+    {
+     "w": "escalator",
+     "p": "escalade（用梯子爬城牆）+ -ator，仿照 elevator 造的字，原本是商標名"
+    },
+    {
+     "w": "scan",
+     "p": "scan（拉丁文 scandere 爬；後來專指照節拍念詩）"
+    },
+    {
+     "w": "ascend",
+     "p": "a（ad 朝向）+ scend 爬"
+    },
+    {
+     "w": "descent",
+     "p": "descend 的名詞"
+    }
+   ],
+   "dropped": [
+    {
+     "list": "ancient",
+     "why": "來自古法文 ancien，再往上是拉丁文 ante「以前」；字尾的 t 是後來受 -ent、-ant 結尾的字影響才加上的，跟 scandere 無關"
+    },
+    {
+     "list": "scent",
+     "why": "來自拉丁文 sentire「感覺」，收在 sens / sent 那個家族；c 是十七世紀才加上的，可能是受 ascent、descent 或 science 的拼法影響"
+    },
+    {
+     "list": "adolescent　reminiscent",
+     "why": "結尾的 scent 是拉丁文動詞的現在分詞：adolescent 來自 adolescere「長大」，reminiscent 來自 reminisci「回想」，跟 scandere 無關"
+    }
+   ]
+  },
+  {
+   "key": "quir / quis / quest",
+   "zh": "尋求、問",
+   "note": "拉丁文 quaerere「尋求、問」，過去分詞是 quaesitus，所以這個家族有 quir、quis、quest 幾種拼法。acquire 是 ad（朝向，可能是加強）+ quaerere，去尋求→取得、學到，名詞 acquisition 照拉丁文拼成 quis；inquire 是 in（往裡面）+ quaerere，往裡面問→詢問、調查，名詞是 inquiry。require 在十四世紀就有問、請求和需要兩種意思，「請求」這個意思後來交給 request；request 來自拉丁文 requisita（被要求的東西）。requirement 是需要的東西、必要條件。conquer 原本是努力求得、贏得，後來才指征服，名詞 conquest。quest 是尋求、探索；question 來自拉丁文 quaestio（探求、詢問），英文從一開始就指問題；questionnaire 是問卷。",
+   "items": [
+    {
+     "w": "question",
+     "p": "quest（拉丁文 quaerere 尋求、問）+ -ion"
+    },
+    {
+     "w": "require",
+     "p": "re 再 + quire（拉丁文 quaerere 尋求）"
+    },
+    {
+     "w": "requirement",
+     "p": "require 需要 + -ment"
+    },
+    {
+     "w": "request",
+     "p": "re 再 + quest 尋求"
+    },
+    {
+     "w": "acquire",
+     "p": "ac 朝向 + quire（拉丁文 quaerere 尋求）"
+    },
+    {
+     "w": "conquer",
+     "p": "con 徹底 + quer（拉丁文 quaerere 尋求）"
+    },
+    {
+     "w": "acquisition",
+     "p": "acquire 取得 + -ition（ire 變成 isit）"
+    },
+    {
+     "w": "inquiry",
+     "p": "inquire 詢問 + -y（去掉 e；可能是盎格魯法文由 enqueren 詢問 變來的名詞）"
+    },
+    {
+     "w": "quest",
+     "p": "quest（拉丁文 quaerere 尋求，經古法文 queste 尋找）"
+    },
+    {
+     "w": "questionnaire",
+     "p": "questionnaire（法文，來自 questionner 提問，questionner 又來自 question）"
+    },
+    {
+     "w": "inquire",
+     "p": "in 往裡面 + quire 尋求"
+    },
+    {
+     "w": "conquest",
+     "p": "conquer 的名詞"
+    }
+   ],
+   "dropped": [
+    {
+     "list": "squirrel",
+     "why": "來自希臘文 skiouros，經拉丁文、古法文進入英文；字面上常解釋成 skia 影子 + oura 尾巴，不過這個說法可能是民間字源。總之跟 quaerere 無關"
+    },
+    {
+     "list": "quiz",
+     "why": "Etymonline 說來源不明，沒有提到 quaerere，所以不收"
+    }
+   ]
+  },
+  {
+   "key": "cult / col",
+   "zh": "耕種、照料",
+   "note": "拉丁文 colere「耕種、照料」，也有居住的意思，過去分詞是 cultus。culture 原本是耕種土地，後來指培養心靈，到了十九世紀才指一個民族的文化；cultural 是文化的。agriculture 是 agri（拉丁文 ager 田地）+ culture，耕種田地→農業，agricultural 是農業的。cultivate 是耕種、栽培，後來也指用心培養能力、經營關係。colony 來自拉丁文 colonia（移居的土地、農場），colonus 是農夫、移居的人，所以殖民地原本是移民去耕種、居住的地方；colonial 是殖民地的。",
+   "items": [
+    {
+     "w": "culture",
+     "p": "cult（拉丁文 colere 耕種）+ -ure"
+    },
+    {
+     "w": "cultural",
+     "p": "culture 文化 + -al"
+    },
+    {
+     "w": "agriculture",
+     "p": "agri（拉丁文 ager 田地）+ culture 耕種"
+    },
+    {
+     "w": "colony",
+     "p": "colony（拉丁文 colonia 移居的土地、農場，來自 colonus 農夫、移居的人）"
+    },
+    {
+     "w": "agricultural",
+     "p": "agriculture 農業 + -al"
+    },
+    {
+     "w": "colonial",
+     "p": "colony 殖民地 + -ial"
+    },
+    {
+     "w": "cultivate",
+     "p": "cultiv（中世紀拉丁文 cultivare 耕種，來自 colere 的過去分詞 cultus）+ -ate"
+    }
+   ],
+   "dropped": [
+    {
+     "list": "difficult　difficulty　faculty",
+     "why": "裡面的 cult 來自拉丁文 facilis「容易的」（difficilis 是 dis 不 + facilis），跟 colere 無關，收在 fact / fac 那個家族"
+    }
+   ]
+  },
+  {
+   "key": "plex",
+   "zh": "編織",
+   "note": "拉丁文 plectere「編織」。complecti 是 com（一起）+ plectere，圍住、抱住，過去分詞是 complexus。complex 是很多部分編在一起→複雜的，當名詞是由許多相關部分組成的整體，例如綜合設施，心理學上指情結；complexity 是複雜。complexion 原本是組合，中世紀醫學認為人的體質由冷、熱、乾、濕四種性質調和而成，臉色反映這種調和，所以後來指膚色、氣色。complicate、apply、explicit、implicit 來自拉丁文 plicare（摺），跟 plectere 同源，都來自原始印歐語 *plek-（編）。",
+   "items": [
+    {
+     "w": "complex",
+     "p": "com 一起 + plex 編"
+    },
+    {
+     "w": "complexity",
+     "p": "complex 複雜的 + -ity"
+    },
+    {
+     "w": "complexion",
+     "p": "com 一起 + plex（編）+ -ion"
+    }
+   ],
+   "dropped": []
+  },
+  {
+   "key": "prehend / pris",
+   "zh": "抓住",
+   "note": "拉丁文 prehendere「抓住」，是 prae（在前）+ hendere，後來縮成 prendere，到法文變成 prendre（拿），過去分詞是 pris，所以這個家族也有 pris、prise 的拼法。comprehend 是全部抓住→理解，也有包含的意思；comprehension 是理解，comprehensive 是全部包含的→全面的。comprise 從法文 comprendre 來，是包含、由…組成。enterprise 是動手去做的事→事業、企業；surprise 原本是突然抓住、出其不意的攻擊，後來才指驚訝。prison 原本是抓住、囚禁的狀態，後來指監獄，prisoner、imprison、imprisonment 都從 prison 來。prey 來自拉丁文 praeda（戰利品、獵物），原本是「事先抓住的東西」；predator 來自拉丁文 praedator（掠奪者），也是從 praeda 來，現在指掠食者。apprentice 來自古法文 aprendre（學習），再往上是拉丁文 apprehendere（抓住），這個字到中世紀拉丁文已經有「學習」的意思。",
+   "items": [
+    {
+     "w": "surprise",
+     "p": "sur（super 在上面）+ prise（法文 prendre 抓）"
+    },
+    {
+     "w": "surprised",
+     "p": "surprise + -ed"
+    },
+    {
+     "w": "prison",
+     "p": "prison（拉丁文 prensio，是 prehensio 抓住縮短的形式，經古法文 prison 囚禁）"
+    },
+    {
+     "w": "prisoner",
+     "p": "prison 監獄 + -er"
+    },
+    {
+     "w": "comprehend",
+     "p": "com 徹底 + prehend 抓"
+    },
+    {
+     "w": "comprehension",
+     "p": "comprehend 理解 + -sion（d 變成 s）"
+    },
+    {
+     "w": "comprise",
+     "p": "com 徹底 + prise（古法文 compris，是 comprendre 的過去分詞，來自拉丁文 comprehendere）"
+    },
+    {
+     "w": "enterprise",
+     "p": "enter（inter 在之間）+ prise（法文 prendre 拿）"
+    },
+    {
+     "w": "prey",
+     "p": "prey（拉丁文 praeda 戰利品、獵物，原本是「事先抓住的東西」）"
+    },
+    {
+     "w": "predator",
+     "p": "predator（拉丁文 praedator 掠奪者，來自 praedari 搶奪，再往上是 praeda 戰利品、獵物）"
+    },
+    {
+     "w": "comprehensive",
+     "p": "comprehend 理解、包含 + -sive"
+    },
+    {
+     "w": "imprison",
+     "p": "im 進入 + prison 監獄"
+    },
+    {
+     "w": "imprisonment",
+     "p": "imprison 監禁 + -ment"
+    },
+    {
+     "w": "apprentice",
+     "p": "apprentice（古法文 aprentiz 學習的人，來自 aprendre 學習，再往上是拉丁文 apprehendere 抓住）"
+    }
+   ],
+   "dropped": [
+    {
+     "list": "prize",
+     "why": "當「獎品、獎賞」時來自古法文 pris「價格、價值、獎賞」，再往上是拉丁文 pretium「價格、獎賞」，跟 price 同源，不是這個家族"
+    }
+   ]
   }
  ],
  "sites": {
