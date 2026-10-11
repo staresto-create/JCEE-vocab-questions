@@ -9,20 +9,20 @@
   "en": "Teenagers like to take pictures of their pets with their phones, but pets often won’t sit still.",
   "chunks": [
    {
-    "zh": "青少年喜歡替寵物拍照",
-    "en": "Teenagers like to take pictures of their pets"
+    "zh": "青少年喜歡",
+    "en": "Teenagers like to"
+   },
+   {
+    "zh": "替寵物拍照",
+    "en": "take pictures of their pets"
    },
    {
     "zh": "用手機，",
     "en": "with their phones,"
    },
    {
-    "zh": "但寵物往往不肯",
-    "en": "but pets often won’t"
-   },
-   {
-    "zh": "乖乖坐著不動。",
-    "en": "sit still."
+    "zh": "但寵物往往不肯乖乖坐著不動。",
+    "en": "but pets often won’t sit still."
    }
   ],
   "altAnswers": [
@@ -73,8 +73,7 @@
    "句構": "S + like + to V + O + with N, but S + won’t + V（but 連接兩個子句）",
    "標的詞彙": [
     "take pictures of",
-    "won’t（不肯）",
-    "sit still"
+    "won’t sit still（不肯乖乖坐著不動）"
    ],
    "原文搭配": "sit still（p1：it’s hard to get them to sit still）",
    "建檔": "第三百六十七場建檔。主題取自 g101p4；命題分身出題，三輪盲測、四方審閱（引文事實、文法、學生讀者、大考體例）後裁定修訂。"
@@ -94,12 +93,12 @@
     "en": "To get good shots,"
    },
    {
-    "zh": "就得耐心等待，",
-    "en": "they have to wait patiently"
+    "zh": "就得耐心等待，直到",
+    "en": "they have to wait patiently until"
    },
    {
-    "zh": "直到寵物看著鏡頭",
-    "en": "until their pets look at the camera"
+    "zh": "寵物看著鏡頭",
+    "en": "their pets look at the camera"
    },
    {
     "zh": "或做出有趣的動作。",
@@ -250,16 +249,16 @@
   "label": "改編練習",
   "yearLabel": "改編練習（二）",
   "flagNote": "本題庫改編練習：主題取自 86 年學測閱讀測驗〈人際關係的建立與維繫〉，照現行學測中譯英的版面擬題（兩句一組），參考譯法與解析由本題庫撰寫，不是大考中心的試題，也沒有官方評分原則。",
-  "zh": "透過多和同學聊天、一起參加班上的活動，他們可以慢慢學會互相信任。",
-  "en": "By chatting with their classmates more often and taking part in class activities together, they can slowly learn to trust each other.",
+  "zh": "透過多和同學聊天、參加班上的活動，他們可以慢慢學會互相信任。",
+  "en": "By chatting more with their classmates and taking part in class activities, they can slowly learn to trust each other.",
   "chunks": [
    {
     "zh": "透過多和同學聊天、",
-    "en": "By chatting with their classmates more often"
+    "en": "By chatting more with their classmates"
    },
    {
-    "zh": "一起參加班上的活動，",
-    "en": "and taking part in class activities together,"
+    "zh": "參加班上的活動，",
+    "en": "and taking part in class activities,"
    },
    {
     "zh": "他們可以慢慢學會",
@@ -271,12 +270,11 @@
    }
   ],
   "altAnswers": [
-   "chatting with / talking with",
-   "more often / more",
+   "chatting more with / talking more with / chatting with their classmates more often",
    "taking part in / participating in / joining",
    "slowly / gradually",
    "each other / one another",
-   "另一種寫法：They can chat with their classmates more often and take part in class activities together, and they will slowly learn to trust each other."
+   "另一種寫法：They can chat more with their classmates and take part in class activities, and they will slowly learn to trust each other."
   ],
   "explanation": {
    "pattern": [
@@ -295,7 +293,7 @@
    "mustHave": [
     "中文「和同學聊天」的「同學」沒有單複數，也沒說是誰的同學，英文得各自決定：泛指班上的同學，用複數 classmates，前面加所有格 their；「班上的活動」也不只一項，用複數 activities。",
     "「透過……」→ By + V-ing（By 後面的 chatting、taking 都是動名詞）",
-    "另外兩處中文不必寫、英文非寫不可：「多和同學聊天」的「多」講的是次數，英文寫 more often，放在受詞後面，不寫成 more chat with；「互相」在中文放在動詞前面，英文的 each other 要放在動詞 trust 後面當受詞。"
+    "另外兩處中文不必寫、英文非寫不可：「多和同學聊天」的「多」修飾「聊天」，英文的 more 放在 chatting 後面，不寫成 chatting with more classmates（和更多同學聊天）；「互相」在中文放在動詞前面，英文的 each other 要放在動詞 trust 後面當受詞。"
    ],
    "refs": [
     {
@@ -314,8 +312,8 @@
   },
   "internalNote": {
    "_說明": "命題端量測，網站不顯示，供審稿使用",
-   "中文字數": 29,
-   "英文字數": 22,
+   "中文字數": 27,
+   "英文字數": 20,
    "句構": "By + V-ing … and V-ing …, S + can + V（介系詞片語說方法，主要子句說結果）",
    "標的詞彙": [
     "by + V-ing",
@@ -333,15 +331,15 @@
   "yearLabel": "改編練習（三）",
   "flagNote": "本題庫改編練習：主題取自 105 年學測閱讀測驗〈小發明家的故事〉，照現行學測中譯英的版面擬題（兩句一組），參考譯法與解析由本題庫撰寫，不是大考中心的試題，也沒有官方評分原則。",
   "zh": "喜歡動手做東西的學生，常會利用課餘時間參加發明比賽。",
-  "en": "Students who like making things often enter invention contests in their free time.",
+  "en": "Students who like to make things with their hands often enter invention contests in their free time.",
   "chunks": [
    {
-    "zh": "喜歡的學生，",
-    "en": "Students who like"
+    "zh": "喜歡做東西的學生，",
+    "en": "Students who like to make things"
    },
    {
-    "zh": "動手做東西",
-    "en": "making things"
+    "zh": "動手",
+    "en": "with their hands"
    },
    {
     "zh": "常會參加發明比賽",
@@ -353,31 +351,32 @@
    }
   ],
   "altAnswers": [
-   "who like making things / who like to make things / who enjoy making things",
+   "who like to make things with their hands / who like making things with their hands / who enjoy making things with their hands",
+   "with their hands / by hand",
    "often / usually",
    "enter / take part in / participate in",
    "contests / competitions",
    "in their free time / in their spare time / after school",
-   "另一種寫法：Students who enjoy making things often use their free time to enter invention competitions."
+   "另一種寫法：Students who enjoy making things with their hands often use their free time to enter invention competitions."
   ],
   "explanation": {
    "pattern": [
-    "整句的骨幹是 S + V + O：主詞 Students + 動詞 often enter + 受詞 invention contests + 修飾語 in their free time。中文把「喜歡動手做東西的」擺在「學生」前面；英文要用關係子句放在名詞後面修飾。",
-    "關代用哪一個，把名詞代進關係子句就看得出來：Students + （students）like making things。代進去以後 students 是這個子句的主詞，又是指人，所以用主格關代 who，寫 that 也可以。關係子句的動詞要配合先行詞 students，用複數的 like，不寫 likes。",
-    "「常會」講的是平常的習慣，所以用現在簡單式，often 放在 enter 前面。like 是動名詞、不定詞都能接的動詞，寫 like making things 或 like to make things 都對；enjoy 則只接動名詞，寫 enjoy making things，不寫 enjoy to make things。"
+    "整句的骨幹是 S + V + O：Students + often enter + invention contests + 修飾語 in their free time。中文把「喜歡動手做東西的」擺在「學生」前面；英文要把整段 who like to make things with their hands 放在名詞後面，寫完這個關係子句才接動詞 often enter。",
+    "關係代名詞用哪一個，把名詞代進關係子句就看得出來：Students + （students）like to make things。代進去以後 students 是這個子句的主詞，又是指人，所以用主格的 who，寫 that 也可以。關係子句的動詞要配合先行詞 students，用複數的 like，不寫 likes。",
+    "「常會」講的是平常的習慣，所以用現在簡單式，often 放在 enter 前面。like 後面接不定詞或動名詞都可以，寫 like making things 也對；enjoy 則只接動名詞，寫 enjoy making things。"
    ],
    "collocation": [
     "enter a contest（參加比賽）——本題要用的這一組。這一組也出現在 105 年學測閱讀測驗〈小發明家的故事〉：After learning of an invention contest held by her school that year, Jeanie resolved to enter the contest by creating a stool that would be a permanent fixture in the bathroom, and yet could be kept out of the way when not in use.（得知學校那一年要舉辦發明比賽之後，Jeanie 決定參加，做一張固定在浴室裡、不用的時候又能摺到一旁、不擋路的凳子。）往外延伸：win first place（得到第一名）。",
-    "invention contest（發明比賽）——名詞修飾名詞：前面的 invention 作用像形容詞，用單數，不寫 inventions contests；複數的 s 加在 contest 上。動詞是 invent，發明的人是 inventor。往外延伸：a science fair（科展）、an inventor（發明家）。",
-    "make things（動手做東西）——make 泛指做出、製作東西，「動手」不必譯出來。往外延伸：build a model（做模型）、fix things（修東西）。"
+    "invention contest（發明比賽）——名詞修飾名詞：前面的 invention 作用像形容詞，用單數，不寫 inventions contests；複數的 s 加在 contest 上。往外延伸：a science fair（科展）、an inventor（發明家）。",
+    "make things with one’s hands（動手做東西）——with 是「用」，後面接工具或身體部位。「動手」是用自己的手，所以所有格配合主詞寫 their，手有兩隻，用複數 hands；寫 make things by hand 也可以。往外延伸：handmade（手工做的）、build a model（做模型）。"
    ],
    "confusable": [
-    "enter、participate in 與 join：enter 後面直接接比賽；participate in 要加 in，in 不能省；join 多半接團體或社團。Lisa entered a photo contest with a picture of her cat.（Lisa 拿她家貓咪的照片參加攝影比賽）／Over fifty students participated in the speech contest.（五十多位學生參加了這場演講比賽）／Ben joined the science club last year.（Ben 去年加入了科學社）。"
+    "enter、participate in 與 join：enter 後面直接接比賽；participate in 要加 in；join 多半接團體或社團，例如 join a club。Lisa entered a photo contest.（Lisa 參加了攝影比賽）／Over fifty students participated in the speech contest.（五十多位學生參加了這場演講比賽）。"
    ],
    "mustHave": [
     "中文的「學生」與「比賽」都看不出單複數，英文得各選一個：這一句是泛指，所以用複數 students，enter 與 like 都不加 s；比賽不只一場，也用複數 contests。",
     "泛指 → 複數 students、contests",
-    "另外兩處中文不必寫、英文非寫不可：「喜歡動手做東西的」在中文只用一個「的」，英文得用關係代名詞 who 帶出子句；「課餘時間」在中文不必說是誰的時間，英文得寫出 their。"
+    "另外兩處中文不必寫、英文非寫不可：「喜歡動手做東西的」在中文只用一個「的」，英文得用關係代名詞 who 帶出子句；「動手」「課餘時間」都不必說是誰的，英文得寫出所有格 their hands、their free time。"
    ],
    "refs": [
     {
@@ -401,15 +400,16 @@
   "internalNote": {
    "_說明": "命題端量測，網站不顯示，供審稿使用",
    "中文字數": 24,
-   "英文字數": 13,
-   "句構": "複雜句：S（students + who 關係子句）+ often + V + O + in their free time（現在簡單式）",
+   "英文字數": 17,
+   "句構": "複雜句：S（students + who 關係子句 like to make things with their hands）+ often + V + O + in their free time（現在簡單式）",
    "標的詞彙": [
-    "who 關係子句（students who like making things）",
+    "who 關係子句（students who like to make things）",
+    "make things with their hands",
     "enter a contest",
     "invention contest"
    ],
    "原文搭配": "enter a contest（原文 resolved to enter the contest）",
-   "建檔": "第三百六十七場建檔。主題取自 g105p2；命題分身出題，三輪盲測、四方審閱（引文事實、文法、學生讀者、大考體例）後裁定修訂。"
+   "建檔": "第三百六十七場建檔。主題取自 g105p2；命題分身出題，三輪盲測、四方審閱（引文事實、文法、學生讀者、大考體例）後裁定修訂。第三百六十九場終審改句：「動手」譯足成 with their hands，關係子句整段落在第一段（英文 14 字改 17 字），同步解析。"
   }
  },
  {
@@ -519,12 +519,12 @@
     "en": "many athletes cannot compete in games"
    },
    {
-    "zh": "只能替隊友加油",
-    "en": "and can only cheer for their teammates"
+    "zh": "只能加油",
+    "en": "and can only cheer"
    },
    {
-    "zh": "在場邊。",
-    "en": "from the sidelines."
+    "zh": "在場邊替隊友。",
+    "en": "for their teammates from the sidelines."
    }
   ],
   "altAnswers": [
@@ -591,7 +591,7 @@
   "label": "改編練習",
   "yearLabel": "改編練習（四）",
   "flagNote": "本題庫改編練習：主題取自 100 年學測閱讀測驗〈從受傷到助人的籃球員〉，照現行學測中譯英的版面擬題（兩句一組），參考譯法與解析由本題庫撰寫，不是大考中心的試題，也沒有官方評分原則。",
-  "zh": "然而，其中有些人後來開始熱愛運動醫學，希望將來幫助受傷的運動員。",
+  "zh": "然而，其中有些人後來愛上運動醫學，希望將來幫助受傷的運動員。",
   "en": "However, some of them later develop a passion for sports medicine and hope to help injured athletes in the future.",
   "chunks": [
    {
@@ -599,7 +599,7 @@
     "en": "However, some of them later"
    },
    {
-    "zh": "開始熱愛運動醫學，",
+    "zh": "愛上運動醫學，",
     "en": "develop a passion for sports medicine"
    },
    {
@@ -613,7 +613,7 @@
   ],
   "altAnswers": [
    "However, / But / Still,",
-   "develop a passion for / become passionate about / start to love",
+   "develop a passion for / become passionate about / fall in love with",
    "later / eventually",
    "hope to help / hope that they can help",
    "in the future / someday",
@@ -634,7 +634,7 @@
    "mustHave": [
     "中文「其中有些人」的「其中」指的是上一句受傷的運動員，英文要寫 some of them，them 就是這群人，讀者才知道這一句講的是誰。只寫 some people 就變成泛指一般人，和上一句接不起來。",
     "「受傷的運動員」泛指 → 複數 athletes",
-    "另外一處中文不必寫、英文非寫不可：中文「熱愛」是動詞，英文用 develop a passion for 來寫；passion 當「熱愛」講是可數名詞，單數前面一定要有 a 或所有格，所以寫 develop a passion for sports medicine，不寫 develop passion for。前面有所有格時就不再加 a，例如 her passion for fashion。"
+    "另外一處中文不必寫、英文非寫不可：中文「愛上」是動詞，英文用 develop a passion for 來寫；passion 當「熱愛」講是可數名詞，單數前面一定要有 a 或所有格，所以寫 develop a passion for sports medicine，不寫 develop passion for。前面有所有格時就不再加 a，例如 her passion for fashion。"
    ],
    "refs": [
     {
@@ -657,7 +657,7 @@
   },
   "internalNote": {
    "_說明": "命題端量測，網站不顯示，供審稿使用",
-   "中文字數": 29,
+   "中文字數": 27,
    "英文字數": 20,
    "句構": "However, + S + V1 + O + and + V2 + to V",
    "標的詞彙": [
@@ -679,20 +679,20 @@
   "en": "In recent years, many high schools have relaxed their dress codes and allowed students to wear casual clothes to school.",
   "chunks": [
    {
-    "zh": "近年來，許多高中放寬了",
-    "en": "In recent years, many high schools have relaxed"
+    "zh": "近年來，許多高中",
+    "en": "In recent years, many high schools"
    },
    {
-    "zh": "服儀規定，",
-    "en": "their dress codes"
+    "zh": "放寬了服儀規定，",
+    "en": "have relaxed their dress codes"
    },
    {
-    "zh": "允許學生",
-    "en": "and allowed students"
+    "zh": "允許學生穿",
+    "en": "and allowed students to wear"
    },
    {
-    "zh": "穿便服上學。",
-    "en": "to wear casual clothes to school."
+    "zh": "便服上學。",
+    "en": "casual clothes to school."
    }
   ],
   "altAnswers": [
@@ -930,16 +930,16 @@
   "label": "改編練習",
   "yearLabel": "改編練習（六）",
   "flagNote": "本題庫改編練習：主題取自 98 年指考閱讀測驗〈網路非法音樂下載的問題與後果〉，照現行學測中譯英的版面擬題（兩句一組），參考譯法與解析由本題庫撰寫，不是大考中心的試題，也沒有官方評分原則。",
-  "zh": "然而，他們可能不知道，未經創作者同意就下載或分享這些檔案是違法的。",
-  "en": "However, they may not realize that downloading or sharing these files without the creators’ permission is against the law.",
+  "zh": "然而，他們可能不知道，未經創作者同意下載或分享檔案是違法的。",
+  "en": "However, they may not realize that downloading or sharing files without the creators’ permission is against the law.",
   "chunks": [
    {
     "zh": "然而，他們可能不知道，",
     "en": "However, they may not realize"
    },
    {
-    "zh": "就下載或分享這些檔案",
-    "en": "that downloading or sharing these files"
+    "zh": "下載或分享檔案",
+    "en": "that downloading or sharing files"
    },
    {
     "zh": "未經創作者同意",
@@ -954,15 +954,15 @@
    "may / might",
    "realize / know / be aware",
    "is against the law / is illegal / violates the law",
-   "these files / them / these videos and comics",
+   "files / these files / them",
    "the creators’ permission / the consent of the creators",
-   "另一種寫法：However, they may not realize that it is against the law to download or share these files without the creators’ permission."
+   "另一種寫法：However, they may not realize that it is against the law to download or share files without the creators’ permission."
   ],
   "explanation": {
    "pattern": [
-    "整句的骨幹是 S + may not realize + that 子句：they（主詞） + may not realize + that downloading or sharing these files without the creators’ permission is against the law（受詞）。they 指上一句的 many people；may 後面接原形 realize。that 子句講的是一般的事實，所以用現在簡單式 is。",
-    "that 子句的主詞是動名詞片語 downloading or sharing these files without the creators’ permission。中文可以直接拿「下載或分享這些檔案」當主詞，英文的動詞卻不能直接當主詞，要改成動名詞。動名詞講的是「下載或分享」這一件事，所以動詞用單數 is，不能看到旁邊的 files、creators 就寫成 are。驗算的方法是用 it 代進去：it is against the law。原文第一句 Downloading music over the Internet is pretty common… 用的也是動名詞當主詞。",
-    "也可以先用 it 占住主詞的位置，再把真正的主詞改成不定詞挪到句尾：it is against the law to download or share these files…。漏掉 it、寫成 is illegal to share…，句子就沒有主詞了。"
+    "整句的骨幹是 S + may not realize + that 子句：they（主詞） + may not realize + that downloading or sharing files without the creators’ permission is against the law（受詞）。they 指上一句的 many people。that 子句講的是一般的事實，所以用現在簡單式 is。files 泛指各種檔案；想明確指回上一句的影片和漫畫，寫 these files 或 them 也可以。",
+    "that 子句的主詞是動名詞片語 downloading or sharing files without the creators’ permission。中文可以拿「下載或分享檔案」當主詞，英文動詞卻不能直接當主詞，要改成動名詞。動名詞講的是「下載或分享」這一件事，所以動詞用單數 is，不能看到旁邊的 files、creators 就寫成 are。原文第一句 Downloading music over the Internet is pretty common… 用的也是動名詞當主詞。",
+    "也可以先用 it 占住主詞的位置，再把真正的主詞改成不定詞挪到句尾：it is against the law to download or share files…。漏掉 it、寫成 is illegal to share…，句子就沒有主詞了。"
    ],
    "collocation": [
     "without permission（未經許可）——本題要用的這一組。without 是介系詞，後面接名詞 permission，不能接 the creators agree 這樣的子句；permission 當「許可」講不可數，前面不加 a。這一組也出現在 98 年指考閱讀測驗〈網路非法音樂下載的問題與後果〉：However, when students download and share copyrighted music without permission, they are violating the law.（然而，學生未經許可下載、分享有版權的音樂，就是違法。）往外延伸：ask for permission（請求許可）、get permission from sb（得到某人的許可）。",
@@ -972,9 +972,9 @@
     "realize／know——中文都可以說「知道」。know 講的是腦子裡有這個資訊；realize 講的是「意識到、明白過來」，多半用在本來沒想到的事。本題用 realize 最貼切，寫 know 也通。例：I didn’t realize how late it was until my mom called me.（直到媽媽打電話來，我才發現已經這麼晚了。）"
    ],
    "mustHave": [
-    "中文「創作者同意」不必用「的」，英文要寫成所有格 the creators’ permission。這些影片和漫畫的創作者不只一位，所以用複數 creators；複數名詞字尾已經有 s，所有格只加撇號。",
+    "中文「創作者同意」不必用「的」，英文要寫成所有格 the creators’ permission。檔案的創作者不只一位，所以用複數 creators；複數名詞字尾已經有 s，所有格只加撇號。",
     "複數名詞的所有格 → creators’（只加撇號）",
-    "另外兩處中文不必寫、英文非寫不可：「違法」的「法」指的是法律這個整體，英文寫 the law，定冠詞不能省；「下載或分享」當主詞時，英文要把兩個動詞都改成動名詞 downloading or sharing。"
+    "另外兩處中文不必寫、英文非寫不可：「違法」的「法」指法律這個整體，英文寫 the law，定冠詞不能省；「檔案」在中文看不出單複數，這裡泛指各種檔案，英文用複數 files，前面也不加 the，寫成 the files 就變成某幾個特定的檔案了。"
    ],
    "refs": [
     {
@@ -989,16 +989,17 @@
   },
   "internalNote": {
    "_說明": "命題端量測，網站不顯示，供審稿使用",
-   "中文字數": 30,
-   "英文字數": 19,
+   "中文字數": 27,
+   "英文字數": 18,
    "句構": "S + may not realize + that + 動名詞片語主詞 + is + 補語",
    "標的詞彙": [
     "動名詞當主詞 + 單數 is",
     "without the creators’ permission",
-    "be against the law"
+    "be against the law",
+    "files（泛指複數，不加 the）"
    ],
    "原文搭配": "without permission（原文第一段第二句）；原文第一句的動名詞主詞 Downloading music … is 也用得上",
-   "建檔": "第三百六十七場建檔。主題取自 z98p4；命題分身出題，三輪盲測、四方審閱（引文事實、文法、學生讀者、大考體例）後裁定修訂。"
+   "建檔": "第三百六十七場建檔。主題取自 z98p4；命題分身出題，三輪盲測、四方審閱（引文事實、文法、學生讀者、大考體例）後裁定修訂。第三百六十九場依字數與四段份量標準修訂（REVISE2）。終審改句：去掉「就」，受詞改回「檔案」，英文 them 改為 files（中文 26 字改 27 字，英文維持 18 字），同步解析。"
   }
  },
  {
@@ -1087,23 +1088,23 @@
   "yearLabel": "改編練習（七）",
   "flagNote": "本題庫改編練習：主題取自 102 年指考閱讀測驗〈非洲學校走向數位化〉，照現行學測中譯英的版面擬題（兩句一組），參考譯法與解析由本題庫撰寫，不是大考中心的試題，也沒有官方評分原則。",
   "zh": "他們操作平板遇到問題時，常會和同學討論，一起找出解決的方法。",
-  "en": "When they have problems using the tablets, they often discuss them with classmates and figure out how to solve them together.",
+  "en": "When they have problems using the tablets, they often discuss them with classmates and figure out solutions together.",
   "chunks": [
    {
-    "zh": "他們操作平板遇到問題時，",
-    "en": "When they have problems using the tablets,"
+    "zh": "他們遇到問題時，",
+    "en": "When they have problems"
+   },
+   {
+    "zh": "操作平板",
+    "en": "using the tablets,"
    },
    {
     "zh": "常會和同學討論，",
     "en": "they often discuss them with classmates"
    },
    {
-    "zh": "找出",
-    "en": "and figure out"
-   },
-   {
-    "zh": "一起解決的方法。",
-    "en": "how to solve them together."
+    "zh": "一起找出解決的方法。",
+    "en": "and figure out solutions together."
    }
   ],
   "altAnswers": [
@@ -1113,17 +1114,18 @@
    "often / usually",
    "discuss them / discuss the problems / talk about them",
    "with classmates / with their classmates",
-   "figure out how to solve them together / figure out together how to solve them / work out the solutions together",
+   "figure out solutions / figure out how to solve them / work out solutions / find solutions",
+   "另一種寫法：When they have problems using the tablets, they often discuss them with classmates and figure out together how to solve them.",
    "另一種寫法：When they have trouble using the tablets, they often talk about the problems with classmates and work out solutions together."
   ],
   "explanation": {
    "pattern": [
     "整句的骨幹是 When 子句 + 主要子句：When they have problems using the tablets 講什麼時候，they often discuss them … and figure out … 是主要子句。講的是學生平常的做法，兩個子句都用現在簡單式。",
     "have problems + V-ing（做……有困難）：problems 後面直接接 V-ing，說明是在哪件事情上遇到問題。還原回去是 have problems in using the tablets，in 通常省略；同樣的寫法還有 have trouble + V-ing、have difficulty + V-ing。",
-    "and 連接 discuss 與 figure out 兩個動詞，主詞同樣是 they。how to solve them 是「疑問詞 + to V」，當 figure out 的受詞，可以還原成 how they can solve them；中文的「找出解決的方法」，英文用 figure out how to solve them 就交代清楚了。"
+    "and 連接 discuss 與 figure out 兩個動詞，主詞同樣是 they。figure out 後面直接接名詞 solutions，對應中文的「解決的方法」；也可以寫成 figure out how to solve them，「疑問詞 + to V」還原回去是 how they can solve them。"
    ],
    "collocation": [
-    "figure out how to V（弄清楚怎麼……）——本題要用的這一組。這一組也出現在 102 年指考閱讀測驗〈非洲學校走向數位化〉：In Ethiopia, in the absence of teachers, children figured out how to use tablets and learned the English ABCs.（在衣索比亞，沒有老師的情況下，孩子們自己摸索出怎麼使用平板，學會了英文字母。）往外延伸：figure out a problem（想出問題的解法）、figure out what a word means（弄懂一個字的意思）、work out（弄懂、想出來）。",
+    "figure out + N（想出、弄清楚……）——本題要用的這一組。figure out 後面可以直接接名詞，也可以接「疑問詞 + to V」。這一組也出現在 102 年指考閱讀測驗〈非洲學校走向數位化〉：In Ethiopia, in the absence of teachers, children figured out how to use tablets and learned the English ABCs.（在衣索比亞，沒有老師的情況下，孩子們自己摸索出怎麼使用平板，學會了英文字母。）往外延伸：figure out a solution（想出解決的辦法）、figure out what a word means（弄懂一個字的意思）、work out（弄懂、想出來）。",
     "discuss + sth + with + sb（和某人討論某件事）——討論的事情直接放在 discuss 後面，討論的對象用 with 帶出：discuss the problem with my classmates。往外延伸：talk about（談論）、discuss … with the teacher（和老師討論……）。",
     "run into problems（遇到問題）——「遇到問題」英文最常說 have problems 或 run into problems，比照中文寫成 meet problems 比較少見。往外延伸：run into trouble（碰上麻煩）、face a problem（面對問題）、solve a problem（解決問題）。"
    ],
@@ -1131,9 +1133,9 @@
     "discuss 和 talk about：兩者意思相近，但 discuss 是及物動詞，直接接受詞；talk 要加 about 才能接話題。We discussed the plan with our teacher.／We talked about the plan with our teacher.（我們和老師討論了這個計畫。）寫成 discussed about the plan 是常見的錯誤。"
    ],
    "mustHave": [
-    "中文的「問題」沒有單複數，英文得選一個：學生遇到的問題不只一種，用複數 problems；後面 discuss 與 solve 的受詞都指這些問題，所以寫 them。",
-    "泛指 → 複數 problems、classmates",
-    "另外兩處中文不必寫、英文非寫不可：「他們」指上一句的學生，「平板」也是上一句說過的平板電腦，所以寫 the tablets；「如何解決」在中文不必說解決什麼，英文的 solve 是及物動詞，後面得補上 them。"
+    "中文的「問題」與「方法」都沒有單複數，英文得各選一個：遇到的問題不只一種，用複數 problems，discuss 的受詞指這些問題，寫 them；解決的方法也不只一個，用複數 solutions。",
+    "泛指 → 複數 problems、classmates、solutions",
+    "另外兩處中文不必寫、英文非寫不可：「他們」指上一句的學生，「平板」也是上一句說過的平板電腦，所以寫 the tablets；「討論」在中文不必說討論什麼，英文的 discuss 是及物動詞，後面得補上 them。"
    ],
    "refs": [
     {
@@ -1169,15 +1171,15 @@
   "internalNote": {
    "_說明": "命題端量測，網站不顯示，供審稿使用",
    "中文字數": 27,
-   "英文字數": 21,
-   "句構": "When 子句 + S + V1 + O + and + V2 + how to V",
+   "英文字數": 18,
+   "句構": "When 子句 + S + V1 + O + with + 人 + and + V2 + O",
    "標的詞彙": [
     "have problems + V-ing",
     "discuss + sth + with + sb",
-    "figure out how to V"
+    "figure out + N（solutions）"
    ],
    "原文搭配": "figure out + N（p4：children figured out how to use tablets）",
-   "建檔": "第三百六十七場建檔。主題取自 z102p3；命題分身出題，三輪盲測、四方審閱（引文事實、文法、學生讀者、大考體例）後裁定修訂。"
+   "建檔": "第三百六十七場建檔。主題取自 z102p3；命題分身出題，三輪盲測、四方審閱（引文事實、文法、學生讀者、大考體例）後裁定修訂。第三百六十九場依字數與四段份量標準修訂（REVISE2）。"
   }
  },
  {
@@ -1186,16 +1188,16 @@
   "label": "改編練習",
   "yearLabel": "改編練習（八）",
   "flagNote": "本題庫改編練習：主題取自 98 年指考閱讀測驗〈女兒帶去上班日：賦權女性與性別平等〉，照現行學測中譯英的版面擬題（兩句一組），參考譯法與解析由本題庫撰寫，不是大考中心的試題，也沒有官方評分原則。",
-  "zh": "寒暑假期間，有些孩子會陪父母去上班，在他們的工作場所待上一整天。",
-  "en": "During summer or winter vacation, some children go to work with their parents and spend a whole day at their workplaces.",
+  "zh": "暑假期間，有些孩子會陪父母去上班，在他們的工作場所待上一整天。",
+  "en": "During summer vacation, some children go to work with their parents and spend a whole day at their workplaces.",
   "chunks": [
    {
-    "zh": "寒暑假期間，",
-    "en": "During summer or winter vacation,"
+    "zh": "暑假期間，有些孩子",
+    "en": "During summer vacation, some children"
    },
    {
-    "zh": "有些孩子會陪父母去上班，",
-    "en": "some children go to work with their parents"
+    "zh": "會陪父母去上班，",
+    "en": "go to work with their parents"
    },
    {
     "zh": "待上一整天。",
@@ -1207,18 +1209,18 @@
    }
   ],
   "altAnswers": [
-   "During summer or winter vacation, / During summer and winter vacations, / During their summer or winter break,",
+   "During summer vacation, / During the summer vacation, / During their summer break,",
    "go to work with their parents / accompany their parents to work",
    "spend a whole day / spend an entire day",
    "workplaces / workplace / places of work",
-   "另一種寫法：During summer or winter vacation, some children go to work with their parents, and they spend a whole day there.",
-   "另一種寫法：Some children accompany their parents to work during summer or winter vacation and spend an entire day at their workplaces."
+   "另一種寫法：During summer vacation, some children go to work with their parents, and they spend a whole day there.",
+   "另一種寫法：Some children accompany their parents to work during summer vacation and spend an entire day at their workplaces."
   ],
   "explanation": {
    "pattern": [
     "整句的骨幹是 時間片語, + S + V1 + and + V2：主詞 some children 後面有兩個動作，go to work with their parents 和 spend a whole day at their workplaces。兩個動作是同一群孩子做的，所以用 and 把兩個動詞連起來，共用主詞，第二個動詞前面不必再寫一次主詞。",
     "中文的「會」說的是常有的事，不是未來要發生的事，所以用現在簡單式 go 和 spend，不寫 will go。主詞 some children 是複數，兩個動詞都不加 -s。",
-    "spend + 時間 + at + 地方：spend 的受詞是時間 a whole day，「待在哪裡」另外用介系詞 at 帶出來。句首的 During summer or winter vacation 是交代時間的介系詞片語，後面加逗號，和主詞隔開。"
+    "spend + 時間 + at + 地方：spend 的受詞是時間 a whole day，「待在哪裡」另外用介系詞 at 帶出來。句首的 During summer vacation 是交代時間的介系詞片語，後面加逗號，和主詞隔開。"
    ],
    "collocation": [
     "go to work with + 人（陪某人去上班）——本題要用的這一組。go to work 的 work 指工作的地方，和 go to school 一樣，前面不加 a 或 the；「陪誰」用 with 帶出來。中文的「陪」不必另外找動詞來翻，用 with 就交代清楚了；寫 accompany their parents to work 也可以，只是比較正式。原文的活動名稱 Take Our Daughters to Work Day 也是 to work 不加冠詞。往外延伸：go to school（去上學）、be at work（在上班）、take sb to work（帶某人去上班）。",
@@ -1228,7 +1230,7 @@
    "mustHave": [
     "中文「在他們的工作場所待上一整天」沒有寫主詞，承前省略的是「有些孩子」。英文可以用 and 把 spend 接在 go 後面，兩個動詞共用主詞；也可以寫成兩個子句，後面補上主詞：…with their parents, and they spend a whole day there. 如果照中文只用逗號接，寫成 …with their parents, spend a whole day…，兩個動詞之間就少了連接詞。",
     "後半句承前省略主詞 → go… and spend…",
-    "另外兩處中文不必寫、英文非寫不可：「陪父母」沒說是誰的父母，英文要寫 their parents；「工作場所」沒有單複數，每個孩子的父母各在不同的地方上班，所以用複數 workplaces，寫單數 workplace 也通。至於「寒暑假」，寫 summer or winter vacation 指其中一個假期，vacation 用單數；寫 summer and winter vacations 是兩個都算，用複數。"
+    "另外兩處中文不必寫、英文非寫不可：「陪父母」沒說是誰的父母，英文要寫 their parents；「工作場所」沒有單複數，每個孩子的父母各在不同的地方上班，所以用複數 workplaces，寫單數 workplace 也通。至於「暑假」，泛指每年的暑假，寫 summer vacation 不加冠詞，寫 the summer vacation 也通。"
    ],
    "refs": [
     {
@@ -1247,8 +1249,8 @@
   },
   "internalNote": {
    "_說明": "命題端量測，網站不顯示，供審稿使用",
-   "中文字數": 29,
-   "英文字數": 21,
+   "中文字數": 28,
+   "英文字數": 19,
    "句構": "時間片語, + S + go to work with + 人 + and + spend + 時間 + at + 地方（and 連接兩個動詞共用主詞，現在簡單式）",
    "標的詞彙": [
     "go to work with their parents",
@@ -1256,7 +1258,7 @@
     "and 連接兩個動詞（後半句承前省略主詞）"
    ],
    "原文搭配": "expose + sb + to + N（見第 2 句）；workplace 也出現在原文第一句",
-   "建檔": "第三百六十七場建檔。主題取自 z98p1；命題分身出題，三輪盲測、四方審閱（引文事實、文法、學生讀者、大考體例）後裁定修訂。第三百六十九場依四段份量裁定改句、重寫解析。"
+   "建檔": "第三百六十七場建檔。主題取自 z98p1；命題分身出題，三輪盲測、四方審閱（引文事實、文法、學生讀者、大考體例）後裁定修訂。第三百六十九場依四段份量裁定改句、重寫解析。第三百六十九場依字數與四段份量標準修訂（REVISE2）。"
   }
  },
  {
@@ -1265,11 +1267,11 @@
   "label": "改編練習",
   "yearLabel": "改編練習（八）",
   "flagNote": "本題庫改編練習：主題取自 98 年指考閱讀測驗〈女兒帶去上班日：賦權女性與性別平等〉，照現行學測中譯英的版面擬題（兩句一組），參考譯法與解析由本題庫撰寫，不是大考中心的試題，也沒有官方評分原則。",
-  "zh": "這樣的經驗讓孩子提早接觸各種職業，也讓他們更能體會父母的辛苦。",
+  "zh": "這種經驗讓孩子提早接觸各種職業，也讓他們更能體會父母的辛苦。",
   "en": "This experience exposes children to various careers early and helps them better understand how hard their parents work.",
   "chunks": [
    {
-    "zh": "這樣的經驗讓孩子",
+    "zh": "這種經驗讓孩子",
     "en": "This experience exposes children"
    },
    {
@@ -1324,7 +1326,7 @@
   },
   "internalNote": {
    "_說明": "命題端量測，網站不顯示，供審稿使用",
-   "中文字數": 29,
+   "中文字數": 28,
    "英文字數": 18,
    "句構": "S + V1 + O + to N + and + V2 + O + V（and 連接兩個動詞，名詞子句當受詞）",
    "標的詞彙": [
@@ -1333,7 +1335,7 @@
     "how hard their parents work"
    ],
    "原文搭配": "expose + sb + to + N",
-   "建檔": "第三百六十七場建檔。主題取自 z98p1；命題分身出題，三輪盲測、四方審閱（引文事實、文法、學生讀者、大考體例）後裁定修訂。"
+   "建檔": "第三百六十七場建檔。主題取自 z98p1；命題分身出題，三輪盲測、四方審閱（引文事實、文法、學生讀者、大考體例）後裁定修訂。第三百六十九場依字數與四段份量標準修訂（REVISE2）。"
   }
  },
  {
@@ -1342,12 +1344,12 @@
   "label": "改編練習",
   "yearLabel": "改編練習（九）",
   "flagNote": "本題庫改編練習：主題取自 2026 年 10 月法國高中生上街抗議的新聞，照現行學測中譯英的版面擬題（兩句一組），參考譯法與解析由本題庫撰寫，不是大考中心的試題，也沒有官方評分原則。",
-  "zh": "最近已有許多法國高中生走上街頭，抗議課表太滿、每天在校時間太長。",
-  "en": "Recently, many French high school students have taken to the streets to protest against packed schedules and overly long school days.",
+  "zh": "最近已有許多法國學生走上街頭，抗議課表太滿、每天在校時間太長。",
+  "en": "Recently, many French students have taken to the streets to protest against packed schedules and overly long school days.",
   "chunks": [
    {
-    "zh": "最近已有許多法國高中生",
-    "en": "Recently, many French high school students"
+    "zh": "最近已有許多法國學生",
+    "en": "Recently, many French students"
    },
    {
     "zh": "走上街頭，",
@@ -1364,19 +1366,19 @@
   ],
   "altAnswers": [
    "Recently, / Lately,",
-   "many French high school students / many high school students in France",
+   "many French students / many students in France",
    "have taken / took（recently 也常搭配簡單過去式）",
    "taken to the streets / gone out into the streets",
    "protest against / protest",
    "packed schedules / schedules that are too full / too many classes",
    "overly long school days / school days that are too long / long school hours",
-   "另一種寫法：Recently, many French high school students have protested in the streets against packed schedules and overly long school days.",
-   "另一種寫法：Recently, many French high school students have held protests against packed schedules and overly long school days.",
-   "另一種寫法：Lately, many high school students in France have gone out into the streets to protest that their schedules are too full and their school days are too long."
+   "另一種寫法：Recently, many French students have protested in the streets against packed schedules and overly long school days.",
+   "另一種寫法：Recently, many French students have held protests against packed schedules and overly long school days.",
+   "另一種寫法：Lately, many students in France have gone out into the streets to protest that their schedules are too full and their school days are too long."
   ],
   "explanation": {
    "pattern": [
-    "整句的骨幹是 S + have + p.p. + to V：主詞 many French high school students + 動詞 have taken to the streets + 表示目的的 to protest against…。中文的「已」是時態的訊號，說的是到現在為止已經發生的事，所以動詞用現在完成式 have taken。recently 也可以搭配簡單過去式，寫 took 同樣正確。",
+    "整句的骨幹是 S + have + p.p. + to V：主詞 many French students + 動詞 have taken to the streets + 表示目的的 to protest against…。中文的「已」是時態的訊號，說的是到現在為止已經發生的事，所以動詞用現在完成式 have taken。recently 也可以搭配簡單過去式，寫 took 同樣正確。",
     "中文「走上街頭，抗議……」兩個動作之間沒有連接詞，可是意思上後面是前面的目的：學生上街，為的是抗議。英文用 to + 原形動詞表示目的，還原成完整寫法就是 in order to protest against…。要是照中文寫成 have taken to the streets, protest against…，兩個動詞之間只有逗號，句子就不成立了。",
     "中文用頓號並列「課表太滿」與「每天在校時間太長」，兩件事都是 against 的受詞，英文用 and 連接兩個名詞片語：packed schedules and overly long school days。介系詞後面要接名詞，所以中文的「課表太滿」要改寫成名詞片語，把「太滿」「太長」放到名詞前面修飾。"
    ],
@@ -1386,7 +1388,7 @@
     "packed schedules（太滿的課表）與 overly long school days（每天在校時間太長）——packed 是「塞得滿滿的」，形容課表、行程時，意思就是一點空檔都沒有，例 My schedule is packed this week.（我這星期的行程排得滿滿的）。overly 的意思是 too，放在形容詞前面，overly long 就是「太長」；school day 指上學的一天，說的是每一天，所以用複數。往外延伸：a busy schedule（忙碌的行程）。"
    ],
    "mustHave": [
-    "中文的「高中生」看不出單複數，英文得選一個：前面有「許多」，所以寫 many French high school students，名詞用複數，動詞也要用 have。「法國」放在名詞前面要用形容詞 French，或改寫成 high school students in France，不寫 France high school students。",
+    "中文的「學生」看不出單複數，英文得選一個：前面有「許多」，所以寫 many French students，名詞用複數，動詞也要用 have。「法國」放在名詞前面要用形容詞 French，或改寫成 students in France，不寫 France students。",
     "「已走上街頭」→ 現在完成式 have taken",
     "另外兩處中文不必寫、英文非寫不可：take to the streets 的 the 不能省；「課表」說的是每個學生的課表，「每天」說的是每一天，英文都寫複數 schedules、school days。"
    ],
@@ -1411,8 +1413,8 @@
   },
   "internalNote": {
    "_說明": "命題端量測，網站不顯示，供審稿使用",
-   "中文字數": 29,
-   "英文字數": 21,
+   "中文字數": 28,
+   "英文字數": 19,
    "句構": "S + have + p.p. + to V（現在完成式 + 目的不定詞），against 後面接兩個以 and 連接的名詞片語",
    "標的詞彙": [
     "take to the streets",
@@ -1420,7 +1422,7 @@
     "packed schedules and overly long school days"
    ],
    "原文搭配": "不適用（第九組例外：主題取自新聞）",
-   "建檔": "第三百六十七場建檔。主題取自 2026 年 10 月法國高中生上街抗議的新聞；命題分身出題，三輪盲測、四方審閱（引文事實、文法、學生讀者、大考體例）後裁定修訂。"
+   "建檔": "第三百六十七場建檔。主題取自 2026 年 10 月法國高中生上街抗議的新聞；命題分身出題，三輪盲測、四方審閱（引文事實、文法、學生讀者、大考體例）後裁定修訂。第三百六十九場依字數與四段份量標準修訂（REVISE2）。"
   }
  },
  {
@@ -1434,11 +1436,11 @@
   "chunks": [
    {
     "zh": "這些學生希望",
-    "en": "These students hope"
+    "en": "These students hope that"
    },
    {
     "zh": "大人能傾聽他們的意見，",
-    "en": "that adults will listen to their opinions"
+    "en": "adults will listen to their opinions"
    },
    {
     "zh": "也希望學校能改善",
@@ -1461,7 +1463,7 @@
   ],
   "explanation": {
    "pattern": [
-    "整句的骨幹是 S + hope + that 子句 + and + that 子句：These students hope + that adults will listen to their opinions + and that schools will improve the learning environment。中文「希望……，也希望……」說的是兩個願望，英文用 and 連接兩個 that 子句，兩個都是 hope 的受詞。第二個 that 最好寫出來，讀者就知道「學校改善學習環境」也是學生希望的事；省掉的話，後半可能讀成另一件確定會發生的事。These students 承接第一句的法國高中生。",
+    "整句的骨幹是 S + hope + that 子句 + and + that 子句：These students hope + that adults will listen to their opinions + and that schools will improve the learning environment。中文「希望……，也希望……」說的是兩個願望，英文用 and 連接兩個 that 子句，兩個都是 hope 的受詞。第二個 that 最好寫出來，讀者就知道「學校改善學習環境」也是學生希望的事；省掉的話，後半可能讀成另一件確定會發生的事。These students 承接第一句的法國學生。",
     "hope 常見的接法有兩種：自己要做的事用 hope + to V，113 年學測中譯英第 2 題的 they also hope to show respect… 就是這一種；希望別人做的事，就要用 hope (that) + 子句，因為 hope 不接「人 + to V」，不寫 hope adults to listen；第二個 hope 後面同樣不寫 hope schools to improve。子句講的是還沒發生的事，動詞可以用 will 或 can。"
    ],
    "collocation": [
@@ -1502,7 +1504,7 @@
     "hope that + S + will"
    ],
    "原文搭配": "不適用（第九組例外：主題取自新聞）",
-   "建檔": "第三百六十七場建檔。主題取自 2026 年 10 月法國高中生上街抗議的新聞；命題分身出題，三輪盲測、四方審閱（引文事實、文法、學生讀者、大考體例）後裁定修訂。"
+   "建檔": "第三百六十七場建檔。主題取自 2026 年 10 月法國高中生上街抗議的新聞；命題分身出題，三輪盲測、四方審閱（引文事實、文法、學生讀者、大考體例）後裁定修訂。第三百六十九場依字數與四段份量標準修訂（REVISE2）。"
   }
  },
  {
@@ -1519,12 +1521,12 @@
     "en": "College degrees are common now,"
    },
    {
-    "zh": "有些人卻才發現",
-    "en": "but some people do not find out"
+    "zh": "有些人卻",
+    "en": "but some people"
    },
    {
-    "zh": "直到畢業",
-    "en": "until graduation"
+    "zh": "直到畢業才發現",
+    "en": "do not find out until graduation"
    },
    {
     "zh": "不喜歡自己的科系。",
@@ -1580,7 +1582,7 @@
     "but（卻）"
    ],
    "原文搭配": "not + V + until + 時間（the degree did not acquire its modern status until the early 19th century）",
-   "建檔": "第三百六十七場建檔。主題取自 z100p4；命題分身出題，三輪盲測、四方審閱（引文事實、文法、學生讀者、大考體例）後裁定修訂。"
+   "建檔": "第三百六十七場建檔。主題取自 z100p4；命題分身出題，三輪盲測、四方審閱（引文事實、文法、學生讀者、大考體例）後裁定修訂。第三百六十九場依字數與四段份量標準修訂（REVISE2）。"
   }
  },
  {
@@ -2025,7 +2027,7 @@
   "yearLabel": "改編練習（十三）",
   "flagNote": "本題庫改編練習：主題由本題庫自擬，照現行學測中譯英的版面擬題（兩句一組），參考譯法與解析由本題庫撰寫，不是大考中心的試題，也沒有官方評分原則。",
   "zh": "熱門演唱會的門票越來越難買，往往一開賣就賣光。",
-  "en": "Tickets for popular concerts are getting harder to buy, and they often sell out as soon as they go on sale.",
+  "en": "Tickets for popular concerts are getting harder to buy, and they often sell out once they go on sale.",
   "chunks": [
    {
     "zh": "熱門演唱會的門票",
@@ -2041,7 +2043,7 @@
    },
    {
     "zh": "一開賣。",
-    "en": "as soon as they go on sale."
+    "en": "once they go on sale."
    }
   ],
   "altAnswers": [
@@ -2049,28 +2051,28 @@
    "are getting harder to buy / are getting harder and harder to buy / are getting harder to get",
    "buy, and they often sell out / buy and often sell out / buy; they often sell out",
    "sell out / are sold out",
-   "as soon as / the moment",
+   "once / as soon as / the moment",
    "另一種寫法：It is getting harder and harder to buy tickets for popular concerts, and they often sell out as soon as they go on sale."
   ],
   "explanation": {
    "pattern": [
-    "整句的骨幹是 S + be getting + 比較級 + to V, and S + V + as soon as + S + V。兩個子句用 and 連起來，and 前面加逗號；as soon as 帶出的副詞子句放在句尾，說明「一……就……」。",
+    "整句的骨幹是 S + be getting + 比較級 + to V, and S + V + once + S + V。兩個子句用 and 連起來，and 前面加逗號；once 帶出的副詞子句放在句尾，說明「一……就……」。",
     "be hard to V（很難……）：句首的 tickets 其實是 buy 的受詞，還原成 It is getting harder to buy tickets 就看得出來，買票的是歌迷，票只是買的對象。所以 to 後面照樣用主動的原形，寫 harder to buy，不寫 harder to be bought，buy 後面也不再寫 them。74 年大學聯考中譯英第 2 題的另一種寫法也是同一個道理：Are Chinese characters very hard to write?（中國字很難寫嗎？）",
     "「越來越難」寫成 be getting + 比較級：現在進行式講正在進行的變化，加上比較級，「越來越」的意思就出來了；也可以寫 harder and harder。"
    ],
    "collocation": [
     "sell out（賣光）——本題要用的這一組。sell out 講東西賣光，主詞可以是門票、商品，也可以是演唱會、球賽這類活動；本題的主詞是 tickets，sell out 後面不接受詞。也可以寫 be sold out，講賣光之後的狀態：The concert is sold out.（這場演唱會的票已經賣完了。）往外延伸：a sold-out show（票全部賣完的演出）、out of stock（缺貨）。",
     "go on sale（開賣）——「一開賣」講的是門票開始販售。要注意 on sale 在美式英文還有「特價」的意思，要看上下文判斷：These jackets are on sale this week.（這些外套這週特價。）往外延伸：for sale（出售中）、buy tickets online（上網買票）。",
-    "as soon as（一……就……）——連接詞，後面接完整的子句，主詞不能少。92 年學測第 12 題的題幹就是這個說法，答案是 broke up：As soon as the couple realized that they didn’t love each other anymore, they broke up.（這對情侶一發現彼此已不再相愛，便分手了。）往外延伸：the moment + 子句（一……就……）。"
+    "once（一……就……）——這裡的 once 是連接詞，不是「一次」，後面接完整的子句，主詞不能少，所以寫 once they go on sale。意思和 as soon as 差不多，兩個都可以用。92 年學測第 12 題的題幹用的就是 as soon as：As soon as the couple realized that they didn’t love each other anymore, they broke up.（這對情侶一發現彼此已不再相愛，便分手了。）往外延伸：the moment + 子句（一……就……）。"
    ],
    "mustHave": [
-    "中文後半「往往一開賣就賣光」沒有主詞，讀者從前半句就知道賣光的是門票；英文的每一個子句卻都要有主詞，所以 and 後面寫 they often sell out，as soon as 後面也要寫 they go on sale。寫成 …, often sell out as soon as go on sale，兩個動詞都沒有主詞；寫成 …, they often sell out，兩個子句只用逗號接，少了 and。前面那個 they 也可以省，寫成 harder to buy and often sell out，讓兩個動詞共用主詞 tickets，這時 and 前面通常不加逗號；as soon as 帶的是另一個子句，they 不能省。",
-    "主詞承前省略 → 補上 they：and they often sell out、as soon as they go on sale",
+    "中文後半「往往一開賣就賣光」沒有主詞，讀者從前半句就知道賣光的是門票；英文的每一個子句卻都要有主詞，所以 and 後面寫 they often sell out，once 後面也要寫 they go on sale。寫成 …, often sell out once go on sale，兩個動詞都沒有主詞；寫成 …, they often sell out，兩個子句只用逗號接，少了 and。前面那個 they 也可以省，寫成 harder to buy and often sell out，讓兩個動詞共用主詞 tickets，這時 and 前面通常不加逗號；once 帶的是另一個子句，they 不能省。",
+    "主詞承前省略 → 補上 they：and they often sell out、once they go on sale",
     "另外一處中文不必寫、英文非寫不可：中文的「門票」沒有單複數，熱門演唱會的票不只一張，英文用複數 tickets，動詞用 are。"
    ],
    "refs": [
     {
-     "label": "92 年學測第 12 題",
+     "label": "92 年學測第 12 題（as soon as）",
      "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0162"
     },
     {
@@ -2082,12 +2084,12 @@
   "internalNote": {
    "_說明": "命題端量測，網站不顯示，供審稿使用",
    "中文字數": 21,
-   "英文字數": 21,
-   "句構": "S + be getting + 比較級 + to V, and S + often + V + as soon as + S + V（and 連接兩個子句，as soon as 帶副詞子句）",
+   "英文字數": 19,
+   "句構": "S + be getting + 比較級 + to V, and S + often + V + once + S + V（and 連接兩個子句，once 帶副詞子句）",
    "標的詞彙": [
     "be hard to V（harder to buy）",
     "sell out",
-    "as soon as + S + go on sale"
+    "once + S + go on sale"
    ],
    "原文搭配": "無（自擬）",
    "建檔": "第三百六十八場建檔。主題自擬；命題分身出題，兩輪盲測、四方審閱（引文事實、文法、學生讀者、大考體例）後裁定修訂。"
@@ -2099,8 +2101,8 @@
   "label": "改編練習",
   "yearLabel": "改編練習（十三）",
   "flagNote": "本題庫改編練習：主題由本題庫自擬，照現行學測中譯英的版面擬題（兩句一組），參考譯法與解析由本題庫撰寫，不是大考中心的試題，也沒有官方評分原則。",
-  "zh": "因此，歌迷已經學會事先註冊帳號、檢查網路連線，並設好開賣時間的鬧鐘。",
-  "en": "As a result, fans have learned to create accounts in advance, check their Internet connections, and set alarms for the ticket sale.",
+  "zh": "因此，歌迷已經學會事先註冊帳號、檢查網路連線，並設好鬧鐘。",
+  "en": "As a result, fans have learned to create accounts in advance, check their Internet connections, and set alarms.",
   "chunks": [
    {
     "zh": "因此，歌迷已經學會",
@@ -2115,8 +2117,8 @@
     "en": "check their Internet connections,"
    },
    {
-    "zh": "並設好開賣時間的鬧鐘。",
-    "en": "and set alarms for the ticket sale."
+    "zh": "並設好鬧鐘。",
+    "en": "and set alarms."
    }
   ],
   "altAnswers": [
@@ -2125,8 +2127,8 @@
    "create accounts / register accounts / sign up for accounts / register for accounts",
    "in advance / ahead of time / early",
    "check their Internet connections / check their Internet connection",
-   "set alarms for the ticket sale / set alarms for when tickets go on sale / set an alarm for the time when tickets go on sale",
-   "另一種寫法：Because of this, many fans have learned to register accounts ahead of time, check their Internet connections, and set alarms for when tickets go on sale."
+   "set alarms / set their alarms",
+   "另一種寫法：Because of this, many fans have learned to register accounts ahead of time, check their Internet connections, and set their alarms."
   ],
   "explanation": {
    "pattern": [
@@ -2136,7 +2138,7 @@
    ],
    "collocation": [
     "create an account（註冊帳號）——本題要用的這一組。也可以寫 sign up for an account 或 register for an account。往外延伸：log in to your account（登入帳號）、a username and password（帳號和密碼）。",
-    "set an alarm for + 時間（設……的鬧鐘）——set 是「設定」，for 後面接時間（set an alarm for 6 a.m.），也可以接有固定時間的事情（alarms for the ticket sale），或用 when 子句（alarms for when tickets go on sale）。鬧鈴響起是 go off。106 年學測第 1 題的題幹兩個說法都有：The alarm rings even when it’s not set to go off.（即使沒有設定，鬧鈴也會響。）往外延伸：turn off the alarm（關掉鬧鈴）。",
+    "set an alarm（設鬧鐘）——set 是「設定」。要說設幾點的鬧鐘，後面加 for + 時間（set an alarm for 6 a.m.），也可以接有固定時間的事情（set an alarm for the ticket sale）；本題中文只說「設好鬧鐘」，寫 set alarms 就夠了。鬧鈴響起是 go off。106 年學測第 1 題的題幹兩個說法都有：The alarm rings even when it’s not set to go off.（即使沒有設定，鬧鈴也會響。）往外延伸：turn off the alarm（關掉鬧鈴）。",
     "in advance（事先）——說明在開賣前做好，也可以寫 ahead of time。109 年指考中譯英第 1 題就寫 visitors had to apply for admission in advance（參觀者必須事先申請進入許可）。「網路連線」是 Internet connection，95 年學測第 15 題的題幹就寫 When Jason failed to pay his bill, the network company cut off his Internet connection.（傑森未繳費，網路公司便切斷了他的網路連線。）往外延伸：on time（準時）、go online（上網）。"
    ],
    "mustHave": [
@@ -2169,8 +2171,8 @@
   },
   "internalNote": {
    "_說明": "命題端量測，網站不顯示，供審稿使用",
-   "中文字數": 30,
-   "英文字數": 22,
+   "中文字數": 25,
+   "英文字數": 18,
    "句構": "As a result, S + have learned + to V1, V2, and V3（不定詞後三個原形動詞並列）",
    "標的詞彙": [
     "have learned to V（現在完成式）",
@@ -2187,20 +2189,20 @@
   "label": "改編練習",
   "yearLabel": "改編練習（十四）",
   "flagNote": "本題庫改編練習：主題取自 106 年指考閱讀測驗〈札哈·哈蒂的藝術生涯與建築理念〉，照現行學測中譯英的版面擬題（兩句一組），參考譯法與解析由本題庫撰寫，不是大考中心的試題，也沒有官方評分原則。",
-  "zh": "淡江大橋(the Danjiang Bridge)是由知名女建築師設計的，許多人說它是工程上的一大成就。",
-  "en": "The Danjiang Bridge was designed by a famous female architect, and many people describe it as a great achievement in engineering.",
+  "zh": "淡江大橋(the Danjiang Bridge)是由知名女建築師設計的，人們說它是工程上的一大成就。",
+  "en": "The Danjiang Bridge was designed by a famous female architect, and people describe it as a great achievement in engineering.",
   "chunks": [
    {
-    "zh": "淡江大橋(the Danjiang Bridge)是設計的",
-    "en": "The Danjiang Bridge was designed"
+    "zh": "淡江大橋(the Danjiang Bridge)是",
+    "en": "The Danjiang Bridge was"
    },
    {
-    "zh": "由知名女建築師，",
-    "en": "by a famous female architect,"
+    "zh": "由知名女建築師設計的，",
+    "en": "designed by a famous female architect,"
    },
    {
-    "zh": "許多人說它",
-    "en": "and many people describe it"
+    "zh": "人們說它",
+    "en": "and people describe it"
    },
    {
     "zh": "是工程上的一大成就。",
@@ -2211,16 +2213,16 @@
    "famous / well-known",
    "female architect / woman architect",
    "describe it as / see it as / regard it as",
-   "many people describe it as / many people say it is",
+   "people describe it as / people say it is",
    "a great / a major",
    "achievement in engineering. / engineering achievement.",
-   "另一種寫法：A well-known female architect designed the Danjiang Bridge, and many people see it as a major engineering achievement."
+   "另一種寫法：A well-known female architect designed the Danjiang Bridge, and people see it as a major engineering achievement."
   ],
   "explanation": {
    "pattern": [
     "整句的骨幹是 S + was + p.p. + by + 人, and S + V + O + as + N。兩個子句各有主詞，英文不能只用逗號接，中間要有 and。",
     "be + p.p. + by + 人：這一句談的是淡江大橋，做「設計」這個動作的是建築師，橋是接受這個動作的一方，所以用 be + p.p.，做動作的人用 by 帶出來；設計是過去完成的事，現在橋已經蓋好、通車了，所以用過去式 was designed。寫成 The Danjiang Bridge designed by…，少了 was，整句就沒有動詞。106 年指考中譯英第 1 題的 an event held by different cities 也用 by 帶出做動作的一方，不過 held by… 是放在名詞 event 後面的修飾語，那一句的動詞是前面的 is；本題的 was designed 是主要動詞，was 不能省。",
-    "describe + O + as + N：as 是介系詞「作為、當作」，後面接名詞。中文說「說它是」，英文卻不寫 describe it is：describe 已經是動詞，再接 is，一個子句就有兩個動詞。要用 is，就寫 many people say it is…。"
+    "describe + O + as + N：as 是介系詞「作為、當作」，後面接名詞。中文說「說它是」，英文卻不寫 describe it is：describe 已經是動詞，再接 is，一個子句就有兩個動詞。要用 is，就寫 people say it is…。"
    ],
    "collocation": [
     "describe A as B（把 A 形容成 B）——本題要用的這一組。這一組也出現在 106 年指考閱讀測驗〈札哈·哈蒂的藝術生涯與建築理念〉：The New York Times described the building as “the most important new building in America since the Cold War.”（《紐約時報》說這棟建築是「冷戰以來美國最重要的新建築」。）淡江大橋正是札哈·哈蒂（Zaha Hadid）的事務所設計的。往外延伸：a description of + N（對……的描述）、describe oneself as（說自己是）。",
@@ -2233,7 +2235,7 @@
    "mustHave": [
     "中文「是由……設計的」沒有表示接受動作的字，英文得自己決定：橋接受設計，用 be + p.p.；「是……的」講已經完成的事，用過去式 was designed。",
     "是由……設計的 → was designed by + 人",
-    "另外兩處中文不必寫、英文非寫不可：「知名女建築師」前面沒有「一位」，英文仍要有冠詞 a；many people 是另一個主詞，兩個子句之間要有 and。"
+    "另外兩處中文不必寫、英文非寫不可：「知名女建築師」前面沒有「一位」，英文仍要有冠詞 a；people 是另一個主詞，兩個子句之間要有 and。"
    ],
    "refs": [
     {
@@ -2252,8 +2254,8 @@
   },
   "internalNote": {
    "_說明": "命題端量測，網站不顯示，供審稿使用",
-   "中文字數": 29,
-   "英文字數": 21,
+   "中文字數": 28,
+   "英文字數": 20,
    "句構": "S + was + p.p. + by + 人, and S + V + O + as + N（be + p.p.；and 連接兩個子句）",
    "標的詞彙": [
     "was designed by",
@@ -2271,27 +2273,27 @@
   "yearLabel": "改編練習（十四）",
   "flagNote": "本題庫改編練習：主題取自 106 年指考閱讀測驗〈札哈·哈蒂的藝術生涯與建築理念〉，照現行學測中譯英的版面擬題（兩句一組），參考譯法與解析由本題庫撰寫，不是大考中心的試題，也沒有官方評分原則。",
   "zh": "橋上有自行車道和人行步道，週末常可以看到有人在那裡騎車、散步。",
-  "en": "The bridge has bike lanes and walkways, where on weekends you can often see people riding bikes and taking walks.",
+  "en": "It has bike lanes and walkways, where on weekends you can often see people riding bikes and taking walks.",
   "chunks": [
    {
     "zh": "橋上有自行車道和人行步道，",
-    "en": "The bridge has bike lanes and walkways,"
+    "en": "It has bike lanes and walkways,"
    },
    {
-    "zh": "週末在那裡常可以看到",
-    "en": "where on weekends you can often see"
+    "zh": "週末在那裡",
+    "en": "where on weekends"
    },
    {
-    "zh": "有人騎車、",
-    "en": "people riding bikes"
+    "zh": "常可以看到有人",
+    "en": "you can often see people"
    },
    {
-    "zh": "散步。",
-    "en": "and taking walks."
+    "zh": "騎車、散步。",
+    "en": "riding bikes and taking walks."
    }
   ],
   "altAnswers": [
-   "The bridge has / There are … on the bridge",
+   "It has / The bridge has / There are … on the bridge",
    "bike lanes / bicycle lanes / bike paths",
    "walkways / sidewalks / walking paths",
    "bike lanes and walkways / a bike lane and a walkway",
@@ -2305,7 +2307,7 @@
   ],
   "explanation": {
    "pattern": [
-    "整句的骨幹是 S + has + O, where + S + can + see + O + V-ing and V-ing。where 是關係副詞，指前面講的車道和步道，等於「在那裡」；逗號 + where 補充說明那個地方可以看到什麼。還原成兩個子句是 …walkways, and on weekends you can often see people riding bikes and taking walks there. where 已經把兩個子句連起來，所以不再加 and。",
+    "整句的骨幹是 S + has + O, where + S + can + see + O + V-ing and V-ing。句首的 It 指上一句的淡江大橋。where 是關係副詞，指前面講的車道和步道，等於「在那裡」；逗號 + where 補充說明那個地方可以看到什麼。還原成兩個子句是 …walkways, and on weekends you can often see people riding bikes and taking walks there. where 已經把兩個子句連起來，所以不再加 and。",
     "see + O + V-ing（看到某人正在做某事）：感官動詞 see、watch、hear 後面的受詞，可以接原形動詞，也可以接 V-ing。接 V-ing 是看到動作正在進行的那一段，接原形動詞是看到動作從頭到尾做完。週末到橋上，看到的是人們正在騎車、正在散步，所以寫 see people riding bikes。並排看：[I saw him cross the street.]（我看到他過了馬路。）／[I saw him crossing the street.]（我看到他正在過馬路。）",
     "riding 和 taking 由 and 連接，都是 see people 後面的動作，兩個都用 V-ing，不寫成 riding bikes and take walks。on weekends 是美式說法。"
    ],
@@ -2343,8 +2345,8 @@
   "internalNote": {
    "_說明": "命題端量測，網站不顯示，供審稿使用",
    "中文字數": 28,
-   "英文字數": 20,
-   "句構": "S + has + O, where + S + can + see + O + V-ing and V-ing（非限定的 where 子句；泛指的主詞 you 要補）",
+   "英文字數": 19,
+   "句構": "It + has + O, where + S + can + see + O + V-ing and V-ing（It 承接上一句的橋；非限定的 where 子句；泛指的主詞 you 要補）",
    "標的詞彙": [
     "you can see（泛指的主詞）",
     "see + O + V-ing",
@@ -2360,12 +2362,12 @@
   "label": "改編練習",
   "yearLabel": "改編練習（十五）",
   "flagNote": "本題庫改編練習：主題由本題庫自擬，照現行學測中譯英的版面擬題（兩句一組），參考譯法與解析由本題庫撰寫，不是大考中心的試題，也沒有官方評分原則。",
-  "zh": "許多祖父母對新科技不太了解，所以常請孫子女教他們使用智慧型手機。",
-  "en": "Many grandparents don’t know much about new technology, so they often ask their grandchildren to teach them how to use smartphones.",
+  "zh": "許多祖父母對科技所知不多，所以常請孫子女教他們用智慧型手機。",
+  "en": "Many grandparents know little about technology, so they often ask their grandchildren to teach them how to use smartphones.",
   "chunks": [
    {
-    "zh": "許多祖父母對新科技不太了解，",
-    "en": "Many grandparents don’t know much about new technology,"
+    "zh": "許多祖父母對科技所知不多，",
+    "en": "Many grandparents know little about technology,"
    },
    {
     "zh": "所以常請",
@@ -2376,29 +2378,29 @@
     "en": "their grandchildren to teach them"
    },
    {
-    "zh": "使用智慧型手機。",
+    "zh": "用智慧型手機。",
     "en": "how to use smartphones."
    }
   ],
   "altAnswers": [
-   "don’t know much about / do not know much about / know little about",
+   "know little about / don’t know much about / do not know much about",
    "to teach them how to use / to teach them to use / to show them how to use",
    "smartphones / their smartphones / a smartphone",
-   "另一種寫法：Because many grandparents don’t know much about new technology, they often ask their grandchildren to teach them how to use smartphones."
+   "另一種寫法：Because many grandparents know little about technology, they often ask their grandchildren to teach them how to use smartphones."
   ],
   "explanation": {
    "pattern": [
-    "整句的骨幹是 S + don’t know much about + N, so S + ask + 人 + to V。前後各是一個完整的子句，中間用 so 連起來；英文兩個子句不能只用逗號接，so 不能省。如果改用 Because 開頭，把原因放在前面，後半句就不再加 so。",
+    "整句的骨幹是 S + know little about + N, so S + ask + 人 + to V。前後各是一個完整的子句，中間用 so 連起來；英文兩個子句不能只用逗號接，so 不能省。如果改用 Because 開頭，把原因放在前面，後半句就不再加 so。",
     "ask + 人 + to V（請某人做某事）：ask 後面先接人，再接不定詞，不寫 ask their grandchildren teach them。tell、want 也是這個句型：My mom always tells me to charge my phone before I go to bed.（媽媽總是叫我睡前先把手機充好電。）",
     "teach + 人 + how to V（教某人怎麼做）：how to use smartphones 整串當 teach 的第二個受詞；拿掉 how，寫 teach them to use smartphones，意思差不多。105 年學測中譯英第 2 題 they must learn how to effectively deal with new challenges 用的也是 how to V。"
    ],
    "collocation": [
-    "know much about + N（對……很了解）——本題要用的這一組。much 在這裡指「很多事情」，多半用在否定句和問句，肯定句通常改說 know a lot about；中文「不太了解」就寫成 don’t know much about。94 年學測中譯英第 1 題 Humans know very little about outer space（人類對外太空所知非常有限）用的是同一組，只是把 much 換成 very little。往外延伸：know little about（對……所知不多）、know a lot about（對……很了解）。",
-    "new technology（新科技）——這裡講的是整體的科技，不可數，不加 a 也不加 s；講一項一項的技術才用 technologies。往外延伸：modern technology（現代科技）、keep up with technology（跟上科技的腳步）。",
+    "know little about + N（對……所知不多）——本題要用的這一組。little 在這裡指「很少的事情」，本身就帶否定的意思，所以句子不再加 not；中文「所知不多」就寫成 know little about。94 年學測中譯英第 1 題 Humans know very little about outer space（人類對外太空所知非常有限）用的正是這一組，只是在 little 前面多了 very。往外延伸：don’t know much about（對……不太了解）、know a lot about（對……很了解）。",
+    "technology（科技）——這裡講的是整體的科技，不可數，不加 a 也不加 s；講一項一項的技術才用 technologies。往外延伸：new technology（新科技）、modern technology（現代科技）、keep up with technology（跟上科技的腳步）。",
     "use a smartphone（使用智慧型手機）——smartphone 寫成一個字，中間不空格。104 年指考英文作文的範文寫的正是教祖母用手機：I decided to teach her how to order with her phone.（我決定教她用手機點餐。）往外延伸：download an app（下載應用程式）、charge one’s phone（替手機充電）。"
    ],
    "confusable": [
-    "much／many——兩個都是「很多」，much 接不可數名詞，many 接可數的複數名詞；本題的 much 後面沒有接名詞，單獨指「很多事情」。並排看：[My grandma doesn’t drink much coffee.]（奶奶咖啡喝得不多。）／[My grandma doesn’t have many friends who use smartphones.]（奶奶的朋友裡，用智慧型手機的不多。）"
+    "little／a little——little 是「很少、幾乎沒有」，帶否定的意思；a little 是「一點點」，意思偏向肯定。只差一個 a，意思就差很多。並排看：[My grandma knows little about computers.]（奶奶對電腦所知不多。）／[My grandma knows a little about computers.]（奶奶對電腦懂一點。）"
    ],
    "mustHave": [
     "中文「所以常請孫子女教他們」的主詞承前省略，讀者自然知道是祖父母；英文 so 後面是一個新的子句，子句一定要有主詞，所以要補上 they。",
@@ -2422,11 +2424,11 @@
   },
   "internalNote": {
    "_說明": "命題端量測，網站不顯示，供審稿使用",
-   "中文字數": 30,
-   "英文字數": 21,
-   "句構": "S + don’t know much about + N, so S + ask + 人 + to teach + 人 + how to V（so 連接兩個子句）",
+   "中文字數": 28,
+   "英文字數": 19,
+   "句構": "S + know little about + N, so S + ask + 人 + to teach + 人 + how to V（so 連接兩個子句）",
    "標的詞彙": [
-    "know much about",
+    "know little about",
     "ask + 人 + to V",
     "teach + 人 + how to V"
    ],
@@ -2440,16 +2442,16 @@
   "label": "改編練習",
   "yearLabel": "改編練習（十五）",
   "flagNote": "本題庫改編練習：主題由本題庫自擬，照現行學測中譯英的版面擬題（兩句一組），參考譯法與解析由本題庫撰寫，不是大考中心的試題，也沒有官方評分原則。",
-  "zh": "這樣一來，祖父母就能和遠方的家人視訊、上網看新聞，也能查詢天氣。",
-  "en": "This way, grandparents can make video calls to their family far away, read the news online, and check the weather.",
+  "zh": "這樣一來，祖父母就能和家人視訊、上網看新聞，也能查詢天氣。",
+  "en": "This way, grandparents can make video calls to their family, read the news online, and check the weather.",
   "chunks": [
    {
     "zh": "這樣一來，祖父母就能",
     "en": "This way, grandparents can"
    },
    {
-    "zh": "和遠方的家人視訊、",
-    "en": "make video calls to their family far away,"
+    "zh": "和家人視訊、",
+    "en": "make video calls to their family,"
    },
    {
     "zh": "上網看新聞，",
@@ -2464,10 +2466,10 @@
    "This way / In this way",
    "grandparents / they",
    "make video calls to / make video calls with / video chat with",
-   "their family far away / their family members who live far away / family members who live far away",
+   "their family / their family members",
    "read the news online / watch the news online",
    "check the weather / check the weather forecast",
-   "另一種寫法：In this way, they can video chat with their family members who live far away, read the news online, and check the weather."
+   "另一種寫法：In this way, they can video chat with their family members, read the news online, and check the weather."
   ],
   "explanation": {
    "pattern": [
@@ -2477,8 +2479,8 @@
    ],
    "collocation": [
     "make a video call to + 人（和……視訊）——本題要用的這一組。call 在這裡是名詞「通話」，動詞用 make，通話的對象用 to 帶出，也可以用 with；video 放在 call 前面，說明是哪一種通話。97 年指考英文作文的字詞搭配練習句就有這一組：he secretly takes a class to learn how to make video calls（他偷偷去上手機課，想學會怎麼視訊）。往外延伸：video chat with + 人（視訊聊天）、make a phone call（打電話）、answer a call（接電話）。",
-    "family far away（遠方的家人）——far away 放在名詞後面修飾 family，意思等於 family members who live far away。往外延伸：keep in touch with（和……保持聯絡）、live far away from home（住得離家很遠）。",
-    "read the news online（上網看新聞）——online 在這裡是副詞，意思是「在網路上」，直接放在動詞片語後面，前面不加介系詞，和 go online（上網）的 online 用法相同。news 是不可數名詞，字尾雖然有 s，卻當單數用，前面也不加 a：86 年大學聯考中譯英第 3 題 That is indeed good news.（那的確是個好消息。）至於 check the weather（查天氣），往外延伸：check the weather forecast（看天氣預報）、check one’s messages（看訊息）。"
+    "read the news online（上網看新聞）——online 在這裡是副詞，意思是「在網路上」，直接放在動詞片語後面，前面不加介系詞，和 go online（上網）的 online 用法相同。news 是不可數名詞，字尾雖然有 s，卻當單數用，前面也不加 a：86 年大學聯考中譯英第 3 題 That is indeed good news.（那的確是個好消息。）往外延伸：surf the Internet（上網瀏覽）、watch the news on TV（看電視新聞）。",
+    "check the weather（查天氣）——check 在這裡是「查看、確認」，後面直接接要查的東西。weather 是不可數名詞，不加 a；要查的是眼前這段時間、這個地方的天氣，前面用 the。往外延伸：check the weather forecast（看天氣預報）、check one’s messages（看訊息）。"
    ],
    "mustHave": [
     "中文用頓號和「也能」把三件事串起來，第三件事前面多了一個「也能」，中文讀起來很順；英文的三個動作已經共用前面的 can，最後一項前面要放的是 and。照中文逐字翻成 …read the news online, also can check the weather，少了連接詞 and，also 的位置也多半放在 can 後面。還原成完整的寫法是 grandparents can make video calls…, (they can) read the news online, and (they can) check the weather，把括號裡重複的部分省略，就是參考譯法。",
@@ -2506,8 +2508,8 @@
   },
   "internalNote": {
    "_說明": "命題端量測，網站不顯示，供審稿使用",
-   "中文字數": 28,
-   "英文字數": 20,
+   "中文字數": 25,
+   "英文字數": 18,
    "句構": "This way, S + can + V1, V2, and V3（三個原形動詞並列，共用 can）",
    "標的詞彙": [
     "make video calls to",
@@ -2525,11 +2527,11 @@
   "yearLabel": "改編練習（十六）",
   "flagNote": "本題庫改編練習：主題由本題庫自擬，照現行學測中譯英的版面擬題（兩句一組），參考譯法與解析由本題庫撰寫，不是大考中心的試題，也沒有官方評分原則。",
   "zh": "只要用手機上的外送平台點餐，不必出門就能吃到喜歡的食物。",
-  "en": "As long as we order meals through delivery apps on our phones, we can enjoy our favorite food without leaving home.",
+  "en": "As long as we order through delivery apps on our phones, we can enjoy our favorite food without leaving home.",
   "chunks": [
    {
     "zh": "只要點餐",
-    "en": "As long as we order meals"
+    "en": "As long as we order"
    },
    {
     "zh": "用手機上的外送平台，",
@@ -2547,7 +2549,7 @@
   "altAnswers": [
    "As long as / So long as",
    "we … we … our / you … you … your / people … they … their",
-   "order meals / order food",
+   "order / order meals / order food",
    "through delivery apps / on delivery apps / with delivery apps / through delivery platforms / through food delivery platforms",
    "enjoy / eat / have",
    "our favorite food / the food we like",
@@ -2556,12 +2558,12 @@
   ],
   "explanation": {
    "pattern": [
-    "整句的骨幹是 As long as + S + V…, S + can + V… + without + V-ing。as long as 在這裡是連接詞，意思是「只要」；連接詞後面要接有主詞、有動詞的完整子句，所以寫 As long as we order meals…；主要子句也要有自己的主詞，寫 we can enjoy…。兩個主詞前後要一致：選 we 就配 our，選泛指的 you 就配 your。",
+    "整句的骨幹是 As long as + S + V…, S + can + V… + without + V-ing。as long as 在這裡是連接詞，意思是「只要」；連接詞後面要接有主詞、有動詞的完整子句，所以寫 As long as we order…；主要子句也要有自己的主詞，寫 we can enjoy…。兩個主詞前後要一致：選 we 就配 our，選泛指的 you 就配 your。",
     "中文的「只要……就……」前後呼應，英文只用一個連接詞 as long as，主要子句前面不必再加 so 或 then。條件子句用現在式，寫 we order，不寫 we will order。",
     "without 是介系詞，後面接動詞要改成動名詞，寫 without leaving，不寫 without leave。做 leave 這個動作的就是主要子句的 we。例句：My sister finished her homework without asking anyone for help.（我妹妹沒有請任何人幫忙就寫完了作業。）"
    ],
    "collocation": [
-    "order meals through delivery apps（用外送平台點餐）——本題要用的這一組。order 是「點（餐）、訂購」，後面直接接要點的東西；through 表示透過的管道，也可以寫 on。「手機上的」寫成 on our phones，擺在 apps 後面。104 年指考中譯英第 2 題也有 goods ordered online（網路訂購之物品）。往外延伸：place an order（下訂單）、order takeout（點外帶的餐點）。",
+    "order through delivery apps（用外送平台點餐）——本題要用的這一組。order 是「點（餐）、訂購」，可以直接接要點的東西（order meals）；單獨寫 order 就是「點餐」：Are you ready to order?（您準備好點餐了嗎？）through 表示透過的管道，也可以寫 on。「手機上的」寫成 on our phones，擺在 apps 後面。104 年指考中譯英第 2 題也有 goods ordered online（網路訂購之物品）。往外延伸：place an order（下訂單）、order takeout（點外帶的餐點）。",
     "leave home（出門）——leave 後面直接接離開的地方，不寫 leave from home，home 前面也不加 the；另一個常見的寫法是 go out。往外延伸：stay home（待在家裡）、leave for school（出門上學）。",
     "favorite food（喜歡的食物）——food 泛指吃的東西時不可數，不加 s。往外延伸：my favorite snack（我最喜歡的點心）。"
    ],
@@ -2569,7 +2571,7 @@
     "as long as（只要）／as long as（和……一樣長）——同一串字，比長度時前後是比較的兩樣東西，當連接詞時後面接一個條件。並排看：[This video is as long as a whole class period.]（這部影片和一整節課一樣長。）／[You can borrow my charger as long as you return it before lunch.]（只要你午餐前還我，就可以借我的充電器。）98 年學測克漏字第 19 題的答案就是表條件的 as long as。"
    ],
    "mustHave": [
-    "中文「只要用手機上的外送平台點餐，不必出門就能吃到喜歡的食物」前後兩段都沒有主詞，中文讀者自然知道說的是我們；英文的每個子句卻都要有主詞。照中文逐字翻，寫成 As long as using delivery apps…（連接詞後面沒有主詞）或 As long as order meals…, can enjoy…（兩個子句都缺主詞），都不成立。還原成完整的寫法，就是補回兩個主詞：As long as we order meals…, we can enjoy…。",
+    "中文「只要用手機上的外送平台點餐，不必出門就能吃到喜歡的食物」前後兩段都沒有主詞，中文讀者自然知道說的是我們；英文的每個子句卻都要有主詞。照中文逐字翻，寫成 As long as using delivery apps…（連接詞後面沒有主詞）或 As long as order through delivery apps…, can enjoy…（兩個子句都缺主詞），都不成立。還原成完整的寫法，就是補回兩個主詞：As long as we order…, we can enjoy…。",
     "沒有主詞的「只要……就……」→ As long as + S + V…, S + can + V",
     "另外兩處中文不必寫、英文非寫不可：「外送平台」泛指，用複數 apps；「手機」「喜歡的食物」沒有說是誰的，英文要寫 our phones、our favorite food。"
    ],
@@ -2595,11 +2597,11 @@
   "internalNote": {
    "_說明": "命題端量測，網站不顯示，供審稿使用",
    "中文字數": 26,
-   "英文字數": 21,
+   "英文字數": 20,
    "句構": "As long as + S + V…, S + can + V… + without + V-ing（as long as 帶條件副詞子句；without 後接動名詞）",
    "標的詞彙": [
     "As long as + S + V（補回省略的主詞）",
-    "order meals through delivery apps",
+    "order through delivery apps",
     "without leaving home"
    ],
    "原文搭配": "無（自擬）",
@@ -2613,15 +2615,15 @@
   "yearLabel": "改編練習（十六）",
   "flagNote": "本題庫改編練習：主題由本題庫自擬，照現行學測中譯英的版面擬題（兩句一組），參考譯法與解析由本題庫撰寫，不是大考中心的試題，也沒有官方評分原則。",
   "zh": "但是隨餐附贈的免洗餐具(disposable utensils)和塑膠袋產生大量的廢棄物，也危害環境。",
-  "en": "But the disposable utensils and plastic bags that come with the meals produce a large amount of waste and harm the environment.",
+  "en": "But disposable utensils and plastic bags that come with meals produce a large amount of waste and harm the environment.",
   "chunks": [
    {
     "zh": "但是免洗餐具(disposable utensils)和塑膠袋",
-    "en": "But the disposable utensils and plastic bags"
+    "en": "But disposable utensils and plastic bags"
    },
    {
     "zh": "隨餐附贈的",
-    "en": "that come with the meals"
+    "en": "that come with meals"
    },
    {
     "zh": "產生大量的廢棄物，",
@@ -2634,8 +2636,9 @@
   ],
   "altAnswers": [
    "But / However,",
+   "disposable utensils and plastic bags / the disposable utensils and plastic bags",
    "that come with / which come with / provided with",
-   "the meals / the food / the orders",
+   "meals / the meals / food orders",
    "produce / create / generate",
    "a large amount of / a huge amount of / a great deal of / a lot of / lots of",
    "waste / trash / garbage",
@@ -2644,9 +2647,9 @@
   ],
   "explanation": {
    "pattern": [
-    "整句的骨幹是 But + S + V1 + O1 + and + V2 + O2：主詞是 the disposable utensils and plastic bags that come with the meals，後面兩個動詞 produce 與 harm 用 and 連起來。中文把「隨餐附贈的」擺在名詞前面，英文改用關係子句 that come with the meals 擺在後面。come with 是「附帶」，例如 The phone comes with a charger.（這支手機附充電器。）",
-    "關係子句的動詞要和先行詞一致。代回子句驗算：(the utensils and bags) come with the meals，當主詞的是餐具和袋子，不是 the meals，所以寫 come。關係代名詞當主詞，用 that 或 which 都可以。",
-    "主詞很長，先把 that come with the meals 遮起來，核心名詞 utensils and plastic bags 是複數，所以 produce、harm 不加 s。中文「也危害環境」承前省略主詞，英文用 and 接上第二個動詞，兩個動詞形式相同。"
+    "整句的骨幹是 But + S + V1 + O1 + and + V2 + O2：主詞是 disposable utensils and plastic bags that come with meals，後面兩個動詞 produce 與 harm 用 and 連起來。中文把「隨餐附贈的」擺在名詞前面，英文改用關係子句 that come with meals 擺在後面。come with 是「附帶」，例如 The phone comes with a charger.（這支手機附充電器。）",
+    "關係子句的動詞要和先行詞一致。代回子句驗算：(utensils and bags) come with meals，當主詞的是餐具和袋子，不是 meals，所以寫 come。關係代名詞當主詞，用 that 或 which 都可以。",
+    "主詞很長，先把 that come with meals 遮起來，核心名詞 utensils and plastic bags 是複數，所以 produce、harm 不加 s。中文「也危害環境」承前省略主詞，英文用 and 接上第二個動詞，兩個動詞形式相同。"
    ],
    "collocation": [
     "produce a large amount of waste（產生大量的廢棄物）——本題要用的這一組。produce 也可以換成 create 或 generate；waste 指用過、不要的東西，比 trash、garbage 正式。103 年學測第 10 題的題幹就有 household waste（家庭垃圾）。往外延伸：reduce waste（減少廢棄物）、recycle plastic bottles（回收塑膠瓶）。",
@@ -2659,7 +2662,7 @@
    "mustHave": [
     "中文的「廢棄物」看不出可不可數，英文得決定：waste 在這裡當不可數名詞，不加 a 也不加 s，「大量的」寫 a large amount of 或 a lot of，不寫 a large number of waste。肯定句講「很多」通常用 a lot of，不用 much。",
     "不可數 → a large amount of waste",
-    "另外兩處中文不必寫、英文非寫不可：「免洗餐具和塑膠袋」指隨餐附贈的那一些，前面要有 the；「塑膠袋」泛指，寫複數 bags；主詞是 and 連起來的兩樣東西，本來就算複數，所以 come、produce、harm 都不加 s。"
+    "另外兩處中文不必寫、英文非寫不可：「免洗餐具」「塑膠袋」「餐」看不出單複數，這裡泛指外送附來的這些東西，英文寫複數 utensils、bags、meals，泛指的複數名詞前面不加 the；主詞是 and 連起來的兩樣東西，本來就算複數，所以 come、produce、harm 都不加 s。"
    ],
    "refs": [
     {
@@ -2674,11 +2677,11 @@
   },
   "internalNote": {
    "_說明": "命題端量測，網站不顯示，供審稿使用",
-   "中文字數": 29,
-   "英文字數": 22,
+   "中文字數": 28,
+   "英文字數": 20,
    "句構": "But + S（N and N + that 關係子句）+ V1 + O1 + and + V2 + O2（關係子句後位修飾；and 連接兩個動詞）",
    "標的詞彙": [
-    "that come with the meals（關係子句，複數動詞）",
+    "that come with meals（關係子句，複數動詞）",
     "a large amount of waste",
     "harm the environment"
    ],
@@ -2863,24 +2866,24 @@
   "label": "改編練習",
   "yearLabel": "改編練習（十八）",
   "flagNote": "本題庫改編練習：主題由本題庫自擬，照現行學測中譯英的版面擬題（兩句一組），參考譯法與解析由本題庫撰寫，不是大考中心的試題，也沒有官方評分原則。",
-  "zh": "元宵節(the Lantern Festival)時，許多人會和朋友在天燈上寫下願望、點火，再把天燈放上天空。",
-  "en": "On the Lantern Festival, many people write their wishes on lanterns with their friends, light them, and release them into the sky.",
+  "zh": "元宵節(the Lantern Festival)時，許多人會在天燈上寫下願望、點火，再把天燈放上天空。",
+  "en": "On the Lantern Festival, many people write their wishes on lanterns, light them, and then release them into the sky.",
   "chunks": [
    {
     "zh": "元宵節(the Lantern Festival)時，許多人會",
     "en": "On the Lantern Festival, many people"
    },
    {
-    "zh": "和朋友在天燈上寫下願望、",
-    "en": "write their wishes on lanterns with their friends,"
+    "zh": "在天燈上寫下願望、",
+    "en": "write their wishes on lanterns,"
    },
    {
-    "zh": "點火，",
-    "en": "light them,"
+    "zh": "點火，再",
+    "en": "light them, and then"
    },
    {
-    "zh": "再把天燈放上天空。",
-    "en": "and release them into the sky."
+    "zh": "把天燈放上天空。",
+    "en": "release them into the sky."
    }
   ],
   "altAnswers": [
@@ -2888,13 +2891,13 @@
    "lanterns / sky lanterns",
    "write their wishes / write down their wishes",
    "light them / light the lanterns",
-   "and release / and then release / and send",
-   "另一種寫法：On the Lantern Festival, many people and their friends write wishes on sky lanterns, light them, and send them up into the sky."
+   "and then release / and release / and then send / and send",
+   "另一種寫法：On the Lantern Festival, many people write down their wishes on sky lanterns, light them, and send them up into the sky."
   ],
   "explanation": {
    "pattern": [
-    "整句的骨幹是 On + 節日, S + V1 + O, V2 + O, and V3 + O。主詞是 many people，講的是每年都會做的事情，用現在簡單式；中文的「會」表示習慣，不寫 will。with their friends 說明和誰一起，英文習慣放在動詞片語後面；三個動作共用同一個主詞，讀起來就是和朋友一起做完這整件事。",
-    "三個動作並列，形式要一致：write…, light…, and release…，三個都是原形動詞，最後一項前面要有 and。中文的「再」只是說明先後，英文照動作的順序排好，寫 and 就夠了，也可以寫 and then。and 前面那個逗號可寫可不寫，參考譯法照 107 年學測中譯英第 2 題保留。",
+    "整句的骨幹是 On + 節日, S + V1 + O, V2 + O, and then V3 + O。主詞是 many people，講的是每年都會做的事情，用現在簡單式；中文的「會」表示習慣，不寫 will。",
+    "三個動作並列，形式要一致：write…, light…, and then release…，三個都是原形動詞，最後一項前面要有 and。參考譯法用 and then 對應中文的「再」，表示先點火、然後才放上天空；只寫 and 也可以，因為英文照動作的順序排好，讀者自然知道先後。then 是副詞，不是連接詞，寫成 light them, then release them 比較口語，寫作時還是在 then 前面加 and。and 前面那個逗號可寫可不寫，參考譯法照 107 年學測中譯英第 2 題保留。",
     "release + O + into + N（把……放到……裡）：中文用「把」字句，把受詞「天燈」移到動詞前面；英文一般把受詞直接放在動詞後面，寫 release them into the sky。them 指的是前面的 lanterns，不再重複一次名詞。"
    ],
    "collocation": [
@@ -2906,8 +2909,8 @@
     "on（節日當天）／at（節日前後那段期間）——指某一天用 on，指一段節日期間常用 at。並排看：[We eat sweet rice balls on the Lantern Festival.]（我們在元宵節吃湯圓。）／[Many families get together at Chinese New Year.]（過年期間，許多家庭會團聚。）"
    ],
    "mustHave": [
-    "中文用頓號和「再」把三個動作一路串下去，前後的形式不必一樣，也不需要連接詞；英文的並列不行，三個動詞要寫成同一種形式，最後一項前面還要有 and。照中文逐段翻，容易寫成 write…, lighting them, and released them，形式就不一致了。還原成完整的寫法是三句：They write their wishes on lanterns. They light them. Then they release them into the sky. 三句的主詞相同，合成一句時把後兩個 they 省略，再用 and 連起來，就是參考譯法。",
-    "三個動作並列 → write…, light…, and release…",
+    "中文用頓號和「再」把三個動作一路串下去，前後的形式不必一樣，也不需要連接詞；英文的並列不行，三個動詞要寫成同一種形式，最後一項前面還要有 and。照中文逐段翻，容易寫成 write…, lighting them, and then released them，形式就不一致了。還原成完整的寫法是三句：They write their wishes on lanterns. They light them. Then they release them into the sky. 三句的主詞相同，合成一句時把後兩個 they 省略，在 then 前面加 and，就是參考譯法。",
+    "三個動作並列 → write…, light…, and then release…",
     "另外兩處中文不必寫、英文非寫不可：「點火」在中文不必說點的是什麼，英文的 light 是及物動詞，要寫出受詞 them；「寫下願望」沒說是誰的願望，英文要寫出 their，表示是他們自己的願望。"
    ],
    "refs": [
@@ -2923,16 +2926,16 @@
   },
   "internalNote": {
    "_說明": "命題端量測，網站不顯示，供審稿使用",
-   "中文字數": 29,
-   "英文字數": 22,
-   "句構": "On + 節日, S + V1 + O, V2 + O, and V3 + O（三個動作並列共用主詞）",
+   "中文字數": 26,
+   "英文字數": 20,
+   "句構": "On + 節日, S + V1 + O, V2 + O, and then V3 + O（三個動作並列共用主詞）",
    "標的詞彙": [
     "write one’s wishes on",
     "V1, V2, and V3 並列",
     "release + O + into the sky"
    ],
    "原文搭配": "無（自擬）",
-   "建檔": "第三百六十八場建檔。主題自擬；命題分身出題，兩輪盲測、四方審閱（引文事實、文法、學生讀者、大考體例）後裁定修訂。"
+   "建檔": "第三百六十八場建檔。主題自擬；命題分身出題，兩輪盲測、四方審閱（引文事實、文法、學生讀者、大考體例）後裁定修訂。第三百六十九場依字數與四段份量裁定改句：刪「和朋友」（with their friends），「再」改譯 and then，重切四段、同步解析。"
   }
  },
  {
@@ -3028,8 +3031,8 @@
   "label": "改編練習",
   "yearLabel": "改編練習（十九）",
   "flagNote": "本題庫改編練習：主題由本題庫自擬，照現行學測中譯英的版面擬題（兩句一組），參考譯法與解析由本題庫撰寫，不是大考中心的試題，也沒有官方評分原則。",
-  "zh": "每天早上，捷運車廂裡都擠滿了趕著上班、上學的人。",
-  "en": "Every morning, MRT trains are crowded with people rushing to work or school.",
+  "zh": "每天早上，捷運車廂裡都擠滿了匆忙趕去上班、上學的人。",
+  "en": "Every morning, MRT trains are crowded with people in a hurry to get to work or school.",
   "chunks": [
    {
     "zh": "每天早上，捷運車廂裡",
@@ -3040,37 +3043,38 @@
     "en": "are crowded with"
    },
    {
-    "zh": "趕著的人",
-    "en": "people rushing"
+    "zh": "匆忙的人",
+    "en": "people in a hurry"
    },
    {
-    "zh": "上班、上學。",
-    "en": "to work or school."
+    "zh": "趕去上班、上學。",
+    "en": "to get to work or school."
    }
   ],
   "altAnswers": [
    "MRT trains / MRT cars / MRT carriages / subway trains",
    "are crowded with / are packed with / are full of",
-   "people rushing / people hurrying / people who are rushing / people who rush",
-   "to work or school / to work and school / on their way to work or school",
+   "people in a hurry to get to work or school / people rushing to work or school / people who are hurrying to work or school",
+   "to get to / to go to",
+   "work or school / work and school",
    "另一種寫法：Every morning, the MRT is packed with people hurrying to work or school.",
-   "另一種寫法：Every morning, MRT trains are crowded with people who are rushing to work or school."
+   "另一種寫法：Every morning, MRT trains are crowded with people rushing to work or school."
   ],
   "explanation": {
    "pattern": [
     "整句的骨幹是 S + be crowded with + N。中文「捷運車廂裡都擠滿了……的人」把地點擺在句首，後面沒有一個做動作的主詞；英文的句子一定要有主詞，最順的寫法是讓地點本身當主詞，寫成 MRT trains are crowded with people，「裡」這個字在英文就不必另外譯出來。",
-    "「每天早上」講的是天天如此的習慣，所以動詞用現在簡單式 are。every morning 前面不加介系詞：時間詞前面有 every、this、next、last 的時候，不再加 in、on、at，所以不寫 in every morning。同理還有 every day、this week、next year。",
-    "people rushing to work or school 是從關係子句簡化來的，還原成完整寫法是 people who are rushing to work or school。把 who are 拿掉，留下的 V-ing 片語照樣放在 people 後面修飾它，表示這些人正在趕路。如果修飾語是過去分詞，道理也一樣：92 年指考克漏字第 30 題的 a world crowded with people（一個擠滿人的世界），還原就是 a world that is crowded with people。"
+    "「每天早上」講的是天天如此的習慣，所以動詞用現在簡單式 are。every morning 前面不加介系詞：時間詞前面有 every、this、next、last 的時候，不再加 in、on、at，所以不寫 in every morning。",
+    "people in a hurry to get to work or school：介系詞片語 in a hurry（匆忙）在這裡當形容詞用，放在 people 後面修飾它；不定詞 to get to work or school 說明這些人趕著做什麼。還原成完整的句子是 People are in a hurry to get to work or school.，拿掉 are 就能接在 people 後面。to get to work 的前一個 to 是不定詞，後面接原形 get；後一個 to 是介系詞，get to + 地點是「到達某處」。"
    ],
    "collocation": [
-    "be crowded with + N（擠滿了……）——本題要用的這一組。主詞是地點，with 後面接擠在裡面的人或東西。91 年學測第 3 題的題幹也寫 Your desk is crowded with too many unnecessary things.（你的書桌上堆滿了太多不必要的東西。）例句：The school cafeteria is crowded with students at lunchtime.（午餐時間學校餐廳擠滿了學生。）往外延伸：be packed with（擠得滿滿的）、be full of（充滿了）、a crowded train（擁擠的列車）。",
-    "rush to + 地點（趕著去……）——rush 當動詞是「匆匆忙忙地趕去」。112 年學測第 4 題的題幹就有 Nancy rushed to the supermarket（南西衝去超市）。換成 hurry 也通，寫 people hurrying to work or school。往外延伸：be in a hurry（很趕）、rush hour（尖峰時間）、in a rush（匆忙地）。",
-    "go to work、go to school（上班、上學）——work 與 school 指「上班」「上學」這件事的時候，前面不加 a 或 the，所以寫 to work or school。如果只是到學校那個地方去辦事，就要加 the：My mom went to the school to talk to my teacher.（我媽媽到學校找我的老師談話。）往外延伸：get to school on time（準時到校）、on one’s way to work（在上班途中）。"
+    "be crowded with + N（擠滿了……）——本題要用的這一組。主詞是地點，with 後面接擠在裡面的人或東西。91 年學測第 3 題的題幹也寫 Your desk is crowded with too many unnecessary things.（你的書桌上堆滿了太多不必要的東西。）往外延伸：be packed with（擠得滿滿的）、be full of（充滿了）、a crowded train（擁擠的列車）。",
+    "be in a hurry to + V（急著做……）——hurry 在這裡是名詞，前面一定要有 a，不寫 in hurry。88 年聯考第 2 題的題幹就是 I am in a hurry, so I can only discuss this matter with you briefly.（我在趕時間，所以只能簡短地和你討論這件事。）換成動詞也通：people rushing to work or school；112 年學測第 4 題有 Nancy rushed to the supermarket（南西衝去超市）。往外延伸：rush hour（尖峰時間）、in a rush（匆忙地）。",
+    "get to work、get to school（到公司上班、到學校上學）——get to + 地點是「到達」，寫 go to work or school 也通。work 與 school 指「上班」「上學」這件事的時候，前面不加 a 或 the，所以寫 to work or school；只是到學校那個地方去辦事，才寫 the school。往外延伸：get to school on time（準時到校）、on one’s way to work（在上班途中）。"
    ],
    "mustHave": [
     "中文的「捷運車廂」沒有單複數，英文得選一個：每天早上擠滿人的車不只一班，所以用複數 MRT trains，be 動詞也就用複數 are。寫成單數 the MRT train 會變成某一班特定的車。",
     "天天如此的情形 → 複數 trains、現在簡單式 are",
-    "另外兩處中文不必寫、英文非寫不可：「人」在英文寫 people，people 本身就是複數，後面不加 s；「上班、上學」中間的頓號在英文不能照搬，要換成連接詞，每個人要去的是上班或上學其中一處，用 or 最自然，寫成 to work or school；寫 to work and school 也通。"
+    "另外兩處中文不必寫、英文非寫不可：「人」寫 people，people 本身就是複數，後面不加 s；「上班、上學」中間的頓號在英文要換成連接詞，每個人趕去的是公司或學校其中一處，用 or 最自然，work 和 school 共用前面的 get to；寫 work and school 也通。"
    ],
    "refs": [
     {
@@ -3084,21 +3088,25 @@
     {
      "label": "112 年學測第 4 題",
      "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0464"
+    },
+    {
+     "label": "88 年聯考第 2 題（I am in a hurry）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/zhikao/#q-ZK0255"
     }
    ]
   },
   "internalNote": {
    "_說明": "命題端量測，網站不顯示，供審稿使用",
-   "中文字數": 21,
-   "英文字數": 13,
-   "句構": "Every morning, S + be crowded with + N + V-ing 片語（地點當主詞；V-ing 片語是簡化的關係子句）",
+   "中文字數": 23,
+   "英文字數": 17,
+   "句構": "Every morning, S + be crowded with + N + in a hurry + to V（地點當主詞；介系詞片語 in a hurry 修飾 people，不定詞 to get to work or school 說明趕著做什麼）",
    "標的詞彙": [
     "be crowded with",
-    "people rushing（簡化的關係子句）",
-    "to work or school（不加冠詞）"
+    "in a hurry to + V（people in a hurry to get to…）",
+    "to get to work or school（不加冠詞、用 or）"
    ],
    "原文搭配": "無（自擬）",
-   "建檔": "第三百六十八場建檔。主題自擬；命題分身出題，兩輪盲測、四方審閱（引文事實、文法、學生讀者、大考體例）後裁定修訂。"
+   "建檔": "第三百六十八場建檔。主題自擬；命題分身出題，兩輪盲測、四方審閱（引文事實、文法、學生讀者、大考體例）後裁定修訂。第三百六十九場依字數與四段份量裁定改句：people rushing 改為 people who are rushing（補關係代名詞與進行式，英文 13 字補到 15 字），同步解析。終審再改句：「趕著」拆成「匆忙」「趕去」，英文改為 people in a hurry to get to work or school（中文 21 字改 23 字，英文 15 字改 17 字），同步解析。"
   }
  },
  {
@@ -3119,12 +3127,12 @@
     "en": "talk loudly on the phone,"
    },
    {
-    "zh": "擋住車門",
-    "en": "block the doors,"
+    "zh": "擋住車門或",
+    "en": "block the doors, or"
    },
    {
-    "zh": "或把背包放在座位上。",
-    "en": "or put their backpacks on the seats."
+    "zh": "把背包放在座位上。",
+    "en": "put their backpacks on the seats."
    }
   ],
   "altAnswers": [
@@ -3175,7 +3183,7 @@
     "should not V1, V2, or V3（否定並列）"
    ],
    "原文搭配": "無（自擬）",
-   "建檔": "第三百六十八場建檔。主題自擬；命題分身出題，兩輪盲測、四方審閱（引文事實、文法、學生讀者、大考體例）後裁定修訂。"
+   "建檔": "第三百六十八場建檔。主題自擬；命題分身出題，兩輪盲測、四方審閱（引文事實、文法、學生讀者、大考體例）後裁定修訂。第三百六十九場依四段份量裁定移段界（or 移到第三段），句子不動。"
   }
  },
  {
@@ -3184,16 +3192,16 @@
   "label": "改編練習",
   "yearLabel": "改編練習（二十）",
   "flagNote": "本題庫改編練習：主題由本題庫自擬，照現行學測中譯英的版面擬題（兩句一組），參考譯法與解析由本題庫撰寫，不是大考中心的試題，也沒有官方評分原則。",
-  "zh": "有些人會整理出用不到的書和衣服，捐給需要的人。",
-  "en": "Some people sort out the books and clothes they no longer use and donate them to people in need.",
+  "zh": "有些人會整理出用不到的衣服，捐給需要的人。",
+  "en": "Some people sort out the clothes they no longer use and donate them to people in need.",
   "chunks": [
    {
-    "zh": "有些人會整理出書和衣服，",
-    "en": "Some people sort out the books and clothes"
+    "zh": "有些人會整理出",
+    "en": "Some people sort out"
    },
    {
-    "zh": "用不到的",
-    "en": "they no longer use"
+    "zh": "用不到的衣服，",
+    "en": "the clothes they no longer use"
    },
    {
     "zh": "捐給",
@@ -3206,15 +3214,15 @@
   ],
   "altAnswers": [
    "sort out / pick out",
-   "they no longer use / they don’t use anymore / they no longer need / they don’t need anymore",
+   "they no longer use / they no longer wear / they don’t wear anymore / they no longer need / they don’t need anymore",
    "donate them to / give them to",
    "people in need / those in need / those who need them",
-   "另一種寫法：Some people pick out the books and clothes they don’t need anymore and give them to people in need."
+   "另一種寫法：Some people pick out the clothes they don’t wear anymore and give them to people in need."
   ],
   "explanation": {
    "pattern": [
     "整句的骨幹是 S + sort out + O + 關係子句 + and + donate + O + to + N。sort out 與 donate 共用主詞 Some people，中間用 and 連起來。中文的「會」講的是平常會做的事，英文用現在簡單式表示習慣最自然。",
-    "the books and clothes they no longer use 是省略了關係代名詞的關係子句，還原成完整寫法是 the books and clothes that they no longer use。that 在子句裡當 use 的受詞，所以可以省略；如果它當主詞，例如 the clothes that don’t fit me（我穿不下的衣服），拿掉 that 之後，子句就沒有主詞了。中文「用不到的」放在名詞前面，英文的關係子句放在名詞後面。"
+    "the clothes they no longer use 是省略了關係代名詞的關係子句，還原成完整寫法是 the clothes that they no longer use。that 在子句裡當 use 的受詞，所以可以省略；如果它當主詞，例如 the clothes that don’t fit me（我穿不下的衣服），拿掉 that 之後，子句就沒有主詞了。中文「用不到的」放在名詞前面，英文的關係子句放在名詞後面。"
    ],
    "collocation": [
     "sort out（整理出來、挑出來）——本題要用的這一組。這裡是從一堆東西裡把某一類分出來。103 年學測第 10 題的題幹後半寫 reusable materials should first be sorted out and recycled（可以再利用的東西應該先分出來，再拿去回收）。往外延伸：sort through（一件一件翻看）、clean out one’s closet（清空衣櫃）、throw away（丟掉）。",
@@ -3224,9 +3232,9 @@
     "clothes／clothing／cloth——clothes 是「衣服」，只有複數形，動詞用複數；clothing 是衣物的總稱，不可數；cloth 是「布、布料」，一塊抹布也叫 a cloth。並排看：[My old clothes are too small for me now.]（我的舊衣服現在都太小了。）／[Mom uses an old T-shirt as a cleaning cloth.]（媽媽把舊 T 恤拿來當抹布。）"
    ],
    "mustHave": [
-    "中文「捐給需要的人」沒有寫捐什麼，也沒有再說是誰捐，用逗號接下去，讀者自然知道是那些人捐那些書和衣服。英文要交代出來：donate 後面補 them；主詞承前省略，就要用 and 把 donate 接在 sort out 後面，兩個動作才共用主詞。如果照中文只用逗號接成 sort out the books and clothes…, donate them…，就少了連接詞。",
+    "中文「捐給需要的人」沒有寫捐什麼，也沒有再說是誰捐，用逗號接下去，讀者自然知道是那些人捐那些衣服。英文要交代出來：donate 後面補 them；主詞承前省略，就要用 and 把 donate 接在 sort out 後面，兩個動作才共用主詞。如果照中文只用逗號接成 sort out the clothes…, donate them…，就少了連接詞。",
     "承前省略的主詞與受詞 → and donate them",
-    "另外兩處中文不必寫、英文非寫不可：「書和衣服」指的是他們自己用不到的那些，後面有關係子句限定，所以前面加 the；「書」沒有單複數，英文要寫複數 books，clothes 本身就是複數。"
+    "另外兩處中文不必寫、英文非寫不可：「衣服」指的是他們自己用不到的那些，後面有關係子句限定，所以前面加 the；clothes 只有複數形，後面指它的代名詞也要用複數 them，不寫 it。"
    ],
    "refs": [
     {
@@ -3245,8 +3253,8 @@
   },
   "internalNote": {
    "_說明": "命題端量測，網站不顯示，供審稿使用",
-   "中文字數": 21,
-   "英文字數": 19,
+   "中文字數": 19,
+   "英文字數": 17,
    "句構": "S + sort out + O + 省略關係代名詞的關係子句 + and + donate + O + to + N（and 連接共用主詞的兩個動詞）",
    "標的詞彙": [
     "sort out",
@@ -3254,7 +3262,7 @@
     "donate them to people in need"
    ],
    "原文搭配": "無（自擬）",
-   "建檔": "第三百六十八場建檔。主題自擬；命題分身出題，兩輪盲測、四方審閱（引文事實、文法、學生讀者、大考體例）後裁定修訂。"
+   "建檔": "第三百六十八場建檔。主題自擬；命題分身出題，兩輪盲測、四方審閱（引文事實、文法、學生讀者、大考體例）後裁定修訂。第三百六十九場依四段份量裁定改句：刪「書和」（books and），重切四段、同步解析。"
   }
  },
  {
