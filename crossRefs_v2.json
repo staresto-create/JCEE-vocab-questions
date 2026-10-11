@@ -1216,7 +1216,7 @@
     "id": "G90_17_1",
     "surface": "90 年第 17 題",
     "kind": "A",
-    "offset": 362
+    "offset": 353
    }
   ]
  },
@@ -1418,21 +1418,21 @@
     "id": "G89_20_1",
     "surface": "89 年第 20 題",
     "kind": "B",
-    "offset": 489
+    "offset": 475
    },
    {
     "site": "grammar-cloze-test",
     "id": "G91_25_1",
     "surface": "91 年第 25 題",
     "kind": "A",
-    "offset": 844
+    "offset": 830
    },
    {
     "site": "grammar-cloze-test",
     "id": "G100_28_3",
     "surface": "100 年第 28 題",
     "kind": "A",
-    "offset": 855
+    "offset": 841
    }
   ]
  },
@@ -1489,7 +1489,7 @@
     "id": "G89_35_3",
     "surface": "89 年第 35 題",
     "kind": "B",
-    "offset": 418
+    "offset": 416
    }
   ]
  },
@@ -2851,7 +2851,7 @@
     "id": "G85_27_1",
     "surface": "85 年第 27 題",
     "kind": "B",
-    "offset": 490
+    "offset": 418
    }
   ]
  },
@@ -2863,21 +2863,21 @@
     "id": "G88_24_2",
     "surface": "88 年第 24 題",
     "kind": "B",
-    "offset": 459
+    "offset": 458
    },
    {
     "site": "grammar-cloze-test",
     "id": "G95_28_3",
     "surface": "95 年第 28 題",
     "kind": "A",
-    "offset": 771
+    "offset": 850
    },
    {
     "site": "grammar-cloze-test",
     "id": "G102_23_2",
     "surface": "102 年第 23 題",
     "kind": "A",
-    "offset": 782
+    "offset": 861
    }
   ]
  },
@@ -2917,21 +2917,21 @@
     "id": "G84_35_2",
     "surface": "84 年第 35 題",
     "kind": "A",
-    "offset": 748
+    "offset": 740
    },
    {
     "site": "grammar-cloze-test",
     "id": "G86_40_3",
     "surface": "86 年第 40 題",
     "kind": "A",
-    "offset": 759
+    "offset": 751
    },
    {
     "site": "grammar-cloze-test",
     "id": "G98_28_3",
     "surface": "98 年第 28 題",
     "kind": "A",
-    "offset": 770
+    "offset": 762
    }
   ]
  },
@@ -2962,14 +2962,14 @@
     "id": "G87_27_1",
     "surface": "87 年第 27 題",
     "kind": "B",
-    "offset": 380
+    "offset": 385
    },
    {
     "site": "grammar-cloze-test",
     "id": "G92補考_24_1",
     "surface": "92 年補考第 24 題",
     "kind": "B",
-    "offset": 506
+    "offset": 511
    }
   ]
  },
@@ -3877,35 +3877,35 @@
     "id": "G92_24_1",
     "surface": "92 年第 24 題",
     "kind": "B",
-    "offset": 486
+    "offset": 481
    },
    {
     "site": "grammar-cloze-test",
     "id": "G92_24_1",
     "surface": "92 年第 24 題",
     "kind": "A",
-    "offset": 966
+    "offset": 961
    },
    {
     "site": "grammar-cloze-test",
     "id": "G93_17_1",
     "surface": "93 年第 17 題",
     "kind": "A",
-    "offset": 977
+    "offset": 972
    },
    {
     "site": "grammar-cloze-test",
     "id": "G92_24_1",
     "surface": "92 年第 24 題",
     "kind": "A",
-    "offset": 1012
+    "offset": 1007
    },
    {
     "site": "grammar-cloze-test",
     "id": "G103_18_1",
     "surface": "103 年第 18 題",
     "kind": "A",
-    "offset": 1023
+    "offset": 1018
    }
   ]
  },
@@ -4006,42 +4006,35 @@
     "id": "G93_26_3",
     "surface": "93 年第 26 題",
     "kind": "A",
-    "offset": 455
-   },
-   {
-    "site": "grammar-cloze-test",
-    "id": "G89_29_2",
-    "surface": "89 年第 29 題",
-    "kind": "A",
-    "offset": 839
+    "offset": 452
    },
    {
     "site": "grammar-cloze-test",
     "id": "G84_22_1",
     "surface": "84 年第 22 題",
     "kind": "A",
-    "offset": 927
+    "offset": 892
    },
    {
     "site": "grammar-cloze-test",
     "id": "G93_30_3",
     "surface": "93 年第 30 題",
     "kind": "A",
-    "offset": 939
+    "offset": 904
    },
    {
     "site": "grammar-cloze-test",
     "id": "G85_33_2",
     "surface": "85 年第 33 題",
     "kind": "A",
-    "offset": 1075
+    "offset": 1040
    },
    {
     "site": "zhikao-cloze-test",
     "id": "Z95_14",
     "surface": "指考克漏字 95 年第 14 題",
     "kind": "A",
-    "offset": 1086
+    "offset": 1051
    }
   ]
  },
@@ -4053,7 +4046,7 @@
     "id": "G101_28_3",
     "surface": "101 年第 28 題",
     "kind": "B",
-    "offset": 519
+    "offset": 520
    }
   ]
  },
@@ -4062,24 +4055,10 @@
   "refs": [
    {
     "site": "grammar-cloze-test",
-    "id": "G97_23_2",
-    "surface": "97 年第 23 題",
-    "kind": "A",
-    "offset": 528
-   },
-   {
-    "site": "grammar-cloze-test",
     "id": "G110_25_2",
     "surface": "110 年第 25 題",
     "kind": "A",
-    "offset": 539
-   },
-   {
-    "site": "grammar-cloze-test",
-    "id": "G114_11_1",
-    "surface": "114 年第 11 題",
-    "kind": "A",
-    "offset": 551
+    "offset": 548
    }
   ]
  },
@@ -4091,14 +4070,14 @@
     "id": "G91_25_1",
     "surface": "91 年第 25 題",
     "kind": "A",
-    "offset": 494
+    "offset": 505
    },
    {
     "site": "grammar-cloze-test",
     "id": "G93_18_1",
     "surface": "93 年第 18 題",
     "kind": "A",
-    "offset": 505
+    "offset": 516
    }
   ]
  },
@@ -4122,28 +4101,28 @@
     "id": "G91_28_1",
     "surface": "91 年第 28 題",
     "kind": "B",
-    "offset": 219
+    "offset": 214
    },
    {
     "site": "grammar-cloze-test",
     "id": "G88_39_3",
     "surface": "88 年第 39 題",
     "kind": "A",
-    "offset": 824
+    "offset": 822
    },
    {
     "site": "grammar-cloze-test",
     "id": "G96_19_1",
     "surface": "96 年第 19 題",
     "kind": "A",
-    "offset": 835
+    "offset": 833
    },
    {
     "site": "grammar-cloze-test",
     "id": "G98_21_2",
     "surface": "98 年第 21 題",
     "kind": "A",
-    "offset": 846
+    "offset": 844
    }
   ]
  },
@@ -4945,112 +4924,112 @@
     "id": "G109_29_3",
     "surface": "109 年第 29 題",
     "kind": "A",
-    "offset": 1076
+    "offset": 1178
    },
    {
     "site": "zhikao-cloze-test",
     "id": "Z107_17",
     "surface": "指考 107 年第 17 題",
     "kind": "A",
-    "offset": 1088
+    "offset": 1190
    },
    {
     "site": "grammar-cloze-test",
     "id": "G86_21_1",
     "surface": "86 年第 21 題",
     "kind": "A",
-    "offset": 1323
+    "offset": 1425
    },
    {
     "site": "grammar-cloze-test",
     "id": "G93_23_2",
     "surface": "93 年第 23 題",
     "kind": "A",
-    "offset": 1334
+    "offset": 1436
    },
    {
     "site": "grammar-cloze-test",
     "id": "G99_24_2",
     "surface": "99 年第 24 題",
     "kind": "A",
-    "offset": 1345
+    "offset": 1447
    },
    {
     "site": "grammar-cloze-test",
     "id": "G99_28_3",
     "surface": "99 年第 28 題",
     "kind": "A",
-    "offset": 1356
+    "offset": 1458
    },
    {
     "site": "grammar-cloze-test",
     "id": "G105_29_3",
     "surface": "105 年第 29 題",
     "kind": "A",
-    "offset": 1367
+    "offset": 1469
    },
    {
     "site": "grammar-cloze-test",
     "id": "G106_19_1",
     "surface": "106 年第 19 題",
     "kind": "A",
-    "offset": 1379
+    "offset": 1481
    },
    {
     "site": "grammar-cloze-test",
     "id": "G107_30_3",
     "surface": "107 年第 30 題",
     "kind": "A",
-    "offset": 1391
+    "offset": 1493
    },
    {
     "site": "grammar-cloze-test",
     "id": "G109_29_3",
     "surface": "109 年第 29 題",
     "kind": "A",
-    "offset": 1403
+    "offset": 1505
    },
    {
     "site": "grammar-cloze-test",
     "id": "G112_15_1",
     "surface": "112 年第 15 題",
     "kind": "A",
-    "offset": 1415
+    "offset": 1517
    },
    {
     "site": "grammar-cloze-test",
     "id": "G106_28_3",
     "surface": "106 年第 28 題",
     "kind": "A",
-    "offset": 1447
+    "offset": 1549
    },
    {
     "site": "grammar-cloze-test",
     "id": "G108_25_2",
     "surface": "108 年第 25 題",
     "kind": "A",
-    "offset": 1459
+    "offset": 1561
    },
    {
     "site": "grammar-cloze-test",
     "id": "G109_29_3",
     "surface": "109 年第 29 題",
     "kind": "A",
-    "offset": 1471
+    "offset": 1573
    },
    {
     "site": "grammar-cloze-test",
     "id": "G108_25_2",
     "surface": "108 年第 25 題",
     "kind": "A",
-    "offset": 1505
+    "offset": 1607
    },
    {
     "site": "grammar-cloze-test",
     "id": "G109_29_3",
     "surface": "109 年第 29 題",
     "kind": "A",
-    "offset": 1517
+    "offset": 1619
    }
   ]
  },
@@ -5544,21 +5523,21 @@
     "id": "G89_27_2",
     "surface": "本篇第 27 題",
     "kind": "A",
-    "offset": 718
+    "offset": 716
    },
    {
     "site": "grammar-cloze-test",
     "id": "G85_33_2",
     "surface": "85 年第 33 題",
     "kind": "A",
-    "offset": 751
+    "offset": 749
    },
    {
     "site": "zhikao-cloze-test",
     "id": "Z95_14",
     "surface": "指考克漏字 95 年第 14 題",
     "kind": "A",
-    "offset": 762
+    "offset": 760
    }
   ]
  },
@@ -7140,21 +7119,21 @@
     "id": "G85_39_2",
     "surface": "85 年第 39 題",
     "kind": "A",
-    "offset": 658
+    "offset": 792
    },
    {
     "site": "grammar-cloze-test",
     "id": "G93_28_3",
     "surface": "93 年第 28 題",
     "kind": "A",
-    "offset": 669
+    "offset": 803
    },
    {
     "site": "grammar-cloze-test",
     "id": "G112_14_1",
     "surface": "112 年第 14 題",
     "kind": "A",
-    "offset": 680
+    "offset": 814
    }
   ]
  },
@@ -7166,42 +7145,42 @@
     "id": "G95_25_2",
     "surface": "95 年第 25 題",
     "kind": "A",
-    "offset": 826
+    "offset": 841
    },
    {
     "site": "grammar-cloze-test",
     "id": "G103_30_3",
     "surface": "103 年第 30 題",
     "kind": "A",
-    "offset": 848
+    "offset": 863
    },
    {
     "site": "grammar-cloze-test",
     "id": "G106_19_1",
     "surface": "106 年第 19 題",
     "kind": "A",
-    "offset": 860
+    "offset": 875
    },
    {
     "site": "grammar-cloze-test",
     "id": "G107_21_2",
     "surface": "107 年第 21 題",
     "kind": "A",
-    "offset": 872
+    "offset": 887
    },
    {
     "site": "grammar-cloze-test",
     "id": "G95_25_2",
     "surface": "95 年第 25 題",
     "kind": "A",
-    "offset": 905
+    "offset": 920
    },
    {
     "site": "grammar-cloze-test",
     "id": "G103_30_3",
     "surface": "103 年第 30 題",
     "kind": "A",
-    "offset": 927
+    "offset": 942
    }
   ]
  },
@@ -7377,14 +7356,14 @@
     "id": "G107_28_3",
     "surface": "107 年第 28 題",
     "kind": "A",
-    "offset": 731
+    "offset": 730
    },
    {
     "site": "grammar-cloze-test",
     "id": "G115_18_2",
     "surface": "115 年第 18 題",
     "kind": "A",
-    "offset": 743
+    "offset": 742
    }
   ]
  },
@@ -10538,21 +10517,21 @@
     "id": "G86_37_3",
     "surface": "86 年第 37 題",
     "kind": "A",
-    "offset": 773
+    "offset": 766
    },
    {
     "site": "grammar-cloze-test",
     "id": "G92補考_27_2",
     "surface": "92 年補考第 27 題",
     "kind": "A",
-    "offset": 784
+    "offset": 777
    },
    {
     "site": "grammar-cloze-test",
     "id": "G98_29_3",
     "surface": "98 年第 29 題",
     "kind": "A",
-    "offset": 797
+    "offset": 790
    }
   ]
  },
@@ -10660,21 +10639,21 @@
     "id": "G96_23_2",
     "surface": "96 年第 23 題",
     "kind": "A",
-    "offset": 867
+    "offset": 863
    },
    {
     "site": "grammar-cloze-test",
     "id": "G98_19_1",
     "surface": "98 年第 19 題",
     "kind": "A",
-    "offset": 878
+    "offset": 874
    },
    {
     "site": "grammar-cloze-test",
     "id": "G107_21_2",
     "surface": "107 年第 21 題",
     "kind": "A",
-    "offset": 889
+    "offset": 885
    }
   ]
  },
