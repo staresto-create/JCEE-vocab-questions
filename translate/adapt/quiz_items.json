@@ -9,20 +9,20 @@
   "en": "Teenagers like to take pictures of their pets with their phones, but pets often won’t sit still.",
   "chunks": [
    {
-    "zh": "青少年喜歡",
-    "en": "Teenagers like"
-   },
-   {
-    "zh": "替寵物拍照",
-    "en": "to take pictures of their pets"
+    "zh": "青少年喜歡替寵物拍照",
+    "en": "Teenagers like to take pictures of their pets"
    },
    {
     "zh": "用手機，",
     "en": "with their phones,"
    },
    {
-    "zh": "但寵物往往不肯乖乖坐著不動。",
-    "en": "but pets often won’t sit still."
+    "zh": "但寵物往往不肯",
+    "en": "but pets often won’t"
+   },
+   {
+    "zh": "乖乖坐著不動。",
+    "en": "sit still."
    }
   ],
   "altAnswers": [
@@ -177,12 +177,12 @@
   "en": "Many students hope to get to know their new classmates as soon as possible when they first start high school.",
   "chunks": [
    {
-    "zh": "許多學生都希望認識",
-    "en": "Many students hope to get to know"
+    "zh": "許多學生都希望",
+    "en": "Many students hope to"
    },
    {
-    "zh": "班上的新同學。",
-    "en": "their new classmates"
+    "zh": "認識班上的新同學。",
+    "en": "get to know their new classmates"
    },
    {
     "zh": "盡快",
@@ -336,12 +336,12 @@
   "en": "Students who like making things often enter invention contests in their free time.",
   "chunks": [
    {
-    "zh": "學生，",
-    "en": "Students"
+    "zh": "喜歡的學生，",
+    "en": "Students who like"
    },
    {
-    "zh": "喜歡動手做東西的",
-    "en": "who like making things"
+    "zh": "動手做東西",
+    "en": "making things"
    },
    {
     "zh": "常會參加發明比賽",
@@ -595,12 +595,12 @@
   "en": "However, some of them later develop a passion for sports medicine and hope to help injured athletes in the future.",
   "chunks": [
    {
-    "zh": "然而，其中有些人後來開始",
-    "en": "However, some of them later develop"
+    "zh": "然而，其中有些人後來",
+    "en": "However, some of them later"
    },
    {
-    "zh": "熱愛運動醫學，",
-    "en": "a passion for sports medicine"
+    "zh": "開始熱愛運動醫學，",
+    "en": "develop a passion for sports medicine"
    },
    {
     "zh": "希望幫助受傷的運動員",
@@ -848,12 +848,12 @@
   "en": "Many people are used to downloading videos and comics online for free and sharing them with their friends.",
   "chunks": [
    {
-    "zh": "許多人",
-    "en": "Many people"
+    "zh": "許多人習慣",
+    "en": "Many people are used to"
    },
    {
-    "zh": "習慣下載影片和漫畫，",
-    "en": "are used to downloading videos and comics"
+    "zh": "下載影片和漫畫，",
+    "en": "downloading videos and comics"
    },
    {
     "zh": "從網路上免費",
@@ -1011,12 +1011,12 @@
   "en": "In Taiwan, many students now use tablets in class to look up information and write reports.",
   "chunks": [
    {
-    "zh": "台灣許多學生",
-    "en": "In Taiwan, many students"
+    "zh": "現在台灣許多學生會用",
+    "en": "In Taiwan, many students now use"
    },
    {
-    "zh": "現在上課時會用平板電腦",
-    "en": "now use tablets in class"
+    "zh": "平板電腦上課時",
+    "en": "tablets in class"
    },
    {
     "zh": "查資料、",
@@ -1186,48 +1186,49 @@
   "label": "改編練習",
   "yearLabel": "改編練習（八）",
   "flagNote": "本題庫改編練習：主題取自 98 年指考閱讀測驗〈女兒帶去上班日：賦權女性與性別平等〉，照現行學測中譯英的版面擬題（兩句一組），參考譯法與解析由本題庫撰寫，不是大考中心的試題，也沒有官方評分原則。",
-  "zh": "寒暑假期間，有些孩子會到父母的工作場所待上一整天。",
-  "en": "During summer or winter vacation, some children spend a whole day at their parents’ workplaces.",
+  "zh": "寒暑假期間，有些孩子會陪父母去上班，在他們的工作場所待上一整天。",
+  "en": "During summer or winter vacation, some children go to work with their parents and spend a whole day at their workplaces.",
   "chunks": [
    {
     "zh": "寒暑假期間，",
     "en": "During summer or winter vacation,"
    },
    {
-    "zh": "有些孩子會",
-    "en": "some children spend"
+    "zh": "有些孩子會陪父母去上班，",
+    "en": "some children go to work with their parents"
    },
    {
     "zh": "待上一整天。",
-    "en": "a whole day"
+    "en": "and spend a whole day"
    },
    {
-    "zh": "到父母的工作場所",
-    "en": "at their parents’ workplaces."
+    "zh": "在他們的工作場所",
+    "en": "at their workplaces."
    }
   ],
   "altAnswers": [
    "During summer or winter vacation, / During summer and winter vacations, / During their summer or winter break,",
-   "a whole day / an entire day",
+   "go to work with their parents / accompany their parents to work",
+   "spend a whole day / spend an entire day",
    "workplaces / workplace / places of work",
-   "另一種寫法：Some children spend an entire day at the place where their parents work during summer or winter vacation."
+   "另一種寫法：During summer or winter vacation, some children go to work with their parents, and they spend a whole day there.",
+   "另一種寫法：Some children accompany their parents to work during summer or winter vacation and spend an entire day at their workplaces."
   ],
   "explanation": {
    "pattern": [
-    "整句的骨幹是 S + spend + 時間 + at + 地方：some children（主詞） + spend（動詞） + a whole day（花掉的時間） + at their parents’ workplaces（在哪裡）。spend 的受詞是時間，「待在哪裡」另外用介系詞 at 帶出來，所以不寫 spend a whole day their parents’ workplaces，也不寫 stay a whole day。",
-    "中文的「會」在這裡說的是常有的事，不是未來要發生的事，所以英文用現在簡單式 spend，不寫 will spend。主詞 some children 是複數，動詞不加 -s。",
-    "During summer or winter vacation 是交代時間的介系詞片語，照中文的語序放在句首，後面要加逗號，和主詞隔開；也可以放到句尾，寫成 …at their parents’ workplaces during summer or winter vacation.，放在句尾時不加逗號。",
-    "時間片語不能放進主詞和動詞中間，寫成 some children during summer or winter vacation spend…，讀起來就斷斷續續。"
+    "整句的骨幹是 時間片語, + S + V1 + and + V2：主詞 some children 後面有兩個動作，go to work with their parents 和 spend a whole day at their workplaces。兩個動作是同一群孩子做的，所以用 and 把兩個動詞連起來，共用主詞，第二個動詞前面不必再寫一次主詞。",
+    "中文的「會」說的是常有的事，不是未來要發生的事，所以用現在簡單式 go 和 spend，不寫 will go。主詞 some children 是複數，兩個動詞都不加 -s。",
+    "spend + 時間 + at + 地方：spend 的受詞是時間 a whole day，「待在哪裡」另外用介系詞 at 帶出來。句首的 During summer or winter vacation 是交代時間的介系詞片語，後面加逗號，和主詞隔開。"
    ],
    "collocation": [
-    "spend + 時間 + at + 地方（在某個地方待上一段時間）——本題要用的這一組。「待上一整天」用 spend a whole day，地點用 at 帶出：spend the afternoon at the library（在圖書館待一下午）。本題庫收的 83 年學測中譯英第 1 題也用 spend 接時間：what the best way to spend a vacation is（什麼是最佳的渡假方式）。往外延伸：spend + 時間 + V-ing（花時間做……）、spend + 時間 + with + 人（和某人一起度過）、all day（一整天）。",
-    "workplace（工作場所、職場）——父母工作的地方不一定是辦公室，也可能是工廠、醫院、商店，workplace 涵蓋這些場所，比 office 準確。這個字也出現在原文第一句的結尾 opportunities for women in the workplace（女性在職場上的機會）。往外延伸：a safe workplace（安全的工作環境）、at work（在上班）、take sb to work（帶某人去上班）。",
-    "summer vacation、winter vacation（暑假、寒假）——美式英文說學校的長假用 vacation，也常說 summer break、winter break。「寒暑假期間」用 during 就交代清楚了。往外延伸：on vacation（在度假）、spring break（春假）、a long weekend（連假）。"
+    "go to work with + 人（陪某人去上班）——本題要用的這一組。go to work 的 work 指工作的地方，和 go to school 一樣，前面不加 a 或 the；「陪誰」用 with 帶出來。中文的「陪」不必另外找動詞來翻，用 with 就交代清楚了；寫 accompany their parents to work 也可以，只是比較正式。原文的活動名稱 Take Our Daughters to Work Day 也是 to work 不加冠詞。往外延伸：go to school（去上學）、be at work（在上班）、take sb to work（帶某人去上班）。",
+    "spend + 時間 + at + 地方（在某個地方待上一段時間）——地點用 at 帶出：spend the afternoon at the library（在圖書館待一下午）。83 年學測中譯英第 1 題也用 spend 接時間：what the best way to spend a vacation is（什麼是最佳的渡假方式）。往外延伸：spend + 時間 + V-ing（花時間做……）、spend + 時間 + with + 人（和某人一起度過）、all day（一整天）。",
+    "workplace（工作場所、職場）——父母上班的地方不一定是辦公室，也可能是工廠、醫院、商店，workplace 涵蓋這些場所，比 office 準確。原文第一句的結尾也有 opportunities for women in the workplace（女性在職場上的機會）。往外延伸：a safe workplace（安全的工作環境）、at the office（在辦公室）。"
    ],
    "mustHave": [
-    "中文的「寒暑假」看不出是一個假期還是兩個，英文得決定：寫 summer or winter vacation，意思是寒假或暑假其中一個，vacation 用單數；寫 summer and winter vacations，兩個假期都算在內，vacations 用複數。兩種都說得通。",
-    "「會」表示常有的事 → 現在簡單式 spend",
-    "另外兩處中文不必寫、英文非寫不可：「父母的工作場所」要寫出所有格 their parents’，parents 是複數，撇號放在 s 後面；每個孩子的父母各在不同的地方上班，所以參考譯法用複數 workplaces，把父母看成在同一個地方上班，寫單數 workplace 也通。"
+    "中文「在他們的工作場所待上一整天」沒有寫主詞，承前省略的是「有些孩子」。英文可以用 and 把 spend 接在 go 後面，兩個動詞共用主詞；也可以寫成兩個子句，後面補上主詞：…with their parents, and they spend a whole day there. 如果照中文只用逗號接，寫成 …with their parents, spend a whole day…，兩個動詞之間就少了連接詞。",
+    "後半句承前省略主詞 → go… and spend…",
+    "另外兩處中文不必寫、英文非寫不可：「陪父母」沒說是誰的父母，英文要寫 their parents；「工作場所」沒有單複數，每個孩子的父母各在不同的地方上班，所以用複數 workplaces，寫單數 workplace 也通。至於「寒暑假」，寫 summer or winter vacation 指其中一個假期，vacation 用單數；寫 summer and winter vacations 是兩個都算，用複數。"
    ],
    "refs": [
     {
@@ -1246,16 +1247,16 @@
   },
   "internalNote": {
    "_說明": "命題端量測，網站不顯示，供審稿使用",
-   "中文字數": 23,
-   "英文字數": 15,
-   "句構": "時間片語, + S + spend + 時間 + at + 地方（簡單句，現在簡單式）",
+   "中文字數": 29,
+   "英文字數": 21,
+   "句構": "時間片語, + S + go to work with + 人 + and + spend + 時間 + at + 地方（and 連接兩個動詞共用主詞，現在簡單式）",
    "標的詞彙": [
+    "go to work with their parents",
     "spend a whole day at + 地方",
-    "their parents’ workplaces",
-    "summer or winter vacation"
+    "and 連接兩個動詞（後半句承前省略主詞）"
    ],
    "原文搭配": "expose + sb + to + N（見第 2 句）；workplace 也出現在原文第一句",
-   "建檔": "第三百六十七場建檔。主題取自 z98p1；命題分身出題，三輪盲測、四方審閱（引文事實、文法、學生讀者、大考體例）後裁定修訂。"
+   "建檔": "第三百六十七場建檔。主題取自 z98p1；命題分身出題，三輪盲測、四方審閱（引文事實、文法、學生讀者、大考體例）後裁定修訂。第三百六十九場依四段份量裁定改句、重寫解析。"
   }
  },
  {
@@ -1687,20 +1688,20 @@
   "en": "In recent years, road races have been very popular and have sparked the interest of many young people.",
   "chunks": [
    {
-    "zh": "近年來，路跑比賽",
-    "en": "In recent years, road races"
+    "zh": "近年來，",
+    "en": "In recent years,"
    },
    {
-    "zh": "十分熱門，",
-    "en": "have been very popular"
+    "zh": "路跑比賽十分熱門，",
+    "en": "road races have been very popular"
    },
    {
-    "zh": "也引起了",
-    "en": "and have sparked"
+    "zh": "也引起了興趣。",
+    "en": "and have sparked the interest"
    },
    {
-    "zh": "許多年輕人的興趣。",
-    "en": "the interest of many young people."
+    "zh": "許多年輕人的",
+    "en": "of many young people."
    }
   ],
   "altAnswers": [
@@ -1941,52 +1942,52 @@
   "yearLabel": "改編練習（十二）",
   "flagNote": "本題庫改編練習：主題由本題庫自擬，照現行學測中譯英的版面擬題（兩句一組），參考譯法與解析由本題庫撰寫，不是大考中心的試題，也沒有官方評分原則。",
   "zh": "網路上也有台語配音的動畫，可以幫助大家在家練習聽台語。",
-  "en": "There are also cartoons in Taiwanese online, and they can help people practice listening to Taiwanese at home.",
+  "en": "There are also cartoons in Taiwanese on the Internet, and they can help people practice listening to Taiwanese at home.",
   "chunks": [
    {
     "zh": "也有台語配音的動畫",
     "en": "There are also cartoons in Taiwanese"
    },
    {
-    "zh": "網路上，可以幫助大家",
-    "en": "online, and they can help people"
+    "zh": "網路上，",
+    "en": "on the Internet,"
    },
    {
-    "zh": "練習聽台語",
-    "en": "practice listening to Taiwanese"
+    "zh": "可以幫助大家練習",
+    "en": "and they can help people practice"
    },
    {
-    "zh": "在家。",
-    "en": "at home."
+    "zh": "在家聽台語。",
+    "en": "listening to Taiwanese at home."
    }
   ],
   "altAnswers": [
-   "online / on the Internet",
+   "on the Internet / online",
    "cartoons / animated shows",
    "in Taiwanese / dubbed into Taiwanese / dubbed in Taiwanese",
    "and they can help / which can help",
    "help people practice / help us practice / help viewers practice / help people to practice",
-   "另一種寫法：There are also animated shows in Taiwanese on the Internet, which can help people practice listening to Taiwanese at home.",
+   "另一種寫法：On the Internet, there are also cartoons in Taiwanese, and they can help people practice listening to Taiwanese at home.",
    "另一種寫法：The Internet also offers cartoons dubbed into Taiwanese, and they can help people practice listening to Taiwanese at home."
   ],
   "explanation": {
    "pattern": [
-    "整句的骨幹是 There + be + N, and S + can + help + O + V。中文後半「可以幫助大家……」沒有主詞，承前省略的是「動畫」；英文 and 後面是另一個子句，要補上主詞 they，指前面的 cartoons。兩個子句用 and 連接，and 前面加逗號。",
-    "There + be + 主詞：中文的「網路上也有……」沒有主詞，英文用 there be 起頭，be 動詞的單複數看後面的真主詞，這裡是 cartoons，所以用 are。also 放在 be 動詞後面，寫 there are also。",
-    "help + 人 + 原形動詞：help people practice，help 後面的人接著做的動作用原形動詞；寫成 help + 人 + to V 也可以，意思相同。例句：My older sister helped me (to) prepare for the English test.（姊姊幫我準備英文考試。）至於 practice，後面接另一個動作時用 V-ing，寫 practice listening，不寫 practice to listen。"
+    "整句的骨幹是 There + be + N + 地點, and S + can + help + O + V。中文後半「可以幫助大家……」承前省略了「動畫」；英文 and 後面是另一個子句，要補上主詞 they，指前面的 cartoons，and 前面加逗號。",
+    "There + be + 主詞 + 地點：中文的「網路上也有……」沒有主詞，英文用 there be 起頭，be 動詞的單複數看後面的真主詞 cartoons，所以用 are；also 放在 be 動詞後面。中文把「網路上」放在句首，英文的 on the Internet 一般放在名詞後面，寫成 On the Internet, there are also cartoons… 也可以。",
+    "help + 人 + 原形動詞：寫成 help + 人 + to V 也可以，意思相同：My older sister helped me (to) prepare for the English test.（姊姊幫我準備英文考試。）至於 practice，後面接另一個動作時用 V-ing，寫 practice listening，不寫 practice to listen。"
    ],
    "collocation": [
     "practice + V-ing（練習做某事）——本題要用的這一組。往外延伸：practice speaking English（練習說英文）、practice the guitar（練吉他）、Practice makes perfect.（熟能生巧。）",
-    "cartoons in Taiwanese（台語配音的動畫）——in + 語言表示「用某種語言說的」，例如 a movie in English（英語發音的電影）。「配音」的英文是 dub，會用的話可以寫 cartoons dubbed into Taiwanese；dub 超出詞彙表，寫不出來不必勉強。往外延伸：with Chinese subtitles（附中文字幕）、the original version（原音版）。",
-    "listen to + N（聽……）——listen 後面要有 to 才能接要聽的東西，寫 listen to Taiwanese，不寫 listen Taiwanese。往外延伸：listen to music（聽音樂）、listen carefully（仔細聽）。"
+    "on the Internet（在網路上）——透過某種媒介傳送的東西，英文用 on，像 on TV（在電視上）、on the radio（在廣播裡）；Internet 指全世界連在一起的那一個網路，只有一個，所以加 the，一般大寫。往外延伸：online（在網路上，副詞，前面不加 on：watch videos online）、on the website（在網站上）、surf the Internet（上網）。",
+    "cartoons in Taiwanese（台語配音的動畫）——in + 語言表示「用某種語言說的」，例如 a movie in English（英語發音的電影）。「配音」是 dub，可以寫 cartoons dubbed into Taiwanese；dub 超出詞彙表，寫不出來不必勉強。往外延伸：with Chinese subtitles（附中文字幕）、the original version（原音版）。"
    ],
    "confusable": [
-    "listen to／hear——listen to 是自己有意去聽；hear 是聲音傳進耳朵，不一定有意去聽。並排看：[I listen to Taiwanese songs on my way to school.]（我上學途中會聽台語歌。）／[I heard my grandma singing a Taiwanese song in the kitchen.]（我聽到奶奶在廚房唱台語歌。）"
+    "listen to／hear——listen to 是有意去聽，listen 後面要有 to 才能接要聽的東西；hear 是聲音傳進耳朵，不一定有意去聽。並排看：[I listen to Taiwanese songs on my way to school.]（我上學途中會聽台語歌。）／[I heard my grandma singing a Taiwanese song in the kitchen.]（我聽到奶奶在廚房唱台語歌。）"
    ],
    "mustHave": [
-    "中文「網路上也有台語配音的動畫」沒有主詞，「網路上」只是說動畫在哪裡。英文的每一個子句都要有主詞，online 是副詞，on the Internet 是介系詞片語，都只表示地點，不能當主詞；寫成 Online has cartoons… 或 On the Internet also has cartoons…，句子就沒有主詞。補主詞可以用 there be 起頭，寫 There are also cartoons…；或是讓名詞 the Internet 當主詞，寫 The Internet also offers cartoons…。",
+    "中文「網路上也有台語配音的動畫」沒有主詞，「網路上」只說動畫在哪裡。英文的每一個子句都要有主詞，on the Internet 是介系詞片語，不能當主詞；寫成 On the Internet also has cartoons…，句子就沒有主詞。補主詞可以用 there be 起頭；或是讓名詞 the Internet 當主詞，寫 The Internet also offers cartoons…。",
     "沒有主詞的「有」→ there + be",
-    "另外兩處中文不必寫、英文非寫不可：「動畫」沒有單複數，網路上的動畫不只一部，所以寫複數 cartoons，be 動詞也用 are；「可以幫助大家」在中文不必說是什麼幫助大家，英文 and 後面要補主詞 they。"
+    "另外兩處中文不必寫、英文非寫不可：網路上的動畫不只一部，要寫複數 cartoons，be 動詞也用 are；「可以幫助大家」前面，英文要補主詞 they。"
    ],
    "refs": [
     {
@@ -1998,7 +1999,7 @@
      "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-28"
     },
     {
-     "label": "98 年指考中譯英第 2 題（online）",
+     "label": "98 年指考中譯英第 2 題（online、on the Internet）",
      "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-179"
     }
    ]
@@ -2006,15 +2007,15 @@
   "internalNote": {
    "_說明": "命題端量測，網站不顯示，供審稿使用",
    "中文字數": 25,
-   "英文字數": 18,
-   "句構": "There + be + N + online, and S + can + help + O + V（and 連接兩個子句；help + 人 + 原形動詞）",
+   "英文字數": 20,
+   "句構": "There + be + N + on the Internet, and S + can + help + O + V（and 連接兩個子句；help + 人 + 原形動詞）",
    "標的詞彙": [
     "there are（沒有主詞的「有」）",
-    "help + 人 + V",
-    "practice + V-ing"
+    "on the Internet",
+    "help + 人 + V、practice + V-ing"
    ],
    "原文搭配": "無（自擬）",
-   "建檔": "第三百六十八場建檔。主題自擬；命題分身出題，兩輪盲測、四方審閱（引文事實、文法、學生讀者、大考體例）後裁定修訂。"
+   "建檔": "第三百六十八場建檔。主題自擬；命題分身出題，兩輪盲測、四方審閱（引文事實、文法、學生讀者、大考體例）後裁定修訂。第三百六十九場依四段份量裁定改句、重寫解析。"
   }
  },
  {
@@ -2277,16 +2278,16 @@
     "en": "The bridge has bike lanes and walkways,"
    },
    {
-    "zh": "週末在那裡",
-    "en": "where on weekends"
+    "zh": "週末在那裡常可以看到",
+    "en": "where on weekends you can often see"
    },
    {
-    "zh": "常可以看到有人",
-    "en": "you can often see people"
+    "zh": "有人騎車、",
+    "en": "people riding bikes"
    },
    {
-    "zh": "騎車、散步。",
-    "en": "riding bikes and taking walks."
+    "zh": "散步。",
+    "en": "and taking walks."
    }
   ],
   "altAnswers": [
@@ -2940,52 +2941,53 @@
   "label": "改編練習",
   "yearLabel": "改編練習（十八）",
   "flagNote": "本題庫改編練習：主題由本題庫自擬，照現行學測中譯英的版面擬題（兩句一組），參考譯法與解析由本題庫撰寫，不是大考中心的試題，也沒有官方評分原則。",
-  "zh": "可惜的是，掉落在山區的天燈常會變成垃圾，有時甚至還會引發火災。",
-  "en": "Unfortunately, fallen lanterns in the mountains often become trash and sometimes even cause fires.",
+  "zh": "可惜的是，這些天燈掉落在山區後，常會變成垃圾，有時甚至引發火災。",
+  "en": "Unfortunately, after these lanterns fall in the mountains, they often become trash and sometimes even cause fires.",
   "chunks": [
    {
-    "zh": "可惜的是，掉落的天燈",
-    "en": "Unfortunately, fallen lanterns"
+    "zh": "可惜的是，這些天燈",
+    "en": "Unfortunately, after these lanterns"
    },
    {
-    "zh": "在山區",
-    "en": "in the mountains"
+    "zh": "掉落在山區後，",
+    "en": "fall in the mountains,"
    },
    {
     "zh": "常會變成垃圾，",
-    "en": "often become trash"
+    "en": "they often become trash"
    },
    {
-    "zh": "有時甚至還會引發火災。",
+    "zh": "有時甚至引發火災。",
     "en": "and sometimes even cause fires."
    }
   ],
   "altAnswers": [
    "Unfortunately, / Sadly,",
-   "fallen lanterns in the mountains / lanterns that fall in the mountains / fallen lanterns in mountain areas",
+   "fall in the mountains / land in the mountains / come down in the mountains",
+   "in the mountains / in mountain areas",
    "become trash / end up as trash / turn into trash",
    "trash / garbage / litter",
    "cause fires / start fires",
-   "另一種寫法：It is a pity that lanterns that fall in the mountains often turn into garbage, and they sometimes even start fires."
+   "另一種寫法：Sadly, these lanterns often end up as trash after they fall in the mountains, and they sometimes even start fires."
   ],
   "explanation": {
    "pattern": [
-    "整句的骨幹是 Unfortunately, S（N + 介系詞片語） + V1 + N + and + V2 + O。主詞是 fallen lanterns in the mountains；in the mountains 放在 lanterns 後面，修飾天燈，說明是掉在山區的那些天燈。後面有兩個動作 become 和 cause，用 and 連起來，共用同一個主詞，用現在簡單式。",
-    "fallen 是 fall 的過去分詞，放在名詞前面當形容詞，意思是「已經掉下來的」，像 fallen leaves（落葉）。寫成 falling lanterns，意思就變成「正在往下掉的天燈」，和中文不一樣。",
-    "often、sometimes 這類頻率副詞放在一般動詞前面，even 放在它要強調的動詞前面，所以寫 often become、sometimes even cause。句首的 Unfortunately 修飾整句，表示說話的人覺得可惜，後面加逗號。"
+    "整句的骨幹是 Unfortunately, after + S1 + V1, S2 + V2 + N + and + V3 + O。after 在這裡是連接詞，後面接完整的子句 these lanterns fall in the mountains，有自己的主詞和動詞；中文的「……後」放在後面，英文的 after 要放在子句前面。after 子句放在句首時，後面加逗號。",
+    "這一句講的是常常發生的事情，兩個子句都用現在簡單式；主詞都是複數，fall、become、cause 都不加 -s。become 和 cause 用 and 連起來，共用主詞 they。",
+    "often、sometimes 這類頻率副詞放在一般動詞前面，even 放在它要強調的動詞前面，所以寫 often become、sometimes even cause。句首的 Unfortunately 表示說話的人覺得可惜，後面加逗號。"
    ],
    "collocation": [
-    "cause fires（引發火災）——本題要用的這一組。fire 指火災時是可數名詞，這裡泛指，用複數 fires。107 年學測第 15 題的題幹也用複數：Intense, fast-moving fires raged across much of California last week.（上週猛烈迅速蔓延的野火席捲了加州大部分地區。）107 年學測中譯英第 1 題的參考答案也寫 cause severe damage（造成嚴重災害）。往外延伸：start a fire（引起火災、生火）、catch fire（著火）、put out a fire（滅火）。",
+    "cause fires（引發火災）——本題要用的這一組。fire 指火災時是可數名詞，這裡泛指，用複數 fires，像 107 年學測第 15 題的題幹 Intense, fast-moving fires raged across much of California last week.（上週猛烈迅速蔓延的野火席捲了加州大部分地區。）107 年學測中譯英第 1 題也有 cause severe damage（造成嚴重災害）。往外延伸：start a fire（引起火災、生火）、catch fire（著火）、put out a fire（滅火）。",
     "become trash（變成垃圾）——trash 是美式的說法，不可數名詞，前面不加 a，後面也不加 s。99 年學測第 10 題的題幹就有 taking out the trash or doing the dishes（倒垃圾或洗碗）。往外延伸：trash can（垃圾桶）、litter（亂丟的垃圾）、turn into + N（變成……）。",
     "in the mountains（在山區）——泛指山區，習慣用 the 加上複數 mountains。往外延伸：go hiking in the mountains（到山裡健行）、in the countryside（在鄉下）、by the sea（在海邊）。"
    ],
    "confusable": [
-    "fallen（已經掉下來的）／falling（正在往下掉的）——差別在動作完成了沒有。並排看：[Fallen leaves covered the path to our school.]（落葉鋪滿了上學走的小路。）／[Drivers should watch out for falling rocks on mountain roads.]（開車走山路要小心落石。）"
+    "after／later——after 後面一定要接子句或名詞，放在它們前面，不寫 these lanterns fall in the mountains after；later 是副詞，可以單獨放在句尾。並排看：[We cleaned up the classroom after the party ended.]（派對結束後，我們把教室打掃乾淨。）／[The party ended at nine, and we cleaned up the classroom an hour later.]（派對九點結束，一個小時後我們把教室打掃乾淨。）"
    ],
    "mustHave": [
-    "中文「有時甚至還會引發火災」沒有寫主詞，引發火災的是前半句的「掉落的天燈」。一種寫法是用 and 把兩個動詞連起來，become 和 cause 共用主詞 fallen lanterns，兩個動詞的形式也要一樣；另一種寫法是寫成兩個子句，後面補上主詞：…become trash, and they sometimes even cause fires. 如果只用逗號接、不寫 and，寫成 …become trash, sometimes even cause fires，兩個動詞之間就沒有連接詞了。",
-    "後半句承前省略主詞 → become… and cause…",
-    "另外兩處中文不必寫、英文非寫不可：「天燈」泛指，英文用複數 lanterns，動詞 become、cause 不加 s；中文「掉落在山區的」整串放在名詞前面，英文的地點 in the mountains 要放到名詞後面。"
+    "中文「常會變成垃圾，有時甚至引發火災」承前省略了主詞「這些天燈」。英文的 these lanterns 屬於 after 子句，主要子句要有自己的主詞；還原成完整的寫法是 …, these lanterns often become trash.，名詞第二次出現時換成代名詞 they。如果照中文寫成 …fall in the mountains, often become trash…，主要子句就沒有主詞。",
+    "主要子句承前省略主詞 → they often become…",
+    "另外兩處中文不必寫、英文非寫不可：「這些天燈」不只一個，these 後面接複數 lanterns，動詞都不加 -s；「山區」寫 in the mountains，要加 the，mountains 用複數。"
    ],
    "refs": [
     {
@@ -2999,21 +3001,25 @@
     {
      "label": "99 年學測第 10 題（taking out the trash）",
      "url": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0280"
+    },
+    {
+     "label": "76 年大學聯考中譯英第 4 題（Before 帶出的時間子句用現在式）",
+     "url": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-24"
     }
    ]
   },
   "internalNote": {
    "_說明": "命題端量測，網站不顯示，供審稿使用",
    "中文字數": 28,
-   "英文字數": 14,
-   "句構": "Unfortunately, S（N + 介系詞片語） + V1 + N + and + V2 + O（兩個動詞並列共用主詞）",
+   "英文字數": 17,
+   "句構": "Unfortunately, after + S1 + V1, S2 + V2 + N + and + V3 + O（after 帶出時間子句；主要子句補主詞 they，兩個動詞並列共用主詞）",
    "標的詞彙": [
-    "fallen（過去分詞當形容詞）",
-    "become trash",
-    "cause fires"
+    "after + 子句（these lanterns fall）",
+    "補主詞 they",
+    "become trash、cause fires"
    ],
    "原文搭配": "無（自擬）",
-   "建檔": "第三百六十八場建檔。主題自擬；命題分身出題，兩輪盲測、四方審閱（引文事實、文法、學生讀者、大考體例）後裁定修訂。"
+   "建檔": "第三百六十八場建檔。主題自擬；命題分身出題，兩輪盲測、四方審閱（引文事實、文法、學生讀者、大考體例）後裁定修訂。第三百六十九場依四段份量裁定改句、重寫解析。"
   }
  },
  {
@@ -3182,20 +3188,20 @@
   "en": "Some people sort out the books and clothes they no longer use and donate them to people in need.",
   "chunks": [
    {
-    "zh": "有些人會整理出",
-    "en": "Some people sort out"
-   },
-   {
-    "zh": "書和衣服，",
-    "en": "the books and clothes"
+    "zh": "有些人會整理出書和衣服，",
+    "en": "Some people sort out the books and clothes"
    },
    {
     "zh": "用不到的",
     "en": "they no longer use"
    },
    {
-    "zh": "捐給需要的人。",
-    "en": "and donate them to people in need."
+    "zh": "捐給",
+    "en": "and donate them to"
+   },
+   {
+    "zh": "需要的人。",
+    "en": "people in need."
    }
   ],
   "altAnswers": [
