@@ -6381,6 +6381,233 @@
     }
    ],
    "dropped": []
+  },
+  {
+   "key": "sens / sent",
+   "zh": "感覺",
+   "note": "拉丁文 sentire「感覺、察覺；認為」，過去分詞是 sensus，所以這一家有 sens、sent 兩種拼法。sense 是感覺，也是對事情的判斷，sensible 是有判斷力的→明智的，sensitive 是很容易感覺到的→敏感的、體貼的，sensation 是感覺，也指引起大家感覺的事→轟動，sensor 是感應器。sent 這一支：sentiment 是心裡的感覺→情感、看法，sentence 原本是「心裡的看法」，後來變成法官的判決，也變成表達一個完整意思的句子；加上字首的字：consent、consensus 是感覺一樣→同意、共識，dissent 是感覺不同→異議，resent 是強烈地感覺到委屈→憤恨。scent（氣味）也是這一家：古法文 sentir 有「感覺、聞到」的意思，來自拉丁文 sentire，c 是十七世紀才加上去的。特別注意 present、absent、represent 裡的 sent 是另一個字根，不是這一家。",
+   "items": [
+    {
+     "w": "sentence",
+     "lv": 1,
+     "kk": "ˈsɛntəns",
+     "p": "sent（拉丁文 sentire 感覺、認為）+ -ence",
+     "g": "n. 句子；判決；v. 判刑"
+    },
+    {
+     "w": "sense",
+     "lv": 2,
+     "kk": "sɛns",
+     "p": "sense（拉丁文 sensus 感覺，來自 sentire）",
+     "g": "n. 感官、感覺；意義；判斷力；v. 察覺、感覺到",
+     "refs": [
+      {
+       "s": "zcz",
+       "id": "Z105_12",
+       "t": "指考克漏字 105年 第12格",
+       "k": "a"
+      },
+      {
+       "s": "ep",
+       "id": "90",
+       "t": "作文字彙表 90學年 sense of humor"
+      },
+      {
+       "s": "ep",
+       "id": "86",
+       "t": "作文字彙表 86學年 sense of humor"
+      }
+     ]
+    },
+    {
+     "w": "sensitive",
+     "lv": 2,
+     "kk": "ˈsɛnsətɪv",
+     "p": "sense 感覺 + -itive",
+     "g": "adj. 敏感的；體貼的；（儀器）靈敏的",
+     "refs": [
+      {
+       "s": "gsat",
+       "id": "V0320",
+       "t": "102學測 單字Q5",
+       "k": "d"
+      },
+      {
+       "s": "gsat",
+       "id": "V0256",
+       "t": "98學測 單字Q1",
+       "k": "d"
+      },
+      {
+       "s": "gsat",
+       "id": "V0091",
+       "t": "89學測 單字Q1",
+       "k": "d"
+      }
+     ]
+    },
+    {
+     "w": "sensible",
+     "lv": 3,
+     "kk": "ˈsɛnsəbəl",
+     "p": "sens（拉丁文 sentire 感覺）+ -ible",
+     "g": "adj. 有判斷力的→明智的、合理的",
+     "refs": [
+      {
+       "s": "gsat",
+       "id": "V0265",
+       "t": "98學測 單字Q10",
+       "k": "a"
+      },
+      {
+       "s": "gsat",
+       "id": "V0413",
+       "t": "108學測 單字Q8",
+       "k": "d"
+      },
+      {
+       "s": "gcz",
+       "id": "G85_39_2",
+       "t": "學測克漏字 85年 第39格",
+       "k": "d"
+      }
+     ]
+    },
+    {
+     "w": "nonsense",
+     "lv": 4,
+     "kk": "ˈnɑnˌsɛns",
+     "p": "non 不 + sense 意義",
+     "g": "n. 沒有意義的話→胡說、廢話；胡鬧"
+    },
+    {
+     "w": "sensitivity",
+     "lv": 5,
+     "kk": "ˌsɛnsəˈtɪvəti",
+     "p": "sensitive 敏感的 + -ity",
+     "g": "n. 敏感；體貼"
+    },
+    {
+     "w": "sensation",
+     "lv": 5,
+     "kk": "sɛnˈseɪʃən",
+     "p": "sense 感覺 + -ation（去掉 e）",
+     "g": "n. 感覺；轟動"
+    },
+    {
+     "w": "sensor",
+     "lv": 5,
+     "kk": "ˈsɛnsɚ",
+     "p": "sens 感覺 + -or",
+     "g": "n. 能感覺到變化的東西→感應器、感測器"
+    },
+    {
+     "w": "sentiment",
+     "lv": 5,
+     "kk": "ˈsɛntəmənt",
+     "p": "senti（拉丁文 sentire 感覺）+ -ment",
+     "g": "n. 情感；看法"
+    },
+    {
+     "w": "sentimental",
+     "lv": 5,
+     "kk": "ˌsɛntəˈmɛntəl",
+     "p": "sentiment 感情 + -al",
+     "g": "adj. 感傷的、多愁善感的；情感上的",
+     "refs": [
+      {
+       "s": "gsat",
+       "id": "V0066",
+       "t": "87推薦甄選 單字Q6",
+       "k": "a"
+      },
+      {
+       "s": "zhikao",
+       "id": "ZK0200",
+       "t": "93指考 單字Q8",
+       "k": "d"
+      },
+      {
+       "s": "gcz",
+       "id": "G85_39_2",
+       "t": "學測克漏字 85年 第39格",
+       "k": "d"
+      }
+     ]
+    },
+    {
+     "w": "consent",
+     "lv": 5,
+     "kk": "kənˈsɛnt",
+     "p": "con 一起 + sent 感覺",
+     "g": "n./v. 感覺一樣→同意",
+     "refs": [
+      {
+       "s": "zhikao",
+       "id": "ZK0047",
+       "t": "107指考 單字Q7",
+       "k": "d"
+      },
+      {
+       "s": "zhikao",
+       "id": "ZK0135",
+       "t": "99指考 單字Q3",
+       "k": "d"
+      },
+      {
+       "s": "zhikao",
+       "id": "ZK0206",
+       "t": "92指考 單字Q2",
+       "k": "d"
+      }
+     ]
+    },
+    {
+     "w": "consensus",
+     "lv": 5,
+     "kk": "kənˈsɛnsəs",
+     "p": "con 一起 + sens 感覺 + -us",
+     "g": "n. 大家感覺一樣→共識"
+    },
+    {
+     "w": "scent",
+     "lv": 5,
+     "kk": "sɛnt",
+     "p": "scent（古法文 sentir 感覺、聞到；c 是後來才加上的）",
+     "g": "n. 氣味、香味；香水；v. 聞出；察覺"
+    },
+    {
+     "w": "dissent",
+     "lv": 6,
+     "kk": "dɪˈsɛnt",
+     "p": "dis 分開、不同 + sent 感覺",
+     "g": "n./v. 感覺不同→不同意、異議"
+    },
+    {
+     "w": "resent",
+     "lv": 6,
+     "kk": "rɪˈzɛnt",
+     "p": "re 強調 + sent 感覺",
+     "g": "v. 強烈地感覺到（委屈）→對…感到憤恨、不滿"
+    },
+    {
+     "w": "resentment",
+     "lv": 6,
+     "kk": "rɪˈzɛntmənt",
+     "p": "resent 怨恨、不滿 + -ment",
+     "g": "n. 怨恨"
+    }
+   ],
+   "dropped": [
+    {
+     "why": "-sent 來自拉丁文 esse「存在、在」的分詞：absent 是不在（ab 離開），present 是在面前（pre 前面），跟 sentire 無關",
+     "list": "absent、present、represent"
+    },
+    {
+     "why": "來自拉丁文 descendere：de 向下 + scandere 爬，往下爬→下降；家世、血統。跟 scent（氣味）無關，倒是 scent 的 c 可能就是受 descent、ascent 的拼法影響才加上的",
+     "list": "descent"
+    }
+   ]
   }
  ],
  "sites": {
