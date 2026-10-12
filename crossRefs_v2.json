@@ -4774,7 +4774,7 @@
     "id": "Vy101_40",
     "surface": "101 學測文意選填",
     "kind": "A",
-    "offset": 924
+    "offset": 956
    }
   ]
  },
@@ -4787,7 +4787,7 @@
     "id": "Z100_11",
     "surface": "指考克漏字 100 年第 11 題",
     "kind": "A",
-    "offset": 115
+    "offset": 126
    }
   ]
  },
@@ -4986,14 +4986,14 @@
     "id": "Z100_16",
     "surface": "指考克漏字 100 年第 16 題",
     "kind": "A",
-    "offset": 501
+    "offset": 483
    },
    {
     "site": "grammar-cloze-test",
     "id": "G89_27_2",
     "surface": "學測克漏字 89 年第 27 題",
     "kind": "A",
-    "offset": 780
+    "offset": 771
    }
   ],
   "sourceField": "explanation"
@@ -5132,14 +5132,14 @@
     "id": "G98_27_3",
     "surface": "學測克漏字 98 年第 27 題",
     "kind": "A",
-    "offset": 593
+    "offset": 567
    },
    {
     "site": "zhikao-cloze-test",
     "id": "Z105_19",
     "surface": "指考克漏字 105 年第 19 題",
     "kind": "A",
-    "offset": 617
+    "offset": 584
    }
   ],
   "sourceField": "explanation"
@@ -5500,21 +5500,21 @@
     "id": "G89_27_2",
     "surface": "學測克漏字 89 年第 27 題",
     "kind": "A",
-    "offset": 696
+    "offset": 715
    },
    {
     "site": "grammar-cloze-test",
     "id": "G84_22_1",
     "surface": "84 年第 22 題",
     "kind": "A",
-    "offset": 736
+    "offset": 755
    },
    {
     "site": "grammar-cloze-test",
     "id": "G93_30_3",
     "surface": "93 年第 30 題",
     "kind": "A",
-    "offset": 748
+    "offset": 767
    }
   ],
   "sourceField": "explanation"
@@ -5537,9 +5537,9 @@
    {
     "site": "passage-completion/gsat",
     "id": "Vy112_22",
-    "surface": "112 年第 22 題",
+    "surface": "112 年學測第 22 題",
     "kind": "A",
-    "offset": 118
+    "offset": 150
    }
   ],
   "sourceField": "explanation"
@@ -5552,7 +5552,7 @@
     "id": "V0473",
     "surface": "113 年學測第 3 題",
     "kind": "A",
-    "offset": 340
+    "offset": 341
    }
   ],
   "sourceField": "explanation"
@@ -5566,28 +5566,28 @@
     "id": "Vy92_38",
     "surface": "92 年學測文意選填",
     "kind": "A",
-    "offset": 1023
+    "offset": 1022
    },
    {
     "site": "passage-completion/zhikao",
     "id": "Vz94_34",
     "surface": "94 年指考文意選填",
     "kind": "A",
-    "offset": 1048
+    "offset": 1046
    },
    {
     "site": "passage-completion/gsat",
     "id": "Vy92b_36",
     "surface": "92 年學測補考文意選填",
     "kind": "A",
-    "offset": 1080
+    "offset": 1077
    },
    {
     "site": "JCEE-vocab-questions/gsat",
     "id": "V0433",
     "surface": "109 年學測字彙第 13 題",
     "kind": "A",
-    "offset": 1113
+    "offset": 1110
    }
   ]
  },
@@ -5600,7 +5600,7 @@
     "id": "Vy112_23",
     "surface": "112 年學測文意選填",
     "kind": "A",
-    "offset": 522
+    "offset": 544
    }
   ]
  },
@@ -5620,14 +5620,14 @@
     "id": "Vy92_38",
     "surface": "92 年學測",
     "kind": "A",
-    "offset": 185
+    "offset": 184
    },
    {
     "site": "passage-completion/zhikao",
     "id": "Vz94_34",
     "surface": "94 年指考文意選填",
     "kind": "A",
-    "offset": 193
+    "offset": 192
    }
   ]
  },
@@ -5640,14 +5640,14 @@
     "id": "Vy115_22",
     "surface": "115 年學測第 22 題",
     "kind": "A",
-    "offset": 160
+    "offset": 150
    },
    {
     "site": "JCEE-vocab-questions/gsat",
     "id": "V0061",
     "surface": "87 年學測字彙第 1 題",
     "kind": "A",
-    "offset": 209
+    "offset": 199
    }
   ]
  },
