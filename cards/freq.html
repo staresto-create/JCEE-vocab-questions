@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>學測全卷用字統計 · 背到幾級才夠</title>
-<meta name="description" content="83 到 115 學年度學測 35 份試卷，文章、題目與選項全部算進來，依大考中心《高中英文參考詞彙表》分級：背到四級，試卷裡 95.4% 的字都在範圍內。每個字列出出現在幾份試卷、一共幾次和出現的年份。">
+<title>學測全卷用字統計 · 考古題用字的級數分布</title>
+<meta name="description" content="83 到 115 學年度學測 35 份試卷，文章、題目與選項全部算進來，依大考中心《高中英文參考詞彙表》分級，每個字列出出現在幾份試卷、一共幾次和出現的年份。">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="高中英文自學題庫">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:title" content="學測全卷用字統計 · 背到幾級才夠">
-<meta property="og:description" content="學測 35 份試卷的所有文章、題目與選項，依大考中心詞彙表分級：背到四級，試卷裡 95.4% 的字都在範圍內；五、六級的字一半只出現在一份試卷裡。">
+<meta property="og:title" content="學測全卷用字統計 · 考古題用字的級數分布">
+<meta property="og:description" content="學測 35 份試卷的所有文章、題目與選項，依大考中心詞彙表分級，看考古題用字的級數分布；五、六級的字一半只出現在一份試卷裡。">
 <meta property="og:url" content="https://staresto-create.github.io/JCEE-vocab-questions/cards/freq.html">
 <meta property="og:image" content="https://staresto-create.github.io/JCEE-vocab-questions/og-cover.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -109,7 +109,7 @@ footer.foot a{color:var(--crimson)}
   <p class="lede" id="lede">83 到 115 學年度學測 35 份試卷，文章、題目和選項全部算進來，看每個字出現在幾份試卷、一共出現幾次，再依大考中心《高中英文參考詞彙表》分級。</p>
 
   <section class="card" aria-labelledby="h-cum">
-    <h2 id="h-cum">背到第幾級，試卷裡的字有多少在範圍內</h2>
+    <h2 id="h-cum">各級的字在試卷用字裡占多少</h2>
     <div class="tbl-wrap"><table class="cum" id="cumTable"></table></div>
     <p class="tnote" id="cumNote"></p>
   </section>
@@ -171,13 +171,13 @@ function writeHash(){
 }
 
 function buildTables(){
-  var h='<thead><tr><th>背到</th><th>累計</th><th>這一級</th></tr></thead><tbody>';
+  var h='<thead><tr><th>級別</th><th>一級累計到這一級</th><th>這一級</th></tr></thead><tbody>';
   D.cov.forEach(function(c){
-    h+='<tr'+(c.l===4?' class="hi"':'')+'><td>第 '+c.l+' 級</td><td class="pct">'+c.cum.toFixed(1)+'%<span class="bars"><span class="bar" style="width:'+Math.round(c.cum*1.4)+'px"></span></span></td><td>'+c.own.toFixed(1)+'%</td></tr>';
+    h+='<tr><td>第 '+c.l+' 級</td><td class="pct">'+c.cum.toFixed(1)+'%<span class="bars"><span class="bar" style="width:'+Math.round(c.cum*1.4)+'px"></span></span></td><td>'+c.own.toFixed(1)+'%</td></tr>';
   });
   h+='<tr class="total"><td>詞彙表沒收的字</td><td></td><td>'+D.oov.toFixed(1)+'%</td></tr></tbody>';
   $('#cumTable').innerHTML=h;
-  $('#cumNote').textContent='一級字就占了試卷用字的四分之三；背到四級，試卷裡 '+D.cov[3].cum.toFixed(1)+'% 的字都在範圍內，背到六級是 '+D.cov[5].cum.toFixed(1)+'%。分母是扣掉專有名詞以後的 '+fmt(D.den)+' 個字次。';
+  $('#cumNote').textContent='一級字就占了試卷用字的四分之三，一到四級合計 '+D.cov[3].cum.toFixed(1)+'%，一到六級合計 '+D.cov[5].cum.toFixed(1)+'%。這是字次的比例，分母是扣掉專有名詞以後的 '+fmt(D.den)+' 個字次；the、of、is 這類一級字每份試卷都出現很多次，所以比例很高。五、六級和詞彙表沒收的字合起來比例雖然低，卻常常是讀懂一句話、選對一個答案的關鍵。';
   var t='<thead><tr><th>級別</th><th>出現過／詞條</th><th>10 份以上</th><th>5 份以上</th><th>只出現 1 份</th></tr></thead><tbody>';
   D.dist.forEach(function(x){
     t+='<tr><td><a href="#lv='+x.l+'" data-lv="'+x.l+'">第 '+x.l+' 級</a></td><td>'+fmt(x.n)+'／'+fmt(x.size)+'</td><td>'+fmt(x.p10)+'</td><td>'+fmt(x.p5)+'</td><td>'+fmt(x.p1)+'</td></tr>';
