@@ -583,7 +583,7 @@
 
   function drawStations() {
     var box = $('stChips'); box.innerHTML = '';
-    [['both', '學測＋指考'], ['gsat', '學測'], ['zhikao', '指考']].forEach(function (o) {
+    [['both', '學測和指考'], ['gsat', '學測'], ['zhikao', '指考']].forEach(function (o) {
       box.appendChild(chip(o[1], st === o[0], function () { st = o[0]; drawStations(); refresh(); }));
     });
   }

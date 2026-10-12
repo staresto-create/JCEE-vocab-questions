@@ -608,7 +608,7 @@
     }
     var parts = [];
     parts.push(scope.y0 === scope.y1 ? (scope.y0 + ' 年') : (scope.y0 + '–' + scope.y1 + ' 年'));
-    parts.push(scope.st === 'gsat' ? '學測' : scope.st === 'zhikao' ? '指考' : '學測＋指考');
+    parts.push(scope.st === 'gsat' ? '學測' : scope.st === 'zhikao' ? '指考' : '學測和指考');
     if (scope.lv) {
       var ns = Object.keys(scope.lv.n).map(Number).sort(function (a, b) { return a - b; });
       var seg = [];
@@ -1457,7 +1457,7 @@
     { label: '近十年', y0: 106, y1: 115, st: 'both', hash: '#y=106-115' },
     { label: '學測全部', y0: 83, y1: 115, st: 'gsat', hash: '#y=83-115&st=gsat' },
     { label: '指考全部', y0: 81, y1: 110, st: 'zhikao', hash: '#y=81-110&st=zhikao' },
-    { label: '學測＋指考全部', y0: 81, y1: 115, st: 'both', hash: '#y=81-115' }
+    { label: '學測和指考全部', y0: 81, y1: 115, st: 'both', hash: '#y=81-115' }
   ];
   function renderRanges() {
     var box = $('rangeRow');
