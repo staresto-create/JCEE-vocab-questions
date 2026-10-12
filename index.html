@@ -106,6 +106,11 @@
 
   a.card.demo{ margin:0 0 14px; border-left:4px solid var(--gold); background:#FDF8EC; }
   .card.tool{ margin:14px 0 0; border-left:4px solid var(--sage); background:#F4F7F2; }
+  .sec-h{ font-family:'Noto Serif TC','PingFang TC','Microsoft JhengHei',serif; font-weight:700; font-size:20px; color:var(--ink); margin:38px 0 4px; padding-top:16px; border-top:1px solid var(--rule); }
+  .sec-n{ font-size:13px; color:var(--ink-soft); line-height:1.75; margin:0 0 14px; }
+  a.card.adapt{ border-left:4px solid var(--crimson); background:#FBF2EF; }
+  .card.adapt .tag{ color:var(--crimson); }
+  .sec-tools a.card.tool:first-of-type{ margin-top:0; }
   .card.tool .tag{ color:var(--sage); }
   .card.demo .tag{ color:var(--gold); }
 
@@ -210,7 +215,7 @@
   <header>
     <div class="eyebrow">學測 · 指考 · 歷屆考古題</div>
     <h1>高中英文自學題庫</h1>
-    <nav class="quicknav" style="margin-top:14px;"><span style="color:var(--ink-soft); font-weight:400;">點一下跳到各題庫</span><span class="sep">·</span><a href="https://staresto-create.github.io/JCEE-vocab-questions/cards/">單字記憶卡</a><span class="sep">·</span><a href="https://staresto-create.github.io/JCEE-vocab-questions/roots/">字根家族表</a><span class="sep">·</span><a href="https://staresto-create.github.io/JCEE-vocab-questions/affixes/">字首字尾表</a><span class="sep">·</span><a href="https://staresto-create.github.io/JCEE-vocab-questions/cards/coverage.html">詞彙表覆蓋清單</a><span class="sep">·</span><a href="https://staresto-create.github.io/JCEE-vocab-questions/cards/reverse.html">單字逆序表</a><span class="sep">·</span><a href="https://staresto-create.github.io/JCEE-vocab-questions/cards/freq.html">學測全卷用字統計</a><span class="sep">·</span><a href="https://staresto-create.github.io/JCEE-vocab-questions/gsat-trends/">級分差距與英文字數</a><span class="sep">·</span><a href="https://staresto-create.github.io/JCEE-vocab-questions/no-english/">不採計英文的國立校系</a><span class="sep">·</span><a href="https://staresto-create.github.io/reading-comprehension/">閱讀測驗</a><span class="sep">·</span><a href="https://staresto-create.github.io/essay-prompts/">作文題目</a><span class="sep">·</span><a href="https://staresto-create.github.io/mixed-format/">混合題</a><span class="sep">·</span><a href="https://staresto-create.github.io/discourse-structure/">篇章結構</a><span class="sep">·</span><a href="https://staresto-create.github.io/JCEE-vocab-questions/gsat/">學測單字</a><span class="sep">·</span><a href="https://staresto-create.github.io/JCEE-vocab-questions/zhikao/">指考單字</a><span class="sep">·</span><a href="https://staresto-create.github.io/grammar-cloze-test/">學測克漏字</a><span class="sep">·</span><a href="https://staresto-create.github.io/zhikao-cloze-test/">指考克漏字</a><span class="sep">·</span><a href="https://staresto-create.github.io/passage-completion/">文意選填</a><span class="sep">·</span><a href="https://staresto-create.github.io/JCEE-vocab-questions/translate/">中譯英</a><span class="sep">·</span><a href="https://staresto-create.github.io/JCEE-vocab-questions/listening/">英聽練習</a><span class="sep">·</span><a href="https://staresto-create.github.io/JCEE-vocab-questions/listening/liaison.html">英聽連音卡</a></nav>
+    <nav class="quicknav" style="margin-top:14px;"><span style="color:var(--ink-soft); font-weight:400;">點一下跳到各題庫</span><span class="sep">·</span><a href="#adapt">改編練習</a><span class="sep">·</span><a href="https://staresto-create.github.io/JCEE-vocab-questions/cards/">單字記憶卡</a><span class="sep">·</span><a href="https://staresto-create.github.io/JCEE-vocab-questions/roots/">字根家族表</a><span class="sep">·</span><a href="https://staresto-create.github.io/JCEE-vocab-questions/affixes/">字首字尾表</a><span class="sep">·</span><a href="https://staresto-create.github.io/JCEE-vocab-questions/cards/coverage.html">詞彙表覆蓋清單</a><span class="sep">·</span><a href="https://staresto-create.github.io/JCEE-vocab-questions/cards/reverse.html">單字逆序表</a><span class="sep">·</span><a href="https://staresto-create.github.io/JCEE-vocab-questions/cards/freq.html">學測全卷用字統計</a><span class="sep">·</span><a href="https://staresto-create.github.io/JCEE-vocab-questions/gsat-trends/">級分差距與英文字數</a><span class="sep">·</span><a href="https://staresto-create.github.io/JCEE-vocab-questions/no-english/">不採計英文的國立校系</a><span class="sep">·</span><a href="https://staresto-create.github.io/reading-comprehension/">閱讀測驗</a><span class="sep">·</span><a href="https://staresto-create.github.io/essay-prompts/">作文題目</a><span class="sep">·</span><a href="https://staresto-create.github.io/mixed-format/">混合題</a><span class="sep">·</span><a href="https://staresto-create.github.io/discourse-structure/">篇章結構</a><span class="sep">·</span><a href="https://staresto-create.github.io/JCEE-vocab-questions/gsat/">學測單字</a><span class="sep">·</span><a href="https://staresto-create.github.io/JCEE-vocab-questions/zhikao/">指考單字</a><span class="sep">·</span><a href="https://staresto-create.github.io/grammar-cloze-test/">學測克漏字</a><span class="sep">·</span><a href="https://staresto-create.github.io/zhikao-cloze-test/">指考克漏字</a><span class="sep">·</span><a href="https://staresto-create.github.io/passage-completion/">文意選填</a><span class="sep">·</span><a href="https://staresto-create.github.io/JCEE-vocab-questions/translate/">中譯英</a><span class="sep">·</span><a href="https://staresto-create.github.io/JCEE-vocab-questions/listening/">英聽練習</a><span class="sep">·</span><a href="https://staresto-create.github.io/JCEE-vocab-questions/listening/liaison.html">英聽連音卡</a></nav>
     <p class="sub" style="line-height:1.9;"><b style="color:#221F1A;">完全免費、不用註冊、沒有廣告。</b><br>十個題庫收錄學測與指考歷屆考古題共 <b style="color:#9C2C1E;">3,713 題</b>。其中克漏字 870 題、篇章結構 167 題、文意選填 560 題、混合題 33 格的解析已全部完成，單字題 843 題每一題都有中文詳解，閱讀測驗 959 題每一題都有說明、答案依據句和題型，246 篇也都附了逐段中譯，作文題 63 題也都附了範文，中譯英 218 題也都有解析。<a href="https://staresto-create.github.io/JCEE-vocab-questions/listening/" style="color:#9C2C1E; font-weight:700;">英聽練習</a>收錄參考試卷一卷、試題示例五卷，六卷都有逐題解析，另附<a href="https://staresto-create.github.io/JCEE-vocab-questions/listening/liaison.html" style="color:#9C2C1E; font-weight:700;">英聽連音卡</a>，用官方錄音練連音、消音和弱讀。各題庫的題數與解析範圍，另外標在每張卡片上。<a href="https://staresto-create.github.io/JCEE-vocab-questions/roots/" style="color:#9C2C1E; font-weight:700;">字根家族表</a>、<a href="https://staresto-create.github.io/JCEE-vocab-questions/affixes/" style="color:#9C2C1E; font-weight:700;">字首字尾表</a>和<a href="https://staresto-create.github.io/JCEE-vocab-questions/cards/" style="color:#9C2C1E; font-weight:700;">單字記憶卡</a>是查閱與複習用的工具，不是考古題；英聽沒有考古題，英聽練習收錄的是大考中心公布的參考試卷與試題示例。這四項都不計入上面的題數。<br>本題庫沿用教學現場的說法：這裡的「克漏字」是大考中心的「綜合測驗」，「單字題」是「詞彙題」。指考英文只考到 110 學年度——111 學年度起指考改制為分科測驗，不考英文，所以指考各題庫的年份停在 110。<br>同一個用法在不同年份反覆出現，解析會告訴你哪幾年還考過同一件事，點一下就跳得過去——兩題擺在一起看，判斷方式才完整。<br>我是英文老師，第一次用 GitHub 做網站，做得陽春，但題目和解析都是認真整理的，裡面也放了這些年教書、考試和出題累積下來的一點心得。<b style="color:#3E6E52;">歡迎自由分享。</b></p>
   </header>
 
@@ -228,6 +233,9 @@
   <div class="recent">
     <div class="rt">最近新增</div>
     <div class="rs">新到舊；近兩天的更新依題庫放在一起，按「看說明」展開</div>
+    <div class="rr" data-d="2026-10-12"><div class="rn rn-emoji">🧭</div><div class="rx"><b><a href="#adapt">題庫首頁</a> <span class="newdot">NEW</span></b>
+      <div class="ri"><span class="rit"><a href="#adapt">首頁分成四區：改編練習、單字與聽力工具、考試資料、歷屆試題練習；改編練習從首頁就能直接進入</a><span class="rdate">10/12</span></span><span class="rsum">混合題、篇章結構、文意選填、克漏字、中譯英五種改編練習，點首頁的卡片就會直接選好改編練習，不必再到各題庫的年度選單裡找。</span><details class="rmore"><summary></summary><span class="rmb">改編練習原本要先進到各題庫，再到年度或考別的選單最後一項找「改編練習」。現在首頁最上面一區列出五種改編練習：混合題 32 組、篇章結構 30 篇（5 選 4）、文意選填 20 篇、克漏字 20 篇、中譯英 30 組，點卡片就會打開那個題庫，並且先選好改編練習。單字記憶卡、字根家族表這些工具，以及學測全卷用字統計、不採計英文的校系這些查閱用的資料，也各自成一區，放在歷屆試題前面。</span></details></div>
+    </div></div>
     <div class="rr" data-d="2026-10-12"><div class="rn rn-emoji">🔗</div><div class="rx"><b><a href="https://staresto-create.github.io/discourse-structure/">篇章結構</a> <span class="newdot">NEW</span></b>
       <div class="ri"><span class="rit"><a href="https://staresto-create.github.io/discourse-structure/">改編練習三十篇依大考中心命題工作坊的原則重新出題</a><span class="rdate">10/12</span></span><span class="rsum">空格平均分在各段，五個選項長短接近，答案要讀懂上下文才選得出來；其中八篇換了新文章，編號不變。</span><details class="rmore"><summary></summary><span class="rmb">大考中心 113 年 9 月命題工作坊的講義，對篇章結構列了幾條命題原則：選文還原後要有十五句左右，每段有一個主旨；空格要分散在各段，不能集中在後半；選項長短不能差太多，否則誘答力會變差；答案要靠讀懂文意，不能只看連接詞、代名詞或重複的字就選得出來。三十篇改編練習照這幾條原則全部重新出題，原文不夠合適的八篇也換成新文章，例如〈引水人的專業〉、〈大富翁背後的發明人〉、〈從刺果到魔鬼氈〉、〈泰武國小古謠傳唱隊〉。解析也改成先交代這一段在講什麼，再看空格前後，最後說明為什麼是這一句、最容易誤選哪一句。每一篇都重新檢查過，確定每一格只有一個答案。</span></details></div>
       <div class="ri"><span class="rit"><a href="https://staresto-create.github.io/discourse-structure/">新增三十篇改編練習：照現行學測篇章結構的版面出題，附逐題解析</a><span class="rdate">10/11</span></span><span class="rsum">文章改編自歷屆學測、指考閱讀測驗，每篇四個空格、五個選項（5 選 4），交卷後有逐題解析、多出來那一句的說明、段落功能標籤和全文中譯。</span><details class="rmore"><summary></summary><span class="rmb">篇章結構的歷屆試題只有 35 篇，現行 5 選 4 的版面更只有 115 學測和 115 學年度參考試卷兩篇，所以本題庫拿歷屆閱讀測驗的文章改編了三十篇，例如〈安全帽的百年演變〉、〈茶在英國普及的經過〉、〈國歌曲調的歐洲根源〉、〈馬雅城市為什麼消失〉、〈從刺果到魔鬼氈〉。每一篇都照 115 學測第 31 到 34 題的版面出題：四格分在段首、段中、段末，五個選項裡有一句和全篇同一個主題，卻哪一格都放不進去。解析的寫法和歷屆試題相同，先看這一段在講什麼與空格前後句，再說明為什麼是這一句、最容易誤選哪一句；交卷後原文也標好段落主題句與轉折詞。這些不是大考中心的試題，沒有官方答對率，也不算進 167 題、35 篇；在篇章結構首頁勾選「改編練習」就找得到。</span></details></div>
@@ -333,6 +341,107 @@
     
   </div>
 
+  <div class="sec-h" id="adapt">改編練習</div>
+  <p class="sec-n">歷屆試題練完了，可以接著練這些。混合題、篇章結構、文意選填、克漏字的文章改編自歷屆學測、指考閱讀測驗，中譯英照現行學測的版面另外擬題。這些不是大考中心的試題，沒有官方答對率，也不計入上面的題數；點卡片會直接進到各題庫的改編練習。</p>
+  <div class="grid">
+    <a class="card adapt" href="https://staresto-create.github.io/mixed-format/#adapt">
+      <span class="tag">Adapted · Mixed-format <span class="qcount">32 組 · 128 題</span></span>
+      <div class="card-title"><span class="cemoji">🧠</span>混合題改編練習</div>
+      <p class="card-desc">照 113 到 115 學測混合題的版面出題，有兩欄對照、討論區貼文、卡片三種版面，每組四題、10 分，交卷後每一格都有解析。</p>
+      <span class="card-arrow">開始練習 →</span>
+    </a>
+    <a class="card adapt" href="https://staresto-create.github.io/discourse-structure/#adapt">
+      <span class="tag">Adapted · Discourse Structure <span class="qcount">5 選 4 · 30 篇 · 120 題</span></span>
+      <div class="card-title"><span class="cemoji">🔗</span>篇章結構改編練習</div>
+      <p class="card-desc">115 學測起篇章結構改為 5 選 4，這 30 篇都照這個版面出題，並依大考中心命題工作坊的原則出題：空格分在各段，五個選項長短接近，要讀懂上下文才選得出來。</p>
+      <span class="card-arrow">開始練習 →</span>
+    </a>
+    <a class="card adapt" href="https://staresto-create.github.io/passage-completion/#adapt">
+      <span class="tag">Adapted · Passage Completion <span class="qcount">20 篇 · 200 題</span></span>
+      <div class="card-title"><span class="cemoji">🧩</span>文意選填改編練習</div>
+      <p class="card-desc">照現行學測第 21 到 30 題的版面出題，每篇 10 選 10，選項的詞性分配比照大考。交卷後有逐格解析、全文主旨、巨觀結構和全文中譯。</p>
+      <span class="card-arrow">開始練習 →</span>
+    </a>
+    <a class="card adapt" href="https://staresto-create.github.io/grammar-cloze-test/#adapt">
+      <span class="tag">Adapted · GSAT Cloze <span class="qcount">20 篇 · 100 題</span></span>
+      <div class="card-title"><span class="cemoji">📝</span>克漏字改編練習</div>
+      <p class="card-desc">照現行學測綜合測驗的版面出題，每篇五格、每格四選一，附解析。每篇和歷屆試題一樣，標出進階詞比重與每格字數。</p>
+      <span class="card-arrow">開始練習 →</span>
+    </a>
+    <a class="card adapt" href="https://staresto-create.github.io/JCEE-vocab-questions/translate/#adapt">
+      <span class="tag">Adapted · Translation <span class="qcount">30 組 · 60 題</span></span>
+      <div class="card-title"><span class="cemoji">✍️</span>中譯英改編練習</div>
+      <p class="card-desc">照 111 到 115 學測中譯英的版面另外擬題，一組兩句、講同一件事，用的是常用字與基本句型。對答案之後，參考譯法切成四段，可以照段替自己算分。</p>
+      <span class="card-arrow">開始練習 →</span>
+    </a>
+  </div>
+
+  <div class="sec-h">單字與聽力工具</div>
+  <p class="sec-n">字取自學測、指考考過的題目或大考中心《高中英文參考詞彙表》，連音卡用的是大考中心的官方錄音。</p>
+  <div class="sec-tools">
+  <a class="card tool" href="https://staresto-create.github.io/JCEE-vocab-questions/cards/">
+    <span class="tag">Flashcards · 間隔複習 <span class="qcount">2,113 字 · 易混淆字 317 組 · 一字多義 135 字</span></span>
+    <div class="card-title"><span class="cemoji">🃏</span>單字記憶卡</div>
+    <p class="card-desc">學測和指考兩個單字題庫出現過的字，一個字做一張卡，共 2,113 張，跟一般的七千單字書不一樣。卡片上那四個選項就是當年那一題的四個選項，三個錯的也是當年那三個。題目有時候給英文選中文，有時候反過來，有時候把當年那句的搭配詞留空讓你填。答對的字會過一陣子才再出現，答錯的當場再來一次。背面有 KK 音標、字級、完整意思和當年那一整句，點一下就跳回原題看解析。另有一副易混淆字組，317 組拼法或字根相近、或是唸法相同的字，一組一組記，其中的例句填空是本題庫自己寫的。還有一副「一字多義」，收 135 個你熟悉、大考卻考另一個意思的字，有大考原題的先考原題。記憶卡不是考古題，不計入上面的題數。</p>
+    <span class="card-arrow">開始複習 →</span>
+  </a>
+  <a class="card tool" href="https://staresto-create.github.io/JCEE-vocab-questions/listening/liaison.html">
+    <span class="tag">Linking Sounds · 英聽連音 <span class="qcount">168 張 · 14 卷官方錄音</span></span>
+    <div class="card-title"><span class="cemoji">🎧</span>英聽連音卡</div>
+    <p class="card-desc">很多人英文「看得懂、卻聽不懂」，問題常常不在單字，而在連音、消音和弱讀。每張卡播一小段大考中心的官方錄音，從四句裡選出你聽到的那一句；四句都合文法，只差在聲音，所以只能靠耳朵分辨。答完可以只重聽連音的那一小段、放慢速度，看 KK 音標和說明，再點出處回到原題。目前收 108 課綱的參考試卷與試題示例 7 到 11，以及 99 課綱的八卷舊卷，每卷 12 張。這裡沒有新題目，不計入上面的題數。</p>
+    <span class="card-arrow">開始練習 →</span>
+  </a>
+  <a class="card tool" href="https://staresto-create.github.io/JCEE-vocab-questions/roots/">
+    <span class="tag">Word Roots · 參考表 <span class="qcount">671 字 · 404 字附考題連結</span></span>
+    <div class="card-title"><span class="cemoji">🌱</span>字根家族表</div>
+    <p class="card-desc">照大考中心《高中英文參考詞彙表》（111 學年度起適用）整理，把可以用字根拆解的字依字根分成六十二個家族、671 字，同一個家族的字不分級別全部收齊。每個字附 KK 音標、拆解與字義，字源逐條查證，每個家族另附容易拆錯的字，也就是看起來像、其實不是這個字根的字。這一份是查閱用的，沒有題目。其中 404 個字附考古題連結，點進去就是該字考過的那一題，並標明它在該題是答案還是誘答。</p>
+    <span class="card-arrow">查字根 →</span>
+  </a>
+  <a class="card tool" href="https://staresto-create.github.io/JCEE-vocab-questions/affixes/">
+    <span class="tag">Prefixes · 參考表 <span class="qcount">2,722 字 · 1,497 字附考題連結</span></span>
+    <div class="card-title"><span class="cemoji">🧩</span>字首字尾表</div>
+    <p class="card-desc">照大考中心《高中英文參考詞彙表》（111 學年度起適用）整理，把帶字首、字尾的字按字首、字尾分組，同一個字首或字尾再依意思分成幾小組，例如 in- 分成「否定」和「進入、在裡面」，re- 分成「再一次」「往回、反向動作」和「加強語氣」。一、二級的熟字也收進來，先從認得的字看懂字首的意思。每個字附 KK 音標、拆解與字義，每一組另附容易拆錯的字，也就是看起來像、其實不是這個字首的字。目前收 re-、un-、in-、dis-、ex-、con-、over-、under- 等三十六組字首，以及 -able、-al、-ive、-ize、-er、-ist、-ity、-ment、-tion、-ing 等四十六組字尾。這一份是查閱用的，沒有題目。其中 1,497 個字附考古題連結。</p>
+    <span class="card-arrow">查字首 →</span>
+  </a>
+  <a class="card tool" href="https://staresto-create.github.io/JCEE-vocab-questions/cards/coverage.html">
+    <span class="tag">Coverage · 參考表 <span class="qcount">5,007 詞條 · 考過 1,575</span></span>
+    <div class="card-title"><span class="cemoji">☑️</span>詞彙表覆蓋清單</div>
+    <p class="card-desc">大考中心《高中英文參考詞彙表》第二到第六級的 5,007 個詞條，逐一標出在學測、指考詞彙題考過原形、只考過其他字形，還是從沒考過。合計考過 1,575 個，占 31.5%，其中四級最高，超過一半。考過的字附上題號，點進去就是原題；每一級也可以直接開啟記憶卡，只練那一級考過的字。這一份是查閱用的，沒有題目，不計入上面的題數。</p>
+    <span class="card-arrow">看清單 →</span>
+  </a>
+  <a class="card tool" href="https://staresto-create.github.io/JCEE-vocab-questions/cards/reverse.html">
+    <span class="tag">Reverse List · 參考表 <span class="qcount">6,158 字 · 一到六級</span></span>
+    <div class="card-title"><span class="cemoji">🔁</span>單字逆序表</div>
+    <p class="card-desc">大考中心《高中英文參考詞彙表》一到六級的字，從最後一個字母往前排，同樣結尾的字排在一起：picture、future、architecture 是同一串，-tion、-ment、-able 也各自成串。輸入字尾就能找出所有這樣結尾的字，可以依級別篩選；學測、指考詞彙題考過的字附上中文意思和題號，點進去就是原題。這一份是查閱用的，沒有題目，不計入上面的題數。</p>
+    <span class="card-arrow">從字尾找字 →</span>
+  </a>
+  </div>
+
+  <div class="sec-h">考試資料</div>
+  <p class="sec-n">依大考中心與大學甄選入學委員會公布的資料整理，查閱用，沒有題目。</p>
+  <div class="sec-tools">
+  <a class="card tool" href="https://staresto-create.github.io/JCEE-vocab-questions/cards/freq.html">
+    <span class="tag">Word Frequency · 參考表 <span class="qcount">35 份學測試卷 · 3,401 詞條</span></span>
+    <div class="card-title"><span class="cemoji">📊</span>學測全卷用字統計</div>
+    <p class="card-desc">83 到 115 學年度學測 35 份試卷，詞彙、克漏字、文意選填、篇章結構、閱讀測驗、混合題的文章、題目和選項全部算進來，依大考中心《高中英文參考詞彙表》分級：背到四級，試卷裡 95.4% 的字都在範圍內。二到六級出現過的 3,401 個詞條，逐一列出出現在幾份試卷、一共幾次和出現的年份。這一份是查閱用的，沒有題目，不計入上面的題數。</p>
+    <span class="card-arrow">看統計 →</span>
+  </a>
+  <a class="card tool" href="https://staresto-create.github.io/JCEE-vocab-questions/gsat-trends/">
+    <span class="tag">GSAT Statistics · 參考表 <span class="qcount">92–115 級分 · 83–115 字數</span></span>
+    <div class="card-title"><span class="cemoji">📈</span>學測各科級分差距與英文字數</div>
+    <p class="card-desc">依大考中心公布的學測統計資料，比較 92 到 115 學年度國文、英文、數學、社會或自然四科，哪一科考生之間的級分差距最大；另附 83 到 115 學年度學測英文試卷逐年的英文字數，以及整份試卷英文、中文各有多少字。這一份是查閱用的，沒有題目，不計入上面的題數。</p>
+    <span class="card-arrow">看圖表 →</span>
+  </a>
+  <a class="card tool" href="https://staresto-create.github.io/JCEE-vocab-questions/no-english/">
+    <span class="tag">Admissions · 參考表 <span class="qcount">115 申請入學 · 101 個校系</span></span>
+    <div class="card-title"><span class="cemoji">🏫</span>國立大學不採計英文的校系</div>
+    <p class="card-desc">依大學甄選入學委員會公布的各校〈參採學測科目一覽表〉，列出 115 學年度申請入學 31 所國立大學中不採計英文的校系：1,008 個一般校系裡只有 101 個，扣掉有報名資格限制的特殊組別，一般學生能報的只有 80 個，約 8%。分社會組、自然組、特殊組別三張表，每個校系都連到甄選委員會的分則。這一份是查閱用的，沒有題目，不計入上面的題數。</p>
+    <span class="card-arrow">看校系 →</span>
+  </a>
+  </div>
+
+  <div class="sec-h">歷屆試題練習</div>
+  <p class="sec-n">大考中心公布的歷屆試題，依題型分開練習。</p>
   <p class="aside" style="margin:0 0 22px; font-size:13px;">🧩 <a href="#rules" style="color:#9C2C1E; font-weight:700;">這幾種題型，其實是同一件事</a>——克漏字、單字、文意選填、篇章結構、混合題共通的五個詞，附歷屆試題與台大寫作教學中心出處。</p>
 
   <a class="card demo" href="https://staresto-create.github.io/JCEE-vocab-questions/demo/">
@@ -427,67 +536,6 @@
     </a>
 
       </div>
-
-  <a class="card tool" href="https://staresto-create.github.io/JCEE-vocab-questions/cards/">
-    <span class="tag">Flashcards · 間隔複習 <span class="qcount">2,113 字 · 易混淆字 317 組 · 一字多義 135 字</span></span>
-    <div class="card-title"><span class="cemoji">🃏</span>單字記憶卡</div>
-    <p class="card-desc">學測和指考兩個單字題庫出現過的字，一個字做一張卡，共 2,113 張，跟一般的七千單字書不一樣。卡片上那四個選項就是當年那一題的四個選項，三個錯的也是當年那三個。題目有時候給英文選中文，有時候反過來，有時候把當年那句的搭配詞留空讓你填。答對的字會過一陣子才再出現，答錯的當場再來一次。背面有 KK 音標、字級、完整意思和當年那一整句，點一下就跳回原題看解析。另有一副易混淆字組，317 組拼法或字根相近、或是唸法相同的字，一組一組記，其中的例句填空是本題庫自己寫的。還有一副「一字多義」，收 135 個你熟悉、大考卻考另一個意思的字，有大考原題的先考原題。記憶卡不是考古題，不計入上面的題數。</p>
-    <span class="card-arrow">開始複習 →</span>
-  </a>
-
-  <a class="card tool" href="https://staresto-create.github.io/JCEE-vocab-questions/listening/liaison.html">
-    <span class="tag">Linking Sounds · 英聽連音 <span class="qcount">168 張 · 14 卷官方錄音</span></span>
-    <div class="card-title"><span class="cemoji">🎧</span>英聽連音卡</div>
-    <p class="card-desc">很多人英文「看得懂、卻聽不懂」，問題常常不在單字，而在連音、消音和弱讀。每張卡播一小段大考中心的官方錄音，從四句裡選出你聽到的那一句；四句都合文法，只差在聲音，所以只能靠耳朵分辨。答完可以只重聽連音的那一小段、放慢速度，看 KK 音標和說明，再點出處回到原題。目前收 108 課綱的參考試卷與試題示例 7 到 11，以及 99 課綱的八卷舊卷，每卷 12 張。這裡沒有新題目，不計入上面的題數。</p>
-    <span class="card-arrow">開始練習 →</span>
-  </a>
-
-  <a class="card tool" href="https://staresto-create.github.io/JCEE-vocab-questions/roots/">
-    <span class="tag">Word Roots · 參考表 <span class="qcount">671 字 · 404 字附考題連結</span></span>
-    <div class="card-title"><span class="cemoji">🌱</span>字根家族表</div>
-    <p class="card-desc">照大考中心《高中英文參考詞彙表》（111 學年度起適用）整理，把可以用字根拆解的字依字根分成六十二個家族、671 字，同一個家族的字不分級別全部收齊。每個字附 KK 音標、拆解與字義，字源逐條查證，每個家族另附容易拆錯的字，也就是看起來像、其實不是這個字根的字。這一份是查閱用的，沒有題目。其中 404 個字附考古題連結，點進去就是該字考過的那一題，並標明它在該題是答案還是誘答。</p>
-    <span class="card-arrow">查字根 →</span>
-  </a>
-
-  <a class="card tool" href="https://staresto-create.github.io/JCEE-vocab-questions/affixes/">
-    <span class="tag">Prefixes · 參考表 <span class="qcount">2,722 字 · 1,497 字附考題連結</span></span>
-    <div class="card-title"><span class="cemoji">🧩</span>字首字尾表</div>
-    <p class="card-desc">照大考中心《高中英文參考詞彙表》（111 學年度起適用）整理，把帶字首、字尾的字按字首、字尾分組，同一個字首或字尾再依意思分成幾小組，例如 in- 分成「否定」和「進入、在裡面」，re- 分成「再一次」「往回、反向動作」和「加強語氣」。一、二級的熟字也收進來，先從認得的字看懂字首的意思。每個字附 KK 音標、拆解與字義，每一組另附容易拆錯的字，也就是看起來像、其實不是這個字首的字。目前收 re-、un-、in-、dis-、ex-、con-、over-、under- 等三十六組字首，以及 -able、-al、-ive、-ize、-er、-ist、-ity、-ment、-tion、-ing 等四十六組字尾。這一份是查閱用的，沒有題目。其中 1,497 個字附考古題連結。</p>
-    <span class="card-arrow">查字首 →</span>
-  </a>
-
-  <a class="card tool" href="https://staresto-create.github.io/JCEE-vocab-questions/cards/coverage.html">
-    <span class="tag">Coverage · 參考表 <span class="qcount">5,007 詞條 · 考過 1,575</span></span>
-    <div class="card-title"><span class="cemoji">☑️</span>詞彙表覆蓋清單</div>
-    <p class="card-desc">大考中心《高中英文參考詞彙表》第二到第六級的 5,007 個詞條，逐一標出在學測、指考詞彙題考過原形、只考過其他字形，還是從沒考過。合計考過 1,575 個，占 31.5%，其中四級最高，超過一半。考過的字附上題號，點進去就是原題；每一級也可以直接開啟記憶卡，只練那一級考過的字。這一份是查閱用的，沒有題目，不計入上面的題數。</p>
-    <span class="card-arrow">看清單 →</span>
-  </a>
-
-  <a class="card tool" href="https://staresto-create.github.io/JCEE-vocab-questions/cards/reverse.html">
-    <span class="tag">Reverse List · 參考表 <span class="qcount">6,158 字 · 一到六級</span></span>
-    <div class="card-title"><span class="cemoji">🔁</span>單字逆序表</div>
-    <p class="card-desc">大考中心《高中英文參考詞彙表》一到六級的字，從最後一個字母往前排，同樣結尾的字排在一起：picture、future、architecture 是同一串，-tion、-ment、-able 也各自成串。輸入字尾就能找出所有這樣結尾的字，可以依級別篩選；學測、指考詞彙題考過的字附上中文意思和題號，點進去就是原題。這一份是查閱用的，沒有題目，不計入上面的題數。</p>
-    <span class="card-arrow">從字尾找字 →</span>
-  </a>
-
-  <a class="card tool" href="https://staresto-create.github.io/JCEE-vocab-questions/cards/freq.html">
-    <span class="tag">Word Frequency · 參考表 <span class="qcount">35 份學測試卷 · 3,401 詞條</span></span>
-    <div class="card-title"><span class="cemoji">📊</span>學測全卷用字統計</div>
-    <p class="card-desc">83 到 115 學年度學測 35 份試卷，詞彙、克漏字、文意選填、篇章結構、閱讀測驗、混合題的文章、題目和選項全部算進來，依大考中心《高中英文參考詞彙表》分級：背到四級，試卷裡 95.4% 的字都在範圍內。二到六級出現過的 3,401 個詞條，逐一列出出現在幾份試卷、一共幾次和出現的年份。這一份是查閱用的，沒有題目，不計入上面的題數。</p>
-    <span class="card-arrow">看統計 →</span>
-  </a>
-  <a class="card tool" href="https://staresto-create.github.io/JCEE-vocab-questions/gsat-trends/">
-    <span class="tag">GSAT Statistics · 參考表 <span class="qcount">92–115 級分 · 83–115 字數</span></span>
-    <div class="card-title"><span class="cemoji">📈</span>學測各科級分差距與英文字數</div>
-    <p class="card-desc">依大考中心公布的學測統計資料，比較 92 到 115 學年度國文、英文、數學、社會或自然四科，哪一科考生之間的級分差距最大；另附 83 到 115 學年度學測英文試卷逐年的英文字數，以及整份試卷英文、中文各有多少字。這一份是查閱用的，沒有題目，不計入上面的題數。</p>
-    <span class="card-arrow">看圖表 →</span>
-  </a>
-  <a class="card tool" href="https://staresto-create.github.io/JCEE-vocab-questions/no-english/">
-    <span class="tag">Admissions · 參考表 <span class="qcount">115 申請入學 · 101 個校系</span></span>
-    <div class="card-title"><span class="cemoji">🏫</span>國立大學不採計英文的校系</div>
-    <p class="card-desc">依大學甄選入學委員會公布的各校〈參採學測科目一覽表〉，列出 115 學年度申請入學 31 所國立大學中不採計英文的校系：1,008 個一般校系裡只有 101 個，扣掉有報名資格限制的特殊組別，一般學生能報的只有 80 個，約 8%。分社會組、自然組、特殊組別三張表，每個校系都連到甄選委員會的分則。這一份是查閱用的，沒有題目，不計入上面的題數。</p>
-    <span class="card-arrow">看校系 →</span>
-  </a>
 
   <details class="skill">
     <summary>🔍 讀句子的第一步：先找「什麼」和「怎麼了」</summary>

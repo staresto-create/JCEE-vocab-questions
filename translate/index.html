@@ -1169,7 +1169,13 @@ function escapeHtml(s){
           .replace(/"/g,"&quot;").replace(/'/g,"&#39;");
 }
 
-loadItems();
+/* #adapt：總站卡片直接連進改編練習（先選好改編練習，再捲到選擇範圍） */
+function applyAdaptHash(){
+  if(location.hash !== '#adapt') return;
+  document.querySelectorAll('#yearGrid .year-chip').forEach(c => { if(c.dataset.year === ADAPT) c.classList.add('selected'); });
+  const box = document.getElementById('yearGrid'); if(box) (box.closest('.card') || box).scrollIntoView({block:'start'});
+}
+loadItems().then(applyAdaptHash);
 </script>
 </body>
 </html>
