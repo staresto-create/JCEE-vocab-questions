@@ -20,9 +20,9 @@
   body{background:var(--paper); color:var(--ink); font-family:'Noto Sans TC',sans-serif;
        font-size:16px; line-height:1.75; -webkit-text-size-adjust:100%;}
   .wrap{max-width:600px; margin:0 auto; padding:0 16px 48px;}
-  header.top{display:flex; align-items:baseline; justify-content:space-between; gap:12px;
+  header.top{display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:4px 12px;
              padding:18px 0 10px; border-bottom:3px double var(--ink);}
-  header.top .title{font-family:'Noto Serif TC',serif; font-weight:900; font-size:21px;}
+  header.top .title{font-family:'Noto Serif TC',serif; font-weight:900; font-size:21px; white-space:nowrap;}
   header.top .sub{font-family:'IBM Plex Mono','Noto Sans TC',monospace; font-size:11.5px; color:var(--ink-soft); white-space:nowrap;}
   .card{background:var(--paper-card); border:1px solid var(--rule); border-left:6px dashed var(--rule);
         border-radius:3px; box-shadow:var(--shadow); padding:20px 18px; margin:18px 0;}
@@ -109,7 +109,7 @@
 <div class="wrap">
   <header class="top">
     <span class="title">第二次段考單字練習</span>
-    <span class="sub">中正高中　張敬欣</span>
+    <span class="sub">龍騰 B3 L4～L6・ALL+ 十月號</span>
   </header>
 
   <section id="home">
