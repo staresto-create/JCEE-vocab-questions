@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>第二次段考進度表</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700;900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--paper:#F6F1E4;--paper-card:#FFFDF7;--ink:#221F1A;--ink-soft:#5B5648;--rule:#DCD3BB;--crimson:#AE3626;--sage:#3E6E52;--gold:#A9812E;}
+  *{box-sizing:border-box;} html,body{margin:0;padding:0;}
+  body{background:var(--paper);color:var(--ink);font-family:'Noto Sans TC',sans-serif;font-size:16px;line-height:1.7;-webkit-text-size-adjust:100%;}
+  .wrap{max-width:640px;margin:0 auto;padding:0 16px 48px;}
+  header.top{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:4px 12px;padding:18px 0 10px;border-bottom:3px double var(--ink);}
+  header.top .title{font-family:'Noto Serif TC',serif;font-weight:900;font-size:21px;white-space:nowrap;}
+  header.top .sub{font-family:'IBM Plex Mono','Noto Sans TC',monospace;font-size:11.5px;color:var(--ink-soft);}
+  .tabs{display:flex;gap:8px;margin:14px 0 6px;}
+  .tabs button{flex:1;font:inherit;font-size:16px;font-weight:700;background:var(--paper-card);color:var(--ink);border:1px solid var(--rule);border-radius:3px;padding:8px 0;cursor:pointer;}
+  .tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper-card);border-color:var(--ink);}
+  .note{color:var(--ink-soft);font-size:13.5px;margin:6px 0 10px;}
+  .day{background:var(--paper-card);border:1px solid var(--rule);border-radius:3px;padding:10px 14px;margin:10px 0;}
+  .day.past{opacity:.55;}
+  .day.today{border:2px solid var(--crimson);box-shadow:0 4px 16px rgba(174,54,38,.15);}
+  .day.off{background:transparent;border-style:dashed;color:var(--ink-soft);padding:6px 14px;}
+  .day.exam{background:var(--ink);color:var(--paper-card);border-color:var(--ink);}
+  .dh{display:flex;align-items:baseline;gap:8px;font-weight:700;}
+  .dh .md{font-family:'IBM Plex Mono',monospace;font-size:17px;}
+  .dh .tag{font-size:12px;font-weight:700;color:#fff;background:var(--crimson);border-radius:2px;padding:0 6px;}
+  dl{margin:4px 0 0;display:grid;grid-template-columns:3.2em 1fr;gap:2px 8px;font-size:15px;}
+  dt{color:var(--sage);font-weight:700;font-size:13.5px;padding-top:1px;}
+  dd{margin:0;}
+  dd.q{color:var(--crimson);font-weight:500;}
+  a{color:var(--sage);}
+  footer{margin-top:22px;font-size:12.5px;color:var(--ink-soft);}
+</style>
+<style id="anti-copy">
+/* 防盜用措施（2026-10-14）：畫面浮水印、列印浮水印、頁尾授權聲明 */
+@media screen{body::before{content:"";position:fixed;top:0;left:0;right:0;bottom:0;z-index:2147483000;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22460%22%20height%3D%22240%22%3E%3Cg%20transform%3D%22rotate%28-20%20230%20120%29%22%20font-family%3D%22Noto%20Sans%20TC%2Csans-serif%22%20fill%3D%22%23D9A400%22%20fill-opacity%3D%22.2%22%20text-anchor%3D%22middle%22%3E%3Ctext%20x%3D%22230%22%20y%3D%22112%22%20font-size%3D%2220%22%3E%E9%AB%98%E4%B8%AD%E8%8B%B1%E6%96%87%E9%A1%8C%E5%BA%AB%3C%2Ftext%3E%3Ctext%20x%3D%22230%22%20y%3D%22140%22%20font-size%3D%2214%22%3Estaresto-create.github.io%2FJCEE-vocab-questions%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E");background-repeat:repeat;}}
+@media print{body::after{content:"高中英文題庫\A staresto-create.github.io/JCEE-vocab-questions\A 免費資源，請勿販售";white-space:pre;position:fixed;top:42%;left:0;right:0;text-align:center;transform:rotate(-25deg);font-family:"Noto Sans TC",sans-serif;font-size:26pt;line-height:1.7;color:#c8c8c8;z-index:2147483000;pointer-events:none;}}
+.cc-note{font-size:12px;line-height:1.8;color:#8a8278;margin:12px auto;max-width:60em;padding:0 1em;}.cc-note a{color:inherit;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top"><span class="title">第二次段考進度表</span><span class="sub">高二英文</span></header>
+  <div class="tabs" id="tabs"></div>
+  <p class="note">打開會自動跳到今天，今天那一格用紅框標出來。核心字彙的範圍是單字片語表上的編號，括號裡是第一個和最後一個字。進度如有調整，以這一頁為準。</p>
+  <div id="list"></div>
+  <footer>線上練習：<a href="./">段考單字練習</a>（單字卡、字搭卡）・<a href="../wordwheel.html">單字輪</a>・<a href="../cohesion.html">ALL+ 讀法練習</a></footer>
+</div>
+<script>
+(function(){
+  'use strict';
+  var P = {"208":[{"d":"2026-10-15","md":"10/15","wd":"四","q":"","l":"發還段考、檢討","h":"","w":"L4 字搭回家查；線上單字卡開放"},{"d":"2026-10-16","md":"10/16","wd":"五","q":"","l":"L4 對字搭","h":"","w":"線上 L4 字搭卡"},{"d":"2026-10-19","md":"10/19","wd":"一","q":"L4 字搭全＋ALL+ U1（10/1）","l":"L4 單字；ALL+ U1","h":"L4 字搭講義","w":"U1 單元卷；單字輪 L4"},{"d":"2026-10-21","md":"10/21","wd":"三","q":"L4 單字片語前半 #1~15（joyous～dawn）＋U13 #88~98（privilege～abstract）；聽力 WT1","l":"L4 單字","h":"","w":"WT1 reading"},{"d":"2026-10-22","md":"10/22","wd":"四","q":"ALL+ U2（10/2,5）＋U13 #99~109（landscape～divine）","l":"ALL+ U2","h":"U1 單元卷","w":"U2 單元卷；U2 圖表組織"},{"d":"2026-10-23","md":"10/23","wd":"五","q":"ALL+ U3（10/6,7）＋U13 #110~119（luxury～robber）","l":"ALL+ U3","h":"WT1","w":"U3 單元卷；U3 圖表組織"},{"d":"2026-10-26","md":"10/26","wd":"一","off":"光復節補假，不上課"},{"d":"2026-10-28","md":"10/28","wd":"三","q":"L4 單字片語後半 #16~30（transform～die out）＋ALL+ U4（10/8,9）；聽力 WT2","l":"L4 片語句型；ALL+ U4","h":"U2 單元卷","w":"U4 單元卷；WT2 reading"},{"d":"2026-10-29","md":"10/29","wd":"四","q":"ALL+ U5（10/12,13）＋U14 #120~132（partial～mineral）","l":"L4 課文；ALL+ U5、U6","h":"U3 單元卷","w":"U5 單元卷；L5 字搭回家查"},{"d":"2026-10-30","md":"10/30","wd":"五","q":"ALL+ U7（10/15,16）＋U14 #133~145（respectable～negotiate）","l":"ALL+ U7","h":"U4 單元卷、WT2","w":"U7 單元卷；U7 圖表組織；週末寫 L4 四合一（11/4 收）"},{"d":"2026-11-02","md":"11/2","wd":"一","q":"ALL+ U8（10/19）＋U14 #146~157（orbit～courageous）","l":"L5 對字搭；ALL+ U8","h":"U5 單元卷","w":"線上 L5 字搭卡；U8 單元卷"},{"d":"2026-11-04","md":"11/4","wd":"三","q":"L5 字搭全＋ALL+ U9（10/20）；聽力 WT3","l":"L5 單字；ALL+ U9","h":"L5 字搭講義、U7 單元卷、L4 四合一","w":"U9 單元卷；WT3 reading；單字輪 L5"},{"d":"2026-11-05","md":"11/5","wd":"四","q":"L5 單字片語前半 #31~42（blossom～leisurely）＋ALL+ U10（10/21）","l":"L5 片語句型；ALL+ U10","h":"U8 單元卷","w":"U10 單元卷"},{"d":"2026-11-06","md":"11/6","wd":"五","q":"L5 單字片語後半 #43~55（stunning～fall in love with）","l":"L5 課文","h":"U9 單元卷、WT3","w":""},{"d":"2026-11-09","md":"11/9","wd":"一","q":"ALL+ U11（10/22,23）＋U15 #158~169（insert～carve）","l":"ALL+ U11","h":"U10 單元卷","w":"U11 單元卷；U11 圖表組織"},{"d":"2026-11-11","md":"11/11","wd":"三","q":"ALL+ U12（10/26,27）＋U15 #170~181（costume～correspond）；聽力 WT4","l":"ALL+ U12","h":"","w":"U12 單元卷；U12 圖表組織；WT4 reading；L6 字搭回家查"},{"d":"2026-11-12","md":"11/12","wd":"四","q":"U15 #182~192（scarcely～concerning）","l":"L5 課文","h":"U11 單元卷","w":""},{"d":"2026-11-13","md":"11/13","wd":"五","q":"ALL+ U13（10/28,29）","l":"L6 對字搭；ALL+ U13","h":"U12 單元卷、WT4","w":"線上 L6 字搭卡；U13 單元卷；週末寫 L5 四合一（11/18 收）"},{"d":"2026-11-16","md":"11/16","wd":"一","off":"校慶補假，不上課"},{"d":"2026-11-18","md":"11/18","wd":"三","q":"L6 字搭全＋U16 #193~204（cabinet～guarantee）","l":"L6 單字","h":"L6 字搭講義、L5 四合一","w":"單字輪 L6"},{"d":"2026-11-19","md":"11/19","wd":"四","q":"L6 單字片語前半 #56~71（slope～smoothness）＋U16 #205~216（peer～chemistry）","l":"L6 片語句型","h":"U13 單元卷","w":""},{"d":"2026-11-20","md":"11/20","wd":"五","q":"L6 單字片語後半 #72~87（opposition～for sb.’s sake）＋ALL+ U14（10/30）","l":"L6 課文；ALL+ U14","h":"","w":"U14 單元卷；週末寫 L6 四合一（11/25 收）"},{"d":"2026-11-23","md":"11/23","wd":"一","q":"U16 #217~228（decoration～engineering）","l":"L6 課文","h":"","w":""},{"d":"2026-11-25","md":"11/25","wd":"三","q":"大卷：L4、核心 U13、ALL+ U2、U3","l":"大卷","h":"U14 單元卷、L6 四合一","w":""},{"d":"2026-11-26","md":"11/26","wd":"四","q":"大卷：L5、核心 U14、ALL+ U7、U11","l":"大卷","h":"","w":""},{"d":"2026-11-27","md":"11/27","wd":"五","q":"大卷：L6、核心 U15、U16、ALL+ U12","l":"大卷","h":"","w":""},{"d":"2026-11-30","md":"11/30～12/1","wd":"一二","off":"第二次段考"}],"204":[{"d":"2026-10-16","md":"10/16","wd":"五","q":"","l":"發還段考、檢討","h":"","w":"L4 字搭回家查；線上單字卡開放"},{"d":"2026-10-19","md":"10/19","wd":"一","q":"L4 單字片語前半 #1~15（joyous～dawn）","l":"L4 對字搭","h":"","w":"線上 L4 字搭卡"},{"d":"2026-10-20","md":"10/20","wd":"二","q":"L4 字搭全＋ALL+ U1（10/1）","l":"L4 單字；ALL+ U1","h":"L4 字搭講義","w":"U1 單元卷；單字輪 L4"},{"d":"2026-10-21","md":"10/21","wd":"三","q":"L4 單字片語後半 #16~30（transform～die out）＋U13 #88~98（privilege～abstract）；聽力 WT1","l":"L4 單字","h":"","w":"WT1 reading"},{"d":"2026-10-23","md":"10/23","wd":"五","q":"ALL+ U2（10/2,5）＋U13 #99~109（landscape～divine）","l":"ALL+ U2","h":"U1 單元卷","w":"U2 單元卷；U2 圖表組織"},{"d":"2026-10-26","md":"10/26","wd":"一","off":"光復節補假，不上課"},{"d":"2026-10-27","md":"10/27","wd":"二","q":"ALL+ U3（10/6,7）＋U13 #110~119（luxury～robber）","l":"ALL+ U3","h":"WT1","w":"U3 單元卷；U3 圖表組織"},{"d":"2026-10-28","md":"10/28","wd":"三","q":"ALL+ U4（10/8,9）＋U14 #120~132（partial～mineral）；聽力 WT2","l":"L4 片語句型；ALL+ U4","h":"U2 單元卷","w":"U4 單元卷；WT2 reading"},{"d":"2026-10-30","md":"10/30","wd":"五","q":"ALL+ U5（10/12,13）＋U14 #133~145（respectable～negotiate）","l":"L4 課文；ALL+ U5、U6","h":"U3 單元卷","w":"U5 單元卷；L5 字搭回家查；週末寫 L4 四合一（11/4 收）"},{"d":"2026-11-02","md":"11/2","wd":"一","q":"ALL+ U7（10/15,16）＋U14 #146~157（orbit～courageous）","l":"ALL+ U7","h":"U4 單元卷、WT2","w":"U7 單元卷；U7 圖表組織"},{"d":"2026-11-03","md":"11/3","wd":"二","q":"ALL+ U8（10/19）","l":"L5 對字搭；ALL+ U8","h":"U5 單元卷","w":"線上 L5 字搭卡；U8 單元卷"},{"d":"2026-11-04","md":"11/4","wd":"三","q":"L5 字搭全＋ALL+ U9（10/20）；聽力 WT3","l":"L5 單字；ALL+ U9","h":"L5 字搭講義、U7 單元卷、L4 四合一","w":"U9 單元卷；WT3 reading；單字輪 L5"},{"d":"2026-11-06","md":"11/6","wd":"五","q":"L5 單字片語前半 #31~42（blossom～leisurely）＋ALL+ U10（10/21）","l":"L5 片語句型；ALL+ U10","h":"U8 單元卷","w":"U10 單元卷"},{"d":"2026-11-09","md":"11/9","wd":"一","q":"ALL+ U11（10/22,23）＋U15 #158~169（insert～carve）","l":"ALL+ U11","h":"U9 單元卷、WT3","w":"U11 單元卷；U11 圖表組織"},{"d":"2026-11-10","md":"11/10","wd":"二","q":"L5 單字片語後半 #43~55（stunning～fall in love with）","l":"L5 課文","h":"U10 單元卷","w":""},{"d":"2026-11-11","md":"11/11","wd":"三","q":"ALL+ U12（10/26,27）＋U15 #170~181（costume～correspond）；聽力 WT4","l":"ALL+ U12","h":"U11 單元卷","w":"U12 單元卷；U12 圖表組織；WT4 reading；L6 字搭回家查"},{"d":"2026-11-13","md":"11/13","wd":"五","q":"U15 #182~192（scarcely～concerning）","l":"L5 課文","h":"","w":"週末寫 L5 四合一（11/18 收）"},{"d":"2026-11-16","md":"11/16","wd":"一","off":"校慶補假，不上課"},{"d":"2026-11-17","md":"11/17","wd":"二","q":"ALL+ U13（10/28,29）","l":"L6 對字搭；ALL+ U13","h":"U12 單元卷、WT4","w":"線上 L6 字搭卡；U13 單元卷"},{"d":"2026-11-18","md":"11/18","wd":"三","q":"L6 字搭全＋U16 #193~204（cabinet～guarantee）","l":"L6 單字","h":"L6 字搭講義、L5 四合一","w":"單字輪 L6"},{"d":"2026-11-20","md":"11/20","wd":"五","q":"ALL+ U14（10/30）＋U16 #205~216（peer～chemistry）","l":"L6 片語句型；ALL+ U14","h":"U13 單元卷","w":"U14 單元卷；週末寫 L6 四合一（11/24 收）"},{"d":"2026-11-23","md":"11/23","wd":"一","q":"L6 單字片語全＋U16 #217~228（decoration～engineering）","l":"L6 課文","h":"","w":""},{"d":"2026-11-24","md":"11/24","wd":"二","q":"大卷：L4、核心 U13、ALL+ U2、U3","l":"大卷","h":"U14 單元卷、L6 四合一","w":""},{"d":"2026-11-25","md":"11/25","wd":"三","q":"大卷：L5、核心 U14、ALL+ U7、U11","l":"大卷","h":"","w":""},{"d":"2026-11-27","md":"11/27","wd":"五","q":"大卷：L6、核心 U15、U16、ALL+ U12","l":"大卷","h":"","w":""},{"d":"2026-11-30","md":"11/30～12/1","wd":"一二","off":"第二次段考"}],"212":[{"d":"2026-10-16","md":"10/16","wd":"五","q":"","l":"發還段考、檢討","h":"","w":"L4 字搭回家查；線上單字卡開放"},{"d":"2026-10-19","md":"10/19","wd":"一","q":"L4 單字片語前半 #1~15（joyous～dawn）","l":"L4 對字搭","h":"","w":"線上 L4 字搭卡"},{"d":"2026-10-20","md":"10/20","wd":"二","q":"L4 字搭全＋ALL+ U1（10/1）","l":"L4 單字；ALL+ U1","h":"L4 字搭講義","w":"U1 單元卷；單字輪 L4"},{"d":"2026-10-21","md":"10/21","wd":"三","q":"L4 單字片語後半 #16~30（transform～die out）＋U13 #88~98（privilege～abstract）；聽力 WT1","l":"L4 單字","h":"","w":"WT1 reading"},{"d":"2026-10-23","md":"10/23","wd":"五","q":"ALL+ U2（10/2,5）＋U13 #99~109（landscape～divine）","l":"ALL+ U2","h":"U1 單元卷","w":"U2 單元卷；U2 圖表組織"},{"d":"2026-10-26","md":"10/26","wd":"一","off":"光復節補假，不上課"},{"d":"2026-10-27","md":"10/27","wd":"二","q":"ALL+ U3（10/6,7）＋U13 #110~119（luxury～robber）","l":"ALL+ U3","h":"WT1","w":"U3 單元卷；U3 圖表組織"},{"d":"2026-10-28","md":"10/28","wd":"三","q":"ALL+ U4（10/8,9）＋U14 #120~132（partial～mineral）；聽力 WT2","l":"L4 片語句型；ALL+ U4","h":"U2 單元卷","w":"U4 單元卷；WT2 reading"},{"d":"2026-10-30","md":"10/30","wd":"五","q":"ALL+ U5（10/12,13）＋U14 #133~145（respectable～negotiate）","l":"L4 課文；ALL+ U5、U6","h":"U3 單元卷","w":"U5 單元卷；L5 字搭回家查；週末寫 L4 四合一（11/4 收）"},{"d":"2026-11-02","md":"11/2","wd":"一","q":"ALL+ U7（10/15,16）＋U14 #146~157（orbit～courageous）","l":"ALL+ U7","h":"U4 單元卷、WT2","w":"U7 單元卷；U7 圖表組織"},{"d":"2026-11-03","md":"11/3","wd":"二","q":"ALL+ U8（10/19）＋U15 #158~169（insert～carve）","l":"L5 對字搭；ALL+ U8","h":"U5 單元卷","w":"線上 L5 字搭卡；U8 單元卷"},{"d":"2026-11-04","md":"11/4","wd":"三","q":"L5 字搭全＋ALL+ U9（10/20）；聽力 WT3","l":"L5 單字；ALL+ U9","h":"L5 字搭講義、U7 單元卷、L4 四合一","w":"U9 單元卷；WT3 reading；單字輪 L5"},{"d":"2026-11-06","md":"11/6","wd":"五","q":"L5 單字片語前半 #31~42（blossom～leisurely）＋ALL+ U10（10/21）","l":"L5 片語句型；ALL+ U10","h":"U8 單元卷","w":"U10 單元卷"},{"d":"2026-11-09","md":"11/9","wd":"一","q":"ALL+ U11（10/22,23）＋U15 #170~181（costume～correspond）","l":"ALL+ U11","h":"U9 單元卷、WT3","w":"U11 單元卷；U11 圖表組織"},{"d":"2026-11-10","md":"11/10","wd":"二","q":"L5 單字片語後半 #43~55（stunning～fall in love with）＋U15 #182~192（scarcely～concerning）","l":"L5 課文","h":"U10 單元卷","w":"L6 字搭回家查"},{"d":"2026-11-11","md":"11/11","wd":"三","q":"ALL+ U12（10/26,27）＋U16 #193~204（cabinet～guarantee）；聽力 WT4","l":"ALL+ U12","h":"U11 單元卷","w":"U12 單元卷；U12 圖表組織；WT4 reading；週末寫 L5 四合一（11/18 收）"},{"d":"2026-11-13","md":"11/13","wd":"五","off":"運動會決賽，不上課"},{"d":"2026-11-16","md":"11/16","wd":"一","off":"校慶補假，不上課"},{"d":"2026-11-17","md":"11/17","wd":"二","q":"ALL+ U13（10/28,29）","l":"L6 對字搭；ALL+ U13","h":"","w":"線上 L6 字搭卡；U13 單元卷"},{"d":"2026-11-18","md":"11/18","wd":"三","q":"L6 字搭全＋U16 #205~216（peer～chemistry）","l":"L6 單字","h":"L6 字搭講義、U12 單元卷、WT4、L5 四合一","w":"單字輪 L6"},{"d":"2026-11-20","md":"11/20","wd":"五","q":"L6 單字片語前半 #56~71（slope～smoothness）＋ALL+ U14（10/30）","l":"L6 片語句型；ALL+ U14","h":"U13 單元卷","w":"U14 單元卷；週末寫 L6 四合一（11/24 收）"},{"d":"2026-11-23","md":"11/23","wd":"一","q":"L6 單字片語後半 #72~87（opposition～for sb.’s sake）＋U16 #217~228（decoration～engineering）","l":"L6 課文","h":"","w":""},{"d":"2026-11-24","md":"11/24","wd":"二","q":"大卷：L4、核心 U13、ALL+ U2、U3","l":"大卷","h":"U14 單元卷、L6 四合一","w":""},{"d":"2026-11-25","md":"11/25","wd":"三","q":"大卷：L5、核心 U14、ALL+ U7、U11","l":"大卷","h":"","w":""},{"d":"2026-11-27","md":"11/27","wd":"五","q":"大卷：L6、核心 U15、U16、ALL+ U12","l":"大卷","h":"","w":""},{"d":"2026-11-30","md":"11/30～12/1","wd":"一二","off":"第二次段考"}],"215":[{"d":"2026-10-15","md":"10/15","wd":"四","q":"","l":"發還段考、檢討","h":"","w":"L4 字搭回家查；線上單字卡開放"},{"d":"2026-10-16","md":"10/16","wd":"五","q":"","l":"L4 對字搭","h":"","w":"線上 L4 字搭卡"},{"d":"2026-10-20","md":"10/20","wd":"二","q":"L4 字搭全＋ALL+ U1（10/1）","l":"L4 單字；ALL+ U1","h":"L4 字搭講義","w":"U1 單元卷；單字輪 L4"},{"d":"2026-10-21","md":"10/21","wd":"三","q":"L4 單字片語前半 #1~15（joyous～dawn）＋U13 #88~98（privilege～abstract）；聽力 WT1","l":"L4 單字","h":"","w":"WT1 reading"},{"d":"2026-10-22","md":"10/22","wd":"四","q":"ALL+ U2（10/2,5）＋U13 #99~109（landscape～divine）","l":"ALL+ U2","h":"U1 單元卷","w":"U2 單元卷；U2 圖表組織"},{"d":"2026-10-23","md":"10/23","wd":"五","q":"ALL+ U3（10/6,7）＋U13 #110~119（luxury～robber）","l":"ALL+ U3","h":"WT1","w":"U3 單元卷；U3 圖表組織"},{"d":"2026-10-27","md":"10/27","wd":"二","q":"L4 單字片語後半 #16~30（transform～die out）＋ALL+ U4（10/8,9）","l":"L4 片語句型；ALL+ U4","h":"U2 單元卷","w":"U4 單元卷"},{"d":"2026-10-28","md":"10/28","wd":"三","q":"ALL+ U5（10/12,13）＋U14 #120~132（partial～mineral）；聽力 WT2","l":"L4 課文；ALL+ U5、U6","h":"U3 單元卷","w":"U5 單元卷；WT2 reading；L5 字搭回家查"},{"d":"2026-10-29","md":"10/29","wd":"四","q":"ALL+ U7（10/15,16）＋U14 #133~145（respectable～negotiate）","l":"ALL+ U7","h":"U4 單元卷","w":"U7 單元卷；U7 圖表組織"},{"d":"2026-10-30","md":"10/30","wd":"五","q":"ALL+ U8（10/19）＋U14 #146~157（orbit～courageous）","l":"L5 對字搭；ALL+ U8","h":"U5 單元卷、WT2","w":"線上 L5 字搭卡；U8 單元卷；週末寫 L4 四合一（11/4 收）"},{"d":"2026-11-03","md":"11/3","wd":"二","q":"L5 字搭全＋U15 #158~169（insert～carve）","l":"L5 單字","h":"L5 字搭講義、U7 單元卷","w":"單字輪 L5"},{"d":"2026-11-04","md":"11/4","wd":"三","q":"L5 單字片語前半 #31~42（blossom～leisurely）＋ALL+ U9（10/20）；聽力 WT3","l":"L5 片語句型；ALL+ U9","h":"U8 單元卷、L4 四合一","w":"U9 單元卷；WT3 reading"},{"d":"2026-11-05","md":"11/5","wd":"四","q":"ALL+ U10（10/21）＋U15 #170~181（costume～correspond）","l":"L5 課文；ALL+ U10","h":"","w":"U10 單元卷"},{"d":"2026-11-06","md":"11/6","wd":"五","q":"ALL+ U11（10/22,23）＋U15 #182~192（scarcely～concerning）","l":"ALL+ U11","h":"U9 單元卷、WT3","w":"U11 單元卷；U11 圖表組織"},{"d":"2026-11-10","md":"11/10","wd":"二","q":"L5 單字片語後半 #43~55（stunning～fall in love with）","l":"L5 課文","h":"U10 單元卷","w":""},{"d":"2026-11-11","md":"11/11","wd":"三","q":"ALL+ U12（10/26,27）＋U16 #193~204（cabinet～guarantee）；聽力 WT4","l":"ALL+ U12","h":"U11 單元卷","w":"U12 單元卷；U12 圖表組織；WT4 reading；L6 字搭回家查"},{"d":"2026-11-12","md":"11/12","wd":"四","q":"ALL+ U13（10/28,29）","l":"L5 課文；ALL+ U13","h":"","w":"U13 單元卷"},{"d":"2026-11-13","md":"11/13","wd":"五","q":"ALL+ U14（10/30）","l":"L6 對字搭；ALL+ U14","h":"U12 單元卷、WT4","w":"線上 L6 字搭卡；U14 單元卷；週末寫 L5 四合一（11/18 收）"},{"d":"2026-11-17","md":"11/17","wd":"二","q":"L6 字搭全＋U16 #205~216（peer～chemistry）","l":"L6 單字","h":"L6 字搭講義、U13 單元卷","w":"單字輪 L6"},{"d":"2026-11-18","md":"11/18","wd":"三","q":"L6 單字片語前半 #56~71（slope～smoothness）＋U16 #217~228（decoration～engineering）","l":"L6 片語句型","h":"U14 單元卷、L5 四合一","w":""},{"d":"2026-11-19","md":"11/19","wd":"四","q":"L6 單字片語後半 #72~87（opposition～for sb.’s sake）","l":"L6 課文","h":"","w":""},{"d":"2026-11-20","md":"11/20","wd":"五","q":"L4~L6 片語全","l":"L6 課文；總複習","h":"","w":"週末寫 L6 四合一（11/25 收）"},{"d":"2026-11-24","md":"11/24","wd":"二","q":"大卷：L4、核心 U13、ALL+ U2、U3","l":"大卷","h":"","w":""},{"d":"2026-11-25","md":"11/25","wd":"三","q":"大卷：L5、核心 U14、ALL+ U7、U11","l":"大卷","h":"L6 四合一","w":""},{"d":"2026-11-26","md":"11/26","wd":"四","q":"大卷：L6、核心 U15、U16、ALL+ U12","l":"大卷","h":"","w":""},{"d":"2026-11-27","md":"11/27","wd":"五","q":"","l":"大卷補做與檢討","h":"","w":""},{"d":"2026-11-30","md":"11/30～12/1","wd":"一二","off":"第二次段考"}]};
+  var CLS = ['208','204','212','215'];
+  function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+  function linkify(s){
+    s = esc(s);
+    s = s.replace(/(線上單字卡開放|線上 L[456] 字搭卡)/g, '<a href="./">$1</a>');
+    s = s.replace(/(單字輪 L[456])/g, '<a href="../wordwheel.html">$1</a>');
+    s = s.replace(/U(\d+) 圖表組織/g, '<a href="../outline-202610-u$1.html">U$1 圖表組織</a>');
+    return s;
+  }
+  function todayStr(){ var d=new Date(); return d.getFullYear()+'-'+('0'+(d.getMonth()+1)).slice(-2)+'-'+('0'+d.getDate()).slice(-2); }
+  function pick(){
+    var m=/(?:^|[?&#])c=(\d{3})/.exec(location.search+location.hash);
+    if (m && P[m[1]]) return m[1];
+    try { var s=localStorage.getItem('plan2_cls'); if (s && P[s]) return s; } catch(e){}
+    return '208';
+  }
+  var cur = pick();
+  function render(){
+    try { localStorage.setItem('plan2_cls', cur); } catch(e){}
+    document.getElementById('tabs').innerHTML = CLS.map(function(c){
+      return '<button type="button" data-c="'+c+'" aria-pressed="'+(c===cur)+'">'+c+'</button>'; }).join('');
+    var t = todayStr(), html = '', marked = false;
+    P[cur].forEach(function(r){
+      var cls = 'day', tag = '';
+      if (r.d < t) cls += ' past';
+      if (!marked && r.d >= t && !r.off) { cls += ' today'; marked = true; tag = r.d===t ? '今天' : '下一節'; }
+      if (r.off) {
+        html += '<div class="'+cls+(r.off==='第二次段考'?' exam':' off')+'"><div class="dh"><span class="md">'+r.md+'</span><span>'+r.wd+'</span><span>'+esc(r.off)+'</span></div></div>';
+        return;
+      }
+      html += '<div class="'+cls+'"'+(tag?' id="now"':'')+'><div class="dh"><span class="md">'+r.md+'</span><span>'+r.wd+'</span>'+(tag?'<span class="tag">'+tag+'</span>':'')+'</div><dl>'
+        + (r.q ? '<dt>小考</dt><dd class="q">'+esc(r.q)+'</dd>' : '')
+        + '<dt>上課</dt><dd>'+esc(r.l)+'</dd>'
+        + (r.h ? '<dt>繳交</dt><dd>'+esc(r.h)+'</dd>' : '')
+        + (r.w ? '<dt>作業</dt><dd>'+linkify(r.w)+'</dd>' : '')
+        + '</dl></div>';
+    });
+    document.getElementById('list').innerHTML = html;
+    var n = document.getElementById('now');
+    if (n && n.previousElementSibling) n.previousElementSibling.scrollIntoView();
+  }
+  document.getElementById('tabs').addEventListener('click', function(e){
+    var b = e.target.closest('button'); if (!b) return; cur = b.getAttribute('data-c'); render();
+  });
+  render();
+})();
+</script>
+</body>
+</html>
