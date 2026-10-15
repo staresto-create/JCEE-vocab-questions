@@ -3,62 +3,10 @@
  "note": "單字輪字源庫。每筆記錄一個字的拆解與意思；exams 記錄它在哪幾次段考出現過與出處。",
  "affixes": [
   {
-   "key": "re-",
-   "zh": "再一次、往回",
-   "note": "拉丁文 re-「回頭、再來一次」。動作重做一遍，或往原來的方向退回去。",
+   "key": "con- / com-（一起）",
+   "zh": "一起、共同",
+   "note": "拉丁文 com-「與……一起」，遇到 l 變 col-、遇到 r 變 cor-。把分散的東西合到一處。另一個意思「徹底」在隔壁那一輪。",
    "words": [
-    "refuse",
-    "refusal",
-    "reform",
-    "recovery",
-    "restore",
-    "reunion",
-    "reminder",
-    "revise",
-    "recognize",
-    "recognition",
-    "reunite",
-    "recreation",
-    "rebel",
-    "repetition"
-   ]
-  },
-  {
-   "key": "-tion / -sion",
-   "zh": "動作變成名詞",
-   "note": "拉丁文 -tio。動詞加上去就變成「這個動作」或「動作的結果」。",
-   "words": [
-    "construction",
-    "exploration",
-    "innovation",
-    "graduation",
-    "hesitation",
-    "distribution",
-    "civilization",
-    "collaboration",
-    "opposition",
-    "violation",
-    "application",
-    "transformation",
-    "decoration",
-    "distinction",
-    "navigation",
-    "adaptation"
-   ]
-  },
-  {
-   "key": "con- / com-",
-   "zh": "一起、全部",
-   "note": "拉丁文 com-「與……一起」。把分散的東西合到一處，或表示「徹底」。",
-   "words": [
-    "construct",
-    "collaborate",
-    "colleague",
-    "combination",
-    "compromise",
-    "conflict",
-    "consume",
-    "conscience",
     "confrontation",
     "context",
     "contest",
@@ -66,78 +14,116 @@
     "consistent",
     "consequence",
     "confront",
-    "company"
+    "company",
+    "correspond",
+    "compact",
+    "construct",
+    "concrete",
+    "convenience"
    ]
   },
   {
-   "key": "in- / im-",
-   "zh": "進入，或表示不",
-   "note": "拉丁文 in- 有兩個身分：一是「進到裡面」，二是「不」。看字義判斷是哪一個。",
+   "key": "con- / com-（徹底）",
+   "zh": "徹底、完全",
+   "note": "con-／com- 另一個常見意思是加強語氣的「徹底」：不是把東西湊在一起，而是把動作做到底。",
    "words": [
-    "innovate",
-    "inspire",
-    "insight",
-    "invest",
-    "invade",
-    "imaginative",
-    "incredible",
-    "independent"
+    "consume",
+    "concept",
+    "confidence",
+    "conservation",
+    "conservative",
+    "complete",
+    "confirm",
+    "convince",
+    "confess"
+   ]
+  },
+  {
+   "key": "re-（再一次）",
+   "zh": "再、重新",
+   "note": "拉丁文 re-「再一次」。把已經做過的事重新來一遍：再認、再合、再看、再想。另一輪是 re- 的「往回、反過來、加強」。",
+   "words": [
+    "recognize",
+    "recognition",
+    "reunion",
+    "reunite",
+    "recreation",
+    "revise",
+    "revision",
+    "repetition",
+    "reputation"
+   ]
+  },
+  {
+   "key": "re-（往回、加強）",
+   "zh": "往回、反過來、加強",
+   "note": "re- 除了「再一次」，還有「往回、反過來」（rebel、reception）和不容易看出意思、只是加強語氣的用法（resemble、reward）。",
+   "words": [
+    "rebel",
+    "refusal",
+    "reception",
+    "respectable",
+    "respectful",
+    "resemble",
+    "resemblance",
+    "recommend",
+    "reward",
+    "remarkable",
+    "researcher"
+   ]
+  },
+  {
+   "key": "dis-",
+   "zh": "不、分開",
+   "note": "拉丁文 dis-「分開、相反」。把原本合在一起的拆開，或把意思反過來。",
+   "words": [
+    "distribute",
+    "dismiss",
+    "dispute",
+    "disturb",
+    "disqualify",
+    "discipline",
+    "discover",
+    "disrupt",
+    "disaster",
+    "discourage",
+    "disorder",
+    "distinguish",
+    "disclose",
+    "distinct",
+    "distract",
+    "disability",
+    "disadvantage",
+    "divorce",
+    "distinctive",
+    "defeat"
    ]
   },
   {
    "key": "de-",
-   "zh": "往下、去掉",
-   "note": "拉丁文 de-「離開、往下」。把東西拿掉、拆掉，或往下走。",
+   "zh": "往下、去掉、加強",
+   "note": "拉丁文 de-：「往下」（depression）、「去掉、相反」（defeat），也常只是加強語氣（declare）。",
    "words": [
     "depart",
-    "departure",
     "dependent",
     "demonstrate",
-    "destination",
-    "delicate",
     "decrease",
     "destruction",
     "declare",
     "despite",
+    "departure",
+    "destination",
     "deliberate",
+    "delicate",
     "depression",
-    "desperate"
-   ]
-  },
-  {
-   "key": "-al",
-   "zh": "名詞變形容詞",
-   "note": "拉丁文 -alis「與……有關的」。名詞加上去就變成「跟這個有關的」。",
-   "words": [
-    "essential",
-    "material",
-    "universal",
-    "logical",
-    "mechanical",
-    "professional",
-    "beneficial",
-    "psychological"
-   ]
-  },
-  {
-   "key": "-ive",
-   "zh": "傾向於做某事",
-   "note": "拉丁文 -ivus。動詞加上去，表示「有這種性質、傾向這樣做」。",
-   "words": [
-    "constructive",
-    "innovative",
-    "imaginative",
-    "primitive",
-    "massive",
-    "attractive",
-    "competitive",
-    "sensitive"
+    "desperate",
+    "determination"
    ]
   },
   {
    "key": "ex- / e-",
-   "zh": "向外",
-   "note": "拉丁文 ex-「出去」。從裡面走到外面，或把東西拿出來。",
+   "zh": "向外、徹底",
+   "note": "拉丁文 ex-「向外」，在 b、d、g、l、m、n、v 前面省成 e-，在 f 前面變 ef-。向外推到盡頭，就變成「徹底」。",
    "words": [
     "explore",
     "exploration",
@@ -154,55 +140,306 @@
     "exaggerate",
     "evaluate",
     "evolution",
-    "excessive"
+    "excessive",
+    "extension",
+    "enormous"
+   ]
+  },
+  {
+   "key": "ad- / ac- / ap-",
+   "zh": "朝向、到",
+   "note": "拉丁文 ad-「朝向、到」。後面接 c、p、r、s 等字母時，d 會被同化成同樣的字母：ac-、ap-、ar-、as-。",
+   "words": [
+    "adapt",
+    "access",
+    "accompany",
+    "arrival",
+    "appear",
+    "aggressive",
+    "adopt",
+    "assess",
+    "apparent",
+    "adjust",
+    "admission",
+    "acquaintance",
+    "application",
+    "accidental"
+   ]
+  },
+  {
+   "key": "in- / im- / il-",
+   "zh": "往裡面、不",
+   "note": "拉丁文有兩個 in-：一個是「往裡面、在上面」（insert、illustrate），一個是「否定」（incredible、innocence）。遇到 l 變 il-，遇到 b、m、p 變 im-。",
+   "words": [
+    "indigenous",
+    "ingredient",
+    "insert",
+    "inspire",
+    "institute",
+    "intend",
+    "invade",
+    "illustrate",
+    "illusion",
+    "incredible",
+    "inevitable",
+    "innocence",
+    "impartial"
+   ]
+  },
+  {
+   "key": "sub-",
+   "zh": "在下面",
+   "note": "拉丁文 sub-「在……下面」。後面接 c、f、p 時會同化成 suc-、suf-、sup-；接 t 等字母時常寫成 sus-（sustain、suspicious）。",
+   "words": [
+    "submarine",
+    "suspicious",
+    "sustainable",
+    "supposedly",
+    "substantial",
+    "subtle",
+    "sustain"
+   ]
+  },
+  {
+   "key": "pre- / pro-",
+   "zh": "在前、向前",
+   "note": "pre-「在前、事先」和 pro-「向前、往前」，兩個字首都有「前面」的意思。",
+   "words": [
+    "prefer",
+    "preference",
+    "previous",
+    "previously",
+    "prejudice",
+    "promising",
+    "profitable"
+   ]
+  },
+  {
+   "key": "trans- / inter- / super-",
+   "zh": "跨越、之間、在上",
+   "note": "trans-「跨越、轉換」、inter-「在……之間」（intel- 是 inter- 的變形）、super-「在上面、超過」。",
+   "words": [
+    "transform",
+    "transformation",
+    "transportation",
+    "interfere",
+    "intelligence",
+    "superior",
+    "superiority",
+    "superstition"
+   ]
+  },
+  {
+   "key": "en- / mis- / be-",
+   "zh": "使、錯誤、加強",
+   "note": "en-「使成為」、mis-「錯誤、不好」、be-「加強語氣、使成為」，三個都是接在字前面、改變意思的小字首。",
+   "words": [
+    "enlarge",
+    "misfortune",
+    "beloved",
+    "encourage",
+    "enable",
+    "enrich",
+    "endanger",
+    "mistake",
+    "misunderstand",
+    "behave",
+    "become"
+   ]
+  },
+  {
+   "key": "contra- / counter-",
+   "zh": "相反、對面",
+   "note": "contra- 來自拉丁文「相反、對面」，變形有 contro-（controversy）和經法文變來的 counter-（counterpart、encounter）。country 原意是「展開在面前的那片土地」，也是同一個字。",
+   "words": [
+    "counter",
+    "contrary",
+    "contrast",
+    "contradict",
+    "controversy",
+    "control",
+    "encounter",
+    "country"
+   ]
+  },
+  {
+   "key": "-ation（動詞 + -ation）",
+   "zh": "動詞 → 名詞",
+   "note": "動詞後面加 -ation，變成「這個動作、這件事」的名詞；原本的字尾 e 要去掉，字尾 y 要變成 ic。",
+   "words": [
+    "adaptation",
+    "classification",
+    "application",
+    "transformation",
+    "determination",
+    "destination",
+    "confrontation",
+    "quotation",
+    "transportation",
+    "reputation",
+    "conservation"
+   ]
+  },
+  {
+   "key": "-ate → -ation",
+   "zh": "-ate 動詞 → 名詞",
+   "note": "-ate 結尾的動詞，把 e 換成 -ion，就是 -ation 名詞：navigate → navigation、violate → violation。",
+   "words": [
+    "navigation",
+    "violation",
+    "anticipation",
+    "participation",
+    "decoration",
+    "hesitation",
+    "evaluation"
+   ]
+  },
+  {
+   "key": "-ion / -sion（動詞變形）",
+   "zh": "動詞 → 名詞（拼法會變）",
+   "note": "很多動詞變名詞時，字尾會跟著變形：-ceive → -ception、-ize → -ition、-de／-d → -sion、-mit → -mission。",
+   "words": [
+    "invention",
+    "evolution",
+    "reception",
+    "repetition",
+    "opposition",
+    "recognition",
+    "invasion",
+    "extension",
+    "revision",
+    "admission",
+    "depression",
+    "possession"
+   ]
+  },
+  {
+   "key": "-tion / -sion（字根 + 字尾）",
+   "zh": "沒有現成動詞的名詞",
+   "note": "有些 -tion／-sion 名詞前面沒有現成可以拆下來的動詞，要把拉丁字根一起看：caution、occasion、tradition。",
+   "words": [
+    "recreation",
+    "distinction",
+    "superstition",
+    "caution",
+    "occasion",
+    "illusion",
+    "tradition",
+    "condition"
+   ]
+  },
+  {
+   "key": "-al",
+   "zh": "……的",
+   "note": "-al 多半把名詞變成形容詞「……的」，常寫成 -ial、-ual；少數用在動詞後面，變成「這個動作」的名詞（arrival、refusal）。",
+   "words": [
+    "material",
+    "universal",
+    "logical",
+    "mechanical",
+    "professional",
+    "beneficial",
+    "psychological",
+    "essential",
+    "annual",
+    "occasional",
+    "partial",
+    "loyal",
+    "functional",
+    "artificial",
+    "fatal",
+    "financial",
+    "potential",
+    "substantial",
+    "accidental",
+    "arrival",
+    "refusal"
+   ]
+  },
+  {
+   "key": "-ive",
+   "zh": "有……傾向的",
+   "note": "-ive 把動詞或名詞變成形容詞，表示「有……傾向的、有……作用的」。從 -ate 動詞來的常寫成 -ative，從 -ete／-it 來的寫成 -itive。",
+   "words": [
+    "constructive",
+    "innovative",
+    "primitive",
+    "massive",
+    "attractive",
+    "sensitive",
+    "distinctive",
+    "conservative",
+    "aggressive",
+    "imaginative",
+    "perspective",
+    "competitive",
+    "excessive",
+    "repetitive"
    ]
   },
   {
    "key": "-able / -ible",
    "zh": "可以被……的",
-   "note": "拉丁文 -abilis「有能力的」。動詞加上去，表示「可以被這樣做」。",
+   "note": "-able／-ible 來自拉丁文，意思是「可以被……的、值得……的」。接在動詞後面，說明「可不可以被這樣處理」。",
    "words": [
     "reliable",
     "capable",
     "dependable",
     "accessible",
-    "flexible",
     "favorable",
     "miserable",
-    "available"
+    "available",
+    "inevitable",
+    "respectable",
+    "flexible",
+    "sustainable",
+    "profitable",
+    "remarkable",
+    "incredible",
+    "affordable"
    ]
   },
   {
-   "key": "dis-",
-   "zh": "不、分開",
-   "note": "拉丁文 dis-「分開、相反」。把原本合在一起的拆開，或把意思反過來。",
+   "key": "-ous",
+   "zh": "充滿……的",
+   "note": "-ous 來自拉丁文 -osus「充滿……的」，把名詞變成形容詞。名詞字尾 -y 要先變成 i，再加 -ous。",
    "words": [
-    "distribute",
-    "dismiss",
-    "dispute",
-    "disturb",
-    "distinct",
-    "disqualify",
-    "discipline",
-    "discover",
-    "disrupt",
-    "disaster",
-    "discourage",
-    "disorder",
-    "distinguish",
-    "disclose",
-    "distract"
+    "joyous",
+    "previous",
+    "mysterious",
+    "luxurious",
+    "courageous",
+    "suspicious",
+    "indigenous",
+    "cautious",
+    "enormous"
+   ]
+  },
+  {
+   "key": "-ful / -less",
+   "zh": "充滿、沒有",
+   "note": "-ful「充滿……的」和 -less「沒有……的」是一組相反的字尾，接在名詞後面變成形容詞。",
+   "words": [
+    "sorrowful",
+    "mournful",
+    "skillful",
+    "faithful",
+    "respectful",
+    "countless",
+    "restless",
+    "hopeless",
+    "delightful",
+    "endless"
    ]
   },
   {
    "key": "-ance / -ence",
-   "zh": "狀態或性質",
-   "note": "拉丁文 -antia。動詞或形容詞加上去，變成「這個狀態、這件事」。",
+   "zh": "名詞字尾",
+   "note": "-ance／-ence 把動詞或形容詞變成名詞：appear → appearance、elegant → elegance。-ant／-ent 是它們的形容詞兄弟。",
    "words": [
     "dependence",
     "insurance",
     "allowance",
-    "preference",
     "coincidence",
     "conscience",
     "difference",
@@ -214,65 +451,36 @@
     "confidence",
     "innocence",
     "convenience",
-    "intelligence"
+    "intelligence",
+    "acquaintance",
+    "preference",
+    "consequence"
    ]
   },
   {
-   "key": "fac / fect / fic",
-   "zh": "做、造",
-   "note": "拉丁文 facere「做」。字中間看到 fac、fect、fic，通常跟「做出來」有關。",
+   "key": "-ity / -ment / -ness / -cy",
+   "zh": "名詞字尾",
+   "note": "這幾個字尾都把字變成名詞：-ity／-ty 加在形容詞後面，表示性質；-ment 加在動詞後面，表示結果；-ness 加在形容詞後面；-cy 是 -ate 結尾字的名詞。",
    "words": [
-    "satisfaction",
-    "dissatisfaction",
-    "beneficial",
-    "magnificent",
-    "effect",
-    "efficient",
-    "manufacture",
-    "sufficient",
-    "sacrifice",
-    "clarify",
-    "artificial",
-    "profitable",
-    "defeat",
-    "classify",
-    "classification"
-   ]
-  },
-  {
-   "key": "ad- / ac- / ap-",
-   "zh": "朝向、到",
-   "note": "拉丁文 ad-「朝向、到」。為了好唸，ad- 常跟著後面的子音改寫成 ac-、ag-、ap-、ar-、as-，所以字首出現 acc-、app-、arr-、ass- 這種兩個相同的子音時，常常就是它；不過 coll-、comm- 是 con- 變來的，要分清楚。",
-   "words": [
-    "adapt",
-    "access",
-    "accompany",
-    "arrival",
-    "appear",
-    "aggressive",
-    "adopt",
-    "assess"
-   ]
-  },
-  {
-   "key": "-ful / -less",
-   "zh": "充滿／沒有",
-   "note": "-ful 來自古英文 full「滿的」，-less 來自古英文 lēas「沒有、缺少」。多半接在名詞後面變成形容詞：一個是「充滿……的」，一個是「沒有……的」；-less 接在動詞後面時（如 countless），意思是「無法……的」。",
-   "words": [
-    "sorrowful",
-    "mournful",
-    "skillful",
-    "faithful",
-    "respectful",
-    "countless",
-    "restless",
-    "hopeless"
+    "superiority",
+    "humanity",
+    "loyalty",
+    "curiosity",
+    "disability",
+    "penalty",
+    "fulfillment",
+    "discouragement",
+    "enlargement",
+    "placement",
+    "smoothness",
+    "intimacy",
+    "delicacy"
    ]
   },
   {
    "key": "-er / -or / -ist / -ian",
    "zh": "做……的人",
-   "note": "-er 來自古英文，-or 來自拉丁文，-ist 來自希臘文，-ian 來自拉丁文 -ianus。接在動詞或名詞後面，表示「做這件事的人」或「跟這件事有關的人」。",
+   "note": "-er、-or、-ist、-ian、-eer 都是「做這件事的人」；接在動詞或名詞後面，變成職業、身分或做這件事的人。",
    "words": [
     "receptionist",
     "historian",
@@ -281,13 +489,186 @@
     "conductor",
     "researcher",
     "collector",
-    "counselor"
+    "counselor",
+    "carrier",
+    "pioneer",
+    "volunteer"
+   ]
+  },
+  {
+   "key": "-ly",
+   "zh": "……地",
+   "note": "-ly 最常見的功能，是把形容詞變成副詞「……地」。少數 -ly 結尾的字其實是形容詞（deadly、leisurely）。",
+   "words": [
+    "namely",
+    "scarcely",
+    "leisurely",
+    "deadly",
+    "previously",
+    "intimately",
+    "skillfully",
+    "partially",
+    "absolutely",
+    "physically",
+    "supposedly",
+    "eventually"
+   ]
+  },
+  {
+   "key": "-ic / -ical",
+   "zh": "……的、有……性質的",
+   "note": "-ic、-ical 把名詞變成形容詞，意思是「有……性質的」。有些字兩種字尾都存在，意思卻不同：historic 和 historical。",
+   "words": [
+    "historic",
+    "historical",
+    "fantastic",
+    "elastic",
+    "magnetic",
+    "toxic",
+    "scenic"
+   ]
+  },
+  {
+   "key": "-ize / -fy",
+   "zh": "使成為……",
+   "note": "-ize 和 -fy（-ify）都把名詞或形容詞變成動詞，意思是「使成為……、使變得……」。-ise 是 -ize 的英式拼法。",
+   "words": [
+    "summarize",
+    "utilize",
+    "recognize",
+    "clarify",
+    "classify",
+    "realize",
+    "organize",
+    "satisfy"
+   ]
+  },
+  {
+   "key": "-ate（動詞）",
+   "zh": "使……、做……",
+   "note": "-ate 結尾的字多半是動詞，來自拉丁文 -atus。-ate 動詞變成名詞時，把 e 換成 -ion：violate → violation。",
+   "words": [
+    "anticipate",
+    "decorate",
+    "estimate",
+    "evaluate",
+    "exaggerate",
+    "illustrate",
+    "navigate",
+    "negotiate",
+    "participate",
+    "stimulate",
+    "violate"
+   ]
+  },
+  {
+   "key": "-ate（形容詞）",
+   "zh": "……的",
+   "note": "-ate 結尾的字，有一類是形容詞，字尾唸得比較弱 /ɪt/：deliberate、delicate、desperate、moderate。",
+   "words": [
+    "deliberate",
+    "delicate",
+    "desperate",
+    "intimate",
+    "moderate",
+    "accurate",
+    "appropriate",
+    "separate"
+   ]
+  },
+  {
+   "key": "-ing / -ed（形容詞）",
+   "zh": "令人……／感到……",
+   "note": "動詞加 -ing 變成「令人……的」，加 -ed 變成「感到……的」：astonishing（令人驚訝的）、astonished（感到驚訝的）。-ed 也常表示「被……的、有……的」，如 repeated、bruised、divorced。",
+   "words": [
+    "astonishing",
+    "stunning",
+    "breathtaking",
+    "exhausting",
+    "exhausted",
+    "rewarding",
+    "delighted",
+    "repeated",
+    "divorced",
+    "privileged",
+    "bruised",
+    "hooked"
+   ]
+  },
+  {
+   "key": "-ing（名詞、介系詞）",
+   "zh": "動詞 + -ing",
+   "note": "動詞加 -ing 除了變成形容詞，也能變成名詞（greeting、engineering），甚至變成介系詞（concerning）。",
+   "words": [
+    "greeting",
+    "blessing",
+    "handwriting",
+    "engineering",
+    "concerning",
+    "building",
+    "meaning",
+    "painting",
+    "clothing"
+   ]
+  },
+  {
+   "key": "-ary / -ery / -ure / -age",
+   "zh": "名詞、形容詞字尾",
+   "note": "這些字尾都來自拉丁文或法文：-ary 多半變形容詞（literary），-ery／-ry 變名詞（scenery、chemistry），-ure 和 -age 是名詞字尾（departure、beverage）。",
+   "words": [
+    "literary",
+    "imaginary",
+    "scenery",
+    "battery",
+    "chemistry",
+    "literature",
+    "texture",
+    "departure",
+    "beverage",
+    "disadvantage"
+   ]
+  },
+  {
+   "key": "-ant / -ent（形容詞）",
+   "zh": "正在……的、處於……狀態的",
+   "note": "-ant／-ent 來自拉丁文動詞的現在分詞，意思是「正在……的、處於……狀態的」，常和一個英文動詞同源：depend → dependent、differ → different。兩種拼法沒有簡單規則，要一個一個記。",
+   "words": [
+    "consistent",
+    "apparent",
+    "magnificent",
+    "elegant",
+    "important",
+    "different",
+    "confident",
+    "independent",
+    "persistent",
+    "excellent",
+    "evident",
+    "convenient"
+   ]
+  },
+  {
+   "key": "-al（拉丁字根 + -al）",
+   "zh": "前面是拉丁字根的 -al",
+   "note": "有些 -al 前面接的是直接從拉丁文來的字根，英文裡沒有現成的字可以拆：rur 鄉下、mut 交換、vit 生命、ment 心智。",
+   "words": [
+    "mutual",
+    "rural",
+    "casual",
+    "manual",
+    "equal",
+    "vital",
+    "mental",
+    "vocal",
+    "local",
+    "moral",
+    "final"
    ]
   },
   {
    "key": "cap / cept / ceive",
-   "zh": "拿、取",
-   "note": "拉丁文 capere「拿」。在字中間常變成 cept、cip、ceive，看到這幾種拼法，通常跟「拿、取」有關。",
+   "zh": "拿、抓",
+   "note": "拉丁文 capere「拿、抓」，在單字裡變成 cap、cept、ceive、cip：receive → reception、conceive → concept。",
    "words": [
     "exception",
     "anticipate",
@@ -296,7 +677,487 @@
     "concept",
     "reception",
     "anticipation",
-    "participation"
+    "participation",
+    "capital"
+   ]
+  },
+  {
+   "key": "fac / fect / fic",
+   "zh": "做",
+   "note": "拉丁文 facere「做」，在單字裡變成 fac、fect、fic、feat、-fy：satisfy、effect、office、defeat。",
+   "words": [
+    "satisfaction",
+    "dissatisfaction",
+    "beneficial",
+    "effect",
+    "efficient",
+    "manufacture",
+    "sufficient",
+    "sacrifice",
+    "clarify",
+    "artificial",
+    "profitable",
+    "magnificent",
+    "defeat",
+    "classify",
+    "classification"
+   ]
+  },
+  {
+   "key": "lect / leg / lig",
+   "zh": "挑選、讀",
+   "note": "拉丁文 legere「挑選、收集，後來也指讀」，在單字裡變成 lect、leg、lig：collect 收集、select 挑選、lecture 演講。",
+   "words": [
+    "elegant",
+    "legend",
+    "intelligence",
+    "collector",
+    "select",
+    "elect",
+    "neglect",
+    "lecture"
+   ]
+  },
+  {
+   "key": "spec / spect / spic",
+   "zh": "看",
+   "note": "拉丁文 specere「看」，在單字裡變成 spec、spect、spic：expect 往外看、inspect 往裡看、suspect 從下面偷看。",
+   "words": [
+    "respectable",
+    "respectful",
+    "suspicious",
+    "perspective",
+    "expect",
+    "inspect",
+    "aspect",
+    "suspect"
+   ]
+  },
+  {
+   "key": "pon / pos",
+   "zh": "放",
+   "note": "拉丁文 ponere「放」，在單字裡變成 pos、pon、pose：oppose 放到對面、expose 放到外面、propose 放到前面。",
+   "words": [
+    "oppose",
+    "opposition",
+    "supposedly",
+    "suppose",
+    "purpose",
+    "expose",
+    "impose",
+    "propose"
+   ]
+  },
+  {
+   "key": "vid / vis",
+   "zh": "看",
+   "note": "拉丁文 videre「看」，在單字裡變成 vid、vis、view：vision 看見的能力、visible 看得見的、review 再看一次。",
+   "words": [
+    "envision",
+    "revise",
+    "revision",
+    "vision",
+    "visible",
+    "provide",
+    "review",
+    "evidence"
+   ]
+  },
+  {
+   "key": "gen / gener",
+   "zh": "生、種類",
+   "note": "拉丁文 gignere「生」與 genus「種類」：generation 世代、genuine 天生的、gene 基因、hydrogen 產生水的元素。希臘文同源的 -gen 也是「生」（hydrogen、oxygen、gene）。",
+   "words": [
+    "indigenous",
+    "genius",
+    "genuine",
+    "hydrogen",
+    "oxygen",
+    "generate",
+    "generation",
+    "gene"
+   ]
+  },
+  {
+   "key": "tain / ten / tend",
+   "zh": "握、伸",
+   "note": "拉丁文 tenere「握」和 tendere「伸」：contain 握在一起、extend 往外伸、attend 把心思伸過去。",
+   "words": [
+    "sustain",
+    "intend",
+    "extension",
+    "contain",
+    "maintain",
+    "obtain",
+    "attend",
+    "extend",
+    "pretend",
+    "tension",
+    "content"
+   ]
+  },
+  {
+   "key": "rupt / fract",
+   "zh": "打斷、打破",
+   "note": "拉丁文 rumpere「打斷」和 frangere「打破」：interrupt 從中間打斷、fragment 碎片、fracture 骨折。",
+   "words": [
+    "disrupt",
+    "fragile",
+    "erupt",
+    "interrupt",
+    "corrupt",
+    "bankrupt",
+    "fracture",
+    "fragment",
+    "fraction"
+   ]
+  },
+  {
+   "key": "sta / sist / stit",
+   "zh": "站",
+   "note": "拉丁文 stare「站」：assist 站到旁邊、insist 站在上面不走、persist 站到底、exist 站出來。",
+   "words": [
+    "consistent",
+    "destination",
+    "institute",
+    "superstition",
+    "obstacle",
+    "assist",
+    "insist",
+    "resist",
+    "persist",
+    "exist",
+    "station",
+    "status"
+   ]
+  },
+  {
+   "key": "tract / duct",
+   "zh": "拉、引",
+   "note": "拉丁文 trahere「拉」和 ducere「引導」：attract 拉過來、extract 拉出來、produce 帶出來、conduct 帶領。",
+   "words": [
+    "abstract",
+    "distract",
+    "conductor",
+    "attract",
+    "extract",
+    "contract",
+    "subtract",
+    "produce",
+    "reduce",
+    "trait"
+   ]
+  },
+  {
+   "key": "ced / cess",
+   "zh": "走",
+   "note": "拉丁文 cedere「走、退讓」，在單字裡變成 ced、ceed、cess：proceed 往前走、succeed 接著走、exceed 走出界線。",
+   "words": [
+    "access",
+    "excessive",
+    "process",
+    "proceed",
+    "succeed",
+    "success",
+    "exceed",
+    "precede",
+    "recession",
+    "necessary"
+   ]
+  },
+  {
+   "key": "form",
+   "zh": "形狀、形式",
+   "note": "拉丁文 forma「形狀」，動詞 formare 是「塑形、做成」。字首決定怎麼塑形：trans 是從一種形狀換到另一種，re 是重新塑形，uni 是只有一種形狀。",
+   "words": [
+    "transform",
+    "transformation",
+    "uniform",
+    "formal",
+    "platform",
+    "inform",
+    "information",
+    "reform",
+    "conform",
+    "format"
+   ]
+  },
+  {
+   "key": "fer",
+   "zh": "帶",
+   "note": "拉丁文 ferre「帶、承載」。字首決定帶去哪裡：prefer 帶到前面、refer 帶回去、transfer 帶過去。土地把作物帶出來，就轉成「生產」的意思（fertile）。",
+   "words": [
+    "prefer",
+    "preference",
+    "different",
+    "offer",
+    "suffer",
+    "conference",
+    "refer",
+    "transfer",
+    "infer"
+   ]
+  },
+  {
+   "key": "act / ag",
+   "zh": "做、驅動",
+   "note": "拉丁文 agere「驅動、做」，過去分詞是 actus，所以有 ag 和 act 兩種拼法：act 是做的事，agent 是做事的人，agenda 是要做的事。",
+   "words": [
+    "navigate",
+    "navigation",
+    "act",
+    "action",
+    "active",
+    "actual",
+    "exact",
+    "react",
+    "agent",
+    "agenda"
+   ]
+  },
+  {
+   "key": "press",
+   "zh": "壓",
+   "note": "拉丁文 premere「壓」。字首決定往哪裡壓：express 把想法擠出來，impress 壓在上面留下印象，depress 往下壓，oppress 對著壓。",
+   "words": [
+    "depression",
+    "press",
+    "pressure",
+    "express",
+    "impress",
+    "oppress",
+    "expression",
+    "impression"
+   ]
+  },
+  {
+   "key": "leg / legis（法律）",
+   "zh": "法律",
+   "note": "拉丁文 lex／legis「法律」。它和「挑選、讀」的 lect／leg 長得一樣，在拉丁文裡卻是兩個不同的字：意思跟法律、權利、指派有關的，是這一支。",
+   "words": [
+    "privilege",
+    "legal",
+    "delegate",
+    "legacy",
+    "legislation",
+    "loyal"
+   ]
+  },
+  {
+   "key": "speci（種類）",
+   "zh": "種類、樣子",
+   "note": "「看」再延伸一步，就是「看起來的樣子」；樣子相同的歸為一類，就是 species「種類」。special 是第 1 級的字，從它拆起最省力。",
+   "words": [
+    "species",
+    "special",
+    "especially",
+    "specific",
+    "specialist",
+    "specialize",
+    "specify"
+   ]
+  },
+  {
+   "key": "scend / scan（爬）",
+   "zh": "爬",
+   "note": "拉丁文 scandere「爬」。ascend 是往上爬，descend 是往下爬。scan 也是它的後代：最早指照節拍念詩，後來變成一個一個仔細察看。",
+   "words": [
+    "scan",
+    "ascend",
+    "descend",
+    "descent",
+    "escalator"
+   ]
+  },
+  {
+   "key": "vers / vert（轉）",
+   "zh": "轉",
+   "note": "拉丁文 vertere「轉」。字首決定轉的方向：轉回來（reverse）、轉開（diverse）、全部轉成一個（universe）。verse 最漂亮：原意是犁田犁到田頭轉回來的那一道，一道就是一行，所以成了詩行。",
+   "words": [
+    "divorce",
+    "conversation",
+    "universe",
+    "university",
+    "verse",
+    "advertise",
+    "anniversary",
+    "diverse",
+    "adverse",
+    "controversy",
+    "convert",
+    "version",
+    "vertical"
+   ]
+  },
+  {
+   "key": "dict / dic（說）",
+   "zh": "說",
+   "note": "拉丁文 dicere「說」，過去分詞是 dictus，所以大多拼成 dict：predict 事先說、contradict 說相反的話、dictator 說了就算的人。",
+   "words": [
+    "condition",
+    "dictionary",
+    "indicate",
+    "predict",
+    "addict",
+    "verdict",
+    "index",
+    "dedicate",
+    "dictate",
+    "contradict",
+    "prediction"
+   ]
+  },
+  {
+   "key": "scrib / script（寫）",
+   "zh": "寫",
+   "note": "拉丁文 scribere「寫」，過去分詞是 scriptus，所以有 scribe、script 兩種拼法：動詞多半是 -scribe，名詞和形容詞把 be 換成 p，變成 -script、-scription、-scriptive。",
+   "words": [
+    "describe",
+    "description",
+    "descriptive",
+    "prescribe",
+    "script",
+    "subscribe",
+    "subscription",
+    "transcript",
+    "manuscript"
+   ]
+  },
+  {
+   "key": "sens / sent（感覺）",
+   "zh": "感覺",
+   "note": "拉丁文 sentire「感覺、察覺、認為」，過去分詞是 sensus，所以有 sens、sent 兩種拼法。sense 是感覺，也是對事情的判斷。",
+   "words": [
+    "sense",
+    "sensitive",
+    "sensible",
+    "sensation",
+    "sentence",
+    "sentiment",
+    "consent",
+    "consensus",
+    "scent",
+    "resent",
+    "nonsense"
+   ]
+  },
+  {
+   "key": "ject（丟）",
+   "zh": "丟",
+   "note": "拉丁文 iacere「丟」。接在字首後面時，母音會變，英文就拼成 -ject。字首決定往哪裡丟：reject 丟回去、project 往前丟、object 丟到眼前。",
+   "words": [
+    "subject",
+    "object",
+    "project",
+    "reject",
+    "jet",
+    "objection",
+    "objective",
+    "rejection",
+    "projection",
+    "subjective"
+   ]
+  },
+  {
+   "key": "spond / spons（承諾）",
+   "zh": "鄭重承諾",
+   "note": "拉丁文 spondere「鄭重承諾、保證」。respond、correspond 看起來像 pon「放」，其實不是，這是最容易拆錯的地方：意思跟「回話、擔保」有關的是這一支。",
+   "words": [
+    "respond",
+    "responsible",
+    "response",
+    "responsibility",
+    "correspond",
+    "correspondent",
+    "sponsor",
+    "sponsorship",
+    "correspondence"
+   ]
+  },
+  {
+   "key": "複合字",
+   "zh": "兩個字合成一個字",
+   "note": "把兩個以上的字合在一起，意思往往就是兩個字加起來：ear 耳朵 + phone = earphone。遇到沒看過的複合字，先拆開再猜。",
+   "words": [
+    "earphone",
+    "lifeguard",
+    "timetable",
+    "wildlife",
+    "workout",
+    "feedback",
+    "overalls",
+    "bridegroom",
+    "nevertheless",
+    "widespread",
+    "skyscraper",
+    "full-time",
+    "part-time"
+   ]
+  },
+  {
+   "key": "希臘字根",
+   "zh": "來自希臘文",
+   "note": "科學、學術的字大量來自希臘文：tele 遠、micro 微小、bio 生命、geo 地、graph 寫、scope 看、-logy 學問。學會幾個，一大串字都看得懂。",
+   "words": [
+    "telescope",
+    "microscope",
+    "philosophy",
+    "psychology",
+    "architect",
+    "telephone",
+    "biology",
+    "geography",
+    "photograph",
+    "democracy",
+    "paragraph"
+   ]
+  },
+  {
+   "key": "re-",
+   "zh": "再一次、往回",
+   "note": "拉丁文 re-「回頭、再來一次」。動作重做一遍，或往原來的方向退回去。",
+   "words": [
+    "refuse",
+    "recovery",
+    "restore",
+    "reminder"
+   ]
+  },
+  {
+   "key": "-tion / -sion",
+   "zh": "動作變成名詞",
+   "note": "拉丁文 -tio。動詞加上去就變成「這個動作」或「動作的結果」。",
+   "words": [
+    "construction",
+    "exploration",
+    "innovation",
+    "graduation",
+    "distribution",
+    "civilization",
+    "collaboration"
+   ]
+  },
+  {
+   "key": "con- / com-",
+   "zh": "一起、全部",
+   "note": "拉丁文 com-「與……一起」。把分散的東西合到一處，或表示「徹底」。",
+   "words": [
+    "collaborate",
+    "colleague",
+    "combination",
+    "compromise",
+    "conflict",
+    "conscience"
+   ]
+  },
+  {
+   "key": "in- / im-",
+   "zh": "進入，或表示不",
+   "note": "拉丁文 in- 有兩個身分：一是「進到裡面」，二是「不」。看字義判斷是哪一個。",
+   "words": [
+    "innovate",
+    "insight",
+    "invest"
    ]
   }
  ],
@@ -312,24 +1173,29 @@
    }
   },
   "refusal": {
-   "parse": "refuse + -al 名詞",
-   "gloss": "n. 拒絕這件事",
+   "parse": "refuse 拒絕 + -al",
+   "gloss": "n. 拒絕",
    "affixes": [
+    "re-（往回、加強）",
+    "-al",
     "re-"
    ],
    "exams": {
-    "115-1": "L1"
+    "115-1": "L1",
+    "115-2": "U16"
    }
   },
   "reform": {
    "parse": "re 再 + form 形狀",
-   "gloss": "v. 重新塑形→改革",
+   "gloss": "v./n. 重新塑形→改革",
    "affixes": [
+    "form",
     "re-"
    ],
    "exams": {
     "115-1": "U10"
-   }
+   },
+   "level": 4
   },
   "recovery": {
    "parse": "re 回 + cover 蓋",
@@ -355,6 +1221,7 @@
    "parse": "re 再 + union 結合",
    "gloss": "n. 再度聚在一起→團圓",
    "affixes": [
+    "re-（再一次）",
     "re-"
    ],
    "exams": {
@@ -376,6 +1243,8 @@
    "parse": "re 再 + vis 看",
    "gloss": "v. 再看一次→修訂",
    "affixes": [
+    "re-（再一次）",
+    "vid / vis",
     "re-"
    ],
    "exams": {
@@ -426,12 +1295,14 @@
   },
   "hesitation": {
    "parse": "hesitate 猶豫 + -ion",
-   "gloss": "n. 猶豫的狀態→遲疑",
+   "gloss": "n. 猶豫",
    "affixes": [
+    "-ate → -ation",
     "-tion / -sion"
    ],
    "exams": {
-    "115-1": "L1"
+    "115-1": "L1",
+    "115-2": "U13"
    }
   },
   "distribution": {
@@ -466,12 +1337,14 @@
   },
   "construct": {
    "parse": "con 一起 + struct 建造",
-   "gloss": "v. 把材料組在一起→建造",
+   "gloss": "v. 堆在一起建造→建造、構成",
    "affixes": [
+    "con- / com-（一起）",
     "con- / com-"
    ],
    "exams": {
-    "115-1": "L2"
+    "115-1": "L2",
+    "115-2": "10/28"
    }
   },
   "collaborate": {
@@ -525,13 +1398,15 @@
    }
   },
   "consume": {
-   "parse": "con 完全 + sum 拿取",
-   "gloss": "v. 全部拿光→消耗",
+   "parse": "con 徹底 + sume 拿",
+   "gloss": "v. 全部拿光→消耗、吃喝；消費",
    "affixes": [
+    "con- / com-（徹底）",
     "con- / com-"
    ],
    "exams": {
-    "115-1": "U9"
+    "115-1": "U9",
+    "115-2": "10/22"
    }
   },
   "conscience": {
@@ -556,13 +1431,15 @@
    }
   },
   "inspire": {
-   "parse": "in 進入 + spir 呼吸",
-   "gloss": "v. 把氣吹進去→激勵",
+   "parse": "in 往裡面 + spire 吹氣",
+   "gloss": "v. 吹進一口氣→激勵、啟發",
    "affixes": [
+    "in- / im- / il-",
     "in- / im-"
    ],
    "exams": {
-    "115-1": "U11"
+    "115-1": "U11",
+    "115-2": "10/2"
    }
   },
   "insight": {
@@ -586,39 +1463,47 @@
    }
   },
   "invade": {
-   "parse": "in 進入 + vad 走",
-   "gloss": "v. 走進別人的地方→侵略",
+   "parse": "in 往裡面 + vade（拉丁文 vadere 走）",
+   "gloss": "v. 走進別人的地方→入侵",
    "affixes": [
+    "in- / im- / il-",
     "in- / im-"
    ],
    "exams": {
-    "115-1": "9/15"
+    "115-1": "9/15",
+    "115-2": "U16"
    }
   },
   "imaginative": {
    "parse": "imagine 想像 + -ative",
-   "gloss": "a. 腦中造得出畫面的→有想像力的",
+   "gloss": "adj. 富有想像力的",
    "affixes": [
-    "in- / im-",
-    "-ive"
+    "-ive",
+    "in- / im-"
    ],
    "exams": {
-    "115-1": "9/11"
+    "115-1": "9/11",
+    "115-2": "U16"
    }
   },
   "incredible": {
-   "parse": "in 不 + cred 相信 + -ible",
-   "gloss": "a. 沒辦法相信的→難以置信的",
+   "parse": "in 否定 + cred 相信 + -ible",
+   "gloss": "adj. 不能相信的→難以置信的；極好的、驚人的",
    "affixes": [
+    "in- / im- / il-",
+    "-able / -ible",
     "in- / im-"
    ],
-   "exams": {},
+   "exams": {
+    "115-2": "10/23"
+   },
    "level": 4
   },
   "independent": {
-   "parse": "in 不 + depend 依賴 + -ent",
-   "gloss": "a. 不靠別人的→獨立的",
+   "parse": "in 否定 + depend 依賴 + -ent",
+   "gloss": "adj. 不依賴別人的→獨立的",
    "affixes": [
+    "-ant / -ent（形容詞）",
     "in- / im-"
    ],
    "exams": {},
@@ -638,7 +1523,8 @@
    "parse": "de 離開 + part 分 + -ure",
    "gloss": "n. 分開離去→離開、啟程",
    "affixes": [
-    "de-"
+    "de-",
+    "-ary / -ery / -ure / -age"
    ],
    "exams": {
     "115-1": "U11",
@@ -669,7 +1555,9 @@
    "parse": "de 完全 + stin 站定 + -ation",
    "gloss": "n. 事先定好要落腳的點→目的地",
    "affixes": [
-    "de-"
+    "de-",
+    "-ation（動詞 + -ation）",
+    "sta / sist / stit"
    ],
    "exams": {
     "115-1": "9/30",
@@ -677,10 +1565,11 @@
    }
   },
   "delicate": {
-   "parse": "de 去掉 + lic 引誘",
-   "gloss": "a. 引人喜愛、嬌生慣養的→精緻的；脆弱的、需要小心處理的",
+   "parse": "一說 de 離開 + lic 引誘 + -ate",
+   "gloss": "adj. 引人喜愛、嬌生慣養的→精緻的；脆弱的、需要小心處理的",
    "affixes": [
-    "de-"
+    "de-",
+    "-ate（形容詞）"
    ],
    "exams": {
     "115-1": "U11",
@@ -707,12 +1596,13 @@
   },
   "essential": {
    "parse": "essence 本質 + -ial",
-   "gloss": "a. 跟本質有關的→必要的",
+   "gloss": "adj. 必要的、不可或缺的",
    "affixes": [
     "-al"
    ],
    "exams": {
-    "115-1": "9/3"
+    "115-1": "9/3",
+    "115-2": "L4"
    }
   },
   "material": {
@@ -837,17 +1727,20 @@
   },
   "competitive": {
    "parse": "compete 競爭 + -itive",
-   "gloss": "a. 傾向競爭的→有競爭力的",
+   "gloss": "adj. 競爭的、競爭激烈的；有競爭力的",
    "affixes": [
     "-ive"
    ],
-   "exams": {},
+   "exams": {
+    "115-2": "10/26"
+   },
    "level": 4
   },
   "sensitive": {
-   "parse": "sens 感覺 + -itive",
-   "gloss": "a. 容易有感覺的→敏感的",
+   "parse": "sense 感覺 + -itive",
+   "gloss": "adj. 敏感的；體貼的；（儀器）靈敏的",
    "affixes": [
+    "sens / sent（感覺）",
     "-ive"
    ],
    "exams": {},
@@ -864,14 +1757,16 @@
    }
   },
   "exceed": {
-   "parse": "ex 向外 + ceed 走",
+   "parse": "ex 超出 + ceed 走",
    "gloss": "v. 走出界線→超過",
    "affixes": [
+    "ced / cess",
     "ex- / e-"
    ],
    "exams": {
     "115-1": "9/3"
-   }
+   },
+   "level": 5
   },
   "exhibit": {
    "parse": "ex 向外 + hibit 拿住",
@@ -961,13 +1856,14 @@
    }
   },
   "flexible": {
-   "parse": "flex 彎曲 + -ible",
-   "gloss": "a. 彎得動的→有彈性的",
+   "parse": "flex 彎 + -ible",
+   "gloss": "adj. 可以彎的→有彈性的、靈活的",
    "affixes": [
     "-able / -ible"
    ],
    "exams": {
-    "115-1": "9/9"
+    "115-1": "9/9",
+    "115-2": "U16"
    }
   },
   "favorable": {
@@ -1041,7 +1937,7 @@
   },
   "distinct": {
    "parse": "dis 分開 + tinct 刺記號",
-   "gloss": "a. 一說是刺上記號分開來的→明顯不同的",
+   "gloss": "adj. 一說是刺上記號分開來的→明顯不同的",
    "affixes": [
     "dis-"
    ],
@@ -1110,13 +2006,16 @@
    }
   },
   "preference": {
-   "parse": "prefer 偏好 + -ence",
-   "gloss": "n. 偏好的狀態→偏愛",
+   "parse": "prefer 比較喜歡 + -ence",
+   "gloss": "n. 偏好、偏愛；優先（待遇）",
    "affixes": [
-    "-ance / -ence"
+    "pre- / pro-",
+    "-ance / -ence",
+    "fer"
    ],
    "exams": {
-    "115-1": "9/23"
+    "115-1": "9/23",
+    "115-2": "L4"
    }
   },
   "coincidence": {
@@ -1169,8 +2068,9 @@
   },
   "magnificent": {
    "parse": "magni 大 + fic 做 + -ent",
-   "gloss": "a. 做得很大器的→壯麗的",
+   "gloss": "adj. 做得很大器的→壯麗的",
    "affixes": [
+    "-ant / -ent（形容詞）",
     "fac / fect / fic"
    ],
    "exams": {
@@ -1218,6 +2118,8 @@
    "parse": "con 一起 + front 額頭 + -ation",
    "gloss": "n. 額頭對著額頭→對抗、衝突",
    "affixes": [
+    "con- / com-（一起）",
+    "-ation（動詞 + -ation）",
     "con- / com-"
    ],
    "exams": {
@@ -1228,6 +2130,7 @@
    "parse": "con 一起 + text 編織",
    "gloss": "n. 前後文編在一起→上下文、背景",
    "affixes": [
+    "con- / com-（一起）",
     "con- / com-"
    ],
    "exams": {
@@ -1238,6 +2141,7 @@
    "parse": "con 一起 + test 作證",
    "gloss": "n./v. 雙方各找證人來爭→比賽、爭奪",
    "affixes": [
+    "con- / com-（一起）",
     "con- / com-"
    ],
    "exams": {
@@ -1248,6 +2152,7 @@
    "parse": "col 一起 + laps 滑落",
    "gloss": "v./n. 整個一起塌下來→倒塌",
    "affixes": [
+    "con- / com-（一起）",
     "con- / com-"
    ],
    "exams": {
@@ -1256,8 +2161,11 @@
   },
   "consistent": {
    "parse": "con 一起 + sist 站 + -ent",
-   "gloss": "a. 立在一起、站得穩→一致的、始終如一的",
+   "gloss": "adj. 立在一起、站得穩→一致的、始終如一的",
    "affixes": [
+    "con- / com-（一起）",
+    "-ant / -ent（形容詞）",
+    "sta / sist / stit",
     "con- / com-"
    ],
    "exams": {
@@ -1268,6 +2176,8 @@
    "parse": "con 一起 + sequ 跟隨 + -ence",
    "gloss": "n. 跟著來的事→後果",
    "affixes": [
+    "con- / com-（一起）",
+    "-ance / -ence",
     "con- / com-"
    ],
    "exams": {
@@ -1278,6 +2188,7 @@
    "parse": "con 一起 + front 額頭",
    "gloss": "v. 面對面站著→面對、對抗",
    "affixes": [
+    "con- / com-（一起）",
     "con- / com-"
    ],
    "exams": {
@@ -1288,6 +2199,7 @@
    "parse": "com 一起 + pan 麵包",
    "gloss": "n. 一起吃麵包的人→同伴、陪伴；公司",
    "affixes": [
+    "con- / com-（一起）",
     "con- / com-"
    ],
    "exams": {
@@ -1298,7 +2210,8 @@
    "parse": "dis 分開 + rupt 斷裂",
    "gloss": "v. 打斷成好幾截→擾亂、使中斷",
    "affixes": [
-    "dis-"
+    "dis-",
+    "rupt / fract"
    ],
    "exams": {
     "115-2": "10/20"
@@ -1358,7 +2271,8 @@
    "parse": "dis 分開 + tract 拉",
    "gloss": "v. 把注意力往不同方向拉→使分心",
    "affixes": [
-    "dis-"
+    "dis-",
+    "tract / duct"
    ],
    "exams": {
     "115-2": "10/29"
@@ -1368,6 +2282,8 @@
    "parse": "re 再 + cogn 知道 + -ize",
    "gloss": "v. 再一次認得→認出；承認",
    "affixes": [
+    "re-（再一次）",
+    "-ize / -fy",
     "re-"
    ],
    "exams": {
@@ -1375,9 +2291,11 @@
    }
   },
   "recognition": {
-   "parse": "re 再 + cogn 知道 + -ition",
+   "parse": "recognize 認出 + -ion（ize 變成 it）",
    "gloss": "n. 再一次認得→認出；承認、認可",
    "affixes": [
+    "re-（再一次）",
+    "-ion / -sion（動詞變形）",
     "re-"
    ],
    "exams": {
@@ -1388,6 +2306,7 @@
    "parse": "re 再 + unite 結合",
    "gloss": "v. 再度結合→重逢、重聚",
    "affixes": [
+    "re-（再一次）",
     "re-"
    ],
    "exams": {
@@ -1398,6 +2317,8 @@
    "parse": "re 再 + create 造 + -ion",
    "gloss": "n. 把精神重新造回來→休閒娛樂",
    "affixes": [
+    "re-（再一次）",
+    "-tion / -sion（字根 + 字尾）",
     "re-"
    ],
    "exams": {
@@ -1408,6 +2329,7 @@
    "parse": "re 對抗 + bel 戰爭",
    "gloss": "v./n. 起來跟人打仗→反抗；叛徒",
    "affixes": [
+    "re-（往回、加強）",
     "re-"
    ],
    "exams": {
@@ -1418,6 +2340,8 @@
    "parse": "re 再 + pet 尋求 + -ition",
    "gloss": "n. 再做一次→重複",
    "affixes": [
+    "re-（再一次）",
+    "-ion / -sion（動詞變形）",
     "re-"
    ],
    "exams": {
@@ -1435,7 +2359,7 @@
    }
   },
   "despite": {
-   "parse": "de 往下 + spit 看",
+   "parse": "de 往下 + spite（拉丁文 specere 看）",
    "gloss": "prep. 原指往下看、瞧不起→不放在眼裡→儘管",
    "affixes": [
     "de-"
@@ -1445,10 +2369,11 @@
    }
   },
   "deliberate": {
-   "parse": "de 完全 + liber 秤（原是 libra 天平）",
-   "gloss": "a. 放在秤上好好秤過→深思熟慮的；故意的",
+   "parse": "de 完全 + liber 秤（原是 libra 天平） + -ate",
+   "gloss": "adj. 放在秤上好好秤過→深思熟慮的；故意的",
    "affixes": [
-    "de-"
+    "de-",
+    "-ate（形容詞）"
    ],
    "exams": {
     "115-2": "L5"
@@ -1458,17 +2383,20 @@
    "parse": "de 往下 + press 壓 + -ion",
    "gloss": "n. 往下壓→沮喪；不景氣",
    "affixes": [
-    "de-"
+    "de-",
+    "-ion / -sion（動詞變形）",
+    "press"
    ],
    "exams": {
     "115-2": "U13"
    }
   },
   "desperate": {
-   "parse": "de 去掉 + sper 希望",
-   "gloss": "a. 失去希望的→絕望的；拚命的",
+   "parse": "de 去掉 + sper 希望 + -ate",
+   "gloss": "adj. 失去希望的→絕望的；拚命的",
    "affixes": [
-    "de-"
+    "de-",
+    "-ate（形容詞）"
    ],
    "exams": {
     "115-2": "U14"
@@ -1478,7 +2406,8 @@
    "parse": "e 向外 + vent 來 + -ual + -ly",
    "gloss": "adv. 最後跑出來的結果→最終",
    "affixes": [
-    "ex- / e-"
+    "ex- / e-",
+    "-ly"
    ],
    "exams": {
     "115-2": "10/6"
@@ -1506,19 +2435,22 @@
   },
   "elegant": {
    "parse": "e 向外 + leg 挑選 + -ant",
-   "gloss": "a. 精挑細選出來的→優雅的、雅致的",
+   "gloss": "adj. 精挑細選出來的→優雅的、雅致的",
    "affixes": [
-    "ex- / e-"
+    "ex- / e-",
+    "-ant / -ent（形容詞）",
+    "lect / leg / lig"
    ],
    "exams": {
     "115-2": "L5"
    }
   },
   "exaggerate": {
-   "parse": "ex 加強 + agger 堆",
+   "parse": "ex 加強 + agger 堆 + -ate",
    "gloss": "v. 一直往上堆→誇大",
    "affixes": [
-    "ex- / e-"
+    "ex- / e-",
+    "-ate（動詞）"
    ],
    "exams": {
     "115-2": "U14"
@@ -1528,7 +2460,8 @@
    "parse": "e 向外 + valu 價值 + -ate",
    "gloss": "v. 把價值找出來→評估",
    "affixes": [
-    "ex- / e-"
+    "ex- / e-",
+    "-ate（動詞）"
    ],
    "exams": {
     "115-2": "U13"
@@ -1538,7 +2471,8 @@
    "parse": "e 向外 + volu 捲 + -tion",
    "gloss": "n. 把捲起來的攤開→演化、發展",
    "affixes": [
-    "ex- / e-"
+    "ex- / e-",
+    "-ion / -sion（動詞變形）"
    ],
    "exams": {
     "115-2": "10/22"
@@ -1546,9 +2480,11 @@
   },
   "excessive": {
    "parse": "ex 向外 + cess 走 + -ive",
-   "gloss": "a. 走出界線的→過度的",
+   "gloss": "adj. 走出界線的→過度的",
    "affixes": [
-    "ex- / e-"
+    "ex- / e-",
+    "-ive",
+    "ced / cess"
    ],
    "exams": {
     "115-2": "10/26"
@@ -1565,10 +2501,11 @@
    }
   },
   "access": {
-   "parse": "ac 朝向 + cess 走",
+   "parse": "ac（ad）朝向 + cess 走",
    "gloss": "n./v. 走到跟前→接近、使用的管道",
    "affixes": [
-    "ad- / ac- / ap-"
+    "ad- / ac- / ap-",
+    "ced / cess"
    ],
    "exams": {
     "115-2": "U13"
@@ -1588,7 +2525,8 @@
    "parse": "ar 到 + riv 岸邊 + -al",
    "gloss": "n. 船靠了岸→抵達",
    "affixes": [
-    "ad- / ac- / ap-"
+    "ad- / ac- / ap-",
+    "-al"
    ],
    "exams": {
     "115-2": "L4"
@@ -1606,9 +2544,10 @@
   },
   "aggressive": {
    "parse": "ag 朝向 + gress 跨步 + -ive",
-   "gloss": "a. 一步步逼上前去→有攻擊性的；積極進取的",
+   "gloss": "adj. 一步步逼上前去→有攻擊性的；積極進取的",
    "affixes": [
-    "ad- / ac- / ap-"
+    "ad- / ac- / ap-",
+    "-ive"
    ],
    "exams": {
     "115-2": "U15"
@@ -1635,9 +2574,11 @@
    }
   },
   "opposition": {
-   "parse": "oppose 反對 + -ition",
+   "parse": "oppose 反對 + -ition（去掉 e）",
    "gloss": "n. 反對這件事→反對、反抗",
    "affixes": [
+    "-ion / -sion（動詞變形）",
+    "pon / pos",
     "-tion / -sion"
    ],
    "exams": {
@@ -1648,6 +2589,7 @@
    "parse": "violate 違反 + -ion",
    "gloss": "n. 違反的行為→違規、侵犯",
    "affixes": [
+    "-ate → -ation",
     "-tion / -sion"
    ],
    "exams": {
@@ -1655,9 +2597,11 @@
    }
   },
   "application": {
-   "parse": "apply 申請 + -cation",
+   "parse": "ap 朝向 + plic 摺 + -ation",
    "gloss": "n. 申請這件事→申請（書）；應用",
    "affixes": [
+    "ad- / ac- / ap-",
+    "-ation（動詞 + -ation）",
     "-tion / -sion"
    ],
    "exams": {
@@ -1668,6 +2612,9 @@
    "parse": "transform 轉變 + -ation",
    "gloss": "n. 轉變的過程→轉型、改觀",
    "affixes": [
+    "trans- / inter- / super-",
+    "-ation（動詞 + -ation）",
+    "form",
     "-tion / -sion"
    ],
    "exams": {
@@ -1678,6 +2625,7 @@
    "parse": "decorate 裝飾 + -ion",
    "gloss": "n. 裝飾這件事→裝飾品",
    "affixes": [
+    "-ate → -ation",
     "-tion / -sion"
    ],
    "exams": {
@@ -1688,6 +2636,7 @@
    "parse": "distinct 不同的 + -ion",
    "gloss": "n. 分得出不同→差別",
    "affixes": [
+    "-tion / -sion（字根 + 字尾）",
     "-tion / -sion"
    ],
    "exams": {
@@ -1695,9 +2644,11 @@
    }
   },
   "navigation": {
-   "parse": "navigate 航行 + -ion",
+   "parse": "navigate 航行；導航 + -ion",
    "gloss": "n. 航行這件事→航行、導航",
    "affixes": [
+    "-ate → -ation",
+    "act / ag",
     "-tion / -sion"
    ],
    "exams": {
@@ -1705,9 +2656,10 @@
    }
   },
   "adaptation": {
-   "parse": "adapt 適應 + -ation",
+   "parse": "adapt 適應；改編 + -ation",
    "gloss": "n. 適應的結果→適應；改編",
    "affixes": [
+    "-ation（動詞 + -ation）",
     "-tion / -sion"
    ],
    "exams": {
@@ -1716,7 +2668,7 @@
   },
   "sorrowful": {
    "parse": "sorrow 悲傷 + -ful",
-   "gloss": "a. 充滿悲傷的→悲傷的",
+   "gloss": "adj. 充滿悲傷的→悲傷的",
    "affixes": [
     "-ful / -less"
    ],
@@ -1726,7 +2678,7 @@
   },
   "mournful": {
    "parse": "mourn 哀悼 + -ful",
-   "gloss": "a. 充滿哀悼之情的→悲慟的",
+   "gloss": "adj. 充滿哀悼之情的→悲慟的",
    "affixes": [
     "-ful / -less"
    ],
@@ -1736,7 +2688,7 @@
   },
   "skillful": {
    "parse": "skill 技巧 + -ful",
-   "gloss": "a. 很有技巧的→熟練的",
+   "gloss": "adj. 很有技巧的→熟練的",
    "affixes": [
     "-ful / -less"
    ],
@@ -1746,7 +2698,7 @@
   },
   "faithful": {
    "parse": "faith 信任 + -ful",
-   "gloss": "a. 充滿信義的→忠實的",
+   "gloss": "adj. 充滿信義的→忠實的",
    "affixes": [
     "-ful / -less"
    ],
@@ -1756,9 +2708,11 @@
   },
   "respectful": {
    "parse": "respect 尊敬 + -ful",
-   "gloss": "a. 充滿敬意的→表示尊敬的",
+   "gloss": "adj. 充滿敬意的→表示尊敬的",
    "affixes": [
-    "-ful / -less"
+    "re-（往回、加強）",
+    "-ful / -less",
+    "spec / spect / spic"
    ],
    "exams": {
     "115-2": "U14"
@@ -1766,7 +2720,7 @@
   },
   "countless": {
    "parse": "count 數 + -less",
-   "gloss": "a. 數也數不完的→數不盡的",
+   "gloss": "adj. 數也數不完的→數不盡的",
    "affixes": [
     "-ful / -less"
    ],
@@ -1776,7 +2730,7 @@
   },
   "restless": {
    "parse": "rest 休息 + -less",
-   "gloss": "a. 沒辦法休息的→坐立不安的",
+   "gloss": "adj. 沒辦法休息的→坐立不安的",
    "affixes": [
     "-ful / -less"
    ],
@@ -1786,7 +2740,7 @@
   },
   "hopeless": {
    "parse": "hope 希望 + -less",
-   "gloss": "a. 沒有希望的→絕望的",
+   "gloss": "adj. 沒有希望的→絕望的",
    "affixes": [
     "-ful / -less"
    ],
@@ -1798,6 +2752,7 @@
    "parse": "resemble 像 + -ance",
    "gloss": "n. 相像的狀態→相似",
    "affixes": [
+    "re-（往回、加強）",
     "-ance / -ence"
    ],
    "exams": {
@@ -1825,7 +2780,7 @@
    }
   },
   "elegance": {
-   "parse": "elegant + -ance 名詞（-ant 換成 -ance）",
+   "parse": "elegant 優雅的 + -ance（-ant 換成 -ance）",
    "gloss": "n. 優雅的性質→優雅",
    "affixes": [
     "-ance / -ence"
@@ -1835,9 +2790,10 @@
    }
   },
   "confidence": {
-   "parse": "confident + -ence 名詞（-ent 換成 -ence）",
+   "parse": "confident 有信心的 + -ence",
    "gloss": "n. 相信的狀態→信心",
    "affixes": [
+    "con- / com-（徹底）",
     "-ance / -ence"
    ],
    "exams": {
@@ -1845,9 +2801,10 @@
    }
   },
   "innocence": {
-   "parse": "innocent + -ence 名詞（-ent 換成 -ence）",
+   "parse": "innocent 無辜的 + -ence",
    "gloss": "n. 沒害過人的狀態→清白；天真",
    "affixes": [
+    "in- / im- / il-",
     "-ance / -ence"
    ],
    "exams": {
@@ -1855,9 +2812,10 @@
    }
   },
   "convenience": {
-   "parse": "convenient + -ence 名詞（-ent 換成 -ence）",
+   "parse": "convenient 方便的 + -ence",
    "gloss": "n. 方便的性質→便利",
    "affixes": [
+    "con- / com-（一起）",
     "-ance / -ence"
    ],
    "exams": {
@@ -1865,10 +2823,12 @@
    }
   },
   "intelligence": {
-   "parse": "intelligent + -ence 名詞（-ent 換成 -ence）",
+   "parse": "intel（inter 在之間）+ lig 挑選 + -ence",
    "gloss": "n. 聰明的程度→智力；智慧",
    "affixes": [
-    "-ance / -ence"
+    "trans- / inter- / super-",
+    "-ance / -ence",
+    "lect / leg / lig"
    ],
    "exams": {
     "115-2": "10/1"
@@ -1918,7 +2878,8 @@
    "parse": "conduct 帶領 + -or",
    "gloss": "n. 帶領的人→指揮、列車長；導體",
    "affixes": [
-    "-er / -or / -ist / -ian"
+    "-er / -or / -ist / -ian",
+    "tract / duct"
    ],
    "exams": {
     "115-2": "U16"
@@ -1928,6 +2889,7 @@
    "parse": "research 研究 + -er",
    "gloss": "n. 做研究的人→研究人員",
    "affixes": [
+    "re-（往回、加強）",
     "-er / -or / -ist / -ian"
    ],
    "exams": {
@@ -1938,7 +2900,8 @@
    "parse": "collect 收集 + -or",
    "gloss": "n. 收集東西的人→收藏家",
    "affixes": [
-    "-er / -or / -ist / -ian"
+    "-er / -or / -ist / -ian",
+    "lect / leg / lig"
    ],
    "exams": {
     "115-2": "10/19"
@@ -1962,12 +2925,14 @@
    ],
    "exams": {
     "115-2": "第4級"
-   }
+   },
+   "level": 4
   },
   "anticipate": {
    "parse": "anti 之前 + cip 拿 + -ate",
    "gloss": "v. 事先拿到手→預期、期盼",
    "affixes": [
+    "-ate（動詞）",
     "cap / cept / ceive"
    ],
    "exams": {
@@ -1978,6 +2943,7 @@
    "parse": "parti 部分 + cip 拿 + -ate",
    "gloss": "v. 拿一份→參加",
    "affixes": [
+    "-ate（動詞）",
     "cap / cept / ceive"
    ],
    "exams": {
@@ -1992,12 +2958,14 @@
    ],
    "exams": {
     "115-2": "第2級"
-   }
+   },
+   "level": 2
   },
   "concept": {
-   "parse": "con 加強語氣 + cept 拿",
+   "parse": "con 徹底 + cept 拿",
    "gloss": "n. 在腦中完整抓住的想法→概念",
    "affixes": [
+    "con- / com-（徹底）",
     "cap / cept / ceive"
    ],
    "exams": {
@@ -2008,6 +2976,8 @@
    "parse": "re 回 + cept 拿 + -ion",
    "gloss": "n. 把人接到自己這裡→接待、歡迎",
    "affixes": [
+    "re-（往回、加強）",
+    "-ion / -sion（動詞變形）",
     "cap / cept / ceive"
    ],
    "exams": {
@@ -2018,6 +2988,7 @@
    "parse": "anticipate 預期 + -ion",
    "gloss": "n. 事先料到→預期",
    "affixes": [
+    "-ate → -ation",
     "cap / cept / ceive"
    ],
    "exams": {
@@ -2028,6 +2999,7 @@
    "parse": "participate 參加 + -ion",
    "gloss": "n. 參加這件事→參與",
    "affixes": [
+    "-ate → -ation",
     "cap / cept / ceive"
    ],
    "exams": {
@@ -2045,9 +3017,10 @@
    }
   },
   "clarify": {
-   "parse": "clar 清楚 + -ify 使",
+   "parse": "clar（拉丁文 clarus 清楚）+ -ify",
    "gloss": "v. 使變清楚→澄清",
    "affixes": [
+    "-ize / -fy",
     "fac / fect / fic"
    ],
    "exams": {
@@ -2055,9 +3028,10 @@
    }
   },
   "artificial": {
-   "parse": "arti 技藝 + fic 做 + -ial",
-   "gloss": "a. 用技術做出來的→人造的",
+   "parse": "arti（拉丁文 ars 技藝）+ fic 做 + -ial",
+   "gloss": "adj. 用技術做出來的→人造的",
    "affixes": [
+    "-al",
     "fac / fect / fic"
    ],
    "exams": {
@@ -2066,8 +3040,10 @@
   },
   "profitable": {
    "parse": "pro 往前 + fit 做 + -able",
-   "gloss": "a. 讓事情往前推、帶來收益→有利潤的",
+   "gloss": "adj. 讓事情往前推、帶來收益→有利潤的",
    "affixes": [
+    "pre- / pro-",
+    "-able / -ible",
     "fac / fect / fic"
    ],
    "exams": {
@@ -2075,9 +3051,10 @@
    }
   },
   "defeat": {
-   "parse": "de 相反 + feat 做",
+   "parse": "de（dis）相反 + feat 做",
    "gloss": "v./n. 把做好的毀掉→擊敗；失敗",
    "affixes": [
+    "dis-",
     "fac / fect / fic"
    ],
    "exams": {
@@ -2085,9 +3062,10 @@
    }
   },
   "classify": {
-   "parse": "class 類別 + -ify 使",
+   "parse": "class 類別 + -ify",
    "gloss": "v. 使歸到類別裡→分類",
    "affixes": [
+    "-ize / -fy",
     "fac / fect / fic"
    ],
    "exams": {
@@ -2095,13 +3073,3737 @@
    }
   },
   "classification": {
-   "parse": "classify 分類 + -cation",
+   "parse": "classify 分類 + -ication（y 變成 ic）",
    "gloss": "n. 分類這件事→分類；類別",
    "affixes": [
+    "-ation（動詞 + -ation）",
     "fac / fect / fic"
    ],
    "exams": {
     "115-2": "U16"
+   }
+  },
+  "correspond": {
+   "parse": "cor（com 互相）+ respond 回應",
+   "gloss": "v. 互相回應→符合、相當；通信",
+   "affixes": [
+    "con- / com-（一起）",
+    "spond / spons（承諾）"
+   ],
+   "exams": {
+    "115-2": "U15"
+   }
+  },
+  "compact": {
+   "parse": "com 一起 + pact（拉丁文 pangere 釘牢）",
+   "gloss": "adj. 緊密的、小巧的",
+   "affixes": [
+    "con- / com-（一起）"
+   ],
+   "exams": {
+    "115-2": "10/12"
+   }
+  },
+  "concrete": {
+   "parse": "con 一起 + crete（拉丁文 crescere 長）",
+   "gloss": "adj. 長在一起變硬的→具體的；n. 混凝土",
+   "affixes": [
+    "con- / com-（一起）"
+   ],
+   "exams": {
+    "115-2": "U13"
+   }
+  },
+  "conservation": {
+   "parse": "con 徹底 + serv 保存 + -ation",
+   "gloss": "n. 保育、保存；（能源的）節約",
+   "affixes": [
+    "con- / com-（徹底）",
+    "-ation（動詞 + -ation）"
+   ],
+   "exams": {
+    "115-2": "10/5"
+   }
+  },
+  "conservative": {
+   "parse": "con 徹底 + serv 保存 + -ative",
+   "gloss": "adj. 保守的；n. 保守派",
+   "affixes": [
+    "con- / com-（徹底）",
+    "-ive"
+   ],
+   "exams": {
+    "115-2": "U14"
+   }
+  },
+  "complete": {
+   "parse": "com 徹底 + plet 填滿 + -e",
+   "gloss": "v. 填滿→完成；adj. 完整的",
+   "affixes": [
+    "con- / com-（徹底）"
+   ],
+   "level": 2,
+   "exams": {}
+  },
+  "confirm": {
+   "parse": "con 徹底 + firm 堅固",
+   "gloss": "v. 使更穩固→確認、證實",
+   "affixes": [
+    "con- / com-（徹底）"
+   ],
+   "level": 3,
+   "exams": {}
+  },
+  "convince": {
+   "parse": "con 徹底 + vince 戰勝",
+   "gloss": "v. 徹底說贏→說服、使相信",
+   "affixes": [
+    "con- / com-（徹底）"
+   ],
+   "level": 4,
+   "exams": {}
+  },
+  "confess": {
+   "parse": "con 徹底 + fess 說",
+   "gloss": "v. 全部說出來→承認、坦白",
+   "affixes": [
+    "con- / com-（徹底）"
+   ],
+   "exams": {
+    "115-2": "U15"
+   }
+  },
+  "revision": {
+   "parse": "re 再 + vis 看 + -ion",
+   "gloss": "n. 再看一次→修訂、修改",
+   "affixes": [
+    "re-（再一次）",
+    "-ion / -sion（動詞變形）",
+    "vid / vis"
+   ],
+   "exams": {
+    "115-2": "U15"
+   }
+  },
+  "reputation": {
+   "parse": "re 再 + put 想 + -ation",
+   "gloss": "n. 大家一再想到的評價→名聲、名譽",
+   "affixes": [
+    "re-（再一次）",
+    "-ation（動詞 + -ation）"
+   ],
+   "exams": {
+    "115-2": "10/7"
+   }
+  },
+  "respectable": {
+   "parse": "re 回頭 + spect 看 + -able",
+   "gloss": "adj. 值得人回頭再看的→體面的、可敬的；（數量、品質）相當不錯的",
+   "affixes": [
+    "re-（往回、加強）",
+    "-able / -ible",
+    "spec / spect / spic"
+   ],
+   "exams": {
+    "115-2": "U14"
+   }
+  },
+  "resemble": {
+   "parse": "re 加強 + semble（拉丁文 similare 相似）",
+   "gloss": "v. 很相似→像",
+   "affixes": [
+    "re-（往回、加強）"
+   ],
+   "exams": {
+    "115-2": "L4"
+   }
+  },
+  "recommend": {
+   "parse": "re 加強 + commend 稱讚、託付",
+   "gloss": "v. 推薦；建議",
+   "affixes": [
+    "re-（往回、加強）"
+   ],
+   "exams": {
+    "115-2": "10/9"
+   }
+  },
+  "reward": {
+   "parse": "re 加強 + ward 看守",
+   "gloss": "n./v. 回報、獎賞",
+   "affixes": [
+    "re-（往回、加強）"
+   ],
+   "exams": {
+    "115-2": "U15"
+   }
+  },
+  "remarkable": {
+   "parse": "re 加強 + mark 做記號 + -able",
+   "gloss": "adj. 值得一提的→非凡的、出色的",
+   "affixes": [
+    "re-（往回、加強）",
+    "-able / -ible"
+   ],
+   "exams": {
+    "115-2": "10/22"
+   }
+  },
+  "disability": {
+   "parse": "dis 否定 + ability 能力",
+   "gloss": "n. 失能、身心障礙",
+   "affixes": [
+    "dis-",
+    "-ity / -ment / -ness / -cy"
+   ],
+   "exams": {
+    "115-2": "U16"
+   }
+  },
+  "disadvantage": {
+   "parse": "dis 否定 + advantage 優勢",
+   "gloss": "n. 劣勢、不利條件、缺點",
+   "affixes": [
+    "dis-",
+    "-ary / -ery / -ure / -age"
+   ],
+   "exams": {
+    "115-2": "U14"
+   }
+  },
+  "divorce": {
+   "parse": "di（dis）分開 + vorce（拉丁文 vertere 轉）",
+   "gloss": "n./v. 兩個人轉向、分開走→離婚",
+   "affixes": [
+    "dis-",
+    "vers / vert（轉）"
+   ],
+   "exams": {
+    "115-2": "U15"
+   }
+  },
+  "distinctive": {
+   "parse": "distinct 不同的 + -ive",
+   "gloss": "adj. 有特色的、與眾不同的",
+   "affixes": [
+    "dis-",
+    "-ive"
+   ],
+   "exams": {
+    "115-2": "L5"
+   }
+  },
+  "determination": {
+   "parse": "de 加強 + termin 界限 + -ation",
+   "gloss": "n. 決心",
+   "affixes": [
+    "de-",
+    "-ation（動詞 + -ation）"
+   ],
+   "exams": {
+    "115-2": "10/2"
+   }
+  },
+  "extension": {
+   "parse": "extend 延長 + -ion（d 變成 s）",
+   "gloss": "n. 往外伸出去→延長、延伸；（電話）分機；擴建部分",
+   "affixes": [
+    "ex- / e-",
+    "-ion / -sion（動詞變形）",
+    "tain / ten / tend"
+   ],
+   "exams": {
+    "115-2": "10/13"
+   }
+  },
+  "enormous": {
+   "parse": "e（ex）超出 + norm 標準 + -ous",
+   "gloss": "adj. 超出標準的→巨大的",
+   "affixes": [
+    "ex- / e-",
+    "-ous"
+   ],
+   "exams": {
+    "115-2": "10/29"
+   }
+  },
+  "apparent": {
+   "parse": "ap 朝向 + par 出現 + -ent",
+   "gloss": "adj. 看得出來的→明顯的；表面上的",
+   "affixes": [
+    "ad- / ac- / ap-",
+    "-ant / -ent（形容詞）"
+   ],
+   "exams": {
+    "115-2": "U14"
+   }
+  },
+  "adjust": {
+   "parse": "ad 朝向 + just（拉丁文 juxta 靠近）",
+   "gloss": "v. 挪近、對齊→調整；適應",
+   "affixes": [
+    "ad- / ac- / ap-"
+   ],
+   "exams": {
+    "115-2": "10/9"
+   }
+  },
+  "admission": {
+   "parse": "admit 承認；准許進入 + -ion（t 變成 ss）",
+   "gloss": "n. 入場、入學許可；入場費；承認",
+   "affixes": [
+    "ad- / ac- / ap-",
+    "-ion / -sion（動詞變形）"
+   ],
+   "exams": {
+    "115-2": "10/26"
+   }
+  },
+  "acquaintance": {
+   "parse": "ac 朝向 + quaint 認識 + -ance",
+   "gloss": "n. 認識的人；認識",
+   "affixes": [
+    "ad- / ac- / ap-",
+    "-ance / -ence"
+   ],
+   "exams": {
+    "115-2": "U16"
+   }
+  },
+  "accidental": {
+   "parse": "ac 朝向 + cid 落下 + -ent + -al",
+   "gloss": "adj. 意外的、偶然的",
+   "affixes": [
+    "ad- / ac- / ap-",
+    "-al"
+   ],
+   "exams": {
+    "115-2": "10/15"
+   }
+  },
+  "indigenous": {
+   "parse": "indi 在裡面 + gen 生 + -ous",
+   "gloss": "adj. 在當地生出來的→本土的、原生的；原住民的",
+   "affixes": [
+    "in- / im- / il-",
+    "-ous",
+    "gen / gener"
+   ],
+   "exams": {
+    "115-2": "10/6"
+   }
+  },
+  "ingredient": {
+   "parse": "in 進入 + gredi 走 + -ent",
+   "gloss": "n. 走進去的東西→材料、成分",
+   "affixes": [
+    "in- / im- / il-"
+   ],
+   "exams": {
+    "115-2": "10/20"
+   }
+  },
+  "insert": {
+   "parse": "in 往裡面 + sert 放",
+   "gloss": "v. 插入",
+   "affixes": [
+    "in- / im- / il-"
+   ],
+   "exams": {
+    "115-2": "U15"
+   }
+  },
+  "institute": {
+   "parse": "in 在…上 + stitute（拉丁文 statuere 立）",
+   "gloss": "n. 立起來的機構→學院、研究所；v. 設立",
+   "affixes": [
+    "in- / im- / il-",
+    "sta / sist / stit"
+   ],
+   "exams": {
+    "115-2": "10/5"
+   }
+  },
+  "intend": {
+   "parse": "in 朝向 + tend 伸展",
+   "gloss": "v. 把心伸向→打算、意圖",
+   "affixes": [
+    "in- / im- / il-",
+    "tain / ten / tend"
+   ],
+   "exams": {
+    "115-2": "10/1"
+   }
+  },
+  "illustrate": {
+   "parse": "il 在…上 + lustr 照亮 + -ate",
+   "gloss": "v. 照亮→用例子或圖說明；畫插圖",
+   "affixes": [
+    "in- / im- / il-",
+    "-ate（動詞）"
+   ],
+   "exams": {
+    "115-2": "10/2"
+   }
+  },
+  "illusion": {
+   "parse": "il（in 在…上）+ lus 玩弄 + -ion",
+   "gloss": "n. 眼睛被耍了→錯覺；幻想",
+   "affixes": [
+    "in- / im- / il-",
+    "-tion / -sion（字根 + 字尾）"
+   ],
+   "exams": {
+    "115-2": "10/29"
+   }
+  },
+  "inevitable": {
+   "parse": "in 否定 + evit 避開 + -able",
+   "gloss": "adj. 避不開的→不可避免的",
+   "affixes": [
+    "in- / im- / il-",
+    "-able / -ible"
+   ],
+   "exams": {
+    "115-2": "L4"
+   }
+  },
+  "impartial": {
+   "parse": "im 否定 + partial 偏袒的",
+   "gloss": "adj. 不偏袒的→公正的",
+   "affixes": [
+    "in- / im- / il-"
+   ],
+   "exams": {
+    "115-2": "U14"
+   }
+  },
+  "submarine": {
+   "parse": "sub 在下面 + marine 海的",
+   "gloss": "n. 在海面下的船→潛水艇",
+   "affixes": [
+    "sub-"
+   ],
+   "exams": {
+    "115-2": "U13"
+   }
+  },
+  "suspicious": {
+   "parse": "su（sub）在下 + spic 看 + -ious",
+   "gloss": "adj. 從底下偷看的→可疑的；起疑心的",
+   "affixes": [
+    "sub-",
+    "-ous",
+    "spec / spect / spic"
+   ],
+   "exams": {
+    "115-2": "U16"
+   }
+  },
+  "sustainable": {
+   "parse": "sus（sub）在下 + tain 握 + -able",
+   "gloss": "adj. 能一直維持下去的→可持續的、永續的",
+   "affixes": [
+    "sub-",
+    "-able / -ible"
+   ],
+   "exams": {
+    "115-2": "10/5"
+   }
+  },
+  "supposedly": {
+   "parse": "sup（sub）在下 + pos 放 + -ed + -ly",
+   "gloss": "adv. 照假設來說→據說、照理說",
+   "affixes": [
+    "sub-",
+    "-ly",
+    "pon / pos"
+   ],
+   "exams": {
+    "115-2": "10/6"
+   }
+  },
+  "substantial": {
+   "parse": "sub 在下面 + stant 站 + -ial",
+   "gloss": "adj. 有實質內容的→大量的、可觀的；實質的",
+   "affixes": [
+    "sub-",
+    "-al"
+   ],
+   "exams": {
+    "115-2": "10/9"
+   }
+  },
+  "subtle": {
+   "parse": "sub 在下面 + tle（拉丁文 tela 織布）",
+   "gloss": "adj. 織得很細的→細微的、不易察覺的",
+   "affixes": [
+    "sub-"
+   ],
+   "exams": {
+    "115-2": "10/15"
+   }
+  },
+  "sustain": {
+   "parse": "sus（sub）從下面 + tain 握",
+   "gloss": "v. 從下面托住→支撐、維持；遭受（損失、傷害）",
+   "affixes": [
+    "sub-",
+    "tain / ten / tend"
+   ],
+   "exams": {
+    "115-2": "10/21"
+   }
+  },
+  "prefer": {
+   "parse": "pre 在前 + fer 帶",
+   "gloss": "v. 把某一個帶到前面→比較喜歡、寧可",
+   "affixes": [
+    "pre- / pro-",
+    "fer"
+   ],
+   "exams": {
+    "115-2": "L4"
+   }
+  },
+  "previous": {
+   "parse": "pre 在前 + vi（拉丁文 via 路）+ -ous",
+   "gloss": "adj. 走在前面那段路上的→先前的",
+   "affixes": [
+    "pre- / pro-",
+    "-ous"
+   ],
+   "exams": {
+    "115-2": "L5"
+   }
+  },
+  "previously": {
+   "parse": "pre 在前 + vi（拉丁文 via 路）+ -ous + -ly",
+   "gloss": "adv. 走在前面那段路上→先前、以前",
+   "affixes": [
+    "pre- / pro-",
+    "-ly"
+   ],
+   "exams": {
+    "115-2": "L5"
+   }
+  },
+  "prejudice": {
+   "parse": "pre 事先 + judice（拉丁文 judicium 判斷）",
+   "gloss": "n. 還沒看清楚就先下判斷→偏見",
+   "affixes": [
+    "pre- / pro-"
+   ],
+   "exams": {
+    "115-2": "10/7"
+   }
+  },
+  "promising": {
+   "parse": "pro 向前 + mis 送 + -ing",
+   "gloss": "adj. 看得到希望的→有前途的、有希望的",
+   "affixes": [
+    "pre- / pro-"
+   ],
+   "exams": {
+    "115-2": "U16"
+   }
+  },
+  "transform": {
+   "parse": "trans 轉換 + form 形狀",
+   "gloss": "v. 改變形狀→使徹底改變",
+   "affixes": [
+    "trans- / inter- / super-",
+    "form"
+   ],
+   "exams": {
+    "115-2": "L4"
+   }
+  },
+  "transportation": {
+   "parse": "trans 跨越 + port 搬運 + -ation",
+   "gloss": "n. 運輸、交通；交通工具",
+   "affixes": [
+    "trans- / inter- / super-",
+    "-ation（動詞 + -ation）"
+   ],
+   "exams": {
+    "115-2": "10/29"
+   }
+  },
+  "interfere": {
+   "parse": "inter 在中間 + fere（拉丁文 ferire 打）",
+   "gloss": "v. 插進中間打→干涉；妨礙",
+   "affixes": [
+    "trans- / inter- / super-"
+   ],
+   "exams": {
+    "115-2": "U13"
+   }
+  },
+  "superior": {
+   "parse": "super 在上面 + -ior（拉丁文的比較級）",
+   "gloss": "adj. 在比較上面的→較好的、較高的；n. 上司",
+   "affixes": [
+    "trans- / inter- / super-"
+   ],
+   "exams": {
+    "115-2": "L6"
+   }
+  },
+  "superiority": {
+   "parse": "superior 較好的 + -ity",
+   "gloss": "n. 優越、優勢",
+   "affixes": [
+    "trans- / inter- / super-",
+    "-ity / -ment / -ness / -cy"
+   ],
+   "exams": {
+    "115-2": "L6"
+   }
+  },
+  "superstition": {
+   "parse": "super 在上面 + stit（拉丁文 stare 站）+ -ion",
+   "gloss": "n. 迷信",
+   "affixes": [
+    "trans- / inter- / super-",
+    "-tion / -sion（字根 + 字尾）",
+    "sta / sist / stit"
+   ],
+   "exams": {
+    "115-2": "10/7"
+   }
+  },
+  "enlarge": {
+   "parse": "en 使 + large 大的",
+   "gloss": "v. 使變大→擴大、放大",
+   "affixes": [
+    "en- / mis- / be-"
+   ],
+   "exams": {
+    "115-2": "U16"
+   }
+  },
+  "misfortune": {
+   "parse": "mis 不好的 + fortune 運氣",
+   "gloss": "n. 壞運氣→不幸",
+   "affixes": [
+    "en- / mis- / be-"
+   ],
+   "exams": {
+    "115-2": "10/7"
+   }
+  },
+  "beloved": {
+   "parse": "be 加強語氣 + loved 被愛的",
+   "gloss": "adj. 深愛的、心愛的",
+   "affixes": [
+    "en- / mis- / be-"
+   ],
+   "exams": {
+    "115-2": "10/30"
+   }
+  },
+  "encourage": {
+   "parse": "en 使 + courage 勇氣",
+   "gloss": "v. 使有勇氣→鼓勵",
+   "affixes": [
+    "en- / mis- / be-"
+   ],
+   "level": 2,
+   "exams": {}
+  },
+  "enable": {
+   "parse": "en 使 + able 能夠",
+   "gloss": "v. 使能夠",
+   "affixes": [
+    "en- / mis- / be-"
+   ],
+   "level": 3,
+   "exams": {}
+  },
+  "enrich": {
+   "parse": "en 使 + rich 富有",
+   "gloss": "v. 使豐富、使富有",
+   "affixes": [
+    "en- / mis- / be-"
+   ],
+   "level": 6,
+   "exams": {}
+  },
+  "endanger": {
+   "parse": "en 使 + danger 危險",
+   "gloss": "v. 使陷入危險→危害",
+   "affixes": [
+    "en- / mis- / be-"
+   ],
+   "level": 4,
+   "exams": {}
+  },
+  "mistake": {
+   "parse": "mis 錯誤 + take 拿",
+   "gloss": "n. 錯誤；v. 拿錯→弄錯、誤認（mistake A for B）",
+   "affixes": [
+    "en- / mis- / be-"
+   ],
+   "level": 1,
+   "exams": {}
+  },
+  "misunderstand": {
+   "parse": "mis 錯誤 + understand 了解",
+   "gloss": "v. 誤會、誤解",
+   "affixes": [
+    "en- / mis- / be-"
+   ],
+   "level": 4,
+   "exams": {}
+  },
+  "behave": {
+   "parse": "be 加強 + have 持有",
+   "gloss": "v. 好好持守自己→表現；守規矩",
+   "affixes": [
+    "en- / mis- / be-"
+   ],
+   "level": 2,
+   "exams": {}
+  },
+  "become": {
+   "parse": "be 到、向 + come 來",
+   "gloss": "v. 來到某種狀態→變成；適合",
+   "affixes": [
+    "en- / mis- / be-"
+   ],
+   "level": 1,
+   "exams": {}
+  },
+  "counter": {
+   "parse": "counter 相反、對面",
+   "gloss": "v. 反擊、反駁；adv. 相反地（當「櫃檯」講的 counter 另有來源，是數錢的桌子）",
+   "affixes": [
+    "contra- / counter-"
+   ],
+   "exams": {
+    "115-2": "U15"
+   }
+  },
+  "contrary": {
+   "parse": "contra 相反 + -ary",
+   "gloss": "adj. 相反的；n. 相反（on the contrary）",
+   "affixes": [
+    "contra- / counter-"
+   ],
+   "level": 4,
+   "exams": {}
+  },
+  "contrast": {
+   "parse": "contra 相對 + st（拉丁文 stare 站）",
+   "gloss": "n./v. 面對面站著比→對比、對照",
+   "affixes": [
+    "contra- / counter-"
+   ],
+   "level": 4,
+   "exams": {}
+  },
+  "contradict": {
+   "parse": "contra 相反 + dict 說",
+   "gloss": "v. 說相反的話→反駁；與…矛盾",
+   "affixes": [
+    "contra- / counter-",
+    "dict / dic（說）"
+   ],
+   "level": 6,
+   "exams": {}
+  },
+  "controversy": {
+   "parse": "contro 相反 + vers 轉 + -y",
+   "gloss": "n. 轉向相反方向→爭議",
+   "affixes": [
+    "contra- / counter-",
+    "vers / vert（轉）"
+   ],
+   "level": 5,
+   "exams": {}
+  },
+  "control": {
+   "parse": "contr（contra 對照）+ ol（rol，拉丁文 rotulus 名冊）",
+   "gloss": "v./n. 拿另一本名冊來對照核對→管理、控制",
+   "affixes": [
+    "contra- / counter-"
+   ],
+   "level": 2,
+   "exams": {}
+  },
+  "encounter": {
+   "parse": "en（in 朝向）+ counter 對面",
+   "gloss": "v./n. 迎面碰上→遭遇；邂逅",
+   "affixes": [
+    "contra- / counter-"
+   ],
+   "level": 4,
+   "exams": {}
+  },
+  "country": {
+   "parse": "contr（contra 對面）+ -y",
+   "gloss": "n. 展開在面前的那片土地→鄉下；國家",
+   "affixes": [
+    "contra- / counter-"
+   ],
+   "level": 1,
+   "exams": {}
+  },
+  "quotation": {
+   "parse": "quote 引用 + -ation（去掉 e）",
+   "gloss": "n. 引文；報價",
+   "affixes": [
+    "-ation（動詞 + -ation）"
+   ],
+   "exams": {
+    "115-2": "U16"
+   }
+  },
+  "evaluation": {
+   "parse": "evaluate 評估 + -ion",
+   "gloss": "n. 評估",
+   "affixes": [
+    "-ate → -ation"
+   ],
+   "exams": {
+    "115-2": "U13"
+   }
+  },
+  "invention": {
+   "parse": "invent 發明 + -ion",
+   "gloss": "n. 發明",
+   "affixes": [
+    "-ion / -sion（動詞變形）"
+   ],
+   "exams": {
+    "115-2": "U15"
+   }
+  },
+  "invasion": {
+   "parse": "invade 侵略 + -ion（de 變成 s）",
+   "gloss": "n. 入侵、侵略；侵犯",
+   "affixes": [
+    "-ion / -sion（動詞變形）"
+   ],
+   "exams": {
+    "115-2": "U16"
+   }
+  },
+  "possession": {
+   "parse": "possess 擁有 + -ion",
+   "gloss": "n. 擁有；財產（常用複數）",
+   "affixes": [
+    "-ion / -sion（動詞變形）"
+   ],
+   "exams": {
+    "115-2": "10/19"
+   }
+  },
+  "caution": {
+   "parse": "caut（拉丁文 cavere 小心）+ -ion",
+   "gloss": "n. 小心；警告",
+   "affixes": [
+    "-tion / -sion（字根 + 字尾）"
+   ],
+   "exams": {
+    "115-2": "10/1"
+   }
+  },
+  "occasion": {
+   "parse": "oc（ob 向下）+ cas（拉丁文 cadere 落下）+ -ion",
+   "gloss": "n. 剛好落到眼前的時候→場合；時機",
+   "affixes": [
+    "-tion / -sion（字根 + 字尾）"
+   ],
+   "exams": {
+    "115-2": "L4"
+   }
+  },
+  "tradition": {
+   "parse": "tra（trans 跨過）+ dit 給 + -ion",
+   "gloss": "n. 一代交給下一代→傳統",
+   "affixes": [
+    "-tion / -sion（字根 + 字尾）"
+   ],
+   "level": 2,
+   "exams": {}
+  },
+  "condition": {
+   "parse": "con 一起 + di(c) 說（拉丁文 dicere）+ -tion",
+   "gloss": "n. 大家一起說好的→條件；狀況；（身體的）疾病、毛病",
+   "affixes": [
+    "-tion / -sion（字根 + 字尾）",
+    "dict / dic（說）"
+   ],
+   "level": 2,
+   "exams": {}
+  },
+  "annual": {
+   "parse": "ann（拉丁文 annus 年）+ -ual",
+   "gloss": "adj. 每年的、年度的",
+   "affixes": [
+    "-al"
+   ],
+   "exams": {
+    "115-2": "L4"
+   }
+  },
+  "occasional": {
+   "parse": "occasion 場合 + -al",
+   "gloss": "adj. 偶爾的",
+   "affixes": [
+    "-al"
+   ],
+   "exams": {
+    "115-2": "L4"
+   }
+  },
+  "partial": {
+   "parse": "part 部分 + -ial",
+   "gloss": "adj. 部分的；偏袒的",
+   "affixes": [
+    "-al"
+   ],
+   "exams": {
+    "115-2": "U14"
+   }
+  },
+  "loyal": {
+   "parse": "loy（古法文 loi 法律）+ -al",
+   "gloss": "adj. 忠誠的",
+   "affixes": [
+    "-al",
+    "leg / legis（法律）"
+   ],
+   "exams": {
+    "115-2": "U13"
+   }
+  },
+  "functional": {
+   "parse": "function 功能 + -al",
+   "gloss": "adj. 功能的；實用的",
+   "affixes": [
+    "-al"
+   ],
+   "exams": {
+    "115-2": "U16"
+   }
+  },
+  "fatal": {
+   "parse": "fat（拉丁文 fatum 命運）+ -al",
+   "gloss": "adj. 致命的",
+   "affixes": [
+    "-al"
+   ],
+   "exams": {
+    "115-2": "U16"
+   }
+  },
+  "financial": {
+   "parse": "finance 財務 + -ial",
+   "gloss": "adj. 財務的、金融的",
+   "affixes": [
+    "-al"
+   ],
+   "exams": {
+    "115-2": "10/2"
+   }
+  },
+  "potential": {
+   "parse": "potent（拉丁文 potentia 力量）+ -ial",
+   "gloss": "adj. 潛在的；n. 潛力",
+   "affixes": [
+    "-al"
+   ],
+   "exams": {
+    "115-2": "10/2"
+   }
+  },
+  "perspective": {
+   "parse": "per 穿過 + spect 看 + -ive",
+   "gloss": "n. 看穿過去的方式→觀點、角度；透視法",
+   "affixes": [
+    "-ive",
+    "spec / spect / spic"
+   ],
+   "exams": {
+    "115-2": "10/7"
+   }
+  },
+  "repetitive": {
+   "parse": "repeat 重複 + -itive",
+   "gloss": "adj. 一再重複的→重複性的、單調的",
+   "affixes": [
+    "-ive"
+   ],
+   "exams": {
+    "115-2": "U15"
+   }
+  },
+  "affordable": {
+   "parse": "afford 負擔得起 + -able",
+   "gloss": "adj. 負擔得起的、價格合理的",
+   "affixes": [
+    "-able / -ible"
+   ],
+   "exams": {
+    "115-2": "10/30"
+   }
+  },
+  "joyous": {
+   "parse": "joy 喜悅 + -ous",
+   "gloss": "adj. 快樂的、令人高興的",
+   "affixes": [
+    "-ous"
+   ],
+   "exams": {
+    "115-2": "L4"
+   }
+  },
+  "mysterious": {
+   "parse": "mystery 神祕 + -ous（y 變成 i）",
+   "gloss": "adj. 神祕的",
+   "affixes": [
+    "-ous"
+   ],
+   "exams": {
+    "115-2": "U13"
+   }
+  },
+  "luxurious": {
+   "parse": "luxury 奢侈 + -ous（y 變成 i）",
+   "gloss": "adj. 奢華的",
+   "affixes": [
+    "-ous"
+   ],
+   "exams": {
+    "115-2": "U13"
+   }
+  },
+  "courageous": {
+   "parse": "courage 勇氣 + -ous",
+   "gloss": "adj. 勇敢的",
+   "affixes": [
+    "-ous"
+   ],
+   "exams": {
+    "115-2": "U14"
+   }
+  },
+  "cautious": {
+   "parse": "caut（拉丁文 cavere 小心）+ -ious",
+   "gloss": "adj. 小心的、謹慎的",
+   "affixes": [
+    "-ous"
+   ],
+   "exams": {
+    "115-2": "10/20"
+   }
+  },
+  "delightful": {
+   "parse": "delight 欣喜 + -ful",
+   "gloss": "adj. 令人愉快的",
+   "affixes": [
+    "-ful / -less"
+   ],
+   "exams": {
+    "115-2": "U14"
+   }
+  },
+  "endless": {
+   "parse": "end 結束 + -less",
+   "gloss": "adj. 沒有盡頭的→無止盡的",
+   "affixes": [
+    "-ful / -less"
+   ],
+   "exams": {
+    "115-2": "U15"
+   }
+  },
+  "humanity": {
+   "parse": "human 人的 + -ity",
+   "gloss": "n. 人類；人性、人道",
+   "affixes": [
+    "-ity / -ment / -ness / -cy"
+   ],
+   "exams": {
+    "115-2": "U13"
+   }
+  },
+  "loyalty": {
+   "parse": "loyal 忠誠的 + -ty",
+   "gloss": "n. 忠誠",
+   "affixes": [
+    "-ity / -ment / -ness / -cy"
+   ],
+   "exams": {
+    "115-2": "U13"
+   }
+  },
+  "curiosity": {
+   "parse": "curious 好奇的 + -osity",
+   "gloss": "n. 好奇心",
+   "affixes": [
+    "-ity / -ment / -ness / -cy"
+   ],
+   "exams": {
+    "115-2": "U15"
+   }
+  },
+  "penalty": {
+   "parse": "penal 刑罰的 + -ty",
+   "gloss": "n. 處罰；罰款；（球賽）罰球",
+   "affixes": [
+    "-ity / -ment / -ness / -cy"
+   ],
+   "exams": {
+    "115-2": "U16"
+   }
+  },
+  "fulfillment": {
+   "parse": "fulfill 實現 + -ment",
+   "gloss": "n. 實現；滿足感",
+   "affixes": [
+    "-ity / -ment / -ness / -cy"
+   ],
+   "exams": {
+    "115-2": "U13"
+   }
+  },
+  "discouragement": {
+   "parse": "discourage 使洩氣 + -ment",
+   "gloss": "n. 洩氣、灰心；阻止",
+   "affixes": [
+    "-ity / -ment / -ness / -cy"
+   ],
+   "exams": {
+    "115-2": "U13"
+   }
+  },
+  "enlargement": {
+   "parse": "en 使 + large 大的 + -ment",
+   "gloss": "n. 擴大；放大的照片",
+   "affixes": [
+    "-ity / -ment / -ness / -cy"
+   ],
+   "exams": {
+    "115-2": "U16"
+   }
+  },
+  "placement": {
+   "parse": "place 放置 + -ment",
+   "gloss": "n. 安置；分班、分發",
+   "affixes": [
+    "-ity / -ment / -ness / -cy"
+   ],
+   "exams": {
+    "115-2": "10/15"
+   }
+  },
+  "smoothness": {
+   "parse": "smooth 平滑的 + -ness",
+   "gloss": "n. 平滑、順暢",
+   "affixes": [
+    "-ity / -ment / -ness / -cy"
+   ],
+   "exams": {
+    "115-2": "L6"
+   }
+  },
+  "intimacy": {
+   "parse": "intimate 親密的 + -cy",
+   "gloss": "n. 親密",
+   "affixes": [
+    "-ity / -ment / -ness / -cy"
+   ],
+   "exams": {
+    "115-2": "L6"
+   }
+  },
+  "delicacy": {
+   "parse": "delicate 精緻的 + -cy",
+   "gloss": "n. 精緻的東西→美食、佳餚；（處理事情的）微妙、需要小心",
+   "affixes": [
+    "-ity / -ment / -ness / -cy"
+   ],
+   "exams": {
+    "115-2": "L5"
+   }
+  },
+  "carrier": {
+   "parse": "carry 搬運 + -er",
+   "gloss": "n. 搬運的人或物→運送者、載具；（疾病的）帶原者",
+   "affixes": [
+    "-er / -or / -ist / -ian"
+   ],
+   "exams": {
+    "115-2": "U15"
+   }
+  },
+  "pioneer": {
+   "parse": "pion 步兵 + -eer",
+   "gloss": "n./v. 走在最前面的步兵→先驅、開拓者；開創",
+   "affixes": [
+    "-er / -or / -ist / -ian"
+   ],
+   "exams": {
+    "115-2": "U13"
+   }
+  },
+  "volunteer": {
+   "parse": "volunt（拉丁文 voluntas 意願）+ -eer",
+   "gloss": "n./v. 出於自己意願的人→志工；自願（做）",
+   "affixes": [
+    "-er / -or / -ist / -ian"
+   ],
+   "exams": {
+    "115-2": "10/1"
+   }
+  },
+  "namely": {
+   "parse": "name 名字 + -ly",
+   "gloss": "adv. 也就是說、即",
+   "affixes": [
+    "-ly"
+   ],
+   "exams": {
+    "115-2": "U13"
+   }
+  },
+  "scarcely": {
+   "parse": "scarce 稀少的 + -ly",
+   "gloss": "adv. 幾乎不",
+   "affixes": [
+    "-ly"
+   ],
+   "exams": {
+    "115-2": "U15"
+   }
+  },
+  "leisurely": {
+   "parse": "leisure 空閒 + -ly",
+   "gloss": "adj. 悠閒的、從容的",
+   "affixes": [
+    "-ly"
+   ],
+   "exams": {
+    "115-2": "L5"
+   }
+  },
+  "deadly": {
+   "parse": "dead 死的 + -ly",
+   "gloss": "adj. 致命的",
+   "affixes": [
+    "-ly"
+   ],
+   "exams": {
+    "115-2": "10/6"
+   }
+  },
+  "intimately": {
+   "parse": "intimate 親密的 + -ly",
+   "gloss": "adv. 親密地",
+   "affixes": [
+    "-ly"
+   ],
+   "exams": {
+    "115-2": "L6"
+   }
+  },
+  "skillfully": {
+   "parse": "skillful 熟練的 + -ly",
+   "gloss": "adv. 熟練地、巧妙地",
+   "affixes": [
+    "-ly"
+   ],
+   "exams": {
+    "115-2": "L6"
+   }
+  },
+  "partially": {
+   "parse": "partial 部分的 + -ly",
+   "gloss": "adv. 部分地",
+   "affixes": [
+    "-ly"
+   ],
+   "exams": {
+    "115-2": "U14"
+   }
+  },
+  "absolutely": {
+   "parse": "absolute 絕對的 + -ly",
+   "gloss": "adv. 絕對地、完全地",
+   "affixes": [
+    "-ly"
+   ],
+   "exams": {
+    "115-2": "10/9"
+   }
+  },
+  "physically": {
+   "parse": "physical 身體的 + -ly",
+   "gloss": "adv. 身體上；實際上",
+   "affixes": [
+    "-ly"
+   ],
+   "exams": {
+    "115-2": "10/16"
+   }
+  },
+  "historic": {
+   "parse": "history 歷史 + -ic",
+   "gloss": "adj. 有歷史意義的、歷史性的",
+   "affixes": [
+    "-ic / -ical"
+   ],
+   "exams": {
+    "115-2": "L5"
+   }
+  },
+  "historical": {
+   "parse": "history 歷史 + -ical",
+   "gloss": "adj. 歷史上的、跟歷史有關的",
+   "affixes": [
+    "-ic / -ical"
+   ],
+   "exams": {
+    "115-2": "L5"
+   }
+  },
+  "fantastic": {
+   "parse": "fantasy 幻想 + -tic",
+   "gloss": "adj. 像幻想一樣的→極好的",
+   "affixes": [
+    "-ic / -ical"
+   ],
+   "exams": {
+    "115-2": "U14"
+   }
+  },
+  "elastic": {
+   "parse": "elast（希臘文 elastos 有彈性的）+ -ic",
+   "gloss": "adj. 有彈性的",
+   "affixes": [
+    "-ic / -ical"
+   ],
+   "exams": {
+    "115-2": "U16"
+   }
+  },
+  "magnetic": {
+   "parse": "magnet 磁鐵 + -ic",
+   "gloss": "adj. 有磁性的；有吸引力的",
+   "affixes": [
+    "-ic / -ical"
+   ],
+   "exams": {
+    "115-2": "U16"
+   }
+  },
+  "toxic": {
+   "parse": "tox（希臘文 toxikon，原指「塗在箭上的毒」）+ -ic",
+   "gloss": "adj. 有毒的",
+   "affixes": [
+    "-ic / -ical"
+   ],
+   "exams": {
+    "115-2": "10/6"
+   }
+  },
+  "scenic": {
+   "parse": "scene 景色 + -ic",
+   "gloss": "adj. 風景優美的",
+   "affixes": [
+    "-ic / -ical"
+   ],
+   "exams": {
+    "115-2": "10/12"
+   }
+  },
+  "summarize": {
+   "parse": "summary 摘要 + -ize",
+   "gloss": "v. 做出摘要→總結、概述",
+   "affixes": [
+    "-ize / -fy"
+   ],
+   "exams": {
+    "115-2": "U13"
+   }
+  },
+  "utilize": {
+   "parse": "util（拉丁文 utilis 有用的）+ -ize",
+   "gloss": "v. 利用",
+   "affixes": [
+    "-ize / -fy"
+   ],
+   "exams": {
+    "115-2": "10/29"
+   }
+  },
+  "realize": {
+   "parse": "real 真實的 + -ize",
+   "gloss": "v. 使變成真的→實現；意識到、了解",
+   "affixes": [
+    "-ize / -fy"
+   ],
+   "level": 2,
+   "exams": {}
+  },
+  "organize": {
+   "parse": "organ 器官、組織 + -ize",
+   "gloss": "v. 使成為有條理的整體→組織、籌辦",
+   "affixes": [
+    "-ize / -fy"
+   ],
+   "level": 3,
+   "exams": {}
+  },
+  "satisfy": {
+   "parse": "satis 足夠 + -fy",
+   "gloss": "v. 做得足夠→使滿意",
+   "affixes": [
+    "-ize / -fy"
+   ],
+   "level": 2,
+   "exams": {}
+  },
+  "decorate": {
+   "parse": "decor 裝飾 + -ate",
+   "gloss": "v. 加上光彩→裝飾",
+   "affixes": [
+    "-ate（動詞）"
+   ],
+   "exams": {
+    "115-2": "L4"
+   }
+  },
+  "estimate": {
+   "parse": "estim（拉丁文 aestimare 估價）+ -ate",
+   "gloss": "v./n. 估價→估計、估算（名詞字尾唸 /ɪt/）",
+   "affixes": [
+    "-ate（動詞）"
+   ],
+   "exams": {
+    "115-2": "10/23"
+   }
+  },
+  "navigate": {
+   "parse": "nav（拉丁文 navis 船）+ ig（agere 驅動）+ -ate",
+   "gloss": "v. 航行；導航；（在網站上）瀏覽",
+   "affixes": [
+    "-ate（動詞）",
+    "act / ag"
+   ],
+   "exams": {
+    "115-2": "L6"
+   }
+  },
+  "negotiate": {
+   "parse": "neg 否定 + oti 閒暇 + -ate",
+   "gloss": "v. 不得閒、忙著談條件→談判、協商",
+   "affixes": [
+    "-ate（動詞）"
+   ],
+   "exams": {
+    "115-2": "U14"
+   }
+  },
+  "stimulate": {
+   "parse": "stimul（拉丁文 stimulus 趕牲畜的刺棒）+ -ate",
+   "gloss": "v. 用刺棒戳→刺激；激發；促進",
+   "affixes": [
+    "-ate（動詞）"
+   ],
+   "exams": {
+    "115-2": "10/15"
+   }
+  },
+  "violate": {
+   "parse": "viol（拉丁文 violare 侵犯）+ -ate",
+   "gloss": "v. 暴力侵犯→違反；侵犯",
+   "affixes": [
+    "-ate（動詞）"
+   ],
+   "exams": {
+    "115-2": "U16"
+   }
+  },
+  "intimate": {
+   "parse": "intim（拉丁文 intimus 最裡面的）+ -ate",
+   "gloss": "adj. 最裡面的→親密的、密切的",
+   "affixes": [
+    "-ate（形容詞）"
+   ],
+   "exams": {
+    "115-2": "L6"
+   }
+  },
+  "moderate": {
+   "parse": "moder（拉丁文 modus 適度）+ -ate",
+   "gloss": "adj. 不過度的→適度的",
+   "affixes": [
+    "-ate（形容詞）"
+   ],
+   "exams": {
+    "115-2": "U14"
+   }
+  },
+  "accurate": {
+   "parse": "ac 朝向 + cur 關心 + -ate",
+   "gloss": "adj. 用心做出來的→準確的",
+   "affixes": [
+    "-ate（形容詞）"
+   ],
+   "level": 3,
+   "exams": {}
+  },
+  "appropriate": {
+   "parse": "ap 朝向 + propri 自己的 + -ate",
+   "gloss": "adj. 拿來當成自己的、正合身的→適當的",
+   "affixes": [
+    "-ate（形容詞）"
+   ],
+   "level": 4,
+   "exams": {}
+  },
+  "separate": {
+   "parse": "se 分開 + par 準備 + -ate",
+   "gloss": "adj. 分開準備好的→分開的、各別的；v. 分開",
+   "affixes": [
+    "-ate（形容詞）"
+   ],
+   "level": 2,
+   "exams": {}
+  },
+  "astonishing": {
+   "parse": "astonish 使驚訝 + -ing",
+   "gloss": "adj. 令人驚訝的→驚人的",
+   "affixes": [
+    "-ing / -ed（形容詞）"
+   ],
+   "exams": {
+    "115-2": "10/22"
+   }
+  },
+  "stunning": {
+   "parse": "stun 使震驚 + -ing",
+   "gloss": "adj. 令人震驚的→撼動人心的；極美的",
+   "affixes": [
+    "-ing / -ed（形容詞）"
+   ],
+   "exams": {
+    "115-2": "L5"
+   }
+  },
+  "breathtaking": {
+   "parse": "breath 呼吸 + taking 奪走",
+   "gloss": "adj. 美得讓人屏息→驚人的；極為美麗的",
+   "affixes": [
+    "-ing / -ed（形容詞）"
+   ],
+   "exams": {
+    "115-2": "L5"
+   }
+  },
+  "exhausting": {
+   "parse": "exhaust 使筋疲力盡 + -ing",
+   "gloss": "adj. 使人筋疲力盡的→耗費精力的",
+   "affixes": [
+    "-ing / -ed（形容詞）"
+   ],
+   "exams": {
+    "115-2": "U13"
+   }
+  },
+  "exhausted": {
+   "parse": "exhaust 使筋疲力盡 + -ed",
+   "gloss": "adj. 筋疲力盡的→疲憊的",
+   "affixes": [
+    "-ing / -ed（形容詞）"
+   ],
+   "exams": {
+    "115-2": "U13"
+   }
+  },
+  "rewarding": {
+   "parse": "reward 回報 + -ing",
+   "gloss": "adj. 有回報的→有成就感的、值得做的",
+   "affixes": [
+    "-ing / -ed（形容詞）"
+   ],
+   "exams": {
+    "115-2": "10/21"
+   }
+  },
+  "delighted": {
+   "parse": "delight 使欣喜 + -ed",
+   "gloss": "adj. 感到欣喜的→高興的",
+   "affixes": [
+    "-ing / -ed（形容詞）"
+   ],
+   "exams": {
+    "115-2": "U14"
+   }
+  },
+  "repeated": {
+   "parse": "repeat 重複 + -ed",
+   "gloss": "adj. 一再發生的→重複的、屢次的",
+   "affixes": [
+    "-ing / -ed（形容詞）"
+   ],
+   "exams": {
+    "115-2": "U15"
+   }
+  },
+  "divorced": {
+   "parse": "divorce 離婚 + -ed",
+   "gloss": "adj. 離了婚的→離婚的；脫離的",
+   "affixes": [
+    "-ing / -ed（形容詞）"
+   ],
+   "exams": {
+    "115-2": "U15"
+   }
+  },
+  "privileged": {
+   "parse": "privilege 特權 + -ed",
+   "gloss": "adj. 有特權的→享有特權的；感到榮幸的",
+   "affixes": [
+    "-ing / -ed（形容詞）"
+   ],
+   "exams": {
+    "115-2": "U13"
+   }
+  },
+  "bruised": {
+   "parse": "bruise 瘀傷 + -ed",
+   "gloss": "adj. 有瘀青的→瘀傷的、碰傷的",
+   "affixes": [
+    "-ing / -ed（形容詞）"
+   ],
+   "exams": {
+    "115-2": "L6"
+   }
+  },
+  "hooked": {
+   "parse": "hook 鉤子 + -ed",
+   "gloss": "adj. 被鉤住的→入迷的、上癮的",
+   "affixes": [
+    "-ing / -ed（形容詞）"
+   ],
+   "exams": {
+    "115-2": "10/21"
+   }
+  },
+  "greeting": {
+   "parse": "greet 打招呼 + -ing",
+   "gloss": "n. 問候（常用複數 greetings）",
+   "affixes": [
+    "-ing（名詞、介系詞）"
+   ],
+   "exams": {
+    "115-2": "U14"
+   }
+  },
+  "blessing": {
+   "parse": "bless 祝福 + -ing",
+   "gloss": "n. 祝福；幸運的事",
+   "affixes": [
+    "-ing（名詞、介系詞）"
+   ],
+   "exams": {
+    "115-2": "U16"
+   }
+  },
+  "handwriting": {
+   "parse": "hand 手 + write 寫 + -ing",
+   "gloss": "n. 筆跡",
+   "affixes": [
+    "-ing（名詞、介系詞）"
+   ],
+   "exams": {
+    "115-2": "U15"
+   }
+  },
+  "engineering": {
+   "parse": "engineer 工程師 + -ing",
+   "gloss": "n. 工程（學）",
+   "affixes": [
+    "-ing（名詞、介系詞）"
+   ],
+   "exams": {
+    "115-2": "U16"
+   }
+  },
+  "concerning": {
+   "parse": "concern 與…有關 + -ing",
+   "gloss": "prep. 關於",
+   "affixes": [
+    "-ing（名詞、介系詞）"
+   ],
+   "exams": {
+    "115-2": "U15"
+   }
+  },
+  "building": {
+   "parse": "build 建造 + -ing",
+   "gloss": "n. 建築物",
+   "affixes": [
+    "-ing（名詞、介系詞）"
+   ],
+   "level": 2,
+   "exams": {}
+  },
+  "meaning": {
+   "parse": "mean 意指 + -ing",
+   "gloss": "n. 意思；意義",
+   "affixes": [
+    "-ing（名詞、介系詞）"
+   ],
+   "level": 2,
+   "exams": {}
+  },
+  "painting": {
+   "parse": "paint 畫 + -ing",
+   "gloss": "n. 畫（油畫、水彩畫）",
+   "affixes": [
+    "-ing（名詞、介系詞）"
+   ],
+   "level": 2,
+   "exams": {}
+  },
+  "clothing": {
+   "parse": "clothe 給…穿衣 + -ing",
+   "gloss": "n. 衣服（不可數）",
+   "affixes": [
+    "-ing（名詞、介系詞）"
+   ],
+   "level": 2,
+   "exams": {}
+  },
+  "literary": {
+   "parse": "letter（拉丁文 littera 字母）+ -ary",
+   "gloss": "adj. 文學的",
+   "affixes": [
+    "-ary / -ery / -ure / -age"
+   ],
+   "exams": {
+    "115-2": "L5"
+   }
+  },
+  "imaginary": {
+   "parse": "imagine 想像 + -ary",
+   "gloss": "adj. 想像中的、虛構的",
+   "affixes": [
+    "-ary / -ery / -ure / -age"
+   ],
+   "exams": {
+    "115-2": "U16"
+   }
+  },
+  "scenery": {
+   "parse": "scene 景色 + -ery",
+   "gloss": "n. 風景（不可數）",
+   "affixes": [
+    "-ary / -ery / -ure / -age"
+   ],
+   "exams": {
+    "115-2": "U13"
+   }
+  },
+  "battery": {
+   "parse": "batter 連續打擊 + -y",
+   "gloss": "n. 電池（原意是「打擊」，後來指砲轟城牆、一組大砲）",
+   "affixes": [
+    "-ary / -ery / -ure / -age"
+   ],
+   "exams": {
+    "115-2": "U15"
+   }
+  },
+  "chemistry": {
+   "parse": "chemist 化學家 + -ry",
+   "gloss": "n. 化學；（人與人之間的）契合",
+   "affixes": [
+    "-ary / -ery / -ure / -age"
+   ],
+   "exams": {
+    "115-2": "U16"
+   }
+  },
+  "literature": {
+   "parse": "liter（拉丁文 littera 字母）+ -ature",
+   "gloss": "n. 文學",
+   "affixes": [
+    "-ary / -ery / -ure / -age"
+   ],
+   "exams": {
+    "115-2": "L5"
+   }
+  },
+  "texture": {
+   "parse": "text（拉丁文 texere 編織）+ -ure",
+   "gloss": "n. 質地、口感",
+   "affixes": [
+    "-ary / -ery / -ure / -age"
+   ],
+   "exams": {
+    "115-2": "10/30"
+   }
+  },
+  "beverage": {
+   "parse": "bever（古法文 boivre 喝）+ -age",
+   "gloss": "n. 飲料",
+   "affixes": [
+    "-ary / -ery / -ure / -age"
+   ],
+   "exams": {
+    "115-2": "10/20"
+   }
+  },
+  "important": {
+   "parse": "im 進入 + port 帶 + -ant",
+   "gloss": "adj. 帶進來的分量很重→重要的",
+   "affixes": [
+    "-ant / -ent（形容詞）"
+   ],
+   "level": 1,
+   "exams": {}
+  },
+  "different": {
+   "parse": "dif 分開 + fer 帶 + -ent",
+   "gloss": "adj. 被帶開來的→不同的；特別的",
+   "affixes": [
+    "-ant / -ent（形容詞）",
+    "fer"
+   ],
+   "level": 1,
+   "exams": {}
+  },
+  "confident": {
+   "parse": "con 徹底 + fid 相信 + -ent",
+   "gloss": "adj. 有信心的、確信的",
+   "affixes": [
+    "-ant / -ent（形容詞）"
+   ],
+   "level": 2,
+   "exams": {}
+  },
+  "persistent": {
+   "parse": "persist 堅持不懈 + -ent",
+   "gloss": "adj. 堅持不懈的；持續的",
+   "affixes": [
+    "-ant / -ent（形容詞）"
+   ],
+   "level": 6,
+   "exams": {}
+  },
+  "excellent": {
+   "parse": "excel + -ent",
+   "gloss": "adj. 優秀的、極好的",
+   "affixes": [
+    "-ant / -ent（形容詞）"
+   ],
+   "level": 1,
+   "exams": {}
+  },
+  "evident": {
+   "parse": "e（ex）往外 + vid 看 + -ent",
+   "gloss": "adj. 看得出來的→明顯的",
+   "affixes": [
+    "-ant / -ent（形容詞）"
+   ],
+   "level": 4,
+   "exams": {}
+  },
+  "convenient": {
+   "parse": "con 一起 + ven 來 + -ent（i 是拉丁文原有的）",
+   "gloss": "adj. 來得剛剛好的→方便的",
+   "affixes": [
+    "-ant / -ent（形容詞）"
+   ],
+   "level": 1,
+   "exams": {}
+  },
+  "mutual": {
+   "parse": "mut（拉丁文 mutare 交換）+ -ual",
+   "gloss": "adj. 互相的、共同的",
+   "affixes": [
+    "-al（拉丁字根 + -al）"
+   ],
+   "exams": {
+    "115-2": "U15"
+   }
+  },
+  "rural": {
+   "parse": "rur（拉丁文 rus 鄉下）+ -al",
+   "gloss": "adj. 鄉下的、農村的",
+   "affixes": [
+    "-al（拉丁字根 + -al）"
+   ],
+   "exams": {
+    "115-2": "10/27"
+   }
+  },
+  "casual": {
+   "parse": "cas（拉丁文 casus 偶然）+ -ual",
+   "gloss": "adj. 偶然的；隨意的、休閒的",
+   "affixes": [
+    "-al（拉丁字根 + -al）"
+   ],
+   "level": 3,
+   "exams": {}
+  },
+  "manual": {
+   "parse": "man（拉丁文 manus 手）+ -ual",
+   "gloss": "adj. 手的、用手的；n. 手冊",
+   "affixes": [
+    "-al（拉丁字根 + -al）"
+   ],
+   "level": 4,
+   "exams": {}
+  },
+  "equal": {
+   "parse": "equ（拉丁文 aequus 相等的）+ -al",
+   "gloss": "adj. 相等的、平等的",
+   "affixes": [
+    "-al（拉丁字根 + -al）"
+   ],
+   "level": 2,
+   "exams": {}
+  },
+  "vital": {
+   "parse": "vit（拉丁文 vita 生命）+ -al",
+   "gloss": "adj. 生命的→極重要的",
+   "affixes": [
+    "-al（拉丁字根 + -al）"
+   ],
+   "level": 4,
+   "exams": {}
+  },
+  "mental": {
+   "parse": "ment（拉丁文 mens 心智）+ -al",
+   "gloss": "adj. 心智的、精神的",
+   "affixes": [
+    "-al（拉丁字根 + -al）"
+   ],
+   "level": 3,
+   "exams": {}
+  },
+  "vocal": {
+   "parse": "voc（拉丁文 vox 聲音）+ -al",
+   "gloss": "adj. 聲音的；直言不諱的",
+   "affixes": [
+    "-al（拉丁字根 + -al）"
+   ],
+   "level": 5,
+   "exams": {}
+  },
+  "local": {
+   "parse": "loc（拉丁文 locus 地方）+ -al",
+   "gloss": "adj. 當地的、本地的",
+   "affixes": [
+    "-al（拉丁字根 + -al）"
+   ],
+   "level": 2,
+   "exams": {}
+  },
+  "moral": {
+   "parse": "mor（拉丁文 mos 風俗）+ -al",
+   "gloss": "adj. 道德的；n. 寓意",
+   "affixes": [
+    "-al（拉丁字根 + -al）"
+   ],
+   "level": 3,
+   "exams": {}
+  },
+  "final": {
+   "parse": "fin（拉丁文 finis 結束）+ -al",
+   "gloss": "adj. 最後的",
+   "affixes": [
+    "-al（拉丁字根 + -al）"
+   ],
+   "level": 2,
+   "exams": {}
+  },
+  "capital": {
+   "parse": "capit（拉丁文 caput 頭）+ -al",
+   "gloss": "n. 首都；資本；大寫字母；adj. 主要的",
+   "affixes": [
+    "cap / cept / ceive"
+   ],
+   "exams": {
+    "115-2": "L5"
+   }
+  },
+  "legend": {
+   "parse": "leg 讀 + -end",
+   "gloss": "n. 該被讀出來的那些事→傳說、傳奇人物",
+   "affixes": [
+    "lect / leg / lig"
+   ],
+   "exams": {
+    "115-2": "U13"
+   }
+  },
+  "select": {
+   "parse": "se 分開 + lect 挑選",
+   "gloss": "v. 挑出來另外放→挑選",
+   "affixes": [
+    "lect / leg / lig"
+   ],
+   "level": 2,
+   "exams": {}
+  },
+  "elect": {
+   "parse": "e（ex）向外 + lect 挑選",
+   "gloss": "v. 從一群人裡挑出來→選舉；選擇（做某事）",
+   "affixes": [
+    "lect / leg / lig"
+   ],
+   "level": 3,
+   "exams": {}
+  },
+  "neglect": {
+   "parse": "neg 不 + lect 挑選",
+   "gloss": "v./n. 不去挑起來→忽視、疏忽",
+   "affixes": [
+    "lect / leg / lig"
+   ],
+   "level": 4,
+   "exams": {}
+  },
+  "lecture": {
+   "parse": "lect 讀 + -ure",
+   "gloss": "n./v. 讀出來講給人聽→講課、演講；訓話、說教",
+   "affixes": [
+    "lect / leg / lig"
+   ],
+   "level": 4,
+   "exams": {}
+  },
+  "expect": {
+   "parse": "ex 向外 + spect 看",
+   "gloss": "v. 往外看著、盼著→期待、預期",
+   "affixes": [
+    "spec / spect / spic"
+   ],
+   "level": 1,
+   "exams": {}
+  },
+  "inspect": {
+   "parse": "in 往裡面 + spect 看",
+   "gloss": "v. 往裡面看→檢查、視察",
+   "affixes": [
+    "spec / spect / spic"
+   ],
+   "level": 3,
+   "exams": {}
+  },
+  "aspect": {
+   "parse": "a（ad 朝向）+ spect 看",
+   "gloss": "n. 朝著看到的那一面→方面；外觀、樣子",
+   "affixes": [
+    "spec / spect / spic"
+   ],
+   "level": 4,
+   "exams": {}
+  },
+  "suspect": {
+   "parse": "su（sub 在下）+ spect 看",
+   "gloss": "v. 從底下往上偷偷看→懷疑；n. 嫌犯；adj. 可疑的",
+   "affixes": [
+    "spec / spect / spic"
+   ],
+   "level": 3,
+   "exams": {}
+  },
+  "oppose": {
+   "parse": "op（ob）對面 + pos 放",
+   "gloss": "v. 站到對面去→反對",
+   "affixes": [
+    "pon / pos"
+   ],
+   "exams": {
+    "115-2": "L6"
+   }
+  },
+  "suppose": {
+   "parse": "sup（sub）在下 + pose 放",
+   "gloss": "v. 放在底下當前提→假定、假如；認為",
+   "affixes": [
+    "pon / pos"
+   ],
+   "level": 2,
+   "exams": {}
+  },
+  "purpose": {
+   "parse": "pur（pro）向前 + pose 放",
+   "gloss": "n. 事先往前放好的那個目標→目的",
+   "affixes": [
+    "pon / pos"
+   ],
+   "level": 2,
+   "exams": {}
+  },
+  "expose": {
+   "parse": "ex 向外 + pose 放",
+   "gloss": "v. 放到外面→使暴露；揭發",
+   "affixes": [
+    "pon / pos"
+   ],
+   "level": 4,
+   "exams": {}
+  },
+  "impose": {
+   "parse": "im（in）在上面 + pose 放",
+   "gloss": "v. 放到別人身上→強加；實施（規定、處罰）、課（稅）",
+   "affixes": [
+    "pon / pos"
+   ],
+   "level": 4,
+   "exams": {}
+  },
+  "propose": {
+   "parse": "pro 向前 + pose 放",
+   "gloss": "v. 放到大家面前→提議；求婚；打算",
+   "affixes": [
+    "pon / pos"
+   ],
+   "level": 2,
+   "exams": {}
+  },
+  "envision": {
+   "parse": "en 使 + vision 景象",
+   "gloss": "v. 在心裡形成景象→想像、展望",
+   "affixes": [
+    "vid / vis"
+   ],
+   "exams": {
+    "115-2": "L6"
+   }
+  },
+  "vision": {
+   "parse": "vis 看 + -ion",
+   "gloss": "n. 視力；遠見、願景；（想像或夢中看到的）景象",
+   "affixes": [
+    "vid / vis"
+   ],
+   "level": 3,
+   "exams": {}
+  },
+  "visible": {
+   "parse": "vis 看 + -ible",
+   "gloss": "adj. 看得見的；明顯的",
+   "affixes": [
+    "vid / vis"
+   ],
+   "level": 3,
+   "exams": {}
+  },
+  "provide": {
+   "parse": "pro 事先 + vide 看",
+   "gloss": "v. 事先看好、備好→提供",
+   "affixes": [
+    "vid / vis"
+   ],
+   "level": 2,
+   "exams": {}
+  },
+  "review": {
+   "parse": "re 再 + view 看",
+   "gloss": "v./n. 再看一次→複習；檢討、審查；評論",
+   "affixes": [
+    "vid / vis"
+   ],
+   "level": 2,
+   "exams": {}
+  },
+  "evidence": {
+   "parse": "e（ex）向外 + vid 看 + -ence",
+   "gloss": "n. 證據",
+   "affixes": [
+    "vid / vis"
+   ],
+   "level": 4,
+   "exams": {}
+  },
+  "genius": {
+   "parse": "gen 生（天生的才能）+ -ius",
+   "gloss": "n. 天生帶來的守護靈→天才；天賦",
+   "affixes": [
+    "gen / gener"
+   ],
+   "exams": {
+    "115-2": "U16"
+   }
+  },
+  "genuine": {
+   "parse": "gen 生（拉丁文 genuinus 天生的）+ -ine",
+   "gloss": "adj. 天生的、不是做出來的→真正的、純正的",
+   "affixes": [
+    "gen / gener"
+   ],
+   "exams": {
+    "115-2": "10/6"
+   }
+  },
+  "hydrogen": {
+   "parse": "hydro 水 + gen 生",
+   "gloss": "n. 能生出水的元素→氫",
+   "affixes": [
+    "gen / gener"
+   ],
+   "exams": {
+    "115-2": "U15"
+   }
+  },
+  "oxygen": {
+   "parse": "oxy 酸 + gen 生",
+   "gloss": "n. 能生出酸的元素（舊時以為）→氧",
+   "affixes": [
+    "gen / gener"
+   ],
+   "exams": {
+    "115-2": "U15"
+   }
+  },
+  "generate": {
+   "parse": "gener 生 + -ate",
+   "gloss": "v. 生出來→產生、發（電）",
+   "affixes": [
+    "gen / gener"
+   ],
+   "level": 5,
+   "exams": {}
+  },
+  "generation": {
+   "parse": "gener 生 + -ation",
+   "gloss": "n. 世代；產生",
+   "affixes": [
+    "gen / gener"
+   ],
+   "level": 4,
+   "exams": {}
+  },
+  "gene": {
+   "parse": "gen 生",
+   "gloss": "n. 生出下一代時傳下去的東西→基因",
+   "affixes": [
+    "gen / gener"
+   ],
+   "level": 4,
+   "exams": {}
+  },
+  "contain": {
+   "parse": "con 一起 + tain 握",
+   "gloss": "v. 握在一起、圍在裡面→包含、容納；控制（不讓擴散）；克制（情緒）",
+   "affixes": [
+    "tain / ten / tend"
+   ],
+   "level": 2,
+   "exams": {}
+  },
+  "maintain": {
+   "parse": "main（manu 手）+ tain 握",
+   "gloss": "v. 用手一直握著不放→維持、保養；主張",
+   "affixes": [
+    "tain / ten / tend"
+   ],
+   "level": 2,
+   "exams": {}
+  },
+  "obtain": {
+   "parse": "ob 向 + tain 握",
+   "gloss": "v. 朝著目標握到手→獲得、取得",
+   "affixes": [
+    "tain / ten / tend"
+   ],
+   "level": 4,
+   "exams": {}
+  },
+  "attend": {
+   "parse": "at（ad）朝向 + tend 伸",
+   "gloss": "v. 把心思伸過去→出席、參加；（固定）去（上學、上教會）；照顧（attend to）；注意",
+   "affixes": [
+    "tain / ten / tend"
+   ],
+   "level": 2,
+   "exams": {}
+  },
+  "extend": {
+   "parse": "ex 向外 + tend 伸",
+   "gloss": "v. 往外伸→延長、擴大；延伸；給予（歡迎、邀請）",
+   "affixes": [
+    "tain / ten / tend"
+   ],
+   "level": 4,
+   "exams": {}
+  },
+  "pretend": {
+   "parse": "pre 在前 + tend 伸",
+   "gloss": "v. 把說法伸到前面當藉口→假裝；adj. 假想的",
+   "affixes": [
+    "tain / ten / tend"
+   ],
+   "level": 3,
+   "exams": {}
+  },
+  "tension": {
+   "parse": "tens 伸 + -ion",
+   "gloss": "n. 拉緊的狀態→緊張；（雙方的）緊張關係；（繩子的）拉力",
+   "affixes": [
+    "tain / ten / tend"
+   ],
+   "level": 4,
+   "exams": {}
+  },
+  "content": {
+   "parse": "con 一起 + tent 握",
+   "gloss": "n. 握在裡面的東西→內容；（複數）裡面裝的東西、目錄；含量；adj. 被限在範圍內的→知足的、滿足的",
+   "affixes": [
+    "tain / ten / tend"
+   ],
+   "level": 4,
+   "exams": {}
+  },
+  "fragile": {
+   "parse": "frag（拉丁文 frangere 打破）+ -ile",
+   "gloss": "adj. 容易打破的→易碎的；脆弱的",
+   "affixes": [
+    "rupt / fract"
+   ],
+   "exams": {
+    "115-2": "10/23"
+   }
+  },
+  "erupt": {
+   "parse": "e（ex）向外 + rupt 斷",
+   "gloss": "v. 衝破出來→（火山）爆發；（衝突等）突然爆發",
+   "affixes": [
+    "rupt / fract"
+   ],
+   "level": 5,
+   "exams": {}
+  },
+  "interrupt": {
+   "parse": "inter 在中間 + rupt 斷",
+   "gloss": "v. 從中間打斷→打擾；中斷",
+   "affixes": [
+    "rupt / fract"
+   ],
+   "level": 3,
+   "exams": {}
+  },
+  "corrupt": {
+   "parse": "cor（com 徹底）+ rupt 斷",
+   "gloss": "adj. 徹底斷掉、敗壞的→腐敗的、貪腐的；v. 使腐敗；使（檔案）損毀",
+   "affixes": [
+    "rupt / fract"
+   ],
+   "level": 5,
+   "exams": {}
+  },
+  "bankrupt": {
+   "parse": "bank 銀行 + rupt 斷",
+   "gloss": "adj. 銀行（錢櫃）被打斷、壞掉了→破產的",
+   "affixes": [
+    "rupt / fract"
+   ],
+   "level": 4,
+   "exams": {}
+  },
+  "fracture": {
+   "parse": "fract 打破 + -ure",
+   "gloss": "n./v. 骨折；斷裂",
+   "affixes": [
+    "rupt / fract"
+   ],
+   "level": 6,
+   "exams": {}
+  },
+  "fragment": {
+   "parse": "frag 打破 + -ment",
+   "gloss": "n. 碎片；片段",
+   "affixes": [
+    "rupt / fract"
+   ],
+   "level": 5,
+   "exams": {}
+  },
+  "fraction": {
+   "parse": "fract 打破 + -ion",
+   "gloss": "n. 打破的一部分→分數；一小部分",
+   "affixes": [
+    "rupt / fract"
+   ],
+   "level": 5,
+   "exams": {}
+  },
+  "obstacle": {
+   "parse": "ob 對著 + stacle（拉丁文 stare 站）",
+   "gloss": "n. 站在你面前擋路的東西→障礙物",
+   "affixes": [
+    "sta / sist / stit"
+   ],
+   "exams": {
+    "115-2": "U14"
+   }
+  },
+  "assist": {
+   "parse": "as（ad）朝向 + sist 站",
+   "gloss": "v. 站到旁邊→幫助",
+   "affixes": [
+    "sta / sist / stit"
+   ],
+   "level": 3,
+   "exams": {}
+  },
+  "insist": {
+   "parse": "in 在上面 + sist 站",
+   "gloss": "v. 站在上面不走→堅持；堅稱、堅決要求",
+   "affixes": [
+    "sta / sist / stit"
+   ],
+   "level": 2,
+   "exams": {}
+  },
+  "resist": {
+   "parse": "re 對抗 + sist 站",
+   "gloss": "v. 站著對抗→抵抗；忍住、抗拒（誘惑）",
+   "affixes": [
+    "sta / sist / stit"
+   ],
+   "level": 3,
+   "exams": {}
+  },
+  "persist": {
+   "parse": "per 徹底 + sist 站",
+   "gloss": "v. 站到底不放棄→堅持不懈；持續",
+   "affixes": [
+    "sta / sist / stit"
+   ],
+   "level": 5,
+   "exams": {}
+  },
+  "exist": {
+   "parse": "ex 向外 + sist 站（s 與 x 合併）",
+   "gloss": "v. 站出來→存在",
+   "affixes": [
+    "sta / sist / stit"
+   ],
+   "level": 2,
+   "exams": {}
+  },
+  "station": {
+   "parse": "sta 站 + -tion",
+   "gloss": "n. 站的地方→車站；…站、所",
+   "affixes": [
+    "sta / sist / stit"
+   ],
+   "level": 1,
+   "exams": {}
+  },
+  "status": {
+   "parse": "sta 站 + -tus",
+   "gloss": "n. 站的位置→地位、身分；狀態",
+   "affixes": [
+    "sta / sist / stit"
+   ],
+   "level": 4,
+   "exams": {}
+  },
+  "abstract": {
+   "parse": "abs 離開 + tract 拉",
+   "gloss": "adj. 從具體的東西拉出來的→抽象的；n. 摘要",
+   "affixes": [
+    "tract / duct"
+   ],
+   "exams": {
+    "115-2": "U13"
+   }
+  },
+  "attract": {
+   "parse": "at（ad）朝向 + tract 拉",
+   "gloss": "v. 拉過來→吸引",
+   "affixes": [
+    "tract / duct"
+   ],
+   "level": 3,
+   "exams": {}
+  },
+  "extract": {
+   "parse": "ex 向外 + tract 拉",
+   "gloss": "v. 拉出來→提煉；拔出；n. 摘錄",
+   "affixes": [
+    "tract / duct"
+   ],
+   "level": 6,
+   "exams": {}
+  },
+  "contract": {
+   "parse": "con 一起 + tract 拉",
+   "gloss": "n. 把雙方拉在一起的約→合約；v. 收縮；感染",
+   "affixes": [
+    "tract / duct"
+   ],
+   "level": 2,
+   "exams": {}
+  },
+  "subtract": {
+   "parse": "sub 下面 + tract 拉",
+   "gloss": "v. 往下拉掉→減去",
+   "affixes": [
+    "tract / duct"
+   ],
+   "level": 3,
+   "exams": {}
+  },
+  "produce": {
+   "parse": "pro 向前 + duce 引導",
+   "gloss": "v. 帶出來→生產、製造；引起",
+   "affixes": [
+    "tract / duct"
+   ],
+   "level": 2,
+   "exams": {}
+  },
+  "reduce": {
+   "parse": "re 往回 + duce 引導",
+   "gloss": "v. 往回帶→減少",
+   "affixes": [
+    "tract / duct"
+   ],
+   "level": 3,
+   "exams": {}
+  },
+  "trait": {
+   "parse": "trait（拉丁文 tractus 畫出的線條）",
+   "gloss": "n. 畫出來的一筆→特徵、特質",
+   "affixes": [
+    "tract / duct"
+   ],
+   "exams": {
+    "115-2": "10/22"
+   }
+  },
+  "process": {
+   "parse": "pro 向前 + cess 走",
+   "gloss": "n. 一步步往前走→過程；製作方法；v. 處理（文件、資料）、加工（食品）",
+   "affixes": [
+    "ced / cess"
+   ],
+   "level": 3,
+   "exams": {}
+  },
+  "proceed": {
+   "parse": "pro 向前 + ceed 走",
+   "gloss": "v. 繼續往前走→繼續進行；接著做（另一件事）；前進",
+   "affixes": [
+    "ced / cess"
+   ],
+   "level": 4,
+   "exams": {}
+  },
+  "succeed": {
+   "parse": "suc（sub）接著 + ceed 走",
+   "gloss": "v. 緊接在後面走上來→接續、繼任；成功",
+   "affixes": [
+    "ced / cess"
+   ],
+   "level": 2,
+   "exams": {}
+  },
+  "success": {
+   "parse": "suc（sub）接著 + cess 走",
+   "gloss": "n. 接上去了→成功；成功的人或事",
+   "affixes": [
+    "ced / cess"
+   ],
+   "level": 2,
+   "exams": {}
+  },
+  "precede": {
+   "parse": "pre 在前 + cede 走",
+   "gloss": "v. 走在前面→在…之前發生、先於",
+   "affixes": [
+    "ced / cess"
+   ],
+   "level": 6,
+   "exams": {}
+  },
+  "recession": {
+   "parse": "re 往回 + cess 走 + -ion",
+   "gloss": "n. 往回退→（經濟）衰退",
+   "affixes": [
+    "ced / cess"
+   ],
+   "level": 5,
+   "exams": {}
+  },
+  "necessary": {
+   "parse": "ne 不 + cess 退讓 + -ary",
+   "gloss": "adj. 沒有退路的→必要的、必需的",
+   "affixes": [
+    "ced / cess"
+   ],
+   "level": 2,
+   "exams": {}
+  },
+  "uniform": {
+   "parse": "uni 一 + form 形狀",
+   "gloss": "adj. 一樣的、一致的；n. 大家同一個樣子的衣服→制服",
+   "affixes": [
+    "form"
+   ],
+   "level": 1,
+   "exams": {}
+  },
+  "formal": {
+   "parse": "form 形式 + -al",
+   "gloss": "adj. 正式的",
+   "affixes": [
+    "form"
+   ],
+   "level": 2,
+   "exams": {}
+  },
+  "platform": {
+   "parse": "plat（法文 plat 平的）+ form 形狀",
+   "gloss": "n. 平台；（車站的）月台；講台；（政黨的）政見、綱領；（電腦、網路的）平台",
+   "affixes": [
+    "form"
+   ],
+   "level": 2,
+   "exams": {}
+  },
+  "inform": {
+   "parse": "in 進入 + form 形狀",
+   "gloss": "v. 塑形→教導→通知、告知",
+   "affixes": [
+    "form"
+   ],
+   "level": 3,
+   "exams": {}
+  },
+  "information": {
+   "parse": "inform 通知 + -ation",
+   "gloss": "n. 資訊（不可數）",
+   "affixes": [
+    "form"
+   ],
+   "level": 3,
+   "exams": {}
+  },
+  "conform": {
+   "parse": "con 一起 + form 形狀",
+   "gloss": "v. 跟大家形狀一樣→遵守、符合（規定、習俗）；順從",
+   "affixes": [
+    "form"
+   ],
+   "level": 5,
+   "exams": {}
+  },
+  "format": {
+   "parse": "format（近代拉丁文 liber formatus「做成某種形狀的書」，formatus 是 formare 塑形的過去分詞）",
+   "gloss": "n. 編排方式、形式；（電腦資料的）格式；v. 安排格式；格式化",
+   "affixes": [
+    "form"
+   ],
+   "level": 5,
+   "exams": {}
+  },
+  "offer": {
+   "parse": "of（ob）朝向 + fer 帶",
+   "gloss": "v. 把東西帶到對方面前→提供、出價",
+   "affixes": [
+    "fer"
+   ],
+   "level": 2,
+   "exams": {}
+  },
+  "suffer": {
+   "parse": "suf（sub）在下 + fer 帶",
+   "gloss": "v. 在底下承受→受苦；遭受（壞事）",
+   "affixes": [
+    "fer"
+   ],
+   "level": 3,
+   "exams": {}
+  },
+  "conference": {
+   "parse": "con 一起 + fer 帶 + -ence",
+   "gloss": "n. 把意見帶到一起→會議、研討會",
+   "affixes": [
+    "fer"
+   ],
+   "level": 4,
+   "exams": {}
+  },
+  "refer": {
+   "parse": "re 回 + fer 帶",
+   "gloss": "v. 帶回去、帶到別處→提到；參考；轉介",
+   "affixes": [
+    "fer"
+   ],
+   "level": 4,
+   "exams": {}
+  },
+  "transfer": {
+   "parse": "trans 越過 + fer 帶",
+   "gloss": "v. 從一處帶到另一處→轉移；轉學、調職；轉乘；轉讓（財產）",
+   "affixes": [
+    "fer"
+   ],
+   "level": 4,
+   "exams": {}
+  },
+  "infer": {
+   "parse": "in 往裡 + fer 帶",
+   "gloss": "v. 把結論帶進來→推論、推斷",
+   "affixes": [
+    "fer"
+   ],
+   "level": 6,
+   "exams": {}
+  },
+  "act": {
+   "parse": "act（拉丁文 actus 做的事，是 agere 做的過去分詞）",
+   "gloss": "n. 行為；（戲劇的）一幕；法案；v. 行動；表現；演出",
+   "affixes": [
+    "act / ag"
+   ],
+   "level": 1,
+   "exams": {}
+  },
+  "action": {
+   "parse": "act 行動 + -ion",
+   "gloss": "n. 行動；動作",
+   "affixes": [
+    "act / ag"
+   ],
+   "level": 1,
+   "exams": {}
+  },
+  "active": {
+   "parse": "act 行動 + -ive",
+   "gloss": "adj. 活躍的、積極的；主動的",
+   "affixes": [
+    "act / ag"
+   ],
+   "level": 2,
+   "exams": {}
+  },
+  "actual": {
+   "parse": "act（拉丁文 actus 行動）+ -ual",
+   "gloss": "adj. 實際的、真正的",
+   "affixes": [
+    "act / ag"
+   ],
+   "level": 2,
+   "exams": {}
+  },
+  "exact": {
+   "parse": "ex 出 + act（拉丁文 agere 驅趕）",
+   "gloss": "adj. 做得很精細的→精確的",
+   "affixes": [
+    "act / ag"
+   ],
+   "level": 2,
+   "exams": {}
+  },
+  "react": {
+   "parse": "re 回 + act 做",
+   "gloss": "v. 受到刺激後往回做出動作→反應",
+   "affixes": [
+    "act / ag"
+   ],
+   "level": 3,
+   "exams": {}
+  },
+  "agent": {
+   "parse": "ag（拉丁文 agere 做）+ -ent",
+   "gloss": "n. 代理人；特務",
+   "affixes": [
+    "act / ag"
+   ],
+   "level": 4,
+   "exams": {}
+  },
+  "agenda": {
+   "parse": "agenda（拉丁文 agenda 要做的事情，來自 agere 做）",
+   "gloss": "n. 議程；（要處理的）事項；（不明說的）意圖",
+   "affixes": [
+    "act / ag"
+   ],
+   "level": 5,
+   "exams": {}
+  },
+  "press": {
+   "parse": "拉丁文 premere 壓",
+   "gloss": "v. 壓、按；催促；n. 新聞界、媒體",
+   "affixes": [
+    "press"
+   ],
+   "level": 2,
+   "exams": {}
+  },
+  "pressure": {
+   "parse": "press 壓 + -ure",
+   "gloss": "n. 壓力",
+   "affixes": [
+    "press"
+   ],
+   "level": 2,
+   "exams": {}
+  },
+  "express": {
+   "parse": "ex 往外 + press 壓",
+   "gloss": "v. 把心裡的話壓出來→表達；adj. 快遞的、特快的",
+   "affixes": [
+    "press"
+   ],
+   "level": 2,
+   "exams": {}
+  },
+  "impress": {
+   "parse": "im 在…上 + press 壓",
+   "gloss": "v. 壓進心裡→使印象深刻",
+   "affixes": [
+    "press"
+   ],
+   "level": 3,
+   "exams": {}
+  },
+  "oppress": {
+   "parse": "op（ob 對著）+ press 壓",
+   "gloss": "v. 對著壓下去→壓迫",
+   "affixes": [
+    "press"
+   ],
+   "level": 6,
+   "exams": {}
+  },
+  "expression": {
+   "parse": "express 表達 + -ion",
+   "gloss": "n. 表達；表情；說法、措辭",
+   "affixes": [
+    "press"
+   ],
+   "level": 2,
+   "exams": {}
+  },
+  "impression": {
+   "parse": "impress 使印象深刻 + -ion",
+   "gloss": "n. 印象",
+   "affixes": [
+    "press"
+   ],
+   "level": 4,
+   "exams": {}
+  },
+  "privilege": {
+   "parse": "privi 私人 + leg 法律 + -e",
+   "gloss": "n./v. 為私人訂的那條法→特權；給予特權",
+   "affixes": [
+    "leg / legis（法律）"
+   ],
+   "exams": {
+    "115-2": "U13"
+   }
+  },
+  "legal": {
+   "parse": "leg 法律 + -al",
+   "gloss": "adj. 跟法律有關的→法律的；合法的",
+   "affixes": [
+    "leg / legis（法律）"
+   ],
+   "level": 2,
+   "exams": {}
+  },
+  "delegate": {
+   "parse": "de 離開 + leg 派 + -ate",
+   "gloss": "n. 帶著任務派出去的人→（會議的）代表；v. 委派、授權",
+   "affixes": [
+    "leg / legis（法律）"
+   ],
+   "level": 5,
+   "exams": {}
+  },
+  "legacy": {
+   "parse": "leg 依法交付 + -acy",
+   "gloss": "n. 依遺囑留下的東西→遺產；留給後世的東西",
+   "affixes": [
+    "leg / legis（法律）"
+   ],
+   "level": 5,
+   "exams": {}
+  },
+  "legislation": {
+   "parse": "legis 法律 + lat 帶來 + -ion",
+   "gloss": "n. 提出法律→立法；法規、法律",
+   "affixes": [
+    "leg / legis（法律）"
+   ],
+   "level": 5,
+   "exams": {}
+  },
+  "species": {
+   "parse": "spec 看 + -ies",
+   "gloss": "n. 看起來同一個樣子的一群→物種",
+   "affixes": [
+    "speci（種類）"
+   ],
+   "exams": {
+    "115-2": "U15"
+   }
+  },
+  "special": {
+   "parse": "speci 種類 + -al",
+   "gloss": "adj. 屬於某一個種類的→特別的、特殊的；專門的",
+   "affixes": [
+    "speci（種類）"
+   ],
+   "level": 1,
+   "exams": {}
+  },
+  "especially": {
+   "parse": "e 古法語加的母音 + special 特別的 + -ly",
+   "gloss": "adv. 特別挑出來講→尤其、特別是（e- 不是字首、沒有意思；拉丁文 sp-、st-、sc- 開頭的字進古法語常加一個 e-。special 直接加 -ly 得到的 specially 是另一個字，兩者同源，但 specially 偏「為某個目的特地」）",
+   "affixes": [
+    "speci（種類）"
+   ],
+   "level": 2,
+   "exams": {}
+  },
+  "specific": {
+   "parse": "speci 種類 + fic 做",
+   "gloss": "adj. 指明是哪一種的→特定的；明確的",
+   "affixes": [
+    "speci（種類）"
+   ],
+   "level": 3,
+   "exams": {}
+  },
+  "specialist": {
+   "parse": "special 特別的 + -ist 人",
+   "gloss": "n. 專做特別那一項的人→專家；專科醫生",
+   "affixes": [
+    "speci（種類）"
+   ],
+   "level": 5,
+   "exams": {}
+  },
+  "specialize": {
+   "parse": "special 特別的 + -ize 使",
+   "gloss": "v. 使自己專走特別那一項→專攻、專門從事（specialize in）",
+   "affixes": [
+    "speci（種類）"
+   ],
+   "level": 5,
+   "exams": {}
+  },
+  "specify": {
+   "parse": "speci 種類 + -fy 使",
+   "gloss": "v. 指明是哪一種→具體說明、明確指出",
+   "affixes": [
+    "speci（種類）"
+   ],
+   "level": 5,
+   "exams": {}
+  },
+  "scan": {
+   "parse": "scan（拉丁文 scandere 爬；後來專指照節拍念詩）",
+   "gloss": "v. 仔細察看；瀏覽；掃描；n. 掃描（檢查）",
+   "affixes": [
+    "scend / scan（爬）"
+   ],
+   "exams": {
+    "115-2": "10/8"
+   }
+  },
+  "ascend": {
+   "parse": "a（ad 朝向）+ scend 爬",
+   "gloss": "v. 往上爬→上升、登上",
+   "affixes": [
+    "scend / scan（爬）"
+   ],
+   "level": 6,
+   "exams": {}
+  },
+  "descend": {
+   "parse": "de 往下 + scend 爬",
+   "gloss": "v. 往下爬→下降、下來；是…的後代（be descended from）",
+   "affixes": [
+    "scend / scan（爬）"
+   ],
+   "level": 5,
+   "exams": {}
+  },
+  "descent": {
+   "parse": "descend 的名詞",
+   "gloss": "n. 下降；血統",
+   "affixes": [
+    "scend / scan（爬）"
+   ],
+   "level": 6,
+   "exams": {}
+  },
+  "escalator": {
+   "parse": "escalade（用梯子爬城牆）+ -ator，仿照 elevator 造的字，原本是商標名",
+   "gloss": "n. 電扶梯",
+   "affixes": [
+    "scend / scan（爬）"
+   ],
+   "level": 5,
+   "exams": {}
+  },
+  "conversation": {
+   "parse": "con 一起 + vers 轉 + -ation",
+   "gloss": "n. 跟人往來相處→交談、對話",
+   "affixes": [
+    "vers / vert（轉）"
+   ],
+   "level": 2,
+   "exams": {}
+  },
+  "universe": {
+   "parse": "uni 一 + vers 轉",
+   "gloss": "n. 轉成一整個→宇宙；（某人熟悉的）世界",
+   "affixes": [
+    "vers / vert（轉）"
+   ],
+   "level": 2,
+   "exams": {}
+  },
+  "university": {
+   "parse": "uni 一 + vers 轉 + -ity",
+   "gloss": "n. 師生合成的一整個團體→大學",
+   "affixes": [
+    "vers / vert（轉）"
+   ],
+   "level": 2,
+   "exams": {}
+  },
+  "verse": {
+   "parse": "vers 轉",
+   "gloss": "n. 犁到田頭轉回來的那一道→詩行、韻文",
+   "affixes": [
+    "vers / vert（轉）"
+   ],
+   "level": 3,
+   "exams": {}
+  },
+  "advertise": {
+   "parse": "ad 朝向 + vert 轉",
+   "gloss": "v. 把大家的注意力轉過來→登廣告、宣傳",
+   "affixes": [
+    "vers / vert（轉）"
+   ],
+   "level": 3,
+   "exams": {}
+  },
+  "anniversary": {
+   "parse": "anni 年 + vers 轉 + -ary",
+   "gloss": "n. 一年轉回原點的那一天→週年紀念",
+   "affixes": [
+    "vers / vert（轉）"
+   ],
+   "level": 4,
+   "exams": {}
+  },
+  "diverse": {
+   "parse": "di 分開 + vers 轉",
+   "gloss": "adj. 轉往不同方向的→多樣的；各不相同的",
+   "affixes": [
+    "vers / vert（轉）"
+   ],
+   "level": 4,
+   "exams": {}
+  },
+  "adverse": {
+   "parse": "ad 朝向 + vers 轉",
+   "gloss": "adj. 轉過來對著你的→不利的、有害的",
+   "affixes": [
+    "vers / vert（轉）"
+   ],
+   "level": 5,
+   "exams": {}
+  },
+  "convert": {
+   "parse": "con 完全 + vert 轉：整個轉過去",
+   "gloss": "v. 轉過去→使轉變；改信",
+   "affixes": [
+    "vers / vert（轉）"
+   ],
+   "level": 5,
+   "exams": {}
+  },
+  "version": {
+   "parse": "vers 轉 + -ion",
+   "gloss": "n. 轉成另一種樣子→版本；（個人的）說法",
+   "affixes": [
+    "vers / vert（轉）"
+   ],
+   "level": 5,
+   "exams": {}
+  },
+  "vertical": {
+   "parse": "vertex 頭頂（頭髮旋轉的那一點，來自 vertere 轉）+ -al",
+   "gloss": "adj. 指向頭頂正上方的→垂直的、豎直的",
+   "affixes": [
+    "vers / vert（轉）"
+   ],
+   "level": 5,
+   "exams": {}
+  },
+  "dictionary": {
+   "parse": "diction（拉丁文 dictio 說的話、字詞）+ -ary",
+   "gloss": "n. 收集字詞的書→字典",
+   "affixes": [
+    "dict / dic（說）"
+   ],
+   "level": 1,
+   "exams": {}
+  },
+  "indicate": {
+   "parse": "in 朝向 + dic 說、指 + -ate",
+   "gloss": "v. 指出、顯示",
+   "affixes": [
+    "dict / dic（說）"
+   ],
+   "level": 2,
+   "exams": {}
+  },
+  "predict": {
+   "parse": "pre 事先 + dict 說",
+   "gloss": "v. 事先說出來→預測",
+   "affixes": [
+    "dict / dic（說）"
+   ],
+   "level": 4,
+   "exams": {}
+  },
+  "addict": {
+   "parse": "ad 朝向 + dict 說",
+   "gloss": "n. 原意是「被判給別人的人」→上癮的人；…迷；v. 使上癮、使沉迷",
+   "affixes": [
+    "dict / dic（說）"
+   ],
+   "level": 4,
+   "exams": {}
+  },
+  "verdict": {
+   "parse": "ver 真實 + dict 說",
+   "gloss": "n. 說出真話→（陪審團的）裁決；判斷、意見",
+   "affixes": [
+    "dict / dic（說）"
+   ],
+   "level": 5,
+   "exams": {}
+  },
+  "index": {
+   "parse": "in 朝向 + dex（拉丁文 dicare 宣告、指出）",
+   "gloss": "n. 指出東西在哪裡→索引；指數、指標",
+   "affixes": [
+    "dict / dic（說）"
+   ],
+   "level": 5,
+   "exams": {}
+  },
+  "dedicate": {
+   "parse": "de 離開 + dic 宣告 + -ate",
+   "gloss": "v. 宣告把東西獻出去→奉獻、致力；（把作品）題獻給；把（時間、空間、經費）專用於",
+   "affixes": [
+    "dict / dic（說）"
+   ],
+   "level": 5,
+   "exams": {}
+  },
+  "dictate": {
+   "parse": "dict 說 + -ate（拉丁文 dictare 反覆說、規定）",
+   "gloss": "v. 說給人寫下來→口述；命令、支配",
+   "affixes": [
+    "dict / dic（說）"
+   ],
+   "level": 6,
+   "exams": {}
+  },
+  "prediction": {
+   "parse": "predict 預測 + -ion",
+   "gloss": "n. 預測",
+   "affixes": [
+    "dict / dic（說）"
+   ],
+   "level": 4,
+   "exams": {}
+  },
+  "describe": {
+   "parse": "de 往下 + scribe 寫",
+   "gloss": "v. 寫下來→描述",
+   "affixes": [
+    "scrib / script（寫）"
+   ],
+   "level": 2,
+   "exams": {}
+  },
+  "description": {
+   "parse": "describe 描述 + -tion（be 變成 p）",
+   "gloss": "n. 描述",
+   "affixes": [
+    "scrib / script（寫）"
+   ],
+   "level": 2,
+   "exams": {}
+  },
+  "descriptive": {
+   "parse": "describe 描述（拉丁文 descriptus）+ -ive",
+   "gloss": "adj. 描述的",
+   "affixes": [
+    "scrib / script（寫）"
+   ],
+   "level": 5,
+   "exams": {}
+  },
+  "prescribe": {
+   "parse": "pre 事先 + scribe 寫",
+   "gloss": "v. 事先寫好→開處方；規定",
+   "affixes": [
+    "scrib / script（寫）"
+   ],
+   "level": 5,
+   "exams": {}
+  },
+  "script": {
+   "parse": "script（拉丁文 scriptum 寫下來的東西）",
+   "gloss": "n. 寫下來的東西→劇本、腳本；筆跡；文字",
+   "affixes": [
+    "scrib / script（寫）"
+   ],
+   "level": 5,
+   "exams": {}
+  },
+  "subscribe": {
+   "parse": "sub 在下面 + scribe 寫",
+   "gloss": "v. 在文件下面簽名→訂閱、訂購；（subscribe to）贊同（某種看法）",
+   "affixes": [
+    "scrib / script（寫）"
+   ],
+   "level": 6,
+   "exams": {}
+  },
+  "subscription": {
+   "parse": "subscribe 訂閱 + -tion（be 變成 p）",
+   "gloss": "n. 訂閱、訂購",
+   "affixes": [
+    "scrib / script（寫）"
+   ],
+   "level": 6,
+   "exams": {}
+  },
+  "transcript": {
+   "parse": "trans 越過 + script 寫",
+   "gloss": "n. 照著抄到另一張紙上→文字紀錄；成績單",
+   "affixes": [
+    "scrib / script（寫）"
+   ],
+   "level": 6,
+   "exams": {}
+  },
+  "manuscript": {
+   "parse": "manu 手 + script 寫",
+   "gloss": "n. 用手寫的→手稿；（出版前的）原稿",
+   "affixes": [
+    "scrib / script（寫）"
+   ],
+   "level": 6,
+   "exams": {}
+  },
+  "sense": {
+   "parse": "sense（拉丁文 sensus 感覺，來自 sentire）",
+   "gloss": "n. 感官、感覺；意義；判斷力；v. 察覺、感覺到",
+   "affixes": [
+    "sens / sent（感覺）"
+   ],
+   "level": 2,
+   "exams": {}
+  },
+  "sensible": {
+   "parse": "sens（拉丁文 sentire 感覺）+ -ible",
+   "gloss": "adj. 有判斷力的→明智的、合理的",
+   "affixes": [
+    "sens / sent（感覺）"
+   ],
+   "level": 3,
+   "exams": {}
+  },
+  "sensation": {
+   "parse": "sense 感覺 + -ation（去掉 e）",
+   "gloss": "n. 感覺；轟動",
+   "affixes": [
+    "sens / sent（感覺）"
+   ],
+   "level": 5,
+   "exams": {}
+  },
+  "sentence": {
+   "parse": "sent（拉丁文 sentire 感覺、認為）+ -ence",
+   "gloss": "n. 句子；判決；v. 判刑",
+   "affixes": [
+    "sens / sent（感覺）"
+   ],
+   "level": 1,
+   "exams": {}
+  },
+  "sentiment": {
+   "parse": "senti（拉丁文 sentire 感覺）+ -ment",
+   "gloss": "n. 情感；看法",
+   "affixes": [
+    "sens / sent（感覺）"
+   ],
+   "level": 5,
+   "exams": {}
+  },
+  "consent": {
+   "parse": "con 一起 + sent 感覺",
+   "gloss": "n./v. 感覺一樣→同意",
+   "affixes": [
+    "sens / sent（感覺）"
+   ],
+   "level": 5,
+   "exams": {}
+  },
+  "consensus": {
+   "parse": "con 一起 + sens 感覺 + -us",
+   "gloss": "n. 大家感覺一樣→共識",
+   "affixes": [
+    "sens / sent（感覺）"
+   ],
+   "level": 5,
+   "exams": {}
+  },
+  "scent": {
+   "parse": "scent（古法文 sentir 感覺、聞到；c 是後來才加上的）",
+   "gloss": "n. 氣味、香味；香水；v. 聞出；察覺",
+   "affixes": [
+    "sens / sent（感覺）"
+   ],
+   "level": 5,
+   "exams": {}
+  },
+  "resent": {
+   "parse": "re 強調 + sent 感覺",
+   "gloss": "v. 強烈地感覺到（委屈）→對…感到憤恨、不滿",
+   "affixes": [
+    "sens / sent（感覺）"
+   ],
+   "level": 6,
+   "exams": {}
+  },
+  "nonsense": {
+   "parse": "non 不 + sense 意義",
+   "gloss": "n. 沒有意義的話→胡說、廢話；胡鬧",
+   "affixes": [
+    "sens / sent（感覺）"
+   ],
+   "level": 4,
+   "exams": {}
+  },
+  "subject": {
+   "parse": "sub 在下面 + ject 丟",
+   "gloss": "n. 放在底下當基礎的東西→主題、科目；主詞；adj. 容易受…影響的；須經…的（be subject to）",
+   "affixes": [
+    "ject（丟）"
+   ],
+   "level": 1,
+   "exams": {}
+  },
+  "object": {
+   "parse": "ob 朝向、對著 + ject 丟",
+   "gloss": "n. 丟到眼前的東西→物體；目標；受詞；v. 丟過去擋住→反對",
+   "affixes": [
+    "ject（丟）"
+   ],
+   "level": 2,
+   "exams": {}
+  },
+  "project": {
+   "parse": "pro 往前 + ject 丟",
+   "gloss": "n. 往前丟出去的想法→計畫、專案；（學生的）專題；v. 投射；預測",
+   "affixes": [
+    "ject（丟）"
+   ],
+   "level": 2,
+   "exams": {}
+  },
+  "reject": {
+   "parse": "re 回 + ject 丟",
+   "gloss": "v. 丟回去→拒絕",
+   "affixes": [
+    "ject（丟）"
+   ],
+   "level": 2,
+   "exams": {}
+  },
+  "jet": {
+   "parse": "jet（法文 jeter 丟，來自後期拉丁文 iectare 丟）",
+   "gloss": "n. 噴射機；噴出的水柱、氣流；v. 噴出；搭飛機（旅行）",
+   "affixes": [
+    "ject（丟）"
+   ],
+   "level": 3,
+   "exams": {}
+  },
+  "objection": {
+   "parse": "object 反對 + -ion",
+   "gloss": "n. 反對",
+   "affixes": [
+    "ject（丟）"
+   ],
+   "level": 4,
+   "exams": {}
+  },
+  "objective": {
+   "parse": "object 物體 + -ive",
+   "gloss": "n. 目標；adj. 客觀的",
+   "affixes": [
+    "ject（丟）"
+   ],
+   "level": 4,
+   "exams": {}
+  },
+  "rejection": {
+   "parse": "reject 拒絕 + -ion",
+   "gloss": "n. 拒絕",
+   "affixes": [
+    "ject（丟）"
+   ],
+   "level": 4,
+   "exams": {}
+  },
+  "projection": {
+   "parse": "project 投射；預測 + -ion",
+   "gloss": "n. 投射、投影；預測",
+   "affixes": [
+    "ject（丟）"
+   ],
+   "level": 5,
+   "exams": {}
+  },
+  "subjective": {
+   "parse": "subject 主體 + -ive",
+   "gloss": "adj. 主觀的",
+   "affixes": [
+    "ject（丟）"
+   ],
+   "level": 6,
+   "exams": {}
+  },
+  "respond": {
+   "parse": "re 回 + spond 承諾",
+   "gloss": "v. 回話給對方→回應、反應",
+   "affixes": [
+    "spond / spons（承諾）"
+   ],
+   "level": 2,
+   "exams": {}
+  },
+  "responsible": {
+   "parse": "re 回 + spons 承諾 + -ible",
+   "gloss": "adj. 要負責回應的→負責任的、可靠的；（be responsible for）負責…、造成…的",
+   "affixes": [
+    "spond / spons（承諾）"
+   ],
+   "level": 2,
+   "exams": {}
+  },
+  "response": {
+   "parse": "re 回 + spons 承諾",
+   "gloss": "n. 回過去的話→回答、回應；反應",
+   "affixes": [
+    "spond / spons（承諾）"
+   ],
+   "level": 3,
+   "exams": {}
+  },
+  "responsibility": {
+   "parse": "responsible 負責的 + -ity",
+   "gloss": "n. 要負責回應的事→責任、職責（-ble 接 -ity 時要變 -bil）",
+   "affixes": [
+    "spond / spons（承諾）"
+   ],
+   "level": 3,
+   "exams": {}
+  },
+  "correspondent": {
+   "parse": "correspond 通信 + -ent 人",
+   "gloss": "n. 在遠方持續回報的人→（新聞）特派員、通訊記者；通信者",
+   "affixes": [
+    "spond / spons（承諾）"
+   ],
+   "level": 5,
+   "exams": {}
+  },
+  "sponsor": {
+   "parse": "spons 承諾 + -or 人",
+   "gloss": "n. 承諾出錢支持的人→贊助者、保證人",
+   "affixes": [
+    "spond / spons（承諾）"
+   ],
+   "level": 5,
+   "exams": {}
+  },
+  "sponsorship": {
+   "parse": "sponsor 贊助者 + -ship 身分",
+   "gloss": "n. 贊助；贊助費",
+   "affixes": [
+    "spond / spons（承諾）"
+   ],
+   "level": 5,
+   "exams": {}
+  },
+  "correspondence": {
+   "parse": "correspond 通信 + -ence",
+   "gloss": "n. 互相回應→通信；信件；相符、關聯",
+   "affixes": [
+    "spond / spons（承諾）"
+   ],
+   "level": 6,
+   "exams": {}
+  },
+  "earphone": {
+   "parse": "ear 耳朵 + phone 聲音",
+   "gloss": "n. 塞進耳朵的小機器→耳機",
+   "affixes": [
+    "複合字"
+   ],
+   "exams": {
+    "115-2": "U13"
+   }
+  },
+  "lifeguard": {
+   "parse": "life 生命 + guard 守衛",
+   "gloss": "n. 守護生命的人→救生員",
+   "affixes": [
+    "複合字"
+   ],
+   "exams": {
+    "115-2": "U13"
+   }
+  },
+  "timetable": {
+   "parse": "time 時間 + table 表格",
+   "gloss": "n. 時間表格→時刻表",
+   "affixes": [
+    "複合字"
+   ],
+   "exams": {
+    "115-2": "U13"
+   }
+  },
+  "wildlife": {
+   "parse": "wild 野生的 + life 生物",
+   "gloss": "n. 野生的生物→野生動物",
+   "affixes": [
+    "複合字"
+   ],
+   "exams": {
+    "115-2": "10/5"
+   }
+  },
+  "workout": {
+   "parse": "work 運作 + out 出來",
+   "gloss": "n. 把力氣用出來→運動訓練、鍛鍊",
+   "affixes": [
+    "複合字"
+   ],
+   "exams": {
+    "115-2": "10/21"
+   }
+  },
+  "feedback": {
+   "parse": "feed 餵 + back 回",
+   "gloss": "n. 餵回去的資訊→回饋、意見回應",
+   "affixes": [
+    "複合字"
+   ],
+   "exams": {
+    "115-2": "U16"
+   }
+  },
+  "overalls": {
+   "parse": "over 在上面 + all 全部 + -s",
+   "gloss": "n. 罩在外面的全身衣→連身工作服、吊帶褲（恆用複數）",
+   "affixes": [
+    "複合字"
+   ],
+   "exams": {
+    "115-2": "10/13"
+   }
+  },
+  "bridegroom": {
+   "parse": "bride 新娘 + groom 新郎",
+   "gloss": "n. 新娘的男伴→新郎",
+   "affixes": [
+    "複合字"
+   ],
+   "exams": {
+    "115-2": "U14"
+   }
+  },
+  "nevertheless": {
+   "parse": "never 從不 + the 那 + less 較少",
+   "gloss": "adv. 就算這樣也不會少一點→儘管如此、然而",
+   "affixes": [
+    "複合字"
+   ],
+   "exams": {
+    "115-2": "L6"
+   }
+  },
+  "widespread": {
+   "parse": "wide 寬廣 + spread 擴散",
+   "gloss": "adj. 散得很寬→廣泛的、普遍的",
+   "affixes": [
+    "複合字"
+   ],
+   "exams": {
+    "115-2": "10/28"
+   }
+  },
+  "skyscraper": {
+   "parse": "sky 天空 + scrape 擦過 + -er",
+   "gloss": "n. 擦過天空的建築→摩天大樓",
+   "affixes": [
+    "複合字"
+   ],
+   "exams": {
+    "115-2": "10/28"
+   }
+  },
+  "full-time": {
+   "parse": "full 滿的 + time 時間",
+   "gloss": "adj./adv. 用全部時間的→全職的",
+   "affixes": [
+    "複合字"
+   ],
+   "exams": {
+    "115-2": "U14"
+   }
+  },
+  "part-time": {
+   "parse": "part 部分 + time 時間",
+   "gloss": "adj./adv. 用一部分時間的→兼職的",
+   "affixes": [
+    "複合字"
+   ],
+   "exams": {
+    "115-2": "U14"
+   }
+  },
+  "telescope": {
+   "parse": "tele 遠 + scope 看",
+   "gloss": "n. 看遠處的工具→望遠鏡",
+   "affixes": [
+    "希臘字根"
+   ],
+   "exams": {
+    "115-2": "10/23"
+   }
+  },
+  "microscope": {
+   "parse": "micro 微小 + scope 看",
+   "gloss": "n. 看小東西的工具→顯微鏡",
+   "affixes": [
+    "希臘字根"
+   ],
+   "level": 4,
+   "exams": {}
+  },
+  "philosophy": {
+   "parse": "philo 愛 + sophy 智慧",
+   "gloss": "n. 愛智慧→哲學；人生觀",
+   "affixes": [
+    "希臘字根"
+   ],
+   "exams": {
+    "115-2": "10/5"
+   }
+  },
+  "psychology": {
+   "parse": "psycho 心靈 + -logy 學問",
+   "gloss": "n. 研究心靈的學問→心理學",
+   "affixes": [
+    "希臘字根"
+   ],
+   "exams": {
+    "115-2": "10/15"
+   }
+  },
+  "architect": {
+   "parse": "archi 首要 + tect 建造",
+   "gloss": "n. 首要的建造者→建築師",
+   "affixes": [
+    "希臘字根"
+   ],
+   "exams": {
+    "115-2": "10/28"
+   }
+  },
+  "telephone": {
+   "parse": "tele 遠 + phone 聲音",
+   "gloss": "n. 從遠處傳來的聲音→電話",
+   "affixes": [
+    "希臘字根"
+   ],
+   "level": 1,
+   "exams": {}
+  },
+  "biology": {
+   "parse": "bio 生命 + -logy 學問",
+   "gloss": "n. 研究生命的學問→生物學",
+   "affixes": [
+    "希臘字根"
+   ],
+   "level": 4,
+   "exams": {}
+  },
+  "geography": {
+   "parse": "geo 地 + graph 寫 + -y",
+   "gloss": "n. 地理（學）",
+   "affixes": [
+    "希臘字根"
+   ],
+   "level": 3,
+   "exams": {}
+  },
+  "photograph": {
+   "parse": "photo 光 + graph 寫",
+   "gloss": "n. 用光寫下來的東西→照片",
+   "affixes": [
+    "希臘字根"
+   ],
+   "level": 1,
+   "exams": {}
+  },
+  "democracy": {
+   "parse": "demo 人民 + -cracy 統治",
+   "gloss": "n. 民主；民主國家",
+   "affixes": [
+    "希臘字根"
+   ],
+   "level": 3,
+   "exams": {}
+  },
+  "paragraph": {
+   "parse": "para 旁邊 + graph 寫：寫在旁邊的記號",
+   "gloss": "n. 段落（原指寫在旁邊的記號）",
+   "affixes": [
+    "希臘字根"
+   ],
+   "exams": {
+    "115-2": "U15"
    }
   }
  }
