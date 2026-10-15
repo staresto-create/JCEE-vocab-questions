@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>第一次段考單字練習</title>
+<title>第二次段考單字練習</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700;900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -108,7 +108,7 @@
 <body>
 <div class="wrap">
   <header class="top">
-    <span class="title">第一次段考單字練習</span>
+    <span class="title">第二次段考單字練習</span>
     <span class="sub">中正高中　張敬欣</span>
   </header>
 
@@ -184,7 +184,7 @@
 var DATA = null;
 (function () {
   'use strict';
-  var STORE_KEY = 'zz_exam1_v1', RELEARN_GAP = 5, PASS = 3;
+  var STORE_KEY = 'zz_exam2_v1', RELEARN_GAP = 5, PASS = 3;
   // 同一輪裡再出現的間距。答對之後要隔得夠遠，下一次才是真的回想，
   // 而不是照抄剛剛看過的答案；答錯的隔近一點，趁還記得再補一次。
   // GAP_OK[已答對次數] → 隔幾張再出現。
@@ -227,36 +227,41 @@ var DATA = null;
 
   var SETS = [], sel = 0;
 
-  var AL_UNITS = [['U1',['9/1']],['U2',['9/2','9/3']],['U3',['9/4']],['U4',['9/7','9/8']],
-    ['U5',['9/9']],['U6',['9/10','9/11']],['U8',['9/15','9/16']],['U9',['9/17','9/18']],
-    ['U10',['9/21','9/22']],['U11',['9/23','9/24']],['U12',['9/25']],['U13',['9/28','9/29']],
-    ['U14',['9/30']]];
-  var AL_STAR = ['U2','U6','U8','U9','U13'];
+  var AL_UNITS = [['U1',['10/1']],['U2',['10/2','10/5']],['U3',['10/6','10/7']],['U4',['10/8','10/9']],
+    ['U5',['10/12','10/13']],['U7',['10/15','10/16']],['U8',['10/19']],['U9',['10/20']],
+    ['U10',['10/21']],['U11',['10/22','10/23']],['U12',['10/26','10/27']],['U13',['10/28','10/29']],
+    ['U14',['10/30']]];
+  var AL_STAR = ['U2','U3','U7','U11','U12'];
+  // 字搭卡依日期自動開放（以四班中最早在課堂上給解答的那一天為準），不必再改程式上傳
+  var UNLOCK = [['L4','2026-10-16'],['L5','2026-10-30'],['L6','2026-11-13']];
+  function unlocked(){
+    var d=new Date(), t=d.getFullYear()+'-'+('0'+(d.getMonth()+1)).slice(-2)+'-'+('0'+d.getDate()).slice(-2);
+    return UNLOCK.filter(function(u){ return t>=u[1]; }).map(function(u){ return u[0]; });
+  }
 
   function makeSets(){
-    // 字搭要等課堂核對過才開。改這一行就能解鎖：L2 核對後寫 ['L1','L2']，L3 核對後寫 ['L1','L2','L3']
-    var UNLOCKED =['L1','L2','L3'];
+    var UNLOCKED = unlocked();
     var g = [], lessons = scope.lessons || UNLOCKED;
     if (scope.nums || scope.lessons) {
       g.push({ label: '老師指定', sets: [
         { label: scope.title || '這次範圍', nums: scope.nums, lessons: scope.lessons } ] });
     }
-    g.push({ label: '龍騰課本　單字', sets: ['L1','L2','L3'].map(function (l) {
+    g.push({ label: '龍騰課本　單字', sets: ['L4','L5','L6'].map(function (l) {
       return { label: l, secs: [l] }; }) });
-    g.push({ label: '龍騰課本　字詞搭配', sets: lessons.map(function (l) {
+    if (lessons.length) g.push({ label: '龍騰課本　字詞搭配', sets: lessons.map(function (l) {
       return { label: l, lessons: [l] }; }) });
-    g.push({ label: '核心字彙', sets: ['U9','U10','U11','U12'].map(function (u) {
+    g.push({ label: '核心字彙', sets: ['U13','U14','U15','U16'].map(function (u) {
       return { label: u, secs: [u] }; }) });
     var al = AL_UNITS.map(function (u) {
       var star = AL_STAR.indexOf(u[0]) >= 0;
       return { label: u[0] + (star ? '★' : ''), secs: u[1] };
     });
-    al.push({ label: '閱讀必考★', secs: ['9/2','9/3','9/10','9/11','9/15','9/16','9/17','9/18','9/28','9/29'] });
-    g.push({ label: 'ALL+ 九月號', sets: al });
+    al.push({ label: '閱讀必考★', secs: ['10/2','10/5','10/6','10/7','10/15','10/16','10/22','10/23','10/26','10/27'] });
+    g.push({ label: 'ALL+ 十月號', sets: al });
     g.push({ label: '整份', sets: [
-      { label: '單字全部', nums: [[1,344]] },
+      { label: '單字全部', nums: [[1,363]] } ].concat(lessons.length ? [
       { label: '字搭全部', lessons: lessons },
-      { label: '全部', nums: [[1,344]], lessons: lessons } ] });
+      { label: '全部', nums: [[1,363]], lessons: lessons } ] : []) });
     var flat = [];
     g.forEach(function (grp) { grp.sets.forEach(function (s) { s.g = grp.label; flat.push(s); }); });
     return { groups: g, flat: flat };
@@ -407,9 +412,18 @@ var DATA = null;
     box.onkeydown = function (e) { if (e.key === 'Enter') { e.preventDefault(); check(card, box.value); } };
   }
 
+  // 標準答案若寫成 A/B（兩種說法）或含括號（可省略的部分），任一寫法都算對
+  function variants(en){
+    var out=[norm(en)], parts=String(en).split('/');
+    (parts.length===2 ? parts : [String(en)]).forEach(function(p){
+      out.push(p.replace(/\([^)]*\)/g,' '));
+      out.push(p.replace(/[()]/g,' '));
+    });
+    return out.map(function(x,i){ return i ? norm(x) : x; });
+  }
   function check(card, typed){
     if (!norm(typed)) return;
-    show(card, typed, norm(typed) === norm(answerOf(card)), false);
+    show(card, typed, variants(answerOf(card)).indexOf(norm(typed)) >= 0, false);
   }
 
   function show(card, typed, ok, gaveUp){
@@ -577,7 +591,7 @@ var DATA = null;
     $('stats').classList.add('hide'); $('quiz').classList.add('hide'); $('done').classList.add('hide'); $('home').classList.remove('hide'); renderHome(); });
 
   // 資料檔：每次段考換這個檔名就好，介面不動
-  var DATA_FILE = 'exam1.json';
+  var DATA_FILE = 'exam2.json';
 
   function boot(d){
     DATA = d;
@@ -591,7 +605,7 @@ var DATA = null;
       $('setGroups').innerHTML = '<p class="note">字庫載入失敗，請重新整理頁面試試。</p>';
     });
   window.__deck={ get state(){return state;}, DATA:DATA, hintFor:hintFor, buildPool:buildPool,
-    parseScope:parseScope, get SETS(){return SETS.flat;}, poolOf:poolOf, setSel:function(i){sel=i;}, norm:norm,
+    parseScope:parseScope, get SETS(){return SETS.flat;}, poolOf:poolOf, setSel:function(i){sel=i;}, norm:norm, variants:variants,
     today:today, key:key, get session(){return session;}, renderStats:renderStats };
 })();
 </script>

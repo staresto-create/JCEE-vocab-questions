@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>第一次段考單字練習</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700;900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F6F1E4; --paper-card:#FFFDF7; --ink:#221F1A; --ink-soft:#5B5648;
+    --rule:#DCD3BB; --crimson:#AE3626; --sage:#3E6E52; --gold:#A9812E;
+    --shadow: 0 1px 0 rgba(34,31,26,.06), 0 8px 24px rgba(34,31,26,.08);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{background:var(--paper); color:var(--ink); font-family:'Noto Sans TC',sans-serif;
+       font-size:16px; line-height:1.75; -webkit-text-size-adjust:100%;}
+  .wrap{max-width:600px; margin:0 auto; padding:0 16px 48px;}
+  header.top{display:flex; align-items:baseline; justify-content:space-between; gap:12px;
+             padding:18px 0 10px; border-bottom:3px double var(--ink);}
+  header.top .title{font-family:'Noto Serif TC',serif; font-weight:900; font-size:21px;}
+  header.top .sub{font-family:'IBM Plex Mono','Noto Sans TC',monospace; font-size:11.5px; color:var(--ink-soft); white-space:nowrap;}
+  .card{background:var(--paper-card); border:1px solid var(--rule); border-left:6px dashed var(--rule);
+        border-radius:3px; box-shadow:var(--shadow); padding:20px 18px; margin:18px 0;}
+  .lead{font-family:'Noto Serif TC',serif; font-weight:700; font-size:19px; margin:0 0 6px;}
+  .note{color:var(--ink-soft); font-size:14.5px; margin:0 0 12px;}
+  .stat{font-family:'IBM Plex Mono','Noto Sans TC',monospace; font-size:12.5px; color:var(--ink-soft); margin:2px 0 0;}
+  .stat b{color:var(--crimson);}
+  .big-btn{display:block; width:100%; font:inherit; font-size:18px; font-weight:700;
+           font-family:'Noto Serif TC',serif; background:var(--ink); color:var(--paper-card);
+           border:0; border-radius:3px; padding:15px; cursor:pointer; margin:6px 0 10px;}
+  .minor-row{display:flex; gap:10px; flex-wrap:wrap;}
+  .minor-btn{flex:1 1 0; min-width:120px; font:inherit; font-size:14.5px; background:var(--paper-card);
+             color:var(--ink); border:1px solid var(--rule); border-radius:3px; padding:11px; cursor:pointer;}
+  .minor-btn.ok{background:var(--ink); color:var(--paper-card); border-color:var(--ink);}
+  .big-btn:focus-visible,.minor-btn:focus-visible{outline:2px solid var(--crimson); outline-offset:2px;}
+  .row{display:flex; flex-wrap:wrap; gap:7px; margin:0 0 12px;}
+  .grp{margin:0 0 10px;}
+  .grp .glbl{font-family:'IBM Plex Mono','Noto Sans TC',monospace; font-size:11.5px; color:var(--sage); display:block; margin:0 0 5px;}
+  .legend{font-size:12.5px; color:var(--ink-soft); margin:0 0 14px;}
+  .chip{font:inherit; font-size:14.5px; cursor:pointer; background:var(--paper-card); color:var(--ink);
+        border:1px solid var(--rule); border-radius:3px; padding:7px 12px;}
+  .chip[aria-pressed="true"]{background:var(--ink); color:var(--paper-card); border-color:var(--ink);}
+  .chip:focus-visible{outline:2px solid var(--crimson); outline-offset:2px;}
+  .chip .qty{font-family:'IBM Plex Mono','Noto Sans TC',monospace; font-size:11.5px; opacity:.75; margin-left:5px;}
+  .bar{display:flex; justify-content:space-between; align-items:center;
+       font-family:'IBM Plex Mono','Noto Sans TC',monospace; font-size:12px; color:var(--ink-soft); padding:14px 0 0;}
+  .bar a{color:var(--crimson);}
+  .src{font-family:'IBM Plex Mono','Noto Sans TC',monospace; font-size:11.5px; color:var(--sage); margin:0 0 2px;}
+  .prompt{font-family:'Noto Serif TC',serif; font-weight:700; font-size:23px; line-height:1.5; margin:2px 0 6px;}
+  .hint{font-family:'IBM Plex Mono','Noto Sans TC',monospace; font-size:17px; color:var(--ink-soft); letter-spacing:.06em;
+        margin:0 0 18px; word-break:break-word;}
+  .typed{width:100%; font:inherit; font-family:'IBM Plex Mono','Noto Sans TC',monospace; font-size:18px;
+         padding:12px 13px; border:1px solid var(--rule); border-radius:3px; background:#fff;
+         color:var(--ink); margin:0 0 10px;}
+  .typed:focus{outline:2px solid var(--sage); outline-offset:1px;}
+  .verdict{font-family:'Noto Serif TC',serif; font-weight:700; font-size:17px; margin:0 0 4px;}
+  .verdict.right{color:var(--sage);} .verdict.wrong{color:var(--crimson);}
+  .yours{font-family:'IBM Plex Mono','Noto Sans TC',monospace; font-size:14px; color:var(--ink-soft); margin:0 0 8px;
+         word-break:break-word;}
+  .answer{font-family:'IBM Plex Mono','Noto Sans TC',monospace; font-size:20px; color:var(--crimson); background:#FBF6EA;
+          border:1px solid var(--rule); border-radius:3px; padding:14px; margin:0 0 6px; word-break:break-word;}
+  .kk{font-family:'IBM Plex Mono','Noto Sans TC',monospace; font-size:13px; color:var(--ink-soft); margin:0 0 14px;}
+  .done{text-align:center; padding:14px 0;}
+  .done .big{font-family:'Noto Serif TC',serif; font-weight:900; font-size:25px; margin:0 0 6px;}
+  footer{border-top:1px solid var(--rule); margin-top:26px; padding-top:14px; font-size:13px; color:var(--ink-soft);}
+  /* 練習紀錄 */
+  .st-head{display:flex; align-items:baseline; justify-content:space-between; gap:10px; flex-wrap:wrap;}
+  .st-count{font-size:13px; color:var(--ink-soft);}
+  .st-count b{color:var(--crimson); font-family:'IBM Plex Mono','Noto Sans TC',monospace; font-size:15px;}
+  .dist{display:flex; height:14px; border:1px solid var(--rule); border-radius:2px; overflow:hidden; margin:4px 0 14px; background:var(--paper);}
+  .dist span{display:block; height:100%;}
+  .lvl-list{list-style:none; margin:0; padding:0;}
+  .lvl-list li{margin:0 0 7px;}
+  .lvl-btn{display:flex; align-items:center; gap:10px; width:100%; text-align:left; cursor:pointer;
+           background:transparent; border:1px solid var(--rule); border-radius:3px; padding:10px 12px;
+           font:inherit; font-size:14.5px; color:var(--ink);}
+  .lvl-btn.on{border-color:var(--ink); background:#F1EADA;}
+  .lvl-btn[disabled]{cursor:default; opacity:.55;}
+  .lvl-btn:focus-visible{outline:2px solid var(--crimson); outline-offset:2px;}
+  .lvl-btn .sw{flex:0 0 12px; height:12px; border-radius:2px; border:1px solid rgba(34,31,26,.15);}
+  .lvl-btn .nm{flex:0 0 auto; font-weight:500;}
+  .lvl-btn .ex{flex:1 1 auto; font-size:12.5px; color:var(--ink-soft);}
+  .lvl-btn .n{flex:0 0 auto; font-family:'IBM Plex Mono','Noto Sans TC',monospace; font-size:14px; color:var(--crimson);}
+  .wl{margin:12px 0 0; padding-top:12px; border-top:1px dashed var(--rule);}
+  .wl-list{list-style:none; margin:0 0 4px; padding:0;}
+  .wl-list li{display:flex; align-items:baseline; gap:10px; padding:7px 0; border-bottom:1px solid #EFE8D6; font-size:14.5px; line-height:1.6;}
+  .wl-list .w{flex:0 0 auto; max-width:60%; font-family:'IBM Plex Mono','Noto Sans TC',monospace; font-weight:500; overflow-wrap:break-word;}
+  .wl-list .g{flex:1 1 auto; font-size:13px; color:var(--ink-soft); min-width:0;}
+  .wl-list .r{flex:0 0 auto; font-family:'IBM Plex Mono','Noto Sans TC',monospace; font-size:12px;}
+  .wl-list .r.ok{color:var(--sage);} .wl-list .r.no{color:var(--crimson);}
+  .wl-more{margin:8px 0 4px; background:none; border:none; padding:0; cursor:pointer; color:var(--crimson);
+           text-decoration:underline; font:inherit; font-size:14px;}
+  .wl .minor-btn{width:100%; margin-top:10px; flex:none;}
+  .hide{display:none !important;}
+</style>
+<style id="anti-copy">
+/* 防盜用措施（2026-10-14）：畫面浮水印、列印浮水印、頁尾授權聲明 */
+@media screen{body::before{content:"";position:fixed;top:0;left:0;right:0;bottom:0;z-index:2147483000;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22460%22%20height%3D%22240%22%3E%3Cg%20transform%3D%22rotate%28-20%20230%20120%29%22%20font-family%3D%22Noto%20Sans%20TC%2Csans-serif%22%20fill%3D%22%23D9A400%22%20fill-opacity%3D%22.2%22%20text-anchor%3D%22middle%22%3E%3Ctext%20x%3D%22230%22%20y%3D%22112%22%20font-size%3D%2220%22%3E%E9%AB%98%E4%B8%AD%E8%8B%B1%E6%96%87%E9%A1%8C%E5%BA%AB%3C%2Ftext%3E%3Ctext%20x%3D%22230%22%20y%3D%22140%22%20font-size%3D%2214%22%3Estaresto-create.github.io%2FJCEE-vocab-questions%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E");background-repeat:repeat;}}
+@media print{body::after{content:"高中英文題庫\A staresto-create.github.io/JCEE-vocab-questions\A 免費資源，請勿販售";white-space:pre;position:fixed;top:42%;left:0;right:0;text-align:center;transform:rotate(-25deg);font-family:"Noto Sans TC",sans-serif;font-size:26pt;line-height:1.7;color:#c8c8c8;z-index:2147483000;pointer-events:none;}}
+.cc-note{font-size:12px;line-height:1.8;color:#8a8278;margin:12px auto;max-width:60em;padding:0 1em;}.cc-note a{color:inherit;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <span class="title">第一次段考單字練習</span>
+    <span class="sub">中正高中　張敬欣</span>
+  </header>
+
+  <section id="home">
+    <div class="card">
+      <p class="lead">看中文，拼出英文</p>
+      <p class="note">選一個範圍開始。答對的會往後推，答錯的當場再來。</p>
+      <div id="setGroups"></div>
+      <p class="legend">★ 是 ALL+ 閱讀必考的五個單元，段考閱讀從這裡出。</p>
+      <button class="big-btn" id="startBtn">開始練習</button>
+      <p class="stat" id="homeStat"></p>
+      <div class="minor-row"><button class="minor-btn" id="statsBtn">練習紀錄</button><button class="minor-btn" id="clearBtn">清除我的進度</button></div>
+      <p class="note" style="margin:14px 0 0;">看中文拼出英文。高二段考新增了手寫文意字彙的題型，單字要自己拼得出來才行。大小寫、標點、冠詞和 his／her 這類代名詞不列入計分，介系詞要求完全正確。進度存在這台裝置裡，換手機不會跟著走。</p>
+    </div>
+  </section>
+
+  <section id="quiz" class="hide">
+    <div class="bar"><span id="qProgress"></span><a href="#" id="quitLink">回上一頁</a></div>
+    <div class="card">
+      <p class="src" id="srcLbl"></p>
+      <p class="prompt" id="prompt"></p>
+      <p class="hint" id="hint"></p>
+      <div id="typeBox">
+        <input id="typed" class="typed" type="text" autocomplete="off" autocorrect="off"
+               autocapitalize="off" spellcheck="false" placeholder="輸入英文">
+        <div class="minor-row">
+          <button class="minor-btn" id="dunnoBtn">還不會</button>
+          <button class="minor-btn ok" id="sendBtn">送出</button>
+        </div>
+      </div>
+      <div id="ansBox" class="hide">
+        <p class="verdict" id="verdict"></p>
+        <p class="yours" id="yours"></p>
+        <div class="answer" id="answer"></div>
+        <p class="kk" id="kk"></p>
+        <div class="minor-row">
+          <button class="minor-btn" id="overrideBtn">我其實拼對了</button>
+          <button class="minor-btn ok" id="nextBtn">下一個</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="done" class="hide">
+    <div class="card done">
+      <p class="big">這一輪練完了</p>
+      <p class="note" id="doneNote"></p>
+      <button class="big-btn" id="againBtn">再練一輪</button>
+      <div class="minor-row"><button class="minor-btn" id="homeBtn">回到首頁</button><button class="minor-btn" id="doneStatsBtn">練習紀錄</button></div>
+    </div>
+  </section>
+
+  <section id="stats" class="hide">
+    <div class="bar"><span id="statsScope"></span><a href="#" id="statsBack">回到首頁</a></div>
+    <div class="card">
+      <div class="st-head"><p class="lead">今天練過的字</p><span class="st-count" id="todayCount"></span></div>
+      <p class="note">列出今天在「開始練習」裡練過的字，右邊是今天拼錯或按「還不會」的次數。錯過的排在前面。</p>
+      <div id="todayBox"></div>
+    </div>
+    <div class="card">
+      <div class="st-head"><p class="lead">熟悉度分布</p><span class="st-count" id="distCount"></span></div>
+      <p class="note">依你拼對、拼錯的紀錄自動分級，一個字拼對三次才算過關。點任何一級，可以看那一級有哪些字。</p>
+      <div id="distBar" class="dist"></div>
+      <ul id="lvlList" class="lvl-list"></ul>
+      <div id="lvlBox"></div>
+    </div>
+  </section>
+
+  <footer>範圍由老師給的連結決定。字級標在括號裡，(超) 表示超出參考詞彙表。<p class="cc-note">本題庫自己寫的部分（解析、中譯、分類、標註與編排）採用 <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh-hant" target="_blank" rel="license noopener">CC BY-NC 4.0</a>（姓名標示─非商業性）授權：可以分享，但須註明出處，不得用於商業用途。試題來源與完整說明請見<a href="https://staresto-create.github.io/JCEE-vocab-questions/#terms">使用與著作權</a>。</p>
+</footer>
+</div>
+<script>
+var DATA = null;
+(function () {
+  'use strict';
+  var STORE_KEY = 'zz_exam1_v1', RELEARN_GAP = 5, PASS = 3;
+  // 同一輪裡再出現的間距。答對之後要隔得夠遠，下一次才是真的回想，
+  // 而不是照抄剛剛看過的答案；答錯的隔近一點，趁還記得再補一次。
+  // GAP_OK[已答對次數] → 隔幾張再出現。
+  var GAP_OK = [8, 20], GAP_MISS = 4;
+  var state = null, session = null, scope = null;
+
+  function $(id){ return document.getElementById(id); }
+  function shuffle(a){ for (var i=a.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=a[i];a[i]=a[j];a[j]=t; } return a; }
+  function today(){ var d=new Date(); return Math.floor(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate())/86400000); }
+  function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+  function loadState(){
+    var s=null;
+    try { s=JSON.parse(localStorage.getItem(STORE_KEY)); } catch(e){ s=null; }
+    if (!s || s.v!==1) s={v:1,w:{}};
+    return s;
+  }
+  function saveState(){ try { localStorage.setItem(STORE_KEY, JSON.stringify(state)); } catch(e){} }
+
+  // 網址：#n=25-36,296-304&c=L1,L2&t=第五節聽寫
+  function parseScope(){
+    var h=(location.hash||'').replace(/^#/,''), q={};
+    h.split('&').forEach(function(p){
+      var i=p.indexOf('='); if(i<0) return;
+      q[decodeURIComponent(p.slice(0,i))]=decodeURIComponent(p.slice(i+1));
+    });
+    var nums=null;
+    if (q.n) {
+      nums=[];
+      q.n.split(',').forEach(function(r){
+        var m=/^(\d+)(?:-(\d+))?$/.exec(r.trim());
+        if(m) nums.push([+m[1], m[2]?+m[2]:+m[1]]);
+      });
+    }
+    var lessons = q.c ? q.c.split(',').map(function(s){return s.trim().toUpperCase();}) : null;
+    return { nums: nums, lessons: lessons, title: q.t || '' };
+  }
+
+  function inRanges(n, rs){ for (var i=0;i<rs.length;i++) if (n>=rs[i][0] && n<=rs[i][1]) return true; return false; }
+
+  var SETS = [], sel = 0;
+
+  var AL_UNITS = [['U1',['9/1']],['U2',['9/2','9/3']],['U3',['9/4']],['U4',['9/7','9/8']],
+    ['U5',['9/9']],['U6',['9/10','9/11']],['U8',['9/15','9/16']],['U9',['9/17','9/18']],
+    ['U10',['9/21','9/22']],['U11',['9/23','9/24']],['U12',['9/25']],['U13',['9/28','9/29']],
+    ['U14',['9/30']]];
+  var AL_STAR = ['U2','U6','U8','U9','U13'];
+
+  function makeSets(){
+    // 字搭要等課堂核對過才開。改這一行就能解鎖：L2 核對後寫 ['L1','L2']，L3 核對後寫 ['L1','L2','L3']
+    var UNLOCKED =['L1','L2','L3'];
+    var g = [], lessons = scope.lessons || UNLOCKED;
+    if (scope.nums || scope.lessons) {
+      g.push({ label: '老師指定', sets: [
+        { label: scope.title || '這次範圍', nums: scope.nums, lessons: scope.lessons } ] });
+    }
+    g.push({ label: '龍騰課本　單字', sets: ['L1','L2','L3'].map(function (l) {
+      return { label: l, secs: [l] }; }) });
+    g.push({ label: '龍騰課本　字詞搭配', sets: lessons.map(function (l) {
+      return { label: l, lessons: [l] }; }) });
+    g.push({ label: '核心字彙', sets: ['U9','U10','U11','U12'].map(function (u) {
+      return { label: u, secs: [u] }; }) });
+    var al = AL_UNITS.map(function (u) {
+      var star = AL_STAR.indexOf(u[0]) >= 0;
+      return { label: u[0] + (star ? '★' : ''), secs: u[1] };
+    });
+    al.push({ label: '閱讀必考★', secs: ['9/2','9/3','9/10','9/11','9/15','9/16','9/17','9/18','9/28','9/29'] });
+    g.push({ label: 'ALL+ 九月號', sets: al });
+    g.push({ label: '整份', sets: [
+      { label: '單字全部', nums: [[1,344]] },
+      { label: '字搭全部', lessons: lessons },
+      { label: '全部', nums: [[1,344]], lessons: lessons } ] });
+    var flat = [];
+    g.forEach(function (grp) { grp.sets.forEach(function (s) { s.g = grp.label; flat.push(s); }); });
+    return { groups: g, flat: flat };
+  }
+
+  function poolOf(set){
+    var out = [];
+    if (set.secs) DATA.w.forEach(function (w, i) { if (set.secs.indexOf(w.s) >= 0) out.push({t:'w', i:i}); });
+    if (set.nums) DATA.w.forEach(function (w, i) { if (inRanges(w.n, set.nums)) out.push({t:'w', i:i}); });
+    if (set.lessons) DATA.c.forEach(function (c, i) { if (set.lessons.indexOf(c.l) >= 0) out.push({t:'c', i:i}); });
+    return out;
+  }
+
+  function buildPool(){ return poolOf(SETS.flat[sel]); }
+
+  function rec(card){ return card.t==='w' ? DATA.w[card.i] : DATA.c[card.i]; }
+  function key(card){ var r=rec(card); return card.t==='w' ? ('w'+r.n+'|'+r.e) : ('c'+r.l+'|'+r.e); }
+  function answerOf(card){ return rec(card).e; }
+  function promptOf(card){ var r=rec(card); return card.t==='w' ? r.z : r.z; }
+  function labelOf(card){
+    var r=rec(card);
+    return card.t==='w' ? (r.s+'　#'+r.n+(r.v?'　'+r.v+'級':'')) : ('龍騰 '+r.l+'　字詞搭配');
+  }
+
+  // 提示：每個字母串留首字母，其餘蓋掉；標點與省略號原樣保留
+  // 功能詞照考卷的做法直接印出來，只挖實詞和介系詞
+  var GIVEN = ['a','an','the','his','her','their','your','its','my','our','sb','sbs','sth','sths','ones'];
+  function isGiven(w){ return GIVEN.indexOf(w.toLowerCase()) >= 0; }
+  function mask(en){
+    return en.replace(/[A-Za-z]+/g, function(w){
+      return isGiven(w) ? w : w.charAt(0) + w.slice(1).replace(/./g,'_');
+    });
+  }
+  function initials(en){
+    return en.replace(/[A-Za-z]+/g, function(w){ return isGiven(w) ? w : w.charAt(0) + '…'; });
+  }
+  function isPhrase(en){ return /[\s…]/.test(en) || /\.{2,}/.test(en); }
+  function countOf(en){
+    return isPhrase(en) ? en.split(/[\s…]+|\.{2,}/).filter(Boolean).length
+                        : en.replace(/[^A-Za-z]/g,'').length;
+  }
+  function unit(en){ return isPhrase(en) ? ' 個字' : ' 個字母'; }
+  function hintFor(en, stage){
+    if (stage <= 0) return mask(en);
+    if (stage === 1) return initials(en);
+    return '（' + countOf(en) + unit(en) + '）';
+  }
+
+  function due(pool){
+    var t=today(), fresh=[], ready=[], passed=0;
+    pool.forEach(function(c){
+      var r=state.w[key(c)];
+      if (!r) fresh.push(c);
+      else if (r.p>=PASS && r.due>t) passed++;
+      else if (r.due<=t) ready.push(c);
+      else passed++;
+    });
+    return {fresh:fresh, ready:ready, passed:passed};
+  }
+
+  function renderHome(){
+    var box = $('setGroups');
+    box.innerHTML = '';
+    var idx = 0;
+    SETS.groups.forEach(function (grp) {
+      var wrap = document.createElement('div');
+      wrap.className = 'grp';
+      var lbl = document.createElement('span');
+      lbl.className = 'glbl'; lbl.textContent = grp.label;
+      wrap.appendChild(lbl);
+      var row = document.createElement('div');
+      row.className = 'row';
+      grp.sets.forEach(function (s) {
+        var my = idx++;
+        var n = poolOf(s).length;
+        var b = document.createElement('button');
+        b.className = 'chip'; b.type = 'button';
+        b.setAttribute('aria-pressed', my === sel ? 'true' : 'false');
+        b.innerHTML = esc(s.label) + '<span class="qty">' + n + '</span>';
+        b.addEventListener('click', function () { sel = my; renderHome(); });
+        row.appendChild(b);
+      });
+      wrap.appendChild(row);
+      box.appendChild(wrap);
+    });
+    var pool = buildPool(), dd = due(pool);
+    var todo = dd.ready.concat(dd.fresh), shots = 0;
+    todo.forEach(function (c) {
+      var r = state.w[key(c)];
+      shots += Math.max(1, PASS - ((r && r.p) || 0));
+    });
+    $('homeStat').innerHTML = '這個範圍 <b>' + pool.length + '</b> 個字，今天要練 <b>' +
+      todo.length + '</b> 個字、約 <b>' + shots + '</b> 張' +
+      '（一個字要答對 ' + PASS + ' 次才算過，中間會隔開，不會連著出現）。' +
+      '<br>今天不用再練的 <b>' + dd.passed + '</b> 個字。';
+  }
+
+  function start(){
+    var pool=buildPool(), d=due(pool);
+    var q=shuffle(d.ready.slice()).concat(shuffle(d.fresh.slice()));
+    if (!q.length) q=shuffle(pool.slice());
+    session={q:q, total:q.length, miss:{}, free:false};
+    $('home').classList.add('hide'); $('done').classList.add('hide'); $('stats').classList.add('hide'); $('quiz').classList.remove('hide');
+    next();
+  }
+
+  // 判分：大小寫、空白、標點不列入計分；冠詞、人稱代名詞、be 動詞時態同樣不計分；
+  // 介系詞與介副詞一律嚴格比對，那是搭配本身要考的東西
+  var DROP = ['a','an','the'];
+  var BE = ['is','are','was','were','been','being','am','be'];
+  var SB = ['sb','sbs','sth','sths','someone','somebody','something','ones',
+            'his','her','hers','their','theirs','its','my','mine','your','yours','our','ours','him','them','me','us','you'];
+  function norm(s){
+    var w = String(s).toLowerCase()
+      .replace(/[…]|\.{2,}/g, ' ')
+      .replace(/[’‘]/g, "'")
+      .replace(/'s\b/g, 's')
+      .replace(/[.,;:!?"“”']/g, '')
+      .replace(/\s+/g, ' ')
+      .trim()
+      .split(' ');
+    var out = [];
+    w.forEach(function (x) {
+      if (!x) return;
+      if (DROP.indexOf(x) >= 0) return;
+      if (BE.indexOf(x) >= 0) { out.push('be'); return; }
+      if (SB.indexOf(x) >= 0) { out.push('sb'); return; }
+      out.push(x);
+    });
+    return out.join(' ');
+  }
+
+  function next(){
+    if (!session.q.length) return finish();
+    var card = session.q[0], r = state.w[key(card)] || {p:0, i:0, due:0};
+    var en = answerOf(card);
+    $('qProgress').textContent = '還有 ' + session.q.length + ' 個';
+    $('srcLbl').textContent = labelOf(card);
+    $('prompt').textContent = promptOf(card);
+    $('hint').textContent = hintFor(en, Math.min(r.p, 2));
+    $('ansBox').classList.add('hide');
+    $('typeBox').classList.remove('hide');
+    var box = $('typed');
+    box.value = '';
+    try { box.focus(); } catch (e) {}
+    $('sendBtn').onclick = function () { check(card, box.value); };
+    $('dunnoBtn').onclick = function () { show(card, box.value, false, true); };
+    box.onkeydown = function (e) { if (e.key === 'Enter') { e.preventDefault(); check(card, box.value); } };
+  }
+
+  function check(card, typed){
+    if (!norm(typed)) return;
+    show(card, typed, norm(typed) === norm(answerOf(card)), false);
+  }
+
+  function show(card, typed, ok, gaveUp){
+    var en = answerOf(card);
+    $('typeBox').classList.add('hide');
+    $('ansBox').classList.remove('hide');
+    var v = $('verdict');
+    v.className = 'verdict ' + (ok ? 'right' : 'wrong');
+    v.textContent = ok ? '拼對了' : (gaveUp ? '這一個先看答案' : '還差一點');
+    $('yours').textContent = (!ok && !gaveUp && typed.trim()) ? ('你寫的：' + typed.trim()) : '';
+    $('answer').textContent = en;
+    var k = rec(card).k;
+    $('kk').textContent = k ? '[' + k + ']' : '';
+    $('overrideBtn').style.display = ok ? 'none' : '';
+    $('overrideBtn').onclick = function () { grade(card, true); };
+    $('nextBtn').onclick = function () { grade(card, ok); };
+  }
+
+  function grade(card, ok){
+    var k=key(card);
+    if (session.free) {
+      // 從統計頁出發的練習不計入進度：拼對就放過，拼錯隔幾個再來
+      var it0=session.q.shift();
+      if (!ok) { session.miss[k]=(session.miss[k]||0)+1; session.q.splice(Math.min(GAP_MISS,session.q.length),0,it0); }
+      next(); return;
+    }
+    var r=state.w[k]||{p:0,i:0,due:0};
+    // 「今天練過的字」用：t 是最後練的日子，m 是當天拼錯的次數（換日歸零）
+    if (r.t !== today()) { r.t = today(); r.m = 0; }
+    if (!ok) r.m = (r.m||0) + 1;
+    if (ok) {
+      r.p=(r.p||0)+1;
+      if (r.p>=PASS) { r.i=r.i?Math.min(r.i*2,30):1; r.due=today()+r.i; session.q.shift(); }
+      else {
+        var g = GAP_OK[r.p-1] || GAP_OK[GAP_OK.length-1];
+        var it=session.q.shift(); session.q.splice(Math.min(g,session.q.length),0,it);
+      }
+    } else {
+      // 答錯只退一級，不把之前答對的次數清掉；間隔減半、最少留一天，不打回原點。
+      r.p=Math.max(0,(r.p||0)-1);
+      r.i=r.i?Math.max(1,Math.floor(r.i/2)):0;
+      r.due=today();
+      session.miss[k]=(session.miss[k]||0)+1;
+      var it2=session.q.shift();
+      session.q.splice(Math.min(GAP_MISS,session.q.length),0,it2);
+    }
+    state.w[k]=r; saveState(); next();
+  }
+
+  function finish(){
+    $('quiz').classList.add('hide'); $('done').classList.remove('hide');
+    var m=Object.keys(session.miss).length;
+    if (session.free) {
+      $('doneNote').textContent = '這一輪 '+session.total+' 個練完了。這是從練習紀錄開始的練習，不計入進度。';
+    } else {
+      $('doneNote').textContent = m ? ('這一輪 '+session.total+' 個，其中 '+m+' 個卡住過，過幾天會再出現。')
+                                    : ('這一輪 '+session.total+' 個，全部一次就拼出來。');
+    }
+    renderHome();
+  }
+
+  /* ---------- 練習紀錄 ---------- */
+  var LEVELS = [
+    { key:'new',  name:'還沒練', ex:'這個範圍裡還沒練過的字',      color:'var(--rule)' },
+    { key:'mid',  name:'練習中', ex:'拼對不到三次，或過關後又拼錯', color:'var(--gold)' },
+    { key:'pass', name:'已過關', ex:'拼對三次以上',                 color:'var(--sage)' }
+  ];
+  var LIST_STEP = 20, statsOpen = null, statsShown = LIST_STEP;
+  function levelOf(c){ var r=state.w[key(c)]; if (!r) return 'new'; return (r.p>=PASS) ? 'pass' : 'mid'; }
+  function row(c, right){
+    return '<li><span class="w">' + esc(answerOf(c)) + '</span><span class="g">' + esc(promptOf(c)) + '</span>' + (right||'') + '</li>';
+  }
+  function freeStart(list){
+    session={q:shuffle(list.slice()), total:list.length, miss:{}, free:true};
+    $('stats').classList.add('hide'); $('home').classList.add('hide'); $('done').classList.add('hide'); $('quiz').classList.remove('hide');
+    next();
+  }
+  function renderToday(pool){
+    var t=today();
+    var list=pool.filter(function(c){ var r=state.w[key(c)]; return r && r.t===t; });
+    list.sort(function(a,b){ return (state.w[key(b)].m||0)-(state.w[key(a)].m||0); });
+    var wrong=list.filter(function(c){ return state.w[key(c)].m>0; });
+    $('todayCount').innerHTML = list.length ? '<b>'+list.length+'</b> 個字，錯過的 <b>'+wrong.length+'</b> 個' : '';
+    var h='';
+    if (!list.length) {
+      h='<p class="note">今天還沒有練。回首頁按「開始練習」，練過的字會列在這裡。</p>';
+    } else {
+      h='<ul class="wl-list">'+list.map(function(c){
+        var m=state.w[key(c)].m||0;
+        return row(c, m ? '<span class="r no">錯 '+m+' 次</span>' : '<span class="r ok">一次就對</span>');
+      }).join('')+'</ul>';
+      if (wrong.length) h+='<div class="wl" style="border:0;padding:0;margin:0;"><button class="minor-btn" type="button" id="todayWrongBtn">把今天錯過的 '+wrong.length+' 個字再練一次（不計入進度）</button></div>';
+    }
+    $('todayBox').innerHTML=h;
+    var b=$('todayWrongBtn'); if (b) b.addEventListener('click', function(){ freeStart(wrong); });
+  }
+  function wordsAt(pool, lv){
+    var ws=pool.filter(function(c){ return levelOf(c)===lv; });
+    if (lv!=='new') ws.sort(function(a,b){
+      var ra=state.w[key(a)], rb=state.w[key(b)];
+      var d=(ra.p||0)-(rb.p||0); if (d) return d;           // 離過關越遠的越前面
+      return (ra.t||0)-(rb.t||0);                            // 一樣的話，越久沒練的越前面
+    });
+    return ws;
+  }
+  function renderDist(pool){
+    var cnt={new:0,mid:0,pass:0};
+    pool.forEach(function(c){ cnt[levelOf(c)]++; });
+    $('distCount').innerHTML='過關 <b>'+cnt.pass+'</b> / '+pool.length+' 個字';
+    $('distBar').innerHTML=LEVELS.map(function(L){
+      return cnt[L.key] ? '<span style="width:'+(cnt[L.key]/pool.length*100).toFixed(2)+'%;background:'+L.color+'"></span>' : '';
+    }).join('');
+    $('lvlList').innerHTML=LEVELS.map(function(L){
+      return '<li><button type="button" class="lvl-btn'+(statsOpen===L.key?' on':'')+'" data-lv="'+L.key+'"'+(cnt[L.key]?'':' disabled')+'>'+
+        '<span class="sw" style="background:'+L.color+'"></span><span class="nm">'+L.name+'</span>'+
+        '<span class="ex">'+L.ex+'</span><span class="n">'+cnt[L.key]+'</span></button></li>';
+    }).join('');
+    Array.prototype.forEach.call($('lvlList').querySelectorAll('.lvl-btn'), function(b){
+      b.addEventListener('click', function(){
+        var k=b.getAttribute('data-lv'); statsOpen=(statsOpen===k)?null:k; statsShown=LIST_STEP; renderDist(pool);
+      });
+    });
+    renderLevelBox(pool);
+  }
+  function renderLevelBox(pool){
+    var box=$('lvlBox');
+    if (!statsOpen) { box.innerHTML=''; return; }
+    var L=LEVELS.filter(function(x){ return x.key===statsOpen; })[0];
+    var ws=wordsAt(pool, statsOpen);
+    if (!ws.length) { statsOpen=null; box.innerHTML=''; return; }
+    var shown=ws.slice(0, statsShown);
+    var h='<div class="wl"><p class="note">「'+L.name+'」共 '+ws.length+' 個字'+
+      (statsOpen==='new' ? '，照字表順序排。' : statsOpen==='mid' ? '，離過關越遠的排越前面。' : '，越久沒練的排越前面。')+'</p>';
+    h+='<ul class="wl-list">'+shown.map(function(c){
+      var r=state.w[key(c)];
+      return row(c, (r && statsOpen==='mid') ? '<span class="r no">對 '+(r.p||0)+' 次</span>' : '');
+    }).join('')+'</ul>';
+    if (ws.length>shown.length) h+='<button type="button" class="wl-more" id="wlMore">再多顯示 '+Math.min(LIST_STEP, ws.length-shown.length)+' 個</button>';
+    h+='<button type="button" class="minor-btn" id="lvlPracBtn">用上面這 '+shown.length+' 個字練習（不計入進度）</button></div>';
+    box.innerHTML=h;
+    var m=$('wlMore'); if (m) m.addEventListener('click', function(){ statsShown+=LIST_STEP; renderLevelBox(pool); });
+    $('lvlPracBtn').addEventListener('click', function(){ freeStart(shown); });
+  }
+  function renderStats(){
+    var pool=buildPool(), s=SETS.flat[sel];
+    $('statsScope').textContent='範圍：'+s.g+'　'+s.label.replace('★','')+'　'+pool.length+' 個';
+    statsOpen=null; statsShown=LIST_STEP;
+    renderToday(pool); renderDist(pool);
+    $('home').classList.add('hide'); $('done').classList.add('hide'); $('quiz').classList.add('hide'); $('stats').classList.remove('hide');
+    window.scrollTo(0,0);
+  }
+
+  $('statsBtn').addEventListener('click', renderStats);
+  $('doneStatsBtn').addEventListener('click', renderStats);
+  $('statsBack').addEventListener('click', function(e){ e.preventDefault(); $('stats').classList.add('hide'); $('home').classList.remove('hide'); renderHome(); });
+  $('startBtn').addEventListener('click', start);
+  $('againBtn').addEventListener('click', start);
+  $('homeBtn').addEventListener('click', function(){ $('done').classList.add('hide'); $('home').classList.remove('hide'); renderHome(); });
+  $('quitLink').addEventListener('click', function(e){ e.preventDefault(); $('quiz').classList.add('hide'); $('home').classList.remove('hide'); renderHome(); });
+  $('clearBtn').addEventListener('click', function(){
+    if (!confirm('確定要清除這台裝置上的練習進度嗎？清掉之後所有字都會變回沒練過。')) return;
+    state={v:1,w:{}}; saveState(); renderHome();
+  });
+  window.addEventListener('hashchange', function(){ scope=parseScope(); SETS=makeSets(); sel=0;
+    $('stats').classList.add('hide'); $('quiz').classList.add('hide'); $('done').classList.add('hide'); $('home').classList.remove('hide'); renderHome(); });
+
+  // 資料檔：每次段考換這個檔名就好，介面不動
+  var DATA_FILE = 'exam1.json';
+
+  function boot(d){
+    DATA = d;
+    state = loadState(); scope = parseScope(); SETS = makeSets(); sel = 0;
+    renderHome();
+  }
+  fetch(DATA_FILE, { cache: 'no-cache' })
+    .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+    .then(boot)
+    .catch(function (e) {
+      $('setGroups').innerHTML = '<p class="note">字庫載入失敗，請重新整理頁面試試。</p>';
+    });
+  window.__deck={ get state(){return state;}, DATA:DATA, hintFor:hintFor, buildPool:buildPool,
+    parseScope:parseScope, get SETS(){return SETS.flat;}, poolOf:poolOf, setSel:function(i){sel=i;}, norm:norm,
+    today:today, key:key, get session(){return session;}, renderStats:renderStats };
+})();
+</script>
+</body>
+</html>
