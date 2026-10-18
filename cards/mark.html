@@ -108,6 +108,7 @@ footer.foot a{color:var(--crimson)}
   #printArea td.g{width:42%}
   #printArea tr{page-break-inside:avoid}
 }
+.ocr-st{margin:.5rem 0 0;font-size:.88rem;color:var(--crimson)}.ocr-tip{margin:.6rem 0 0;font-size:.82rem;line-height:1.75;color:var(--ink-soft)}
 </style>
 <style id="anti-copy">
 /* 防盜用措施（2026-10-14）：畫面浮水印、列印浮水印、頁尾授權聲明 */
@@ -148,7 +149,11 @@ footer.foot a{color:var(--crimson)}
       <button class="b pri" id="go" type="button">標出生字</button>
       <button class="b" id="sample" type="button">試用範例</button>
       <button class="b" id="clear" type="button">清除</button>
+      <button class="b" id="pic" type="button">選圖片（截圖或拍照）</button>
+      <input type="file" id="picf" accept="image/*" hidden>
     </div>
+    <p class="ocr-st" id="ocrst" role="status" aria-live="polite" hidden></p>
+    <p class="ocr-tip"><b>圖片</b>：印刷的文章或電腦截圖可以直接選圖片，也可以在電腦上截圖後直接貼在上面的框裡。辨識在你自己的手機或電腦裡完成，圖片不會傳到網路上。第一次使用要下載約 10 MB 的辨識程式，請稍等。<b>手寫的文章辨識很不準</b>，建議改用手機內建的功能：iPhone 在相簿點開照片後長按文字、選「拷貝」（實況文字）；Android 用 Google 智慧鏡頭或相簿的「複製文字」，再貼到上面的框。無論用哪一種方式，辨識結果都請先對照原稿修正，再按「標出生字」。</p>
   </section>
 
   <section class="card" id="resCard" aria-labelledby="h-res" hidden>
@@ -515,6 +520,36 @@ function init(){
     [].forEach.call(sr.querySelectorAll('button'),function(x){x.setAttribute('aria-pressed',x===b?'true':'false');});
     renderList();
   });
+  /* 圖片轉文字：辨識程式放在 cards/ocr/，在使用者自己的瀏覽器裡執行 */
+  var OCRW=null,ocrBusy=false;
+  function ocrMsg(t,err){var e=$('ocrst');e.hidden=!t;e.textContent=t||'';e.style.color=err?'#a33':'';}
+  function loadScript(u){return new Promise(function(ok,no){var s=document.createElement('script');s.src=u;s.onload=ok;s.onerror=function(){no(new Error('load'));};document.head.appendChild(s);});}
+  function ocrWorker(){
+    if(OCRW)return OCRW;
+    OCRW=(window.Tesseract?Promise.resolve():loadScript('ocr/tesseract.min.js')).then(function(){
+      var base=new URL('ocr/',location.href).href.replace(/\/$/,'');
+      return Tesseract.createWorker('eng',1,{workerPath:base+'/worker.min.js',corePath:base,langPath:base,workerBlobURL:false,
+        logger:function(m){if(m.status==='recognizing text')ocrMsg('辨識中… '+Math.round((m.progress||0)*100)+'%');else if(/load|initializ/.test(m.status||''))ocrMsg('正在載入辨識程式（第一次使用較慢）…');}});
+    }).catch(function(e){OCRW=null;throw e;});
+    return OCRW;
+  }
+  function tidyOcr(t){
+    return t.replace(/\r/g,'').replace(/(^|\s)\|(?=\s|[,.'’])/g,'$1I').replace(/-\n(?=[a-z])/g,'').replace(/([^\n.!?:”"])\n(?=[^\n])/g,'$1 ').replace(/[ \t]+/g,' ').replace(/\n{3,}/g,'\n\n').trim();
+  }
+  function readImage(file){
+    if(!file||ocrBusy)return;
+    if(!/^image\//.test(file.type)){ocrMsg('這個檔案不是圖片，請選擇照片或截圖。',true);return;}
+    ocrBusy=true;$('pic').disabled=true;ocrMsg('正在載入辨識程式（第一次使用較慢）…');
+    ocrWorker().then(function(w){return w.recognize(file);}).then(function(r){
+      var t=tidyOcr(r.data.text||'');
+      if(!t){ocrMsg('圖片裡沒有辨識到英文字。請確認照片拍正、字夠清楚，或改用手機的「實況文字」。',true);return;}
+      var ta=$('src');ta.value=(ta.value.trim()?ta.value.replace(/\s+$/,'')+'\n\n':'')+t;
+      ocrMsg('辨識完成，已放進上面的框。請先對照原稿修正錯字，再按「標出生字」。');
+    }).catch(function(){ocrMsg('辨識程式載入失敗。請檢查網路後再試一次。',true);}).then(function(){ocrBusy=false;$('pic').disabled=false;});
+  }
+  $('pic').addEventListener('click',function(){$('picf').click();});
+  $('picf').addEventListener('change',function(){var f=this.files&&this.files[0];this.value='';readImage(f);});
+  $('src').addEventListener('paste',function(e){var it=(e.clipboardData&&e.clipboardData.files)||[];if(it.length&&/^image\//.test(it[0].type)){e.preventDefault();readImage(it[0]);}});
   $('go').addEventListener('click',run);
   $('clear').addEventListener('click',function(){$('src').value='';$('resCard').hidden=true;$('listCard').hidden=true;$('panel').hidden=true;A=null;$('src').focus();});
   $('sample').addEventListener('click',function(){$('src').value=SAMPLE;run();});
