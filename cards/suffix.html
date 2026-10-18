@@ -75,6 +75,13 @@ tr.anch{background:#EAF0E6}
 .btn.more{color:var(--ink);border-color:var(--ink)}
 .btn.more:hover{background:var(--ink);color:var(--paper-card)}
 .hidden{display:none}
+.ttsonly{display:none}
+.tts .ttsonly{display:inline-block}
+.tts li.ttsonly,.tts p.ttsonly{display:list-item}
+.tts p.ttsonly{display:block}
+.spk{font:inherit;vertical-align:middle;margin-left:.45rem;padding:.12rem .38rem;line-height:1;background:var(--paper-card);color:var(--crimson);border:1px solid var(--rule);border-radius:3px;cursor:pointer}
+.spk:hover,.spk.playing{border-color:var(--crimson);background:var(--crimson);color:var(--paper-card)}
+.spk svg{width:1em;height:1em;display:block;fill:currentColor}
 footer.foot{margin-top:2.4rem;padding-top:.9rem;border-top:1px solid var(--rule);font-size:.8rem;color:var(--ink-soft);line-height:1.9}
 footer.foot a{color:var(--crimson)}
 @media (max-width:480px){
@@ -107,6 +114,7 @@ footer.foot a{color:var(--crimson)}
     <h2 id="h-use">怎麼用</h2>
     <ol>
       <li><span class="k">先念出來。</span>一個音節一個音節念，再整個字念一遍。</li>
+      <li class="ttsonly"><span class="k">聽一聽。</span>單字旁邊有喇叭按鈕，按下去會唸出整個字（美式發音）。聲音來自你的手機或電腦內建的語音，個別字偶爾會不準，請以音標為準。</li>
       <li><span class="k">看字尾。</span>字尾的拼法用<b>粗體</b>標出來，同一組的字，字尾唸法都一樣。每一組開頭的「熟字」，大多數同學已經認得，可以拿來對照。</li>
       <li><span class="k">遮住再寫。</span>到最下面做練習：先補空格、對答案，再自己默寫一次整個字。</li>
     </ol>
@@ -159,10 +167,44 @@ function sylHTML(e){
     return '<span class="sy sp'+pos+(i===e.st-1?' st':'')+'">'+txt+'</span>';
   }).join('<span class="dot">·</span>');
 }
+var SPK='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9v6h4l5 4V5L7 9H3zm13.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4zM14 3.2v2.1a7 7 0 0 1 0 13.4v2.1a9 9 0 0 0 0-17.6z"/></svg>';
+function spkBtn(w){return '<button class="spk ttsonly" type="button" data-w="'+w+'" aria-label="聽 '+w+' 的發音" title="聽發音">'+SPK+'</button>';}
+var voice=null;
+function pickVoice(){
+  try{
+    var vs=window.speechSynthesis.getVoices()||[], best=null;
+    for(var i=0;i<vs.length;i++){
+      var l=(vs[i].lang||'').replace('_','-');
+      if(l==='en-US'){best=vs[i];break;}
+      if(!best&&l.indexOf('en')===0)best=vs[i];
+    }
+    voice=best;
+    document.body.classList.toggle('tts',!!best);
+  }catch(err){}
+}
+if('speechSynthesis' in window&&'SpeechSynthesisUtterance' in window){
+  pickVoice();
+  try{window.speechSynthesis.addEventListener('voiceschanged',pickVoice);}catch(err){}
+  setTimeout(pickVoice,800);
+}
+var playing=null;
+document.addEventListener('click',function(ev){
+  var b=ev.target.closest&&ev.target.closest('.spk');
+  if(!b||!voice)return;
+  try{
+    var ss=window.speechSynthesis;ss.cancel();
+    if(playing)playing.classList.remove('playing');
+    var u=new SpeechSynthesisUtterance(b.getAttribute('data-w'));
+    u.voice=voice;u.lang=voice.lang||'en-US';u.rate=.85;
+    playing=b;b.classList.add('playing');
+    u.onend=u.onerror=function(){b.classList.remove('playing');};
+    ss.speak(u);
+  }catch(err){}
+});
 function lvOK(e){return on.has(e.lv);}
 function table(list,cls,kkt){
   var r=list.filter(lvOK).map(function(e){
-    return '<tr class="'+(cls||'')+'"><td class="lv">'+e.lv+'</td><td><span class="w">'+sylHTML(e)+'</span></td><td class="kk">'+kkHTML(e.kk,kkt)+'</td><td>'+e.g+'</td></tr>';
+    return '<tr class="'+(cls||'')+'"><td class="lv">'+e.lv+'</td><td><span class="w">'+sylHTML(e)+'</span>'+spkBtn(e.w)+'</td><td class="kk">'+kkHTML(e.kk,kkt)+'</td><td>'+e.g+'</td></tr>';
   }).join('');
   if(!r) r='<tr><td colspan="4" class="empty-msg">這個字級沒有符合的字。</td></tr>';
   return '<div class="tw"><table><thead><tr><th>級</th><th>單字</th><th class="kk">音標</th><th>中文</th></tr></thead><tbody>'+r+'</tbody></table></div>';
@@ -229,7 +271,7 @@ function practice(){
       +'<div class="meta"><span class="kkq">'+kkHTML(e.kk,g.kkt)+'</span><span class="zh">'+e.g+'</span><span>第 '+(idx+1)+' 題，字級 '+e.lv+'</span></div>'
       +'<div class="hint hidden"><div class="meta"><span>提示：<span class="hw">'+a.w+'</span> <span class="kkq">'+kkHTML(a.kk,g.kkt)+'</span> '+a.g.split('；')[0]+'</span></div></div>'
       +'<div class="btns"><button class="btn hintbtn" type="button">給我提示</button><button class="btn ansbtn" type="button">看答案</button></div>'
-      +'<div class="meta hidden ans"><span class="w">'+sylHTML(e)+'</span><span>字尾 <b>'+e.tail+'</b> 唸 /'+g.kkt+'/，和 '+a.w+' 一樣。'+diff+'</span></div>'
+      +'<div class="meta hidden ans"><span class="w">'+sylHTML(e)+'</span>'+spkBtn(e.w)+'<span>字尾 <b>'+e.tail+'</b> 唸 /'+g.kkt+'/，和 '+a.w+' 一樣。'+diff+'</span></div>'
       +'</div>';
   }).join('');
   Array.prototype.forEach.call(box.querySelectorAll('.q'),function(q){
