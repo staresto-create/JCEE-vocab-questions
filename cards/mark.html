@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>貼上文章，標出生字</title>
+<meta name="description" content="把英文文章貼進來，依大考中心《高中英文參考詞彙表》的級別標出生字，點一下就能看音標、發音、中文和學測、指考考過的題目，還能整理成生字表列印。文章只在你自己的裝置上處理。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="高中英文自學題庫">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:title" content="貼上文章，標出生字">
+<meta property="og:description" content="貼上英文文章，依詞彙表第一到第六級標出生字，點字看音標、發音、中文與考過的題目，並整理成生字表。">
+<meta property="og:url" content="https://staresto-create.github.io/JCEE-vocab-questions/cards/mark.html">
+<meta property="og:image" content="https://staresto-create.github.io/JCEE-vocab-questions/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+:root{
+  --paper:#F6F1E4; --paper-card:#FFFDF7; --ink:#221F1A; --ink-soft:#5B5648; --rule:#DCD3BB;
+  --crimson:#AE3626; --crimson-soft:#D8C6BE; --sage:#3E6E52; --sage-soft:#CBD9C9; --gold:#A9812E; --gold-soft:#EFE3C4;
+  --serif:"Times New Roman",Times,"Liberation Serif","Noto Serif","PingFang TC","Noto Sans TC","Microsoft JhengHei",serif;
+  --sans:"PingFang TC","Noto Sans TC","Microsoft JhengHei","Helvetica Neue",system-ui,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,Menlo,Consolas,"Noto Sans TC",monospace;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.7;-webkit-text-size-adjust:100%}
+.wrap{max-width:48rem;margin:0 auto;padding:1.4rem 1rem 9rem}
+header.top{border-bottom:3px double var(--ink);padding-bottom:.6rem;margin-bottom:1.2rem}
+h1{font-family:var(--serif);font-weight:600;font-size:1.7rem;line-height:1.25;margin:0}
+.sub{font-family:var(--mono);font-size:.75rem;color:var(--ink-soft);margin-top:.2rem}
+.card{background:var(--paper-card);border:1px solid var(--rule);border-radius:3px;padding:1rem 1rem 1.1rem;margin:0 0 1.4rem;
+  box-shadow:0 1px 0 rgba(34,31,26,.06),0 8px 24px rgba(34,31,26,.08)}
+h2{font-family:var(--serif);font-size:1.2rem;font-weight:600;margin:0 0 .6rem}
+.card p{margin:.4rem 0 0;font-size:.92rem}
+.card p:first-of-type{margin-top:0}
+ol.steps{margin:.2rem 0 0;padding-left:1.3rem;font-size:.92rem}
+ol.steps li{padding:.15rem 0}
+.priv{margin-top:.7rem;padding:.5rem .7rem;border-left:3px solid var(--sage);background:#F1F5EE;font-size:.88rem}
+details{margin-top:.6rem;font-size:.9rem}
+summary{cursor:pointer;color:var(--crimson);font-weight:600}
+summary:focus-visible,button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,.wd:focus-visible{outline:2px solid var(--crimson);outline-offset:2px}
+details p{margin:.5rem 0 0}
+textarea{width:100%;min-height:11rem;font:inherit;font-family:var(--serif);font-size:1rem;line-height:1.7;padding:.6rem .7rem;border:1px solid var(--rule);border-radius:3px;background:#fff;color:var(--ink);resize:vertical}
+.row{display:flex;flex-wrap:wrap;gap:.3rem;margin:.4rem 0;align-items:center}
+.row .lb{font-size:.82rem;color:var(--ink-soft);margin-right:.2rem}
+button.b{font:inherit;font-size:.88rem;padding:.3rem .8rem;background:var(--paper-card);color:var(--ink);border:1px solid var(--rule);border-radius:3px;cursor:pointer}
+button.b.pri{background:var(--ink);border-color:var(--ink);color:var(--paper-card)}
+button.b[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:var(--paper-card)}
+button.b small{font-size:.78em;opacity:.8;margin-left:.2rem}
+label.ck{font-size:.88rem;display:inline-flex;align-items:center;gap:.35rem;cursor:pointer}
+.stat{font-size:.88rem;color:var(--ink-soft);margin:.5rem 0 0}
+.legend{display:flex;flex-wrap:wrap;gap:.4rem .9rem;font-size:.8rem;color:var(--ink-soft);margin:.5rem 0 0}
+.legend span{display:inline-flex;align-items:center;gap:.3rem}
+.legend i{display:inline-block;width:1.6rem;height:.9rem;border-radius:2px;border-bottom:2px solid}
+#text{font-family:var(--serif);font-size:1.08rem;line-height:2.1;white-space:pre-wrap;word-wrap:break-word;margin-top:.8rem}
+.wd{cursor:pointer;border-radius:2px;padding:0 1px;border-bottom:2px solid transparent}
+.wd.l1,.wd.l2{background:var(--sage-soft);border-color:var(--sage)}
+.wd.l3{background:var(--gold-soft);border-color:var(--gold)}
+.wd.l4{background:#F3D9A4;border-color:var(--gold)}
+.wd.l5{background:var(--crimson-soft);border-color:var(--crimson)}
+.wd.l6{background:#E7B5AA;border-color:var(--crimson)}
+.wd.lo{border-bottom:2px dashed var(--ink)}
+.wd.hard{box-shadow:0 0 0 2px var(--ink)}
+.wd.cur{outline:2px solid var(--ink)}
+sup.lv{font-size:.62em;font-family:var(--mono);color:var(--ink-soft);margin-left:1px}
+.lg1{background:var(--sage-soft);border-color:var(--sage)}.lg3{background:var(--gold-soft);border-color:var(--gold)}.lg4{background:#F3D9A4;border-color:var(--gold)}
+.lg5{background:var(--crimson-soft);border-color:var(--crimson)}.lg6{background:#E7B5AA;border-color:var(--crimson)}.lgo{border-bottom-style:dashed!important;border-color:var(--ink)!important}
+ul.wl{list-style:none;margin:.4rem 0 0;padding:0}
+ul.wl li{display:flex;flex-wrap:wrap;align-items:baseline;gap:.15rem .5rem;padding:.45rem 0;border-bottom:1px solid var(--rule)}
+ul.wl .w{font-family:var(--serif);font-size:1.05rem;font-weight:600;background:none;border:0;padding:0;cursor:pointer;color:var(--ink)}
+ul.wl .meta{font-family:var(--mono);font-size:.76rem;color:var(--ink-soft)}
+ul.wl .gl{flex-basis:100%;font-size:.86rem;color:var(--ink);padding-left:1.7rem}
+ul.wl .gl.none{color:var(--ink-soft)}
+.tag{display:inline-block;font-size:.72rem;line-height:1.5;border-radius:.9rem;padding:0 .5rem;border:1px solid}
+.t0{color:var(--sage);border-color:var(--sage);background:var(--sage-soft)}
+.t1{color:#7A5B18;border-color:var(--gold);background:var(--gold-soft)}
+h3{font-family:var(--serif);font-size:1.05rem;font-weight:600;margin:1.2rem 0 .1rem}
+h3 span{font-family:var(--sans);font-size:.82rem;color:var(--ink-soft);font-weight:400;margin-left:.4rem}
+.tnote{font-size:.85rem;color:var(--ink-soft);margin:.4rem 0 0}
+#panel{position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--paper-card);border-top:3px solid var(--ink);box-shadow:0 -8px 24px rgba(34,31,26,.18);max-height:62vh;overflow:auto}
+#panel .in{max-width:48rem;margin:0 auto;padding:.8rem 1rem 1.1rem;position:relative}
+#panel .x{position:absolute;right:.6rem;top:.5rem;font:inherit;font-size:1.3rem;line-height:1;background:none;border:0;cursor:pointer;color:var(--ink-soft);padding:.2rem .5rem}
+#panel .pw{font-family:var(--serif);font-size:1.5rem;font-weight:600}
+#panel .ps{font-size:.9rem;border-left:3px solid var(--rule);padding:.1rem .6rem;margin:.5rem 0;color:var(--ink)}
+#panel .ps b{background:var(--gold-soft)}
+#panel dl{margin:.4rem 0 0;font-size:.9rem}
+#panel dt{font-size:.78rem;color:var(--ink-soft);margin-top:.5rem}
+#panel dd{margin:0}
+#panel a{color:var(--crimson)}
+#panel .refs a{display:inline-block;background:#F7ECE8;border:1px solid var(--crimson-soft);border-radius:3px;padding:0 .35rem;margin:.1rem .25rem .1rem 0;text-decoration:none;font-size:.82rem}
+#panel .hardbtn{margin-top:.7rem}
+#printArea{display:none}
+footer.foot{margin-top:2.4rem;padding-top:.9rem;border-top:1px solid var(--rule);font-size:.8rem;color:var(--ink-soft);line-height:1.9}
+footer.foot a{color:var(--crimson)}
+.empty{color:var(--ink-soft);padding:.6rem 0}
+@media (max-width:400px){.card{padding:.8rem .7rem .9rem}}
+@media print{
+  @page{size:A4 portrait;margin:14mm}
+  body{background:#fff}
+  .wrap>*,#panel{display:none!important}
+  .wrap{padding:0;max-width:none}
+  #printArea{display:block!important;font-size:10.5pt;color:#000}
+  #printArea h1{font-size:15pt;margin:0 0 2mm;border:0}
+  #printArea .pn{font-size:9pt;margin:0 0 3mm}
+  #printArea table{width:100%;border-collapse:collapse}
+  #printArea th,#printArea td{border-bottom:.3pt solid #888;padding:1.2mm 1mm;text-align:left;vertical-align:top;font-size:10pt}
+  #printArea th{border-bottom:.8pt solid #000;font-size:9pt}
+  #printArea td.k{font-family:"Noto Sans",sans-serif;font-size:9pt;white-space:nowrap}
+  #printArea td.g{width:42%}
+  #printArea tr{page-break-inside:avoid}
+}
+</style>
+<style id="anti-copy">
+/* 防盜用措施（2026-10-14）：畫面浮水印、列印浮水印、頁尾授權聲明 */
+@media screen{body::before{content:"";position:fixed;top:0;left:0;right:0;bottom:0;z-index:2147483000;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22460%22%20height%3D%22240%22%3E%3Cg%20transform%3D%22rotate%28-20%20230%20120%29%22%20font-family%3D%22Noto%20Sans%20TC%2Csans-serif%22%20fill%3D%22%23D9A400%22%20fill-opacity%3D%22.2%22%20text-anchor%3D%22middle%22%3E%3Ctext%20x%3D%22230%22%20y%3D%22112%22%20font-size%3D%2220%22%3E%E9%AB%98%E4%B8%AD%E8%8B%B1%E6%96%87%E9%A1%8C%E5%BA%AB%3C%2Ftext%3E%3Ctext%20x%3D%22230%22%20y%3D%22140%22%20font-size%3D%2214%22%3Estaresto-create.github.io%2FJCEE-vocab-questions%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E");background-repeat:repeat;}}
+@media print{body::after{content:"高中英文題庫\A staresto-create.github.io/JCEE-vocab-questions\A 免費資源，請勿販售";white-space:pre;position:fixed;top:42%;left:0;right:0;text-align:center;transform:rotate(-25deg);font-family:"Noto Sans TC",sans-serif;font-size:26pt;line-height:1.7;color:#c8c8c8;z-index:2147483000;pointer-events:none;}}
+.cc-note{font-size:12px;line-height:1.8;color:#8a8278;margin:12px auto;max-width:60em;padding:0 1em;}.cc-note a{color:inherit;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1>貼上文章，標出生字</h1>
+    <div class="sub">依大考中心高中英文參考詞彙表標示級別</div>
+  </header>
+
+  <section class="card" aria-labelledby="h-how">
+    <h2 id="h-how">怎麼用</h2>
+    <ol class="steps">
+      <li>把英文文章貼進下面的方框，再按「標出生字」。用手機的話，可以先在文章頁面按「拷貝」或「複製文字」，再回到這裡貼上。</li>
+      <li>文章裡的字會依級別標上顏色，字的右上角小數字就是級別。程度愈弱的人，「從幾級開始標」可以設得愈小，標出來的字就愈多。</li>
+      <li>點一下標出來的字，畫面下方會出現這個字的音標、發音、中文，以及學測、指考考過它的題目。</li>
+      <li>往下捲就是這篇文章的生字表。把不會的字打勾，就可以只複製或只列印那些字。</li>
+    </ol>
+    <div class="priv">貼上的文章只在你自己的手機或電腦上處理，不會傳到任何地方。</div>
+    <details>
+      <summary>這個頁面的限制</summary>
+      <p><b>級別</b>依大考中心《高中英文參考詞彙表》（111 學年度起適用）第一到第六級，共 6,158 個字。字形變化（例如 went、studies、better）是用規則換回原來的字，偶爾會換錯或漏掉。</p>
+      <p><b>詞彙表以外</b>的字，包括專有名詞以外很少見的字，也可能是沒有換回原字的字形。大寫開頭、又不在句首的字，會當成人名或地名，不標；但句首的人名無法和一般的字分開，會歸到這一類。</p>
+      <p><b>一字多義</b>：同一個字在文章裡到底是哪個意思，要看上下文，頁面無法替你判斷。有整理過一字多義的字（目前 154 個），會把常見的幾個意思並列，請你對照句子自己選。</p>
+      <p><b>中文</b>：本題庫只收有整理過的字，沒有中文的字可以按「複製單字」，貼到手機的字典查。片語目前不辨識，只處理單字。</p>
+    </details>
+  </section>
+
+  <section class="card" aria-labelledby="h-in">
+    <h2 id="h-in">貼上文章</h2>
+    <textarea id="src" placeholder="在這裡貼上英文文章" aria-label="貼上英文文章"></textarea>
+    <div class="row">
+      <button class="b pri" id="go" type="button">標出生字</button>
+      <button class="b" id="sample" type="button">試用範例</button>
+      <button class="b" id="clear" type="button">清除</button>
+    </div>
+  </section>
+
+  <section class="card" id="resCard" aria-labelledby="h-res" hidden>
+    <h2 id="h-res">標好的文章</h2>
+    <div class="row" id="thRow" role="group" aria-label="從幾級開始標"><span class="lb">從幾級開始標</span></div>
+    <div class="row"><label class="ck"><input type="checkbox" id="showOut" checked> 也標出詞彙表以外的字</label></div>
+    <div class="legend" aria-hidden="true">
+      <span><i class="lg1"></i>一、二級</span><span><i class="lg3"></i>三級</span><span><i class="lg4"></i>四級</span><span><i class="lg5"></i>五級</span><span><i class="lg6"></i>六級</span><span><i class="lgo" style="background:transparent"></i>詞彙表以外（小數字標「外」）</span>
+    </div>
+    <p class="stat" id="stat" aria-live="polite"></p>
+    <div id="text"></div>
+  </section>
+
+  <section class="card" id="listCard" aria-labelledby="h-list" hidden>
+    <h2 id="h-list">這篇文章的生字表</h2>
+    <div class="row" id="sortRow" role="group" aria-label="排列方式"><span class="lb">排列</span></div>
+    <div class="row"><label class="ck"><input type="checkbox" id="onlyHard"> 只列我打勾「不會」的字</label></div>
+    <div class="row">
+      <button class="b" id="copyW" type="button">複製單字</button>
+      <button class="b" id="printB" type="button">列印生字表</button>
+      <label class="ck"><input type="checkbox" id="blankZh"> 列印時中文欄留空白，讓學生自己填</label>
+    </div>
+    <p class="tnote" id="copyMsg" aria-live="polite"></p>
+    <div id="wlist"></div>
+  </section>
+
+  <footer class="foot" id="foot">
+    <a href="../">回題庫首頁</a>　·　<a href="./">單字記憶卡</a>　·　<a href="coverage.html">詞彙表覆蓋清單</a>　·　<a href="reverse.html">單字逆序表</a>
+  <p class="cc-note">本題庫自己寫的部分（解析、中譯、分類、標註與編排）採用 <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh-hant" target="_blank" rel="license noopener">CC BY-NC 4.0</a>（姓名標示─非商業性）授權：可以分享，但須註明出處，不得用於商業用途。試題來源與完整說明請見<a href="https://staresto-create.github.io/JCEE-vocab-questions/#terms">使用與著作權</a>。</p>
+  </footer>
+</div>
+
+<aside id="panel" hidden aria-label="單字資料"><div class="in"><button class="x" id="px" type="button" aria-label="關閉">×</button><div id="pbody"></div></div></aside>
+<div id="printArea"></div>
+
+<script src="../speaker.js"></script>
+<script src="../kk.js"></script>
+<script>
+(function(){
+'use strict';
+var $=function(id){return document.getElementById(id);};
+function esc(t){return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function store(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v);}catch(e){return null;}}
+
+var SAMPLE='Many teenagers admit that they are exhausted in the morning, yet they stay up late scrolling through their phones. Every notification tempts them to check "just one more message." Sleep experts warn that this habit can seriously deprive the brain of the rest it needs. A student who sleeps only five hours a night may find it hard to concentrate, and small problems begin to feel overwhelming.\n\nSome schools have tried a simple solution: students hand in their phones before class and collect them afterward. Teachers report that the change has improved discussions, although a few students complain that it is inconvenient. Whether such rules should be extended to the weekend, however, remains a controversial question.';
+
+/* 不規則變化 */
+var IRR={was:'be',were:'be',been:'be',being:'be',am:'be',is:'be',are:'be',had:'have',has:'have',having:'have',did:'do',done:'do',does:'do',doing:'do',went:'go',gone:'go',goes:'go',going:'go',made:'make',said:'say',took:'take',taken:'take',came:'come',saw:'see',seen:'see',got:'get',gotten:'get',gave:'give',given:'give',knew:'know',known:'know',thought:'think',found:'find',told:'tell',felt:'feel',left:'leave',kept:'keep',began:'begin',begun:'begin',brought:'bring',bought:'buy',built:'build',caught:'catch',chose:'choose',chosen:'choose',drew:'draw',drawn:'draw',drove:'drive',driven:'drive',ate:'eat',eaten:'eat',fell:'fall',fallen:'fall',flew:'fly',flown:'fly',forgot:'forget',forgotten:'forget',grew:'grow',grown:'grow',heard:'hear',held:'hold',lay:'lie',lain:'lie',led:'lead',lost:'lose',meant:'mean',met:'meet',paid:'pay',ran:'run',rode:'ride',ridden:'ride',rose:'rise',risen:'rise',sang:'sing',sung:'sing',sat:'sit',slept:'sleep',spoke:'speak',spoken:'speak',spent:'spend',stood:'stand',swam:'swim',swum:'swim',taught:'teach',threw:'throw',thrown:'throw',understood:'understand',woke:'wake',woken:'wake',wore:'wear',worn:'wear',wrote:'write',written:'write',broke:'break',broken:'break',hid:'hide',hidden:'hide',shook:'shake',shaken:'shake',stole:'steal',stolen:'steal',sold:'sell',sent:'send',shot:'shoot',sought:'seek',lent:'lend',bent:'bend',dealt:'deal',dug:'dig',fed:'feed',fought:'fight',hung:'hang',laid:'lay',lit:'light',won:'win',wound:'wind',men:'man',women:'woman',children:'child',people:'person',feet:'foot',teeth:'tooth',mice:'mouse',geese:'goose',better:'good',best:'good',worse:'bad',worst:'bad',more:'much',most:'much',less:'little',least:'little',farther:'far',further:'far',elder:'old',eldest:'old',lives:'life',wives:'wife',knives:'knife',wolves:'wolf',leaves:'leaf',halves:'half',shelves:'shelf',thieves:'thief',loaves:'loaf',selves:'self',analyses:'analysis',crises:'crisis',phenomena:'phenomenon',criteria:'criterion',data:'datum',bacteria:'bacterium'};
+var BASIC={};'one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty thirty forty fifty sixty seventy eighty ninety fourth fifth sixth seventh eighth ninth tenth could might should would ought does did monday tuesday wednesday thursday friday saturday sunday january february april june july august september october november december mr mrs ms dr ok oh hi bye'.split(' ').forEach(function(w){BASIC[w]=1;});
+var DBL=/([b-df-hj-np-tv-z])\1$/;
+
+var D=null, IDX={}, ROWS=[], GROUP={}, POLY={}, LEX={}, QMAP={}, SITES={};
+var A=null;           /* 分析結果 */
+var TH=4, SORT='order';
+var HARD={};          /* 打勾不會的字 */
+try{ var h=JSON.parse(store('mk_hard')||'{}'); if(h&&typeof h==='object')HARD=h; }catch(e){}
+var t0=parseInt(store('mk_th'),10); if(t0>=1&&t0<=6)TH=t0;
+
+function setup(rows){
+  ROWS=rows;
+  var i,r,k;
+  for(i=0;i<rows.length;i++){
+    r=rows[i]; k=r[6]||r[0];
+    var g=GROUP[k]||(GROUP[k]={st:2,tested:[],gloss:'',pos:r[2]});
+    if(r[3]<g.st)g.st=r[3];
+    if(r[4]&&r[4].length)g.tested=g.tested.concat(r[4]);
+    if(!g.gloss&&r[5])g.gloss=r[5];
+    var f=r[0].toLowerCase();
+    if(!IDX[f]||r[1]<rows[IDX[f]-1][1])IDX[f]=i+1;
+  }
+}
+function look(f){var i=IDX[f];return i?ROWS[i-1]:null;}
+function cands(t){
+  var c=[],n=t.length;
+  if(IRR[t])c.push(IRR[t]);
+  if(n>3&&/ies$/.test(t))c.push(t.slice(0,-3)+'y');
+  if(n>2&&/(s|x|z|ch|sh)es$/.test(t))c.push(t.slice(0,-2));
+  if(n>2&&/s$/.test(t))c.push(t.slice(0,-1));
+  if(n>3&&/ied$/.test(t))c.push(t.slice(0,-3)+'y');
+  if(n>2&&/ed$/.test(t)){var b=t.slice(0,-2);c.push(b);c.push(b+'e');if(DBL.test(b))c.push(b.slice(0,-1));}
+  if(n>4&&/ing$/.test(t)){var s=t.slice(0,-3);c.push(s);c.push(s+'e');if(DBL.test(s))c.push(s.slice(0,-1));if(/ying$/.test(t))c.push(t.slice(0,-4)+'ie');}
+  if(n>3&&/ier$/.test(t))c.push(t.slice(0,-3)+'y');
+  if(n>3&&/iest$/.test(t))c.push(t.slice(0,-4)+'y');
+  if(n>3&&/er$/.test(t)){var e=t.slice(0,-2);c.push(e);c.push(e+'e');if(DBL.test(e))c.push(e.slice(0,-1));}
+  if(n>4&&/est$/.test(t)){var e2=t.slice(0,-3);c.push(e2);c.push(e2+'e');if(DBL.test(e2))c.push(e2.slice(0,-1));}
+  if(n>4&&/ily$/.test(t))c.push(t.slice(0,-3)+'y');
+  if(n>5&&/ically$/.test(t)){c.push(t.slice(0,-4));c.push(t.slice(0,-2));}
+  if(n>4&&/ably$|ibly$/.test(t))c.push(t.slice(0,-1)+'e');
+  if(n>3&&/ly$/.test(t)){c.push(t.slice(0,-2));c.push(t.slice(0,-2)+'le');}
+  if(n>6&&/iness$/.test(t))c.push(t.slice(0,-5)+'y');
+  if(n>5&&/ness$/.test(t))c.push(t.slice(0,-4));
+  return c;
+}
+function lemma0(t){
+  if(look(t))return t;
+  var c=cands(t);
+  for(var i=0;i<c.length;i++)if(c[i].length>1&&look(c[i]))return c[i];
+  return null;
+}
+function lemma(t){
+  if(look(t))return t;
+  var c=cands(t);
+  for(var i=0;i<c.length;i++)if(c[i].length>1&&look(c[i]))return c[i];
+  /* 否定字首：依詞彙表〈編輯原則〉算回原字；un-、in-、im-、il-、ir-、non- 只接形容詞或副詞，dis- 不限詞性 */
+  var P=['un','in','im','il','ir','non','dis'];
+  for(var j=0;j<P.length;j++){
+    var p=P[j];
+    if(t.indexOf(p)!==0||t.length-p.length<4)continue;
+    var rest=t.slice(p.length),rl=lemma0(rest);
+    if(!rl)continue;
+    var rr=look(rl);
+    if(p==='dis'||/adj|adv/.test(rr[2]))return rl;
+  }
+  return null;
+}
+
+function analyze(text){
+  var re=/T-shirt|[A-Za-z]+/g, m, toks=[], props={};
+  function atStart(pos){
+    var j=pos-1;
+    while(j>=0&&/[\s"'“”‘’(\[\-—]/.test(text.charAt(j)))j--;
+    return j<0||/[.!?:;…\n]/.test(text.charAt(j))||/\n/.test(text.slice(j+1,pos));
+  }
+  while((m=re.exec(text))){
+    var w=m[0], p=m.index, prev=text.charAt(p-1), nx=text.slice(p+w.length,p+w.length+2);
+    var o={w:w,p:p,len:w.length,kind:'skip'};
+    var apos=/['’]/;
+    if(apos.test(prev)&&/^(s|t|re|ve|ll|d|m)$/i.test(w)){toks.push(o);continue;}
+    if(apos.test(nx.charAt(0))&&/^t/i.test(nx.charAt(1))&&/n$/i.test(w)){toks.push(o);continue;}
+    var low=w.toLowerCase();
+    if(w==='I'||w.length<2){toks.push(o);continue;}
+    var lm=lemma(low);
+    var cap=/^[A-Z]/.test(w), allcap=(w===w.toUpperCase());
+    if(lm){o.kind='list';o.lm=lm;}
+    else if(BASIC[low]){o.kind='skip';}
+    else if(allcap){o.kind='skip';}
+    else if(cap&&!atStart(p)){o.kind='prop';props[low]=1;}
+    else{o.kind='out';o.cap=cap;}
+    toks.push(o);
+  }
+  var i,o2;
+  for(i=0;i<toks.length;i++){o2=toks[i];if(o2.kind==='out'&&o2.cap&&props[o2.w.toLowerCase()])o2.kind='prop';}
+  /* 彙整 */
+  var by={},order=[];
+  for(i=0;i<toks.length;i++){
+    o2=toks[i]; if(o2.kind!=='list'&&o2.kind!=='out')continue;
+    var key=o2.kind==='list'?o2.lm:o2.w.toLowerCase();
+    var e=by[key];
+    if(!e){
+      e={key:key,out:o2.kind==='out',n:0,forms:{},first:i};
+      if(!e.out){var r=look(key);e.lv=r[1];e.pos=r[2];e.row=r;e.grp=GROUP[r[6]||r[0]];}
+      by[key]=e;order.push(e);
+    }
+    e.n++; e.forms[o2.w.toLowerCase()]=1; o2.e=e; o2.fi=i;
+  }
+  var cnt=0;for(i=0;i<toks.length;i++)if(toks[i].kind!=='skip')cnt++;
+  return {text:text,toks:toks,by:by,order:order,total:cnt};
+}
+
+function levelCount(k){var n=0;for(var i=0;i<A.order.length;i++){var e=A.order[i];if(!e.out&&e.lv>=k)n++;}return n;}
+function outCount(){var n=0;for(var i=0;i<A.order.length;i++)if(A.order[i].out)n++;return n;}
+
+function renderText(){
+  var t=A.text,h='',pos=0,showOut=$('showOut').checked;
+  for(var i=0;i<A.toks.length;i++){
+    var o=A.toks[i]; if(!o.e)continue;
+    var e=o.e, mark=false, cls='';
+    if(e.out){mark=showOut;cls='lo';}
+    else if(e.lv>=TH){mark=true;cls='l'+e.lv;}
+    if(!mark)continue;
+    h+=esc(t.slice(pos,o.p));
+    h+='<span class="wd '+cls+(HARD[e.key]?' hard':'')+'" tabindex="0" role="button" data-i="'+i+'">'+esc(o.w)+'<sup class="lv">'+(e.out?'外':e.lv)+'</sup></span>';
+    pos=o.p+o.len;
+  }
+  h+=esc(t.slice(pos));
+  $('text').innerHTML=h;
+  var n=levelCount(TH);
+  $('stat').textContent='全文約 '+A.total+' 個字，不重複的字 '+A.order.length+' 個；標出 '+TH+' 級以上的字 '+n+' 個'+(showOut?'，詞彙表以外的字 '+outCount()+' 個':'')+'。';
+  var rowb=$('thRow').querySelectorAll('button');
+  for(var j=0;j<rowb.length;j++){var k=+rowb[j].getAttribute('data-k');rowb[j].setAttribute('aria-pressed',k===TH?'true':'false');rowb[j].lastChild.textContent=' '+levelCount(k);}
+}
+
+function plain(g){return String(g).replace(/(^|；)\s*((?:[a-z]+\.(?:\/[a-z]+\.)*\s*)?)[^；→]*→/g,'$1$2');}
+function glossOf(e){
+  if(e.out)return '';
+  var p=POLY[e.key]; if(p)return p.fam&&p.test?p.fam+'；'+p.test:(p.fam||p.test||'');
+  if(LEX[e.key]&&LEX[e.key].g)return plain(LEX[e.key].g);
+  if(e.grp&&e.grp.gloss)return plain(e.grp.gloss);
+  return '';
+}
+function tagOf(e){
+  if(e.out||!e.grp)return '';
+  if(e.grp.st===0)return '<span class="tag t0">考過原形</span>';
+  if(e.grp.st===1)return '<span class="tag t1">只考過其他字形</span>';
+  return '';
+}
+function sorted(){
+  var l=A.order.filter(function(e){
+    if($('onlyHard').checked)return !!HARD[e.key];
+    return e.out?$('showOut').checked:e.lv>=TH;
+  });
+  if(SORT==='order')l.sort(function(a,b){return a.first-b.first;});
+  else if(SORT==='lv')l.sort(function(a,b){var x=a.out?9:a.lv,y=b.out?9:b.lv;return y-x||(a.key<b.key?-1:1);});
+  else l.sort(function(a,b){return a.key<b.key?-1:1;});
+  return l;
+}
+function wordLi(e){
+  var f=Object.keys(e.forms).filter(function(x){return x!==e.key;}).join('、');
+  var g=glossOf(e);
+  var li=document.createElement('li');
+  var ck=document.createElement('input');ck.type='checkbox';ck.checked=!!HARD[e.key];ck.setAttribute('aria-label','不會：'+e.key);ck.setAttribute('data-k',e.key);
+  li.appendChild(ck);
+  var b=document.createElement('button');b.type='button';b.className='w';b.textContent=e.key;b.setAttribute('data-k',e.key);li.appendChild(b);
+  var s=window.SPK&&SPK.el(e.key); if(s)li.appendChild(s);
+  var kb=window.KK&&KK.el(e.key); if(kb)li.appendChild(kb);
+  var m=document.createElement('span');m.className='meta';
+  m.textContent=(e.out?'詞彙表以外':e.lv+' 級　'+e.pos)+'　出現 '+e.n+' 次'+(f?'　（文中：'+f+'）':'');
+  li.appendChild(m);
+  if(tagOf(e)){var sp=document.createElement('span');sp.innerHTML=tagOf(e);li.appendChild(sp);}
+  var d=document.createElement('div');d.className='gl'+(g?'':' none');d.textContent=g||(e.out?'':'本題庫還沒有這個字的中文，可以按「複製單字」，貼到字典查。');
+  if(g||!e.out)li.appendChild(d);
+  return li;
+}
+function renderList(){
+  var l=sorted(),box=$('wlist');box.innerHTML='';
+  if(!l.length){box.innerHTML='<p class="empty">'+($('onlyHard').checked?'還沒有打勾「不會」的字。':'這個條件下沒有字。可以把「從幾級開始標」調小。')+'</p>';return;}
+  var ins=l.filter(function(e){return !e.out;}), out=l.filter(function(e){return e.out;});
+  if(ins.length){
+    var ul=document.createElement('ul');ul.className='wl';
+    ins.forEach(function(e){ul.appendChild(wordLi(e));});box.appendChild(ul);
+  }
+  if(out.length){
+    var h=document.createElement('h3');h.innerHTML='詞彙表以外<span>可能是很少見的字，也可能是沒換回原字的字形</span>';box.appendChild(h);
+    var ul2=document.createElement('ul');ul2.className='wl';
+    out.forEach(function(e){ul2.appendChild(wordLi(e));});box.appendChild(ul2);
+  }
+}
+
+/* 單字資料面板 */
+function sentenceOf(o){
+  var t=A.text,a=o.p,b=o.p+o.len,s=a,e=b;
+  while(s>0&&!/[.!?\n]/.test(t.charAt(s-1)))s--;
+  while(e<t.length&&!/[.!?\n]/.test(t.charAt(e)))e++;
+  if(e<t.length&&/[.!?]/.test(t.charAt(e)))e++;
+  var pre=t.slice(s,a).replace(/^\s+/,''),post=t.slice(b,e);
+  if(pre.length>120)pre='…'+pre.slice(-120);
+  if(post.length>120)post=post.slice(0,120)+'…';
+  return esc(pre)+'<b>'+esc(t.slice(a,b))+'</b>'+esc(post);
+}
+function showPanel(o,key){
+  var e=o?o.e:A.by[key]; if(!e)return;
+  var h='<div class="pw">'+esc(e.key)+'</div>';
+  var tmp=document.createElement('div');
+  var s=window.SPK&&SPK.el(e.key); if(s)tmp.appendChild(s);
+  var kb=window.KK&&KK.el(e.key); if(kb)tmp.appendChild(kb);
+  h+='<div id="pspk">'+tmp.innerHTML+'</div>';
+  var form=o?o.w:Object.keys(e.forms)[0];
+  if(o){h+='<div class="ps">'+sentenceOf(o)+'</div>';}
+  if(form.toLowerCase()!==e.key)h+='<p class="tnote">文中的字形是 '+esc(form)+'，下面是原形 '+esc(e.key)+' 的資料。</p>';
+  h+='<dl>';
+  if(e.out){
+    h+='<dt>級別</dt><dd>不在大考中心高中英文參考詞彙表內。可能是很少見的字，也可能是沒有換回原字的字形，請對照句子判斷。</dd>';
+  }else{
+    h+='<dt>級別與詞性</dt><dd>'+e.lv+' 級　'+esc(e.pos)+' '+tagOf(e)+'</dd>';
+    var p=POLY[e.key];
+    if(p){
+      h+='<dt>一字多義</dt><dd>'+esc(p.fam||'')+(p.fam&&p.test?'<br>':'')+esc(p.test||'')+'<br><span class="tnote">這個字在文中是哪個意思，請對照上面的句子判斷。</span> <a href="./#deck=po&view='+encodeURIComponent(e.key)+'" target="_blank" rel="noopener">看一字多義卡 →</a>';
+      if(p.ref&&p.ref[1])h+=' <a href="'+esc(p.ref[1])+'" target="_blank" rel="noopener">'+esc(p.ref[0])+' →</a>';
+      h+='</dd>';
+    }else{
+      var g=glossOf(e);
+      h+='<dt>中文</dt><dd>'+(g?esc(g):'<span class="tnote">本題庫還沒有這個字的中文，可以到字典查。</span>')+'</dd>';
+    }
+    var refs=[],seen={};
+    if(e.grp)e.grp.tested.forEach(function(fq){fq[1].forEach(function(q){var id=q[0];if(seen[id])return;seen[id]=1;refs.push([fq[0],id]);});});
+    if(refs.length){
+      h+='<dt>學測、指考考過 '+refs.length+' 題</dt><dd class="refs">';
+      refs.slice(0,6).forEach(function(r){
+        var qi=QMAP[r[1]];if(!qi)return;
+        var site=SITES[qi[0]];
+        h+='<a href="'+esc(site.base+r[1])+'" target="_blank" rel="noopener">'+esc(qi[1])+(r[0].toLowerCase()!==e.key?'（'+esc(r[0])+'）':'')+'</a>';
+      });
+      if(refs.length>6)h+='<span class="tnote">還有 '+(refs.length-6)+' 題，見<a href="coverage.html#o=n" target="_blank" rel="noopener">詞彙表覆蓋清單</a></span>';
+      h+='</dd>';
+    }else{
+      h+='<dt>學測、指考</dt><dd>詞彙題的選項裡還沒出現過。</dd>';
+    }
+  }
+  h+='</dl>';
+  h+='<button class="b hardbtn" type="button" id="hardbtn" data-k="'+esc(e.key)+'" aria-pressed="'+(HARD[e.key]?'true':'false')+'">'+(HARD[e.key]?'已加入「不會」的字':'加入「不會」的字')+'</button>';
+  $('pbody').innerHTML=h;
+  $('panel').hidden=false;
+  var cur=document.querySelector('.wd.cur');if(cur)cur.classList.remove('cur');
+  if(o){var el=document.querySelector('.wd[data-i="'+A.toks.indexOf(o)+'"]');if(el)el.classList.add('cur');}
+}
+function toggleHard(k,on){
+  if(on===undefined)on=!HARD[k];
+  if(on)HARD[k]=1;else delete HARD[k];
+  store('mk_hard',JSON.stringify(HARD));
+}
+function copyText(txt,msg){
+  function done(ok){$('copyMsg').textContent=ok?msg:'沒有複製成功，請改用列印，或手動選取。';}
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(function(){done(true);},function(){fallback();});}
+  else fallback();
+  function fallback(){
+    var ta=document.createElement('textarea');ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();
+    var ok=false;try{ok=document.execCommand('copy');}catch(e){}
+    document.body.removeChild(ta);done(ok);
+  }
+}
+function exportList(){
+  return sorted().filter(function(e){return !e.out||$('onlyHard').checked||$('showOut').checked;});
+}
+function doPrint(){
+  var l=exportList(),blank=$('blankZh').checked;
+  var h='<h1>生字表</h1><p class="pn">'+(blank?'中文留白，請自己填寫。':'')+' 級別依大考中心高中英文參考詞彙表。</p><table><thead><tr><th>單字</th><th>音標</th><th>級別</th><th>詞性</th><th>中文</th></tr></thead><tbody>';
+  l.forEach(function(e){
+    var kk=window.KK&&KK.html?KK.html(e.key):'';
+    h+='<tr><td><b>'+esc(e.key)+'</b></td><td class="k">'+kk+'</td><td>'+(e.out?'外':e.lv)+'</td><td>'+(e.out?'':esc(e.pos))+'</td><td class="g">'+(blank?'':esc(glossOf(e)))+'</td></tr>';
+  });
+  h+='</tbody></table>';
+  $('printArea').innerHTML=h;
+  window.print();
+}
+
+function run(){
+  var t=$('src').value.replace(/\r/g,'');
+  if(!/[A-Za-z]{2}/.test(t)){$('resCard').hidden=true;$('listCard').hidden=true;return;}
+  A=analyze(t);
+  $('resCard').hidden=false;$('listCard').hidden=false;
+  renderText();renderList();$('panel').hidden=true;
+  $('resCard').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function init(){
+  var tr=$('thRow');
+  for(var k=1;k<=6;k++){
+    var b=document.createElement('button');b.type='button';b.className='b';b.setAttribute('data-k',k);b.setAttribute('aria-pressed','false');
+    b.appendChild(document.createTextNode(k+' 級'));var sm=document.createElement('small');sm.textContent=' ';b.appendChild(sm);
+    /* 上面 appendChild 的順序：文字、數量 */
+    tr.appendChild(b);
+  }
+  var sr=$('sortRow');
+  [['order','出現順序'],['lv','級別高到低'],['abc','字母順序']].forEach(function(x){
+    var b=document.createElement('button');b.type='button';b.className='b';b.textContent=x[1];b.setAttribute('data-s',x[0]);b.setAttribute('aria-pressed',x[0]===SORT?'true':'false');sr.appendChild(b);
+  });
+  tr.addEventListener('click',function(ev){
+    var b=ev.target.closest('button');if(!b||!A)return;
+    TH=+b.getAttribute('data-k');store('mk_th',String(TH));renderText();renderList();
+  });
+  sr.addEventListener('click',function(ev){
+    var b=ev.target.closest('button');if(!b)return;
+    SORT=b.getAttribute('data-s');
+    [].forEach.call(sr.querySelectorAll('button'),function(x){x.setAttribute('aria-pressed',x===b?'true':'false');});
+    renderList();
+  });
+  $('go').addEventListener('click',run);
+  $('clear').addEventListener('click',function(){$('src').value='';$('resCard').hidden=true;$('listCard').hidden=true;$('panel').hidden=true;A=null;$('src').focus();});
+  $('sample').addEventListener('click',function(){$('src').value=SAMPLE;run();});
+  $('showOut').addEventListener('change',function(){if(A){renderText();renderList();}});
+  $('onlyHard').addEventListener('change',function(){if(A)renderList();});
+  $('copyW').addEventListener('click',function(){
+    var l=exportList();if(!l.length){$('copyMsg').textContent='目前沒有可複製的字。';return;}
+    copyText(l.map(function(e){return e.key;}).join('\n'),'已複製 '+l.length+' 個單字，一行一個，可以貼到字典 App 查。');
+  });
+  $('printB').addEventListener('click',function(){if(!exportList().length){$('copyMsg').textContent='目前沒有可列印的字。';return;}doPrint();});
+  $('text').addEventListener('click',function(ev){
+    var w=ev.target.closest('.wd');if(!w)return;showPanel(A.toks[+w.getAttribute('data-i')]);
+  });
+  $('text').addEventListener('keydown',function(ev){
+    if(ev.key!=='Enter'&&ev.key!==' ')return;var w=ev.target.closest('.wd');if(!w)return;ev.preventDefault();showPanel(A.toks[+w.getAttribute('data-i')]);
+  });
+  $('wlist').addEventListener('click',function(ev){
+    var c=ev.target.closest('input[type=checkbox]');
+    if(c){toggleHard(c.getAttribute('data-k'),c.checked);renderText();if($('onlyHard').checked)renderList();return;}
+    var b=ev.target.closest('button.w');if(b)showPanel(null,b.getAttribute('data-k'));
+  });
+  $('pbody').addEventListener('click',function(ev){
+    var b=ev.target.closest('#hardbtn');if(!b)return;
+    var k=b.getAttribute('data-k'),on=!HARD[k];toggleHard(k,on);
+    b.setAttribute('aria-pressed',on?'true':'false');b.textContent=on?'已加入「不會」的字':'加入「不會」的字';
+    renderText();renderList();
+  });
+  $('px').addEventListener('click',function(){$('panel').hidden=true;});
+  document.addEventListener('keydown',function(ev){if(ev.key==='Escape')$('panel').hidden=true;});
+}
+
+function jget(u){return fetch(u).then(function(r){if(!r.ok)throw new Error(u+' '+r.status);return r.json();});}
+init();
+$('go').disabled=true;$('sample').disabled=true;
+Promise.all([KK.ready,jget('reverse_data.json'),jget('polysemy_data.json').catch(function(){return null;}),jget('../lexicon/lexicon_data.json').catch(function(){return null;})]).then(function(r){
+  D=r[1];QMAP=D.q;SITES=D.sites;setup(D.rows);
+  if(r[2])r[2].w.forEach(function(x){POLY[String(x.w).toLowerCase()]=x;});
+  if(r[3]){var W=r[3].words;Object.keys(W).forEach(function(k){LEX[k.toLowerCase()]=W[k];});}
+  $('go').disabled=false;$('sample').disabled=false;
+  window.__mk={ready:true};
+}).catch(function(){
+  $('go').textContent='資料讀取失敗，請重新整理';
+});
+})();
+</script>
+</body>
+</html>
