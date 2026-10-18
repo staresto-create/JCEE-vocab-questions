@@ -564,6 +564,7 @@ details.skill[open] > summary::after{content:'－ 收合';}
 </footer>
 </div>
 
+<script src="../speaker.js"></script>
 <script src="data.js"></script>
 <script>
 function escNote(s){
@@ -843,7 +844,7 @@ function selectAnswer(letter, q){
   gloss.innerHTML = ['A','B','C','D'].filter(L=>q.o[L]).map(L=>{
     const isAns = L === q.a;
     return '<div class="gloss-line'+(isAns?' is-answer':'')+'">'+
-      '<span>'+L+'</span><span class="g-word">'+q.o[L]+'</span>'+
+      '<span>'+L+'</span><span class="g-word">'+q.o[L]+SPK.html(q.o[L])+'</span>'+
       '<span class="g-pron">'+pronHTML(q.p && q.p[L])+'</span>'+
       '<span class="g-level">'+(q.l[L] ? '['+q.l[L]+']' : '') +'</span>'+
       '<span class="g-zh">'+(q.g[L] || '（查無中譯）')+'</span></div>';

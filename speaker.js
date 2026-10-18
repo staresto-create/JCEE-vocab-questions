@@ -123,5 +123,16 @@
     } catch (err) {}
   });
 
-  window.SPK = { ok: ok, html: html, el: el, nospk: NOSPK.slice() };
+  /* 靜態頁面用：對符合選擇器的每個元素，取開頭那段文字當單字，在它後面插入喇叭 */
+  function attach(selector) {
+    var nodes = document.querySelectorAll(selector);
+    for (var i = 0; i < nodes.length; i++) {
+      var t = nodes[i].firstChild;
+      if (!t || t.nodeType !== 3 || nodes[i].querySelector('.spk')) continue;
+      var b = el(t.nodeValue);
+      if (b) nodes[i].insertBefore(b, t.nextSibling);
+    }
+  }
+
+  window.SPK = { ok: ok, html: html, el: el, attach: attach, nospk: NOSPK.slice() };
 })();
