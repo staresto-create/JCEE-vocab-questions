@@ -137,7 +137,7 @@ footer.foot a{color:var(--crimson)}
       <p><b>級別</b>依大考中心《高中英文參考詞彙表》（111 學年度起適用）第一到第六級，共 6,158 個字。字形變化（例如 went、studies、better）是用規則換回原來的字，偶爾會換錯或漏掉。</p>
       <p><b>詞彙表以外</b>的字，包括專有名詞以外很少見的字，也可能是沒有換回原字的字形。大寫開頭、又不在句首的字，會當成人名或地名，不標；但句首的人名無法和一般的字分開，會歸到這一類。</p>
       <p><b>一字多義</b>：同一個字在文章裡到底是哪個意思，要看上下文，頁面無法替你判斷。有整理過一字多義的字（目前 154 個），會把常見的幾個意思並列，請你對照句子自己選。</p>
-      <p><b>中文</b>：本題庫只收有整理過的字，沒有中文的字可以按「複製單字」，貼到手機的字典查。片語目前不辨識，只處理單字。</p>
+      <p><b>中文</b>：本題庫只收有整理過的字，沒有中文的字旁邊有「查劍橋英漢」，點一下就會開啟劍橋英漢字典。如果要一次查很多字，可以按「複製單字」，貼到字典 App。片語目前不辨識，只處理單字。</p>
     </details>
   </section>
 
@@ -336,6 +336,8 @@ function renderText(){
   for(var j=0;j<rowb.length;j++){var k=+rowb[j].getAttribute('data-k');rowb[j].setAttribute('aria-pressed',k===TH?'true':'false');rowb[j].lastChild.textContent=' '+levelCount(k);}
 }
 
+function camUrl(w){return 'https://dictionary.cambridge.org/us/search/direct/?datasetsearch=english-chinese-traditional&q='+encodeURIComponent(w);}
+function camLink(w){return '<a href="'+camUrl(w)+'" target="_blank" rel="noopener">查劍橋英漢 →</a>';}
 function plain(g){return String(g).replace(/(^|；)\s*((?:[a-z]+\.(?:\/[a-z]+\.)*\s*)?)[^；→]*→/g,'$1$2');}
 function glossOf(e){
   if(e.out)return '';
@@ -373,8 +375,10 @@ function wordLi(e){
   m.textContent=(e.out?'詞彙表以外':e.lv+' 級　'+e.pos)+'　出現 '+e.n+' 次'+(f?'　（文中：'+f+'）':'');
   li.appendChild(m);
   if(tagOf(e)){var sp=document.createElement('span');sp.innerHTML=tagOf(e);li.appendChild(sp);}
-  var d=document.createElement('div');d.className='gl'+(g?'':' none');d.textContent=g||(e.out?'':'本題庫還沒有這個字的中文，可以按「複製單字」，貼到字典查。');
-  if(g||!e.out)li.appendChild(d);
+  var d=document.createElement('div');d.className='gl'+(g?'':' none');
+  if(g)d.textContent=g;
+  else d.innerHTML=(e.out?'':'本題庫還沒有這個字的中文。')+camLink(e.key);
+  li.appendChild(d);
   return li;
 }
 function renderList(){
@@ -415,7 +419,8 @@ function showPanel(o,key){
   if(form.toLowerCase()!==e.key)h+='<p class="tnote">文中的字形是 '+esc(form)+'，下面是原形 '+esc(e.key)+' 的資料。</p>';
   h+='<dl>';
   if(e.out){
-    h+='<dt>級別</dt><dd>不在大考中心高中英文參考詞彙表內。可能是很少見的字，也可能是沒有換回原字的字形，請對照句子判斷。</dd>';
+    h+='<dt>級別</dt><dd>不在大考中心高中英文參考詞彙表內。大考中心考試說明指出：「為保留真實語言的使用，偶爾會有第六級（含）以上詞彙。」遇到這樣的字，先看上面的句子猜意思，需要的話再查字典。也可能是沒有換回原字的字形。</dd>';
+    h+='<dt>中文</dt><dd>'+camLink(e.key)+'</dd>';
   }else{
     h+='<dt>級別與詞性</dt><dd>'+e.lv+' 級　'+esc(e.pos)+' '+tagOf(e)+'</dd>';
     var p=POLY[e.key];
@@ -425,7 +430,7 @@ function showPanel(o,key){
       h+='</dd>';
     }else{
       var g=glossOf(e);
-      h+='<dt>中文</dt><dd>'+(g?esc(g):'<span class="tnote">本題庫還沒有這個字的中文，可以到字典查。</span>')+'</dd>';
+      h+='<dt>中文</dt><dd>'+(g?esc(g)+' <span class="tnote">'+camLink(e.key)+'</span>':'<span class="tnote">本題庫還沒有這個字的中文。</span> '+camLink(e.key))+'</dd>';
     }
     var refs=[],seen={};
     if(e.grp)e.grp.tested.forEach(function(fq){fq[1].forEach(function(q){var id=q[0];if(seen[id])return;seen[id]=1;refs.push([fq[0],id]);});});
