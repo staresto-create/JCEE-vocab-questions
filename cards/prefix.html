@@ -81,11 +81,12 @@ tr.anch{background:#EAF0E6}
 .tabs button[aria-pressed=true]{background:var(--crimson);border-color:var(--crimson);color:var(--paper-card)}
 footer.foot{margin-top:2.4rem;padding-top:.9rem;border-top:1px solid var(--rule);font-size:.8rem;color:var(--ink-soft);line-height:1.9}
 footer.foot a{color:var(--crimson)}
+.kkm{display:none}
 @media (max-width:480px){
   .qrow{font-size:1.25rem}
   .qc{min-width:2em}
   td.kk,th.kk{display:none}
-  
+  .kkm{display:block;font-family:var(--mono);font-size:.78rem;color:var(--ink-soft);margin-top:.15rem;white-space:normal}.kkm b{color:var(--ink)}
 }
 
 .pf{font-weight:700}
@@ -221,7 +222,7 @@ document.addEventListener('click',function(ev){
 function lvOK(e){return on.has(e.lv);}
 function table(list){
   var r=list.filter(lvOK).map(function(e){
-    return '<tr><td class="lv">'+e.lv+'</td><td><span class="w">'+wordHTML(e)+'</span>'+spkBtn(e.w)+'<span class="spm">'+splitHTML(e)+'</span></td><td class="kk">'+kkHTML(e.kk)+'</td><td class="sp">'+splitHTML(e)+'</td><td>'+e.g+'</td></tr>';
+    return '<tr><td class="lv">'+e.lv+'</td><td><span class="w">'+wordHTML(e)+'</span>'+spkBtn(e.w)+'<span class="kkm">'+kkHTML(e.kk)+'</span><span class="spm">'+splitHTML(e)+'</span></td><td class="kk">'+kkHTML(e.kk)+'</td><td class="sp">'+splitHTML(e)+'</td><td>'+e.g+'</td></tr>';
   }).join('');
   if(!r) r='<tr><td colspan="5" class="empty-msg">這個字級沒有符合的字。</td></tr>';
   return '<div class="tw"><table><thead><tr><th>級</th><th>單字</th><th class="kk">音標</th><th class="sp">拆解</th><th>中文</th></tr></thead><tbody>'+r+'</tbody></table></div>';
