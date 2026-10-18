@@ -13,7 +13,7 @@
   var st = document.createElement('style');
   st.setAttribute('data-kk', '1');
   st.textContent = '.kkp{font-family:"IBM Plex Mono","Noto Sans TC",monospace;font-size:.8rem;color:var(--ink-soft,#6b6256);margin-left:.5rem}' +
-    '.kkp i{font-style:normal;margin-left:.4rem}.kkp i:first-child{margin-left:0}';
+    '.kkp i{font-style:normal;margin-left:.4rem;white-space:nowrap}.kkp i:first-child{margin-left:0}';
   (document.head || document.documentElement).appendChild(st);
 
   var AB = { '名詞': 'n.', '動詞': 'v.', '形容詞': 'adj.' };

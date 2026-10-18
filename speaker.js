@@ -43,6 +43,42 @@
   var HET_SPK = true;
   var HET = {};
   /*HET-BEGIN*/
+  HET["entrance"] = [{lab:"n.",say:"an entrance",kk:"ˈɛntrəns"},{lab:"v.",say:"to entrance",kk:"ɪnˈtræns"}];
+  HET["frequent"] = [{lab:"adj.",say:"very frequent",kk:"ˈfrikwənt"},{lab:"v.",say:"to frequent",kk:"friˈkwɛnt"}];
+  HET["contrary"] = [{lab:"adj./n.",say:"on the contrary",kk:"ˈkɑnˌtrɛri"},{lab:"adj.（倔強）",say:"a contrary child",kk:"kənˈtrɛri"}];
+  HET["accent"] = [{lab:"n.",say:"an accent",kk:"ˈæksˌɛnt"}];
+  HET["affiliate"] = [{lab:"v.",say:"to affiliate",kk:"əˈfɪliˌeɪt"},{lab:"n.",say:"an affiliate",kk:"əˈfɪliɪt"}];
+  HET["ally"] = [{lab:"n.",say:"an ally",kk:"ˈæˌlaɪ"},{lab:"v.",say:"to ally",kk:"əˈlaɪ"}];
+  HET["appropriate"] = [{lab:"adj.",say:"very appropriate",kk:"əˈproʊpriət"},{lab:"v.",say:"to appropriate",kk:"əˈproʊpriˌeɪt"}];
+  HET["approximate"] = [{lab:"adj.",say:"very approximate",kk:"əˈprɑksəmɪt"},{lab:"v.",say:"to approximate",kk:"əˈprɑksəˌmeɪt"}];
+  HET["associate"] = [{lab:"v.",say:"to associate",kk:"əˈsoʊʃiˌeɪt"},{lab:"n.",say:"an associate",kk:"əˈsoʊʃiɪt"}];
+  HET["attribute"] = [{lab:"v.",say:"to attribute",kk:"əˈtrɪbjut"},{lab:"n.",say:"an attribute",kk:"ˈætrəˌbjut"}];
+  HET["supplement"] = [{lab:"n.",say:"a supplement",kk:"ˈsʌpləmənt"},{lab:"v.",say:"to supplement",kk:"ˈsʌpləˌmɛnt"}];
+  HET["abstract"] = [{lab:"adj./n.",say:"abstract art",kk:"ˈæbˌstrækt"}];
+  HET["addict"] = [{lab:"n.",say:"an addict",kk:"ˈædɪkt"},{lab:"v.",say:"to addict",kk:"əˈdɪkt"}];
+  HET["compact"] = [{lab:"adj.",say:"very compact",kk:"kəmˈpækt"},{lab:"n.",say:"a compact",kk:"ˈkɑmˌpækt"}];
+  HET["construct"] = [{lab:"v.",say:"to construct",kk:"kənˈstrʌkt"},{lab:"n.",say:"a construct",kk:"ˈkɑnˌstrʌkt"}];
+  HET["content"] = [{lab:"n.",say:"the content",kk:"ˈkɑnˌtɛnt"},{lab:"adj.",say:"I am content",kk:"kənˈtɛnt"}];
+  HET["contest"] = [{lab:"n.",say:"a contest",kk:"ˈkɑnˌtɛst"},{lab:"v.",say:"to contest",kk:"kənˈtɛst"}];
+  HET["contract"] = [{lab:"n.",say:"a contract",kk:"ˈkɑnˌtrækt"},{lab:"v.",say:"to contract",kk:"kənˈtrækt"}];
+  HET["contrast"] = [{lab:"n.",say:"a contrast",kk:"ˈkɑnˌtræst"},{lab:"v.",say:"to contrast",kk:"kənˈtræst"}];
+  HET["convert"] = [{lab:"v.",say:"to convert",kk:"kənˈvɝt"},{lab:"n.",say:"a convert",kk:"ˈkɑnˌvɝt"}];
+  HET["delegate"] = [{lab:"n.",say:"a delegate",kk:"ˈdɛləgɪt"},{lab:"v.",say:"to delegate",kk:"ˈdɛləˌgeɪt"}];
+  HET["deliberate"] = [{lab:"adj.",say:"very deliberate",kk:"dɪˈlɪbərət"},{lab:"v.",say:"to deliberate",kk:"dɪˈlɪbəˌreɪt"}];
+  HET["estimate"] = [{lab:"v.",say:"to estimate",kk:"ˈɛstəˌmeɪt"},{lab:"n.",say:"an estimate",kk:"ˈɛstəmɪt"}];
+  HET["extract"] = [{lab:"v.",say:"to extract",kk:"ɪkˈstrækt"},{lab:"n.",say:"an extract",kk:"ˈɛkˌstrækt"}];
+  HET["insert"] = [{lab:"v.",say:"to insert",kk:"ɪnˈsɝt"},{lab:"n.",say:"an insert",kk:"ˈɪnˌsɝt"}];
+  HET["intimate"] = [{lab:"adj.",say:"very intimate",kk:"ˈɪntəmət"},{lab:"v.",say:"to intimate",kk:"ˈɪntəˌmeɪt"}];
+  HET["moderate"] = [{lab:"adj.",say:"very moderate",kk:"ˈmɑdərət"},{lab:"v.",say:"to moderate",kk:"ˈmɑdəˌreɪt"}];
+  HET["object"] = [{lab:"n.",say:"an object",kk:"ˈɑbʤɪkt"},{lab:"v.",say:"to object",kk:"əbˈʤɛkt"}];
+  HET["produce"] = [{lab:"v.",say:"to produce",kk:"prəˈdus"},{lab:"n.",say:"fresh produce",kk:"ˈproʊdus"}];
+  HET["project"] = [{lab:"n.",say:"a project",kk:"ˈprɑˌʤɛkt"},{lab:"v.",say:"to project",kk:"prəˈʤɛkt"}];
+  HET["rebel"] = [{lab:"v.",say:"to rebel",kk:"rɪˈbɛl"},{lab:"n.",say:"a rebel",kk:"ˈrɛbəl"}];
+  HET["reject"] = [{lab:"v.",say:"to reject",kk:"rɪˈʤɛkt"},{lab:"n.",say:"a reject",kk:"ˈriˌʤɛkt"}];
+  HET["separate"] = [{lab:"adj.",say:"two separate",kk:"ˈsɛpərət"},{lab:"v.",say:"to separate",kk:"ˈsɛpəˌreɪt"}];
+  HET["subject"] = [{lab:"n./adj.",say:"a subject",kk:"ˈsʌbʤɪkt"},{lab:"v.",say:"to subject",kk:"səbˈʤɛkt"}];
+  HET["suspect"] = [{lab:"v.",say:"to suspect",kk:"səˈspɛkt"},{lab:"n./adj.",say:"a suspect",kk:"ˈsʌˌspɛkt"}];
+  HET["transfer"] = [{lab:"v.",say:"to transfer",kk:"trænsˈfɝ"},{lab:"n.",say:"a transfer",kk:"ˈtrænsfɚ"}];
   /*HET-END*/
   function normw(word) { return String(word == null ? '' : word).trim().toLowerCase(); }
   function het(word) { var v = HET[normw(word)]; return v ? v.slice() : null; }
@@ -100,14 +136,14 @@
   /* 樣式：顏色沿用各頁自己的色票變數，沒有就用備用色 */
   var css = '.spk{display:none;font:inherit;vertical-align:middle;align-self:center;margin-left:.45rem;padding:.12rem .38rem;line-height:1;' +
     'background:var(--paper-card,#fff);color:var(--crimson,#AE3626);border:1px solid var(--rule,#d9d0bf);border-radius:3px;cursor:pointer}' +
-    '.tts .spk{display:inline-block}' +
+    '.tts .spk{display:inline-flex;align-items:center;justify-content:center}' +
     '.spk:hover,.spk.playing{border-color:var(--crimson,#AE3626);background:var(--crimson,#AE3626);color:var(--paper-card,#fff)}' +
-    '.spk svg{width:1em;height:1em;display:block;fill:currentColor}' +
+    '.spk svg{width:1em;height:1em;display:block;fill:currentColor;margin:0;flex:none}' +
     '.spkset{display:none;flex-wrap:wrap;gap:.3rem .4rem;margin:.2rem 0 0 .45rem;vertical-align:middle}' +
     '.tts .spkset{display:inline-flex}' +
     '.spkv{display:none;margin-left:0;font-size:.82rem;white-space:nowrap}' +
     '.tts .spkv{display:inline-flex;align-items:center;gap:.35rem}' +
-    '.spkv .spkt{line-height:1.2;font-family:inherit}';
+    '.spkv .spkt{line-height:1.2;font-family:system-ui,-apple-system,"Noto Sans TC","Segoe UI",sans-serif;font-weight:500}';
   var st = document.createElement('style');
   st.setAttribute('data-spk', '1');
   st.textContent = css;
