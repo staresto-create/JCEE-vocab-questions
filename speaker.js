@@ -20,13 +20,16 @@
     "project", "protest", "rebel", "record", "refund", "refuse", "reject", "research", "resume",
     "subject", "supplement", "survey", "suspect", "torment", "transfer", "transplant", "transport",
     "ally",
-    /* 同拼法、因詞性或意思而有不同唸法（2026-10-18 逐字對照 Merriam-Webster 查證） */
-    "abstract", "accent", "alternate", "approximate", "arithmetic", "bass", "bow", "buffet",
-    "close", "combat", "compact", "compound", "concert", "concrete", "construct", "contrary",
+    /* 同拼法、因詞性或意思而有不同唸法（2026-10-18 逐字對照 Merriam-Webster 查證，兩輪獨立複核）。
+     * 放喇叭的條件：所有詞性共用同一組唸法，或每個唸法對每個詞性都收，
+     * 或另一個唸法只是標 also／especially 的少見變體；其餘一律排除，寧可少放。 */
+    "abstract", "accent", "alternate", "approximate", "arithmetic", "bass", "blessed", "bow",
+    "buffet", "close", "combat", "compact", "compound", "concert", "construct", "contrary",
     "convert", "coordinate", "deliberate", "discard", "dove", "entrance", "escort", "estimate",
     "frequent", "graduate", "house", "insert", "intimate", "invite", "lead", "learned", "live",
     "lower", "minute", "moderate", "ornament", "permit", "polish", "read", "row", "sake",
-    "segment", "separate", "sow", "tear", "update", "upset", "use", "used", "wind", "wound"
+    "segment", "separate", "sow", "tear", "underline", "update", "upgrade", "upset", "use", "used",
+    "wind", "wound"
   ];
 
   var NO = {};
