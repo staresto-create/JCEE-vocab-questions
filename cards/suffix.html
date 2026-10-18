@@ -75,6 +75,10 @@ tr.anch{background:#EAF0E6}
 .btn.more{color:var(--ink);border-color:var(--ink)}
 .btn.more:hover{background:var(--ink);color:var(--paper-card)}
 .hidden{display:none}
+#lvRow{scroll-margin-top:4.2rem}
+.tabs{display:flex;gap:.5rem;position:sticky;top:0;z-index:5;background:var(--paper);padding:.5rem 0;margin:.2rem 0 .4rem}
+.tabs button{flex:1;font:inherit;font-size:1rem;font-weight:700;padding:.6rem .5rem;background:var(--paper-card);color:var(--ink);border:2px solid var(--rule);border-radius:4px;cursor:pointer}
+.tabs button[aria-pressed=true]{background:var(--crimson);border-color:var(--crimson);color:var(--paper-card)}
 .ttsonly{display:none}
 .tts .ttsonly{display:inline-block}
 .tts li.ttsonly,.tts p.ttsonly{display:list-item}
@@ -116,7 +120,7 @@ footer.foot a{color:var(--crimson)}
       <li><span class="k">先念出來。</span>一個音節一個音節念，再整個字念一遍。</li>
       <li><span class="k">聽一聽。</span>如果單字旁邊有喇叭按鈕，按下去會唸出整個字（美式發音）。聲音來自你的手機或電腦內建的語音，不同裝置唸得好不好差很多，個別字也可能唸得不準，所以請以音標為準。要是看不到喇叭，表示這個裝置或瀏覽器沒有英文語音，其他功能不受影響。</li>
       <li><span class="k">看字尾。</span>字尾的拼法用<b>粗體</b>標出來，同一組的字，字尾唸法都一樣。每一組開頭的「熟字」，大多數同學已經認得，可以拿來對照。</li>
-      <li><span class="k">遮住再寫。</span>到<a href="#practice-h">頁面最下面的練習</a>：先補空格、對答案，再自己默寫一次整個字。</li>
+      <li><span class="k">遮住再寫。</span>到<a href="#practice-h" class="gopr">「做練習」</a>：先補空格、對答案，再自己默寫一次整個字。</li>
     </ol>
     <div class="legend">
       <span><b>粗體</b>＝字尾的拼法（音標裡也用粗體標出對應的音）</span>
@@ -126,16 +130,24 @@ footer.foot a{color:var(--crimson)}
     </div>
   </section>
 
+  <div class="tabs" id="tabs" role="group" aria-label="切換：看字表或做練習">
+    <button type="button" id="tabB" aria-pressed="true">看字表</button>
+    <button type="button" id="tabP" aria-pressed="false">做練習</button>
+  </div>
   <div class="row" id="lvRow" role="group" aria-label="依字級篩選"><span class="lb">字級</span></div>
+
+  <div id="browseSec">
   <div class="row" id="nav" aria-label="跳到各組"><span class="lb">跳到</span></div>
-
   <div id="groups"></div>
+  </div>
 
+  <div id="pracSec" class="hidden">
   <h2 id="practice-h">練習：補字尾</h2>
   <p class="note">先選一組。每題給音標和中文，空格是字尾，字尾的唸法用粗體標在音標裡。先念一遍，想想這個音怎麼拼。想不起來，再按「給我提示」，看一個唸法相同的熟字；最後按「看答案」核對，並自己默寫一次整個字。</p>
   <div class="row" id="pgRow" role="group" aria-label="選擇練習的字尾組"><span class="lb">練習哪一組</span></div>
   <div id="practice"></div>
   <div class="btns" id="moreRow"><button class="btn more" id="moreBtn" type="button">換一批題目</button></div>
+  </div>
 
   <footer class="foot" id="foot">
     <a href="../">回題庫首頁</a>　·　<a href="./">單字記憶卡</a>　·　<a href="reverse.html">單字逆序表</a>　·　<a href="../roots/">字根家族表</a>
@@ -201,10 +213,19 @@ document.addEventListener('click',function(ev){
     ss.speak(u);
   }catch(err){}
 });
+function setMode(m,noscroll){
+  $('browseSec').classList.toggle('hidden',m!=='b');
+  $('pracSec').classList.toggle('hidden',m!=='p');
+  $('tabB').setAttribute('aria-pressed',m==='b'?'true':'false');
+  $('tabP').setAttribute('aria-pressed',m==='p'?'true':'false');
+  if(!noscroll){var t=$('lvRow');if(t&&t.scrollIntoView)t.scrollIntoView();}
+}
 document.addEventListener('click',function(ev){
-  var a=ev.target.closest&&ev.target.closest('a.pr');
-  if(!a)return;
-  cur=a.getAttribute('data-g');renderPg();newPool();practice();
+  var t=ev.target.closest?ev.target:null; if(!t)return;
+  var a=t.closest('a.pr');
+  if(a){ev.preventDefault();cur=a.getAttribute('data-g');renderPg();newPool();practice();setMode('p');return;}
+  a=t.closest('a.gopr');
+  if(a){ev.preventDefault();setMode('p');}
 });
 function lvOK(e){return on.has(e.lv);}
 function table(list,cls,kkt){
@@ -233,9 +254,6 @@ function renderGroups(){
 function renderNav(){
   var nav=$('nav');
   Array.prototype.slice.call(nav.querySelectorAll('a')).forEach(function(a){nav.removeChild(a);});
-  var pa=document.createElement('a');
-  pa.href='#practice-h';pa.textContent='練習 ↓';pa.style.fontWeight='700';pa.style.color='var(--crimson)';
-  nav.appendChild(pa);
   DATA.groups.forEach(function(g){
     var a=document.createElement('a');
     a.href='#g-'+g.id;a.textContent=g.short+' '+count(g);
@@ -321,6 +339,9 @@ LEVELS.forEach(function(l){
   lvRow.appendChild(b);
 });
 $('moreBtn').addEventListener('click',practice);
+$('tabB').addEventListener('click',function(){setMode('b');});
+$('tabP').addEventListener('click',function(){setMode('p');});
+if(location.hash==='#practice-h')setMode('p',true);
 renderAll();
 })();
 </script>
