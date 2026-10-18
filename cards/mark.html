@@ -47,11 +47,11 @@ button.b.pri{background:var(--ink);border-color:var(--ink);color:var(--paper-car
 button.b[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:var(--paper-card)}
 button.b small{font-size:.78em;opacity:.8;margin-left:.2rem}
 label.ck{font-size:.88rem;display:inline-flex;align-items:center;gap:.35rem;cursor:pointer}
-.stat{font-size:.88rem;color:var(--ink-soft);margin:.5rem 0 0}
+.stat{font-size:.88rem;color:var(--ink-soft);margin:.8rem 0 0}
 .legend{display:flex;flex-wrap:wrap;gap:.4rem .9rem;font-size:.8rem;color:var(--ink-soft);margin:.5rem 0 0}
 .legend span{display:inline-flex;align-items:center;gap:.3rem}
 .legend i{display:inline-block;width:1.6rem;height:.9rem;border-radius:2px;border-bottom:2px solid}
-#text{font-family:var(--serif);font-size:1.08rem;line-height:2.1;white-space:pre-wrap;word-wrap:break-word;margin-top:.8rem}
+#text{font-family:var(--serif);font-size:1.08rem;line-height:2.1;white-space:pre-wrap;word-wrap:break-word;margin-top:1.1rem}
 .wd{cursor:pointer;border-radius:2px;padding:0 1px;border-bottom:2px solid transparent}
 .wd.l1,.wd.l2{background:var(--sage-soft);border-color:var(--sage)}
 .wd.l3{background:var(--gold-soft);border-color:var(--gold)}
@@ -291,6 +291,11 @@ function analyze(text){
   }
   var i,o2;
   for(i=0;i<toks.length;i++){o2=toks[i];if(o2.kind==='out'&&o2.cap&&props[o2.w.toLowerCase()])o2.kind='prop';}
+  /* 句首的字不在詞彙表、後面緊接著另一個大寫開頭的字（French President、Emmanuel Macron），當成專有名詞 */
+  for(i=0;i<toks.length-1;i++){
+    o2=toks[i];var nx2=toks[i+1];
+    if(o2.kind==='out'&&o2.cap&&/^[A-Z]/.test(nx2.w)&&/^[ \t]+$/.test(text.slice(o2.p+o2.len,nx2.p)))o2.kind='prop';
+  }
   /* 彙整 */
   var by={},order=[];
   for(i=0;i<toks.length;i++){
