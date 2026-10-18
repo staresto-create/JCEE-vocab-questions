@@ -218,7 +218,7 @@ function draw(){
   list.innerHTML = d.items.map((it,i)=>{
     const exam = !it.t.startsWith('第');
     return `<li class="${sel===i?'on':''}"><span class="tag ${exam?'':'sup'}">${it.t}</span>`
-         + `<div class="w">${it.w}${SPK.html(it.w)}${KK.html(it.w)}</div><div class="p">${it.p}</div><div class="g">${it.g}</div></li>`;
+         + `<div class="w">${it.w}${SPK.html(it.w,true)}${KK.html(it.w)}</div><div class="p">${it.p}</div><div class="g">${it.g}</div></li>`;
   }).join('');
 }
 

@@ -82,6 +82,7 @@ tr.anch{background:#EAF0E6}
 footer.foot{margin-top:2.4rem;padding-top:.9rem;border-top:1px solid var(--rule);font-size:.8rem;color:var(--ink-soft);line-height:1.9}
 footer.foot a{color:var(--crimson)}
 .kkm{display:none}
+.kkv{display:block;white-space:nowrap}.kkm .kkv{white-space:normal}
 @media (max-width:480px){
   .qrow{font-size:1.25rem}
   .qc{min-width:2em}
@@ -165,6 +166,7 @@ function kkHTML(kk,kkt){
   var t=kkt||'';
   return '/'+(t&&kk.slice(-t.length)===t ? kk.slice(0,-t.length)+'<b>'+t+'</b>' : kk)+'/';
 }
+function kkCell(e,kkt){var v=SPK.het(e.w);return v?v.map(function(x){return '<span class="kkv">'+x.lab+' '+kkHTML(x.kk,kkt)+'</span>';}).join(''):kkHTML(e.kk,kkt);}
 function sylHTML(e){
   var n=e.syl.length, start=e.w.length-e.tail.length, off=0;
   return e.syl.map(function(s,i){
@@ -175,7 +177,7 @@ function sylHTML(e){
     return '<span class="sy sp'+pos+(i===e.st-1?' st':'')+'">'+txt+'</span>';
   }).join('<span class="dot">·</span>');
 }
-function spkBtn(w){return SPK.html(w);}
+function spkBtn(w){return SPK.html(w,true);}
 function setMode(m,noscroll){
   $('browseSec').classList.toggle('hidden',m!=='b');
   $('pracSec').classList.toggle('hidden',m!=='p');
@@ -193,7 +195,7 @@ document.addEventListener('click',function(ev){
 function lvOK(e){return on.has(e.lv);}
 function table(list,cls,kkt){
   var r=list.filter(lvOK).map(function(e){
-    return '<tr class="'+(cls||'')+'"><td class="lv">'+e.lv+'</td><td><span class="w">'+sylHTML(e)+'</span>'+spkBtn(e.w)+'<span class="kkm">'+kkHTML(e.kk,kkt)+'</span></td><td class="kk">'+kkHTML(e.kk,kkt)+'</td><td>'+e.g+'</td></tr>';
+    return '<tr class="'+(cls||'')+'"><td class="lv">'+e.lv+'</td><td><span class="w">'+sylHTML(e)+'</span>'+spkBtn(e.w)+'<span class="kkm">'+kkCell(e,kkt)+'</span></td><td class="kk">'+kkCell(e,kkt)+'</td><td>'+e.g+'</td></tr>';
   }).join('');
   if(!r) r='<tr><td colspan="4" class="empty-msg">這個字級沒有符合的字。</td></tr>';
   return '<div class="tw"><table><thead><tr><th>級</th><th>單字</th><th class="kk">音標</th><th>中文</th></tr></thead><tbody>'+r+'</tbody></table></div>';
@@ -257,8 +259,8 @@ function practice(){
     var diff=(a.tail!==e.tail)?'　拼法不同：'+a.w+' 拼 <b>'+a.tail+'</b>，這個字拼 <b>'+e.tail+'</b>。':'';
     return '<div class="q">'
       +'<div class="qrow">'+up+'</div>'
-      +'<div class="meta"><span class="kkq">'+kkHTML(e.kk,g.kkt)+'</span><span class="zh">'+e.g+'</span><span>第 '+(idx+1)+' 題，字級 '+e.lv+'</span></div>'
-      +'<div class="hint hidden"><div class="meta"><span>提示：<span class="hw">'+a.w+'</span> <span class="kkq">'+kkHTML(a.kk,g.kkt)+'</span> '+a.g.split('；')[0]+'</span></div></div>'
+      +'<div class="meta"><span class="kkq">'+kkCell(e,g.kkt)+'</span><span class="zh">'+e.g+'</span><span>第 '+(idx+1)+' 題，字級 '+e.lv+'</span></div>'
+      +'<div class="hint hidden"><div class="meta"><span>提示：<span class="hw">'+a.w+'</span> <span class="kkq">'+kkCell(a,g.kkt)+'</span> '+a.g.split('；')[0]+'</span></div></div>'
       +'<div class="btns"><button class="btn hintbtn" type="button">給我提示</button><button class="btn ansbtn" type="button">看答案</button></div>'
       +'<div class="meta hidden ans"><span class="w">'+sylHTML(e)+'</span>'+spkBtn(e.w)+'<span>字尾 <b>'+e.tail+'</b> 唸 /'+g.kkt+'/，和 '+a.w+' 一樣。'+diff+'</span></div>'
       +'</div>';

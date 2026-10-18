@@ -35,6 +35,18 @@
   var NO = {};
   NOSPK.forEach(function (w) { NO[w] = 1; });
 
+  /* 唸法會因詞性或意思而不同的字：每一種唸法各放一個喇叭，按鈕上直接寫出要唸的短語
+   * （例如 a contest／to contest），語音引擎會依前後文選唸法。
+   * 只有頁面用 SPK.html(字, true) 才會出現；其他頁面照舊不放喇叭。
+   * 資料由查證結果產生，欄位：lab 詞性、say 唸的短語、kk 該唸法的音標。
+   * HET_SPK 設 false 時只顯示短語與音標，不放喇叭（例如試聽發現某裝置唸錯時）。 */
+  var HET_SPK = true;
+  var HET = {};
+  /*HET-BEGIN*/
+  /*HET-END*/
+  function normw(word) { return String(word == null ? '' : word).trim().toLowerCase(); }
+  function het(word) { var v = HET[normw(word)]; return v ? v.slice() : null; }
+
   var SVG = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9v6h4l5 4V5L7 9H3zm13.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4zM14 3.2v2.1a7 7 0 0 1 0 13.4v2.1a9 9 0 0 0 0-17.6z"/></svg>';
 
   /* 這個字能不能放喇叭：只收英文字母、空格、連字號、撇號；
@@ -57,7 +69,18 @@
     return String(t).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   }
 
-  function html(word) {
+  function hetHtml(word) {
+    var v = HET[normw(word)];
+    if (!v || !HET_SPK) return '';
+    return '<span class="spkset">' + v.map(function (x) {
+      var say = esc(x.say);
+      return '<button class="spk spkv" type="button" data-w="' + say + '" aria-label="聽 ' + say + ' 的發音" title="聽發音">' +
+        SVG + '<span class="spkt">' + say + '</span></button>';
+    }).join('') + '</span>';
+  }
+
+  function html(word, withHet) {
+    if (withHet && HET[normw(word)]) return hetHtml(word);
     if (!ok(word)) return '';
     var w = esc(String(word).trim());
     return '<button class="spk" type="button" data-w="' + w + '" aria-label="聽 ' + w + ' 的發音" title="聽發音">' + SVG + '</button>';
@@ -79,7 +102,12 @@
     'background:var(--paper-card,#fff);color:var(--crimson,#AE3626);border:1px solid var(--rule,#d9d0bf);border-radius:3px;cursor:pointer}' +
     '.tts .spk{display:inline-block}' +
     '.spk:hover,.spk.playing{border-color:var(--crimson,#AE3626);background:var(--crimson,#AE3626);color:var(--paper-card,#fff)}' +
-    '.spk svg{width:1em;height:1em;display:block;fill:currentColor}';
+    '.spk svg{width:1em;height:1em;display:block;fill:currentColor}' +
+    '.spkset{display:none;flex-wrap:wrap;gap:.3rem .4rem;margin:.2rem 0 0 .45rem;vertical-align:middle}' +
+    '.tts .spkset{display:inline-flex}' +
+    '.spkv{display:none;margin-left:0;font-size:.82rem;white-space:nowrap}' +
+    '.tts .spkv{display:inline-flex;align-items:center;gap:.35rem}' +
+    '.spkv .spkt{line-height:1.2;font-family:inherit}';
   var st = document.createElement('style');
   st.setAttribute('data-spk', '1');
   st.textContent = css;
@@ -134,5 +162,5 @@
     }
   }
 
-  window.SPK = { ok: ok, html: html, el: el, attach: attach, nospk: NOSPK.slice() };
+  window.SPK = { ok: ok, html: html, el: el, attach: attach, het: het, nospk: NOSPK.slice() };
 })();

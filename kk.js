@@ -24,7 +24,7 @@
     if (raw.indexOf('　') < 0) return '[' + esc(raw) + ']';
     return raw.split('　').map(function (x) {
       var m = /^（(.+?)）(.+)$/.exec(x);
-      return '<i>' + (m ? (AB[m[1]] || esc(m[1])) + ' [' + esc(m[2]) + ']' : '[' + esc(x) + ']') + '</i>';
+      return '<i>' + (m ? m[1].split('、').map(function (z) { return AB[z] || esc(z); }).join('/') + ' [' + esc(m[2]) + ']' : '[' + esc(x) + ']') + '</i>';
     }).join('');
   }
   function html(word) {
