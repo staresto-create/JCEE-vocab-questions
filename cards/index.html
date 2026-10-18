@@ -875,7 +875,10 @@
 
   // 發音：瀏覽器內建語音（沒有英文語音的裝置不顯示喇叭）
   var SPK_SVG = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9v6h4l5 4V5L7 9H3zm13.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4zM14 3.2v2.1a7 7 0 0 1 0 13.4v2.1a9 9 0 0 0 0-17.6z"/></svg>';
+  var NOSPK = {};
+  ["abuse", "addict", "address", "advocate", "affiliate", "appropriate", "associate", "attribute", "combine", "complement", "complex", "compliment", "conduct", "conflict", "console", "content", "contest", "contract", "contrast", "converse", "convict", "decrease", "defect", "delegate", "desert", "digest", "discount", "document", "elaborate", "excuse", "experiment", "exploit", "export", "extract", "impact", "implement", "import", "incline", "increase", "insult", "object", "outright", "overflow", "overlap", "perfect", "precedent", "present", "produce", "progress", "project", "protest", "rebel", "record", "refund", "refuse", "reject", "research", "resume", "subject", "supplement", "survey", "suspect", "torment", "transfer", "transplant", "transport"].forEach(function (x) { NOSPK[x] = 1; });   // 詞性不同唸法不同的字，語音會唸錯，不放喇叭
   function spkBtn(w) {
+    if (NOSPK[String(w).toLowerCase()]) return '';
     return '<button class="spk" type="button" data-w="' + esc(w) + '" aria-label="聽 ' + esc(w) + ' 的發音" title="聽發音">' + SPK_SVG + '</button>';
   }
   var spkVoice = null, spkPlaying = null;
