@@ -131,6 +131,7 @@ footer.foot a{color:var(--crimson)}
 </footer>
 </div>
 
+<script src="../speaker.js"></script>
 <script>
 (function(){
 'use strict';
@@ -225,7 +226,7 @@ function render(){
       ul=document.createElement('ul'); ul.className='list'; body.appendChild(ul);
     }
     var li=document.createElement('li'), ln=document.createElement('div'); ln.className='ln';
-    ln.appendChild(wordHTML(r[0],q?q.length:0));
+    ln.appendChild(wordHTML(r[0],q?q.length:0)); var sb=SPK.el(r[0]); if(sb) ln.appendChild(sb);
     var p=document.createElement('span'); p.className='pos'; p.textContent=r[2]; ln.appendChild(p);
     var lv=document.createElement('span'); lv.className='lv'; lv.textContent=r[1]+' 級'; ln.appendChild(lv);
     if(r[3]<2){var t=document.createElement('span'); t.className='tag t'+r[3]; t.textContent=r[3]===0?'考過原形':'只考過其他字形'; ln.appendChild(t);}

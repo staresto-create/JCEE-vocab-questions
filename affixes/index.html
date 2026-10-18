@@ -100,6 +100,7 @@ details .list{color:#3d5059}
   <div class="foot" id="foot"></div>
 </div>
 
+<script src="../speaker.js"></script>
 <script>
 const $=s=>document.querySelector(s);
 let DATA=null, state={q:'', lv:new Set(), examOnly:false, w:''};
@@ -155,7 +156,7 @@ function render(){
     sb.items.forEach(it=>{
       const li=document.createElement('li');
       const w=document.createElement('div');
-      const nm=document.createElement('span'); nm.className='w'; nm.textContent=it.w; w.appendChild(nm);
+      const nm=document.createElement('span'); nm.className='w'; nm.textContent=it.w; w.appendChild(nm); {const sb=SPK.el(it.w); if(sb) w.appendChild(sb);}
       if(it.kk){const k=document.createElement('span');k.className='kk';k.textContent='['+it.kk+']';w.appendChild(k);}
       if(it.lv){const b=document.createElement('span');b.className='badge';b.textContent=it.base?('衍生自 '+it.base+'（第 '+it.lv+' 級）'):('第 '+it.lv+' 級');w.appendChild(b);}
       li.appendChild(w);

@@ -146,6 +146,7 @@ footer.foot a{color:var(--crimson)}
 </footer>
 </div>
 
+<script src="../speaker.js"></script>
 <script>
 (function(){
 'use strict';
@@ -269,7 +270,7 @@ function render(){
       ul=document.createElement('ul'); ul.className='list'; body.appendChild(ul);
     }
     var li=document.createElement('li'), top=document.createElement('div');
-    var w=document.createElement('span'); w.className='w'; w.textContent=r[0]; top.appendChild(w);
+    var w=document.createElement('span'); w.className='w'; w.textContent=r[0]; top.appendChild(w); var sb=SPK.el(r[0]); if(sb) top.appendChild(sb);
     var p=document.createElement('span'); p.className='pos'; p.textContent=r[2]; top.appendChild(p);
     var t=document.createElement('span'); t.className='tag t'+r[3]; t.textContent=ST[r[3]]; top.appendChild(t);
     if(state.o||nq(r)){var tn=document.createElement('span'); tn.className='tag tn'; tn.textContent=state.o?'第 '+r[1]+' 級':'共 '+nq(r)+' 次'; top.appendChild(tn);}

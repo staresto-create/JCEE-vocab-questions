@@ -180,10 +180,6 @@
   .po-row b{color:var(--crimson);}
   .po-ref{margin-top:12px; font-size:12.5px; color:var(--ink-soft); line-height:1.8;}
   .po-ref a{color:var(--crimson); text-decoration:underline;}
-  .spk{display:none; font:inherit; vertical-align:middle; margin-left:6px; padding:3px 6px; line-height:1; background:var(--paper-card,#fff); color:var(--crimson,#AE3626); border:1px solid var(--rule); border-radius:3px; cursor:pointer;}
-  .tts .spk{display:inline-block;}
-  .spk:hover,.spk.playing{border-color:var(--crimson,#AE3626); background:var(--crimson,#AE3626); color:#fff;}
-  .spk svg{width:15px; height:15px; display:block; fill:currentColor;}
   .bk-head{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:4px;}
   .bk-word{font-family:'Noto Serif TC',serif; font-weight:700; font-size:22px;}
   .bk-kk{font-family:'IBM Plex Mono','Noto Sans TC',monospace; font-size:12.5px; color:var(--ink-soft);}
@@ -452,6 +448,7 @@
 </footer>
 
 </div>
+<script src="../speaker.js"></script>
 <script>
 /* 單字記憶卡 · 引擎
    資料：cards_data.json（同資料夾）；單字卡的例句填空另放 practice_data.json
@@ -873,45 +870,8 @@
     return String(zh).replace(new RegExp('\\b' + reEsc(word) + '[a-z]*', 'gi'), '___');
   }
 
-  // 發音：瀏覽器內建語音（沒有英文語音的裝置不顯示喇叭）
-  var SPK_SVG = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9v6h4l5 4V5L7 9H3zm13.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4zM14 3.2v2.1a7 7 0 0 1 0 13.4v2.1a9 9 0 0 0 0-17.6z"/></svg>';
-  var NOSPK = {};
-  ["abuse", "addict", "address", "advocate", "affiliate", "appropriate", "associate", "attribute", "combine", "complement", "complex", "compliment", "conduct", "conflict", "console", "content", "contest", "contract", "contrast", "converse", "convict", "decrease", "defect", "delegate", "desert", "digest", "discount", "document", "elaborate", "excuse", "experiment", "exploit", "export", "extract", "impact", "implement", "import", "incline", "increase", "insult", "object", "outright", "overflow", "overlap", "perfect", "precedent", "present", "produce", "progress", "project", "protest", "rebel", "record", "refund", "refuse", "reject", "research", "resume", "subject", "supplement", "survey", "suspect", "torment", "transfer", "transplant", "transport"].forEach(function (x) { NOSPK[x] = 1; });   // 詞性不同唸法不同的字，語音會唸錯，不放喇叭
-  function spkBtn(w) {
-    if (NOSPK[String(w).toLowerCase()]) return '';
-    return '<button class="spk" type="button" data-w="' + esc(w) + '" aria-label="聽 ' + esc(w) + ' 的發音" title="聽發音">' + SPK_SVG + '</button>';
-  }
-  var spkVoice = null, spkPlaying = null;
-  function pickVoice() {
-    try {
-      var vs = window.speechSynthesis.getVoices() || [], best = null;
-      for (var i = 0; i < vs.length; i++) {
-        var l = (vs[i].lang || '').replace('_', '-');
-        if (l === 'en-US') { best = vs[i]; break; }
-        if (!best && l.indexOf('en') === 0) best = vs[i];
-      }
-      spkVoice = best;
-      document.body.classList.toggle('tts', !!best);
-    } catch (err) {}
-  }
-  if ('speechSynthesis' in window && 'SpeechSynthesisUtterance' in window) {
-    pickVoice();
-    try { window.speechSynthesis.addEventListener('voiceschanged', pickVoice); } catch (err) {}
-    setTimeout(pickVoice, 800);
-  }
-  document.addEventListener('click', function (ev) {
-    var b = ev.target.closest && ev.target.closest('.spk');
-    if (!b || !spkVoice) return;
-    try {
-      var ss = window.speechSynthesis; ss.cancel();
-      if (spkPlaying) spkPlaying.classList.remove('playing');
-      var u = new SpeechSynthesisUtterance(b.getAttribute('data-w'));
-      u.voice = spkVoice; u.lang = spkVoice.lang || 'en-US'; u.rate = .85;
-      spkPlaying = b; b.classList.add('playing');
-      u.onend = u.onerror = function () { b.classList.remove('playing'); };
-      ss.speak(u);
-    } catch (err) {}
-  });
+  // 發音：喇叭由全站共用的 speaker.js 提供（不放喇叭的字名單也在那裡）
+  function spkBtn(w) { return SPK.html(w); }
 
   function renderFrontCF() {
     var c = session.current, g = CFG[c.word];
