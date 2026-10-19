@@ -149,15 +149,20 @@
   st.textContent = css;
   (document.head || document.documentElement).appendChild(st);
 
-  /* 挑英文語音：優先 en-US，其次其他英文 */
+  /* 挑英文語音：名稱不含 Multilingual 的 en-US 最優先，其次其他英文語音，
+   * 多語語音（Multilingual）只在沒有別的選擇時才用。
+   * 原因：多語語音會自己判斷文字屬於哪一國語言，participation、nation 這類
+   * 英法拼法相同的字，可能被唸成法文。 */
   var voice = null, playing = null;
   function pickVoice() {
     try {
-      var vs = window.speechSynthesis.getVoices() || [], best = null;
+      var vs = window.speechSynthesis.getVoices() || [], best = null, bestScore = 0;
       for (var i = 0; i < vs.length; i++) {
         var l = (vs[i].lang || '').replace('_', '-');
-        if (l === 'en-US') { best = vs[i]; break; }
-        if (!best && l.indexOf('en') === 0) best = vs[i];
+        if (l.toLowerCase().indexOf('en') !== 0) continue;
+        var multi = /multilingual/i.test(vs[i].name || '');
+        var sc = (l === 'en-US' ? 2 : 1) + (multi ? 0 : 2);
+        if (sc > bestScore) { best = vs[i]; bestScore = sc; }
       }
       voice = best;
       if (document.body) document.body.classList.toggle('tts', !!best);
