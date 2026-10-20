@@ -312,8 +312,33 @@ function ask(){
 const origDraw=draw;
 draw=function(){ origDraw(); if(mode==='quiz'){ buildPool(); qi=0; right=0; ask(); } };
 
+// ---- 網址直達某個字：wordwheel.html#w=anticipate ----
+// 同一個字出現在好幾個輪時，依 字根 > 字首 > 字尾 > 其他 的順序挑第一個輪
+function jumpToWord(){
+  const m = /(?:^|[#&])w=([^&]+)/.exec(location.hash);
+  if(!m) return false;
+  let w; try{ w = decodeURIComponent(m[1]).trim().toLowerCase(); }catch(e){ return false; }
+  const order = ["字根","字首","字尾","其他"];
+  let best = null;
+  DATA.forEach((d,di)=>{
+    const ii = d.items.findIndex(it=>it.w.toLowerCase()===w);
+    if(ii<0) return;
+    const g = GROUPS.findIndex(([label,keys])=>keys.includes(d.k));
+    const rank = order.indexOf(g<0 ? "其他" : GROUPS[g][0]);
+    if(!best || rank<best.rank) best = {di,ii,rank};
+  });
+  if(!best) return false;
+  cur = best.di; sel = best.ii;
+  if(mode!=='learn') setMode('learn'); else draw();
+  const li = list.children[sel];
+  if(li) li.scrollIntoView({block:'center'});
+  return true;
+}
+
 draw();
-KK.ready.then(function(){ draw(); });
+jumpToWord();
+KK.ready.then(function(){ draw(); jumpToWord(); });
+window.addEventListener('hashchange', jumpToWord);
 </script>
 </body>
 </html>
