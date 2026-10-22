@@ -38,8 +38,8 @@
   *{box-sizing:border-box;}
   html,body{margin:0;padding:0;}
   body{
-    background:var(--paper);
-    color:var(--ink);
+    background:var(--ad-vpaper-bg);
+    color:var(--ad-vink-fg);
     font-family:'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif;
     -webkit-font-smoothing:antialiased;
   }
@@ -49,18 +49,18 @@
   header{padding:44px 0 8px; text-align:center;}
   .eyebrow{
     font-family:'IBM Plex Mono','Noto Sans TC','PingFang TC','Microsoft JhengHei',monospace; font-size:11px; letter-spacing:.16em;
-    color:var(--crimson); text-transform:uppercase;
+    color:var(--ad-vcrimson-fg); text-transform:uppercase;
   }
   h1{
     font-family:'Noto Serif TC','PingFang TC','Microsoft JhengHei',serif; font-weight:900; font-size:30px; line-height:1.35;
     margin:10px 0 6px;
   }
-  .sub{color:var(--ink-soft); font-size:14px; line-height:1.7; margin:0 0 6px;}
+  .sub{color:var(--ad-vinksoft-fg); font-size:14px; line-height:1.7; margin:0 0 6px;}
 
   /* countdown strip — the signature element */
   .countdown{
     margin:26px 0 8px;
-    background:var(--ink); color:var(--paper-card);
+    background:var(--ad-vink-bg); color:var(--paper-card);
     border-radius:4px; padding:22px;
     display:flex; flex-direction:column; align-items:center; gap:6px;
     box-shadow:var(--shadow);
@@ -76,96 +76,96 @@
     font-family:'IBM Plex Mono','Noto Sans TC','PingFang TC','Microsoft JhengHei',monospace; font-size:11px; color:#C9C3B2; display:block; margin-top:4px;
   }
 
-  .rule{border:none; border-top:1px solid var(--rule); margin:34px 0 22px;}
+  .rule{border:none; border-top:1px solid var(--ad-vrule-border); margin:34px 0 22px;}
 
   .grid{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
   @media (max-width:520px){ .grid{grid-template-columns:1fr;} .card .tag{font-size:9.5px; letter-spacing:.05em;} }
 
   a.card{
     display:block; text-decoration:none; color:inherit;
-    background:var(--paper-card); border:1px solid var(--rule); border-radius:4px;
+    background:var(--ad-vpapercard-bg); border:1px solid var(--ad-vrule-border); border-radius:4px;
     padding:20px 20px 18px; box-shadow:var(--shadow);
     transition:transform .12s ease, box-shadow .12s ease;
   }
   a.card:hover{ transform:translateY(-2px); box-shadow:0 2px 0 rgba(34,31,26,.08), 0 14px 28px rgba(34,31,26,.12); }
   .card .tag{
     font-family:'IBM Plex Mono','Noto Sans TC','PingFang TC','Microsoft JhengHei',monospace; font-size:10.5px; letter-spacing:.1em;
-    color:var(--sage); text-transform:uppercase; margin-bottom:8px; display:block;
+    color:var(--ad-vsage-fg); text-transform:uppercase; margin-bottom:8px; display:block;
   }
   .card .tag span{white-space:nowrap;}
-  .card.zk .tag{color:var(--crimson);}
-  .tag .qcount{background:#EDE6D3; color:var(--ink); font-family:'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif; font-size:10px; letter-spacing:0; text-transform:none; padding:1px 6px; border-radius:8px; margin-left:4px; vertical-align:middle;}
+  .card.zk .tag{color:var(--ad-vcrimson-fg);}
+  .tag .qcount{background:var(--ad-xEDE6D3-bg); color:var(--ad-vink-fg); font-family:'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif; font-size:10px; letter-spacing:0; text-transform:none; padding:1px 6px; border-radius:8px; margin-left:4px; vertical-align:middle;}
   .card-title{
     font-family:'Noto Serif TC','PingFang TC','Microsoft JhengHei',serif; font-weight:700; font-size:19px; margin:0 0 6px;
   }
-  .card-desc{font-size:12.5px; color:var(--ink-soft); line-height:1.7; margin:0;}
+  .card-desc{font-size:12.5px; color:var(--ad-vinksoft-fg); line-height:1.7; margin:0;}
   .card-desc .rest{display:none;}
   a.card.open .card-desc .rest{display:inline;}
-  .more-btn{color:#9C2C1E; font-weight:700; font-size:12px; white-space:nowrap; cursor:pointer; text-decoration:underline; text-underline-offset:2px;}
+  .more-btn{color:var(--ad-x9C2C1E-fg); font-weight:700; font-size:12px; white-space:nowrap; cursor:pointer; text-decoration:underline; text-underline-offset:2px;}
   .card-arrow{
-    font-family:'IBM Plex Mono','Noto Sans TC','PingFang TC','Microsoft JhengHei',monospace; font-size:11px; color:var(--ink-soft);
+    font-family:'IBM Plex Mono','Noto Sans TC','PingFang TC','Microsoft JhengHei',monospace; font-size:11px; color:var(--ad-vinksoft-fg);
     margin-top:12px; display:block;
   }
 
-  a.card.demo{ margin:0 0 14px; border-left:4px solid var(--gold); background:#FDF8EC; }
-  .card.tool{ margin:14px 0 0; border-left:4px solid var(--sage); background:#F4F7F2; }
-  .sec-h{ font-family:'Noto Serif TC','PingFang TC','Microsoft JhengHei',serif; font-weight:700; font-size:20px; color:var(--ink); margin:38px 0 4px; padding-top:16px; border-top:1px solid var(--rule); }
-  .sec-n{ font-size:13px; color:var(--ink-soft); line-height:1.75; margin:0 0 14px; }
-  a.card.adapt{ border-left:4px solid var(--crimson); background:#FBF2EF; }
-  .card.adapt .tag{ color:var(--crimson); }
+  a.card.demo{ margin:0 0 14px; border-left:4px solid var(--gold); background:var(--ad-xFDF8EC-bg); }
+  .card.tool{ margin:14px 0 0; border-left:4px solid var(--ad-vsage-border); background:var(--ad-xF4F7F2-bg); }
+  .sec-h{ font-family:'Noto Serif TC','PingFang TC','Microsoft JhengHei',serif; font-weight:700; font-size:20px; color:var(--ad-vink-fg); margin:38px 0 4px; padding-top:16px; border-top:1px solid var(--ad-vrule-border); }
+  .sec-n{ font-size:13px; color:var(--ad-vinksoft-fg); line-height:1.75; margin:0 0 14px; }
+  a.card.adapt{ border-left:4px solid var(--crimson); background:var(--ad-xFBF2EF-bg); }
+  .card.adapt .tag{ color:var(--ad-vcrimson-fg); }
   .sec-tools a.card.tool:first-of-type{ margin-top:0; }
-  .card.tool .tag{ color:var(--sage); }
-  .card.demo .tag{ color:var(--gold); }
+  .card.tool .tag{ color:var(--ad-vsage-fg); }
+  .card.demo .tag{ color:var(--ad-vgold-fg); }
 
 
   /* ---- 骨幹說明摺疊框（新增） ---- */
   details.skill{
-    margin-top:24px; background:var(--paper-card); border:1px solid var(--rule);
+    margin-top:24px; background:var(--ad-vpapercard-bg); border:1px solid var(--ad-vrule-border);
     border-radius:4px; box-shadow:var(--shadow); overflow:hidden;
   }
   details.skill > summary{
     cursor:pointer; list-style:none; padding:16px 20px;
     display:flex; justify-content:space-between; align-items:baseline; gap:12px;
-    font-family:'Noto Serif TC','PingFang TC','Microsoft JhengHei',serif; font-weight:700; font-size:15.5px; color:var(--ink);
+    font-family:'Noto Serif TC','PingFang TC','Microsoft JhengHei',serif; font-weight:700; font-size:15.5px; color:var(--ad-vink-fg);
   }
   details.skill > summary::-webkit-details-marker{display:none;}
-  details.skill > summary::after{content:'\FF0B 展開'; white-space:nowrap; font-size:13px; color:var(--crimson); font-weight:700;}
+  details.skill > summary::after{content:'\FF0B 展開'; white-space:nowrap; font-size:13px; color:var(--ad-vcrimson-fg); font-weight:700;}
   details.skill[open] > summary::after{content:'\FF0D 收合';}
-  details.skill[open] > summary{border-bottom:1px solid var(--rule);}
-  .skill-body{padding:6px 20px 24px; font-size:13.5px; line-height:1.85; color:var(--ink-soft);}
+  details.skill[open] > summary{border-bottom:1px solid var(--ad-vrule-border);}
+  .skill-body{padding:6px 20px 24px; font-size:13.5px; line-height:1.85; color:var(--ad-vinksoft-fg);}
   .skill-body p{margin:14px 0;}
   .skill-body h4{
-    font-family:'Noto Serif TC','PingFang TC','Microsoft JhengHei',serif; font-size:14.5px; color:var(--ink);
-    margin:28px 0 4px; padding-top:18px; border-top:1px solid var(--rule);
+    font-family:'Noto Serif TC','PingFang TC','Microsoft JhengHei',serif; font-size:14.5px; color:var(--ad-vink-fg);
+    margin:28px 0 4px; padding-top:18px; border-top:1px solid var(--ad-vrule-border);
   }
   .skill-body .caution{
-    background:#F7EEEA; border-left:2px solid var(--crimson-soft);
+    background:var(--ad-xF7EEEA-bg); border-left:2px solid var(--ad-vcrimsonsoft-border);
     padding:10px 12px; border-radius:3px;
   }
-  .skill-body .closing{color:var(--ink); border-top:1px solid var(--rule); padding-top:16px; margin-top:24px;}
-  .ex{margin:18px 0 0; padding-left:12px; border-left:2px solid var(--sage-soft);}
-  .ex.zk{border-left-color:var(--crimson-soft);}
+  .skill-body .closing{color:var(--ad-vink-fg); border-top:1px solid var(--ad-vrule-border); padding-top:16px; margin-top:24px;}
+  .ex{margin:18px 0 0; padding-left:12px; border-left:2px solid var(--ad-vsagesoft-border);}
+  .ex.zk{border-left-color:var(--ad-vcrimsonsoft-border);}
   .ex .src{
     font-family:'IBM Plex Mono','Noto Sans TC','PingFang TC','Microsoft JhengHei',monospace; font-size:10.5px; letter-spacing:.08em;
-    color:var(--sage); display:block; margin-bottom:4px;
+    color:var(--ad-vsage-fg); display:block; margin-bottom:4px;
   }
-  .ex.zk .src{color:var(--crimson);}
-  .ex .en{margin:0 0 3px; color:var(--ink); line-height:1.75;}
+  .ex.zk .src{color:var(--ad-vcrimson-fg);}
+  .ex .en{margin:0 0 3px; color:var(--ad-vink-fg); line-height:1.75;}
   .ex .zh{margin:0 0 7px; font-size:12.5px;}
-  .ex .core{margin:0; color:var(--crimson); font-weight:700; line-height:1.7;}
-  .ex .core em{color:var(--ink-soft); font-weight:400; font-style:normal; font-size:12.5px;}
-  .ex .tip{margin:7px 0 0; font-size:12.5px; background:#F1EADA; border-radius:3px; padding:8px 10px;}
+  .ex .core{margin:0; color:var(--ad-vcrimson-fg); font-weight:700; line-height:1.7;}
+  .ex .core em{color:var(--ad-vinksoft-fg); font-weight:400; font-style:normal; font-size:12.5px;}
+  .ex .tip{margin:7px 0 0; font-size:12.5px; background:var(--ad-xF1EADA-bg); border-radius:3px; padding:8px 10px;}
 
-  .aside{background:var(--paper-card); border:1px solid var(--rule); border-radius:6px; padding:14px 16px; margin:26px 0 0; font-size:13.5px; color:var(--ink); line-height:1.75;}
-  .aside h3.at{font-family:'Noto Serif TC','PingFang TC','Microsoft JhengHei',serif; font-weight:900; font-size:14px; color:var(--ink); margin:0 0 8px;}
+  .aside{background:var(--ad-vpapercard-bg); border:1px solid var(--ad-vrule-border); border-radius:6px; padding:14px 16px; margin:26px 0 0; font-size:13.5px; color:var(--ad-vink-fg); line-height:1.75;}
+  .aside h3.at{font-family:'Noto Serif TC','PingFang TC','Microsoft JhengHei',serif; font-weight:900; font-size:14px; color:var(--ad-vink-fg); margin:0 0 8px;}
   .aside p{margin:0 0 8px;}
   .aside p:last-child{margin-bottom:0;}
-  .aside .ad{font-size:11.5px; color:var(--ink-soft);}
-  footer{margin-top:40px; padding-top:22px; border-top:1px dashed var(--rule); font-size:12px; color:var(--ink-soft); line-height:1.8; text-align:center;}
+  .aside .ad{font-size:11.5px; color:var(--ad-vinksoft-fg);}
+  footer{margin-top:40px; padding-top:22px; border-top:1px dashed var(--ad-vrule-border); font-size:12px; color:var(--ad-vinksoft-fg); line-height:1.8; text-align:center;}
 
   .feat{margin:0 0 30px;}
-  .feat-h{font-family:'Noto Serif TC','PingFang TC','Microsoft JhengHei',serif; font-weight:900; font-size:16px; color:var(--ink); margin:0 0 4px;}
-  .feat-lead{font-size:13.5px; line-height:1.7; color:var(--ink); margin:0 0 12px;}
+  .feat-h{font-family:'Noto Serif TC','PingFang TC','Microsoft JhengHei',serif; font-weight:900; font-size:16px; color:var(--ad-vink-fg); margin:0 0 4px;}
+  .feat-lead{font-size:13.5px; line-height:1.7; color:var(--ad-vink-fg); margin:0 0 12px;}
   .feat-grid{display:grid; grid-template-columns:1fr; gap:10px;}
   .feat-b{--c:var(--crimson); --bg:#FBF2EF; background:var(--bg); border:1px solid var(--c); border-left-width:5px; border-radius:4px; padding:10px 12px 8px;}
   .fb-word{--c:var(--sage); --bg:#F1F6EF;}
@@ -174,52 +174,52 @@
   .fb-mark{--c:#6B4E8A; --bg:#F4F0F8;}
   .feat-bt{font-family:'Noto Serif TC','PingFang TC','Microsoft JhengHei',serif; font-weight:900; font-size:15px; color:var(--c); margin:0 0 4px;}
   .feat-b ul{list-style:none; margin:0; padding:0;}
-  .feat-b li{font-size:13px; line-height:1.7; color:var(--ink-soft); padding:5px 0; border-top:1px dashed var(--rule);}
+  .feat-b li{font-size:13px; line-height:1.7; color:var(--ad-vinksoft-fg); padding:5px 0; border-top:1px dashed var(--ad-vrule-border);}
   .feat-b li:first-child{border-top:none;}
   .feat-b li a{color:var(--c); font-weight:700; text-decoration:underline; text-underline-offset:2px;}
   @media (min-width:600px){ .feat-grid{grid-template-columns:1fr 1fr;} }
-  .recent{background:var(--paper-card); border:1px solid var(--rule); border-radius:6px; padding:14px 16px; margin:38px 0 22px;}
-  .recent .rt{font-family:'Noto Serif TC','PingFang TC','Microsoft JhengHei',serif; font-weight:900; font-size:14px; color:var(--ink); margin-bottom:2px;}
-  .recent .rs{font-size:11.5px; color:var(--ink-soft); line-height:1.6; margin-bottom:10px;}
+  .recent{background:var(--ad-vpapercard-bg); border:1px solid var(--ad-vrule-border); border-radius:6px; padding:14px 16px; margin:38px 0 22px;}
+  .recent .rt{font-family:'Noto Serif TC','PingFang TC','Microsoft JhengHei',serif; font-weight:900; font-size:14px; color:var(--ad-vink-fg); margin-bottom:2px;}
+  .recent .rs{font-size:11.5px; color:var(--ad-vinksoft-fg); line-height:1.6; margin-bottom:10px;}
   .rec-fwrap{position:relative;}
   .rec-fwrap::after{content:""; position:absolute; top:0; right:-16px; bottom:10px; width:30px; pointer-events:none; background:linear-gradient(to right, rgba(255,253,247,0), var(--paper-card)); transition:opacity .15s;}
   .rec-fwrap.end::after{opacity:0;}
   .rec-filters{display:flex; flex-wrap:nowrap; gap:8px; overflow-x:auto; margin:0 -16px; padding:2px 16px 10px; -webkit-overflow-scrolling:touch; scrollbar-width:none; scroll-snap-type:x proximity;}
   .rec-filters::-webkit-scrollbar{display:none;}
-  .rec-btn{flex:0 0 auto; white-space:nowrap; min-height:40px; padding:0 14px; border:1px solid var(--rule); border-radius:20px; background:#fff; color:var(--ink); font-family:inherit; font-size:13.5px; font-weight:700; line-height:1.2; cursor:pointer; scroll-snap-align:start; -webkit-tap-highlight-color:transparent;}
-  .rec-btn[aria-pressed="true"]{background:var(--ink); border-color:var(--ink); color:var(--paper-card);}
+  .rec-btn{flex:0 0 auto; white-space:nowrap; min-height:40px; padding:0 14px; border:1px solid var(--ad-vrule-border); border-radius:20px; background:var(--ad-xfff-bg); color:var(--ad-vink-fg); font-family:inherit; font-size:13.5px; font-weight:700; line-height:1.2; cursor:pointer; scroll-snap-align:start; -webkit-tap-highlight-color:transparent;}
+  .rec-btn[aria-pressed="true"]{background:var(--ad-vink-bg); border-color:var(--ad-vink-border); color:var(--paper-card);}
   .rec-btn:focus-visible{outline:2px solid var(--crimson); outline-offset:2px;}
-  .rec-count{font-size:11.5px; color:var(--ink-soft); margin:0 0 6px;}
-  .rec-list{border-top:1px solid var(--rule);}
-  .rec-item{border-bottom:1px dashed var(--rule);}
+  .rec-count{font-size:11.5px; color:var(--ad-vinksoft-fg); margin:0 0 6px;}
+  .rec-list{border-top:1px solid var(--ad-vrule-border);}
+  .rec-item{border-bottom:1px dashed var(--ad-vrule-border);}
   .rec-item:last-child{border-bottom:none;}
   .rec-item{border-left:4px solid transparent; padding-left:10px; margin-left:-2px;}
-  .rec-item[data-kind="new"]{border-left-color:var(--crimson); background:#FBF2EF;}
-  .rec-item[data-kind="tool"]{border-left-color:var(--sage);}
-  .rec-item[data-kind="fill"]{border-left-color:#8A6420;}
-  .rec-body b{color:#9C2C1E;}
+  .rec-item[data-kind="new"]{border-left-color:var(--crimson); background:var(--ad-xFBF2EF-bg);}
+  .rec-item[data-kind="tool"]{border-left-color:var(--ad-vsage-border);}
+  .rec-item[data-kind="fill"]{border-left-color:var(--ad-x8A6420-border);}
+  .rec-body b{color:var(--ad-x9C2C1E-fg);}
   .rec-item[hidden]{display:none;}
   .rec-sum{display:flex; align-items:flex-start; gap:11px; padding:11px 0; min-height:44px; cursor:pointer; list-style:none;}
   .rec-sum::-webkit-details-marker{display:none;}
   .rec-emoji{font-size:16px; line-height:1.5; flex-shrink:0;}
   .rec-main{flex:1; min-width:0;}
-  .rec-name{display:block; font-size:14px; font-weight:700; color:var(--ink); line-height:1.5;}
+  .rec-name{display:block; font-size:14px; font-weight:700; color:var(--ad-vink-fg); line-height:1.5;}
   .rec-name .newdot{min-width:0; font-size:10px; padding:1px 6px; line-height:1.4; margin-left:6px;}
   .rec-chips{display:flex; flex-wrap:wrap; gap:4px 6px; margin-top:3px;}
   .rec-cat, .rec-kind{font-size:11px; line-height:1.6; padding:0 6px; border-radius:3px;}
-  .rec-cat{color:var(--ink-soft); background:#fff; border:1px solid var(--rule);}
+  .rec-cat{color:var(--ad-vinksoft-fg); background:var(--ad-xfff-bg); border:1px solid var(--ad-vrule-border);}
   .rec-kind{font-weight:700; color:#fff;}
   .k-new{background:var(--crimson);}
   .k-tool{background:var(--sage);}
   .k-fill{background:#8A6420;}
-  .rec-side{display:flex; flex-direction:column; align-items:flex-end; gap:2px; flex-shrink:0; font-size:11.5px; color:var(--ink-soft); white-space:nowrap; line-height:1.5;}
+  .rec-side{display:flex; flex-direction:column; align-items:flex-end; gap:2px; flex-shrink:0; font-size:11.5px; color:var(--ad-vinksoft-fg); white-space:nowrap; line-height:1.5;}
   .rec-tog::after{content:"看說明 ▸";}
   .rec-item[open] .rec-tog::after{content:"收起 ▾";}
-  .rec-body{padding:0 0 12px 27px; font-size:13px; line-height:1.7; color:var(--ink);}
+  .rec-body{padding:0 0 12px 27px; font-size:13px; line-height:1.7; color:var(--ad-vink-fg);}
   .rec-body p{margin:0;}
   .rec-links{margin-top:4px !important;}
-  .rec-links a{display:inline-block; padding:4px 0; color:#9C2C1E; font-weight:700; text-decoration:underline; text-underline-offset:2px;}
-  .rec-empty{font-size:13px; color:var(--ink-soft); padding:12px 0 2px;}
+  .rec-links a{display:inline-block; padding:4px 0; color:var(--ad-x9C2C1E-fg); font-weight:700; text-decoration:underline; text-underline-offset:2px;}
+  .rec-empty{font-size:13px; color:var(--ad-vinksoft-fg); padding:12px 0 2px;}
   @media (min-width:600px){
     .rec-filters{flex-wrap:wrap; overflow:visible; margin:0; padding:2px 0 10px;}
     .rec-fwrap::after{display:none;}
@@ -229,26 +229,38 @@
     display:inline-block; box-sizing:border-box; min-width:52px; text-align:center;
     font-family:'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif; font-size:13px; font-weight:700; letter-spacing:.04em;
     line-height:1.5; padding:1px 8px; border-radius:3px;
-    background:#FFE9A0; color:#9C2C1E; border:1.5px solid #AE3626;
+    background:var(--ad-xFFE9A0-bg); color:var(--ad-x9C2C1E-fg); border:1.5px solid #AE3626;
     vertical-align:middle; margin-left:6px;}
   .tag .newdot{min-width:0; font-size:10px; padding:1px 6px; line-height:1.4; margin-left:4px;}
   .card-title .cemoji{margin-right:6px; font-size:15px;}
   .quicknav{font-family:'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif; font-size:14px; line-height:2.1; text-align:center;
-    margin:0 0 18px; padding:11px 12px; background:#FFFDF7; border:1px solid var(--rule); border-radius:6px;}
-  .quicknav a{color:#9C2C1E; font-weight:700; text-decoration:underline; text-underline-offset:2px; white-space:nowrap; padding:0 2px;}
+    margin:0 0 18px; padding:11px 12px; background:var(--ad-xFFFDF7-bg); border:1px solid var(--ad-vrule-border); border-radius:6px;}
+  .quicknav a{color:var(--ad-x9C2C1E-fg); font-weight:700; text-decoration:underline; text-underline-offset:2px; white-space:nowrap; padding:0 2px;}
   .quicknav .sep{color:var(--rule); padding:0 6px;}
   .quicknav .qrow{padding:8px 12px; border-radius:4px;}
   .quicknav .qrow + .qrow{margin-top:8px;}
-  .quicknav .qown{background:#FBF2EF; border:1px solid var(--crimson-soft);}
+  .quicknav .qown{background:var(--ad-xFBF2EF-bg); border:1px solid var(--ad-vcrimsonsoft-border);}
   .quicknav .qlab{display:inline-block; font-size:12px; font-weight:700; letter-spacing:.06em; color:var(--paper-card,#fff); background:var(--ink-soft); border-radius:10px; padding:0 9px; margin-right:8px; line-height:1.9; white-space:nowrap;}
   .quicknav .qown .qlab{background:#9C2C1E;}
   @media (max-width:520px){ .quicknav{font-size:13.5px; line-height:2.2;} .quicknav .sep{padding:0 4px;} }
-  </style>
+
+/* 深色模式（2026-10-22）：淺色數值與原本相同；只在螢幕、手機或電腦設成深色外觀時生效，列印不受影響。 */
+:root{--ad-vcrimson-bg:var(--crimson);--ad-vcrimson-border:var(--crimson);--ad-vcrimson-fg:var(--crimson);--ad-vcrimsonsoft-border:var(--crimson-soft);--ad-vgold-border:var(--gold);--ad-vgold-fg:var(--gold);--ad-vink-bg:var(--ink);--ad-vink-border:var(--ink);--ad-vink-fg:var(--ink);--ad-vinksoft-bg:var(--ink-soft);--ad-vinksoft-fg:var(--ink-soft);--ad-vpaper-bg:var(--paper);--ad-vpapercard-bg:var(--paper-card);--ad-vpapercard-fg:var(--paper-card);--ad-vrule-border:var(--rule);--ad-vrule-fg:var(--rule);--ad-vsage-bg:var(--sage);--ad-vsage-border:var(--sage);--ad-vsage-fg:var(--sage);--ad-vsagesoft-border:var(--sage-soft);--ad-x221F1A-fg:#221F1A;--ad-x3E6E52-fg:#3E6E52;--ad-x8A6420-bg:#8A6420;--ad-x8A6420-border:#8A6420;--ad-x8a8278-fg:#8a8278;--ad-x9C2C1E-bg:#9C2C1E;--ad-x9C2C1E-fg:#9C2C1E;--ad-xAE3626-border:#AE3626;--ad-xC9C3B2-fg:#C9C3B2;--ad-xEDE6D3-bg:#EDE6D3;--ad-xF0C46B-fg:#F0C46B;--ad-xF1EADA-bg:#F1EADA;--ad-xF4F7F2-bg:#F4F7F2;--ad-xF7EEEA-bg:#F7EEEA;--ad-xFBF2EF-bg:#FBF2EF;--ad-xFDF8EC-bg:#FDF8EC;--ad-xFFE9A0-bg:#FFE9A0;--ad-xFFFDF7-bg:#FFFDF7;--ad-xfff-bg:#fff;--ad-xfff-fg:#fff;color-scheme:light}
+@media screen and (prefers-color-scheme: dark){
+ :root{--ad-vcrimson-bg:#ae3626;--ad-vcrimson-border:#ae3626;--ad-vcrimson-fg:#E4B6B0;--ad-vcrimsonsoft-border:#4F413A;--ad-vgold-border:#a9812e;--ad-vgold-fg:#E0D1B2;--ad-vink-bg:#EEEDEC;--ad-vink-border:#F2F0EE;--ad-vink-fg:#F2F0EE;--ad-vinksoft-bg:#5b5648;--ad-vinksoft-fg:#DAD8D3;--ad-vpaper-bg:#1B1916;--ad-vpapercard-bg:#26231F;--ad-vpapercard-fg:#fffdf7;--ad-vrule-border:#514A37;--ad-vrule-fg:#dcd3bb;--ad-vsage-bg:#3e6e52;--ad-vsage-border:#CBDDD2;--ad-vsage-fg:#CBDDD2;--ad-vsagesoft-border:#3E4A3C;--ad-x221F1A-fg:#F2F0EE;--ad-x3E6E52-fg:#CBDDD2;--ad-x8A6420-bg:#8a6420;--ad-x8A6420-border:#E8DAC1;--ad-x8a8278-fg:#C2BFBB;--ad-x9C2C1E-bg:#9c2c1e;--ad-x9C2C1E-fg:#E8BEB9;--ad-xAE3626-border:#ae3626;--ad-xC9C3B2-fg:#c9c3b2;--ad-xEDE6D3-bg:#2B281D;--ad-xF0C46B-fg:#f0c46b;--ad-xF1EADA-bg:#2B271E;--ad-xF4F7F2-bg:#212320;--ad-xF7EEEA-bg:#272220;--ad-xFBF2EF-bg:#272221;--ad-xFDF8EC-bg:#2A2821;--ad-xFFE9A0-bg:#53471F;--ad-xFFFDF7-bg:#26231F;--ad-xfff-bg:#2D2A25;--ad-xfff-fg:#ffffff;color-scheme:dark}
+ .feat-b{--bg:#272221}
+ .fb-word{--bg:#212420}
+ .fb-essay{--c:#E8DAC1;--bg:#2C2920}
+ .fb-admit{--c:#BFCBDB;--bg:#202326}
+ .fb-mark{--c:#C9BED4;--bg:#222025}
+}
+
+</style>
 <style id="anti-copy">
 /* 防盜用措施（2026-10-14）：畫面浮水印、列印浮水印、頁尾授權聲明 */
 @media screen{body::before{content:"";position:fixed;top:0;left:0;right:0;bottom:0;z-index:2147483000;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22460%22%20height%3D%22240%22%3E%3Cg%20transform%3D%22rotate%28-20%20230%20120%29%22%20font-family%3D%22Noto%20Sans%20TC%2Csans-serif%22%20fill%3D%22%23D9A400%22%20fill-opacity%3D%22.2%22%20text-anchor%3D%22middle%22%3E%3Ctext%20x%3D%22230%22%20y%3D%22112%22%20font-size%3D%2220%22%3E%E9%AB%98%E4%B8%AD%E8%8B%B1%E6%96%87%E9%A1%8C%E5%BA%AB%3C%2Ftext%3E%3Ctext%20x%3D%22230%22%20y%3D%22140%22%20font-size%3D%2214%22%3Estaresto-create.github.io%2FJCEE-vocab-questions%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E");background-repeat:repeat;}}
 @media print{body::after{content:"高中英文題庫\A staresto-create.github.io/JCEE-vocab-questions\A 免費資源，請勿販售";white-space:pre;position:fixed;top:42%;left:0;right:0;text-align:center;transform:rotate(-25deg);font-family:"Noto Sans TC",sans-serif;font-size:26pt;line-height:1.7;color:#c8c8c8;z-index:2147483000;pointer-events:none;}}
-.cc-note{font-size:12px;line-height:1.8;color:#8a8278;margin:12px auto;max-width:60em;padding:0 1em;}.cc-note a{color:inherit;}
+.cc-note{font-size:12px;line-height:1.8;color:var(--ad-x8a8278-fg);margin:12px auto;max-width:60em;padding:0 1em;}.cc-note a{color:inherit;}
 </style>
 </head>
 <body>
@@ -258,7 +270,7 @@
     <div class="eyebrow">學測 · 指考 · 歷屆考古題</div>
     <h1>高中英文自學題庫</h1>
     <nav class="quicknav" style="margin-top:14px;"><div class="qrow qpast"><span class="qlab">歷屆試題</span><a href="https://staresto-create.github.io/reading-comprehension/">閱讀測驗</a><span class="sep">·</span><a href="https://staresto-create.github.io/JCEE-vocab-questions/gsat/">學測單字</a><span class="sep">·</span><a href="https://staresto-create.github.io/JCEE-vocab-questions/zhikao/">指考單字</a><span class="sep">·</span><a href="https://staresto-create.github.io/grammar-cloze-test/">學測克漏字</a><span class="sep">·</span><a href="https://staresto-create.github.io/zhikao-cloze-test/">指考克漏字</a><span class="sep">·</span><a href="https://staresto-create.github.io/passage-completion/">文意選填</a><span class="sep">·</span><a href="https://staresto-create.github.io/discourse-structure/">篇章結構</a><span class="sep">·</span><a href="https://staresto-create.github.io/mixed-format/">混合題</a><span class="sep">·</span><a href="https://staresto-create.github.io/JCEE-vocab-questions/translate/">中譯英</a><span class="sep">·</span><a href="https://staresto-create.github.io/essay-prompts/">作文題目</a><span class="sep">·</span><a href="https://staresto-create.github.io/JCEE-vocab-questions/listening/">英聽練習</a></div><div class="qrow qown"><span class="qlab">本題庫自製</span><a href="#adapt">仿真學測試題</a><span class="sep">·</span><a href="https://staresto-create.github.io/essay-prompts/">126 篇英寫範文（基礎級＆進階級）</a><span class="sep">·</span><a href="https://staresto-create.github.io/JCEE-vocab-questions/cards/">單字記憶卡</a><span class="sep">·</span><a href="https://staresto-create.github.io/JCEE-vocab-questions/listening/liaison.html">英聽連音卡</a><span class="sep">·</span><a href="https://staresto-create.github.io/JCEE-vocab-questions/roots/">字根家族表</a><span class="sep">·</span><a href="https://staresto-create.github.io/JCEE-vocab-questions/affixes/">字首字尾表</a><span class="sep">·</span><a href="https://staresto-create.github.io/JCEE-vocab-questions/wordwheel.html">單字輪</a><span class="sep">·</span><a href="https://staresto-create.github.io/JCEE-vocab-questions/cards/coverage.html">詞彙表覆蓋清單</a><span class="sep">·</span><a href="https://staresto-create.github.io/JCEE-vocab-questions/transitions.html">轉承詞語</a><span class="sep">·</span><a href="https://staresto-create.github.io/JCEE-vocab-questions/cards/reverse.html">單字逆序表</a><span class="sep">·</span><a href="https://staresto-create.github.io/JCEE-vocab-questions/cards/suffix.html">字尾分組</a><span class="sep">·</span><a href="https://staresto-create.github.io/JCEE-vocab-questions/cards/prefix.html">字首同化</a><span class="sep">·</span><a href="https://staresto-create.github.io/JCEE-vocab-questions/cards/freq.html">學測全卷用字統計</a><span class="sep">·</span><a href="https://staresto-create.github.io/JCEE-vocab-questions/gsat-trends/">級分差距與英文字數</a><span class="sep">·</span><a href="https://staresto-create.github.io/JCEE-vocab-questions/no-english/">不採計英文的國立校系</a></div></nav>
-    <p class="sub" style="line-height:1.9;"><b style="color:#221F1A;">完全免費、不用註冊、沒有廣告。</b><br>十個題庫收錄學測與指考歷屆考古題共 <b style="color:#9C2C1E;">3,713 題</b>。其中克漏字 870 題、篇章結構 167 題、文意選填 560 題、混合題 33 格的解析已全部完成，單字題 843 題每一題都有中文詳解，閱讀測驗 959 題每一題都有說明、答案依據句和題型，246 篇也都附了逐段中譯，作文題 63 題也都附了範文，中譯英 218 題也都有解析。<a href="https://staresto-create.github.io/JCEE-vocab-questions/listening/" style="color:#9C2C1E; font-weight:700;">英聽練習</a>收錄參考試卷一卷、試題示例五卷，六卷都有逐題解析，另附<a href="https://staresto-create.github.io/JCEE-vocab-questions/listening/liaison.html" style="color:#9C2C1E; font-weight:700;">英聽連音卡</a>，用官方錄音練連音、消音和弱讀。各題庫的題數與解析範圍，另外標在每張卡片上。<a href="https://staresto-create.github.io/JCEE-vocab-questions/roots/" style="color:#9C2C1E; font-weight:700;">字根家族表</a>、<a href="https://staresto-create.github.io/JCEE-vocab-questions/affixes/" style="color:#9C2C1E; font-weight:700;">字首字尾表</a>、<a href="https://staresto-create.github.io/JCEE-vocab-questions/cards/" style="color:#9C2C1E; font-weight:700;">單字記憶卡</a>、<a href="https://staresto-create.github.io/JCEE-vocab-questions/wordwheel.html" style="color:#9C2C1E; font-weight:700;">單字輪</a>、<a href="https://staresto-create.github.io/JCEE-vocab-questions/cards/suffix.html" style="color:#9C2C1E; font-weight:700;">字尾分組</a>和<a href="https://staresto-create.github.io/JCEE-vocab-questions/cards/prefix.html" style="color:#9C2C1E; font-weight:700;">字首同化</a>是查閱與複習用的工具，不是考古題；英聽沒有考古題，英聽練習收錄的是大考中心公布的參考試卷與試題示例。這些工具，以及<a href="https://staresto-create.github.io/JCEE-vocab-questions/cards/reverse.html" style="color:#9C2C1E; font-weight:700;">單字逆序表</a>、<a href="https://staresto-create.github.io/JCEE-vocab-questions/cards/coverage.html" style="color:#9C2C1E; font-weight:700;">詞彙表覆蓋清單</a>和<a href="https://staresto-create.github.io/JCEE-vocab-questions/cards/freq.html" style="color:#9C2C1E; font-weight:700;">學測全卷用字統計</a>這幾份查閱用的表，都不計入上面的題數。<br>本題庫沿用教學現場的說法：這裡的「克漏字」是大考中心的「綜合測驗」，「單字題」是「詞彙題」。指考英文只考到 110 學年度——111 學年度起指考改制為分科測驗，不考英文，所以指考各題庫的年份停在 110。<br>同一個用法在不同年份反覆出現，解析會告訴你哪幾年還考過同一件事，點一下就跳得過去——兩題擺在一起看，判斷方式才完整。<br>我是英文老師，第一次用 GitHub 做網站，做得陽春，但題目和解析都是認真整理的，裡面也放了這些年教書、考試和出題累積下來的一點心得。<b style="color:#3E6E52;">歡迎自由分享。</b></p>
+    <p class="sub" style="line-height:1.9;"><b style="color:var(--ad-x221F1A-fg);">完全免費、不用註冊、沒有廣告。</b><br>十個題庫收錄學測與指考歷屆考古題共 <b style="color:var(--ad-x9C2C1E-fg);">3,713 題</b>。其中克漏字 870 題、篇章結構 167 題、文意選填 560 題、混合題 33 格的解析已全部完成，單字題 843 題每一題都有中文詳解，閱讀測驗 959 題每一題都有說明、答案依據句和題型，246 篇也都附了逐段中譯，作文題 63 題也都附了範文，中譯英 218 題也都有解析。<a href="https://staresto-create.github.io/JCEE-vocab-questions/listening/" style="color:var(--ad-x9C2C1E-fg); font-weight:700;">英聽練習</a>收錄參考試卷一卷、試題示例五卷，六卷都有逐題解析，另附<a href="https://staresto-create.github.io/JCEE-vocab-questions/listening/liaison.html" style="color:var(--ad-x9C2C1E-fg); font-weight:700;">英聽連音卡</a>，用官方錄音練連音、消音和弱讀。各題庫的題數與解析範圍，另外標在每張卡片上。<a href="https://staresto-create.github.io/JCEE-vocab-questions/roots/" style="color:var(--ad-x9C2C1E-fg); font-weight:700;">字根家族表</a>、<a href="https://staresto-create.github.io/JCEE-vocab-questions/affixes/" style="color:var(--ad-x9C2C1E-fg); font-weight:700;">字首字尾表</a>、<a href="https://staresto-create.github.io/JCEE-vocab-questions/cards/" style="color:var(--ad-x9C2C1E-fg); font-weight:700;">單字記憶卡</a>、<a href="https://staresto-create.github.io/JCEE-vocab-questions/wordwheel.html" style="color:var(--ad-x9C2C1E-fg); font-weight:700;">單字輪</a>、<a href="https://staresto-create.github.io/JCEE-vocab-questions/cards/suffix.html" style="color:var(--ad-x9C2C1E-fg); font-weight:700;">字尾分組</a>和<a href="https://staresto-create.github.io/JCEE-vocab-questions/cards/prefix.html" style="color:var(--ad-x9C2C1E-fg); font-weight:700;">字首同化</a>是查閱與複習用的工具，不是考古題；英聽沒有考古題，英聽練習收錄的是大考中心公布的參考試卷與試題示例。這些工具，以及<a href="https://staresto-create.github.io/JCEE-vocab-questions/cards/reverse.html" style="color:var(--ad-x9C2C1E-fg); font-weight:700;">單字逆序表</a>、<a href="https://staresto-create.github.io/JCEE-vocab-questions/cards/coverage.html" style="color:var(--ad-x9C2C1E-fg); font-weight:700;">詞彙表覆蓋清單</a>和<a href="https://staresto-create.github.io/JCEE-vocab-questions/cards/freq.html" style="color:var(--ad-x9C2C1E-fg); font-weight:700;">學測全卷用字統計</a>這幾份查閱用的表，都不計入上面的題數。<br>本題庫沿用教學現場的說法：這裡的「克漏字」是大考中心的「綜合測驗」，「單字題」是「詞彙題」。指考英文只考到 110 學年度——111 學年度起指考改制為分科測驗，不考英文，所以指考各題庫的年份停在 110。<br>同一個用法在不同年份反覆出現，解析會告訴你哪幾年還考過同一件事，點一下就跳得過去——兩題擺在一起看，判斷方式才完整。<br>我是英文老師，第一次用 GitHub 做網站，做得陽春，但題目和解析都是認真整理的，裡面也放了這些年教書、考試和出題累積下來的一點心得。<b style="color:var(--ad-x3E6E52-fg);">歡迎自由分享。</b></p>
   </header>
 
   <div class="countdown" id="countdownBox">
@@ -413,7 +425,7 @@
     <span class="card-arrow">看示範 →</span>
   </a>
 
-  <p class="aside" style="margin:14px 0 0; font-size:13px;">🧩 <a href="#rules" style="color:#9C2C1E; font-weight:700;">這幾種題型，其實是同一件事</a>——克漏字、單字、文意選填、篇章結構、混合題共通的五個詞，附歷屆試題與台大寫作教學中心出處。</p>
+  <p class="aside" style="margin:14px 0 0; font-size:13px;">🧩 <a href="#rules" style="color:var(--ad-x9C2C1E-fg); font-weight:700;">這幾種題型，其實是同一件事</a>——克漏字、單字、文意選填、篇章結構、混合題共通的五個詞，附歷屆試題與台大寫作教學中心出處。</p>
 
 
   <div class="recent" id="recent">
@@ -757,7 +769,7 @@
 <summary>📋 本題庫解析的三個重點，出自大考中心公告的測驗目標</summary>
 <div class="skill-body">
 <p>本題庫每一題的解析都圍繞三件事：轉折詞、前後句的語意關係、字詞搭配。這三項都寫在大考中心公告的英文考科測驗目標裡，以下逐一對照。</p>
-<p>解析的體例與用語也比照大考中心公布的官方說明。《學科能力測驗英文考科考試說明－115 學年度起適用－》在「參、試題舉例」裡逐題附有作答說明；同一個公告頁另有 115 學年度起適用的學測參考試卷，含試卷、參考答案與試題解析。兩份都可作為對照。<a href="https://www.ceec.edu.tw/xmdoc/cont?xsmsid=0J018586101460336585&amp;sid=0O211573150658099894" target="_blank" rel="noopener">大考中心 · 考試說明與參考試卷公告頁 ↗</a><br><span style="color:var(--ink-soft); font-size:12.5px;">本題庫為個人製作，與大考中心無任何隸屬或合作關係。</span></p>
+<p>解析的體例與用語也比照大考中心公布的官方說明。《學科能力測驗英文考科考試說明－115 學年度起適用－》在「參、試題舉例」裡逐題附有作答說明；同一個公告頁另有 115 學年度起適用的學測參考試卷，含試卷、參考答案與試題解析。兩份都可作為對照。<a href="https://www.ceec.edu.tw/xmdoc/cont?xsmsid=0J018586101460336585&amp;sid=0O211573150658099894" target="_blank" rel="noopener">大考中心 · 考試說明與參考試卷公告頁 ↗</a><br><span style="color:var(--ad-vinksoft-fg); font-size:12.5px;">本題庫為個人製作，與大考中心無任何隸屬或合作關係。</span></p>
 <div class="ex">
 <p class="src">綜合測驗（克漏字）</p>
 <p class="en">官方測驗目標評量的是各類語詞的掌握與語法應用，括號裡點名的是「實詞、虛詞、詞組、慣用語及轉折詞等」。</p>
@@ -843,7 +855,7 @@
 </div>
 </details>
 
-  <p class="aside" style="margin:18px 0 22px; font-size:13px;">🔤 <a href="abbr/" style="color:#9C2C1E; font-weight:700;">簡寫對照表</a>——解析裡的 S、O、sb、p.p. 這些簡寫是什麼意思，一頁列齊。</p>
+  <p class="aside" style="margin:18px 0 22px; font-size:13px;">🔤 <a href="abbr/" style="color:var(--ad-x9C2C1E-fg); font-weight:700;">簡寫對照表</a>——解析裡的 S、O、sb、p.p. 這些簡寫是什麼意思，一頁列齊。</p>
 
   <section class="aside">
     <h3 class="at">🌁 題外話</h3>

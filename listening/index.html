@@ -17,17 +17,17 @@
 }
 *{box-sizing:border-box}
 html,body{margin:0}
-body{background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.7;-webkit-text-size-adjust:100%}
+body{background:var(--ad-vpaper-bg);color:var(--ad-vink-fg);font-family:var(--sans);line-height:1.7;-webkit-text-size-adjust:100%}
 .wrap{max-width:46rem;margin:0 auto;padding:1.6rem 1rem 5rem}
-a{color:var(--crimson)}
+a{color:var(--ad-vcrimson-fg)}
 a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--crimson);outline-offset:2px}
-header.top{border-bottom:3px double var(--ink);padding-bottom:.9rem;margin-bottom:1.2rem}
-.crumb{font-size:.85rem;color:var(--ink-soft);margin:0 0 .5rem}
-.crumb a{color:var(--ink-soft)}
+header.top{border-bottom:3px double var(--ad-vink-border);padding-bottom:.9rem;margin-bottom:1.2rem}
+.crumb{font-size:.85rem;color:var(--ad-vinksoft-fg);margin:0 0 .5rem}
+.crumb a{color:var(--ad-vinksoft-fg)}
 h1{font-family:var(--serif);font-weight:900;font-size:1.65rem;line-height:1.3;margin:0}
-h1 small{display:block;font-size:1rem;font-weight:500;color:var(--ink-soft);margin-top:.2rem}
-.lede{margin:.8rem 0 0;font-size:.95rem;color:#3d3a32}
-.panel{background:var(--card);border:1px solid var(--rule);border-radius:.4rem;padding:1rem 1rem .9rem;margin:1.2rem 0}
+h1 small{display:block;font-size:1rem;font-weight:500;color:var(--ad-vinksoft-fg);margin-top:.2rem}
+.lede{margin:.8rem 0 0;font-size:.95rem;color:var(--ad-x3d3a32-fg)}
+.panel{background:var(--ad-vcard-bg);border:1px solid var(--ad-vrule-border);border-radius:.4rem;padding:1rem 1rem .9rem;margin:1.2rem 0}
 .panel h2{font-family:var(--serif);font-size:1.05rem;margin:0 0 .5rem}
 .panel p{margin:.3rem 0;font-size:.93rem}
 audio{width:100%;margin:.4rem 0 .2rem}
@@ -35,85 +35,92 @@ audio{width:100%;margin:.4rem 0 .2rem}
 .steps{margin:.2rem 0 0;padding-left:1.4rem;font-size:.93rem}
 .steps li{margin:.15rem 0}
 nav.toc{display:flex;flex-wrap:wrap;gap:.35rem;margin:1rem 0 .4rem}
-nav.toc a{font-size:.88rem;text-decoration:none;border:1px solid var(--rule);background:var(--card);color:var(--ink);border-radius:.3rem;padding:.2rem .55rem}
-nav.toc a:hover{border-color:var(--crimson);color:var(--crimson)}
-.bar{display:flex;justify-content:space-between;align-items:center;gap:.6rem;flex-wrap:wrap;font-size:.88rem;color:var(--ink-soft);margin:.2rem 0 0}
-.bar button{font:inherit;font-size:.85rem;background:transparent;border:1px solid var(--rule);color:var(--ink-soft);border-radius:.3rem;padding:.2rem .6rem;cursor:pointer}
+nav.toc a{font-size:.88rem;text-decoration:none;border:1px solid var(--ad-vrule-border);background:var(--ad-vcard-bg);color:var(--ad-vink-fg);border-radius:.3rem;padding:.2rem .55rem}
+nav.toc a:hover{border-color:var(--crimson);color:var(--ad-vcrimson-fg)}
+.bar{display:flex;justify-content:space-between;align-items:center;gap:.6rem;flex-wrap:wrap;font-size:.88rem;color:var(--ad-vinksoft-fg);margin:.2rem 0 0}
+.bar button{font:inherit;font-size:.85rem;background:transparent;border:1px solid var(--ad-vrule-border);color:var(--ad-vinksoft-fg);border-radius:.3rem;padding:.2rem .6rem;cursor:pointer}
 section.sec{margin-top:2.6rem;scroll-margin-top:1rem}
-section.sec>h2{font-family:var(--serif);font-weight:900;font-size:1.3rem;margin:0 0 .6rem;padding-bottom:.3rem;border-bottom:2px solid var(--ink)}
-.goal{font-size:.9rem;color:var(--ink-soft);margin:.2rem 0}
-.goal b{color:var(--ink);font-weight:500}
-.howto{background:var(--sage-soft);border-left:4px solid var(--sage);padding:.6rem .8rem;margin:.8rem 0 1rem;font-size:.93rem;border-radius:0 .3rem .3rem 0}
-.howto b{color:var(--sage)}
-details.ex{border:1px dashed var(--rule);border-radius:.4rem;padding:.5rem .8rem;margin:0 0 1rem;background:#fbf8f0}
-details.ex summary{cursor:pointer;font-weight:500;color:var(--ink-soft);font-size:.92rem}
-.unit{background:var(--card);border:1px solid var(--rule);border-radius:.45rem;padding:1rem;margin:1rem 0;scroll-margin-top:1rem}
+section.sec>h2{font-family:var(--serif);font-weight:900;font-size:1.3rem;margin:0 0 .6rem;padding-bottom:.3rem;border-bottom:2px solid var(--ad-vink-border)}
+.goal{font-size:.9rem;color:var(--ad-vinksoft-fg);margin:.2rem 0}
+.goal b{color:var(--ad-vink-fg);font-weight:500}
+.howto{background:var(--ad-vsagesoft-bg);border-left:4px solid var(--ad-vsage-border);padding:.6rem .8rem;margin:.8rem 0 1rem;font-size:.93rem;border-radius:0 .3rem .3rem 0}
+.howto b{color:var(--ad-vsage-fg)}
+details.ex{border:1px dashed var(--ad-vrule-border);border-radius:.4rem;padding:.5rem .8rem;margin:0 0 1rem;background:var(--ad-xfbf8f0-bg)}
+details.ex summary{cursor:pointer;font-weight:500;color:var(--ad-vinksoft-fg);font-size:.92rem}
+.unit{background:var(--ad-vcard-bg);border:1px solid var(--ad-vrule-border);border-radius:.45rem;padding:1rem;margin:1rem 0;scroll-margin-top:1rem}
 .unit h3{font-family:var(--serif);font-size:1.12rem;margin:0 0 .6rem}
 .fig{margin:.3rem 0 .8rem}
-.fig img{display:block;max-width:100%;height:auto;border:1px solid var(--rule);background:#fff}
-.fig figcaption{font-size:.75rem;color:var(--ink-soft);margin-top:.2rem}
-.q{margin:.8rem 0 0;padding-top:.7rem;border-top:1px dotted var(--rule)}
+.fig img{display:block;max-width:100%;height:auto;border:1px solid var(--ad-vrule-border);background:var(--ad-xfff-bg)}
+.fig figcaption{font-size:.75rem;color:var(--ad-vinksoft-fg);margin-top:.2rem}
+.q{margin:.8rem 0 0;padding-top:.7rem;border-top:1px dotted var(--ad-vrule-border)}
 .q:first-of-type{border-top:0;padding-top:0}
 .qh{font-weight:700;margin:0 0 .35rem}
 .qh .pr{font-family:var(--en);font-weight:400;font-size:1.02rem;display:block;margin-top:.1rem}
-.qh .hint{font-weight:400;font-size:.82rem;color:var(--ink-soft);margin-left:.4rem}
+.qh .hint{font-weight:400;font-size:.82rem;color:var(--ad-vinksoft-fg);margin-left:.4rem}
 .opts{display:grid;gap:.35rem}
 .opts.letters{grid-template-columns:repeat(4,minmax(0,4rem))}
-.opt{font:inherit;text-align:left;display:flex;gap:.45rem;align-items:baseline;width:100%;background:#fff;color:var(--ink);border:1px solid var(--rule);border-radius:.35rem;padding:.45rem .6rem;cursor:pointer}
+.opt{font:inherit;text-align:left;display:flex;gap:.45rem;align-items:baseline;width:100%;background:var(--ad-xfff-bg);color:var(--ad-vink-fg);border:1px solid var(--ad-vrule-border);border-radius:.35rem;padding:.45rem .6rem;cursor:pointer}
 .opts.letters .opt{justify-content:center;font-weight:700}
 .opt .l{font-weight:700;flex:none}
 .opt .t{font-family:var(--en);font-size:1.02rem}
-.opt:hover{border-color:var(--ink-soft)}
-.opt[aria-pressed=true]{border-color:var(--ink);background:#f1ece0;box-shadow:inset 0 0 0 1px var(--ink)}
-.opt.ok{border-color:var(--sage);background:var(--sage-soft);box-shadow:inset 0 0 0 1px var(--sage)}
-.opt.bad{border-color:var(--crimson);background:var(--crimson-soft);box-shadow:inset 0 0 0 1px var(--crimson)}
+.opt:hover{border-color:var(--ad-vinksoft-border)}
+.opt[aria-pressed=true]{border-color:var(--ad-vink-border);background:var(--ad-xf1ece0-bg);box-shadow:inset 0 0 0 1px var(--ink)}
+.opt.ok{border-color:var(--ad-vsage-border);background:var(--ad-vsagesoft-bg);box-shadow:inset 0 0 0 1px var(--sage)}
+.opt.bad{border-color:var(--crimson);background:var(--ad-vcrimsonsoft-bg);box-shadow:inset 0 0 0 1px var(--crimson)}
 .opt:disabled{cursor:default}
 .actions{margin:.9rem 0 0;display:flex;gap:.5rem;flex-wrap:wrap;align-items:center}
 .btn{font:inherit;font-weight:700;background:var(--crimson);color:#fff;border:0;border-radius:.35rem;padding:.45rem 1rem;cursor:pointer}
-.btn.ghost{background:transparent;color:var(--ink-soft);border:1px solid var(--rule);font-weight:400}
-.score{font-size:.9rem;color:var(--ink-soft)}
+.btn.ghost{background:transparent;color:var(--ad-vinksoft-fg);border:1px solid var(--ad-vrule-border);font-weight:400}
+.score{font-size:.9rem;color:var(--ad-vinksoft-fg)}
 .reveal{display:none;margin-top:1rem}
 .unit.shown .reveal{display:block}
 .verdict{font-size:.92rem;margin:.4rem 0 0}
-.verdict .ok{color:var(--sage);font-weight:700}
-.verdict .bad{color:var(--crimson);font-weight:700}
-details.script{background:#fbf8f0;border:1px solid var(--rule);border-radius:.35rem;padding:.5rem .8rem;margin:.6rem 0}
+.verdict .ok{color:var(--ad-vsage-fg);font-weight:700}
+.verdict .bad{color:var(--ad-vcrimson-fg);font-weight:700}
+details.script{background:var(--ad-xfbf8f0-bg);border:1px solid var(--ad-vrule-border);border-radius:.35rem;padding:.5rem .8rem;margin:.6rem 0}
 details.script summary{cursor:pointer;font-weight:700;font-size:.93rem}
 .script-body{margin:.5rem 0 .2rem}
 .script-body p{margin:.25rem 0;font-family:var(--en);font-size:1rem;line-height:1.6}
-.script-body p.zh{font-family:var(--sans);font-size:.88rem;color:var(--ink-soft)}
-.note{margin:1rem 0 0;padding-top:.6rem;border-top:1px solid var(--rule)}
+.script-body p.zh{font-family:var(--sans);font-size:.88rem;color:var(--ad-vinksoft-fg)}
+.note{margin:1rem 0 0;padding-top:.6rem;border-top:1px solid var(--ad-vrule-border)}
 .note h4{font-family:var(--serif);font-size:1rem;margin:0 0 .3rem}
-.note h4 .a{font-family:var(--sans);font-size:.88rem;font-weight:500;color:var(--sage);margin-left:.4rem}
+.note h4 .a{font-family:var(--sans);font-size:.88rem;font-weight:500;color:var(--ad-vsage-fg);margin-left:.4rem}
 .part{margin:.5rem 0}
-.part .lab{font-weight:700;font-size:.9rem;color:var(--crimson)}
+.part .lab{font-weight:700;font-size:.9rem;color:var(--ad-vcrimson-fg)}
 .part p,.part li{font-size:.94rem;margin:.15rem 0}
 .part ul{margin:.15rem 0;padding-left:1.2rem}
-.words{font-size:.92rem;background:#f6f1e4;border-radius:.3rem;padding:.45rem .6rem;margin:.5rem 0 0}
-.words .lab{font-weight:700;font-size:.85rem;color:var(--ink-soft);display:block}
-.fn{font-size:.86rem;color:#3d3a32;border-left:3px solid var(--gold);padding:.3rem .6rem;margin:.6rem 0 0;background:#fbf6ea}
-.foot{border-top:3px double var(--ink);margin-top:3rem;padding-top:1rem;font-size:.86rem;color:var(--ink-soft)}
+.words{font-size:.92rem;background:var(--ad-xf6f1e4-bg);border-radius:.3rem;padding:.45rem .6rem;margin:.5rem 0 0}
+.words .lab{font-weight:700;font-size:.85rem;color:var(--ad-vinksoft-fg);display:block}
+.fn{font-size:.86rem;color:var(--ad-x3d3a32-fg);border-left:3px solid var(--gold);padding:.3rem .6rem;margin:.6rem 0 0;background:var(--ad-xfbf6ea-bg)}
+.foot{border-top:3px double var(--ad-vink-border);margin-top:3rem;padding-top:1rem;font-size:.86rem;color:var(--ad-vinksoft-fg)}
 .foot p{margin:.3rem 0}
 @media (max-width:30rem){ .opts.letters{grid-template-columns:repeat(4,minmax(0,1fr))} h1{font-size:1.4rem} }
 @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
 
-.paper{display:block;text-decoration:none;color:var(--ink);background:var(--card);border:1px solid var(--rule);border-radius:.45rem;padding:1rem;margin:1rem 0}
+.paper{display:block;text-decoration:none;color:var(--ad-vink-fg);background:var(--ad-vcard-bg);border:1px solid var(--ad-vrule-border);border-radius:.45rem;padding:1rem;margin:1rem 0}
 .paper:hover{border-color:var(--crimson)}
 .paper .t{font-family:var(--serif);font-weight:900;font-size:1.15rem}
-.paper .m{font-size:.88rem;color:var(--ink-soft);margin-top:.2rem}
+.paper .m{font-size:.88rem;color:var(--ad-vinksoft-fg);margin-top:.2rem}
 .paper .d{font-size:.93rem;margin-top:.4rem}
 table.types{width:100%;border-collapse:collapse;font-size:.9rem;margin:.4rem 0 0}
-table.types th,table.types td{text-align:left;border-top:1px solid var(--rule);padding:.4rem .3rem;vertical-align:top}
+table.types th,table.types td{text-align:left;border-top:1px solid var(--ad-vrule-border);padding:.4rem .3rem;vertical-align:top}
 table.types th{font-weight:700;white-space:nowrap}
 table.old99 th,table.old99 td{padding:.4rem .25rem}
 table.old99 td{white-space:nowrap}
 table.old99 tr.h th,table.old99 tr.h td{white-space:normal}
+
+/* 深色模式（2026-10-22）：淺色數值與原本相同；只在螢幕、手機或電腦設成深色外觀時生效，列印不受影響。 */
+:root{--ad-vcard-bg:var(--card);--ad-vcrimson-bg:var(--crimson);--ad-vcrimson-border:var(--crimson);--ad-vcrimson-fg:var(--crimson);--ad-vcrimsonsoft-bg:var(--crimson-soft);--ad-vgold-border:var(--gold);--ad-vink-border:var(--ink);--ad-vink-fg:var(--ink);--ad-vinksoft-border:var(--ink-soft);--ad-vinksoft-fg:var(--ink-soft);--ad-vpaper-bg:var(--paper);--ad-vrule-border:var(--rule);--ad-vsage-border:var(--sage);--ad-vsage-fg:var(--sage);--ad-vsagesoft-bg:var(--sage-soft);--ad-x3d3a32-fg:#3d3a32;--ad-x8a8278-fg:#8a8278;--ad-xf1ece0-bg:#f1ece0;--ad-xf6f1e4-bg:#f6f1e4;--ad-xfbf6ea-bg:#fbf6ea;--ad-xfbf8f0-bg:#fbf8f0;--ad-xfff-bg:#fff;--ad-xfff-fg:#fff;color-scheme:light}
+@media screen and (prefers-color-scheme: dark){
+ :root{--ad-vcard-bg:#26231F;--ad-vcrimson-bg:#ae3626;--ad-vcrimson-border:#ae3626;--ad-vcrimson-fg:#E4B6B0;--ad-vcrimsonsoft-bg:#2A211F;--ad-vgold-border:#a9812e;--ad-vink-border:#F2F0EE;--ad-vink-fg:#F2F0EE;--ad-vinksoft-border:#DAD8D3;--ad-vinksoft-fg:#DAD8D3;--ad-vpaper-bg:#1B1916;--ad-vrule-border:#514A37;--ad-vsage-border:#CBDDD2;--ad-vsage-fg:#CBDDD2;--ad-vsagesoft-bg:#1E231E;--ad-x3d3a32-fg:#E5E4E1;--ad-x8a8278-fg:#C2BFBB;--ad-xf1ece0-bg:#28251E;--ad-xf6f1e4-bg:#1B1916;--ad-xfbf6ea-bg:#2A2721;--ad-xfbf8f0-bg:#272521;--ad-xfff-bg:#2D2A25;--ad-xfff-fg:#ffffff;color-scheme:dark}
+}
+
 </style>
 <style id="anti-copy">
 /* 防盜用措施（2026-10-14）：畫面浮水印、列印浮水印、頁尾授權聲明 */
 @media screen{body::before{content:"";position:fixed;top:0;left:0;right:0;bottom:0;z-index:2147483000;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22460%22%20height%3D%22240%22%3E%3Cg%20transform%3D%22rotate%28-20%20230%20120%29%22%20font-family%3D%22Noto%20Sans%20TC%2Csans-serif%22%20fill%3D%22%23D9A400%22%20fill-opacity%3D%22.2%22%20text-anchor%3D%22middle%22%3E%3Ctext%20x%3D%22230%22%20y%3D%22112%22%20font-size%3D%2220%22%3E%E9%AB%98%E4%B8%AD%E8%8B%B1%E6%96%87%E9%A1%8C%E5%BA%AB%3C%2Ftext%3E%3Ctext%20x%3D%22230%22%20y%3D%22140%22%20font-size%3D%2214%22%3Estaresto-create.github.io%2FJCEE-vocab-questions%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E");background-repeat:repeat;}}
 @media print{body::after{content:"高中英文題庫\A staresto-create.github.io/JCEE-vocab-questions\A 免費資源，請勿販售";white-space:pre;position:fixed;top:42%;left:0;right:0;text-align:center;transform:rotate(-25deg);font-family:"Noto Sans TC",sans-serif;font-size:26pt;line-height:1.7;color:#c8c8c8;z-index:2147483000;pointer-events:none;}}
-.cc-note{font-size:12px;line-height:1.8;color:#8a8278;margin:12px auto;max-width:60em;padding:0 1em;}.cc-note a{color:inherit;}
+.cc-note{font-size:12px;line-height:1.8;color:var(--ad-x8a8278-fg);margin:12px auto;max-width:60em;padding:0 1em;}.cc-note a{color:inherit;}
 </style>
 </head>
 <body>
@@ -144,7 +151,7 @@ table.old99 tr.h th,table.old99 tr.h td{white-space:normal}
     <tr><th>試題示例 11</th><td style='white-space:nowrap'>115 年</td><td><a href="s11.html">英聽試題示例 11</a>（已收錄）</td></tr>
   </table>
   <p style="margin-top:.6rem">表格裡的「參考試卷 3」，跟大考中心另一個公告頁的〈111 學年度起適用之高中英語聽力測驗參考試卷〉是同一卷：兩頁附的試卷、錄音檔和參考答案，檔名完全相同。公告頁另外附了官方錄音稿和試題解析，所以本題庫把這一卷放在「英聽參考試卷」那一頁，錄音內容也照官方錄音稿。</p>
-  <p style="font-size:.86rem;color:var(--ink-soft)">出處：大考中心〈<a href="https://www.ceec.edu.tw/xmdoc/cont?xsmsid=0J018576253614017417&amp;sid=0M200595497962808262">高中英語聽力測驗—試題示例說明（適用於108課綱）</a>〉；大考中心〈<a href="https://www.ceec.edu.tw/xmdoc/cont?xsmsid=0J018576253614017417&amp;sid=0K213573223911544799">111學年度起適用之高中英語聽力測驗參考試卷公告</a>〉。</p>
+  <p style="font-size:.86rem;color:var(--ad-vinksoft-fg)">出處：大考中心〈<a href="https://www.ceec.edu.tw/xmdoc/cont?xsmsid=0J018576253614017417&amp;sid=0M200595497962808262">高中英語聽力測驗—試題示例說明（適用於108課綱）</a>〉；大考中心〈<a href="https://www.ceec.edu.tw/xmdoc/cont?xsmsid=0J018576253614017417&amp;sid=0K213573223911544799">111學年度起適用之高中英語聽力測驗參考試卷公告</a>〉。</p>
 </div>
 
 <div class="panel">
@@ -223,8 +230,8 @@ table.old99 tr.h th,table.old99 tr.h td{white-space:normal}
 <div class="panel">
   <h2>怎麼用本題庫練習</h2>
   <p>大考中心的建議是每天花 8 到 10 分鐘，練習不同題型的試題；每次練習完都要確實檢討，歸納重要的字詞和搭配詞，也要把題目和錄音內容大聲唸出來。本題庫的每一卷都照這個順序設計：先照考試的方式作答，對完答案再看錄音內容和解析，最後對著錄音內容再聽、再唸一次。</p>
-  <p style="font-size:.86rem;color:var(--ink-soft)">出處：大考中心選才電子報第 324 期，游春琪、廖悅淑〈<a href="https://www.ceec.edu.tw/xcepaper/cont?xsmsid=0J066588036013658199&amp;qperoid=0L224388397456940702&amp;sid=0L228381278862927301">111學年度起高中英語聽力測驗新增題型，準備小叮嚀</a>〉，110 年 8 月。</p>
-  <p style="font-size:.86rem;color:var(--ink-soft)">延伸閱讀：大考中心<a href="https://www.ceec.edu.tw/xmdoc?xsmsid=0J018576586515691444">高中英語聽力測驗選才文摘</a>，收錄歷年談英聽教學與準備的文章。</p>
+  <p style="font-size:.86rem;color:var(--ad-vinksoft-fg)">出處：大考中心選才電子報第 324 期，游春琪、廖悅淑〈<a href="https://www.ceec.edu.tw/xcepaper/cont?xsmsid=0J066588036013658199&amp;qperoid=0L224388397456940702&amp;sid=0L228381278862927301">111學年度起高中英語聽力測驗新增題型，準備小叮嚀</a>〉，110 年 8 月。</p>
+  <p style="font-size:.86rem;color:var(--ad-vinksoft-fg)">延伸閱讀：大考中心<a href="https://www.ceec.edu.tw/xmdoc?xsmsid=0J018576586515691444">高中英語聽力測驗選才文摘</a>，收錄歷年談英聽教學與準備的文章。</p>
 </div>
 
 <footer class="foot">

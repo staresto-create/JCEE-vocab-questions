@@ -11,42 +11,49 @@
 :root{--paper:#F6F1E4;--card:#FFFDF7;--ink:#221F1A;--soft:#5B5648;--rule:#DCD3BB;--crimson:#AE3626;--crimson-soft:#F1DFD9;--sage:#3E6E52;--sage-soft:#DCE8DA;--gold:#A9812E;
 box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 *{box-sizing:border-box}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif;line-height:1.7;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ad-vpaper-bg);color:var(--ad-vink-fg);font-family:'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif;line-height:1.7;-webkit-text-size-adjust:100%}
 .wrap{max-width:640px;margin:0 auto;padding:18px 16px 40px}
-.crumb{font-size:.85rem;color:var(--soft);margin:0 0 .4rem}.crumb a{color:var(--soft)}
+.crumb{font-size:.85rem;color:var(--ad-vsoft-fg);margin:0 0 .4rem}.crumb a{color:var(--ad-vsoft-fg)}
 h1{font-family:'Noto Serif TC','PMingLiU',serif;font-weight:900;font-size:1.5rem;margin:0 0 4px}
-.sub{color:var(--soft);font-size:.92rem;margin:0 0 12px}
-details.how{font-size:.9rem;color:var(--soft);margin:0 0 14px}details.how summary{cursor:pointer;color:var(--ink)}
+.sub{color:var(--ad-vsoft-fg);font-size:.92rem;margin:0 0 12px}
+details.how{font-size:.9rem;color:var(--ad-vsoft-fg);margin:0 0 14px}details.how summary{cursor:pointer;color:var(--ad-vink-fg)}
 details.how p{margin:.4rem 0}
 .vols{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 12px}
-.bar{height:6px;background:var(--rule);border-radius:3px;overflow:hidden;margin-bottom:14px}.bar i{display:block;height:100%;background:var(--sage);transition:width .3s}
-.card{background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:18px 16px;box-shadow:0 1px 0 rgba(34,31,26,.06),0 8px 24px rgba(34,31,26,.08)}
-.top{display:flex;justify-content:space-between;gap:8px;color:var(--soft);font-size:.85rem}
+.bar{height:6px;background:var(--ad-vrule-bg);border-radius:3px;overflow:hidden;margin-bottom:14px}.bar i{display:block;height:100%;background:var(--sage);transition:width .3s}
+.card{background:var(--ad-vcard-bg);border:1px solid var(--ad-vrule-border);border-radius:12px;padding:18px 16px;box-shadow:0 1px 0 rgba(34,31,26,.06),0 8px 24px rgba(34,31,26,.08)}
+.top{display:flex;justify-content:space-between;gap:8px;color:var(--ad-vsoft-fg);font-size:.85rem}
 .play{display:flex;gap:10px;margin:14px 0 6px}
-.btn{font:inherit;border:1px solid var(--rule);background:var(--paper);color:var(--ink);border-radius:10px;padding:10px 14px;cursor:pointer}
-.vols .btn{padding:6px 12px;font-size:.92rem}.vols .btn.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.btn{font:inherit;border:1px solid var(--ad-vrule-border);background:var(--ad-vpaper-bg);color:var(--ad-vink-fg);border-radius:10px;padding:10px 14px;cursor:pointer}
+.vols .btn{padding:6px 12px;font-size:.92rem}.vols .btn.on{background:var(--ad-vink-bg);color:var(--paper);border-color:var(--ad-vink-border)}
 .btn.main{background:var(--crimson);border-color:var(--crimson);color:#fff;font-weight:700;flex:1}
 .btn:focus-visible,.opt:focus-visible,a:focus-visible{outline:2px solid var(--crimson);outline-offset:2px}
 .q{font-weight:700;margin:14px 0 8px}
-.opt{display:block;width:100%;text-align:left;font:inherit;font-family:Georgia,'Times New Roman',serif;font-size:1.02rem;border:1px solid var(--rule);background:var(--card);color:var(--ink);border-radius:10px;padding:11px 12px;margin:8px 0;cursor:pointer;line-height:1.5}
+.opt{display:block;width:100%;text-align:left;font:inherit;font-family:Georgia,'Times New Roman',serif;font-size:1.02rem;border:1px solid var(--ad-vrule-border);background:var(--ad-vcard-bg);color:var(--ad-vink-fg);border-radius:10px;padding:11px 12px;margin:8px 0;cursor:pointer;line-height:1.5}
 .opt:disabled{cursor:default}
-.opt.ok{border-color:var(--sage);background:var(--sage-soft)}.opt.no{border-color:var(--crimson);background:var(--crimson-soft)}
-.key{font-weight:700;margin:8px 0 4px}.back{margin-top:16px;border-top:1px dashed var(--rule);padding-top:12px}
-.tag{display:inline-block;font-size:.8rem;border:1px solid var(--gold);color:var(--gold);border-radius:999px;padding:1px 10px;margin-bottom:6px}
-.en{font-family:Georgia,'Times New Roman',serif;font-size:1.05rem}.en b{color:var(--crimson);border-bottom:2px solid var(--crimson);font-weight:700}
-.kk{font-family:'Lucida Sans Unicode','Arial Unicode MS','Noto Sans',sans-serif;background:var(--paper);border-radius:8px;padding:6px 10px;margin:8px 0;line-height:1.7}
+.opt.ok{border-color:var(--ad-vsage-border);background:var(--ad-vsagesoft-bg)}.opt.no{border-color:var(--crimson);background:var(--ad-vcrimsonsoft-bg)}
+.key{font-weight:700;margin:8px 0 4px}.back{margin-top:16px;border-top:1px dashed var(--ad-vrule-border);padding-top:12px}
+.tag{display:inline-block;font-size:.8rem;border:1px solid var(--gold);color:var(--ad-vgold-fg);border-radius:999px;padding:1px 10px;margin-bottom:6px}
+.en{font-family:Georgia,'Times New Roman',serif;font-size:1.05rem}.en b{color:var(--ad-vcrimson-fg);border-bottom:2px solid var(--crimson);font-weight:700}
+.kk{font-family:'Lucida Sans Unicode','Arial Unicode MS','Noto Sans',sans-serif;background:var(--ad-vpaper-bg);border-radius:8px;padding:6px 10px;margin:8px 0;line-height:1.7}
 .dis{margin:8px 0 0;padding:0;list-style:none}.dis li{margin:8px 0;font-size:.95rem}.dis .s{font-family:Georgia,serif}
-.src{font-size:.9rem;margin-top:10px}a{color:var(--sage)}
+.src{font-size:.9rem;margin-top:10px}a{color:var(--ad-vsage-fg)}
 .nav{display:flex;gap:10px;margin-top:16px}
 .hidden{display:none}
-.end{text-align:center}.end .n{font-size:2rem;font-weight:700;color:var(--sage)}
-.foot{margin-top:28px;font-size:.85rem;color:var(--soft)}.foot a{color:var(--soft)}
+.end{text-align:center}.end .n{font-size:2rem;font-weight:700;color:var(--ad-vsage-fg)}
+.foot{margin-top:28px;font-size:.85rem;color:var(--ad-vsoft-fg)}.foot a{color:var(--ad-vsoft-fg)}
 @media (prefers-reduced-motion:reduce){.bar i{transition:none}}
+
+/* 深色模式（2026-10-22）：淺色數值與原本相同；只在螢幕、手機或電腦設成深色外觀時生效，列印不受影響。 */
+:root{--ad-vcard-bg:var(--card);--ad-vcrimson-bg:var(--crimson);--ad-vcrimson-border:var(--crimson);--ad-vcrimson-fg:var(--crimson);--ad-vcrimsonsoft-bg:var(--crimson-soft);--ad-vgold-border:var(--gold);--ad-vgold-fg:var(--gold);--ad-vink-bg:var(--ink);--ad-vink-border:var(--ink);--ad-vink-fg:var(--ink);--ad-vpaper-bg:var(--paper);--ad-vpaper-fg:var(--paper);--ad-vrule-bg:var(--rule);--ad-vrule-border:var(--rule);--ad-vsage-bg:var(--sage);--ad-vsage-border:var(--sage);--ad-vsage-fg:var(--sage);--ad-vsagesoft-bg:var(--sage-soft);--ad-vsoft-fg:var(--soft);--ad-x8a8278-fg:#8a8278;--ad-xfff-fg:#fff;color-scheme:light}
+@media screen and (prefers-color-scheme: dark){
+ :root{--ad-vcard-bg:#26231F;--ad-vcrimson-bg:#ae3626;--ad-vcrimson-border:#ae3626;--ad-vcrimson-fg:#E4B6B0;--ad-vcrimsonsoft-bg:#2B211E;--ad-vgold-border:#a9812e;--ad-vgold-fg:#E0D1B2;--ad-vink-bg:#EEEDEC;--ad-vink-border:#F2F0EE;--ad-vink-fg:#F2F0EE;--ad-vpaper-bg:#1B1916;--ad-vpaper-fg:#f6f1e4;--ad-vrule-bg:#2B2619;--ad-vrule-border:#514A37;--ad-vsage-bg:#3e6e52;--ad-vsage-border:#CBDDD2;--ad-vsage-fg:#CBDDD2;--ad-vsagesoft-bg:#1E241D;--ad-vsoft-fg:#DAD8D3;--ad-x8a8278-fg:#C2BFBB;--ad-xfff-fg:#ffffff;color-scheme:dark}
+}
+
 </style><style id="anti-copy">
 /* 防盜用措施（2026-10-14）：畫面浮水印、列印浮水印、頁尾授權聲明 */
 @media screen{body::before{content:"";position:fixed;top:0;left:0;right:0;bottom:0;z-index:2147483000;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22460%22%20height%3D%22240%22%3E%3Cg%20transform%3D%22rotate%28-20%20230%20120%29%22%20font-family%3D%22Noto%20Sans%20TC%2Csans-serif%22%20fill%3D%22%23D9A400%22%20fill-opacity%3D%22.2%22%20text-anchor%3D%22middle%22%3E%3Ctext%20x%3D%22230%22%20y%3D%22112%22%20font-size%3D%2220%22%3E%E9%AB%98%E4%B8%AD%E8%8B%B1%E6%96%87%E9%A1%8C%E5%BA%AB%3C%2Ftext%3E%3Ctext%20x%3D%22230%22%20y%3D%22140%22%20font-size%3D%2214%22%3Estaresto-create.github.io%2FJCEE-vocab-questions%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E");background-repeat:repeat;}}
 @media print{body::after{content:"高中英文題庫\A staresto-create.github.io/JCEE-vocab-questions\A 免費資源，請勿販售";white-space:pre;position:fixed;top:42%;left:0;right:0;text-align:center;transform:rotate(-25deg);font-family:"Noto Sans TC",sans-serif;font-size:26pt;line-height:1.7;color:#c8c8c8;z-index:2147483000;pointer-events:none;}}
-.cc-note{font-size:12px;line-height:1.8;color:#8a8278;margin:12px auto;max-width:60em;padding:0 1em;}.cc-note a{color:inherit;}
+.cc-note{font-size:12px;line-height:1.8;color:var(--ad-x8a8278-fg);margin:12px auto;max-width:60em;padding:0 1em;}.cc-note a{color:inherit;}
 </style>
 </head><body><div class="wrap">
 <p class="crumb"><a href="https://staresto-create.github.io/JCEE-vocab-questions/">題庫首頁</a>　›　<a href="index.html">英聽練習</a></p>

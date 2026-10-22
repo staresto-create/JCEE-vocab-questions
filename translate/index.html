@@ -22,17 +22,17 @@
   body{
     margin:0;
     font-family:"Noto Serif TC","Georgia",serif;
-    background:var(--paper);
+    background:var(--ad-vpaper-bg);
     background-image:
       radial-gradient(circle at 100% 0%, rgba(138,46,46,0.05), transparent 40%),
       radial-gradient(circle at 0% 100%, rgba(47,82,51,0.05), transparent 40%);
-    color:var(--ink);
+    color:var(--ad-vink-fg);
     min-height:100vh;
   }
   header{
     padding:28px 20px 18px;
     text-align:center;
-    border-bottom:3px double var(--rule);
+    border-bottom:3px double var(--ad-vrule-border);
   }
   header h1{
     margin:0;
@@ -43,7 +43,7 @@
   header .sub{
     margin-top:6px;
     font-size:13px;
-    color:var(--muted);
+    color:var(--ad-vmuted-fg);
     letter-spacing:2px;
   }
   nav.tabs{
@@ -58,17 +58,17 @@
     font-size:14px;
     padding:9px 22px;
     background:none;
-    border:1px solid var(--rule);
+    border:1px solid var(--ad-vrule-border);
     border-bottom:none;
-    color:var(--muted);
+    color:var(--ad-vmuted-fg);
     cursor:pointer;
     letter-spacing:1px;
     margin:0 2px;
     border-radius:6px 6px 0 0;
   }
   nav.tabs button.active{
-    background:var(--paper);
-    color:var(--seal);
+    background:var(--ad-vpaper-bg);
+    color:var(--ad-vseal-fg);
     font-weight:700;
     border-color:var(--seal);
   }
@@ -81,19 +81,19 @@
   section.view.active{display:block;}
 
   /* --- setup screen --- */
-  .sk-intro{color:var(--muted); font-size:13.5px; line-height:1.85; margin:0 0 4px;}
-  .sk-ex{margin:16px 0 0; padding-left:11px; border-left:2px solid var(--stamp);}
-  .sk-ex .sk-src{font-family:'Noto Sans TC','PingFang TC','Microsoft JhengHei',monospace; font-size:10.5px; letter-spacing:.08em; color:var(--stamp); display:block; margin-bottom:3px;}
-  .sk-ex .sk-en{color:var(--ink); font-size:13.5px; line-height:1.75; margin:0 0 2px;}
-  .sk-ex .sk-zh{font-size:12.5px; color:var(--muted); margin:0 0 6px;}
-  .sk-ex .sk-core{color:var(--seal); font-weight:700; font-size:13.5px; line-height:1.7; margin:0;}
-  .sk-ex .sk-core em{color:var(--muted); font-weight:400; font-style:normal; font-size:12.5px;}
-  .sk-ex .sk-tip{margin:6px 0 0; font-size:12.5px; color:var(--muted); background:var(--stamp-light); border-radius:6px; padding:8px 10px; line-height:1.8;}
-  .sk-more{margin-top:14px; padding-top:12px; border-top:1px dashed var(--rule); font-size:12.5px; color:var(--muted); line-height:1.8;}
-  .sk-toggle{font-size:12px; color:var(--seal); cursor:pointer; text-decoration:underline; margin-top:14px; display:inline-block;}
+  .sk-intro{color:var(--ad-vmuted-fg); font-size:13.5px; line-height:1.85; margin:0 0 4px;}
+  .sk-ex{margin:16px 0 0; padding-left:11px; border-left:2px solid var(--ad-vstamp-border);}
+  .sk-ex .sk-src{font-family:'Noto Sans TC','PingFang TC','Microsoft JhengHei',monospace; font-size:10.5px; letter-spacing:.08em; color:var(--ad-vstamp-fg); display:block; margin-bottom:3px;}
+  .sk-ex .sk-en{color:var(--ad-vink-fg); font-size:13.5px; line-height:1.75; margin:0 0 2px;}
+  .sk-ex .sk-zh{font-size:12.5px; color:var(--ad-vmuted-fg); margin:0 0 6px;}
+  .sk-ex .sk-core{color:var(--ad-vseal-fg); font-weight:700; font-size:13.5px; line-height:1.7; margin:0;}
+  .sk-ex .sk-core em{color:var(--ad-vmuted-fg); font-weight:400; font-style:normal; font-size:12.5px;}
+  .sk-ex .sk-tip{margin:6px 0 0; font-size:12.5px; color:var(--ad-vmuted-fg); background:var(--ad-vstamplight-bg); border-radius:6px; padding:8px 10px; line-height:1.8;}
+  .sk-more{margin-top:14px; padding-top:12px; border-top:1px dashed var(--ad-vrule-border); font-size:12.5px; color:var(--ad-vmuted-fg); line-height:1.8;}
+  .sk-toggle{font-size:12px; color:var(--ad-vseal-fg); cursor:pointer; text-decoration:underline; margin-top:14px; display:inline-block;}
   .card{
-    background:#fff;
-    border:1px solid var(--rule);
+    background:var(--ad-xfff-bg);
+    border:1px solid var(--ad-vrule-border);
     border-radius:10px;
     padding:22px 24px;
     margin-bottom:18px;
@@ -102,8 +102,8 @@
   .card h2{
     margin:0 0 14px;
     font-size:17px;
-    color:var(--stamp);
-    border-left:4px solid var(--stamp);
+    color:var(--ad-vstamp-fg);
+    border-left:4px solid var(--ad-vstamp-border);
     padding-left:10px;
   }
   .year-grid{
@@ -113,17 +113,17 @@
   }
   .year-chip{
     padding:7px 13px;
-    border:1px solid var(--rule);
+    border:1px solid var(--ad-vrule-border);
     border-radius:20px;
     font-size:13px;
     cursor:pointer;
-    background:#fff;
+    background:var(--ad-xfff-bg);
     user-select:none;
     transition:.15s;
   }
   .year-chip.selected{
     background:var(--stamp);
-    border-color:var(--stamp);
+    border-color:var(--ad-vstamp-border);
     color:#fff;
   }
   .range-actions{
@@ -133,7 +133,7 @@
     font-size:13px;
   }
   .range-actions a{
-    color:var(--gold);
+    color:var(--ad-vgold-fg);
     cursor:pointer;
     text-decoration:underline;
   }
@@ -142,8 +142,8 @@
     width:100%;
     margin-top:20px;
     padding:16px;
-    background:var(--ink);
-    color:#fff;
+    background:var(--ad-vink-bg);
+    color:var(--ad-onflip-fg);
     border:none;
     border-radius:3px;
     font-size:19px;
@@ -154,7 +154,7 @@
     transition: transform .12s ease, background .15s ease;
   }
   .start-btn:disabled{opacity:.4;cursor:not-allowed;transform:none;}
-  .start-btn:hover{background:#000; transform: translateY(-1px);}
+  .start-btn:hover{background:var(--ad-x000-bg); transform: translateY(-1px);}
   .start-btn.secondary{background:var(--stamp);}
   #backToSetup, #reviewWrongNow{font-size:15px; padding:12px;}
 
@@ -162,7 +162,7 @@
     display:flex;
     justify-content:space-between;
     font-size:13px;
-    color:var(--muted);
+    color:var(--ad-vmuted-fg);
     margin-bottom:10px;
     padding:0 4px;
   }
@@ -171,13 +171,13 @@
   .progress{
     text-align:center;
     font-size:13px;
-    color:var(--muted);
+    color:var(--ad-vmuted-fg);
     letter-spacing:2px;
     margin-bottom:10px;
   }
   .question-card{
-    background:#fff;
-    border:1px solid var(--rule);
+    background:var(--ad-xfff-bg);
+    border:1px solid var(--ad-vrule-border);
     border-radius:10px;
     padding:28px 26px;
     position:relative;
@@ -198,7 +198,7 @@
     font-size:21px;
     line-height:1.9;
     margin:14px 0 20px;
-    color:var(--ink);
+    color:var(--ad-vink-fg);
   }
   textarea{
     width:100%;
@@ -206,12 +206,12 @@
     font-family:inherit;
     font-size:15px;
     padding:12px 14px;
-    border:1px solid var(--rule);
+    border:1px solid var(--ad-vrule-border);
     border-radius:8px;
     resize:vertical;
-    background:#fffdf8;
+    background:var(--ad-xfffdf8-bg);
   }
-  textarea:focus{outline:2px solid var(--stamp);outline-offset:1px;}
+  textarea:focus{outline:2px solid var(--ad-vstamp-border);outline-offset:1px;}
   .btn-row{
     display:flex;
     gap:12px;
@@ -228,20 +228,20 @@
     letter-spacing:1px;
   }
   .btn-reveal{background:var(--stamp);color:#fff;}
-  .btn-skip{background:#fff;color:var(--muted);border:1px solid var(--rule);flex:0 0 90px;}
+  .btn-skip{background:var(--ad-xfff-bg);color:var(--ad-vmuted-fg);border:1px solid var(--ad-vrule-border);flex:0 0 90px;}
 
   .reveal-box{
     margin-top:20px;
     padding:18px 18px;
-    background:var(--stamp-light);
-    border-left:4px solid var(--stamp);
+    background:var(--ad-vstamplight-bg);
+    border-left:4px solid var(--ad-vstamp-border);
     border-radius:6px;
     display:none;
   }
   .reveal-box.show{display:block;}
   .reveal-box .label{
     font-size:12px;
-    color:var(--stamp);
+    color:var(--ad-vstamp-fg);
     letter-spacing:2px;
     margin-bottom:6px;
     font-weight:700;
@@ -253,19 +253,19 @@
   .year-note{
     margin-top:14px;
     padding-top:12px;
-    border-top:1px dashed var(--rule);
+    border-top:1px dashed var(--ad-vrule-border);
     font-size:13px;
     line-height:1.85;
-    color:var(--muted);
+    color:var(--ad-vmuted-fg);
   }
-  .year-note b{color:var(--ink);}
-  .year-note .pending{color:var(--muted);opacity:.75;}
+  .year-note b{color:var(--ad-vink-fg);}
+  .year-note .pending{color:var(--ad-vmuted-fg);opacity:.75;}
   .ctx-box{
     display:none;
     font-size:14px;
     line-height:1.8;
-    background:var(--paper2, #faf7f0);
-    border:1px dashed var(--rule);
+    background:var(--paper2, var(--ad-xfaf7f0-bg));
+    border:1px dashed var(--ad-vrule-border);
     border-radius:6px;
     padding:10px 12px;
     margin-bottom:12px;
@@ -273,21 +273,21 @@
   .ctx-box.show{display:block;}
   .ctx-box .ctx-label{
     font-size:12px;
-    color:var(--muted);
+    color:var(--ad-vmuted-fg);
     letter-spacing:1px;
     margin-bottom:6px;
   }
   .ctx-box .ctx-blank{
     font-weight:700;
-    color:var(--stamp);
+    color:var(--ad-vstamp-fg);
   }
   .flag-box{
     display:none;
     font-size:12.5px;
     line-height:1.75;
-    color:var(--muted);
-    background:var(--paper2, #faf7f0);
-    border:1px dashed var(--rule);
+    color:var(--ad-vmuted-fg);
+    background:var(--paper2, var(--ad-xfaf7f0-bg));
+    border:1px dashed var(--ad-vrule-border);
     border-radius:6px;
     padding:8px 12px;
     margin-bottom:12px;
@@ -297,52 +297,52 @@
     display:none;
     margin-top:12px;
     padding-top:10px;
-    border-top:1px dashed var(--rule);
+    border-top:1px dashed var(--ad-vrule-border);
     font-size:14px;
     line-height:1.7;
   }
   .chunks-box.show{display:block;}
   .chunks-box .ck-label{
     font-size:12px;
-    color:var(--muted);
+    color:var(--ad-vmuted-fg);
     letter-spacing:1px;
     margin-bottom:2px;
   }
   .chunks-box .ck-note{
     font-size:12px;
-    color:var(--muted);
+    color:var(--ad-vmuted-fg);
     opacity:.85;
     margin-bottom:6px;
   }
   .chunks-box ol{margin:0;padding-left:22px;}
   .chunks-box li{margin-bottom:4px;}
-  .chunks-box .ck-zh{display:block;font-size:12.5px;color:var(--muted);}
+  .chunks-box .ck-zh{display:block;font-size:12.5px;color:var(--ad-vmuted-fg);}
   .ans-source{
     display:none;
     margin-top:8px;
     font-size:12px;
-    color:var(--muted);
+    color:var(--ad-vmuted-fg);
   }
   .ans-source.show{display:block;}
   .alt-answers{
     display:none;
     margin-top:12px;
     padding-top:10px;
-    border-top:1px dashed var(--rule);
+    border-top:1px dashed var(--ad-vrule-border);
     font-size:14px;
     line-height:1.7;
   }
   .alt-answers.show{display:block;}
   .alt-answers .alt-label{
     font-size:12px;
-    color:var(--muted);
+    color:var(--ad-vmuted-fg);
     letter-spacing:1px;
     margin-bottom:6px;
   }
   .alt-answers .alt-note{
     display:none;
     font-size:12px;
-    color:var(--muted);
+    color:var(--ad-vmuted-fg);
     opacity:.85;
     margin-bottom:6px;
   }
@@ -353,20 +353,20 @@
     display:none;
     margin-top:12px;
     padding-top:10px;
-    border-top:1px dashed var(--rule);
+    border-top:1px dashed var(--ad-vrule-border);
     font-size:14px;
     line-height:1.7;
   }
   .official-words.show{display:block;}
   .official-words .ow-label{
     font-size:12px;
-    color:var(--muted);
+    color:var(--ad-vmuted-fg);
     letter-spacing:1px;
     margin-bottom:2px;
   }
   .official-words .ow-note{
     font-size:12px;
-    color:var(--muted);
+    color:var(--ad-vmuted-fg);
     opacity:.85;
     margin-bottom:6px;
   }
@@ -374,37 +374,37 @@
   .official-words .ow-source{
     margin-top:6px;
     font-size:12px;
-    color:var(--muted);
+    color:var(--ad-vmuted-fg);
   }
   .explanation{
     display:none;
     margin-top:12px;
     padding-top:10px;
-    border-top:1px dashed var(--rule);
+    border-top:1px dashed var(--ad-vrule-border);
     font-size:14px;
     line-height:1.8;
   }
   .explanation.show{display:block;}
   .explanation .ex-label{
     font-size:12px;
-    color:var(--muted);
+    color:var(--ad-vmuted-fg);
     letter-spacing:1px;
     margin-bottom:6px;
   }
   .explanation .ex-sec{margin-bottom:10px;}
   .explanation .ex-sec:last-child{margin-bottom:0;}
   .explanation .ex-h{font-weight:700; margin-bottom:2px;}
-  .explanation .toollink{color:#0645ad;text-decoration:underline;}
+  .explanation .toollink{color:var(--ad-x0645ad-fg);text-decoration:underline;}
     .ex-p{margin:0 0 2px 0;}
   .explanation .ex-refs .ex-p{line-height:2;}
-  .explanation .xref{color:var(--seal); text-decoration:underline; white-space:nowrap;}
-  .explanation .xref:hover{background:#FBF0EE;}
+  .explanation .xref{color:var(--ad-vseal-fg); text-decoration:underline; white-space:nowrap;}
+  .explanation .xref:hover{background:var(--ad-xFBF0EE-bg);}
   .your-answer{
     margin-top:14px;
     font-size:13px;
-    color:var(--muted);
+    color:var(--ad-vmuted-fg);
     padding-top:10px;
-    border-top:1px dashed var(--rule);
+    border-top:1px dashed var(--ad-vrule-border);
   }
   .self-grade{
     display:none;
@@ -420,11 +420,11 @@
     font-size:15px;
     font-family:inherit;
     cursor:pointer;
-    background:#fff;
+    background:var(--ad-xfff-bg);
   }
-  .grade-good{border-color:var(--stamp);color:var(--stamp);}
+  .grade-good{border-color:var(--ad-vstamp-border);color:var(--ad-vstamp-fg);}
   .grade-good:hover{background:var(--stamp);color:#fff;}
-  .grade-bad{border-color:var(--seal);color:var(--seal);}
+  .grade-bad{border-color:var(--seal);color:var(--ad-vseal-fg);}
   .grade-bad:hover{background:var(--seal);color:#fff;}
 
   .finish-card{
@@ -433,44 +433,44 @@
   }
   .finish-card .big{
     font-size:44px;
-    color:var(--seal);
+    color:var(--ad-vseal-fg);
     font-weight:700;
   }
-  .finish-card .sub{color:var(--muted);margin-top:6px;}
+  .finish-card .sub{color:var(--ad-vmuted-fg);margin-top:6px;}
 
   /* --- review / history list --- */
   .review-item{
-    background:#fff;
-    border:1px solid var(--rule);
+    background:var(--ad-xfff-bg);
+    border:1px solid var(--ad-vrule-border);
     border-radius:8px;
     padding:16px 18px;
     margin-bottom:12px;
   }
   .review-item .meta{
     font-size:11px;
-    color:var(--gold);
+    color:var(--ad-vgold-fg);
     letter-spacing:1px;
     margin-bottom:6px;
   }
   .review-item .zh{font-size:16px;margin-bottom:8px;}
   .review-item .yours{
     font-size:13px;
-    color:var(--seal);
-    background:#fbf0f0;
+    color:var(--ad-vseal-fg);
+    background:var(--ad-xfbf0f0-bg);
     padding:8px 10px;
     border-radius:6px;
     margin-bottom:6px;
   }
   .review-item .model{
     font-size:13px;
-    color:var(--stamp);
-    background:var(--stamp-light);
+    color:var(--ad-vstamp-fg);
+    background:var(--ad-vstamplight-bg);
     padding:8px 10px;
     border-radius:6px;
   }
   .empty-note{
     text-align:center;
-    color:var(--muted);
+    color:var(--ad-vmuted-fg);
     padding:50px 20px;
     font-size:14px;
     line-height:1.9;
@@ -479,14 +479,14 @@
     display:flex;
     justify-content:space-between;
     padding:10px 4px;
-    border-bottom:1px solid var(--rule);
+    border-bottom:1px solid var(--ad-vrule-border);
     font-size:13px;
   }
   .history-row:last-child{border-bottom:none;}
   .clear-link{
     text-align:right;
     font-size:12px;
-    color:var(--muted);
+    color:var(--ad-vmuted-fg);
     cursor:pointer;
     text-decoration:underline;
     margin-top:10px;
@@ -494,7 +494,7 @@
   footer{
     text-align:center;
     font-size:12px;
-    color:var(--muted);
+    color:var(--ad-vmuted-fg);
     padding:20px;
   }
   @media (max-width:480px){
@@ -509,14 +509,21 @@ details.skill > summary{cursor:pointer; list-style:none; display:flex;
 details.skill > summary > *{margin-bottom:0;}
 details.skill > summary::-webkit-details-marker{display:none;}
 details.skill > summary::after{content:'＋ 展開'; white-space:nowrap;
-  color:var(--crimson,#AE3626); font-weight:700; font-size:13px;}
+  color:var(--crimson,var(--ad-xAE3626-fg)); font-weight:700; font-size:13px;}
 details.skill[open] > summary::after{content:'－ 收合';}
+
+/* 深色模式（2026-10-22）：淺色數值與原本相同；只在螢幕、手機或電腦設成深色外觀時生效，列印不受影響。 */
+:root{--ad-onflip-fg:#ffffff;--ad-vgold-fg:var(--gold);--ad-vink-bg:var(--ink);--ad-vink-fg:var(--ink);--ad-vmuted-fg:var(--muted);--ad-vpaper-bg:var(--paper);--ad-vrule-border:var(--rule);--ad-vseal-bg:var(--seal);--ad-vseal-border:var(--seal);--ad-vseal-fg:var(--seal);--ad-vstamp-bg:var(--stamp);--ad-vstamp-border:var(--stamp);--ad-vstamp-fg:var(--stamp);--ad-vstamplight-bg:var(--stamp-light);--ad-x000-bg:#000;--ad-x0645ad-fg:#0645ad;--ad-x221F1A-fg:#221F1A;--ad-x5B5648-fg:#5B5648;--ad-x8a8278-fg:#8a8278;--ad-x9C2C1E-fg:#9C2C1E;--ad-xAE3626-fg:#AE3626;--ad-xDCD3BB-border:#DCD3BB;--ad-xFBF0EE-bg:#FBF0EE;--ad-xFFFDF7-bg:#FFFDF7;--ad-xfaf7f0-bg:#faf7f0;--ad-xfbf0f0-bg:#fbf0f0;--ad-xfff-bg:#fff;--ad-xfff-fg:#fff;--ad-xfffdf8-bg:#fffdf8;color-scheme:light}
+@media screen and (prefers-color-scheme: dark){
+ :root{--ad-onflip-fg:#16201F;--ad-vgold-fg:#E0D1B2;--ad-vink-bg:#EEEDEC;--ad-vink-fg:#F2F0EE;--ad-vmuted-fg:#DAD8D3;--ad-vpaper-bg:#1B1916;--ad-vrule-border:#514A37;--ad-vseal-bg:#ae3626;--ad-vseal-border:#ae3626;--ad-vseal-fg:#E4B6B0;--ad-vstamp-bg:#3e6e52;--ad-vstamp-border:#CBDDD2;--ad-vstamp-fg:#CBDDD2;--ad-vstamplight-bg:#1A2219;--ad-x000-bg:#FFFFFF;--ad-x0645ad-fg:#B3CBF2;--ad-x221F1A-fg:#F2F0EE;--ad-x5B5648-fg:#DAD8D3;--ad-x8a8278-fg:#C2BFBB;--ad-x9C2C1E-fg:#E8BEB9;--ad-xAE3626-fg:#E4B6B0;--ad-xDCD3BB-border:#514A37;--ad-xFBF0EE-bg:#282221;--ad-xFFFDF7-bg:#26231F;--ad-xfaf7f0-bg:#262421;--ad-xfbf0f0-bg:#272121;--ad-xfff-bg:#2D2A25;--ad-xfff-fg:#ffffff;--ad-xfffdf8-bg:#262522;color-scheme:dark}
+}
+
 </style>
 <style id="anti-copy">
 /* 防盜用措施（2026-10-14）：畫面浮水印、列印浮水印、頁尾授權聲明 */
 @media screen{body::before{content:"";position:fixed;top:0;left:0;right:0;bottom:0;z-index:2147483000;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22460%22%20height%3D%22240%22%3E%3Cg%20transform%3D%22rotate%28-20%20230%20120%29%22%20font-family%3D%22Noto%20Sans%20TC%2Csans-serif%22%20fill%3D%22%23D9A400%22%20fill-opacity%3D%22.2%22%20text-anchor%3D%22middle%22%3E%3Ctext%20x%3D%22230%22%20y%3D%22112%22%20font-size%3D%2220%22%3E%E9%AB%98%E4%B8%AD%E8%8B%B1%E6%96%87%E9%A1%8C%E5%BA%AB%3C%2Ftext%3E%3Ctext%20x%3D%22230%22%20y%3D%22140%22%20font-size%3D%2214%22%3Estaresto-create.github.io%2FJCEE-vocab-questions%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E");background-repeat:repeat;}}
 @media print{body::after{content:"高中英文題庫\A staresto-create.github.io/JCEE-vocab-questions\A 免費資源，請勿販售";white-space:pre;position:fixed;top:42%;left:0;right:0;text-align:center;transform:rotate(-25deg);font-family:"Noto Sans TC",sans-serif;font-size:26pt;line-height:1.7;color:#c8c8c8;z-index:2147483000;pointer-events:none;}}
-.cc-note{font-size:12px;line-height:1.8;color:#8a8278;margin:12px auto;max-width:60em;padding:0 1em;}.cc-note a{color:inherit;}
+.cc-note{font-size:12px;line-height:1.8;color:var(--ad-x8a8278-fg);margin:12px auto;max-width:60em;padding:0 1em;}.cc-note a{color:inherit;}
 </style>
 </head>
 <body>
@@ -537,7 +544,7 @@ details.skill[open] > summary::after{content:'－ 收合';}
   <section id="view-setup" class="view active">
     <div class="card">
       <h2>選擇練習範圍</h2>
-      <div style="font-size:12px;color:var(--muted);margin-bottom:10px;">點一下年度就能選取（可複選），再點一次取消</div>
+      <div style="font-size:12px;color:var(--ad-vmuted-fg);margin-bottom:10px;">點一下年度就能選取（可複選），再點一次取消</div>
       <div class="year-grid" id="yearGrid"></div>
       <div class="range-actions">
         <a id="selAll">全選</a>
@@ -546,7 +553,7 @@ details.skill[open] > summary::after{content:'－ 收合';}
       </div>
       <div class="year-note">
         <b>92 年怎麼沒有題目？</b><br>
-        那一年學測考的是簡答題——讀一篇英文短文，再用英文回答問題，不是中譯英；91、92 兩年的指考也都沒有考翻譯。前面 86 到 90 年並沒有缺，那幾年的題目來自當時的大學聯考，每年 5 題。有興趣了解簡答題的同學，可以到<a href="https://staresto-create.github.io/mixed-format/" style="color:#9C2C1E;font-weight:700;">混合題題庫</a>看看——那是 111 學年度起才有的題型，作答方式裡也有簡答。<br>
+        那一年學測考的是簡答題——讀一篇英文短文，再用英文回答問題，不是中譯英；91、92 兩年的指考也都沒有考翻譯。前面 86 到 90 年並沒有缺，那幾年的題目來自當時的大學聯考，每年 5 題。有興趣了解簡答題的同學，可以到<a href="https://staresto-create.github.io/mixed-format/" style="color:var(--ad-x9C2C1E-fg);font-weight:700;">混合題題庫</a>看看——那是 111 學年度起才有的題型，作答方式裡也有簡答。<br>
         年度列表裡的 <b>91</b> 只有 6 題，全部來自大考中心的「英文寫作能力研究用試卷」，不是正式考試的題目，說明見下方「91 年那 6 題是什麼」。97 年另有 5 題來自大考中心另一份英文寫作能力研究用試卷，也在同一段說明。<br>
         本題庫收錄 73–115 年、共 218 題。<br>
         <b>「改編練習」是什麼？</b><br>
@@ -731,7 +738,7 @@ details.skill[open] > summary::after{content:'－ 收合';}
   <section id="view-review" class="view">
     <div class="card" style="padding:16px 20px;">
       <h2 style="margin-bottom:6px;">錯題本</h2>
-      <div id="reviewCount" style="font-size:13px;color:var(--muted);"></div>
+      <div id="reviewCount" style="font-size:13px;color:var(--ad-vmuted-fg);"></div>
     </div>
     <div id="reviewList"></div>
     <div class="clear-link" id="clearWrongLink">清空錯題本</div>
@@ -749,13 +756,13 @@ details.skill[open] > summary::after{content:'－ 收合';}
 </main>
 
 
-  <div style="background:#FFFDF7; border:1px solid #DCD3BB; border-radius:4px; padding:13px 15px; margin:22px 0 6px; font-size:12.5px; line-height:1.8; color:#5B5648;">
-    <b style="font-family:'Noto Serif TC',serif; font-size:13.5px; color:#221F1A;">關於本題庫的資料</b><br>
+  <div style="background:var(--ad-xFFFDF7-bg); border:1px solid var(--ad-xDCD3BB-border); border-radius:4px; padding:13px 15px; margin:22px 0 6px; font-size:12.5px; line-height:1.8; color:var(--ad-x5B5648-fg);">
+    <b style="font-family:'Noto Serif TC',serif; font-size:13.5px; color:var(--ad-x221F1A-fg);">關於本題庫的資料</b><br>
     本題庫的題目是歷屆中譯英試題（含大考中心研究用試卷），參考譯文由老師與 AI 共同撰寫、老師逐則看過。中譯英沒有唯一正確答案，參考譯文只是其中一種寫法，不是標準答案。<br>
     <b>錯誤仍然可能存在</b>，發現任何問題歡迎回報，我會逐筆核對更正。本題庫完全免費、不用註冊、沒有廣告，歡迎自由分享。
   </div>
 
-  <footer><div style="font-family:'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif; font-size:13px; line-height:2; margin-bottom:12px;"><a href="https://staresto-create.github.io/JCEE-vocab-questions/" style="color:#9C2C1E; font-weight:700; text-decoration:underline; text-underline-offset:2px; white-space:nowrap;">← 回題庫首頁</a><span style="padding:0 8px; opacity:.5;">·</span><a href="https://staresto-create.github.io/JCEE-vocab-questions/#rules" style="color:#9C2C1E; font-weight:700; text-decoration:underline; text-underline-offset:2px; white-space:nowrap;">🧩 五個詞：拼圖的規則</a></div>資料來源：73–115 年歷屆中譯英試題，含大學聯考、學測與指考（學測、指考由大考中心公布）<br>© 2026 staresto-create ZZSH · 免費、無廣告的非營利自學題庫 · <a href="https://staresto-create.github.io/JCEE-vocab-questions/#terms" style="color:#9C2C1E; font-weight:700; text-decoration:underline; text-underline-offset:2px; white-space:nowrap;">📖 使用與著作權</a><p class="cc-note">本題庫自己寫的部分（解析、中譯、分類、標註與編排）採用 <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh-hant" target="_blank" rel="license noopener">CC BY-NC 4.0</a>（姓名標示─非商業性）授權：可以分享，但須註明出處，不得用於商業用途。試題來源與完整說明請見<a href="https://staresto-create.github.io/JCEE-vocab-questions/#terms">使用與著作權</a>。</p>
+  <footer><div style="font-family:'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif; font-size:13px; line-height:2; margin-bottom:12px;"><a href="https://staresto-create.github.io/JCEE-vocab-questions/" style="color:var(--ad-x9C2C1E-fg); font-weight:700; text-decoration:underline; text-underline-offset:2px; white-space:nowrap;">← 回題庫首頁</a><span style="padding:0 8px; opacity:.5;">·</span><a href="https://staresto-create.github.io/JCEE-vocab-questions/#rules" style="color:var(--ad-x9C2C1E-fg); font-weight:700; text-decoration:underline; text-underline-offset:2px; white-space:nowrap;">🧩 五個詞：拼圖的規則</a></div>資料來源：73–115 年歷屆中譯英試題，含大學聯考、學測與指考（學測、指考由大考中心公布）<br>© 2026 staresto-create ZZSH · 免費、無廣告的非營利自學題庫 · <a href="https://staresto-create.github.io/JCEE-vocab-questions/#terms" style="color:var(--ad-x9C2C1E-fg); font-weight:700; text-decoration:underline; text-underline-offset:2px; white-space:nowrap;">📖 使用與著作權</a><p class="cc-note">本題庫自己寫的部分（解析、中譯、分類、標註與編排）採用 <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh-hant" target="_blank" rel="license noopener">CC BY-NC 4.0</a>（姓名標示─非商業性）授權：可以分享，但須註明出處，不得用於商業用途。試題來源與完整說明請見<a href="https://staresto-create.github.io/JCEE-vocab-questions/#terms">使用與著作權</a>。</p>
 </footer>
 
 <script>

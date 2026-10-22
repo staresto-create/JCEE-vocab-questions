@@ -28,8 +28,8 @@
   *{box-sizing:border-box;}
   html,body{margin:0;padding:0;}
   body{
-    background:var(--paper);
-    color:var(--ink);
+    background:var(--ad-vpaper-bg);
+    color:var(--ad-vink-fg);
     font-family:'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif;
     -webkit-font-smoothing:antialiased;
   }
@@ -37,65 +37,72 @@
   header{padding:44px 0 8px;}
   .eyebrow{
     font-family:'IBM Plex Mono','Noto Sans TC','PingFang TC','Microsoft JhengHei',monospace; font-size:11px; letter-spacing:.16em;
-    color:var(--crimson); text-transform:uppercase;
+    color:var(--ad-vcrimson-fg); text-transform:uppercase;
   }
   h1{
     font-family:'Noto Serif TC','PingFang TC','Microsoft JhengHei',serif; font-weight:900; font-size:28px; line-height:1.35;
     margin:10px 0 10px;
   }
-  .lede{color:var(--ink-soft); font-size:14px; line-height:1.85; margin:0 0 4px;}
-  .rule{border:none; border-top:1px solid var(--rule); margin:28px 0 20px;}
+  .lede{color:var(--ad-vinksoft-fg); font-size:14px; line-height:1.85; margin:0 0 4px;}
+  .rule{border:none; border-top:1px solid var(--ad-vrule-border); margin:28px 0 20px;}
   h2{
     font-family:'Noto Serif TC','PingFang TC','Microsoft JhengHei',serif; font-weight:700; font-size:18px;
-    margin:30px 0 6px; color:var(--ink);
+    margin:30px 0 6px; color:var(--ad-vink-fg);
   }
-  h2 .n{color:var(--sage); font-family:'IBM Plex Mono','Noto Sans TC','PingFang TC','Microsoft JhengHei',monospace; font-size:12px; margin-right:8px;}
-  .lead{font-size:13px; color:var(--ink-soft); line-height:1.8; margin:0 0 12px;}
+  h2 .n{color:var(--ad-vsage-fg); font-family:'IBM Plex Mono','Noto Sans TC','PingFang TC','Microsoft JhengHei',monospace; font-size:12px; margin-right:8px;}
+  .lead{font-size:13px; color:var(--ad-vinksoft-fg); line-height:1.8; margin:0 0 12px;}
   table{
-    width:100%; border-collapse:collapse; background:var(--paper-card);
-    border:1px solid var(--rule); border-radius:4px; box-shadow:var(--shadow);
+    width:100%; border-collapse:collapse; background:var(--ad-vpapercard-bg);
+    border:1px solid var(--ad-vrule-border); border-radius:4px; box-shadow:var(--shadow);
     overflow:hidden; margin:0 0 6px;
   }
   th,td{
     text-align:left; vertical-align:top; padding:10px 12px;
-    border-bottom:1px solid var(--rule); font-size:13.5px; line-height:1.75;
+    border-bottom:1px solid var(--ad-vrule-border); font-size:13.5px; line-height:1.75;
   }
   tr:last-child td{border-bottom:none;}
   th{
-    background:#EFE8D6; font-family:'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif; font-weight:700;
-    font-size:12px; color:var(--ink-soft); letter-spacing:.03em;
+    background:var(--ad-xEFE8D6-bg); font-family:'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif; font-weight:700;
+    font-size:12px; color:var(--ad-vinksoft-fg); letter-spacing:.03em;
   }
   td.code{
-    font-family:'IBM Plex Mono','Noto Sans TC','PingFang TC','Microsoft JhengHei',monospace; font-weight:600; color:var(--crimson);
+    font-family:'IBM Plex Mono','Noto Sans TC','PingFang TC','Microsoft JhengHei',monospace; font-weight:600; color:var(--ad-vcrimson-fg);
     white-space:nowrap; width:78px;
   }
   td.mean{width:140px;}
-  td.eg{color:var(--ink-soft);}
+  td.eg{color:var(--ad-vinksoft-fg);}
   td.eg code{
     font-family:'IBM Plex Mono','Noto Sans TC','PingFang TC','Microsoft JhengHei',monospace; font-size:12.5px;
-    background:#EDE6D3; padding:1px 5px; border-radius:3px; color:var(--ink);
+    background:var(--ad-xEDE6D3-bg); padding:1px 5px; border-radius:3px; color:var(--ad-vink-fg);
   }
   .note{
-    background:#FDF8EC; border-left:4px solid var(--gold);
-    padding:12px 14px; font-size:12.5px; color:var(--ink-soft); line-height:1.8;
+    background:var(--ad-xFDF8EC-bg); border-left:4px solid var(--gold);
+    padding:12px 14px; font-size:12.5px; color:var(--ad-vinksoft-fg); line-height:1.8;
     border-radius:0 4px 4px 0; margin:8px 0 0;
   }
   .back{
     display:inline-block; margin:28px 0 0; font-family:'IBM Plex Mono','Noto Sans TC','PingFang TC','Microsoft JhengHei',monospace;
-    font-size:12px; color:#9C2C1E; font-weight:700; text-decoration:underline;
+    font-size:12px; color:var(--ad-x9C2C1E-fg); font-weight:700; text-decoration:underline;
     text-underline-offset:2px;
   }
   footer{
-    margin-top:40px; padding-top:18px; border-top:1px solid var(--rule);
-    font-size:12px; color:var(--ink-soft); line-height:1.9;
+    margin-top:40px; padding-top:18px; border-top:1px solid var(--ad-vrule-border);
+    font-size:12px; color:var(--ad-vinksoft-fg); line-height:1.9;
   }
-  a{color:#9C2C1E;}
+  a{color:var(--ad-x9C2C1E-fg);}
+
+/* 深色模式（2026-10-22）：淺色數值與原本相同；只在螢幕、手機或電腦設成深色外觀時生效，列印不受影響。 */
+:root{--ad-vcrimson-fg:var(--crimson);--ad-vgold-border:var(--gold);--ad-vink-fg:var(--ink);--ad-vinksoft-fg:var(--ink-soft);--ad-vpaper-bg:var(--paper);--ad-vpapercard-bg:var(--paper-card);--ad-vrule-border:var(--rule);--ad-vsage-fg:var(--sage);--ad-x8a8278-fg:#8a8278;--ad-x9C2C1E-fg:#9C2C1E;--ad-xEDE6D3-bg:#EDE6D3;--ad-xEFE8D6-bg:#EFE8D6;--ad-xFDF8EC-bg:#FDF8EC;color-scheme:light}
+@media screen and (prefers-color-scheme: dark){
+ :root{--ad-vcrimson-fg:#E4B6B0;--ad-vgold-border:#a9812e;--ad-vink-fg:#F2F0EE;--ad-vinksoft-fg:#DAD8D3;--ad-vpaper-bg:#1B1916;--ad-vpapercard-bg:#26231F;--ad-vrule-border:#514A37;--ad-vsage-fg:#CBDDD2;--ad-x8a8278-fg:#C2BFBB;--ad-x9C2C1E-fg:#E8BEB9;--ad-xEDE6D3-bg:#2B281D;--ad-xEFE8D6-bg:#2B281E;--ad-xFDF8EC-bg:#2A2821;color-scheme:dark}
+}
+
 </style>
 <style id="anti-copy">
 /* 防盜用措施（2026-10-14）：畫面浮水印、列印浮水印、頁尾授權聲明 */
 @media screen{body::before{content:"";position:fixed;top:0;left:0;right:0;bottom:0;z-index:2147483000;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22460%22%20height%3D%22240%22%3E%3Cg%20transform%3D%22rotate%28-20%20230%20120%29%22%20font-family%3D%22Noto%20Sans%20TC%2Csans-serif%22%20fill%3D%22%23D9A400%22%20fill-opacity%3D%22.2%22%20text-anchor%3D%22middle%22%3E%3Ctext%20x%3D%22230%22%20y%3D%22112%22%20font-size%3D%2220%22%3E%E9%AB%98%E4%B8%AD%E8%8B%B1%E6%96%87%E9%A1%8C%E5%BA%AB%3C%2Ftext%3E%3Ctext%20x%3D%22230%22%20y%3D%22140%22%20font-size%3D%2214%22%3Estaresto-create.github.io%2FJCEE-vocab-questions%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E");background-repeat:repeat;}}
 @media print{body::after{content:"高中英文題庫\A staresto-create.github.io/JCEE-vocab-questions\A 免費資源，請勿販售";white-space:pre;position:fixed;top:42%;left:0;right:0;text-align:center;transform:rotate(-25deg);font-family:"Noto Sans TC",sans-serif;font-size:26pt;line-height:1.7;color:#c8c8c8;z-index:2147483000;pointer-events:none;}}
-.cc-note{font-size:12px;line-height:1.8;color:#8a8278;margin:12px auto;max-width:60em;padding:0 1em;}.cc-note a{color:inherit;}
+.cc-note{font-size:12px;line-height:1.8;color:var(--ad-x8a8278-fg);margin:12px auto;max-width:60em;padding:0 1em;}.cc-note a{color:inherit;}
 </style>
 </head>
 <body>
