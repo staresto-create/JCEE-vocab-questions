@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>指考單字題目地圖 · 依答對率一眼看出哪題最難｜指考單字題庫</title>
+<meta name="description" content="指考英文單字（詞彙）全部題目排成一張圖：每題一格，顯示大考中心官方答對率，顏色越紅越難，可依難易與答案字級篩選，點格子進該題作答。">
+<link rel="canonical" href="https://staresto-create.github.io/JCEE-vocab-questions/zhikao/map/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="指考單字題目地圖 · 依答對率一眼看出哪題最難｜指考單字題庫">
+<meta property="og:description" content="指考英文單字（詞彙）全部題目排成一張圖：每題一格，顯示大考中心官方答對率，顏色越紅越難，可依難易與答案字級篩選，點格子進該題作答。">
+<meta property="og:url" content="https://staresto-create.github.io/JCEE-vocab-questions/zhikao/map/">
+<meta property="og:site_name" content="指考單字題庫">
+<meta name="robots" content="index,follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="page.css">
+<style>
+/* 題目地圖：一年一列、一題一格；格子顏色沿用題庫既有的難／中／易分級，每格都同時印出題號與答對率，不只靠顏色 */
+:root{
+  --hard-bg:#AE3626; --hard-fg:#FFFFFF;
+  --low-bg:#E3A83C; --low-fg:#3A2600;
+  --mid-bg:#F1E4BD; --mid-fg:#4A3B0E;
+  --easy-bg:#7FC28F; --easy-fg:#082414;
+  --none-bg:#FFFDF7; --none-fg:#5B5648;
+  --chip-on-bg:#221F1A; --chip-on-fg:#F6F1E4;
+}
+.mp-intro{margin:0 0 10px;font-size:15px}
+.mp-intro b{color:var(--crimson)}
+.mp-note{margin:0 0 6px;font-size:13px;color:var(--ink-soft)}
+.mp-panel{margin:18px 0 6px;padding:14px 0;border-top:2px solid var(--ink);border-bottom:1px solid var(--rule)}
+.mp-panel h2{font-family:'IBM Plex Mono','Noto Sans TC',monospace;font-size:12px;letter-spacing:.08em;color:var(--ink-soft);margin:0 0 8px;padding:0;border:0;font-weight:600}
+.mp-chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 14px}
+.mp-chip{font:inherit;font-size:13.5px;color:var(--ink);background:var(--paper-card);border:1.5px solid var(--rule);border-radius:999px;
+  min-height:40px;padding:4px 13px;cursor:pointer;display:inline-flex;align-items:center;gap:7px}
+.mp-chip .n{font-family:'IBM Plex Mono','Noto Sans TC',monospace;font-size:12px;color:var(--ink-soft)}
+.mp-chip .sw{width:12px;height:12px;border-radius:3px;border:1px solid var(--rule);flex:none}
+.mp-chip[aria-pressed="true"]{background:var(--chip-on-bg);color:var(--chip-on-fg);border-color:var(--chip-on-bg)}
+.mp-chip[aria-pressed="true"] .n{color:var(--chip-on-fg)}
+.mp-chip:focus-visible,.mp-cell:focus-visible,.mp-rowhead a:focus-visible,.mp-reset:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.sw.hard{background:var(--hard-bg)} .sw.low{background:var(--low-bg)} .sw.mid{background:var(--mid-bg)} .sw.easy{background:var(--easy-bg)}
+.sw.none{background:var(--none-bg);border-style:dashed} .sw.special{background:var(--paper-card);border:2px dashed var(--crimson)}
+.mp-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.mp-count{font-size:14px}
+.mp-count b{font-family:'IBM Plex Mono','Noto Sans TC',monospace;font-size:16px}
+.mp-reset{font:inherit;font-size:13.5px;color:var(--crimson);background:none;border:0;min-height:40px;padding:0 4px;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.mp-reset[disabled]{color:var(--ink-soft);text-decoration:none;cursor:default}
+.mp-legend{margin:14px 0 0;font-size:13.5px}
+.mp-legend ul{list-style:none;margin:0 0 8px;padding:0;display:flex;flex-wrap:wrap;gap:6px 16px}
+.mp-legend li{display:inline-flex;align-items:center;gap:7px}
+.mp-legend .sw{width:16px;height:16px;border-radius:4px}
+.mp-legend .n{font-family:'IBM Plex Mono','Noto Sans TC',monospace;font-size:12px;color:var(--ink-soft)}
+.mp-legend p{margin:0;font-size:13px;color:var(--ink-soft)}
+.mp-help{font-size:12.5px;color:var(--ink-soft);margin:10px 0 0}
+h2.mp-sec{font-family:'Noto Serif TC',serif;font-weight:700;font-size:18px;margin:30px 0 4px;padding-bottom:8px;border-bottom:2px solid var(--rule);text-wrap:balance}
+.mp-secnote{font-size:13px;color:var(--ink-soft);margin:6px 0 4px}
+.mp-row{padding:14px 0;border-bottom:1px solid var(--rule)}
+.mp-rowhead{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin:0 0 8px;flex-wrap:wrap}
+.mp-rowhead .y{font-family:'Noto Serif TC',serif;font-weight:700;font-size:16px}
+.mp-rowhead .y small{font-family:'Noto Sans TC',sans-serif;font-weight:400;font-size:12.5px;color:var(--ink-soft);margin-left:8px}
+.mp-rowhead a{font-size:13px;min-height:32px;display:inline-flex;align-items:center}
+.mp-cells{display:flex;flex-wrap:wrap;gap:6px 18px}
+.mp-grp{display:flex;flex-wrap:wrap;gap:6px}
+.mp-cell{display:flex;flex-direction:column;align-items:center;justify-content:center;width:46px;height:54px;border-radius:6px;
+  text-decoration:none;position:relative;border:1.5px solid transparent;font-variant-numeric:tabular-nums;transition:opacity .15s}
+.mp-cell .q{font-family:'IBM Plex Mono','Noto Sans TC',monospace;font-weight:600;font-size:16px;line-height:1.2}
+.mp-cell .p{font-family:'IBM Plex Mono','Noto Sans TC',monospace;font-size:11.5px;line-height:1.3}
+.mp-cell.hard{background:var(--hard-bg);color:var(--hard-fg)}
+.mp-cell.low{background:var(--low-bg);color:var(--low-fg)}
+.mp-cell.mid{background:var(--mid-bg);color:var(--mid-fg)}
+.mp-cell.easy{background:var(--easy-bg);color:var(--easy-fg)}
+.mp-cell.none{background:var(--none-bg);color:var(--none-fg);border:1.5px dashed var(--rule)}
+.mp-cell.special{border:2.5px dashed var(--crimson)}
+.mp-cell.special::after{content:"特";position:absolute;top:-7px;right:-6px;font-family:'Noto Sans TC',sans-serif;font-size:10.5px;font-weight:700;
+  background:var(--crimson);color:#fff;border-radius:4px;padding:0 4px;line-height:15px}
+.mp-cell.dim{opacity:.18}
+.mp-cell:hover{border-color:var(--ink)}
+.mp-src{font-size:12.5px;color:var(--ink-soft);margin:30px 0 0;padding-top:12px;border-top:1px dashed var(--rule)}
+.mp-status{font-size:14px;color:var(--ink-soft);margin:24px 0}
+@media (max-width:600px){.mp-cells{gap:6px}.mp-grp{width:100%}.mp-cell{flex:1 1 0;width:auto;min-width:0}}
+@media (prefers-reduced-motion:reduce){.mp-cell{transition:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="crumb"><a href="../">指考單字題庫</a> ／ 題目地圖</div>
+  <h1>指考單字題目地圖</h1>
+  <p class="mp-intro">這一頁把題庫的 <b id="total">全部</b> 題排成一張圖。每一格是一題，上面是<b>題號</b>，下面是大考中心公布的全體考生<b>答對率</b>；<b>顏色越紅，題目越難</b>。<b>點格子</b>就會跳到那一題，可以直接作答。</p>
+  <p class="mp-note" id="rateNote"></p>
+  <div class="mp-legend" id="legend" hidden></div>
+
+  <div class="mp-panel" id="filters" hidden>
+    <h2>難易（依答對率）</h2>
+    <div class="mp-chips" id="tierChips"></div>
+    <h2>答案的字級（大考中心詞彙表）</h2>
+    <div class="mp-chips" id="catChips"></div>
+    <div class="mp-bar">
+      <div class="mp-count" aria-live="polite">符合的題目：<b id="matchN">0</b> 題（共 <span id="total2">0</span> 題）</div>
+      <button class="mp-reset" id="reset" type="button" disabled>清除篩選</button>
+    </div>
+    <p class="mp-help">選了條件之後，沒有符合題目的年度會收起來，其他年度裡不符合的格子會變淡。標有「特」的格子是鑑別度為負值的題目。</p>
+  </div>
+
+  <p class="mp-status" id="status">題目載入中……</p>
+  <noscript><p class="mp-status">這一頁需要開啟 JavaScript 才能顯示。你也可以從<a href="../">題庫首頁</a>瀏覽全部題目。</p></noscript>
+  <p class="mp-note" id="noneMsg" hidden>沒有符合這些條件的題目，請取消一兩個條件再試。</p>
+  <div id="out"></div>
+
+  <p class="mp-src">答對率與鑑別度來自大考中心公布的官方統計；難易分級與字級，都和題庫首頁使用同一份資料。難（答對率 25% 以下）、中（25% 至 75%）、易（高於 75%）是教育測驗常用的切法，大考中心本身沒有訂切點。</p>
+<footer><div style="font-family:'Noto Sans TC',sans-serif; font-size:13px; line-height:2; margin-bottom:12px;"><a href="https://staresto-create.github.io/JCEE-vocab-questions/" style="color:#9C2C1E; font-weight:700; text-decoration:underline; text-underline-offset:2px; white-space:nowrap;">← 回題庫首頁</a><span style="padding:0 8px; opacity:.5;">·</span><a href="https://staresto-create.github.io/JCEE-vocab-questions/#rules" style="color:#9C2C1E; font-weight:700; text-decoration:underline; text-underline-offset:2px; white-space:nowrap;">🧩 五個詞：拼圖的規則</a></div>資料來源：歷屆指考、聯考單字題（大考中心公布），字級依大考中心高中英文參考詞彙表<br>© 2026 staresto-create ZZSH · 免費、無廣告的非營利自學題庫 · <a href="https://staresto-create.github.io/JCEE-vocab-questions/#terms" style="color:#9C2C1E; font-weight:700; text-decoration:underline; text-underline-offset:2px; white-space:nowrap;">📖 使用與著作權</a></footer>
+</div>
+
+<script>
+/* 資料來源：../data.js（和首頁同一份）。以後新增年度、補答對率、改分類，這一頁會自動跟著變，不需要重新產生。 */
+function plain(label){ var m = /^(\d+)\s*年$/.exec(label); return m ? parseInt(m[1],10) : null; }
+function ordOf(label){ var p = plain(label); if (p !== null) return p * 10; var m = /^(\d+)/.exec(label); return (m ? parseInt(m[1],10) : 0) * 10 - 5; }
+function isNum(v){ return typeof v === 'number'; }
+function num(v){ return typeof v === 'number' ? v : null; }
+function gj(u){ return fetch(u).then(function(r){ if (!r.ok) throw new Error(u + ' ' + r.status); return r.json(); }); }
+var SITE = {catOrder:["1","2","3","4","5","6","phrase","unlisted"], catLabel:function(c){ return {"1":"第 1 級","2":"第 2 級","3":"第 3 級","4":"第 4 級","5":"第 5 級","6":"第 6 級","phrase":"片語（無級數）","unlisted":"無級數的單字"}[c]; }, load: function(){ return fetch("../data.js").then(function(r){ if(!r.ok) throw new Error(r.status); return r.text(); }).then(function(s){ var i = s.indexOf("["); var depth = 0, j = i, inStr = false, esc = false; for (; j < s.length; j++){ var ch = s[j]; if (inStr){ if (esc) esc = false; else if (ch === "\\") esc = true; else if (ch === "\"") inStr = false; continue; } if (ch === "\"") inStr = true; else if (ch === "[") depth++; else if (ch === "]"){ depth--; if (depth === 0) break; } } var d = JSON.parse(s.slice(i, j + 1)); return d.map(function(it){ var v = String((it.l || {})[it.a] || "").trim(); var m = /^([1-6])\*?$/.exec(v); var w = String((it.o || {})[it.a] || "").trim(); var lv = m ? m[1] : ((w.indexOf(" ") >= 0 || w.indexOf("-") >= 0) ? "phrase" : "unlisted"); var label = it.y + " 年" + it.t; return {exam:"", rowKey:it.y + "|" + it.t, rowLabel:label, rowOrd:it.y * 10 - (it.t === "指考" ? 0 : 5), rowHref:null, no:parseInt(it.q,10), grp:it.y + "|" + it.t, rate:num(it.accuracyRate), disc:num(it.discrimination), cats:[lv], tipCat:(m ? "答案字級 " + m[1] : lv === "phrase" ? "答案是片語（無級數）" : "答案字無級數"), href:"../#q-" + it.id}; }); }); }};
+
+var TIERS = [['hard','難（≤25%）'],['mid','中（25~75%）'],['easy','易（＞75%）'],['special','特殊（鑑別度為負）'],['none','沒有答對率']];
+function isNum(v){ return typeof v === 'number'; }
+function tierOf(it){
+  if (isNum(it.disc) && it.disc < 0) return 'special';
+  if (!isNum(it.rate)) return 'none';
+  if (it.rate <= 25) return 'hard';
+  if (it.rate <= 75) return 'mid';
+  return 'easy';
+}
+function baseTier(it){
+  if (!isNum(it.rate)) return 'none';
+  if (it.rate <= 25) return 'hard';
+  if (it.rate < 40) return 'low';
+  if (it.rate <= 75) return 'mid';
+  return 'easy';
+}
+var selTiers = {}, selCats = {}, cells = [], sections = [];
+function el(tag, cls, text){ var e = document.createElement(tag); if (cls) e.className = cls; if (text !== undefined) e.textContent = text; return e; }
+
+function buildChips(items){
+  var tc = document.getElementById('tierChips'), cc = document.getElementById('catChips');
+  var tcount = {}, ccount = {}, order = [];
+  items.forEach(function(it){
+    var t = tierOf(it); tcount[t] = (tcount[t]||0) + 1;
+    it.cats.forEach(function(c){
+      if (!(c in ccount)){ ccount[c] = 0; order.push(c); }
+      ccount[c]++;
+    });
+  });
+  TIERS.forEach(function(t){
+    var b = el('button','mp-chip'); b.type = 'button'; b.setAttribute('aria-pressed','false'); b.dataset.k = t[0];
+    b.appendChild(el('span','sw ' + t[0]));
+    b.appendChild(document.createTextNode(t[1] + ' '));
+    b.appendChild(el('span','n','(' + (tcount[t[0]]||0) + ')'));
+    b.addEventListener('click', function(){ toggle(selTiers, b); });
+    tc.appendChild(b);
+  });
+  if (SITE.catOrder) order.sort(function(a,b){ return SITE.catOrder.indexOf(a) - SITE.catOrder.indexOf(b); });
+  else order.sort(function(a,b){ return ccount[b] - ccount[a]; });
+  order.forEach(function(c){
+    var b = el('button','mp-chip'); b.type = 'button'; b.setAttribute('aria-pressed','false'); b.dataset.k = c;
+    b.appendChild(document.createTextNode((SITE.catLabel ? SITE.catLabel(c) : c) + ' '));
+    b.appendChild(el('span','n','(' + ccount[c] + ')'));
+    b.addEventListener('click', function(){ toggle(selCats, b); });
+    cc.appendChild(b);
+  });
+}
+function toggle(set, b){
+  var k = b.dataset.k;
+  if (set[k]){ delete set[k]; b.setAttribute('aria-pressed','false'); }
+  else { set[k] = true; b.setAttribute('aria-pressed','true'); }
+  apply();
+}
+function apply(){
+  var nt = Object.keys(selTiers).length, nc = Object.keys(selCats).length, n = 0;
+  sections.forEach(function(sc){ sc.rows.forEach(function(r){ r._m = 0; }); });
+  cells.forEach(function(c){
+    var catOk = !nc || c.cats.some(function(k){ return selCats[k]; });
+    var ok = (!nt || selTiers[c.tier]) && catOk;
+    c.node.classList.toggle('dim', !ok);
+    if (ok){ n++; c.row._m++; }
+  });
+  var active = !!(nt || nc);
+  sections.forEach(function(sc){
+    var any = false;
+    sc.rows.forEach(function(r){ r.hidden = active && r._m === 0; if (!r.hidden) any = true; });
+    sc.heads.forEach(function(h){ h.hidden = !any; });
+  });
+  document.getElementById('noneMsg').hidden = n !== 0;
+  document.getElementById('matchN').textContent = n;
+  document.getElementById('reset').disabled = !active;
+}
+
+function groupRows(items){
+  var rows = [], idx = {};
+  items.forEach(function(it){
+    var k = it.rowKey;
+    if (!(k in idx)){ idx[k] = rows.length; rows.push({key:k, label:it.rowLabel, ord:it.rowOrd, href:it.rowHref, items:[]}); }
+    rows[idx[k]].items.push(it);
+  });
+  return rows;
+}
+function renderRows(container, rows, sec){
+  rows.forEach(function(r){
+    var row = el('div','mp-row');
+    var head = el('div','mp-rowhead');
+    var y = el('div','y', r.label);
+    y.appendChild(el('small','', r.items.length + ' 題'));
+    head.appendChild(y);
+    if (r.href){ var a = el('a','', '這一年的詳解 →'); a.href = r.href; head.appendChild(a); }
+    row.appendChild(head);
+    var wrap = el('div','mp-cells');
+    var cur = null, grp = null, inGrp = 0;
+    r.items.sort(function(a,b){ return a.no - b.no; });
+    r.items.forEach(function(it){
+      if (it.grp !== cur || inGrp >= 5){ cur = it.grp; inGrp = 0; grp = el('div','mp-grp'); wrap.appendChild(grp); }
+      inGrp++;
+      var tier = tierOf(it), base = baseTier(it);
+      var c = el('a','mp-cell ' + base + (tier === 'special' ? ' special' : ''));
+      c.href = it.href;
+      c.appendChild(el('span','q', String(it.no)));
+      c.appendChild(el('span','p', isNum(it.rate) ? it.rate + '%' : '—'));
+      var tip = r.label + ' 第 ' + it.no + ' 題 · ' + it.tipCat + ' · ' +
+                (isNum(it.rate) ? '答對率 ' + it.rate + '%' : '沒有官方答對率');
+      if (tier === 'special') tip += ' · 鑑別度為負';
+      c.title = tip; c.setAttribute('aria-label', tip);
+      grp.appendChild(c);
+      cells.push({node:c, tier:tier, cats:it.cats, row:row});
+    });
+    row.appendChild(wrap);
+    container.appendChild(row);
+    if (sec) sec.rows.push(row);
+  });
+}
+function buildLegend(items){
+  var cnt = {hard:0, low:0, mid:0, easy:0, none:0};
+  items.forEach(function(it){ cnt[baseTier(it)]++; });
+  var rows = [['hard','答對率 25% 以下'],['low','26% 至 39%'],['mid','40% 至 75%'],['easy','高於 75%'],['none','沒有答對率']];
+  var ul = el('ul');
+  rows.forEach(function(r){
+    var li = el('li'); li.appendChild(el('span','sw ' + r[0])); li.appendChild(document.createTextNode(r[1] + ' '));
+    li.appendChild(el('span','n','(' + cnt[r[0]] + ' 題)')); ul.appendChild(li);
+  });
+  var box = document.getElementById('legend');
+  box.appendChild(ul);
+  box.appendChild(el('p','', '紅色加金黃色共 ' + (cnt.hard + cnt.low) + ' 題，就是「答對率低於 40% 的難題」。下方篩選的「中」，金黃色和米色的格子都會選到。'));
+  box.hidden = false;
+}
+function build(items){
+  document.getElementById('total').textContent = items.length;
+  document.getElementById('total2').textContent = items.length;
+  buildChips(items);
+  buildLegend(items);
+  var nNone = items.filter(function(it){ return !isNum(it.rate); }).length;
+  document.getElementById('rateNote').textContent = items.length - nNone + ' 題有官方答對率。' +
+    (nNone ? '其餘 ' + nNone + ' 題沒有官方答對率，格子裡以「—」表示，不是題目漏收。' : '');
+  var out = document.getElementById('out');
+  var exams = [], seen = {};
+  items.forEach(function(it){ if (!(it.exam in seen)){ seen[it.exam] = 1; exams.push(it.exam); } });
+  exams.forEach(function(ex){
+    var rows = groupRows(items.filter(function(it){ return it.exam === ex; }));
+    var rWith = rows.filter(function(r){ return r.items.some(function(it){ return isNum(it.rate); }); });
+    var rWithout = rows.filter(function(r){ return rWith.indexOf(r) < 0; });
+    function byOrd(a,b){ return b.ord - a.ord; }
+    rWith.sort(byOrd); rWithout.sort(byOrd);
+    var pre = ex ? ex + '：' : '';
+    var s1 = {heads:[], rows:[]}, s2 = {heads:[], rows:[]}; sections.push(s1, s2);
+    if (rWith.length){
+      var h1 = el('h2','mp-sec', pre + '有官方答對率的試卷'); out.appendChild(h1); s1.heads.push(h1);
+      renderRows(out, rWith, s1);
+    }
+    if (rWithout.length){
+      var h2 = el('h2','mp-sec', pre + '沒有公布答對率的試卷'); out.appendChild(h2); s2.heads.push(h2);
+      var n2 = el('p','mp-secnote','這些試卷一樣有完整內容，只是沒有答對率可以比較難易。'); out.appendChild(n2); s2.heads.push(n2);
+      renderRows(out, rWithout, s2);
+    }
+  });
+  document.getElementById('filters').hidden = false;
+  document.getElementById('status').hidden = true;
+  apply();
+}
+document.getElementById('reset').addEventListener('click', function(){
+  selTiers = {}; selCats = {};
+  document.querySelectorAll('.mp-chip').forEach(function(b){ b.setAttribute('aria-pressed','false'); });
+  apply();
+});
+SITE.load().then(build).catch(function(e){
+  document.getElementById('status').textContent = '題目資料讀取失敗，請重新整理頁面。';
+  if (window.console) console.error(e);
+});
+</script>
+</body>
+</html>
