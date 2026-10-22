@@ -1197,7 +1197,7 @@ function escapeHtml(s){
 function applyAdaptHash(){
   if(location.hash !== '#adapt') return;
   document.querySelectorAll('#yearGrid .year-chip').forEach(c => { if(c.dataset.year === ADAPT) c.classList.add('selected'); });
-  const box = document.getElementById('yearGrid'); if(box) (box.closest('.card') || box).scrollIntoView({block:'start'});
+  const box = document.getElementById('yearGrid'); if(box) (box.parentElement.querySelector('h2') || box).scrollIntoView({block:'start'});
 }
 loadItems().then(applyAdaptHash);
 </script>
