@@ -149,7 +149,7 @@ function render(){
     a.href='#g'+gi; a.textContent=g.key.split('（')[0]; a.title=g.key+'　'+(g.zh||''); nav.appendChild(a);
 
     const sec=document.createElement('section');
-    sec.id='g'+gi;
+    sec.id='g'+gi; sec.dataset.kind=kind;
     const h=document.createElement('h2');
     h.textContent=g.key;
     if(g.zh){const sp=document.createElement('span');sp.textContent=g.zh;h.appendChild(sp);}
@@ -249,6 +249,12 @@ function xsearch(body){
   const a=document.createElement('a');a.href='../roots/#q='+encodeURIComponent(state.q.trim());
   a.textContent='字根家族表也有 '+seen.size+' 個符合「'+state.q.trim()+'」的字 →';p.appendChild(a);body.appendChild(p);
 }
+function jumpKind(){
+  const h=location.hash.slice(1);
+  if(h!=='prefix' && h!=='suffix') return;
+  const el=document.querySelector('section[data-kind="'+h+'"]');
+  if(el) el.scrollIntoView();
+}
 function readHash(){
   const h=decodeURIComponent(location.hash.slice(1));
   if(h.startsWith('w=')){state.w=h.slice(2);state.q='';$('#q').value='';}
@@ -260,9 +266,9 @@ Promise.all([fetch('affixes_data.json').then(r=>r.json()),fetch('../lexicon/lexi
   DATA=d;
   buildLv();
   $('#q').addEventListener('input',e=>{state.q=e.target.value;state.w='';render();});
-  readHash(); window.addEventListener('hashchange',()=>{readHash();render();});
+  readHash(); window.addEventListener('hashchange',()=>{readHash();render();jumpKind();});
   $('#foot').textContent=d.note+' 資料更新：'+d.updated+'。標「考過」的字可以點進本題庫看那一題的原文；拆解與中文說明是本題庫整理的，字源依 Online Etymology Dictionary 查證；詞彙表著作權屬財團法人大學入學考試中心基金會，本表只供非營利教學使用。';
-  render();
+  render(); jumpKind();
 }).catch(()=>{
   $('#body').innerHTML='<p class="empty">讀不到 affixes_data.json 或 lexicon_data.json。這個頁面要跟資料檔放在同一個網站上。</p>';
 });
