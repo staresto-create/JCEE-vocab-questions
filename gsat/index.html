@@ -313,6 +313,15 @@ details.skill[open] > summary::after{content:'－ 收合';}
  :root{--sage-soft:#2F4A3B;--crimson-soft:#4A3029}
 }
 
+.unitbar{margin:12px 0 18px; font-size:14px; line-height:1.5;}
+.unitbar .ubrow{display:flex; flex-wrap:wrap; align-items:center; gap:6px;}
+.unitbar .ubrow + .ubrow{margin-top:8px;}
+.unitbar .ublab{font-size:12px; font-weight:700; letter-spacing:.06em; border:1px solid currentColor; border-radius:12px; padding:2px 10px; opacity:.75; white-space:nowrap;}
+.unitbar a, .unitbar .cur{display:inline-block; border:1px solid rgba(128,128,128,.45); border-radius:14px; padding:3px 11px; white-space:nowrap; font-weight:700; text-decoration:none;}
+.unitbar a{color:var(--crimson);}
+.unitbar a:hover{text-decoration:underline; text-underline-offset:3px;}
+.unitbar .cur{background:rgba(128,128,128,.2);}
+@media print{.unitbar, .toBar{display:none!important;}}
 </style>
 <style id="map-entry-css">
 /* 題目地圖入口（2026-10-22 新增，對應 map/）：樣式比照文意選填站的難題入口 */
@@ -343,7 +352,8 @@ details.skill[open] > summary::after{content:'－ 收合';}
 
   <!-- HOME -->
   <div id="home">
-    <div class="card">
+  <nav class="unitbar" id="unitbar" aria-label="本頁單元"><div class="ubrow"><span class="ublab">本頁單元</span><a href="#u-start">開始練習</a><a href="#u-range">依範圍練習</a><a href="#u-mock">歷屆試題</a><a href="map/">題目地圖</a><a href="#u-list">單字清單</a><a href="#skelCard">讀句子的第一步</a></div></nav>
+    <div class="card" id="u-start">
       <p class="home-lead">今天，先寫十題。</p>
       <p class="home-desc">不用設定，按下去就開始。每題附句子與選項中譯、選項單字分級（大考中心六級），並收錄<b>大考中心公布的官方逐題答對率</b>，讓你看到當年全體考生答對的比例。部分題目另有深入解析。</p>
       <button class="big-btn" onclick="startQuiz(randomTen())">立即開始 · 隨機 10 題</button>
@@ -379,7 +389,7 @@ details.skill[open] > summary::after{content:'－ 收合';}
     </div>
 
     <div class="card" style="padding:24px 26px;">
-      <div class="sec-title">依範圍練習</div>
+      <div class="sec-title" id="u-range">依範圍練習</div>
       <div class="row">
         <div class="field">
           <label>年份（起）</label>
@@ -416,7 +426,7 @@ details.skill[open] > summary::after{content:'－ 收合';}
         <button class="ghost-btn" onclick="startRangePractice()" style="flex:1;">開始練習</button>
       </div>
 
-      <div class="sec-title">歷屆試題</div>
+      <div class="sec-title" id="u-mock">歷屆試題</div>
       <div class="row">
         <div class="field">
           <label>選擇年份／考試</label>
@@ -429,7 +439,7 @@ details.skill[open] > summary::after{content:'－ 收合';}
     </div>
 
     <div class="card" style="padding:24px 26px;">
-      <div class="sec-title">單字清單</div>
+      <div class="sec-title" id="u-list">單字清單</div>
       <p style="margin:0 0 14px; line-height:1.85;">83 到 115 年的詞彙題裡，<b>有 60 個字的答案重複出現，共 125 題</b>。多半是同一個意思又考一次，有時連搭配的字都沒換；少數幾個字換了詞性，或者換了意思。附 KK 音標與 125 題的題目原文。</p>
       <a class="ghost-btn" href="https://staresto-create.github.io/JCEE-vocab-questions/repeats/" style="display:block; text-align:center; text-decoration:none;">看「考過不只一次的字」</a>
     </div>
@@ -1044,6 +1054,33 @@ function startFromHash(){
 
 initHome();
 startFromSetHash() || startFromHash();
+</script>
+<script>
+/* 單元列：連到收合區塊的錨點會先展開；「↑ 單元列」在單元列捲出畫面後才出現 */
+(function(){
+  var bar=document.getElementById('unitbar'), to=document.getElementById('toBar');
+  if(bar) bar.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('a[href^="#"]'); if(!a) return;
+    var t=document.getElementById(a.getAttribute('href').slice(1)); if(!t) return;
+    var d=t.tagName==='DETAILS'?t:t.closest('details'); if(d) d.open=true;
+  });
+  if(to){
+    to.addEventListener('click',function(e){e.preventDefault(); if(bar) bar.scrollIntoView({block:'center'});});
+    function bg(){
+      var c=getComputedStyle(document.body).backgroundColor;
+      if(!c||c==='rgba(0, 0, 0, 0)'||c==='transparent') c=getComputedStyle(document.documentElement).backgroundColor;
+      if(!c||c==='rgba(0, 0, 0, 0)'||c==='transparent') c='#fff';
+      to.style.background=c;
+    }
+    if('IntersectionObserver' in window && bar){
+      new IntersectionObserver(function(es){
+        var r=es[0], hide=r.isIntersecting||r.boundingClientRect.top>=0;
+        if(!hide) bg();
+        to.hidden=hide;
+      }).observe(bar);
+    }
+  }
+})();
 </script>
 </body>
 </html>

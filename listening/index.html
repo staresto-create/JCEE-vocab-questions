@@ -115,6 +115,17 @@ table.old99 tr.h th,table.old99 tr.h td{white-space:normal}
  :root{--ad-vcard-bg:#26231F;--ad-vcrimson-bg:#ae3626;--ad-vcrimson-border:#ae3626;--ad-vcrimson-fg:#E4B6B0;--ad-vcrimsonsoft-bg:#2A211F;--ad-vgold-border:#a9812e;--ad-vink-border:#F2F0EE;--ad-vink-fg:#F2F0EE;--ad-vinksoft-border:#DAD8D3;--ad-vinksoft-fg:#DAD8D3;--ad-vpaper-bg:#1B1916;--ad-vrule-border:#514A37;--ad-vsage-border:#CBDDD2;--ad-vsage-fg:#CBDDD2;--ad-vsagesoft-bg:#1E231E;--ad-x3d3a32-fg:#E5E4E1;--ad-x8a8278-fg:#C2BFBB;--ad-xf1ece0-bg:#28251E;--ad-xf6f1e4-bg:#1B1916;--ad-xfbf6ea-bg:#2A2721;--ad-xfbf8f0-bg:#272521;--ad-xfff-bg:#2D2A25;--ad-xfff-fg:#ffffff;color-scheme:dark}
 }
 
+.unitbar{margin:12px 0 18px; font-size:14px; line-height:1.5;}
+.unitbar .ubrow{display:flex; flex-wrap:wrap; align-items:center; gap:6px;}
+.unitbar .ubrow + .ubrow{margin-top:8px;}
+.unitbar .ublab{font-size:12px; font-weight:700; letter-spacing:.06em; border:1px solid currentColor; border-radius:12px; padding:2px 10px; opacity:.75; white-space:nowrap;}
+.unitbar a, .unitbar .cur{display:inline-block; border:1px solid rgba(128,128,128,.45); border-radius:14px; padding:3px 11px; white-space:nowrap; font-weight:700; text-decoration:none;}
+.unitbar a{color:var(--ad-vcrimson-fg);}
+.unitbar a:hover{text-decoration:underline; text-underline-offset:3px;}
+.unitbar .cur{background:rgba(128,128,128,.2);}
+@media print{.unitbar, .toBar{display:none!important;}}
+.toBar{position:fixed; right:12px; bottom:14px; z-index:20; font-size:12.5px; font-weight:700; line-height:1.3; color:var(--ad-vcrimson-fg); border:1px solid currentColor; border-radius:999px; padding:5px 11px; text-decoration:none; box-shadow:0 2px 8px rgba(0,0,0,.18);}
+.toBar[hidden]{display:none;}
 </style>
 <style id="anti-copy">
 /* 防盜用措施（2026-10-14）：畫面浮水印、列印浮水印、頁尾授權聲明 */
@@ -130,6 +141,7 @@ table.old99 tr.h th,table.old99 tr.h td{white-space:normal}
   <h1>英聽練習<small>大考中心高中英語聽力測驗</small></h1>
   <p class="lede">這裡收錄大考中心公布的英聽試卷，一卷一頁。目前有六卷，適用 108 課綱的試卷已經全部收齊，大考中心之後公布的試題示例也會陸續加入。每一題先作答，對完答案再看錄音內容和解析：關鍵在哪一句、誘答怎麼排除、哪裡容易聽錯，以及這一題的場景與關鍵字詞。選項與答案一律照大考中心原文；錄音內容有官方錄音稿的照錄音稿，沒有公布錄音稿的，由本題庫依官方錄音檔聽寫。</p>
 </header>
+<nav class="unitbar" id="unitbar" aria-label="本頁單元"><div class="ubrow"><span class="ublab">本頁單元</span><a href="#u-papers">參考試卷與示例</a><a href="#u-nohist">英聽沒有考古題</a><a href="#u-old">99 課綱舊卷</a><a href="#u-five">五大題各考什麼</a><a href="#u-how">怎麼用本題庫練習</a></div></nav>
 
 <a class="paper" href="liaison.html">
   <div class="t">英聽連音卡</div>
@@ -138,7 +150,7 @@ table.old99 tr.h th,table.old99 tr.h td{white-space:normal}
 </a>
 
 <div class="panel">
-  <h2>英聽沒有考古題</h2>
+  <h2 id="u-nohist">英聽沒有考古題</h2>
   <p>英聽跟學測不一樣：大考中心考完不公布試題，所以英聽沒有考古題可以練習。大考中心改成每年公布一卷「試題示例」，由歷年正式試題組成，內容與難度都跟正式考試相仿，並附參考答案。本題庫收錄的就是這些試題示例，以及 111 學年度起適用的參考試卷。</p>
   <p>大考中心〈試題示例說明〉那一頁的表格，列出適用 108 課綱的六卷：參考試卷 3，以及試題示例 7 到 11。這六卷本題庫都已收錄，下表列出每一卷在本題庫的哪一頁，所以大考中心公布的試卷，在這裡一卷都沒有漏掉。</p>
   <table class="types">
@@ -155,7 +167,7 @@ table.old99 tr.h th,table.old99 tr.h td{white-space:normal}
 </div>
 
 <div class="panel">
-  <h2>99 課綱的舊卷（102 到 109 年公布）</h2>
+  <h2 id="u-old">99 課綱的舊卷（102 到 109 年公布）</h2>
   <p>大考中心另外還有一頁〈<a href="https://www.ceec.edu.tw/xmdoc/cont?xsmsid=0J018576253614017417&amp;sid=0J054578000186972657">高中英語聽力測驗─試題示例說明（適用於99課綱）</a>〉，收的是 102 到 109 年公布的參考試卷 1、2 和試題示例 1 到 6，一共八卷。這八卷是依 99 課綱命題的舊題型，只有四大題，沒有長篇聽解，每一大題的題數也跟現在不同；大考中心在那一頁也提醒考生，要了解現行的考試，應該參考 108 課綱的考試說明和參考試卷。所以本題庫不把這八卷做成練習頁。至於<a href="liaison.html">英聽連音卡</a>，這八卷的錄音也收進去了，每卷 12 張。</p>
   <p>不過，舊卷的四大題是看圖辨義、對答、簡短對話和短文聽解，作答方式跟現行考試的前四大題（圖片聽解、對答、簡短對話、短文聽解）大致相同，只是舊卷每一大題十題，現在每一大題八題。如果本題庫的六卷都練完了，還想多練前四大題，這八卷仍然是很好的材料。要注意的是參考試卷 1：這一卷的看圖辨義，作答方式跟其他七卷和現在的圖片聽解都不一樣，練習時可以跳過這一大題。</p>
   <p>下表的連結都直接連到大考中心的檔案。語音檔除了試題示例 6 是 mp3，其餘都是壓縮檔（zip），下載以後要先解壓縮才能播放。</p>
@@ -179,7 +191,7 @@ table.old99 tr.h th,table.old99 tr.h td{white-space:normal}
   <p>也就是說，先練過舊卷，並不會在本題庫的六卷裡遇到已經做過的正式題目，兩批可以一起練。比對的範圍是試題本上印出來的內容；只在語音裡播出的部分，例如對答的問句，沒有比對。</p>
 </div>
 
-<a class="paper" href="ref111.html">
+<a class="paper" id="u-papers" href="ref111.html">
   <div class="t">英聽參考試卷</div>
   <div class="m">111 學年度起適用（即大考中心網站上的「參考試卷 3」）　五大題　40 題　錄音內容依大考中心官方錄音稿</div>
   <div class="d">題型與現行考試相同，也包括 111 學年度新增的長篇聽解。</div>
@@ -216,7 +228,7 @@ table.old99 tr.h th,table.old99 tr.h td{white-space:normal}
 </a>
 
 <div class="panel">
-  <h2>五大題各考什麼</h2>
+  <h2 id="u-five">五大題各考什麼</h2>
   <table class="types">
     <tr><th>圖片聽解</th><td>第 1–8 題。前四題聽對話選圖；後四題看一張圖，選項只用語音播出、試題本上沒有印出來，每題選兩個答案。111 學年度起由舊制的「看圖辨義」改成這個題型，題數由 10 題減為 8 題，題目也從單句描述改成對話或短文。</td></tr>
     <tr><th>對答</th><td>第 9–16 題。只播放一句話，選最適當的回應。</td></tr>
@@ -228,7 +240,7 @@ table.old99 tr.h th,table.old99 tr.h td{white-space:normal}
 </div>
 
 <div class="panel">
-  <h2>怎麼用本題庫練習</h2>
+  <h2 id="u-how">怎麼用本題庫練習</h2>
   <p>大考中心的建議是每天花 8 到 10 分鐘，練習不同題型的試題；每次練習完都要確實檢討，歸納重要的字詞和搭配詞，也要把題目和錄音內容大聲唸出來。本題庫的每一卷都照這個順序設計：先照考試的方式作答，對完答案再看錄音內容和解析，最後對著錄音內容再聽、再唸一次。</p>
   <p style="font-size:.86rem;color:var(--ad-vinksoft-fg)">出處：大考中心選才電子報第 324 期，游春琪、廖悅淑〈<a href="https://www.ceec.edu.tw/xcepaper/cont?xsmsid=0J066588036013658199&amp;qperoid=0L224388397456940702&amp;sid=0L228381278862927301">111學年度起高中英語聽力測驗新增題型，準備小叮嚀</a>〉，110 年 8 月。</p>
   <p style="font-size:.86rem;color:var(--ad-vinksoft-fg)">延伸閱讀：大考中心<a href="https://www.ceec.edu.tw/xmdoc?xsmsid=0J018576586515691444">高中英語聽力測驗選才文摘</a>，收錄歷年談英聽教學與準備的文章。</p>
@@ -240,5 +252,33 @@ table.old99 tr.h th,table.old99 tr.h td{white-space:normal}
 <p class="cc-note">本題庫自己寫的部分（解析、中譯、分類、標註與編排）採用 <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh-hant" target="_blank" rel="license noopener">CC BY-NC 4.0</a>（姓名標示─非商業性）授權：可以分享，但須註明出處，不得用於商業用途。試題來源與完整說明請見<a href="https://staresto-create.github.io/JCEE-vocab-questions/#terms">使用與著作權</a>。</p>
 </footer>
 </div>
+<a class="toBar" id="toBar" href="#unitbar" hidden>↑ 單元列</a>
+<script>
+/* 單元列：連到收合區塊的錨點會先展開；「↑ 單元列」在單元列捲出畫面後才出現 */
+(function(){
+  var bar=document.getElementById('unitbar'), to=document.getElementById('toBar');
+  if(bar) bar.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('a[href^="#"]'); if(!a) return;
+    var t=document.getElementById(a.getAttribute('href').slice(1)); if(!t) return;
+    var d=t.tagName==='DETAILS'?t:t.closest('details'); if(d) d.open=true;
+  });
+  if(to){
+    to.addEventListener('click',function(e){e.preventDefault(); if(bar) bar.scrollIntoView({block:'center'});});
+    function bg(){
+      var c=getComputedStyle(document.body).backgroundColor;
+      if(!c||c==='rgba(0, 0, 0, 0)'||c==='transparent') c=getComputedStyle(document.documentElement).backgroundColor;
+      if(!c||c==='rgba(0, 0, 0, 0)'||c==='transparent') c='#fff';
+      to.style.background=c;
+    }
+    if('IntersectionObserver' in window && bar){
+      new IntersectionObserver(function(es){
+        var r=es[0], hide=r.isIntersecting||r.boundingClientRect.top>=0;
+        if(!hide) bg();
+        to.hidden=hide;
+      }).observe(bar);
+    }
+  }
+})();
+</script>
 </body>
 </html>

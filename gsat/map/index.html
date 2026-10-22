@@ -90,13 +90,25 @@ h2.mp-sec{font-family:'Noto Serif TC',serif;font-weight:700;font-size:18px;margi
   }
 }
 
+.unitbar{margin:12px 0 18px; font-size:14px; line-height:1.5;}
+.unitbar .ubrow{display:flex; flex-wrap:wrap; align-items:center; gap:6px;}
+.unitbar .ubrow + .ubrow{margin-top:8px;}
+.unitbar .ublab{font-size:12px; font-weight:700; letter-spacing:.06em; border:1px solid currentColor; border-radius:12px; padding:2px 10px; opacity:.75; white-space:nowrap;}
+.unitbar a, .unitbar .cur{display:inline-block; border:1px solid rgba(128,128,128,.45); border-radius:14px; padding:3px 11px; white-space:nowrap; font-weight:700; text-decoration:none;}
+.unitbar a{color:var(--crimson);}
+.unitbar a:hover{text-decoration:underline; text-underline-offset:3px;}
+.unitbar .cur{background:rgba(128,128,128,.2);}
+@media print{.unitbar, .toBar{display:none!important;}}
+.toBar{position:fixed; right:12px; bottom:14px; z-index:20; font-size:12.5px; font-weight:700; line-height:1.3; color:var(--crimson); border:1px solid currentColor; border-radius:999px; padding:5px 11px; text-decoration:none; box-shadow:0 2px 8px rgba(0,0,0,.18);}
+.toBar[hidden]{display:none;}
 </style>
 </head>
 <body>
 <div class="wrap">
   <div class="crumb"><a href="../">學測單字題庫</a> ／ 題目地圖</div>
   <h1>學測單字題目地圖</h1>
-  <p class="mp-intro">這一頁把題庫的 <b id="total">全部</b> 題排成一張圖。每一格是一題，上面是<b>題號</b>，下面是大考中心公布的全體考生<b>答對率</b>；<b>顏色越紅，題目越難</b>。<b>點格子</b>就會跳到那一題，可以直接作答。</p>
+  <nav class="unitbar" id="unitbar" aria-label="本頁單元"><div class="ubrow"><span class="ublab">同一題庫</span><a href="../">開始練習</a><span class="cur" aria-current="page">題目地圖</span><a href="../../repeats/">單字清單</a></div><div class="ubrow"><span class="ublab">本頁單元</span><a href="#u-intro">說明</a><a href="#filters">篩選</a><a href="#u-rated">有答對率的題目</a><a href="#u-unrated">沒有公布答對率的題目</a></div></nav>
+  <p class="mp-intro" id="u-intro">這一頁把題庫的 <b id="total">全部</b> 題排成一張圖。每一格是一題，上面是<b>題號</b>，下面是大考中心公布的全體考生<b>答對率</b>；<b>顏色越紅，題目越難</b>。<b>點格子</b>就會跳到那一題，可以直接作答。</p>
   <p class="mp-note" id="rateNote"></p>
   <div class="mp-legend" id="legend" hidden></div>
 
@@ -278,11 +290,11 @@ function build(items){
     var pre = ex ? ex + '：' : '';
     var s1 = {heads:[], rows:[]}, s2 = {heads:[], rows:[]}; sections.push(s1, s2);
     if (rWith.length){
-      var h1 = el('h2','mp-sec', pre + '有官方答對率的試卷'); out.appendChild(h1); s1.heads.push(h1);
+      var h1 = el('h2','mp-sec', pre + '有官方答對率的試卷'); h1.id='u-rated'; out.appendChild(h1); s1.heads.push(h1);
       renderRows(out, rWith, s1);
     }
     if (rWithout.length){
-      var h2 = el('h2','mp-sec', pre + '沒有公布答對率的試卷'); out.appendChild(h2); s2.heads.push(h2);
+      var h2 = el('h2','mp-sec', pre + '沒有公布答對率的試卷'); h2.id='u-unrated'; out.appendChild(h2); s2.heads.push(h2);
       var n2 = el('p','mp-secnote','這些試卷一樣有完整內容，只是沒有答對率可以比較難易。'); out.appendChild(n2); s2.heads.push(n2);
       renderRows(out, rWithout, s2);
     }
@@ -300,6 +312,34 @@ SITE.load().then(build).catch(function(e){
   document.getElementById('status').textContent = '題目資料讀取失敗，請重新整理頁面。';
   if (window.console) console.error(e);
 });
+</script>
+<a class="toBar" id="toBar" href="#unitbar" hidden>↑ 單元列</a>
+<script>
+/* 單元列：連到收合區塊的錨點會先展開；「↑ 單元列」在單元列捲出畫面後才出現 */
+(function(){
+  var bar=document.getElementById('unitbar'), to=document.getElementById('toBar');
+  if(bar) bar.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('a[href^="#"]'); if(!a) return;
+    var t=document.getElementById(a.getAttribute('href').slice(1)); if(!t) return;
+    var d=t.tagName==='DETAILS'?t:t.closest('details'); if(d) d.open=true;
+  });
+  if(to){
+    to.addEventListener('click',function(e){e.preventDefault(); if(bar) bar.scrollIntoView({block:'center'});});
+    function bg(){
+      var c=getComputedStyle(document.body).backgroundColor;
+      if(!c||c==='rgba(0, 0, 0, 0)'||c==='transparent') c=getComputedStyle(document.documentElement).backgroundColor;
+      if(!c||c==='rgba(0, 0, 0, 0)'||c==='transparent') c='#fff';
+      to.style.background=c;
+    }
+    if('IntersectionObserver' in window && bar){
+      new IntersectionObserver(function(es){
+        var r=es[0], hide=r.isIntersecting||r.boundingClientRect.top>=0;
+        if(!hide) bg();
+        to.hidden=hide;
+      }).observe(bar);
+    }
+  }
+})();
 </script>
 </body>
 </html>

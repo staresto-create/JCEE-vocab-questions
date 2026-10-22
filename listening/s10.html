@@ -105,6 +105,17 @@ details.script summary{cursor:pointer;font-weight:700;font-size:.93rem}
  :root{--ad-vcard-bg:#26231F;--ad-vcrimson-bg:#ae3626;--ad-vcrimson-border:#ae3626;--ad-vcrimson-fg:#E4B6B0;--ad-vcrimsonsoft-bg:#2A211F;--ad-vgold-border:#a9812e;--ad-vink-border:#F2F0EE;--ad-vink-fg:#F2F0EE;--ad-vinksoft-border:#DAD8D3;--ad-vinksoft-fg:#DAD8D3;--ad-vpaper-bg:#1B1916;--ad-vrule-border:#514A37;--ad-vsage-border:#CBDDD2;--ad-vsage-fg:#CBDDD2;--ad-vsagesoft-bg:#1E231E;--ad-x3d3a32-fg:#E5E4E1;--ad-x8a8278-fg:#C2BFBB;--ad-xf1ece0-bg:#28251E;--ad-xf6f1e4-bg:#1B1916;--ad-xfbf6ea-bg:#2A2721;--ad-xfbf8f0-bg:#272521;--ad-xfff-bg:#2D2A25;--ad-xfff-fg:#ffffff;color-scheme:dark}
 }
 
+.unitbar{margin:12px 0 18px; font-size:14px; line-height:1.5;}
+.unitbar .ubrow{display:flex; flex-wrap:wrap; align-items:center; gap:6px;}
+.unitbar .ubrow + .ubrow{margin-top:8px;}
+.unitbar .ublab{font-size:12px; font-weight:700; letter-spacing:.06em; border:1px solid currentColor; border-radius:12px; padding:2px 10px; opacity:.75; white-space:nowrap;}
+.unitbar a, .unitbar .cur{display:inline-block; border:1px solid rgba(128,128,128,.45); border-radius:14px; padding:3px 11px; white-space:nowrap; font-weight:700; text-decoration:none;}
+.unitbar a{color:var(--ad-vcrimson-fg);}
+.unitbar a:hover{text-decoration:underline; text-underline-offset:3px;}
+.unitbar .cur{background:rgba(128,128,128,.2);}
+@media print{.unitbar, .toBar{display:none!important;}}
+.toBar{position:fixed; right:12px; bottom:14px; z-index:20; font-size:12.5px; font-weight:700; line-height:1.3; color:var(--ad-vcrimson-fg); border:1px solid currentColor; border-radius:999px; padding:5px 11px; text-decoration:none; box-shadow:0 2px 8px rgba(0,0,0,.18);}
+.toBar[hidden]{display:none;}
 </style>
 <style id="anti-copy">
 /* 防盜用措施（2026-10-14）：畫面浮水印、列印浮水印、頁尾授權聲明 */
@@ -120,8 +131,9 @@ details.script summary{cursor:pointer;font-weight:700;font-size:.93rem}
   <h1>英聽試題示例 10<small>高中英語聽力測驗　大考中心 114 年公布</small></h1>
   <p class="lede">這一卷是大考中心公布的試題示例 10，由歷年正式試題組成，內容與難度都跟正式考試相仿，五大題共四十題。選項與答案照大考中心公布的試題本與參考答案。大考中心沒有公布這一卷的錄音稿，下方的錄音內容是本題庫依官方錄音檔逐字聽寫的；錄音裡的中文指示語不收錄。解析由本題庫撰寫。</p>
 </header>
+<nav class="unitbar" id="unitbar" aria-label="本頁單元"><div class="ubrow"><span class="ublab">本頁單元</span><a href="#u-how">怎麼練習</a><a href="#s1">一、圖片聽解</a><a href="#s2">二、對答</a><a href="#s3">三、簡短對話</a><a href="#s4">四、短文聽解</a><a href="#s5">五、長篇聽解</a></div></nav>
 
-<div class="panel">
+<div class="panel" id="u-how">
   <h2>怎麼練習</h2>
   <ol class="steps">
     <li>播放下面的官方錄音檔，照考試的方式從頭聽到尾，每一題只聽一次。</li>
@@ -272,6 +284,34 @@ if(PREVIEW){var pb=document.createElement('p');pb.className='crumb';pb.textConte
       .observe(document.body,{childList:true,subtree:true});
   }
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',run); else run();
+})();
+</script>
+<a class="toBar" id="toBar" href="#unitbar" hidden>↑ 單元列</a>
+<script>
+/* 單元列：連到收合區塊的錨點會先展開；「↑ 單元列」在單元列捲出畫面後才出現 */
+(function(){
+  var bar=document.getElementById('unitbar'), to=document.getElementById('toBar');
+  if(bar) bar.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('a[href^="#"]'); if(!a) return;
+    var t=document.getElementById(a.getAttribute('href').slice(1)); if(!t) return;
+    var d=t.tagName==='DETAILS'?t:t.closest('details'); if(d) d.open=true;
+  });
+  if(to){
+    to.addEventListener('click',function(e){e.preventDefault(); if(bar) bar.scrollIntoView({block:'center'});});
+    function bg(){
+      var c=getComputedStyle(document.body).backgroundColor;
+      if(!c||c==='rgba(0, 0, 0, 0)'||c==='transparent') c=getComputedStyle(document.documentElement).backgroundColor;
+      if(!c||c==='rgba(0, 0, 0, 0)'||c==='transparent') c='#fff';
+      to.style.background=c;
+    }
+    if('IntersectionObserver' in window && bar){
+      new IntersectionObserver(function(es){
+        var r=es[0], hide=r.isIntersecting||r.boundingClientRect.top>=0;
+        if(!hide) bg();
+        to.hidden=hide;
+      }).observe(bar);
+    }
+  }
 })();
 </script>
 </body>
