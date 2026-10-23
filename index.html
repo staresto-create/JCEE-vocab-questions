@@ -79,7 +79,7 @@
   .rule{border:none; border-top:1px solid var(--ad-vrule-border); margin:34px 0 22px;}
 
   .grid{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
-  @media (max-width:520px){ .grid{grid-template-columns:1fr;} .card .tag{font-size:9.5px; letter-spacing:.05em;} }
+  @media (max-width:520px){ .grid{grid-template-columns:minmax(0,1fr);} .card .tag{font-size:9.5px; letter-spacing:.05em;} }
 
   a.card{
     display:block; text-decoration:none; color:inherit;
@@ -298,6 +298,7 @@
 .quicknav .qrow.qpast .qi:last-child{grid-column:1/-1;}
 .quicknav .qrow.qown .qi:has(a[href*="essay-prompts"]){grid-column:1/-1;}
 .quicknav .qi a:active{background:var(--ad-xFBF2EF-bg);}
+.quicknav .qrow.qpast .qi:not(.has) a, .quicknav .qrow.qown .qi:not(.has) a{padding-right:4px;}
 .quicknav .qrow.qown .qi{border-color:var(--ad-vcrimsonsoft-border);}
 
 /* 特色：去掉左側色條，改成「圖示＋大數字」先抓眼睛，細節收進「還有 N 項」 */
@@ -321,7 +322,10 @@
 
 /* 導覽按鈕一致化（2026-10-23）：有 ▾ 的整顆按鈕點了就展開，裡面第一項「進入…」才是前往主頁；沒有 ▾ 的按鈕點了直接前往 */
 .quicknav .qtog{flex:1; min-width:0; justify-content:space-between; gap:6px; border:0; border-radius:10px; text-align:left; font:inherit; font-weight:700; font-size:14.5px; line-height:1.35; color:var(--ad-x9C2C1E-fg); padding:11px 10px 11px 12px; background:transparent; cursor:pointer; -webkit-tap-highlight-color:transparent;}
-.quicknav .qtog .qc{flex:0 0 auto; font-size:16px; line-height:1; transition:transform .15s;}
+.quicknav .qtog .qc{flex:0 0 26px; width:26px; height:26px; box-sizing:border-box; border:1.5px solid currentColor; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-size:0; line-height:0; transition:transform .15s;}
+.quicknav .qtog .qc::before{content:""; width:7px; height:7px; border-right:2px solid currentColor; border-bottom:2px solid currentColor; transform:translateY(-2px) rotate(45deg);}
+/* 點了直接前往的按鈕：右側放淡淡的「›」，和「點了展開」的圓形 ▾ 一眼分得出來 */
+.quicknav .qrow.qpast .qi:not(.has) a::after, .quicknav .qrow.qown .qi:not(.has) a::after{content:""; flex:0 0 auto; margin-left:auto; padding-left:0; width:6px; height:6px; border-right:2px solid currentColor; border-top:2px solid currentColor; box-sizing:content-box; transform:rotate(45deg) scale(.85); opacity:.5; margin-right:3px;}
 .quicknav .qtog[aria-expanded="true"]{background:var(--ad-xFBF2EF-bg);}
 .quicknav .qtog[aria-expanded="true"] .qc{transform:rotate(180deg);}
 .quicknav .qmain{flex:0 0 100%; display:flex; justify-content:center;}
