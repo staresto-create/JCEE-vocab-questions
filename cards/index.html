@@ -301,6 +301,7 @@
   .cf-pos{font-size:12.5px; color:var(--ad-vcrimson-fg); font-weight:600; margin-right:6px;}
   .cf-zh{font-size:14px;}
   .cf-x{margin-top:16px; font-size:14px; line-height:1.95; word-break:break-word;}
+  .cf-xd summary{cursor:pointer; color:var(--ad-vcrimson-fg); margin-bottom:6px;}
   .cf-none{margin:14px 0 0; font-size:13px; color:var(--ad-vinksoft-fg);}
   .cf-wl{font-family:'Noto Serif TC',serif; font-weight:700; font-size:14px; color:var(--ad-vink-fg); margin-right:6px;}
   .cf-more{margin-top:16px; border-top:1px dashed var(--ad-vrule-border); padding-top:12px;}
@@ -482,6 +483,7 @@
 
   var DATA = null, Q = null, W = null, CFT = null;
   var CF = null, CFG = null;  // 易混淆字組：CF 是整個資料檔，CFG 以組號查組
+  var SN = null;              // 字義相近：另一個資料檔，用到才載入，組放進同一個 CFG（組號 401 起）
   var PO = null, POW = null;  // 一字多義：PO 是整個資料檔，POW 以卡號查卡
   var PX = null;            // 單字卡的例句填空：以卡片字查題，題目另外編寫、不是大考原題
   var state = null;         // 目前這副卡的進度 { v, w:{key:{i,e,d,r,l,vv}}, day, done }
@@ -596,13 +598,14 @@
       if (!Object.keys(gs).length) gs = null;
     }
     var view = (p.view && /^\d{1,3}$/.test(p.view)) ? +p.view : 0;
+    var kind = (p.kind === 'sn' || view >= 400) ? 'sn' : 'sp';   // sp 拼字相近，sn 字義相近
     // 單字卡：n=3 表示只出在範圍內考過 3 次以上的字（答案和誘答都算，一題算一次）
     var mn = (p.n && /^[2-9]$/.test(p.n)) ? +p.n : 1;
     if (deck === 'po' && lv) { lv.p = false; lv.x = false; if (!Object.keys(lv.n).length) lv = null; }
 
     return {
       y0: y0, y1: y1, st: st, lv: lv, mn: mn,
-      deck: deck, gs: gs, view: view,
+      deck: deck, gs: gs, view: view, kind: kind,
       label: p.t || '',
       free: p.mode === 'free',
       custom: !!(p.y || p.st || p.lv || p.g || p.n)
@@ -611,10 +614,11 @@
 
   function scopeText() {
     if (isCF()) {
-      var ns = CF.g.filter(function (g) { return !scope.gs || scope.gs[g.n]; }).map(function (g) { return g.n; });
-      if (ns.length === CF.g.length) return '拼字相近的易混淆字組';
+      var gl = cfGroups(scope.kind);
+      var ns = gl.filter(function (g) { return !scope.gs || scope.gs[gnum(g)]; }).map(gnum);
+      if (ns.length === gl.length) return scope.kind === 'sn' ? '字義相近的易混淆字組' : '拼字相近的易混淆字組';
       var segs = rangeSegs(ns);
-      return '易混淆字組　·　' + (segs.length <= 6 ? '第 ' + segs.join('、') + ' 組' : '指定的組');
+      return (scope.kind === 'sn' ? '字義相近' : '易混淆字組') + '　·　' + (segs.length <= 6 ? '第 ' + segs.join('、') + ' 組' : '指定的組');
     }
     if (isPO()) {
       if (!scope.lv) return '一字多義';
@@ -648,6 +652,25 @@
     return out;
   }
 
+  // 字義相近的組放在另一個資料檔（SN），顯示用的組號是 dn（1–158），內部組號 n 從 401 起
+  function cfGroups(kind) { return kind === 'sn' ? (SN ? SN.g : []) : CF.g; }
+  function gnum(g) { return g.k === 'sn' ? g.dn : g.n; }
+  // 一組可以出哪幾種題：拼字相近照舊；字義相近只有大考原題（正解是組內的字）和例句填空
+  function cfVariants(g) {
+    var vs = [];
+    if (g.k === 'sn') {
+      g.w.forEach(function (x, i) { if (x.e && x.e.q) vs.push('o|w' + i); });
+      (g.f || []).forEach(function (f, j) { vs.push('s|' + j); });
+      return vs;
+    }
+    g.w.forEach(function (x, i) {
+      vs.push('c|' + i); vs.push('e|' + i);
+      if (g.f && g.f[i]) vs.push('s|' + i);
+    });
+    g.b.forEach(function (b, j) { vs.push('o|b' + j); });
+    return vs;
+  }
+
   // 數量的說法：單字卡說「個字」，易混淆字組說「組」
   function cnt(n) { return '<b>' + n + '</b>' + (isCF() ? ' 組' : ' 個字'); }
   function unitWord() { return isCF() ? '組' : '字'; }
@@ -673,7 +696,7 @@
     sc = sc || scope;
     if (sc.deck === 'cf') {
       // 照組號排：組號本來就是依組內的字考過的題數排的
-      return CF.g.filter(function (g) { return !sc.gs || sc.gs[g.n]; })
+      return cfGroups(sc.kind || 'sp').filter(function (g) { return (!sc.gs || sc.gs[gnum(g)]) && cfVariants(g).length; })
                  .map(function (g) { return String(g.n); });
     }
     if (sc.deck === 'po') {
@@ -707,13 +730,7 @@
   function variantsOf(word) {
     if (isCF()) {
       // 每個字三種（c 中文選字、e 字選中文、s 例句填空），組內同題每題一種（o 大考原題）
-      var g = CFG[word], vs = [];
-      g.w.forEach(function (x, i) {
-        vs.push('c|' + i); vs.push('e|' + i);
-        if (g.f && g.f[i]) vs.push('s|' + i);
-      });
-      g.b.forEach(function (b, j) { vs.push('o|b' + j); });
-      return vs;
+      return cfVariants(CFG[word]);
     }
     if (isPO()) {
       // 1 大考原題（有原題的字才有），2 中文選字
@@ -864,6 +881,10 @@
     p: '例句填空'
   };
   var PO_LABEL = { '1': '一字多義　大考原題', '2': '一字多義　中文選字' };
+  var SN_LABEL = {
+    o: '字義相近　大考原題',
+    s: '字義相近　例句填空'
+  };
   var CF_LABEL = {
     c: '易混淆字　中文 → 英文',
     e: '易混淆字　英文 → 中文',
@@ -885,14 +906,14 @@
     var parts = c.variant.split('|'), kind = parts[0];
     var body = '', opts = [], correct = '';
     if (kind === 'o') {
-      var b = g.b[+parts[1].slice(1)], q = b.e.q;
+      var b = parts[1].charAt(0) === 'w' ? { e: g.w[+parts[1].slice(1)].e } : g.b[+parts[1].slice(1)], q = b.e.q;
       body = '<p class="front-frame">' + frameHTML(q.s) + '</p>' +
              '<p class="front-hint">出自 ' + esc(b.e.src) + ' 的原題，四個選項是當年的原選項。</p>';
       opts = Object.keys(q.o).map(function (x) { return { key: x, text: q.o[x] }; });
       correct = q.a;
     } else if (kind === 's') {
       var fi = g.f[+parts[1]], hasBase = fi.o.some(function (o) { return typeof o !== 'string'; });
-      body = '<p class="front-note">說明：這一題依大考詞彙題的題型編寫，不是大考原題；選項以同一組易混淆字為主，彼此的詞性不一定相同，先判斷空格需要哪一種詞性' +
+      body = '<p class="front-note">說明：這一題依大考詞彙題的題型編寫，不是大考原題；' + (g.k === 'sn' ? '選項都是同一組中文意思相近的字，要看句子的用法決定哪一個才對' : '選項以同一組易混淆字為主，彼此的詞性不一定相同，先判斷空格需要哪一種詞性') +
              (hasBase ? '；選項已改成句子需要的字形，括號裡是原形。' : '。') + '</p>' +
              '<p class="front-frame">' + frameHTML(fi.s) + '</p>';
       opts = fi.o.map(function (o, k) {
@@ -915,7 +936,7 @@
       }
       correct = 'w' + i;
     }
-    return { body: body, opts: opts, correct: correct, label: CF_LABEL[kind] };
+    return { body: body, opts: opts, correct: correct, label: (g.k === 'sn' ? SN_LABEL : CF_LABEL)[kind] };
   }
 
   function renderFrontPO() {
@@ -1154,7 +1175,7 @@
     h += '<p class="bk-en">' + esc(e.en[0]) + '<b>' + esc(e.en[1]) + '</b>' + esc(e.en[2]) + '</p>';
     if (e.zh) h += '<p class="bk-zh">' + esc(e.zh) + '</p>';
     (notes || []).forEach(function (n) { h += '<p class="bk-role">' + esc(n) + '</p>'; });
-    h += '<a class="bk-link" href="' + esc(e.url) + '" target="_blank" rel="noopener">看原題與解析 →</a>';
+    h += '<a class="bk-link" href="' + esc(e.url) + '" target="_blank" rel="noopener">' + (e.d ? '看字典頁 →' : '看原題與解析 →') + '</a>';
     return h + '</div>';
   }
   // 原題正解是不是組內這個字：同一個字，或只多了副詞字尾 -ly（unanimous → unanimously）
@@ -1171,7 +1192,8 @@
   }
   // target：剛才考的字（-1 表示沒有）；blk：剛才出的是第幾題組內同題（-1 表示不是）
   function groupHTML(g, target, blk, newTab) {
-    var h = '<p class="cf-no">第 ' + g.n + ' 組</p>';
+    var h = g.k === 'sn' ? '<p class="cf-no">字義相近　第 ' + g.dn + ' 組　·　' + esc(g.z) + '</p>'
+                         : '<p class="cf-no">第 ' + g.n + ' 組</p>';
     h += '<div class="cf-mem"><span class="lab">記憶點</span>' + linkGroups(esc(g.m), newTab) + '</div>';
     h += '<ul class="cf-list">' + g.w.map(function (w, i) {
       return '<li' + (i === target ? ' class="me"' : '') + '><span class="cf-w">' + esc(w.w) + '</span>' + spkBtn(w.w) +
@@ -1197,7 +1219,15 @@
       shownWord[target] = 1;
     }
     h += main;
-    h += '<div class="cf-x"><span class="lab">怎麼分</span>' + linkGroups(esc(g.x), newTab) + '</div>';
+    if (g.k === 'sn') {
+      var xs = esc(g.x).replace(/【查不到差別的字】/, '<b>【查不到差別的字】</b>').replace(/\n/g, '<br>');
+      // 答完題的背面很長，說明先收起來，點開再看；單看一組時直接攤開
+      h += newTab
+        ? '<details class="cf-x cf-xd"><summary><b>換了就不對的情況</b>（這一組怎麼分，點開看）</summary>' + xs + '</details>'
+        : '<div class="cf-x"><span class="lab">換了就不對的情況</span>' + xs + '</div>';
+    } else {
+      h += '<div class="cf-x"><span class="lab">怎麼分</span>' + linkGroups(esc(g.x), newTab) + '</div>';
+    }
 
     // 其餘的例題與依據
     var more = '', nEx = 0;
@@ -1208,6 +1238,9 @@
     g.w.forEach(function (w, i) {
       if (shownWord[i] || !w.e) return;
       more += cfExample(w.e, w.nt, w.w); nEx++;
+    });
+    g.w.forEach(function (w) {
+      if (w.e2) { more += cfExample(w.e2, [], w.w); nEx++; }
     });
     var src = '<ul class="cf-src">' + g.s.map(function (s) {
       return '<li><a href="' + esc(s[1]) + '" target="_blank" rel="noopener">' + esc(s[0]) + '</a></li>';
@@ -1232,16 +1265,23 @@
     var parts = c.variant.split('|');
     var target = -1, blk = -1;
     if (parts[0] === 'o') {
-      blk = +parts[1].slice(1);
-      // 原題的正解如果是組內的字，就把那個字標出來
-      var q = g.b[blk].e.q, ans = q.o[q.a].toLowerCase();
-      g.w.forEach(function (w, i) { if (cfSame(ans, w.w)) target = i; });
+      if (parts[1].charAt(0) === 'w') {
+        target = +parts[1].slice(1);      // 字義相近：原題掛在這個字底下
+      } else {
+        blk = +parts[1].slice(1);
+        // 原題的正解如果是組內的字，就把那個字標出來
+        var q = g.b[blk].e.q, ans = q.o[q.a].toLowerCase();
+        g.w.forEach(function (w, i) { if (cfSame(ans, w.w)) target = i; });
+      }
+    } else if (g.k === 'sn') {
+      var fw = g.f[+parts[1]].w;          // 字義相近：題目不是一個字一題，靠答案字找回組內的字
+      g.w.forEach(function (w, i) { if (w.w === fw) target = i; });
     } else {
       target = +parts[1];
     }
     var h = '<p class="verdict ' + (c.ok ? 'ok' : 'no') + '">' + (c.ok ? '答對了' : '答錯了') + '</p>';
     if (parts[0] === 's') {
-      var fi = g.f[target], a = fi.o[0], shown = typeof a === 'string' ? a : a[0];
+      var fi = g.f[+parts[1]], a = fi.o[0], shown = typeof a === 'string' ? a : a[0];
       h += '<div class="bk-sec cf-fill"><p class="bk-en">' +
            esc(fi.s).replace(/\b([Aa])\(n\)(?= _{2,})/, function (m, x) { return anOK(shown) ? x + 'n' : x; })
                     .replace(/_{2,}/, '<b>' + esc(shown) + '</b>') + '</p>' +
@@ -1254,7 +1294,7 @@
   function renderGroupView() {
     var g = CFG[scope.view];
     if (!g) { scope.view = 0; renderHome(); return; }
-    $('gvScope').textContent = '易混淆字組　·　第 ' + g.n + ' 組';
+    $('gvScope').textContent = g.k === 'sn' ? '字義相近　·　第 ' + g.dn + ' 組' : '易混淆字組　·　第 ' + g.n + ' 組';
     $('gvCard').innerHTML = groupHTML(g, -1, -1, false);
     hide('home'); hide('quiz'); hide('done'); hide('stats'); hide('loading'); show('gview');
     window.scrollTo(0, 0);
@@ -1482,7 +1522,25 @@
     if (!box) return;
     box.innerHTML = '';
     if (isCF()) {
-      box.innerHTML = '想只練其中幾組，或某一課的字所在的組，可以到<a class="rg" href="teacher.html#cf">出題範圍與連結</a>選好組號，產生自己的練習連結。';
+      var onSn = scope.kind === 'sn';
+      var kinds = [{ label: '拼字相近', hash: '#deck=cf', on: !onSn, n: CF ? CF.g.length : 0 },
+                   { label: '字義相近', hash: '#deck=cf&kind=sn', on: onSn, n: SN ? buildPool({ deck: 'cf', kind: 'sn' }).length : 0 }];
+      kinds.forEach(function (r, i) {
+        if (i) box.appendChild(document.createTextNode(' · '));
+        var el = document.createElement(r.on ? 'span' : 'a');
+        el.className = 'rg' + (r.on ? ' on' : '');
+        if (!r.on) el.setAttribute('href', r.hash);
+        el.textContent = r.label + (r.n ? ' ' + r.n + ' 組' : '');
+        box.appendChild(el);
+      });
+      box.appendChild(document.createElement('br'));
+      box.appendChild(document.createTextNode(onSn
+        ? '想只練其中幾組，可以到'
+        : '想只練其中幾組，或某一課的字所在的組，可以到'));
+      var tl = document.createElement('a');
+      tl.className = 'rg'; tl.setAttribute('href', onSn ? 'teacher.html#sn' : 'teacher.html#cf'); tl.textContent = '出題範圍與連結';
+      box.appendChild(tl);
+      box.appendChild(document.createTextNode('選好組號，產生自己的練習連結。'));
       return;
     }
     if (isPO()) {
@@ -1543,6 +1601,10 @@
       $('homeDesc').textContent = '這 ' + PO.n + ' 個字，你多半只熟悉其中一種意思或詞性，大考考的卻是另一種，例如 grace 當動詞是「光臨，使（場合）增光」。' +
         '其中 ' + PO.withq + ' 個字有大考原題，第一次先考原題，下一次再改考中文選字；其餘的字沒有原題，只考中文選字，卡片背面附上考題文章裡的原句；少數常見但沒考過的意思，附的是依辭典寫的例句。' +
         '答對的字往後推，答錯的當場再來一次。';
+    } else if (isCF() && scope.kind === 'sn') {
+      $('homeLead').textContent = '意思差不多的字，什麼時候換了就不對';
+      $('homeDesc').textContent = '每一組都是中文意思相近的字，例如 price、cost、fee、fare。字典（LDOCE、Oxford、Merriam-Webster）寫明了哪些句型、搭配或情境，換成另一個字就不對。' +
+        '每次從一組裡出一題：有大考原題的，先出當年的原題；其餘依字典的說明編寫例句填空，卡片上會標明不是大考原題。答完可以看整組怎麼分。答對的組往後推，答錯的當場再來一次。';
     } else if (isCF()) {
       $('homeLead').textContent = '容易搞混的字，一組一組記';
       $('homeDesc').textContent = '每一組都是拼法或字根相近、或是唸法相同，容易搞混的字，其中不少就是大考拿來當誘答的字。' +
@@ -1609,7 +1671,7 @@
   }
   function wordRow(word, right) {
     if (isCF()) {
-      return '<li><a class="w" href="' + wordLink(word) + '" target="_blank" rel="noopener">第 ' + word + ' 組</a>' +
+      return '<li><a class="w" href="' + wordLink(word) + '" target="_blank" rel="noopener">第 ' + gnum(CFG[word]) + ' 組</a>' +
              '<span class="g">' + esc(glossShort(word)) + '</span>' + (right || '') + '</li>';
     }
     if (isPO()) {
@@ -1758,7 +1820,7 @@
     fetch('confusables_data.json?v=2', { cache: 'default' })
       .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
       .then(function (d) {
-        CF = d; CFG = {};
+        CF = d; CFG = CFG || {};
         d.g.forEach(function (g) { CFG[g.n] = g; });
         cfLoading = false;
         done();
@@ -1766,6 +1828,28 @@
       .catch(function () {
         cfLoading = false;
         $('loading').textContent = '易混淆字組載入失敗，請重新整理頁面試試。';
+      });
+  }
+
+  // 字義相近的資料另外一個檔，只有點到字義相近才載入
+  var snLoading = false;
+  function ensureSN(done) {
+    if (SN) { done(); return; }
+    if (snLoading) return;
+    snLoading = true;
+    hide('home'); hide('stats'); hide('gview'); show('loading');
+    $('loading').textContent = '載入字義相近中…';
+    fetch('confusables_sense_data.json?v=1', { cache: 'default' })
+      .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+      .then(function (d) {
+        SN = d; if (!CFG) CFG = {};
+        d.g.forEach(function (g) { CFG[g.n] = g; });
+        snLoading = false;
+        done();
+      })
+      .catch(function () {
+        snLoading = false;
+        $('loading').textContent = '字義相近載入失敗，請重新整理頁面試試。';
       });
   }
 
@@ -1794,7 +1878,9 @@
   // 依網址決定畫面。first：剛打開頁面時才照 mode=free 直接開始自由練習
   var cfHomeHash = '#deck=cf', poHomeHash = '#deck=po';
   function route(first) {
-    if (scope.deck === 'cf' && !CF) { ensureCF(function () { route(first); }); return; }
+    if (scope.deck === 'cf' && scope.kind === 'sn') {
+      if (!SN) { ensureSN(function () { route(first); }); return; }
+    } else if (scope.deck === 'cf' && !CF) { ensureCF(function () { route(first); }); return; }
     if (scope.deck === 'po' && !PO) { ensurePO(function () { route(first); }); return; }
     if (scope.deck === 'cf' && !scope.view) cfHomeHash = location.hash || '#deck=cf';
     if (scope.deck === 'po' && !scope.view) poHomeHash = location.hash || '#deck=po';
