@@ -40,7 +40,7 @@ section{margin:0 0 2.4rem;scroll-margin-top:1rem}
 h2{font-family:var(--serif);font-size:1.24rem;margin:0 0 .1rem;font-weight:600}
 h2 span{font-family:var(--sans);font-size:.92rem;color:var(--ad-x3d5059-fg);margin-left:.5rem;font-weight:400}
 h3{font-size:.95rem;margin:1.1rem 0 .3rem;color:var(--ad-vteal-fg);font-weight:600}
-.kk{font-size:.85rem;color:var(--ad-vmuted-fg);margin-left:.45rem}
+li .kkp{font-size:.85rem;color:var(--ad-vmuted-fg)}
 .note{font-size:.9rem;color:var(--ad-x3d5059-fg);margin:.35rem 0 1rem;max-width:40em;
   border-left:3px solid var(--ad-vtealsoft-border);padding-left:.7rem}
 ul{list-style:none;margin:0;padding:0}
@@ -111,6 +111,7 @@ details .list{color:var(--ad-x3d5059-fg)}
 </div>
 
 <script src="../speaker.js"></script>
+<script src="../kk.js"></script>
 <script>
 const $=s=>document.querySelector(s);
 let DATA=null, state={q:'', lv:new Set(), examOnly:false, w:''};
@@ -167,7 +168,7 @@ function render(){
       const li=document.createElement('li');
       const w=document.createElement('div');
       const nm=document.createElement('span'); nm.className='w'; nm.textContent=it.w; w.appendChild(nm); {const sb=SPK.el(it.w); if(sb) w.appendChild(sb);}
-      if(it.kk){const k=document.createElement('span');k.className='kk';k.textContent='['+it.kk+']';w.appendChild(k);}
+      {const kb=KK.el(it.w); if(kb) w.appendChild(kb);}
       if(it.lv){const b=document.createElement('span');b.className='badge';b.textContent=it.base?('衍生自 '+it.base+'（第 '+it.lv+' 級）'):('第 '+it.lv+' 級');w.appendChild(b);}
       li.appendChild(w);
       const p=document.createElement('div'); p.className='p'; p.textContent=it.p; li.appendChild(p);
@@ -263,7 +264,7 @@ function readHash(){
   if(h.startsWith('w=')){state.w=h.slice(2);state.q='';$('#q').value='';}
   else if(h.startsWith('q=')){state.w='';state.q=h.slice(2);$('#q').value=state.q;}
 }
-Promise.all([fetch('affixes_data.json').then(r=>r.json()),fetch('../lexicon/lexicon_data.json').then(r=>r.json())]).then(([d,lex])=>{
+Promise.all([fetch('affixes_data.json').then(r=>r.json()),fetch('../lexicon/lexicon_data.json').then(r=>r.json()),KK.ready]).then(([d,lex])=>{
   LEX=lex.words; const W=lex.words, m=it=>Object.assign(it,W[it.w]||{},{p:it.p});
   d.groups.forEach(g=>g.subs.forEach(sb=>sb.items.forEach(m)));
   DATA=d;

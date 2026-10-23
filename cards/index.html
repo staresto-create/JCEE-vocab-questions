@@ -1198,9 +1198,9 @@
     h += '<div class="cf-mem"><span class="lab">記憶點</span>' + linkGroups(esc(g.m), newTab) + '</div>';
     h += '<ul class="cf-list">' + g.w.map(function (w, i) {
       return '<li' + (i === target ? ' class="me"' : '') + '><span class="cf-w">' + esc(w.w) + '</span>' + spkBtn(w.w) +
-             '<span class="cf-kk">[' + esc((window.KK && KK.raw(w.w)) || w.kk).split('　').map(function (k) {
-               return '<span class="nw">' + k + '</span>';   // 兩種唸法之間才換行
-             }).join(' ') + ']</span>' +
+             '<span class="cf-kk">' + ((window.KK && KK.parts(w.w)) || []).map(function (p) {
+               return '<span class="nw">' + (p.lab ? p.lab + ' ' : '') + '[' + esc(p.kk) + ']</span>';   // 兩種唸法之間才換行
+             }).join(' ') + '</span>' +
              '<span class="lvtag">' + cfLevel(w.lv) + '</span> ' +
              '<span class="cf-pos">' + esc(w.pos) + '</span><span class="cf-zh">' + esc(w.zh) + '</span></li>';
     }).join('') + '</ul>';
@@ -1950,6 +1950,7 @@
 
   function init() {
     wire();
+    var kkReady = window.KK ? KK.ready : Promise.resolve();
     // 例句填空資料載入失敗不影響其他題型，只是不出例句填空
     fetch('practice_data.json?v=1', { cache: 'default' })
       .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
@@ -1960,6 +1961,7 @@
         if (!r.ok) throw new Error('HTTP ' + r.status);
         return r.json();
       })
+      .then(function (d) { return kkReady.then(function () { return d; }); })
       .then(boot)
       .catch(function (e) {
         $('loading').textContent = '字庫載入失敗，請重新整理頁面試試。';
