@@ -19,9 +19,9 @@
 /* 題目地圖：一年一列、一題一格；格子顏色沿用題庫既有的難／中／易分級，每格都同時印出題號與答對率，不只靠顏色 */
 :root{
   --hard-bg:#FBE4E1; --hard-fg:#5E160B; --hard-bd:#B3382C; --hard-badge:#B3382C;
-  --low-bg:#FBEBCF; --low-fg:#5A3C00; --low-bd:#E3B966;
-  --mid-bg:#F8F2E3; --mid-fg:#4A3B0E; --mid-bd:#E6DBBC;
-  --easy-bg:#E2EFE5; --easy-fg:#14391F; --easy-bd:#B5D2BD;
+  --low-bg:#F8DFA6; --low-fg:#573A00; --low-bd:#D9A23F;
+  --mid-bg:#FFFCF5; --mid-fg:#4A3B0E; --mid-bd:#E2D6B4;
+  --easy-bg:#DAEBDE; --easy-fg:#14391F; --easy-bd:#A6C9B1;
   --none-bg:#FFFDF7; --none-fg:#5B5648;
   --chip-on-bg:#221F1A; --chip-on-fg:#F6F1E4;
 }
@@ -61,9 +61,9 @@ h2.mp-sec{font-family:'Noto Serif TC',serif;font-weight:700;font-size:18px;margi
 .mp-rowhead a{font-size:13px;min-height:32px;display:inline-flex;align-items:center}
 .mp-cells{display:flex;flex-wrap:wrap;gap:6px 18px}
 .mp-grp{display:flex;flex-wrap:wrap;gap:6px}
-.mp-cell{display:flex;flex-direction:column;align-items:center;justify-content:center;width:46px;height:54px;border-radius:9px;
+.mp-cell{display:flex;flex-direction:column;align-items:center;justify-content:center;width:46px;height:58px;border-radius:9px;
   text-decoration:none;position:relative;border:1.5px solid transparent;font-variant-numeric:tabular-nums;transition:opacity .15s}
-.mp-cell .q{font-family:'IBM Plex Mono','Noto Sans TC',monospace;font-weight:600;font-size:16px;line-height:1.2}
+.mp-cell .q{font-family:'IBM Plex Mono','Noto Sans TC',monospace;font-weight:700;font-size:18px;line-height:1.2}
 .mp-cell .p{font-family:'IBM Plex Mono','Noto Sans TC',monospace;font-size:11.5px;line-height:1.3}
 .mp-cell.hard{background:var(--hard-bg);color:var(--hard-fg);border-color:var(--hard-bd)}
 .mp-cell.low{background:var(--low-bg);color:var(--low-fg);border-color:var(--low-bd)}
@@ -83,7 +83,7 @@ h2.mp-sec{font-family:'Noto Serif TC',serif;font-weight:700;font-size:18px;margi
 @media screen and (prefers-color-scheme: dark){
   :root{
     --hard-bg:#4A2622; --hard-fg:#FFDDD6; --hard-bd:#C2493B; --hard-badge:#C2493B;
-    --low-bg:#4F4126; --low-fg:#FFEFC8; --low-bd:#8A7040;
+    --low-bg:#5C4A24; --low-fg:#FFEFC8; --low-bd:#9C7C3E;
     --mid-bg:#3B362B; --mid-fg:#EADFC0; --mid-bd:#554E3D;
     --easy-bg:#27483A; --easy-fg:#DDF6E4; --easy-bd:#3F7A56;
     --none-bg:#26231F; --none-fg:#B8B0A0;
