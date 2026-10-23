@@ -65,6 +65,7 @@
   .answer{font-family:'IBM Plex Mono','Noto Sans TC',monospace; font-size:20px; color:var(--ad-vcrimson-fg); background:var(--ad-xFBF6EA-bg);
           border:1px solid var(--ad-vrule-border); border-radius:3px; padding:14px; margin:0 0 6px; word-break:break-word;}
   .kk{font-family:'IBM Plex Mono','Noto Sans TC',monospace; font-size:13px; color:var(--ad-vinksoft-fg); margin:0 0 14px;}
+  .kk .kkp{margin-left:0;font-size:inherit;color:inherit}
   .done{text-align:center; padding:14px 0;}
   .done .big{font-family:'Noto Serif TC',serif; font-weight:900; font-size:25px; margin:0 0 6px;}
   footer{border-top:1px solid var(--ad-vrule-border); margin-top:26px; padding-top:14px; font-size:13px; color:var(--ad-vinksoft-fg);}
@@ -188,6 +189,7 @@
 </footer>
 </div>
 <script src="../speaker.js"></script>
+<script src="../kk.js"></script>
 <script>
 var DATA = null;
 (function () {
@@ -429,8 +431,8 @@ var DATA = null;
     v.textContent = ok ? '拼對了' : (gaveUp ? '這一個先看答案' : '還差一點');
     $('yours').textContent = (!ok && !gaveUp && typed.trim()) ? ('你寫的：' + typed.trim()) : '';
     $('answer').textContent = en;
-    var k = rec(card).k;
-    $('kk').textContent = k ? '[' + k + ']' : '';
+    // 音標改讀全站音標表（kk_data.json），與各題庫站一致；片語與表裡沒有的字不顯示
+    $('kk').innerHTML = (window.KK && en) ? KK.html(en) : '';
     $('overrideBtn').style.display = ok ? 'none' : '';
     $('overrideBtn').onclick = function () { grade(card, true); };
     $('nextBtn').onclick = function () { grade(card, ok); };
