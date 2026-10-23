@@ -208,7 +208,7 @@
       var h = document.createElement('div');
       h.setAttribute('role', 'status');
       h.setAttribute('data-spk-hint', '1');
-      h.textContent = '聽不到聲音？請確認手機或平板沒有開啟靜音模式，並把音量調大，再按一次喇叭。';
+      h.textContent = '聽不到聲音？請看螢幕左上角時間旁邊，如果有「鈴鐺加斜線」的圖示，就是靜音模式，請撥開手機側邊的靜音撥片（或在控制中心關掉靜音），再按一次喇叭。';
       h.style.cssText = 'position:fixed;left:50%;bottom:calc(18px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:2147483001;box-sizing:border-box;max-width:min(92vw,26em);' +
         'padding:9px 14px;border-radius:8px;border:1px solid rgba(255,255,255,.4);background:#221F1A;color:#fff;' +
         'font:13px/1.6 "Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;text-align:center;box-shadow:0 2px 10px rgba(0,0,0,.35)';
@@ -217,7 +217,7 @@
       h.appendChild(ps);
       document.body.appendChild(h);
       clearTimeout(hintTimer);
-      hintTimer = setTimeout(function () { if (h.parentNode) h.parentNode.removeChild(h); }, 7000);
+      hintTimer = setTimeout(function () { if (h.parentNode) h.parentNode.removeChild(h); }, 12000);
     } catch (err) {}
   }
 
