@@ -150,7 +150,7 @@ function load(){
   });
   return loading;
 }
-var css='.pvBox{margin:1rem 0;border:1px solid rgba(128,128,128,.35);border-radius:.4rem;padding:.2rem .8rem}.pvBox summary{cursor:pointer;font-weight:700;padding:.5rem 0}'+
+var css='.pvBox{margin:1rem 0;border:1px solid rgba(128,128,128,.35);border-left:4px solid var(--crimson,#9b2c1f);border-radius:.4rem;padding:.2rem .8rem;background:rgba(155,44,31,.05)}.pvBox summary{cursor:pointer;font-weight:700;padding:.5rem 0}.pvHint{display:block;font-weight:400;font-size:.82em;opacity:.8;margin-top:.15rem}'+
  '.pvNote{font-size:.85em;opacity:.8;margin:.2rem 0 .6rem;line-height:1.7}.pvList{list-style:none;margin:0 0 .8rem;padding:0}.pvList li{padding:.45rem 0;border-top:1px dashed rgba(128,128,128,.35);line-height:1.6}'+
  '.pvW{font-weight:700;margin-right:.3rem}.pvMeta{font-size:.82em;opacity:.75;margin-left:.4rem}.pvZh{display:block}.pvHd{font-size:.95em;margin:.8rem 0 .2rem}.pvHd small{font-weight:400;opacity:.75;margin-left:.4rem}.pvNo a{font-size:.85em}';
 function addCss(){if(document.getElementById('pv-css'))return;var s=document.createElement('style');s.id='pv-css';s.textContent=css;document.head.appendChild(s);}
@@ -169,7 +169,7 @@ function html(text,opt){
     var A=analyze(String(text));
     var ins=A.order.filter(function(e){return !e.out&&e.lv>=th;}).sort(function(a,b){return a.first-b.first;});
     var out=A.order.filter(function(e){return e.out;}).sort(function(a,b){return a.first-b.first;});
-    var h='<details class="pvBox"><summary>這一篇的生字表 <small>（詞彙表第 '+th+' 級以上 '+ins.length+' 個'+(out.length?'、詞彙表以外 '+out.length+' 個':'')+'）</small></summary>'+
+    var h='<details class="pvBox"><summary>這一篇的生字表 <small>（詞彙表第 '+th+' 級以上 '+ins.length+' 個'+(out.length?'、詞彙表以外 '+out.length+' 個':'')+'）</small><span class="pvHint">點開看：每個字都有發音、音標和中文</span></summary>'+
       '<div class="pvNote">依文章出現的順序排列。級數依大考中心《高中英文參考詞彙表》（111 學年度起適用），中文意思與音標和本題庫的單字記憶卡一致。複數、過去式這類變化，列的是原形；文中的寫法標在「文中」。</div>';
     h+=ins.length?'<ul class="pvList">'+ins.map(li).join('')+'</ul>':'<p class="pvNote">這一篇沒有第 '+th+' 級以上的字。</p>';
     if(out.length)h+='<h3 class="pvHd">詞彙表以外<small>不在大考中心詞彙表裡，所以沒有級數；中文意思與音標對照 Merriam-Webster</small></h3><ul class="pvList">'+out.map(li).join('')+'</ul>';
