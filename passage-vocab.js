@@ -1,7 +1,9 @@
 /* 文章生字表（共用）：把一段英文文章依詞彙表覆蓋清單分級，產生「這一篇的生字表」。
  * 字形還原、分級與中文意思的做法和 cards/mark.html（貼上文章、標出生字）相同；
- * 詞彙表以外的字不自己寫中文，只附劍橋英漢的連結。資料在使用時才下載。
- * 用法：PV.html(文章字串或字串陣列, {th:4}) 回傳 Promise，內容是 <details> 的 HTML。 */
+ * 詞彙表以外的字、詞彙表裡還沒有中文的字，中文放在 lexicon/passage_gloss.json。資料在使用時才下載。
+ * 用法：PV.html(文章字串或字串陣列, {th:4}) 回傳 Promise，內容是 <details> 的 HTML。
+ * cards/mark.html（貼上文章、標出生字）也用同一套：PV.load() 讀完資料後，PV.analyze(文章)、PV.glossOf(字)、PV.ctx()。
+ * 中文：一字多義 → 共用字表 → 詞彙表考過的釋義 → lexicon/passage_gloss.json；音標：全站 kk_data.json（kk.js）。 */
 (function(){
 'use strict';
 var BASE=(function(){var s=document.currentScript&&document.currentScript.src;return s?s.slice(0,s.lastIndexOf('/')+1):'';})();
@@ -74,6 +76,7 @@ function lemma(t){
 }
 
 function analyze(text){
+  var raw=text;
   text=text.replace(/[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}|(?:https?:\/\/|www\.)[^\s)]+/g,function(x){return x.replace(/./g,' ');});
   var re=/T-shirt|[A-Za-z\u00C0-\u024F]+/g, m, toks=[], props={};
   function atStart(pos){
@@ -123,14 +126,14 @@ function analyze(text){
     e.n++; e.forms[o2.w.toLowerCase()]=1; o2.e=e; o2.fi=i;
   }
   var cnt=0;for(i=0;i<toks.length;i++)if(toks[i].kind!=='skip')cnt++;
-  return {text:text,toks:toks,by:by,order:order,total:cnt};
+  return {text:text,raw:raw,toks:toks,by:by,order:order,total:cnt};
 }
 
 function plain(g){return String(g).replace(/(^|；)\s*((?:[a-z]+\.(?:\/[a-z]+\.)*\s*)?)[^；→]*→/g,'$1$2');}
 function exOf(e){var x=EX[e.key];if(x)return x;var k=Object.keys(e.forms);for(var i=0;i<k.length;i++)if(EX[k[i]])return EX[k[i]];return null;}
 function exGloss(x){return x&&x.z?((x.p&&!/^[a-z.\/]+\.\s/.test(x.z))?x.p+' ':'')+x.z:'';}
 function glossOf(e){
-  if(e.out)return exGloss(exOf(e));
+  if(e.out)return (LEX[e.key]&&LEX[e.key].g)?plain(LEX[e.key].g):exGloss(exOf(e));
   var p=POLY[e.key]; if(p)return p.fam&&p.test?p.fam+'；'+p.test:(p.fam||p.test||'');
   if(LEX[e.key]&&LEX[e.key].g)return plain(LEX[e.key].g);
   if(e.grp&&e.grp.gloss)return plain(e.grp.gloss);
@@ -151,15 +154,9 @@ var css='.pvBox{margin:1rem 0;border:1px solid rgba(128,128,128,.35);border-radi
  '.pvNote{font-size:.85em;opacity:.8;margin:.2rem 0 .6rem;line-height:1.7}.pvList{list-style:none;margin:0 0 .8rem;padding:0}.pvList li{padding:.45rem 0;border-top:1px dashed rgba(128,128,128,.35);line-height:1.6}'+
  '.pvW{font-weight:700;margin-right:.3rem}.pvMeta{font-size:.82em;opacity:.75;margin-left:.4rem}.pvZh{display:block}.pvHd{font-size:.95em;margin:.8rem 0 .2rem}.pvHd small{font-weight:400;opacity:.75;margin-left:.4rem}.pvNo a{font-size:.85em}';
 function addCss(){if(document.getElementById('pv-css'))return;var s=document.createElement('style');s.id='pv-css';s.textContent=css;document.head.appendChild(s);}
-var KAB={'名詞':'n.','動詞':'v.','形容詞':'adj.'};
-function kkOut(k){
-  if(!k)return '';
-  if(k.indexOf('　')<0)return '<span class="kkp">['+esc(k)+']</span>';
-  return '<span class="kkp">'+k.split('　').map(function(x){var m=/^（(.+?)）(.+)$/.exec(x);return '<i>'+(m?(KAB[m[1]]||esc(m[1]))+' ['+esc(m[2])+']':'['+esc(x)+']')+'</i>';}).join('')+'</span>';
-}
 function li(e){
   var g=glossOf(e), f=Object.keys(e.forms).filter(function(x){return x!==e.key;}).join('、');
-  var h='<li><span class="pvW" lang="en">'+esc(e.key)+'</span>'+(window.SPK?SPK.html(e.key,true):'')+(e.out?kkOut((exOf(e)||{}).kk):(window.KK?KK.html(e.key):''));
+  var h='<li><span class="pvW" lang="en">'+esc(e.key)+'</span>'+(window.SPK?SPK.html(e.key,true):'')+(window.KK?KK.html(e.key):'');
   h+='<span class="pvMeta">'+(e.out?'':e.lv+' 級'+(/^[a-z.\/]+\.\s/.test(g)?'':'　'+esc(e.pos||'')))+(f?(e.out?'':'　')+'文中：<span lang="en">'+esc(f)+'</span>':'')+'</span>';
   h+=g?'<span class="pvZh">'+esc(g)+'</span>':'<span class="pvZh pvNo"><a href="'+camUrl(e.key)+'" target="_blank" rel="noopener">查劍橋英漢 →</a></span>';
   return h+'</li>';
@@ -179,5 +176,5 @@ function html(text,opt){
     return h+'</details>';
   });
 }
-window.PV={html:html};
+window.PV={html:html,load:load,analyze:analyze,glossOf:glossOf,exOf:exOf,camUrl:camUrl,ctx:function(){return {D:D,POLY:POLY,LEX:LEX,EX:EX};}};
 })();

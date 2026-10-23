@@ -457,6 +457,7 @@
 
 </div>
 <script src="../speaker.js"></script>
+<script src="../kk.js"></script>
 <script>
 /* 單字記憶卡 · 引擎
    資料：cards_data.json（同資料夾）；單字卡的例句填空另放 practice_data.json
@@ -1197,7 +1198,7 @@
     h += '<div class="cf-mem"><span class="lab">記憶點</span>' + linkGroups(esc(g.m), newTab) + '</div>';
     h += '<ul class="cf-list">' + g.w.map(function (w, i) {
       return '<li' + (i === target ? ' class="me"' : '') + '><span class="cf-w">' + esc(w.w) + '</span>' + spkBtn(w.w) +
-             '<span class="cf-kk">[' + esc(w.kk).split('　').map(function (k) {
+             '<span class="cf-kk">[' + esc((window.KK && KK.raw(w.w)) || w.kk).split('　').map(function (k) {
                return '<span class="nw">' + k + '</span>';   // 兩種唸法之間才換行
              }).join(' ') + ']</span>' +
              '<span class="lvtag">' + cfLevel(w.lv) + '</span> ' +
@@ -1356,7 +1357,10 @@
 
     h += '<div class="bk-head">';
     h += '<span class="bk-word">' + esc(displayWord(word, qid)) + '</span>' + spkBtn(displayWord(word, qid));
-    if (w.kk) h += '<span class="bk-kk">[' + esc(w.kk) + ']</span>';
+    // 音標以全站音標表（kk_data.json）為準，查不到才用這張卡自己帶的
+    var kkh = window.KK && KK.html(word);
+    if (kkh) h += kkh;
+    else if (w.kk) h += '<span class="bk-kk">[' + esc(w.kk) + ']</span>';
     h += '<span class="lvtag">' + esc(levelText(w)) + '</span>';
     h += '</div>';
 

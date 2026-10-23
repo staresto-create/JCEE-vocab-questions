@@ -2,6 +2,7 @@
  *   KK.ready      讀完資料才會完成的 Promise（讀不到也會完成，只是沒有音標）
  *   KK.html(字)   回傳音標的 HTML 字串，查不到回傳空字串
  *   KK.el(字)     回傳音標的元素，查不到回傳 null
+ *   KK.raw(字)    回傳音標的原始字串（兩種唸法用全形空白隔開），查不到回傳空字串
  * 名詞與動詞唸法不同的字，兩種都會列出，前面標詞性。
  */
 (function () {
@@ -31,6 +32,9 @@
     var raw = MAP[String(word == null ? '' : word).trim().toLowerCase()];
     return raw ? '<span class="kkp">' + inner(raw) + '</span>' : '';
   }
+  function raw(word) {
+    return MAP[String(word == null ? '' : word).trim().toLowerCase()] || '';
+  }
   function el(word) {
     var h = html(word);
     if (!h) return null;
@@ -42,5 +46,5 @@
   var ready = fetch(url).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
     .then(function (d) { MAP = d.kk || {}; }, function () {});
 
-  window.KK = { ready: ready, html: html, el: el };
+  window.KK = { ready: ready, html: html, el: el, raw: raw };
 })();
