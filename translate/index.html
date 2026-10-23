@@ -534,6 +534,7 @@ details.skill[open] > summary::after{content:'－ 收合';}
 @media print{body::after{content:"高中英文題庫\A staresto-create.github.io/JCEE-vocab-questions\A 免費資源，請勿販售";white-space:pre;position:fixed;top:42%;left:0;right:0;text-align:center;transform:rotate(-25deg);font-family:"Noto Sans TC",sans-serif;font-size:26pt;line-height:1.7;color:#c8c8c8;z-index:2147483000;pointer-events:none;}}
 .cc-note{font-size:12px;line-height:1.8;color:var(--ad-x8a8278-fg);margin:12px auto;max-width:60em;padding:0 1em;}.cc-note a{color:inherit;}
 </style>
+<script src="../resume.js" defer></script>
 </head>
 <body>
 
@@ -850,6 +851,7 @@ async function loadItems(){
     if(r2.ok) ALL_ITEMS = ALL_ITEMS.concat(await r2.json());
   }catch(e){}
   buildYearGrid();
+  scrMountStrip();
   startFromSetHash() || startFromHash();
 }
 
@@ -912,9 +914,30 @@ document.getElementById("startBtn").addEventListener("click", ()=>{
   renderQuestion();
 });
 
+/* 接續上次（2026-10-23）：記下這一題，供各站首頁與總站的「接續上次」使用。
+   只存在這台裝置的這個瀏覽器；共用模組讀不到時，下面每一處都安靜略過，不影響作答。
+   連結沿用本站原有的 #q-<題目編號> 形式。 */
+function scr(f){
+  try{
+    if(window.SCResume) f(window.SCResume);
+    else window.addEventListener('load', function(){ try{ if(window.SCResume) f(window.SCResume); }catch(e){} });
+  }catch(e){}
+}
+function scrMountStrip(){ scr(function(R){ R.mountStrip(document.getElementById('view-setup'), 'vocab-translate'); }); }
+function scrSaveQ(item){
+  scr(function(R){
+    const pool = item.year === ADAPT
+      ? ALL_ITEMS.filter(it => it.yearLabel === item.yearLabel)
+      : ALL_ITEMS.filter(it => it.year === item.year && it.label === item.label).sort((a, b) => Number(a.id) - Number(b.id));
+    const n = pool.findIndex(it => String(it.id) === String(item.id)) + 1;
+    R.save('vocab-translate', item.yearLabel + (n > 0 ? ' 第 ' + n + ' 題' : ''), '#q-' + item.id);
+  });
+}
+
 function showView(name){
   document.querySelectorAll("section.view").forEach(s=>s.classList.remove("active"));
   document.getElementById("view-"+name).classList.add("active");
+  if(name === "setup") scrMountStrip();
   document.querySelectorAll("nav.tabs button").forEach(b=>b.classList.remove("active"));
   const navBtn = document.querySelector(`nav.tabs button[data-view="${name}"]`);
   if(navBtn) navBtn.classList.add("active");
@@ -932,6 +955,7 @@ function renderQuestion(){
     return;
   }
   const item = queue[qIndex];
+  scrSaveQ(item);
   document.getElementById("questionCard").dataset.tag = item.yearLabel;
   document.getElementById("zhText").textContent = item.zh;
   const flagBox = document.getElementById("flagBox");

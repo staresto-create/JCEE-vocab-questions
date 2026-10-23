@@ -286,6 +286,7 @@
 @media print{body::after{content:"高中英文題庫\A staresto-create.github.io/JCEE-vocab-questions\A 免費資源，請勿販售";white-space:pre;position:fixed;top:42%;left:0;right:0;text-align:center;transform:rotate(-25deg);font-family:"Noto Sans TC",sans-serif;font-size:26pt;line-height:1.7;color:#c8c8c8;z-index:2147483000;pointer-events:none;}}
 .cc-note{font-size:12px;line-height:1.8;color:var(--ad-x8a8278-fg);margin:12px auto;max-width:60em;padding:0 1em;}.cc-note a{color:inherit;}
 </style>
+<script src="resume.js" defer></script>
 </head>
 <body>
 <div class="wrap">
@@ -1024,6 +1025,15 @@ function qtog(b){
   n.querySelectorAll('.qtog').forEach(function(x){x.setAttribute('aria-expanded','false');});
   p.hidden=!open; b.setAttribute('aria-expanded',open?'true':'false');
 }
+</script>
+<script>
+/* 接續上次（2026-10-23）：有紀錄的人，最上面出現一張卡片，一點就回到上次看的那一題或那一篇。
+   紀錄由各題庫站寫入（見 resume.js），只存在這台裝置的這個瀏覽器；沒有紀錄或讀不到時，什麼都不顯示。 */
+(function(){
+  function go(){ try{ if(window.SCResume) window.SCResume.mountHome(document.querySelector('.wrap')); }catch(e){} }
+  /* resume.js 是 defer，會在 DOMContentLoaded 之前執行；卡片在第一次畫面出現前就位，版面不會跳動。 */
+  if(window.SCResume) go(); else document.addEventListener('DOMContentLoaded', go);
+})();
 </script>
 </body>
 </html>

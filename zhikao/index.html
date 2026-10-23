@@ -333,6 +333,7 @@ details.skill[open] > summary::after{content:'－ 收合';}
 @media print{body::after{content:"高中英文題庫\A staresto-create.github.io/JCEE-vocab-questions\A 免費資源，請勿販售";white-space:pre;position:fixed;top:42%;left:0;right:0;text-align:center;transform:rotate(-25deg);font-family:"Noto Sans TC",sans-serif;font-size:26pt;line-height:1.7;color:#c8c8c8;z-index:2147483000;pointer-events:none;}}
 .cc-note{font-size:12px;line-height:1.8;color:var(--foot-note);margin:12px auto;max-width:60em;padding:0 1em;}.cc-note a{color:inherit;}
 </style>
+<script src="../resume.js" defer></script>
 </head>
 <body>
 <div class="wrap">
@@ -779,6 +780,7 @@ function renderQuestion(){
     q = byId(session.list[session.idx]);
   }
   if(!q){ alert('這回合的題目已不存在，回到首頁'); goHome(); return; }
+  scrSaveQ(q);
   document.getElementById('quizProgress').textContent = (session.idx+1)+' / '+session.list.length;
   document.getElementById('progressFill').style.width = ((session.idx)/session.list.length*100)+'%';
   document.getElementById('qTag').textContent = q.y+'年 '+q.t+' · 第'+q.q+'題';
@@ -977,6 +979,7 @@ function finishQuiz(){
 }
 
 function goHome(){
+  scrMountStrip();
   document.getElementById('result').style.display='none';
   document.getElementById('quiz').style.display='none';
   document.getElementById('home').style.display='block';
@@ -1021,6 +1024,21 @@ function startFromHash(){
   return true;
 }
 
+/* 接續上次（2026-10-23）：記下這一題，供各站首頁與總站的「接續上次」使用。
+   只存在這台裝置的這個瀏覽器；共用模組讀不到時，下面每一處都安靜略過，不影響作答。
+   連結沿用本站原有的 #q-<題目編號> 形式。 */
+function scr(f){
+  try{
+    if(window.SCResume) f(window.SCResume);
+    else window.addEventListener('load', function(){ try{ if(window.SCResume) f(window.SCResume); }catch(e){} });
+  }catch(e){}
+}
+function scrMountStrip(){ scr(function(R){ R.mountStrip(document.getElementById('home'), 'vocab-zhikao'); }); }
+function scrSaveQ(q){
+  scr(function(R){ R.save('vocab-zhikao', q.y + ' 年 ' + q.t + ' 第 ' + q.q + ' 題', '#q-' + q.id); });
+}
+
+scrMountStrip();
 initHome();
 startFromSetHash() || startFromHash();
 </script>
