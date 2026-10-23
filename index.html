@@ -281,6 +281,43 @@
  .fb-listen{--c:#BCD6D4;--bg:#1F2626}
 }
 
+
+/* ===== 首頁外觀（2026-10-23）：導覽改兩欄方塊、特色區改大數字＋收合 ===== */
+.wrap{padding-left:max(20px,env(safe-area-inset-left,0px)); padding-right:max(20px,env(safe-area-inset-right,0px));}
+
+/* 導覽：膠囊雲改成等寬兩欄，文字靠左，▾ 固定在右側 */
+.quicknav{text-align:left; line-height:1.4;}
+.quicknav .qrow.qpast, .quicknav .qrow.qown{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); grid-auto-flow:row dense; gap:8px; padding:12px 10px 12px;}
+.quicknav .qrow.qown{border-radius:12px;}
+.quicknav .qrow.qpast{background:var(--ad-vpapercard-bg); border:1px solid var(--ad-vrule-border); border-radius:12px;}
+.quicknav .qrow .qlab{grid-column:1/-1; justify-self:start; font-size:13px; padding:3px 12px; margin-bottom:2px;}
+.quicknav .qrow.qpast .qi, .quicknav .qrow.qown .qi{display:flex; align-items:stretch; min-width:0; white-space:normal; border-radius:10px; background:var(--ad-vpaper-bg); border:1px solid var(--ad-vrule-border);}
+.quicknav .qrow.qpast .qi a, .quicknav .qrow.qown .qi a{flex:1; min-width:0; white-space:normal; padding:11px 8px 11px 12px; font-size:14.5px; line-height:1.35; display:flex; align-items:center;}
+.quicknav .qrow.qpast .qi.has a, .quicknav .qrow.qown .qi.has a{padding-right:6px;}
+.quicknav .qtog{flex:0 0 38px; display:flex; align-items:center; justify-content:center; padding:0; border-radius:0 10px 10px 0; font-size:12px;}
+.quicknav .qrow.qpast .qi:last-child{grid-column:1/-1;}
+.quicknav .qrow.qown .qi:has(a[href*="essay-prompts"]){grid-column:1/-1;}
+.quicknav .qi a:active{background:var(--ad-xFBF2EF-bg);}
+.quicknav .qrow.qown .qi{border-color:var(--ad-vcrimsonsoft-border);}
+
+/* 特色：去掉左側色條，改成「圖示＋大數字」先抓眼睛，細節收進「還有 N 項」 */
+.feat-grid{gap:12px;}
+.feat-b{border:1px solid color-mix(in srgb, var(--c) 38%, transparent); border-left-width:1px; border-radius:12px; padding:14px 14px 10px;}
+.feat-head{display:flex; align-items:center; gap:9px; margin:0 0 6px;}
+.feat-ico{display:inline-flex; align-items:center; justify-content:center; width:30px; height:30px; border-radius:50%; background:color-mix(in srgb, var(--c) 16%, transparent); font-size:16px; line-height:1;}
+.feat-b .feat-bt{margin:0; font-size:15px;}
+.feat-stat{display:flex; align-items:baseline; gap:8px; margin:2px 0 8px; flex-wrap:wrap;}
+.feat-stat b{font-family:'Noto Serif TC','PingFang TC',serif; font-weight:900; font-size:38px; line-height:1; letter-spacing:-.01em; color:var(--c); font-variant-numeric:tabular-nums;}
+.feat-stat span{font-size:13.5px; font-weight:700; color:var(--ad-vink-fg); line-height:1.4; min-width:0;}
+.feat-b ul{margin:0;}
+.feat-more{border-top:1px dashed var(--ad-vrule-border); margin-top:4px;}
+.feat-more summary{cursor:pointer; list-style:none; font-size:13px; font-weight:700; color:var(--c); padding:9px 0 7px; display:flex; align-items:center; gap:6px; min-height:24px;}
+.feat-more summary::-webkit-details-marker{display:none;}
+.feat-more summary::after{content:"▾"; font-size:11px; transition:transform .15s;}
+.feat-more[open] summary::after{transform:rotate(180deg);}
+.feat-more ul li:first-child{border-top:none;}
+.feat-more summary:focus-visible, .quicknav .qi a:focus-visible, .quicknav .qtog:focus-visible{outline:2px solid var(--c, var(--crimson)); outline-offset:2px;}
+@media (prefers-reduced-motion:reduce){.feat-more summary::after{transition:none;}}
 </style>
 <style id="anti-copy">
 /* 防盜用措施（2026-10-14）：畫面浮水印、列印浮水印、頁尾授權聲明 */
@@ -315,52 +352,12 @@
     <div class="feat-h">本題庫的特色</div>
     <p class="feat-lead">歷屆試題之外，本題庫自己做了下面六類內容，免費、不用註冊、沒有廣告。點有底線的名稱就能進入。</p>
     <div class="feat-grid">
-      <div class="feat-b fb-adapt">
-        <div class="feat-bt">🧠 模擬學測試題</div>
-        <ul>
-          <li><a href="#adapt">混合題、篇章結構、文意選填、克漏字、中譯英</a>共 132 組，照現行學測版面出題，附逐題解析；不是大考中心的試題。</li>
-          <li><a href="https://staresto-create.github.io/mixed-format/">混合題</a>：大考中心公布的八場 33 格都有解析，另有 32 組模擬練習，以及 86 到 92 學年度簡答題 10 場 50 題可以作答。</li>
-        </ul>
-      </div>
-      <div class="feat-b fb-mark">
-        <div class="feat-bt">🖍️ 文章標色</div>
-        <ul>
-          <li><a href="https://staresto-create.github.io/reading-comprehension/">閱讀測驗 246 篇</a>：交卷後用不同顏色標出全文中心思想和段落主旨句，另附文章結構與逐段中譯。</li>
-          <li><a href="https://staresto-create.github.io/JCEE-vocab-questions/demo/">示範頁</a>：把全篇指同一個東西的說法，和標出時間先後的字，用顏色標出來，點一個，同一組會一起亮起。</li>
-          <li><a href="https://staresto-create.github.io/grammar-cloze-test/">學測克漏字</a>、<a href="https://staresto-create.github.io/zhikao-cloze-test/">指考克漏字</a>共 158 篇文章，標出主題句並加上主旨提醒；沒有主題句的段落，就問自己這一段在做什麼。</li>
-          <li><a href="#adapt">模擬學測試題</a>的文章，也標出段落主題句與轉折詞。</li>
-        </ul>
-      </div>
-      <div class="feat-b fb-word">
-        <div class="feat-bt">🌱 單字工具</div>
-        <ul>
-          <li><a href="https://staresto-create.github.io/JCEE-vocab-questions/cards/mark.html">文章詞彙分級</a>：貼上英文文章，依大考中心詞彙表第一到第六級標出每個字的級別。</li>
-          <li><a href="https://staresto-create.github.io/JCEE-vocab-questions/cards/">單字記憶卡</a>：2,113 字，另有易混淆字與一字多義。</li>
-          <li><a href="https://staresto-create.github.io/JCEE-vocab-questions/cards/coverage.html">詞彙表單字附音標與發音</a>：第二到第六級都有 KK 音標。</li>
-          <li><a href="https://staresto-create.github.io/JCEE-vocab-questions/roots/">字根家族表</a>、<a href="https://staresto-create.github.io/JCEE-vocab-questions/affixes/">字首字尾表</a>、<a href="https://staresto-create.github.io/JCEE-vocab-questions/wordwheel.html">單字輪</a>：把單字拆開來記。</li>
-        </ul>
-      </div>
-      <div class="feat-b fb-listen">
-        <div class="feat-bt">🎧 英聽</div>
-        <ul>
-          <li><a href="https://staresto-create.github.io/JCEE-vocab-questions/listening/">英聽練習</a>：大考中心公布的參考試卷和試題示例共六卷，每題都附逐字稿和解析；有官方錄音稿的照官方，沒有的由本題庫依官方錄音檔聽寫。</li>
-          <li><a href="https://staresto-create.github.io/JCEE-vocab-questions/listening/liaison.html">英聽連音卡</a>：練連音、消音和弱讀，共 168 張，錄音取自大考中心官方錄音檔。</li>
-          <li><a href="https://staresto-create.github.io/JCEE-vocab-questions/listening/bbc-6min.html">BBC 6 Minute English 主題索引</a>：345 集依九個主題分類，哪一類聽起來比較吃力，就從那一類挑幾集來聽；只附連結，不是大考題型。</li>
-        </ul>
-      </div>
-      <div class="feat-b fb-essay">
-        <div class="feat-bt">🗂️ 作文</div>
-        <ul>
-          <li><a href="https://staresto-create.github.io/essay-prompts/">歷屆作文範文</a>：83 學年度起 63 題歷屆題目，加上 1 題本題庫自編的模擬題，每題附基礎級與進階級範文，共 128 篇，另附中譯。</li>
-        </ul>
-      </div>
-      <div class="feat-b fb-admit">
-        <div class="feat-bt">🏫 升學資料</div>
-        <ul>
-          <li><a href="https://staresto-create.github.io/JCEE-vocab-questions/no-english/">不採計英文的國立校系</a>：115 學年度申請入學，一般學生能報的有 80 個。</li>
-          <li><a href="https://staresto-create.github.io/JCEE-vocab-questions/gsat-trends/">級分差距與英文字數</a>：92 到 115 學年度各科比較。</li>
-        </ul>
-      </div>
+      <div class="feat-b fb-adapt"><div class="feat-head"><span class="feat-ico" aria-hidden="true">🧠</span><span class="feat-bt">模擬學測試題</span></div><div class="feat-stat"><b>132</b><span>組模擬試題，附逐題解析</span></div><ul><li><a href="#adapt">混合題、篇章結構、文意選填、克漏字、中譯英</a>共 132 組，照現行學測版面出題，附逐題解析；不是大考中心的試題。</li></ul><details class="feat-more"><summary>還有 1 項</summary><ul><li><a href="https://staresto-create.github.io/mixed-format/">混合題</a>：大考中心公布的八場 33 格都有解析，另有 32 組模擬練習，以及 86 到 92 學年度簡答題 10 場 50 題可以作答。</li></ul></details></div>
+      <div class="feat-b fb-mark"><div class="feat-head"><span class="feat-ico" aria-hidden="true">🖍️</span><span class="feat-bt">文章標色</span></div><div class="feat-stat"><b>246</b><span>篇閱讀測驗，交卷後標出主旨句</span></div><ul><li><a href="https://staresto-create.github.io/reading-comprehension/">閱讀測驗 246 篇</a>：交卷後用不同顏色標出全文中心思想和段落主旨句，另附文章結構與逐段中譯。</li></ul><details class="feat-more"><summary>還有 3 項</summary><ul><li><a href="https://staresto-create.github.io/JCEE-vocab-questions/demo/">示範頁</a>：把全篇指同一個東西的說法，和標出時間先後的字，用顏色標出來，點一個，同一組會一起亮起。</li><li><a href="https://staresto-create.github.io/grammar-cloze-test/">學測克漏字</a>、<a href="https://staresto-create.github.io/zhikao-cloze-test/">指考克漏字</a>共 158 篇文章，標出主題句並加上主旨提醒；沒有主題句的段落，就問自己這一段在做什麼。</li><li><a href="#adapt">模擬學測試題</a>的文章，也標出段落主題句與轉折詞。</li></ul></details></div>
+      <div class="feat-b fb-word"><div class="feat-head"><span class="feat-ico" aria-hidden="true">🌱</span><span class="feat-bt">單字工具</span></div><div class="feat-stat"><b>2,113</b><span>個單字做成記憶卡</span></div><ul><li><a href="https://staresto-create.github.io/JCEE-vocab-questions/cards/mark.html">文章詞彙分級</a>：貼上英文文章，依大考中心詞彙表第一到第六級標出每個字的級別。</li></ul><details class="feat-more"><summary>還有 3 項</summary><ul><li><a href="https://staresto-create.github.io/JCEE-vocab-questions/cards/">單字記憶卡</a>：2,113 字，另有易混淆字與一字多義。</li><li><a href="https://staresto-create.github.io/JCEE-vocab-questions/cards/coverage.html">詞彙表單字附音標與發音</a>：第二到第六級都有 KK 音標。</li><li><a href="https://staresto-create.github.io/JCEE-vocab-questions/roots/">字根家族表</a>、<a href="https://staresto-create.github.io/JCEE-vocab-questions/affixes/">字首字尾表</a>、<a href="https://staresto-create.github.io/JCEE-vocab-questions/wordwheel.html">單字輪</a>：把單字拆開來記。</li></ul></details></div>
+      <div class="feat-b fb-listen"><div class="feat-head"><span class="feat-ico" aria-hidden="true">🎧</span><span class="feat-bt">英聽</span></div><div class="feat-stat"><b>6</b><span>卷英聽試卷，每題附逐字稿</span></div><ul><li><a href="https://staresto-create.github.io/JCEE-vocab-questions/listening/">英聽練習</a>：大考中心公布的參考試卷和試題示例共六卷，每題都附逐字稿和解析；有官方錄音稿的照官方，沒有的由本題庫依官方錄音檔聽寫。</li></ul><details class="feat-more"><summary>還有 2 項</summary><ul><li><a href="https://staresto-create.github.io/JCEE-vocab-questions/listening/liaison.html">英聽連音卡</a>：練連音、消音和弱讀，共 168 張，錄音取自大考中心官方錄音檔。</li><li><a href="https://staresto-create.github.io/JCEE-vocab-questions/listening/bbc-6min.html">BBC 6 Minute English 主題索引</a>：345 集依九個主題分類，哪一類聽起來比較吃力，就從那一類挑幾集來聽；只附連結，不是大考題型。</li></ul></details></div>
+      <div class="feat-b fb-essay"><div class="feat-head"><span class="feat-ico" aria-hidden="true">🗂️</span><span class="feat-bt">作文</span></div><div class="feat-stat"><b>128</b><span>篇英寫範文，基礎級與進階級</span></div><ul><li><a href="https://staresto-create.github.io/essay-prompts/">歷屆作文範文</a>：83 學年度起 63 題歷屆題目，加上 1 題本題庫自編的模擬題，每題附基礎級與進階級範文，共 128 篇，另附中譯。</li></ul></div>
+      <div class="feat-b fb-admit"><div class="feat-head"><span class="feat-ico" aria-hidden="true">🏫</span><span class="feat-bt">升學資料</span></div><div class="feat-stat"><b>80</b><span>個不採計英文的國立校系</span></div><ul><li><a href="https://staresto-create.github.io/JCEE-vocab-questions/no-english/">不採計英文的國立校系</a>：115 學年度申請入學，一般學生能報的有 80 個。</li></ul><details class="feat-more"><summary>還有 1 項</summary><ul><li><a href="https://staresto-create.github.io/JCEE-vocab-questions/gsat-trends/">級分差距與英文字數</a>：92 到 115 學年度各科比較。</li></ul></details></div>
     </div>
   </section>
 
