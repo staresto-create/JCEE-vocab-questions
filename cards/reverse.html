@@ -140,6 +140,7 @@ footer.foot a{color:var(--ad-vcrimson-fg)}
 </div>
 
 <script src="../speaker.js"></script>
+<script src="../kk.js"></script>
 <script>
 (function(){
 'use strict';
@@ -234,7 +235,7 @@ function render(){
       ul=document.createElement('ul'); ul.className='list'; body.appendChild(ul);
     }
     var li=document.createElement('li'), ln=document.createElement('div'); ln.className='ln';
-    ln.appendChild(wordHTML(r[0],q?q.length:0)); var sb=SPK.el(r[0]); if(sb) ln.appendChild(sb);
+    ln.appendChild(wordHTML(r[0],q?q.length:0)); var sb=SPK.el(r[0]); if(sb) ln.appendChild(sb); var kb=KK.el(r[0]); if(kb) ln.appendChild(kb);
     var p=document.createElement('span'); p.className='pos'; p.textContent=r[2]; ln.appendChild(p);
     var lv=document.createElement('span'); lv.className='lv'; lv.textContent=r[1]+' 級'; ln.appendChild(lv);
     if(r[3]<2){var t=document.createElement('span'); t.className='tag t'+r[3]; t.textContent=r[3]===0?'考過原形':'只考過其他字形'; ln.appendChild(t);}
@@ -265,7 +266,7 @@ function render(){
   }
 }
 
-fetch('reverse_data.json').then(function(r){if(!r.ok)throw new Error(r.status);return r.json();}).then(function(d){
+fetch('reverse_data.json').then(function(r){if(!r.ok)throw new Error(r.status);return r.json();}).then(function(d){return KK.ready.then(function(){return d;});}).then(function(d){
   D=d; d.rows.forEach(function(r){r.k=key(r[0]);});
   var g=d.scope.gsat, z=d.scope.zhikao, tot=0, tt=0;
   Object.keys(d.stats).forEach(function(l){tot+=d.stats[l].n; tt+=d.stats[l].t;});

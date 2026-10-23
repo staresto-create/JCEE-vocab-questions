@@ -91,6 +91,7 @@
   .wl-list{list-style:none; margin:0 0 4px; padding:0;}
   .wl-list li{display:flex; align-items:baseline; gap:10px; padding:7px 0; border-bottom:1px solid var(--ad-xEFE8D6-border); font-size:14.5px; line-height:1.6;}
   .wl-list .w{flex:0 0 auto; max-width:60%; font-family:'IBM Plex Mono','Noto Sans TC',monospace; font-weight:500; overflow-wrap:break-word;}
+  .wl-list li{flex-wrap:wrap;} .wl-list .w{max-width:none;} .wl-list .kkp{white-space:nowrap;}
   .wl-list .g{flex:1 1 auto; font-size:13px; color:var(--ad-vinksoft-fg); min-width:0;}
   .wl-list .r{flex:0 0 auto; font-family:'IBM Plex Mono','Noto Sans TC',monospace; font-size:12px;}
   .wl-list .r.ok{color:var(--ad-vsage-fg);} .wl-list .r.no{color:var(--ad-vcrimson-fg);}
@@ -490,7 +491,7 @@ var DATA = null;
   var LIST_STEP = 20, statsOpen = null, statsShown = LIST_STEP;
   function levelOf(c){ var r=state.w[key(c)]; if (!r) return 'new'; return (r.p>=PASS) ? 'pass' : 'mid'; }
   function row(c, right){
-    return '<li><span class="w">' + esc(answerOf(c)) + (window.SPK ? SPK.html(answerOf(c), true) : '') + '</span><span class="g">' + esc(promptOf(c)) + '</span>' + (right||'') + '</li>';
+    return '<li><span class="w">' + esc(answerOf(c)) + (window.SPK ? SPK.html(answerOf(c), true) : '') + (window.KK ? KK.html(answerOf(c)) : '') + '</span><span class="g">' + esc(promptOf(c)) + '</span>' + (right||'') + '</li>';
   }
   function freeStart(list){
     session={q:shuffle(list.slice()), total:list.length, miss:{}, free:true};
