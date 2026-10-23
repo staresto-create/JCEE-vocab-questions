@@ -1,8 +1,8 @@
 /* 文章生字表（共用）：把一段英文文章依詞彙表覆蓋清單分級，產生「這一篇的生字表」。
- * 字形還原、分級與中文意思的做法和 cards/mark.html（貼上文章、標出生字）相同；
+ * 字形還原、分級與中文意思的做法和 cards/mark.html（貼上文章查單字）相同；
  * 詞彙表以外的字、詞彙表裡還沒有中文的字，中文放在 lexicon/passage_gloss.json。資料在使用時才下載。
  * 用法：PV.html(文章字串或字串陣列, {th:4}) 回傳 Promise，內容是 <details> 的 HTML。
- * cards/mark.html（貼上文章、標出生字）也用同一套：PV.load() 讀完資料後，PV.analyze(文章)、PV.glossOf(字)、PV.ctx()。
+ * cards/mark.html（貼上文章查單字）也用同一套：PV.load() 讀完資料後，PV.analyze(文章)、PV.glossOf(字)、PV.ctx()。
  * 中文：一字多義 → 共用字表 → 詞彙表考過的釋義 → lexicon/passage_gloss.json；音標：全站 kk_data.json（kk.js）。 */
 (function(){
 'use strict';

@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>貼上文章，標出生字</title>
+<title>貼上文章查單字</title>
 <meta name="description" content="把英文文章貼進來，依大考中心《高中英文參考詞彙表》的級別標出生字，點一下就能看音標、發音、中文和學測、指考考過的題目，還能整理成生字表列印。文章只在你自己的裝置上處理。">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="高中英文自學題庫">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:title" content="貼上文章，標出生字">
+<meta property="og:title" content="貼上文章查單字">
 <meta property="og:description" content="貼上英文文章，依詞彙表第一到第六級標出生字，點字看音標、發音、中文與考過的題目，並整理成生字表。">
 <meta property="og:url" content="https://staresto-create.github.io/JCEE-vocab-questions/cards/mark.html">
 <meta property="og:image" content="https://staresto-create.github.io/JCEE-vocab-questions/og-cover.png">
@@ -73,6 +73,7 @@ ul.wl .gl.none{color:var(--ad-vinksoft-fg)}
 .tag{display:inline-block;font-size:.72rem;line-height:1.5;border-radius:.9rem;padding:0 .5rem;border:1px solid}
 .t0{color:var(--ad-vsage-fg);border-color:var(--ad-vsage-border);background:var(--ad-vsagesoft-bg)}
 .t1{color:var(--ad-x7A5B18-fg);border-color:var(--gold);background:var(--ad-vgoldsoft-bg)}
+.tl{color:var(--ad-vinksoft-fg);border-color:var(--ad-vrule-border)}
 h3{font-family:var(--serif);font-size:1.05rem;font-weight:600;margin:1.2rem 0 .1rem}
 h3 span{font-family:var(--sans);font-size:.82rem;color:var(--ad-vinksoft-fg);font-weight:400;margin-left:.4rem}
 .tnote{font-size:.85rem;color:var(--ad-vinksoft-fg);margin:.4rem 0 0}
@@ -127,7 +128,7 @@ footer.foot a{color:var(--ad-vcrimson-fg)}
 <body>
 <div class="wrap">
   <header class="top">
-    <h1>貼上文章，標出生字</h1>
+    <h1>貼上文章查單字</h1>
     <div class="sub">依大考中心高中英文參考詞彙表標示級別</div>
   </header>
 
@@ -136,7 +137,7 @@ footer.foot a{color:var(--ad-vcrimson-fg)}
     <ol class="steps">
       <li>把英文文章貼進下面的方框，再按「標出生字」。用手機的話，可以先在文章頁面按「拷貝」或「複製文字」，再回到這裡貼上。</li>
       <li>文章裡的字會依級別標上顏色，字的右上角小數字就是級別。程度愈弱的人，「從幾級開始標」可以設得愈小，標出來的字就愈多。</li>
-      <li>點一下標出來的字，畫面下方會出現這個字的音標、發音、中文，以及學測、指考考過它的題目。</li>
+      <li>點一下標出來的字，畫面下方會出現這個字的音標、發音、中文，學測、指考考過它的題目，以及它在三民、龍騰課本哪一課出現過。三民課本把它列為 Words for Production 或 Words for Recognition，字旁也會標出來。</li>
       <li>往下捲就是這篇文章的生字表。把不會的字打勾，就可以只複製或只列印那些字。</li>
     </ol>
     <div class="priv">貼上的文章只在你自己的手機或電腦上處理，不會傳到任何地方。</div>
@@ -258,6 +259,40 @@ function sorted(){
   else l.sort(function(a,b){return a.key<b.key?-1:1;});
   return l;
 }
+/* 課本單字索引（textbook/tb_index.json）：三民分 Production／Recognition，龍騰只有第幾冊第幾課；讀不到就不顯示，不影響其他功能 */
+var TB=null;
+var ED={n:'乙版',r:'乙版115改版',o:'舊版'};
+function tbOf(e){
+  if(!TB)return null;
+  var ks=[e.key].concat(Object.keys(e.forms||{}).map(function(x){return x.toLowerCase();})),s=[],l=[],seen={};
+  ks.forEach(function(k){
+    if(seen[k])return;seen[k]=1;var r=TB.w[k];if(!r)return;
+    (r.s||[]).forEach(function(x){s.push(x);});(r.l||[]).forEach(function(x){l.push(x);});
+  });
+  return (s.length||l.length)?{s:s,l:l}:null;
+}
+function tbTag(e){
+  var t=tbOf(e);if(!t)return '';
+  var h='',hasP=t.s.some(function(x){return x[3]==='p';}),hasR=t.s.some(function(x){return x[3]==='r';});
+  if(hasP)h+='<span class="tag t0" title="三民課本把這個字列在 Words for Production">三民 Production</span> ';
+  if(hasR)h+='<span class="tag t1" title="三民課本把這個字列在 Words for Recognition">三民 Recognition</span> ';
+  if(t.l.length)h+='<span class="tag tl" title="龍騰課本單字表有這個字">龍騰</span>';
+  return h;
+}
+function tbPanel(e){
+  var t=tbOf(e);if(!t)return '';
+  var rows=[];
+  ['n','r','o'].forEach(function(ed){
+    [['p','Production'],['r','Recognition']].forEach(function(kd){
+      var ls=[];
+      t.s.forEach(function(x){if(x[0]===ed&&x[3]===kd[0]){var k='B'+x[1]+'U'+x[2];if(ls.indexOf(k)<0)ls.push(k);}});
+      if(ls.length)rows.push('三民'+ED[ed]+' '+kd[1]+'：'+esc(ls.join('、')));
+    });
+  });
+  var lt=[];t.l.forEach(function(x){var k='B'+x[0]+'L'+x[1];if(lt.indexOf(k)<0)lt.push(k);});
+  if(lt.length)rows.push('龍騰：'+esc(lt.join('、')));
+  return '<dt>課本</dt><dd>'+rows.join('<br>')+'<br><span class="tnote">B 是冊，三民的 U 是 Unit，龍騰的 L 是 Lesson，例如三民 B2U1 是第 2 冊 Unit 1。Production 與 Recognition 是三民課本自己的分類；龍騰沒有這樣分，只列出生詞在哪一課。</span></dd>';
+}
 function wordLi(e){
   var f=Object.keys(e.forms).filter(function(x){return x!==e.key;}).join('、');
   var g=glossOf(e);
@@ -271,6 +306,7 @@ function wordLi(e){
   m.textContent=(e.out?'詞彙表以外':e.lv+' 級　'+e.pos)+'　出現 '+e.n+' 次'+(f?'　（文中：'+f+'）':'');
   li.appendChild(m);
   if(tagOf(e)){var sp=document.createElement('span');sp.innerHTML=tagOf(e);li.appendChild(sp);}
+  var tbt=tbTag(e);if(tbt){var sp2=document.createElement('span');sp2.className='tbtags';sp2.innerHTML=' '+tbt;li.appendChild(sp2);}
   var d=document.createElement('div');d.className='gl'+(g?'':' none');
   if(g)d.textContent=g;
   else d.innerHTML=(e.out?'':'本題庫還沒有這個字的中文。')+camLink(e.key);
@@ -319,6 +355,7 @@ function showPanel(o,key){
     h+='<dt>級別</dt><dd>不在大考中心高中英文參考詞彙表內。大考中心考試說明指出：「為保留真實語言的使用，偶爾會有第六級（含）以上詞彙。」遇到這樣的字，先看上面的句子猜意思，需要的話再查字典。也可能是沒有換回原字的字形。</dd>';
     var og=glossOf(e);
     h+='<dt>中文</dt><dd>'+(og?esc(og)+' <span class="tnote">'+camLink(e.key)+'</span>':camLink(e.key))+'</dd>';
+    h+=tbPanel(e);
   }else{
     h+='<dt>級別與詞性</dt><dd>'+e.lv+' 級　'+esc(e.pos)+' '+tagOf(e)+'</dd>';
     var p=POLY[e.key];
@@ -330,6 +367,7 @@ function showPanel(o,key){
       var g=glossOf(e);
       h+='<dt>中文</dt><dd>'+(g?esc(g)+' <span class="tnote">'+camLink(e.key)+'</span>':'<span class="tnote">本題庫還沒有這個字的中文。</span> '+camLink(e.key))+'</dd>';
     }
+    h+=tbPanel(e);
     var refs=[],seen={};
     if(e.grp)e.grp.tested.forEach(function(fq){fq[1].forEach(function(q){var id=q[0];if(seen[id])return;seen[id]=1;refs.push([fq[0],id]);});});
     if(refs.length){
@@ -480,6 +518,7 @@ PV.load().then(function(){
   var c=PV.ctx();
   D=c.D;QMAP=D.q;SITES=D.sites;POLY=c.POLY;LEX=c.LEX;
   $('go').disabled=false;$('sample').disabled=false;
+  fetch('../textbook/tb_index.json').then(function(r){return r.ok?r.json():null;}).then(function(j){if(j&&j.w){TB=j;if(A&&A.order)renderList();}}).catch(function(){});
   window.__mk={ready:true};
 }).catch(function(){
   $('go').textContent='資料讀取失敗，請重新整理';
