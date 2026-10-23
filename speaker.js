@@ -189,8 +189,37 @@
       playing = b; b.classList.add('playing');
       u.onend = u.onerror = function () { b.classList.remove('playing'); };
       ss.speak(u);
+      muteHint();
     } catch (err) {}
   });
+
+  /* iPhone 的靜音開關打開時，瀏覽器的語音朗讀沒有聲音（喇叭按了也只是安靜）。
+   * 網頁偵測不到開關狀態，所以只在 iPhone／iPad 上，每個頁面第一次按喇叭時，
+   * 在畫面下方跳出一行提示，幾秒後自動消失；列印時不印。 */
+  var hinted = false, hintTimer = 0;
+  function isIOS() {
+    var ua = navigator.userAgent || '';
+    return /iPhone|iPad|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  }
+  function muteHint() {
+    if (hinted || !isIOS()) return;
+    hinted = true;
+    try {
+      var h = document.createElement('div');
+      h.setAttribute('role', 'status');
+      h.setAttribute('data-spk-hint', '1');
+      h.textContent = '聽不到聲音？請確認手機或平板沒有開啟靜音模式，並把音量調大，再按一次喇叭。';
+      h.style.cssText = 'position:fixed;left:50%;bottom:calc(18px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:2147483001;box-sizing:border-box;max-width:min(92vw,26em);' +
+        'padding:9px 14px;border-radius:8px;border:1px solid rgba(255,255,255,.4);background:#221F1A;color:#fff;' +
+        'font:13px/1.6 "Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;text-align:center;box-shadow:0 2px 10px rgba(0,0,0,.35)';
+      var ps = document.createElement('style');
+      ps.textContent = '@media print{[data-spk-hint]{display:none !important}}';
+      h.appendChild(ps);
+      document.body.appendChild(h);
+      clearTimeout(hintTimer);
+      hintTimer = setTimeout(function () { if (h.parentNode) h.parentNode.removeChild(h); }, 7000);
+    } catch (err) {}
+  }
 
   /* 靜態頁面用：對符合選擇器的每個元素，取開頭那段文字當單字，在它後面插入喇叭 */
   function attach(selector) {
