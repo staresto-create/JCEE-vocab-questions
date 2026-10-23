@@ -187,6 +187,7 @@
   <footer>範圍由老師給的連結決定。字級標在括號裡，(超) 表示超出參考詞彙表。<p class="cc-note">本題庫自己寫的部分（解析、中譯、分類、標註與編排）採用 <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh-hant" target="_blank" rel="license noopener">CC BY-NC 4.0</a>（姓名標示─非商業性）授權：可以分享，但須註明出處，不得用於商業用途。試題來源與完整說明請見<a href="https://staresto-create.github.io/JCEE-vocab-questions/#terms">使用與著作權</a>。</p>
 </footer>
 </div>
+<script src="../speaker.js"></script>
 <script>
 var DATA = null;
 (function () {
@@ -487,7 +488,7 @@ var DATA = null;
   var LIST_STEP = 20, statsOpen = null, statsShown = LIST_STEP;
   function levelOf(c){ var r=state.w[key(c)]; if (!r) return 'new'; return (r.p>=PASS) ? 'pass' : 'mid'; }
   function row(c, right){
-    return '<li><span class="w">' + esc(answerOf(c)) + '</span><span class="g">' + esc(promptOf(c)) + '</span>' + (right||'') + '</li>';
+    return '<li><span class="w">' + esc(answerOf(c)) + (window.SPK ? SPK.html(answerOf(c), true) : '') + '</span><span class="g">' + esc(promptOf(c)) + '</span>' + (right||'') + '</li>';
   }
   function freeStart(list){
     session={q:shuffle(list.slice()), total:list.length, miss:{}, free:true};
