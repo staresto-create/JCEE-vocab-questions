@@ -72,6 +72,9 @@ details .list{color:var(--ad-x3d5059-fg)}
   font-size:.86rem;color:var(--ad-x3d5059-fg);max-width:40em}
 .empty{padding:1.2rem 0;color:var(--ad-vmuted-fg)}
 @media (prefers-reduced-motion:no-preference){li{transition:none}}
+@media print{.toBar{display:none!important;}}
+.toBar{position:fixed; right:12px; bottom:14px; z-index:20; font-size:12.5px; font-weight:700; line-height:1.3; color:var(--ad-vteal-fg); border:1px solid currentColor; border-radius:999px; padding:5px 11px; text-decoration:none; box-shadow:0 2px 8px rgba(0,0,0,.18);}
+.toBar[hidden]{display:none;}
 
 /* 深色模式（2026-10-22）：淺色數值與原本相同；只在螢幕、手機或電腦設成深色外觀時生效，列印不受影響。 */
 :root{--ad-vexam-border:var(--exam);--ad-vexam-fg:var(--exam);--ad-vexamsoft-bg:var(--exam-soft);--ad-vground-bg:var(--ground);--ad-vink-border:var(--ink);--ad-vink-fg:var(--ink);--ad-vline-border:var(--line);--ad-vmuted-fg:var(--muted);--ad-vteal-bg:var(--teal);--ad-vteal-border:var(--teal);--ad-vteal-fg:var(--teal);--ad-vtealsoft-bg:var(--teal-soft);--ad-vtealsoft-border:var(--teal-soft);--ad-x3d5059-fg:#3d5059;--ad-x8a8278-fg:#8a8278;--ad-xf0dcc0-border:#f0dcc0;--ad-xf9e8d2-bg:#f9e8d2;--ad-xfff-bg:#fff;--ad-xfff-fg:#fff;color-scheme:light}
@@ -252,5 +255,27 @@ Promise.all([fetch('roots_data.json').then(r=>r.json()),fetch('../lexicon/lexico
 });
 </script>
 <p class="cc-note">本題庫自己寫的部分（解析、中譯、分類、標註與編排）採用 <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh-hant" target="_blank" rel="license noopener">CC BY-NC 4.0</a>（姓名標示─非商業性）授權：可以分享，但須註明出處，不得用於商業用途。試題來源與完整說明請見<a href="https://staresto-create.github.io/JCEE-vocab-questions/#terms">使用與著作權</a>。</p>
+<a class="toBar" id="toBar" href="#nav" hidden>↑ 單元列</a>
+<script>
+/* 「↑ 單元列」：原本的字根導覽列捲出畫面後才出現，點了回到導覽列 */
+(function(){
+  var bar=document.getElementById('nav'), to=document.getElementById('toBar');
+  if(!bar||!to) return;
+  to.addEventListener('click',function(e){e.preventDefault(); bar.scrollIntoView({block:'center'});});
+  function bg(){
+    var c=getComputedStyle(document.body).backgroundColor;
+    if(!c||c==='rgba(0, 0, 0, 0)'||c==='transparent') c=getComputedStyle(document.documentElement).backgroundColor;
+    if(!c||c==='rgba(0, 0, 0, 0)'||c==='transparent') c='#fff';
+    to.style.background=c;
+  }
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(es){
+      var r=es[0], hide=r.isIntersecting||r.boundingClientRect.top>=0;
+      if(!hide) bg();
+      to.hidden=hide;
+    }).observe(bar);
+  }
+})();
+</script>
 </body>
 </html>
