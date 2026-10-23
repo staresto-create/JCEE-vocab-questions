@@ -553,7 +553,7 @@ details.skill[open] > summary::after{content:'－ 收合';}
 
   <!-- ============ SETUP VIEW ============ -->
   <section id="view-setup" class="view active">
-    <nav class="unitbar" id="unitbar" aria-label="本頁單元"><div class="ubrow"><span class="ublab">本頁單元</span><a href="#u-range">選擇練習範圍</a><a href="#adapt">仿真練習</a><a href="#u-mode">練習模式</a><a href="#u-skel">讀句子的第一步</a><a href="#u-ceec">官方在考什麼</a><a href="#u-how">怎麼下手</a></div></nav>
+    <nav class="unitbar" id="unitbar" aria-label="本頁單元"><div class="ubrow"><span class="ublab">本頁單元</span><a href="#u-range">選擇練習範圍</a><a href="#adapt">模擬練習</a><a href="#u-mode">練習模式</a><a href="#u-skel">讀句子的第一步</a><a href="#u-ceec">官方在考什麼</a><a href="#u-how">怎麼下手</a></div></nav>
     <div class="card" id="u-range">
       <h2>選擇練習範圍</h2>
       <div style="font-size:12px;color:var(--ad-vmuted-fg);margin-bottom:10px;">點一下年度就能選取（可複選），再點一次取消</div>
@@ -1252,7 +1252,7 @@ loadItems().then(applyAdaptHash);
     }
   }
 })();
-/* 仿真練習：#adapt 平常只在載入時處理，在頁內點的時候要自己呼叫 */
+/* 模擬練習：#adapt 平常只在載入時處理，在頁內點的時候要自己呼叫 */
 (function(){var a=document.querySelector('#unitbar a[href="#adapt"]'); if(a) a.addEventListener('click',function(e){
   e.preventDefault(); history.replaceState(null,'','#adapt');
   try{applyAdaptHash();}catch(err){location.reload();}
