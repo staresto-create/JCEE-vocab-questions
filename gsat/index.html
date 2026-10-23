@@ -221,7 +221,7 @@
     .coll-box::before{content:"字詞搭配　"; color:var(--gold); font-family:'Noto Serif TC',serif; font-weight:700;}
     /* 2026-08-12 第五十三場（待辦 12-1）：公式被換行從中間切開。分號後整段包
        inline-block，寬度不足時整段落到下一行；英文頭再包一層，萬一整段寬過容器，
-       斷點落在全形括號而非英文詞組內部。不用 white-space:nowrap——長公式會橫向
+       斷點落在全形括號而非英文片語內部。不用 white-space:nowrap——長公式會橫向
        溢出，窄螢幕更糟。 */
     .coll-box .coll-seg{display:inline-block;}
     .coll-box .coll-chunk{display:inline-block;}
@@ -918,7 +918,7 @@ function selectAnswer(letter, q){
   const collBox = document.getElementById('qCollBox');
   if(q.collocation){
     /* 2026-08-12 第五十三場（待辦 12-1）：拆成「片段；」＋公式兩節掛樣式，讓公式
-       整段換行而不從詞組中間切開。全程 textContent／createTextNode，不經 innerHTML，
+       整段換行而不從片語中間切開。全程 textContent／createTextNode，不經 innerHTML，
        維持規範第七節「欄位為 textContent 不做處理」之旨。 */
     collBox.textContent = '';
     const ci = q.collocation.indexOf('；');
