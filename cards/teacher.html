@@ -703,11 +703,11 @@
     $('app').classList.remove('hide');
   }
 
-  fetch('cards_data.json?v=2', { cache: 'default' })
+  fetch('cards_data.json?v=3', { cache: 'default' })
     .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
     .then(function (data) {
       // 字義相近的索引很小，抓不到也不影響其他兩副卡
-      return fetch('confusables_sense_index.json?v=6', { cache: 'default' })
+      return fetch('confusables_sense_index.json?v=7', { cache: 'default' })
         .then(function (r) { return r.ok ? r.json() : null; })
         .catch(function () { return null; })
         .then(function (idx) { boot(data, idx); });
