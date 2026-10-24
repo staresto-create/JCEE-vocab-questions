@@ -728,7 +728,7 @@
     $('app').classList.remove('hide');
   }
 
-  fetch('cards_data.json?v=5', { cache: 'default' })
+  fetch('cards_data.json?v=6', { cache: 'default' })
     .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
     .then(function (data) {
       // 字義相近的索引很小，抓不到也不影響其他兩副卡
