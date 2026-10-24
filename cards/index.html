@@ -1843,7 +1843,7 @@
     snLoading = true;
     hide('home'); hide('stats'); hide('gview'); show('loading');
     $('loading').textContent = '載入字義相近中…';
-    fetch('confusables_sense_data.json?v=4', { cache: 'default' })
+    fetch('confusables_sense_data.json?v=5', { cache: 'default' })
       .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
       .then(function (d) {
         SN = d; if (!CFG) CFG = {};
