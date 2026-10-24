@@ -417,7 +417,7 @@ function doPrint(){
   });
   h+='</tbody></table>';
   $('printArea').innerHTML=h;
-  window.print();
+  safePrint();
 }
 
 function run(){
@@ -525,5 +525,34 @@ PV.load().then(function(){
 });
 })();
 </script>
+<!--safePrint-->
+<style>#printHelp{position:fixed;left:12px;right:12px;bottom:12px;z-index:99999;max-width:520px;margin:0 auto;padding:14px 16px;border-radius:12px;background:#fff;color:#222;border:2px solid #9C2C1E;box-shadow:0 6px 24px rgba(0,0,0,.25);font:14px/1.7 system-ui,"Noto Sans TC","PingFang TC",sans-serif}#printHelp b{color:#9C2C1E}#printHelp button{margin:8px 8px 0 0;padding:8px 14px;border-radius:8px;border:1px solid #9C2C1E;background:#9C2C1E;color:#fff;font:inherit;font-weight:700;cursor:pointer}#printHelp button.g{background:transparent;color:#9C2C1E}@media (prefers-color-scheme:dark){#printHelp{background:#2a2523;color:#eee;border-color:#e08a7c}#printHelp b{color:#f0a698}#printHelp button{background:#e08a7c;border-color:#e08a7c;color:#1c1917}#printHelp button.g{background:transparent;color:#f0a698}}@media print{#printHelp{display:none!important}}</style>
+<script>
+function safePrint(){
+  var fired=false;
+  function mark(){fired=true;}
+  window.addEventListener('beforeprint',mark);
+  try{window.print();}catch(e){}
+  setTimeout(function(){
+    window.removeEventListener('beforeprint',mark);
+    if(fired)return;
+    var h=document.getElementById('printHelp');
+    if(!h){
+      h=document.createElement('div');h.id='printHelp';h.setAttribute('role','alert');
+      h.innerHTML='<b>沒有跳出列印畫面嗎？</b><br>有些 App（例如 Threads、LINE、Facebook）內建的瀏覽器不支援列印。請改用 Safari 或 Chrome 開啟這一頁：點右上或右下的「⋯」，選「在 Safari 開啟」（或「在瀏覽器開啟」），再按一次「列印成考卷」。<br><button type="button" id="phCopy">複製這頁網址</button><button type="button" class="g" id="phClose">關閉</button>';
+      document.body.appendChild(h);
+      document.getElementById('phClose').onclick=function(){h.style.display='none';};
+      document.getElementById('phCopy').onclick=function(){
+        var b=this,u=location.href;
+        function ok(){b.textContent='已複製';}
+        if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(u).then(ok,function(){prompt('請長按複製網址',u);});}
+        else{prompt('請長按複製網址',u);}
+      };
+    }
+    h.style.display='block';
+  },1200);
+}
+</script>
+<!--/safePrint-->
 </body>
 </html>
