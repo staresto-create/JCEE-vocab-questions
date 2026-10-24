@@ -302,7 +302,7 @@
         <b>易混淆字組另有收錄依據。</b>每一組是拼法、字根相近或唸法相同的字，參考台灣升學考試常見的易混淆字整理，所以也收了沒考過的字；考過的字一律附上當年的句子。
       </p>
       <p>
-        <b>一字多義的字同樣出自歷屆考題。</b>這 154 個字，前 135 個取自本題庫的詞彙題、克漏字、文意選填和閱讀測驗，選字時也參考了教學圈整理的一字多義清單；後 19 個是日常很常見、考題裡較少考到的字，依辭典補充。其中 111 個字有以這個字為答案的考題；其餘 43 個字沒有，其中 33 個的另一個意思出現在考題文章裡，卡片背面附上那一句，另外 10 個附的是依辭典寫的例句。
+        <b>一字多義的字同樣出自歷屆考題。</b>這 210 個字，前 135 個取自本題庫的詞彙題、克漏字、文意選填和閱讀測驗，選字時也參考了教學圈整理的一字多義清單；後 75 個是後來依辭典補上的：其中 55 個是逐一比對歷屆考題文章、確認另一個意思真的出現過才收，其餘 20 個是日常很常見、考題裡較少考到的字。其中 111 個字有以這個字為答案的考題；其餘 99 個字沒有，其中 33 個的另一個意思出現在考題文章裡，卡片背面附上那一句，另外 66 個附的是依辭典寫的原創例句。
       </p>
       <p>
         免費、無廣告的非營利自學題庫，歡迎自由分享。
@@ -324,7 +324,7 @@
 
   var BASE = location.href.replace(/teacher\.html.*$/, '');
   var Q = null, W = null, CFT = null, NG = 0, WG = {};
-  var SNT = null, SNN = 0, SNWG = {};     // 字義相近：組號 1–158 對應的字（另一個小索引檔）
+  var SNT = null, SNN = 0, SNWG = {};     // 字義相近：組號 1–159 對應的字（另一個小索引檔）
   function curT() { return deck === 'sn' ? SNT : CFT; }
   function curN() { return deck === 'sn' ? SNN : NG; }
   function curWG() { return deck === 'sn' ? SNWG : WG; }
@@ -501,7 +501,7 @@
       setOut('', true);
       if (!poLoading) {
         poLoading = true;
-        fetch('polysemy_data.json?v=2', { cache: 'default' })
+        fetch('polysemy_data.json?v=5', { cache: 'default' })
           .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
           .then(function (d) { PO = d; poLoading = false; if (deck === 'po') refresh(); })
           .catch(function () { poLoading = false; box.innerHTML = '<span class="warn">一字多義載入失敗，請重新整理頁面試試。</span>'; });
@@ -707,7 +707,7 @@
     .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
     .then(function (data) {
       // 字義相近的索引很小，抓不到也不影響其他兩副卡
-      return fetch('confusables_sense_index.json?v=1', { cache: 'default' })
+      return fetch('confusables_sense_index.json?v=2', { cache: 'default' })
         .then(function (r) { return r.ok ? r.json() : null; })
         .catch(function () { return null; })
         .then(function (idx) { boot(data, idx); });
