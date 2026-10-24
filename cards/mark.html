@@ -137,7 +137,7 @@ footer.foot a{color:var(--ad-vcrimson-fg)}
     <ol class="steps">
       <li>把英文文章貼進下面的方框，再按「標出生字」。用手機的話，可以先在文章頁面按「拷貝」或「複製文字」，再回到這裡貼上。</li>
       <li>文章裡的字會依級別標上顏色，字的右上角小數字就是級別。程度愈弱的人，「從幾級開始標」可以設得愈小，標出來的字就愈多。</li>
-      <li>點一下標出來的字，畫面下方會出現這個字的音標、發音、中文，學測、指考考過它的題目，以及它在三民、龍騰課本哪一課出現過。三民課本把它列為 Words for Production 或 Words for Recognition，字旁也會標出來。</li>
+      <li>點一下標出來的字，畫面下方會出現這個字的音標、發音、中文，學測、指考考過它的題目，以及它在龍騰、三民課本哪一課出現過。三民課本另外把單字分成 Words for Production 與 Words for Recognition，字旁也會標出來。</li>
       <li>往下捲就是這篇文章的生字表。把不會的字打勾，就可以只複製或只列印那些字。</li>
     </ol>
     <div class="priv">貼上的文章只在你自己的手機或電腦上處理，不會傳到任何地方。</div>
@@ -274,14 +274,16 @@ function tbOf(e){
 function tbTag(e){
   var t=tbOf(e);if(!t)return '';
   var h='',hasP=t.s.some(function(x){return x[3]==='p';}),hasR=t.s.some(function(x){return x[3]==='r';});
+  if(t.l.length)h+='<span class="tag tl" title="龍騰課本單字表有這個字">龍騰</span> ';
   if(hasP)h+='<span class="tag t0" title="三民課本把這個字列在 Words for Production">三民 Production</span> ';
   if(hasR)h+='<span class="tag t1" title="三民課本把這個字列在 Words for Recognition">三民 Recognition</span> ';
-  if(t.l.length)h+='<span class="tag tl" title="龍騰課本單字表有這個字">龍騰</span>';
   return h;
 }
 function tbPanel(e){
   var t=tbOf(e);if(!t)return '';
   var rows=[];
+  var lt=[];t.l.forEach(function(x){var k='B'+x[0]+'L'+x[1];if(lt.indexOf(k)<0)lt.push(k);});
+  if(lt.length)rows.push('龍騰：'+esc(lt.join('、')));
   ['n','r','o'].forEach(function(ed){
     [['p','Production'],['r','Recognition']].forEach(function(kd){
       var ls=[];
@@ -289,9 +291,7 @@ function tbPanel(e){
       if(ls.length)rows.push('三民'+ED[ed]+' '+kd[1]+'：'+esc(ls.join('、')));
     });
   });
-  var lt=[];t.l.forEach(function(x){var k='B'+x[0]+'L'+x[1];if(lt.indexOf(k)<0)lt.push(k);});
-  if(lt.length)rows.push('龍騰：'+esc(lt.join('、')));
-  return '<dt>課本</dt><dd>'+rows.join('<br>')+'<br><span class="tnote">B 是冊，三民的 U 是 Unit，龍騰的 L 是 Lesson，例如三民 B2U1 是第 2 冊 Unit 1。Production 與 Recognition 是三民課本自己的分類；龍騰沒有這樣分，只列出生詞在哪一課。</span></dd>';
+  return '<dt>課本</dt><dd>'+rows.join('<br>')+'<br><span class="tnote">B 是冊，龍騰的 L 是 Lesson，三民的 U 是 Unit，例如龍騰 B2L5 是第 2 冊 Lesson 5，三民 B2U1 是第 2 冊 Unit 1。Production 與 Recognition 是三民課本自己的分類；龍騰沒有這樣分，只列出生詞在哪一課。</span></dd>';
 }
 function wordLi(e){
   var f=Object.keys(e.forms).filter(function(x){return x!==e.key;}).join('、');
