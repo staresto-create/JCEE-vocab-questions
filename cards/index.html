@@ -2007,7 +2007,7 @@
       .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
       .then(function (d) { PX = d.p; })
       .catch(function () { PX = null; });
-    fetch('cards_data.json?v=6', { cache: 'default' })
+    fetch('cards_data.json?v=7', { cache: 'default' })
       .then(function (r) {
         if (!r.ok) throw new Error('HTTP ' + r.status);
         return r.json();
