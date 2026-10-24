@@ -2003,7 +2003,7 @@
     wire();
     var kkReady = window.KK ? KK.ready : Promise.resolve();
     // 詞彙選擇題資料載入失敗不影響其他題型，只是不出詞彙選擇題
-    fetch('practice_data.json?v=2', { cache: 'default' })
+    fetch('practice_data.json?v=3', { cache: 'default' })
       .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
       .then(function (d) { PX = d.p; })
       .catch(function () { PX = null; });
