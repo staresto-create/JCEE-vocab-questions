@@ -535,6 +535,42 @@ details.skill[open] > summary::after{content:'－ 收合';}
 .cc-note{font-size:12px;line-height:1.8;color:var(--ad-x8a8278-fg);margin:12px auto;max-width:60em;padding:0 1em;}.cc-note a{color:inherit;}
 </style>
 <script src="../resume.js" defer></script>
+<style id="print-paper">
+/* 紙本列印版面（2026-10-24）：只影響列印，畫面不變。印的是這一回的中文題目，下面留書寫的橫線；
+   題目與書寫線由題庫資料直接產生，不含參考譯法、解析、提示與官方評分用字，所以不論畫面上看了沒有，印出來都是空白試卷。 */
+#printSheet{display:none;}
+@media print{
+  body{background:#fff !important;}
+  .noPrint, .sc-back, .unitbar, .toBar, .scr-strip, .scr-card, nav.tabs, header .sub, footer > div:first-child{display:none !important;}
+  body.hasSheet section.view, body.hasSheet .about-box{display:none !important;}
+  header{padding:0 0 6px !important; margin:0 0 8px !important;}
+  header h1{font-size:20pt !important; letter-spacing:2px !important;}
+  main{padding:0 !important; min-height:0 !important;}
+  body{min-height:0 !important;}
+  body.hasSheet #printSheet{display:block !important;}
+  #printSheet{font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif; color:#000;}
+  #printSheet .ps-head{font-size:13pt; font-weight:700; margin:0 0 4px;}
+  #printSheet .ps-note{font-size:10.5pt; margin:0 0 12px; padding-bottom:6px; border-bottom:1px solid #000;}
+  #printSheet .pq{break-inside:avoid; margin:0 0 14px;}
+  #printSheet .pq-s{font-size:12pt; line-height:1.9; padding-left:2em; text-indent:-2em;}
+  #printSheet .pq-ctx{font-size:11.5pt; line-height:1.8; margin:4px 0 0 2em;}
+  #printSheet .pq-line{height:9mm; border-bottom:1px solid #444; margin:0 0 0 2em;}
+  footer{font-size:8.5pt !important; line-height:1.5 !important; margin-top:8px !important; padding-top:6px !important; text-align:left !important;}
+  .cc-note{font-size:8.5pt !important; line-height:1.5 !important; margin:4px 0 0 !important; padding:0 !important; max-width:none !important;}
+  body::after{content:"歷屆中譯英翻譯練習・staresto-create.github.io/JCEE-vocab-questions・免費資源，請勿販售" !important; position:fixed !important; top:auto !important; bottom:0 !important; left:0 !important; right:0 !important; transform:none !important; font-size:8pt !important; line-height:1.4 !important; color:#777 !important; text-align:center !important; background:#fff !important; white-space:normal !important;}
+  @supports (-webkit-app-region:drag){ body::after{display:none !important;} }
+  @page{margin:10mm 14mm 14mm; @bottom-center{content:"歷屆中譯英翻譯練習・staresto-create.github.io/JCEE-vocab-questions・免費資源，請勿販售"; font-size:8pt; color:#777; font-family:"Noto Sans TC",sans-serif;}}
+}
+</style>
+<style id="print-entry">
+/* 「列印成考卷」按鈕（2026-10-24）：只在作答畫面出現，列印時隱藏 */
+.printBar{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;margin:10px 0 14px;font-family:'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif;}
+.printBtn{font:inherit;font-weight:700;font-size:15px;line-height:1.4;padding:9px 18px;border:2px solid currentColor;border-radius:6px;background:transparent;color:var(--ad-vcrimson-fg,var(--link-crimson,#9C2C1E));cursor:pointer;}
+.printBtn:hover{background:rgba(174,54,38,.1);}
+.printSub{font-size:13px;line-height:1.6;opacity:.85;}
+.printMobile{flex:0 0 100%;font-size:12.5px;line-height:1.7;opacity:.8;}
+@media print{.printBar{display:none !important;}}
+</style>
 </head>
 <body>
 
@@ -554,6 +590,7 @@ details.skill[open] > summary::after{content:'－ 收合';}
   <!-- ============ SETUP VIEW ============ -->
   <section id="view-setup" class="view active">
     <nav class="unitbar" id="unitbar" aria-label="本頁單元"><div class="ubrow"><span class="ublab">本頁單元</span><a href="#u-range">選擇練習範圍</a><a href="#adapt">模擬練習</a><a href="#u-mode">練習模式</a><a href="#u-skel">讀句子的第一步</a><a href="#u-ceec">官方在考什麼</a><a href="#u-how">怎麼下手</a></div></nav>
+    <p class="home-desc print-note" style="margin:0 0 14px;font-size:14px;line-height:1.8;"><b>想用紙本練習？</b>進到題目畫面後，按最上方的「🖨️ 列印成考卷」，會把這一回的中文題目印成一張考卷，每題下面留書寫的橫線，不含參考譯法和解析。手機和電腦都能印（也可以存成 PDF）。</p>
     <div class="card" id="u-range">
       <h2>選擇練習範圍</h2>
       <div style="font-size:12px;color:var(--ad-vmuted-fg);margin-bottom:10px;">點一下年度就能選取（可複選），再點一次取消</div>
@@ -683,6 +720,7 @@ details.skill[open] > summary::after{content:'－ 收合';}
 
   <!-- ============ QUIZ VIEW ============ -->
   <section id="view-quiz" class="view">
+    <div class="printBar noPrint"><button type="button" class="printBtn" onclick="printSet()">🖨️ 列印成考卷</button><span class="printSub" id="printSub">空白試卷，不含參考譯法和解析</span><div class="printMobile">手機上按鈕沒有反應時，也可以：iPhone 點「分享」（沒看到就先點「⋯」）→往下滑點「列印」；<span style="white-space:nowrap">Android（Chrome）</span>點「⋮」→「分享」→「列印」。</div></div>
     <div class="stats-strip">
       <span id="quizRangeLabel"></span>
       <span id="quizScoreLabel">答對 0 / 已練 0</span>
@@ -768,11 +806,13 @@ details.skill[open] > summary::after{content:'－ 收合';}
 </main>
 
 
-  <div style="background:var(--ad-xFFFDF7-bg); border:1px solid var(--ad-xDCD3BB-border); border-radius:4px; padding:13px 15px; margin:22px 0 6px; font-size:12.5px; line-height:1.8; color:var(--ad-x5B5648-fg);">
+  <div class="about-box" style="background:var(--ad-xFFFDF7-bg); border:1px solid var(--ad-xDCD3BB-border); border-radius:4px; padding:13px 15px; margin:22px 0 6px; font-size:12.5px; line-height:1.8; color:var(--ad-x5B5648-fg);">
     <b style="font-family:'Noto Serif TC',serif; font-size:13.5px; color:var(--ad-x221F1A-fg);">關於本題庫的資料</b><br>
     本題庫的題目是歷屆中譯英試題（含大考中心研究用試卷），參考譯文由老師與 AI 共同撰寫、老師逐則看過。中譯英沒有唯一正確答案，參考譯文只是其中一種寫法，不是標準答案。<br>
     <b>錯誤仍然可能存在</b>，發現任何問題歡迎回報，我會逐筆核對更正。本題庫完全免費、不用註冊、沒有廣告，歡迎自由分享。
   </div>
+
+  <div id="printSheet" aria-hidden="true"></div>
 
   <footer><div style="font-family:'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif; font-size:13px; line-height:2; margin-bottom:12px;"><a href="https://staresto-create.github.io/JCEE-vocab-questions/" style="color:var(--ad-x9C2C1E-fg); font-weight:700; text-decoration:underline; text-underline-offset:2px; white-space:nowrap;">← 回題庫首頁</a><span style="padding:0 8px; opacity:.5;">·</span><a href="https://staresto-create.github.io/JCEE-vocab-questions/#rules" style="color:var(--ad-x9C2C1E-fg); font-weight:700; text-decoration:underline; text-underline-offset:2px; white-space:nowrap;">🧩 五個詞：拼圖的規則</a></div>資料來源：73–115 年歷屆中譯英試題，含大學聯考、學測與指考（學測、指考由大考中心公布）<br>© 2026 staresto-create ZZSH · 免費、無廣告的非營利自學題庫 · <a href="https://staresto-create.github.io/JCEE-vocab-questions/#terms" style="color:var(--ad-x9C2C1E-fg); font-weight:700; text-decoration:underline; text-underline-offset:2px; white-space:nowrap;">📖 使用與著作權</a><p class="cc-note">本題庫自己寫的部分（解析、中譯、分類、標註與編排）採用 <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh-hant" target="_blank" rel="license noopener">CC BY-NC 4.0</a>（姓名標示─非商業性）授權：可以分享，但須註明出處，不得用於商業用途。試題來源與完整說明請見<a href="https://staresto-create.github.io/JCEE-vocab-questions/#terms">使用與著作權</a>。</p>
 </footer>
@@ -909,6 +949,7 @@ document.getElementById("startBtn").addEventListener("click", ()=>{
   currentRangeLabel = selectedYears.length === [...new Set(ALL_ITEMS.map(i=>i.year))].length
       ? "全部年度"
       : (selectedYears.length === 1 && selectedYears[0] === ADAPT) ? ADAPT
+      : selectedYears.length === 1 ? (selectedYears[0] + " 年")
       : (selectedYears[0] + "–" + selectedYears[selectedYears.length-1] + " 等 " + selectedYears.length + " 個年度");
   qIndex = 0; correctCount = 0; attemptedCount = 0; sessionWrong = [];
   showView("quiz");
@@ -935,9 +976,36 @@ function scrSaveQ(item){
   });
 }
 
+/* 紙本列印：把這一回的中文題目排成考卷，下面留書寫橫線。畫面上不顯示，只在列印時出現；
+   一回超過 30 題時，只印從目前這一題起的 10 題，免得一次印上百題 */
+function buildPrintSheet(){
+  const box = document.getElementById('printSheet');
+  if(!queue.length){ box.innerHTML=''; document.body.classList.remove('hasSheet'); return; }
+  let list = queue, from = 0;
+  if(queue.length > 30){ from = Math.min(qIndex, queue.length - 1); list = queue.slice(from, from + 10); }
+  const rows = list.map((it, i) => {
+    const ctx = it.context
+      ? '<div class="pq-ctx"><b>這一題是短文挖空，請依上下文作答：</b>' + escapeHtml(it.context).replace(/＿＿＿/g, '＿＿＿＿＿＿＿＿') + '</div>'
+      : '';
+    const lines = it.context ? 2 : 3;
+    return '<div class="pq"><div class="pq-s">' + (i+1) + '. ' + escapeHtml(it.zh) + '</div>'
+      + ctx + '<div class="pq-line"></div>'.repeat(lines) + '</div>';
+  }).join('');
+  box.innerHTML = '<div class="ps-head">歷屆中譯英翻譯練習 · ' + escapeHtml(currentRangeLabel) + '（共 ' + list.length + ' 題）</div>'
+    + '<div class="ps-note">請將下列中文翻譯成英文，寫在題目下方的橫線上。</div>' + rows;
+  document.body.classList.add('hasSheet');
+  const sub = document.getElementById('printSub');
+  if(sub) sub.textContent = queue.length > 30
+    ? '這一回有 ' + queue.length + ' 題，只印從目前這一題起的 ' + list.length + ' 題；空白試卷，不含參考譯法和解析'
+    : '印出這一回的全部 ' + list.length + ' 題；空白試卷，不含參考譯法和解析';
+}
+function printSet(){ buildPrintSheet(); window.print(); }
+
 function showView(name){
   document.querySelectorAll("section.view").forEach(s=>s.classList.remove("active"));
   document.getElementById("view-"+name).classList.add("active");
+  if(name === "quiz") buildPrintSheet();
+  else { document.getElementById("printSheet").innerHTML = ""; document.body.classList.remove("hasSheet"); }
   if(name === "setup") scrMountStrip();
   document.querySelectorAll("nav.tabs button").forEach(b=>b.classList.remove("active"));
   const navBtn = document.querySelector(`nav.tabs button[data-view="${name}"]`);

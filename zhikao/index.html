@@ -335,6 +335,43 @@ details.skill[open] > summary::after{content:'－ 收合';}
 .cc-note{font-size:12px;line-height:1.8;color:var(--foot-note);margin:12px auto;max-width:60em;padding:0 1em;}.cc-note a{color:inherit;}
 </style>
 <script src="../resume.js" defer></script>
+<style id="print-paper">
+/* 紙本列印版面（2026-10-24）：只影響列印，畫面不變。單字題一次只顯示一題，所以印的是「這一回的全部題目」：
+   題目、選項依字母排好，不印答案、解析、選項中譯、單字分級、答對率、鑑別度。內容由題庫資料直接產生，不是翻印畫面，
+   所以不論畫面上答了沒有，印出來都是空白試卷。浮水印改成頁尾一行小字，保留授權聲明。 */
+#printSheet{display:none;}
+@media print{
+  body{background:#fff !important;}
+  .wrap{max-width:none !important; padding:0 !important;}
+  .noPrint, .sc-back, .unitbar, .toBar, .scr-strip, .scr-card, header.top .sub, footer > div:first-child{display:none !important;}
+  header.top{padding-bottom:2px !important; margin-bottom:6px !important;}
+  body.hasSheet #home, body.hasSheet #quiz, body.hasSheet #result, body.hasSheet .about-box{display:none !important;}
+  body.hasSheet #printSheet{display:block !important;}
+  #printSheet{font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif; color:#000;}
+  #printSheet .ps-head{font-size:13pt; font-weight:700; margin:0 0 4px;}
+  #printSheet .ps-note{font-size:10.5pt; margin:0 0 8px; padding-bottom:4px; border-bottom:1px solid #000;}
+  #printSheet .pq{break-inside:avoid; margin:0 0 6px;}
+  #printSheet .pq-s{font-family:"Times New Roman","Noto Serif TC",serif; font-size:11.5pt; line-height:1.5; padding-left:2em; text-indent:-2em;}
+  #printSheet .pq-s u{text-decoration:underline;}
+  #printSheet .pq-o{display:grid; grid-template-columns:1fr 1fr; gap:2px 18px; margin:2px 0 0 2em; font-family:"Times New Roman","Noto Serif TC",serif; font-size:11.5pt; line-height:1.45;}
+  #printSheet .pq-o4{grid-template-columns:repeat(4,1fr);}
+  footer{font-size:7.5pt !important; line-height:1.35 !important; margin-top:4px !important; padding-top:3px !important; text-align:left !important;}
+  .cc-note{font-size:7.5pt !important; line-height:1.35 !important; margin:2px 0 0 !important; padding:0 !important; max-width:none !important;}
+  header.top .title{font-size:17pt !important;}
+  body::after{content:"聯考／指考英文詞彙題庫・staresto-create.github.io/JCEE-vocab-questions・免費資源，請勿販售" !important; position:fixed !important; top:auto !important; bottom:0 !important; left:0 !important; right:0 !important; transform:none !important; font-size:8pt !important; line-height:1.4 !important; color:#777 !important; text-align:center !important; background:#fff !important;}
+  @supports (-webkit-app-region:drag){ body::after{display:none !important;} }
+  @page{margin:8mm 14mm 13mm; @bottom-center{content:"聯考／指考英文詞彙題庫・staresto-create.github.io/JCEE-vocab-questions・免費資源，請勿販售"; font-size:8pt; color:#777; font-family:"Noto Sans TC",sans-serif;}}
+}
+</style>
+<style id="print-entry">
+/* 「列印成考卷」按鈕（2026-10-24）：只在作答畫面出現，列印時隱藏 */
+.printBar{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;margin:10px 0 14px;font-family:'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif;}
+.printBtn{font:inherit;font-weight:700;font-size:15px;line-height:1.4;padding:9px 18px;border:2px solid currentColor;border-radius:6px;background:transparent;color:var(--ad-vcrimson-fg,var(--link-crimson,#9C2C1E));cursor:pointer;}
+.printBtn:hover{background:rgba(174,54,38,.1);}
+.printSub{font-size:13px;line-height:1.6;opacity:.85;}
+.printMobile{flex:0 0 100%;font-size:12.5px;line-height:1.7;opacity:.8;}
+@media print{.printBar{display:none !important;}}
+</style>
 </head>
 <body>
 <div class="wrap">
@@ -351,6 +388,7 @@ details.skill[open] > summary::after{content:'－ 收合';}
   <!-- HOME -->
   <div id="home">
   <nav class="unitbar" id="unitbar" aria-label="本頁單元"><div class="ubrow"><span class="ublab">本頁單元</span><a href="#u-start">開始練習</a><a href="#u-range">依範圍練習</a><a href="#u-mock">歷屆試題</a><a href="map/">題目地圖</a><a href="#u-list">單字清單</a><a href="#skelCard">讀句子的第一步</a></div></nav>
+    <p class="home-desc print-note" style="margin:0 0 14px"><b>想用紙本練習？</b>進到題目畫面後，按最上方的「🖨️ 列印成考卷」，會把這一回的全部題目印成一張考卷，不含答案、解析、選項中譯和單字分級。手機和電腦都能印（也可以存成 PDF）。</p>
     <div class="card" id="u-start">
       <p class="home-lead">今天，先寫十題。</p>
       <p class="home-desc">不用設定，按下去就開始。每題附句子與選項中譯、選項單字分級（大考中心六級），並收錄<b>大考中心公布的官方逐題答對率</b>，讓你看到當年全體考生答對的比例。部分題目另有深入解析。</p>
@@ -516,6 +554,7 @@ details.skill[open] > summary::after{content:'－ 收合';}
 
   <!-- QUIZ -->
   <div id="quiz">
+    <div class="printBar noPrint"><button type="button" class="printBtn" onclick="printSet()">🖨️ 列印成考卷</button><span class="printSub" id="printSub">空白試卷，不含答案、解析和提示</span><div class="printMobile">手機上按鈕沒有反應時，也可以：iPhone 點「分享」（沒看到就先點「⋯」）→往下滑點「列印」；<span style="white-space:nowrap">Android（Chrome）</span>點「⋮」→「分享」→「列印」。</div></div>
     <div class="quiz-meta">
       <span id="quizModeLabel"></span>
       <span id="quizProgress"></span>
@@ -560,11 +599,13 @@ details.skill[open] > summary::after{content:'－ 收合';}
   </div>
 
   
-  <div style="background:var(--paper-card); border:1px solid var(--rule); border-radius:4px; padding:13px 15px; margin:22px 0 6px; font-size:12.5px; line-height:1.8; color:var(--ink-soft);">
+  <div class="about-box" style="background:var(--paper-card); border:1px solid var(--rule); border-radius:4px; padding:13px 15px; margin:22px 0 6px; font-size:12.5px; line-height:1.8; color:var(--ink-soft);">
     <b style="font-family:'Noto Serif TC',serif; font-size:13.5px; color:var(--ink);">關於本題庫的資料</b><br>
     答對率（P 值）與鑑別度（D 值）取自大考中心公布的官方統計，選項的單字分級依大考中心六級詞彙表；轉錄與逐題比對由老師使用 AI 協作完成，可能有疏漏。深入解析目前只有部分題目有，會陸續補上。<br>
     <b>錯誤仍然可能存在</b>，發現任何問題歡迎回報，我會逐筆核對更正。本題庫完全免費、不用註冊、沒有廣告，歡迎自由分享。
   </div>
+
+  <div id="printSheet" aria-hidden="true"></div>
 
   <footer><div style="font-family:'Noto Sans TC',sans-serif; font-size:13px; line-height:2; margin-bottom:12px;"><a href="https://staresto-create.github.io/JCEE-vocab-questions/" style="color:var(--link-crimson); font-weight:700; text-decoration:underline; text-underline-offset:2px; white-space:nowrap;">← 回題庫首頁</a><span style="padding:0 8px; opacity:.5;">·</span><a href="https://staresto-create.github.io/JCEE-vocab-questions/#rules" style="color:var(--link-crimson); font-weight:700; text-decoration:underline; text-underline-offset:2px; white-space:nowrap;">🧩 五個詞：拼圖的規則</a></div>資料來源：81–90 年大學聯考、91–110 年指考、指考補考、颱風受災地區補救考試與指考參考試卷詞彙題（91 年起由大考中心公布），分級依《高中英文參考詞彙表》<br>© 2026 staresto-create ZZSH · 免費、無廣告的非營利自學題庫 · <a href="https://staresto-create.github.io/JCEE-vocab-questions/#terms" style="color:var(--link-crimson); font-weight:700; text-decoration:underline; text-underline-offset:2px; white-space:nowrap;">📖 使用與著作權</a><p class="cc-note">本題庫自己寫的部分（解析、中譯、分類、標註與編排）採用 <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh-hant" target="_blank" rel="license noopener">CC BY-NC 4.0</a>（姓名標示─非商業性）授權：可以分享，但須註明出處，不得用於商業用途。試題來源與完整說明請見<a href="https://staresto-create.github.io/JCEE-vocab-questions/#terms">使用與著作權</a>。</p>
 </footer>
@@ -766,6 +807,26 @@ function retryWrongFromResult(){
 }
 
 /* ---------- Quiz flow ---------- */
+/* 紙本列印：把這一回的全部題目排成考卷。畫面上不顯示，只在列印時出現；內容直接取自題庫資料，不含答案與解析 */
+function buildPrintSheet(){
+  const box = document.getElementById('printSheet');
+  const qs = session.list.map(id => byId(id)).filter(Boolean);
+  if(!qs.length){ box.innerHTML=''; document.body.classList.remove('hasSheet'); return; }
+  const rows = qs.map((q, i) => {
+    const stem = q.s.replace(/_{3,}/g, '________').replace(/@@(.+?)@@/g, '<u>$1</u>');
+    const letters = ['A','B','C','D'].filter(L => q.o[L]);
+    const opts = letters.map(L => '<div>('+L+') '+q.o[L]+'</div>').join('');
+    const short = letters.every(L => q.o[L].length <= 13);   /* 四個選項都很短，就排成一橫列，省紙 */
+    return '<div class="pq"><div class="pq-s">'+(i+1)+'. '+stem+'</div><div class="pq-o'+(short ? ' pq-o4' : '')+'">'+opts+'</div></div>';
+  }).join('');
+  box.innerHTML = '<div class="ps-head">聯考／指考英文詞彙題庫 · '+escapeHtml(session.mode)+'（共 '+qs.length+' 題）</div>'
+    + '<div class="ps-note">請依句意，選出最適當的答案。</div>' + rows;
+  document.body.classList.add('hasSheet');
+  const sub = document.getElementById('printSub');
+  if(sub) sub.textContent = '印出這一回的全部 '+qs.length+' 題，空白試卷，不含答案、解析和提示';
+}
+function printSet(){ buildPrintSheet(); window.print(); }
+
 function startQuiz(ids, label){
   if(!ids || ids.length===0){ alert('沒有可用題目'); return; }
   session = { list: ids, idx: 0, correctCount: 0, wrongIds: [], mode: label || '隨機練習' };
@@ -774,6 +835,7 @@ function startQuiz(ids, label){
   document.getElementById('quiz').style.display='block';
   document.getElementById('quizModeLabel').textContent = session.mode;
   renderQuestion();
+  buildPrintSheet();
 }
 
 function renderQuestion(){
@@ -973,6 +1035,7 @@ function finishQuiz(){
 }
 
 function goHome(){
+  document.getElementById('printSheet').innerHTML=''; document.body.classList.remove('hasSheet');
   scrMountStrip();
   document.getElementById('result').style.display='none';
   document.getElementById('quiz').style.display='none';
