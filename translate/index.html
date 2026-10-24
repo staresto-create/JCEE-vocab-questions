@@ -790,6 +790,8 @@ details.skill[open] > summary::after{content:'－ 收合';}
       <h2 style="margin-bottom:6px;">錯題本</h2>
       <div id="reviewCount" style="font-size:13px;color:var(--ad-vmuted-fg);"></div>
     </div>
+    <div class="printBar noPrint"><button type="button" class="printBtn" onclick="printWrong()">🖨️ 列印錯題考卷</button><span class="printSub" id="printSubWrong">把錯題本裡的中文題目印成考卷，每題下面留書寫橫線，不含參考譯法和你上次的答案</span><div class="printMobile">手機上按鈕沒有反應時，也可以：iPhone 點「分享」（沒看到就先點「⋯」）→往下滑點「列印」；<span style="white-space:nowrap">Android（Chrome）</span>點「⋮」→「分享」→「列印」。</div></div>
+    <div class="home-desc" style="font-size:12.5px;line-height:1.8;margin:0 0 12px;opacity:.85;">錯題本只存在這台裝置的這個瀏覽器裡，換手機或電腦、清除瀏覽紀錄都會不見。在紙上重做之後，網站不會知道結果；要回到練習畫面把這一題再做一次，按「我答對了 / 差不多」，才會從錯題本移除。</div>
     <div id="reviewList"></div>
     <div class="clear-link" id="clearWrongLink">清空錯題本</div>
   </section>
@@ -978,12 +980,8 @@ function scrSaveQ(item){
 
 /* 紙本列印：把這一回的中文題目排成考卷，下面留書寫橫線。畫面上不顯示，只在列印時出現；
    一回超過 30 題時，只印從目前這一題起的 10 題，免得一次印上百題 */
-function buildPrintSheet(){
-  const box = document.getElementById('printSheet');
-  if(!queue.length){ box.innerHTML=''; document.body.classList.remove('hasSheet'); return; }
-  let list = queue, from = 0;
-  if(queue.length > 30){ from = Math.min(qIndex, queue.length - 1); list = queue.slice(from, from + 10); }
-  const rows = list.map((it, i) => {
+function sheetRows(list){
+  return list.map((it, i) => {
     const ctx = it.context
       ? '<div class="pq-ctx"><b>這一題是短文挖空，請依上下文作答：</b>' + escapeHtml(it.context).replace(/＿＿＿/g, '＿＿＿＿＿＿＿＿') + '</div>'
       : '';
@@ -991,13 +989,41 @@ function buildPrintSheet(){
     return '<div class="pq"><div class="pq-s">' + (i+1) + '. ' + escapeHtml(it.zh) + '</div>'
       + ctx + '<div class="pq-line"></div>'.repeat(lines) + '</div>';
   }).join('');
-  box.innerHTML = '<div class="ps-head">歷屆中譯英翻譯練習 · ' + escapeHtml(currentRangeLabel) + '（共 ' + list.length + ' 題）</div>'
-    + '<div class="ps-note">請將下列中文翻譯成英文，寫在題目下方的橫線上。</div>' + rows;
+}
+function showSheet(headText, list, subText){
+  const box = document.getElementById('printSheet');
+  box.innerHTML = '<div class="ps-head">' + headText + '（共 ' + list.length + ' 題）</div>'
+    + '<div class="ps-note">請將下列中文翻譯成英文，寫在題目下方的橫線上。</div>' + sheetRows(list);
   document.body.classList.add('hasSheet');
   const sub = document.getElementById('printSub');
-  if(sub) sub.textContent = queue.length > 30
+  if(sub) sub.textContent = subText;
+}
+function clearSheet(){ document.getElementById('printSheet').innerHTML = ''; document.body.classList.remove('hasSheet'); }
+function buildPrintSheet(){
+  if(!queue.length){ clearSheet(); return; }
+  let list = queue;
+  if(queue.length > 30){ list = queue.slice(Math.min(qIndex, queue.length - 1), Math.min(qIndex, queue.length - 1) + 10); }
+  showSheet('歷屆中譯英翻譯練習 · ' + escapeHtml(currentRangeLabel), list, queue.length > 30
     ? '這一回有 ' + queue.length + ' 題，只印從目前這一題起的 ' + list.length + ' 題；空白試卷，不含參考譯法和解析'
-    : '印出這一回的全部 ' + list.length + ' 題；空白試卷，不含參考譯法和解析';
+    : '印出這一回的全部 ' + list.length + ' 題；空白試卷，不含參考譯法和解析');
+}
+/* 錯題本的紙本考卷：只印中文題目與書寫橫線，不印參考譯法，也不印學生上次寫的答案。
+   一次最多印最近存入的 30 題。短文挖空題的上下文，要從題庫資料用編號找回來（錯題本只存了中文句）。 */
+const WRONG_PRINT_MAX = 30;
+function buildWrongSheet(){
+  const wb = getWrongBook().slice().reverse();
+  if(!wb.length){ clearSheet(); return; }
+  const picked = wb.slice(0, WRONG_PRINT_MAX).map(w => {
+    const full = ALL_ITEMS.find(it => String(it.id) === String(w.id));
+    return full ? full : { zh: w.zh, yearLabel: w.yearLabel };
+  });
+  showSheet('歷屆中譯英翻譯練習 · 我的錯題', picked, wb.length > WRONG_PRINT_MAX
+    ? '錯題本共 ' + wb.length + ' 題，一次印最近存入的 ' + picked.length + ' 題；空白試卷，不含參考譯法和你上次的答案'
+    : '印出錯題本的全部 ' + picked.length + ' 題；空白試卷，不含參考譯法和你上次的答案');
+}
+function printWrong(){
+  if(!getWrongBook().length){ alert('錯題本目前是空的。'); return; }
+  buildWrongSheet(); window.print();
 }
 function printSet(){ buildPrintSheet(); window.print(); }
 
@@ -1005,7 +1031,8 @@ function showView(name){
   document.querySelectorAll("section.view").forEach(s=>s.classList.remove("active"));
   document.getElementById("view-"+name).classList.add("active");
   if(name === "quiz") buildPrintSheet();
-  else { document.getElementById("printSheet").innerHTML = ""; document.body.classList.remove("hasSheet"); }
+  else if(name === "review") buildWrongSheet();
+  else clearSheet();
   if(name === "setup") scrMountStrip();
   document.querySelectorAll("nav.tabs button").forEach(b=>b.classList.remove("active"));
   const navBtn = document.querySelector(`nav.tabs button[data-view="${name}"]`);
