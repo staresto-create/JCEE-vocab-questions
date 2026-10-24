@@ -178,7 +178,7 @@ var PAGE=400;
 var D=null, state={lv:-1, p:0, t:0, q:''}, limit=PAGE;
 var PF={0:function(){return true;},10:function(n){return n>=10;},5:function(n){return n>=5;},24:function(n){return n>=2&&n<=4;},1:function(n){return n===1;}};
 function fmt(n){return n.toLocaleString('en-US');}
-function lvName(l){return l?'第 '+l+' 級':'詞彙表沒收的字';}
+function lvName(l){return l?'第 '+l+' 級':'詞彙表沒收錄的字';}
 
 function readHash(){
   var h=(location.hash||'').replace(/^#/,''), p={};
@@ -203,9 +203,9 @@ function buildTables(){
   D.cov.forEach(function(c){
     h+='<tr><td>第 '+c.l+' 級</td><td class="pct">'+c.cum.toFixed(1)+'%<span class="bars"><span class="bar" style="width:'+Math.round(c.cum*1.4)+'px"></span></span></td><td>'+c.own.toFixed(1)+'%</td></tr>';
   });
-  h+='<tr class="total"><td>詞彙表沒收的字</td><td></td><td>'+D.oov.toFixed(1)+'%</td></tr></tbody>';
+  h+='<tr class="total"><td>詞彙表沒收錄的字</td><td></td><td>'+D.oov.toFixed(1)+'%</td></tr></tbody>';
   $('#cumTable').innerHTML=h;
-  $('#cumNote').textContent='一級字就占了試卷用字的四分之三，一到四級合計 '+D.cov[3].cum.toFixed(1)+'%，一到六級合計 '+D.cov[5].cum.toFixed(1)+'%。這是字次的比例，分母是扣掉專有名詞以後的 '+fmt(D.den)+' 個字次；the、of、is 這類一級字每份試卷都出現很多次，所以比例很高。五、六級和詞彙表沒收的字合起來比例雖然低，卻常常是讀懂一句話、選對一個答案的關鍵。';
+  $('#cumNote').textContent='一級字就占了試卷用字的四分之三，一到四級合計 '+D.cov[3].cum.toFixed(1)+'%，一到六級合計 '+D.cov[5].cum.toFixed(1)+'%。這是字次的比例，分母是扣掉專有名詞以後的 '+fmt(D.den)+' 個字次；the、of、is 這類一級字每份試卷都出現很多次，所以比例很高。五、六級和詞彙表沒收錄的字合起來比例雖然低，卻常常是讀懂一句話、選對一個答案的關鍵。';
   var t='<thead><tr><th>級別</th><th>出現過／詞條</th><th>10 份以上</th><th>5 份以上</th><th>只出現 1 份</th></tr></thead><tbody>';
   D.dist.forEach(function(x){
     t+='<tr><td><a href="#lv='+x.l+'" data-lv="'+x.l+'">第 '+x.l+' 級</a></td><td>'+fmt(x.n)+'／'+fmt(x.size)+'</td><td>'+fmt(x.p10)+'</td><td>'+fmt(x.p5)+'</td><td>'+fmt(x.p1)+'</td></tr>';
@@ -246,7 +246,7 @@ function render(){
   });
   rows=rows.map(function(r,i){return [r,i];}).sort(function(a,b){return (ORDER.indexOf(a[0][1])-ORDER.indexOf(b[0][1]))||(a[1]-b[1]);}).map(function(x){return x[0];});
   var all=state.lv<0&&!state.p&&!state.t&&!q;
-  $('#count').textContent=all?'二到六級出現過的詞條 '+fmt(rows.filter(function(r){return r[1];}).length)+' 個，加上詞彙表沒收、出現在 2 份以上試卷的字；每一級依份數再依次數排列':'符合的字 '+fmt(rows.length)+' 個，每一級依份數再依次數排列';
+  $('#count').textContent=all?'二到六級出現過的詞條 '+fmt(rows.filter(function(r){return r[1];}).length)+' 個，加上詞彙表沒收錄、出現在 2 份以上試卷的字；每一級依份數再依次數排列':'符合的字 '+fmt(rows.length)+' 個，每一級依份數再依次數排列';
   if(!rows.length){var e=document.createElement('p');e.className='empty';e.textContent='這個條件下沒有字。清掉搜尋或改選其他條件再試一次。';body.appendChild(e);return;}
   var per={}; rows.forEach(function(r){per[r[1]]=(per[r[1]]||0)+1;});
   var cur=null, ul=null;
@@ -284,7 +284,7 @@ KK.ready.then(function(){return fetch('freq_data.json');}).then(function(r){if(!
   D=d;
   $('#scopeText').textContent='範圍是 83 到 115 學年度的學測正式考試，加上 91、92 年補考，一共 '+d.papers+' 份試卷；83 到 88 年的詞彙題在本題庫標成「推薦甄選」，那其實就是同一份學測，所以併入同一年。參考試卷和試辦考試沒有正式施測，內容也和正式考試重複，所以不算。每一份試卷都算了詞彙、克漏字、文意選填、篇章結構、閱讀測驗、混合題的文章、題目和選項，一共 '+fmt(d.ntok)+' 個字次；翻譯題的參考答案是本題庫寫的，作文題目以中文為主，英聽沒有公布逐字稿，這三種都沒有算。';
   buildTables();
-  mkBtns($('#lvRow'),[[-1,'全部'],[2,'第 2 級'],[3,'第 3 級'],[4,'第 4 級'],[5,'第 5 級'],[6,'第 6 級'],[0,'詞彙表沒收']],'lv');
+  mkBtns($('#lvRow'),[[-1,'全部'],[2,'第 2 級'],[3,'第 3 級'],[4,'第 4 級'],[5,'第 5 級'],[6,'第 6 級'],[0,'詞彙表沒收錄']],'lv');
   mkBtns($('#pRow'),[[0,'全部'],[10,'10 份以上'],[5,'5 份以上'],[24,'2–4 份'],[1,'只出現 1 份']],'p');
   mkBtns($('#tRow'),[[0,'全部'],[1,'只看題目用語']],'t');
   readHash(); $('#q').value=state.q; syncButtons();
