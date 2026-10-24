@@ -1162,16 +1162,6 @@
   }
  ],
  "words": {
-  "refuse": {
-   "parse": "re 往回 + fus 倒",
-   "gloss": "v. 把倒過來的推回去→拒絕",
-   "affixes": [
-    "re-"
-   ],
-   "exams": {
-    "115-1": "L1"
-   }
-  },
   "refusal": {
    "parse": "refuse 拒絕 + -al",
    "gloss": "n. 拒絕",
@@ -1208,7 +1198,7 @@
    }
   },
   "restore": {
-   "parse": "re 回 + stor 儲存",
+   "parse": "re 往回、再 + stor 儲存",
    "gloss": "v. 放回原來的地方→恢復",
    "affixes": [
     "re-"
@@ -1410,7 +1400,7 @@
    }
   },
   "conscience": {
-   "parse": "con 一起 + sci 知道",
+   "parse": "con 一起、徹底 + sci 知道",
    "gloss": "n. 心裡跟你一起知道的聲音→良心",
    "affixes": [
     "con- / com-",
@@ -1421,7 +1411,7 @@
    }
   },
   "innovate": {
-   "parse": "in 進入 + nov 新",
+   "parse": "in 往裡面 + nov 新",
    "gloss": "v. 把新東西放進來→創新",
    "affixes": [
     "in- / im-"
@@ -1453,7 +1443,7 @@
    }
   },
   "invest": {
-   "parse": "in 進入 + vest 衣服",
+   "parse": "in 往裡面 + vest 衣服",
    "gloss": "v. 把錢投進去→投資",
    "affixes": [
     "in- / im-"
@@ -1542,7 +1532,7 @@
    }
   },
   "demonstrate": {
-   "parse": "de 完全 + monstr 展示",
+   "parse": "de 徹底 + monstr 展示",
    "gloss": "v. 完整攤開給人看→示範",
    "affixes": [
     "de-"
@@ -1552,7 +1542,7 @@
    }
   },
   "destination": {
-   "parse": "de 完全 + stin 站定 + -ation",
+   "parse": "de 徹底 + stin 站定 + -ation",
    "gloss": "n. 事先定好要落腳的點→目的地",
    "affixes": [
     "de-",
@@ -1747,7 +1737,7 @@
    "level": 2
   },
   "explore": {
-   "parse": "ex 向外 + plor 呼喊尋找",
+   "parse": "ex 往外 + plor 呼喊尋找",
    "gloss": "v. 往外找→探索",
    "affixes": [
     "ex- / e-"
@@ -1757,7 +1747,7 @@
    }
   },
   "exceed": {
-   "parse": "ex 超出 + ceed 走",
+   "parse": "ex 往外 + ceed 走",
    "gloss": "v. 走出界線→超過",
    "affixes": [
     "ced / cess",
@@ -1769,7 +1759,7 @@
    "level": 5
   },
   "exhibit": {
-   "parse": "ex 向外 + hibit 拿住",
+   "parse": "ex 往外 + hibit 拿住",
    "gloss": "v. 拿出來給人看→展出",
    "affixes": [
     "ex- / e-"
@@ -1789,7 +1779,7 @@
    }
   },
   "export": {
-   "parse": "ex 向外 + port 搬",
+   "parse": "ex 往外 + port 搬",
    "gloss": "v. 把貨搬出國→出口",
    "affixes": [
     "ex- / e-"
@@ -1798,7 +1788,7 @@
    "level": 3
   },
   "expand": {
-   "parse": "ex 向外 + pand 展開",
+   "parse": "ex 往外 + pand 展開",
    "gloss": "v. 往外攤開→擴張",
    "affixes": [
     "ex- / e-"
@@ -1807,7 +1797,7 @@
    "level": 4
   },
   "exclude": {
-   "parse": "ex 向外 + clud 關閉",
+   "parse": "ex 往外 + clud 關閉",
    "gloss": "v. 關在門外→排除",
    "affixes": [
     "ex- / e-"
@@ -1906,7 +1896,7 @@
    }
   },
   "dismiss": {
-   "parse": "dis 分開 + miss 送",
+   "parse": "dis 離開 + miss 送",
    "gloss": "v. 把人送走→解散、駁回",
    "affixes": [
     "dis-"
@@ -1926,7 +1916,7 @@
    }
   },
   "disturb": {
-   "parse": "dis 分開 + turb 攪動",
+   "parse": "dis 徹底 + turb 攪動",
    "gloss": "v. 把安定攪散→打擾",
    "affixes": [
     "dis-"
@@ -2258,7 +2248,7 @@
    }
   },
   "disclose": {
-   "parse": "dis 相反 + close 關",
+   "parse": "dis 反 + close 關",
    "gloss": "v. 把關著的打開→揭露",
    "affixes": [
     "dis-"
@@ -2349,7 +2339,7 @@
    }
   },
   "declare": {
-   "parse": "de 完全 + clar 清楚",
+   "parse": "de 徹底 + clar 清楚",
    "gloss": "v. 講得完全清楚→宣布",
    "affixes": [
     "de-"
@@ -2359,7 +2349,7 @@
    }
   },
   "despite": {
-   "parse": "de 往下 + spite（拉丁文 specere 看）",
+   "parse": "de + spite（拉丁文 specere 看）；與 despise 同源",
    "gloss": "prep. 原指往下看、瞧不起→不放在眼裡→儘管",
    "affixes": [
     "de-"
@@ -2369,7 +2359,7 @@
    }
   },
   "deliberate": {
-   "parse": "de 完全 + liber 秤（原是 libra 天平） + -ate",
+   "parse": "de 徹底 + liber 秤（原是 libra 天平） + -ate",
    "gloss": "adj. 放在秤上好好秤過→深思熟慮的；故意的",
    "affixes": [
     "de-",
@@ -2403,7 +2393,7 @@
    }
   },
   "eventually": {
-   "parse": "e 向外 + vent 來 + -ual + -ly",
+   "parse": "e 往外 + vent 來 + -ual + -ly",
    "gloss": "adv. 最後跑出來的結果→最終",
    "affixes": [
     "ex- / e-",
@@ -2424,7 +2414,7 @@
    }
   },
   "exhaust": {
-   "parse": "ex 向外 + haust 汲取",
+   "parse": "ex 離開 + haust 汲取",
    "gloss": "v. 把水全部汲出來→耗盡；使筋疲力盡",
    "affixes": [
     "ex- / e-"
@@ -2434,7 +2424,7 @@
    }
   },
   "elegant": {
-   "parse": "e 向外 + leg 挑選 + -ant",
+   "parse": "e 往外 + leg 挑選 + -ant",
    "gloss": "adj. 精挑細選出來的→優雅的、雅致的",
    "affixes": [
     "ex- / e-",
@@ -2457,7 +2447,7 @@
    }
   },
   "evaluate": {
-   "parse": "e 向外 + valu 價值 + -ate",
+   "parse": "e 往外 + valu 價值 + -ate",
    "gloss": "v. 把價值找出來→評估",
    "affixes": [
     "ex- / e-",
@@ -2468,7 +2458,7 @@
    }
   },
   "evolution": {
-   "parse": "e 向外 + volu 捲 + -tion",
+   "parse": "e 往外 + volu 捲 + -tion",
    "gloss": "n. 把捲起來的攤開→演化、發展",
    "affixes": [
     "ex- / e-",
@@ -2479,7 +2469,7 @@
    }
   },
   "excessive": {
-   "parse": "ex 向外 + cess 走 + -ive",
+   "parse": "ex 往外 + cess 走 + -ive",
    "gloss": "adj. 走出界線的→過度的",
    "affixes": [
     "ex- / e-",
@@ -2918,7 +2908,7 @@
    }
   },
   "exception": {
-   "parse": "ex 向外 + cept 拿 + -ion",
+   "parse": "ex 往外 + cept 拿 + -ion",
    "gloss": "n. 拿出去不算的→例外",
    "affixes": [
     "cap / cept / ceive"
@@ -3095,7 +3085,7 @@
    }
   },
   "compact": {
-   "parse": "com 一起 + pact（拉丁文 pangere 釘牢）",
+   "parse": "com 一起 + pact（拉丁文 pangere 固定）",
    "gloss": "adj. 緊密的、小巧的",
    "affixes": [
     "con- / com-（一起）"
@@ -3164,7 +3154,7 @@
    "exams": {}
   },
   "confess": {
-   "parse": "con 徹底 + fess 說",
+   "parse": "con 一起 + fess 說",
    "gloss": "v. 全部說出來→承認、坦白",
    "affixes": [
     "con- / com-（徹底）"
@@ -3209,7 +3199,7 @@
    }
   },
   "resemble": {
-   "parse": "re 加強 + semble（拉丁文 similare 相似）",
+   "parse": "re + semble（古法文 sembler 看起來像）",
    "gloss": "v. 很相似→像",
    "affixes": [
     "re-（往回、加強）"
@@ -3339,7 +3329,7 @@
    }
   },
   "adjust": {
-   "parse": "ad 朝向 + just（拉丁文 juxta 靠近）",
+   "parse": "ad 朝向 + just（古法文 juste 正確的）",
    "gloss": "v. 挪近、對齊→調整；適應",
    "affixes": [
     "ad- / ac- / ap-"
@@ -3394,7 +3384,7 @@
    }
   },
   "ingredient": {
-   "parse": "in 進入 + gredi 走 + -ent",
+   "parse": "in 往裡面 + gredi 走 + -ent",
    "gloss": "n. 走進去的東西→材料、成分",
    "affixes": [
     "in- / im- / il-"
@@ -3414,7 +3404,7 @@
    }
   },
   "institute": {
-   "parse": "in 在…上 + stitute（拉丁文 statuere 立）",
+   "parse": "in 在裡面 + stitute（拉丁文 statuere 立）",
    "gloss": "n. 立起來的機構→學院、研究所；v. 設立",
    "affixes": [
     "in- / im- / il-",
@@ -3523,17 +3513,6 @@
     "115-2": "10/6"
    }
   },
-  "substantial": {
-   "parse": "sub 在下面 + stant 站 + -ial",
-   "gloss": "adj. 有實質內容的→大量的、可觀的；實質的",
-   "affixes": [
-    "sub-",
-    "-al"
-   ],
-   "exams": {
-    "115-2": "10/9"
-   }
-  },
   "subtle": {
    "parse": "sub 在下面 + tle（拉丁文 tela 織布）",
    "gloss": "adj. 織得很細的→細微的、不易察覺的",
@@ -3599,7 +3578,7 @@
    }
   },
   "promising": {
-   "parse": "pro 向前 + mis 送 + -ing",
+   "parse": "pro 往前 + mis 送 + -ing",
    "gloss": "adj. 看得到希望的→有前途的、有希望的",
    "affixes": [
     "pre- / pro-"
@@ -3704,7 +3683,7 @@
    }
   },
   "encourage": {
-   "parse": "en 使 + courage 勇氣",
+   "parse": "en 使有 + courage 勇氣",
    "gloss": "v. 使有勇氣→鼓勵",
    "affixes": [
     "en- / mis- / be-"
@@ -3731,7 +3710,7 @@
    "exams": {}
   },
   "endanger": {
-   "parse": "en 使 + danger 危險",
+   "parse": "en 使處於 + danger 危險",
    "gloss": "v. 使陷入危險→危害",
    "affixes": [
     "en- / mis- / be-"
@@ -3740,7 +3719,7 @@
    "exams": {}
   },
   "mistake": {
-   "parse": "mis 錯誤 + take 拿",
+   "parse": "mis 錯誤地 + take 拿",
    "gloss": "n. 錯誤；v. 拿錯→弄錯、誤認（mistake A for B）",
    "affixes": [
     "en- / mis- / be-"
@@ -3749,7 +3728,7 @@
    "exams": {}
   },
   "misunderstand": {
-   "parse": "mis 錯誤 + understand 了解",
+   "parse": "mis 錯誤地 + understand 了解",
    "gloss": "v. 誤會、誤解",
    "affixes": [
     "en- / mis- / be-"
@@ -3824,7 +3803,7 @@
    "exams": {}
   },
   "control": {
-   "parse": "contr（contra 對照）+ ol（rol，拉丁文 rotulus 名冊）",
+   "parse": "contr（contra）+ ol（rol，中古拉丁文 rotulus 卷冊）",
    "gloss": "v./n. 拿另一本名冊來對照核對→管理、控制",
    "affixes": [
     "contra- / counter-"
@@ -3930,7 +3909,7 @@
    "exams": {}
   },
   "condition": {
-   "parse": "con 一起 + di(c) 說（拉丁文 dicere）+ -tion",
+   "parse": "con（com）一起 + di(c) 說（拉丁文 dicere）+ -tion",
    "gloss": "n. 大家一起說好的→條件；狀況；（身體的）疾病、毛病",
    "affixes": [
     "-tion / -sion（字根 + 字尾）",
@@ -4018,17 +3997,6 @@
    ],
    "exams": {
     "115-2": "10/2"
-   }
-  },
-  "perspective": {
-   "parse": "per 穿過 + spect 看 + -ive",
-   "gloss": "n. 看穿過去的方式→觀點、角度；透視法",
-   "affixes": [
-    "-ive",
-    "spec / spect / spic"
-   ],
-   "exams": {
-    "115-2": "10/7"
    }
   },
   "repetitive": {
@@ -4520,7 +4488,7 @@
    }
   },
   "violate": {
-   "parse": "viol（拉丁文 violare 侵犯）+ -ate",
+   "parse": "viol（拉丁文 violare，詞幹跟 violentus 暴力的相同）+ -ate",
    "gloss": "v. 暴力侵犯→違反；侵犯",
    "affixes": [
     "-ate（動詞）"
@@ -4540,7 +4508,7 @@
    }
   },
   "moderate": {
-   "parse": "moder（拉丁文 modus 適度）+ -ate",
+   "parse": "moder（拉丁文 moderare 節制，跟 modus 尺度同源）+ -ate",
    "gloss": "adj. 不過度的→適度的",
    "affixes": [
     "-ate（形容詞）"
@@ -4783,7 +4751,7 @@
    "exams": {}
   },
   "literary": {
-   "parse": "letter（拉丁文 littera 字母）+ -ary",
+   "parse": "liter（拉丁文 littera 字母）+ -ary",
    "gloss": "adj. 文學的",
    "affixes": [
     "-ary / -ery / -ure / -age"
@@ -4863,7 +4831,7 @@
    }
   },
   "important": {
-   "parse": "im 進入 + port 帶 + -ant",
+   "parse": "im 往裡面 + port 帶 + -ant",
    "gloss": "adj. 帶進來的分量很重→重要的",
    "affixes": [
     "-ant / -ent（形容詞）"
@@ -4927,7 +4895,7 @@
    "exams": {}
   },
   "mutual": {
-   "parse": "mut（拉丁文 mutare 交換）+ -ual",
+   "parse": "mut（拉丁文 mutare 改變）+ -ual",
    "gloss": "adj. 互相的、共同的",
    "affixes": [
     "-al（拉丁字根 + -al）"
@@ -4937,7 +4905,7 @@
    }
   },
   "rural": {
-   "parse": "rur（拉丁文 rus 鄉下）+ -al",
+   "parse": "rur（拉丁文 rus 原野）+ -al",
    "gloss": "adj. 鄉下的、農村的",
    "affixes": [
     "-al（拉丁字根 + -al）"
@@ -5084,7 +5052,7 @@
    "exams": {}
   },
   "expect": {
-   "parse": "ex 向外 + spect 看",
+   "parse": "ex 往外 + spect 看",
    "gloss": "v. 往外看著、盼著→期待、預期",
    "affixes": [
     "spec / spect / spic"
@@ -5148,7 +5116,7 @@
    "exams": {}
   },
   "expose": {
-   "parse": "ex 向外 + pose 放",
+   "parse": "ex 往外 + pose 放",
    "gloss": "v. 放到外面→使暴露；揭發",
    "affixes": [
     "pon / pos"
@@ -5166,7 +5134,7 @@
    "exams": {}
   },
   "propose": {
-   "parse": "pro 向前 + pose 放",
+   "parse": "pro 往前 + pose 放",
    "gloss": "v. 放到大家面前→提議；求婚；打算",
    "affixes": [
     "pon / pos"
@@ -5240,7 +5208,7 @@
    }
   },
   "genuine": {
-   "parse": "gen 生（拉丁文 genuinus 天生的）+ -ine",
+   "parse": "拉丁文 genuinus 天生的（跟 gignere 生育同源）",
    "gloss": "adj. 天生的、不是做出來的→真正的、純正的",
    "affixes": [
     "gen / gener"
@@ -5333,7 +5301,7 @@
    "exams": {}
   },
   "extend": {
-   "parse": "ex 向外 + tend 伸",
+   "parse": "ex 往外 + tend 伸",
    "gloss": "v. 往外伸→延長、擴大；延伸；給予（歡迎、邀請）",
    "affixes": [
     "tain / ten / tend"
@@ -5442,7 +5410,7 @@
    "exams": {}
   },
   "obstacle": {
-   "parse": "ob 對著 + stacle（拉丁文 stare 站）",
+   "parse": "ob 擋在路上 + stacle（拉丁文 stare 站）",
    "gloss": "n. 站在你面前擋路的東西→障礙物",
    "affixes": [
     "sta / sist / stit"
@@ -5488,7 +5456,7 @@
    "exams": {}
   },
   "exist": {
-   "parse": "ex 向外 + sist 站（s 與 x 合併）",
+   "parse": "ex 往外 + sist 站（s 與 x 合併）",
    "gloss": "v. 站出來→存在",
    "affixes": [
     "sta / sist / stit"
@@ -5534,7 +5502,7 @@
    "exams": {}
   },
   "extract": {
-   "parse": "ex 向外 + tract 拉",
+   "parse": "ex 往外 + tract 拉",
    "gloss": "v. 拉出來→提煉；拔出；n. 摘錄",
    "affixes": [
     "tract / duct"
@@ -5552,7 +5520,7 @@
    "exams": {}
   },
   "subtract": {
-   "parse": "sub 下面 + tract 拉",
+   "parse": "sub 從下面 + tract 拉",
    "gloss": "v. 往下拉掉→減去",
    "affixes": [
     "tract / duct"
@@ -5561,7 +5529,7 @@
    "exams": {}
   },
   "produce": {
-   "parse": "pro 向前 + duce 引導",
+   "parse": "pro 往前 + duce 引導",
    "gloss": "v. 帶出來→生產、製造；引起",
    "affixes": [
     "tract / duct"
@@ -5579,7 +5547,7 @@
    "exams": {}
   },
   "trait": {
-   "parse": "trait（拉丁文 tractus 畫出的線條）",
+   "parse": "拉丁文 tractus 拉（法文原意是「拉、畫的動作」）",
    "gloss": "n. 畫出來的一筆→特徵、特質",
    "affixes": [
     "tract / duct"
@@ -5589,7 +5557,7 @@
    }
   },
   "process": {
-   "parse": "pro 向前 + cess 走",
+   "parse": "pro 往前 + cess 走",
    "gloss": "n. 一步步往前走→過程；製作方法；v. 處理（文件、資料）、加工（食品）",
    "affixes": [
     "ced / cess"
@@ -5598,7 +5566,7 @@
    "exams": {}
   },
   "proceed": {
-   "parse": "pro 向前 + ceed 走",
+   "parse": "pro 往前 + ceed 走",
    "gloss": "v. 繼續往前走→繼續進行；接著做（另一件事）；前進",
    "affixes": [
     "ced / cess"
@@ -5679,7 +5647,7 @@
    "exams": {}
   },
   "inform": {
-   "parse": "in 進入 + form 形狀",
+   "parse": "in 往裡面 + form 形狀",
    "gloss": "v. 塑形→教導→通知、告知",
    "affixes": [
     "form"
@@ -5706,7 +5674,7 @@
    "exams": {}
   },
   "format": {
-   "parse": "format（近代拉丁文 liber formatus「做成某種形狀的書」，formatus 是 formare 塑形的過去分詞）",
+   "parse": "format（經法文，可能再經德文，最終來自近代拉丁文 liber formatus「做成某種形狀的書」，formatus 是 formare 塑形的過去分詞）",
    "gloss": "n. 編排方式、形式；（電腦資料的）格式；v. 安排格式；格式化",
    "affixes": [
     "form"
@@ -5760,7 +5728,7 @@
    "exams": {}
   },
   "infer": {
-   "parse": "in 往裡 + fer 帶",
+   "parse": "in 往裡面 + fer 帶",
    "gloss": "v. 把結論帶進來→推論、推斷",
    "affixes": [
     "fer"
@@ -5769,7 +5737,7 @@
    "exams": {}
   },
   "act": {
-   "parse": "act（拉丁文 actus 做的事，是 agere 做的過去分詞）",
+   "parse": "act（拉丁文 actus 行動、actum 做過的事，都來自 agere 驅趕、做）",
    "gloss": "n. 行為；（戲劇的）一幕；法案；v. 行動；表現；演出",
    "affixes": [
     "act / ag"
@@ -6132,7 +6100,7 @@
    "exams": {}
   },
   "convert": {
-   "parse": "con 完全 + vert 轉：整個轉過去",
+   "parse": "con 一起 + vert 轉：整個轉過去",
    "gloss": "v. 轉過去→使轉變；改信",
    "affixes": [
     "vers / vert（轉）"
@@ -6204,7 +6172,7 @@
    "exams": {}
   },
   "index": {
-   "parse": "in 朝向 + dex（拉丁文 dicare 宣告、指出）",
+   "parse": "index（拉丁文 index，來自 indicare 指出）",
    "gloss": "n. 指出東西在哪裡→索引；指數、指標",
    "affixes": [
     "dict / dic（說）"
@@ -6258,7 +6226,7 @@
    "exams": {}
   },
   "descriptive": {
-   "parse": "describe 描述（拉丁文 descriptus）+ -ive",
+   "parse": "describe 描述（拉丁文 describere）+ -ive",
    "gloss": "adj. 描述的",
    "affixes": [
     "scrib / script（寫）"
@@ -6348,7 +6316,7 @@
    "exams": {}
   },
   "sentence": {
-   "parse": "sent（拉丁文 sentire 感覺、認為）+ -ence",
+   "parse": "sent（拉丁文 sentire 感覺）+ -ence",
    "gloss": "n. 句子；判決；v. 判刑",
    "affixes": [
     "sens / sent（感覺）"
@@ -6393,7 +6361,7 @@
    "exams": {}
   },
   "resent": {
-   "parse": "re 強調 + sent 感覺",
+   "parse": "re 可能表加強 + sent 感覺",
    "gloss": "v. 強烈地感覺到（委屈）→對…感到憤恨、不滿",
    "affixes": [
     "sens / sent（感覺）"
@@ -6420,7 +6388,7 @@
    "exams": {}
   },
   "object": {
-   "parse": "ob 朝向、對著 + ject 丟",
+   "parse": "ob 對著、擋在前面 + ject 丟",
    "gloss": "n. 丟到眼前的東西→物體；目標；受詞；v. 丟過去擋住→反對",
    "affixes": [
     "ject（丟）"
@@ -6438,7 +6406,7 @@
    "exams": {}
   },
   "reject": {
-   "parse": "re 回 + ject 丟",
+   "parse": "re 往回 + ject 丟",
    "gloss": "v. 丟回去→拒絕",
    "affixes": [
     "ject（丟）"
@@ -6447,7 +6415,7 @@
    "exams": {}
   },
   "jet": {
-   "parse": "jet（法文 jeter 丟，來自後期拉丁文 iectare 丟）",
+   "parse": "jet（法文 jeter 丟，來自拉丁文 jactare 丟，是 jacere 的反覆形）",
    "gloss": "n. 噴射機；噴出的水柱、氣流；v. 噴出；搭飛機（旅行）",
    "affixes": [
     "ject（丟）"

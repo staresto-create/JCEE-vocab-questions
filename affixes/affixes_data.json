@@ -6,7 +6,7 @@
   {
    "key": "re-",
    "zh": "再一次、往回",
-   "note": "re- 來自拉丁文，最常見的意思有兩個：「再一次」和「往回」，「往回」也就是反向動作。反向動作再延伸一步，就成了「反過來、對抗」，像 resist、reject。另外還有一批字的 re- 看不出「再」或「回」的意思，只是加強語氣，像 research、resemble。",
+   "note": "re- 來自拉丁文，最常見的意思有兩個：「再一次」和「往回」，「往回」也就是反向動作。反向動作再延伸一步，就成了「反過來、對抗」，像 resist、reject。另外還有一批字的 re- 看不出「再」或「回」的意思，只是加強語氣，像 research、remark。",
    "subs": [
     {
      "t": "再一次",
@@ -37,7 +37,7 @@
       },
       {
        "w": "reinforce",
-       "p": "re 再 + in 進入 + force 力量"
+       "p": "re 再 + in 往裡面 + force 力量"
       },
       {
        "w": "renew",
@@ -81,7 +81,7 @@
       },
       {
        "w": "reconcile",
-       "p": "re 再 + concile（拉丁文 conciliare 聚合）"
+       "p": "re + concile（拉丁文 conciliare 聚合）"
       },
       {
        "w": "rehearse",
@@ -109,7 +109,7 @@
       },
       {
        "w": "remember",
-       "p": "re 再 + member（拉丁文 memor 記得）"
+       "p": "re + member（拉丁文 memor 記著的）"
       },
       {
        "w": "recite",
@@ -125,7 +125,7 @@
       },
       {
        "w": "record",
-       "p": "re 再 + cord（拉丁文 cor 心）"
+       "p": "re + cord（拉丁文 cor 心）"
       },
       {
        "w": "recorder",
@@ -165,7 +165,7 @@
       },
       {
        "w": "resource",
-       "p": "re 再 + source（拉丁文 surgere 湧起）"
+       "p": "re + source（古法文 resourdre 字面意思是再度升起，來自拉丁文 resurgere）"
       },
       {
        "w": "repair",
@@ -177,7 +177,7 @@
       },
       {
        "w": "restore",
-       "p": "re 再 + store（拉丁文 staurare 建立）"
+       "p": "re 往回、再 + store（拉丁文 staurare 建立）"
       },
       {
        "w": "restoration",
@@ -218,7 +218,7 @@
       },
       {
        "w": "recover",
-       "p": "re 回 + cover（拉丁文 recuperare 拿回）"
+       "p": "re + cover（拉丁文 recuperare，來自 capere 拿）"
       },
       {
        "w": "recovery",
@@ -241,16 +241,12 @@
        "p": "relax + -ation"
       },
       {
-       "w": "release",
-       "p": "re 回 + lease（拉丁文 laxare 放鬆）"
-      },
-      {
        "w": "relay",
        "p": "re 回 + lay（古法語 laier 留下）"
       },
       {
        "w": "relate",
-       "p": "re 回 + late（拉丁文 latus 帶）"
+       "p": "re + late（拉丁文 latus，是 ferre 帶的過去分詞）"
       },
       {
        "w": "relation",
@@ -266,7 +262,7 @@
       },
       {
        "w": "relevant",
-       "p": "re 回 + lev 舉起 + -ant"
+       "p": "re 可能表加強 + lev 舉起 + -ant"
       },
       {
        "w": "relief",
@@ -318,7 +314,7 @@
       },
       {
        "w": "render",
-       "p": "re 回 + der（拉丁文 dare 給）"
+       "p": "re + der（拉丁文 reddere，一部分來自 dare 給，一部分來自 -dere 放）"
       },
       {
        "w": "repay",
@@ -334,7 +330,7 @@
       },
       {
        "w": "reply",
-       "p": "re 回 + ply（拉丁文 plicare 折）"
+       "p": "re + ply（古法文 plier 折；拉丁文 replicāre 折回）"
       },
       {
        "w": "report",
@@ -430,7 +426,7 @@
       },
       {
        "w": "result",
-       "p": "re 回 + sult（拉丁文 salire 跳）"
+       "p": "re + sult（拉丁文 saltare 跳）"
       },
       {
        "w": "retain",
@@ -446,7 +442,7 @@
       },
       {
        "w": "retreat",
-       "p": "re 往回 + treat 拉（古法文 retrere「往回拉」，來自拉丁文 retrahere）"
+       "p": "re + treat 拉（盎格魯法語 retraire 撤退，來自拉丁文 retrahere，由 re- + trahere 拉 組成）"
       },
       {
        "w": "retrieve",
@@ -458,11 +454,11 @@
       },
       {
        "w": "revenge",
-       "p": "re 回 + venge（拉丁文 vindicare 報復）"
+       "p": "re + venge（拉丁文 vindicare 報復）"
       },
       {
        "w": "revenue",
-       "p": "re 回 + venue（拉丁文 venire 來）"
+       "p": "re + venue（拉丁文 venire 來）"
       },
       {
        "w": "reflect",
@@ -542,7 +538,7 @@
       },
       {
        "w": "redundancy",
-       "p": "re 回 + und（拉丁文 unda 波浪）+ -ancy"
+       "p": "red（re 再）+ und（拉丁文 unda 波浪）+ -ancy"
       },
       {
        "w": "react",
@@ -571,23 +567,15 @@
       },
       {
        "w": "reject",
-       "p": "re 反 + ject 丟"
+       "p": "re 往回 + ject 丟"
       },
       {
        "w": "rejection",
        "p": "reject + -ion"
       },
       {
-       "w": "refuse",
-       "p": "re 反 + fuse（拉丁文 fundere 倒）"
-      },
-      {
        "w": "refusal",
        "p": "refuse + -al"
-      },
-      {
-       "w": "refute",
-       "p": "re 反 + fute（拉丁文 futare 擊）"
       },
       {
        "w": "rebel",
@@ -607,7 +595,7 @@
       },
       {
        "w": "retort",
-       "p": "re 反 + tort 扭"
+       "p": "re 往回 + tort 扭"
       },
       {
        "w": "reveal",
@@ -619,11 +607,11 @@
       },
       {
        "w": "reverse",
-       "p": "re 反 + verse 轉"
+       "p": "re 往回 + verse 轉"
       },
       {
        "w": "revolt",
-       "p": "re 反 + volt（拉丁文 volvere 轉）"
+       "p": "re + volt（義大利文 voltare 轉，源自拉丁文 volvere）"
       },
       {
        "w": "revolution",
@@ -672,7 +660,7 @@
       },
       {
        "w": "resemble",
-       "p": "re 加強 + semble（拉丁文 similare 相似）"
+       "p": "re + semble（古法文 sembler 看起來像）"
       },
       {
        "w": "resemblance",
@@ -953,7 +941,7 @@
       },
       {
        "w": "injure",
-       "p": "in 否定 + jur（拉丁文 jus 正當、法律）"
+       "p": "in 否定 + jur（拉丁文 jus 權利、法律）"
       },
       {
        "w": "injury",
@@ -969,7 +957,7 @@
       },
       {
        "w": "integrate",
-       "p": "integr（拉丁文 integer 完整的：in 否定 + teg 碰）+ -ate"
+       "p": "integr（拉丁文 integer 完整的：in 否定 + tangere 碰）+ -ate"
       },
       {
        "w": "integration",
@@ -977,7 +965,7 @@
       },
       {
        "w": "integrity",
-       "p": "integr（拉丁文 integer 完整的：in 否定 + teg 碰）+ -ity"
+       "p": "integr（拉丁文 integer 完整的，字面意思是沒被碰過的：in + tangere 碰）+ -ity"
       },
       {
        "w": "immediate",
@@ -989,7 +977,7 @@
       },
       {
        "w": "immune",
-       "p": "im 否定 + mune（拉丁文 munis 義務）"
+       "p": "im 否定 + mune（拉丁文 munia 義務）"
       },
       {
        "w": "impossible",
@@ -1058,7 +1046,7 @@
      "items": [
       {
        "w": "include",
-       "p": "in 進入 + clude 關"
+       "p": "in 往裡面 + clude 關"
       },
       {
        "w": "including",
@@ -1070,15 +1058,15 @@
       },
       {
        "w": "income",
-       "p": "in 進入 + come 來"
+       "p": "in 往裡面 + come 來"
       },
       {
        "w": "input",
-       "p": "in 進入 + put 放"
+       "p": "in 往裡面 + put 放"
       },
       {
        "w": "intake",
-       "p": "in 進入 + take 拿"
+       "p": "in 往裡面 + take 拿"
       },
       {
        "w": "inland",
@@ -1090,11 +1078,11 @@
       },
       {
        "w": "increase",
-       "p": "in 往上 + crease（拉丁文 crescere 生長）"
+       "p": "in 在裡面 + crease（拉丁文 crescere 生長）"
       },
       {
        "w": "incorporate",
-       "p": "in 進入 + corpor 身體 + -ate"
+       "p": "in 往裡面 + corpor 身體 + -ate"
       },
       {
        "w": "incident",
@@ -1158,7 +1146,7 @@
       },
       {
        "w": "inform",
-       "p": "in 進入 + form 形狀"
+       "p": "in 往裡面 + form 形狀"
       },
       {
        "w": "information",
@@ -1170,7 +1158,7 @@
       },
       {
        "w": "ingredient",
-       "p": "in 進入 + gredi（拉丁文 gradi 走）+ -ent"
+       "p": "in 往裡面 + gredi（拉丁文 gradi 走）+ -ent"
       },
       {
        "w": "inhabit",
@@ -1186,15 +1174,15 @@
       },
       {
        "w": "inherit",
-       "p": "in 進入 + herit 繼承人"
+       "p": "in 往裡面 + herit 繼承人"
       },
       {
        "w": "initial",
-       "p": "in 進入 + it（拉丁文 ire 走）+ -ial"
+       "p": "in 往裡面 + it（拉丁文 ire 走）+ -ial"
       },
       {
        "w": "initiate",
-       "p": "in 進入 + it 走 + -iate"
+       "p": "in 往裡面 + it 走 + -iate"
       },
       {
        "w": "initiative",
@@ -1234,7 +1222,7 @@
       },
       {
        "w": "insist",
-       "p": "in 在…上 + sist 站"
+       "p": "in 在上面 + sist 站"
       },
       {
        "w": "insistence",
@@ -1262,7 +1250,7 @@
       },
       {
        "w": "install",
-       "p": "in 進入 + stall 位置"
+       "p": "in 往裡面 + stall 位置"
       },
       {
        "w": "installation",
@@ -1278,7 +1266,7 @@
       },
       {
        "w": "institute",
-       "p": "in 在…上 + stitute（拉丁文 statuere 立）"
+       "p": "in 在裡面 + stitute（拉丁文 statuere 立）"
       },
       {
        "w": "institution",
@@ -1346,7 +1334,7 @@
       },
       {
        "w": "intuition",
-       "p": "in 往裡面 + tuit（拉丁文 tueri 看）+ -ion"
+       "p": "in 在…上 + tuit（拉丁文 tueri 看）+ -ion"
       },
       {
        "w": "invade",
@@ -1374,7 +1362,7 @@
       },
       {
        "w": "invest",
-       "p": "in 進入 + vest 衣服"
+       "p": "in 往裡面 + vest 衣服"
       },
       {
        "w": "investment",
@@ -1402,11 +1390,11 @@
       },
       {
        "w": "immigrate",
-       "p": "im 進入 + migrate 移居"
+       "p": "im 往裡面 + migrate 移居"
       },
       {
        "w": "immigrant",
-       "p": "im 進入 + migrant 移居者"
+       "p": "im 往裡面 + migrant 移居者"
       },
       {
        "w": "immigration",
@@ -1414,15 +1402,15 @@
       },
       {
        "w": "imminent",
-       "p": "im 在…上 + minent（拉丁文 minere 突出）"
+       "p": "im 在…上 + minent（拉丁文 minēre 突出）"
       },
       {
        "w": "impact",
-       "p": "im 進入 + pact（拉丁文 pangere 釘牢）"
+       "p": "im 往裡面 + pact（拉丁文 pangere 釘牢）"
       },
       {
        "w": "implement",
-       "p": "im 進入 + ple 填滿 + -ment"
+       "p": "im 往裡面 + ple 填滿 + -ment"
       },
       {
        "w": "imply",
@@ -1438,11 +1426,11 @@
       },
       {
        "w": "import",
-       "p": "im 進入 + port 帶"
+       "p": "im 往裡面 + port 帶"
       },
       {
        "w": "important",
-       "p": "im 進入 + port 帶 + -ant"
+       "p": "im 往裡面 + port 帶 + -ant"
       },
       {
        "w": "importance",
@@ -1470,7 +1458,7 @@
       },
       {
        "w": "imprison",
-       "p": "im 進入 + prison 監獄"
+       "p": "im 往裡面 + prison 監獄"
       },
       {
        "w": "imprisonment",
@@ -1478,7 +1466,7 @@
       },
       {
        "w": "impulse",
-       "p": "im 朝向 + puls 推（拉丁文 impellere 推向，過去分詞 impulsus）"
+       "p": "im（in）對著 + puls 推（拉丁文 impulsus，來自 impellere 推動）"
       },
       {
        "w": "illuminate",
@@ -1494,7 +1482,7 @@
       },
       {
        "w": "illusion",
-       "p": "il 在…上 + lus（拉丁文 ludere 玩弄）+ -ion"
+       "p": "il 在…上 + lus（拉丁文 ludere 玩）+ -ion"
       }
      ]
     }
@@ -1632,11 +1620,11 @@
       },
       {
        "w": "difficult",
-       "p": "從 difficulty 去掉 -y 變來的（dif（dis 否定）+ ficult，來自拉丁文 facilis 容易的）"
+       "p": "大概是從 difficulty 倒推出來的（dif（大概是 dis）+ ficult，來自拉丁文 facilis 容易的）"
       },
       {
        "w": "difficulty",
-       "p": "拉丁文 difficultas（dis 否定 + facilis 容易的）"
+       "p": "拉丁文 difficultas（dif（大概是 dis）+ facilis 容易的）"
       }
      ]
     },
@@ -1653,7 +1641,7 @@
       },
       {
        "w": "disclose",
-       "p": "dis 分開 + close 關"
+       "p": "dis 反 + close 關"
       },
       {
        "w": "disclosure",
@@ -1669,11 +1657,7 @@
       },
       {
        "w": "discreet",
-       "p": "dis 分開 + creet（拉丁文 cernere 分辨）"
-      },
-      {
-       "w": "discriminate",
-       "p": "dis 分開 + crimin（分辨）+ -ate"
+       "p": "dis + creet（拉丁文 discernere 分開、分辨 的過去分詞）"
       },
       {
        "w": "discrimination",
@@ -1693,11 +1677,11 @@
       },
       {
        "w": "dispense",
-       "p": "dis 分開 + pense（拉丁文 pensare 秤）"
+       "p": "dis 往外 + pense（拉丁文 pensāre 秤）"
       },
       {
        "w": "display",
-       "p": "dis 分開 + play（拉丁文 plicare 折）"
+       "p": "dis + play（盎格魯法語 pleier 折、彎，可能的來源）"
       },
       {
        "w": "dispose",
@@ -1721,7 +1705,7 @@
       },
       {
        "w": "dissent",
-       "p": "dis 分開、不同 + sent 感覺"
+       "p": "dis 不同 + sent 感覺"
       },
       {
        "w": "dissolve",
@@ -1781,7 +1765,7 @@
       },
       {
        "w": "disturb",
-       "p": "dis 加強 + turb 擾亂"
+       "p": "dis 徹底 + turb 擾亂"
       },
       {
        "w": "disturbance",
@@ -1859,7 +1843,7 @@
      "items": [
       {
        "w": "example",
-       "p": "ex 往外 + ample（拉丁文 emere 拿）"
+       "p": "拉丁文 exemplum，來自 eximere 取出（ex + emere 拿）"
       },
       {
        "w": "exceed",
@@ -1907,7 +1891,7 @@
       },
       {
        "w": "excite",
-       "p": "ex 往外 + cite（拉丁文 ciere 呼喚）"
+       "p": "ex 往外 + cite（拉丁文 citare 喚起）"
       },
       {
        "w": "excited",
@@ -1939,7 +1923,7 @@
       },
       {
        "w": "excuse",
-       "p": "ex 離開 + cuse（拉丁文 causa 指控）"
+       "p": "ex + cuse（拉丁文 causa 原因、解釋）"
       },
       {
        "w": "exempt",
@@ -1951,15 +1935,15 @@
       },
       {
        "w": "exert",
-       "p": "ex 往外 + ert（拉丁文 serere 放）"
+       "p": "ex + ert（拉丁文 serere 連接）"
       },
       {
        "w": "exhaust",
-       "p": "ex 往外 + haust（拉丁文 haurire 汲水）"
+       "p": "ex 離開 + haust（拉丁文 haurire 汲取）"
       },
       {
        "w": "exhibit",
-       "p": "ex 往外 + hibit（拉丁文 habere 拿）"
+       "p": "ex + hibit（拉丁文 habere 有、持有）"
       },
       {
        "w": "exhibition",
@@ -2035,7 +2019,7 @@
       },
       {
        "w": "exploit",
-       "p": "ex 往外 + ploit（拉丁文 plicare 折）"
+       "p": "ex + ploit（可能源自拉丁文 explicare 展開）"
       },
       {
        "w": "explode",
@@ -2118,16 +2102,8 @@
        "p": "ef（ex）往外 + fic 做 + -ient"
       },
       {
-       "w": "efficiency",
-       "p": "efficient 的名詞"
-      },
-      {
        "w": "effort",
        "p": "ef（ex）往外 + fort 力量"
-      },
-      {
-       "w": "edit",
-       "p": "e（ex）往外 + dit（拉丁文 dare 給）"
       },
       {
        "w": "edition",
@@ -2296,7 +2272,7 @@
       },
       {
        "w": "examine",
-       "p": "拉丁文 examen（秤的指針）"
+       "p": "拉丁文 examinare（秤重、檢驗），來自 examen"
       },
       {
        "w": "examination",
@@ -2328,7 +2304,7 @@
       },
       {
        "w": "experience",
-       "p": "ex 徹底 + peri（拉丁文 experiri 試）+ -ence"
+       "p": "ex 從…出來 + peri（拉丁文 experiri 試驗）+ -ence"
       },
       {
        "w": "experiment",
@@ -2403,7 +2379,7 @@
       },
       {
        "w": "colleague",
-       "p": "col 一起 + league（拉丁文 legare 選派）"
+       "p": "col 一起 + league（拉丁文 legare 派遣）"
       },
       {
        "w": "collect",
@@ -2415,7 +2391,7 @@
       },
       {
        "w": "collision",
-       "p": "col 一起 + lis（拉丁文 laedere 撞）+ -ion"
+       "p": "col + lis（拉丁文 laedere 撞傷）+ -ion"
       },
       {
        "w": "colloquial",
@@ -2434,12 +2410,8 @@
        "p": "com 一起 + merce（拉丁文 merx 貨物）"
       },
       {
-       "w": "common",
-       "p": "com 一起 + mon（拉丁文 munis 義務）"
-      },
-      {
        "w": "compact",
-       "p": "com 一起 + pact（拉丁文 pangere 釘牢）"
+       "p": "com 一起 + pact（拉丁文 pangere 固定）"
       },
       {
        "w": "companion",
@@ -2507,7 +2479,7 @@
       },
       {
        "w": "compute",
-       "p": "com 一起 + pute（拉丁文 putare 想、算）"
+       "p": "com 一起 + pute（拉丁文 putare 計算）"
       },
       {
        "w": "concentrate",
@@ -2515,7 +2487,7 @@
       },
       {
        "w": "condition",
-       "p": "con 一起 + dit（拉丁文 dicere 說；原本拼成 condicio，t 是後來才改的）+ -ion"
+       "p": "con（com）一起 + dit（拉丁文 dicere 說；拉丁文拼成 condicio）+ -ion"
       },
       {
        "w": "confederation",
@@ -2547,7 +2519,7 @@
       },
       {
        "w": "consecutive",
-       "p": "con 一起 + secu（拉丁文 sequi 跟隨）+ -tive"
+       "p": "con + secut（拉丁文 consequi 跟著，過去分詞 consecutus）+ -ive"
       },
       {
        "w": "consensus",
@@ -2578,16 +2550,12 @@
        "p": "con 一起 + sult（商量）"
       },
       {
-       "w": "contact",
-       "p": "con 一起 + tact 碰"
-      },
-      {
        "w": "contagious",
        "p": "con 一起 + tag（碰）+ -ious"
       },
       {
        "w": "contaminate",
-       "p": "contamin（拉丁文 contamen 接觸：con 一起 + tag 碰）+ -ate"
+       "p": "con + tamin（拉丁文 *tāmen 接觸，來自 tangere 碰的詞幹 tag-）+ -ate"
       },
       {
        "w": "contemporary",
@@ -2643,7 +2611,7 @@
       },
       {
        "w": "coherent",
-       "p": "co 一起 + her（拉丁文 haerere 黏）+ -ent"
+       "p": "co + her（拉丁文 haerere 黏附）+ -ent"
       },
       {
        "w": "coincidence",
@@ -2694,10 +2662,6 @@
        "p": "con 一起 + tent（拉丁文 tenere 握）"
       },
       {
-       "w": "continue",
-       "p": "con 一起 + tinue（拉丁文 tenere 握）"
-      },
-      {
        "w": "commit",
        "p": "com 一起 + mit 送"
       },
@@ -2720,10 +2684,6 @@
       {
        "w": "collective",
        "p": "collect + -ive"
-      },
-      {
-       "w": "communicate",
-       "p": "commun 共同的 + -icate"
       },
       {
        "w": "communism",
@@ -3063,10 +3023,6 @@
        "p": "conceive 的名詞"
       },
       {
-       "w": "concern",
-       "p": "con 徹底 + cern 篩、分辨"
-      },
-      {
        "w": "concerning",
        "p": "concern + -ing"
       },
@@ -3100,7 +3056,7 @@
       },
       {
        "w": "conquer",
-       "p": "con 徹底 + quer（拉丁文 quaerere 尋求）"
+       "p": "con（com-，可能表加強）+ quer（拉丁文 quaerere 尋找、問）"
       },
       {
        "w": "conquest",
@@ -3108,7 +3064,7 @@
       },
       {
        "w": "conscience",
-       "p": "con 徹底 + sci 知道 + -ence"
+       "p": "con 一起、徹底 + sci 知道 + -ence"
       },
       {
        "w": "conscientious",
@@ -3116,7 +3072,7 @@
       },
       {
        "w": "conscious",
-       "p": "con 徹底 + sci 知道 + -ous"
+       "p": "con 一起、徹底 + sci 知道 + -ous"
       },
       {
        "w": "conserve",
@@ -3152,7 +3108,7 @@
       },
       {
        "w": "contemplate",
-       "p": "con 加強 + templ（拉丁文 templum 觀察的地方）+ -ate"
+       "p": "con + templ（拉丁文 templum 占卜官劃定的天空或土地範圍、神殿）+ -ate"
       },
       {
        "w": "contempt",
@@ -3164,7 +3120,7 @@
       },
       {
        "w": "convict",
-       "p": "con 徹底 + vict（拉丁文 vincere 戰勝）"
+       "p": "con 可能表加強 + vict（拉丁文 vincere 戰勝）"
       },
       {
        "w": "conviction",
@@ -3200,7 +3156,7 @@
       },
       {
        "w": "complain",
-       "p": "com 加強 + plain（拉丁文 plangere 捶胸哀嘆）"
+       "p": "com 可能表加強 + plain（拉丁文 plangere 哀嘆）"
       },
       {
        "w": "complaint",
@@ -3212,7 +3168,7 @@
       },
       {
        "w": "complement",
-       "p": "com 徹底 + ple（填滿）+ -ment"
+       "p": "com 可能表加強 + ple（填滿）+ -ment"
       },
       {
        "w": "compliment",
@@ -3220,7 +3176,7 @@
       },
       {
        "w": "comply",
-       "p": "com 徹底 + ply（拉丁文 plere 填滿）"
+       "p": "源自拉丁文 complere 填滿（經西班牙文 cumplir；-ply 是比照 apply 等字改的拼法）"
       },
       {
        "w": "compliance",
@@ -3252,11 +3208,11 @@
       },
       {
        "w": "constitute",
-       "p": "con 加強 + stitute（拉丁文 statuere 立）"
+       "p": "con 可能表加強 + stitute（拉丁文 statuere 立）"
       },
       {
        "w": "comprise",
-       "p": "com 徹底 + prise（古法文 compris，是 comprendre 的過去分詞，來自拉丁文 comprehendere）"
+       "p": "com + prise（盎格魯法語 compris，是 comprendre 的過去分詞，來自拉丁文 comprehendere）"
       },
       {
        "w": "contend",
@@ -3354,7 +3310,7 @@
       },
       {
        "w": "pregnant",
-       "p": "pre（一般認為是「在…之前」）+ gnant（拉丁文 gnasci 出生）"
+       "p": "pre 可能是在…之前 + gnant（拉丁文 -gnas，和 gignere 生產同源）"
       },
       {
        "w": "pregnancy",
@@ -3581,7 +3537,7 @@
       },
       {
        "w": "profound",
-       "p": "pro 往前 + found（拉丁文 fundus 底部）"
+       "p": "pro 在前 + found（拉丁文 fundus 底部）"
       },
       {
        "w": "profit",
@@ -3605,7 +3561,7 @@
       },
       {
        "w": "pronounce",
-       "p": "pro 往外 + nounce 宣布"
+       "p": "pro 往前 + nounce 宣布"
       },
       {
        "w": "pronunciation",
@@ -3625,7 +3581,7 @@
       },
       {
        "w": "prohibit",
-       "p": "pro 往外 + hibit（拉丁文 habere 拿著）"
+       "p": "pro 往前 + hibit（拉丁文 habere 持有、拿著）"
       },
       {
        "w": "prohibition",
@@ -3715,7 +3671,7 @@
       },
       {
        "w": "prosper",
-       "p": "pro 合乎 + sper（拉丁文 spes 希望；這是傳統的說法）"
+       "p": "pro + sper（拉丁文 prosperus 合乎心願的；傳統說法認為來自古拉丁文 pro spere「合乎期望」，spes 是希望）"
       },
       {
        "w": "prosperity",
@@ -3780,12 +3736,8 @@
        "p": "sub 在下面 + stance（拉丁文 stare 站）"
       },
       {
-       "w": "substantial",
-       "p": "substance + -ial"
-      },
-      {
        "w": "subtract",
-       "p": "sub 往下 + tract 拉"
+       "p": "sub 從下面 + tract 拉"
       },
       {
        "w": "subtle",
@@ -3797,11 +3749,11 @@
       },
       {
        "w": "suffocate",
-       "p": "suf（sub 在下面）+ foc（拉丁文 fauces 喉嚨）"
+       "p": "suf（sub 的變體）+ foc（拉丁文 fauces 喉嚨）"
       },
       {
        "w": "sufficient",
-       "p": "suf（sub 往上）+ fic 做（拉丁文 sufficere 補上、供應）"
+       "p": "suf（sub 往上）+ fic 做（拉丁文 sufficere 提供、足夠）"
       },
       {
        "w": "support",
@@ -3809,7 +3761,7 @@
       },
       {
        "w": "supply",
-       "p": "sup（sub 從下面）+ ply（拉丁文 plere 填滿）"
+       "p": "sup（sub 的變體）+ ply（拉丁文 plere 填滿）"
       },
       {
        "w": "suppose",
@@ -3825,7 +3777,7 @@
       },
       {
        "w": "suggest",
-       "p": "sug（sub 從下面）+ gest（拉丁文 gerere 帶）"
+       "p": "sug（sub 的變體）+ gest（拉丁文 gerere 搬運、帶）"
       },
       {
        "w": "suggestion",
@@ -3865,7 +3817,7 @@
       },
       {
        "w": "summon",
-       "p": "sum（sub 暗中）+ mon（拉丁文 monere 提醒）"
+       "p": "sum（sub 暗中）+ mon（拉丁文 monere 警告）"
       }
      ]
     },
@@ -3874,7 +3826,7 @@
      "items": [
       {
        "w": "suburb",
-       "p": "sub 在…附近 + urb（拉丁文 urbs 城市）"
+       "p": "sub 靠近 + urb（拉丁文 urbs 城市）"
       },
       {
        "w": "suburban",
@@ -3890,11 +3842,11 @@
       },
       {
        "w": "substitute",
-       "p": "sub 在下面 + stitute（拉丁文 statuere 放、立）"
+       "p": "sub + stitute（拉丁文 statuere 設立、放置）→ 放到別人的位置"
       },
       {
        "w": "subsidy",
-       "p": "sub 在下面 + sid（拉丁文 sidere 坐下、停留）"
+       "p": "sub 靠近 + sid（拉丁文 sedere 坐）"
       },
       {
        "w": "subsidize",
@@ -3972,7 +3924,7 @@
       },
       {
        "w": "translate",
-       "p": "trans 越過 + late（拉丁文 latus 帶過去）"
+       "p": "trans + late（拉丁文 latus，是 ferre「搬運」的過去分詞）"
       },
       {
        "w": "translation",
@@ -4071,7 +4023,7 @@
       },
       {
        "w": "interval",
-       "p": "inter 在之間 + val（拉丁文 vallum 城牆的木樁）"
+       "p": "inter 在之間 + val（拉丁文 vallum 壁壘）"
       },
       {
        "w": "intervene",
@@ -4080,10 +4032,6 @@
       {
        "w": "intervention",
        "p": "intervene 的名詞"
-      },
-      {
-       "w": "interpret",
-       "p": "inter 在之間 + pret（可能來自拉丁文 pretium 價格）"
       },
       {
        "w": "interpretation",
@@ -4177,10 +4125,6 @@
      "t": "往下",
      "items": [
       {
-       "w": "decline",
-       "p": "de 往下 + cline（拉丁文 clinare 彎）"
-      },
-      {
        "w": "decrease",
        "p": "de 往下 + crease（拉丁文 crescere 生長）"
       },
@@ -4221,32 +4165,24 @@
        "p": "describe + -ive"
       },
       {
-       "w": "despise",
-       "p": "de 往下 + spise（拉丁文 specere 看）"
-      },
-      {
        "w": "despite",
-       "p": "de 往下 + spite（拉丁文 specere 看）"
+       "p": "de + spite（拉丁文 specere 看）；與 despise 同源"
       },
       {
        "w": "decay",
-       "p": "de 往下 + cay（拉丁文 cadere 掉落）"
+       "p": "de + cay（拉丁文 decadere 落下、下沉，來自 cadere 落下）"
       },
       {
        "w": "degree",
-       "p": "de 往下 + gree（拉丁文 gradus 台階）"
+       "p": "de + gree（拉丁文 gradus 台階、等級）"
       },
       {
        "w": "debate",
-       "p": "de 往下 + bate（拉丁文 battuere 打）"
-      },
-      {
-       "w": "depict",
-       "p": "de 往下 + pict 畫"
+       "p": "de + bate（盎格魯法語 batre 打，來自拉丁文 battuere）"
       },
       {
        "w": "devour",
-       "p": "de 往下 + vour（拉丁文 vorare 吞）"
+       "p": "de 往下 + vour（拉丁文 vorare 吞食）"
       }
      ]
     },
@@ -4283,11 +4219,11 @@
       },
       {
        "w": "detergent",
-       "p": "de 去掉 + terg（拉丁文 tergere 擦）+ -ent"
+       "p": "de 離開 + terg（拉丁文 tergere 擦）+ -ent"
       },
       {
        "w": "deplete",
-       "p": "de 反向動作 + plete（拉丁文 plere 填滿）"
+       "p": "de 離開 + plete（拉丁文 plere 填滿）→ deplere 排空"
       },
       {
        "w": "destroy",
@@ -4303,7 +4239,7 @@
       },
       {
        "w": "desert",
-       "p": "de 反向動作 + sert（拉丁文 serere 連接）"
+       "p": "de + sert（拉丁文 serere 連接）→ deserere 離開、拋棄"
       },
       {
        "w": "despair",
@@ -4359,7 +4295,7 @@
       },
       {
        "w": "derive",
-       "p": "de 從 + rive（拉丁文 rivus 溪流）"
+       "p": "de 從 + rive（拉丁文 rivus 溪流）→ derivare 把水引走"
       },
       {
        "w": "delegate",
@@ -4371,7 +4307,7 @@
       },
       {
        "w": "deliver",
-       "p": "de 離開 + liver（拉丁文 liberare 放出）"
+       "p": "de 離開 + liver（拉丁文 liberare 釋放）"
       },
       {
        "w": "delivery",
@@ -4379,7 +4315,7 @@
       },
       {
        "w": "decide",
-       "p": "de 離開 + cide（拉丁文 caedere 切）"
+       "p": "de 離開 + cide（拉丁文 caedere 砍、切）→ decidere 切斷、做決定"
       },
       {
        "w": "decision",
@@ -4436,7 +4372,7 @@
      "items": [
       {
        "w": "deprive",
-       "p": "de 加強語氣 + prive（拉丁文 privare 奪走）"
+       "p": "de 徹底 + prive（拉丁文 privare 剝奪）"
       },
       {
        "w": "declare",
@@ -4445,10 +4381,6 @@
       {
        "w": "declaration",
        "p": "declare + -ation"
-      },
-      {
-       "w": "define",
-       "p": "de 加強語氣 + fine（拉丁文 finis 界限）"
       },
       {
        "w": "definite",
@@ -4464,7 +4396,7 @@
       },
       {
        "w": "demonstrate",
-       "p": "de 加強語氣 + monstr（拉丁文 monstrare 展示）"
+       "p": "de 徹底 + monstr（拉丁文 monstrare 指出、展示）"
       },
       {
        "w": "demonstration",
@@ -4472,23 +4404,23 @@
       },
       {
        "w": "deserve",
-       "p": "de 加強語氣 + serve 服務"
+       "p": "de 加強 + serve 服務"
       },
       {
        "w": "deliberate",
-       "p": "de 加強語氣 + liber（拉丁文 libra 秤）+ -ate"
+       "p": "de + liber（可能來自拉丁文 libra 秤）+ -ate"
       },
       {
        "w": "demand",
-       "p": "de 加強語氣 + mand 命令"
+       "p": "de 加強 + mand 命令"
       },
       {
        "w": "detail",
-       "p": "de 加強語氣 + tail（法文 tailler 切）"
+       "p": "de 加強 + tail（法文 tailler 切）"
       },
       {
        "w": "destiny",
-       "p": "de 加強語氣 + stin（拉丁文 stare 站）+ -y"
+       "p": "de + stin（拉丁文 -stinare，與 stare 站同源）+ -y"
       },
       {
        "w": "destined",
@@ -4496,7 +4428,7 @@
       },
       {
        "w": "destination",
-       "p": "de 加強語氣 + stin（stare 站）+ -ation"
+       "p": "de 加強 + stin（stare 站）+ -ation"
       }
      ]
     }
@@ -4546,7 +4478,7 @@
       },
       {
        "w": "control",
-       "p": "contro 對照 + l（拉丁文 rotulus 帳冊）"
+       "p": "contro（contra）+ l（中古拉丁文 rotulus 卷冊）→ 對帳用的副本"
       },
       {
        "w": "controller",
@@ -4596,7 +4528,7 @@
       },
       {
        "w": "superb",
-       "p": "拉丁文 superbus（高高在上的），來自 super"
+       "p": "拉丁文 superbus（傑出的、驕傲的），來自 super（在上面）"
       },
       {
        "w": "superior",
@@ -4608,7 +4540,7 @@
       },
       {
        "w": "supreme",
-       "p": "拉丁文 supremus（最高的），是 super 的最高級"
+       "p": "拉丁文 supremus，是 superus（上面的）的最高級"
       },
       {
        "w": "superficial",
@@ -4628,7 +4560,7 @@
       },
       {
        "w": "superintendent",
-       "p": "super 在上面 + intend（拉丁文 intendere 留意）+ -ent"
+       "p": "super 在上面 + intend（拉丁文 intendere 留意、指揮）+ -ent"
       },
       {
        "w": "superstition",
@@ -4660,7 +4592,7 @@
       },
       {
        "w": "surround",
-       "p": "sur（super 在上面）+ round（原本是拉丁文 undare 起浪）"
+       "p": "sur（super）+ round（原本是拉丁文 unda 波浪，後來意思受 round 影響）"
       },
       {
        "w": "surroundings",
@@ -4668,7 +4600,7 @@
       },
       {
        "w": "survey",
-       "p": "sur（super 在上面）+ vey（拉丁文 videre 看）"
+       "p": "sur + vey（盎格魯法語 veer 看，源自拉丁文 vidēre）"
       },
       {
        "w": "surveillance",
@@ -4782,7 +4714,7 @@
       },
       {
        "w": "endure",
-       "p": "en（in 使）+ dure（拉丁文 durus 硬）"
+       "p": "en（拉丁文 in-）+ dure（拉丁文 durare 使變硬、持久）"
       },
       {
        "w": "endurance",
@@ -4790,7 +4722,7 @@
       },
       {
        "w": "enhance",
-       "p": "en 使 + hance（拉丁文 altus 高）"
+       "p": "en（拉丁文 in）+ hance（拉丁文 altus 高）"
       },
       {
        "w": "enhancement",
@@ -4839,7 +4771,7 @@
       },
       {
        "w": "endorse",
-       "p": "en 在…上面 + dorse（拉丁文 dorsum 背面）"
+       "p": "en + dorse（盎格魯法語 dos 背，來自拉丁文 dorsum）"
       },
       {
        "w": "endorsement",
@@ -4856,10 +4788,6 @@
       {
        "w": "employ",
        "p": "em 在裡面 + ploy（拉丁文 plicare 折）"
-      },
-      {
-       "w": "employee",
-       "p": "employ + -ee"
       },
       {
        "w": "employer",
@@ -4949,7 +4877,7 @@
       },
       {
        "w": "adjust",
-       "p": "ad 朝向 + just（拉丁文 juxta 靠近）"
+       "p": "ad 朝向 + just（古法文 juste 正確的）"
       },
       {
        "w": "adjustment",
@@ -4981,11 +4909,11 @@
       },
       {
        "w": "adore",
-       "p": "ad 朝向 + ore（拉丁文 orare 祈禱）"
+       "p": "ad + ore（拉丁文 orare 祈求、禱告）"
       },
       {
        "w": "adolescent",
-       "p": "ad 朝向 + olesc（拉丁文 alescere 長大）+ -ent"
+       "p": "ad + olesc（拉丁文 adolescere 長大、成熟）+ -ent"
       },
       {
        "w": "adolescence",
@@ -5013,7 +4941,7 @@
       },
       {
        "w": "advice",
-       "p": "ad 朝向 + vice（拉丁文 visum 看到的；古法文寫成 avis，d 是後來照拉丁文補回去的）"
+       "p": "ad 朝向 + vice（拉丁文 vīsus 看見，來自 vidēre 看；盎格魯法語寫成 avis，也寫成 advis）"
       },
       {
        "w": "advise",
@@ -5037,7 +4965,7 @@
       },
       {
        "w": "address",
-       "p": "ad 朝向 + dress（拉丁文 directus 直的）"
+       "p": "ad + dress（盎格魯法語 dresser 引導、弄正）"
       },
       {
        "w": "administer",
@@ -5122,7 +5050,7 @@
       },
       {
        "w": "accord",
-       "p": "ac 朝向 + cord（拉丁文 cor 心）"
+       "p": "ac + cord（拉丁文 -cordare，見於 concordare「意見一致」）"
       },
       {
        "w": "accordance",
@@ -5158,15 +5086,11 @@
       },
       {
        "w": "accurate",
-       "p": "ac 朝向 + cur（拉丁文 cura 用心）+ -ate"
-      },
-      {
-       "w": "accuracy",
-       "p": "accurate 的名詞"
+       "p": "ac 朝向 + cur（拉丁文 curare 照料）+ -ate"
       },
       {
        "w": "accuse",
-       "p": "ac 朝向 + cuse（拉丁文 causa 案子）"
+       "p": "ac 朝向 + cuse（拉丁文 causa 案件、理由）"
       },
       {
        "w": "accusation",
@@ -5178,7 +5102,7 @@
       },
       {
        "w": "acquaint",
-       "p": "ac 朝向 + quaint（拉丁文 cognitus 知道的）"
+       "p": "ac 朝向 + quaint（拉丁文 cognoscere 認識）"
       },
       {
        "w": "acquaintance",
@@ -5271,7 +5195,7 @@
      "items": [
       {
        "w": "appear",
-       "p": "ap 朝向 + pear（拉丁文 parere 出現）"
+       "p": "ap + pear（拉丁文 parere 看得見）"
       },
       {
        "w": "appearance",
@@ -5295,7 +5219,7 @@
       },
       {
        "w": "apply",
-       "p": "ap 朝向 + ply（拉丁文 plicare 折）"
+       "p": "ap + ply（拉丁文 plicare 折、彎）"
       },
       {
        "w": "appliance",
@@ -5335,7 +5259,7 @@
       },
       {
        "w": "approximate",
-       "p": "ap 朝向 + proxim（拉丁文 proximus 最近的）+ -ate"
+       "p": "ap 朝向 + proxim（拉丁文 proximare 靠近）+ -ate"
       },
       {
        "w": "appropriate",
@@ -5364,7 +5288,7 @@
       },
       {
        "w": "arrest",
-       "p": "ar 朝向 + rest（拉丁文 restare 停住）"
+       "p": "ar + rest（拉丁文 restare 留下、保持不變）"
       },
       {
        "w": "arrive",
@@ -5385,7 +5309,7 @@
      "items": [
       {
        "w": "assemble",
-       "p": "as 朝向 + semble（拉丁文 similis 相像的）"
+       "p": "as 朝向 + semble（拉丁文 simul 一起）"
       },
       {
        "w": "assembly",
@@ -5531,7 +5455,7 @@
       },
       {
        "w": "agree",
-       "p": "a（法文 à 朝向）+ gree（拉丁文 gratus 喜歡的）"
+       "p": "a（源自拉丁文 ad- 朝向）+ gree（拉丁文 gratus 令人愉快的）"
       },
       {
        "w": "agreement",
@@ -5543,7 +5467,7 @@
       },
       {
        "w": "achieve",
-       "p": "a（法文 à 朝向）+ chieve（拉丁文 caput 頭）"
+       "p": "a（源自拉丁文 ad-）+ chieve（盎格魯法語 chef 盡頭、頭，來自拉丁文 caput 頭）"
       },
       {
        "w": "achievement",
@@ -5551,7 +5475,7 @@
       },
       {
        "w": "amount",
-       "p": "a（法文 à 朝向）+ mount（拉丁文 mons 山）"
+       "p": "a（古法文 a 朝向，源自拉丁文 ad）+ mount（拉丁文 mons 山）"
       },
       {
        "w": "amuse",
@@ -5567,7 +5491,7 @@
       },
       {
        "w": "avenue",
-       "p": "a（法文 à 朝向）+ venue（拉丁文 venire 來）"
+       "p": "a（拉丁文 ad）+ venue（拉丁文 venire 來）"
       }
      ]
     }
@@ -5728,7 +5652,7 @@
       },
       {
        "w": "abolish",
-       "p": "ab 離開 + ol（拉丁文 abolere 毀掉，ol 可能跟 adolescent 的「長大」同源）+ -ish"
+       "p": "ab 離開 + ol（拉丁文 abolēre 毀掉；ol 可能來自 alere 養育）+ -ish"
       },
       {
        "w": "abundant",
@@ -5794,7 +5718,7 @@
       },
       {
        "w": "mischief",
-       "p": "mis 不好地 + chief（古法文 chever 有了結局，來自拉丁文 caput 頭）"
+       "p": "mis（古法文 mes- 不好地）+ chief（古法文 chief 頭、盡頭，來自拉丁文 caput 頭）"
       },
       {
        "w": "mischievous",
@@ -6299,7 +6223,7 @@
      "items": [
       {
        "w": "benefit",
-       "p": "bene 好 + fit 做（拉丁文 benefactum 善行，經古法文 bienfait 變成 fit）"
+       "p": "bene 好 + fit 做（拉丁文 bene factum 善行，經盎格魯法語 benfet 變成 fit）"
       },
       {
        "w": "beneficial",
@@ -6926,7 +6850,7 @@
       },
       {
        "w": "innumerable",
-       "p": "in 否定 + numer（拉丁文 numerus 數目）+ -able"
+       "p": "in 否定 + numer（拉丁文 numerare 數）+ -able"
       },
       {
        "w": "liable",
@@ -7319,7 +7243,7 @@
       },
       {
        "w": "furious",
-       "p": "fury 憤怒（拉丁文 furiosus）+ -ous"
+       "p": "fury 憤怒（拉丁文 furia 瘋狂、憤怒）+ -ous"
       },
       {
        "w": "luxurious",
@@ -7483,12 +7407,8 @@
        "p": "delic（拉丁文 delicia 喜悅）+ -ious"
       },
       {
-       "w": "gorgeous",
-       "p": "gorge（古法文「喉嚨」，可能跟項鍊有關；來源不確定）+ -ous"
-      },
-      {
        "w": "conscious",
-       "p": "con 一起 + sci（拉丁文 scire 知道）+ -ous"
+       "p": "con 一起、徹底 + sci（拉丁文 scire 知道）+ -ous"
       },
       {
        "w": "conscientious",
@@ -7508,11 +7428,11 @@
       },
       {
        "w": "dubious",
-       "p": "dub（拉丁文 dubium 懷疑）+ -ious"
+       "p": "dub（拉丁文 dubius，來自 dubare 搖擺不定）+ -ious"
       },
       {
        "w": "notorious",
-       "p": "not（拉丁文 notus 知道的）+ -orious"
+       "p": "not（拉丁文 noscere 得知）+ -orious"
       },
       {
        "w": "tedious",
@@ -7528,7 +7448,7 @@
       },
       {
        "w": "miscellaneous",
-       "p": "miscell（拉丁文 miscere 混合）+ -aneous"
+       "p": "miscell（拉丁文 miscellus 混雜的）+ -aneous"
       },
       {
        "w": "indigenous",
@@ -8242,7 +8162,7 @@
       },
       {
        "w": "scientist",
-       "p": "scien(ce) 科學（拉丁文 scientia 知識）+ -ist"
+       "p": "scient（拉丁文 scientia 知識、科學）+ -ist"
       },
       {
        "w": "tourist",
@@ -8409,7 +8329,7 @@
       },
       {
        "w": "opponent",
-       "p": "op（ob 對著）+ pon（拉丁文 ponere 放）+ -ent"
+       "p": "op（ob 在前面）+ pon（拉丁文 ponere 放）+ -ent"
       },
       {
        "w": "recipient",
@@ -8425,7 +8345,7 @@
       },
       {
        "w": "superintendent",
-       "p": "super 在上面 + 拉丁文 intendere（注意、指揮）+ -ent"
+       "p": "super 在上面 + intend（拉丁文 intendere 留意、指揮）+ -ent"
       }
      ]
     }
@@ -8446,10 +8366,6 @@
     {
      "t": "動詞 + -ee → 受…的人",
      "items": [
-      {
-       "w": "employee",
-       "p": "employ 雇用 + -ee"
-      },
       {
        "w": "examinee",
        "p": "examine 考試 + -ee"
@@ -9048,7 +8964,7 @@
       },
       {
        "w": "difficulty",
-       "p": "拉丁文 difficultas（dis 否定 + facilis 容易的）"
+       "p": "拉丁文 difficultas（dif（大概是 dis）+ facilis 容易的）"
       },
       {
        "w": "property",
@@ -9063,16 +8979,12 @@
        "p": "古法文 biauté（bel 美的 + -té）"
       },
       {
-       "w": "treaty",
-       "p": "拉丁文 tractatus（協商；跟 treat 同源）"
-      },
-      {
        "w": "warranty",
        "p": "warrant 保證 + -y"
       },
       {
        "w": "identity",
-       "p": "ident（拉丁文 idem 相同的）+ -ity"
+       "p": "ident（可能來自拉丁文 identidem 一再，由 idem et idem「相同又相同」縮成）+ -ity"
       },
       {
        "w": "quality",
@@ -9111,10 +9023,6 @@
        "p": "commun（拉丁文 communis 共同的）+ -ity"
       },
       {
-       "w": "dignity",
-       "p": "dign（拉丁文 dignus 值得的）+ -ity"
-      },
-      {
        "w": "entity",
        "p": "ent（拉丁文 esse 存在）+ -ity"
       },
@@ -9128,7 +9036,7 @@
       },
       {
        "w": "integrity",
-       "p": "integr（拉丁文 integer 完整的：in 否定 + teg 碰）+ -ity"
+       "p": "integr（拉丁文 integer 完整的，字面意思是沒被碰過的：in + tangere 碰）+ -ity"
       },
       {
        "w": "longevity",
@@ -9168,7 +9076,7 @@
       },
       {
        "w": "majesty",
-       "p": "majes（拉丁文 major 較大的）+ -ty"
+       "p": "majes（拉丁文 majestas，跟 major 較大的同源）+ -ty"
       },
       {
        "w": "society",
@@ -9271,11 +9179,11 @@
      "items": [
       {
        "w": "attitude",
-       "p": "義大利文 attitudine（姿勢；來自拉丁文 aptus 合適的）"
+       "p": "義大利文 attitudine（字面意思是天資；來自晚期拉丁文 aptitudo 適合）"
       },
       {
        "w": "gratitude",
-       "p": "grati（拉丁文 gratus 感謝的、令人愉快的）+ -tude"
+       "p": "grati（拉丁文 gratus 感激的）+ -tude"
       },
       {
        "w": "solitude",
@@ -9546,7 +9454,7 @@
       },
       {
        "w": "village",
-       "p": "vill（拉丁文 villa 農莊）+ -age"
+       "p": "vill（盎格魯法語 vil 莊園、農莊，來自拉丁文 villa）+ -age"
       },
       {
        "w": "voyage",
@@ -9634,7 +9542,7 @@
      "items": [
       {
        "w": "optimism",
-       "p": "optim（拉丁文 optimus 最好的）+ -ism"
+       "p": "optim（拉丁文 optimum 最好的）+ -ism"
       },
       {
        "w": "pessimism",
@@ -9953,7 +9861,7 @@
       },
       {
        "w": "element",
-       "p": "拉丁文 elementum（基本的東西）"
+       "p": "拉丁文 elementum"
       },
       {
        "w": "segment",
@@ -9977,7 +9885,7 @@
       },
       {
        "w": "instrument",
-       "p": "in 在…上 + stru（拉丁文 struere 建造）+ -ment"
+       "p": "instru（拉丁文 instruere 安排、教導）+ -ment"
       },
       {
        "w": "experiment",
@@ -9989,7 +9897,7 @@
       },
       {
        "w": "complement",
-       "p": "com 加強語氣 + ple（拉丁文 plere 填滿）+ -ment"
+       "p": "com 可能表加強 + ple（拉丁文 plere 填滿）+ -ment"
       },
       {
        "w": "supplement",
@@ -10005,7 +9913,7 @@
       },
       {
        "w": "torment",
-       "p": "tor（拉丁文 torquere 扭）+ -ment"
+       "p": "tor（拉丁文 tormentum 酷刑，和 torquere 扭 同源）+ -ment"
       },
       {
        "w": "cement",
@@ -10207,7 +10115,7 @@
       },
       {
        "w": "instance",
-       "p": "in 在 + st（拉丁文 stare 站）+ -ance"
+       "p": "inst（拉丁文 instans 緊迫的）+ -ance"
       },
       {
        "w": "stance",
@@ -10371,10 +10279,6 @@
      "t": "-ent → -ency；動詞 + -ency",
      "items": [
       {
-       "w": "efficiency",
-       "p": "efficient 有效率的 → efficiency"
-      },
-      {
        "w": "proficiency",
        "p": "proficient 精通的 → proficiency"
       },
@@ -10385,10 +10289,6 @@
       {
        "w": "fluency",
        "p": "fluent 流利的 → fluency"
-      },
-      {
-       "w": "urgency",
-       "p": "urgent 緊急的 → urgency"
       },
       {
        "w": "currency",
@@ -10433,7 +10333,7 @@
       },
       {
        "w": "influence",
-       "p": "in 進入 + flu（拉丁文 fluere 流）+ -ence"
+       "p": "in 往裡面 + flu（拉丁文 fluere 流）+ -ence"
       },
       {
        "w": "sequence",
@@ -10449,7 +10349,7 @@
       },
       {
        "w": "sentence",
-       "p": "sent（拉丁文 sentire 感覺、認為）+ -ence"
+       "p": "sent（拉丁文 sentire 感覺）+ -ence"
       }
      ]
     }
@@ -10470,10 +10370,6 @@
     {
      "t": "形容詞 -ate → 名詞 -acy",
      "items": [
-      {
-       "w": "accuracy",
-       "p": "accurate 準確的 → accuracy"
-      },
       {
        "w": "privacy",
        "p": "private 私人的 → privacy"
@@ -10497,7 +10393,7 @@
       },
       {
        "w": "conspiracy",
-       "p": "conspire 密謀（拉丁文 conspiratio）+ -acy"
+       "p": "conspire 密謀（拉丁文 conspirare）+ -acy"
       }
      ]
     },
@@ -10514,7 +10410,7 @@
       },
       {
        "w": "legacy",
-       "p": "中古拉丁文 legatia（使節的職位；跟 legate 同源）"
+       "p": "中古拉丁文 legatia（跟 legate 同源）"
       },
       {
        "w": "pharmacy",
@@ -11744,7 +11640,7 @@
       },
       {
        "w": "condition",
-       "p": "con 一起 + dit（拉丁文 dicere 說；原本拼成 condicio，t 是後來才改的）+ -ion"
+       "p": "con（com）一起 + dit（拉丁文 dicere 說；拉丁文拼成 condicio）+ -ion"
       },
       {
        "w": "coalition",
@@ -11776,15 +11672,15 @@
       },
       {
        "w": "intuition",
-       "p": "in 在裡面 + tu（拉丁文 tueri 看）+ -ition"
+       "p": "in 在…上 + tu（拉丁文 tueri 看）+ -ition"
       },
       {
        "w": "mention",
-       "p": "ment（拉丁文 mentio 想起、提起；跟 mens 心智同源）+ -ion"
+       "p": "ment（拉丁文 mentio，跟 meminisse 記得、mens 心智同源）+ -ion"
       },
       {
        "w": "lotion",
-       "p": "lot（拉丁文 lavare 洗）+ -ion"
+       "p": "lot（拉丁文 lavere 洗）+ -ion"
       },
       {
        "w": "motion",
@@ -11804,7 +11700,7 @@
       },
       {
        "w": "portion",
-       "p": "port（拉丁文 pars 部分）+ -ion"
+       "p": "拉丁文 portio（份、比例）"
       },
       {
        "w": "proportion",
@@ -12004,11 +11900,11 @@
       },
       {
        "w": "precision",
-       "p": "pre 在前面 + cis（拉丁文 caedere 切）+ -ion"
+       "p": "pre（拉丁文 prae-）+ cis（拉丁文 caedere 切）+ -ion"
       },
       {
        "w": "illusion",
-       "p": "il（in 在…上）+ lus（拉丁文 ludere 玩、戲弄）+ -ion"
+       "p": "il（in 在…上）+ lus（拉丁文 ludere 玩）+ -ion"
       },
       {
        "w": "tension",
@@ -12419,7 +12315,7 @@
      "items": [
       {
        "w": "delivery",
-       "p": "deliver 遞送 + -y（來自盎格魯法文 delivree）"
+       "p": "deliver 遞送 + -y（來自盎格魯法語 delivree）"
       },
       {
        "w": "discovery",
@@ -12431,7 +12327,7 @@
       },
       {
        "w": "inquiry",
-       "p": "inquire 詢問 + -y（去掉 e；可能是盎格魯法文由 enqueren 詢問 變來的名詞）"
+       "p": "inquire 詢問 + -y（去掉 e；可能是盎格魯法語由 enqueren 詢問 變來的名詞）"
       },
       {
        "w": "entry",
@@ -12456,15 +12352,7 @@
      "items": [
       {
        "w": "ministry",
-       "p": "拉丁文 ministerium（職務、服事；minister 僕人、助手）"
-      },
-      {
-       "w": "industry",
-       "p": "拉丁文 industria（勤奮）"
-      },
-      {
-       "w": "century",
-       "p": "拉丁文 centuria（一百個一組；centum 一百）"
+       "p": "拉丁文 ministerium（職務、服事；minister 僕人）"
       },
       {
        "w": "luxury",
@@ -12480,7 +12368,7 @@
       },
       {
        "w": "laundry",
-       "p": "古法文 lavanderie（洗衣的地方；拉丁文 lavare 洗）"
+       "p": "古法文 lavanderie（來自 lavandier 洗衣工；拉丁文 lavare 洗）"
       },
       {
        "w": "controversy",
@@ -12779,7 +12667,7 @@
       },
       {
        "w": "notify",
-       "p": "not（拉丁文 notus 知道的）+ -ify"
+       "p": "not（拉丁文 notus 已知的）+ -ify"
       },
       {
        "w": "specify",
@@ -12803,7 +12691,7 @@
       },
       {
        "w": "horrify",
-       "p": "horr（拉丁文 horrere 發抖）+ -ify"
+       "p": "horri（取自 horrific 可怕的）+ -fy"
       },
       {
        "w": "testify",
@@ -13329,7 +13217,7 @@
       },
       {
        "w": "abnormal",
-       "p": "ab 偏離 + norm 標準 + -al（拉丁文 abnormalis 偏離規則的）"
+       "p": "ab- + norm（拉丁文 norma 規範）+ -al（新拉丁文 abnormis 偏離平均的）"
       },
       {
        "w": "tribal",
@@ -13386,10 +13274,6 @@
       {
        "w": "residential",
        "p": "resident 居民 + -ial"
-      },
-      {
-       "w": "substantial",
-       "p": "substance 實質 + -ial"
       },
       {
        "w": "controversial",
@@ -13518,7 +13402,7 @@
       },
       {
        "w": "superficial",
-       "p": "surface（拉丁文 superficies 表面）+ -ial"
+       "p": "superfici（拉丁文 superficies 表面）+ -al"
       },
       {
        "w": "artificial",
@@ -13526,7 +13410,7 @@
       },
       {
        "w": "punctual",
-       "p": "point（拉丁文 punctum 點）+ -ual"
+       "p": "punct（拉丁文 punctus 點）+ -ual"
       },
       {
        "w": "dental",
@@ -13546,7 +13430,7 @@
       },
       {
        "w": "mutual",
-       "p": "mut（拉丁文 mutare 交換）+ -ual"
+       "p": "mut（拉丁文 mutare 改變）+ -ual"
       },
       {
        "w": "casual",
@@ -13562,7 +13446,7 @@
       },
       {
        "w": "virtual",
-       "p": "virtu（拉丁文 virtus 力量、效能）+ -al"
+       "p": "virtu（拉丁文 virtus 力量、美德）+ -al"
       },
       {
        "w": "equal",
@@ -13574,7 +13458,7 @@
       },
       {
        "w": "loyal",
-       "p": "loy（古法文 loi 法律，來自拉丁文 legalis）+ -al"
+       "p": "古法文 leial（來自拉丁文 legalis 合法的）"
       },
       {
        "w": "royal",
@@ -13630,7 +13514,7 @@
       },
       {
        "w": "rural",
-       "p": "rur（拉丁文 rus 鄉下）+ -al"
+       "p": "rur（拉丁文 rus 原野）+ -al"
       },
       {
        "w": "eternal",
@@ -13658,7 +13542,7 @@
       },
       {
        "w": "rational",
-       "p": "ration（拉丁文 ratio 理性）+ -al"
+       "p": "ration（拉丁文 ratio 計算、理性）+ -al"
       },
       {
        "w": "crucial",
@@ -13674,7 +13558,7 @@
       },
       {
        "w": "brutal",
-       "p": "brut（拉丁文 brutus 愚鈍的）+ -al"
+       "p": "brut（中古拉丁文 brutum 野獸，來自拉丁文 brutus 愚鈍的）+ -al"
       },
       {
        "w": "total",
@@ -13682,11 +13566,11 @@
       },
       {
        "w": "usual",
-       "p": "us（拉丁文 usus 使用、習慣）+ -ual"
+       "p": "us（拉丁文 usus 使用）+ -ual"
       },
       {
        "w": "several",
-       "p": "sever（拉丁文 separ 分開的）+ -al"
+       "p": "中古拉丁文 separalis（來自拉丁文 separ 分開的）"
       },
       {
        "w": "real",
@@ -13702,7 +13586,7 @@
       },
       {
        "w": "medieval",
-       "p": "medi（拉丁文 medius 中間）+ ev（aevum 時代）+ -al"
+       "p": "medi + ev（新拉丁文 medium aevum 中世紀）+ -al"
       },
       {
        "w": "federal",
@@ -13710,15 +13594,15 @@
       },
       {
        "w": "imperial",
-       "p": "imperi（拉丁文 imperium 帝國）+ -al"
+       "p": "imperi（拉丁文 imperium 統治權）+ -al"
       },
       {
        "w": "martial",
-       "p": "mart（拉丁文 Mars 羅馬戰神，屬格 Martis）+ -ial"
+       "p": "mart（拉丁文 Mars 羅馬戰神，詞幹 Mart-）+ -ial"
       },
       {
        "w": "municipal",
-       "p": "municip（拉丁文 municipium 自治城市）+ -al"
+       "p": "municip（拉丁文 municeps 自治市居民）+ -al"
       },
       {
        "w": "oriental",
@@ -13750,7 +13634,7 @@
       },
       {
        "w": "principal",
-       "p": "princip（拉丁文 princeps 第一的）+ -al"
+       "p": "princip（拉丁文 princeps 領袖）+ -al"
       },
       {
        "w": "cardinal",
@@ -13762,7 +13646,7 @@
       },
       {
        "w": "colloquial",
-       "p": "col 一起 + loqu（拉丁文 loqui 說）+ -ial"
+       "p": "colloqui（拉丁文 colloquium 交談：col + loquī 說）+ -al"
       }
      ]
     },
@@ -13889,10 +13773,6 @@
        "p": "trag（edy）悲劇 + -ic，跟 tragedy 同源"
       },
       {
-       "w": "democratic",
-       "p": "democracy 民主 + -tic"
-      },
-      {
        "w": "diplomatic",
        "p": "diplomat 外交官 + -ic"
       },
@@ -13931,10 +13811,6 @@
       {
        "w": "photographic",
        "p": "photograph 照片 + -ic"
-      },
-      {
-       "w": "strategic",
-       "p": "strategy 策略 + -ic"
       },
       {
        "w": "characteristic",
@@ -14107,7 +13983,7 @@
       },
       {
        "w": "identical",
-       "p": "ident（拉丁文 idem 相同的）+ -ical"
+       "p": "ident（可能來自中世紀拉丁文 identicus，再往前是晚期拉丁文 identitas）+ -ical"
       },
       {
        "w": "public",
@@ -14123,7 +13999,7 @@
       },
       {
        "w": "domestic",
-       "p": "dom（拉丁文 domus 家）+ -estic"
+       "p": "拉丁文 domesticus（來自 domus 家）"
       },
       {
        "w": "authentic",
@@ -14247,10 +14123,6 @@
        "p": "history 歷史 + -ical"
       },
       {
-       "w": "classic",
-       "p": "class（拉丁文 classicus 一流的）+ -ic"
-      },
-      {
        "w": "classical",
        "p": "classic + -al"
       },
@@ -14323,7 +14195,7 @@
       },
       {
        "w": "destructive",
-       "p": "destroy 破壞（拉丁文 destructus）+ -ive"
+       "p": "跟 destroy 同源（拉丁文 destruere 破壞，de + struere 建造）+ -ive"
       },
       {
        "w": "protective",
@@ -14403,7 +14275,7 @@
       },
       {
        "w": "descriptive",
-       "p": "describe 描述（拉丁文 descriptus）+ -ive"
+       "p": "describe 描述（拉丁文 describere）+ -ive"
       },
       {
        "w": "preventive",
@@ -14492,7 +14364,7 @@
       },
       {
        "w": "positive",
-       "p": "posit（拉丁文 ponere 放、確立）+ -ive"
+       "p": "posit（拉丁文 ponere 放）+ -ive"
       },
       {
        "w": "negative",
@@ -14500,11 +14372,11 @@
       },
       {
        "w": "primitive",
-       "p": "prim（拉丁文 primus 第一）+ -itive"
+       "p": "primit（拉丁文 primitus 起初，來自 primus 第一）+ -ive"
       },
       {
        "w": "captive",
-       "p": "capt（拉丁文 capere 抓）+ -ive"
+       "p": "capt（拉丁文 capere 拿）+ -ive"
       },
       {
        "w": "cognitive",
@@ -14512,7 +14384,7 @@
       },
       {
        "w": "tentative",
-       "p": "tent（拉丁文 tentare 嘗試）+ -ative"
+       "p": "tent（拉丁文 tentare 觸摸、試探）+ -ative"
       },
       {
        "w": "lucrative",
@@ -14573,11 +14445,7 @@
       },
       {
        "w": "incentive",
-       "p": "in 朝向 + cent（拉丁文 canere 唱；原意是「定調子、起頭」）+ -ive"
-      },
-      {
-       "w": "perspective",
-       "p": "per 穿過 + spect 看 + -ive"
+       "p": "in 往裡面 + cent（拉丁文 incinere 演奏樂器，來自 canere 唱、演奏）+ -ive"
       },
       {
        "w": "native",
@@ -14656,7 +14524,7 @@
       },
       {
        "w": "literary",
-       "p": "letter（拉丁文 littera 字母）+ -ary"
+       "p": "liter（拉丁文 littera 字母）+ -ary"
       },
       {
        "w": "satisfactory",
@@ -14709,7 +14577,7 @@
       },
       {
        "w": "solitary",
-       "p": "solit（拉丁文 solus 單獨）+ -ary"
+       "p": "solit（拉丁文 solitas 孤單，來自 solus 單獨）+ -ary"
       },
       {
        "w": "voluntary",
@@ -15104,7 +14972,7 @@
       },
       {
        "w": "radiant",
-       "p": "跟 radiate 同源（拉丁文 radiare 發光）+ -ant"
+       "p": "跟 radiate 同源（都來自拉丁文 radiare，radiare 來自 radius 光線）+ -ant"
       },
       {
        "w": "coherent",
@@ -15121,7 +14989,7 @@
      "items": [
       {
        "w": "relevant",
-       "p": "re + lev（拉丁文 relevare 舉起、減輕；跟 relieve 同源）+ -ant"
+       "p": "re 可能表加強 + lev（拉丁文 relevare 舉起；跟 relieve 同源）+ -ant"
       },
       {
        "w": "consequent",
@@ -15149,7 +15017,7 @@
       },
       {
        "w": "violent",
-       "p": "拉丁文 violentus（猛烈的，來自 vis 力量；-ent 在這裡不是現在分詞）"
+       "p": "拉丁文 violentus（跟 vis 力量同源）"
       },
       {
        "w": "innocent",
@@ -15165,7 +15033,7 @@
       },
       {
        "w": "sufficient",
-       "p": "suf（sub 往上）+ fic 做 + -ient（拉丁文 sufficere 補上、供應）"
+       "p": "suf（sub 往上）+ fic 做 + -ient（拉丁文 sufficere 提供、足夠）"
       },
       {
        "w": "convenient",
@@ -15221,7 +15089,7 @@
       },
       {
        "w": "imminent",
-       "p": "im（in 在上面）+ min（拉丁文 minere 突出）+ -ent"
+       "p": "im（in 在上面）+ min（拉丁文 minēre 突出）+ -ent"
       },
       {
        "w": "potent",
@@ -15229,7 +15097,7 @@
       },
       {
        "w": "ancient",
-       "p": "古法文 ancien（來自拉丁文 ante 以前），字尾的 t 是後來受 -ent 影響才加上的"
+       "p": "古法文 ancien（來自拉丁文 ante 以前），字尾的 t 可能是後來受 -ent、-ant 結尾的字影響才加上的"
       },
       {
        "w": "constant",
@@ -15242,10 +15110,6 @@
       {
        "w": "instant",
        "p": "in 在上面 + sta 站 + -ant"
-      },
-      {
-       "w": "elegant",
-       "p": "e（ex 往外）+ leg（拉丁文 legere 挑選）+ -ant"
       },
       {
        "w": "arrogant",
@@ -15265,7 +15129,7 @@
       },
       {
        "w": "reluctant",
-       "p": "re 往回 + luct（拉丁文 luctari 掙扎）+ -ant"
+       "p": "re 反 + luct（拉丁文 luctari 掙扎）+ -ant"
       },
       {
        "w": "vacant",
@@ -15277,11 +15141,11 @@
       },
       {
        "w": "pregnant",
-       "p": "pre（一般認為是「在…之前」）+ gnant（拉丁文 gnasci 出生）"
+       "p": "pre 可能是在…之前 + gnant（拉丁文 -gnas，和 gignere 生產同源）"
       },
       {
        "w": "equivalent",
-       "p": "equi 相等 + val（拉丁文 valere 有價值）+ -ent"
+       "p": "equi 相等 + val（拉丁文 valēre 有價值）+ -ent"
       }
      ]
     }
