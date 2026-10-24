@@ -353,7 +353,7 @@
     <div class="card">
       <p id="homeLead" class="home-lead">用考過的字複習，不是背字典</p>
       <p id="homeDesc" class="home-desc">
-        每一張卡片的字都真的在學測或指考詞彙題出現過，四個選項也是當年那一題的四個，三個錯的就是當年那三個。其中 206 個字另有例句填空，做過一次之後才會出，卡片上會標明不是大考原題。
+        每一張卡片的字都真的在學測或指考詞彙題出現過，四個選項也是當年那一題的四個，三個錯的就是當年那三個。其中 206 個字另有詞彙選擇題，做過一次之後才會出，卡片上會標明不是大考原題。
         答對的字往後推，答錯的當場再來一次。
       </p>
       <button id="startBtn" class="big-btn">開始複習</button>
@@ -460,7 +460,7 @@
 <script src="../kk.js"></script>
 <script>
 /* 單字記憶卡 · 引擎
-   資料：cards_data.json（同資料夾）；單字卡的例句填空另放 practice_data.json
+   資料：cards_data.json（同資料夾）；單字卡的詞彙選擇題另放 practice_data.json
    進度：localStorage，鍵 jcee_cards_v1
    排程：簡化 SM-2，只決定「何時再出現」 */
 (function () {
@@ -486,7 +486,7 @@
   var CF = null, CFG = null;  // 易混淆字組：CF 是整個資料檔，CFG 以組號查組
   var SN = null;              // 字義相近：另一個資料檔，用到才載入，組放進同一個 CFG（組號 401 起）
   var PO = null, POW = null;  // 一字多義：PO 是整個資料檔，POW 以卡號查卡
-  var PX = null;            // 單字卡的例句填空：以卡片字查題，題目另外編寫、不是大考原題
+  var PX = null;            // 單字卡的詞彙選擇題：以卡片字查題，題目另外編寫、不是大考原題
   var state = null;         // 目前這副卡的進度 { v, w:{key:{i,e,d,r,l,vv}}, day, done }
   var states = {};          // 三副卡各一份
   var scope = null;         // { y0, y1, st, lv, label, free }
@@ -658,7 +658,7 @@
   // 字義相近的組放在另一個資料檔（SN），顯示用的組號是 dn（1–159），內部組號 n 從 401 起
   function cfGroups(kind) { return kind === 'sn' ? (SN ? SN.g : []) : CF.g; }
   function gnum(g) { return g.k === 'sn' ? g.dn : g.n; }
-  // 一組可以出哪幾種題：拼字相近照舊；字義相近只有大考原題（正解是組內的字）和例句填空
+  // 一組可以出哪幾種題：拼字相近照舊；字義相近只有大考原題（正解是組內的字）和詞彙選擇題
   function cfVariants(g) {
     var vs = [];
     if (g.k === 'sn') {
@@ -711,8 +711,14 @@
     var pool = [];
     for (var k in W) {
       var w = W[k];
-      if (!w.c || !lvOK(w, sc)) continue;
+      var isTbo = !!(sc.tb && w.tbo);       // 課本三版皆有、歷屆詞彙題沒有原題可練的字：只在選了三版皆有時出，不受年份和題庫限制
+      if (!(w.c || isTbo) || !lvOK(w, sc)) continue;
       if (sc.tb && !w.tb) continue;
+      if (isTbo) {
+        if ((sc.mn || 1) > 1 && (w.tn || 0) < sc.mn) continue;
+        pool.push(k);
+        continue;
+      }
       var hit = 0;
       for (var i = 0; i < w.oc.length; i++) { if (inRange(w.oc[i][0], sc)) hit++; }
       if (hit && hit >= (sc.mn || 1)) pool.push(k);
@@ -733,7 +739,7 @@
   // 回傳這個字在目前範圍內所有可用的出現方式
   function variantsOf(word) {
     if (isCF()) {
-      // 每個字三種（c 中文選字、e 字選中文、s 例句填空），組內同題每題一種（o 大考原題）
+      // 每個字三種（c 中文選字、e 字選中文、s 詞彙選擇題），組內同題每題一種（o 大考原題）
       return cfVariants(CFG[word]);
     }
     if (isPO()) {
@@ -741,6 +747,10 @@
       return POW[word].q1 ? ['1|', '2|'] : ['2|'];
     }
     var w = W[word], out = [];
+    if (w.tbo) {      // 課本字只考編寫的詞彙選擇題
+      ((PX && PX[word]) || []).forEach(function (x, i) { out.push('p|' + i); });
+      return out;
+    }
     w.oc.forEach(function (o) {
       var qid = o[0];
       if (!inRange(qid)) return;
@@ -751,15 +761,15 @@
       if (inRange(f[1])) out.push('f|' + f[1] + '|' + i);
     });
     if (w.fm && w.fm.length >= 3) out.push('m|');
-    // 例句填空：另外編寫的句子，不受年份範圍限制（字本身已經在範圍內）
+    // 詞彙選擇題：另外編寫的句子，不受年份範圍限制（字本身已經在範圍內）
     ((PX && PX[word]) || []).forEach(function (x, i) { out.push('p|' + i); });
     return out;
   }
   // 挑一個最久沒用過的出現方式
   function chooseVariant(word) {
     var vs = variantsOf(word);
-    // 單字卡第一次遇到的字先用大考原題的選項考，例句填空等做過一次之後才出
-    if (!isCF() && !isPO() && !state.w[word]) {
+    // 單字卡第一次遇到的字先用大考原題的選項考，詞彙選擇題等做過一次之後才出
+    if (!isCF() && !isPO() && !state.w[word] && !W[word].tbo) {
       vs = vs.filter(function (v) { return v.charAt(0) !== 'p'; });
     }
     if (!vs.length) return null;
@@ -882,18 +892,18 @@
     z: '中文 → 英文',
     f: '搭配詞填空',
     m: '形近字辨識',
-    p: '例句填空'
+    p: '詞彙選擇題'
   };
   var PO_LABEL = { '1': '一字多義　大考原題', '2': '一字多義　中文選字' };
   var SN_LABEL = {
     o: '字義相近　大考原題',
-    s: '字義相近　例句填空'
+    s: '字義相近　詞彙選擇題'
   };
   var CF_LABEL = {
     c: '易混淆字　中文 → 英文',
     e: '易混淆字　英文 → 中文',
     o: '易混淆字　大考原題',
-    s: '易混淆字　例句填空'
+    s: '易混淆字　詞彙選擇題'
   };
 
   // 中文欄有時附著英文用法（常用 dispose of），正面要把這個字本身遮掉，免得直接看到答案
@@ -1009,7 +1019,7 @@
       $('modeTag').textContent = MODE_LABEL[kind];
       var px = PX[word][+parts[1]];
       body = '<p class="front-frame">' + frameHTML(px.s) + '</p>' +
-             '<p class="front-hint">這一題依大考詞彙題的題型編寫，不是大考原題；答案是歷屆詞彙題考過的字，換一個句子練習這個字的用法。</p>';
+             '<p class="front-hint">這一題依大考詞彙題的題型編寫，不是大考原題；' + (w.tbo ? '答案是課本三版皆有的字，用這個句子練習這個字的用法。' : '答案是歷屆詞彙題考過的字，換一個句子練習這個字的用法。') + '</p>';
       opts = px.o.map(function (o, k) { return { key: 'p' + k, text: o }; });
       correct = 'p' + px.a;
     } else { // m 形近字
@@ -1054,7 +1064,7 @@
     for (i = 0; i < oc.length; i++) if (inRange(oc[i][0]) && oc[i][1] === Q[oc[i][0]].a) return oc[i];
     for (i = 0; i < oc.length; i++) if (inRange(oc[i][0])) return oc[i];
     for (i = 0; i < oc.length; i++) if (oc[i][1] === Q[oc[i][0]].a) return oc[i];
-    return oc[0];
+    return oc[0] || [];
   }
   function letterOf(word, qid) {
     var oc = W[word].oc;
@@ -1340,6 +1350,27 @@
   }
 
   /* ---------------- 畫卡片背面 ---------------- */
+  // 課本三版皆有的字（沒有大考原題）：背面放編寫的例句和這個字在歷屆詞彙題的出現情形
+  function renderBackTbo(c, word, w, i) {
+    var px = PX[word][i], h = '';
+    h += '<p class="verdict ' + (c.ok ? 'ok' : 'no') + '">' + (c.ok ? '答對了' : '答錯了') + '</p>';
+    h += '<div class="bk-head"><span class="bk-word">' + esc(word) + '</span>' + spkBtn(word);
+    var kkh = window.KK && KK.html(word);
+    if (kkh) h += kkh;
+    h += '<span class="lvtag">' + esc(levelText(w)) + '</span> <span class="lvtag">課本三版皆有</span></div>';
+    if (w.zh) h += '<p class="bk-gloss">' + esc(w.zh) + '</p>';
+    h += '<div class="bk-sec"><span class="bk-src"><span class="seg">詞彙選擇題</span></span>';
+    h += '<p class="bk-en">' + esc(px.s).replace(/_{2,}/, '<b>' + esc(px.o[px.a]) + '</b>') + '</p>';
+    h += '<p class="bk-zh">' + esc(px.z) + '</p></div>';
+    h += '<p class="bk-role">' + (w.tn > 0
+      ? '這個字在歷屆學測、指考詞彙題的選項裡出現過 ' + w.tn + ' 次，都是誘答。'
+      : '這個字還沒有在歷屆學測、指考詞彙題的選項裡出現過，所以只有編寫的例句可以練習。') + '</p>';
+    h += cfLinksHTML(word, w);
+    $('backCard').innerHTML = h;
+    show('backCard');
+    finishBack();
+  }
+
   function renderBack() {
     if (isCF()) { $('backCard').innerHTML = renderBackCF(); show('backCard'); finishBack(); return; }
     if (isPO()) {
@@ -1351,6 +1382,7 @@
     var c = session.current, word = c.word, w = W[word];
     var parts = c.variant.split('|');
     var isP = parts[0] === 'p';
+    if (w.tbo) { renderBackTbo(c, word, w, +parts[1]); return; }
     var qid = (!isP && parts[1]) || primaryOcc(word)[0];
     var L = letterOf(word, qid);
     var q = Q[qid];
@@ -1369,11 +1401,11 @@
     h += '</div>';
 
     if (isP) {
-      // 例句填空：先放練習句與中譯，下面再接這個字在大考的那一題。
+      // 詞彙選擇題：先放練習句與中譯，下面再接這個字在大考的那一題。
       // 不放大考那一題的釋義當標題：練習句的意思可能和大考那一題不同，中譯已經說清楚
       var px = PX[word][+parts[1]];
       h += '<div class="bk-sec">';
-      h += '<span class="bk-src"><span class="seg">例句填空</span></span>';
+      h += '<span class="bk-src"><span class="seg">詞彙選擇題</span></span>';
       h += '<p class="bk-en">' + esc(px.s).replace(/_{2,}/, '<b>' + esc(px.o[px.a]) + '</b>') + '</p>';
       h += '<p class="bk-zh">' + esc(px.z) + '</p>';
       h += '</div>';
@@ -1625,7 +1657,7 @@
     } else if (isCF() && scope.kind === 'sn') {
       $('homeLead').textContent = '意思差不多的字，什麼時候換了就不對';
       $('homeDesc').textContent = '每一組都是中文意思相近的字，例如 price、cost、fee、fare。字典（LDOCE、Oxford、Merriam-Webster）寫明了哪些句型、搭配或情境，換成另一個字就不對。' +
-        '每次從一組裡出一題：有大考原題的，先出當年的原題；其餘依字典的說明編寫例句填空，卡片上會標明不是大考原題。答完可以看整組怎麼分。答對的組往後推，答錯的當場再來一次。';
+        '每次從一組裡出一題：有大考原題的，先出當年的原題；其餘依字典的說明編寫詞彙選擇題，卡片上會標明不是大考原題。答完可以看整組怎麼分。答對的組往後推，答錯的當場再來一次。';
     } else if (isCF()) {
       $('homeLead').textContent = '容易搞混的字，一組一組記';
       $('homeDesc').textContent = '每一組都是拼法或字根相近、或是唸法相同，容易搞混的字，其中不少就是大考拿來當誘答的字。' +
@@ -1633,7 +1665,7 @@
     } else {
       $('homeLead').textContent = '用考過的字複習，不是背字典';
       $('homeDesc').textContent = '每一張卡片的字都真的在學測或指考詞彙題出現過，四個選項也是當年那一題的四個，三個錯的就是當年那三個。' +
-        '其中 206 個字另有例句填空，做過一次之後才會出，卡片上會標明不是大考原題。' +
+        '其中 206 個字另有詞彙選擇題，做過一次之後才會出，卡片上會標明不是大考原題。' +
         '答對的字往後推，答錯的當場再來一次。';
     }
 
@@ -1679,6 +1711,7 @@
   function glossShort(word) {
     if (isCF()) return CFG[word].t;
     if (isPO()) return POW[word].m;
+    if (W[word].tbo) return W[word].zh || '';
     var o = primaryOcc(word), q = Q[o[0]];
     var g = (q.gs && q.gs[o[1]]) || q.g[o[1]] || '';
     return stripPos(g);
@@ -1686,6 +1719,7 @@
   function wordLink(word) {
     if (isCF()) return '#deck=cf&view=' + word;
     if (isPO()) return '#deck=po&view=' + word;
+    if (W[word].tbo) return '../textbook/longteng.html';
     var o = primaryOcc(word), q = Q[o[0]];
     return (q.st === 'gsat' ? '../gsat/' : '../zhikao/') +
            '#set-' + encodeURIComponent(o[0]) + '|單字記憶卡';
@@ -1968,12 +2002,12 @@
   function init() {
     wire();
     var kkReady = window.KK ? KK.ready : Promise.resolve();
-    // 例句填空資料載入失敗不影響其他題型，只是不出例句填空
-    fetch('practice_data.json?v=1', { cache: 'default' })
+    // 詞彙選擇題資料載入失敗不影響其他題型，只是不出詞彙選擇題
+    fetch('practice_data.json?v=2', { cache: 'default' })
       .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
       .then(function (d) { PX = d.p; })
       .catch(function () { PX = null; });
-    fetch('cards_data.json?v=4', { cache: 'default' })
+    fetch('cards_data.json?v=5', { cache: 'default' })
       .then(function (r) {
         if (!r.ok) throw new Error('HTTP ' + r.status);
         return r.json();
