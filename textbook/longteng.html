@@ -46,6 +46,7 @@
  .tri{display:inline-block;font-size:.76rem;font-weight:400;border:1px solid var(--line);background:var(--hl);color:var(--ink);border-radius:999px;padding:0 8px;margin-left:6px}
  .tri.first{background:var(--navy);color:#fff;border-color:var(--navy)}
  .tri.ex{background:transparent;color:var(--mute)}
+ .trlink{align-self:center;margin-left:8px;font-size:.9rem;color:var(--navy);font-weight:700}
  .trib{margin:10px 0}.trib .lab{font-size:.9rem;color:var(--mute);margin-right:4px;align-self:center}
  .lvb{display:inline-block;font-size:.78rem;border:1px solid var(--line);border-radius:999px;padding:0 8px;margin-left:6px;color:var(--mute);font-family:inherit}
  .src{color:var(--mute);font-size:.82rem}
@@ -67,7 +68,7 @@
 有字首、字尾或字根可以拆的字，下面會多一行<b>拆解</b>，點右邊的連結可以看這個字在字首字尾表或字根家族表的位置。<br>
  <b>A–Z 索引</b>只收錄有字首、字尾或字根可以拆解的字，附級數與出處；<b>衍生字家族</b>列出每一課單字的衍生字，依冊、課排列。<br>
  級數依大考中心《高中英文參考詞彙表》；級數有括號的，表示括號內是這個字的原形（字根）的級別，「超」是參考詞彙表裡查不到。<br>
- <b>三版皆有</b>：字旁標「三版皆有」，表示這個字在龍騰版、三民乙版（含 115 改版）和三民舊版的課本裡都出現，不管用哪一版課本，都會學到；後面的「考過 N 次」是學測、指考詞彙題的選項（答案與誘答）裡出現的題數，閱讀測驗和克漏字的文章不算。標「先背」的，是三版皆有而且考過 2 次以上的字，備考時可以先從這些字開始背；用上面的按鈕可以只看這些字。<br>
+ <b>三版皆有</b>：字旁標「三版皆有」，表示這個字在龍騰版、三民乙版（含 115 改版）和三民舊版的課本裡都出現，不管用哪一版課本，都會學到；後面的「考過 N 次」是學測、指考詞彙題的選項（答案與誘答）裡出現的題數，閱讀測驗和克漏字的文章不算。標「先背」的，是三版皆有而且考過 2 次以上的字，備考時可以先從這些字開始背。按「練習這些字」，可以用單字記憶卡做這些字當年的大考詞彙題（只有在詞彙題選項出現過的字才有）；用上面的按鈕可以只看這些字。<br>
  這一頁只整理<b>龍騰版</b>課本的範圍，用其他版本的同學請對照自己的課本。
 </div>
 <details class="lv"><summary>各冊單字的級數分布</summary>
@@ -77,7 +78,7 @@
 <div class="bar" id="views" role="group" aria-label="檢視方式"><button type="button" data-v="lesson" aria-pressed="true">依課排列</button><button type="button" data-v="az" aria-pressed="false">A–Z 索引</button><button type="button" data-v="fam" aria-pressed="false">衍生字家族</button></div>
 <div class="bar" id="books" role="group" aria-label="冊別"></div>
 <div class="bar lchips" id="lessons" role="group" aria-label="課別"></div>
-<div class="bar trib" id="trib" role="group" aria-label="三版皆有的字"><span class="lab">三版皆有的字：</span><button type="button" data-t="0" aria-pressed="true">全部字</button><button type="button" data-t="1" aria-pressed="false">只看三版皆有</button><button type="button" data-t="2" aria-pressed="false">先背（三版皆有且考過 2 次以上）</button></div>
+<div class="bar trib" id="trib" role="group" aria-label="三版皆有的字"><span class="lab">三版皆有的字：</span><button type="button" data-t="0" aria-pressed="true">全部字</button><button type="button" data-t="1" aria-pressed="false">只看三版皆有</button><button type="button" data-t="2" aria-pressed="false">先背（三版皆有且考過 2 次以上）</button><a class="trlink" href="../cards/#y=81-115&amp;tb=3">練習這些字 →</a></div>
 <input type="search" id="q" placeholder="搜尋英文字或中文（例如 tumble、斜坡）" aria-label="搜尋">
 <div id="out"></div>
 <div class="more"><b>查到單字之後</b><br>想練習這些字，可以到題庫的單字記憶卡與歷屆試題。<br>

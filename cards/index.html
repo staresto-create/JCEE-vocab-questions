@@ -602,14 +602,15 @@
     var kind = (p.kind === 'sn' || view >= 400) ? 'sn' : 'sp';   // sp 拼字相近，sn 字義相近
     // 單字卡：n=3 表示只出在範圍內考過 3 次以上的字（答案和誘答都算，一題算一次）
     var mn = (p.n && /^[2-9]$/.test(p.n)) ? +p.n : 1;
+    var tb = p.tb === '3';               // 只出課本三版皆有的字（龍騰、三民乙版含 115 改、三民舊版）
     if (deck === 'po' && lv) { lv.p = false; lv.x = false; if (!Object.keys(lv.n).length) lv = null; }
 
     return {
-      y0: y0, y1: y1, st: st, lv: lv, mn: mn,
+      y0: y0, y1: y1, st: st, lv: lv, mn: mn, tb: tb,
       deck: deck, gs: gs, view: view, kind: kind,
       label: p.t || '',
       free: p.mode === 'free',
-      custom: !!(p.y || p.st || p.lv || p.g || p.n)
+      custom: !!(p.y || p.st || p.lv || p.g || p.n || p.tb)
     };
   }
 
@@ -638,6 +639,7 @@
       parts.push(seg.join('、'));
     }
     if (scope.mn > 1) parts.push('考過 ' + scope.mn + ' 次以上');
+    if (scope.tb) parts.push('課本三版皆有');
     return parts.join('　·　');
   }
 
@@ -710,6 +712,7 @@
     for (var k in W) {
       var w = W[k];
       if (!w.c || !lvOK(w, sc)) continue;
+      if (sc.tb && !w.tb) continue;
       var hit = 0;
       for (var i = 0; i < w.oc.length; i++) { if (inRange(w.oc[i][0], sc)) hit++; }
       if (hit && hit >= (sc.mn || 1)) pool.push(k);
@@ -1362,6 +1365,7 @@
     if (kkh) h += kkh;
     else if (w.kk) h += '<span class="bk-kk">[' + esc(w.kk) + ']</span>';
     h += '<span class="lvtag">' + esc(levelText(w)) + '</span>';
+    if (w.tb) h += ' <span class="lvtag">課本三版皆有</span>';
     h += '</div>';
 
     if (isP) {
@@ -1570,6 +1574,19 @@
       tl.className = 'rg'; tl.setAttribute('href', 'teacher.html#po'); tl.textContent = '出題範圍與連結';
       box.appendChild(tl);
       box.appendChild(document.createTextNode('勾選字級，產生自己的練習連結。'));
+      return;
+    }
+    if (scope.tb) {
+      // 指定了課本三版皆有的字：下面的範圍切換不帶這個條件，數字會對不上，所以只留回到全部單字的連結
+      box.appendChild(document.createTextNode('這是課本三版皆有的字。想練全部的單字，可以回到'));
+      var ta = document.createElement('a');
+      ta.className = 'rg'; ta.setAttribute('href', './'); ta.textContent = '單字記憶卡首頁';
+      box.appendChild(ta);
+      box.appendChild(document.createTextNode('；想再限定年份或字級，可以到'));
+      var tb2 = document.createElement('a');
+      tb2.className = 'rg'; tb2.setAttribute('href', 'teacher.html'); tb2.textContent = '出題範圍與連結';
+      box.appendChild(tb2);
+      box.appendChild(document.createTextNode('自己選。'));
       return;
     }
     RANGES.forEach(function (r, i) {
@@ -1956,7 +1973,7 @@
       .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
       .then(function (d) { PX = d.p; })
       .catch(function () { PX = null; });
-    fetch('cards_data.json?v=3', { cache: 'default' })
+    fetch('cards_data.json?v=4', { cache: 'default' })
       .then(function (r) {
         if (!r.ok) throw new Error('HTTP ' + r.status);
         return r.json();
