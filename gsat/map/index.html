@@ -302,6 +302,15 @@ function build(items){
   });
   document.getElementById('filters').hidden = false;
   document.getElementById('status').hidden = true;
+  /* 網址帶 #t=hard（或 hard,mid）時，進頁就先選好難易，供「從哪裡開始」的路線直接使用 */
+  (function(){
+    var m = /[#&]t=([a-z,]+)/.exec(location.hash || '');
+    if (!m) return;
+    m[1].split(',').forEach(function(k){
+      var b = document.querySelector('#tierChips .mp-chip[data-k="' + k + '"]');
+      if (b && !selTiers[k]){ selTiers[k] = true; b.setAttribute('aria-pressed','true'); }
+    });
+  })();
   apply();
 }
 document.getElementById('reset').addEventListener('click', function(){

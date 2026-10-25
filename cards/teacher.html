@@ -287,6 +287,23 @@
         翻到背面，可以看到學生最熟悉的意思、原題考的意思、原句和中譯、判斷的線索與常見搭配，也可以點回原題。
       </p>
 
+      <h3>「不知道從哪裡開始？」連結</h3>
+      <p>
+        想讓學生依自己的英文級分，直接看到適合的練習順序，可以選好級分，把這條連結貼給學生。學生點開後，會在總站首頁看到那一段的路線，不必自己再選。
+      </p>
+      <label class="flabel" for="stTier">給哪一段級分的學生</label>
+      <select id="stTier">
+        <option value="a">6 級分以下</option>
+        <option value="b" selected>7 到 9 級分</option>
+        <option value="c">10 到 12 級分</option>
+        <option value="d">13 級分以上</option>
+      </select>
+      <div id="stUrl" class="urlbox"></div>
+      <div class="btnrow">
+        <button id="stCopy" class="btn" type="button">複製連結</button>
+        <a id="stOpen" class="btn ghost" target="_blank" rel="noopener">先自己試一次</a>
+      </div>
+
       <h3>幾件先說清楚的</h3>
       <p>
         <b>沒有後台。</b>這裡沒有帳號、沒有班級管理，您看不到誰點了、誰做了幾張。
@@ -750,6 +767,28 @@
     setDeck: setDeck,
     parseG: parseG
   };
+})();
+</script>
+<script>
+(function(){
+  var BASE='https://staresto-create.github.io/JCEE-vocab-questions/';
+  var sel=document.getElementById('stTier'),box=document.getElementById('stUrl'),
+      cp=document.getElementById('stCopy'),op=document.getElementById('stOpen');
+  function url(){return BASE+'?start='+sel.value;}
+  function refresh(){box.textContent=url();op.href=url();cp.textContent='複製連結';}
+  sel.addEventListener('change',refresh);
+  cp.addEventListener('click',function(){
+    var u=url();
+    function done(){cp.textContent='已複製';}
+    function fallback(){
+      var t=document.createElement('textarea');t.value=u;t.style.position='fixed';t.style.opacity='0';
+      document.body.appendChild(t);t.select();
+      try{document.execCommand('copy');done();}catch(e){cp.textContent='請長按連結複製';}
+      document.body.removeChild(t);
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(u).then(done,fallback);}else{fallback();}
+  });
+  refresh();
 })();
 </script>
 </body>
