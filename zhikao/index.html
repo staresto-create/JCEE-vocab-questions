@@ -918,7 +918,7 @@ function selectAnswer(letter, q){
 
   const accTag = document.getElementById('qAccTag');
   if(typeof q.accuracyRate === 'number'){
-    const isLow = q.accuracyRate < 35;
+    const isLow = q.accuracyRate < 40;
     accTag.innerHTML = '本題全體考生答對率：<span class="acc-num">'+q.accuracyRate+'%</span>'
       + '　鑑別度：'+q.discrimination;
     accTag.classList.toggle('low', isLow);
