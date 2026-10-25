@@ -122,7 +122,7 @@
     d.appendChild(sum);
 
     var body = el('div', 'sh-body');
-    body.appendChild(el('p', 'sh-q', '我最近一次模擬考或學測，英文大約是'));
+    body.appendChild(el('p', 'sh-q', '我最近一次模擬考，英文大約是'));
     var grid = el('div', 'sh-tiers');
     var route = el('div', 'sh-r');
     route.setAttribute('aria-live', 'polite');
