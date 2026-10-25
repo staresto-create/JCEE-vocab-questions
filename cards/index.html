@@ -4,12 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>單字記憶卡 · 學測指考英文字彙</title>
-<meta name="description" content="用學測、指考詞彙題考過的字做間隔複習。四個選項就是當年那一題的四個，答對的往後推，答錯的當場再來。另有易混淆字組 317 組，一組一組記；一字多義 210 字，練你熟悉的字在大考考的另一個意思。免費、無廣告。">
+<meta name="description" content="用學測、指考詞彙題出現過的字做間隔複習。四個選項就是當年那一題的四個，答對的往後推，答錯的當場再來。另有易混淆字組 317 組，一組一組記；一字多義 210 字，練你熟悉的字在大考考的另一個意思。免費、無廣告。">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="高中英文自學題庫">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:title" content="單字記憶卡 · 學測指考英文字彙">
-<meta property="og:description" content="81～115 年學測與指考詞彙題的答案＋誘答選項，全部收錄，共 2,113 個字。不是從字表抄的，是考卷上真的考過的。四個選項就是當年那一題的四個。另有易混淆字組 317 組，拼法或字根相近、或是唸法相同的字放在一起比較；一字多義 210 字，練你熟悉的字在大考考的另一個意思。答對的往後推，答錯的當場再來。免費、無廣告。">
+<meta property="og:description" content="81～115 年學測與指考詞彙題的答案＋誘答選項，全部收錄，共 2,113 個字。不是從字表抄的，是考卷上真的出現過的。四個選項就是當年那一題的四個。另有易混淆字組 317 組，拼法或字根相近、或是唸法相同的字放在一起比較；一字多義 210 字，練你熟悉的字在大考考的另一個意思。答對的往後推，答錯的當場再來。免費、無廣告。">
 <meta property="og:url" content="https://staresto-create.github.io/JCEE-vocab-questions/cards/">
 <meta property="og:image" content="https://staresto-create.github.io/JCEE-vocab-questions/cards/cards-og-cover.png?v=2">
 <meta property="og:image:width" content="1200">
@@ -17,7 +17,7 @@
 <meta property="og:image:alt" content="單字記憶卡：81～115 年，共 2,113 個字">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="單字記憶卡 · 學測指考英文字彙">
-<meta name="twitter:description" content="81～115 年學測與指考詞彙題的答案＋誘答選項，全部收錄，共 2,113 個字。不是從字表抄的，是考卷上真的考過的。四個選項就是當年那一題的四個。另有易混淆字組 317 組，拼法或字根相近、或是唸法相同的字放在一起比較；一字多義 210 字，練你熟悉的字在大考考的另一個意思。答對的往後推，答錯的當場再來。免費、無廣告。">
+<meta name="twitter:description" content="81～115 年學測與指考詞彙題的答案＋誘答選項，全部收錄，共 2,113 個字。不是從字表抄的，是考卷上真的出現過的。四個選項就是當年那一題的四個。另有易混淆字組 317 組，拼法或字根相近、或是唸法相同的字放在一起比較；一字多義 210 字，練你熟悉的字在大考考的另一個意思。答對的往後推，答錯的當場再來。免費、無廣告。">
 <meta name="twitter:image" content="https://staresto-create.github.io/JCEE-vocab-questions/cards/cards-og-cover.png?v=2">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -353,7 +353,7 @@
     </div>
     <div data-start-here></div>
     <div class="card">
-      <p id="homeLead" class="home-lead">用考過的字複習，不是背字典</p>
+      <p id="homeLead" class="home-lead">用出現過的字複習，不是背字典</p>
       <p id="homeDesc" class="home-desc">
         每一張卡片的字都真的在學測或指考詞彙題出現過，四個選項也是當年那一題的四個，三個錯的就是當年那三個。其中 206 個字另有詞彙選擇題，做過一次之後才會出，卡片上會標明不是大考原題。
         答對的字往後推，答錯的當場再來一次。
@@ -472,7 +472,7 @@
   var CF_STORE_KEY = 'jcee_cards_cf_v1';    // 易混淆字組，進度分開存
   var PO_STORE_KEY = 'jcee_cards_po_v1';    // 一字多義，進度分開存
   var CF_DUE_PER_ROUND = 24;                // 一輪最多帶幾組到期的
-  var CF_NEW_PER_ROUND = 8;                 // 一輪帶幾組新的（照組號，組號依考過的題數排）
+  var CF_NEW_PER_ROUND = 8;                 // 一輪帶幾組新的（照組號，組號依出現過的題數排）
   var DEFAULT_Y0 = 106, DEFAULT_Y1 = 115;
   var RELEARN_GAP = 6;      // 答錯的卡片隔幾張後再出現（同一張一再答錯就往後拉更遠）
   var RELEARN_MAX = 24;
@@ -518,7 +518,7 @@
   }
   function pick(a) { return a[Math.floor(Math.random() * a.length)]; }
   // 依 keyFn 分層，層內洗牌，層與層之間維持原順序。
-  // 新字仍照「考過次數多的先教」分層，但同一層每一輪先後不同，
+  // 新字仍照「出現過次數多的先教」分層，但同一層每一輪先後不同，
   // 免得每次開啟看到的都是同一串。
   function shuffleWithin(list, keyFn) {
     var out = [], band = [], last = null;
@@ -602,7 +602,7 @@
     }
     var view = (p.view && /^\d{1,3}$/.test(p.view)) ? +p.view : 0;
     var kind = (p.kind === 'sn' || view >= 400) ? 'sn' : 'sp';   // sp 拼字相近，sn 字義相近
-    // 單字卡：n=3 表示只出在範圍內考過 3 次以上的字（答案和誘答都算，一題算一次）
+    // 單字卡：n=3 表示只出在範圍內出現 3 次以上的字（答案和誘答都算，一題算一次）
     var mn = (p.n && /^[2-9]$/.test(p.n)) ? +p.n : 1;
     var tb = p.tb === '3';               // 只出課本三版皆有的字（龍騰、三民乙版含 115 改、三民舊版）
     if (deck === 'po' && lv) { lv.p = false; lv.x = false; if (!Object.keys(lv.n).length) lv = null; }
@@ -640,7 +640,7 @@
       if (scope.lv.x) seg.push('超綱');
       parts.push(seg.join('、'));
     }
-    if (scope.mn > 1) parts.push('考過 ' + scope.mn + ' 次以上');
+    if (scope.mn > 1) parts.push('出現 ' + scope.mn + ' 次以上');
     if (scope.tb) parts.push('課本三版皆有');
     return parts.join('　·　');
   }
@@ -700,7 +700,7 @@
   function buildPool(sc) {
     sc = sc || scope;
     if (sc.deck === 'cf') {
-      // 照組號排：組號本來就是依組內的字考過的題數排的
+      // 照組號排：組號本來就是依組內的字出現過的題數排的
       return cfGroups(sc.kind || 'sp').filter(function (g) { return (!sc.gs || sc.gs[gnum(g)]) && cfVariants(g).length; })
                  .map(function (g) { return String(g.n); });
     }
@@ -725,7 +725,7 @@
       for (var i = 0; i < w.oc.length; i++) { if (inRange(w.oc[i][0], sc)) hit++; }
       if (hit && hit >= (sc.mn || 1)) pool.push(k);
     }
-    // 新字排序：考過越多次的排前面，其次是年份越近的排前面
+    // 新字排序：出現越多次的排前面，其次是年份越近的排前面
     pool.sort(function (a, b) {
       var d = W[b].oc.length - W[a].oc.length;
       if (d) return d;
@@ -1021,14 +1021,14 @@
       $('modeTag').textContent = MODE_LABEL[kind];
       var px = PX[word][+parts[1]];
       body = '<p class="front-frame">' + frameHTML(px.s) + '</p>' +
-             '<p class="front-hint">這一題依大考詞彙題的題型編寫，不是大考原題；' + (w.tbo ? '答案是課本三版皆有的字，用這個句子練習這個字的用法。' : '答案是歷屆詞彙題考過的字，換一個句子練習這個字的用法。') + '</p>';
+             '<p class="front-hint">這一題依大考詞彙題的題型編寫，不是大考原題；' + (w.tbo ? '答案是課本三版皆有的字，用這個句子練習這個字的用法。' : '答案是歷屆詞彙題出現過的字，換一個句子練習這個字的用法。') + '</p>';
       opts = px.o.map(function (o, k) { return { key: 'p' + k, text: o }; });
       correct = 'p' + px.a;
     } else { // m 形近字
       $('modeTag').textContent = MODE_LABEL[kind];
       var first = primaryOcc(word);
       body = '<p class="front-zh">' + esc(Q[first[0]].gs[first[1]]) + '</p>' +
-             '<p class="front-hint">四個拼法相近的字，本題庫的歷屆試題都考過，選出符合上面意思的那一個。</p>';
+             '<p class="front-hint">四個拼法相近的字，本題庫的歷屆試題都出現過，選出符合上面意思的那一個。</p>';
       var cand = [{ key: '*', text: word }];
       w.fm.slice(0, 3).forEach(function (p, i) { cand.push({ key: 'x' + i, text: p }); });
       opts = cand;
@@ -1654,7 +1654,7 @@
     if (isPO()) {
       $('homeLead').textContent = '你熟悉的字，大考考的卻是另一個意思';
       $('homeDesc').textContent = '這 ' + PO.n + ' 個字，你多半只熟悉其中一種意思或詞性，大考考的卻是另一種，例如 grace 當動詞是「光臨，使（場合）增光」。' +
-        '其中 ' + PO.withq + ' 個字有大考原題，第一次先考原題，下一次再改考中文選字；其餘的字沒有原題，只考中文選字，卡片背面附上考題文章裡的原句；少數常見但沒考過的意思，附的是依辭典寫的例句。' +
+        '其中 ' + PO.withq + ' 個字有大考原題，第一次先考原題，下一次再改考中文選字；其餘的字沒有原題，只考中文選字，卡片背面附上考題文章裡的原句；少數常見但沒出現過的意思，附的是依辭典寫的例句。' +
         '答對的字往後推，答錯的當場再來一次。';
     } else if (isCF() && scope.kind === 'sn') {
       $('homeLead').textContent = '意思差不多的字，什麼時候換了就不對';
@@ -1665,7 +1665,7 @@
       $('homeDesc').textContent = '每一組都是拼法或字根相近、或是唸法相同，容易搞混的字，其中不少就是大考拿來當誘答的字。' +
         '每次從一組裡挑一個字考，答完可以看整組怎麼分。答對的組往後推，答錯的當場再來一次。';
     } else {
-      $('homeLead').textContent = '用考過的字複習，不是背字典';
+      $('homeLead').textContent = '用出現過的字複習，不是背字典';
       $('homeDesc').textContent = '每一張卡片的字都真的在學測或指考詞彙題出現過，四個選項也是當年那一題的四個，三個錯的就是當年那三個。' +
         '其中 206 個字另有詞彙選擇題，做過一次之後才會出，卡片上會標明不是大考原題。' +
         '答對的字往後推，答錯的當場再來一次。';
@@ -1781,7 +1781,7 @@
         return (sa.t || 0) - (sb.t || 0);
       });
     }
-    return ws;   // 還沒看過的字沿用 buildPool 的順序：考過越多次的越前面
+    return ws;   // 還沒看過的字沿用 buildPool 的順序：出現越多次的越前面
   }
 
   function renderDist(pool) {
@@ -1824,7 +1824,7 @@
     var shown = ws.slice(0, statsShown);
     var h = '<div class="wl">';
     h += '<p class="wl-note">「' + L.name + '」共 ' + ws.length + (isCF() ? ' 組' : ' 個字') +
-         (statsOpen === 'new' ? (isCF() ? '，照組號排' : isPO() ? '，字級低的排前面' : '，考過越多次的排越前面') : '，答錯次數多、比較久沒碰到的排前面') +
+         (statsOpen === 'new' ? (isCF() ? '，照組號排' : isPO() ? '，字級低的排前面' : '，出現越多次的排越前面') : '，答錯次數多、比較久沒碰到的排前面') +
          (isCF() ? '。點組號可以看整組。</p>' : isPO() ? '。點字可以看整張卡。</p>' : '。點字可以看原題。</p>');
     h += '<ul class="wl-list">' + shown.map(function (k) {
       var s = state.w[k];

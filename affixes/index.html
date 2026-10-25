@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>字首字尾表｜高中英文參考詞彙表</title>
-<meta name="description" content="把大考中心《高中英文參考詞彙表》裡帶字首、字尾的字按字首、字尾分組，每個字附 KK 音標、拆解與意思，考過的字直接連到歷屆試題，每一組另附容易拆錯的字。">
+<meta name="description" content="把大考中心《高中英文參考詞彙表》裡帶字首、字尾的字按字首、字尾分組，每個字附 KK 音標、拆解與意思，出現過的字直接連到歷屆試題，每一組另附容易拆錯的字。">
 <meta property="og:title" content="字首字尾表｜高中英文參考詞彙表">
 <meta property="og:description" content="三十六組字首、四十六組字尾，二千七百二十二個字，其中一千四百九十七個字連得到學測、指考、克漏字、中譯英與作文的歷屆考題。">
 <style>
@@ -175,7 +175,7 @@ function render(){
       const gg=document.createElement('div'); gg.className='g'; gg.textContent=it.g; li.appendChild(gg);
       if(it.refs && it.refs.length && DATA.sites){
         const rf=document.createElement('div'); rf.className='refs';
-        const lb=document.createElement('span'); lb.className='lb'; lb.textContent='考過'; rf.appendChild(lb);
+        const lb=document.createElement('span'); lb.className='lb'; lb.textContent='出現'; rf.appendChild(lb);
         it.refs.forEach(r=>{
           const site=DATA.sites[r.s]; if(!site) return;
           const a=document.createElement('a');
@@ -225,7 +225,7 @@ function render(){
 function buildLv(){
   const box=$('#lv');
   const e=document.createElement('button');
-  e.type='button'; e.textContent='只看考過的字';
+  e.type='button'; e.textContent='只看出現過的字';
   e.setAttribute('aria-pressed','false');
   e.onclick=()=>{ state.examOnly=!state.examOnly;
     e.setAttribute('aria-pressed', state.examOnly?'true':'false'); render(); };
@@ -271,7 +271,7 @@ Promise.all([fetch('affixes_data.json').then(r=>r.json()),fetch('../lexicon/lexi
   buildLv();
   $('#q').addEventListener('input',e=>{state.q=e.target.value;state.w='';render();});
   readHash(); window.addEventListener('hashchange',()=>{readHash();render();jumpKind();});
-  $('#foot').textContent=d.note+' 資料更新：'+d.updated+'。標「考過」的字可以點進本題庫看那一題的原文；拆解與中文說明是本題庫整理的，字源依 Online Etymology Dictionary 查證；詞彙表著作權屬財團法人大學入學考試中心基金會，本表只供非營利教學使用。';
+  $('#foot').textContent=d.note+' 資料更新：'+d.updated+'。標「出現過」的字可以點進本題庫看那一題的原文；拆解與中文說明是本題庫整理的，字源依 Online Etymology Dictionary 查證；詞彙表著作權屬財團法人大學入學考試中心基金會，本表只供非營利教學使用。';
   render(); jumpKind();
 }).catch(()=>{
   $('#body').innerHTML='<p class="empty">讀不到 affixes_data.json 或 lexicon_data.json。這個頁面要跟資料檔放在同一個網站上。</p>';

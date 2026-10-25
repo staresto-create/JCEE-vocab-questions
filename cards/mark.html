@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>貼上文章查單字</title>
-<meta name="description" content="把英文文章貼進來，依大考中心《高中英文參考詞彙表》的級別標出生字，點一下就能看音標、發音、中文和學測、指考考過的題目，還能整理成生字表列印。文章只在你自己的裝置上處理。">
+<meta name="description" content="把英文文章貼進來，依大考中心《高中英文參考詞彙表》的級別標出生字，點一下就能看音標、發音、中文和學測、指考出現過的題目，還能整理成生字表列印。文章只在你自己的裝置上處理。">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="高中英文自學題庫">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:title" content="貼上文章查單字">
-<meta property="og:description" content="貼上英文文章，依詞彙表第一到第六級標出生字，點字看音標、發音、中文與考過的題目，並整理成生字表。">
+<meta property="og:description" content="貼上英文文章，依詞彙表第一到第六級標出生字，點字看音標、發音、中文與出現過的題目，並整理成生字表。">
 <meta property="og:url" content="https://staresto-create.github.io/JCEE-vocab-questions/cards/mark.html">
 <meta property="og:image" content="https://staresto-create.github.io/JCEE-vocab-questions/og-cover.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -137,7 +137,7 @@ footer.foot a{color:var(--ad-vcrimson-fg)}
     <ol class="steps">
       <li>把英文文章貼進下面的方框，再按「標出生字」。用手機的話，可以先在文章頁面按「拷貝」或「複製文字」，再回到這裡貼上。</li>
       <li>文章裡的字會依級別標上顏色，字的右上角小數字就是級別。程度愈弱的人，「從幾級開始標」可以設得愈小，標出來的字就愈多。</li>
-      <li>點一下標出來的字，畫面下方會出現這個字的音標、發音、中文，學測、指考考過它的題目，以及它在龍騰、三民課本哪一課出現過。三民課本另外把單字分成 Words for Production 與 Words for Recognition，字旁也會標出來。</li>
+      <li>點一下標出來的字，畫面下方會出現這個字的音標、發音、中文，學測、指考出現過它的題目，以及它在龍騰、三民課本哪一課出現過。三民課本另外把單字分成 Words for Production 與 Words for Recognition，字旁也會標出來。</li>
       <li>往下捲就是這篇文章的生字表。把不會的字打勾，就可以只複製或只列印那些字。</li>
     </ol>
     <div class="priv">貼上的文章只在你自己的手機或電腦上處理，不會傳到任何地方。</div>
@@ -245,8 +245,8 @@ function plain(g){return String(g).replace(/(^|；)\s*((?:[a-z]+\.(?:\/[a-z]+\.)
 function glossOf(e){return PV.glossOf(e);}
 function tagOf(e){
   if(e.out||!e.grp)return '';
-  if(e.grp.st===0)return '<span class="tag t0">考過原形</span>';
-  if(e.grp.st===1)return '<span class="tag t1">只考過其他字形</span>';
+  if(e.grp.st===0)return '<span class="tag t0">出現過原形</span>';
+  if(e.grp.st===1)return '<span class="tag t1">只出現過其他字形</span>';
   return '';
 }
 function sorted(){
@@ -371,7 +371,7 @@ function showPanel(o,key){
     var refs=[],seen={};
     if(e.grp)e.grp.tested.forEach(function(fq){fq[1].forEach(function(q){var id=q[0];if(seen[id])return;seen[id]=1;refs.push([fq[0],id]);});});
     if(refs.length){
-      h+='<dt>學測、指考考過 '+refs.length+' 題</dt><dd class="refs">';
+      h+='<dt>學測、指考出現 '+refs.length+' 題</dt><dd class="refs">';
       refs.slice(0,6).forEach(function(r){
         var qi=QMAP[r[1]];if(!qi)return;
         var site=SITES[qi[0]];

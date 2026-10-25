@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>詞彙表覆蓋清單 · 哪些字學測、指考考過</title>
-<meta name="description" content="大考中心《高中英文參考詞彙表》第二到第六級 5,007 個詞條，逐一標出在學測、指考詞彙題考過原形、只考過其他字形，還是從未考過。考過的字直接連到原題。">
+<title>詞彙表覆蓋清單 · 哪些字學測、指考出現過</title>
+<meta name="description" content="大考中心《高中英文參考詞彙表》第二到第六級 5,007 個詞條，逐一標出在學測、指考詞彙題出現過原形、只出現過其他字形，還是從未出現過。出現過的字直接連到原題。">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="高中英文自學題庫">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:title" content="詞彙表覆蓋清單 · 哪些字學測、指考考過">
-<meta property="og:description" content="詞彙表第二到第六級 5,007 個詞條，學測與指考詞彙題考過 1,575 個，占 31.5%；四級最高，過半考過。每個字標出考過原形、只考過其他字形或未考過，考過的字連到原題。">
+<meta property="og:title" content="詞彙表覆蓋清單 · 哪些字學測、指考出現過">
+<meta property="og:description" content="詞彙表第二到第六級 5,007 個詞條，學測與指考詞彙題出現 1,575 個，占 31.5%；四級最高，過半出現過。每個字標示出現過原形、只出現過其他字形或未出現過，出現過的字連到原題。">
 <meta property="og:url" content="https://staresto-create.github.io/JCEE-vocab-questions/cards/coverage.html">
 <meta property="og:image" content="https://staresto-create.github.io/JCEE-vocab-questions/og-cover.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -121,11 +121,11 @@ footer.foot a{color:var(--ad-vcrimson-fg)}
     <div class="sub">學測 · 指考詞彙題 × 高中英文參考詞彙表</div>
   </header>
 
-  <p class="lede" id="lede">大考中心《高中英文參考詞彙表》第二到第六級共 5,007 個詞條，這份清單逐一標出哪些字在學測、指考的詞彙題考過。</p>
-  <nav class="unitbar" id="unitbar" aria-label="本頁單元"><div class="ubrow"><span class="ublab">本頁單元</span><a href="#h-cov">各級考過多少</a><a href="#h-key">三種標示</a><a href="#tools">逐字清單</a></div></nav>
+  <p class="lede" id="lede">大考中心《高中英文參考詞彙表》第二到第六級共 5,007 個詞條，這份清單逐一標出哪些字在學測、指考的詞彙題出現過。</p>
+  <nav class="unitbar" id="unitbar" aria-label="本頁單元"><div class="ubrow"><span class="ublab">本頁單元</span><a href="#h-cov">各級出現過多少</a><a href="#h-key">三種標示</a><a href="#tools">逐字清單</a></div></nav>
 
   <section class="card" aria-labelledby="h-cov">
-    <h2 id="h-cov">各級考過多少</h2>
+    <h2 id="h-cov">各級出現過多少</h2>
     <div class="tbl-wrap"><table id="covTable"></table></div>
     <p class="tnote" id="covNote"></p>
     <blockquote>
@@ -137,16 +137,16 @@ footer.foot a{color:var(--ad-vcrimson-fg)}
   <section class="card" aria-labelledby="h-key">
     <h2 id="h-key">三種標示</h2>
     <ul class="key">
-      <li><span class="tag t0" style="margin-left:0">考過原形</span>　選項裡出現的就是詞彙表上的這個字，例如 acute。</li>
-      <li><span class="tag t1" style="margin-left:0">只考過其他字形</span>　原形沒考過，考過的是它的字形（word form）變化，清單會標出實際考的是哪個字，例如 accidental 只考過 accidentally。</li>
-      <li><span class="tag t2" style="margin-left:0">未考過</span>　原形和字形變化都沒在詞彙題的選項裡出現過。</li>
+      <li><span class="tag t0" style="margin-left:0">出現過原形</span>　選項裡出現的就是詞彙表上的這個字，例如 acute。</li>
+      <li><span class="tag t1" style="margin-left:0">只出現過其他字形</span>　原形沒出現過，出現過的是它的字形（word form）變化，清單會標出實際考的是哪個字，例如 accidental 只出現過 accidentally。</li>
+      <li><span class="tag t2" style="margin-left:0">未出現過</span>　原形和字形變化都沒在詞彙題的選項裡出現過。</li>
     </ul>
     <details>
-      <summary>怎麼算「考過」</summary>
+      <summary>「出現過」的計算方式</summary>
       <p id="scopeText"></p>
-      <p>字形變化算不算同一個字，依詞彙表〈編輯原則〉：複數、動詞變化、比較級與最高級，以及加上 <span class="af">-ly</span>、<span class="af">-ness</span>、<span class="af">-less</span>、<span class="af">-ment</span>、<span class="af">re-</span>、<span class="af">non-</span>、否定字首 <span class="af">un-／in-／im-／ir-／il-</span> 的字，還有 <span class="af">-ing</span>、<span class="af">-ed</span> 結尾的形容詞，詞彙表都不另列，所以算回原來的詞條。<span class="af">-able／-ible</span>、<span class="af">-ful</span>、<span class="af">-er／-or</span> 這幾類則不算回去：詞彙表有收錄的，各自是一個詞條；詞彙表沒收錄的，就不算考過任何詞條。</p>
-      <p>考過幾次，算的是這個詞條在幾題詞彙題的選項裡出現過，答案和誘答都算；同一個詞條的不同字形出現在同一題，只算一次。選「依考過的次數」，考過最多次的字排在最前面。</p>
-      <p>少數字拼法看起來是字形變化，意思卻已經不同，這幾個另外排除，例如題目裡的 projected 是「預測」，詞彙表的 project 卻是「計畫」。本題庫詞彙題考過、但詞彙表沒收錄的字，也不在這份清單裡。</p>
+      <p>字形變化算不算同一個字，依詞彙表〈編輯原則〉：複數、動詞變化、比較級與最高級，以及加上 <span class="af">-ly</span>、<span class="af">-ness</span>、<span class="af">-less</span>、<span class="af">-ment</span>、<span class="af">re-</span>、<span class="af">non-</span>、否定字首 <span class="af">un-／in-／im-／ir-／il-</span> 的字，還有 <span class="af">-ing</span>、<span class="af">-ed</span> 結尾的形容詞，詞彙表都不另列，所以算回原來的詞條。<span class="af">-able／-ible</span>、<span class="af">-ful</span>、<span class="af">-er／-or</span> 這幾類則不算回去：詞彙表有收錄的，各自是一個詞條；詞彙表沒收錄的，就不算出現過任何詞條。</p>
+      <p>出現幾次，算的是這個詞條在幾題詞彙題的選項裡出現過，答案和誘答都算；同一個詞條的不同字形出現在同一題，只算一次。選「依出現過的次數」，出現過最多次的字排在最前面。</p>
+      <p>少數字拼法看起來是字形變化，意思卻已經不同，這幾個另外排除，例如題目裡的 projected 是「預測」，詞彙表的 project 卻是「計畫」。本題庫詞彙題出現過、但詞彙表沒收錄的字，也不在這份清單裡。</p>
     </details>
   </section>
 
@@ -171,7 +171,7 @@ footer.foot a{color:var(--ad-vcrimson-fg)}
 (function(){
 'use strict';
 var $=function(s){return document.querySelector(s);};
-var ST=['考過原形','只考過其他字形','未考過'];
+var ST=['出現過原形','只出現過其他字形','未出現過'];
 var PAGE=400;                       // 一次畫出的字數，其餘按「再顯示」
 var D=null, state={lv:0, st:-1, q:'', o:0}, limit=PAGE;
 
@@ -199,14 +199,14 @@ function writeHash(){
 function buildTable(){
   var S=D.stats, t=$('#covTable'), tot={n:0,o:0,d:0}, max=0;
   [2,3,4,5,6].forEach(function(l){var s=S[l];max=Math.max(max,(s.o+s.d)/s.n);});
-  var h='<thead><tr><th>級別</th><th>覆蓋率</th><th>考過／詞條</th><th></th></tr></thead><tbody>';
+  var h='<thead><tr><th>級別</th><th>覆蓋率</th><th>出現過／詞條</th><th></th></tr></thead><tbody>';
   function split(o,d){return '<span class="sp"><i class="dot"></i>原形 '+fmt(o)+'</span><span class="sp"><i class="dot d"></i>其他字形 '+fmt(d)+'</span>';}
   [2,3,4,5,6].forEach(function(l){
     var s=S[l]; tot.n+=s.n; tot.o+=s.o; tot.d+=s.d;
     var wo=Math.round(48*s.o/s.n/max), wd=Math.round(48*s.d/s.n/max);
     h+='<tr><td>第 '+l+' 級</td><td class="pct">'+pct(s.o+s.d,s.n)+'<span class="bars"><span class="bar" style="width:'+wo+'px"></span><span class="bar d" style="width:'+wd+'px"></span></span></td>'+
        '<td>'+fmt(s.o+s.d)+'／'+fmt(s.n)+split(s.o,s.d)+'</td>'+
-       '<td class="lk"><a href="#lv='+l+'&o=n" data-top="'+l+'">最常考</a><a href="#lv='+l+'&s=2" data-lv="'+l+'">看未考過</a><a href="./#y=81-115&lv='+l+'">記憶卡</a></td></tr>';
+       '<td class="lk"><a href="#lv='+l+'&o=n" data-top="'+l+'">最常考</a><a href="#lv='+l+'&s=2" data-lv="'+l+'">看未出現過</a><a href="./#y=81-115&lv='+l+'">記憶卡</a></td></tr>';
   });
   h+='<tr class="total"><td>合計</td><td class="pct">'+pct(tot.o+tot.d,tot.n)+'</td><td>'+fmt(tot.o+tot.d)+'／'+fmt(tot.n)+split(tot.o,tot.d)+'</td><td></td></tr></tbody>';
   t.innerHTML=h;
@@ -218,7 +218,7 @@ function buildTable(){
     a.addEventListener('click',function(e){e.preventDefault();state.lv=+a.getAttribute('data-top');state.st=-1;state.o=1;state.q='';$('#q').value='';
       syncButtons();limit=PAGE;render();writeHash();$('#tools').scrollIntoView({behavior:'smooth'});});
   });
-  $('#covNote').textContent='綠色是考過原形，黃色是只考過其他字形；「最常考」會把這一級的字依考過的次數排列，「記憶卡」會開啟這一級考過的字。四級考過的比例最高，超過一半；六級是考試說明說「偶爾」才會出現的一級，考過的比例也最低，不到兩成。';
+  $('#covNote').textContent='綠色是出現過原形，黃色是只出現過其他字形；「最常考」會把這一級的字依出現過的次數排列，「記憶卡」會開啟這一級出現過的字。四級出現過的比例最高，超過一半；六級是考試說明說「偶爾」才會出現的一級，出現過的比例也最低，不到兩成。';
 }
 
 function mkBtns(box,items,key){
@@ -233,7 +233,7 @@ function syncButtons(){
   Array.prototype.forEach.call($('#stRow').querySelectorAll('button'),function(b){b.setAttribute('aria-pressed',+b.getAttribute('data-v')===state.st?'true':'false');});
   Array.prototype.forEach.call($('#orRow').querySelectorAll('button'),function(b){b.setAttribute('aria-pressed',+b.getAttribute('data-v')===state.o?'true':'false');});
 }
-// 每個詞條考過幾題：各字形的題號合在一起算，同一題只算一次
+// 每個詞條出現過幾題：各字形的題號合在一起算，同一題只算一次
 function nq(r){
   if(r.nq===undefined){var s={};r[4].forEach(function(f){f[1].forEach(function(x){s[x[0]]=1;});});r.nq=Object.keys(s).length;}
   return r.nq;
@@ -262,11 +262,11 @@ function render(){
     return (!state.lv||r[1]===state.lv)&&(state.st<0||r[3]===state.st)&&match(r,q);
   });
   if(state.o){
-    // 依考過的次數：次數多的在前，次數一樣的照原本的級別、字母順序
+    // 依出現過的次數：次數多的在前，次數一樣的照原本的級別、字母順序
     rows=rows.map(function(r,i){return [r,i];}).sort(function(a,b){return (nq(b[0])-nq(a[0]))||(a[1]-b[1]);}).map(function(x){return x[0];});
   }
-  var cnt='符合的詞條 '+fmt(rows.length)+' 個'+(state.o?'，依考過的次數排列':'');
-  if(!state.lv&&state.st<0&&!q)cnt='第二到第六級共 '+fmt(rows.length)+' 個詞條，'+(state.o?'依考過的次數排列，次數一樣的依級別再依字母':'依級別再依字母排列');
+  var cnt='符合的詞條 '+fmt(rows.length)+' 個'+(state.o?'，依出現過的次數排列':'');
+  if(!state.lv&&state.st<0&&!q)cnt='第二到第六級共 '+fmt(rows.length)+' 個詞條，'+(state.o?'依出現過的次數排列，次數一樣的依級別再依字母':'依級別再依字母排列');
   $('#count').textContent=cnt;
   if(!rows.length){var e=document.createElement('p');e.className='empty';e.textContent='這個條件下沒有詞條。清掉搜尋或改選其他級別再試一次。';body.appendChild(e);return;}
 
@@ -278,12 +278,12 @@ function render(){
       cur=gk;
       var h=document.createElement('h3'), sp=document.createElement('span');
       if(state.o){
-        h.textContent=cur?'考過 '+cur+' 次':'未考過';
+        h.textContent=cur?'出現 '+cur+' 次':'未出現過';
         sp.textContent=fmt(per[cur])+' 個詞條';
       }else{
         var s=D.stats[cur];
         h.textContent='第 '+cur+' 級';
-        sp.textContent='考過 '+fmt(s.o+s.d)+'／'+fmt(s.n)+'（'+pct(s.o+s.d,s.n)+'）';
+        sp.textContent='出現 '+fmt(s.o+s.d)+'／'+fmt(s.n)+'（'+pct(s.o+s.d,s.n)+'）';
       }
       h.appendChild(sp);
       body.appendChild(h);
@@ -318,21 +318,21 @@ function render(){
 KK.ready.then(function(){return fetch('coverage_data.json');}).then(function(r){if(!r.ok)throw new Error(r.status);return r.json();}).then(function(d){
   D=d;
   var g=d.scope.gsat, z=d.scope.zhikao;
-  $('#scopeText').textContent='範圍是兩個單字題庫：學測 '+g[0]+' 到 '+g[1]+' 年共 '+g[2]+' 題，指考（含早年的聯考）'+z[0]+' 到 '+z[1]+' 年共 '+z[2]+' 題。只要這個字出現在四個選項裡，不論是答案還是誘答，都算考過；片語不算，題幹與文章裡出現的字也不算。';
-  $('#lede').textContent='大考中心《高中英文參考詞彙表》第二到第六級共 5,007 個詞條，這份清單逐一標出哪些字在學測、指考的詞彙題考過：學測 '+g[0]+' 到 '+g[1]+' 年、指考 '+z[0]+' 到 '+z[1]+' 年，一共 '+fmt(g[2]+z[2])+' 題。考過的字附上題號，點下去就是原題與解析。';
+  $('#scopeText').textContent='範圍是兩個單字題庫：學測 '+g[0]+' 到 '+g[1]+' 年共 '+g[2]+' 題，指考（含早年的聯考）'+z[0]+' 到 '+z[1]+' 年共 '+z[2]+' 題。只要這個字出現在四個選項裡，不論是答案還是誘答，都算出現過；片語不算，題幹與文章裡出現的字也不算。';
+  $('#lede').textContent='大考中心《高中英文參考詞彙表》第二到第六級共 5,007 個詞條，這份清單逐一標出哪些字在學測、指考的詞彙題出現過：學測 '+g[0]+' 到 '+g[1]+' 年、指考 '+z[0]+' 到 '+z[1]+' 年，一共 '+fmt(g[2]+z[2])+' 題。出現過的字附上題號，點下去就是原題與解析。';
   buildTable();
-  // 最常考的字：算出考過三次以上的詞條數與次數最多的字，寫在開頭說明後面；「依考過的次數排列」做成連結
+  // 最常考的字：算出出現三次以上的詞條數與次數最多的字，寫在開頭說明後面；「依出現過的次數排列」做成連結
   var top=0, n3=0; d.rows.forEach(function(r){var k=nq(r); if(k>top)top=k; if(k>=3)n3++;});
   var tw=d.rows.filter(function(r){return nq(r)===top;}).map(function(r){return r[0];});
   var ld=$('#lede'), la=document.createElement('a');
-  la.href='#o=n'; la.textContent='依考過的次數排列';
+  la.href='#o=n'; la.textContent='依出現過的次數排列';
   la.addEventListener('click',function(e){e.preventDefault();state.o=1;limit=PAGE;syncButtons();render();writeHash();$('#tools').scrollIntoView({behavior:'smooth'});});
   ld.appendChild(document.createTextNode('想知道哪些字最常考，可以改成'));
   ld.appendChild(la);
-  ld.appendChild(document.createTextNode('：考過三次以上的詞條有 '+fmt(n3)+' 個，最多的是 '+tw.join('、')+'（'+top+' 次）。'));
+  ld.appendChild(document.createTextNode('：出現三次以上的詞條有 '+fmt(n3)+' 個，最多的是 '+tw.join('、')+'（'+top+' 次）。'));
   mkBtns($('#lvRow'),[[0,'全部'],[2,'第 2 級'],[3,'第 3 級'],[4,'第 4 級'],[5,'第 5 級'],[6,'第 6 級']],'lv');
-  mkBtns($('#stRow'),[[-1,'全部'],[0,'考過原形'],[1,'只考過其他字形'],[2,'未考過']],'st');
-  mkBtns($('#orRow'),[[0,'依級別與字母'],[1,'依考過的次數']],'o');
+  mkBtns($('#stRow'),[[-1,'全部'],[0,'出現過原形'],[1,'只出現過其他字形'],[2,'未出現過']],'st');
+  mkBtns($('#orRow'),[[0,'依級別與字母'],[1,'依出現過的次數']],'o');
   readHash(); $('#q').value=state.q; syncButtons();
   var tm=null;
   $('#q').addEventListener('input',function(e){clearTimeout(tm);tm=setTimeout(function(){state.q=e.target.value;limit=PAGE;render();writeHash();},150);});

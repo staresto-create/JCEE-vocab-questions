@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>單字逆序表 · 從字尾找字</title>
-<meta name="description" content="大考中心《高中英文參考詞彙表》第一到第六級全部的字，從最後一個字母往前排，同樣結尾的字排在一起。輸入字尾就能找出所有這樣結尾的字，也標出學測、指考詞彙題考過的字。">
+<meta name="description" content="大考中心《高中英文參考詞彙表》第一到第六級全部的字，從最後一個字母往前排，同樣結尾的字排在一起。輸入字尾就能找出所有這樣結尾的字，也標出學測、指考詞彙題出現過的字。">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="高中英文自學題庫">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:title" content="單字逆序表 · 從字尾找字">
-<meta property="og:description" content="詞彙表第一到第六級 6,158 個字，從字尾倒過來排：picture、future、architecture 排在一起，-tion、-ment、-able 也各自成串。輸入字尾就能找字，可依級別篩選，考過的字連到原題。">
+<meta property="og:description" content="詞彙表第一到第六級 6,158 個字，從字尾倒過來排：picture、future、architecture 排在一起，-tion、-ment、-able 也各自成串。輸入字尾就能找字，可依級別篩選，出現過的字連到原題。">
 <meta property="og:url" content="https://staresto-create.github.io/JCEE-vocab-questions/cards/reverse.html">
 <meta property="og:image" content="https://staresto-create.github.io/JCEE-vocab-questions/og-cover.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -113,14 +113,14 @@ footer.foot a{color:var(--ad-vcrimson-fg)}
     <p>級別按鈕可以只留下想看的級別，例如程度還在打底的同學，可以先只看一到四級。</p>
     <p>這份表只列拼法，不附音標（多數字有喇叭，唸法因詞性而不同的字沒有）。想看音標、聽字尾怎麼唸、練習補字尾，可以到<a href="suffix.html">字尾分組</a>；字首和字根相接處連寫兩個相同字母的字（像 appear、illegal），整理在<a href="prefix.html">字首同化</a>。</p>
     <ul class="key">
-      <li><span class="tag t0" style="margin-left:0">考過原形</span>　這個字出現在學測或指考詞彙題的選項裡，附上中文意思和題號，點題號就是原題與解析。</li>
-      <li><span class="tag t1" style="margin-left:0">只考過其他字形</span>　這個字本身沒考過，考過的是它的字形變化，例如 bring 考過的是 brought，表上會標出實際考的字。</li>
+      <li><span class="tag t0" style="margin-left:0">出現過原形</span>　這個字出現在學測或指考詞彙題的選項裡，附上中文意思和題號，點題號就是原題與解析。</li>
+      <li><span class="tag t1" style="margin-left:0">只出現過其他字形</span>　這個字本身沒出現過，出現過的是它的字形變化，例如 bring 出現過的是 brought，表上會標出實際考的字。</li>
     </ul>
     <details>
-      <summary>收哪些字、怎麼算「考過」</summary>
+      <summary>收哪些字、「出現過」的計算方式</summary>
       <p id="scopeText"></p>
       <p>詞彙表一個詞條有兩種寫法的，例如 <span class="ex">actor/actress</span>、<span class="ex">toward/towards</span>，兩種寫法各列一字；動詞後面加 <span class="af">(ment)</span> 的，例如 <span class="ex">accomplish(ment)</span>，動詞和 <span class="af">-ment</span> 名詞也各列一字，因為兩個字的字尾不同，會排在不同的地方。代名詞的各個格（he、him、his、himself）也各列一字。a.m.、TV 這類縮寫不列。同一個字在詞彙表出現兩次的，只列級別較低的那一次。</p>
-      <p>「考過」的算法和<a href="coverage.html">詞彙表覆蓋清單</a>相同：只要這個字出現在詞彙題的四個選項裡，答案和誘答都算，片語不算。字形變化依詞彙表〈編輯原則〉算回原來的字，例如複數、動詞變化、比較級，以及加上 <span class="af">-ly</span>、<span class="af">-ness</span>、否定字首的字。覆蓋清單只收錄二到六級，這份表另外把一級也算進來。</p>
+      <p>「出現過」的算法和<a href="coverage.html">詞彙表覆蓋清單</a>相同：只要這個字出現在詞彙題的四個選項裡，答案和誘答都算，片語不算。字形變化依詞彙表〈編輯原則〉算回原來的字，例如複數、動詞變化、比較級，以及加上 <span class="af">-ly</span>、<span class="af">-ness</span>、否定字首的字。覆蓋清單只收錄二到六級，這份表另外把一級也算進來。</p>
     </details>
   </section>
 
@@ -128,7 +128,7 @@ footer.foot a{color:var(--ad-vcrimson-fg)}
     <input type="search" id="q" placeholder="輸入字尾，例如 ture" aria-label="輸入字尾" autocomplete="off" autocapitalize="none" spellcheck="false">
     <div class="row" id="sufRow" role="group" aria-label="常見字尾"><span class="lb">常見</span></div>
     <div class="row" id="lvRow" role="group" aria-label="依級別篩選"><span class="lb">級別</span></div>
-    <div class="row" id="stRow" role="group" aria-label="依考過與否篩選"><span class="lb">考過</span></div>
+    <div class="row" id="stRow" role="group" aria-label="依出現過與否篩選"><span class="lb">出現過</span></div>
   </div>
   <p class="count" id="count" aria-live="polite"></p>
   <div id="body"><p class="empty">載入字表中…</p></div>
@@ -209,9 +209,9 @@ function render(){
   });
   var lvTxt=state.lv.length===6?'第一到第六級':'第 '+state.lv.slice().sort().join('、')+' 級';
   if(q){
-    $('#count').textContent=lvTxt+'裡，以 -'+q+' 結尾的字有 '+fmt(rows.length)+' 個'+(state.st?'（只列考過的字）':'')+'。';
+    $('#count').textContent=lvTxt+'裡，以 -'+q+' 結尾的字有 '+fmt(rows.length)+' 個'+(state.st?'（只列出現過的字）':'')+'。';
   }else{
-    $('#count').textContent=lvTxt+'共 '+fmt(rows.length)+' 個字'+(state.st?'（只列考過的字）':'')+'，依字尾倒過來的字母順序排列。';
+    $('#count').textContent=lvTxt+'共 '+fmt(rows.length)+' 個字'+(state.st?'（只列出現過的字）':'')+'，依字尾倒過來的字母順序排列。';
   }
   if(!rows.length){
     var e=document.createElement('p');e.className='empty';
@@ -238,7 +238,7 @@ function render(){
     ln.appendChild(wordHTML(r[0],q?q.length:0)); var sb=SPK.el(r[0]); if(sb) ln.appendChild(sb); var kb=KK.el(r[0]); if(kb) ln.appendChild(kb);
     var p=document.createElement('span'); p.className='pos'; p.textContent=r[2]; ln.appendChild(p);
     var lv=document.createElement('span'); lv.className='lv'; lv.textContent=r[1]+' 級'; ln.appendChild(lv);
-    if(r[3]<2){var t=document.createElement('span'); t.className='tag t'+r[3]; t.textContent=r[3]===0?'考過原形':'只考過其他字形'; ln.appendChild(t);}
+    if(r[3]<2){var t=document.createElement('span'); t.className='tag t'+r[3]; t.textContent=r[3]===0?'出現過原形':'只出現過其他字形'; ln.appendChild(t);}
     li.appendChild(ln);
     if(r[5]||r[6]||r[4].length){
       var mi=document.createElement('div'); mi.className='more-info';
@@ -270,11 +270,11 @@ fetch('reverse_data.json').then(function(r){if(!r.ok)throw new Error(r.status);r
   D=d; d.rows.forEach(function(r){r.k=key(r[0]);});
   var g=d.scope.gsat, z=d.scope.zhikao, tot=0, tt=0;
   Object.keys(d.stats).forEach(function(l){tot+=d.stats[l].n; tt+=d.stats[l].t;});
-  $('#scopeText').textContent='字表取自大考中心《高中英文參考詞彙表》（111 學年度起適用）第一到第六級全部 6,012 個詞條，拆開不同寫法以後一共 '+fmt(tot)+' 個字。考過與否看的是本題庫兩個單字題庫：學測 '+g[0]+' 到 '+g[1]+' 年共 '+g[2]+' 題，指考（含早年的聯考）'+z[0]+' 到 '+z[1]+' 年共 '+z[2]+' 題，其中考過或考過其他字形的字有 '+fmt(tt)+' 個。';
+  $('#scopeText').textContent='字表取自大考中心《高中英文參考詞彙表》（111 學年度起適用）第一到第六級全部 6,012 個詞條，拆開不同寫法以後一共 '+fmt(tot)+' 個字。出現過與否看的是本題庫兩個單字題庫：學測 '+g[0]+' 到 '+g[1]+' 年共 '+g[2]+' 題，指考（含早年的聯考）'+z[0]+' 到 '+z[1]+' 年共 '+z[2]+' 題，其中出現過或出現過其他字形的字有 '+fmt(tt)+' 個。';
   SUF.forEach(function(s){var b=mkBtn($('#sufRow'),'-'+s,function(){state.q=(clean(state.q)===s)?'':s;$('#q').value=state.q;go();});b.setAttribute('data-v',s);});
   [1,2,3,4,5,6].forEach(function(l){var b=mkBtn($('#lvRow'),'第 '+l+' 級',function(){
     var i=state.lv.indexOf(l); if(i>=0){if(state.lv.length>1)state.lv.splice(i,1);}else state.lv.push(l); go();});b.setAttribute('data-v',l);});
-  [[0,'全部的字'],[1,'只看考過的字']].forEach(function(it){var b=mkBtn($('#stRow'),it[1],function(){state.st=it[0];go();});b.setAttribute('data-v',it[0]);});
+  [[0,'全部的字'],[1,'只看出現過的字']].forEach(function(it){var b=mkBtn($('#stRow'),it[1],function(){state.st=it[0];go();});b.setAttribute('data-v',it[0]);});
   readHash(); $('#q').value=state.q; syncButtons();
   var tm=null;
   $('#q').addEventListener('input',function(e){clearTimeout(tm);tm=setTimeout(function(){state.q=e.target.value;limit=PAGE;syncButtons();render();writeHash();},150);});
@@ -282,7 +282,7 @@ fetch('reverse_data.json').then(function(r){if(!r.ok)throw new Error(r.status);r
   render();
   var f=$('#foot');
   f.appendChild(document.createElement('br'));
-  f.appendChild(document.createTextNode('資料更新：'+d.updated+'。中文意思只附在考過的字上，取自本題庫單字題的選項說明。詞彙表著作權屬財團法人大學入學考試中心基金會，本表只供非營利教學使用。免費、無廣告的非營利自學題庫。'));
+  f.appendChild(document.createTextNode('資料更新：'+d.updated+'。中文意思只附在出現過的字上，取自本題庫單字題的選項說明。詞彙表著作權屬財團法人大學入學考試中心基金會，本表只供非營利教學使用。免費、無廣告的非營利自學題庫。'));
 }).catch(function(){
   $('#body').innerHTML='<p class="empty">讀不到 reverse_data.json。這個頁面要跟資料檔放在同一個資料夾。</p>';
 });

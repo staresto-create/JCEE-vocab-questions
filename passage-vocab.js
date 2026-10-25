@@ -3,7 +3,7 @@
  * 詞彙表以外的字、詞彙表裡還沒有中文的字，中文放在 lexicon/passage_gloss.json。資料在使用時才下載。
  * 用法：PV.html(文章字串或字串陣列, {th:4}) 回傳 Promise，內容是 <details> 的 HTML。
  * cards/mark.html（貼上文章查單字）也用同一套：PV.load() 讀完資料後，PV.analyze(文章)、PV.glossOf(字)、PV.ctx()。
- * 中文：一字多義 → 共用字表 → 詞彙表考過的釋義 → lexicon/passage_gloss.json；音標：全站 kk_data.json（kk.js）。 */
+ * 中文：一字多義 → 共用字表 → 詞彙表出現過的釋義 → lexicon/passage_gloss.json；音標：全站 kk_data.json（kk.js）。 */
 (function(){
 'use strict';
 var BASE=(function(){var s=document.currentScript&&document.currentScript.src;return s?s.slice(0,s.lastIndexOf('/')+1):'';})();
