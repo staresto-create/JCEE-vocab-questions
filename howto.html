@@ -7,7 +7,7 @@
 <meta name="description" content="第一次使用高中英文自學題庫？這一頁用手機畫面說明單題練習、答案依據句、進度、錯題本、測試模式、列印與題目地圖怎麼用，以及哪些地方容易誤會。">
 <style>
 :root{--paper:#F6F1E4;--card:#FFFDF7;--ink:#221F1A;--soft:#5B5648;--rule:#DCD3BB;--crimson:#AE3626;--sage:#3E6E52;--warn-bg:#FBF1EE;--warn-line:#AE3626;color-scheme:light dark}
-@media (prefers-color-scheme:dark){:root{--paper:#1B1916;--card:#26231F;--ink:#EDE7D8;--soft:#B8B0A0;--rule:#4C463B;--crimson:#E57B68;--sage:#82C09C;--warn-bg:#3A2420;--warn-line:#E57B68}}
+@media screen and (prefers-color-scheme:dark){:root{--paper:#1B1916;--card:#26231F;--ink:#EDE7D8;--soft:#B8B0A0;--rule:#4C463B;--crimson:#E57B68;--sage:#82C09C;--warn-bg:#3A2420;--warn-line:#E57B68}}
 *{box-sizing:border-box}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif;line-height:1.75;-webkit-text-size-adjust:100%}
 .wrap{max-width:48rem;margin:0 auto;padding:1.4rem 1rem 4rem}
@@ -30,7 +30,7 @@ nav.toc{display:flex;flex-wrap:wrap;gap:.4rem;margin:0 0 1.2rem;font-size:.85rem
 nav.toc a{border:1px solid var(--rule);border-radius:1rem;padding:.15rem .7rem;text-decoration:none;background:var(--card);min-height:2rem;display:inline-flex;align-items:center}
 .foot{margin-top:2rem;padding-top:1rem;border-top:1px solid var(--rule);font-size:.8rem;color:var(--soft)}
 .foot .cc-note{margin:.6rem 0 0}
-@media print{nav.toc{display:none}.step{break-inside:avoid}}
+@media print{:root{--paper:#fff;--card:#fff;--ink:#000;--soft:#444;--rule:#999}nav.toc{display:none}.wrap{padding:0}.step{break-inside:avoid;margin:0 0 .5rem;padding:.6rem .8rem}.step p{margin:0 0 .4rem}figure img{max-height:9.5cm}.warn{break-inside:avoid;margin:0 0 .8rem}@page{margin:12mm 14mm}}
 </style>
 </head>
 <body>
@@ -60,42 +60,42 @@ nav.toc a{border:1px solid var(--rule);border-radius:1rem;padding:.15rem .7rem;t
   <section class="step" id="start">
     <h2>從這裡開始</h2>
     <p>在各題庫首頁的「從這裡開始」卡片，選你最近一次模擬考的英文級分或本校段考成績，就會看到建議的練習順序。級分和段考成績都只是參考，每一類題型你都可以自己挑著練。</p>
-    <figure><picture><source srcset="howto/start_dark.webp" media="(prefers-color-scheme: dark)"><img src="howto/start_light.webp" alt="文意選填題庫首頁的「從這裡開始」卡片：依模擬考級分或段考成績選擇" loading="lazy"></picture></figure>
+    <figure><picture><source srcset="howto/start_dark.webp" media="screen and (prefers-color-scheme: dark)"><img src="howto/start_light.webp" alt="文意選填題庫首頁的「從這裡開始」卡片：依模擬考級分或段考成績選擇"></picture></figure>
   </section>
   <section class="step" id="single_q">
     <h2>單題練習：點選項就批改</h2>
     <p>點下選項就算作答，會立刻批改，不能收回，所以想好再點。</p>
-    <figure><picture><source srcset="howto/single_q_dark.webp" media="(prefers-color-scheme: dark)"><img src="howto/single_q_light.webp" alt="文意選填單題練習：題目句與十個選項" loading="lazy"></picture></figure>
+    <figure><picture><source srcset="howto/single_q_dark.webp" media="screen and (prefers-color-scheme: dark)"><img src="howto/single_q_light.webp" alt="文意選填單題練習：題目句與十個選項"></picture></figure>
   </section>
   <section class="step" id="single_fb">
     <h2>答完才看得到解析</h2>
     <p>答完會出現正解、中譯和解析。「線索：句內／跨句」標籤和「作答線索在哪裡」都要答完才會出現，作答前看不到。</p>
-    <figure><picture><source srcset="howto/single_fb_dark.webp" media="(prefers-color-scheme: dark)"><img src="howto/single_fb_light.webp" alt="答錯後，正解標綠、選錯的標紅，下方出現中譯、字詞搭配線索與答題陷阱" loading="lazy"></picture></figure>
+    <figure><picture><source srcset="howto/single_fb_dark.webp" media="screen and (prefers-color-scheme: dark)"><img src="howto/single_fb_light.webp" alt="答錯後，正解標綠、選錯的標紅，下方出現中譯、字詞搭配線索與答題陷阱"></picture></figure>
   </section>
   <section class="step" id="reading_ev">
     <h2>答案依據句</h2>
-    <p>閱讀測驗交卷後，按每一題下方的「看依據句」，文章裡的依據句會用黃底標出；要讀完整篇才能判斷的題目，會寫「依據句：全文」。粗體加綠色底線的字詞，閱讀測驗標的是正確選項換了說法的原文字詞，混合題標的是最關鍵的字詞。混合題還可以按「在上方的文章裡看這一句」跳到原文位置。</p>
-    <figure><picture><source srcset="howto/reading_ev_dark.webp" media="(prefers-color-scheme: dark)"><img src="howto/reading_ev_light.webp" alt="閱讀測驗交卷後，按「看依據句」出現的依據句與「原文 → 正確選項」" loading="lazy"></picture></figure>
+    <p>閱讀測驗交卷後，每一題的解析裡會直接引出依據句；按每一題下方的「看依據句」，文章裡的依據句會用黃底標出；要讀完整篇才能判斷的題目，會寫「依據句：全文」。粗體加綠色底線的字詞，閱讀測驗標的是正確選項換了說法的原文字詞，混合題標的是最關鍵的字詞。混合題還可以按「在上方的文章裡看這一句」跳到原文位置。</p>
+    <figure><picture><source srcset="howto/reading_ev_dark.webp" media="screen and (prefers-color-scheme: dark)"><img src="howto/reading_ev_light.webp" alt="閱讀測驗交卷後，解析裡的依據句與「原文 → 正確選項」"></picture></figure>
   </section>
   <section class="step" id="progress">
     <h2>進度的計算方式</h2>
     <p>每一題只算一次，答對答錯都算做過。整篇練習要按「送出批改」或「交卷」才計入，沒填的格子不算；中譯英要看完參考答案、自評對錯才算。改編練習不計入進度。至於「學習歷程」裡的已作答題數，同一題每答一次就加一，和進度是兩回事。</p>
-    <figure><picture><source srcset="howto/progress_dark.webp" media="(prefers-color-scheme: dark)"><img src="howto/progress_light.webp" alt="你的進度卡片" loading="lazy"></picture></figure>
+    <figure><picture><source srcset="howto/progress_dark.webp" media="screen and (prefers-color-scheme: dark)"><img src="howto/progress_light.webp" alt="你的進度卡片"></picture></figure>
   </section>
   <section class="step" id="wrongbook">
     <h2>錯題本與測試模式</h2>
     <p>答錯的題目會進錯題本，可以按「只練錯題本」（單字題庫叫「複習錯題本」）重做，在畫面上答對一次就會移出錯題本。整篇型的題庫還可以按「列印錯題考卷」，把錯題所在的整篇文章印成考卷，上次答錯的格子標星號（★）。勾選「測試模式」時，這次作答不計入進度、學習歷程與錯題本，答對也不會把題目移出錯題本。</p>
-    <figure><picture><source srcset="howto/wrongbook_dark.webp" media="(prefers-color-scheme: dark)"><img src="howto/wrongbook_light.webp" alt="錯題本與測試模式" loading="lazy"></picture></figure>
+    <figure><picture><source srcset="howto/wrongbook_dark.webp" media="screen and (prefers-color-scheme: dark)"><img src="howto/wrongbook_light.webp" alt="錯題本與測試模式"></picture></figure>
   </section>
   <section class="step" id="print">
     <h2>列印</h2>
     <p>進到題目畫面後，按最上方的「列印成考卷」，印出來的是空白考卷，沒有答案與解析。在 Threads、LINE 裡打開時不能列印，要改用 Safari 或 Chrome。紙本上的作答不會更新進度，要回到畫面上再答一次，才會記錄。</p>
-    <figure><picture><source srcset="howto/print_dark.webp" media="(prefers-color-scheme: dark)"><img src="howto/print_light.webp" alt="「列印成考卷」按鈕" loading="lazy"></picture></figure>
+    <figure><picture><source srcset="howto/print_dark.webp" media="screen and (prefers-color-scheme: dark)"><img src="howto/print_light.webp" alt="「列印成考卷」按鈕"></picture></figure>
   </section>
   <section class="step" id="map">
     <h2>題目地圖</h2>
     <p>有題目地圖的題庫，會把全部題目排成一張圖：一格是一題，格子裡有題號和大考中心公布的答對率，顏色越紅越難，沒有官方答對率的標「—」；答過的格子會加 ✓，點格子就跳到那一題。</p>
-    <figure><picture><source srcset="howto/map_dark.webp" media="(prefers-color-scheme: dark)"><img src="howto/map_light.webp" alt="題目地圖：每格一題，標題號與答對率，做過的格子有 ✓" loading="lazy"></picture></figure>
+    <figure><picture><source srcset="howto/map_dark.webp" media="screen and (prefers-color-scheme: dark)"><img src="howto/map_light.webp" alt="題目地圖：每格一題，標題號與答對率，做過的格子有 ✓"></picture></figure>
   </section>
 
   <footer class="foot">
