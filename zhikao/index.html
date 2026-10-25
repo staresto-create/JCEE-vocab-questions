@@ -931,6 +931,11 @@ function selectAnswer(letter, q){
   const spanTag = document.getElementById('qSpanTag');
   spanTag.textContent = '';
   spanTag.classList.remove('show','cross');
+  if(q.contextSpan === '句內' || q.contextSpan === '跨句'){
+    spanTag.textContent = '線索：' + q.contextSpan;
+    spanTag.classList.add('show');
+    spanTag.classList.toggle('cross', q.contextSpan === '跨句');
+  }
 
   const ctxBox = document.getElementById('qCtxBox');
   if(q.contextNote){
