@@ -122,7 +122,7 @@
     d.appendChild(sum);
 
     var body = el('div', 'sh-body');
-    body.appendChild(el('p', 'sh-q', '我最近一次模考或段考，英文大約是'));
+    body.appendChild(el('p', 'sh-q', '我最近一次模擬考或學測，英文大約是'));
     var grid = el('div', 'sh-tiers');
     var route = el('div', 'sh-r');
     route.setAttribute('aria-live', 'polite');
@@ -159,7 +159,7 @@
     });
     body.appendChild(grid);
     body.appendChild(route);
-    body.appendChild(el('p', 'sh-foot', '級分只是參考，每一類題型你都可以自己挑著練。這個選擇只留在你這台裝置的瀏覽器裡。'));
+    body.appendChild(el('p', 'sh-foot', '級分只是參考，每一類題型你都可以自己挑著練。還沒有級分（例如只有段考成績）的話，可以先從「6 級分以下」開始。這個選擇只留在你這台裝置的瀏覽器裡。'));
     d.appendChild(body);
 
     if (cur) show(cur); else sub.textContent = '選你最近的英文級分，看建議的練習順序';
