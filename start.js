@@ -78,13 +78,15 @@
     s.id = 'sh-css';
     s.textContent =
       '.sh{--sh-bg:#FFFDF7;--sh-bg2:#F6F1E4;--sh-fg:#221F1A;--sh-soft:#5B5648;--sh-rule:#D9D0B8;--sh-red:#9C2C1E;--sh-green:#3E6E52;--sh-sel:#E1EBE0;' +
-      'margin:14px 0;border:1px solid var(--sh-rule);border-radius:12px;background:var(--sh-bg);color:var(--sh-fg);font-family:"Noto Sans TC",system-ui,sans-serif;font-size:15px;line-height:1.8;text-align:left}' +
+      'margin:16px 0;border:1.5px solid color-mix(in srgb,var(--sh-green) 55%,transparent);border-radius:12px;background:color-mix(in srgb,var(--sh-green) 11%,var(--sh-bg));color:var(--sh-fg);font-family:"Noto Sans TC",system-ui,sans-serif;font-size:15px;line-height:1.8;text-align:left}' +
       '@media (prefers-color-scheme:dark){.sh{--sh-bg:#26231F;--sh-bg2:#1B1916;--sh-fg:#F2F0EE;--sh-soft:#C2BFBB;--sh-rule:#514A37;--sh-red:#E8BEB9;--sh-green:#CBDDD2;--sh-sel:#33463A}}' +
-      '.sh>summary{list-style:none;cursor:pointer;padding:12px 16px;font-weight:700;min-height:44px}' +
+      '.sh>summary{list-style:none;cursor:pointer;padding:14px 16px;font-weight:700;font-size:17px;min-height:44px}' +
+      '.sh-tag{display:inline-block;font-family:system-ui,sans-serif;font-size:11px;font-weight:700;letter-spacing:.04em;padding:2px 8px;border-radius:999px;background:#AE3626;color:#fff;margin-bottom:4px}' +
+      '.sh-sub{font-size:13.5px}' +
       '.sh>summary::-webkit-details-marker{display:none}' +
       '.sh-main::after{content:" ▾";color:var(--sh-soft)}' +
       '.sh[open] .sh-main::after{content:" ▴"}' +
-      '.sh-sub{display:block;font-weight:400;font-size:13px;color:var(--sh-soft)}' +
+      '.sh-sub{display:block;font-weight:400;color:var(--sh-soft)}' +
       '.sh-body{padding:0 16px 14px}' +
       '.sh-q{margin:0 0 8px;font-size:14px;color:var(--sh-soft)}' +
       '.sh-tiers{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}' +
@@ -110,11 +112,12 @@
     if (urlTier) save(urlTier);
 
     var d = el('details', 'sh');
-    if (urlTier) d.open = true;
+    if (urlTier || (!cur && host.getAttribute('data-open'))) d.open = true;
     var sum = el('summary');
+    var tag = el('span', 'sh-tag', '從這裡開始');
     var main = el('span', 'sh-main', '不知道從哪裡開始？');
     var sub = el('span', 'sh-sub');
-    sum.appendChild(main); sum.appendChild(sub);
+    var tl = el('div'); tl.appendChild(tag); sum.appendChild(tl); sum.appendChild(main); sum.appendChild(sub);
     d.appendChild(sum);
 
     var body = el('div', 'sh-body');
