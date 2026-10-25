@@ -322,6 +322,11 @@ details.skill[open] > summary::after{content:'－ 收合';}
 .unitbar a:hover{text-decoration:underline; text-underline-offset:3px;}
 .unitbar .cur{background:rgba(128,128,128,.2);}
 @media print{.unitbar, .toBar{display:none!important;}}
+/* sticky-go 2026-10-25 */
+.stickyGo{position:sticky; bottom:60px; z-index:25; background:var(--paper-card); padding:10px 0 8px; box-shadow:0 -10px 12px -6px var(--paper-card);}
+.stickyGo .ghost-btn{background:var(--ink); color:var(--paper-card); font-weight:700;}
+@media print{.stickyGo{position:static; box-shadow:none;}}
+
 /* fold-cue 2026-10-25：全站可展開的區塊統一提示。標題右側一律是「＋ 展開」，展開後變「－ 收合」；舊的箭頭與各式提示字樣一併取代。 */
 details:not(.sh) > summary{list-style:none; cursor:pointer; position:relative; padding-right:92px !important;}
 details:not(.sh) > summary::-webkit-details-marker{display:none;}
@@ -441,6 +446,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
     </div>
 
     <div class="card" style="padding:24px 26px;">
+      <div class="goWrap">
       <div class="sec-title" id="u-range">依範圍練習</div>
       <div class="row">
         <div class="field">
@@ -474,8 +480,9 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
         <b>片語</b>與<b>無級數的單字</b>兩格另外列出，是因為詞彙表不收錄片語、也不另外收錄變化形——本題庫這一格幾乎都是變化形（<code>preferably</code>、<code>drowsiness</code>），<b>它們沒有級數與難易無關</b>。只勾選 1–6 級時，這兩格的題目會被排除。
       </div>
 
-      <div class="row" style="margin-top:12px;">
+      <div class="row stickyGo" style="margin-top:12px;">
         <button class="ghost-btn" onclick="startRangePractice()" style="flex:1;">開始練習</button>
+      </div>
       </div>
 
       <div class="sec-title" id="u-mock">歷屆試題</div>
