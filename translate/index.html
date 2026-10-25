@@ -534,6 +534,7 @@ details.skill[open] > summary::after{content:'－ 收合';}
 @media print{body::after{content:"高中英文題庫\A staresto-create.github.io/JCEE-vocab-questions\A 免費資源，請勿販售";white-space:pre;position:fixed;top:42%;left:0;right:0;text-align:center;transform:rotate(-25deg);font-family:"Noto Sans TC",sans-serif;font-size:26pt;line-height:1.7;color:#c8c8c8;z-index:2147483000;pointer-events:none;}}
 .cc-note{font-size:12px;line-height:1.8;color:var(--ad-x8a8278-fg);margin:12px auto;max-width:60em;padding:0 1em;}.cc-note a{color:inherit;}
 </style>
+<script src="../progress.js"></script>
 <script src="../resume.js" defer></script>
 <script src="../start.js" defer></script>
 <style id="print-paper">
@@ -620,6 +621,7 @@ details.skill[open] > summary::after{content:'－ 收合';}
       </div>
     </div>
 
+    <div id="progressHost"></div>
     <button class="start-btn" id="startBtn">開始練習</button>
 
     <details class="skill card" id="u-skel">
@@ -924,7 +926,19 @@ async function loadItems(){
   }catch(e){}
   buildYearGrid();
   scrMountStrip();
+  renderProgress();
   startFromSetHash() || startFromHash();
+}
+
+/* 完成度：中譯英先看參考答案、再自評「對／錯」才算做過；只算歷屆題目（改編練習不計入） */
+function renderProgress(){
+  try{
+    if(window.SCProgress) SCProgress.mountBar(document.getElementById('progressHost'), 'vocab-translate',
+      ALL_ITEMS.filter(i => i.year !== ADAPT).map(i => 't' + i.id));   // 題目編號是數字，加字首 t 才符合進度紀錄的格式
+  }catch(e){}
+}
+function markDone(item){
+  try{ if(window.SCProgress && item) SCProgress.mark('vocab-translate', 't' + item.id); }catch(e){}
 }
 
 function buildYearGrid(){
@@ -1062,7 +1076,7 @@ function showView(name){
   if(name === "quiz") buildPrintSheet();
   else if(name === "review") buildWrongSheet();
   else clearSheet();
-  if(name === "setup") scrMountStrip();
+  if(name === "setup"){ scrMountStrip(); renderProgress(); }
   document.querySelectorAll("nav.tabs button").forEach(b=>b.classList.remove("active"));
   const navBtn = document.querySelector(`nav.tabs button[data-view="${name}"]`);
   if(navBtn) navBtn.classList.add("active");
@@ -1214,6 +1228,7 @@ document.getElementById("skipBtn").addEventListener("click", ()=>{
 
 document.getElementById("gradeGood").addEventListener("click", ()=>{
   attemptedCount++; correctCount++;
+  markDone(queue[qIndex]);
   removeFromWrongBook(queue[qIndex].id);
   qIndex++;
   renderQuestion();
@@ -1222,6 +1237,7 @@ document.getElementById("gradeGood").addEventListener("click", ()=>{
 document.getElementById("gradeBad").addEventListener("click", ()=>{
   attemptedCount++;
   const item = queue[qIndex];
+  markDone(item);
   const yourAnswer = document.getElementById("userInput").value.trim();
   addToWrongBook(item, yourAnswer);
   sessionWrong.push(item.id);
@@ -1250,7 +1266,7 @@ function getWrongBook(){
   try{ return JSON.parse(localStorage.getItem(LS_WRONG)) || []; }catch(e){ return []; }
 }
 function saveWrongBook(list){
-  localStorage.setItem(LS_WRONG, JSON.stringify(list));
+  try{ localStorage.setItem(LS_WRONG, JSON.stringify(list)); }catch(e){}
 }
 function addToWrongBook(item, yourAnswer){
   const list = getWrongBook();
@@ -1303,7 +1319,7 @@ function logHistory(rangeLabel, attempted, correct){
     time: new Date().toTimeString().slice(0,5),
     range: rangeLabel, attempted, correct
   });
-  localStorage.setItem(LS_HISTORY, JSON.stringify(list));
+  try{ localStorage.setItem(LS_HISTORY, JSON.stringify(list)); }catch(e){}
 }
 function renderHistory(){
   const list = getHistory().slice().reverse();

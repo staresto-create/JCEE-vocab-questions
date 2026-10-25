@@ -15,6 +15,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="page.css">
+<script src="../../progress.js"></script>
 <style>
 /* 題目地圖：一年一列、一題一格；格子顏色沿用題庫既有的難／中／易分級，每格都同時印出題號與答對率，不只靠顏色 */
 :root{
@@ -75,6 +76,10 @@ h2.mp-sec{font-family:'Noto Serif TC',serif;font-weight:700;font-size:18px;margi
 .mp-cell.special::after{content:"特";position:absolute;top:-7px;left:-6px;font-family:'Noto Sans TC',sans-serif;font-size:10.5px;font-weight:700;
   background:var(--crimson);color:#fff;border-radius:4px;padding:0 4px;line-height:15px}
 .mp-cell.dim{opacity:.18}
+.mp-cell .ck{position:absolute;right:-5px;bottom:-6px;width:17px;height:17px;border-radius:50%;background:var(--sage-fill,#3E6E52);color:#fff;
+  font-family:'Noto Sans TC',sans-serif;font-size:11px;font-weight:700;line-height:17px;text-align:center;border:1.5px solid var(--paper-card);z-index:1}
+.sw.done{background:var(--sage-fill,#3E6E52);border-color:var(--sage-fill,#3E6E52)} .sw.undone{background:var(--paper-card);border-style:dashed}
+.mp-legend .ckdemo{display:inline-block;width:16px;height:16px;border-radius:50%;background:var(--sage-fill,#3E6E52);color:#fff;font-size:10.5px;font-weight:700;line-height:16px;text-align:center;vertical-align:middle;margin-right:6px}
 .mp-cell:hover{border-color:var(--ink)}
 .mp-src{font-size:12.5px;color:var(--ink-soft);margin:30px 0 0;padding-top:12px;border-top:1px dashed var(--rule)}
 .mp-status{font-size:14px;color:var(--ink-soft);margin:24px 0}
@@ -111,6 +116,7 @@ h2.mp-sec{font-family:'Noto Serif TC',serif;font-weight:700;font-size:18px;margi
   <nav class="unitbar" id="unitbar" aria-label="本頁單元"><div class="ubrow"><span class="ublab">同一題庫</span><a href="../">開始練習</a><span class="cur" aria-current="page">題目地圖</span><a href="../../repeats/">單字清單</a></div><div class="ubrow"><span class="ublab">本頁單元</span><a href="#u-intro">說明</a><a href="#filters">篩選</a><a href="#u-rated">有答對率的題目</a><a href="#u-unrated">沒有公布答對率的題目</a></div></nav>
   <p class="mp-intro" id="u-intro">這一頁把題庫的 <b id="total">全部</b> 題排成一張圖。每一格是一題，上面是<b>題號</b>，下面是大考中心公布的全體考生<b>答對率</b>；<b>顏色越紅，題目越難</b>。<b>點格子</b>就會跳到那一題，可以直接作答。</p>
   <p class="mp-note" id="rateNote"></p>
+  <p class="mp-note" id="doneNote" hidden></p>
   <div class="mp-legend" id="legend" hidden></div>
 
   <div class="mp-panel" id="filters" hidden>
@@ -118,11 +124,15 @@ h2.mp-sec{font-family:'Noto Serif TC',serif;font-weight:700;font-size:18px;margi
     <div class="mp-chips" id="tierChips"></div>
     <h2>答案的字級（大考中心詞彙表）</h2>
     <div class="mp-chips" id="catChips"></div>
+    <div id="statBox" hidden>
+      <h2>練習進度（只記在這台裝置）</h2>
+      <div class="mp-chips" id="statChips"></div>
+    </div>
     <div class="mp-bar">
       <div class="mp-count" aria-live="polite">符合的題目：<b id="matchN">0</b> 題（共 <span id="total2">0</span> 題）</div>
       <button class="mp-reset" id="reset" type="button" disabled>清除篩選</button>
     </div>
-    <p class="mp-help">選了條件之後，沒有符合題目的年度會收起來，其他年度裡不符合的格子會變淡。標有「特」的格子是鑑別度為負值的題目。</p>
+    <p class="mp-help">選了條件之後，沒有符合題目的年度會收起來，其他年度裡不符合的格子會變淡。標有「特」的格子是鑑別度為負值的題目。選「還沒做過」，就只留下你還沒作答的題目，其餘的格子變淡。</p>
   </div>
 
   <p class="mp-status" id="status">題目載入中……</p>
@@ -141,7 +151,7 @@ function ordOf(label){ var p = plain(label); if (p !== null) return p * 10; var 
 function isNum(v){ return typeof v === 'number'; }
 function num(v){ return typeof v === 'number' ? v : null; }
 function gj(u){ return fetch(u).then(function(r){ if (!r.ok) throw new Error(u + ' ' + r.status); return r.json(); }); }
-var SITE = {catOrder:["1","2","3","4","5","6","phrase","unlisted"], catLabel:function(c){ return {"1":"第 1 級","2":"第 2 級","3":"第 3 級","4":"第 4 級","5":"第 5 級","6":"第 6 級","phrase":"片語（無級數）","unlisted":"無級數的單字"}[c]; }, load: function(){ return fetch("../data.js").then(function(r){ if(!r.ok) throw new Error(r.status); return r.text(); }).then(function(s){ var i = s.indexOf("["); var depth = 0, j = i, inStr = false, esc = false; for (; j < s.length; j++){ var ch = s[j]; if (inStr){ if (esc) esc = false; else if (ch === "\\") esc = true; else if (ch === "\"") inStr = false; continue; } if (ch === "\"") inStr = true; else if (ch === "[") depth++; else if (ch === "]"){ depth--; if (depth === 0) break; } } var d = JSON.parse(s.slice(i, j + 1)); return d.map(function(it){ var v = String((it.l || {})[it.a] || "").trim(); var m = /^([1-6])\*?$/.exec(v); var w = String((it.o || {})[it.a] || "").trim(); var lv = m ? m[1] : ((w.indexOf(" ") >= 0 || w.indexOf("-") >= 0) ? "phrase" : "unlisted"); var label = it.y + " 年" + it.t; return {exam:"", rowKey:it.y + "|" + it.t, rowLabel:label, rowOrd:it.y * 10 - (it.t === "學測" ? 0 : 5), rowHref:null, no:parseInt(it.q,10), grp:it.y + "|" + it.t, rate:num(it.accuracyRate), disc:num(it.discrimination), cats:[lv], tipCat:(m ? "答案字級 " + m[1] : lv === "phrase" ? "答案是片語（無級數）" : "答案字無級數"), href:"../#q-" + it.id}; }); }); }};
+var SITE = {catOrder:["1","2","3","4","5","6","phrase","unlisted"], catLabel:function(c){ return {"1":"第 1 級","2":"第 2 級","3":"第 3 級","4":"第 4 級","5":"第 5 級","6":"第 6 級","phrase":"片語（無級數）","unlisted":"無級數的單字"}[c]; }, load: function(){ return fetch("../data.js").then(function(r){ if(!r.ok) throw new Error(r.status); return r.text(); }).then(function(s){ var i = s.indexOf("["); var depth = 0, j = i, inStr = false, esc = false; for (; j < s.length; j++){ var ch = s[j]; if (inStr){ if (esc) esc = false; else if (ch === "\\") esc = true; else if (ch === "\"") inStr = false; continue; } if (ch === "\"") inStr = true; else if (ch === "[") depth++; else if (ch === "]"){ depth--; if (depth === 0) break; } } var d = JSON.parse(s.slice(i, j + 1)); return d.map(function(it){ var v = String((it.l || {})[it.a] || "").trim(); var m = /^([1-6])\*?$/.exec(v); var w = String((it.o || {})[it.a] || "").trim(); var lv = m ? m[1] : ((w.indexOf(" ") >= 0 || w.indexOf("-") >= 0) ? "phrase" : "unlisted"); var label = it.y + " 年" + it.t; return {exam:"", rowKey:it.y + "|" + it.t, rowLabel:label, rowOrd:it.y * 10 - (it.t === "學測" ? 0 : 5), rowHref:null, no:parseInt(it.q,10), grp:it.y + "|" + it.t, rate:num(it.accuracyRate), disc:num(it.discrimination), cats:[lv], tipCat:(m ? "答案字級 " + m[1] : lv === "phrase" ? "答案是片語（無級數）" : "答案字無級數"), href:"../#q-" + it.id, id:it.id}; }); }); }};
 
 var TIERS = [['hard','難（≤25%）'],['mid','中（25~75%）'],['easy','易（＞75%）'],['special','特殊（鑑別度為負）'],['none','沒有答對率']];
 function isNum(v){ return typeof v === 'number'; }
@@ -159,7 +169,7 @@ function baseTier(it){
   if (it.rate <= 75) return 'mid';
   return 'easy';
 }
-var selTiers = {}, selCats = {}, cells = [], sections = [];
+var selTiers = {}, selCats = {}, selStat = {}, cells = [], sections = [], doneIds = {};
 function el(tag, cls, text){ var e = document.createElement(tag); if (cls) e.className = cls; if (text !== undefined) e.textContent = text; return e; }
 
 function buildChips(items){
@@ -190,6 +200,20 @@ function buildChips(items){
     cc.appendChild(b);
   });
 }
+function buildStatChips(items){
+  if (!window.SCProgress) return;
+  var box = document.getElementById('statBox'), sc = document.getElementById('statChips');
+  var nDone = items.filter(function(it){ return doneIds[it.id]; }).length;
+  [['undone','還沒做過', items.length - nDone],['done','做過了', nDone]].forEach(function(t){
+    var b = el('button','mp-chip'); b.type = 'button'; b.setAttribute('aria-pressed','false'); b.dataset.k = t[0];
+    b.appendChild(el('span','sw ' + t[0]));
+    b.appendChild(document.createTextNode(t[1] + ' '));
+    b.appendChild(el('span','n','(' + t[2] + ')'));
+    b.addEventListener('click', function(){ toggle(selStat, b); });
+    sc.appendChild(b);
+  });
+  box.hidden = false;
+}
 function toggle(set, b){
   var k = b.dataset.k;
   if (set[k]){ delete set[k]; b.setAttribute('aria-pressed','false'); }
@@ -197,15 +221,16 @@ function toggle(set, b){
   apply();
 }
 function apply(){
-  var nt = Object.keys(selTiers).length, nc = Object.keys(selCats).length, n = 0;
+  var nt = Object.keys(selTiers).length, nc = Object.keys(selCats).length, ns = Object.keys(selStat).length, n = 0;
   sections.forEach(function(sc){ sc.rows.forEach(function(r){ r._m = 0; }); });
   cells.forEach(function(c){
     var catOk = !nc || c.cats.some(function(k){ return selCats[k]; });
-    var ok = (!nt || selTiers[c.tier]) && catOk;
+    var statOk = !ns || (c.done ? selStat.done : selStat.undone);
+    var ok = (!nt || selTiers[c.tier]) && catOk && statOk;
     c.node.classList.toggle('dim', !ok);
     if (ok){ n++; c.row._m++; }
   });
-  var active = !!(nt || nc);
+  var active = !!(nt || nc || ns);
   sections.forEach(function(sc){
     var any = false;
     sc.rows.forEach(function(r){ r.hidden = active && r._m === 0; if (!r.hidden) any = true; });
@@ -241,16 +266,18 @@ function renderRows(container, rows, sec){
       if (it.grp !== cur || inGrp >= 5){ cur = it.grp; inGrp = 0; grp = el('div','mp-grp'); wrap.appendChild(grp); }
       inGrp++;
       var tier = tierOf(it), base = baseTier(it);
-      var c = el('a','mp-cell ' + base + (tier === 'special' ? ' special' : ''));
+      var isDone = !!(it.id && doneIds[it.id]);
+      var c = el('a','mp-cell ' + base + (tier === 'special' ? ' special' : '') + (isDone ? ' done' : ''));
       c.href = it.href;
       c.appendChild(el('span','q', String(it.no)));
       c.appendChild(el('span','p', isNum(it.rate) ? it.rate + '%' : '—'));
       var tip = r.label + ' 第 ' + it.no + ' 題 · ' + it.tipCat + ' · ' +
                 (isNum(it.rate) ? '答對率 ' + it.rate + '%' : '沒有官方答對率');
       if (tier === 'special') tip += ' · 鑑別度為負';
+      if (isDone){ tip += ' · 你做過了'; var ck = el('span','ck','✓'); ck.setAttribute('aria-hidden','true'); c.appendChild(ck); }
       c.title = tip; c.setAttribute('aria-label', tip);
       grp.appendChild(c);
-      cells.push({node:c, tier:tier, cats:it.cats, row:row});
+      cells.push({node:c, tier:tier, cats:it.cats, row:row, done:isDone});
     });
     row.appendChild(wrap);
     container.appendChild(row);
@@ -269,13 +296,30 @@ function buildLegend(items){
   var box = document.getElementById('legend');
   box.appendChild(ul);
   box.appendChild(el('p','', '紅色加金黃色共 ' + (cnt.hard + cnt.low) + ' 題，就是「答對率低於 40% 的難題」。下方篩選的「中」，金黃色和米色的格子都會選到。'));
+  if (window.SCProgress){
+    var pp = el('p','');
+    var dem = el('span','ckdemo','✓'); dem.setAttribute('aria-hidden','true');
+    pp.appendChild(dem);
+    pp.appendChild(document.createTextNode('格子右下角有這個記號，表示你在這台裝置上作答過這一題（答對答錯都算）。'));
+    box.appendChild(pp);
+  }
   box.hidden = false;
 }
 function build(items){
+  try{ if (window.SCProgress) doneIds = SCProgress.doneMap('vocab-gsat'); }catch(e){ doneIds = {}; }
   document.getElementById('total').textContent = items.length;
   document.getElementById('total2').textContent = items.length;
   buildChips(items);
+  buildStatChips(items);
   buildLegend(items);
+  (function(){
+    if (!window.SCProgress) return;
+    var nd = items.filter(function(it){ return doneIds[it.id]; }).length;
+    var dn = document.getElementById('doneNote');
+    dn.textContent = nd ? '你在這台裝置上做過 ' + nd + ' 題（共 ' + items.length + ' 題），已經標上 ✓。紀錄只存在這個瀏覽器，不用登入。'
+                        : '做過的題目會標上 ✓；這台裝置上還沒有紀錄。紀錄只存在這個瀏覽器，不用登入。';
+    dn.hidden = false;
+  })();
   var nNone = items.filter(function(it){ return !isNum(it.rate); }).length;
   document.getElementById('rateNote').textContent = items.length - nNone + ' 題有官方答對率。' +
     (nNone ? '其餘 ' + nNone + ' 題沒有官方答對率，格子裡以「—」表示，不是題目漏收。' : '');
@@ -314,7 +358,7 @@ function build(items){
   apply();
 }
 document.getElementById('reset').addEventListener('click', function(){
-  selTiers = {}; selCats = {};
+  selTiers = {}; selCats = {}; selStat = {};
   document.querySelectorAll('.mp-chip').forEach(function(b){ b.setAttribute('aria-pressed','false'); });
   apply();
 });

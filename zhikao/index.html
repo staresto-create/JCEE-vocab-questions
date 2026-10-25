@@ -334,6 +334,7 @@ details.skill[open] > summary::after{content:'－ 收合';}
 @media print{body::after{content:"高中英文題庫\A staresto-create.github.io/JCEE-vocab-questions\A 免費資源，請勿販售";white-space:pre;position:fixed;top:42%;left:0;right:0;text-align:center;transform:rotate(-25deg);font-family:"Noto Sans TC",sans-serif;font-size:26pt;line-height:1.7;color:#c8c8c8;z-index:2147483000;pointer-events:none;}}
 .cc-note{font-size:12px;line-height:1.8;color:var(--foot-note);margin:12px auto;max-width:60em;padding:0 1em;}.cc-note a{color:inherit;}
 </style>
+<script src="../progress.js"></script>
 <script src="../resume.js" defer></script>
 <script src="../start.js" defer></script>
 <style id="print-paper">
@@ -395,6 +396,7 @@ details.skill[open] > summary::after{content:'－ 收合';}
       <p class="home-lead">今天，先寫十題。</p>
       <p class="home-desc">不用設定，按下去就開始。每題附句子與選項中譯、選項單字分級（大考中心六級），並收錄<b>大考中心公布的官方逐題答對率</b>，讓你看到當年全體考生答對的比例。部分題目另有深入解析。</p>
       <button class="big-btn" onclick="startQuiz(randomTen())">立即開始 · 隨機 10 題</button>
+      <div id="progressHost"></div>
       <a class="map-entry" href="map/">
         <span class="me-title">題目地圖：343 題依答對率排成一張圖 →</span>
         <span class="me-sub">每題一格，顏色越紅答對率越低，可以依難易、答案字級篩選。點任何一格，會直接開啟該題，可以馬上作答。</span>
@@ -665,9 +667,9 @@ const LS_WRONG = 'gswVocabWrongBook';
 const LS_HISTORY = 'gswVocabHistory';
 
 function getWrongBook(){ try{ return JSON.parse(localStorage.getItem(LS_WRONG)) || []; }catch(e){ return []; } }
-function setWrongBook(arr){ localStorage.setItem(LS_WRONG, JSON.stringify(arr)); }
+function setWrongBook(arr){ try{ localStorage.setItem(LS_WRONG, JSON.stringify(arr)); }catch(e){} }
 function getHistory(){ try{ return JSON.parse(localStorage.getItem(LS_HISTORY)) || []; }catch(e){ return []; } }
-function pushHistory(entry){ const h = getHistory(); h.unshift(entry); localStorage.setItem(LS_HISTORY, JSON.stringify(h.slice(0,20))); }
+function pushHistory(entry){ const h = getHistory(); h.unshift(entry); try{ localStorage.setItem(LS_HISTORY, JSON.stringify(h.slice(0,20))); }catch(e){} }
 
 const byId = id => QUESTIONS.find(q => q.id === id);
 function shuffle(arr){ const a=[...arr]; for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]];} return a; }
@@ -698,6 +700,13 @@ function initHome(){
   buildLevelChips();
   renderWrongBook();
   renderHistory();
+  renderProgress();
+}
+
+function renderProgress(){
+  try{
+    if(window.SCProgress) SCProgress.mountBar(document.getElementById('progressHost'), 'vocab-zhikao', QUESTIONS.map(q=>q.id));
+  }catch(e){}
 }
 
 function renderWrongBook(){
@@ -882,6 +891,7 @@ function selectAnswer(letter, q){
   const opts = document.querySelectorAll('#qOptions .opt');
   if(opts[0].classList.contains('locked')) return; // already answered
   opts.forEach(o=>o.classList.add('locked'));
+  try{ if(window.SCProgress) SCProgress.mark('vocab-zhikao', q.id); }catch(e){}
 
   const correct = letter === q.a;
   opts.forEach((o,i)=>{
@@ -1049,6 +1059,7 @@ function goHome(){
   document.getElementById('home').style.display='block';
   renderWrongBook();
   renderHistory();
+  renderProgress();
 }
 
 /* refs 深連結入口：只讀 hash、不寫 hash，站內操作與既有分享網址都不受影響。
