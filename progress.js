@@ -186,14 +186,23 @@
           '.scp-row .scp-rt span:last-child{color:var(--h-soft);font-variant-numeric:tabular-nums;white-space:nowrap;}' +
           '.scp-home .scp-track{margin:4px 0 0;height:8px;background:var(--h-rule);}' +
           '.scp-home .scp-fill{background:var(--h-sage);}' +
+          '.scp-home{padding:0;}.scp-home summary{list-style:none;cursor:pointer;padding:12px 16px;display:block;min-height:44px;box-sizing:border-box;}' +
+          '.scp-home summary::-webkit-details-marker{display:none;}' +
+          '.scp-home .scp-sh{display:flex;justify-content:space-between;align-items:baseline;gap:10px;}' +
+          '.scp-home .scp-sh h2{margin:0;}' +
+          '.scp-home .scp-tg{font-size:13px;color:var(--h-soft);white-space:nowrap;}' +
+          '.scp-home .scp-tg::after{content:" ▾";}.scp-home[open] .scp-tg::after{content:" ▴";}' +
+          '.scp-home .scp-ov{margin:6px 0 0;}' +
+          '.scp-home .scp-inner{padding:0 16px 12px;}' +
           '.scp-row a:hover .scp-rt span:first-child{text-decoration:underline;text-underline-offset:3px;}' +
           '@media print{.scp-home{display:none !important;}}';
         (document.head || document.documentElement).appendChild(st);
       }
       host.textContent = '';
-      var box = el('section', 'scp-home');
+      var box = el('details', 'scp-home');
       box.setAttribute('aria-label', '你的練習進度');
-      box.appendChild(el('h2', null, '你的練習進度'));
+      var smy = el('summary');
+      var inner = el('div', 'scp-inner');
       var tn = 0, tt = 0;
       var ul = el('ul', 'scp-rows');
       rows.forEach(function (r) {
@@ -222,9 +231,27 @@
       sum.appendChild(document.createTextNode('歷屆試題共 ' + tt + ' 題，你已做 '));
       sum.appendChild(el('b', null, String(tn)));
       sum.appendChild(document.createTextNode(' 題（' + pctText(tn, tt) + '）。' + (tn === 0 ? '從下面任何一個題庫寫完一題，這裡就會開始計算。' : '點題庫名稱可以直接回去接著寫。')));
-      box.appendChild(sum);
-      box.appendChild(ul);
-      box.appendChild(el('p', 'scp-note', '每題只算一次，答錯也算做過；整篇型的題庫要交卷才計入。不用登入，紀錄只存在這台裝置的這個瀏覽器，換裝置或用無痕視窗就會從零開始。'));
+      var sh = el('div', 'scp-sh');
+      sh.appendChild(el('h2', null, '你的練習進度'));
+      sh.appendChild(el('span', 'scp-tg', '已做 ' + tn + '／' + tt + ' 題・看各題庫'));
+      smy.appendChild(sh);
+      var ov = el('div', 'scp-track scp-ov');
+      var ovf = el('div', 'scp-fill');
+      ovf.style.width = (tn > 0 ? Math.max(1.5, tn / tt * 100) : 0) + '%';
+      ov.appendChild(ovf);
+      smy.appendChild(ov);
+      box.appendChild(smy);
+      inner.appendChild(sum);
+      inner.appendChild(ul);
+      inner.appendChild(el('p', 'scp-note', '每題只算一次，答錯也算做過；整篇型的題庫要交卷才計入。不用登入，紀錄只存在這台裝置的這個瀏覽器，換裝置或用無痕視窗就會從零開始。'));
+      box.appendChild(inner);
+      /* 手機預設收合；寬螢幕預設展開；讀者自己開關過就照他的選擇 */
+      var pref = null;
+      try { pref = window.localStorage.getItem('scProgressHomeOpen'); } catch (e) {}
+      box.open = pref === '1' ? true : pref === '0' ? false : (window.innerWidth >= 900);
+      box.addEventListener('toggle', function () {
+        try { window.localStorage.setItem('scProgressHomeOpen', box.open ? '1' : '0'); } catch (e) {}
+      });
       host.appendChild(box);
     } catch (x) {}
   }
