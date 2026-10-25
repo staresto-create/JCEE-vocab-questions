@@ -228,10 +228,9 @@
     .note-sec b{display:block; font-family:'Noto Serif TC',serif; font-weight:700;
       font-size:14.5px; color:var(--sage); margin:0 0 5px; line-height:1.55;}
     .note-body{margin-top:2px;}
-    .note-body.clamped{
-    display:-webkit-box; -webkit-line-clamp:4; line-clamp:4;
-    -webkit-box-orient:vertical; overflow:hidden;
-    }
+    /* 收合時只留各段小標：小標多半就是這題的線索或結論，比截斷的前四行好用 */
+    .note-body.clamped .note-txt{display:none;}
+    .note-body.clamped .note-sec{margin-top:6px;}
     .note-toggle{
     display:inline-block; margin-top:8px; cursor:pointer; user-select:none;
     font-family:'IBM Plex Mono','Noto Sans TC',monospace; font-size:12px; color:var(--ink-soft);
@@ -651,7 +650,7 @@ function noteSecHtml(str){
   for(let i=1;i<parts.length;i+=2){
     const body = (parts[i+1]||'').trim();
     if(body) out.push('<div class="note-sec"><b>'+escNote(parts[i])+'</b>'
-                      +escNote(body).replace(/\n/g,'<br>')+'</div>');
+                      +'<span class="note-txt">'+escNote(body).replace(/\n/g,'<br>')+'</span></div>');
   }
   return out.join('');
 }
