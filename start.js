@@ -145,7 +145,7 @@
       });
       route.appendChild(ol);
       var label = TIERS.filter(function (t) { return t.k === k; })[0].label;
-      main.textContent = '給 ' + label + ' 的練習順序';
+      main.textContent = label + '的練習順序';
       sub.textContent = '點開看建議的順序，也可以改選其他級分';
     }
 
