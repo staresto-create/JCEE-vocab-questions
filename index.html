@@ -60,7 +60,7 @@
   /* countdown strip — the signature element */
   .countdown{
     margin:26px 0 8px;
-    background:var(--ad-vink-bg); color:var(--paper-card);
+    background:var(--ad-vink-bg); color:var(--ad-vpaper-bg);
     border-radius:4px; padding:22px;
     display:flex; flex-direction:column; align-items:center; gap:6px;
     box-shadow:var(--shadow);
@@ -188,7 +188,7 @@
   .rec-filters{display:flex; flex-wrap:nowrap; gap:8px; overflow-x:auto; margin:0 -16px; padding:2px 16px 10px; -webkit-overflow-scrolling:touch; scrollbar-width:none; scroll-snap-type:x proximity;}
   .rec-filters::-webkit-scrollbar{display:none;}
   .rec-btn{flex:0 0 auto; white-space:nowrap; min-height:40px; padding:0 14px; border:1px solid var(--ad-vrule-border); border-radius:20px; background:var(--ad-xfff-bg); color:var(--ad-vink-fg); font-family:inherit; font-size:13.5px; font-weight:700; line-height:1.2; cursor:pointer; scroll-snap-align:start; -webkit-tap-highlight-color:transparent;}
-  .rec-btn[aria-pressed="true"]{background:var(--ad-vink-bg); border-color:var(--ad-vink-border); color:var(--paper-card);}
+  .rec-btn[aria-pressed="true"]{background:var(--ad-vink-bg); border-color:var(--ad-vink-border); color:var(--ad-vpaper-bg);}
   .rec-btn:focus-visible{outline:2px solid var(--crimson); outline-offset:2px;}
   .rec-count{font-size:11.5px; color:var(--ad-vinksoft-fg); margin:0 0 6px;}
   .rec-list{border-top:1px solid var(--ad-vrule-border);}
@@ -273,12 +273,13 @@
 :root{--ad-vcrimson-bg:var(--crimson);--ad-vcrimson-border:var(--crimson);--ad-vcrimson-fg:var(--crimson);--ad-vcrimsonsoft-border:var(--crimson-soft);--ad-vgold-border:var(--gold);--ad-vgold-fg:var(--gold);--ad-vink-bg:var(--ink);--ad-vink-border:var(--ink);--ad-vink-fg:var(--ink);--ad-vinksoft-bg:var(--ink-soft);--ad-vinksoft-fg:var(--ink-soft);--ad-vpaper-bg:var(--paper);--ad-vpapercard-bg:var(--paper-card);--ad-vpapercard-fg:var(--paper-card);--ad-vrule-border:var(--rule);--ad-vrule-fg:var(--rule);--ad-vsage-bg:var(--sage);--ad-vsage-border:var(--sage);--ad-vsage-fg:var(--sage);--ad-vsagesoft-border:var(--sage-soft);--ad-x221F1A-fg:#221F1A;--ad-x3E6E52-fg:#3E6E52;--ad-x8A6420-bg:#8A6420;--ad-x8A6420-border:#8A6420;--ad-x8a8278-fg:#8a8278;--ad-x9C2C1E-bg:#9C2C1E;--ad-x9C2C1E-fg:#9C2C1E;--ad-xAE3626-border:#AE3626;--ad-xC9C3B2-fg:#C9C3B2;--ad-xEDE6D3-bg:#EDE6D3;--ad-xF0C46B-fg:#F0C46B;--ad-xF1EADA-bg:#F1EADA;--ad-xF4F7F2-bg:#F4F7F2;--ad-xF7EEEA-bg:#F7EEEA;--ad-xFBF2EF-bg:#FBF2EF;--ad-xFDF8EC-bg:#FDF8EC;--ad-xFFE9A0-bg:#FFE9A0;--ad-xFFFDF7-bg:#FFFDF7;--ad-xfff-bg:#fff;--ad-xfff-fg:#fff;color-scheme:light}
 @media screen and (prefers-color-scheme: dark){
  :root{--ad-vcrimson-bg:#ae3626;--ad-vcrimson-border:#ae3626;--ad-vcrimson-fg:#E4B6B0;--ad-vcrimsonsoft-border:#4F413A;--ad-vgold-border:#a9812e;--ad-vgold-fg:#E0D1B2;--ad-vink-bg:#EEEDEC;--ad-vink-border:#F2F0EE;--ad-vink-fg:#F2F0EE;--ad-vinksoft-bg:#5b5648;--ad-vinksoft-fg:#DAD8D3;--ad-vpaper-bg:#1B1916;--ad-vpapercard-bg:#26231F;--ad-vpapercard-fg:#fffdf7;--ad-vrule-border:#514A37;--ad-vrule-fg:#dcd3bb;--ad-vsage-bg:#3e6e52;--ad-vsage-border:#CBDDD2;--ad-vsage-fg:#CBDDD2;--ad-vsagesoft-border:#3E4A3C;--ad-x221F1A-fg:#F2F0EE;--ad-x3E6E52-fg:#CBDDD2;--ad-x8A6420-bg:#8a6420;--ad-x8A6420-border:#E8DAC1;--ad-x8a8278-fg:#C2BFBB;--ad-x9C2C1E-bg:#9c2c1e;--ad-x9C2C1E-fg:#E8BEB9;--ad-xAE3626-border:#ae3626;--ad-xC9C3B2-fg:#c9c3b2;--ad-xEDE6D3-bg:#2B281D;--ad-xF0C46B-fg:#f0c46b;--ad-xF1EADA-bg:#2B271E;--ad-xF4F7F2-bg:#212320;--ad-xF7EEEA-bg:#272220;--ad-xFBF2EF-bg:#272221;--ad-xFDF8EC-bg:#2A2821;--ad-xFFE9A0-bg:#53471F;--ad-xFFFDF7-bg:#26231F;--ad-xfff-bg:#2D2A25;--ad-xfff-fg:#ffffff;color-scheme:dark}
- .feat-b{--bg:#272221}
- .fb-word{--bg:#212420}
+ .feat-b{--c:#E4B6B0;--bg:#272221}
+ .fb-word{--c:#CBDDD2;--bg:#212420}
  .fb-essay{--c:#E8DAC1;--bg:#2C2920}
  .fb-admit{--c:#BFCBDB;--bg:#202326}
  .fb-mark{--c:#C9BED4;--bg:#222025}
  .fb-listen{--c:#BCD6D4;--bg:#1F2626}
+ .countdown{background:#2D2A25;color:#F2F0EE;border:1px solid #514A37}
 }
 
 
@@ -574,7 +575,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
     </details>
     <details class="rec-item" data-cat="word cloze reading writing" data-kind="tool" data-d="2026-10-25" open>
       <summary class="rec-sum"><span class="rec-emoji">🧭</span><span class="rec-main"><span class="rec-name">不知道從哪裡開始？依英文級分看練習順序 <span class="newdot">NEW</span></span><span class="rec-chips"><span class="rec-cat">單字</span><span class="rec-cat">克漏字・文意選填・篇章結構</span><span class="rec-kind k-tool">新工具</span></span></span><span class="rec-side"><span class="rec-date">10/25</span><span class="rec-tog"></span></span></summary>
-      <div class="rec-body"><p>選你最近一次模擬考的英文級分（<b>6 級分以下、7 到 9、10 到 12、13 級分以上</b>），或參考本校段考成績對照，就會看到建議的練習順序，下次進站會自動顯示。學測、指考的單字題目地圖，現在也可以從連結直接進到只剩「易」、「中」或「難」的題目。老師可以在<a href="https://staresto-create.github.io/JCEE-vocab-questions/cards/teacher.html">老師頁</a>選好級分，把連結貼給學生。</p></div>
+      <div class="rec-body"><p>選你最近一次模擬考的英文級分（<b>6 級分以下、7 到 9、10 到 12、13 級分以上</b>），或參考本校段考成績對照，就會看到建議的練習順序，下次進站會自動顯示。學測、指考的單字題目地圖，現在也可以從連結直接進到只剩「易」、「中」或「難」的題目。各題庫的首頁，也都有「不知道從哪裡開始？」這張卡片。老師可以在<a href="https://staresto-create.github.io/JCEE-vocab-questions/cards/teacher.html">老師頁</a>選好級分，把連結貼給學生。</p></div>
     </details>
     <details class="rec-item" data-cat="cloze reading" data-kind="tool" data-d="2026-10-25" open>
       <summary class="rec-sum"><span class="rec-emoji">🧩</span><span class="rec-main"><span class="rec-name">片語動詞 <span class="newdot">NEW</span></span><span class="rec-chips"><span class="rec-cat">克漏字・文意選填・篇章結構</span><span class="rec-cat">閱讀測驗</span><span class="rec-kind k-tool">新工具</span></span></span><span class="rec-side"><span class="rec-date">10/25</span><span class="rec-tog"></span></span></summary>
@@ -610,7 +611,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
     </details>
     <details class="rec-item" data-cat="word" data-kind="tool" data-d="2026-10-25" open>
       <summary class="rec-sum"><span class="rec-emoji">📖</span><span class="rec-main"><span class="rec-name">課本字彙：龍騰版與三民版 <span class="newdot">NEW</span></span><span class="rec-chips"><span class="rec-cat">單字</span><span class="rec-kind k-tool">新工具</span></span></span><span class="rec-side"><span class="rec-date">10/25</span><span class="rec-tog"></span></span></summary>
-      <div class="rec-body"><p>把課本每一課的單字與片語整理成可以查的頁面，附音標、詞性和中文，可以<b>依冊、依課瀏覽，也能直接搜尋英文或中文</b>。<b>龍騰版</b>收錄 Book 1–5，另有 A–Z 索引、衍生字家族和級數分布。<b>三民版</b>收錄乙版 Book 1–5、乙版 115 改版 Book 1，以及舊版 Book 1–5，每課分 Words for Production、Words for Recognition 和 Idioms and Phrases。兩版都有一批字附<b>字首、字尾、字根的拆解</b>，由兩個英文字合成的<b>複合詞</b>（例如 firework、greenhouse）也會拆成兩個字說明（龍騰版 948 個字、三民版 1,774 個字）；有對應家族的字還能直接連到字首字尾表和字根家族表。龍騰版、三民乙版和三民舊版的課本裡都出現的字，字旁會標<b>三版皆有</b>，並附學測、指考詞彙題出現過的次數；可以只看這些字，也可以只看出現 2 次以上的，從這些字開始背。兩頁各自只整理自己那一版，請對照自己的課本使用。</p><p class="rec-links"><a href="https://staresto-create.github.io/JCEE-vocab-questions/textbook/longteng.html">龍騰版課本字彙</a>、<a href="https://staresto-create.github.io/JCEE-vocab-questions/textbook/sanmin.html">三民版課本字彙</a> →</p></div>
+      <div class="rec-body"><p>把課本每一課的單字與片語整理成可以查的頁面，附音標、詞性和中文，可以<b>依冊、依課瀏覽，也能直接搜尋英文或中文</b>。<b>龍騰版</b>收錄 Book 1–5，每課分 Words for Production、Idioms and Phrases 和 Words for Recognition，Book 1–4 另有 Review 1–3，中文與音標都照龍騰課本，另有 A–Z 索引、衍生字家族和級數分布。<b>三民版</b>收錄乙版 Book 1–5、乙版 115 改版 Book 1，以及舊版 Book 1–5，每課分 Words for Production、Words for Recognition 和 Idioms and Phrases。兩版都有一批字附<b>字首、字尾、字根的拆解</b>，由兩個英文字合成的<b>複合詞</b>（例如 firework、greenhouse）也會拆成兩個字說明（龍騰版 1,275 個字、三民版 1,774 個字）；有對應家族的字還能直接連到字首字尾表和字根家族表。龍騰版、三民乙版和三民舊版的課本裡都出現的字，字旁會標<b>三版皆有</b>，並附學測、指考詞彙題出現過的次數；可以只看這些字，也可以只看出現 2 次以上的，從這些字開始背。兩頁各自只整理自己那一版，請對照自己的課本使用。</p><p class="rec-links"><a href="https://staresto-create.github.io/JCEE-vocab-questions/textbook/longteng.html">龍騰版課本字彙</a>、<a href="https://staresto-create.github.io/JCEE-vocab-questions/textbook/sanmin.html">三民版課本字彙</a> →</p></div>
     </details>
     <details class="rec-item" data-cat="cloze reading writing" data-kind="tool" data-d="2026-10-24" open>
       <summary class="rec-sum"><span class="rec-emoji">📕</span><span class="rec-main"><span class="rec-name">常寫錯的題目，可以印成錯題考卷 <span class="newdot">NEW</span></span><span class="rec-chips"><span class="rec-cat">克漏字</span><span class="rec-cat">閱讀</span><span class="rec-cat">中譯英</span><span class="rec-kind k-tool">新工具</span></span></span><span class="rec-side"><span class="rec-date">10/24</span><span class="rec-tog"></span></span></summary>

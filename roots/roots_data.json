@@ -1,3694 +1,3694 @@
 {
- "schema": 1,
- "note": "字根家族表。母體為大考中心《高中英文參考詞彙表》（111 學年度起適用）5,992 詞；先定字根，再把整個家族收齊，不分級別。各字依詞彙表級別排序。標「出現過」的是這個字在本題庫實際出現過的地方，只算這個字當過選項（單字題、克漏字）、參考答案（中譯英）或字彙表條目（作文）的題目，出現在題幹和文章內文的不算；同一個字最多列三筆。",
- "updated": "2026-10-11",
- "groups": [
-  {
-   "key": "tain / ten",
-   "zh": "握住、保持",
-   "note": "拉丁文 tenere「握住、抓著不放」。字首決定握的方向：往回握、從底下握、朝目標握。特別注意 attain 不是這個家族——它來自 attingere = ad 朝向 + tangere 觸碰，跟 contact、tangible、intact 同源，收在 tact 那個家族，是最容易拆錯的字。另外 -en 結尾的 shorten、tighten、soften、frighten 那一批也與本字根無關，那是把形容詞變動詞的字尾。",
-   "items": [
-    {
-     "w": "contain",
-     "p": "con 一起 + tain 握"
-    },
-    {
-     "w": "maintain",
-     "p": "main（manu）手 + tain 握"
-    },
-    {
-     "w": "container",
-     "p": "contain 容納 + -er 物"
-    },
-    {
-     "w": "content",
-     "p": "con 一起 + tent 握"
-    },
-    {
-     "w": "content(ment)",
-     "p": "content 滿足的 + -ment"
-    },
-    {
-     "w": "entertain(ment)",
-     "p": "enter（inter）在…之間 + tain 握"
-    },
-    {
-     "w": "obtain",
-     "p": "ob 朝向 + tain 握"
-    },
-    {
-     "w": "retain",
-     "p": "re 往回 + tain 握"
-    },
-    {
-     "w": "maintenance",
-     "p": "main（manu）手 + ten 握 + -ance"
-    },
-    {
-     "w": "sustain",
-     "p": "sus（sub）在下 + tain 握"
-    },
-    {
-     "w": "sustainable",
-     "p": "sustain 支撐 + -able"
-    },
-    {
-     "w": "detain",
-     "p": "de 離開 + tain 握"
-    },
-    {
-     "w": "detention",
-     "p": "de 離開 + tent 握 + -ion"
-    },
-    {
-     "w": "tenant",
-     "p": "ten 握、佔有 + -ant 人"
-    },
-    {
-     "w": "lieutenant",
-     "p": "lieu 位置 + tenant 握有"
-    }
-   ],
-   "dropped": [
-    {
-     "why": "-en 字尾，與本字根無關",
-     "list": "listen　often　shorten　tighten　soften　straighten　lighten　heighten　enlighten　frighten　threaten　fasten　hasten　rotten"
-    },
-    {
-     "why": "字串巧合",
-     "list": "sentence　tennis　mountain　mountainous　curtain　fountain　captain　kindergarten　certain　certainty　stain　utensil　patent　potent　potential"
-    },
-    {
-     "why": "來自拉丁文 tendere「伸展」，收在 tend / tens / tent 那個家族",
-     "list": "attend　attention　intend　intense　intensity　intensive　intention　extend　extent　extension　extensive　intensify　intent　tendency　tense　tension　contend　contention　attendance　attendant　pretend　superintendent"
-    },
-    {
-     "why": "來自拉丁文 tentare「摸、試」，收在 tempt / tent 那個家族",
-     "list": "tentative"
-    },
-    {
-     "why": "形容詞 tender 來自拉丁文 tener「柔軟的、嬌嫩的」，跟 tenere 無關",
-     "list": "tender"
-    },
-    {
-     "why": "來自拉丁文 competere「一起追求、相稱」，是 com 一起 + petere 追求，跟 tenere 無關",
-     "list": "competence　competent"
-    },
-    {
-     "why": "來自拉丁文 sistere「站」，收在 sist 那個家族",
-     "list": "consistent　persistent　insistence　persistence　existence"
-    },
-    {
-     "why": "來自 tangere「觸碰」，收在 tact 那個家族",
-     "list": "attain(ment)"
-    },
-    {
-     "why": "外部審訂建議救回但詞彙表未收錄，故不列入",
-     "list": "tenacity　tenacious　tenure（三個字的字源確實是 tenere，但《高中英文參考詞彙表》5,992 筆裡都沒有）"
-    },
-    {
-     "why": "外部審訂建議救回，經查證不屬本字根",
-     "list": "utensil（Etymonline 與 Merriam-Webster 說法一致：來自 utensilia，只出自 uti「使用」，與 tenere 無關）"
-    }
-   ]
-  },
-  {
-   "key": "pon / pos",
-   "zh": "放",
-   "note": "拉丁文 ponere「放置」。把東西放在哪個位置，意思就跟著變：往前放、放對面、壓在上面放、放到後面。特別注意 pose 不是這個家族——它來自晚期拉丁文 pausare「停下來」，後來才跟 ponere 混用，意思也跟著變成「擺放」，是最容易拆錯的字。",
-   "items": [
-    {
-     "w": "position",
-     "p": "pos 放 + -ition"
-    },
-    {
-     "w": "positive",
-     "p": "pos 放 + -itive"
-    },
-    {
-     "w": "propose",
-     "p": "pro 往前 + pos 放"
-    },
-    {
-     "w": "purpose",
-     "p": "pur（pro）向前 + pos 放"
-    },
-    {
-     "w": "suppose",
-     "p": "sup（sub）在下 + pos 放"
-    },
-    {
-     "w": "deposit",
-     "p": "de 離開 + pos 放 + -it"
-    },
-    {
-     "w": "opposite",
-     "p": "op（ob）在前面 + pos 放 + -ite"
-    },
-    {
-     "w": "postpone",
-     "p": "post 之後 + pon 放"
-    },
-    {
-     "w": "compose",
-     "p": "com 一起 + pos 放"
-    },
-    {
-     "w": "composer",
-     "p": "compose 作曲 + -er 人"
-    },
-    {
-     "w": "composition",
-     "p": "compose 組成 + -ition"
-    },
-    {
-     "w": "expose",
-     "p": "ex 往外 + pos 放"
-    },
-    {
-     "w": "exposure",
-     "p": "expose 暴露 + -ure"
-    },
-    {
-     "w": "impose",
-     "p": "im（in）進入 + pos 放"
-    },
-    {
-     "w": "oppose",
-     "p": "op（ob）在前面 + pos 放"
-    },
-    {
-     "w": "proposal",
-     "p": "propose 提議 + -al"
-    },
-    {
-     "w": "component",
-     "p": "com 一起 + pon 放 + -ent"
-    },
-    {
-     "w": "opponent",
-     "p": "op（ob）在前面 + pon 放 + -ent 人"
-    },
-    {
-     "w": "opposition",
-     "p": "op（ob）在前面 + pos 放 + -ition"
-    },
-    {
-     "w": "supposedly",
-     "p": "suppose 假設 + -ed + -ly"
-    },
-    {
-     "w": "compound",
-     "p": "com 一起 + pound（ponere 的變形）放"
-    },
-    {
-     "w": "dispose",
-     "p": "dis 分開 + pos 放"
-    },
-    {
-     "w": "disposable",
-     "p": "dispose 處置 + -able"
-    },
-    {
-     "w": "disposal",
-     "p": "dispose 處置 + -al"
-    },
-    {
-     "w": "imposing",
-     "p": "impose 強加 + -ing"
-    },
-    {
-     "w": "posture",
-     "p": "pos 放 + -ture"
-    }
-   ],
-   "dropped": [
-    {
-     "why": "來自 posse／potis「能夠」，不是 ponere「放」",
-     "list": "possible（1）　possibility（2）　possess（4）　possession（4）——這一組講的是「有能力、握有」，跟放置無關。possess 是 potis 能夠 + sedere 坐，坐得住那樣東西就是持有。"
-    },
-    {
-     "why": "英文的 post「郵政」",
-     "list": "postcard（2）　postage（4）　poster（3）——這些學生會直覺當成「郵」，不必回拉丁層。postpone 才是 post 之後 + pon 放，已收入。"
-    },
-    {
-     "why": "字串巧合",
-     "list": "weapon（2）　coupon（6）　sponge（5）　ponder（6，來自 pondus 重量，是「掂量」不是「放」）　spontaneous（6，來自 sponte 自願，與 spondere 不同源）"
-    }
-   ]
-  },
-  {
-   "key": "spond / spons",
-   "zh": "鄭重承諾",
-   "note": "拉丁文 spondere「鄭重承諾、保證」。respond、correspond 看起來像上一個家族的 pon「放」，其實不是——這是拆字最容易錯的一處。判斷方法：意思跟「回話、擔保」有關的是這個家族，跟「放位置」有關的是上一個家族。",
-   "items": [
-    {
-     "w": "respond",
-     "p": "re 回 + spond 承諾"
-    },
-    {
-     "w": "responsible",
-     "p": "re 回 + spons 承諾 + -ible"
-    },
-    {
-     "w": "response",
-     "p": "re 回 + spons 承諾"
-    },
-    {
-     "w": "responsibility",
-     "p": "responsible 負責的 + -ity"
-    },
-    {
-     "w": "correspond",
-     "p": "cor（com）一起 + respond 回應"
-    },
-    {
-     "w": "correspondent",
-     "p": "correspond 通信 + -ent 人"
-    },
-    {
-     "w": "respondent",
-     "p": "respond 回應 + -ent 人"
-    },
-    {
-     "w": "sponsor",
-     "p": "spons 承諾 + -or 人"
-    },
-    {
-     "w": "sponsorship",
-     "p": "sponsor 贊助者 + -ship 身分"
-    },
-    {
-     "w": "correspondence",
-     "p": "correspond 通信 + -ence"
-    }
-   ]
-  },
-  {
-   "key": "vers / vert",
-   "zh": "轉",
-   "note": "拉丁文 vertere「轉」。字首決定轉的方向：轉回來、轉開、轉到對面、全部轉成一個。這個家族最漂亮的一條是 verse——原意是犁田犁到田頭轉回來的那一道，一道就是一行，所以成了詩行。",
-   "items": [
-    {
-     "w": "conversation",
-     "p": "con 一起 + vers 轉 + -ation"
-    },
-    {
-     "w": "universe",
-     "p": "uni 一 + vers 轉"
-    },
-    {
-     "w": "university",
-     "p": "uni 一 + vers 轉 + -ity"
-    },
-    {
-     "w": "verse",
-     "p": "vers 轉"
-    },
-    {
-     "w": "advertise",
-     "p": "ad 朝向 + vert 轉"
-    },
-    {
-     "w": "advertisement",
-     "p": "advertise + -ment"
-    },
-    {
-     "w": "anniversary",
-     "p": "anni 年 + vers 轉 + -ary"
-    },
-    {
-     "w": "converse",
-     "p": "con 一起 + vers 轉"
-    },
-    {
-     "w": "diverse",
-     "p": "di 分開 + vers 轉"
-    },
-    {
-     "w": "diversity",
-     "p": "diverse 多樣的 + -ity"
-    },
-    {
-     "w": "universal",
-     "p": "universe 宇宙 + -al"
-    },
-    {
-     "w": "adverse",
-     "p": "ad 朝向 + vers 轉"
-    },
-    {
-     "w": "controversial",
-     "p": "controversy 爭議 + -ial"
-    },
-    {
-     "w": "controversy",
-     "p": "contro 相反 + vers 轉 + -y"
-    },
-    {
-     "w": "conversion",
-     "p": "con 一起 + vers 轉 + -ion"
-    },
-    {
-     "w": "convert",
-     "p": "con 一起 + vert 轉"
-    },
-    {
-     "w": "reverse",
-     "p": "re 往回 + vers 轉"
-    },
-    {
-     "w": "version",
-     "p": "vers 轉 + -ion"
-    },
-    {
-     "w": "versus",
-     "p": "vers 轉（拉丁文 versus 面對著）"
-    },
-    {
-     "w": "vertical",
-     "p": "vertic（拉丁文 vertex 頂點，源自 vertere 轉）+ -al"
-    },
-    {
-     "w": "avert",
-     "p": "a（ab）離開 + vert 轉"
-    },
-    {
-     "w": "divert",
-     "p": "di 分開 + vert 轉"
-    },
-    {
-     "w": "diversion",
-     "p": "di 分開 + vers 轉 + -ion"
-    },
-    {
-     "w": "diversify",
-     "p": "diverse 多樣的 + -ify 使"
-    },
-    {
-     "w": "versatile",
-     "p": "vers 轉 + -atile"
-    }
-   ],
-   "dropped": [
-    {
-     "why": "英文 over- 加原生動詞，與 vertere 無關",
-     "list": "oversee（5）　overtake（5）　overturn（5）　overthrow（4）　overseas（3）——這一組最容易誤判，因為 overturn 的意思正好是「翻轉」、overthrow 是「推翻」，語意上跟「轉」很接近，但構詞上是 over 加 turn、加 throw，是英文自己組出來的複合詞，不必回拉丁層。"
-    },
-    {
-     "why": "字串巧合",
-     "list": "poverty（3，來自 pauper 貧窮）　nevertheless（4，never + the + less）　evergreen（6，ever + green）"
-    }
-   ]
-  },
-  {
-   "key": "fer",
-   "zh": "帶、生產",
-   "note": "拉丁文 ferre「帶、承載」。把東西從一處帶到另一處，字首決定帶去哪裡：帶到前面、帶回去、帶到底下扛著。土地把作物帶出來，就轉成「生產」那一支（fertile 一系）。這個家族容易拆錯的字特別多，而且特別像，列在這個家族最後面。",
-   "items": [
-    {
-     "w": "different",
-     "p": "dif 分開 + fer 帶 + -ent"
-    },
-    {
-     "w": "difference",
-     "p": "dif 分開 + fer 帶 + -ence"
-    },
-    {
-     "w": "offer",
-     "p": "of（ob）朝向 + fer 帶"
-    },
-    {
-     "w": "prefer",
-     "p": "pre 在前 + fer 帶"
-    },
-    {
-     "w": "suffer",
-     "p": "suf（sub）在下 + fer 帶"
-    },
-    {
-     "w": "conference",
-     "p": "con 一起 + fer 帶 + -ence"
-    },
-    {
-     "w": "differ",
-     "p": "dif 分開 + fer 帶"
-    },
-    {
-     "w": "fertile",
-     "p": "fer 承載、帶 + -ile"
-    },
-    {
-     "w": "refer",
-     "p": "re 回 + fer 帶"
-    },
-    {
-     "w": "reference",
-     "p": "refer 參考 + -ence"
-    },
-    {
-     "w": "transfer",
-     "p": "trans 越過 + fer 帶"
-    },
-    {
-     "w": "indifferent",
-     "p": "in 不 + dif（dis）分開 + fer 帶 + -ent"
-    },
-    {
-     "w": "offering",
-     "p": "offer 提供 + -ing"
-    },
-    {
-     "w": "preference",
-     "p": "prefer 偏好 + -ence"
-    },
-    {
-     "w": "differentiate",
-     "p": "different 不同的 + -iate 使"
-    },
-    {
-     "w": "fertility",
-     "p": "fertile 肥沃的 + -ity"
-    },
-    {
-     "w": "fertilizer",
-     "p": "fertile 肥沃的 + -ize 使 + -er 物"
-    },
-    {
-     "w": "indifference",
-     "p": "indifferent 漠不關心的 + -ence"
-    },
-    {
-     "w": "infer",
-     "p": "in 往裡面 + fer 帶"
-    },
-    {
-     "w": "referee",
-     "p": "refer 交付 + -ee 人"
-    },
-    {
-     "w": "referendum",
-     "p": "refer 交付 + -endum"
-    }
-   ],
-   "dropped": [
-    {
-     "why": "來自 inferus「低」，不是 ferre",
-     "list": "inferior（3）——正好可以跟本表的 infer（6）對照著教：infer 是 in 往裡 + fer 帶，inferior 是「位置比較低的」，兩個字長得像，字根完全不同。"
-    },
-    {
-     "why": "來自 ferire「敲打」，不是 ferre",
-     "list": "interfere（4）　interference（5）——Etymonline：來自古法語 enterferer「互相打擊」，entre- 之間 + ferir 打擊，源頭是拉丁 ferire「敲打」，與 forare「鑽孔」同源。意思上「插進中間」很像「帶進中間」，但構詞是「在中間互打」。"
-    },
-    {
-     "why": "日耳曼語系，與拉丁 ferre 無關",
-     "list": "ferry（4）——來自古英語 ferian、原始日耳曼語 *farjan，PIE 詞根 *per-，跟 fare 同源；ferre 走的是 PIE *bher-。這是最刁鑽的一個：意思幾乎一樣（把人或貨載過去），來源卻無關。"
-    }
-   ]
-  },
-  {
-   "key": "spec / spect / spic / spis",
-   "zh": "看",
-   "note": "拉丁文 specere「看」。字首決定往哪裡看：回頭看、往裡看、從底下偷看、往下看。母音會變：spec、spect、spic、spis 是同一個字根的不同面貌。",
-   "items": [
-    {
-     "w": "expect",
-     "p": "ex 往外 + spect 看"
-    },
-    {
-     "w": "respect",
-     "p": "re 往回 + spect 看"
-    },
-    {
-     "w": "inspect",
-     "p": "in 往裡面 + spect 看"
-    },
-    {
-     "w": "inspector",
-     "p": "inspect 檢查 + -or 人"
-    },
-    {
-     "w": "suspect",
-     "p": "sus（sub）往上 + spect 看"
-    },
-    {
-     "w": "suspicion",
-     "p": "sus（sub）往上 + spic 看 + -ion"
-    },
-    {
-     "w": "expectation",
-     "p": "expect + -ation"
-    },
-    {
-     "w": "aspect",
-     "p": "a（ad）朝向 + spect 看"
-    },
-    {
-     "w": "inspection",
-     "p": "inspect 檢查 + -ion"
-    },
-    {
-     "w": "respectable",
-     "p": "respect 尊重 + -able"
-    },
-    {
-     "w": "respectful",
-     "p": "respect 尊重 + -ful"
-    },
-    {
-     "w": "suspicious",
-     "p": "sus（sub）往上 + spic 看 + -ious"
-    },
-    {
-     "w": "prospect",
-     "p": "pro 往前 + spect 看"
-    },
-    {
-     "w": "specimen",
-     "p": "spec 看 + -imen 物"
-    },
-    {
-     "w": "spectacular",
-     "p": "spect 看 + -acular"
-    },
-    {
-     "w": "spectator",
-     "p": "spect 看 + -ator 人"
-    },
-    {
-     "w": "spectrum",
-     "p": "spect 看（拉丁文 spectrum 外觀）"
-    },
-    {
-     "w": "speculate",
-     "p": "spec 看 + -ul（specula 瞭望台）+ -ate"
-    },
-    {
-     "w": "prospective",
-     "p": "prospect 前景 + -ive"
-    },
-    {
-     "w": "respective",
-     "p": "re 往回 + spect 看 + -ive"
-    },
-    {
-     "w": "spectacle",
-     "p": "spect（spectare 觀看）+ -acle"
-    }
-   ],
-   "dropped": [
-    {
-     "why": "同源旁支一：希臘語 skopein「看」，與拉丁 specere 同出 PIE *spek-",
-     "list": "scope（5）　microscope（4）　telescope（5）——這三個確實同源，只是走希臘語那一支（字母順序倒過來成 skop-）。可以在課堂上當延伸提一句：micro 小 + scope 看、tele 遠 + scope 看，但不併入本表，免得學生把 spec- 和 -scope 當成同一個字根去拼。"
-    },
-    {
-     "why": "同源旁支二：日耳曼語，但與拉丁 specere 同出 PIE *spek-",
-     "list": "spy（3）——來自古法語 espiier，再往上是法蘭克語 *spehon、原始日耳曼語 *spehon-，跟 specere 同一個 PIE 詞根。與 ferry 那種情形不同：ferry 是完全不同的詞根，spy 是同根不同支。"
-    },
-    {
-     "why": "同源但語意已遠",
-     "list": "spice（3）　spicy（5）——來自拉丁 species，中世紀拉丁文裡 species 指「各類貨品」，香料是其中一類，於是成了 spice。路徑太長，不列入條目。"
-    },
-    {
-     "why": "字串巧合",
-     "list": "crispy（3，來自 crispus 捲曲的，是 crisp + -y）"
-    }
-   ]
-  },
-  {
-   "key": "speci",
-   "zh": "種類（同一字根的另一支）",
-   "note": "「看」再延伸一步，就是「看起來的樣子」，樣子相同的歸為一類，於是分出 species「種類」這一支。這一支不必回拉丁層——special 是第 1 級，學生早就認得，從它拆起最省力。",
-   "items": [
-    {
-     "w": "special",
-     "p": "speci 種類 + -al"
-    },
-    {
-     "w": "especially",
-     "p": "e 古法語加的母音 + special 特別的 + -ly"
-    },
-    {
-     "w": "specific",
-     "p": "speci（species 種類）+ -fic"
-    },
-    {
-     "w": "species",
-     "p": "spec 看 + -ies"
-    },
-    {
-     "w": "specialist",
-     "p": "special 特別的 + -ist 人"
-    },
-    {
-     "w": "specialize",
-     "p": "special 特別的 + -ize 使"
-    },
-    {
-     "w": "specialty",
-     "p": "special 特別的 + -ty"
-    },
-    {
-     "w": "specify",
-     "p": "speci（species 種類）+ -fy"
-    }
-   ]
-  },
-  {
-   "key": "ced / cess / ceed / cede",
-   "zh": "走、讓",
-   "note": "拉丁文 cedere「走、退讓」。字首決定走的方向：往前走、往回退、緊接在後面走、讓出去。這個家族最值得講的是 necessary——ne 不 + cess 讓，原意是「沒有退路」，沒有退路的事就是必要的事。",
-   "items": [
-    {
-     "w": "successful",
-     "p": "suc（sub）在後 + cess 走 + -ful"
-    },
-    {
-     "w": "necessary",
-     "p": "ne 不 + cess（可能來自拉丁文 cedere 退開）+ -ary"
-    },
-    {
-     "w": "succeed",
-     "p": "suc（sub）靠近 + ceed 走"
-    },
-    {
-     "w": "success",
-     "p": "suc（sub）靠近 + cess 走"
-    },
-    {
-     "w": "necessity",
-     "p": "necessary 必要的 + -ity"
-    },
-    {
-     "w": "process",
-     "p": "pro 往前 + cess 走"
-    },
-    {
-     "w": "access",
-     "p": "ac（ad）朝向 + cess 走"
-    },
-    {
-     "w": "procedure",
-     "p": "pro + ced 走 + -ure（法文 procédure，來自中古法文 proceder）"
-    },
-    {
-     "w": "proceed",
-     "p": "pro 往前 + ceed 走"
-    },
-    {
-     "w": "accessible",
-     "p": "access 進入 + -ible"
-    },
-    {
-     "w": "concede",
-     "p": "con（com）可能加強語氣 + cede 讓"
-    },
-    {
-     "w": "exceed",
-     "p": "ex 往外 + ceed 走"
-    },
-    {
-     "w": "excessive",
-     "p": "ex 往外 + cess 走 + -ive"
-    },
-    {
-     "w": "recession",
-     "p": "re 往回 + cess 走 + -ion"
-    },
-    {
-     "w": "successor",
-     "p": "suc（sub）靠近 + cess 走 + -or 人"
-    },
-    {
-     "w": "unprecedented",
-     "p": "un 沒有 + pre 在前 + ced 走 + -ent + -ed"
-    },
-    {
-     "w": "accessory",
-     "p": "ac（ad）朝向 + cess 走 + -ory"
-    },
-    {
-     "w": "concession",
-     "p": "con（com）可能加強語氣 + cess 讓 + -ion"
-    },
-    {
-     "w": "excess",
-     "p": "ex 往外 + cess 走"
-    },
-    {
-     "w": "precede",
-     "p": "pre 在前 + cede 走"
-    },
-    {
-     "w": "precedent",
-     "p": "pre 在前 + ced 走 + -ent"
-    },
-    {
-     "w": "predecessor",
-     "p": "pre 在前 + de 離開 + cess 走 + -or 人"
-    },
-    {
-     "w": "procession",
-     "p": "pro 往前 + cess 走 + -ion"
-    },
-    {
-     "w": "succession",
-     "p": "suc（sub）靠近 + cess 走 + -ion"
-    },
-    {
-     "w": "successive",
-     "p": "suc（sub）靠近 + cess 走 + -ive"
-    }
-   ],
-   "dropped": [
-    {
-     "why": "字串巧合",
-     "list": "prince/princess（2，來自 primus 第一 + cap 拿取，是「拿到第一位的人」，cess 只是 princess 拼法上的巧合）　advanced（3，來自 abante「在前面」，與 cedere 無關）"
-    }
-   ]
-  },
-  {
-   "key": "cap / capt / cip / cept",
-   "zh": "抓、取（主幹）",
-   "note": "拉丁文 capere「抓住、拿取」。母音會變：cap、capt、cip、cept 是同一個字根的四種面貌，看到就要能認出來。字首決定抓的方向：朝自己抓、抓出去另外放、事先抓住、抓住一部分。",
-   "items": [
-    {
-     "w": "except",
-     "p": "ex 往外 + cept 拿"
-    },
-    {
-     "w": "accept",
-     "p": "ac（ad）朝向 + cept 拿"
-    },
-    {
-     "w": "participate",
-     "p": "parti 部分 + cip 拿 + -ate"
-    },
-    {
-     "w": "acceptable",
-     "p": "accept 接受 + -able"
-    },
-    {
-     "w": "capable",
-     "p": "cap 拿取 + -able"
-    },
-    {
-     "w": "capture",
-     "p": "capt 拿 + -ure"
-    },
-    {
-     "w": "acceptance",
-     "p": "accept 接受 + -ance"
-    },
-    {
-     "w": "capacity",
-     "p": "cap 容納 + -acity"
-    },
-    {
-     "w": "concept",
-     "p": "con（com）可能加強語氣 + cept 拿"
-    },
-    {
-     "w": "exception",
-     "p": "except 除外 + -ion"
-    },
-    {
-     "w": "participation",
-     "p": "participate 參與 + -ion"
-    },
-    {
-     "w": "recipe",
-     "p": "re 回 + cip 拿"
-    },
-    {
-     "w": "anticipate",
-     "p": "anti（ante）事先 + cip 拿 + -ate"
-    },
-    {
-     "w": "capability",
-     "p": "capable 有能力的 + -ity"
-    },
-    {
-     "w": "exceptional",
-     "p": "exception 例外 + -al"
-    },
-    {
-     "w": "municipal",
-     "p": "muni 職務 + cip 拿 + -al"
-    },
-    {
-     "w": "participant",
-     "p": "parti 部分 + cip 拿 + -ant 人"
-    },
-    {
-     "w": "recipient",
-     "p": "re 回 + cip 拿 + -ient 人"
-    },
-    {
-     "w": "anticipation",
-     "p": "anticipate 預料 + -ion"
-    },
-    {
-     "w": "caption",
-     "p": "capt 抓 + -ion"
-    },
-    {
-     "w": "captive",
-     "p": "capt 拿 + -ive"
-    },
-    {
-     "w": "captivity",
-     "p": "captive 被俘的 + -ity"
-    },
-    {
-     "w": "capsule",
-     "p": "caps 盒子 + -ule 小"
-    },
-    {
-     "w": "disciplinary",
-     "p": "discipline 紀律 + -ary"
-    }
-   ],
-   "dropped": [
-    {
-     "why": "來自 caput「頭」，不是 capere「抓」",
-     "list": "capital（2）　capital(ism)（4）　capitalist（4）　captain（3）——這一組講的是「頭」：capital 是頭一等的城市或資本，captain 是船頭那個人。跟「抓取」無關，是這個家族最大一批容易拆錯的字。"
-    },
-    {
-     "why": "來自 cappa「斗篷、頭罩」",
-     "list": "cap（1）　cape（6）　escape（2）——cap 是頭罩，escape 是 ex 脫出 + cappa 斗篷，「從斗篷裡溜出去」。注意 cap 是第 1 級，而本題庫把 capable 拆成 cap 拿取，兩個 cap 長得一樣、來源不同，教到 capable 時要提一句。"
-    },
-    {
-     "why": "字串巧合",
-     "list": "landscape（4，land + -scape，來自荷蘭語 -schap，即英文的 -ship）　handicap（6，hand in cap，出自舊時抽籤下注的手勢）"
-    }
-   ]
-  },
-  {
-   "key": "-ceive / -ceipt / -cept",
-   "zh": "抓（同一字根的法語支）",
-   "note": "capere 經古法語進入英文時，動詞變成 -ceive、名詞收據變成 -ceipt，但名詞形式又回到拉丁的 -cept。所以動詞與名詞看起來不像同一個字：receive 對 reception、conceive 對 conception、perceive 對 perception。這一組配對本身就是考點。",
-   "items": [
-    {
-     "w": "receive",
-     "p": "re 回 + ceive 拿"
-    },
-    {
-     "w": "receipt",
-     "p": "re + ceipt 拿"
-    },
-    {
-     "w": "receiver",
-     "p": "receive 收到 + -er 人"
-    },
-    {
-     "w": "reception",
-     "p": "re 回 + cept 拿 + -ion"
-    },
-    {
-     "w": "conceive",
-     "p": "con（com）可能加強語氣 + ceive 拿"
-    },
-    {
-     "w": "conception",
-     "p": "con（com）可能加強語氣 + cept 拿 + -ion"
-    },
-    {
-     "w": "deceive",
-     "p": "de 離開（或表貶義）+ ceive 拿"
-    },
-    {
-     "w": "perceive",
-     "p": "per 徹底 + ceive 拿"
-    },
-    {
-     "w": "perception",
-     "p": "per 徹底 + cept 拿 + -ion"
-    }
-   ]
-  },
-  {
-   "key": "princip-",
-   "zh": "拿到第一位（同一字根的複合支）",
-   "note": "princeps = primus 第一 + cap 拿取，「拿到第一順位的人」。principal 與 principle 是全表最常混的一對：前者是「主要的、校長」，後者是「原則」，字源相同、詞性用法完全不同。",
-   "items": [
-    {
-     "w": "principal",
-     "p": "princip 拿到第一位 + -al"
-    },
-    {
-     "w": "principle",
-     "p": "princip 拿到第一位（拉丁文 principium 開端）"
-    }
-   ]
-  },
-  {
-   "key": "tend / tens / tent",
-   "zh": "伸展",
-   "note": "拉丁文 tendere「伸長、拉緊」。心思或力氣往某個方向伸過去。這個家族與 tain/ten「握住」長得極像，但不同源：那個家族是抓在手上，這個家族是往外拉開。判斷方法：意思跟「方向、注意力、拉緊」有關的是這個家族。",
-   "items": [
-    {
-     "w": "attend",
-     "p": "at（ad）朝向 + tend 伸"
-    },
-    {
-     "w": "attention",
-     "p": "at（ad）朝向 + tent 伸 + -ion"
-    },
-    {
-     "w": "pretend",
-     "p": "pre 在前 + tend 伸"
-    },
-    {
-     "w": "tend",
-     "p": "tend 伸"
-    },
-    {
-     "w": "tent",
-     "p": "tent 伸"
-    },
-    {
-     "w": "extend",
-     "p": "ex 往外 + tend 伸"
-    },
-    {
-     "w": "extent",
-     "p": "ex 往外 + tent 伸"
-    },
-    {
-     "w": "intend",
-     "p": "in 朝向 + tend 伸"
-    },
-    {
-     "w": "intense",
-     "p": "in 朝向 + tens 伸"
-    },
-    {
-     "w": "intensity",
-     "p": "intense 強烈的 + -ity"
-    },
-    {
-     "w": "intensive",
-     "p": "intense 強烈的 + -ive"
-    },
-    {
-     "w": "intention",
-     "p": "in 往裡面 + tent 伸 + -ion"
-    },
-    {
-     "w": "tendency",
-     "p": "tend 傾向 + -ency"
-    },
-    {
-     "w": "tense",
-     "p": "tens 伸"
-    },
-    {
-     "w": "tension",
-     "p": "tens 伸 + -ion"
-    },
-    {
-     "w": "attendance",
-     "p": "attend 出席 + -ance"
-    },
-    {
-     "w": "contend",
-     "p": "con 加強 + tend 伸"
-    },
-    {
-     "w": "extension",
-     "p": "ex 往外 + tens 伸 + -ion"
-    },
-    {
-     "w": "extensive",
-     "p": "ex 往外 + tens 伸 + -ive"
-    },
-    {
-     "w": "intensify",
-     "p": "intense 強烈的 + -ify 使"
-    },
-    {
-     "w": "intent",
-     "p": "in 往裡面 + tent 伸"
-    },
-    {
-     "w": "attendant",
-     "p": "attend 照顧 + -ant 人"
-    },
-    {
-     "w": "contention",
-     "p": "con 一起 + tent 伸 + -ion"
-    },
-    {
-     "w": "superintendent",
-     "p": "super 在上 + in 朝向 + tend 伸 + -ent 人"
-    }
-   ],
-   "dropped": [
-    {
-     "why": "同源旁支：詞彙表收的是形容詞，而形容詞來自另一個拉丁字",
-     "list": "tender（3）——Etymonline：形容詞 tender 來自拉丁 tener「柔軟、幼嫩」，與 tendere 同出 PIE *ten-「伸展」（拉開→變薄→柔弱），但是不同的拉丁字。真正屬於 tendere 的是動詞 tender「正式提出」（legal tender 的那個），詞彙表未收錄。"
-    },
-    {
-     "why": "來自 tenere「握住」，屬於 tain/ten 家族",
-     "list": "content（4）　content(ment)（4）　detention（6）——這三個已收錄在 tain/ten 那個家族。content 是「一起握在裡面」，不是「一起伸出去」。"
-    },
-    {
-     "why": "來自 sistere「站」",
-     "list": "consistent（4）　persistent（6）——con 一起 + sist 站 = 立場前後站得住；per 持續 + sist 站 = 一直站著不走。跟「伸」無關。"
-    },
-    {
-     "why": "其他長得像、來源不同的字",
-     "list": "competent（5，com 一起 + pet 追求，能力夠得上）　potential（4）　potent（6）（來自 potis 能夠）　patent（5，來自 patere 開放，公開的專利）　utensil（6，來自 uti 使用）"
-    },
-    {
-     "why": "來自拉丁文 tentare「摸、試」，跟 tempt 同源",
-     "list": "tentative（6）——Etymonline、Merriam-Webster 都說它來自 tentare（摸、試、檢驗），跟 tendere（伸）無關：先試試看的→暫定的、猶豫的。"
-    }
-   ]
-  },
-  {
-   "key": "lect / leg / lig",
-   "zh": "挑、讀（legere）",
-   "note": "拉丁文 legere「一個個挑起來」，挑字來看就成了「讀」。字首決定怎麼挑：一起挑、分開挑、挑出來、不去挑。intelligent 與 diligent 是這一支最漂亮的兩條：能在事物之間挑出分別的是聰明，一件件挑著仔細做的是勤勉。",
-   "items": [
-    {
-     "w": "collect",
-     "p": "col 一起 + lect 挑"
-    },
-    {
-     "w": "select",
-     "p": "se 分開 + lect 挑"
-    },
-    {
-     "w": "selection",
-     "p": "select 挑選 + -ion"
-    },
-    {
-     "w": "collection",
-     "p": "collect 收集 + -ion"
-    },
-    {
-     "w": "elect",
-     "p": "e 往外 + lect 挑"
-    },
-    {
-     "w": "election",
-     "p": "elect 選舉 + -ion"
-    },
-    {
-     "w": "intelligent",
-     "p": "intel（inter）之間 + lig 挑 + -ent"
-    },
-    {
-     "w": "diligence",
-     "p": "diligent 勤勉的 + -ence"
-    },
-    {
-     "w": "diligent",
-     "p": "di 分開 + lig 挑 + -ent"
-    },
-    {
-     "w": "elegant",
-     "p": "elegant（拉丁文 elegans，跟拉丁文 eligere 挑選 同源）"
-    },
-    {
-     "w": "intellectual",
-     "p": "intel（inter）之間 + lect 挑 + -ual"
-    },
-    {
-     "w": "intelligence",
-     "p": "intelligent 聰明的 + -ence"
-    },
-    {
-     "w": "lecture",
-     "p": "lect 讀 + -ure"
-    },
-    {
-     "w": "lecturer",
-     "p": "lecture 講課 + -er 人"
-    },
-    {
-     "w": "legend",
-     "p": "leg 讀 + -end"
-    },
-    {
-     "w": "neglect",
-     "p": "neg 不 + lect 挑"
-    },
-    {
-     "w": "collective",
-     "p": "collect 收集 + -ive"
-    },
-    {
-     "w": "collector",
-     "p": "collect 收集 + -or 人"
-    },
-    {
-     "w": "eligible",
-     "p": "e 往外 + lig 挑 + -ible"
-    },
-    {
-     "w": "legendary",
-     "p": "legend 傳說 + -ary"
-    },
-    {
-     "w": "intellect",
-     "p": "intel（inter）之間 + lect 挑"
-    },
-    {
-     "w": "selective",
-     "p": "select 挑選 + -ive"
-    }
-   ],
-   "dropped": [
-    {
-     "why": "英文 light 一整組，與拉丁字根全部無關",
-     "list": "light（1）　flight（2）　flashlight（3）　lighthouse（3）　lightning（3）　highlight（5）　enlighten(ment)（6）　lighten（6）　spotlight（6）　twilight（6）——這一組是機器寬篩最大的錯誤來源，第二批曾誤收 highlight、spotlight、enlighten、twilight 四個。"
-    },
-    {
-     "why": "特別注意：delight 拼法被 light 帶偏",
-     "list": "delight（4）　delightful（4）——來自拉丁 delectare「吸引、取悅」（de + lacere 誘引），跟 delicious 同源，本來拼作 delite，是後人看它像 light 才改成 -ght。所以它既不屬 legere，也不屬 light。"
-    },
-    {
-     "why": "希臘語 elektron「琥珀」",
-     "list": "electric（2）　electrical（2）　electricity（3）　electronic（3）　electronics（4）　electrician（6）——琥珀摩擦生靜電，於是成了「電」。lect 只是拼法上的巧合。"
-    },
-    {
-     "why": "同源旁支：希臘語 legein「說」／logos「話語」，與拉丁 legere 同出 PIE *leg-",
-     "list": "dialogue（2）　catalogue（4）　dialect（5）　——dia 之間 + log 說 = 兩人之間的話；cata 依序 + log 說 = 依序列出來的清單；dialect 是一地人之間講的話。確實同源，但走希臘語那一支，不併入本表。"
-    },
-    {
-     "why": "字源有爭議，不列入",
-     "list": "religion（2）　religious（3）——古羅馬的西塞羅認為來自 relegere「反覆讀」，後來的基督教作者（拉克坦提烏斯、奧古斯丁）認為來自 religare「緊緊綁住」。兩種說法都有人採，Etymonline 並列而未定論，因此不列入條目。"
-    },
-    {
-     "why": "字串巧合",
-     "list": "leg（1，腿，來自古北歐語 leggr）　slight（4，來自古北歐語 slettr 平滑）　align（6，來自法語 aligner，出自 ligne 線，不是 ligare）　alligator（6，來自西班牙語 el lagarto「那隻蜥蜴」）　telegraph（5）　calligraphy（6）（都是 graph 寫，不是 leg）"
-    }
-   ]
-  },
-  {
-   "key": "leg / legis",
-   "zh": "法律（lex）",
-   "note": "拉丁文 lex／legis「法律」。跟上一支同形但不同源：上一支是「挑」，這一支是「法」。判斷方法：意思跟法律、權利、指派有關的是這一支。",
-   "items": [
-    {
-     "w": "legal",
-     "p": "leg 法律 + -al"
-    },
-    {
-     "w": "privilege",
-     "p": "privi 私人 + leg 法律 + -e"
-    },
-    {
-     "w": "delegate",
-     "p": "de 離開 + leg 派 + -ate"
-    },
-    {
-     "w": "delegation",
-     "p": "delegate 委派 + -ion"
-    },
-    {
-     "w": "legacy",
-     "p": "legacy（中古拉丁文 legatia；跟 legate 同源）"
-    },
-    {
-     "w": "legislation",
-     "p": "legis 法律 + lat 帶來 + -ion"
-    },
-    {
-     "w": "legislative",
-     "p": "legis 法律 + lat 帶來 + -ive"
-    },
-    {
-     "w": "legitimate",
-     "p": "legitim 合法的 + -ate"
-    },
-    {
-     "w": "legislator",
-     "p": "legis 法律 + lat 帶來 + -or 人"
-    }
-   ]
-  },
-  {
-   "key": "lig",
-   "zh": "綁（ligare）",
-   "note": "拉丁文 ligare「綁」。與上兩支同形而不同源，只有兩個字，但都是常考字。同源的還有 ligament（韌帶）、league（結盟），詞彙表未收錄。",
-   "items": [
-    {
-     "w": "obligation",
-     "p": "ob 朝向 + lig 綁 + -ation"
-    },
-    {
-     "w": "oblige",
-     "p": "ob 朝向 + lig 綁"
-    }
-   ]
-  },
-  {
-   "key": "nom / onym",
-   "zh": "名字",
-   "note": "拉丁文 nomen 和希臘文 onoma 都是「名字」，兩者遠古同源，英文的 name 也是從同一個古老字根來的。拉丁文這一支在英文裡多半寫成 nom，像 nominate（叫出名字 → 提名）；希臘文這一支寫成 onym，像 synonym（名字相同 → 同義字）、anonymous（沒有名字 → 匿名的）。特別注意 astronomy、economy、autonomy 裡的 nomy 不是這個家族，那是希臘文 nomos（安排、管理、法則），見下一個家族；phenomenon 裡的 nom 也不是，它來自希臘文 phainein（顯現）。",
-   "items": [
-    {
-     "w": "nominate",
-     "p": "nomin 名字 + -ate"
-    },
-    {
-     "w": "nomination",
-     "p": "nominate + -ion"
-    },
-    {
-     "w": "nominee",
-     "p": "nominate 提名（nomin 名字）+ -ee（受…的人）"
-    },
-    {
-     "w": "anonymous",
-     "p": "an 沒有 + onym 名字 + -ous"
-    },
-    {
-     "w": "synonym",
-     "p": "syn 相同 + onym 名字"
-    },
-    {
-     "w": "antonym",
-     "p": "ant 相反 + onym 名字"
-    },
-    {
-     "w": "renowned",
-     "p": "renown 名聲（盎格魯法語 renomer 傳述：re- + nomer 叫名字，來自拉丁文 nominare）+ -ed"
-    }
-   ],
-   "dropped": [
-    {
-     "why": "來自希臘文 nomos「安排、管理」，見下一個家族 nomy",
-     "list": "astronomy　astronomer　economy　economic　economical　economics　economist　autonomy"
-    },
-    {
-     "why": "來自希臘文 phainein「顯現」，與本字根無關",
-     "list": "phenomenon"
-    }
-   ]
-  },
-  {
-   "key": "nomy",
-   "zh": "安排、管理、法則",
-   "note": "希臘文 nomos，意思是「安排、管理；規則、法律」，動詞 nemein 是「分配、管理」。astronomy 是 astron（星星）+ nomy，原意是「安排星星的運行」→ 天文學；economy 是 eco（希臘文 oikos 家）+ nomy，原意是「管理一個家」，後來擴大成管理一個國家的財物 → 經濟；autonomy 是 auto（自己）+ nomy，自己訂規矩 → 自治。這個家族的 nomy 看起來像上一個家族的 nom（名字），其實是另一個字。economic（經濟的）和 economical（節省的）這一對常考，見易混淆字第 160 組。",
-   "items": [
-    {
-     "w": "economy",
-     "p": "eco（希臘文 oikos 家）+ nomy 管理"
-    },
-    {
-     "w": "economic",
-     "p": "economy 的形容詞"
-    },
-    {
-     "w": "economical",
-     "p": "economic + -al"
-    },
-    {
-     "w": "economics",
-     "p": "economic + -s（學科）"
-    },
-    {
-     "w": "economist",
-     "p": "economy + -ist"
-    },
-    {
-     "w": "autonomy",
-     "p": "auto 自己 + nomy 法則"
-    },
-    {
-     "w": "astronomy",
-     "p": "astro 星星 + nomy 法則"
-    },
-    {
-     "w": "astronomer",
-     "p": "astronomy + -er"
-    }
-   ],
-   "dropped": [
-    {
-     "why": "看起來像，其實是 nom / onym「名字」那個家族",
-     "list": "nominate　anonymous　synonym　antonym"
-    }
-   ]
-  },
-  {
-   "key": "terr",
-   "zh": "使害怕",
-   "note": "拉丁文 terrere「使害怕」。terrible 和 terrific 一開始都是「令人害怕的」，後來意思都弱化成「程度很大」，最後才分道揚鑣：terrible 變成「很糟的」，terrific 卻變成「極好的」，兩個字的意思剛好相反，要特別小心。deter 是 de（離開）加上 ter（嚇），「把人嚇走」→ 嚇阻。特別注意 territory、terrace 的 terr 多半是拉丁文 terra（土地），跟「嚇」無關；determine 開頭也是 deter，卻是 de + termin（界限），跟 deter 不是同一個家族。",
-   "items": [
-    {
-     "w": "terrible",
-     "p": "terr 嚇 + -ible"
-    },
-    {
-     "w": "terrorism",
-     "p": "terror + -ism"
-    },
-    {
-     "w": "terrorist",
-     "p": "terror + -ist"
-    },
-    {
-     "w": "terrific",
-     "p": "terr 嚇 + -ific（拉丁文 facere 做）"
-    },
-    {
-     "w": "terror",
-     "p": "terr 嚇 + -or（名詞字尾）"
-    },
-    {
-     "w": "terrify",
-     "p": "terr 嚇 + -ify"
-    },
-    {
-     "w": "deter",
-     "p": "de 離開 + ter（拉丁文 terrere 嚇）"
-    }
-   ],
-   "dropped": [
-    {
-     "why": "多半來自拉丁文 terra「土地」，與本字根無關",
-     "list": "territory（也有學者認為跟 terrere「嚇」有關，原意是「警告別人不准進來的地方」）　terrace"
-    },
-    {
-     "why": "開頭也是 deter，卻是 de + termin「界限」",
-     "list": "determine　determination"
-    },
-    {
-     "why": "字串巧合",
-     "list": "interrupt（inter 在中間 + rupt 斷）　detergent（de 去掉 + tergere 擦）"
-    }
-   ]
-  },
-  {
-   "key": "rupt",
-   "zh": "破、斷",
-   "note": "拉丁文 rumpere「打破、弄斷」。字首決定怎麼斷：從中間斷開（interrupt）、往外衝破（erupt）、斷成兩半（disrupt）、斷掉離開（abrupt）、徹底斷掉壞了（corrupt）。bankrupt 來自義大利文 banca rotta「斷掉的長凳」：banca 是錢莊放錢做生意的長凳，rotta 是「斷了的」，後來英文照拉丁文改拼成 rupt。傳說錢莊倒閉時，人們會把它的長凳打斷，不過 Etymonline 認為這多半只是比喻。route（路線）也是這個家族的遠親：拉丁文 via rupta 是「硬開出來的路」，routine（例行公事，也就是每天走的固定路線）再從 route 延伸出來。",
-   "items": [
-    {
-     "w": "interrupt",
-     "p": "inter 在中間 + rupt 斷"
-    },
-    {
-     "w": "bankrupt",
-     "p": "bank（古義大利文 banca 銀行）+ rupt 斷（rotta 破掉的，來自拉丁文 rumpere）"
-    },
-    {
-     "w": "interruption",
-     "p": "interrupt + -ion"
-    },
-    {
-     "w": "abrupt",
-     "p": "ab 離開 + rupt 斷"
-    },
-    {
-     "w": "corrupt",
-     "p": "cor（com）可能表加強 + rupt 斷"
-    },
-    {
-     "w": "corruption",
-     "p": "corrupt + -ion"
-    },
-    {
-     "w": "disrupt",
-     "p": "dis 分開 + rupt 斷"
-    },
-    {
-     "w": "erupt",
-     "p": "e（ex）往外 + rupt 斷"
-    }
-   ],
-   "dropped": []
-  },
-  {
-   "key": "press",
-   "zh": "壓",
-   "note": "拉丁文 premere「壓」。字首決定往哪裡壓：壓在上面留下痕跡（impress，在心裡留下印象）、往外擠出來（express，把想法擠出來）、往下壓（depress，把心情壓低）、對著壓下去（oppress，壓迫）、壓到底下（suppress，鎮壓、壓抑）。print（印）、printer 也是同一個拉丁字根經古法文變來的，拼法看不出 press，可是印刷本來就是把字壓在紙上，可以當成這個家族的遠親。",
-   "items": [
-    {
-     "w": "press",
-     "p": "拉丁文 premere 壓"
-    },
-    {
-     "w": "pressure",
-     "p": "press 壓 + -ure"
-    },
-    {
-     "w": "express",
-     "p": "ex 往外 + press 壓"
-    },
-    {
-     "w": "expression",
-     "p": "express 表達 + -ion"
-    },
-    {
-     "w": "impressive",
-     "p": "impress 使印象深刻 + -ive"
-    },
-    {
-     "w": "expressive",
-     "p": "express 表達 + -ive"
-    },
-    {
-     "w": "impress",
-     "p": "im 在…上 + press 壓"
-    },
-    {
-     "w": "depression",
-     "p": "depress 使沮喪 + -ion"
-    },
-    {
-     "w": "impression",
-     "p": "impress 使印象深刻 + -ion"
-    },
-    {
-     "w": "depress",
-     "p": "de 往下 + press 壓"
-    },
-    {
-     "w": "oppress",
-     "p": "op（ob 對著）+ press 壓"
-    },
-    {
-     "w": "oppression",
-     "p": "oppress + -ion"
-    },
-    {
-     "w": "suppress",
-     "p": "sup（sub 往下）+ press 壓"
-    }
-   ],
-   "dropped": []
-  },
-  {
-   "key": "tract",
-   "zh": "拉",
-   "note": "拉丁文 trahere「拉」。字首決定往哪裡拉：拉過來（attract，吸引）、拉出來（extract，提煉）、拉開（distract，使分心）、往下拉掉（subtract，減去）、從具體的東西拉出來（abstract，抽象的）。contract 的兩個意思來自同一個字：把雙方拉在一起是「合約」，把東西拉在一起就是「收縮」。特別注意 track 長得很像，Etymonline 卻說它來源不確定，多半來自日耳曼語，不是這個家族。",
-   "items": [
-    {
-     "w": "contract",
-     "p": "con 一起 + tract 拉"
-    },
-    {
-     "w": "attract",
-     "p": "at 朝向 + tract 拉"
-    },
-    {
-     "w": "attractive",
-     "p": "attract 吸引 + -ive"
-    },
-    {
-     "w": "subtract",
-     "p": "sub 從下面 + tract 拉"
-    },
-    {
-     "w": "attraction",
-     "p": "attract 吸引 + -ion"
-    },
-    {
-     "w": "abstract",
-     "p": "abs 離開 + tract 拉"
-    },
-    {
-     "w": "contractor",
-     "p": "contract 承包 + -or"
-    },
-    {
-     "w": "distract",
-     "p": "dis 分開 + tract 拉"
-    },
-    {
-     "w": "distraction",
-     "p": "distract 使分心 + -ion"
-    },
-    {
-     "w": "extract",
-     "p": "ex 往外 + tract 拉"
-    },
-    {
-     "w": "abstraction",
-     "p": "abstract 抽象的 + -ion"
-    }
-   ],
-   "dropped": [
-    {
-     "why": "Etymonline 說來源不確定，多半來自日耳曼語，跟 trahere 無關",
-     "list": "track"
-    }
-   ]
-  },
-  {
-   "key": "treat / trait",
-   "zh": "拉（trahere 經法文的一支）",
-   "note": "trahere「拉」經古法文進入英文的字，拼法常變成 treat、trait。其中 treat 來自反覆形 tractare，意思是「拉來拉去」→處理、對待；treat 原意是「處理、商議」，所以 treaty 是商議出來的「條約」。trait 和 trace 則來自過去分詞 tractus，也就是「拉出來的一道」：trait 原意是畫出來的一筆線條，後來變成「特徵」；trace 是拉出來留下的痕跡。retreat 也是過去分詞這一支：古法文 retrere 是「往回拉」，它的過去分詞 retrait 就是往回拉→撤退；拼法雖然跟 treat 一樣，卻不是從 tractare 來的。portrait 是往前畫出來，也就是把人畫出來→肖像。特別注意 strait、traitor 長得像，卻是別的字根。",
-   "items": [
-    {
-     "w": "treat",
-     "p": "拉丁文 tractare 處理（trahere 拉 的反覆形）"
-    },
-    {
-     "w": "treatment",
-     "p": "treat 對待；治療 + -ment"
-    },
-    {
-     "w": "portrait",
-     "p": "por（表示完成，源自拉丁文 pro）+ trait 畫（古法文 pourtraire 描繪）"
-    },
-    {
-     "w": "trace",
-     "p": "拉丁文 tractus（trahere 拉 的過去分詞）"
-    },
-    {
-     "w": "retreat",
-     "p": "re + treat 拉（盎格魯法語 retraire 撤退，來自拉丁文 retrahere，由 re- + trahere 拉 組成）"
-    },
-    {
-     "w": "trait",
-     "p": "拉丁文 tractus 拉（法文原意是「拉、畫的動作」）"
-    },
-    {
-     "w": "treaty",
-     "p": "盎格魯法語 treté（treter 商議、處理 的過去分詞；跟 treat 同源）"
-    }
-   ],
-   "dropped": [
-    {
-     "why": "來自拉丁文 stringere「綁緊」，跟 strict 同源",
-     "list": "strait"
-    },
-    {
-     "why": "來自拉丁文 tradere「交出去」（把人交給敵人→出賣），跟 tradition 同源，跟 trahere 無關",
-     "list": "traitor"
-    }
-   ]
-  },
-  {
-   "key": "sist",
-   "zh": "站",
-   "note": "拉丁文 sistere「站、站穩」，跟 stare「站」同一個字根。字首決定站在哪裡、怎麼站：站到旁邊（assist，幫忙）、站在上面不走（insist，堅持）、一路站到底（persist，堅持不懈）、站著對抗（resist，抵抗）、站在一起（consist，由…組成）、站出來（exist，存在）。exist 是 ex 加上 sistere，因為 x 本身就帶有 s 的音，sist 的 s 就省掉了，所以拼法只看得到 ist。consistent 字面上是「站在一起」，引申成「意見相合」，後來才有「前後一致的」這個意思。特別注意 sister 只是拼法巧合，它是日耳曼語來的字。",
-   "items": [
-    {
-     "w": "insist",
-     "p": "in 在上面 + sist 站"
-    },
-    {
-     "w": "exist",
-     "p": "ex 往外 + ist（拉丁文 sistere 站）"
-    },
-    {
-     "w": "existence",
-     "p": "exist 存在 + -ence"
-    },
-    {
-     "w": "assist",
-     "p": "as 朝向 + sist 站"
-    },
-    {
-     "w": "assistant",
-     "p": "assist 協助 + -ant"
-    },
-    {
-     "w": "resist",
-     "p": "re 反 + sist 站"
-    },
-    {
-     "w": "assistance",
-     "p": "assist 協助 + -ance"
-    },
-    {
-     "w": "consist",
-     "p": "con 一起 + sist 站"
-    },
-    {
-     "w": "consistent",
-     "p": "con 一起 + sist 站 + -ent"
-    },
-    {
-     "w": "resistance",
-     "p": "resist 抵抗 + -ance"
-    },
-    {
-     "w": "persist",
-     "p": "per 徹底 + sist 站"
-    },
-    {
-     "w": "insistence",
-     "p": "insist 堅持 + -ence"
-    },
-    {
-     "w": "persistence",
-     "p": "persist 堅持不懈 + -ence"
-    },
-    {
-     "w": "persistent",
-     "p": "persist 堅持不懈 + -ent"
-    },
-    {
-     "w": "resistant",
-     "p": "resist 抵抗 + -ant"
-    }
-   ],
-   "dropped": [
-    {
-     "why": "來自古英文 sweostor，日耳曼語來源，只是拼法巧合",
-     "list": "sister"
-    }
-   ]
-  },
-  {
-   "key": "fect / fic",
-   "zh": "做",
-   "note": "拉丁文 facere「做」。加上字首以後，fac 常變成 fect 或 fic，字首決定怎麼做：往外做出來（effect 效果、efficient 做得出成果的）、對著做（affect 影響）、往裡面做（infect 感染）、徹底做完（perfect 完美的）、做到一半離開，也就是做不到（defect 缺點、deficit 不足額）、補上、供應得上（sufficient 足夠的）、往前做（profit 利潤、proficiency 精通）。affection 原本是心受到作用以後的狀態，後來縮窄成「喜愛」。這一族還有 fact／fac、feat／fair 兩支，排在後面。特別注意 fiction 雖然也有 fic，卻來自另一個拉丁字 fingere「捏塑」。",
-   "items": [
-    {
-     "w": "affect",
-     "p": "af 朝向 + fect 做"
-    },
-    {
-     "w": "effect",
-     "p": "ef（ex）往外 + fect 做"
-    },
-    {
-     "w": "effective",
-     "p": "effect 效果 + -ive"
-    },
-    {
-     "w": "perfect",
-     "p": "per 徹底 + fect 做"
-    },
-    {
-     "w": "efficient",
-     "p": "ef（ex 往外）+ fic 做 + -ient"
-    },
-    {
-     "w": "sufficient",
-     "p": "suf（sub 往上）+ fic 做 + -ient（拉丁文 sufficere 提供、足夠）"
-    },
-    {
-     "w": "profit",
-     "p": "pro 往前 + fit（拉丁文 proficere 進展）"
-    },
-    {
-     "w": "infection",
-     "p": "infect 感染 + -ion"
-    },
-    {
-     "w": "perfection",
-     "p": "perfect 使完美 + -ion"
-    },
-    {
-     "w": "affection",
-     "p": "affect 作用於 + -ion（拉丁文 affectio 心的狀態）"
-    },
-    {
-     "w": "infect",
-     "p": "in 往裡面 + fect 做"
-    },
-    {
-     "w": "deficit",
-     "p": "拉丁文 deficit「它不夠」（de 離開 + fic 做）"
-    },
-    {
-     "w": "affectionate",
-     "p": "affection + -ate"
-    },
-    {
-     "w": "infectious",
-     "p": "infection 感染 + -ous"
-    },
-    {
-     "w": "defect",
-     "p": "de 離開 + fect 做"
-    },
-    {
-     "w": "proficiency",
-     "p": "proficient 精通的 + -cy"
-    }
-   ],
-   "dropped": [
-    {
-     "why": "來自拉丁文 fingere「捏塑」→捏造、虛構，跟 facere 無關",
-     "list": "fiction"
-    }
-   ]
-  },
-  {
-   "key": "fact / fac",
-   "zh": "做（facere 的另外兩種面貌）",
-   "note": "fact 是 facere 的過去分詞 factum「做過的事」，所以是「事實」。factor 原本是做事的人，後來在數學裡指「因數」，再引申成促成結果的「因素」；factory 是做東西的地方→工廠，manufacture 是用手做→製造，satisfy 是做得足夠→使滿意。facil 是拉丁文 facilis「容易的」（容易做的），也是從 facere 來的：facility 是讓事情容易做的東西→設施，facilitate 是使容易→促進，faculty 是做事的能力→才能，後來也指一門學問、大學裡的學院，再指全體教師；difficulty 是 dis（否定）加上 facilis，不容易→困難，至於 difficult，是後來從 difficulty 去掉 -y 變出來的。",
-   "items": [
-    {
-     "w": "fact",
-     "p": "拉丁文 factum 做過的事"
-    },
-    {
-     "w": "factory",
-     "p": "fact 做 + -ory"
-    },
-    {
-     "w": "difficult",
-     "p": "大概是從 difficulty 倒推出來的（dif（大概是 dis）+ ficult，來自拉丁文 facilis 容易的）"
-    },
-    {
-     "w": "factor",
-     "p": "fact 做 + -or"
-    },
-    {
-     "w": "satisfy",
-     "p": "satis 足夠 + fy（facere 做）"
-    },
-    {
-     "w": "difficulty",
-     "p": "拉丁文 difficultas（dif（大概是 dis）+ facilis 容易的）"
-    },
-    {
-     "w": "satisfactory",
-     "p": "satisfy 使滿意（拉丁文 satisfacere 做得足夠）+ -ory"
-    },
-    {
-     "w": "manufacture",
-     "p": "manu（拉丁文 manus 手）+ fact（facere 做）+ -ure"
-    },
-    {
-     "w": "manufacturer",
-     "p": "manufacture 製造 + -er"
-    },
-    {
-     "w": "satisfaction",
-     "p": "satisfy 使滿意（拉丁文 satisfacere）+ -tion"
-    },
-    {
-     "w": "facility",
-     "p": "facil（拉丁文 facilis 容易的）+ -ity"
-    },
-    {
-     "w": "facilitate",
-     "p": "facilit（可能來自中古法文 faciliter 使容易；字源可追溯到拉丁文 facilis 容易的）+ -ate"
-    },
-    {
-     "w": "faculty",
-     "p": "facul（拉丁文 facultas 能力，來自 facilis 容易的）+ -ty"
-    },
-    {
-     "w": "faction",
-     "p": "fact（拉丁文 facere 做）+ -ion"
-    }
-   ],
-   "dropped": []
-  },
-  {
-   "key": "feat / fair",
-   "zh": "做（facere 經法文的一支）",
-   "note": "facere 經古法文進入英文，拼法變成 feat、fair、fash。feature 是做出來的樣子→特色、五官；defeat 是把做好的拆掉→打敗；affair 是古法文 à faire「要做的事」→事情、事務；fashion 是做出來的樣子→流行、方式，跟上一支的 faction 同源。特別注意 feather 只是拼法巧合；traffic 看起來也像，Etymonline 卻說它來源不確定，所以不收進這個家族。",
-   "items": [
-    {
-     "w": "feature",
-     "p": "feat（拉丁文 facere 做）+ -ure"
-    },
-    {
-     "w": "affair",
-     "p": "af（盎格魯法語 a 到，源自拉丁文 ad）+ fair（faire 做，源自拉丁文 facere）"
-    },
-    {
-     "w": "fashion",
-     "p": "盎格魯法語 façun 樣式（源自拉丁文 factio 做的動作）"
-    },
-    {
-     "w": "defeat",
-     "p": "de + feat 做（盎格魯法語 desfet，是 desfaire「拆掉、毀掉」的過去分詞）"
-    }
-   ],
-   "dropped": [
-    {
-     "why": "Etymonline 說來源不確定，不能確定跟 facere 有關",
-     "list": "traffic"
-    },
-    {
-     "why": "來自古英文 feðer，日耳曼語來源，只是拼法巧合",
-     "list": "feather"
-    }
-   ]
-  },
-  {
-   "key": "-fic / -fice",
-   "zh": "做（接在別的字根後面）",
-   "note": "這個家族的字都是把 facere「做」接在別的字根後面，變成 -fic、-fice，意思是「做成…、使…」，至於做什麼，就看前面的字根。像 signi（記號）+ fic 是「做記號」，所以 significant 是有意義的、重要的；sacri（神聖）+ fice 是「使成為神聖的」，所以 sacrifice 是獻祭、犧牲。certificate、artificial、magnificent、benefit、scientific 也都可以這樣拆；benefit 的 fit 是 fact 經法文變來的拼法。office 則是由 opificium（op 工作 + fic 做）縮短而來，原意是「職務」，officer、official 也都從這裡來。specific、terrific 是同樣的構詞，分別收在 speci、terr 兩個家族；字尾 -fy（magnify、certify）也來自 facere，收在字首字尾表的 -fy 那一組。superficial 的 fic 來自 facies（臉、外觀），所以不收進這個家族。",
-   "items": [
-    {
-     "w": "office",
-     "p": "拉丁文 officium 職務（由 opificium「做工作」縮短而來：op 工作 + fic 做）"
-    },
-    {
-     "w": "officer",
-     "p": "office 職務 + -er"
-    },
-    {
-     "w": "official",
-     "p": "office 職務、官方 + -ial"
-    },
-    {
-     "w": "scientific",
-     "p": "scienti（拉丁文 scientia 知識）+ -fic（拉丁文 facere 做）"
-    },
-    {
-     "w": "significant",
-     "p": "signi（拉丁文 signum 記號）+ fic 做 + -ant（拉丁文 significare 表示）"
-    },
-    {
-     "w": "benefit",
-     "p": "bene 好 + fit 做（拉丁文 bene factum 善行，經盎格魯法語 benfet 變成 fit）"
-    },
-    {
-     "w": "significance",
-     "p": "significant 重要的 + -ce"
-    },
-    {
-     "w": "magnificent",
-     "p": "magni 大 + fic 做（拉丁文 magnificus 偉大的、高貴的）"
-    },
-    {
-     "w": "artificial",
-     "p": "arti（拉丁文 ars 技藝）+ fic 做 + -ial"
-    },
-    {
-     "w": "sacrifice",
-     "p": "sacri（拉丁文 sacer 神聖的）+ fice 做"
-    },
-    {
-     "w": "beneficial",
-     "p": "benefit 好處 + -ial"
-    },
-    {
-     "w": "certificate",
-     "p": "certi（拉丁文 certus 確定的）+ fic 做 + -ate"
-    }
-   ],
-   "dropped": [
-    {
-     "why": "super（在上面）+ facies（臉、外觀），也就是「表面」；Etymonline 只說 facies 可能跟 facere 有關，不收進這個家族",
-     "list": "superficial"
-    }
-   ]
-  },
-  {
-   "key": "scrib / script",
-   "zh": "寫",
-   "note": "拉丁文 scribere「寫」，過去分詞是 scriptus，所以這個家族有 scribe、script 兩種拼法：動詞多半是 -scribe，名詞和形容詞把 be 換成 p，變成 -script、-scription、-scriptive，像 describe → description、descriptive。前面加的字首不同，意思也跟著變：describe 是寫下來→描述，prescribe 是事先寫好→規定、開處方，subscribe 是在文件下面簽上名字→訂閱，transcript 是照著抄到另一張紙上→文字紀錄、成績單。manuscript 是用手（manu）寫的稿子，script 是寫下來的東西，也就是劇本、腳本。",
-   "items": [
-    {
-     "w": "describe",
-     "p": "de 往下 + scribe 寫"
-    },
-    {
-     "w": "description",
-     "p": "describe 描述 + -tion（be 變成 p）"
-    },
-    {
-     "w": "descriptive",
-     "p": "describe 描述（拉丁文 describere）+ -ive"
-    },
-    {
-     "w": "prescribe",
-     "p": "pre 事先 + scribe 寫"
-    },
-    {
-     "w": "prescription",
-     "p": "prescribe 開藥方 + -tion（be 變成 p）"
-    },
-    {
-     "w": "script",
-     "p": "script（拉丁文 scriptum 寫下來的東西）"
-    },
-    {
-     "w": "subscribe",
-     "p": "sub 在下面 + scribe 寫"
-    },
-    {
-     "w": "subscription",
-     "p": "subscribe 訂閱 + -tion（be 變成 p）"
-    },
-    {
-     "w": "transcript",
-     "p": "trans 越過 + script 寫"
-    },
-    {
-     "w": "manuscript",
-     "p": "manu 手 + script 寫"
-    }
-   ],
-   "dropped": []
-  },
-  {
-   "key": "sens / sent",
-   "zh": "感覺",
-   "note": "拉丁文 sentire「感覺、察覺；認為」，過去分詞是 sensus，所以這個家族有 sens、sent 兩種拼法。sense 是感覺，也是對事情的判斷，sensible 是有判斷力的→明智的，sensitive 是很容易感覺到的→敏感的、體貼的，sensation 是感覺，也指引起大家感覺的事→轟動，sensor 是感應器。sent 這一支：sentiment 是心裡的感覺→情感、看法，sentence 原本是「心裡的看法」，後來變成法官的判決，也變成表達一個完整意思的句子；加上字首的字：consent、consensus 是感覺一樣→同意、共識，dissent 是感覺不同→異議，resent 是強烈地感覺到委屈→憤恨。scent（氣味）也是這個家族：古法文 sentir 有「感覺、聞到」的意思，來自拉丁文 sentire，c 是十七世紀才加上去的。特別注意 present、absent、represent 裡的 sent 是另一個字根，不是這個家族。",
-   "items": [
-    {
-     "w": "sentence",
-     "p": "sent（拉丁文 sentire 感覺）+ -ence"
-    },
-    {
-     "w": "sense",
-     "p": "sense（拉丁文 sensus 感覺，來自 sentire）"
-    },
-    {
-     "w": "sensitive",
-     "p": "sense 感覺 + -itive"
-    },
-    {
-     "w": "sensible",
-     "p": "sens（拉丁文 sentire 感覺）+ -ible"
-    },
-    {
-     "w": "nonsense",
-     "p": "non 不 + sense 意義"
-    },
-    {
-     "w": "sensitivity",
-     "p": "sensitive 敏感的 + -ity"
-    },
-    {
-     "w": "sensation",
-     "p": "sense 感覺 + -ation（去掉 e）"
-    },
-    {
-     "w": "sensor",
-     "p": "sens（拉丁文 sentire 感覺）+ -or"
-    },
-    {
-     "w": "sentiment",
-     "p": "senti（拉丁文 sentire 感覺）+ -ment"
-    },
-    {
-     "w": "sentimental",
-     "p": "sentiment 感情 + -al"
-    },
-    {
-     "w": "consent",
-     "p": "con 一起 + sent 感覺"
-    },
-    {
-     "w": "consensus",
-     "p": "consens（拉丁文 consentire 有同感、意見一致）+ -us（拉丁文 -tus，表示動作的名詞字尾）"
-    },
-    {
-     "w": "scent",
-     "p": "scent（盎格魯法語 sentir 感覺、聞到，來自拉丁文 sentire；中古英文拼成 sent，c 是後來才加上的）"
-    },
-    {
-     "w": "dissent",
-     "p": "dis 不同 + sent 感覺"
-    },
-    {
-     "w": "resent",
-     "p": "re 可能表加強 + sent 感覺"
-    },
-    {
-     "w": "resentment",
-     "p": "resent 怨恨、不滿 + -ment"
-    }
-   ],
-   "dropped": [
-    {
-     "why": "-sent 來自拉丁文 esse「存在、在」的分詞：absent 是不在（ab 離開），present 是在面前（pre 前面），跟 sentire 無關",
-     "list": "absent、present、represent"
-    },
-    {
-     "why": "來自拉丁文 descendere：de 向下 + scandere 爬，往下爬→下降；家世、血統。跟 scent（氣味）無關，倒是 scent 的 c 可能就是受 descent、ascent 的拼法影響才加上的；收在 scend / scent 那個家族",
-     "list": "descent"
-    }
-   ]
-  },
-  {
-   "key": "ject",
-   "zh": "丟",
-   "note": "拉丁文 iacere「丟」，過去分詞是 iactus；接在字首後面時母音會變，過去分詞變成 -iectus，英文就拼成 -ject。字首決定往哪裡丟：reject 是丟回去→拒絕；inject 是丟進去→注射；project 是往前丟出去→投射，先在心裡往前想好的事情就是計畫；object 是丟到眼前、擋在面前的東西→物體，當動詞是「反對」；subject 是放在底下當基礎的東西→主題、科目。objective、subjective 現在「客觀、主觀」的意思，是十八、十九世紀從德國哲學（康德那一代）流行起來的：object 指人心外面、被人看、被人想的東西，也就是「客體」；subject 指在看、在想的人自己，也就是「主體」。所以 objective 是從事物本身來看→客觀的，subjective 是從自己的感受來看→主觀的。jet 也是這個家族：後期拉丁文 iectare「丟」（取代原本的 iactare「丟來丟去」）變成法文 jeter「丟」，法文名詞 jet 就是丟出去、噴出來的一股東西，所以英文 jet 是噴出來的水柱或氣流，噴射機也叫 jet。",
-   "items": [
-    {
-     "w": "subject",
-     "p": "sub 在下面 + ject 丟"
-    },
-    {
-     "w": "object",
-     "p": "ob 對著、擋在前面 + ject 丟"
-    },
-    {
-     "w": "project",
-     "p": "pro 往前 + ject 丟"
-    },
-    {
-     "w": "reject",
-     "p": "re + ject 丟"
-    },
-    {
-     "w": "jet",
-     "p": "jet（法文 jeter 丟，來自拉丁文 jactare 丟，是 jacere 的反覆形）"
-    },
-    {
-     "w": "objection",
-     "p": "object 反對 + -ion"
-    },
-    {
-     "w": "objective",
-     "p": "object 物體 + -ive"
-    },
-    {
-     "w": "rejection",
-     "p": "reject 拒絕 + -ion"
-    },
-    {
-     "w": "projection",
-     "p": "project 投射；預測 + -ion"
-    },
-    {
-     "w": "inject",
-     "p": "in 往裡面 + ject 丟"
-    },
-    {
-     "w": "injection",
-     "p": "inject 注射 + -ion"
-    },
-    {
-     "w": "subjective",
-     "p": "subject 主體 + -ive"
-    }
-   ],
-   "dropped": []
-  },
-  {
-   "key": "vid / vis",
-   "zh": "看",
-   "note": "拉丁文 videre 是「看」，過去分詞是 visus，所以這個家族有 vid、vis 兩種拼法；經過法文進入英文的字，則常寫成 view、vey、vice。vid 這一支：video 在拉丁文就是「我看」；evident 是看得出來的→明顯的，evidence 是讓人看得出來的東西→證據；provide 是事先看好、備好→提供。vis 這一支：vision 是看的能力→視力，也是看到未來的樣子→願景；visible 是看得見的，visual 是視覺的；visit 是去看→拜訪，revise 是再看一次→修訂，supervise 是從上面看著→監督；television 是看到遠處的影像，visa 是「看過的文件」→簽證。經過法文的這一支：view 是看到的東西→景色，也是看事情的方式→看法；review、preview、interview 分別是再看一次、事先看、互相看；survey 是從上面看→調查；advice 是「在我看來」→建議，advise 是它的動詞；envy 原本是用不懷好意的眼光看人→羨慕、嫉妒。要特別注意的是，下面這些字雖然長得像，卻都不是這個家族：divide、individual、dividend、devise、device 裡的 vid、vis、vice 來自拉丁文 dividere「分開」；convey 的 vey 來自 via「路」；vice（罪惡）來自 vitium「缺點」；vivid 的 viv 則來自 vivus「活的」。",
-   "items": [
-    {
-     "w": "video",
-     "p": "vid（拉丁文 vidēre 看）+ -o（仿 audio 的字尾）"
-    },
-    {
-     "w": "visit",
-     "p": "vis（拉丁文 visitare「常去看」，由 visere「去看」變來）"
-    },
-    {
-     "w": "visitor",
-     "p": "visit 拜訪 + -or"
-    },
-    {
-     "w": "television",
-     "p": "tele 遠 + vision 影像"
-    },
-    {
-     "w": "interview",
-     "p": "inter 互相 + view 看"
-    },
-    {
-     "w": "view",
-     "p": "view（盎格魯法語 veer 看的過去分詞，來自拉丁文 vidēre）"
-    },
-    {
-     "w": "review",
-     "p": "re 再 + view 看"
-    },
-    {
-     "w": "provide",
-     "p": "pro 事先 + vide 看"
-    },
-    {
-     "w": "advice",
-     "p": "ad 朝向 + vice（拉丁文 vīsus 看見，來自 vidēre 看；盎格魯法語寫成 avis，也寫成 advis）"
-    },
-    {
-     "w": "vision",
-     "p": "vis（拉丁文 videre 看）+ -ion"
-    },
-    {
-     "w": "visible",
-     "p": "vis 看 + -ible"
-    },
-    {
-     "w": "advise",
-     "p": "advice 的動詞"
-    },
-    {
-     "w": "adviser",
-     "p": "advise 建議 + -er（也寫成 advisor）"
-    },
-    {
-     "w": "advisor",
-     "p": "advise 建議 + -or（adviser 的另一種拼法）"
-    },
-    {
-     "w": "survey",
-     "p": "sur + vey（盎格魯法語 veer 看，源自拉丁文 vidēre）"
-    },
-    {
-     "w": "envy",
-     "p": "en（in 對著）+ vy（拉丁文 videre 看）"
-    },
-    {
-     "w": "visual",
-     "p": "vis 看 + -ual"
-    },
-    {
-     "w": "evident",
-     "p": "e（ex）往外 + vid 看 + -ent"
-    },
-    {
-     "w": "evidence",
-     "p": "evident 明顯的 → evidence"
-    },
-    {
-     "w": "revise",
-     "p": "re 再 + vise（拉丁文 videre 看）"
-    },
-    {
-     "w": "revision",
-     "p": "revise 修改 + -ion（去掉 e）"
-    },
-    {
-     "w": "viewer",
-     "p": "view 看 + -er"
-    },
-    {
-     "w": "viewpoint",
-     "p": "view 看法 + point 點"
-    },
-    {
-     "w": "envision",
-     "p": "en 使 + vision 景象"
-    },
-    {
-     "w": "supervise",
-     "p": "super 在上面 + vise 看"
-    },
-    {
-     "w": "supervision",
-     "p": "supervise 監督 + -ion（去掉 e）"
-    },
-    {
-     "w": "supervisor",
-     "p": "supervise 監督 + -or"
-    },
-    {
-     "w": "provision",
-     "p": "provide 提供 + -sion（de 變成 s）"
-    },
-    {
-     "w": "envious",
-     "p": "envy 羨慕 + -ous（y 變成 i）"
-    },
-    {
-     "w": "visa",
-     "p": "vis（拉丁文 visus 的中性複數；visus 是 videre 看 的過去分詞）"
-    },
-    {
-     "w": "preview",
-     "p": "pre 事先 + view 看"
-    },
-    {
-     "w": "provisional",
-     "p": "provision 供應、預備 + -al"
-    },
-    {
-     "w": "advisory",
-     "p": "advise 建議 + -ory"
-    }
-   ],
-   "dropped": [
-    {
-     "why": "來自拉丁文 dividere「分開」，跟 videre（看）無關；devise（設計）和 device（裝置）在古法文原本是「把東西分好、安排好」的意思，也是從 dividere 來的",
-     "list": "divide、division、individual、dividend、devise、device"
-    },
-    {
-     "why": "跟 survey 一樣拼成 -vey，卻來自通俗拉丁文 conviare「陪著上路」：com 一起 + via 路，跟 videre 無關",
-     "list": "convey"
-    },
-    {
-     "why": "vice（罪惡、惡習）來自拉丁文 vitium「缺點、毛病」，跟 advice 的 vice 無關",
-     "list": "vice"
-    },
-    {
-     "why": "viv 來自拉丁文 vivus「活的」（跟 survive、vital 同源），不是 vid",
-     "list": "vivid"
-    }
-   ]
-  },
-  {
-   "key": "pel / puls",
-   "zh": "推",
-   "note": "拉丁文 pellere「推、驅動」，過去分詞是 pulsus，所以這個家族有 pel、puls 兩種拼法：動詞多半是 -pel，名詞、形容詞常變成 -puls-。compel 原本是把牲畜趕到一起（com 一起），用在人身上就是強迫，compulsory 是被推著非做不可的→強制的、必修的；propel 是往前推→推動；impulse 是推向某處的力量→衝動；pulse 是血管一下一下的推動、敲打→脈搏。最常見的 push 也是這個家族：它經過古法文 pousser，來自拉丁文 pulsare（一再推、敲打），也就是 pellere 表示反覆動作的形式。appeal 來自拉丁文 appellare（向人開口、稱呼），一般認為是從 appellere（ad 朝向 + pellere 推）來的。appellere 是「推向、駛向」，常用來說把船駛向岸邊；字源學者推測，向人開口就好比把船靠向對方，所以引申出呼籲、懇求、上訴。至於「吸引人」這個意思，要到二十世紀初才出現。同一個家族的還有 expel（驅逐）、repel（擊退），詞彙表未收錄。",
-   "items": [
-    {
-     "w": "push",
-     "p": "push（可能來自古法文 pousser 施壓，源頭是拉丁文 pulsare，是 pellere 驅趕、敲打的反覆形）"
-    },
-    {
-     "w": "appeal",
-     "p": "ap 朝向 + peal（拉丁文 appellare 呼喚，來自 pellere 推動）"
-    },
-    {
-     "w": "compel",
-     "p": "com 一起 + pel 趕、推"
-    },
-    {
-     "w": "compulsory",
-     "p": "com 一起 + puls 趕、推 + -ory"
-    },
-    {
-     "w": "impulse",
-     "p": "im（in）對著 + puls 推（拉丁文 impulsus，來自 impellere 推動）"
-    },
-    {
-     "w": "pulse",
-     "p": "puls（拉丁文 pulsus 敲打、跳動，指心臟、血管一下一下的跳動）"
-    },
-    {
-     "w": "propel",
-     "p": "pro 往前 + pel 推"
-    }
-   ],
-   "dropped": [
-    {
-     "why": "結尾的 -pel 跟 compel、propel 一樣，卻跟 pellere 無關：chapel 來自中古拉丁文 cappella（小斗篷），相傳最早指存放聖馬丁斗篷的小聖堂→小教堂、禮拜堂；gospel 是古英文 godspel，「好消息」→福音",
-     "list": "chapel、gospel"
-    }
-   ]
-  },
-  {
-   "key": "dict / dic",
-   "zh": "說",
-   "note": "拉丁文 dicere「說」，過去分詞是 dictus，所以這個家族大多拼成 dict：predict 是事先說出來→預測，contradict 是說相反的話→反駁、矛盾，verdict 是說出真話→裁決，dictate 是說出來讓人寫下→口述、命令，dictator 是說了就算的人→獨裁者，dictionary 是收集字詞的書。addict 的拉丁文 addictus 原本是羅馬的法律用語，指被法官判給債主抵債的人，後來變成「把自己交給某件事」→上癮。condition 是大家一起說好的→條件，也指狀況。另一支是 dicare「宣告」，跟 dicere 原本可能是同一個字：indicate 是指出、顯示，index 是指出內容在哪裡的清單→索引，dedicate 是宣告把東西獻出去→奉獻。還有幾個字也是這個家族的遠親：preach（講道）來自拉丁文 praedicare「公開宣告」，judge（法官）來自拉丁文 iudex「說出法律的人」，judicial（司法的）、prejudice（偏見）又是從 iudex 變來的；不過這些字拼法差太多，不收進來。",
-   "items": [
-    {
-     "w": "dictionary",
-     "p": "diction（拉丁文 dictio 說的話、字詞）+ -ary"
-    },
-    {
-     "w": "condition",
-     "p": "con（com）一起 + dit（拉丁文 dicere 說；拉丁文拼成 condicio）+ -ion"
-    },
-    {
-     "w": "indicate",
-     "p": "in 朝向 + dic 說、指 + -ate"
-    },
-    {
-     "w": "predict",
-     "p": "pre 事先 + dict 說"
-    },
-    {
-     "w": "prediction",
-     "p": "predict 預測 + -ion"
-    },
-    {
-     "w": "addict",
-     "p": "ad + dict 說（拉丁文 addīcere 交出、讓渡）"
-    },
-    {
-     "w": "indication",
-     "p": "indicate 指出 + -ion"
-    },
-    {
-     "w": "contradiction",
-     "p": "contradict 反駁；矛盾 + -ion"
-    },
-    {
-     "w": "verdict",
-     "p": "ver 真實 + dict 說"
-    },
-    {
-     "w": "index",
-     "p": "index（拉丁文 index，來自 indicare 指出）"
-    },
-    {
-     "w": "dedicate",
-     "p": "de 離開 + dic 宣告 + -ate"
-    },
-    {
-     "w": "dictate",
-     "p": "dict 說 + -ate（拉丁文 dictare 反覆說、規定）"
-    },
-    {
-     "w": "dictation",
-     "p": "dictate 口述 + -ion"
-    },
-    {
-     "w": "dictator",
-     "p": "dictate 命令 + -or"
-    },
-    {
-     "w": "dictatorship",
-     "p": "dictator 獨裁者 + -ship"
-    },
-    {
-     "w": "contradict",
-     "p": "contra 相反 + dict 說"
-    },
-    {
-     "w": "addiction",
-     "p": "addict 使上癮 + -ion"
-    },
-    {
-     "w": "dedication",
-     "p": "dedicate 奉獻 + -ion"
-    },
-    {
-     "w": "unconditional",
-     "p": "un 不 + conditional 有條件的"
-    }
-   ],
-   "dropped": [
-    {
-     "why": "這幾個字的 dit 來自拉丁文 dare「給」和 -dere「放」這兩類動詞的過去分詞（addere→additus、edere→editus、tradere→traditus），跟 dicere 無關",
-     "list": "addition、additional、edition、tradition、traditional"
-    },
-    {
-     "why": "來自拉丁文 medicus「醫生」，dic 只是拼法巧合",
-     "list": "medicine、medical、medication"
-    }
-   ]
-  },
-  {
-   "key": "sume / sumpt",
-   "zh": "拿",
-   "note": "拉丁文 sumere「拿、取」，過去分詞是 sumptus，所以這個家族有 sume、sumpt 兩種拼法：動詞是 -sume，名詞是 -sumption。assume 是拿到自己身上→承擔，也指還沒證實就先當作是真的→假定；presume 是事先拿來當真→推測；consume 是全部拿光→消耗、吃喝；resume 是再拿起來做→（中斷後）重新開始。當名詞的 résumé（履歷）是從法文借來的，法文 résumer 是「摘要」，履歷就是把經歷摘要寫下來。",
-   "items": [
-    {
-     "w": "assume",
-     "p": "as 朝向 + sume 拿"
-    },
-    {
-     "w": "consume",
-     "p": "con（com，可能表加強）+ sume 拿"
-    },
-    {
-     "w": "consumer",
-     "p": "consume 消費 + -er"
-    },
-    {
-     "w": "assumption",
-     "p": "assume 假定 + -tion（m 後面加 p）"
-    },
-    {
-     "w": "consumption",
-     "p": "consume 消耗 + -tion（m 後面加 p）"
-    },
-    {
-     "w": "presume",
-     "p": "pre 事先 + sume 拿"
-    },
-    {
-     "w": "resume",
-     "p": "re + sume 拿"
-    }
-   ],
-   "dropped": [
-    {
-     "list": "sum、summary、summarize、summit",
-     "why": "來自拉丁文 summus「最高的」（sum 原本是「總數」，summit 是「頂峰」），跟 sumere「拿」無關"
-    },
-    {
-     "list": "summon",
-     "why": "sum 是 sub（在下面）變來的，summon 來自拉丁文 summonere「私下提醒」，字根是 monere「警告、提醒」，跟 sumere 無關"
-    }
-   ]
-  },
-  {
-   "key": "fend / fens",
-   "zh": "打、撞",
-   "note": "拉丁文 -fendere「打、撞」只出現在合成字裡，過去分詞是 -fensus，所以這個家族有 fend、fens 兩種拼法：動詞是 -fend，名詞、形容詞多半是 -fense、-fensive。defend 是 de（離開）+ fend，把打過來的攻擊擋開→防守、保衛，在法庭上就是辯護，defendant 是要替自己辯護的人→被告；offend 是 of（ob 對著）+ fend，迎面打過去→冒犯，offensive 也保留「攻擊的」意思。fence 是 defense 去掉開頭的 de 變來的，原本就是「防衛」，後來指用來防衛的圍欄。美式拼成 defense、offense，英式拼成 defence、offence。",
-   "items": [
-    {
-     "w": "fence",
-     "p": "defense 去掉開頭的 de 縮短而成"
-    },
-    {
-     "w": "defend",
-     "p": "de + fend（大概是「打」）"
-    },
-    {
-     "w": "defense",
-     "p": "defend 的名詞"
-    },
-    {
-     "w": "defensible",
-     "p": "defens（defend 保衛）+ -ible"
-    },
-    {
-     "w": "defensive",
-     "p": "defend 防守 + -sive"
-    },
-    {
-     "w": "offend",
-     "p": "of（ob 對著）+ fend 打"
-    },
-    {
-     "w": "offense",
-     "p": "offend 的名詞"
-    },
-    {
-     "w": "offensive",
-     "p": "offend 冒犯 + -sive"
-    },
-    {
-     "w": "defendant",
-     "p": "defend 辯護 + -ant"
-    }
-   ],
-   "dropped": []
-  },
-  {
-   "key": "tact / tag / teg",
-   "zh": "碰",
-   "note": "拉丁文 tangere「碰、觸摸」，過去分詞是 tactus，所以這個家族有 tact 這種拼法；tangere 的字根部分是 tag，所以也會拼成 tag、teg。contact 是碰在一起→接觸、聯絡；contagious 是碰到就會傳的→接觸傳染的；contaminate 是碰在一起弄髒→污染。in（否定）加上這個字根，就是「沒被碰過的」：intact 是完好如初的，拉丁文 integer 是完整的，integrate 是使完整→整合，integrity 是完整、沒被動過→正直、誠實；2 級的 entire 也是從 integer 經過法文變來的，拼法已經看不出字根。attain 是 at（朝向）+ tain，碰到→達到，拼法跟 tain/ten「握住」那個家族一樣，其實是這個家族的字。",
-   "items": [
-    {
-     "w": "entire",
-     "p": "來自拉丁文 integer，字面意思是「沒被碰過的」（in + tangere 碰），經盎格魯法語 entier 進入英文"
-    },
-    {
-     "w": "intact",
-     "p": "in 否定 + tact 碰"
-    },
-    {
-     "w": "contagious",
-     "p": "contagi（拉丁文 contāgiō 接觸）+ -ous"
-    },
-    {
-     "w": "contaminate",
-     "p": "con + tamin（拉丁文 *tāmen 接觸，來自 tangere 碰的詞幹 tag-）+ -ate"
-    },
-    {
-     "w": "integrate",
-     "p": "integr（拉丁文 integer 完整的：in 否定 + tangere 碰）+ -ate"
-    },
-    {
-     "w": "integration",
-     "p": "integrate 整合 + -ion"
-    },
-    {
-     "w": "integrity",
-     "p": "integr（拉丁文 integer 完整的，字面意思是沒被碰過的：in + tangere 碰）+ -ity"
-    },
-    {
-     "w": "attain",
-     "p": "at 朝向 + tain（拉丁文 tangere 碰）"
-    },
-    {
-     "w": "attainment",
-     "p": "attain 達到 + -ment"
-    }
-   ],
-   "dropped": [
-    {
-     "list": "tactic",
-     "why": "來自希臘文 taktikos「排列的」（排兵布陣），不是拉丁文 tangere「碰」；Etymonline 雖然把兩者歸到同一個古老的字根，但進入英文時已經是不同的字、不同的意思"
-    },
-    {
-     "list": "tangle",
-     "why": "Etymonline 說可能來自北歐語，跟拉丁文 tangere 無關"
-    },
-    {
-     "list": "tangerine",
-     "why": "來自北非港口 Tangier（丹吉爾），橘子最早從那裡運到英國"
-    },
-    {
-     "list": "tag",
-     "why": "Etymonline 說來源不確定，跟拉丁文 tangere 無關"
-    }
-   ]
-  },
-  {
-   "key": "nov",
-   "zh": "新的",
-   "note": "拉丁文 novus「新的」，跟英文的 new 同源。novel 當名詞來自義大利文 novella「新的故事」，後來指長篇小說；當形容詞來自拉丁文 novellus「新的」，意思是「新穎的」。novice 是新來的人→新手；innovation 是 in（往裡面）+ nov，帶進新的東西→創新。renew（更新）是英文的 re + new，是仿照拉丁文 renovare 造出來的字，所以不收進這個家族，見字首字尾表的 re-。",
-   "items": [
-    {
-     "w": "novel",
-     "p": "名詞來自義大利文 novella 短篇故事；形容詞來自盎格魯法語、古法文的 novel「新的」"
-    },
-    {
-     "w": "novelist",
-     "p": "novel 小說 + -ist"
-    },
-    {
-     "w": "innovation",
-     "p": "in 往裡面 + nov 新 + -ation"
-    },
-    {
-     "w": "innovative",
-     "p": "innovate 創新 + -ive"
-    },
-    {
-     "w": "novice",
-     "p": "nov 新 + -ice（拉丁文 novicius 新來的）"
-    }
-   ],
-   "dropped": []
-  },
-  {
-   "key": "viv / vit",
-   "zh": "活、生命",
-   "note": "拉丁文 vivere「活」、vivus「活的」、vita「生命」，所以這個家族有 viv、vit 兩種拼法。survive 是 sur（super 超過）+ vive，活過了某個時間點或某場災難→倖存，也指比某人活得久；revive 是再活過來→復甦、使恢復；vivid 是活生生的→生動的、鮮明的。vital 原本是「生命的」，後來指對生存不可缺少的→極重要的；vitality 是生命力→活力。vitamin 是 1912 年波蘭生化學家 Casimir Funk 造的字，當時以為這類物質含有胺基酸，就把 vita（生命）和 amine（胺）合成 vitamine；後來知道它們的化學成分不是這樣，才把字尾的 e 去掉。",
-   "items": [
-    {
-     "w": "survive",
-     "p": "sur（super 超過）+ vive 活"
-    },
-    {
-     "w": "survival",
-     "p": "survive 倖存 + -al"
-    },
-    {
-     "w": "survivor",
-     "p": "survive 倖存 + -or"
-    },
-    {
-     "w": "vivid",
-     "p": "viv（拉丁文 vivere 活）+ -id"
-    },
-    {
-     "w": "vitamin",
-     "p": "vita 生命 + amine 胺（去掉 e）"
-    },
-    {
-     "w": "vital",
-     "p": "vit（拉丁文 vita 生命）+ -al"
-    },
-    {
-     "w": "vitality",
-     "p": "vital 生命的 + -ity"
-    },
-    {
-     "w": "revive",
-     "p": "re + vive 活"
-    },
-    {
-     "w": "revival",
-     "p": "revive 復甦 + -al"
-    }
-   ],
-   "dropped": [
-    {
-     "list": "inevitable",
-     "why": "in 否定 + e（ex 往外）+ vit（拉丁文 vitare 避開）+ -able，vit 是「避開」，不是「生命」"
-    },
-    {
-     "list": "invite、invitation",
-     "why": "來自拉丁文 invitare，Etymonline 說這個字來源不確定，所以不能拆成 in + vit（生命）"
-    },
-    {
-     "list": "longevity",
-     "why": "long 長 + ev（拉丁文 aevum 一生、時代）+ -ity，中間的 vit 是 ev 的 v 接上 -ity 的 it，不是字根"
-    },
-    {
-     "list": "activity、creativity、productivity、sensitivity、captivity",
-     "why": "這些字是 -ive 結尾的形容詞加上 -ity，像 creative + -ity → creativity（activity、captivity 在拉丁文就已經這樣組成），中間的 vit 不是字根；activity 收在 act / ag 那個家族"
-    }
-   ]
-  },
-  {
-   "key": "vac / vacu",
-   "zh": "空的",
-   "note": "拉丁文 vacare「空著、沒有事做」，形容詞是 vacuus「空的」，所以這個家族有 vac、vacu 兩種拼法。vacant 是空的、（職位）空缺的，vacancy 是空缺、空房；vacation 是不用上班上課、空出來的時間→假期；vacuum 是空的地方→真空，也是 vacuum cleaner（吸塵器）的簡稱；evacuate 是 e（ex 往外）+ vacu，把人清空→撤離、疏散。2 級的 avoid 也是這個家族的字：古法文 esvuidier 是「清空」，avoid 在中古英文原本有「清空、離開」等意思，現在都不用了；Etymonline 說現在「避開」的意思對應古法文 eviter（避開），可能是跟它混在一起才有的。avoid 的拼法已經看不出 vac。vain（徒勞的）、vanish（消失）、vanity（虛榮）的拉丁文 vanus「空的」跟 vacare 來自同一個古老字根，意思也是「空」，另外收在下一個家族 van。",
-   "items": [
-    {
-     "w": "vacation",
-     "p": "vac（拉丁文 vacare 空、有閒）+ -ation"
-    },
-    {
-     "w": "avoid",
-     "p": "a（古法文 es 往外，來自拉丁文 ex）+ void（古法文 vuider 使變空，源頭可追到拉丁文 vacare）"
-    },
-    {
-     "w": "vacant",
-     "p": "vac（拉丁文 vacare 空）+ -ant"
-    },
-    {
-     "w": "vacancy",
-     "p": "vacant 空的 → vacancy"
-    },
-    {
-     "w": "vacuum",
-     "p": "vacu（拉丁文 vacuus 空的）+ -um（中性形，形容詞當名詞用）"
-    },
-    {
-     "w": "evacuate",
-     "p": "e（ex）往外 + vacu 空 + -ate"
-    }
-   ],
-   "dropped": [
-    {
-     "list": "vaccine",
-     "why": "來自拉丁文 vacca「母牛」，因為最早的疫苗是用牛痘做的，跟 vacare 無關"
-    }
-   ]
-  },
-  {
-   "key": "van",
-   "zh": "空的、徒勞的",
-   "note": "拉丁文 vanus「空的、徒勞的」。vain 原本是「空的、沒有價值的」→徒勞的，in vain 是白費力氣；後來也用來說人太在意自己的外表或成就→自負的、虛榮的，vanity 就是虛榮。vanish 來自拉丁文 evanescere，e（ex 往外）+ van，變空→消失。Etymonline 把 vanus 跟上一個家族 vac 的 vacare 歸到同一個古老字根，兩個字的意思都是「空」。",
-   "items": [
-    {
-     "w": "vanish",
-     "p": "van（拉丁文 vanus 空的）+ -ish；整個字是盎格魯法語動詞 vanir（也寫作 esvanir）的詞幹 vaniss- 變來的，-ish 不是「像…的」"
-    },
-    {
-     "w": "vain",
-     "p": "來自拉丁文 vanus 空的"
-    },
-    {
-     "w": "vanity",
-     "p": "vain 自負的、徒勞的 + -ity"
-    }
-   ],
-   "dropped": [
-    {
-     "list": "vanilla",
-     "why": "來自西班牙文 vainilla「小豆莢」，跟 vanus 無關"
-    },
-    {
-     "list": "van",
-     "why": "是 caravan（篷車、車隊）的縮短，跟 vanus 無關"
-    }
-   ]
-  },
-  {
-   "key": "term / termin",
-   "zh": "界線、終點",
-   "note": "拉丁文 terminus「終點、界線」。term 原本是界線，一段時間劃出界線就是「期限、學期」；這個字在中世紀拉丁文又有「說法、定義」的意思，所以也指「術語」。determine 是 de（離開）+ terminare（劃出界線），先把界線劃清楚→決定；terminal 是在終點的→（疾病）末期的，當名詞是鐵路的終點站，後來機場的航廈也叫 terminal。",
-   "items": [
-    {
-     "w": "term",
-     "p": "term（拉丁文 terminus 界標、界限）"
-    },
-    {
-     "w": "determine",
-     "p": "de 離開 + termin 界限"
-    },
-    {
-     "w": "determination",
-     "p": "determine 決定 + -ation（去掉 e）"
-    },
-    {
-     "w": "terminal",
-     "p": "term（拉丁文 terminus 終點）+ -al"
-    }
-   ],
-   "dropped": []
-  },
-  {
-   "key": "fract / frag",
-   "zh": "打破",
-   "note": "拉丁文 frangere「打破」，這個家族有 fract、frag 兩種拼法。fraction 是打破的一部分→分數、一小部分；fragment 是打下來的一塊→碎片；fracture 是打斷→骨折、斷裂；fragile 是容易打破的→易碎的。",
-   "items": [
-    {
-     "w": "fragile",
-     "p": "frag（拉丁文 frangere 打破）+ -ile"
-    },
-    {
-     "w": "fraction",
-     "p": "fract（拉丁文 frangere 打破）+ -ion"
-    },
-    {
-     "w": "fragment",
-     "p": "frag（拉丁文 frangere 打破）+ -ment"
-    },
-    {
-     "w": "fracture",
-     "p": "fract（拉丁文 frangere 打破）+ -ure"
-    }
-   ],
-   "dropped": [
-    {
-     "list": "fragrant、fragrance",
-     "why": "來自拉丁文 fragrare「散發（香）氣味」，跟 frangere「打破」無關"
-    }
-   ]
-  },
-  {
-   "key": "aud / audi",
-   "zh": "聽",
-   "note": "拉丁文 audire「聽」。audience 是在聽的人→聽眾、觀眾；audio 是聲音的、錄音的；auditorium 字面是「聽的地方」→禮堂；audit 原本是「聽」，早期查帳是口頭進行的，所以引申為審計、查帳，到現在也指不拿學分去聽課→旁聽。",
-   "items": [
-    {
-     "w": "audience",
-     "p": "audi（拉丁文 audire 聽）+ -ence"
-    },
-    {
-     "w": "audio",
-     "p": "audio-（拉丁文 audire 聽）"
-    },
-    {
-     "w": "auditorium",
-     "p": "audi（拉丁文 audire 聽）+ -torium（表示場所）"
-    },
-    {
-     "w": "audit",
-     "p": "audit（拉丁文 auditus 聆聽，來自 audire 聽）"
-    }
-   ],
-   "dropped": [
-    {
-     "list": "applaud",
-     "why": "ap（ad 朝向）+ plaud（拉丁文 plaudere 拍手），跟 audire「聽」無關"
-    },
-    {
-     "list": "fraud",
-     "why": "來自拉丁文 fraus「欺騙」，字源不明，跟 audire「聽」無關"
-    }
-   ]
-  },
-  {
-   "key": "rect / reg",
-   "zh": "直；引導、統治",
-   "note": "拉丁文 regere「引導、統治」，也有「使直」的意思，它的源頭是更古老的字根 reg-「走直線」；相關的 rectus 是「直的、正確的」，所以這個家族有 rect、reg 兩種拼法。correct 是徹底弄直→改正、正確的；direct 是把方向拉直→指引、直接的；erect 是 e（往外、往上）加上弄直→直立的、豎立；rectangle 是有直角的形狀→長方形。拉丁文 regula 是「規則、直尺」，所以 regular 是照規則的→規律的，regulate 是用規則來管；region 原本指界線、範圍，後來指地區；regime 是統治的方式→政權。",
-   "items": [
-    {
-     "w": "correct",
-     "p": "cor（com）+ rect（拉丁文 regere 引直）"
-    },
-    {
-     "w": "direct",
-     "p": "di（dis 分開）+ rect（拉丁文 regere 引導、使直）"
-    },
-    {
-     "w": "direction",
-     "p": "direct 指引 + -ion"
-    },
-    {
-     "w": "director",
-     "p": "direct 指導 + -or"
-    },
-    {
-     "w": "region",
-     "p": "reg（拉丁文 regere 指引）+ -ion"
-    },
-    {
-     "w": "regular",
-     "p": "regul（拉丁文 regula 規則）+ -ar"
-    },
-    {
-     "w": "rectangle",
-     "p": "rect（拉丁文 rectus 直的）+ angle 角"
-    },
-    {
-     "w": "regional",
-     "p": "region 地區 + -al"
-    },
-    {
-     "w": "regulate",
-     "p": "regul（拉丁文 regula 規則）+ -ate"
-    },
-    {
-     "w": "regulation",
-     "p": "regulate 規範 + -ion"
-    },
-    {
-     "w": "directory",
-     "p": "direct 指引 + -ory"
-    },
-    {
-     "w": "erect",
-     "p": "e（ex）向上 + rect 直"
-    },
-    {
-     "w": "regime",
-     "p": "來自拉丁文 regimen 掌舵、控制（reg：regere 指引）"
-    },
-    {
-     "w": "directive",
-     "p": "direct 指引 + -ive"
-    }
-   ],
-   "dropped": [
-    {
-     "list": "register、registration",
-     "why": "re（回）+ 拉丁文 gerere「帶」，帶回來記下→登記，跟 regere 無關；只有後來的一部分意思受到 regere 的影響"
-    },
-    {
-     "list": "regard",
-     "why": "re + 古法文 garder「注意、看」，跟 guard 同源，跟 regere 無關"
-    },
-    {
-     "list": "regret",
-     "why": "re + 古法文 -greter，可能來自日耳曼語「哭泣」，跟 regere 無關"
-    }
-   ]
-  },
-  {
-   "key": "brev / brief",
-   "zh": "短",
-   "note": "拉丁文 brevis「短的」。brief 是短的→短暫的、簡短的；brief 當名詞最早指官方發出的文書，後來也指簡短的文字、摘要，所以 briefcase 是裝文件的扁平手提包→公事包。abbreviate 是 ad（朝向）+ breviare（使變短），把字縮短→縮寫，名詞是 abbreviation。",
-   "items": [
-    {
-     "w": "brief",
-     "p": "brief（拉丁文 brevis 短的）"
-    },
-    {
-     "w": "briefcase",
-     "p": "brief 文件 + case 容器"
-    },
-    {
-     "w": "abbreviate",
-     "p": "ab（ad）朝向 + brevi（拉丁文 brevis 短的）+ -ate"
-    }
-   ],
-   "dropped": []
-  },
-  {
-   "key": "sol",
-   "zh": "單獨",
-   "note": "拉丁文 solus「單獨的、唯一的」。sole 是唯一的；solo 是經過義大利文的「單獨」，用在音樂上就是獨奏、獨唱；solitary 是單獨的、孤獨的；solitude 是孤獨、獨處。腳底、鞋底的 sole 是另一個字，來自拉丁文 solea（鞋底）。",
-   "items": [
-    {
-     "w": "sole",
-     "p": "sole（拉丁文 solus 單獨的）"
-    },
-    {
-     "w": "solo",
-     "p": "solo（義大利文 solo 單獨，來自拉丁文 solus）"
-    },
-    {
-     "w": "solitary",
-     "p": "solit（拉丁文 solitas 孤單，來自 solus 單獨）+ -ary"
-    },
-    {
-     "w": "solitude",
-     "p": "soli（拉丁文 solus 單獨）+ -tude"
-    }
-   ],
-   "dropped": [
-    {
-     "list": "isolate、isolation",
-     "why": "isolated 經法文 isolé 來自義大利文 isolato，源頭是拉丁文 insulatus「變成一座島」（insula 島），isolate 是從 isolated 倒推出來的動詞；像一座島那樣跟外界隔開→隔離，跟 solus 無關"
-    },
-    {
-     "list": "solve、solution、resolve、dissolve",
-     "why": "來自拉丁文 solvere「鬆開」，跟 solus 無關"
-    },
-    {
-     "list": "solid、solidarity",
-     "why": "來自拉丁文 solidus「堅固的、完整的」，跟 solus 無關"
-    },
-    {
-     "list": "soldier",
-     "why": "來自中世紀拉丁文 soldarius「領薪餉的人」，薪餉 soldum 這個字從羅馬金幣 solidus 而來，跟 solus 無關"
-    },
-    {
-     "list": "solar",
-     "why": "來自拉丁文 sol「太陽」，跟 solus 無關"
-    },
-    {
-     "list": "console（v. 安慰）、consolation",
-     "why": "來自拉丁文 consolari「安慰」（solari 安慰），跟 solus 無關；當名詞的 console 是另一個字，來自法文 console「托架」，字源不確定"
-    },
-    {
-     "list": "solemn",
-     "why": "來自拉丁文 sollemnis「每年固定舉行的、正式的」，跟 solus 無關"
-    }
-   ]
-  },
-  {
-   "key": "opt",
-   "zh": "選擇",
-   "note": "拉丁文 optare「選擇、希望」。opt 是選擇；option 是選擇、選項，optional 是可以選擇的→選修的、非必要的；adopt 是 ad（朝向）+ optare，選來當自己的→採用、收養。",
-   "items": [
-    {
-     "w": "option",
-     "p": "opt 選擇 + -ion"
-    },
-    {
-     "w": "adopt",
-     "p": "ad 朝向 + opt 選擇"
-    },
-    {
-     "w": "opt",
-     "p": "opt（拉丁文 optare 選擇、希望）"
-    },
-    {
-     "w": "optional",
-     "p": "option 選擇 + -al"
-    }
-   ],
-   "dropped": [
-    {
-     "list": "optimism、optimistic",
-     "why": "來自拉丁文 optimus「最好的」，不是 optare「選擇」，另外收錄在 optim 這個家族"
-    }
-   ]
-  },
-  {
-   "key": "optim",
-   "zh": "最好的",
-   "note": "拉丁文 optimus「最好的」，是 bonus（好的）的最高級。哲學家萊布尼茲用 optimum 指「最大的善」，法文 optimisme 原本是一種學說，認為這個世界是所有可能的世界裡最好的，英文 optimism 從這裡來，後來指樂觀；optimistic 是 optimist（樂觀的人）加 -ic→樂觀的。",
-   "items": [
-    {
-     "w": "optimistic",
-     "p": "optimist 樂觀的人 + -ic"
-    },
-    {
-     "w": "optimism",
-     "p": "optim（拉丁文 optimum 最好的）+ -ism"
-    }
-   ],
-   "dropped": [
-    {
-     "list": "opt、option、optional、adopt",
-     "why": "來自拉丁文 optare「選擇」，不是 optimus「最好的」，另外收錄在 opt 這個家族"
-    }
-   ]
-  },
-  {
-   "key": "path",
-   "zh": "感受；受苦",
-   "note": "希臘文 pathos「感受」，跟 pathein「受苦」有關。sympathy 是 sym（syn 一起）+ pathos，一起感受→同情、贊同；sympathize、sympathetic 是它的動詞、形容詞。pathetic 原本是觸動情感的，後來指令人憐憫的→可憐的，到了二十世紀又多了「差勁到可笑」的意思。",
-   "items": [
-    {
-     "w": "sympathy",
-     "p": "sym 一起 + pathy 感受"
-    },
-    {
-     "w": "sympathetic",
-     "p": "sympathy 同情 + -etic"
-    },
-    {
-     "w": "pathetic",
-     "p": "path（希臘文字根 path- 經歷、遭受）+ -etic"
-    },
-    {
-     "w": "sympathize",
-     "p": "sympathy 同情 + -ize"
-    }
-   ],
-   "dropped": [
-    {
-     "list": "path",
-     "why": "來自古英文 pæþ「小路」，是日耳曼語的字，字源不確定，跟希臘文 pathos 無關"
-    }
-   ]
-  },
-  {
-   "key": "nounce / nunci",
-   "zh": "報告、宣布",
-   "note": "拉丁文 nuntius「信差」，動詞 nuntiare 是報告、宣布。announce 是 ad（朝向）+ nuntiare，把消息帶給大家→宣布，announcement 是它的名詞。pronounce 是 pro（往外、公開）+ nuntiare，原本是公開宣布，後來也指把字說出來→發音。名詞 pronunciation 的拼法照拉丁文 pronuntiatio，寫成 nunci，不寫成 pronounciation。",
-   "items": [
-    {
-     "w": "announce",
-     "p": "an 朝向 + nounce（拉丁文 nuntiare 報告，來自 nuntius 信差）"
-    },
-    {
-     "w": "announcement",
-     "p": "announce 宣布 + -ment"
-    },
-    {
-     "w": "pronounce",
-     "p": "pro 往前 + nounce（拉丁文 nuntiare 報告）"
-    },
-    {
-     "w": "pronunciation",
-     "p": "pronounce 發音 + -ation（拼法照拉丁文 pronuntiatio，ounce 變成 unci）"
-    }
-   ],
-   "dropped": [
-    {
-     "list": "noun",
-     "why": "來自拉丁文 nomen「名字」，跟 nuntius 無關"
-    }
-   ]
-  },
-  {
-   "key": "tempt / tent",
-   "zh": "摸、試",
-   "note": "拉丁文 temptare「摸、試探」，是 tentare（觸摸、嘗試）的變體。tempt 在英文最早的意思就是引誘人做壞事，temptation 是誘惑；attempt 是 ad（朝向）+ temptare，去試→嘗試、企圖；tentative 來自 tentare，嘗試性的→暫定的、猶豫的。",
-   "items": [
-    {
-     "w": "attempt",
-     "p": "at 朝向 + tempt 試"
-    },
-    {
-     "w": "tempt",
-     "p": "tempt（拉丁文 temptare 摸、試探）"
-    },
-    {
-     "w": "temptation",
-     "p": "tempt 引誘 + -ation"
-    },
-    {
-     "w": "tentative",
-     "p": "tent（拉丁文 tentare 觸摸、試探）+ -ative"
-    }
-   ],
-   "dropped": [
-    {
-     "list": "contempt",
-     "why": "來自拉丁文 contemnere「輕視」，字根是 temnere（輕視），跟 temptare 無關"
-    },
-    {
-     "list": "tent",
-     "why": "來自拉丁文 tendere「伸展」，指繃在支架上的獸皮或布，收在 tend 那個家族"
-    },
-    {
-     "list": "temporary",
-     "why": "來自拉丁文 tempus「時間」，跟 temptare 無關"
-    }
-   ]
-  },
-  {
-   "key": "tort / tor",
-   "zh": "扭",
-   "note": "拉丁文 torquere「扭」，過去分詞是 tortus。torture 來自拉丁文 tortura（扭絞），引申為拷問、折磨；torment 來自拉丁文 tormentum，可以指扭成的繩索、投石機，也指刑具→折磨；retort 是扭回去、丟回去→尖銳地回嘴、反駁；torch 可能也來自 torquere，原本應該是扭成一束的東西，後來指用扭成束的麻絮沾蠟做成的火把。",
-   "items": [
-    {
-     "w": "torture",
-     "p": "tort（拉丁文 torquere 扭）+ -ure"
-    },
-    {
-     "w": "torment",
-     "p": "tor（拉丁文 tormentum 酷刑，和 torquere 扭 同源）+ -ment"
-    },
-    {
-     "w": "torch",
-     "p": "torch（經盎格魯法語，來自拉丁文 torqua 扭成的東西，和 torquēre 扭 同源）"
-    },
-    {
-     "w": "retort",
-     "p": "re 往回 + tort 扭"
-    }
-   ],
-   "dropped": [
-    {
-     "list": "tortoise",
-     "why": "字源不確定：一說來自拉丁文 tartaruchus「陰間的」，也有人認為來自 tortus「扭曲的」，指烏龜腳的形狀，所以不收錄在這個家族"
-    }
-   ]
-  },
-  {
-   "key": "mand",
-   "zh": "交付、命令",
-   "note": "拉丁文 mandare「交付、命令」，大概來自 manus（手）+ dare（給），字面上是交到別人手上。demand 來自拉丁文 demandare（交付任務），到了中世紀拉丁文變成「要求」；command 來自拉丁文 commendare（託付），受 mandare 影響改拼成 mand。commendare 也是英文 commend（稱讚、託付）的來源，這時拼成 mend，所以 recommend 是 re + commend→推薦、建議。mandate 是命令→授權、強制規定。",
-   "items": [
-    {
-     "w": "command",
-     "p": "com + mand（拉丁文 mandare 交付）"
-    },
-    {
-     "w": "commander",
-     "p": "command 指揮 + -er"
-    },
-    {
-     "w": "demand",
-     "p": "de 加強 + mand 命令"
-    },
-    {
-     "w": "recommend",
-     "p": "re（可能是加強）+ commend 稱讚、託付"
-    },
-    {
-     "w": "recommendation",
-     "p": "recommend 推薦 + -ation"
-    },
-    {
-     "w": "mandate",
-     "p": "mand（拉丁文 mandare 交付、命令）+ -ate"
-    }
-   ],
-   "dropped": [
-    {
-     "list": "amend、mend",
-     "why": "amend 來自拉丁文 emendare「改正」，是 ex（去掉）+ menda（缺點），跟 mandare 無關；mend 來自古法文 amender 的縮短形式"
-    },
-    {
-     "list": "tremendous",
-     "why": "來自拉丁文 tremere「發抖」，跟 mandare 無關"
-    }
-   ]
-  },
-  {
-   "key": "domin",
-   "zh": "主人",
-   "note": "拉丁文 dominus「主人」，來自 domus「房子」，原本是一家之主。dominate 來自 dominari（統治），是支配、在…中占主要地位，dominant 是占優勢的；domain 來自拉丁文 dominium（財產、統治權），原本是領地，後來指知識、活動的領域，現在也指網域。danger 原本是主人的權力、加害的權力，落在別人的掌控下就有危險，所以「危險」這個意思先在法文出現，拼法又受拉丁文 damnum（損害）影響；dangerous、endanger 都從 danger 來。madam 來自古法文 ma dame（我的女士），再往上是拉丁文 mea domina，domina 是一家的女主人。domestic 直接從 domus 來，家裡的→國內的，跟這個家族同源。",
-   "items": [
-    {
-     "w": "dangerous",
-     "p": "danger 危險 + -ous"
-    },
-    {
-     "w": "danger",
-     "p": "danger（盎格魯法語 dangier，經通俗拉丁文 *dominiarium，來自拉丁文 dominium 所有權）"
-    },
-    {
-     "w": "dominate",
-     "p": "domin（拉丁文 dominari 統治，來自 dominus 主人）+ -ate"
-    },
-    {
-     "w": "dominant",
-     "p": "domin（拉丁文 dominari 統治）+ -ant"
-    },
-    {
-     "w": "endanger",
-     "p": "en 使處於 + danger 危險"
-    },
-    {
-     "w": "domain",
-     "p": "domain（盎格魯法語 demeine，來自拉丁文 dominium 所有權，再往上是 dominus 主人）"
-    },
-    {
-     "w": "madam",
-     "p": "ma 我的 + dam 女士（法文 ma dame，來自拉丁文 domina 女主人）"
-    }
-   ],
-   "dropped": []
-  },
-  {
-   "key": "scend / scent",
-   "zh": "爬",
-   "note": "拉丁文 scandere「爬」。ascend 是 ad（朝向）+ scandere，往上爬→上升、登上；descend 是 de（往下）+ scandere，往下爬→下降，也指從祖先傳下來；名詞 descent 是下降，最早的意思是血統、家世，拼法跟著法文的 descente，所以結尾是 t。scan 也來自 scandere：最早是照韻律的節拍念詩、分析詩句，後來變成逐一仔細察看，到了二十世紀又有瀏覽、掃描的意思。scale 當「規模、比例、刻度」或「攀登」時，來自拉丁文 scala（梯子），也是從 scandere 來；當「秤」「鱗片」時是另一個來源。escalator 是 1900 年造的商標名，用 escalade（用梯子爬城牆，經法文來自義大利文 scalata，再往上是 scala 梯子）加上 elevator 的 -ator，所以電扶梯也是這個家族的字。",
-   "items": [
-    {
-     "w": "descend",
-     "p": "de 往下 + scend 爬"
-    },
-    {
-     "w": "escalator",
-     "p": "escalade（用梯子爬城牆）+ -ator，仿照 elevator 造的字，原本是商標名"
-    },
-    {
-     "w": "scan",
-     "p": "scan（拉丁文 scandere 爬；後來專指照節拍念詩）"
-    },
-    {
-     "w": "ascend",
-     "p": "a（ad）朝向 + scend 爬"
-    },
-    {
-     "w": "descent",
-     "p": "descend 的名詞"
-    }
-   ],
-   "dropped": [
-    {
-     "list": "ancient",
-     "why": "來自古法文 ancien，再往上是拉丁文 ante「以前」；字尾的 t 是後來受 -ent、-ant 結尾的字影響才加上的，跟 scandere 無關"
-    },
-    {
-     "list": "scent",
-     "why": "來自拉丁文 sentire「感覺」，收在 sens / sent 那個家族；c 是十七世紀才加上的，可能是受 ascent、descent 或 science 的拼法影響"
-    },
-    {
-     "list": "adolescent　reminiscent",
-     "why": "結尾的 scent 是拉丁文動詞的現在分詞：adolescent 來自 adolescere「長大」，reminiscent 來自 reminisci「回想」，跟 scandere 無關"
-    }
-   ]
-  },
-  {
-   "key": "quir / quis / quest",
-   "zh": "尋求、問",
-   "note": "拉丁文 quaerere「尋求、問」，過去分詞是 quaesitus，所以這個家族有 quir、quis、quest 幾種拼法。acquire 是 ad（朝向，可能是加強）+ quaerere，去尋求→取得、學到，名詞 acquisition 照拉丁文拼成 quis；inquire 是 in（往裡面）+ quaerere，往裡面問→詢問、調查，名詞是 inquiry。require 在十四世紀就有問、請求和需要兩種意思，「請求」這個意思後來交給 request；request 來自拉丁文 requisita（被要求的東西）。requirement 是需要的東西、必要條件。conquer 原本是努力求得、贏得，後來才指征服，名詞 conquest。quest 是尋求、探索；question 來自拉丁文 quaestio（探求、詢問），英文從一開始就指問題；questionnaire 是問卷。",
-   "items": [
-    {
-     "w": "question",
-     "p": "quest（拉丁文 quaerere 尋求、問）+ -ion"
-    },
-    {
-     "w": "require",
-     "p": "re 再 + quire（拉丁文 quaerere 尋求）"
-    },
-    {
-     "w": "requirement",
-     "p": "require 需要 + -ment"
-    },
-    {
-     "w": "request",
-     "p": "re 再 + quest 尋求"
-    },
-    {
-     "w": "acquire",
-     "p": "ac 朝向 + quire（拉丁文 quaerere 尋求）"
-    },
-    {
-     "w": "conquer",
-     "p": "con（com-，可能表加強）+ quer（拉丁文 quaerere 尋找、問）"
-    },
-    {
-     "w": "acquisition",
-     "p": "acquire 取得 + -ition（ire 變成 isit）"
-    },
-    {
-     "w": "inquiry",
-     "p": "inquiry（可能是盎格魯法語由 enqueren 詢問 變來的名詞；inquire 來自拉丁文 inquirere：in + quaerere 尋找）"
-    },
-    {
-     "w": "quest",
-     "p": "quest（拉丁文 quaerere 尋求，經盎格魯法語 queste）"
-    },
-    {
-     "w": "questionnaire",
-     "p": "questionnaire（法文，來自 questionner 提問，questionner 又來自 question）"
-    },
-    {
-     "w": "inquire",
-     "p": "in 向內 + quire 尋求"
-    },
-    {
-     "w": "conquest",
-     "p": "conquer 的名詞"
-    }
-   ],
-   "dropped": [
-    {
-     "list": "squirrel",
-     "why": "來自希臘文 skiouros，經拉丁文、古法文進入英文；字面上常解釋成 skia 影子 + oura 尾巴，不過這個說法可能是民間字源。總之跟 quaerere 無關"
-    },
-    {
-     "list": "quiz",
-     "why": "Etymonline 說來源不明，沒有提到 quaerere，所以不收錄"
-    }
-   ]
-  },
-  {
-   "key": "cult / col",
-   "zh": "耕種、照料",
-   "note": "拉丁文 colere「耕種、照料」，也有居住的意思，過去分詞是 cultus。culture 原本是耕種土地，後來指培養心靈，到了十九世紀才指一個民族的文化；cultural 是文化的。agriculture 是 agri（拉丁文 ager 田地）+ culture，耕種田地→農業，agricultural 是農業的。cultivate 是耕種、栽培，後來也指用心培養能力、經營關係。colony 來自拉丁文 colonia（移居的土地、農場），colonus 是農夫、移居的人，所以殖民地原本是移民去耕種、居住的地方；colonial 是殖民地的。",
-   "items": [
-    {
-     "w": "culture",
-     "p": "cult（拉丁文 colere 耕種）+ -ure"
-    },
-    {
-     "w": "cultural",
-     "p": "culture 文化 + -al"
-    },
-    {
-     "w": "agriculture",
-     "p": "agri（拉丁文 ager 田地）+ culture 耕種"
-    },
-    {
-     "w": "colony",
-     "p": "colony（拉丁文 colonia，來自 colonus 農夫、移居的人；colonus 又來自 colere 耕種）"
-    },
-    {
-     "w": "agricultural",
-     "p": "agriculture 農業 + -al"
-    },
-    {
-     "w": "colonial",
-     "p": "colony 殖民地 + -ial"
-    },
-    {
-     "w": "cultivate",
-     "p": "cultiv（中世紀拉丁文 cultivare，來自 colere 耕種的過去分詞 cultus）+ -ate"
-    }
-   ],
-   "dropped": [
-    {
-     "list": "difficult　difficulty　faculty",
-     "why": "裡面的 cult 來自拉丁文 facilis「容易的」（difficilis 是 dis 不 + facilis），跟 colere 無關，收在 fact / fac 那個家族"
-    }
-   ]
-  },
-  {
-   "key": "plex",
-   "zh": "編織",
-   "note": "拉丁文 plectere「編織」。complecti 是 com（一起）+ plectere，圍住、抱住，過去分詞是 complexus。complex 是很多部分編在一起→複雜的，當名詞是由許多相關部分組成的整體，例如綜合設施，心理學上指情結；complexity 是複雜。complexion 原本是組合，中世紀醫學認為人的體質由冷、熱、乾、濕四種性質調和而成，臉色反映這種調和，所以後來指膚色、氣色。complicate、apply、explicit、implicit 來自拉丁文 plicare（摺），跟 plectere 同源，都來自原始印歐語 *plek-（編）。",
-   "items": [
-    {
-     "w": "complex",
-     "p": "com 一起 + plex 編"
-    },
-    {
-     "w": "complexity",
-     "p": "complex 複雜的 + -ity"
-    },
-    {
-     "w": "complexion",
-     "p": "com 一起 + plex（編）+ -ion"
-    }
-   ],
-   "dropped": []
-  },
-  {
-   "key": "prehend / pris",
-   "zh": "抓住",
-   "note": "拉丁文 prehendere「抓住」，是 prae（在前）+ hendere，後來縮成 prendere，到法文變成 prendre（拿），過去分詞是 pris，所以這個家族也有 pris、prise 的拼法。comprehend 是全部抓住→理解，也有包含的意思；comprehension 是理解，comprehensive 是全部包含的→全面的。comprise 從法文 comprendre 來，是包含、由…組成。enterprise 是動手去做的事→事業、企業；surprise 原本是突然抓住、出其不意的攻擊，後來才指驚訝。prison 原本是抓住、囚禁的狀態，後來指監獄，prisoner、imprison、imprisonment 都從 prison 來。prey 來自拉丁文 praeda（戰利品、獵物），原本是「事先抓住的東西」；predator 來自拉丁文 praedator（掠奪者），也是從 praeda 來，現在指掠食者。apprentice 來自古法文 aprendre（學習），再往上是拉丁文 apprehendere（抓住），這個字到中世紀拉丁文已經有「學習」的意思。",
-   "items": [
-    {
-     "w": "surprise",
-     "p": "sur（盎格魯法語 sur-、sus- 在下面）+ prise（prendre 拿）"
-    },
-    {
-     "w": "surprised",
-     "p": "surprise + -ed"
-    },
-    {
-     "w": "prison",
-     "p": "prison（拉丁文 prehensio 抓住，經盎格魯法語）"
-    },
-    {
-     "w": "prisoner",
-     "p": "prison 監獄 + -er"
-    },
-    {
-     "w": "comprehend",
-     "p": "com（可能表完全）+ prehend 抓"
-    },
-    {
-     "w": "comprehension",
-     "p": "comprehend 理解 + -sion（d 變成 s）"
-    },
-    {
-     "w": "comprise",
-     "p": "com + prise（盎格魯法語 compris，是 comprendre 的過去分詞，來自拉丁文 comprehendere）"
-    },
-    {
-     "w": "enterprise",
-     "p": "enter（inter 在之間）+ prise（法文 prendre 拿）"
-    },
-    {
-     "w": "prey",
-     "p": "prey（拉丁文 praeda，跟 prehendere 抓 同源）"
-    },
-    {
-     "w": "predator",
-     "p": "predator（拉丁文 praedator 掠奪者，來自 praedari 搶奪，再往上是 praeda 戰利品、獵物）"
-    },
-    {
-     "w": "comprehensive",
-     "p": "comprehend 理解、包含 + -sive"
-    },
-    {
-     "w": "imprison",
-     "p": "im 往裡面 + prison 監獄"
-    },
-    {
-     "w": "imprisonment",
-     "p": "imprison 監禁 + -ment"
-    },
-    {
-     "w": "apprentice",
-     "p": "apprentice（盎格魯法語 apprentiz，來自 aprendre 學習，再往上是拉丁文 apprehendere 抓住）"
-    }
-   ],
-   "dropped": [
-    {
-     "list": "prize",
-     "why": "當「獎品、獎賞」時來自古法文 pris「價格、價值、獎賞」，再往上是拉丁文 pretium「價格、獎賞」，跟 price 同源，不是這個家族"
-    }
-   ]
-  },
-  {
-   "key": "polit / polic",
-   "zh": "城市、公民",
-   "note": "希臘文 polis「城市、城邦」，polites 是住在城裡的「公民」，politikos 是「公民的、跟國家和公共事務有關的」。political 經拉丁文 politicus 來，是政治的；politics 原本是治理國家的學問，後來也指政治活動和個人的政治立場；politician 是 politics + -ian，原本指精通政治的人，現在指政治人物。希臘文 politeia 是「國家、治理、公民身分」，經拉丁文 politia 到法文，一支成了 policy，從治理的學問變成治理的方針→政策；另一支成了 police，原本也是治理、行政，十八世紀從法文借來「維持治安」的意思，1800 年左右才指警察組織。policy 當「保險單」時是另一個字，經義大利文 polizza 來，跟 polis 不同源。metropolitan 來自希臘文 metropolis「母城」，meter（母親）+ polis（城市），原本是教會用語，指省會城市的主教，十六世紀才有「首都的、大都市的」意思。",
-   "items": [
-    {
-     "w": "police",
-     "p": "police（希臘文 politeia 治理國家，經拉丁文 politia、法文 police）"
-    },
-    {
-     "w": "policeman",
-     "p": "police 警察 + -man"
-    },
-    {
-     "w": "policy",
-     "p": "poli（希臘文 politeia 治理國家，經拉丁文 politia、古法文 policie）+ -cy"
-    },
-    {
-     "w": "political",
-     "p": "politic（希臘文 politikos 公民的）+ -al"
-    },
-    {
-     "w": "politician",
-     "p": "politics 政治 + -ian"
-    },
-    {
-     "w": "politics",
-     "p": "polit（希臘文 politikos 公民的、國家的）+ -ics"
-    },
-    {
-     "w": "metropolitan",
-     "p": "metro（希臘文 meter 母親）+ polit（polis 城市）+ -an"
-    }
-   ],
-   "dropped": [
-    {
-     "list": "polite",
-     "why": "來自拉丁文 politus「磨光的、精緻的」，是 polire「磨光」的過去分詞，跟 polish 同源：磨光的→舉止文雅的→有禮貌的。跟 polis 無關"
-    },
-    {
-     "list": "polish",
-     "why": "來自拉丁文 polire「磨光、使光滑」，跟 polite 同源，跟 polis 無關"
-    },
-    {
-     "list": "holy",
-     "why": "來自古英文 halig「神聖的」，再往上是原始印歐語 *kailo-「完整的、沒有損傷的」，跟 health 同源，跟 polis 無關"
-    },
-    {
-     "list": "cosmopolitan",
-     "why": "字源確實是 polis：來自希臘文 kosmopolites「世界公民」，kosmos（世界）+ polites（公民），但《高中英文參考詞彙表》沒有這個字"
-    }
-   ]
-  },
-  {
-   "key": "form",
-   "zh": "形狀、形式",
-   "note": "拉丁文 forma「形狀、外形、樣子」，動詞 formare 是「塑形、做成」；forma 本身的來源不明，有一說認為經伊特拉斯坎語來自希臘文 morphe。字首決定怎麼塑形：in 是塑形，比喻成教導、訓練，後來才指告知，re 是重新塑形→改革，trans 是從一種形狀換到另一種→徹底改變，con 是塑成一樣的形狀→遵守、順從，uni 是只有一種形狀→一致的，後來指制服。formal 是合乎形式的→正式的。format 原本指書的開本大小，二十世紀才指電腦資料的格式。formula 是 forma 的指小形「小形式」，原本是儀式裡固定的說法、規則，後來指數學公式、化學式；formulate 是把想法化成公式→詳細制定。platform 來自法文 plateforme「平的形狀」，plat（平）+ forme（形狀），英文最早（十六世紀）指計畫、方案，不久也指高起來的平面，後來才有月台、政見、網路平台的意思。",
-   "items": [
-    {
-     "w": "uniform",
-     "p": "uni 一 + form 形狀"
-    },
-    {
-     "w": "form",
-     "p": "form（拉丁文 forma 形狀）"
-    },
-    {
-     "w": "formal",
-     "p": "form 形式 + -al"
-    },
-    {
-     "w": "platform",
-     "p": "plat 平的 + form 形狀（中古法文 plate-forme，字面意思是「平的形狀」）"
-    },
-    {
-     "w": "inform",
-     "p": "in 往裡面 + form 形狀"
-    },
-    {
-     "w": "information",
-     "p": "inform 通知 + -ation"
-    },
-    {
-     "w": "formation",
-     "p": "form 形成 + -ation"
-    },
-    {
-     "w": "formula",
-     "p": "formula（拉丁文 formula 小形式、規則，是 forma 形狀的指小形）"
-    },
-    {
-     "w": "reform",
-     "p": "re 再 + form 形狀"
-    },
-    {
-     "w": "transform",
-     "p": "trans 轉換 + form 形狀"
-    },
-    {
-     "w": "informative",
-     "p": "inform 告知 + -ative"
-    },
-    {
-     "w": "format",
-     "p": "format（經法文，可能再經德文，最終來自近代拉丁文 liber formatus「做成某種形狀的書」，formatus 是 formare 塑形的過去分詞）"
-    },
-    {
-     "w": "conform",
-     "p": "con 一起 + form 形狀"
-    },
-    {
-     "w": "transformation",
-     "p": "transform 轉變 + -ation"
-    },
-    {
-     "w": "formulate",
-     "p": "formula 公式 + -ate"
-    }
-   ],
-   "dropped": [
-    {
-     "list": "perform　performance　performer",
-     "why": "來自古法文 parfornir「做完、完成」，par（徹底）+ fornir（提供），後來受古法文 forme「形狀」影響才拼成 perform，原本跟形狀無關"
-    },
-    {
-     "list": "former",
-     "why": "來自古英文 forma「第一的」，跟 foremost 同源，不是拉丁文 forma"
-    },
-    {
-     "list": "formidable",
-     "why": "來自拉丁文 formido「恐懼」，令人害怕的→難對付的，跟 forma 無關"
-    },
-    {
-     "list": "deform",
-     "why": "字源確實是 de + formare（弄壞形狀），但《高中英文參考詞彙表》沒有這個字"
-    }
-   ]
-  },
-  {
-   "key": "act / ag",
-   "zh": "做、驅動",
-   "note": "拉丁文 agere「使動起來、驅趕向前；做、執行」，過去分詞是 actus，所以這個家族有 ag 和 act 兩種拼法。act 是做的事→行為，也指法案、戲劇的一幕；actor 原本是做事的人，十六世紀才指演員。actual 原本是跟行動有關的，後來指實際存在的→實際的。exact 來自 exigere，ex（出）+ agere，有「趕出來」和「完成、衡量」的意思，過去分詞 exactus 是做得很精細的→精確的。transaction 來自 transigere，trans（穿過）+ agere，原本指雙方各讓一步把爭議談妥，後來指一筆完成的生意→交易。react、interact 是英文自己加字首組成的字。agent 是做事的人→代理人；agency 是代理機構；agenda 是「要做的事情」，現在指會議的議程。navigate 是 navis（船）+ agere，駕船航行；ambiguous 來自 ambigere「到處走、拿不定主意」，ambi（兩邊、四周）+ agere，所以是模稜兩可的。",
-   "items": [
-    {
-     "w": "act",
-     "p": "act（拉丁文 actus 行動、actum 做過的事，都來自 agere 驅趕、做）"
-    },
-    {
-     "w": "action",
-     "p": "act 行動 + -ion"
-    },
-    {
-     "w": "actor",
-     "p": "act 演 + -or"
-    },
-    {
-     "w": "actress",
-     "p": "actor 演員 + -ess"
-    },
-    {
-     "w": "active",
-     "p": "act 行動 + -ive"
-    },
-    {
-     "w": "activity",
-     "p": "active 活躍的 + -ity"
-    },
-    {
-     "w": "actual",
-     "p": "act（拉丁文 actus 行動）+ -ual"
-    },
-    {
-     "w": "exact",
-     "p": "ex 出 + act（拉丁文 agere 驅趕）"
-    },
-    {
-     "w": "react",
-     "p": "re 回 + act 做"
-    },
-    {
-     "w": "reaction",
-     "p": "react 反應 + -ion"
-    },
-    {
-     "w": "interact",
-     "p": "inter 互相 + act 做"
-    },
-    {
-     "w": "interaction",
-     "p": "interact 互動 + -ion"
-    },
-    {
-     "w": "agent",
-     "p": "ag（拉丁文 agere 做）+ -ent"
-    },
-    {
-     "w": "agency",
-     "p": "ag（拉丁文 agere 做）+ -ency"
-    },
-    {
-     "w": "ambiguous",
-     "p": "ambi 兩邊 + gu（拉丁文 agere 驅動）+ -ous"
-    },
-    {
-     "w": "activist",
-     "p": "active 積極的 + -ist"
-    },
-    {
-     "w": "transaction",
-     "p": "trans 穿過 + act（拉丁文 agere 做）+ -ion"
-    },
-    {
-     "w": "agenda",
-     "p": "agenda（拉丁文 agenda 要做的事情，來自 agere 做）"
-    },
-    {
-     "w": "radioactive",
-     "p": "radio（拉丁文 radius 光線）+ active 活躍的"
-    },
-    {
-     "w": "ambiguity",
-     "p": "ambiguous 模稜兩可的 + -ity"
-    },
-    {
-     "w": "navigate",
-     "p": "nav（拉丁文 navis 船）+ ig（agere 驅動）+ -ate"
-    },
-    {
-     "w": "navigation",
-     "p": "navigate 航行；導航 + -ion"
-    }
-   ],
-   "dropped": [
-    {
-     "list": "compact　impact",
-     "why": "來自拉丁文 pangere「釘牢、固定」：compact 是 com（一起）+ pangere，緊緊釘在一起→緊密的；impact 是 in（進入）+ pangere，撞進去→衝擊。跟 agere 無關"
-    },
-    {
-     "list": "practice　practical　practitioner",
-     "why": "來自希臘文 praktikos「適合行動的」，再往上是 prassein「做」，意思很像，但走的是希臘文，跟拉丁文 agere 無關"
-    },
-    {
-     "list": "exaggerate",
-     "why": "來自拉丁文 exaggerare「堆高」，agger 是「一堆」，跟 agere 無關"
-    },
-    {
-     "list": "character　characteristic　characterize",
-     "why": "來自希臘文 kharakter「刻下的記號」，再往上是 kharassein「刻」，act 只是拼法上的巧合"
-    },
-    {
-     "list": "examine　exam　examination　essay",
-     "why": "essay 來自晚期拉丁文 exagium「秤重」，出自 exigere（ex + agere）；examine 來自拉丁文 examen「秤、衡量的工具」，Etymonline 說很可能也是從 exigere 來。都跟這個家族有關，但意思轉得太遠，不列入條目"
-    },
-    {
-     "list": "enact",
-     "why": "是 en + act（演出；制定成法律），但《高中英文參考詞彙表》沒有這個字"
+  "schema": 1,
+  "note": "字根家族表。母體為大考中心《高中英文參考詞彙表》（111 學年度起適用）5,992 詞；先定字根，再把整個家族收齊，不分級別。各字依詞彙表級別排序。標「出現過」的是這個字在本題庫實際出現過的地方，只算這個字當過選項（單字題、克漏字）、參考答案（中譯英）或字彙表條目（作文）的題目，出現在題幹和文章內文的不算；同一個字最多列三筆。",
+  "updated": "2026-10-11",
+  "groups": [
+    {
+      "key": "tain / ten",
+      "zh": "握住、保持",
+      "note": "拉丁文 tenere「握住、抓著不放」。字首決定握的方向：往回握、從底下握、朝目標握。特別注意 attain 不是這個家族——它來自 attingere = ad 朝向 + tangere 觸碰，跟 contact、tangible、intact 同源，收在 tact 那個家族，是最容易拆錯的字。另外 -en 結尾的 shorten、tighten、soften、frighten 那一批也與本字根無關，那是把形容詞變動詞的字尾。",
+      "items": [
+        {
+          "w": "contain",
+          "p": "con 一起 + tain 握"
+        },
+        {
+          "w": "maintain",
+          "p": "main（manu）手 + tain 握"
+        },
+        {
+          "w": "container",
+          "p": "contain 容納 + -er 物"
+        },
+        {
+          "w": "content",
+          "p": "con 一起 + tent 握"
+        },
+        {
+          "w": "content(ment)",
+          "p": "content 滿足的 + -ment"
+        },
+        {
+          "w": "entertain(ment)",
+          "p": "enter（inter）在…之間 + tain 握"
+        },
+        {
+          "w": "obtain",
+          "p": "ob 朝向 + tain 握"
+        },
+        {
+          "w": "retain",
+          "p": "re 往回 + tain 握"
+        },
+        {
+          "w": "maintenance",
+          "p": "main（manu）手 + ten 握 + -ance"
+        },
+        {
+          "w": "sustain",
+          "p": "sus（sub）在下 + tain 握"
+        },
+        {
+          "w": "sustainable",
+          "p": "sustain 支撐 + -able"
+        },
+        {
+          "w": "detain",
+          "p": "de 離開 + tain 握"
+        },
+        {
+          "w": "detention",
+          "p": "de 離開 + tent 握 + -ion"
+        },
+        {
+          "w": "tenant",
+          "p": "ten 握、佔有 + -ant 人"
+        },
+        {
+          "w": "lieutenant",
+          "p": "lieu 位置 + tenant 握有"
+        }
+      ],
+      "dropped": [
+        {
+          "why": "-en 字尾，與本字根無關",
+          "list": "listen　often　shorten　tighten　soften　straighten　lighten　heighten　enlighten　frighten　threaten　fasten　hasten　rotten"
+        },
+        {
+          "why": "字串巧合",
+          "list": "sentence　tennis　mountain　mountainous　curtain　fountain　captain　kindergarten　certain　certainty　stain　utensil　patent　potent　potential"
+        },
+        {
+          "why": "來自拉丁文 tendere「伸展」，收在 tend / tens / tent 那個家族",
+          "list": "attend　attention　intend　intense　intensity　intensive　intention　extend　extent　extension　extensive　intensify　intent　tendency　tense　tension　contend　contention　attendance　attendant　pretend　superintendent"
+        },
+        {
+          "why": "來自拉丁文 tentare「摸、試」，收在 tempt / tent 那個家族",
+          "list": "tentative"
+        },
+        {
+          "why": "形容詞 tender 來自拉丁文 tener「柔軟的、嬌嫩的」，跟 tenere 無關",
+          "list": "tender"
+        },
+        {
+          "why": "來自拉丁文 competere「一起追求、相稱」，是 com 一起 + petere 追求，跟 tenere 無關",
+          "list": "competence　competent"
+        },
+        {
+          "why": "來自拉丁文 sistere「站」，收在 sist 那個家族",
+          "list": "consistent　persistent　insistence　persistence　existence"
+        },
+        {
+          "why": "來自 tangere「觸碰」，收在 tact 那個家族",
+          "list": "attain(ment)"
+        },
+        {
+          "why": "外部審訂建議救回但詞彙表未收錄，故不列入",
+          "list": "tenacity　tenacious　tenure（三個字的字源確實是 tenere，但《高中英文參考詞彙表》5,992 筆裡都沒有）"
+        },
+        {
+          "why": "外部審訂建議救回，經查證不屬本字根",
+          "list": "utensil（Etymonline 與 Merriam-Webster 說法一致：來自 utensilia，只出自 uti「使用」，與 tenere 無關）"
+        }
+      ]
+    },
+    {
+      "key": "pon / pos",
+      "zh": "放",
+      "note": "拉丁文 ponere「放置」。把東西放在哪個位置，意思就跟著變：往前放、放對面、壓在上面放、放到後面。特別注意 pose 不是這個家族——它來自晚期拉丁文 pausare「停下來」，後來才跟 ponere 混用，意思也跟著變成「擺放」，是最容易拆錯的字。",
+      "items": [
+        {
+          "w": "position",
+          "p": "pos 放 + -ition"
+        },
+        {
+          "w": "positive",
+          "p": "pos 放 + -itive"
+        },
+        {
+          "w": "propose",
+          "p": "pro 往前 + pos 放"
+        },
+        {
+          "w": "purpose",
+          "p": "pur（pro）向前 + pos 放"
+        },
+        {
+          "w": "suppose",
+          "p": "sup（sub）在下 + pos 放"
+        },
+        {
+          "w": "deposit",
+          "p": "de 離開 + pos 放 + -it"
+        },
+        {
+          "w": "opposite",
+          "p": "op（ob）在前面 + pos 放 + -ite"
+        },
+        {
+          "w": "postpone",
+          "p": "post 之後 + pon 放"
+        },
+        {
+          "w": "compose",
+          "p": "com 一起 + pos 放"
+        },
+        {
+          "w": "composer",
+          "p": "compose 作曲 + -er 人"
+        },
+        {
+          "w": "composition",
+          "p": "compose 組成 + -ition"
+        },
+        {
+          "w": "expose",
+          "p": "ex 往外 + pos 放"
+        },
+        {
+          "w": "exposure",
+          "p": "expose 暴露 + -ure"
+        },
+        {
+          "w": "impose",
+          "p": "im（in）進入 + pos 放"
+        },
+        {
+          "w": "oppose",
+          "p": "op（ob）在前面 + pos 放"
+        },
+        {
+          "w": "proposal",
+          "p": "propose 提議 + -al"
+        },
+        {
+          "w": "component",
+          "p": "com 一起 + pon 放 + -ent"
+        },
+        {
+          "w": "opponent",
+          "p": "op（ob）在前面 + pon 放 + -ent 人"
+        },
+        {
+          "w": "opposition",
+          "p": "op（ob）在前面 + pos 放 + -ition"
+        },
+        {
+          "w": "supposedly",
+          "p": "suppose 假設 + -ed + -ly"
+        },
+        {
+          "w": "compound",
+          "p": "com 一起 + pound（ponere 的變形）放"
+        },
+        {
+          "w": "dispose",
+          "p": "dis 分開 + pos 放"
+        },
+        {
+          "w": "disposable",
+          "p": "dispose 處置 + -able"
+        },
+        {
+          "w": "disposal",
+          "p": "dispose 處置 + -al"
+        },
+        {
+          "w": "imposing",
+          "p": "impose 強加 + -ing"
+        },
+        {
+          "w": "posture",
+          "p": "pos 放 + -ture"
+        }
+      ],
+      "dropped": [
+        {
+          "why": "來自 posse／potis「能夠」，不是 ponere「放」",
+          "list": "possible（1）　possibility（2）　possess（4）　possession（4）——這一組講的是「有能力、握有」，跟放置無關。possess 是 potis 能夠 + sedere 坐，坐得住那樣東西就是持有。"
+        },
+        {
+          "why": "英文的 post「郵政」",
+          "list": "postcard（2）　postage（4）　poster（3）——這些學生會直覺當成「郵」，不必回拉丁層。postpone 才是 post 之後 + pon 放，已收入。"
+        },
+        {
+          "why": "字串巧合",
+          "list": "weapon（2）　coupon（6）　sponge（5）　ponder（6，來自 pondus 重量，是「掂量」不是「放」）　spontaneous（6，來自 sponte 自願，與 spondere 不同源）"
+        }
+      ]
+    },
+    {
+      "key": "spond / spons",
+      "zh": "鄭重承諾",
+      "note": "拉丁文 spondere「鄭重承諾、保證」。respond、correspond 看起來像上一個家族的 pon「放」，其實不是——這是拆字最容易錯的一處。判斷方法：意思跟「回話、擔保」有關的是這個家族，跟「放位置」有關的是上一個家族。",
+      "items": [
+        {
+          "w": "respond",
+          "p": "re 回 + spond 承諾"
+        },
+        {
+          "w": "responsible",
+          "p": "re 回 + spons 承諾 + -ible"
+        },
+        {
+          "w": "response",
+          "p": "re 回 + spons 承諾"
+        },
+        {
+          "w": "responsibility",
+          "p": "responsible 負責的 + -ity"
+        },
+        {
+          "w": "correspond",
+          "p": "cor（com）一起 + respond 回應"
+        },
+        {
+          "w": "correspondent",
+          "p": "correspond 通信 + -ent 人"
+        },
+        {
+          "w": "respondent",
+          "p": "respond 回應 + -ent 人"
+        },
+        {
+          "w": "sponsor",
+          "p": "spons 承諾 + -or 人"
+        },
+        {
+          "w": "sponsorship",
+          "p": "sponsor 贊助者 + -ship 身分"
+        },
+        {
+          "w": "correspondence",
+          "p": "correspond 通信 + -ence"
+        }
+      ]
+    },
+    {
+      "key": "vers / vert",
+      "zh": "轉",
+      "note": "拉丁文 vertere「轉」。字首決定轉的方向：轉回來、轉開、轉到對面、全部轉成一個。這個家族最漂亮的一條是 verse——原意是犁田犁到田頭轉回來的那一道，一道就是一行，所以成了詩行。",
+      "items": [
+        {
+          "w": "conversation",
+          "p": "con 一起 + vers 轉 + -ation"
+        },
+        {
+          "w": "universe",
+          "p": "uni 一 + vers 轉"
+        },
+        {
+          "w": "university",
+          "p": "uni 一 + vers 轉 + -ity"
+        },
+        {
+          "w": "verse",
+          "p": "vers 轉"
+        },
+        {
+          "w": "advertise",
+          "p": "ad 朝向 + vert 轉"
+        },
+        {
+          "w": "advertisement",
+          "p": "advertise + -ment"
+        },
+        {
+          "w": "anniversary",
+          "p": "anni 年 + vers 轉 + -ary"
+        },
+        {
+          "w": "converse",
+          "p": "con 一起 + vers 轉"
+        },
+        {
+          "w": "diverse",
+          "p": "di 分開 + vers 轉"
+        },
+        {
+          "w": "diversity",
+          "p": "diverse 多樣的 + -ity"
+        },
+        {
+          "w": "universal",
+          "p": "universe 宇宙 + -al"
+        },
+        {
+          "w": "adverse",
+          "p": "ad 朝向 + vers 轉"
+        },
+        {
+          "w": "controversial",
+          "p": "controversy 爭議 + -ial"
+        },
+        {
+          "w": "controversy",
+          "p": "contro 相反 + vers 轉 + -y"
+        },
+        {
+          "w": "conversion",
+          "p": "con 一起 + vers 轉 + -ion"
+        },
+        {
+          "w": "convert",
+          "p": "con 一起 + vert 轉"
+        },
+        {
+          "w": "reverse",
+          "p": "re 往回 + vers 轉"
+        },
+        {
+          "w": "version",
+          "p": "vers 轉 + -ion"
+        },
+        {
+          "w": "versus",
+          "p": "vers 轉（拉丁文 versus 面對著）"
+        },
+        {
+          "w": "vertical",
+          "p": "vertic（拉丁文 vertex 頂點，源自 vertere 轉）+ -al"
+        },
+        {
+          "w": "avert",
+          "p": "a（ab）離開 + vert 轉"
+        },
+        {
+          "w": "divert",
+          "p": "di 分開 + vert 轉"
+        },
+        {
+          "w": "diversion",
+          "p": "di 分開 + vers 轉 + -ion"
+        },
+        {
+          "w": "diversify",
+          "p": "diverse 多樣的 + -ify 使"
+        },
+        {
+          "w": "versatile",
+          "p": "vers 轉 + -atile"
+        }
+      ],
+      "dropped": [
+        {
+          "why": "英文 over- 加原生動詞，與 vertere 無關",
+          "list": "oversee（5）　overtake（5）　overturn（5）　overthrow（4）　overseas（3）——這一組最容易誤判，因為 overturn 的意思正好是「翻轉」、overthrow 是「推翻」，語意上跟「轉」很接近，但構詞上是 over 加 turn、加 throw，是英文自己組出來的複合詞，不必回拉丁層。"
+        },
+        {
+          "why": "字串巧合",
+          "list": "poverty（3，來自 pauper 貧窮）　nevertheless（4，never + the + less）　evergreen（6，ever + green）"
+        }
+      ]
+    },
+    {
+      "key": "fer",
+      "zh": "帶、生產",
+      "note": "拉丁文 ferre「帶、承載」。把東西從一處帶到另一處，字首決定帶去哪裡：帶到前面、帶回去、帶到底下扛著。土地把作物帶出來，就轉成「生產」那一支（fertile 一系）。這個家族容易拆錯的字特別多，而且特別像，列在這個家族最後面。",
+      "items": [
+        {
+          "w": "different",
+          "p": "dif 分開 + fer 帶 + -ent"
+        },
+        {
+          "w": "difference",
+          "p": "dif 分開 + fer 帶 + -ence"
+        },
+        {
+          "w": "offer",
+          "p": "of（ob）朝向 + fer 帶"
+        },
+        {
+          "w": "prefer",
+          "p": "pre 在前 + fer 帶"
+        },
+        {
+          "w": "suffer",
+          "p": "suf（sub）在下 + fer 帶"
+        },
+        {
+          "w": "conference",
+          "p": "con 一起 + fer 帶 + -ence"
+        },
+        {
+          "w": "differ",
+          "p": "dif 分開 + fer 帶"
+        },
+        {
+          "w": "fertile",
+          "p": "fer 承載、帶 + -ile"
+        },
+        {
+          "w": "refer",
+          "p": "re 回 + fer 帶"
+        },
+        {
+          "w": "reference",
+          "p": "refer 參考 + -ence"
+        },
+        {
+          "w": "transfer",
+          "p": "trans 越過 + fer 帶"
+        },
+        {
+          "w": "indifferent",
+          "p": "in 不 + dif（dis）分開 + fer 帶 + -ent"
+        },
+        {
+          "w": "offering",
+          "p": "offer 提供 + -ing"
+        },
+        {
+          "w": "preference",
+          "p": "prefer 偏好 + -ence"
+        },
+        {
+          "w": "differentiate",
+          "p": "different 不同的 + -iate 使"
+        },
+        {
+          "w": "fertility",
+          "p": "fertile 肥沃的 + -ity"
+        },
+        {
+          "w": "fertilizer",
+          "p": "fertile 肥沃的 + -ize 使 + -er 物"
+        },
+        {
+          "w": "indifference",
+          "p": "indifferent 漠不關心的 + -ence"
+        },
+        {
+          "w": "infer",
+          "p": "in 往裡面 + fer 帶"
+        },
+        {
+          "w": "referee",
+          "p": "refer 交付 + -ee 人"
+        },
+        {
+          "w": "referendum",
+          "p": "refer 交付 + -endum"
+        }
+      ],
+      "dropped": [
+        {
+          "why": "來自 inferus「低」，不是 ferre",
+          "list": "inferior（3）——正好可以跟本表的 infer（6）對照著教：infer 是 in 往裡 + fer 帶，inferior 是「位置比較低的」，兩個字長得像，字根完全不同。"
+        },
+        {
+          "why": "來自 ferire「敲打」，不是 ferre",
+          "list": "interfere（4）　interference（5）——Etymonline：來自古法語 enterferer「互相打擊」，entre- 之間 + ferir 打擊，源頭是拉丁 ferire「敲打」，與 forare「鑽孔」同源。意思上「插進中間」很像「帶進中間」，但構詞是「在中間互打」。"
+        },
+        {
+          "why": "日耳曼語系，與拉丁 ferre 無關",
+          "list": "ferry（4）——來自古英語 ferian、原始日耳曼語 *farjan，PIE 詞根 *per-，跟 fare 同源；ferre 走的是 PIE *bher-。這是最刁鑽的一個：意思幾乎一樣（把人或貨載過去），來源卻無關。"
+        }
+      ]
+    },
+    {
+      "key": "spec / spect / spic / spis",
+      "zh": "看",
+      "note": "拉丁文 specere「看」。字首決定往哪裡看：回頭看、往裡看、從底下偷看、往下看。母音會變：spec、spect、spic、spis 是同一個字根的不同面貌。",
+      "items": [
+        {
+          "w": "expect",
+          "p": "ex 往外 + spect 看"
+        },
+        {
+          "w": "respect",
+          "p": "re 往回 + spect 看"
+        },
+        {
+          "w": "inspect",
+          "p": "in 往裡面 + spect 看"
+        },
+        {
+          "w": "inspector",
+          "p": "inspect 檢查 + -or 人"
+        },
+        {
+          "w": "suspect",
+          "p": "sus（sub）往上 + spect 看"
+        },
+        {
+          "w": "suspicion",
+          "p": "sus（sub）往上 + spic 看 + -ion"
+        },
+        {
+          "w": "expectation",
+          "p": "expect + -ation"
+        },
+        {
+          "w": "aspect",
+          "p": "a（ad）朝向 + spect 看"
+        },
+        {
+          "w": "inspection",
+          "p": "inspect 檢查 + -ion"
+        },
+        {
+          "w": "respectable",
+          "p": "respect 尊重 + -able"
+        },
+        {
+          "w": "respectful",
+          "p": "respect 尊重 + -ful"
+        },
+        {
+          "w": "suspicious",
+          "p": "sus（sub）往上 + spic 看 + -ious"
+        },
+        {
+          "w": "prospect",
+          "p": "pro 往前 + spect 看"
+        },
+        {
+          "w": "specimen",
+          "p": "spec 看 + -imen 物"
+        },
+        {
+          "w": "spectacular",
+          "p": "spect 看 + -acular"
+        },
+        {
+          "w": "spectator",
+          "p": "spect 看 + -ator 人"
+        },
+        {
+          "w": "spectrum",
+          "p": "spect 看（拉丁文 spectrum 外觀）"
+        },
+        {
+          "w": "speculate",
+          "p": "spec 看 + -ul（specula 瞭望台）+ -ate"
+        },
+        {
+          "w": "prospective",
+          "p": "prospect 前景 + -ive"
+        },
+        {
+          "w": "respective",
+          "p": "re 往回 + spect 看 + -ive"
+        },
+        {
+          "w": "spectacle",
+          "p": "spect（spectare 觀看）+ -acle"
+        }
+      ],
+      "dropped": [
+        {
+          "why": "同源旁支一：希臘語 skopein「看」，與拉丁 specere 同出 PIE *spek-",
+          "list": "scope（5）　microscope（4）　telescope（5）——這三個確實同源，只是走希臘語那一支（字母順序倒過來成 skop-）。可以在課堂上當延伸提一句：micro 小 + scope 看、tele 遠 + scope 看，但不併入本表，免得學生把 spec- 和 -scope 當成同一個字根去拼。"
+        },
+        {
+          "why": "同源旁支二：日耳曼語，但與拉丁 specere 同出 PIE *spek-",
+          "list": "spy（3）——來自古法語 espiier，再往上是法蘭克語 *spehon、原始日耳曼語 *spehon-，跟 specere 同一個 PIE 詞根。與 ferry 那種情形不同：ferry 是完全不同的詞根，spy 是同根不同支。"
+        },
+        {
+          "why": "同源但語意已遠",
+          "list": "spice（3）　spicy（5）——來自拉丁 species，中世紀拉丁文裡 species 指「各類貨品」，香料是其中一類，於是成了 spice。路徑太長，不列入條目。"
+        },
+        {
+          "why": "字串巧合",
+          "list": "crispy（3，來自 crispus 捲曲的，是 crisp + -y）"
+        }
+      ]
+    },
+    {
+      "key": "speci",
+      "zh": "種類（同一字根的另一支）",
+      "note": "「看」再延伸一步，就是「看起來的樣子」，樣子相同的歸為一類，於是分出 species「種類」這一支。這一支不必回拉丁層——special 是第 1 級，學生早就認得，從它拆起最省力。",
+      "items": [
+        {
+          "w": "special",
+          "p": "speci 種類 + -al"
+        },
+        {
+          "w": "especially",
+          "p": "e 古法語加的母音 + special 特別的 + -ly"
+        },
+        {
+          "w": "specific",
+          "p": "speci（species 種類）+ -fic"
+        },
+        {
+          "w": "species",
+          "p": "spec 看 + -ies"
+        },
+        {
+          "w": "specialist",
+          "p": "special 特別的 + -ist 人"
+        },
+        {
+          "w": "specialize",
+          "p": "special 特別的 + -ize 使"
+        },
+        {
+          "w": "specialty",
+          "p": "special 特別的 + -ty"
+        },
+        {
+          "w": "specify",
+          "p": "speci（species 種類）+ -fy"
+        }
+      ]
+    },
+    {
+      "key": "ced / cess / ceed / cede",
+      "zh": "走、讓",
+      "note": "拉丁文 cedere「走、退讓」。字首決定走的方向：往前走、往回退、緊接在後面走、讓出去。這個家族最值得講的是 necessary——ne 不 + cess 讓，原意是「沒有退路」，沒有退路的事就是必要的事。",
+      "items": [
+        {
+          "w": "successful",
+          "p": "suc（sub）在後 + cess 走 + -ful"
+        },
+        {
+          "w": "necessary",
+          "p": "ne 不 + cess（可能來自拉丁文 cedere 退開）+ -ary"
+        },
+        {
+          "w": "succeed",
+          "p": "suc（sub）靠近 + ceed 走"
+        },
+        {
+          "w": "success",
+          "p": "suc（sub）靠近 + cess 走"
+        },
+        {
+          "w": "necessity",
+          "p": "necessary 必要的 + -ity"
+        },
+        {
+          "w": "process",
+          "p": "pro 往前 + cess 走"
+        },
+        {
+          "w": "access",
+          "p": "ac（ad）朝向 + cess 走"
+        },
+        {
+          "w": "procedure",
+          "p": "pro + ced 走 + -ure（法文 procédure，來自中古法文 proceder）"
+        },
+        {
+          "w": "proceed",
+          "p": "pro 往前 + ceed 走"
+        },
+        {
+          "w": "accessible",
+          "p": "access 進入 + -ible"
+        },
+        {
+          "w": "concede",
+          "p": "con（com）可能加強語氣 + cede 讓"
+        },
+        {
+          "w": "exceed",
+          "p": "ex 往外 + ceed 走"
+        },
+        {
+          "w": "excessive",
+          "p": "ex 往外 + cess 走 + -ive"
+        },
+        {
+          "w": "recession",
+          "p": "re 往回 + cess 走 + -ion"
+        },
+        {
+          "w": "successor",
+          "p": "suc（sub）靠近 + cess 走 + -or 人"
+        },
+        {
+          "w": "unprecedented",
+          "p": "un 沒有 + pre 在前 + ced 走 + -ent + -ed"
+        },
+        {
+          "w": "accessory",
+          "p": "ac（ad）朝向 + cess 走 + -ory"
+        },
+        {
+          "w": "concession",
+          "p": "con（com）可能加強語氣 + cess 讓 + -ion"
+        },
+        {
+          "w": "excess",
+          "p": "ex 往外 + cess 走"
+        },
+        {
+          "w": "precede",
+          "p": "pre 在前 + cede 走"
+        },
+        {
+          "w": "precedent",
+          "p": "pre 在前 + ced 走 + -ent"
+        },
+        {
+          "w": "predecessor",
+          "p": "pre 在前 + de 離開 + cess 走 + -or 人"
+        },
+        {
+          "w": "procession",
+          "p": "pro 往前 + cess 走 + -ion"
+        },
+        {
+          "w": "succession",
+          "p": "suc（sub）靠近 + cess 走 + -ion"
+        },
+        {
+          "w": "successive",
+          "p": "suc（sub）靠近 + cess 走 + -ive"
+        }
+      ],
+      "dropped": [
+        {
+          "why": "字串巧合",
+          "list": "prince/princess（2，來自 primus 第一 + cap 拿取，是「拿到第一位的人」，cess 只是 princess 拼法上的巧合）　advanced（3，來自 abante「在前面」，與 cedere 無關）"
+        }
+      ]
+    },
+    {
+      "key": "cap / capt / cip / cept",
+      "zh": "抓、取（主幹）",
+      "note": "拉丁文 capere「抓住、拿取」。母音會變：cap、capt、cip、cept 是同一個字根的四種面貌，看到就要能認出來。字首決定抓的方向：朝自己抓、抓出去另外放、事先抓住、抓住一部分。",
+      "items": [
+        {
+          "w": "except",
+          "p": "ex 往外 + cept 拿"
+        },
+        {
+          "w": "accept",
+          "p": "ac（ad）朝向 + cept 拿"
+        },
+        {
+          "w": "participate",
+          "p": "parti 部分 + cip 拿 + -ate"
+        },
+        {
+          "w": "acceptable",
+          "p": "accept 接受 + -able"
+        },
+        {
+          "w": "capable",
+          "p": "cap 拿取 + -able"
+        },
+        {
+          "w": "capture",
+          "p": "capt 拿 + -ure"
+        },
+        {
+          "w": "acceptance",
+          "p": "accept 接受 + -ance"
+        },
+        {
+          "w": "capacity",
+          "p": "cap 容納 + -acity"
+        },
+        {
+          "w": "concept",
+          "p": "con（com）可能加強語氣 + cept 拿"
+        },
+        {
+          "w": "exception",
+          "p": "except 除外 + -ion"
+        },
+        {
+          "w": "participation",
+          "p": "participate 參與 + -ion"
+        },
+        {
+          "w": "recipe",
+          "p": "re 回 + cip 拿"
+        },
+        {
+          "w": "anticipate",
+          "p": "anti（ante）事先 + cip 拿 + -ate"
+        },
+        {
+          "w": "capability",
+          "p": "capable 有能力的 + -ity"
+        },
+        {
+          "w": "exceptional",
+          "p": "exception 例外 + -al"
+        },
+        {
+          "w": "municipal",
+          "p": "muni 職務 + cip 拿 + -al"
+        },
+        {
+          "w": "participant",
+          "p": "parti 部分 + cip 拿 + -ant 人"
+        },
+        {
+          "w": "recipient",
+          "p": "re 回 + cip 拿 + -ient 人"
+        },
+        {
+          "w": "anticipation",
+          "p": "anticipate 預料 + -ion"
+        },
+        {
+          "w": "caption",
+          "p": "capt 抓 + -ion"
+        },
+        {
+          "w": "captive",
+          "p": "capt 拿 + -ive"
+        },
+        {
+          "w": "captivity",
+          "p": "captive 被俘的 + -ity"
+        },
+        {
+          "w": "capsule",
+          "p": "caps 盒子 + -ule 小"
+        },
+        {
+          "w": "disciplinary",
+          "p": "discipline 紀律 + -ary"
+        }
+      ],
+      "dropped": [
+        {
+          "why": "來自 caput「頭」，不是 capere「抓」",
+          "list": "capital（2）　capital(ism)（4）　capitalist（4）　captain（3）——這一組講的是「頭」：capital 是頭一等的城市或資本，captain 是船頭那個人。跟「抓取」無關，是這個家族最大一批容易拆錯的字。"
+        },
+        {
+          "why": "來自 cappa「斗篷、頭罩」",
+          "list": "cap（1）　cape（6）　escape（2）——cap 是頭罩，escape 是 ex 脫出 + cappa 斗篷，「從斗篷裡溜出去」。注意 cap 是第 1 級，而本題庫把 capable 拆成 cap 拿取，兩個 cap 長得一樣、來源不同，教到 capable 時要提一句。"
+        },
+        {
+          "why": "字串巧合",
+          "list": "landscape（4，land + -scape，來自荷蘭語 -schap，即英文的 -ship）　handicap（6，hand in cap，出自舊時抽籤下注的手勢）"
+        }
+      ]
+    },
+    {
+      "key": "-ceive / -ceipt / -cept",
+      "zh": "抓（同一字根的法語支）",
+      "note": "capere 經古法語進入英文時，動詞變成 -ceive、名詞收據變成 -ceipt，但名詞形式又回到拉丁的 -cept。所以動詞與名詞看起來不像同一個字：receive 對 reception、conceive 對 conception、perceive 對 perception。這一組配對本身就是考點。",
+      "items": [
+        {
+          "w": "receive",
+          "p": "re 回 + ceive 拿"
+        },
+        {
+          "w": "receipt",
+          "p": "re + ceipt 拿"
+        },
+        {
+          "w": "receiver",
+          "p": "receive 收到 + -er 人"
+        },
+        {
+          "w": "reception",
+          "p": "re 回 + cept 拿 + -ion"
+        },
+        {
+          "w": "conceive",
+          "p": "con（com）可能加強語氣 + ceive 拿"
+        },
+        {
+          "w": "conception",
+          "p": "con（com）可能加強語氣 + cept 拿 + -ion"
+        },
+        {
+          "w": "deceive",
+          "p": "de 離開（或表貶義）+ ceive 拿"
+        },
+        {
+          "w": "perceive",
+          "p": "per 徹底 + ceive 拿"
+        },
+        {
+          "w": "perception",
+          "p": "per 徹底 + cept 拿 + -ion"
+        }
+      ]
+    },
+    {
+      "key": "princip-",
+      "zh": "拿到第一位（同一字根的複合支）",
+      "note": "princeps = primus 第一 + cap 拿取，「拿到第一順位的人」。principal 與 principle 是全表最常混的一對：前者是「主要的、校長」，後者是「原則」，字源相同、詞性用法完全不同。",
+      "items": [
+        {
+          "w": "principal",
+          "p": "princip 拿到第一位 + -al"
+        },
+        {
+          "w": "principle",
+          "p": "princip 拿到第一位（拉丁文 principium 開端）"
+        }
+      ]
+    },
+    {
+      "key": "tend / tens / tent",
+      "zh": "伸展",
+      "note": "拉丁文 tendere「伸長、拉緊」。心思或力氣往某個方向伸過去。這個家族與 tain/ten「握住」長得極像，但不同源：那個家族是抓在手上，這個家族是往外拉開。判斷方法：意思跟「方向、注意力、拉緊」有關的是這個家族。",
+      "items": [
+        {
+          "w": "attend",
+          "p": "at（ad）朝向 + tend 伸"
+        },
+        {
+          "w": "attention",
+          "p": "at（ad）朝向 + tent 伸 + -ion"
+        },
+        {
+          "w": "pretend",
+          "p": "pre 在前 + tend 伸"
+        },
+        {
+          "w": "tend",
+          "p": "tend 伸"
+        },
+        {
+          "w": "tent",
+          "p": "tent 伸"
+        },
+        {
+          "w": "extend",
+          "p": "ex 往外 + tend 伸"
+        },
+        {
+          "w": "extent",
+          "p": "ex 往外 + tent 伸"
+        },
+        {
+          "w": "intend",
+          "p": "in 朝向 + tend 伸"
+        },
+        {
+          "w": "intense",
+          "p": "in 朝向 + tens 伸"
+        },
+        {
+          "w": "intensity",
+          "p": "intense 強烈的 + -ity"
+        },
+        {
+          "w": "intensive",
+          "p": "intense 強烈的 + -ive"
+        },
+        {
+          "w": "intention",
+          "p": "in 往裡面 + tent 伸 + -ion"
+        },
+        {
+          "w": "tendency",
+          "p": "tend 傾向 + -ency"
+        },
+        {
+          "w": "tense",
+          "p": "tens 伸"
+        },
+        {
+          "w": "tension",
+          "p": "tens 伸 + -ion"
+        },
+        {
+          "w": "attendance",
+          "p": "attend 出席 + -ance"
+        },
+        {
+          "w": "contend",
+          "p": "con 加強 + tend 伸"
+        },
+        {
+          "w": "extension",
+          "p": "ex 往外 + tens 伸 + -ion"
+        },
+        {
+          "w": "extensive",
+          "p": "ex 往外 + tens 伸 + -ive"
+        },
+        {
+          "w": "intensify",
+          "p": "intense 強烈的 + -ify 使"
+        },
+        {
+          "w": "intent",
+          "p": "in 往裡面 + tent 伸"
+        },
+        {
+          "w": "attendant",
+          "p": "attend 照顧 + -ant 人"
+        },
+        {
+          "w": "contention",
+          "p": "con 一起 + tent 伸 + -ion"
+        },
+        {
+          "w": "superintendent",
+          "p": "super 在上 + in 朝向 + tend 伸 + -ent 人"
+        }
+      ],
+      "dropped": [
+        {
+          "why": "同源旁支：詞彙表收的是形容詞，而形容詞來自另一個拉丁字",
+          "list": "tender（3）——Etymonline：形容詞 tender 來自拉丁 tener「柔軟、幼嫩」，與 tendere 同出 PIE *ten-「伸展」（拉開→變薄→柔弱），但是不同的拉丁字。真正屬於 tendere 的是動詞 tender「正式提出」（legal tender 的那個），詞彙表未收錄。"
+        },
+        {
+          "why": "來自 tenere「握住」，屬於 tain/ten 家族",
+          "list": "content（4）　content(ment)（4）　detention（6）——這三個已收錄在 tain/ten 那個家族。content 是「一起握在裡面」，不是「一起伸出去」。"
+        },
+        {
+          "why": "來自 sistere「站」",
+          "list": "consistent（4）　persistent（6）——con 一起 + sist 站 = 立場前後站得住；per 持續 + sist 站 = 一直站著不走。跟「伸」無關。"
+        },
+        {
+          "why": "其他長得像、來源不同的字",
+          "list": "competent（5，com 一起 + pet 追求，能力夠得上）　potential（4）　potent（6）（來自 potis 能夠）　patent（5，來自 patere 開放，公開的專利）　utensil（6，來自 uti 使用）"
+        },
+        {
+          "why": "來自拉丁文 tentare「摸、試」，跟 tempt 同源",
+          "list": "tentative（6）——Etymonline、Merriam-Webster 都說它來自 tentare（摸、試、檢驗），跟 tendere（伸）無關：先試試看的→暫定的、猶豫的。"
+        }
+      ]
+    },
+    {
+      "key": "lect / leg / lig",
+      "zh": "挑、讀（legere）",
+      "note": "拉丁文 legere「一個個挑起來」，挑字來看就成了「讀」。字首決定怎麼挑：一起挑、分開挑、挑出來、不去挑。intelligent 與 diligent 是這一支最漂亮的兩條：能在事物之間挑出分別的是聰明，一件件挑著仔細做的是勤勉。",
+      "items": [
+        {
+          "w": "collect",
+          "p": "col 一起 + lect 挑"
+        },
+        {
+          "w": "select",
+          "p": "se 分開 + lect 挑"
+        },
+        {
+          "w": "selection",
+          "p": "select 挑選 + -ion"
+        },
+        {
+          "w": "collection",
+          "p": "collect 收集 + -ion"
+        },
+        {
+          "w": "elect",
+          "p": "e 往外 + lect 挑"
+        },
+        {
+          "w": "election",
+          "p": "elect 選舉 + -ion"
+        },
+        {
+          "w": "intelligent",
+          "p": "intel（inter）之間 + lig 挑 + -ent"
+        },
+        {
+          "w": "diligence",
+          "p": "diligent 勤勉的 + -ence"
+        },
+        {
+          "w": "diligent",
+          "p": "di 分開 + lig 挑 + -ent"
+        },
+        {
+          "w": "elegant",
+          "p": "elegant（拉丁文 elegans，跟拉丁文 eligere 挑選 同源）"
+        },
+        {
+          "w": "intellectual",
+          "p": "intel（inter）之間 + lect 挑 + -ual"
+        },
+        {
+          "w": "intelligence",
+          "p": "intelligent 聰明的 + -ence"
+        },
+        {
+          "w": "lecture",
+          "p": "lect 讀 + -ure"
+        },
+        {
+          "w": "lecturer",
+          "p": "lecture 講課 + -er 人"
+        },
+        {
+          "w": "legend",
+          "p": "leg 讀 + -end"
+        },
+        {
+          "w": "neglect",
+          "p": "neg 不 + lect 挑"
+        },
+        {
+          "w": "collective",
+          "p": "collect 收集 + -ive"
+        },
+        {
+          "w": "collector",
+          "p": "collect 收集 + -or 人"
+        },
+        {
+          "w": "eligible",
+          "p": "e 往外 + lig 挑 + -ible"
+        },
+        {
+          "w": "legendary",
+          "p": "legend 傳說 + -ary"
+        },
+        {
+          "w": "intellect",
+          "p": "intel（inter）之間 + lect 挑"
+        },
+        {
+          "w": "selective",
+          "p": "select 挑選 + -ive"
+        }
+      ],
+      "dropped": [
+        {
+          "why": "英文 light 一整組，與拉丁字根全部無關",
+          "list": "light（1）　flight（2）　flashlight（3）　lighthouse（3）　lightning（3）　highlight（5）　enlighten(ment)（6）　lighten（6）　spotlight（6）　twilight（6）——這一組是機器寬篩最大的錯誤來源，第二批曾誤收 highlight、spotlight、enlighten、twilight 四個。"
+        },
+        {
+          "why": "特別注意：delight 拼法被 light 帶偏",
+          "list": "delight（4）　delightful（4）——來自拉丁 delectare「吸引、取悅」（de + lacere 誘引），跟 delicious 同源，本來拼作 delite，是後人看它像 light 才改成 -ght。所以它既不屬 legere，也不屬 light。"
+        },
+        {
+          "why": "希臘語 elektron「琥珀」",
+          "list": "electric（2）　electrical（2）　electricity（3）　electronic（3）　electronics（4）　electrician（6）——琥珀摩擦生靜電，於是成了「電」。lect 只是拼法上的巧合。"
+        },
+        {
+          "why": "同源旁支：希臘語 legein「說」／logos「話語」，與拉丁 legere 同出 PIE *leg-",
+          "list": "dialogue（2）　catalogue（4）　dialect（5）　——dia 之間 + log 說 = 兩人之間的話；cata 依序 + log 說 = 依序列出來的清單；dialect 是一地人之間講的話。確實同源，但走希臘語那一支，不併入本表。"
+        },
+        {
+          "why": "字源有爭議，不列入",
+          "list": "religion（2）　religious（3）——古羅馬的西塞羅認為來自 relegere「反覆讀」，後來的基督教作者（拉克坦提烏斯、奧古斯丁）認為來自 religare「緊緊綁住」。兩種說法都有人採，Etymonline 並列而未定論，因此不列入條目。"
+        },
+        {
+          "why": "字串巧合",
+          "list": "leg（1，腿，來自古北歐語 leggr）　slight（4，來自古北歐語 slettr 平滑）　align（6，來自法語 aligner，出自 ligne 線，不是 ligare）　alligator（6，來自西班牙語 el lagarto「那隻蜥蜴」）　telegraph（5）　calligraphy（6）（都是 graph 寫，不是 leg）"
+        }
+      ]
+    },
+    {
+      "key": "leg / legis",
+      "zh": "法律（lex）",
+      "note": "拉丁文 lex／legis「法律」。跟上一支同形但不同源：上一支是「挑」，這一支是「法」。判斷方法：意思跟法律、權利、指派有關的是這一支。",
+      "items": [
+        {
+          "w": "legal",
+          "p": "leg 法律 + -al"
+        },
+        {
+          "w": "privilege",
+          "p": "privi 私人 + leg 法律 + -e"
+        },
+        {
+          "w": "delegate",
+          "p": "de 離開 + leg 派 + -ate"
+        },
+        {
+          "w": "delegation",
+          "p": "delegate 委派 + -ion"
+        },
+        {
+          "w": "legacy",
+          "p": "legacy（中古拉丁文 legatia；跟 legate 同源）"
+        },
+        {
+          "w": "legislation",
+          "p": "legis 法律 + lat 帶來 + -ion"
+        },
+        {
+          "w": "legislative",
+          "p": "legis 法律 + lat 帶來 + -ive"
+        },
+        {
+          "w": "legitimate",
+          "p": "legitim 合法的 + -ate"
+        },
+        {
+          "w": "legislator",
+          "p": "legis 法律 + lat 帶來 + -or 人"
+        }
+      ]
+    },
+    {
+      "key": "lig",
+      "zh": "綁（ligare）",
+      "note": "拉丁文 ligare「綁」。與上兩支同形而不同源，只有兩個字，但都是常考字。同源的還有 ligament（韌帶）、league（結盟），詞彙表未收錄。",
+      "items": [
+        {
+          "w": "obligation",
+          "p": "ob 朝向 + lig 綁 + -ation"
+        },
+        {
+          "w": "oblige",
+          "p": "ob 朝向 + lig 綁"
+        }
+      ]
+    },
+    {
+      "key": "nom / onym",
+      "zh": "名字",
+      "note": "拉丁文 nomen 和希臘文 onoma 都是「名字」，兩者遠古同源，英文的 name 也是從同一個古老字根來的。拉丁文這一支在英文裡多半寫成 nom，像 nominate（叫出名字 → 提名）；希臘文這一支寫成 onym，像 synonym（名字相同 → 同義字）、anonymous（沒有名字 → 匿名的）。特別注意 astronomy、economy、autonomy 裡的 nomy 不是這個家族，那是希臘文 nomos（安排、管理、法則），見下一個家族；phenomenon 裡的 nom 也不是，它來自希臘文 phainein（顯現）。",
+      "items": [
+        {
+          "w": "nominate",
+          "p": "nomin 名字 + -ate"
+        },
+        {
+          "w": "nomination",
+          "p": "nominate + -ion"
+        },
+        {
+          "w": "nominee",
+          "p": "nominate 提名（nomin 名字）+ -ee（受…的人）"
+        },
+        {
+          "w": "anonymous",
+          "p": "an 沒有 + onym 名字 + -ous"
+        },
+        {
+          "w": "synonym",
+          "p": "syn 相同 + onym 名字"
+        },
+        {
+          "w": "antonym",
+          "p": "ant 相反 + onym 名字"
+        },
+        {
+          "w": "renowned",
+          "p": "renown 名聲（盎格魯法語 renomer 傳述：re- + nomer 叫名字，來自拉丁文 nominare）+ -ed"
+        }
+      ],
+      "dropped": [
+        {
+          "why": "來自希臘文 nomos「安排、管理」，見下一個家族 nomy",
+          "list": "astronomy　astronomer　economy　economic　economical　economics　economist　autonomy"
+        },
+        {
+          "why": "來自希臘文 phainein「顯現」，與本字根無關",
+          "list": "phenomenon"
+        }
+      ]
+    },
+    {
+      "key": "nomy",
+      "zh": "安排、管理、法則",
+      "note": "希臘文 nomos，意思是「安排、管理；規則、法律」，動詞 nemein 是「分配、管理」。astronomy 是 astron（星星）+ nomy，原意是「安排星星的運行」→ 天文學；economy 是 eco（希臘文 oikos 家）+ nomy，原意是「管理一個家」，後來擴大成管理一個國家的財物 → 經濟；autonomy 是 auto（自己）+ nomy，自己訂規矩 → 自治。這個家族的 nomy 看起來像上一個家族的 nom（名字），其實是另一個字。economic（經濟的）和 economical（節省的）這一對常考，見易混淆字第 160 組。",
+      "items": [
+        {
+          "w": "economy",
+          "p": "eco（希臘文 oikos 家）+ nomy 管理"
+        },
+        {
+          "w": "economic",
+          "p": "economy 的形容詞"
+        },
+        {
+          "w": "economical",
+          "p": "economic + -al"
+        },
+        {
+          "w": "economics",
+          "p": "economic + -s（學科）"
+        },
+        {
+          "w": "economist",
+          "p": "economy + -ist"
+        },
+        {
+          "w": "autonomy",
+          "p": "auto 自己 + nomy 法則"
+        },
+        {
+          "w": "astronomy",
+          "p": "astro 星星 + nomy 法則"
+        },
+        {
+          "w": "astronomer",
+          "p": "astronomy + -er"
+        }
+      ],
+      "dropped": [
+        {
+          "why": "看起來像，其實是 nom / onym「名字」那個家族",
+          "list": "nominate　anonymous　synonym　antonym"
+        }
+      ]
+    },
+    {
+      "key": "terr",
+      "zh": "使害怕",
+      "note": "拉丁文 terrere「使害怕」。terrible 和 terrific 一開始都是「令人害怕的」，後來意思都弱化成「程度很大」，最後才分道揚鑣：terrible 變成「很糟的」，terrific 卻變成「極好的」，兩個字的意思剛好相反，要特別小心。deter 是 de（離開）加上 ter（嚇），「把人嚇走」→ 嚇阻。特別注意 territory、terrace 的 terr 多半是拉丁文 terra（土地），跟「嚇」無關；determine 開頭也是 deter，卻是 de + termin（界限），跟 deter 不是同一個家族。",
+      "items": [
+        {
+          "w": "terrible",
+          "p": "terr 嚇 + -ible"
+        },
+        {
+          "w": "terrorism",
+          "p": "terror + -ism"
+        },
+        {
+          "w": "terrorist",
+          "p": "terror + -ist"
+        },
+        {
+          "w": "terrific",
+          "p": "terr 嚇 + -ific（拉丁文 facere 做）"
+        },
+        {
+          "w": "terror",
+          "p": "terr 嚇 + -or（名詞字尾）"
+        },
+        {
+          "w": "terrify",
+          "p": "terr 嚇 + -ify"
+        },
+        {
+          "w": "deter",
+          "p": "de 離開 + ter（拉丁文 terrere 嚇）"
+        }
+      ],
+      "dropped": [
+        {
+          "why": "多半來自拉丁文 terra「土地」，與本字根無關",
+          "list": "territory（也有學者認為跟 terrere「嚇」有關，原意是「警告別人不准進來的地方」）　terrace"
+        },
+        {
+          "why": "開頭也是 deter，卻是 de + termin「界限」",
+          "list": "determine　determination"
+        },
+        {
+          "why": "字串巧合",
+          "list": "interrupt（inter 在中間 + rupt 斷）　detergent（de 去掉 + tergere 擦）"
+        }
+      ]
+    },
+    {
+      "key": "rupt",
+      "zh": "破、斷",
+      "note": "拉丁文 rumpere「打破、弄斷」。字首決定怎麼斷：從中間斷開（interrupt）、往外衝破（erupt）、斷成兩半（disrupt）、斷掉離開（abrupt）、徹底斷掉壞了（corrupt）。bankrupt 來自義大利文 banca rotta「斷掉的長凳」：banca 是錢莊放錢做生意的長凳，rotta 是「斷了的」，後來英文照拉丁文改拼成 rupt。傳說錢莊倒閉時，人們會把它的長凳打斷，不過 Etymonline 認為這多半只是比喻。route（路線）也是這個家族的遠親：拉丁文 via rupta 是「硬開出來的路」，routine（例行公事，也就是每天走的固定路線）再從 route 延伸出來。",
+      "items": [
+        {
+          "w": "interrupt",
+          "p": "inter 在中間 + rupt 斷"
+        },
+        {
+          "w": "bankrupt",
+          "p": "bank（古義大利文 banca 銀行）+ rupt 斷（rotta 破掉的，來自拉丁文 rumpere）"
+        },
+        {
+          "w": "interruption",
+          "p": "interrupt + -ion"
+        },
+        {
+          "w": "abrupt",
+          "p": "ab 離開 + rupt 斷"
+        },
+        {
+          "w": "corrupt",
+          "p": "cor（com）可能表加強 + rupt 斷"
+        },
+        {
+          "w": "corruption",
+          "p": "corrupt + -ion"
+        },
+        {
+          "w": "disrupt",
+          "p": "dis 分開 + rupt 斷"
+        },
+        {
+          "w": "erupt",
+          "p": "e（ex）往外 + rupt 斷"
+        }
+      ],
+      "dropped": []
+    },
+    {
+      "key": "press",
+      "zh": "壓",
+      "note": "拉丁文 premere「壓」。字首決定往哪裡壓：壓在上面留下痕跡（impress，在心裡留下印象）、往外擠出來（express，把想法擠出來）、往下壓（depress，把心情壓低）、對著壓下去（oppress，壓迫）、壓到底下（suppress，鎮壓、壓抑）。print（印）、printer 也是同一個拉丁字根經古法文變來的，拼法看不出 press，可是印刷本來就是把字壓在紙上，可以當成這個家族的遠親。",
+      "items": [
+        {
+          "w": "press",
+          "p": "拉丁文 premere 壓"
+        },
+        {
+          "w": "pressure",
+          "p": "press 壓 + -ure"
+        },
+        {
+          "w": "express",
+          "p": "ex 往外 + press 壓"
+        },
+        {
+          "w": "expression",
+          "p": "express 表達 + -ion"
+        },
+        {
+          "w": "impressive",
+          "p": "impress 使印象深刻 + -ive"
+        },
+        {
+          "w": "expressive",
+          "p": "express 表達 + -ive"
+        },
+        {
+          "w": "impress",
+          "p": "im 在…上 + press 壓"
+        },
+        {
+          "w": "depression",
+          "p": "depress 使沮喪 + -ion"
+        },
+        {
+          "w": "impression",
+          "p": "impress 使印象深刻 + -ion"
+        },
+        {
+          "w": "depress",
+          "p": "de 往下 + press 壓"
+        },
+        {
+          "w": "oppress",
+          "p": "op（ob 對著）+ press 壓"
+        },
+        {
+          "w": "oppression",
+          "p": "oppress + -ion"
+        },
+        {
+          "w": "suppress",
+          "p": "sup（sub 往下）+ press 壓"
+        }
+      ],
+      "dropped": []
+    },
+    {
+      "key": "tract",
+      "zh": "拉",
+      "note": "拉丁文 trahere「拉」。字首決定往哪裡拉：拉過來（attract，吸引）、拉出來（extract，提煉）、拉開（distract，使分心）、往下拉掉（subtract，減去）、從具體的東西拉出來（abstract，抽象的）。contract 的兩個意思來自同一個字：把雙方拉在一起是「合約」，把東西拉在一起就是「收縮」。特別注意 track 長得很像，Etymonline 卻說它來源不確定，多半來自日耳曼語，不是這個家族。",
+      "items": [
+        {
+          "w": "contract",
+          "p": "con 一起 + tract 拉"
+        },
+        {
+          "w": "attract",
+          "p": "at 朝向 + tract 拉"
+        },
+        {
+          "w": "attractive",
+          "p": "attract 吸引 + -ive"
+        },
+        {
+          "w": "subtract",
+          "p": "sub 從下面 + tract 拉"
+        },
+        {
+          "w": "attraction",
+          "p": "attract 吸引 + -ion"
+        },
+        {
+          "w": "abstract",
+          "p": "abs 離開 + tract 拉"
+        },
+        {
+          "w": "contractor",
+          "p": "contract 承包 + -or"
+        },
+        {
+          "w": "distract",
+          "p": "dis 分開 + tract 拉"
+        },
+        {
+          "w": "distraction",
+          "p": "distract 使分心 + -ion"
+        },
+        {
+          "w": "extract",
+          "p": "ex 往外 + tract 拉"
+        },
+        {
+          "w": "abstraction",
+          "p": "abstract 抽象的 + -ion"
+        }
+      ],
+      "dropped": [
+        {
+          "why": "Etymonline 說來源不確定，多半來自日耳曼語，跟 trahere 無關",
+          "list": "track"
+        }
+      ]
+    },
+    {
+      "key": "treat / trait",
+      "zh": "拉（trahere 經法文的一支）",
+      "note": "trahere「拉」經古法文進入英文的字，拼法常變成 treat、trait。其中 treat 來自反覆形 tractare，意思是「拉來拉去」→處理、對待；treat 原意是「處理、商議」，所以 treaty 是商議出來的「條約」。trait 和 trace 則來自過去分詞 tractus，也就是「拉出來的一道」：trait 原意是畫出來的一筆線條，後來變成「特徵」；trace 是拉出來留下的痕跡。retreat 也是過去分詞這一支：古法文 retrere 是「往回拉」，它的過去分詞 retrait 就是往回拉→撤退；拼法雖然跟 treat 一樣，卻不是從 tractare 來的。portrait 是往前畫出來，也就是把人畫出來→肖像。特別注意 strait、traitor 長得像，卻是別的字根。",
+      "items": [
+        {
+          "w": "treat",
+          "p": "拉丁文 tractare 處理（trahere 拉 的反覆形）"
+        },
+        {
+          "w": "treatment",
+          "p": "treat 對待；治療 + -ment"
+        },
+        {
+          "w": "portrait",
+          "p": "por（表示完成，源自拉丁文 pro）+ trait 畫（古法文 pourtraire 描繪）"
+        },
+        {
+          "w": "trace",
+          "p": "拉丁文 tractus（trahere 拉 的過去分詞）"
+        },
+        {
+          "w": "retreat",
+          "p": "re + treat 拉（盎格魯法語 retraire 撤退，來自拉丁文 retrahere，由 re- + trahere 拉 組成）"
+        },
+        {
+          "w": "trait",
+          "p": "拉丁文 tractus 拉（法文原意是「拉、畫的動作」）"
+        },
+        {
+          "w": "treaty",
+          "p": "盎格魯法語 treté（treter 商議、處理 的過去分詞；跟 treat 同源）"
+        }
+      ],
+      "dropped": [
+        {
+          "why": "來自拉丁文 stringere「綁緊」，跟 strict 同源",
+          "list": "strait"
+        },
+        {
+          "why": "來自拉丁文 tradere「交出去」（把人交給敵人→出賣），跟 tradition 同源，跟 trahere 無關",
+          "list": "traitor"
+        }
+      ]
+    },
+    {
+      "key": "sist",
+      "zh": "站",
+      "note": "拉丁文 sistere「站、站穩」，跟 stare「站」同一個字根。字首決定站在哪裡、怎麼站：站到旁邊（assist，幫忙）、站在上面不走（insist，堅持）、一路站到底（persist，堅持不懈）、站著對抗（resist，抵抗）、站在一起（consist，由…組成）、站出來（exist，存在）。exist 是 ex 加上 sistere，因為 x 本身就帶有 s 的音，sist 的 s 就省掉了，所以拼法只看得到 ist。consistent 字面上是「站在一起」，引申成「意見相合」，後來才有「前後一致的」這個意思。特別注意 sister 只是拼法巧合，它是日耳曼語來的字。",
+      "items": [
+        {
+          "w": "insist",
+          "p": "in 在上面 + sist 站"
+        },
+        {
+          "w": "exist",
+          "p": "ex 往外 + ist（拉丁文 sistere 站）"
+        },
+        {
+          "w": "existence",
+          "p": "exist 存在 + -ence"
+        },
+        {
+          "w": "assist",
+          "p": "as 朝向 + sist 站"
+        },
+        {
+          "w": "assistant",
+          "p": "assist 協助 + -ant"
+        },
+        {
+          "w": "resist",
+          "p": "re 反 + sist 站"
+        },
+        {
+          "w": "assistance",
+          "p": "assist 協助 + -ance"
+        },
+        {
+          "w": "consist",
+          "p": "con 一起 + sist 站"
+        },
+        {
+          "w": "consistent",
+          "p": "con 一起 + sist 站 + -ent"
+        },
+        {
+          "w": "resistance",
+          "p": "resist 抵抗 + -ance"
+        },
+        {
+          "w": "persist",
+          "p": "per 徹底 + sist 站"
+        },
+        {
+          "w": "insistence",
+          "p": "insist 堅持 + -ence"
+        },
+        {
+          "w": "persistence",
+          "p": "persist 堅持不懈 + -ence"
+        },
+        {
+          "w": "persistent",
+          "p": "persist 堅持不懈 + -ent"
+        },
+        {
+          "w": "resistant",
+          "p": "resist 抵抗 + -ant"
+        }
+      ],
+      "dropped": [
+        {
+          "why": "來自古英文 sweostor，日耳曼語來源，只是拼法巧合",
+          "list": "sister"
+        }
+      ]
+    },
+    {
+      "key": "fect / fic",
+      "zh": "做",
+      "note": "拉丁文 facere「做」。加上字首以後，fac 常變成 fect 或 fic，字首決定怎麼做：往外做出來（effect 效果、efficient 做得出成果的）、對著做（affect 影響）、往裡面做（infect 感染）、徹底做完（perfect 完美的）、做到一半離開，也就是做不到（defect 缺點、deficit 不足額）、補上、供應得上（sufficient 足夠的）、往前做（profit 利潤、proficiency 精通）。affection 原本是心受到作用以後的狀態，後來縮窄成「喜愛」。這一族還有 fact／fac、feat／fair 兩支，排在後面。特別注意 fiction 雖然也有 fic，卻來自另一個拉丁字 fingere「捏塑」。",
+      "items": [
+        {
+          "w": "affect",
+          "p": "af 朝向 + fect 做"
+        },
+        {
+          "w": "effect",
+          "p": "ef（ex）往外 + fect 做"
+        },
+        {
+          "w": "effective",
+          "p": "effect 效果 + -ive"
+        },
+        {
+          "w": "perfect",
+          "p": "per 徹底 + fect 做"
+        },
+        {
+          "w": "efficient",
+          "p": "ef（ex 往外）+ fic 做 + -ient"
+        },
+        {
+          "w": "sufficient",
+          "p": "suf（sub 往上）+ fic 做 + -ient（拉丁文 sufficere 提供、足夠）"
+        },
+        {
+          "w": "profit",
+          "p": "pro 往前 + fit（拉丁文 proficere 進展）"
+        },
+        {
+          "w": "infection",
+          "p": "infect 感染 + -ion"
+        },
+        {
+          "w": "perfection",
+          "p": "perfect 使完美 + -ion"
+        },
+        {
+          "w": "affection",
+          "p": "affect 作用於 + -ion（拉丁文 affectio 心的狀態）"
+        },
+        {
+          "w": "infect",
+          "p": "in 往裡面 + fect 做"
+        },
+        {
+          "w": "deficit",
+          "p": "拉丁文 deficit「它不夠」（de 離開 + fic 做）"
+        },
+        {
+          "w": "affectionate",
+          "p": "affection + -ate"
+        },
+        {
+          "w": "infectious",
+          "p": "infection 感染 + -ous"
+        },
+        {
+          "w": "defect",
+          "p": "de 離開 + fect 做"
+        },
+        {
+          "w": "proficiency",
+          "p": "proficient 精通的 + -cy"
+        }
+      ],
+      "dropped": [
+        {
+          "why": "來自拉丁文 fingere「捏塑」→捏造、虛構，跟 facere 無關",
+          "list": "fiction"
+        }
+      ]
+    },
+    {
+      "key": "fact / fac",
+      "zh": "做（facere 的另外兩種面貌）",
+      "note": "fact 是 facere 的過去分詞 factum「做過的事」，所以是「事實」。factor 原本是做事的人，後來在數學裡指「因數」，再引申成促成結果的「因素」；factory 是做東西的地方→工廠，manufacture 是用手做→製造，satisfy 是做得足夠→使滿意。facil 是拉丁文 facilis「容易的」（容易做的），也是從 facere 來的：facility 是讓事情容易做的東西→設施，facilitate 是使容易→促進，faculty 是做事的能力→才能，後來也指一門學問、大學裡的學院，再指全體教師；difficulty 是 dis（否定）加上 facilis，不容易→困難，至於 difficult，是後來從 difficulty 去掉 -y 變出來的。",
+      "items": [
+        {
+          "w": "fact",
+          "p": "拉丁文 factum 做過的事"
+        },
+        {
+          "w": "factory",
+          "p": "fact 做 + -ory"
+        },
+        {
+          "w": "difficult",
+          "p": "大概是從 difficulty 倒推出來的（dif（大概是 dis）+ ficult，來自拉丁文 facilis 容易的）"
+        },
+        {
+          "w": "factor",
+          "p": "fact 做 + -or"
+        },
+        {
+          "w": "satisfy",
+          "p": "satis 足夠 + fy（facere 做）"
+        },
+        {
+          "w": "difficulty",
+          "p": "拉丁文 difficultas（dif（大概是 dis）+ facilis 容易的）"
+        },
+        {
+          "w": "satisfactory",
+          "p": "satisfy 使滿意（拉丁文 satisfacere 做得足夠）+ -ory"
+        },
+        {
+          "w": "manufacture",
+          "p": "manu（拉丁文 manus 手）+ fact（facere 做）+ -ure"
+        },
+        {
+          "w": "manufacturer",
+          "p": "manufacture 製造 + -er"
+        },
+        {
+          "w": "satisfaction",
+          "p": "satisfy 使滿意（拉丁文 satisfacere）+ -tion"
+        },
+        {
+          "w": "facility",
+          "p": "facil（拉丁文 facilis 容易的）+ -ity"
+        },
+        {
+          "w": "facilitate",
+          "p": "facilit（可能來自中古法文 faciliter 使容易；字源可追溯到拉丁文 facilis 容易的）+ -ate"
+        },
+        {
+          "w": "faculty",
+          "p": "facul（拉丁文 facultas 能力，來自 facilis 容易的）+ -ty"
+        },
+        {
+          "w": "faction",
+          "p": "fact（拉丁文 facere 做）+ -ion"
+        }
+      ],
+      "dropped": []
+    },
+    {
+      "key": "feat / fair",
+      "zh": "做（facere 經法文的一支）",
+      "note": "facere 經古法文進入英文，拼法變成 feat、fair、fash。feature 是做出來的樣子→特色、五官；defeat 是把做好的拆掉→打敗；affair 是古法文 à faire「要做的事」→事情、事務；fashion 是做出來的樣子→流行、方式，跟上一支的 faction 同源。特別注意 feather 只是拼法巧合；traffic 看起來也像，Etymonline 卻說它來源不確定，所以不收進這個家族。",
+      "items": [
+        {
+          "w": "feature",
+          "p": "feat（拉丁文 facere 做）+ -ure"
+        },
+        {
+          "w": "affair",
+          "p": "af（古法文 à 到，源自拉丁文 ad）+ fair（faire 做，源自拉丁文 facere）"
+        },
+        {
+          "w": "fashion",
+          "p": "盎格魯法語 façun 樣式（源自拉丁文 factio 做的動作）"
+        },
+        {
+          "w": "defeat",
+          "p": "de + feat 做（盎格魯法語 desfet，是 desfaire「拆掉、毀掉」的過去分詞）"
+        }
+      ],
+      "dropped": [
+        {
+          "why": "Etymonline 說來源不確定，不能確定跟 facere 有關",
+          "list": "traffic"
+        },
+        {
+          "why": "來自古英文 feðer，日耳曼語來源，只是拼法巧合",
+          "list": "feather"
+        }
+      ]
+    },
+    {
+      "key": "-fic / -fice",
+      "zh": "做（接在別的字根後面）",
+      "note": "這個家族的字都是把 facere「做」接在別的字根後面，變成 -fic、-fice，意思是「做成…、使…」，至於做什麼，就看前面的字根。像 signi（記號）+ fic 是「做記號」，所以 significant 是有意義的、重要的；sacri（神聖）+ fice 是「使成為神聖的」，所以 sacrifice 是獻祭、犧牲。certificate、artificial、magnificent、benefit、scientific 也都可以這樣拆；benefit 的 fit 是 fact 經法文變來的拼法。office 則是由 opificium（op 工作 + fic 做）縮短而來，原意是「職務」，officer、official 也都從這裡來。specific、terrific 是同樣的構詞，分別收在 speci、terr 兩個家族；字尾 -fy（magnify、certify）也來自 facere，收在字首字尾表的 -fy 那一組。superficial 的 fic 來自 facies（臉、外觀），所以不收進這個家族。",
+      "items": [
+        {
+          "w": "office",
+          "p": "拉丁文 officium 職務（由 opificium「做工作」縮短而來：op 工作 + fic 做）"
+        },
+        {
+          "w": "officer",
+          "p": "office 職務 + -er"
+        },
+        {
+          "w": "official",
+          "p": "office 職務、官方 + -ial"
+        },
+        {
+          "w": "scientific",
+          "p": "scienti（拉丁文 scientia 知識）+ -fic（拉丁文 facere 做）"
+        },
+        {
+          "w": "significant",
+          "p": "signi（拉丁文 signum 記號）+ fic 做 + -ant（拉丁文 significare 表示）"
+        },
+        {
+          "w": "benefit",
+          "p": "bene 好 + fit 做（拉丁文 bene factum 善行，經盎格魯法語 benfet 變成 fit）"
+        },
+        {
+          "w": "significance",
+          "p": "significant 重要的 + -ce"
+        },
+        {
+          "w": "magnificent",
+          "p": "magni 大 + fic 做（拉丁文 magnificus 偉大的、高貴的）"
+        },
+        {
+          "w": "artificial",
+          "p": "arti（拉丁文 ars 技藝）+ fic 做 + -ial"
+        },
+        {
+          "w": "sacrifice",
+          "p": "sacri（拉丁文 sacer 神聖的）+ fice 做"
+        },
+        {
+          "w": "beneficial",
+          "p": "benefit 好處 + -ial"
+        },
+        {
+          "w": "certificate",
+          "p": "certi（拉丁文 certus 確定的）+ fic 做 + -ate"
+        }
+      ],
+      "dropped": [
+        {
+          "why": "super（在上面）+ facies（臉、外觀），也就是「表面」；Etymonline 只說 facies 可能跟 facere 有關，不收進這個家族",
+          "list": "superficial"
+        }
+      ]
+    },
+    {
+      "key": "scrib / script",
+      "zh": "寫",
+      "note": "拉丁文 scribere「寫」，過去分詞是 scriptus，所以這個家族有 scribe、script 兩種拼法：動詞多半是 -scribe，名詞和形容詞把 be 換成 p，變成 -script、-scription、-scriptive，像 describe → description、descriptive。前面加的字首不同，意思也跟著變：describe 是寫下來→描述，prescribe 是事先寫好→規定、開處方，subscribe 是在文件下面簽上名字→訂閱，transcript 是照著抄到另一張紙上→文字紀錄、成績單。manuscript 是用手（manu）寫的稿子，script 是寫下來的東西，也就是劇本、腳本。",
+      "items": [
+        {
+          "w": "describe",
+          "p": "de 往下 + scribe 寫"
+        },
+        {
+          "w": "description",
+          "p": "describe 描述 + -tion（be 變成 p）"
+        },
+        {
+          "w": "descriptive",
+          "p": "describe 描述（拉丁文 describere）+ -ive"
+        },
+        {
+          "w": "prescribe",
+          "p": "pre 事先 + scribe 寫"
+        },
+        {
+          "w": "prescription",
+          "p": "prescribe 開藥方 + -tion（be 變成 p）"
+        },
+        {
+          "w": "script",
+          "p": "script（拉丁文 scriptum 寫下來的東西）"
+        },
+        {
+          "w": "subscribe",
+          "p": "sub 在下面 + scribe 寫"
+        },
+        {
+          "w": "subscription",
+          "p": "subscribe 訂閱 + -tion（be 變成 p）"
+        },
+        {
+          "w": "transcript",
+          "p": "trans 越過 + script 寫"
+        },
+        {
+          "w": "manuscript",
+          "p": "manu 手 + script 寫"
+        }
+      ],
+      "dropped": []
+    },
+    {
+      "key": "sens / sent",
+      "zh": "感覺",
+      "note": "拉丁文 sentire「感覺、察覺；認為」，過去分詞是 sensus，所以這個家族有 sens、sent 兩種拼法。sense 是感覺，也是對事情的判斷，sensible 是有判斷力的→明智的，sensitive 是很容易感覺到的→敏感的、體貼的，sensation 是感覺，也指引起大家感覺的事→轟動，sensor 是感應器。sent 這一支：sentiment 是心裡的感覺→情感、看法，sentence 原本是「心裡的看法」，後來變成法官的判決，也變成表達一個完整意思的句子；加上字首的字：consent、consensus 是感覺一樣→同意、共識，dissent 是感覺不同→異議，resent 是強烈地感覺到委屈→憤恨。scent（氣味）也是這個家族：古法文 sentir 有「感覺、聞到」的意思，來自拉丁文 sentire，c 是十七世紀才加上去的。特別注意 present、absent、represent 裡的 sent 是另一個字根，不是這個家族。",
+      "items": [
+        {
+          "w": "sentence",
+          "p": "sent（拉丁文 sentire 感覺）+ -ence"
+        },
+        {
+          "w": "sense",
+          "p": "sense（拉丁文 sensus 感覺，來自 sentire）"
+        },
+        {
+          "w": "sensitive",
+          "p": "sense 感覺 + -itive"
+        },
+        {
+          "w": "sensible",
+          "p": "sens（拉丁文 sentire 感覺）+ -ible"
+        },
+        {
+          "w": "nonsense",
+          "p": "non 不 + sense 意義"
+        },
+        {
+          "w": "sensitivity",
+          "p": "sensitive 敏感的 + -ity"
+        },
+        {
+          "w": "sensation",
+          "p": "sense 感覺 + -ation（去掉 e）"
+        },
+        {
+          "w": "sensor",
+          "p": "sens（拉丁文 sentire 感覺）+ -or"
+        },
+        {
+          "w": "sentiment",
+          "p": "senti（拉丁文 sentire 感覺）+ -ment"
+        },
+        {
+          "w": "sentimental",
+          "p": "sentiment 感情 + -al"
+        },
+        {
+          "w": "consent",
+          "p": "con 一起 + sent 感覺"
+        },
+        {
+          "w": "consensus",
+          "p": "consens（拉丁文 consentire 有同感、意見一致）+ -us（拉丁文 -tus，表示動作的名詞字尾）"
+        },
+        {
+          "w": "scent",
+          "p": "scent（盎格魯法語 sentir 感覺、聞到，來自拉丁文 sentire；中古英文拼成 sent，c 是後來才加上的）"
+        },
+        {
+          "w": "dissent",
+          "p": "dis 不同 + sent 感覺"
+        },
+        {
+          "w": "resent",
+          "p": "re 可能表加強 + sent 感覺"
+        },
+        {
+          "w": "resentment",
+          "p": "resent 怨恨、不滿 + -ment"
+        }
+      ],
+      "dropped": [
+        {
+          "why": "-sent 來自拉丁文 esse「存在、在」的分詞：absent 是不在（ab 離開），present 是在面前（pre 前面），跟 sentire 無關",
+          "list": "absent、present、represent"
+        },
+        {
+          "why": "來自拉丁文 descendere：de 向下 + scandere 爬，往下爬→下降；家世、血統。跟 scent（氣味）無關，倒是 scent 的 c 可能就是受 descent、ascent 的拼法影響才加上的；收在 scend / scent 那個家族",
+          "list": "descent"
+        }
+      ]
+    },
+    {
+      "key": "ject",
+      "zh": "丟",
+      "note": "拉丁文 iacere「丟」，過去分詞是 iactus；接在字首後面時母音會變，過去分詞變成 -iectus，英文就拼成 -ject。字首決定往哪裡丟：reject 是丟回去→拒絕；inject 是丟進去→注射；project 是往前丟出去→投射，先在心裡往前想好的事情就是計畫；object 是丟到眼前、擋在面前的東西→物體，當動詞是「反對」；subject 是放在底下當基礎的東西→主題、科目。objective、subjective 現在「客觀、主觀」的意思，是十八、十九世紀從德國哲學（康德那一代）流行起來的：object 指人心外面、被人看、被人想的東西，也就是「客體」；subject 指在看、在想的人自己，也就是「主體」。所以 objective 是從事物本身來看→客觀的，subjective 是從自己的感受來看→主觀的。jet 也是這個家族：後期拉丁文 iectare「丟」（取代原本的 iactare「丟來丟去」）變成法文 jeter「丟」，法文名詞 jet 就是丟出去、噴出來的一股東西，所以英文 jet 是噴出來的水柱或氣流，噴射機也叫 jet。",
+      "items": [
+        {
+          "w": "subject",
+          "p": "sub 在下面 + ject 丟"
+        },
+        {
+          "w": "object",
+          "p": "ob 對著、擋在前面 + ject 丟"
+        },
+        {
+          "w": "project",
+          "p": "pro 往前 + ject 丟"
+        },
+        {
+          "w": "reject",
+          "p": "re + ject 丟"
+        },
+        {
+          "w": "jet",
+          "p": "jet（法文 jeter 丟，來自拉丁文 jactare 丟，是 jacere 的反覆形）"
+        },
+        {
+          "w": "objection",
+          "p": "object 反對 + -ion"
+        },
+        {
+          "w": "objective",
+          "p": "object 物體 + -ive"
+        },
+        {
+          "w": "rejection",
+          "p": "reject 拒絕 + -ion"
+        },
+        {
+          "w": "projection",
+          "p": "project 投射；預測 + -ion"
+        },
+        {
+          "w": "inject",
+          "p": "in 往裡面 + ject 丟"
+        },
+        {
+          "w": "injection",
+          "p": "inject 注射 + -ion"
+        },
+        {
+          "w": "subjective",
+          "p": "subject 主體 + -ive"
+        }
+      ],
+      "dropped": []
+    },
+    {
+      "key": "vid / vis",
+      "zh": "看",
+      "note": "拉丁文 videre 是「看」，過去分詞是 visus，所以這個家族有 vid、vis 兩種拼法；經過法文進入英文的字，則常寫成 view、vey、vice。vid 這一支：video 在拉丁文就是「我看」；evident 是看得出來的→明顯的，evidence 是讓人看得出來的東西→證據；provide 是事先看好、備好→提供。vis 這一支：vision 是看的能力→視力，也是看到未來的樣子→願景；visible 是看得見的，visual 是視覺的；visit 是去看→拜訪，revise 是再看一次→修訂，supervise 是從上面看著→監督；television 是看到遠處的影像，visa 是「看過的文件」→簽證。經過法文的這一支：view 是看到的東西→景色，也是看事情的方式→看法；review、preview、interview 分別是再看一次、事先看、互相看；survey 是從上面看→調查；advice 是「在我看來」→建議，advise 是它的動詞；envy 原本是用不懷好意的眼光看人→羨慕、嫉妒。要特別注意的是，下面這些字雖然長得像，卻都不是這個家族：divide、individual、dividend、devise、device 裡的 vid、vis、vice 來自拉丁文 dividere「分開」；convey 的 vey 來自 via「路」；vice（罪惡）來自 vitium「缺點」；vivid 的 viv 則來自 vivus「活的」。",
+      "items": [
+        {
+          "w": "video",
+          "p": "vid（拉丁文 vidēre 看）+ -o（仿 audio 的字尾）"
+        },
+        {
+          "w": "visit",
+          "p": "vis（拉丁文 visitare「常去看」，由 visere「去看」變來）"
+        },
+        {
+          "w": "visitor",
+          "p": "visit 拜訪 + -or"
+        },
+        {
+          "w": "television",
+          "p": "tele 遠 + vision 影像"
+        },
+        {
+          "w": "interview",
+          "p": "inter 互相 + view 看"
+        },
+        {
+          "w": "view",
+          "p": "view（盎格魯法語 veer 看的過去分詞，來自拉丁文 vidēre）"
+        },
+        {
+          "w": "review",
+          "p": "re 再 + view 看"
+        },
+        {
+          "w": "provide",
+          "p": "pro 事先 + vide 看"
+        },
+        {
+          "w": "advice",
+          "p": "ad 朝向 + vice（拉丁文 vīsus 看見，來自 vidēre 看；盎格魯法語寫成 avis，也寫成 advis）"
+        },
+        {
+          "w": "vision",
+          "p": "vis（拉丁文 videre 看）+ -ion"
+        },
+        {
+          "w": "visible",
+          "p": "vis 看 + -ible"
+        },
+        {
+          "w": "advise",
+          "p": "advice 的動詞"
+        },
+        {
+          "w": "adviser",
+          "p": "advise 建議 + -er（也寫成 advisor）"
+        },
+        {
+          "w": "advisor",
+          "p": "advise 建議 + -or（adviser 的另一種拼法）"
+        },
+        {
+          "w": "survey",
+          "p": "sur + vey（盎格魯法語 veer 看，源自拉丁文 vidēre）"
+        },
+        {
+          "w": "envy",
+          "p": "en（in 對著）+ vy（拉丁文 videre 看）"
+        },
+        {
+          "w": "visual",
+          "p": "vis 看 + -ual"
+        },
+        {
+          "w": "evident",
+          "p": "e（ex）往外 + vid 看 + -ent"
+        },
+        {
+          "w": "evidence",
+          "p": "evident 明顯的 → evidence"
+        },
+        {
+          "w": "revise",
+          "p": "re 再 + vise（拉丁文 videre 看）"
+        },
+        {
+          "w": "revision",
+          "p": "revise 修改 + -ion（去掉 e）"
+        },
+        {
+          "w": "viewer",
+          "p": "view 看 + -er"
+        },
+        {
+          "w": "viewpoint",
+          "p": "view 看法 + point 點"
+        },
+        {
+          "w": "envision",
+          "p": "en 使 + vision 景象"
+        },
+        {
+          "w": "supervise",
+          "p": "super 在上面 + vise 看"
+        },
+        {
+          "w": "supervision",
+          "p": "supervise 監督 + -ion（去掉 e）"
+        },
+        {
+          "w": "supervisor",
+          "p": "supervise 監督 + -or"
+        },
+        {
+          "w": "provision",
+          "p": "provide 提供 + -sion（de 變成 s）"
+        },
+        {
+          "w": "envious",
+          "p": "envy 羨慕 + -ous（y 變成 i）"
+        },
+        {
+          "w": "visa",
+          "p": "vis（拉丁文 visus 的中性複數；visus 是 videre 看 的過去分詞）"
+        },
+        {
+          "w": "preview",
+          "p": "pre 事先 + view 看"
+        },
+        {
+          "w": "provisional",
+          "p": "provision 供應、預備 + -al"
+        },
+        {
+          "w": "advisory",
+          "p": "advise 建議 + -ory"
+        }
+      ],
+      "dropped": [
+        {
+          "why": "來自拉丁文 dividere「分開」，跟 videre（看）無關；devise（設計）和 device（裝置）在古法文原本是「把東西分好、安排好」的意思，也是從 dividere 來的",
+          "list": "divide、division、individual、dividend、devise、device"
+        },
+        {
+          "why": "跟 survey 一樣拼成 -vey，卻來自通俗拉丁文 conviare「陪著上路」：com 一起 + via 路，跟 videre 無關",
+          "list": "convey"
+        },
+        {
+          "why": "vice（罪惡、惡習）來自拉丁文 vitium「缺點、毛病」，跟 advice 的 vice 無關",
+          "list": "vice"
+        },
+        {
+          "why": "viv 來自拉丁文 vivus「活的」（跟 survive、vital 同源），不是 vid",
+          "list": "vivid"
+        }
+      ]
+    },
+    {
+      "key": "pel / puls",
+      "zh": "推",
+      "note": "拉丁文 pellere「推、驅動」，過去分詞是 pulsus，所以這個家族有 pel、puls 兩種拼法：動詞多半是 -pel，名詞、形容詞常變成 -puls-。compel 原本是把牲畜趕到一起（com 一起），用在人身上就是強迫，compulsory 是被推著非做不可的→強制的、必修的；propel 是往前推→推動；impulse 是推向某處的力量→衝動；pulse 是血管一下一下的推動、敲打→脈搏。最常見的 push 也是這個家族：它經過古法文 pousser，來自拉丁文 pulsare（一再推、敲打），也就是 pellere 表示反覆動作的形式。appeal 來自拉丁文 appellare（向人開口、稱呼），一般認為是從 appellere（ad 朝向 + pellere 推）來的。appellere 是「推向、駛向」，常用來說把船駛向岸邊；字源學者推測，向人開口就好比把船靠向對方，所以引申出呼籲、懇求、上訴。至於「吸引人」這個意思，要到二十世紀初才出現。同一個家族的還有 expel（驅逐）、repel（擊退），詞彙表未收錄。",
+      "items": [
+        {
+          "w": "push",
+          "p": "push（可能來自古法文 pousser 施壓，源頭是拉丁文 pulsare，是 pellere 驅趕、敲打的反覆形）"
+        },
+        {
+          "w": "appeal",
+          "p": "ap 朝向 + peal（拉丁文 appellare 呼喚，來自 pellere 推動）"
+        },
+        {
+          "w": "compel",
+          "p": "com 一起 + pel 趕、推"
+        },
+        {
+          "w": "compulsory",
+          "p": "com 一起 + puls 趕、推 + -ory"
+        },
+        {
+          "w": "impulse",
+          "p": "im（in）對著 + puls 推（拉丁文 impulsus，來自 impellere 推動）"
+        },
+        {
+          "w": "pulse",
+          "p": "puls（拉丁文 pulsus 敲打、跳動，指心臟、血管一下一下的跳動）"
+        },
+        {
+          "w": "propel",
+          "p": "pro 往前 + pel 推"
+        }
+      ],
+      "dropped": [
+        {
+          "why": "結尾的 -pel 跟 compel、propel 一樣，卻跟 pellere 無關：chapel 來自中古拉丁文 cappella（小斗篷），相傳最早指存放聖馬丁斗篷的小聖堂→小教堂、禮拜堂；gospel 是古英文 godspel，「好消息」→福音",
+          "list": "chapel、gospel"
+        }
+      ]
+    },
+    {
+      "key": "dict / dic",
+      "zh": "說",
+      "note": "拉丁文 dicere「說」，過去分詞是 dictus，所以這個家族大多拼成 dict：predict 是事先說出來→預測，contradict 是說相反的話→反駁、矛盾，verdict 是說出真話→裁決，dictate 是說出來讓人寫下→口述、命令，dictator 是說了就算的人→獨裁者，dictionary 是收集字詞的書。addict 的拉丁文 addictus 原本是羅馬的法律用語，指被法官判給債主抵債的人，後來變成「把自己交給某件事」→上癮。condition 是大家一起說好的→條件，也指狀況。另一支是 dicare「宣告」，跟 dicere 原本可能是同一個字：indicate 是指出、顯示，index 是指出內容在哪裡的清單→索引，dedicate 是宣告把東西獻出去→奉獻。還有幾個字也是這個家族的遠親：preach（講道）來自拉丁文 praedicare「公開宣告」，judge（法官）來自拉丁文 iudex「說出法律的人」，judicial（司法的）、prejudice（偏見）又是從 iudex 變來的；不過這些字拼法差太多，不收進來。",
+      "items": [
+        {
+          "w": "dictionary",
+          "p": "diction（拉丁文 dictio 說的話、字詞）+ -ary"
+        },
+        {
+          "w": "condition",
+          "p": "con（com）一起 + dit（拉丁文 dicere 說；拉丁文拼成 condicio）+ -ion"
+        },
+        {
+          "w": "indicate",
+          "p": "in 朝向 + dic 說、指 + -ate"
+        },
+        {
+          "w": "predict",
+          "p": "pre 事先 + dict 說"
+        },
+        {
+          "w": "prediction",
+          "p": "predict 預測 + -ion"
+        },
+        {
+          "w": "addict",
+          "p": "ad + dict 說（拉丁文 addīcere 交出、讓渡）"
+        },
+        {
+          "w": "indication",
+          "p": "indicate 指出 + -ion"
+        },
+        {
+          "w": "contradiction",
+          "p": "contradict 反駁；矛盾 + -ion"
+        },
+        {
+          "w": "verdict",
+          "p": "ver 真實 + dict 說"
+        },
+        {
+          "w": "index",
+          "p": "index（拉丁文 index，來自 indicare 指出）"
+        },
+        {
+          "w": "dedicate",
+          "p": "de 離開 + dic 宣告 + -ate"
+        },
+        {
+          "w": "dictate",
+          "p": "dict 說 + -ate（拉丁文 dictare 反覆說、規定）"
+        },
+        {
+          "w": "dictation",
+          "p": "dictate 口述 + -ion"
+        },
+        {
+          "w": "dictator",
+          "p": "dictate 命令 + -or"
+        },
+        {
+          "w": "dictatorship",
+          "p": "dictator 獨裁者 + -ship"
+        },
+        {
+          "w": "contradict",
+          "p": "contra 相反 + dict 說"
+        },
+        {
+          "w": "addiction",
+          "p": "addict 使上癮 + -ion"
+        },
+        {
+          "w": "dedication",
+          "p": "dedicate 奉獻 + -ion"
+        },
+        {
+          "w": "unconditional",
+          "p": "un 不 + conditional 有條件的"
+        }
+      ],
+      "dropped": [
+        {
+          "why": "這幾個字的 dit 來自拉丁文 dare「給」和 -dere「放」這兩類動詞的過去分詞（addere→additus、edere→editus、tradere→traditus），跟 dicere 無關",
+          "list": "addition、additional、edition、tradition、traditional"
+        },
+        {
+          "why": "來自拉丁文 medicus「醫生」，dic 只是拼法巧合",
+          "list": "medicine、medical、medication"
+        }
+      ]
+    },
+    {
+      "key": "sume / sumpt",
+      "zh": "拿",
+      "note": "拉丁文 sumere「拿、取」，過去分詞是 sumptus，所以這個家族有 sume、sumpt 兩種拼法：動詞是 -sume，名詞是 -sumption。assume 是拿到自己身上→承擔，也指還沒證實就先當作是真的→假定；presume 是事先拿來當真→推測；consume 是全部拿光→消耗、吃喝；resume 是再拿起來做→（中斷後）重新開始。當名詞的 résumé（履歷）是從法文借來的，法文 résumer 是「摘要」，履歷就是把經歷摘要寫下來。",
+      "items": [
+        {
+          "w": "assume",
+          "p": "as 朝向 + sume 拿"
+        },
+        {
+          "w": "consume",
+          "p": "con（com，可能表加強）+ sume 拿"
+        },
+        {
+          "w": "consumer",
+          "p": "consume 消費 + -er"
+        },
+        {
+          "w": "assumption",
+          "p": "assume 假定 + -tion（m 後面加 p）"
+        },
+        {
+          "w": "consumption",
+          "p": "consume 消耗 + -tion（m 後面加 p）"
+        },
+        {
+          "w": "presume",
+          "p": "pre 事先 + sume 拿"
+        },
+        {
+          "w": "resume",
+          "p": "re + sume 拿"
+        }
+      ],
+      "dropped": [
+        {
+          "list": "sum、summary、summarize、summit",
+          "why": "來自拉丁文 summus「最高的」（sum 原本是「總數」，summit 是「頂峰」），跟 sumere「拿」無關"
+        },
+        {
+          "list": "summon",
+          "why": "sum 是 sub（在下面）變來的，summon 來自拉丁文 summonere「私下提醒」，字根是 monere「警告、提醒」，跟 sumere 無關"
+        }
+      ]
+    },
+    {
+      "key": "fend / fens",
+      "zh": "打、撞",
+      "note": "拉丁文 -fendere「打、撞」只出現在合成字裡，過去分詞是 -fensus，所以這個家族有 fend、fens 兩種拼法：動詞是 -fend，名詞、形容詞多半是 -fense、-fensive。defend 是 de（離開）+ fend，把打過來的攻擊擋開→防守、保衛，在法庭上就是辯護，defendant 是要替自己辯護的人→被告；offend 是 of（ob 對著）+ fend，迎面打過去→冒犯，offensive 也保留「攻擊的」意思。fence 是 defense 去掉開頭的 de 變來的，原本就是「防衛」，後來指用來防衛的圍欄。美式拼成 defense、offense，英式拼成 defence、offence。",
+      "items": [
+        {
+          "w": "fence",
+          "p": "defense 去掉開頭的 de 縮短而成"
+        },
+        {
+          "w": "defend",
+          "p": "de + fend（大概是「打」）"
+        },
+        {
+          "w": "defense",
+          "p": "defend 的名詞"
+        },
+        {
+          "w": "defensible",
+          "p": "defens（defend 保衛）+ -ible"
+        },
+        {
+          "w": "defensive",
+          "p": "defend 防守 + -sive"
+        },
+        {
+          "w": "offend",
+          "p": "of（ob 對著）+ fend 打"
+        },
+        {
+          "w": "offense",
+          "p": "offend 的名詞"
+        },
+        {
+          "w": "offensive",
+          "p": "offend 冒犯 + -sive"
+        },
+        {
+          "w": "defendant",
+          "p": "defend 辯護 + -ant"
+        }
+      ],
+      "dropped": []
+    },
+    {
+      "key": "tact / tag / teg",
+      "zh": "碰",
+      "note": "拉丁文 tangere「碰、觸摸」，過去分詞是 tactus，所以這個家族有 tact 這種拼法；tangere 的字根部分是 tag，所以也會拼成 tag、teg。contact 是碰在一起→接觸、聯絡；contagious 是碰到就會傳的→接觸傳染的；contaminate 是碰在一起弄髒→污染。in（否定）加上這個字根，就是「沒被碰過的」：intact 是完好如初的，拉丁文 integer 是完整的，integrate 是使完整→整合，integrity 是完整、沒被動過→正直、誠實；2 級的 entire 也是從 integer 經過法文變來的，拼法已經看不出字根。attain 是 at（朝向）+ tain，碰到→達到，拼法跟 tain/ten「握住」那個家族一樣，其實是這個家族的字。",
+      "items": [
+        {
+          "w": "entire",
+          "p": "來自拉丁文 integer，字面意思是「沒被碰過的」（in + tangere 碰），經盎格魯法語 entier 進入英文"
+        },
+        {
+          "w": "intact",
+          "p": "in 否定 + tact 碰"
+        },
+        {
+          "w": "contagious",
+          "p": "contagi（拉丁文 contāgiō 接觸）+ -ous"
+        },
+        {
+          "w": "contaminate",
+          "p": "con + tamin（拉丁文 *tāmen 接觸，來自 tangere 碰的詞幹 tag-）+ -ate"
+        },
+        {
+          "w": "integrate",
+          "p": "integr（拉丁文 integer 完整的：in 否定 + tangere 碰）+ -ate"
+        },
+        {
+          "w": "integration",
+          "p": "integrate 整合 + -ion"
+        },
+        {
+          "w": "integrity",
+          "p": "integr（拉丁文 integer 完整的，字面意思是沒被碰過的：in + tangere 碰）+ -ity"
+        },
+        {
+          "w": "attain",
+          "p": "at 朝向 + tain（拉丁文 tangere 碰）"
+        },
+        {
+          "w": "attainment",
+          "p": "attain 達到 + -ment"
+        }
+      ],
+      "dropped": [
+        {
+          "list": "tactic",
+          "why": "來自希臘文 taktikos「排列的」（排兵布陣），不是拉丁文 tangere「碰」；Etymonline 雖然把兩者歸到同一個古老的字根，但進入英文時已經是不同的字、不同的意思"
+        },
+        {
+          "list": "tangle",
+          "why": "Etymonline 說可能來自北歐語，跟拉丁文 tangere 無關"
+        },
+        {
+          "list": "tangerine",
+          "why": "來自北非港口 Tangier（丹吉爾），橘子最早從那裡運到英國"
+        },
+        {
+          "list": "tag",
+          "why": "Etymonline 說來源不確定，跟拉丁文 tangere 無關"
+        }
+      ]
+    },
+    {
+      "key": "nov",
+      "zh": "新的",
+      "note": "拉丁文 novus「新的」，跟英文的 new 同源。novel 當名詞來自義大利文 novella「新的故事」，後來指長篇小說；當形容詞來自拉丁文 novellus「新的」，意思是「新穎的」。novice 是新來的人→新手；innovation 是 in（往裡面）+ nov，帶進新的東西→創新。renew（更新）是英文的 re + new，是仿照拉丁文 renovare 造出來的字，所以不收進這個家族，見字首字尾表的 re-。",
+      "items": [
+        {
+          "w": "novel",
+          "p": "名詞來自義大利文 novella 短篇故事；形容詞來自盎格魯法語、古法文的 novel「新的」"
+        },
+        {
+          "w": "novelist",
+          "p": "novel 小說 + -ist"
+        },
+        {
+          "w": "innovation",
+          "p": "in 往裡面 + nov 新 + -ation"
+        },
+        {
+          "w": "innovative",
+          "p": "innovate 創新 + -ive"
+        },
+        {
+          "w": "novice",
+          "p": "nov 新 + -ice（拉丁文 novicius 新來的）"
+        }
+      ],
+      "dropped": []
+    },
+    {
+      "key": "viv / vit",
+      "zh": "活、生命",
+      "note": "拉丁文 vivere「活」、vivus「活的」、vita「生命」，所以這個家族有 viv、vit 兩種拼法。survive 是 sur（super 超過）+ vive，活過了某個時間點或某場災難→倖存，也指比某人活得久；revive 是再活過來→復甦、使恢復；vivid 是活生生的→生動的、鮮明的。vital 原本是「生命的」，後來指對生存不可缺少的→極重要的；vitality 是生命力→活力。vitamin 是 1912 年波蘭生化學家 Casimir Funk 造的字，當時以為這類物質含有胺基酸，就把 vita（生命）和 amine（胺）合成 vitamine；後來知道它們的化學成分不是這樣，才把字尾的 e 去掉。",
+      "items": [
+        {
+          "w": "survive",
+          "p": "sur（super 超過）+ vive 活"
+        },
+        {
+          "w": "survival",
+          "p": "survive 倖存 + -al"
+        },
+        {
+          "w": "survivor",
+          "p": "survive 倖存 + -or"
+        },
+        {
+          "w": "vivid",
+          "p": "viv（拉丁文 vivere 活）+ -id"
+        },
+        {
+          "w": "vitamin",
+          "p": "vita 生命 + amine 胺（去掉 e）"
+        },
+        {
+          "w": "vital",
+          "p": "vit（拉丁文 vita 生命）+ -al"
+        },
+        {
+          "w": "vitality",
+          "p": "vital 生命的 + -ity"
+        },
+        {
+          "w": "revive",
+          "p": "re + vive 活"
+        },
+        {
+          "w": "revival",
+          "p": "revive 復甦 + -al"
+        }
+      ],
+      "dropped": [
+        {
+          "list": "inevitable",
+          "why": "in 否定 + e（ex 往外）+ vit（拉丁文 vitare 避開）+ -able，vit 是「避開」，不是「生命」"
+        },
+        {
+          "list": "invite、invitation",
+          "why": "來自拉丁文 invitare，Etymonline 說這個字來源不確定，所以不能拆成 in + vit（生命）"
+        },
+        {
+          "list": "longevity",
+          "why": "long 長 + ev（拉丁文 aevum 一生、時代）+ -ity，中間的 vit 是 ev 的 v 接上 -ity 的 it，不是字根"
+        },
+        {
+          "list": "activity、creativity、productivity、sensitivity、captivity",
+          "why": "這些字是 -ive 結尾的形容詞加上 -ity，像 creative + -ity → creativity（activity、captivity 在拉丁文就已經這樣組成），中間的 vit 不是字根；activity 收在 act / ag 那個家族"
+        }
+      ]
+    },
+    {
+      "key": "vac / vacu",
+      "zh": "空的",
+      "note": "拉丁文 vacare「空著、沒有事做」，形容詞是 vacuus「空的」，所以這個家族有 vac、vacu 兩種拼法。vacant 是空的、（職位）空缺的，vacancy 是空缺、空房；vacation 是不用上班上課、空出來的時間→假期；vacuum 是空的地方→真空，也是 vacuum cleaner（吸塵器）的簡稱；evacuate 是 e（ex 往外）+ vacu，把人清空→撤離、疏散。2 級的 avoid 也是這個家族的字：古法文 esvuidier 是「清空」，avoid 在中古英文原本有「清空、離開」等意思，現在都不用了；Etymonline 說現在「避開」的意思對應古法文 eviter（避開），可能是跟它混在一起才有的。avoid 的拼法已經看不出 vac。vain（徒勞的）、vanish（消失）、vanity（虛榮）的拉丁文 vanus「空的」跟 vacare 來自同一個古老字根，意思也是「空」，另外收在下一個家族 van。",
+      "items": [
+        {
+          "w": "vacation",
+          "p": "vac（拉丁文 vacare 空、有閒）+ -ation"
+        },
+        {
+          "w": "avoid",
+          "p": "a（古法文 es 往外，來自拉丁文 ex）+ void（古法文 vuider 使變空，源頭可追到拉丁文 vacare）"
+        },
+        {
+          "w": "vacant",
+          "p": "vac（拉丁文 vacare 空）+ -ant"
+        },
+        {
+          "w": "vacancy",
+          "p": "vacant 空的 → vacancy"
+        },
+        {
+          "w": "vacuum",
+          "p": "vacu（拉丁文 vacuus 空的）+ -um（中性形，形容詞當名詞用）"
+        },
+        {
+          "w": "evacuate",
+          "p": "e（ex）往外 + vacu 空 + -ate"
+        }
+      ],
+      "dropped": [
+        {
+          "list": "vaccine",
+          "why": "來自拉丁文 vacca「母牛」，因為最早的疫苗是用牛痘做的，跟 vacare 無關"
+        }
+      ]
+    },
+    {
+      "key": "van",
+      "zh": "空的、徒勞的",
+      "note": "拉丁文 vanus「空的、徒勞的」。vain 原本是「空的、沒有價值的」→徒勞的，in vain 是白費力氣；後來也用來說人太在意自己的外表或成就→自負的、虛榮的，vanity 就是虛榮。vanish 來自拉丁文 evanescere，e（ex 往外）+ van，變空→消失。Etymonline 把 vanus 跟上一個家族 vac 的 vacare 歸到同一個古老字根，兩個字的意思都是「空」。",
+      "items": [
+        {
+          "w": "vanish",
+          "p": "van（拉丁文 vanus 空的）+ -ish；整個字是盎格魯法語動詞 vanir（也寫作 esvanir）的詞幹 vaniss- 變來的，-ish 不是「像…的」"
+        },
+        {
+          "w": "vain",
+          "p": "來自拉丁文 vanus 空的"
+        },
+        {
+          "w": "vanity",
+          "p": "vain 自負的、徒勞的 + -ity"
+        }
+      ],
+      "dropped": [
+        {
+          "list": "vanilla",
+          "why": "來自西班牙文 vainilla「小豆莢」，跟 vanus 無關"
+        },
+        {
+          "list": "van",
+          "why": "是 caravan（篷車、車隊）的縮短，跟 vanus 無關"
+        }
+      ]
+    },
+    {
+      "key": "term / termin",
+      "zh": "界線、終點",
+      "note": "拉丁文 terminus「終點、界線」。term 原本是界線，一段時間劃出界線就是「期限、學期」；這個字在中世紀拉丁文又有「說法、定義」的意思，所以也指「術語」。determine 是 de（離開）+ terminare（劃出界線），先把界線劃清楚→決定；terminal 是在終點的→（疾病）末期的，當名詞是鐵路的終點站，後來機場的航廈也叫 terminal。",
+      "items": [
+        {
+          "w": "term",
+          "p": "term（拉丁文 terminus 界標、界限）"
+        },
+        {
+          "w": "determine",
+          "p": "de 離開 + termin 界限"
+        },
+        {
+          "w": "determination",
+          "p": "determine 決定 + -ation（去掉 e）"
+        },
+        {
+          "w": "terminal",
+          "p": "term（拉丁文 terminus 終點）+ -al"
+        }
+      ],
+      "dropped": []
+    },
+    {
+      "key": "fract / frag",
+      "zh": "打破",
+      "note": "拉丁文 frangere「打破」，這個家族有 fract、frag 兩種拼法。fraction 是打破的一部分→分數、一小部分；fragment 是打下來的一塊→碎片；fracture 是打斷→骨折、斷裂；fragile 是容易打破的→易碎的。",
+      "items": [
+        {
+          "w": "fragile",
+          "p": "frag（拉丁文 frangere 打破）+ -ile"
+        },
+        {
+          "w": "fraction",
+          "p": "fract（拉丁文 frangere 打破）+ -ion"
+        },
+        {
+          "w": "fragment",
+          "p": "frag（拉丁文 frangere 打破）+ -ment"
+        },
+        {
+          "w": "fracture",
+          "p": "fract（拉丁文 frangere 打破）+ -ure"
+        }
+      ],
+      "dropped": [
+        {
+          "list": "fragrant、fragrance",
+          "why": "來自拉丁文 fragrare「散發（香）氣味」，跟 frangere「打破」無關"
+        }
+      ]
+    },
+    {
+      "key": "aud / audi",
+      "zh": "聽",
+      "note": "拉丁文 audire「聽」。audience 是在聽的人→聽眾、觀眾；audio 是聲音的、錄音的；auditorium 字面是「聽的地方」→禮堂；audit 原本是「聽」，早期查帳是口頭進行的，所以引申為審計、查帳，到現在也指不拿學分去聽課→旁聽。",
+      "items": [
+        {
+          "w": "audience",
+          "p": "audi（拉丁文 audire 聽）+ -ence"
+        },
+        {
+          "w": "audio",
+          "p": "audio-（拉丁文 audire 聽）"
+        },
+        {
+          "w": "auditorium",
+          "p": "audi（拉丁文 audire 聽）+ -torium（表示場所）"
+        },
+        {
+          "w": "audit",
+          "p": "audit（拉丁文 auditus 聆聽，來自 audire 聽）"
+        }
+      ],
+      "dropped": [
+        {
+          "list": "applaud",
+          "why": "ap（ad 朝向）+ plaud（拉丁文 plaudere 拍手），跟 audire「聽」無關"
+        },
+        {
+          "list": "fraud",
+          "why": "來自拉丁文 fraus「欺騙」，字源不明，跟 audire「聽」無關"
+        }
+      ]
+    },
+    {
+      "key": "rect / reg",
+      "zh": "直；引導、統治",
+      "note": "拉丁文 regere「引導、統治」，也有「使直」的意思，它的源頭是更古老的字根 reg-「走直線」；相關的 rectus 是「直的、正確的」，所以這個家族有 rect、reg 兩種拼法。correct 是徹底弄直→改正、正確的；direct 是把方向拉直→指引、直接的；erect 是 e（往外、往上）加上弄直→直立的、豎立；rectangle 是有直角的形狀→長方形。拉丁文 regula 是「規則、直尺」，所以 regular 是照規則的→規律的，regulate 是用規則來管；region 原本指界線、範圍，後來指地區；regime 是統治的方式→政權。",
+      "items": [
+        {
+          "w": "correct",
+          "p": "cor（com）+ rect（拉丁文 regere 引直）"
+        },
+        {
+          "w": "direct",
+          "p": "di（dis 分開）+ rect（拉丁文 regere 引導、使直）"
+        },
+        {
+          "w": "direction",
+          "p": "direct 指引 + -ion"
+        },
+        {
+          "w": "director",
+          "p": "direct 指導 + -or"
+        },
+        {
+          "w": "region",
+          "p": "reg（拉丁文 regere 指引）+ -ion"
+        },
+        {
+          "w": "regular",
+          "p": "regul（拉丁文 regula 規則）+ -ar"
+        },
+        {
+          "w": "rectangle",
+          "p": "rect（拉丁文 rectus 直的）+ angle 角"
+        },
+        {
+          "w": "regional",
+          "p": "region 地區 + -al"
+        },
+        {
+          "w": "regulate",
+          "p": "regul（拉丁文 regula 規則）+ -ate"
+        },
+        {
+          "w": "regulation",
+          "p": "regulate 規範 + -ion"
+        },
+        {
+          "w": "directory",
+          "p": "direct 指引 + -ory"
+        },
+        {
+          "w": "erect",
+          "p": "e（ex）向上 + rect 直"
+        },
+        {
+          "w": "regime",
+          "p": "來自拉丁文 regimen 掌舵、控制（reg：regere 指引）"
+        },
+        {
+          "w": "directive",
+          "p": "direct 指引 + -ive"
+        }
+      ],
+      "dropped": [
+        {
+          "list": "register、registration",
+          "why": "re（回）+ 拉丁文 gerere「帶」，帶回來記下→登記，跟 regere 無關；只有後來的一部分意思受到 regere 的影響"
+        },
+        {
+          "list": "regard",
+          "why": "re + 古法文 garder「注意、看」，跟 guard 同源，跟 regere 無關"
+        },
+        {
+          "list": "regret",
+          "why": "re + 古法文 -greter，可能來自日耳曼語「哭泣」，跟 regere 無關"
+        }
+      ]
+    },
+    {
+      "key": "brev / brief",
+      "zh": "短",
+      "note": "拉丁文 brevis「短的」。brief 是短的→短暫的、簡短的；brief 當名詞最早指官方發出的文書，後來也指簡短的文字、摘要，所以 briefcase 是裝文件的扁平手提包→公事包。abbreviate 是 ad（朝向）+ breviare（使變短），把字縮短→縮寫，名詞是 abbreviation。",
+      "items": [
+        {
+          "w": "brief",
+          "p": "brief（拉丁文 brevis 短的）"
+        },
+        {
+          "w": "briefcase",
+          "p": "brief 文件 + case 容器"
+        },
+        {
+          "w": "abbreviate",
+          "p": "ab（ad）朝向 + brevi（拉丁文 brevis 短的）+ -ate"
+        }
+      ],
+      "dropped": []
+    },
+    {
+      "key": "sol",
+      "zh": "單獨",
+      "note": "拉丁文 solus「單獨的、唯一的」。sole 是唯一的；solo 是經過義大利文的「單獨」，用在音樂上就是獨奏、獨唱；solitary 是單獨的、孤獨的；solitude 是孤獨、獨處。腳底、鞋底的 sole 是另一個字，來自拉丁文 solea（鞋底）。",
+      "items": [
+        {
+          "w": "sole",
+          "p": "sole（拉丁文 solus 單獨的）"
+        },
+        {
+          "w": "solo",
+          "p": "solo（義大利文 solo 單獨，來自拉丁文 solus）"
+        },
+        {
+          "w": "solitary",
+          "p": "solit（拉丁文 solitas 孤單，來自 solus 單獨）+ -ary"
+        },
+        {
+          "w": "solitude",
+          "p": "soli（拉丁文 solus 單獨）+ -tude"
+        }
+      ],
+      "dropped": [
+        {
+          "list": "isolate、isolation",
+          "why": "isolated 經法文 isolé 來自義大利文 isolato，源頭是拉丁文 insulatus「變成一座島」（insula 島），isolate 是從 isolated 倒推出來的動詞；像一座島那樣跟外界隔開→隔離，跟 solus 無關"
+        },
+        {
+          "list": "solve、solution、resolve、dissolve",
+          "why": "來自拉丁文 solvere「鬆開」，跟 solus 無關"
+        },
+        {
+          "list": "solid、solidarity",
+          "why": "來自拉丁文 solidus「堅固的、完整的」，跟 solus 無關"
+        },
+        {
+          "list": "soldier",
+          "why": "來自中世紀拉丁文 soldarius「領薪餉的人」，薪餉 soldum 這個字從羅馬金幣 solidus 而來，跟 solus 無關"
+        },
+        {
+          "list": "solar",
+          "why": "來自拉丁文 sol「太陽」，跟 solus 無關"
+        },
+        {
+          "list": "console（v. 安慰）、consolation",
+          "why": "來自拉丁文 consolari「安慰」（solari 安慰），跟 solus 無關；當名詞的 console 是另一個字，來自法文 console「托架」，字源不確定"
+        },
+        {
+          "list": "solemn",
+          "why": "來自拉丁文 sollemnis「每年固定舉行的、正式的」，跟 solus 無關"
+        }
+      ]
+    },
+    {
+      "key": "opt",
+      "zh": "選擇",
+      "note": "拉丁文 optare「選擇、希望」。opt 是選擇；option 是選擇、選項，optional 是可以選擇的→選修的、非必要的；adopt 是 ad（朝向）+ optare，選來當自己的→採用、收養。",
+      "items": [
+        {
+          "w": "option",
+          "p": "opt 選擇 + -ion"
+        },
+        {
+          "w": "adopt",
+          "p": "ad 朝向 + opt 選擇"
+        },
+        {
+          "w": "opt",
+          "p": "opt（拉丁文 optare 選擇、希望）"
+        },
+        {
+          "w": "optional",
+          "p": "option 選擇 + -al"
+        }
+      ],
+      "dropped": [
+        {
+          "list": "optimism、optimistic",
+          "why": "來自拉丁文 optimus「最好的」，不是 optare「選擇」，另外收錄在 optim 這個家族"
+        }
+      ]
+    },
+    {
+      "key": "optim",
+      "zh": "最好的",
+      "note": "拉丁文 optimus「最好的」，是 bonus（好的）的最高級。哲學家萊布尼茲用 optimum 指「最大的善」，法文 optimisme 原本是一種學說，認為這個世界是所有可能的世界裡最好的，英文 optimism 從這裡來，後來指樂觀；optimistic 是 optimist（樂觀的人）加 -ic→樂觀的。",
+      "items": [
+        {
+          "w": "optimistic",
+          "p": "optimist 樂觀的人 + -ic"
+        },
+        {
+          "w": "optimism",
+          "p": "optim（拉丁文 optimum 最好的）+ -ism"
+        }
+      ],
+      "dropped": [
+        {
+          "list": "opt、option、optional、adopt",
+          "why": "來自拉丁文 optare「選擇」，不是 optimus「最好的」，另外收錄在 opt 這個家族"
+        }
+      ]
+    },
+    {
+      "key": "path",
+      "zh": "感受；受苦",
+      "note": "希臘文 pathos「感受」，跟 pathein「受苦」有關。sympathy 是 sym（syn 一起）+ pathos，一起感受→同情、贊同；sympathize、sympathetic 是它的動詞、形容詞。pathetic 原本是觸動情感的，後來指令人憐憫的→可憐的，到了二十世紀又多了「差勁到可笑」的意思。",
+      "items": [
+        {
+          "w": "sympathy",
+          "p": "sym 一起 + pathy 感受"
+        },
+        {
+          "w": "sympathetic",
+          "p": "sympathy 同情 + -etic"
+        },
+        {
+          "w": "pathetic",
+          "p": "path（希臘文字根 path- 經歷、遭受）+ -etic"
+        },
+        {
+          "w": "sympathize",
+          "p": "sympathy 同情 + -ize"
+        }
+      ],
+      "dropped": [
+        {
+          "list": "path",
+          "why": "來自古英文 pæþ「小路」，是日耳曼語的字，字源不確定，跟希臘文 pathos 無關"
+        }
+      ]
+    },
+    {
+      "key": "nounce / nunci",
+      "zh": "報告、宣布",
+      "note": "拉丁文 nuntius「信差」，動詞 nuntiare 是報告、宣布。announce 是 ad（朝向）+ nuntiare，把消息帶給大家→宣布，announcement 是它的名詞。pronounce 是 pro（往外、公開）+ nuntiare，原本是公開宣布，後來也指把字說出來→發音。名詞 pronunciation 的拼法照拉丁文 pronuntiatio，寫成 nunci，不寫成 pronounciation。",
+      "items": [
+        {
+          "w": "announce",
+          "p": "an 朝向 + nounce（拉丁文 nuntiare 報告，來自 nuntius 信差）"
+        },
+        {
+          "w": "announcement",
+          "p": "announce 宣布 + -ment"
+        },
+        {
+          "w": "pronounce",
+          "p": "pro 往前 + nounce（拉丁文 nuntiare 報告）"
+        },
+        {
+          "w": "pronunciation",
+          "p": "pronounce 發音 + -ation（拼法照拉丁文 pronuntiatio，ounce 變成 unci）"
+        }
+      ],
+      "dropped": [
+        {
+          "list": "noun",
+          "why": "來自拉丁文 nomen「名字」，跟 nuntius 無關"
+        }
+      ]
+    },
+    {
+      "key": "tempt / tent",
+      "zh": "摸、試",
+      "note": "拉丁文 temptare「摸、試探」，是 tentare（觸摸、嘗試）的變體。tempt 在英文最早的意思就是引誘人做壞事，temptation 是誘惑；attempt 是 ad（朝向）+ temptare，去試→嘗試、企圖；tentative 來自 tentare，嘗試性的→暫定的、猶豫的。",
+      "items": [
+        {
+          "w": "attempt",
+          "p": "at 朝向 + tempt 試"
+        },
+        {
+          "w": "tempt",
+          "p": "tempt（拉丁文 temptare 摸、試探）"
+        },
+        {
+          "w": "temptation",
+          "p": "tempt 引誘 + -ation"
+        },
+        {
+          "w": "tentative",
+          "p": "tent（拉丁文 tentare 觸摸、試探）+ -ative"
+        }
+      ],
+      "dropped": [
+        {
+          "list": "contempt",
+          "why": "來自拉丁文 contemnere「輕視」，字根是 temnere（輕視），跟 temptare 無關"
+        },
+        {
+          "list": "tent",
+          "why": "來自拉丁文 tendere「伸展」，指繃在支架上的獸皮或布，收在 tend 那個家族"
+        },
+        {
+          "list": "temporary",
+          "why": "來自拉丁文 tempus「時間」，跟 temptare 無關"
+        }
+      ]
+    },
+    {
+      "key": "tort / tor",
+      "zh": "扭",
+      "note": "拉丁文 torquere「扭」，過去分詞是 tortus。torture 來自拉丁文 tortura（扭絞），引申為拷問、折磨；torment 來自拉丁文 tormentum，可以指扭成的繩索、投石機，也指刑具→折磨；retort 是扭回去、丟回去→尖銳地回嘴、反駁；torch 可能也來自 torquere，原本應該是扭成一束的東西，後來指用扭成束的麻絮沾蠟做成的火把。",
+      "items": [
+        {
+          "w": "torture",
+          "p": "tort（拉丁文 torquere 扭）+ -ure"
+        },
+        {
+          "w": "torment",
+          "p": "tor（拉丁文 tormentum 酷刑，和 torquere 扭 同源）+ -ment"
+        },
+        {
+          "w": "torch",
+          "p": "torch（經盎格魯法語，來自拉丁文 torqua 扭成的東西，和 torquēre 扭 同源）"
+        },
+        {
+          "w": "retort",
+          "p": "re 往回 + tort 扭"
+        }
+      ],
+      "dropped": [
+        {
+          "list": "tortoise",
+          "why": "字源不確定：一說來自拉丁文 tartaruchus「陰間的」，也有人認為來自 tortus「扭曲的」，指烏龜腳的形狀，所以不收錄在這個家族"
+        }
+      ]
+    },
+    {
+      "key": "mand",
+      "zh": "交付、命令",
+      "note": "拉丁文 mandare「交付、命令」，大概來自 manus（手）+ dare（給），字面上是交到別人手上。demand 來自拉丁文 demandare（交付任務），到了中世紀拉丁文變成「要求」；command 來自拉丁文 commendare（託付），受 mandare 影響改拼成 mand。commendare 也是英文 commend（稱讚、託付）的來源，這時拼成 mend，所以 recommend 是 re + commend→推薦、建議。mandate 是命令→授權、強制規定。",
+      "items": [
+        {
+          "w": "command",
+          "p": "com + mand（拉丁文 mandare 交付）"
+        },
+        {
+          "w": "commander",
+          "p": "command 指揮 + -er"
+        },
+        {
+          "w": "demand",
+          "p": "de 加強 + mand 命令"
+        },
+        {
+          "w": "recommend",
+          "p": "re（可能是加強）+ commend 稱讚、託付"
+        },
+        {
+          "w": "recommendation",
+          "p": "recommend 推薦 + -ation"
+        },
+        {
+          "w": "mandate",
+          "p": "mand（拉丁文 mandare 交付、命令）+ -ate"
+        }
+      ],
+      "dropped": [
+        {
+          "list": "amend、mend",
+          "why": "amend 來自拉丁文 emendare「改正」，是 ex（去掉）+ menda（缺點），跟 mandare 無關；mend 來自古法文 amender 的縮短形式"
+        },
+        {
+          "list": "tremendous",
+          "why": "來自拉丁文 tremere「發抖」，跟 mandare 無關"
+        }
+      ]
+    },
+    {
+      "key": "domin",
+      "zh": "主人",
+      "note": "拉丁文 dominus「主人」，來自 domus「房子」，原本是一家之主。dominate 來自 dominari（統治），是支配、在…中占主要地位，dominant 是占優勢的；domain 來自拉丁文 dominium（財產、統治權），原本是領地，後來指知識、活動的領域，現在也指網域。danger 原本是主人的權力、加害的權力，落在別人的掌控下就有危險，所以「危險」這個意思先在法文出現，拼法又受拉丁文 damnum（損害）影響；dangerous、endanger 都從 danger 來。madam 來自古法文 ma dame（我的女士），再往上是拉丁文 mea domina，domina 是一家的女主人。domestic 直接從 domus 來，家裡的→國內的，跟這個家族同源。",
+      "items": [
+        {
+          "w": "dangerous",
+          "p": "danger 危險 + -ous"
+        },
+        {
+          "w": "danger",
+          "p": "danger（盎格魯法語 dangier，經通俗拉丁文 *dominiarium，來自拉丁文 dominium 所有權）"
+        },
+        {
+          "w": "dominate",
+          "p": "domin（拉丁文 dominari 統治，來自 dominus 主人）+ -ate"
+        },
+        {
+          "w": "dominant",
+          "p": "domin（拉丁文 dominari 統治）+ -ant"
+        },
+        {
+          "w": "endanger",
+          "p": "en 使處於 + danger 危險"
+        },
+        {
+          "w": "domain",
+          "p": "domain（盎格魯法語 demeine，來自拉丁文 dominium 所有權，再往上是 dominus 主人）"
+        },
+        {
+          "w": "madam",
+          "p": "ma 我的 + dam 女士（法文 ma dame，來自拉丁文 domina 女主人）"
+        }
+      ],
+      "dropped": []
+    },
+    {
+      "key": "scend / scent",
+      "zh": "爬",
+      "note": "拉丁文 scandere「爬」。ascend 是 ad（朝向）+ scandere，往上爬→上升、登上；descend 是 de（往下）+ scandere，往下爬→下降，也指從祖先傳下來；名詞 descent 是下降，最早的意思是血統、家世，拼法跟著法文的 descente，所以結尾是 t。scan 也來自 scandere：最早是照韻律的節拍念詩、分析詩句，後來變成逐一仔細察看，到了二十世紀又有瀏覽、掃描的意思。scale 當「規模、比例、刻度」或「攀登」時，來自拉丁文 scala（梯子），也是從 scandere 來；當「秤」「鱗片」時是另一個來源。escalator 是 1900 年造的商標名，用 escalade（用梯子爬城牆，經法文來自義大利文 scalata，再往上是 scala 梯子）加上 elevator 的 -ator，所以電扶梯也是這個家族的字。",
+      "items": [
+        {
+          "w": "descend",
+          "p": "de 往下 + scend 爬"
+        },
+        {
+          "w": "escalator",
+          "p": "escalade（用梯子爬城牆）+ -ator，仿照 elevator 造的字，原本是商標名"
+        },
+        {
+          "w": "scan",
+          "p": "scan（拉丁文 scandere 爬；後來專指照節拍念詩）"
+        },
+        {
+          "w": "ascend",
+          "p": "a（ad）朝向 + scend 爬"
+        },
+        {
+          "w": "descent",
+          "p": "descend 的名詞"
+        }
+      ],
+      "dropped": [
+        {
+          "list": "ancient",
+          "why": "來自古法文 ancien，再往上是拉丁文 ante「以前」；字尾的 t 是後來受 -ent、-ant 結尾的字影響才加上的，跟 scandere 無關"
+        },
+        {
+          "list": "scent",
+          "why": "來自拉丁文 sentire「感覺」，收在 sens / sent 那個家族；c 是十七世紀才加上的，可能是受 ascent、descent 或 science 的拼法影響"
+        },
+        {
+          "list": "adolescent　reminiscent",
+          "why": "結尾的 scent 是拉丁文動詞的現在分詞：adolescent 來自 adolescere「長大」，reminiscent 來自 reminisci「回想」，跟 scandere 無關"
+        }
+      ]
+    },
+    {
+      "key": "quir / quis / quest",
+      "zh": "尋求、問",
+      "note": "拉丁文 quaerere「尋求、問」，過去分詞是 quaesitus，所以這個家族有 quir、quis、quest 幾種拼法。acquire 是 ad（朝向，可能是加強）+ quaerere，去尋求→取得、學到，名詞 acquisition 照拉丁文拼成 quis；inquire 是 in（往裡面）+ quaerere，往裡面問→詢問、調查，名詞是 inquiry。require 在十四世紀就有問、請求和需要兩種意思，「請求」這個意思後來交給 request；request 來自拉丁文 requisita（被要求的東西）。requirement 是需要的東西、必要條件。conquer 原本是努力求得、贏得，後來才指征服，名詞 conquest。quest 是尋求、探索；question 來自拉丁文 quaestio（探求、詢問），英文從一開始就指問題；questionnaire 是問卷。",
+      "items": [
+        {
+          "w": "question",
+          "p": "quest（拉丁文 quaerere 尋求、問）+ -ion"
+        },
+        {
+          "w": "require",
+          "p": "re 再 + quire（拉丁文 quaerere 尋求）"
+        },
+        {
+          "w": "requirement",
+          "p": "require 需要 + -ment"
+        },
+        {
+          "w": "request",
+          "p": "re 再 + quest 尋求"
+        },
+        {
+          "w": "acquire",
+          "p": "ac 朝向 + quire（拉丁文 quaerere 尋求）"
+        },
+        {
+          "w": "conquer",
+          "p": "con（com-，可能表加強）+ quer（拉丁文 quaerere 尋找、問）"
+        },
+        {
+          "w": "acquisition",
+          "p": "acquire 取得 + -ition（ire 變成 isit）"
+        },
+        {
+          "w": "inquiry",
+          "p": "inquiry（可能是盎格魯法語由 enqueren 詢問 變來的名詞；inquire 來自拉丁文 inquirere：in + quaerere 尋找）"
+        },
+        {
+          "w": "quest",
+          "p": "quest（拉丁文 quaerere 尋求，經盎格魯法語 queste）"
+        },
+        {
+          "w": "questionnaire",
+          "p": "questionnaire（法文，來自 questionner 提問，questionner 又來自 question）"
+        },
+        {
+          "w": "inquire",
+          "p": "in 向內 + quire 尋求"
+        },
+        {
+          "w": "conquest",
+          "p": "conquer 的名詞"
+        }
+      ],
+      "dropped": [
+        {
+          "list": "squirrel",
+          "why": "來自希臘文 skiouros，經拉丁文、古法文進入英文；字面上常解釋成 skia 影子 + oura 尾巴，不過這個說法可能是民間字源。總之跟 quaerere 無關"
+        },
+        {
+          "list": "quiz",
+          "why": "Etymonline 說來源不明，沒有提到 quaerere，所以不收錄"
+        }
+      ]
+    },
+    {
+      "key": "cult / col",
+      "zh": "耕種、照料",
+      "note": "拉丁文 colere「耕種、照料」，也有居住的意思，過去分詞是 cultus。culture 原本是耕種土地，後來指培養心靈，到了十九世紀才指一個民族的文化；cultural 是文化的。agriculture 是 agri（拉丁文 ager 田地）+ culture，耕種田地→農業，agricultural 是農業的。cultivate 是耕種、栽培，後來也指用心培養能力、經營關係。colony 來自拉丁文 colonia（移居的土地、農場），colonus 是農夫、移居的人，所以殖民地原本是移民去耕種、居住的地方；colonial 是殖民地的。",
+      "items": [
+        {
+          "w": "culture",
+          "p": "cult（拉丁文 colere 耕種）+ -ure"
+        },
+        {
+          "w": "cultural",
+          "p": "culture 文化 + -al"
+        },
+        {
+          "w": "agriculture",
+          "p": "agri（拉丁文 ager 田地）+ culture 耕種"
+        },
+        {
+          "w": "colony",
+          "p": "colony（拉丁文 colonia，來自 colonus 農夫、移居的人；colonus 又來自 colere 耕種）"
+        },
+        {
+          "w": "agricultural",
+          "p": "agriculture 農業 + -al"
+        },
+        {
+          "w": "colonial",
+          "p": "colony 殖民地 + -ial"
+        },
+        {
+          "w": "cultivate",
+          "p": "cultiv（中世紀拉丁文 cultivare，來自 colere 耕種的過去分詞 cultus）+ -ate"
+        }
+      ],
+      "dropped": [
+        {
+          "list": "difficult　difficulty　faculty",
+          "why": "裡面的 cult 來自拉丁文 facilis「容易的」（difficilis 是 dis 不 + facilis），跟 colere 無關，收在 fact / fac 那個家族"
+        }
+      ]
+    },
+    {
+      "key": "plex",
+      "zh": "編織",
+      "note": "拉丁文 plectere「編織」。complecti 是 com（一起）+ plectere，圍住、抱住，過去分詞是 complexus。complex 是很多部分編在一起→複雜的，當名詞是由許多相關部分組成的整體，例如綜合設施，心理學上指情結；complexity 是複雜。complexion 原本是組合，中世紀醫學認為人的體質由冷、熱、乾、濕四種性質調和而成，臉色反映這種調和，所以後來指膚色、氣色。complicate、apply、explicit、implicit 來自拉丁文 plicare（摺），跟 plectere 同源，都來自原始印歐語 *plek-（編）。",
+      "items": [
+        {
+          "w": "complex",
+          "p": "com 一起 + plex 編"
+        },
+        {
+          "w": "complexity",
+          "p": "complex 複雜的 + -ity"
+        },
+        {
+          "w": "complexion",
+          "p": "com 一起 + plex（編）+ -ion"
+        }
+      ],
+      "dropped": []
+    },
+    {
+      "key": "prehend / pris",
+      "zh": "抓住",
+      "note": "拉丁文 prehendere「抓住」，是 prae（在前）+ hendere，後來縮成 prendere，到法文變成 prendre（拿），過去分詞是 pris，所以這個家族也有 pris、prise 的拼法。comprehend 是全部抓住→理解，也有包含的意思；comprehension 是理解，comprehensive 是全部包含的→全面的。comprise 從法文 comprendre 來，是包含、由…組成。enterprise 是動手去做的事→事業、企業；surprise 原本是突然抓住、出其不意的攻擊，後來才指驚訝。prison 原本是抓住、囚禁的狀態，後來指監獄，prisoner、imprison、imprisonment 都從 prison 來。prey 來自拉丁文 praeda（戰利品、獵物），原本是「事先抓住的東西」；predator 來自拉丁文 praedator（掠奪者），也是從 praeda 來，現在指掠食者。apprentice 來自古法文 aprendre（學習），再往上是拉丁文 apprehendere（抓住），這個字到中世紀拉丁文已經有「學習」的意思。",
+      "items": [
+        {
+          "w": "surprise",
+          "p": "sur（盎格魯法語 sur-、sus- 在下面）+ prise（prendre 拿）"
+        },
+        {
+          "w": "surprised",
+          "p": "surprise + -ed"
+        },
+        {
+          "w": "prison",
+          "p": "prison（拉丁文 prehensio 抓住，經盎格魯法語）"
+        },
+        {
+          "w": "prisoner",
+          "p": "prison 監獄 + -er"
+        },
+        {
+          "w": "comprehend",
+          "p": "com（可能表完全）+ prehend 抓"
+        },
+        {
+          "w": "comprehension",
+          "p": "comprehend 理解 + -sion（d 變成 s）"
+        },
+        {
+          "w": "comprise",
+          "p": "com + prise（盎格魯法語 compris，是 comprendre 的過去分詞，來自拉丁文 comprehendere）"
+        },
+        {
+          "w": "enterprise",
+          "p": "enter（inter 在之間）+ prise（法文 prendre 拿）"
+        },
+        {
+          "w": "prey",
+          "p": "prey（拉丁文 praeda，跟 prehendere 抓 同源）"
+        },
+        {
+          "w": "predator",
+          "p": "predator（拉丁文 praedator 掠奪者，來自 praedari 搶奪，再往上是 praeda 戰利品、獵物）"
+        },
+        {
+          "w": "comprehensive",
+          "p": "comprehend 理解、包含 + -sive"
+        },
+        {
+          "w": "imprison",
+          "p": "im 往裡面 + prison 監獄"
+        },
+        {
+          "w": "imprisonment",
+          "p": "imprison 監禁 + -ment"
+        },
+        {
+          "w": "apprentice",
+          "p": "apprentice（盎格魯法語 apprentiz，來自 aprendre 學習，再往上是拉丁文 apprehendere 抓住）"
+        }
+      ],
+      "dropped": [
+        {
+          "list": "prize",
+          "why": "當「獎品、獎賞」時來自古法文 pris「價格、價值、獎賞」，再往上是拉丁文 pretium「價格、獎賞」，跟 price 同源，不是這個家族"
+        }
+      ]
+    },
+    {
+      "key": "polit / polic",
+      "zh": "城市、公民",
+      "note": "希臘文 polis「城市、城邦」，polites 是住在城裡的「公民」，politikos 是「公民的、跟國家和公共事務有關的」。political 經拉丁文 politicus 來，是政治的；politics 原本是治理國家的學問，後來也指政治活動和個人的政治立場；politician 是 politics + -ian，原本指精通政治的人，現在指政治人物。希臘文 politeia 是「國家、治理、公民身分」，經拉丁文 politia 到法文，一支成了 policy，從治理的學問變成治理的方針→政策；另一支成了 police，原本也是治理、行政，十八世紀從法文借來「維持治安」的意思，1800 年左右才指警察組織。policy 當「保險單」時是另一個字，經義大利文 polizza 來，跟 polis 不同源。metropolitan 來自希臘文 metropolis「母城」，meter（母親）+ polis（城市），原本是教會用語，指省會城市的主教，十六世紀才有「首都的、大都市的」意思。",
+      "items": [
+        {
+          "w": "police",
+          "p": "police（希臘文 politeia 治理國家，經拉丁文 politia、法文 police）"
+        },
+        {
+          "w": "policeman",
+          "p": "police 警察 + -man"
+        },
+        {
+          "w": "policy",
+          "p": "poli（希臘文 politeia 治理國家，經拉丁文 politia、古法文 policie）+ -cy"
+        },
+        {
+          "w": "political",
+          "p": "politic（希臘文 politikos 公民的）+ -al"
+        },
+        {
+          "w": "politician",
+          "p": "politics 政治 + -ian"
+        },
+        {
+          "w": "politics",
+          "p": "polit（希臘文 politikos 公民的、國家的）+ -ics"
+        },
+        {
+          "w": "metropolitan",
+          "p": "metro（希臘文 meter 母親）+ polit（polis 城市）+ -an"
+        }
+      ],
+      "dropped": [
+        {
+          "list": "polite",
+          "why": "來自拉丁文 politus「磨光的、精緻的」，是 polire「磨光」的過去分詞，跟 polish 同源：磨光的→舉止文雅的→有禮貌的。跟 polis 無關"
+        },
+        {
+          "list": "polish",
+          "why": "來自拉丁文 polire「磨光、使光滑」，跟 polite 同源，跟 polis 無關"
+        },
+        {
+          "list": "holy",
+          "why": "來自古英文 halig「神聖的」，再往上是原始印歐語 *kailo-「完整的、沒有損傷的」，跟 health 同源，跟 polis 無關"
+        },
+        {
+          "list": "cosmopolitan",
+          "why": "字源確實是 polis：來自希臘文 kosmopolites「世界公民」，kosmos（世界）+ polites（公民），但《高中英文參考詞彙表》沒有這個字"
+        }
+      ]
+    },
+    {
+      "key": "form",
+      "zh": "形狀、形式",
+      "note": "拉丁文 forma「形狀、外形、樣子」，動詞 formare 是「塑形、做成」；forma 本身的來源不明，有一說認為經伊特拉斯坎語來自希臘文 morphe。字首決定怎麼塑形：in 是塑形，比喻成教導、訓練，後來才指告知，re 是重新塑形→改革，trans 是從一種形狀換到另一種→徹底改變，con 是塑成一樣的形狀→遵守、順從，uni 是只有一種形狀→一致的，後來指制服。formal 是合乎形式的→正式的。format 原本指書的開本大小，二十世紀才指電腦資料的格式。formula 是 forma 的指小形「小形式」，原本是儀式裡固定的說法、規則，後來指數學公式、化學式；formulate 是把想法化成公式→詳細制定。platform 來自法文 plateforme「平的形狀」，plat（平）+ forme（形狀），英文最早（十六世紀）指計畫、方案，不久也指高起來的平面，後來才有月台、政見、網路平台的意思。",
+      "items": [
+        {
+          "w": "uniform",
+          "p": "uni 一 + form 形狀"
+        },
+        {
+          "w": "form",
+          "p": "form（拉丁文 forma 形狀）"
+        },
+        {
+          "w": "formal",
+          "p": "form 形式 + -al"
+        },
+        {
+          "w": "platform",
+          "p": "plat 平的 + form 形狀（中古法文 plate-forme，字面意思是「平的形狀」）"
+        },
+        {
+          "w": "inform",
+          "p": "in 往裡面 + form 形狀"
+        },
+        {
+          "w": "information",
+          "p": "inform 通知 + -ation"
+        },
+        {
+          "w": "formation",
+          "p": "form 形成 + -ation"
+        },
+        {
+          "w": "formula",
+          "p": "formula（拉丁文 formula 小形式、規則，是 forma 形狀的指小形）"
+        },
+        {
+          "w": "reform",
+          "p": "re 再 + form 形狀"
+        },
+        {
+          "w": "transform",
+          "p": "trans 轉換 + form 形狀"
+        },
+        {
+          "w": "informative",
+          "p": "inform 告知 + -ative"
+        },
+        {
+          "w": "format",
+          "p": "format（經法文，可能再經德文，最終來自近代拉丁文 liber formatus「做成某種形狀的書」，formatus 是 formare 塑形的過去分詞）"
+        },
+        {
+          "w": "conform",
+          "p": "con 一起 + form 形狀"
+        },
+        {
+          "w": "transformation",
+          "p": "transform 轉變 + -ation"
+        },
+        {
+          "w": "formulate",
+          "p": "formula 公式 + -ate"
+        }
+      ],
+      "dropped": [
+        {
+          "list": "perform　performance　performer",
+          "why": "來自古法文 parfornir「做完、完成」，par（徹底）+ fornir（提供），後來受古法文 forme「形狀」影響才拼成 perform，原本跟形狀無關"
+        },
+        {
+          "list": "former",
+          "why": "來自古英文 forma「第一的」，跟 foremost 同源，不是拉丁文 forma"
+        },
+        {
+          "list": "formidable",
+          "why": "來自拉丁文 formido「恐懼」，令人害怕的→難對付的，跟 forma 無關"
+        },
+        {
+          "list": "deform",
+          "why": "字源確實是 de + formare（弄壞形狀），但《高中英文參考詞彙表》沒有這個字"
+        }
+      ]
+    },
+    {
+      "key": "act / ag",
+      "zh": "做、驅動",
+      "note": "拉丁文 agere「使動起來、驅趕向前；做、執行」，過去分詞是 actus，所以這個家族有 ag 和 act 兩種拼法。act 是做的事→行為，也指法案、戲劇的一幕；actor 原本是做事的人，十六世紀才指演員。actual 原本是跟行動有關的，後來指實際存在的→實際的。exact 來自 exigere，ex（出）+ agere，有「趕出來」和「完成、衡量」的意思，過去分詞 exactus 是做得很精細的→精確的。transaction 來自 transigere，trans（穿過）+ agere，原本指雙方各讓一步把爭議談妥，後來指一筆完成的生意→交易。react、interact 是英文自己加字首組成的字。agent 是做事的人→代理人；agency 是代理機構；agenda 是「要做的事情」，現在指會議的議程。navigate 是 navis（船）+ agere，駕船航行；ambiguous 來自 ambigere「到處走、拿不定主意」，ambi（兩邊、四周）+ agere，所以是模稜兩可的。",
+      "items": [
+        {
+          "w": "act",
+          "p": "act（拉丁文 actus 行動、actum 做過的事，都來自 agere 驅趕、做）"
+        },
+        {
+          "w": "action",
+          "p": "act 行動 + -ion"
+        },
+        {
+          "w": "actor",
+          "p": "act 演 + -or"
+        },
+        {
+          "w": "actress",
+          "p": "actor 演員 + -ess"
+        },
+        {
+          "w": "active",
+          "p": "act 行動 + -ive"
+        },
+        {
+          "w": "activity",
+          "p": "active 活躍的 + -ity"
+        },
+        {
+          "w": "actual",
+          "p": "act（拉丁文 actus 行動）+ -ual"
+        },
+        {
+          "w": "exact",
+          "p": "ex 出 + act（拉丁文 agere 驅趕）"
+        },
+        {
+          "w": "react",
+          "p": "re 回 + act 做"
+        },
+        {
+          "w": "reaction",
+          "p": "react 反應 + -ion"
+        },
+        {
+          "w": "interact",
+          "p": "inter 互相 + act 做"
+        },
+        {
+          "w": "interaction",
+          "p": "interact 互動 + -ion"
+        },
+        {
+          "w": "agent",
+          "p": "ag（拉丁文 agere 做）+ -ent"
+        },
+        {
+          "w": "agency",
+          "p": "ag（拉丁文 agere 做）+ -ency"
+        },
+        {
+          "w": "ambiguous",
+          "p": "ambi 兩邊 + gu（拉丁文 agere 驅動）+ -ous"
+        },
+        {
+          "w": "activist",
+          "p": "active 積極的 + -ist"
+        },
+        {
+          "w": "transaction",
+          "p": "trans 穿過 + act（拉丁文 agere 做）+ -ion"
+        },
+        {
+          "w": "agenda",
+          "p": "agenda（拉丁文 agenda 要做的事情，來自 agere 做）"
+        },
+        {
+          "w": "radioactive",
+          "p": "radio（拉丁文 radius 光線）+ active 活躍的"
+        },
+        {
+          "w": "ambiguity",
+          "p": "ambiguous 模稜兩可的 + -ity"
+        },
+        {
+          "w": "navigate",
+          "p": "nav（拉丁文 navis 船）+ ig（agere 驅動）+ -ate"
+        },
+        {
+          "w": "navigation",
+          "p": "navigate 航行；導航 + -ion"
+        }
+      ],
+      "dropped": [
+        {
+          "list": "compact　impact",
+          "why": "來自拉丁文 pangere「釘牢、固定」：compact 是 com（一起）+ pangere，緊緊釘在一起→緊密的；impact 是 in（進入）+ pangere，撞進去→衝擊。跟 agere 無關"
+        },
+        {
+          "list": "practice　practical　practitioner",
+          "why": "來自希臘文 praktikos「適合行動的」，再往上是 prassein「做」，意思很像，但走的是希臘文，跟拉丁文 agere 無關"
+        },
+        {
+          "list": "exaggerate",
+          "why": "來自拉丁文 exaggerare「堆高」，agger 是「一堆」，跟 agere 無關"
+        },
+        {
+          "list": "character　characteristic　characterize",
+          "why": "來自希臘文 kharakter「刻下的記號」，再往上是 kharassein「刻」，act 只是拼法上的巧合"
+        },
+        {
+          "list": "examine　exam　examination　essay",
+          "why": "essay 來自晚期拉丁文 exagium「秤重」，出自 exigere（ex + agere）；examine 來自拉丁文 examen「秤、衡量的工具」，Etymonline 說很可能也是從 exigere 來。都跟這個家族有關，但意思轉得太遠，不列入條目"
+        },
+        {
+          "list": "enact",
+          "why": "是 en + act（演出；制定成法律），但《高中英文參考詞彙表》沒有這個字"
+        }
+      ]
+    }
+  ],
+  "sites": {
+    "gsat": {
+      "n": "學測單字",
+      "base": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-",
+      "suf": ""
+    },
+    "zhikao": {
+      "n": "聯考指考單字",
+      "base": "https://staresto-create.github.io/JCEE-vocab-questions/zhikao/#q-",
+      "suf": ""
+    },
+    "gcz": {
+      "n": "學測克漏字",
+      "base": "https://staresto-create.github.io/grammar-cloze-test/#set-",
+      "suf": "|字根家族表"
+    },
+    "zcz": {
+      "n": "指考克漏字",
+      "base": "https://staresto-create.github.io/zhikao-cloze-test/#set-",
+      "suf": "|字根家族表"
+    },
+    "tr": {
+      "n": "中譯英",
+      "base": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-",
+      "suf": ""
+    },
+    "ep": {
+      "n": "作文字彙表",
+      "base": "https://staresto-create.github.io/essay-prompts/#y=",
+      "suf": "&wb=1"
     }
-   ]
   }
- ],
- "sites": {
-  "gsat": {
-   "n": "學測單字",
-   "base": "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-",
-   "suf": ""
-  },
-  "zhikao": {
-   "n": "聯考指考單字",
-   "base": "https://staresto-create.github.io/JCEE-vocab-questions/zhikao/#q-",
-   "suf": ""
-  },
-  "gcz": {
-   "n": "學測克漏字",
-   "base": "https://staresto-create.github.io/grammar-cloze-test/#set-",
-   "suf": "|字根家族表"
-  },
-  "zcz": {
-   "n": "指考克漏字",
-   "base": "https://staresto-create.github.io/zhikao-cloze-test/#set-",
-   "suf": "|字根家族表"
-  },
-  "tr": {
-   "n": "中譯英",
-   "base": "https://staresto-create.github.io/JCEE-vocab-questions/translate/#q-",
-   "suf": ""
-  },
-  "ep": {
-   "n": "作文字彙表",
-   "base": "https://staresto-create.github.io/essay-prompts/#y=",
-   "suf": "&wb=1"
-  }
- }
 }

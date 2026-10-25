@@ -60,7 +60,12 @@
   function load() {
     try { var v = window.localStorage.getItem(KEY); return /^[abcd]$/.test(v) ? v : null; } catch (e) { return null; }
   }
-  function save(v) { try { window.localStorage.setItem(KEY, v); } catch (e) {} }
+  function save(v, src) {
+    try { window.localStorage.setItem(KEY, v); window.localStorage.setItem(KEY + 'Src', src === 'e' ? 'e' : 'm'); } catch (e) {}
+  }
+  function loadSrc() {
+    try { return window.localStorage.getItem(KEY + 'Src') === 'e' ? 'e' : 'm'; } catch (e) { return 'm'; }
+  }
   function fromUrl() {
     var m = /[?&]start=([abcd])(?:&|#|$)/.exec(window.location.search || '');
     return m ? m[1] : null;
@@ -111,7 +116,7 @@
 
     var urlTier = fromUrl();
     var cur = urlTier || load();
-    if (urlTier) save(urlTier);
+    if (urlTier) save(urlTier, 'm');
 
     var d = el('details', 'sh');
     if (urlTier || (!cur && host.getAttribute('data-open'))) d.open = true;
@@ -131,10 +136,11 @@
     var btns2 = {};
     var EXAM = { a: '62 分以下', b: '63 到 73 分', c: '74 到 82 分', d: '83 分以上' };
 
-    function show(k) {
+    function show(k, src) {
+      src = src === 'e' ? 'e' : 'm';
       TIERS.forEach(function (t) {
-        btns[t.k].setAttribute('aria-pressed', t.k === k ? 'true' : 'false');
-        btns2[t.k].setAttribute('aria-pressed', t.k === k ? 'true' : 'false');
+        btns[t.k].setAttribute('aria-pressed', src === 'm' && t.k === k ? 'true' : 'false');
+        btns2[t.k].setAttribute('aria-pressed', src === 'e' && t.k === k ? 'true' : 'false');
       });
       var r = ROUTES[k];
       while (route.firstChild) route.removeChild(route.firstChild);
@@ -151,7 +157,7 @@
       });
       route.appendChild(ol);
       var label = TIERS.filter(function (t) { return t.k === k; })[0].label;
-      main.textContent = label + '的練習順序';
+      main.textContent = (src === 'e' ? '段考 ' + EXAM[k] : label) + '的練習順序';
       sub.textContent = '點開看建議的順序，也可以改選其他程度';
     }
 
@@ -159,7 +165,7 @@
       var b = el('button', '', t.label);
       b.type = 'button';
       b.setAttribute('aria-pressed', 'false');
-      b.addEventListener('click', function () { save(t.k); show(t.k); });
+      b.addEventListener('click', function () { save(t.k, 'm'); show(t.k, 'm'); });
       btns[t.k] = b;
       grid.appendChild(b);
     });
@@ -170,7 +176,7 @@
       var b2 = el('button', '', '段考 ' + EXAM[t.k]);
       b2.type = 'button';
       b2.setAttribute('aria-pressed', 'false');
-      b2.addEventListener('click', function () { save(t.k); show(t.k); });
+      b2.addEventListener('click', function () { save(t.k, 'e'); show(t.k, 'e'); });
       btns2[t.k] = b2;
       grid2.appendChild(b2);
     });
@@ -179,7 +185,7 @@
     body.appendChild(el('p', 'sh-foot', '級分和段考成績都只是參考，各校試題的難易不同，每一類題型你都可以自己挑著練。這個選擇只留在你這台裝置的瀏覽器裡。'));
     d.appendChild(body);
 
-    if (cur) show(cur); else sub.textContent = '選你最近的英文級分或段考成績，看建議的練習順序';
+    if (cur) show(cur, urlTier ? 'm' : loadSrc()); else sub.textContent = '選你最近的英文級分或段考成績，看建議的練習順序';
     host.appendChild(d);
   }
 

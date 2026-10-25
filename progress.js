@@ -95,7 +95,7 @@
       '.scp-fill{height:100%;background:var(--sage,#3E6E52);border-radius:5px;}' +
       '.scp-note{font-size:12px;line-height:1.7;color:var(--ink-soft,#5B5648);margin:0;}' +
       '.scp-clear{appearance:none;display:block;background:none;border:0;padding:6px 0;margin:2px 0 0;font:inherit;font-size:12px;color:var(--ink-soft,#5B5648);text-decoration:underline;cursor:pointer;min-height:32px;}' +
-      '@media (prefers-color-scheme:dark){.scp-card{background:#1F2E26;}}' +
+      '@media screen and (prefers-color-scheme:dark){.scp-card{background:#1F2E26;color:#EDE7D8;}.scp-lab{color:#8FC3A4;}.scp-num small,.scp-note,.scp-clear{color:#B8B0A0;}.scp-track{background:#4A4538;}.scp-fill{background:#6FAE86;}}' +
       '@media print{.scp-card{display:none !important;}}';
     (document.head || document.documentElement).appendChild(s);
   }

@@ -16,7 +16,8 @@
   var st = document.createElement('style');
   st.setAttribute('data-kk', '1');
   st.textContent = '.kkp{font-family:"IBM Plex Mono","Noto Sans TC",monospace;font-size:.8rem;color:var(--ink-soft,#6b6256);margin-left:.5rem}' +
-    '.kkp i{font-style:normal;margin-left:.4rem;white-space:nowrap;display:inline-block}.kkp i:first-child{margin-left:0}';
+    '.kkp i{font-style:normal;margin-left:.4rem;white-space:nowrap;display:inline-block}.kkp i:first-child{margin-left:0}' +
+    '@media screen and (prefers-color-scheme:dark){.kkp{color:#B8B0A0}}';
   (document.head || document.documentElement).appendChild(st);
 
   var AB = { '名詞': 'n.', '動詞': 'v.', '形容詞': 'adj.', '副詞': 'adv.' };

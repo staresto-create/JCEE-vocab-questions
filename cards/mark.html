@@ -43,8 +43,8 @@ textarea{width:100%;min-height:11rem;font:inherit;font-family:var(--serif);font-
 .row{display:flex;flex-wrap:wrap;gap:.3rem;margin:.4rem 0;align-items:center}
 .row .lb{font-size:.82rem;color:var(--ad-vinksoft-fg);margin-right:.2rem}
 button.b{font:inherit;font-size:.88rem;padding:.3rem .8rem;background:var(--ad-vpapercard-bg);color:var(--ad-vink-fg);border:1px solid var(--ad-vrule-border);border-radius:3px;cursor:pointer}
-button.b.pri{background:var(--ad-vink-bg);border-color:var(--ad-vink-border);color:var(--paper-card)}
-button.b[aria-pressed=true]{background:var(--ad-vink-bg);border-color:var(--ad-vink-border);color:var(--paper-card)}
+button.b.pri{background:var(--ad-vink-bg);border-color:var(--ad-vink-border);color:var(--ad-vpaper-bg)}
+button.b[aria-pressed=true]{background:var(--ad-vink-bg);border-color:var(--ad-vink-border);color:var(--ad-vpaper-bg)}
 button.b small{font-size:.78em;opacity:.8;margin-left:.2rem}
 label.ck{font-size:.88rem;display:inline-flex;align-items:center;gap:.35rem;cursor:pointer}
 .stat{font-size:.88rem;color:var(--ad-vinksoft-fg);margin:.8rem 0 0}
@@ -267,7 +267,7 @@ function sorted(){
   else l.sort(function(a,b){return a.key<b.key?-1:1;});
   return l;
 }
-/* 課本單字索引（textbook/tb_index.json）：三民分 Production／Recognition，龍騰只有第幾冊第幾課；讀不到就不顯示，不影響其他功能 */
+/* 課本單字索引（textbook/tb_index.json）：三民分 Production／Recognition，龍騰同樣分 Production／Recognition；讀不到就不顯示，不影響其他功能 */
 var TB=null;
 var ED={n:'乙版',r:'乙版115改版',o:'舊版'};
 function tbOf(e){
@@ -282,7 +282,10 @@ function tbOf(e){
 function tbTag(e){
   var t=tbOf(e);if(!t)return '';
   var h='',hasP=t.s.some(function(x){return x[3]==='p';}),hasR=t.s.some(function(x){return x[3]==='r';});
-  if(t.l.length)h+='<span class="tag tl" title="龍騰課本單字表有這個字">龍騰</span> ';
+  var lp=t.l.some(function(x){return x[2]==='p';}),lr=t.l.some(function(x){return x[2]==='r';}),lu=t.l.some(function(x){return !x[2];});
+  if(lp)h+='<span class="tag tl" title="龍騰課本把這個字列在 Words for Production">龍騰 Production</span> ';
+  if(lr)h+='<span class="tag tl" title="龍騰課本把這個字列在 Words for Recognition">龍騰 Recognition</span> ';
+  if(lu)h+='<span class="tag tl" title="龍騰課本單字表有這個字">龍騰</span> ';
   if(hasP)h+='<span class="tag t0" title="三民課本把這個字列在 Words for Production">三民 Production</span> ';
   if(hasR)h+='<span class="tag t1" title="三民課本把這個字列在 Words for Recognition">三民 Recognition</span> ';
   return h;
@@ -290,8 +293,12 @@ function tbTag(e){
 function tbPanel(e){
   var t=tbOf(e);if(!t)return '';
   var rows=[];
-  var lt=[];t.l.forEach(function(x){var k='B'+x[0]+'L'+x[1];if(lt.indexOf(k)<0)lt.push(k);});
-  if(lt.length)rows.push('龍騰：'+esc(lt.join('、')));
+  var noKind=false;
+  [['p','Production'],['r','Recognition'],['','']].forEach(function(kd){
+    var lt=[];t.l.forEach(function(x){if((x[2]||'')!==kd[0])return;var k=(x[1]>=10)?'B'+x[0]+'R'+(x[1]-9):'B'+x[0]+'L'+x[1];if(lt.indexOf(k)<0)lt.push(k);});
+    if(!lt.length)return;
+    if(kd[0])rows.push('龍騰 '+kd[1]+'：'+esc(lt.join('、')));else{rows.push('龍騰：'+esc(lt.join('、')));noKind=true;}
+  });
   ['n','r','o'].forEach(function(ed){
     [['p','Production'],['r','Recognition']].forEach(function(kd){
       var ls=[];
@@ -299,7 +306,7 @@ function tbPanel(e){
       if(ls.length)rows.push('三民'+ED[ed]+' '+kd[1]+'：'+esc(ls.join('、')));
     });
   });
-  return '<dt>課本</dt><dd>'+rows.join('<br>')+'<br><span class="tnote">B 是冊，龍騰的 L 是 Lesson，三民的 U 是 Unit，例如龍騰 B2L5 是第 2 冊 Lesson 5，三民 B2U1 是第 2 冊 Unit 1。Production 與 Recognition 是三民課本自己的分類；龍騰沒有這樣分，只列出生詞在哪一課。</span></dd>';
+  return '<dt>課本</dt><dd>'+rows.join('<br>')+'<br><span class="tnote">B 是冊，龍騰的 L 是 Lesson、R 是 Review，三民的 U 是 Unit，例如龍騰 B2L5 是第 2 冊 Lesson 5，龍騰 B3R2 是第 3 冊 Review 2，三民 B2U1 是第 2 冊 Unit 1。Production 與 Recognition 是課本單字表的兩種分類。</span></dd>';
 }
 function wordLi(e){
   var f=Object.keys(e.forms).filter(function(x){return x!==e.key;}).join('、');
