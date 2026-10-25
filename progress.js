@@ -85,7 +85,7 @@
     var s = document.createElement('style');
     s.id = 'scp-style';
     s.textContent =
-      '.scp-card{box-sizing:border-box;font-family:inherit;line-height:1.6;color:var(--ink,#221F1A);background:var(--tint-sage,#F2F7F1);' +
+      '.scp-card{box-sizing:border-box;font-family:inherit;line-height:1.6;text-align:left;color:var(--ink,#221F1A);background:var(--tint-sage,#F2F7F1);' +
       'border:1px solid var(--rule,#DCD3BB);border-left:4px solid var(--sage,#3E6E52);border-radius:4px;margin:14px 0 4px;padding:12px 14px;}' +
       '.scp-top{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:2px 12px;}' +
       '.scp-lab{font-family:"IBM Plex Mono","Noto Sans TC",monospace;font-size:11px;letter-spacing:.12em;color:var(--sage,#3E6E52);font-weight:600;}' +
@@ -162,5 +162,75 @@
     } catch (x) {}
   }
 
-  window.SCProgress = { mark: mark, markMany: markMany, doneMap: doneMap, countIn: countIn, clear: clear, mountBar: mountBar };
+  /* 總站首頁用：一次列出各題庫的進度。rows = [{site, label, href, total}]。
+     total 由首頁寫死（各題庫的歷屆題數）；題庫增減題目時，首頁這幾個數字要跟著改。 */
+  function mountHome(host, rows) {
+    try {
+      if (!host || !rows || !rows.length) return;
+      css();
+      var st = document.getElementById('scp-home-style');
+      if (!st) {
+        st = document.createElement('style'); st.id = 'scp-home-style';
+        st.textContent =
+          '.scp-home{--h-bg:#F2F7F1;--h-ink:#221F1A;--h-soft:#5B5648;--h-rule:#DCD3BB;--h-sage:#3E6E52;box-sizing:border-box;text-align:left;margin:16px 0;padding:14px 16px 12px;background:var(--h-bg);border:1px solid var(--h-rule);border-left:4px solid var(--h-sage);border-radius:4px;color:var(--h-ink);line-height:1.6;}' +
+          '@media (prefers-color-scheme:dark){.scp-home{--h-bg:#1F2E26;--h-ink:#EDE7D8;--h-soft:#B8B0A0;--h-rule:#4A4538;--h-sage:#6FAE86;}}' +
+          '.scp-home h2{font-family:"Noto Serif TC",serif;font-size:18px;margin:0 0 2px;text-align:left;color:var(--h-ink);}' +
+          '.scp-home .scp-sum{font-size:14px;margin:0 0 10px;color:var(--h-soft);text-align:left;}' +
+          '.scp-home .scp-sum b{color:var(--h-ink);font-size:16px;}' +
+          '.scp-home .scp-note{color:var(--h-soft);text-align:left;margin-top:8px;}' +
+          '.scp-rows{display:grid;grid-template-columns:1fr 1fr;gap:6px 22px;margin:0;padding:0;list-style:none;}' +
+          '@media (max-width:640px){.scp-rows{grid-template-columns:1fr;}}' +
+          '.scp-row a{display:block;color:var(--h-ink);text-decoration:none;padding:4px 0;min-height:44px;box-sizing:border-box;}' +
+          '.scp-row .scp-rt{display:flex;justify-content:space-between;gap:8px;font-size:14px;}' +
+          '.scp-row .scp-rt span:first-child{font-weight:700;color:var(--h-ink);}' +
+          '.scp-row .scp-rt span:last-child{color:var(--h-soft);font-variant-numeric:tabular-nums;white-space:nowrap;}' +
+          '.scp-home .scp-track{margin:4px 0 0;height:8px;background:var(--h-rule);}' +
+          '.scp-home .scp-fill{background:var(--h-sage);}' +
+          '.scp-row a:hover .scp-rt span:first-child{text-decoration:underline;text-underline-offset:3px;}' +
+          '@media print{.scp-home{display:none !important;}}';
+        (document.head || document.documentElement).appendChild(st);
+      }
+      host.textContent = '';
+      var box = el('section', 'scp-home');
+      box.setAttribute('aria-label', '你的練習進度');
+      box.appendChild(el('h2', null, '你的練習進度'));
+      var tn = 0, tt = 0;
+      var ul = el('ul', 'scp-rows');
+      rows.forEach(function (r) {
+        var n = Math.min(countInSite(r.site), r.total);
+        tn += n; tt += r.total;
+        var li = el('li', 'scp-row'), a = el('a');
+        a.href = r.href;
+        var top = el('div', 'scp-rt');
+        top.appendChild(el('span', null, r.label));
+        top.appendChild(el('span', null, n + '／' + r.total + ' 題'));
+        a.appendChild(top);
+        var track = el('div', 'scp-track');
+        track.setAttribute('role', 'progressbar');
+        track.setAttribute('aria-valuemin', '0');
+        track.setAttribute('aria-valuemax', String(r.total));
+        track.setAttribute('aria-valuenow', String(n));
+        track.setAttribute('aria-label', r.label + '已做 ' + n + ' 題，共 ' + r.total + ' 題');
+        var fill = el('div', 'scp-fill');
+        fill.style.width = (n > 0 ? Math.max(1.5, n / r.total * 100) : 0) + '%';
+        track.appendChild(fill);
+        a.appendChild(track);
+        li.appendChild(a);
+        ul.appendChild(li);
+      });
+      var sum = el('p', 'scp-sum');
+      sum.appendChild(document.createTextNode('歷屆試題共 ' + tt + ' 題，你已做 '));
+      sum.appendChild(el('b', null, String(tn)));
+      sum.appendChild(document.createTextNode(' 題（' + pctText(tn, tt) + '）。' + (tn === 0 ? '從下面任何一個題庫寫完一題，這裡就會開始計算。' : '點題庫名稱可以直接回去接著寫。')));
+      box.appendChild(sum);
+      box.appendChild(ul);
+      box.appendChild(el('p', 'scp-note', '每題只算一次，答錯也算做過；整篇型的題庫要交卷才計入。不用登入，紀錄只存在這台裝置的這個瀏覽器，換裝置或用無痕視窗就會從零開始。'));
+      host.appendChild(box);
+    } catch (x) {}
+  }
+  function countInSite(site) {
+    try { var a = load().s[site]; return Array.isArray(a) ? a.filter(okId).length : 0; } catch (e) { return 0; }
+  }
+
+  window.SCProgress = { mountHome: mountHome, mark: mark, markMany: markMany, doneMap: doneMap, countIn: countIn, clear: clear, mountBar: mountBar };
 })();
