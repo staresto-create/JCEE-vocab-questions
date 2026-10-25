@@ -114,6 +114,21 @@ li .kkp{font-size:.8rem;color:var(--ad-vinksoft-fg);margin-left:.4rem}
 </style>
 <script src="https://staresto-create.github.io/JCEE-vocab-questions/speaker.js"></script>
 <script src="https://staresto-create.github.io/JCEE-vocab-questions/kk.js"></script>
+<style id="print-ref">
+@media print{
+#tools,.mbar,.spk,.spkset{display:none !important}
+.wrap{max-width:none;padding:0}
+#body{column-count:2;column-gap:9mm;padding:0}
+#body li{break-inside:avoid;page-break-inside:avoid;padding:.25rem 0;font-size:10pt}
+#body .gl{font-size:10pt}.gnote,.cnt,.yrs{font-size:8.5pt}.ex{font-size:9pt;padding:.2rem .5rem}
+.card{box-shadow:none;border:1px solid #bbb;padding:.5rem .8rem}
+details>summary{list-style:none}details>summary::-webkit-details-marker{display:none}
+.lede{font-size:10.5pt}
+a{color:inherit;text-decoration:none}
+.ynote{display:none !important}
+#count::after{content:"　年度標示：補＝補考、參＝參考試卷、辦＝試辦、研＝研究用試卷";color:#666}
+}
+</style>
 </head>
 <body>
 <div class="wrap">
@@ -146,7 +161,7 @@ li .kkp{font-size:.8rem;color:var(--ad-vinksoft-fg);margin-left:.4rem}
   <ul class="list" id="body"></ul>
 
   <footer class="foot" id="foot">
-    <a href="../">回題庫首頁</a>　·　<a href="fixed-phrases.html">固定用語與插入語</a>　·　<a href="phrasal-verbs.html">片語動詞</a>　·　<a href="verb-prep.html">動詞＋介系詞</a>　·　<a href="auxiliaries.html">助動詞</a>　·　<a href="pronouns.html">你所不知道的代名詞</a>　·　<a href="cards/">單字記憶卡</a>　·　<a href="cards/coverage.html">詞彙表覆蓋清單</a>　·　<a href="cohesion.html">讀法練習</a><br>
+    <a href="../">回題庫首頁</a>　·　<a href="fixed-phrases.html">固定用語與插入語</a>　·　<a href="phrasal-verbs.html">片語動詞</a>　·　<a href="verb-prep.html">動詞＋介系詞</a>　·　<a href="adjective-prep.html">形容詞＋介系詞</a>　·　<a href="auxiliaries.html">助動詞</a>　·　<a href="pronouns.html">你所不知道的代名詞</a>　·　<a href="cards/">單字記憶卡</a>　·　<a href="cards/coverage.html">詞彙表覆蓋清單</a>　·　<a href="cohesion.html">讀法練習</a><br>
     音標為 KK，中文意思參考劍橋英漢（繁體）詞典，兩者都經查證；例句出自學測、指考歷屆試題。資料更新：2026-10-19。免費、無廣告的非營利自學題庫。
 <p class="cc-note">本題庫自己寫的部分（解析、中譯、分類、標註與編排）採用 <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh-hant" target="_blank" rel="license noopener">CC BY-NC 4.0</a>（姓名標示─非商業性）授權：可以分享，但須註明出處，不得用於商業用途。試題來源與完整說明請見<a href="https://staresto-create.github.io/JCEE-vocab-questions/#terms">使用與著作權</a>。</p>
   </footer>
@@ -212,6 +227,9 @@ var tm=null;
 $('#q').addEventListener('input',function(e){clearTimeout(tm);tm=setTimeout(function(){state.q=e.target.value;render();},150);});
 sync(); render(); if(window.KK) KK.ready.then(render);
 })();
+</script>
+<script>
+/*print-ref*/(function(){var o=[];window.addEventListener('beforeprint',function(){o=[];document.querySelectorAll('details').forEach(function(d){if(!d.open){d.open=true;o.push(d);}});});window.addEventListener('afterprint',function(){o.forEach(function(d){d.open=false;});o=[];});})();
 </script>
 </body>
 </html>
