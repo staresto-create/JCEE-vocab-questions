@@ -392,6 +392,12 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
       {site:'vocab-translate', label:'中譯英', total:218, href:'translate/'}
     ]); }catch(e){}
     </script>
+    <div id="focusHome"></div>
+    <script src="focus.js"></script>
+    <script>
+    /* 自己安排的練習（番茄鐘＋願望）：預設收合，進度只存在學生自己的瀏覽器；列印時隱藏 */
+    try{ if(window.SCFocus) SCFocus.mount(document.getElementById('focusHome')); }catch(e){}
+    </script>
     <div data-start-here data-open="1" id="start-here"></div>
     <a class="spot" href="https://staresto-create.github.io/JCEE-vocab-questions/cards/mark.html">
       <div class="spot-h"><span class="spot-ico" aria-hidden="true">🖍️</span>貼上文章查單字 <span class="spot-tag">特色</span></div>

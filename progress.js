@@ -189,8 +189,8 @@
           '.scp-home .scp-fill{background:var(--h-sage);}' +
           '.scp-home{padding:0;}.scp-home summary{list-style:none;cursor:pointer;padding:12px 16px;display:block;min-height:44px;box-sizing:border-box;}' +
           '.scp-home summary::-webkit-details-marker{display:none;}' +
-          '.scp-home .scp-sh{display:flex;justify-content:space-between;align-items:baseline;gap:10px;}' +
-          '.scp-home .scp-sh h2{margin:0;}' +
+          '.scp-home .scp-sh{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:0 10px;}' +
+          '.scp-home .scp-sh h2{margin:0;white-space:nowrap;}' +
           '.scp-home .scp-tg{font-size:13px;color:var(--h-soft);white-space:nowrap;}' +
           '.scp-home .scp-tg::after{content:" ▾";}.scp-home[open] .scp-tg::after{content:" ▴";}' +
           '.scp-home .scp-ov{margin:6px 0 0;}' +
