@@ -1660,8 +1660,9 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
     $('tabC').classList.toggle('on', isCF());
     $('tabP').classList.toggle('on', isPO());
     if (isPO()) {
-      $('homeLead').textContent = '你熟悉的字，大考考的卻是另一個意思';
-      $('homeDesc').textContent = '這 ' + PO.n + ' 個字，你多半只熟悉其中一種意思或詞性，大考考的卻是另一種，例如 grace 當動詞是「光臨，使（場合）增光」。' +
+      $('homeLead').textContent = '從熟悉的意思讀起';
+      $('homeDesc').innerHTML = '這些字你多半看過，也知道字義，但是通常<b>只知其一，不知其二</b>。例如 grace，名詞是「優雅」，當動詞卻是「光臨，使（場合）增光」。' +
+        '每張卡先列教材常見的定義，再列出你陌生的用法和例句。' +
         '其中 ' + PO.withq + ' 個字有大考原題，第一次先考原題，下一次再改考中文選字；其餘的字沒有原題，只考中文選字，卡片背面附上考題文章裡的原句；少數常見但沒出現過的意思，附的是依辭典寫的例句。' +
         '答對的字往後推，答錯的當場再來一次。';
     } else if (isCF() && scope.kind === 'sn') {
