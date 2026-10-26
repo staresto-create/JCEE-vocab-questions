@@ -591,6 +591,10 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
     <div class="rec-count" aria-live="polite"></div>
     <div class="rec-list">
     <details class="rec-item" data-cat="word cloze reading writing listening" data-kind="tool" data-d="2026-10-26" open>
+      <summary class="rec-sum"><span class="rec-emoji">⏳</span><span class="rec-main"><span class="rec-name"><span style="white-space:nowrap">117 學測</span><span style="white-space:nowrap">倒數</span> <span class="newdot">NEW</span></span><span class="rec-chips"><span class="rec-cat">各題庫</span><span class="rec-kind k-tool">新工具</span></span></span><span class="rec-side"><span class="rec-date">10/26</span><span class="rec-tog"></span></span></summary>
+      <div class="rec-body"><p>新增 117 學測倒數，歡迎高二同學一起來拚學測！</p><p class="rec-links"><a href="#countdownBox" data-cd="117">首頁的倒數</a> →</p></div>
+    </details>
+    <details class="rec-item" data-cat="word cloze reading writing listening" data-kind="tool" data-d="2026-10-26" open>
       <summary class="rec-sum"><span class="rec-emoji">🍅</span><span class="rec-main"><span class="rec-name">自己安排的練習 <span class="newdot">NEW</span></span><span class="rec-chips"><span class="rec-cat">各題庫</span><span class="rec-kind k-tool">新工具</span></span></span><span class="rec-side"><span class="rec-date">10/26</span><span class="rec-tog"></span></span></summary>
       <div class="rec-body"><p>本頁多了「自己安排的練習」：先寫下一個小願望，選好要做幾顆番茄鐘，做完就去兌現。番茄鐘是一種讀書方法，專心做一段時間算一顆，每顆之間休息一下。專心的時候，可以在網站上做題目，也可以把題目印出來寫。不用登入，願望和進度只存在這台裝置的這個瀏覽器，不會傳到任何地方；換裝置，或是用無痕視窗瀏覽，就會從零開始。</p><p class="rec-links"><a href="#focusHome">自己安排的練習</a> →</p></div>
     </details>
@@ -1206,6 +1210,15 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
     if(!b) return;
     var y = b.getAttribute('data-y');
     if(!EXAMS[y]) return;
+    save(y); show(y, Date.now());
+  });
+
+  /* 最近新增的連結：點了除了捲到倒數區塊，也直接切到該屆 */
+  document.addEventListener('click', function(e){
+    var a = e.target.closest ? e.target.closest('a[data-cd]') : null;
+    if(!a) return;
+    var y = a.getAttribute('data-cd');
+    if(!EXAMS[y] || (y === '116' && !has116)) return;
     save(y); show(y, Date.now());
   });
 })();
