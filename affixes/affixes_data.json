@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "updated": "2026-10-26",
-  "note": "字首字尾表。母體為大考中心《高中英文參考詞彙表》（111 學年度起適用）；詞彙表沒有另外列的衍生字（像 unlikely、impossible），收本站出現過或課本常見的，級別標原本那個字的級別。標「出現過」的是這個字在本題庫實際出現過的地方，只算這個字當過選項（單字題、克漏字）、參考答案（中譯英）或字彙表條目（作文）的題目；同一個字最多列三筆。",
+  "note": "字首字尾表。母體為大考中心《高中英文參考詞彙表》（111 學年度起適用）；詞彙表沒有另外列的衍生字（像 unlikely、impossible），收本站出現過的，級別標原本那個字的級別；詞彙表以外的龍騰、三民課本字，拆得出字首、字尾的也收，標出是哪一版課本的字，不標級別。標「出現過」的是這個字在本題庫實際出現過的地方，只算這個字當過選項（單字題、克漏字）、參考答案（中譯英）或字彙表條目（作文）的題目；同一個字最多列三筆。",
   "groups": [
     {
       "key": "re-",
@@ -206,6 +206,42 @@
             {
               "w": "reminiscent",
               "p": "re 再 + minisc（記得）+ -ent"
+            },
+            {
+              "w": "regain",
+              "p": "re 再 + gain 獲得"
+            },
+            {
+              "w": "relocate",
+              "p": "re 再 + locate 安置、設置"
+            },
+            {
+              "w": "repetitive",
+              "p": "re 再 + petit（拉丁文 petere 前往）+ -ive"
+            },
+            {
+              "w": "reproduction",
+              "p": "re 再 + produce 生產 + -tion"
+            },
+            {
+              "w": "rethink",
+              "p": "re 再 + think 想"
+            },
+            {
+              "w": "retrace",
+              "p": "re 再 + trace 追蹤"
+            },
+            {
+              "w": "reunite",
+              "p": "re 再 + unite 結合"
+            },
+            {
+              "w": "reusable",
+              "p": "re 再 + use 使用 + -able"
+            },
+            {
+              "w": "reuse",
+              "p": "re 再 + use 使用"
             }
           ]
         },
@@ -543,6 +579,26 @@
             {
               "w": "reaction",
               "p": "react 反應 + -ion"
+            },
+            {
+              "w": "receptionist",
+              "p": "reception 接待 + -ist"
+            },
+            {
+              "w": "redemption",
+              "p": "red（re 往回）+ empt（拉丁文 emere 買）+ -ion"
+            },
+            {
+              "w": "relatively",
+              "p": "relative 相對的 + -ly"
+            },
+            {
+              "w": "resilience",
+              "p": "resilient 的名詞"
+            },
+            {
+              "w": "resilient",
+              "p": "re 回 + sil（拉丁文 salire 跳）+ -ient"
             }
           ]
         },
@@ -624,6 +680,10 @@
             {
               "w": "reluctant",
               "p": "re 反 + luct（拉丁文 luctari 掙扎）+ -ant"
+            },
+            {
+              "w": "reluctantly",
+              "p": "re 反 + luct（拉丁文 luctari 掙扎）+ -ant + -ly"
             }
           ]
         },
@@ -759,6 +819,10 @@
             {
               "w": "unveil",
               "p": "un 反向 + veil 面紗"
+            },
+            {
+              "w": "unload",
+              "p": "un 反向 + load 裝載"
             }
           ]
         },
@@ -852,6 +916,42 @@
             {
               "w": "unprecedented",
               "p": "un 不 + precedent 先例 + -ed"
+            },
+            {
+              "w": "unappealing",
+              "p": "un 否定 + appealing 吸引人的"
+            },
+            {
+              "w": "unbearable",
+              "p": "un 不 + bearable 可忍受的"
+            },
+            {
+              "w": "unevenly",
+              "p": "un 不 + even 平坦的 + -ly"
+            },
+            {
+              "w": "unfamiliar",
+              "p": "un 不 + familiar 熟悉的"
+            },
+            {
+              "w": "ungratefully",
+              "p": "un 不 + grateful 感激的 + -ly"
+            },
+            {
+              "w": "uninvited",
+              "p": "un 不 + invited 受邀的"
+            },
+            {
+              "w": "unpleasant",
+              "p": "un 不 + pleasant 令人愉快的"
+            },
+            {
+              "w": "unpolluted",
+              "p": "un 不 + polluted 受汙染的"
+            },
+            {
+              "w": "unthinkable",
+              "p": "un 不 + think 想 + -able"
             }
           ]
         }
@@ -1038,6 +1138,82 @@
             {
               "w": "irrational",
               "p": "ir 否定 + rational 理性的"
+            },
+            {
+              "w": "illegally",
+              "p": "il 否定 + legal 合法的 + -ly"
+            },
+            {
+              "w": "illiterate",
+              "p": "il 否定 + literate 識字的"
+            },
+            {
+              "w": "imbalance",
+              "p": "im（in 不）+ balance 平衡"
+            },
+            {
+              "w": "immediately",
+              "p": "immediate 立即的 + -ly"
+            },
+            {
+              "w": "imperfection",
+              "p": "im（in）否定 + perfect 完美的 + -ion"
+            },
+            {
+              "w": "imperishable",
+              "p": "im 否定 + perishable 會腐壞的"
+            },
+            {
+              "w": "incurable",
+              "p": "in 否定 + curable 可以治好的"
+            },
+            {
+              "w": "indecision",
+              "p": "in 否定 + decision 決定"
+            },
+            {
+              "w": "inexpensively",
+              "p": "in 否定 + expensive 昂貴的 + -ly"
+            },
+            {
+              "w": "infertility",
+              "p": "in 否定 + fertile 能生育的 + -ity"
+            },
+            {
+              "w": "inhumane",
+              "p": "in 否定 + humane 仁慈的"
+            },
+            {
+              "w": "intolerable",
+              "p": "in 不 + tolerable 可忍受的"
+            },
+            {
+              "w": "invalid",
+              "p": "in 否定 + valid 有效的"
+            },
+            {
+              "w": "invariable",
+              "p": "in 否定 + variable 會變的"
+            },
+            {
+              "w": "involuntarily",
+              "p": "in 否定 + voluntarily 自願地"
+            },
+            {
+              "w": "involuntary",
+              "p": "in 否定 + voluntary 自願的"
+            },
+            {
+              "w": "irregular",
+              "p": "ir 否定 + regular 規律的"
+            },
+            {
+              "w": "irresponsible",
+              "p": "ir 否定 + responsible 負責任的"
+            },
+            {
+              "w": "irreversible",
+              "p": "ir 否定 + reversible 可逆轉的"
             }
           ]
         },
@@ -1483,6 +1659,38 @@
             {
               "w": "illusion",
               "p": "il 在…上 + lus（拉丁文 ludere 玩）+ -ion"
+            },
+            {
+              "w": "immerse",
+              "p": "im 進入 + merse（拉丁文 mergere 浸）"
+            },
+            {
+              "w": "incidence",
+              "p": "in 在…上 + cid（拉丁文 cadere 落下）+ -ence"
+            },
+            {
+              "w": "inclusion",
+              "p": "include 的名詞"
+            },
+            {
+              "w": "initially",
+              "p": "in 往裡面 + it（拉丁文 ire 走）+ -ial + -ly"
+            },
+            {
+              "w": "innovate",
+              "p": "in 往裡面 + nov 新 + -ate"
+            },
+            {
+              "w": "inspirational",
+              "p": "inspiration + -al"
+            },
+            {
+              "w": "intentional",
+              "p": "intention + -al"
+            },
+            {
+              "w": "irrigation",
+              "p": "ir（in）往裡面 + rig（拉丁文 rigare 澆水）+ -ation"
             }
           ]
         }
@@ -1814,6 +2022,18 @@
             {
               "w": "dimension",
               "p": "di（dis 分開）+ mens（拉丁文 metiri 測量）+ -ion"
+            },
+            {
+              "w": "discord",
+              "p": "dis 分開 + cord（拉丁文 cor 心）"
+            },
+            {
+              "w": "disruption",
+              "p": "disrupt + -ion"
+            },
+            {
+              "w": "diverge",
+              "p": "di（dis 分開）+ verge（拉丁文 vergere 彎向）"
             }
           ]
         }
@@ -2256,6 +2476,42 @@
             {
               "w": "exact",
               "p": "ex 出 + act（拉丁文 agere 驅趕）"
+            },
+            {
+              "w": "elegance",
+              "p": "elegant 的名詞"
+            },
+            {
+              "w": "elevation",
+              "p": "elevate 提高 + -ion"
+            },
+            {
+              "w": "eloquence",
+              "p": "eloquent 的名詞"
+            },
+            {
+              "w": "emergence",
+              "p": "emerge 出現 + -ence"
+            },
+            {
+              "w": "eventually",
+              "p": "eventual 最終的 + -ly"
+            },
+            {
+              "w": "excrete",
+              "p": "ex 往外 + crete（拉丁文 cernere 篩、分開）"
+            },
+            {
+              "w": "exertion",
+              "p": "exert 盡力 + -ion"
+            },
+            {
+              "w": "exhaustion",
+              "p": "exhaust 用盡 + -ion"
+            },
+            {
+              "w": "exquisite",
+              "p": "ex 往外 + quis（拉丁文 quaerere 尋求）+ -ite"
             }
           ]
         },
@@ -2350,6 +2606,10 @@
             {
               "w": "extreme",
               "p": "exter（外面）的最高級"
+            },
+            {
+              "w": "extremely",
+              "p": "extreme 極端的 + -ly"
             }
           ]
         }
@@ -2968,6 +3228,54 @@
             {
               "w": "continuity",
               "p": "continue 的名詞"
+            },
+            {
+              "w": "coexist",
+              "p": "co（con 一起）+ exist 存在"
+            },
+            {
+              "w": "collaborate",
+              "p": "col 一起 + labor 工作 + -ate"
+            },
+            {
+              "w": "competency",
+              "p": "com 一起 + pet（拉丁文 petere 追求）+ -ency"
+            },
+            {
+              "w": "compress",
+              "p": "com 一起 + press 壓"
+            },
+            {
+              "w": "compression",
+              "p": "com（con）一起 + press 壓 + -ion"
+            },
+            {
+              "w": "confinement",
+              "p": "confine 限制 + -ment"
+            },
+            {
+              "w": "congested",
+              "p": "con 一起 + gest（拉丁文 gerere 帶）+ -ed"
+            },
+            {
+              "w": "contextual",
+              "p": "context 上下文 + -ual"
+            },
+            {
+              "w": "convent",
+              "p": "con 一起 + vent（拉丁文 venire 來）"
+            },
+            {
+              "w": "conversely",
+              "p": "converse 相反的 + -ly"
+            },
+            {
+              "w": "coordination",
+              "p": "coordinate + -ion"
+            },
+            {
+              "w": "coordinator",
+              "p": "co 一起 + ordin 次序 + -ate + -or"
             }
           ]
         },
@@ -2977,6 +3285,10 @@
             {
               "w": "command",
               "p": "com（可能是加強）+ mand 命令"
+            },
+            {
+              "w": "consciousness",
+              "p": "con 一起、徹底 + sci（拉丁文 scire 知道）+ -ous + -ness"
             },
             {
               "w": "commander",
@@ -3217,6 +3529,14 @@
             {
               "w": "contend",
               "p": "con 加強 + tend 伸"
+            },
+            {
+              "w": "confide",
+              "p": "con（可能是加強語氣）+ fide（拉丁文 fidere 相信）"
+            },
+            {
+              "w": "confirmation",
+              "p": "con（可能是加強語氣）+ firm（拉丁文 firmare 使堅固）+ -ation"
             }
           ]
         }
@@ -3351,6 +3671,14 @@
             {
               "w": "predecessor",
               "p": "pre 在前 + decessor（拉丁文 decedere 離開）"
+            },
+            {
+              "w": "presumption",
+              "p": "pre 事先 + sumpt 拿 + -ion"
+            },
+            {
+              "w": "previously",
+              "p": "previous + -ly"
             }
           ]
         },
@@ -3416,6 +3744,14 @@
             {
               "w": "preach",
               "p": "pre 在前 + ach（拉丁文 dicare 宣告）"
+            },
+            {
+              "w": "precisely",
+              "p": "precise + -ly"
+            },
+            {
+              "w": "preferable",
+              "p": "prefer + -able"
             }
           ]
         }
@@ -3586,6 +3922,18 @@
             {
               "w": "prohibition",
               "p": "prohibit + -ion"
+            },
+            {
+              "w": "proclamation",
+              "p": "pro 往前 + clam（拉丁文 clamare 喊叫）+ -ation"
+            },
+            {
+              "w": "prominence",
+              "p": "pro 往前 + min（拉丁文 minere 突出）+ -ence"
+            },
+            {
+              "w": "provocative",
+              "p": "pro 往外 + voc（拉丁文 vocare 叫）+ -ative"
             }
           ]
         },
@@ -3818,6 +4166,34 @@
             {
               "w": "summon",
               "p": "sum（sub 暗中）+ mon（拉丁文 monere 警告）"
+            },
+            {
+              "w": "subconsciously",
+              "p": "sub 在下面 + conscious 有意識的 + -ly"
+            },
+            {
+              "w": "submerge",
+              "p": "sub 在下面 + merge 沉入"
+            },
+            {
+              "w": "subscriber",
+              "p": "subscribe 訂閱 + -er"
+            },
+            {
+              "w": "subsidence",
+              "p": "sub 在下面 + sid（拉丁文 sidere 沉降）+ -ence"
+            },
+            {
+              "w": "succumb",
+              "p": "suc（sub 在下面）+ cumb（拉丁文 cumbere 躺下）"
+            },
+            {
+              "w": "supportive",
+              "p": "support 支持 + -ive"
+            },
+            {
+              "w": "sustainably",
+              "p": "sustainable 永續的 + -ly"
             }
           ]
         },
@@ -3875,6 +4251,10 @@
             {
               "w": "successor",
               "p": "succeed + -or"
+            },
+            {
+              "w": "subgroup",
+              "p": "sub 次一等 + group 群體"
             }
           ]
         }
@@ -3978,6 +4358,10 @@
             {
               "w": "transition",
               "p": "trans 越過 + it（拉丁文 ire 走）+ -ion"
+            },
+            {
+              "w": "transformative",
+              "p": "trans 轉換 + form 形狀 + -ative"
             }
           ]
         }
@@ -4080,6 +4464,22 @@
             {
               "w": "enterprise",
               "p": "enter（inter 在之間）+ prise（法文 prendre 拿）"
+            },
+            {
+              "w": "entertainer",
+              "p": "enter（inter）在…之間 + tain 握 + -er"
+            },
+            {
+              "w": "intergenerational",
+              "p": "inter 之間 + generation 世代 + -al"
+            },
+            {
+              "w": "interpersonal",
+              "p": "inter 在…之間 + person 人 + -al"
+            },
+            {
+              "w": "interposition",
+              "p": "inter 在…之間 + pos 放 + -ition"
             }
           ]
         },
@@ -4105,6 +4505,10 @@
             {
               "w": "intersection",
               "p": "inter 互相 + sect 切 + -ion"
+            },
+            {
+              "w": "interactive",
+              "p": "interact + -ive"
             }
           ]
         }
@@ -4183,6 +4587,18 @@
             {
               "w": "devour",
               "p": "de 往下 + vour（拉丁文 vorare 吞食）"
+            },
+            {
+              "w": "delusion",
+              "p": "de 往下 + lus（拉丁文 ludere 玩）+ -ion"
+            },
+            {
+              "w": "demolish",
+              "p": "de 往下 + moli（拉丁文 moliri 建造）+ -ish"
+            },
+            {
+              "w": "dependence",
+              "p": "depend 依賴 + -ence"
             }
           ]
         },
@@ -4364,6 +4780,30 @@
             {
               "w": "dedication",
               "p": "dedicate + -ion"
+            },
+            {
+              "w": "deceased",
+              "p": "de 離開 + ceas（拉丁文 cedere 走）+ -ed"
+            },
+            {
+              "w": "decode",
+              "p": "de 去掉 + code 密碼"
+            },
+            {
+              "w": "decompose",
+              "p": "de 反向動作 + compose 組成"
+            },
+            {
+              "w": "deforestation",
+              "p": "de 去掉 + forest 森林 + -ation"
+            },
+            {
+              "w": "dehydrated",
+              "p": "de 去掉 + hydrate 使含水 + -ed"
+            },
+            {
+              "w": "destroyer",
+              "p": "destroy（拉丁文 destruere：de 往下 + struere 堆、建造）+ -er"
             }
           ]
         },
@@ -4429,6 +4869,10 @@
             {
               "w": "destination",
               "p": "de 加強 + stin（stare 站）+ -ation"
+            },
+            {
+              "w": "devastate",
+              "p": "de 徹底 + vast（拉丁文 vastare 使荒蕪）+ -ate"
             }
           ]
         }
@@ -4625,6 +5069,10 @@
             {
               "w": "survivor",
               "p": "survive + -or"
+            },
+            {
+              "w": "supervisory",
+              "p": "supervise 監督 + -ory（去掉 e）"
             }
           ]
         }
@@ -4739,6 +5187,14 @@
             {
               "w": "embarrassment",
               "p": "embarrass + -ment"
+            },
+            {
+              "w": "empower",
+              "p": "em 使有 + power 力量"
+            },
+            {
+              "w": "enslave",
+              "p": "en 使 + slave 奴隸"
             }
           ]
         },
@@ -4832,6 +5288,22 @@
             {
               "w": "encyclopedia",
               "p": "en 在裡面 + cyclo 圓圈 + pedia（希臘文 paideia 教育）"
+            },
+            {
+              "w": "empathetic",
+              "p": "em（en）在裡面 + path 感受 + -etic"
+            },
+            {
+              "w": "empathize",
+              "p": "em（en）在裡面 + path（希臘文 pathos 感受）+ -ize"
+            },
+            {
+              "w": "empathy",
+              "p": "em（en）在裡面 + path 感受 + -y"
+            },
+            {
+              "w": "enthusiastically",
+              "p": "enthusiastic + -ally"
             }
           ]
         }
@@ -4982,6 +5454,18 @@
             {
               "w": "administrator",
               "p": "administer + -ator"
+            },
+            {
+              "w": "additionally",
+              "p": "additional + -ly"
+            },
+            {
+              "w": "adventurous",
+              "p": "adventure 冒險 + -ous"
+            },
+            {
+              "w": "adversity",
+              "p": "adverse + -ity"
             }
           ]
         },
@@ -5115,6 +5599,14 @@
             {
               "w": "acquisition",
               "p": "acquire 的名詞"
+            },
+            {
+              "w": "accessibility",
+              "p": "ac（ad）朝向 + cess 走 + -ible + -ity"
+            },
+            {
+              "w": "accurately",
+              "p": "accurate 準確的 + -ly"
             }
           ]
         },
@@ -5272,6 +5764,10 @@
             {
               "w": "approval",
               "p": "approve + -al"
+            },
+            {
+              "w": "apparently",
+              "p": "apparent 顯然的 + -ly"
             }
           ]
         },
@@ -5301,6 +5797,10 @@
             {
               "w": "arrogant",
               "p": "ar 朝向 + rog（拉丁文 rogare 要求）+ -ant"
+            },
+            {
+              "w": "arrogance",
+              "p": "arrogant 傲慢的 → arrogance"
             }
           ]
         },
@@ -5669,6 +6169,10 @@
             {
               "w": "aboriginal",
               "p": "ab 從 + origin 起源 + -al"
+            },
+            {
+              "w": "abruptly",
+              "p": "ab 離開 + rupt 斷 + -ly"
             }
           ]
         }
@@ -5723,6 +6227,18 @@
             {
               "w": "mischievous",
               "p": "mischief 的形容詞"
+            },
+            {
+              "w": "mistreat",
+              "p": "mis 不好地 + treat 對待"
+            },
+            {
+              "w": "misunderstood",
+              "p": "misunderstand 誤解 的過去分詞"
+            },
+            {
+              "w": "misuse",
+              "p": "mis 錯誤地 + use 使用"
             }
           ]
         }
@@ -5753,6 +6269,10 @@
             {
               "w": "antonym",
               "p": "ant 相反 + onym 名字"
+            },
+            {
+              "w": "antibody",
+              "p": "anti 對抗 + body 物體"
             }
           ]
         }
@@ -5832,6 +6352,10 @@
             {
               "w": "overtake",
               "p": "over 越過 + take 拿"
+            },
+            {
+              "w": "overrun",
+              "p": "over 越過 + run 跑"
             }
           ]
         },
@@ -5858,6 +6382,22 @@
             {
               "w": "overwork",
               "p": "over 過度 + work 工作"
+            },
+            {
+              "w": "overestimate",
+              "p": "over 過度 + estimate 估計"
+            },
+            {
+              "w": "oversleep",
+              "p": "over 過度 + sleep 睡"
+            },
+            {
+              "w": "overuse",
+              "p": "over 過度 + use 使用"
+            },
+            {
+              "w": "overweight",
+              "p": "over 太多 + weight 重量"
             }
           ]
         }
@@ -5903,6 +6443,10 @@
             {
               "w": "underway",
               "p": "under 在…之中 + way 路"
+            },
+            {
+              "w": "undergrowth",
+              "p": "under 在下面 + growth 生長"
             }
           ]
         },
@@ -5916,6 +6460,10 @@
             {
               "w": "undergraduate",
               "p": "under 在…之下 + graduate 已經畢業的人"
+            },
+            {
+              "w": "underprivileged",
+              "p": "under 不足 + privileged 享有特權的"
             }
           ]
         },
@@ -6040,6 +6588,10 @@
             {
               "w": "outright",
               "p": "out 徹底 + right 直接"
+            },
+            {
+              "w": "outperform",
+              "p": "out 超過 + perform 表現"
             }
           ]
         }
@@ -6078,6 +6630,10 @@
             {
               "w": "forth",
               "p": "跟 fore 同源，意思是「往前」"
+            },
+            {
+              "w": "forehead",
+              "p": "fore 前面 + head 頭"
             }
           ]
         }
@@ -6116,6 +6672,10 @@
             {
               "w": "forsake",
               "p": "for 可能表完全 + sake（古英文 sacan 爭執）"
+            },
+            {
+              "w": "forgiveness",
+              "p": "for（可能表示「完全」）+ give 給 + -ness"
             }
           ]
         }
@@ -6198,6 +6758,10 @@
             {
               "w": "betray",
               "p": "be 加強語氣 + tray（古法文 trair 背叛，來自拉丁文 tradere 交出去；跟 traitor 同源）"
+            },
+            {
+              "w": "behold",
+              "p": "be + hold 握住"
             }
           ]
         }
@@ -6294,6 +6858,14 @@
             {
               "w": "university",
               "p": "universe + -ity"
+            },
+            {
+              "w": "reunite",
+              "p": "re 再 + unite 結合（uni 一）"
+            },
+            {
+              "w": "universally",
+              "p": "universal 普遍的 + -ly"
             }
           ]
         }
@@ -6357,6 +6929,10 @@
             {
               "w": "trivial",
               "p": "tri 三 + via（拉丁文 via 路）+ -al"
+            },
+            {
+              "w": "trilogy",
+              "p": "tri 三 + log（希臘文 logos 故事）+ -y"
             }
           ]
         },
@@ -6379,6 +6955,14 @@
             {
               "w": "multiply",
               "p": "multi 多 + -ply 倍"
+            },
+            {
+              "w": "multicultural",
+              "p": "multi 多 + cultural 文化的"
+            },
+            {
+              "w": "multimedia",
+              "p": "multi 多 + media 媒體"
             }
           ]
         }
@@ -6454,6 +7038,14 @@
             {
               "w": "autonomy",
               "p": "auto 自己 + nomy（希臘文 nomos 法律）"
+            },
+            {
+              "w": "autism",
+              "p": "aut（希臘文 autos 自己）+ -ism"
+            },
+            {
+              "w": "automatically",
+              "p": "auto 自己 + matic（希臘文 automatos 自己會動的）+ -ally"
             }
           ]
         }
@@ -6540,6 +7132,10 @@
             {
               "w": "microwave",
               "p": "micro 小 + wave 波"
+            },
+            {
+              "w": "microplastics",
+              "p": "micro 小 + plastic 塑膠"
             }
           ]
         }
@@ -6665,6 +7261,10 @@
             {
               "w": "permissible",
               "p": "permit + -ible，「可以允許的」"
+            },
+            {
+              "w": "permanently",
+              "p": "per 穿過 + man（拉丁文 manere 留下）+ -ent + -ly"
             }
           ]
         },
@@ -6730,6 +7330,18 @@
             {
               "w": "perish",
               "p": "per 穿過、徹底 + 拉丁文 ire 去；拉丁文 perire 字面是「走過去」→ 消失、死亡"
+            },
+            {
+              "w": "imperfection",
+              "p": "im 否定 + per 完全 + fect 做 + -ion"
+            },
+            {
+              "w": "persecution",
+              "p": "per 徹底 + secut（拉丁文 sequi 跟隨）+ -ion"
+            },
+            {
+              "w": "perseverance",
+              "p": "persevere 堅持 + -ance"
             }
           ]
         }
@@ -6808,6 +7420,14 @@
             {
               "w": "seduce",
               "p": "se 到一旁 + duce 引導（拉丁文 ducere），「帶到旁邊、帶入歧途」"
+            },
+            {
+              "w": "segregate",
+              "p": "se 分開 + greg（拉丁文 grex 畜群）+ -ate"
+            },
+            {
+              "w": "segregation",
+              "p": "se 分開 + greg（拉丁文 grex 畜群）+ -ation"
             }
           ]
         }
@@ -6934,6 +7554,14 @@
             {
               "w": "obsess",
               "p": "ob 對著 + sess（拉丁文 sedere 坐）"
+            },
+            {
+              "w": "obsession",
+              "p": "ob 對著 + sess（拉丁文 sedere 坐）+ -ion"
+            },
+            {
+              "w": "obviously",
+              "p": "obvious 明顯的 + -ly"
             }
           ]
         },
@@ -7089,6 +7717,10 @@
               "p": "desire 渴望 + -able"
             },
             {
+              "w": "unpredictable",
+              "p": "un 否定 + predictable 可預測的"
+            },
+            {
               "w": "comparable",
               "p": "compare 比較 + -able"
             },
@@ -7167,6 +7799,50 @@
             {
               "w": "available",
               "p": "avail 有用、利用 + -able"
+            },
+            {
+              "w": "imperishable",
+              "p": "im 否定 + perish 消亡 + -able"
+            },
+            {
+              "w": "incurable",
+              "p": "in 否定 + curable 可以治好的"
+            },
+            {
+              "w": "intolerable",
+              "p": "in 否定 + tolerable 可忍受的"
+            },
+            {
+              "w": "invariable",
+              "p": "in 否定 + variable 會變的"
+            },
+            {
+              "w": "irreversible",
+              "p": "ir 否定 + reverse 逆轉 + -ible"
+            },
+            {
+              "w": "preferable",
+              "p": "prefer 比較喜歡 + -able"
+            },
+            {
+              "w": "regrettable",
+              "p": "regret 後悔 + -able"
+            },
+            {
+              "w": "reusable",
+              "p": "reuse 再使用 + -able"
+            },
+            {
+              "w": "unbearable",
+              "p": "un 否定 + bear 忍受 + -able"
+            },
+            {
+              "w": "understandable",
+              "p": "understand 理解 + -able"
+            },
+            {
+              "w": "unthinkable",
+              "p": "un 不 + think 想 + -able"
             }
           ]
         },
@@ -7353,6 +8029,10 @@
             {
               "w": "terrible",
               "p": "terr（拉丁文 terrere 嚇）+ -ible"
+            },
+            {
+              "w": "irresponsible",
+              "p": "ir 否定 + responsible 負責任的"
             }
           ]
         }
@@ -7540,6 +8220,26 @@
             {
               "w": "forgetful",
               "p": "forget 忘記 + -ful"
+            },
+            {
+              "w": "blissful",
+              "p": "bliss 極樂 + -ful"
+            },
+            {
+              "w": "regretful",
+              "p": "regret 後悔 + -ful"
+            },
+            {
+              "w": "resourceful",
+              "p": "resource 資源 + -ful"
+            },
+            {
+              "w": "rightful",
+              "p": "right 權利 + -ful"
+            },
+            {
+              "w": "wasteful",
+              "p": "waste 浪費 + -ful"
             }
           ]
         },
@@ -7599,6 +8299,50 @@
             {
               "w": "ruthless",
               "p": "ruth（中古英文「憐憫」）+ -less"
+            },
+            {
+              "w": "endless",
+              "p": "end 終點 + -less"
+            },
+            {
+              "w": "flawless",
+              "p": "flaw 瑕疵 + -less"
+            },
+            {
+              "w": "harmless",
+              "p": "harm 傷害 + -less"
+            },
+            {
+              "w": "merciless",
+              "p": "mercy 憐憫 + -less"
+            },
+            {
+              "w": "selfless",
+              "p": "self 自己 + -less"
+            },
+            {
+              "w": "sightless",
+              "p": "sight 視力 + -less"
+            },
+            {
+              "w": "sleepless",
+              "p": "sleep 睡眠 + -less"
+            },
+            {
+              "w": "speechless",
+              "p": "speech 說話 + -less"
+            },
+            {
+              "w": "thoughtless",
+              "p": "thought 想法 + -less"
+            },
+            {
+              "w": "timeless",
+              "p": "time 時間 + -less"
+            },
+            {
+              "w": "useless",
+              "p": "use 用處 + -less"
             }
           ]
         }
@@ -7778,6 +8522,22 @@
             {
               "w": "precious",
               "p": "price（拉丁文 pretium 價格）+ -ous"
+            },
+            {
+              "w": "adventurous",
+              "p": "adventure 冒險 + -ous"
+            },
+            {
+              "w": "harmonious",
+              "p": "harmony 和諧 + -ous"
+            },
+            {
+              "w": "momentous",
+              "p": "moment 重要性 + -ous"
+            },
+            {
+              "w": "thunderous",
+              "p": "thunder 雷 + -ous"
             }
           ]
         },
@@ -7935,6 +8695,10 @@
             {
               "w": "fireproof",
               "p": "fire 火 + -proof"
+            },
+            {
+              "w": "weatherproof",
+              "p": "weather 天氣 + -proof"
             }
           ]
         }
@@ -7965,6 +8729,10 @@
             {
               "w": "stylish",
               "p": "style 風格、時尚 + -ish"
+            },
+            {
+              "w": "feverish",
+              "p": "fever 發燒 + -ish"
             }
           ]
         }
@@ -8392,6 +9160,74 @@
             {
               "w": "adviser",
               "p": "advise 建議 + -er（也寫成 advisor）"
+            },
+            {
+              "w": "caterer",
+              "p": "cater 供應餐飲 + -er"
+            },
+            {
+              "w": "coordinator",
+              "p": "coordinate 協調 + -or"
+            },
+            {
+              "w": "destroyer",
+              "p": "destroy（拉丁文 destruere：de 往下 + struere 堆、建造）+ -er"
+            },
+            {
+              "w": "developer",
+              "p": "develop 開發 + -er"
+            },
+            {
+              "w": "entertainer",
+              "p": "entertain 娛樂 + -er"
+            },
+            {
+              "w": "explorer",
+              "p": "explore 探險 + -er"
+            },
+            {
+              "w": "gamer",
+              "p": "game 玩遊戲 + -er"
+            },
+            {
+              "w": "healer",
+              "p": "heal 醫治 + -er"
+            },
+            {
+              "w": "herder",
+              "p": "herd 放牧 + -er"
+            },
+            {
+              "w": "mediator",
+              "p": "mediate 調停 + -or"
+            },
+            {
+              "w": "poacher",
+              "p": "poach 盜獵 + -er"
+            },
+            {
+              "w": "rescuer",
+              "p": "rescue 營救 + -er"
+            },
+            {
+              "w": "smuggler",
+              "p": "smuggle 走私 + -er"
+            },
+            {
+              "w": "subscriber",
+              "p": "subscribe 訂閱 + -er"
+            },
+            {
+              "w": "suitor",
+              "p": "suit（拉丁文 sequi 跟隨）+ -or（晚期拉丁文 secutor 追隨者）"
+            },
+            {
+              "w": "trapper",
+              "p": "trap 設陷阱 + -er"
+            },
+            {
+              "w": "wrestler",
+              "p": "wrestle 摔角 + -er"
             }
           ]
         },
@@ -8481,6 +9317,22 @@
             {
               "w": "refrigerator",
               "p": "refrigerate 冷藏 + -or"
+            },
+            {
+              "w": "browser",
+              "p": "browse 瀏覽 + -er"
+            },
+            {
+              "w": "sprinkler",
+              "p": "sprinkle 灑 + -er"
+            },
+            {
+              "w": "stretcher",
+              "p": "stretch 伸展 + -er"
+            },
+            {
+              "w": "trailer",
+              "p": "trail 拖著走 + -er"
             }
           ]
         },
@@ -8554,6 +9406,14 @@
             {
               "w": "scholar",
               "p": "school 學校（拉丁文 schola）+ -ar"
+            },
+            {
+              "w": "blogger",
+              "p": "blog 部落格 + -er"
+            },
+            {
+              "w": "calligrapher",
+              "p": "calligraphy 書法 + -er"
             }
           ]
         }
@@ -8649,6 +9509,26 @@
             {
               "w": "capitalist",
               "p": "capital 資本 + -ist"
+            },
+            {
+              "w": "alchemist",
+              "p": "alchemy 煉金術 + -ist（去掉 y）"
+            },
+            {
+              "w": "biologist",
+              "p": "biology 生物學 + -ist"
+            },
+            {
+              "w": "pathologist",
+              "p": "pathology 病理學 + -ist"
+            },
+            {
+              "w": "racist",
+              "p": "race 種族 + -ist"
+            },
+            {
+              "w": "receptionist",
+              "p": "reception 接待 + -ist"
             }
           ]
         }
@@ -8878,6 +9758,10 @@
             {
               "w": "pedestrian",
               "p": "pedestr（拉丁文 pedester 走路的）+ -ian"
+            },
+            {
+              "w": "mathematician",
+              "p": "mathematics 數學 + -ian"
             }
           ]
         }
@@ -9023,6 +9907,10 @@
             {
               "w": "layman",
               "p": "lay 外行的 + -man"
+            },
+            {
+              "w": "middleman",
+              "p": "middle 中間 + -man"
             }
           ]
         }
@@ -9038,7 +9926,7 @@
     {
       "key": "-ness",
       "zh": "…的狀態、…的性質",
-      "note": "-ness 是英文本來就有的字尾，幾乎可以加在任何形容詞後面，把它變成名詞「…的狀態、…的性質」：happy 變成 happiness（快樂），aware 變成 awareness（意識）。字尾是 y 的，要先把 y 改成 i（happy → happiness、lazy → laziness）。詞彙表很少另外列 -ness 的字，因為看得懂形容詞，就看得懂加了 -ness 的名詞；這一組只收錄詞彙表有列的，以及本站出現過的。business 是個例外，它原本是 busy 加上 -ness「忙碌的狀態」，後來才變成「生意、事情」。",
+      "note": "-ness 是英文本來就有的字尾，幾乎可以加在任何形容詞後面，把它變成名詞「…的狀態、…的性質」：happy 變成 happiness（快樂），aware 變成 awareness（意識）。字尾是 y 的，要先把 y 改成 i（happy → happiness、lazy → laziness）。詞彙表很少另外列 -ness 的字，因為看得懂形容詞，就看得懂加了 -ness 的名詞；這一組只收錄詞彙表有列的、本站出現過的，以及龍騰、三民課本字。business 是個例外，它原本是 busy 加上 -ness「忙碌的狀態」，後來才變成「生意、事情」。",
       "subs": [
         {
           "t": "形容詞 + -ness → 名詞",
@@ -9074,6 +9962,30 @@
             {
               "w": "wilderness",
               "p": "古英文 wildeor（野獸；wild 野生的 + deor 動物）+ -ness"
+            },
+            {
+              "w": "forgiveness",
+              "p": "forgive 原諒 + -ness"
+            },
+            {
+              "w": "illness",
+              "p": "ill 生病的 + -ness"
+            },
+            {
+              "w": "mindfulness",
+              "p": "mindful 留心的 + -ness"
+            },
+            {
+              "w": "righteousness",
+              "p": "righteous 正直的 + -ness"
+            },
+            {
+              "w": "smoothness",
+              "p": "smooth 平滑的 + -ness"
+            },
+            {
+              "w": "trustworthiness",
+              "p": "trustworthy 值得信任的 + -ness（y 變成 i）"
             }
           ]
         }
@@ -9305,6 +10217,42 @@
             {
               "w": "solidarity",
               "p": "solid 團結的（法文 solidarité）+ -arity"
+            },
+            {
+              "w": "accessibility",
+              "p": "accessible 可進入的 + -ity（ble 變成 bil）"
+            },
+            {
+              "w": "adversity",
+              "p": "adverse 不利的 + -ity"
+            },
+            {
+              "w": "ethnicity",
+              "p": "ethnic 種族的 + -ity"
+            },
+            {
+              "w": "festivity",
+              "p": "festive 節慶的 + -ity"
+            },
+            {
+              "w": "inferiority",
+              "p": "inferior 較差的 + -ity"
+            },
+            {
+              "w": "infertility",
+              "p": "infertile 不孕的 + -ity"
+            },
+            {
+              "w": "mobility",
+              "p": "mobile 可移動的 + -ity"
+            },
+            {
+              "w": "validity",
+              "p": "valid 有效的 + -ity"
+            },
+            {
+              "w": "vulnerability",
+              "p": "vulnerable 脆弱的 + -ity（ble 變成 bil）"
             }
           ]
         },
@@ -9366,6 +10314,10 @@
             {
               "w": "duty",
               "p": "due 應付的 + -ty"
+            },
+            {
+              "w": "uncertainty",
+              "p": "uncertain 不確定的 + -ty"
             }
           ]
         },
@@ -9757,6 +10709,14 @@
             {
               "w": "worship",
               "p": "worth 價值 + -ship"
+            },
+            {
+              "w": "companionship",
+              "p": "companion 同伴 + -ship"
+            },
+            {
+              "w": "internship",
+              "p": "intern 實習生 + -ship"
             }
           ]
         }
@@ -9836,6 +10796,14 @@
             {
               "w": "cottage",
               "p": "cot（古字「小屋」）+ -age"
+            },
+            {
+              "w": "outage",
+              "p": "out 中斷、停止運作 + -age（仿 shortage 造的字）"
+            },
+            {
+              "w": "pilgrimage",
+              "p": "pilgrim 朝聖者 + -age"
             }
           ]
         },
@@ -9973,6 +10941,10 @@
             {
               "w": "mechanism",
               "p": "mechan（希臘文 mekhane 機械）+ -ism"
+            },
+            {
+              "w": "autism",
+              "p": "aut（希臘文 autos 自己）+ -ism"
             }
           ]
         }
@@ -10328,6 +11300,18 @@
             {
               "w": "basement",
               "p": "base 底部 + -ment"
+            },
+            {
+              "w": "acknowledgment",
+              "p": "acknowledge 承認 + -ment"
+            },
+            {
+              "w": "banishment",
+              "p": "banish 放逐 + -ment"
+            },
+            {
+              "w": "confinement",
+              "p": "confine 限制 + -ment"
             }
           ]
         },
@@ -10528,6 +11512,10 @@
             {
               "w": "acquaintance",
               "p": "acquaint 使認識 + -ance"
+            },
+            {
+              "w": "perseverance",
+              "p": "persevere 堅持 + -ance（去掉 e）"
             }
           ]
         },
@@ -10561,6 +11549,18 @@
             {
               "w": "tolerance",
               "p": "tolerant 寬容的 → tolerance"
+            },
+            {
+              "w": "arrogance",
+              "p": "arrogant 傲慢的 → arrogance"
+            },
+            {
+              "w": "brilliance",
+              "p": "brilliant 明亮的、才華洋溢的 → brilliance"
+            },
+            {
+              "w": "elegance",
+              "p": "elegant 優雅的 → elegance"
             }
           ]
         },
@@ -10674,6 +11674,18 @@
             {
               "w": "correspondence",
               "p": "correspond 通信；相符 + -ence"
+            },
+            {
+              "w": "dependence",
+              "p": "depend 依賴 + -ence"
+            },
+            {
+              "w": "emergence",
+              "p": "emerge 出現 + -ence"
+            },
+            {
+              "w": "subsidence",
+              "p": "subside 下沉 + -ence（去掉 e）"
             }
           ]
         },
@@ -10751,6 +11763,18 @@
             {
               "w": "silence",
               "p": "silent 安靜的 → silence"
+            },
+            {
+              "w": "eloquence",
+              "p": "eloquent 雄辯的 → eloquence"
+            },
+            {
+              "w": "prominence",
+              "p": "prominent 突出的 → prominence"
+            },
+            {
+              "w": "resilience",
+              "p": "resilient 有韌性的 → resilience"
             }
           ]
         },
@@ -10788,6 +11812,10 @@
             {
               "w": "tendency",
               "p": "tend 傾向 + -ency"
+            },
+            {
+              "w": "competency",
+              "p": "competent 能勝任的 → competency"
             }
           ]
         },
@@ -10829,6 +11857,10 @@
             {
               "w": "sentence",
               "p": "sent（拉丁文 sentire 感覺）+ -ence"
+            },
+            {
+              "w": "incidence",
+              "p": "in 在…上 + cid（拉丁文 cadere 落下）+ -ence"
             }
           ]
         }
@@ -10860,6 +11892,10 @@
             {
               "w": "literacy",
               "p": "literate 識字的 → literacy"
+            },
+            {
+              "w": "delicacy",
+              "p": "delicate 精緻的 → delicacy"
             }
           ]
         },
@@ -11086,6 +12122,18 @@
             {
               "w": "miniature",
               "p": "義大利文 miniatura（手抄本彩繪；minium 紅色顏料）；手抄本的插畫很小，加上跟 minimum 等字聯想，才有「小型」的意思"
+            },
+            {
+              "w": "acupuncture",
+              "p": "acu（拉丁文 acus 針）+ punct（拉丁文 pungere 刺）+ -ure"
+            },
+            {
+              "w": "aquaculture",
+              "p": "aqua（拉丁文 aqua 水）+ cult（拉丁文 colere 耕種）+ -ure"
+            },
+            {
+              "w": "scripture",
+              "p": "script（拉丁文 scribere 寫）+ -ure"
             }
           ]
         }
@@ -11452,6 +12500,30 @@
             {
               "w": "abortion",
               "p": "abort 中止；流產 + -ion"
+            },
+            {
+              "w": "depiction",
+              "p": "depict 描繪 + -ion"
+            },
+            {
+              "w": "disruption",
+              "p": "disrupt 擾亂 + -ion"
+            },
+            {
+              "w": "exertion",
+              "p": "exert 盡力 + -ion"
+            },
+            {
+              "w": "exhaustion",
+              "p": "exhaust 用盡 + -ion"
+            },
+            {
+              "w": "persecution",
+              "p": "persecute 迫害 + -ion（去掉 e）"
+            },
+            {
+              "w": "reproduction",
+              "p": "reproduce 繁殖、複製 + -tion（ce 變成 c）"
             }
           ]
         },
@@ -11729,6 +12801,46 @@
             {
               "w": "population",
               "p": "populate 居住於 + -ion"
+            },
+            {
+              "w": "abbreviation",
+              "p": "abbreviate 縮短 + -ion"
+            },
+            {
+              "w": "acceleration",
+              "p": "accelerate 加速 + -ion"
+            },
+            {
+              "w": "coordination",
+              "p": "coordinate 協調 + -ion"
+            },
+            {
+              "w": "cultivation",
+              "p": "cultivate 耕種 + -ion"
+            },
+            {
+              "w": "elevation",
+              "p": "elevate 提高 + -ion"
+            },
+            {
+              "w": "facilitation",
+              "p": "facilitate 促進 + -ion"
+            },
+            {
+              "w": "humiliation",
+              "p": "humiliate 羞辱 + -ion"
+            },
+            {
+              "w": "irrigation",
+              "p": "irrigate 灌溉 + -ion"
+            },
+            {
+              "w": "manipulation",
+              "p": "manipulate 操縱 + -ion"
+            },
+            {
+              "w": "segregation",
+              "p": "segregate 隔離 + -ion"
             }
           ]
         },
@@ -11994,6 +13106,42 @@
             {
               "w": "intonation",
               "p": "intone 吟誦 + -ation（去掉 e）"
+            },
+            {
+              "w": "confirmation",
+              "p": "confirm 確認 + -ation"
+            },
+            {
+              "w": "deforestation",
+              "p": "deforest 砍伐森林 + -ation"
+            },
+            {
+              "w": "justification",
+              "p": "justify 辯護 + -ication"
+            },
+            {
+              "w": "modification",
+              "p": "modify 修改 + -ication（y 變成 ic）"
+            },
+            {
+              "w": "notification",
+              "p": "notify 通知 + -ication"
+            },
+            {
+              "w": "nullification",
+              "p": "nullify 使無效 + -ication（y 變成 ic）"
+            },
+            {
+              "w": "proclamation",
+              "p": "proclaim 宣告 + -ation（ai 變成 a）"
+            },
+            {
+              "w": "verification",
+              "p": "verify 證實 + -ication（y 變成 ic）"
+            },
+            {
+              "w": "vocalization",
+              "p": "vocalize 發聲 + -ation（去掉 e）"
             }
           ]
         },
@@ -12196,6 +13344,14 @@
             {
               "w": "precaution",
               "p": "pre 事先 + caution 小心"
+            },
+            {
+              "w": "potion",
+              "p": "pot（拉丁文 potare 喝）+ -ion"
+            },
+            {
+              "w": "vegetation",
+              "p": "veget（拉丁文 vegetare 生長）+ -ation"
             }
           ]
         }
@@ -12359,6 +13515,26 @@
             {
               "w": "procession",
               "p": "proceed 前進 + -ion（ceed 變成 cess）"
+            },
+            {
+              "w": "compression",
+              "p": "compress 壓縮 + -ion"
+            },
+            {
+              "w": "delusion",
+              "p": "delude 欺騙 + -sion（de 變成 s）"
+            },
+            {
+              "w": "inclusion",
+              "p": "include 包含 + -sion（de 變成 s）"
+            },
+            {
+              "w": "indecision",
+              "p": "in 否定 + decision 決定"
+            },
+            {
+              "w": "obsession",
+              "p": "obsess 迷住 + -ion"
             }
           ]
         },
@@ -12640,6 +13816,18 @@
             {
               "w": "missing",
               "p": "miss 錯過；找不到 + -ing"
+            },
+            {
+              "w": "captivating",
+              "p": "captivate 使著迷 + -ing"
+            },
+            {
+              "w": "devastating",
+              "p": "devastate 摧毀 + -ing"
+            },
+            {
+              "w": "unappealing",
+              "p": "un 否定 + appealing 吸引人的"
             }
           ]
         },
@@ -12741,6 +13929,10 @@
             {
               "w": "pastry",
               "p": "paste 麵團 + -ry"
+            },
+            {
+              "w": "imagery",
+              "p": "image 形象 + -ery"
             }
           ]
         },
@@ -12786,6 +13978,10 @@
             {
               "w": "fairy",
               "p": "fay（仙子）+ -ry"
+            },
+            {
+              "w": "bribery",
+              "p": "bribe 賄賂 + -ery"
             }
           ]
         },
@@ -13055,6 +14251,38 @@
             {
               "w": "differentiate",
               "p": "拉丁文 differentia 差異（dis 分開 + ferre 攜帶）+ -ate"
+            },
+            {
+              "w": "collaborate",
+              "p": "col 一起 + labor（拉丁文 laborare 工作）+ -ate"
+            },
+            {
+              "w": "designate",
+              "p": "de 往外 + sign（拉丁文 signare 作記號）+ -ate"
+            },
+            {
+              "w": "devastate",
+              "p": "de 徹底 + vast（拉丁文 vastare 使荒蕪）+ -ate"
+            },
+            {
+              "w": "innovate",
+              "p": "innov（拉丁文 innovare 更新）+ -ate"
+            },
+            {
+              "w": "migrate",
+              "p": "migr（拉丁文 migrare 遷移）+ -ate"
+            },
+            {
+              "w": "mutate",
+              "p": "mut（拉丁文 mutare 改變）+ -ate（由 mutation 倒推出來的動詞）"
+            },
+            {
+              "w": "segregate",
+              "p": "se 分開 + greg（拉丁文 grex 畜群）+ -ate"
+            },
+            {
+              "w": "vaccinate",
+              "p": "vaccin（拉丁文 vaccinus 牛的）+ -ate（由 vaccination 倒推出來的動詞）"
             }
           ]
         },
@@ -13255,6 +14483,30 @@
             {
               "w": "subsidize",
               "p": "subsidy 補助金 + -ize"
+            },
+            {
+              "w": "categorize",
+              "p": "category 類別 + -ize"
+            },
+            {
+              "w": "empathize",
+              "p": "empathy 同理心 + -ize"
+            },
+            {
+              "w": "legalize",
+              "p": "legal 合法的 + -ize"
+            },
+            {
+              "w": "oxidize",
+              "p": "oxide 氧化物 + -ize"
+            },
+            {
+              "w": "personalize",
+              "p": "personal 個人的 + -ize"
+            },
+            {
+              "w": "prioritize",
+              "p": "priority 優先 + -ize"
             }
           ]
         }
@@ -13379,6 +14631,14 @@
             {
               "w": "ratify",
               "p": "rat（拉丁文 ratus 確定的）+ -ify"
+            },
+            {
+              "w": "exemplify",
+              "p": "exempl（拉丁文 exemplum 範例）+ -ify"
+            },
+            {
+              "w": "verify",
+              "p": "ver（拉丁文 verus 真實的）+ -ify"
             }
           ]
         }
@@ -13651,6 +14911,18 @@
             {
               "w": "yearly",
               "p": "year 年 + -ly"
+            },
+            {
+              "w": "earthly",
+              "p": "earth 人世、大地 + -ly"
+            },
+            {
+              "w": "heavenly",
+              "p": "heaven 天堂 + -ly"
+            },
+            {
+              "w": "worldly",
+              "p": "world 世界 + -ly"
             }
           ]
         }
@@ -13734,6 +15006,10 @@
             {
               "w": "straightforward",
               "p": "straight 直的 + forward 向前"
+            },
+            {
+              "w": "onward",
+              "p": "on 向前 + -ward"
             }
           ]
         }
@@ -14061,6 +15337,42 @@
             {
               "w": "continual",
               "p": "continue 繼續 + -al"
+            },
+            {
+              "w": "contextual",
+              "p": "context 上下文 + -ual"
+            },
+            {
+              "w": "fictional",
+              "p": "fiction 虛構的作品 + -al"
+            },
+            {
+              "w": "inspirational",
+              "p": "inspiration 靈感 + -al"
+            },
+            {
+              "w": "intentional",
+              "p": "intention 意圖 + -al"
+            },
+            {
+              "w": "intergenerational",
+              "p": "inter 之間 + generation 世代 + -al"
+            },
+            {
+              "w": "interpersonal",
+              "p": "inter 在…之間 + person 人 + -al"
+            },
+            {
+              "w": "societal",
+              "p": "society 社會 + -al"
+            },
+            {
+              "w": "tutorial",
+              "p": "tutor 導師 + -ial"
+            },
+            {
+              "w": "viral",
+              "p": "virus 病毒 + -al"
             }
           ]
         },
@@ -14326,6 +15638,10 @@
             {
               "w": "colloquial",
               "p": "colloqui（拉丁文 colloquium 交談：col + loquī 說）+ -al"
+            },
+            {
+              "w": "unusual",
+              "p": "un 否定 + usual 平常的"
             }
           ]
         },
@@ -14646,6 +15962,10 @@
             {
               "w": "basic",
               "p": "base 基礎 + -ic"
+            },
+            {
+              "w": "unethical",
+              "p": "un 不 + ethical 合乎道德的"
             }
           ]
         },
@@ -14779,6 +16099,10 @@
             {
               "w": "cosmetic",
               "p": "希臘文 kosmetikos（打扮的）"
+            },
+            {
+              "w": "pandemic",
+              "p": "pan 全部 + dem（希臘文 demos 人民）+ -ic"
             }
           ]
         },
@@ -15031,6 +16355,26 @@
             {
               "w": "radioactive",
               "p": "radio（拉丁文 radius 光線）+ active 活躍的"
+            },
+            {
+              "w": "indecisive",
+              "p": "in 否定 + decisive 果斷的"
+            },
+            {
+              "w": "interactive",
+              "p": "interact 互動 + -ive"
+            },
+            {
+              "w": "provocative",
+              "p": "provoke 激起 + -ative"
+            },
+            {
+              "w": "supportive",
+              "p": "support 支持 + -ive"
+            },
+            {
+              "w": "transformative",
+              "p": "transform 轉變 + -ative"
             }
           ]
         },
@@ -15080,6 +16424,10 @@
             {
               "w": "naive",
               "p": "法文 naïve（天生的，來自拉丁文 nativus）"
+            },
+            {
+              "w": "repetitive",
+              "p": "repetit（拉丁文 repetere 重複，取過去分詞字幹）+ -ive"
             }
           ]
         },
@@ -15216,6 +16564,18 @@
             {
               "w": "accessory",
               "p": "access 接近（拉丁文 accedere 靠近、加上去）+ -ory"
+            },
+            {
+              "w": "discriminatory",
+              "p": "discriminate 區別對待 + -ory"
+            },
+            {
+              "w": "supervisory",
+              "p": "supervise 監督 + -ory（去掉 e）"
+            },
+            {
+              "w": "visionary",
+              "p": "vision 願景 + -ary"
             }
           ]
         },
@@ -15265,6 +16625,18 @@
             {
               "w": "compulsory",
               "p": "compuls（拉丁文 compellere 強迫）+ -ory"
+            },
+            {
+              "w": "culinary",
+              "p": "culin（拉丁文 culina 廚房）+ -ary"
+            },
+            {
+              "w": "involuntary",
+              "p": "in 否定 + voluntary 自願的"
+            },
+            {
+              "w": "rotary",
+              "p": "rot（拉丁文 rota 輪子）+ -ary"
             }
           ]
         }
@@ -15496,6 +16868,18 @@
             {
               "w": "slippery",
               "p": "slipper（古字「滑的」）+ -y"
+            },
+            {
+              "w": "milky",
+              "p": "milk 牛奶 + -y"
+            },
+            {
+              "w": "pulpy",
+              "p": "pulp 果肉 + -y"
+            },
+            {
+              "w": "scaly",
+              "p": "scale 鱗 + -y"
             }
           ]
         },
@@ -15553,6 +16937,10 @@
             {
               "w": "steady",
               "p": "stead 位置 + -y"
+            },
+            {
+              "w": "catchy",
+              "p": "catch 抓住 + -y"
             }
           ]
         }
@@ -15660,6 +17048,10 @@
             {
               "w": "subsequent",
               "p": "sub 接著 + sequ 跟隨 + -ent"
+            },
+            {
+              "w": "unpleasant",
+              "p": "un 不 + pleasant 令人愉快的"
             }
           ]
         },
@@ -15817,6 +17209,10 @@
             {
               "w": "equivalent",
               "p": "equi 相等 + val（拉丁文 valēre 有價值）+ -ent"
+            },
+            {
+              "w": "resilient",
+              "p": "re 回 + sil（拉丁文 salire 跳）+ -ient"
             }
           ]
         }

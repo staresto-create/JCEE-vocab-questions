@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "note": "字根家族表與字首字尾表共用的單字資料：每個字的級別（lv）、中文釋義（g）、出現過的題目（refs）只存在這裡一份，兩張表的分組檔只放字與拆解（p）。base 是詞彙表沒有另外列的衍生字所依據的原字。 fam 是這個字在字根家族表所屬的家族，aff 是它在字首字尾表所屬的組，兩頁用來互相連結。 音標不放在這裡，統一放在 kk_data.json。",
+ "note": "字根家族表與字首字尾表共用的單字資料：每個字的級別（lv）、中文釋義（g）、出現過的題目（refs）只存在這裡一份，兩張表的分組檔只放字與拆解（p）。base 是詞彙表沒有另外列的衍生字所依據的原字。 fam 是這個字在字根家族表所屬的家族，aff 是它在字首字尾表所屬的組，兩頁用來互相連結。 音標不放在這裡，統一放在 kk_data.json。 tb 是詞彙表以外的龍騰、三民課本字所屬的課本版本，這類字沒有詞彙表級別，中文與詞性依該版課本的單字表。",
  "updated": "2026-10-26",
  "words": {
   "Internet": {
@@ -717,10 +717,6 @@
      "t": "學測克漏字 105年 第25格",
      "k": "a"
     }
-   ],
-   "aff": [
-    "ad-（ac-／af-／ag-／al-／an-／ap-／ar-／as-／at-／a-）",
-    "-cy（-acy）"
    ]
   },
   "accurate": {
@@ -2022,10 +2018,7 @@
   },
   "allege": {
    "lv": 6,
-   "g": "v. 拿到法庭上主張→聲稱、指稱",
-   "fam": [
-    "leg / legis"
-   ]
+   "g": "v. 拿到法庭上主張→聲稱、指稱"
   },
   "allergic": {
    "lv": 5,
@@ -2348,9 +2341,6 @@
      "t": "學測克漏字 108年 第20格",
      "k": "d"
     }
-   ],
-   "aff": [
-    "-ant（-ent）"
    ]
   },
   "angry": {
@@ -5631,10 +5621,7 @@
   },
   "cemetery": {
    "lv": 5,
-   "g": "n. 墓地",
-   "aff": [
-    "-ery（-ry）"
-   ]
+   "g": "n. 墓地"
   },
   "central": {
    "lv": 2,
@@ -5655,9 +5642,6 @@
      "id": "68",
      "t": "中譯英 86(大學聯考) 第68題"
     }
-   ],
-   "aff": [
-    "-ery（-ry）"
    ]
   },
   "ceramic": {
@@ -6054,10 +6038,7 @@
   },
   "classic": {
    "lv": 2,
-   "g": "adj. 經典的、一流的；n. 經典作品",
-   "aff": [
-    "-ic（-ical）"
-   ]
+   "g": "adj. 經典的、一流的；n. 經典作品"
   },
   "classical": {
    "lv": 2,
@@ -6322,9 +6303,6 @@
   "college": {
    "lv": 2,
    "g": "n. 一起被選出來的那一群人→學院、大學",
-   "fam": [
-    "lect / leg / lig"
-   ],
    "aff": [
     "con-（com-／col-／cor-／co-）"
    ]
@@ -6714,9 +6692,6 @@
      "t": "學測克漏字 83年 第23格",
      "k": "d"
     }
-   ],
-   "aff": [
-    "con-（com-／col-／cor-／co-）"
    ]
   },
   "commonplace": {
@@ -7696,9 +7671,6 @@
      "t": "96指考 單字Q1",
      "k": "d"
     }
-   ],
-   "aff": [
-    "con-（com-／col-／cor-／co-）"
    ]
   },
   "concerning": {
@@ -8404,7 +8376,8 @@
    ],
    "base": "conscious",
    "aff": [
-    "-ness"
+    "-ness",
+    "con-（com-／col-／cor-／co-）"
    ]
   },
   "consecutive": {
@@ -9008,12 +8981,6 @@
      "t": "83推薦甄選 單字Q5",
      "k": "d"
     }
-   ],
-   "fam": [
-    "tact / tag / teg"
-   ],
-   "aff": [
-    "con-（com-／col-／cor-／co-）"
    ]
   },
   "contagious": {
@@ -9341,9 +9308,6 @@
      "t": "學測克漏字 108年 第17格",
      "k": "a"
     }
-   ],
-   "aff": [
-    "con-（com-／col-／cor-／co-）"
    ]
   },
   "continuity": {
@@ -10904,9 +10868,6 @@
      "id": "182",
      "t": "中譯英 99(指考) 第182題"
     }
-   ],
-   "aff": [
-    "de-"
    ]
   },
   "decoration": {
@@ -11166,9 +11127,6 @@
      "t": "指考克漏字 107年 第20格",
      "k": "d"
     }
-   ],
-   "aff": [
-    "de-"
    ]
   },
   "definite": {
@@ -11624,10 +11582,7 @@
   },
   "depict": {
    "lv": 5,
-   "g": "v. 畫下來→描繪、描述",
-   "aff": [
-    "de-"
-   ]
+   "g": "v. 畫下來→描繪、描述"
   },
   "deplete": {
    "lv": 6,
@@ -11973,13 +11928,7 @@
   },
   "despise": {
    "lv": 6,
-   "g": "v. 往下看人→鄙視、看不起",
-   "fam": [
-    "spec / spect / spic / spis"
-   ],
-   "aff": [
-    "de-"
-   ]
+   "g": "v. 往下看人→鄙視、看不起"
   },
   "despite": {
    "lv": 4,
@@ -12642,9 +12591,6 @@
      "t": "93指考 單字Q1",
      "k": "d"
     }
-   ],
-   "aff": [
-    "-ity（-ty）"
    ]
   },
   "diligence": {
@@ -12882,10 +12828,7 @@
   },
   "disciple": {
    "lv": 6,
-   "g": "n. 把老師的話一句句抓住的人→門徒、弟子",
-   "fam": [
-    "cap / capt / cip / cept"
-   ]
+   "g": "n. 把老師的話一句句抓住的人→門徒、弟子"
   },
   "disciplinary": {
    "lv": 6,
@@ -12913,9 +12856,6 @@
      "t": "85推薦甄選 單字Q1",
      "k": "d"
     }
-   ],
-   "fam": [
-    "cap / capt / cip / cept"
    ]
   },
   "disclose": {
@@ -13122,9 +13062,6 @@
      "t": "93學測 單字Q7",
      "k": "d"
     }
-   ],
-   "aff": [
-    "dis-（dif-／di-）"
    ]
   },
   "discrimination": {
@@ -14390,9 +14327,6 @@
      "t": "106學測 單字Q8",
      "k": "d"
     }
-   ],
-   "aff": [
-    "ex-（e-／ef-）"
    ]
   },
   "edition": {
@@ -14528,13 +14462,6 @@
      "id": "121",
      "t": "中譯英 108(學測) 第121題"
     }
-   ],
-   "fam": [
-    "fect / fic"
-   ],
-   "aff": [
-    "ex-（e-／ef-）",
-    "-ence（-ency）"
    ]
   },
   "efficient": {
@@ -14736,8 +14663,7 @@
     "lect / leg / lig"
    ],
    "aff": [
-    "ex-（e-／ef-）",
-    "-ant（-ent）"
+    "ex-（e-／ef-）"
    ]
   },
   "element": {
@@ -15130,11 +15056,7 @@
   },
   "employee": {
    "lv": 2,
-   "g": "n. 受雇的人→員工、受雇者",
-   "aff": [
-    "en-（em-）",
-    "-ee"
-   ]
+   "g": "n. 受雇的人→員工、受雇者"
   },
   "employer": {
    "lv": 2,
@@ -19735,9 +19657,6 @@
      "t": "學測克漏字 84年 第38格",
      "k": "d"
     }
-   ],
-   "aff": [
-    "-ous"
    ]
   },
   "government": {
@@ -20904,6 +20823,9 @@
    "base": "legal",
    "aff": [
     "in-（im-／il-／ir-）"
+   ],
+   "fam": [
+    "leg / legis"
    ]
   },
   "illogical": {
@@ -21836,7 +21758,8 @@
    "g": "adj. 優柔寡斷的",
    "base": "decisive",
    "aff": [
-    "in-（im-／il-／ir-）"
+    "in-（im-／il-／ir-）",
+    "-ive"
    ]
   },
   "independence": {
@@ -22156,9 +22079,6 @@
      "t": "指考克漏字 91年 第30格",
      "k": "d"
     }
-   ],
-   "aff": [
-    "-ery（-ry）"
    ]
   },
   "inevitable": {
@@ -23784,9 +23704,6 @@
      "t": "108學測 單字Q3",
      "k": "d"
     }
-   ],
-   "aff": [
-    "inter-（intel-／enter-）"
    ]
   },
   "interpretation": {
@@ -25446,9 +25363,6 @@
      "id": "98",
      "t": "作文字彙表 98學年 luxury"
     }
-   ],
-   "aff": [
-    "-ery（-ry）"
    ]
   },
   "machinery": {
@@ -26476,9 +26390,6 @@
      "t": "102學測 單字Q12",
      "k": "d"
     }
-   ],
-   "aff": [
-    "-ery（-ry）"
    ]
   },
   "misfortune": {
@@ -27165,9 +27076,6 @@
      "id": "155",
      "t": "中譯英 94(學測) 第155題"
     }
-   ],
-   "aff": [
-    "-ery（-ry）"
    ]
   },
   "naive": {
@@ -32314,9 +32222,6 @@
    ],
    "fam": [
     "prob / prov"
-   ],
-   "aff": [
-    "-proof"
    ]
   },
   "propel": {
@@ -34063,17 +33968,11 @@
      "t": "89學測 單字Q8",
      "k": "a"
     }
-   ],
-   "aff": [
-    "re-"
    ]
   },
   "refute": {
    "lv": 6,
-   "g": "v. 打回去→駁斥",
-   "aff": [
-    "re-"
-   ]
+   "g": "v. 打回去→駁斥"
   },
   "regard": {
    "lv": 2,
@@ -34510,9 +34409,6 @@
      "t": "學測克漏字 111年 第14格",
      "k": "a"
     }
-   ],
-   "aff": [
-    "re-"
    ]
   },
   "relentless": {
@@ -38772,10 +38668,7 @@
   },
   "strategic": {
    "lv": 5,
-   "g": "adj. 策略上的、戰略的",
-   "aff": [
-    "-ic（-ical）"
-   ]
+   "g": "adj. 策略上的、戰略的"
   },
   "strength": {
    "lv": 3,
@@ -39068,10 +38961,6 @@
      "t": "109指考補考 單字Q5",
      "k": "d"
     }
-   ],
-   "aff": [
-    "sub-（suc-／suf-／sug-／sum-／sup-／sus-）",
-    "-al"
    ]
   },
   "substitute": {
@@ -41555,9 +41444,6 @@
    "g": "n. 條約",
    "fam": [
     "treat / trait"
-   ],
-   "aff": [
-    "-ity（-ty）"
    ]
   },
   "tremendous": {
@@ -41792,7 +41678,8 @@
    "g": "n. 不確定（的事）",
    "base": "certainty",
    "aff": [
-    "un-"
+    "un-",
+    "-ity（-ty）"
    ]
   },
   "unconditional": {
@@ -42032,7 +41919,8 @@
    ],
    "base": "ethical",
    "aff": [
-    "un-"
+    "un-",
+    "-ic（-ical）"
    ]
   },
   "unexpected": {
@@ -42397,7 +42285,11 @@
    "g": "adj. 無法預測的",
    "base": "predict",
    "aff": [
-    "un-"
+    "un-",
+    "-able（-ible）"
+   ],
+   "fam": [
+    "dict / dic"
    ]
   },
   "unreliable": {
@@ -42429,7 +42321,8 @@
    ],
    "base": "usual",
    "aff": [
-    "un-"
+    "un-",
+    "-al"
    ]
   },
   "unveil": {
@@ -42470,10 +42363,7 @@
   },
   "urgency": {
    "lv": 6,
-   "g": "n. 緊急、急迫",
-   "aff": [
-    "-ence（-ency）"
-   ]
+   "g": "n. 緊急、急迫"
   },
   "urgent": {
    "lv": 4,
@@ -43050,9 +42940,6 @@
      "id": "98",
      "t": "作文字彙表 98學年 shake violently"
     }
-   ],
-   "aff": [
-    "-ant（-ent）"
    ]
   },
   "violinist": {
@@ -45428,6 +45315,2873 @@
    ],
    "aff": [
     "ob-（oc-／of-／op-）"
+   ]
+  },
+  "abbreviation": {
+   "g": "n. 縮寫",
+   "tb": [
+    "龍騰"
+   ],
+   "fam": [
+    "brev / brief"
+   ],
+   "aff": [
+    "-tion（-ation／-ition）"
+   ]
+  },
+  "blogger": {
+   "g": "n. 部落客",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "-er（-or／-ar）"
+   ]
+  },
+  "discord": {
+   "g": "n. 不和諧音",
+   "tb": [
+    "龍騰",
+    "三民"
+   ],
+   "aff": [
+    "dis-（dif-／di-）"
+   ]
+  },
+  "inexpensively": {
+   "g": "adv. 不昂貴地",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "in-（im-／il-／ir-）"
+   ]
+  },
+  "mediator": {
+   "g": "n. 調解人",
+   "tb": [
+    "三民"
+   ],
+   "fam": [
+    "medi"
+   ],
+   "aff": [
+    "-er（-or／-ar）"
+   ]
+  },
+  "obsession": {
+   "g": "n. 癡迷，著魔",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "ob-（oc-／of-／op-）",
+    "-sion（-ssion）"
+   ]
+  },
+  "potion": {
+   "g": "n. 藥水",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "-tion（-ation／-ition）"
+   ]
+  },
+  "relocate": {
+   "g": "v. 搬遷，遷移",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "re-"
+   ]
+  },
+  "smuggler": {
+   "g": "n. 走私者",
+   "tb": [
+    "龍騰"
+   ],
+   "aff": [
+    "-er（-or／-ar）"
+   ]
+  },
+  "timeless": {
+   "g": "adj. 亙古的；永恆的",
+   "tb": [
+    "龍騰"
+   ],
+   "aff": [
+    "-less"
+   ]
+  },
+  "unevenly": {
+   "g": "adv. 不均勻地；不規則地",
+   "tb": [
+    "龍騰"
+   ],
+   "aff": [
+    "un-"
+   ]
+  },
+  "abruptly": {
+   "g": "adv. 突然地",
+   "tb": [
+    "龍騰"
+   ],
+   "aff": [
+    "ab-（abs-）"
+   ],
+   "fam": [
+    "rupt"
+   ]
+  },
+  "audiology": {
+   "g": "n. 聽力學",
+   "tb": [
+    "三民"
+   ],
+   "fam": [
+    "aud / audi"
+   ]
+  },
+  "discriminatory": {
+   "g": "adj. 差別待遇的",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "-ary（-ory）"
+   ]
+  },
+  "forgiveness": {
+   "g": "n. 寬恕，原諒",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "for-",
+    "-ness"
+   ]
+  },
+  "immerse": {
+   "g": "v. 沉浸",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "in-（im-／il-／ir-）"
+   ]
+  },
+  "internship": {
+   "g": "n. 實習期",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "-ship"
+   ]
+  },
+  "mobility": {
+   "g": "n. 流動性",
+   "tb": [
+    "龍騰"
+   ],
+   "fam": [
+    "mov / mot / mob"
+   ],
+   "aff": [
+    "-ity（-ty）"
+   ]
+  },
+  "outage": {
+   "g": "n. 運作中斷",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "-age"
+   ]
+  },
+  "pilgrimage": {
+   "g": "n. 朝聖之旅",
+   "tb": [
+    "龍騰"
+   ],
+   "aff": [
+    "-age"
+   ]
+  },
+  "reluctantly": {
+   "g": "adv. 勉強地；不情願地",
+   "tb": [
+    "龍騰"
+   ],
+   "aff": [
+    "re-"
+   ]
+  },
+  "societal": {
+   "g": "adj. 與社會相關的",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "-al"
+   ]
+  },
+  "terribly": {
+   "g": "adv. 非常地",
+   "tb": [
+    "龍騰"
+   ],
+   "fam": [
+    "terr"
+   ]
+  },
+  "verification": {
+   "g": "n. 證實；證明",
+   "tb": [
+    "龍騰"
+   ],
+   "aff": [
+    "-tion（-ation／-ition）"
+   ]
+  },
+  "behold": {
+   "g": "v. 注視；看著",
+   "tb": [
+    "龍騰"
+   ],
+   "aff": [
+    "be-"
+   ]
+  },
+  "coordinator": {
+   "g": "n. 協調者",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "con-（com-／col-／cor-／co-）",
+    "-er（-or／-ar）"
+   ]
+  },
+  "devastating": {
+   "g": "adj. 令人震驚的",
+   "tb": [
+    "龍騰"
+   ],
+   "aff": [
+    "-ing"
+   ]
+  },
+  "eponym": {
+   "g": "n. 借名成字（以人名、品牌名稱來命名的方式）",
+   "tb": [
+    "龍騰"
+   ],
+   "fam": [
+    "nom / onym"
+   ]
+  },
+  "infertility": {
+   "g": "n. 不孕",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "in-（im-／il-／ir-）",
+    "-ity（-ty）"
+   ],
+   "fam": [
+    "fer"
+   ]
+  },
+  "legalize": {
+   "g": "v. 使合法化",
+   "tb": [
+    "三民"
+   ],
+   "fam": [
+    "leg / legis"
+   ],
+   "aff": [
+    "-ize"
+   ]
+  },
+  "modification": {
+   "g": "n. 修改",
+   "tb": [
+    "龍騰"
+   ],
+   "aff": [
+    "-tion（-ation／-ition）"
+   ]
+  },
+  "pathologist": {
+   "g": "n. 病理學家",
+   "tb": [
+    "三民"
+   ],
+   "fam": [
+    "path"
+   ],
+   "aff": [
+    "-ist"
+   ]
+  },
+  "resourceful": {
+   "g": "adj. 足智多謀的",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "-ful"
+   ]
+  },
+  "stretcher": {
+   "g": "n. 擔架",
+   "tb": [
+    "龍騰"
+   ],
+   "aff": [
+    "-er（-or／-ar）"
+   ]
+  },
+  "unfamiliar": {
+   "g": "adj. 不熟的，陌生的",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "un-"
+   ]
+  },
+  "vulnerability": {
+   "g": "n. 脆弱性，弱點",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "-ity（-ty）"
+   ]
+  },
+  "confirmation": {
+   "g": "n. 證實",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "-tion（-ation／-ition）",
+    "con-（com-／col-／cor-／co-）"
+   ]
+  },
+  "depiction": {
+   "g": "n. 描繪；刻畫",
+   "tb": [
+    "龍騰",
+    "三民"
+   ],
+   "aff": [
+    "-tion（-ation／-ition）"
+   ]
+  },
+  "enslave": {
+   "g": "v. 奴役",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "en-（em-）"
+   ]
+  },
+  "harmless": {
+   "g": "adj. 無害的",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "-less"
+   ]
+  },
+  "imperfection": {
+   "g": "n. 瑕疵",
+   "tb": [
+    "龍騰"
+   ],
+   "aff": [
+    "in-（im-／il-／ir-）",
+    "per-"
+   ],
+   "fam": [
+    "fect / fic"
+   ]
+  },
+  "interposition": {
+   "g": "n. 干預權（美國憲法學說之一，主張各州有權採取行動來阻止聯邦政府實施他們認為違憲的聯邦法律）",
+   "tb": [
+    "龍騰",
+    "三民"
+   ],
+   "aff": [
+    "inter-（intel-／enter-）"
+   ],
+   "fam": [
+    "pon / pos"
+   ]
+  },
+  "oxidize": {
+   "g": "v. 氧化",
+   "tb": [
+    "龍騰"
+   ],
+   "aff": [
+    "-ize"
+   ]
+  },
+  "presumption": {
+   "g": "n. 假定",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "pre-"
+   ],
+   "fam": [
+    "sume / sumpt"
+   ]
+  },
+  "rethink": {
+   "g": "v. 重新思考（三態：rethought, rethought, rethinking）",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "re-"
+   ]
+  },
+  "transformative": {
+   "g": "adj. 徹底改觀的",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "trans-（tra-）",
+    "-ive"
+   ],
+   "fam": [
+    "form"
+   ]
+  },
+  "accessibility": {
+   "g": "n. 易得到，易觸及",
+   "tb": [
+    "三民"
+   ],
+   "fam": [
+    "ced / cess / ceed / cede"
+   ],
+   "aff": [
+    "ad-（ac-／af-／ag-／al-／an-／ap-／ar-／as-／at-／a-）",
+    "-ity（-ty）"
+   ]
+  },
+  "automatically": {
+   "g": "adv. 無意識地；不假思索地",
+   "tb": [
+    "龍騰"
+   ],
+   "aff": [
+    "auto-"
+   ]
+  },
+  "competency": {
+   "g": "n. 能力，勝任",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "con-（com-／col-／cor-／co-）",
+    "-ence（-ency）"
+   ]
+  },
+  "cultivation": {
+   "g": "n. 耕種，耕作",
+   "tb": [
+    "三民"
+   ],
+   "fam": [
+    "cult / col"
+   ],
+   "aff": [
+    "-tion（-ation／-ition）"
+   ]
+  },
+  "entertainer": {
+   "g": "n. 表演者，藝人",
+   "tb": [
+    "三民"
+   ],
+   "fam": [
+    "tain / ten"
+   ],
+   "aff": [
+    "inter-（intel-／enter-）",
+    "-er（-or／-ar）"
+   ]
+  },
+  "harmonious": {
+   "g": "adj. 和諧的，協調的",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "-ous"
+   ]
+  },
+  "initially": {
+   "g": "adv. 起初",
+   "tb": [
+    "龍騰",
+    "三民"
+   ],
+   "aff": [
+    "in-（im-／il-／ir-）"
+   ]
+  },
+  "nullification": {
+   "g": "n. 廢止權（美國憲法學說之一，主張各州有權廢止他們認為違憲的聯邦法律）",
+   "tb": [
+    "龍騰",
+    "三民"
+   ],
+   "aff": [
+    "-tion（-ation／-ition）"
+   ]
+  },
+  "reproduction": {
+   "g": "n. 翻版，複製",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "re-",
+    "-tion（-ation／-ition）"
+   ],
+   "fam": [
+    "duc / duct"
+   ]
+  },
+  "segregate": {
+   "g": "v. （種族等）隔離",
+   "tb": [
+    "龍騰"
+   ],
+   "aff": [
+    "se-",
+    "-ate"
+   ]
+  },
+  "thoughtless": {
+   "g": "adj. 粗心的；欠考慮的",
+   "tb": [
+    "龍騰"
+   ],
+   "aff": [
+    "-less"
+   ]
+  },
+  "understandable": {
+   "g": "adj. 可以理解的",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "-able（-ible）"
+   ]
+  },
+  "banishment": {
+   "g": "n. 放逐",
+   "tb": [
+    "龍騰"
+   ],
+   "aff": [
+    "-ment"
+   ]
+  },
+  "coexist": {
+   "g": "v. 共生，共存",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "con-（com-／col-／cor-／co-）"
+   ],
+   "fam": [
+    "sist"
+   ]
+  },
+  "demolish": {
+   "g": "v. 拆除",
+   "tb": [
+    "龍騰"
+   ],
+   "aff": [
+    "de-"
+   ]
+  },
+  "empathy": {
+   "g": "n. 同理心",
+   "tb": [
+    "龍騰",
+    "三民"
+   ],
+   "aff": [
+    "en-（em-）"
+   ],
+   "fam": [
+    "path"
+   ]
+  },
+  "feverish": {
+   "g": "adj. 發燒的",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "-ish"
+   ]
+  },
+  "imbalance": {
+   "g": "n. 不平等",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "in-（im-／il-／ir-）"
+   ]
+  },
+  "intolerable": {
+   "g": "adj. 無法忍受的",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "in-（im-／il-／ir-）",
+    "-able（-ible）"
+   ]
+  },
+  "permanently": {
+   "g": "adv. 持久地，永久地",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "per-"
+   ]
+  },
+  "provocative": {
+   "g": "adj. 煽動性的",
+   "tb": [
+    "龍騰"
+   ],
+   "aff": [
+    "pro-",
+    "-ive"
+   ]
+  },
+  "reunite": {
+   "g": "v. 重逢；重聚（常用被動語態）",
+   "tb": [
+    "龍騰",
+    "三民"
+   ],
+   "aff": [
+    "re-",
+    "uni-"
+   ]
+  },
+  "unbearable": {
+   "g": "adj. 難以忍受的",
+   "tb": [
+    "龍騰",
+    "三民"
+   ],
+   "aff": [
+    "un-",
+    "-able（-ible）"
+   ]
+  },
+  "visionary": {
+   "g": "adj. 有遠見的",
+   "tb": [
+    "三民"
+   ],
+   "fam": [
+    "vid / vis"
+   ],
+   "aff": [
+    "-ary（-ory）"
+   ]
+  },
+  "accurately": {
+   "g": "adv. 精確地；準確地",
+   "tb": [
+    "龍騰"
+   ],
+   "aff": [
+    "ad-（ac-／af-／ag-／al-／an-／ap-／ar-／as-／at-／a-）"
+   ]
+  },
+  "categorize": {
+   "g": "v. 分類",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "-ize"
+   ]
+  },
+  "conversely": {
+   "g": "adv. 相反地",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "con-（com-／col-／cor-／co-）"
+   ],
+   "fam": [
+    "vers / vert"
+   ]
+  },
+  "eloquence": {
+   "g": "n. 雄辯；口才",
+   "tb": [
+    "龍騰"
+   ],
+   "aff": [
+    "ex-（e-／ef-）",
+    "-ence（-ency）"
+   ]
+  },
+  "fictional": {
+   "g": "adj. 虛構的",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "-al"
+   ]
+  },
+  "inspirational": {
+   "g": "adj. 鼓舞人心的",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "in-（im-／il-／ir-）",
+    "-al"
+   ]
+  },
+  "prioritize": {
+   "g": "v. 按優先順序處理",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "-ize"
+   ]
+  },
+  "resilience": {
+   "g": "n. 韌性",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "re-",
+    "-ence（-ency）"
+   ]
+  },
+  "submerge": {
+   "g": "v. 淹沒",
+   "tb": [
+    "龍騰"
+   ],
+   "aff": [
+    "sub-（suc-／suf-／sug-／sum-／sup-／sus-）"
+   ]
+  },
+  "unload": {
+   "g": "v. （從車上）卸下",
+   "tb": [
+    "龍騰"
+   ],
+   "aff": [
+    "un-"
+   ]
+  },
+  "adversity": {
+   "g": "n. 逆境，不幸",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "ad-（ac-／af-／ag-／al-／an-／ap-／ar-／as-／at-／a-）",
+    "-ity（-ty）"
+   ],
+   "fam": [
+    "vers / vert"
+   ]
+  },
+  "browser": {
+   "g": "n. 瀏覽器",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "-er（-or／-ar）"
+   ]
+  },
+  "coordination": {
+   "g": "n. 協調",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "con-（com-／col-／cor-／co-）",
+    "-tion（-ation／-ition）"
+   ]
+  },
+  "endless": {
+   "g": "adj. 無止境的",
+   "tb": [
+    "龍騰"
+   ],
+   "aff": [
+    "-less"
+   ]
+  },
+  "genetically": {
+   "g": "adv. 由基因決定地",
+   "tb": [
+    "龍騰"
+   ],
+   "fam": [
+    "gen"
+   ]
+  },
+  "inclusion": {
+   "g": "n. 包括；包含",
+   "tb": [
+    "龍騰"
+   ],
+   "aff": [
+    "in-（im-／il-／ir-）",
+    "-sion（-ssion）"
+   ]
+  },
+  "invariable": {
+   "g": "adj. 不變的，始終如一的",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "in-（im-／il-／ir-）",
+    "-able（-ible）"
+   ]
+  },
+  "multimedia": {
+   "g": "adj. 多媒體的",
+   "tb": [
+    "龍騰"
+   ],
+   "aff": [
+    "數量字首（mono-／bi-／tri-／hemi-／multi-）"
+   ]
+  },
+  "overuse": {
+   "g": "n. 過度使用",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "over-"
+   ]
+  },
+  "precisely": {
+   "g": "adv. 精確地",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "pre-"
+   ]
+  },
+  "resilient": {
+   "g": "adj. 復原力強的",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "re-",
+    "-ant（-ent）"
+   ]
+  },
+  "sprinkler": {
+   "g": "n. 灑水器",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "-er（-or／-ar）"
+   ]
+  },
+  "trilogy": {
+   "g": "n. 三部曲（複數 trilogies）",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "數量字首（mono-／bi-／tri-／hemi-／multi-）"
+   ]
+  },
+  "vocalization": {
+   "g": "n. 發聲",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "-tion（-ation／-ition）"
+   ]
+  },
+  "captivated": {
+   "g": "adj. 被迷住的，著迷的",
+   "tb": [
+    "三民"
+   ],
+   "fam": [
+    "cap / capt / cip / cept"
+   ]
+  },
+  "deceased": {
+   "g": "adj. 已故的",
+   "tb": [
+    "龍騰"
+   ],
+   "aff": [
+    "de-"
+   ],
+   "fam": [
+    "ced / cess / ceed / cede"
+   ]
+  },
+  "disruption": {
+   "g": "n. 干擾",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "dis-（dif-／di-）",
+    "-tion（-ation／-ition）"
+   ],
+   "fam": [
+    "rupt"
+   ]
+  },
+  "explorer": {
+   "g": "n. 探險家",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "-er（-or／-ar）"
+   ]
+  },
+  "intentional": {
+   "g": "adj. 故意的；有意的",
+   "tb": [
+    "龍騰"
+   ],
+   "aff": [
+    "in-（im-／il-／ir-）",
+    "-al"
+   ],
+   "fam": [
+    "tend / tens / tent"
+   ]
+  },
+  "manipulation": {
+   "g": "n. 操縱",
+   "tb": [
+    "龍騰"
+   ],
+   "aff": [
+    "-tion（-ation／-ition）"
+   ]
+  },
+  "mutate": {
+   "g": "v. 變異，突變",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "-ate"
+   ]
+  },
+  "preferable": {
+   "g": "adj. 更好的",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "pre-",
+    "-able（-ible）"
+   ],
+   "fam": [
+    "fer"
+   ]
+  },
+  "subsidence": {
+   "g": "n. 下陷",
+   "tb": [
+    "龍騰"
+   ],
+   "aff": [
+    "sub-（suc-／suf-／sug-／sum-／sup-／sus-）",
+    "-ence（-ency）"
+   ]
+  },
+  "unpolluted": {
+   "g": "adj. 未受汙染的",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "un-"
+   ]
+  },
+  "acceleration": {
+   "g": "n. 加速",
+   "tb": [
+    "龍騰"
+   ],
+   "aff": [
+    "-tion（-ation／-ition）"
+   ]
+  },
+  "culinary": {
+   "g": "adj. 烹飪相關的",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "-ary（-ory）"
+   ]
+  },
+  "developer": {
+   "g": "n. 開發者",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "-er（-or／-ar）"
+   ]
+  },
+  "ethnicity": {
+   "g": "n. 種族",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "-ity（-ty）"
+   ]
+  },
+  "incurable": {
+   "g": "adj. 無法治癒的",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "in-（im-／il-／ir-）",
+    "-able（-ible）"
+   ]
+  },
+  "involuntarily": {
+   "g": "adv. 不由自主地",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "in-（im-／il-／ir-）"
+   ]
+  },
+  "momentous": {
+   "g": "adj. 重大的；重要的",
+   "tb": [
+    "龍騰",
+    "三民"
+   ],
+   "aff": [
+    "-ous"
+   ]
+  },
+  "pathology": {
+   "g": "n. 病理學",
+   "tb": [
+    "三民"
+   ],
+   "fam": [
+    "path"
+   ]
+  },
+  "racist": {
+   "g": "n. 種族主義者",
+   "tb": [
+    "龍騰",
+    "三民"
+   ],
+   "aff": [
+    "-ist"
+   ]
+  },
+  "underprivileged": {
+   "g": "adj. 弱勢的，貧困的",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "under-"
+   ],
+   "fam": [
+    "leg / legis"
+   ]
+  },
+  "viral": {
+   "g": "adj. 在網路上如病毒般快速傳播的",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "-al"
+   ]
+  },
+  "acupuncture": {
+   "g": "n. 針灸",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "-ure"
+   ]
+  },
+  "blissful": {
+   "g": "adj. 極樂的",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "-ful"
+   ]
+  },
+  "congested": {
+   "g": "adj. 堵塞的，擁擠的",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "con-（com-／col-／cor-／co-）"
+   ]
+  },
+  "decompose": {
+   "g": "v. 分解",
+   "tb": [
+    "龍騰"
+   ],
+   "fam": [
+    "pon / pos"
+   ],
+   "aff": [
+    "de-"
+   ]
+  },
+  "diverge": {
+   "g": "v. 分岔；岔開",
+   "tb": [
+    "龍騰",
+    "三民"
+   ],
+   "aff": [
+    "dis-（dif-／di-）"
+   ]
+  },
+  "excrete": {
+   "g": "v. 排泄",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "ex-（e-／ef-）"
+   ]
+  },
+  "imagery": {
+   "g": "n. 意象，比喻（尤其用於文學方面）",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "-ery（-ry）"
+   ]
+  },
+  "interactive": {
+   "g": "adj. 互動的",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "inter-（intel-／enter-）",
+    "-ive"
+   ],
+   "fam": [
+    "act / ag"
+   ]
+  },
+  "mathematician": {
+   "g": "n. 數學家",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "-ian（-an）"
+   ]
+  },
+  "overrun": {
+   "g": "v. 氾濫",
+   "tb": [
+    "龍騰"
+   ],
+   "aff": [
+    "over-"
+   ]
+  },
+  "previously": {
+   "g": "adv. 先前；以前",
+   "tb": [
+    "龍騰"
+   ],
+   "aff": [
+    "pre-"
+   ]
+  },
+  "retrace": {
+   "g": "v. 沿原路返回；折回",
+   "tb": [
+    "龍騰"
+   ],
+   "aff": [
+    "re-"
+   ]
+  },
+  "speechless": {
+   "g": "adj. （因生氣或驚訝而）說不出話的",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "-less"
+   ]
+  },
+  "trapper": {
+   "g": "n. 捕殺動物者",
+   "tb": [
+    "龍騰"
+   ],
+   "aff": [
+    "-er（-or／-ar）"
+   ]
+  },
+  "uninvited": {
+   "g": "adj. 未被邀請的",
+   "tb": [
+    "龍騰"
+   ],
+   "aff": [
+    "un-"
+   ]
+  },
+  "additionally": {
+   "g": "adv. 另外；此外",
+   "tb": [
+    "龍騰",
+    "三民"
+   ],
+   "aff": [
+    "ad-（ac-／af-／ag-／al-／an-／ap-／ar-／as-／at-／a-）"
+   ]
+  },
+  "biologist": {
+   "g": "n. 生物學家",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "-ist"
+   ]
+  },
+  "compress": {
+   "g": "v. 壓緊",
+   "tb": [
+    "三民"
+   ],
+   "fam": [
+    "press"
+   ],
+   "aff": [
+    "con-（com-／col-／cor-／co-）"
+   ]
+  },
+  "enthusiastically": {
+   "g": "adv. 熱情地",
+   "tb": [
+    "龍騰",
+    "三民"
+   ],
+   "aff": [
+    "en-（em-）"
+   ]
+  },
+  "irregular": {
+   "g": "adj. 不規律的，不定期的",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "in-（im-／il-／ir-）"
+   ],
+   "fam": [
+    "rect / reg"
+   ]
+  },
+  "onward": {
+   "g": "adv. 從（某時）起",
+   "tb": [
+    "龍騰"
+   ],
+   "aff": [
+    "-ward（-wards）"
+   ]
+  },
+  "regain": {
+   "g": "v. 重新獲得",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "re-"
+   ]
+  },
+  "scripture": {
+   "g": "n. 宗教經文",
+   "tb": [
+    "三民"
+   ],
+   "fam": [
+    "scrib / script"
+   ],
+   "aff": [
+    "-ure"
+   ]
+  },
+  "weatherproof": {
+   "g": "adj. 防風雨的",
+   "tb": [
+    "龍騰"
+   ],
+   "aff": [
+    "-proof"
+   ]
+  },
+  "adventurous": {
+   "g": "adj. 好冒險的",
+   "tb": [
+    "龍騰"
+   ],
+   "aff": [
+    "ad-（ac-／af-／ag-／al-／an-／ap-／ar-／as-／at-／a-）",
+    "-ous"
+   ]
+  },
+  "collaborate": {
+   "g": "v. 合作",
+   "tb": [
+    "龍騰"
+   ],
+   "aff": [
+    "con-（com-／col-／cor-／co-）",
+    "-ate"
+   ]
+  },
+  "empower": {
+   "g": "v. 賦予力量；使其擁有力量",
+   "tb": [
+    "龍騰",
+    "三民"
+   ],
+   "aff": [
+    "en-（em-）"
+   ]
+  },
+  "forehead": {
+   "g": "n. 額頭",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "fore-"
+   ]
+  },
+  "immediately": {
+   "g": "adv. 立即；馬上",
+   "tb": [
+    "龍騰",
+    "三民"
+   ],
+   "aff": [
+    "in-（im-／il-／ir-）"
+   ],
+   "fam": [
+    "medi"
+   ]
+  },
+  "invalid": {
+   "g": "adj. 站不住腳的，無效的",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "in-（im-／il-／ir-）"
+   ]
+  },
+  "misuse": {
+   "g": "v. 錯誤使用",
+   "tb": [
+    "龍騰"
+   ],
+   "aff": [
+    "mis-"
+   ]
+  },
+  "pulpy": {
+   "g": "adj. 果肉狀的",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "-y"
+   ]
+  },
+  "reusable": {
+   "g": "adj. 可重複使用的",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "re-",
+    "-able（-ible）"
+   ]
+  },
+  "supervisory": {
+   "g": "adj. 監督的",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "super-（sur-）",
+    "-ary（-ory）"
+   ],
+   "fam": [
+    "vid / vis"
+   ]
+  },
+  "tutorial": {
+   "g": "n. 教學課程",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "-al"
+   ]
+  },
+  "vegetation": {
+   "g": "n. 植物",
+   "tb": [
+    "龍騰"
+   ],
+   "aff": [
+    "-tion（-ation／-ition）"
+   ]
+  },
+  "alternatively": {
+   "g": "adv. 或者",
+   "tb": [
+    "三民"
+   ],
+   "fam": [
+    "alter"
+   ]
+  },
+  "caterer": {
+   "g": "n. 外燴業者",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "-er（-or／-ar）"
+   ]
+  },
+  "deforestation": {
+   "g": "n. 砍伐森林",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "de-",
+    "-tion（-ation／-ition）"
+   ]
+  },
+  "eventually": {
+   "g": "adv. 最後",
+   "tb": [
+    "龍騰",
+    "三民"
+   ],
+   "aff": [
+    "ex-（e-／ef-）"
+   ]
+  },
+  "gradually": {
+   "g": "adv. 逐漸地",
+   "tb": [
+    "龍騰",
+    "三民"
+   ],
+   "fam": [
+    "grad / gress"
+   ]
+  },
+  "inferiority": {
+   "g": "n. 低等，劣勢",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "-ity（-ty）"
+   ]
+  },
+  "irreversible": {
+   "g": "adj. 不可逆轉的；無法復原的",
+   "tb": [
+    "龍騰"
+   ],
+   "aff": [
+    "in-（im-／il-／ir-）",
+    "-able（-ible）"
+   ],
+   "fam": [
+    "vers / vert"
+   ]
+  },
+  "proclamation": {
+   "g": "n. 宣言",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "pro-",
+    "-tion（-ation／-ition）"
+   ]
+  },
+  "reuse": {
+   "g": "v. 再利用",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "re-"
+   ]
+  },
+  "subscriber": {
+   "g": "n. 訂閱者",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "sub-（suc-／suf-／sug-／sum-／sup-／sus-）",
+    "-er（-or／-ar）"
+   ],
+   "fam": [
+    "scrib / script"
+   ]
+  },
+  "unpleasant": {
+   "g": "adj. 令人不悅的",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "un-",
+    "-ant（-ent）"
+   ]
+  },
+  "acknowledgment": {
+   "g": "n. 承認",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "-ment"
+   ]
+  },
+  "companionship": {
+   "g": "n. 陪伴，情誼",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "-ship"
+   ]
+  },
+  "dehydrated": {
+   "g": "adj. 脫水的",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "de-"
+   ]
+  },
+  "earthly": {
+   "g": "adj. 世俗的，塵世的",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "-ly"
+   ]
+  },
+  "healer": {
+   "g": "n. 醫治者，治療師",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "-er（-or／-ar）"
+   ]
+  },
+  "interpersonal": {
+   "g": "adj. 人際的",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "inter-（intel-／enter-）",
+    "-al"
+   ]
+  },
+  "merciless": {
+   "g": "adj. 冷酷無情的；殘忍的",
+   "tb": [
+    "龍騰"
+   ],
+   "aff": [
+    "-less"
+   ]
+  },
+  "outperform": {
+   "g": "v. （在操作或性能上）勝過",
+   "tb": [
+    "龍騰"
+   ],
+   "aff": [
+    "out-"
+   ]
+  },
+  "prominence": {
+   "g": "n. 顯著",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "pro-",
+    "-ence（-ency）"
+   ]
+  },
+  "scaly": {
+   "g": "adj. 有鱗的",
+   "tb": [
+    "龍騰"
+   ],
+   "aff": [
+    "-y"
+   ]
+  },
+  "trailer": {
+   "g": "n. 拖車",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "-er（-or／-ar）"
+   ]
+  },
+  "vaccinate": {
+   "g": "v. 接種疫苗",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "-ate"
+   ]
+  },
+  "actually": {
+   "g": "adv. 事實上",
+   "tb": [
+    "龍騰",
+    "三民"
+   ],
+   "fam": [
+    "act / ag"
+   ]
+  },
+  "decode": {
+   "g": "v. 破解",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "de-"
+   ]
+  },
+  "distort": {
+   "g": "v. 曲解，扭曲",
+   "tb": [
+    "三民"
+   ],
+   "fam": [
+    "tort / tor"
+   ]
+  },
+  "exquisite": {
+   "g": "adj. 精緻的",
+   "tb": [
+    "龍騰"
+   ],
+   "aff": [
+    "ex-（e-／ef-）"
+   ],
+   "fam": [
+    "quir / quis / quest"
+   ]
+  },
+  "heavenly": {
+   "g": "adj. 神聖的；天堂的",
+   "tb": [
+    "龍騰"
+   ],
+   "aff": [
+    "-ly"
+   ]
+  },
+  "inhumane": {
+   "g": "adj. 不人道的",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "in-（im-／il-／ir-）"
+   ]
+  },
+  "notification": {
+   "g": "n. 通知（訊息）",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "-tion（-ation／-ition）"
+   ]
+  },
+  "personalize": {
+   "g": "v. 使…具個人特色，使…個性化",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "-ize"
+   ]
+  },
+  "receptionist": {
+   "g": "n. 接待員",
+   "tb": [
+    "龍騰"
+   ],
+   "fam": [
+    "-ceive / -ceipt / -cept"
+   ],
+   "aff": [
+    "re-",
+    "-ist"
+   ]
+  },
+  "succumb": {
+   "g": "v. 屈服，不再抗拒",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "sub-（suc-／suf-／sug-／sum-／sup-／sus-）"
+   ]
+  },
+  "ungratefully": {
+   "g": "adv. 毫不感激地，忘恩負義地",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "un-"
+   ]
+  },
+  "wasteful": {
+   "g": "adj. 浪費的",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "-ful"
+   ]
+  },
+  "regularly": {
+   "g": "adv. 規律地",
+   "tb": [
+    "龍騰",
+    "三民"
+   ],
+   "fam": [
+    "rect / reg"
+   ]
+  },
+  "alchemist": {
+   "g": "n. 煉金術士",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "-ist"
+   ]
+  },
+  "bribery": {
+   "g": "n. 賄賂",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "-ery（-ry）"
+   ]
+  },
+  "contextual": {
+   "g": "adj. 上下文的，情境的",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "con-（com-／col-／cor-／co-）",
+    "-al"
+   ]
+  },
+  "delusion": {
+   "g": "n. 妄想；幻覺",
+   "tb": [
+    "龍騰"
+   ],
+   "aff": [
+    "de-",
+    "-sion（-ssion）"
+   ]
+  },
+  "elegance": {
+   "g": "n. 優雅",
+   "tb": [
+    "龍騰"
+   ],
+   "fam": [
+    "lect / leg / lig"
+   ],
+   "aff": [
+    "ex-（e-／ef-）",
+    "-ance（-ancy）"
+   ]
+  },
+  "extremely": {
+   "g": "adv. 非常地，極度地",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "ex-（e-／ef-）"
+   ]
+  },
+  "imperishable": {
+   "g": "adj. 不朽的（正式用語）",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "in-（im-／il-／ir-）",
+    "-able（-ible）"
+   ]
+  },
+  "milky": {
+   "g": "adj. 乳製的，含有牛奶的",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "-y"
+   ]
+  },
+  "redemption": {
+   "g": "n. 救贖，贖罪",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "re-"
+   ]
+  },
+  "rightful": {
+   "g": "adj. 正確的",
+   "tb": [
+    "龍騰"
+   ],
+   "aff": [
+    "-ful"
+   ]
+  },
+  "subconsciously": {
+   "g": "adv. 潛意識地",
+   "tb": [
+    "龍騰"
+   ],
+   "aff": [
+    "sub-（suc-／suf-／sug-／sum-／sup-／sus-）"
+   ]
+  },
+  "trustworthiness": {
+   "g": "n. 可靠性；可信度",
+   "tb": [
+    "龍騰"
+   ],
+   "aff": [
+    "-ness"
+   ]
+  },
+  "unthinkable": {
+   "g": "adj. 難以想像的，不可置信的",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "un-",
+    "-able（-ible）"
+   ]
+  },
+  "antibody": {
+   "g": "n. 抗體（複數 antibodies）",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "anti-（ant-）"
+   ]
+  },
+  "brilliance": {
+   "g": "n. 才華，聰慧",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "-ance（-ancy）"
+   ]
+  },
+  "convent": {
+   "g": "n. 女修道院",
+   "tb": [
+    "龍騰"
+   ],
+   "aff": [
+    "con-（com-／col-／cor-／co-）"
+   ]
+  },
+  "exemplify": {
+   "g": "v. 是……的典範；體現",
+   "tb": [
+    "龍騰",
+    "三民"
+   ],
+   "aff": [
+    "-fy（-ify）"
+   ]
+  },
+  "herder": {
+   "g": "n. 放牧人",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "-er（-or／-ar）"
+   ]
+  },
+  "innovate": {
+   "g": "v. 創新",
+   "tb": [
+    "龍騰"
+   ],
+   "fam": [
+    "nov"
+   ],
+   "aff": [
+    "in-（im-／il-／ir-）",
+    "-ate"
+   ]
+  },
+  "justification": {
+   "g": "n. 理由；辯護",
+   "tb": [
+    "龍騰",
+    "三民"
+   ],
+   "fam": [
+    "just / jur / jud"
+   ],
+   "aff": [
+    "-tion（-ation／-ition）"
+   ]
+  },
+  "oversleep": {
+   "g": "v. 睡過頭（三態：overslept, overslept, oversleeping）",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "over-"
+   ]
+  },
+  "segregation": {
+   "g": "n. 隔離；分開",
+   "tb": [
+    "龍騰",
+    "三民"
+   ],
+   "aff": [
+    "se-",
+    "-tion（-ation／-ition）"
+   ]
+  },
+  "subgroup": {
+   "g": "n. 次級群體",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "sub-（suc-／suf-／sug-／sum-／sup-／sus-）"
+   ]
+  },
+  "universally": {
+   "g": "adv. 在各種情況下，普遍地",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "uni-"
+   ],
+   "fam": [
+    "vers / vert"
+   ]
+  },
+  "wrestler": {
+   "g": "n. 摔角選手",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "-er（-or／-ar）"
+   ]
+  },
+  "compression": {
+   "g": "n. 壓緊，壓縮",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "con-（com-／col-／cor-／co-）",
+    "-sion（-ssion）"
+   ],
+   "fam": [
+    "press"
+   ]
+  },
+  "destroyer": {
+   "g": "n. 摧毀者，破壞者",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "de-",
+    "-er（-or／-ar）"
+   ],
+   "fam": [
+    "struct"
+   ]
+  },
+  "exertion": {
+   "g": "n. 盡力",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "ex-（e-／ef-）",
+    "-tion（-ation／-ition）"
+   ]
+  },
+  "gamer": {
+   "g": "n. 遊戲玩家",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "-er（-or／-ar）"
+   ]
+  },
+  "incidence": {
+   "g": "n. 發生率",
+   "tb": [
+    "龍騰"
+   ],
+   "aff": [
+    "in-（im-／il-／ir-）",
+    "-ence（-ency）"
+   ]
+  },
+  "irresponsible": {
+   "g": "adj. 不負責任的",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "in-（im-／il-／ir-）",
+    "-able（-ible）"
+   ],
+   "fam": [
+    "spond / spons"
+   ]
+  },
+  "multicultural": {
+   "g": "adj. （融合）多元文化的",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "數量字首（mono-／bi-／tri-／hemi-／multi-）"
+   ],
+   "fam": [
+    "cult / col"
+   ]
+  },
+  "persecution": {
+   "g": "n. 迫害",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "per-",
+    "-tion（-ation／-ition）"
+   ],
+   "fam": [
+    "sequ / secu"
+   ]
+  },
+  "regretful": {
+   "g": "adj. 後悔的，遺憾的",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "-ful"
+   ]
+  },
+  "rotary": {
+   "g": "adj. 旋轉式的",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "-ary（-ory）"
+   ]
+  },
+  "terminally": {
+   "g": "adv. 病重地，末期地",
+   "tb": [
+    "三民"
+   ],
+   "fam": [
+    "term / termin"
+   ]
+  },
+  "visually": {
+   "g": "adv. 視覺上",
+   "tb": [
+    "三民"
+   ],
+   "fam": [
+    "vid / vis"
+   ]
+  },
+  "apparently": {
+   "g": "adv. 顯然",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "ad-（ac-／af-／ag-／al-／an-／ap-／ar-／as-／at-／a-）"
+   ]
+  },
+  "confide": {
+   "g": "v. 向……吐露、透露",
+   "tb": [
+    "龍騰"
+   ],
+   "aff": [
+    "con-（com-／col-／cor-／co-）"
+   ]
+  },
+  "devastate": {
+   "g": "v. 徹底破壞；摧毀",
+   "tb": [
+    "龍騰"
+   ],
+   "aff": [
+    "de-",
+    "-ate"
+   ]
+  },
+  "exhaustion": {
+   "g": "n. 筋疲力盡",
+   "tb": [
+    "龍騰"
+   ],
+   "aff": [
+    "ex-（e-／ef-）",
+    "-tion（-ation／-ition）"
+   ]
+  },
+  "illegally": {
+   "g": "adv. 非法地",
+   "tb": [
+    "龍騰"
+   ],
+   "aff": [
+    "in-（im-／il-／ir-）"
+   ],
+   "fam": [
+    "leg / legis"
+   ]
+  },
+  "microplastics": {
+   "g": "n. 微塑膠，塑膠微粒",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "micro-"
+   ]
+  },
+  "obviously": {
+   "g": "adv. 顯然",
+   "tb": [
+    "龍騰",
+    "三民"
+   ],
+   "aff": [
+    "ob-（oc-／of-／op-）"
+   ]
+  },
+  "perseverance": {
+   "g": "n. 不屈不撓，堅持不懈",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "per-",
+    "-ance（-ancy）"
+   ]
+  },
+  "regrettable": {
+   "g": "adj. 令人遺憾的，令人後悔的",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "-able（-ible）"
+   ]
+  },
+  "selfless": {
+   "g": "adj. 無私的",
+   "tb": [
+    "龍騰"
+   ],
+   "aff": [
+    "-less"
+   ]
+  },
+  "supportive": {
+   "g": "adj. 支持的，鼓勵的",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "sub-（suc-／suf-／sug-／sum-／sup-／sus-）",
+    "-ive"
+   ],
+   "fam": [
+    "port"
+   ]
+  },
+  "useless": {
+   "g": "adj. 無用的",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "-less"
+   ]
+  },
+  "autism": {
+   "g": "n. 自閉症",
+   "tb": [
+    "龍騰",
+    "三民"
+   ],
+   "aff": [
+    "auto-",
+    "-ism"
+   ]
+  },
+  "confinement": {
+   "g": "n. 限制",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "-ment",
+    "con-（com-／col-／cor-／co-）"
+   ]
+  },
+  "dependence": {
+   "g": "n. 依賴，依靠",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "de-",
+    "-ence（-ency）"
+   ],
+   "fam": [
+    "pend / pens"
+   ]
+  },
+  "emergence": {
+   "g": "n. 興起，出現",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "ex-（e-／ef-）",
+    "-ence（-ency）"
+   ]
+  },
+  "illiterate": {
+   "g": "adj. 文盲的；不識字的",
+   "tb": [
+    "龍騰",
+    "三民"
+   ],
+   "aff": [
+    "in-（im-／il-／ir-）"
+   ]
+  },
+  "irrigation": {
+   "g": "n. 灌溉",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "in-（im-／il-／ir-）",
+    "-tion（-ation／-ition）"
+   ]
+  },
+  "middleman": {
+   "g": "n. 經銷商，中間商（複數 middlemen）",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "-man（-woman／-person）"
+   ]
+  },
+  "overweight": {
+   "g": "adj. 過重的，超重的",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "over-"
+   ]
+  },
+  "sleepless": {
+   "g": "adj. 沒有睡覺的；失眠的",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "-less"
+   ]
+  },
+  "undergrowth": {
+   "g": "n. 灌木叢",
+   "tb": [
+    "龍騰",
+    "三民"
+   ],
+   "aff": [
+    "under-"
+   ]
+  },
+  "verify": {
+   "g": "v. 證實；查核",
+   "tb": [
+    "龍騰"
+   ],
+   "aff": [
+    "-fy（-ify）"
+   ]
+  },
+  "captivating": {
+   "g": "adj. 吸引人的",
+   "tb": [
+    "三民"
+   ],
+   "fam": [
+    "cap / capt / cip / cept"
+   ],
+   "aff": [
+    "-ing"
+   ]
+  },
+  "delicacy": {
+   "g": "n. 纖細；精美",
+   "tb": [
+    "龍騰",
+    "三民"
+   ],
+   "aff": [
+    "-cy（-acy）"
+   ]
+  },
+  "empathetic": {
+   "g": "adj. 有同感的",
+   "tb": [
+    "三民"
+   ],
+   "fam": [
+    "path"
+   ],
+   "aff": [
+    "en-（em-）"
+   ]
+  },
+  "flawless": {
+   "g": "adj. 無瑕的；完美的",
+   "tb": [
+    "龍騰",
+    "三民"
+   ],
+   "aff": [
+    "-less"
+   ]
+  },
+  "worldly": {
+   "g": "adj. 世俗的；塵世的",
+   "tb": [
+    "龍騰"
+   ],
+   "aff": [
+    "-ly"
+   ]
+  },
+  "intentionally": {
+   "g": "adv. 有意地，故意地",
+   "tb": [
+    "三民"
+   ],
+   "fam": [
+    "tend / tens / tent"
+   ]
+  },
+  "migrate": {
+   "g": "v. （鳥類或動物）遷徙；（人類）移居",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "-ate"
+   ]
+  },
+  "overestimate": {
+   "g": "v. 高估",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "over-"
+   ]
+  },
+  "poacher": {
+   "g": "n. 盜獵者",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "-er（-or／-ar）"
+   ]
+  },
+  "repetitive": {
+   "g": "adj. 重複的",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "re-",
+    "-ive"
+   ]
+  },
+  "sustainably": {
+   "g": "adv. 不破壞生態平衡地；永續地",
+   "tb": [
+    "龍騰"
+   ],
+   "fam": [
+    "tain / ten"
+   ],
+   "aff": [
+    "sub-（suc-／suf-／sug-／sum-／sup-／sus-）"
+   ]
+  },
+  "aquaculture": {
+   "g": "n. 水產養殖",
+   "tb": [
+    "三民"
+   ],
+   "fam": [
+    "cult / col"
+   ],
+   "aff": [
+    "-ure"
+   ]
+  },
+  "specifically": {
+   "g": "adv. 具體地，確切地",
+   "tb": [
+    "三民"
+   ],
+   "fam": [
+    "speci"
+   ]
+  },
+  "calligrapher": {
+   "g": "n. 書法家",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "-er（-or／-ar）"
+   ]
+  },
+  "designate": {
+   "g": "v. 指定；認定",
+   "tb": [
+    "龍騰"
+   ],
+   "aff": [
+    "-ate"
+   ]
+  },
+  "empathize": {
+   "g": "v. 有同感，感同身受",
+   "tb": [
+    "三民"
+   ],
+   "fam": [
+    "path"
+   ],
+   "aff": [
+    "en-（em-）",
+    "-ize"
+   ]
+  },
+  "festivity": {
+   "g": "n. 慶典",
+   "tb": [
+    "龍騰"
+   ],
+   "aff": [
+    "-ity（-ty）"
+   ]
+  },
+  "indecision": {
+   "g": "n. 猶豫不決；優柔寡斷",
+   "tb": [
+    "龍騰"
+   ],
+   "aff": [
+    "in-（im-／il-／ir-）",
+    "-sion（-ssion）"
+   ]
+  },
+  "involuntary": {
+   "g": "adj. 不由自主的",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "in-（im-／il-／ir-）",
+    "-ary（-ory）"
+   ]
+  },
+  "mistreat": {
+   "g": "v. 虐待",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "mis-"
+   ],
+   "fam": [
+    "treat / trait"
+   ]
+  },
+  "relatively": {
+   "g": "adv. 相對地",
+   "tb": [
+    "龍騰",
+    "三民"
+   ],
+   "aff": [
+    "re-"
+   ]
+  },
+  "scribble": {
+   "g": "v. vi. 亂畫；潦草地寫",
+   "tb": [
+    "龍騰"
+   ],
+   "fam": [
+    "scrib / script"
+   ]
+  },
+  "suitor": {
+   "g": "n. 追求者",
+   "tb": [
+    "三民"
+   ],
+   "fam": [
+    "sequ / secu"
+   ],
+   "aff": [
+    "-er（-or／-ar）"
+   ]
+  },
+  "unappealing": {
+   "g": "adj. 不吸引人的",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "un-",
+    "-ing"
+   ]
+  },
+  "validity": {
+   "g": "n. 正確性；正當性",
+   "tb": [
+    "龍騰",
+    "三民"
+   ],
+   "aff": [
+    "-ity（-ty）"
+   ]
+  },
+  "arrogance": {
+   "g": "n. 傲慢，自大",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "ad-（ac-／af-／ag-／al-／an-／ap-／ar-／as-／at-／a-）",
+    "-ance（-ancy）"
+   ]
+  },
+  "catchy": {
+   "g": "adj. 琅琅上口的",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "-y"
+   ]
+  },
+  "creed": {
+   "g": "n. 信條，教義",
+   "tb": [
+    "三民"
+   ],
+   "fam": [
+    "cred"
+   ]
+  },
+  "elevation": {
+   "g": "n. 海拔",
+   "tb": [
+    "龍騰",
+    "三民"
+   ],
+   "aff": [
+    "ex-（e-／ef-）",
+    "-tion（-ation／-ition）"
+   ]
+  },
+  "facilitation": {
+   "g": "n. 促進，簡易化",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "-tion（-ation／-ition）"
+   ],
+   "fam": [
+    "fact / fac"
+   ]
+  },
+  "humiliation": {
+   "g": "n. 丟臉，羞辱",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "-tion（-ation／-ition）"
+   ]
+  },
+  "intergenerational": {
+   "g": "adj. 跨世代的",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "inter-（intel-／enter-）",
+    "-al"
+   ],
+   "fam": [
+    "gen"
+   ]
+  },
+  "misunderstood": {
+   "g": "adj. 不為人理解的",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "mis-"
+   ]
+  },
+  "pandemic": {
+   "g": "n. 瘟疫，大規模流行的疾病",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "-ic（-ical）"
+   ]
+  },
+  "rescuer": {
+   "g": "n. 救援者，營救人員",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "-er（-or／-ar）"
+   ]
+  },
+  "sightless": {
+   "g": "adj. 看不見的；眼盲的",
+   "tb": [
+    "龍騰"
+   ],
+   "aff": [
+    "-less"
+   ]
+  },
+  "thunderous": {
+   "g": "adj. 如雷的",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "-ous"
+   ]
+  },
+  "mindfulness": {
+   "g": "n. 正念認知",
+   "tb": [
+    "三民"
+   ],
+   "aff": [
+    "-ness"
+   ]
+  },
+  "illness": {
+   "g": "n. 疾病；生病",
+   "tb": [
+    "龍騰",
+    "三民"
+   ],
+   "aff": [
+    "-ness"
+   ]
+  },
+  "righteousness": {
+   "g": "n. 公正；正義",
+   "tb": [
+    "龍騰"
+   ],
+   "aff": [
+    "-ness"
+   ]
+  },
+  "smoothness": {
+   "g": "n. 平滑；細緻",
+   "tb": [
+    "龍騰"
+   ],
+   "aff": [
+    "-ness"
    ]
   }
  }

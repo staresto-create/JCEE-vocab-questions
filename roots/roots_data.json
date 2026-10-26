@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "note": "字根家族表。母體為大考中心《高中英文參考詞彙表》（111 學年度起適用）5,992 詞；先定字根，再把整個家族收齊，不分級別。各字依詞彙表級別排序。標「出現過」的是這個字在本題庫實際出現過的地方，只算這個字當過選項（單字題、克漏字）、參考答案（中譯英）或字彙表條目（作文）的題目，出現在題幹和文章內文的不算；同一個字最多列三筆。",
+  "note": "字根家族表。母體為大考中心《高中英文參考詞彙表》（111 學年度起適用）5,992 詞；先定字根，再把整個家族收齊，不分級別；詞彙表以外的龍騰、三民課本字，拆得出字根的也收，標出是哪一版課本的字，不標級別。各字依詞彙表級別排序。標「出現過」的是這個字在本題庫實際出現過的地方，只算這個字當過選項（單字題、克漏字）、參考答案（中譯英）或字彙表條目（作文）的題目，出現在題幹和文章內文的不算；同一個字最多列三筆。",
   "updated": "2026-10-26",
   "groups": [
     {
@@ -67,6 +67,14 @@
         {
           "w": "lieutenant",
           "p": "lieu 位置 + tenant 握有"
+        },
+        {
+          "w": "entertainer",
+          "p": "enter（inter）在…之間 + tain 握 + -er"
+        },
+        {
+          "w": "sustainably",
+          "p": "sustainable 永續的 + -ly"
         }
       ],
       "dropped": [
@@ -220,6 +228,14 @@
         {
           "w": "posture",
           "p": "pos 放 + -ture"
+        },
+        {
+          "w": "decompose",
+          "p": "de 反向動作 + compose 組成"
+        },
+        {
+          "w": "interposition",
+          "p": "inter 在…之間 + pos 放 + -ition"
         }
       ],
       "dropped": [
@@ -281,6 +297,10 @@
         {
           "w": "correspondence",
           "p": "correspond 通信 + -ence"
+        },
+        {
+          "w": "irresponsible",
+          "p": "ir 否定 + responsible 負責任的"
         }
       ]
     },
@@ -388,6 +408,22 @@
         {
           "w": "versatile",
           "p": "vers 轉 + -atile"
+        },
+        {
+          "w": "adversity",
+          "p": "adverse 不利的 + -ity"
+        },
+        {
+          "w": "conversely",
+          "p": "converse 相反的 + -ly"
+        },
+        {
+          "w": "irreversible",
+          "p": "ir 否定 + re 往回 + vers 轉 + -ible"
+        },
+        {
+          "w": "universally",
+          "p": "universal 普遍的 + -ly"
         }
       ],
       "dropped": [
@@ -489,6 +525,14 @@
         {
           "w": "referendum",
           "p": "refer 交付 + -endum"
+        },
+        {
+          "w": "infertility",
+          "p": "in 否定 + fer 承載、帶 + -ile + -ity"
+        },
+        {
+          "w": "preferable",
+          "p": "prefer 偏好 + -able"
         }
       ],
       "dropped": [
@@ -651,6 +695,10 @@
         {
           "w": "specify",
           "p": "speci（species 種類）+ -fy"
+        },
+        {
+          "w": "specifically",
+          "p": "specific 明確的 + -ally"
         }
       ]
     },
@@ -758,6 +806,14 @@
         {
           "w": "successive",
           "p": "suc（sub）靠近 + cess 走 + -ive"
+        },
+        {
+          "w": "accessibility",
+          "p": "ac（ad）朝向 + cess 走 + -ible + -ity"
+        },
+        {
+          "w": "deceased",
+          "p": "de 離開 + ceas（拉丁文 cedere 走）+ -ed"
         }
       ],
       "dropped": [
@@ -867,6 +923,14 @@
         {
           "w": "disciplinary",
           "p": "discipline 紀律 + -ary"
+        },
+        {
+          "w": "captivated",
+          "p": "captive 被俘的 + -ate + -ed"
+        },
+        {
+          "w": "captivating",
+          "p": "captive 被俘的 + -ate + -ing"
         }
       ],
       "dropped": [
@@ -924,6 +988,10 @@
         {
           "w": "perception",
           "p": "per 徹底 + cept 拿 + -ion"
+        },
+        {
+          "w": "receptionist",
+          "p": "reception 接待 + -ist"
         }
       ]
     },
@@ -945,7 +1013,7 @@
     {
       "key": "tend / tens / tent",
       "zh": "伸展",
-      "note": "拉丁文 tendere「伸長、拉緊」。心思或力氣往某個方向伸過去。這個家族與 tain/ten「握住」長得極像，但不同源：那個家族是抓在手上，這個家族是往外拉開。判斷方法：意思跟「方向、注意力、拉緊」有關的是這個家族。",
+      "note": "拉丁文 tendere「伸長、拉緊」。心思或力氣往某個方向伸過去。這個家族與 tain / ten「握住」長得極像，但不同源：那個家族是抓在手上，這個家族是往外拉開。判斷方法：意思跟「方向、注意力、拉緊」有關的是這個家族。",
       "items": [
         {
           "w": "attend",
@@ -1042,6 +1110,14 @@
         {
           "w": "superintendent",
           "p": "super 在上 + in 朝向 + tend 伸 + -ent 人"
+        },
+        {
+          "w": "intentional",
+          "p": "intention 意圖 + -al"
+        },
+        {
+          "w": "intentionally",
+          "p": "intention 意圖 + -al + -ly"
         }
       ],
       "dropped": [
@@ -1050,8 +1126,8 @@
           "list": "tender（3）——Etymonline：形容詞 tender 來自拉丁 tener「柔軟、幼嫩」，與 tendere 同出 PIE *ten-「伸展」（拉開→變薄→柔弱），但是不同的拉丁字。真正屬於 tendere 的是動詞 tender「正式提出」（legal tender 的那個），詞彙表未收錄。"
         },
         {
-          "why": "來自 tenere「握住」，屬於 tain/ten 家族",
-          "list": "content（4）　content(ment)（4）　detention（6）——這三個已收錄在 tain/ten 那個家族。content 是「一起握在裡面」，不是「一起伸出去」。"
+          "why": "來自 tenere「握住」，屬於 tain / ten 家族",
+          "list": "content（4）　content(ment)（4）　detention（6）——這三個已收錄在 tain / ten 那個家族。content 是「一起握在裡面」，不是「一起伸出去」。"
         },
         {
           "why": "來自 sistere「站」",
@@ -1159,6 +1235,10 @@
         {
           "w": "selective",
           "p": "select 挑選 + -ive"
+        },
+        {
+          "w": "elegance",
+          "p": "elegant 優雅的 + -ance"
         }
       ],
       "dropped": [
@@ -1228,6 +1308,22 @@
         {
           "w": "legislator",
           "p": "legis 法律 + lat 帶來 + -or 人"
+        },
+        {
+          "w": "illegal",
+          "p": "il 否定 + legal 合法的"
+        },
+        {
+          "w": "illegally",
+          "p": "il 否定 + legal 合法的 + -ly"
+        },
+        {
+          "w": "legalize",
+          "p": "leg 法律 + -al + -ize"
+        },
+        {
+          "w": "underprivileged",
+          "p": "under 不足 + privilege 特權 + -ed"
         }
       ]
     },
@@ -1278,6 +1374,10 @@
         {
           "w": "renowned",
           "p": "renown 名聲（盎格魯法語 renomer 傳述：re- + nomer 叫名字，來自拉丁文 nominare）+ -ed"
+        },
+        {
+          "w": "eponym",
+          "p": "ep（epi 在…之上）+ onym 名字"
         }
       ],
       "dropped": [
@@ -1368,6 +1468,10 @@
         {
           "w": "deter",
           "p": "de 離開 + ter（拉丁文 terrere 嚇）"
+        },
+        {
+          "w": "terribly",
+          "p": "terr 嚇 + -ible + -ly"
         }
       ],
       "dropped": [
@@ -1421,6 +1525,14 @@
         {
           "w": "erupt",
           "p": "e（ex）往外 + rupt 斷"
+        },
+        {
+          "w": "abruptly",
+          "p": "ab 離開 + rupt 斷 + -ly"
+        },
+        {
+          "w": "disruption",
+          "p": "disrupt + -ion"
         }
       ],
       "dropped": []
@@ -1481,6 +1593,14 @@
         {
           "w": "suppress",
           "p": "sup（sub 往下）+ press 壓"
+        },
+        {
+          "w": "compress",
+          "p": "com（con）一起 + press 壓"
+        },
+        {
+          "w": "compression",
+          "p": "com（con）一起 + press 壓 + -ion"
         }
       ],
       "dropped": []
@@ -1574,6 +1694,10 @@
         {
           "w": "treaty",
           "p": "盎格魯法語 treté（treter 商議、處理 的過去分詞；跟 treat 同源）"
+        },
+        {
+          "w": "mistreat",
+          "p": "mis 不好地 + treat 對待"
         }
       ],
       "dropped": [
@@ -1651,6 +1775,10 @@
         {
           "w": "resistant",
           "p": "resist 抵抗 + -ant"
+        },
+        {
+          "w": "coexist",
+          "p": "co 一起 + ex 往外 + ist（拉丁文 sistere 站）"
         }
       ],
       "dropped": [
@@ -1728,6 +1856,10 @@
         {
           "w": "proficiency",
           "p": "proficient 精通的 + -cy"
+        },
+        {
+          "w": "imperfection",
+          "p": "im 否定 + per 徹底 + fect 做 + -ion"
         }
       ],
       "dropped": [
@@ -1797,6 +1929,10 @@
         {
           "w": "faction",
           "p": "fact（拉丁文 facere 做）+ -ion"
+        },
+        {
+          "w": "facilitation",
+          "p": "facilitate 促進 + -ion"
         }
       ],
       "dropped": []
@@ -1939,6 +2075,18 @@
         {
           "w": "manuscript",
           "p": "manu 手 + script 寫"
+        },
+        {
+          "w": "scribble",
+          "p": "scribble（可能來自中古拉丁文 scribillare 隨手寫，由拉丁文 scribere 寫 變來）"
+        },
+        {
+          "w": "scripture",
+          "p": "script（拉丁文 scribere 寫）+ -ure"
+        },
+        {
+          "w": "subscriber",
+          "p": "subscribe 訂閱 + -er"
         }
       ],
       "dropped": []
@@ -2216,6 +2364,18 @@
         {
           "w": "advisory",
           "p": "advise 建議 + -ory"
+        },
+        {
+          "w": "supervisory",
+          "p": "supervise 監督 + -ory（去掉 e）"
+        },
+        {
+          "w": "visionary",
+          "p": "vision 願景 + -ary"
+        },
+        {
+          "w": "visually",
+          "p": "visual 視覺的 + -ly"
         }
       ],
       "dropped": [
@@ -2358,6 +2518,10 @@
         {
           "w": "unconditional",
           "p": "un 不 + conditional 有條件的"
+        },
+        {
+          "w": "unpredictable",
+          "p": "un 不 + predictable 可預測的"
         }
       ],
       "dropped": [
@@ -2403,6 +2567,10 @@
         {
           "w": "resume",
           "p": "re + sume 拿"
+        },
+        {
+          "w": "presumption",
+          "p": "pre 事先 + sumpt 拿 + -ion"
         }
       ],
       "dropped": [
@@ -2463,7 +2631,7 @@
     {
       "key": "tact / tag / teg",
       "zh": "碰",
-      "note": "拉丁文 tangere「碰、觸摸」，過去分詞是 tactus，所以這個家族有 tact 這種拼法；tangere 的字根部分是 tag，所以也會拼成 tag、teg。contact 是碰在一起→接觸、聯絡；contagious 是碰到就會傳的→接觸傳染的；contaminate 是碰在一起弄髒→污染。in（否定）加上這個字根，就是「沒被碰過的」：intact 是完好如初的，拉丁文 integer 是完整的，integrate 是使完整→整合，integrity 是完整、沒被動過→正直、誠實；2 級的 entire 也是從 integer 經過法文變來的，拼法已經看不出字根。attain 是 at（朝向）+ tain，碰到→達到，拼法跟 tain/ten「握住」那個家族一樣，其實是這個家族的字。",
+      "note": "拉丁文 tangere「碰、觸摸」，過去分詞是 tactus，所以這個家族有 tact 這種拼法；tangere 的字根部分是 tag，所以也會拼成 tag、teg。contact 是碰在一起→接觸、聯絡；contagious 是碰到就會傳的→接觸傳染的；contaminate 是碰在一起弄髒→污染。in（否定）加上這個字根，就是「沒被碰過的」：intact 是完好如初的，拉丁文 integer 是完整的，integrate 是使完整→整合，integrity 是完整、沒被動過→正直、誠實；2 級的 entire 也是從 integer 經過法文變來的，拼法已經看不出字根。attain 是 at（朝向）+ tain，碰到→達到，拼法跟 tain / ten「握住」那個家族一樣，其實是這個家族的字。",
       "items": [
         {
           "w": "entire",
@@ -2545,6 +2713,10 @@
         {
           "w": "novice",
           "p": "nov 新 + -ice（拉丁文 novicius 新來的）"
+        },
+        {
+          "w": "innovate",
+          "p": "in 往裡面 + nov 新 + -ate"
         }
       ],
       "dropped": []
@@ -2696,6 +2868,10 @@
         {
           "w": "terminal",
           "p": "term（拉丁文 terminus 終點）+ -al"
+        },
+        {
+          "w": "terminally",
+          "p": "terminal 末期的 + -ly"
         }
       ],
       "dropped": []
@@ -2749,6 +2925,10 @@
         {
           "w": "audit",
           "p": "audit（拉丁文 auditus 聆聽，來自 audire 聽）"
+        },
+        {
+          "w": "audiology",
+          "p": "audi（拉丁文 audire 聽）+ -ology 學問"
         }
       ],
       "dropped": [
@@ -2822,6 +3002,14 @@
         {
           "w": "directive",
           "p": "direct 指引 + -ive"
+        },
+        {
+          "w": "irregular",
+          "p": "ir 否定 + regular 規律的"
+        },
+        {
+          "w": "regularly",
+          "p": "regular 規律的 + -ly"
         }
       ],
       "dropped": [
@@ -2855,6 +3043,10 @@
         {
           "w": "abbreviate",
           "p": "ab（ad）朝向 + brevi（拉丁文 brevis 短的）+ -ate"
+        },
+        {
+          "w": "abbreviation",
+          "p": "ab（ad）朝向 + brevi（拉丁文 brevis 短的）+ -ation"
         }
       ],
       "dropped": []
@@ -2982,6 +3174,26 @@
         {
           "w": "sympathize",
           "p": "sympathy 同情 + -ize"
+        },
+        {
+          "w": "empathetic",
+          "p": "em（en）在裡面 + path 感受 + -etic"
+        },
+        {
+          "w": "empathize",
+          "p": "em（en）在裡面 + path 感受 + -ize"
+        },
+        {
+          "w": "empathy",
+          "p": "em（en）在裡面 + path 感受 + -y"
+        },
+        {
+          "w": "pathologist",
+          "p": "path（希臘文 pathos 受苦）+ -ology + -ist"
+        },
+        {
+          "w": "pathology",
+          "p": "path（希臘文 pathos 受苦）+ -ology 學問"
         }
       ],
       "dropped": [
@@ -3077,6 +3289,10 @@
         {
           "w": "retort",
           "p": "re 往回 + tort 扭"
+        },
+        {
+          "w": "distort",
+          "p": "dis 徹底 + tort 扭"
         }
       ],
       "dropped": [
@@ -3256,6 +3472,10 @@
         {
           "w": "conquest",
           "p": "conquer 的名詞"
+        },
+        {
+          "w": "exquisite",
+          "p": "ex 往外 + quis 尋求 + -ite"
         }
       ],
       "dropped": [
@@ -3301,6 +3521,18 @@
         {
           "w": "cultivate",
           "p": "cultiv（中世紀拉丁文 cultivare，來自 colere 耕種的過去分詞 cultus）+ -ate"
+        },
+        {
+          "w": "aquaculture",
+          "p": "aqua（拉丁文 aqua 水）+ cult（拉丁文 colere 耕種）+ -ure"
+        },
+        {
+          "w": "cultivation",
+          "p": "cultivate 耕種、栽培 + -ion"
+        },
+        {
+          "w": "multicultural",
+          "p": "multi 多 + cultural 文化的"
         }
       ],
       "dropped": [
@@ -3516,6 +3748,10 @@
         {
           "w": "formulate",
           "p": "formula 公式 + -ate"
+        },
+        {
+          "w": "transformative",
+          "p": "trans 轉換 + form 形狀 + -ative"
         }
       ],
       "dropped": [
@@ -3629,6 +3865,14 @@
         {
           "w": "navigation",
           "p": "navigate 航行；導航 + -ion"
+        },
+        {
+          "w": "actually",
+          "p": "actual 實際的 + -ly"
+        },
+        {
+          "w": "interactive",
+          "p": "interact 互動 + -ive"
         }
       ],
       "dropped": [
@@ -3815,6 +4059,10 @@
         {
           "w": "alternate",
           "p": "altern（拉丁文 alternus 輪流）+ -ate"
+        },
+        {
+          "w": "alternatively",
+          "p": "alternative 替代的 + -ly"
         }
       ],
       "dropped": [
@@ -3900,6 +4148,10 @@
         {
           "w": "credible",
           "p": "cred 相信 + -ible 可…的"
+        },
+        {
+          "w": "creed",
+          "p": "creed（古英文 creda，來自拉丁文 credo 我相信）"
         }
       ],
       "dropped": [
@@ -3989,6 +4241,10 @@
         {
           "w": "deduct",
           "p": "de 向下、離開 + duct（拉丁文 ductus 引導）"
+        },
+        {
+          "w": "reproduction",
+          "p": "reproduce 繁殖、複製 + -tion"
         }
       ],
       "dropped": [
@@ -4074,6 +4330,14 @@
         {
           "w": "genre",
           "p": "genre（法文，來自拉丁文 genus 種類）"
+        },
+        {
+          "w": "genetically",
+          "p": "genetic 遺傳的 + -ally"
+        },
+        {
+          "w": "intergenerational",
+          "p": "inter 之間 + generation 世代 + -al"
         }
       ],
       "dropped": [
@@ -4163,6 +4427,10 @@
         {
           "w": "congresswoman",
           "p": "congress 國會 + woman 女人"
+        },
+        {
+          "w": "gradually",
+          "p": "gradual 逐漸的 + -ly"
         }
       ],
       "dropped": []
@@ -4244,6 +4512,14 @@
         {
           "w": "medieval",
           "p": "medi（拉丁文 medium 中間）+ ev（拉丁文 aevum 時代）+ -al"
+        },
+        {
+          "w": "immediately",
+          "p": "immediate 立即的 + -ly"
+        },
+        {
+          "w": "mediator",
+          "p": "medi（拉丁文 medius 中間）+ -ate + -or"
         }
       ],
       "dropped": [
@@ -4337,6 +4613,10 @@
         {
           "w": "dispensable",
           "p": "dispense 分發、免除 + -able"
+        },
+        {
+          "w": "dependence",
+          "p": "depend 依賴 + -ence"
         }
       ],
       "dropped": [
@@ -4414,6 +4694,10 @@
         {
           "w": "sportsmanship",
           "p": "sportsman 運動員 + -ship"
+        },
+        {
+          "w": "supportive",
+          "p": "support 支持 + -ive"
         }
       ],
       "dropped": [
@@ -4596,6 +4880,14 @@
         {
           "w": "suitcase",
           "p": "suit 成套的衣物 + case 箱子"
+        },
+        {
+          "w": "persecution",
+          "p": "per 徹底 + secut（拉丁文 sequi 跟隨）+ -ion"
+        },
+        {
+          "w": "suitor",
+          "p": "suit（拉丁文 sequi 跟隨）+ -or（晚期拉丁文 secutor 追隨者）"
         }
       ],
       "dropped": [
@@ -4697,6 +4989,10 @@
         {
           "w": "destructive",
           "p": "destruct（de 反向 + struct 建造）+ -ive"
+        },
+        {
+          "w": "destroyer",
+          "p": "destroy（拉丁文 destruere：de 往下 + struere 堆、建造）+ -er"
         }
       ],
       "dropped": []
@@ -4790,6 +5086,10 @@
         {
           "w": "injustice",
           "p": "in 不 + justice 公正"
+        },
+        {
+          "w": "justification",
+          "p": "justify 證明合理 + -ication"
         }
       ],
       "dropped": [
@@ -4879,6 +5179,10 @@
         {
           "w": "mobilize",
           "p": "mobile 可移動的 + -ize"
+        },
+        {
+          "w": "mobility",
+          "p": "mob（拉丁文 mobilis 可移動的）+ -ility"
         }
       ],
       "dropped": [

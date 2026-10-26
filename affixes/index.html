@@ -6,7 +6,7 @@
 <title>字首字尾表｜高中英文參考詞彙表</title>
 <meta name="description" content="把大考中心《高中英文參考詞彙表》裡帶字首、字尾的字按字首、字尾分組，每個字附 KK 音標、拆解與意思，出現過的字直接連到歷屆試題，每一組另附容易拆錯的字。">
 <meta property="og:title" content="字首字尾表｜高中英文參考詞彙表">
-<meta property="og:description" content="三十九組字首、四十八組字尾，二千七百四十四個字，其中一千五百零七個字連得到學測、指考、克漏字、中譯英與作文的歷屆考題。">
+<meta property="og:description" content="三十九組字首、四十八組字尾，三千零一十五個字，其中一千五百零七個字連得到學測、指考、克漏字、中譯英與作文的歷屆考題。">
 <style>
 :root{
   --ground:#f1f3f2; --ink:#17282f; --teal:#1f6f6a; --teal-soft:#dfeceb;
@@ -50,6 +50,8 @@ li:last-child{border-bottom:1px solid var(--ad-vline-border)}
 .w{font-family:var(--serif);font-size:1.06rem;font-weight:600}
 .badge{font-size:.72rem;color:var(--ad-vmuted-fg);border:1px solid var(--ad-vline-border);background:var(--ad-xfff-bg);
   border-radius:.9rem;padding:.02rem .4rem;margin-left:.45rem;vertical-align:.08em}
+.badge.tb{white-space:nowrap;color:#2f5f5c;background:#eef6f5;border-color:#a9cfcc}
+@media (prefers-color-scheme: dark){.badge.tb{color:#CDEAE9;background:#1D2524;border-color:#344746}}
 .p{font-size:.9rem;color:var(--ad-vteal-fg);margin-top:.1rem}
 .g{font-size:.92rem;margin-top:.06rem}
 details{margin-top:.9rem;font-size:.9rem}
@@ -105,7 +107,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
 <body>
 <div class="wrap">
   <h1>字首字尾表</h1>
-  <p class="lede">把大考中心《高中英文參考詞彙表》（111 學年度起適用）裡帶字首、字尾的字，按字首、字尾分組，同一個字首或字尾再依意思分成幾小組。一、二級的熟字也收進來，先從認得的字看懂字首的意思，再拿去拆不認得的字；只想看難字，可以用級別篩選。每一組後面列出容易拆錯的字，那些是看起來像、其實不是這個字首（字尾）的字，或照字面拆會猜錯意思的字。字根另見<a href="../roots/">字根家族表</a>。目前收三十九組常用字首、四十八組字尾。同一個字有字首也有字尾的，兩邊都收錄，像 unify 在 uni- 和 -fy 兩組都查得到。</p>
+  <p class="lede">把大考中心《高中英文參考詞彙表》（111 學年度起適用）裡帶字首、字尾的字，按字首、字尾分組，同一個字首或字尾再依意思分成幾小組。龍騰、三民課本裡不在詞彙表的字，拆得出字首、字尾的也一併收進來，標出是哪一版課本的字，不標級別。一、二級的熟字也收進來，先從認得的字看懂字首的意思，再拿去拆不認得的字；只想看難字，可以用級別篩選。每一組後面列出容易拆錯的字，那些是看起來像、其實不是這個字首（字尾）的字，或照字面拆會猜錯意思的字。字根另見<a href="../roots/">字根家族表</a>。目前收三十九組常用字首、四十八組字尾。同一個字有字首也有字尾的，兩邊都收錄，像 unify 在 uni- 和 -fy 兩組都查得到。</p>
 
   <div class="tools">
     <input type="search" id="q" placeholder="搜尋單字、拆解或意思" aria-label="搜尋">
@@ -123,7 +125,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
 <script src="../kk.js"></script>
 <script>
 const $=s=>document.querySelector(s);
-let DATA=null, state={q:'', lv:new Set(), examOnly:false, w:''};
+let DATA=null, state={q:'', lv:new Set(), examOnly:false, tbOnly:false, w:''};
 let LEX={}, OTHER=null, otherLoading=false;
 
 function render(){
@@ -134,15 +136,16 @@ function render(){
   else if(state.q.trim()){xsearch(body);}
   const q=state.q.trim().toLowerCase();
   let ffShown=0; const allW=new Set(), shownW=new Set(); let lastKind=null;
-  const ffHit=x=>q && !state.lv.size && !state.examOnly && (x.why+' '+x.list).toLowerCase().includes(q);
+  const ffHit=x=>q && !state.lv.size && !state.examOnly && !state.tbOnly && (x.why+' '+x.list).toLowerCase().includes(q);
 
   const keep=it=>{
       if(state.lv.size && !state.lv.has(it.lv)) return false;
       if(state.examOnly && !(it.refs && it.refs.length)) return false;
+      if(state.tbOnly && !(it.tb && it.tb.length)) return false;
       if(state.w) return it.w===state.w;
       if(!q) return true;
       const refTxt=(it.refs||[]).map(r=>r.t).join(' ');
-      return (it.w+' '+it.p+' '+it.g+' '+refTxt).toLowerCase().includes(q);
+      return (it.w+' '+it.p+' '+it.g+' '+refTxt+' '+(it.tb||[]).join(' ')).toLowerCase().includes(q);
   };
   DATA.groups.forEach((g,gi)=>{
     const subs=g.subs.map(sb=>({t:sb.t,items:sb.items.filter(keep)}));
@@ -179,6 +182,7 @@ function render(){
       const nm=document.createElement('span'); nm.className='w'; nm.textContent=it.w; w.appendChild(nm); {const sb=SPK.el(it.w); if(sb) w.appendChild(sb);}
       {const kb=KK.el(it.w); if(kb) w.appendChild(kb);}
       if(it.lv){const b=document.createElement('span');b.className='badge';b.textContent=it.base?('衍生自 '+it.base+'（第 '+it.lv+' 級）'):('第 '+it.lv+' 級');w.appendChild(b);}
+      else if(it.tb && it.tb.length){const b=document.createElement('span');b.className='badge tb';b.textContent=it.tb.join('、')+'課本字';w.appendChild(b);}
       li.appendChild(w);
       const p=document.createElement('div'); p.className='p'; p.textContent=it.p; li.appendChild(p);
       const gg=document.createElement('div'); gg.className='g'; gg.textContent=it.g; li.appendChild(gg);
@@ -221,35 +225,26 @@ function render(){
 
   if(!shownW.size && !ffShown){
     const e=document.createElement('p'); e.className='empty';
-    e.textContent='這個條件下沒有字。清掉搜尋或級別再試一次。';
+    e.textContent='這個條件下沒有字。清掉搜尋或篩選再試一次。';
     body.appendChild(e);
   }
   const linkedW=new Set(); DATA.groups.forEach(g=>g.subs.forEach(sb=>sb.items.forEach(it=>{if(it.refs&&it.refs.length)linkedW.add(it.w);}))); const linked=linkedW.size, total=allW.size, shown=shownW.size;
   const nPre=DATA.groups.filter(g=>g.kind!=='suffix').length, nSuf=DATA.groups.length-nPre;
-  $('#count').textContent = (state.q||state.w||state.lv.size||state.examOnly)
+  $('#count').textContent = (state.q||state.w||state.lv.size||state.examOnly||state.tbOnly)
     ? '符合的字 '+shown+' 個'+(ffShown?'，另有 '+ffShown+' 則「容易拆錯的字」說明提到這個字':'')+'，全表共 '+total.toLocaleString('en-US')+' 個'
     : '共 '+nPre+' 組字首'+(nSuf?'、'+nSuf+' 組字尾':'')+'、'+total.toLocaleString('en-US')+' 個字，其中 '+linked.toLocaleString('en-US')+' 個字附了考古題連結';
 }
 
 function buildLv(){
-  const box=$('#lv');
-  const e=document.createElement('button');
-  e.type='button'; e.textContent='只看出現過的字';
-  e.setAttribute('aria-pressed','false');
-  e.onclick=()=>{ state.examOnly=!state.examOnly;
-    e.setAttribute('aria-pressed', state.examOnly?'true':'false'); render(); };
-  box.appendChild(e);
-  for(let i=1;i<=6;i++){
-    const b=document.createElement('button');
-    b.type='button'; b.textContent='第 '+i+' 級';
-    b.setAttribute('aria-pressed','false');
-    b.onclick=()=>{
-      if(state.lv.has(i)){state.lv.delete(i);b.setAttribute('aria-pressed','false');}
-      else{state.lv.add(i);b.setAttribute('aria-pressed','true');}
-      render();
-    };
-    box.appendChild(b);
-  }
+  const box=$('#lv'); const btns=[];
+  const sync=()=>btns.forEach(x=>x.b.setAttribute('aria-pressed',x.on()?'true':'false'));
+  const add=(label,on,click)=>{const b=document.createElement('button');b.type='button';b.textContent=label;
+    b.setAttribute('aria-pressed','false');b.onclick=()=>{click();sync();render();};box.appendChild(b);btns.push({b,on});};
+  add('只看出現過的字',()=>state.examOnly,()=>{state.examOnly=!state.examOnly;if(state.examOnly)state.tbOnly=false;});
+  add('只看課本字',()=>state.tbOnly,()=>{state.tbOnly=!state.tbOnly;if(state.tbOnly){state.examOnly=false;state.lv.clear();}});
+  for(let i=1;i<=6;i++)
+    add('第 '+i+' 級',()=>state.lv.has(i),()=>{if(state.lv.has(i))state.lv.delete(i);else{state.lv.add(i);state.tbOnly=false;}});
+  window.syncBtns=sync;
 }
 
 function xsearch(body){
@@ -270,7 +265,7 @@ function jumpKind(){
 }
 function readHash(){
   const h=decodeURIComponent(location.hash.slice(1));
-  if(h.startsWith('w=')){state.w=h.slice(2);state.q='';$('#q').value='';}
+  if(h.startsWith('w=')){state.w=h.slice(2);state.q='';$('#q').value='';state.tbOnly=false;state.examOnly=false;state.lv.clear();if(window.syncBtns)window.syncBtns();}
   else if(h.startsWith('q=')){state.w='';state.q=h.slice(2);$('#q').value=state.q;}
 }
 Promise.all([fetch('affixes_data.json').then(r=>r.json()),fetch('../lexicon/lexicon_data.json').then(r=>r.json()),KK.ready]).then(([d,lex])=>{

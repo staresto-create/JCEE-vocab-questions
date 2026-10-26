@@ -133,7 +133,7 @@ function plain(g){return String(g).replace(/(^|；)\s*((?:[a-z]+\.(?:\/[a-z]+\.)
 function exOf(e){var x=EX[e.key];if(x)return x;var k=Object.keys(e.forms);for(var i=0;i<k.length;i++)if(EX[k[i]])return EX[k[i]];return null;}
 function exGloss(x){return x&&x.z?((x.p&&!/^[a-z.\/]+\.\s/.test(x.z))?x.p+' ':'')+x.z:'';}
 function glossOf(e){
-  if(e.out)return (LEX[e.key]&&LEX[e.key].g)?plain(LEX[e.key].g):exGloss(exOf(e));
+  if(e.out){var le=LEX[e.key];if(le&&le.g&&!le.tb)return plain(le.g);var xg=exGloss(exOf(e));if(xg)return xg;return (le&&le.g)?plain(le.g):'';}
   var p=POLY[e.key]; if(p)return p.fam&&p.test?p.fam+'；'+p.test:(p.fam||p.test||'');
   if(LEX[e.key]&&LEX[e.key].g)return plain(LEX[e.key].g);
   if(e.grp&&e.grp.gloss)return plain(e.grp.gloss);
