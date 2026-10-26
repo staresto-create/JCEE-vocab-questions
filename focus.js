@@ -255,7 +255,7 @@
       var tg = el('span', 'scf-tg');
       sh.appendChild(tg);
       smy.appendChild(sh);
-      var sub = el('p', 'scf-soft', '用番茄鐘專心練習，完成目標就去兌現自己訂的願望。');
+      var sub = el('p', 'scf-soft', '用番茄鐘（專心 25 分鐘、休息 5 分鐘）練習，完成目標就去兌現自己訂的願望。');
       sub.style.margin = '2px 0 0';
       smy.appendChild(sub);
       box.appendChild(smy);
@@ -470,7 +470,7 @@
           }
           var idleNote = null, goBtn = null, previewHost = null;
           var refreshIdle = function () {
-            if (idleNote) idleNote.textContent = '一顆是 ' + st.len + ' 分鐘專心練習，加 ' + shortBreak(st.len) + ' 分鐘休息；每做完 4 顆，休息會拉長到 ' + longBreak(st.len) + ' 分鐘。可以用站上的題庫，也可以印出來寫。' + (st.len === 50 ? '（原始的番茄工作法一顆是 25 分鐘，50 分鐘是加長版。）' : '');
+            if (idleNote) idleNote.textContent = '番茄鐘是一種幫助專心的方法：專心做 ' + st.len + ' 分鐘、休息 ' + shortBreak(st.len) + ' 分鐘，合起來稱為一顆。每做完 4 顆，休息會拉長到 ' + longBreak(st.len) + ' 分鐘。專心的這 ' + st.len + ' 分鐘，可以在網站上做題目，也可以把題目印出來寫。' + (st.len === 50 ? '（原始的番茄鐘一顆是 25 分鐘，50 分鐘是加長版。）' : '');
             if (goBtn) { goBtn.textContent = '開始第 ' + (st.done + 1) + ' 顆'; goBtn.appendChild(el('span', 'scf-nw', '（' + st.len + ' 分鐘）')); }
           };
           if (!breakOver() && st.done === 0) {
