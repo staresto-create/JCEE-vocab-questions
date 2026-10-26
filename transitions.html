@@ -95,6 +95,7 @@ details:not(.sh) > summary *::before, details:not(.sh) > summary *::after, detai
 details:not(.sh) > summary::after{content:"＋ 展開" !important; display:block !important; position:absolute !important; right:10px !important; top:50% !important; transform:translateY(-50%) !important; margin:0 !important; padding:2px 10px !important; border:1px solid currentColor !important; border-radius:999px !important; background:transparent !important; color:inherit !important; opacity:.85; font:400 12.5px/1.5 "Noto Sans TC",system-ui,sans-serif !important; letter-spacing:0 !important; text-transform:none !important; white-space:nowrap !important; text-decoration:none !important; width:auto !important; height:auto !important;}
 details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
 @media print{details:not(.sh) > summary::after{display:none !important;}}
+.yrs .y{white-space:nowrap}
 </style>
 <style id="anti-copy">
 /* 防盜用措施（2026-10-14）：畫面浮水印、列印浮水印、頁尾授權聲明 */
@@ -155,7 +156,7 @@ footer.foot a{white-space:nowrap}
 @media (max-width:700px){
 .stick{position:sticky;top:0;z-index:5;border-bottom:1px solid var(--ad-vrule-border)}
 .jump{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch}
-.jump button{flex:none;min-height:2.25rem;padding:.3rem .8rem}
+.jump button{flex:none;min-height:2.25rem;padding:.3rem .7rem}
 .row button{min-height:2.4rem;padding:.35rem .8rem}
 .yrs a{display:inline-block;padding:.3rem .3rem;margin:-.1rem -.05rem}
 .refs a,.cnt a{display:inline-block;padding:.2rem .35rem}
@@ -181,7 +182,7 @@ ul.list details>summary{padding-top:.5rem;padding-bottom:.5rem}
       <p><b>文章裡</b>：只算當轉承用的，這種用法通常在句首，或前後用逗號隔開，例如 However, … 或 …, however, …。一般副詞的用法（像 equally important、finally stopped）不算。</p>
       <p><b>選項裡</b>：選項整個就是這個詞或片語，答案和誘答都算。</p>
       <p><b>試卷份數</b>：出現在幾份試卷。大考中心有時把同一篇文章用在不同的試卷（例如 109 學測與 115 參考試卷），這種情況各算一份。補考、參考試卷、試辦和推薦甄選的試卷，也都各算一份。同一份試卷的文章和選項裡可能都有這個詞，所以每一條的「文章」份數加「選項」份數，會比試卷份數多。</p>
-      <p><b>範圍</b>：本題庫自己改寫的練習題不算。指考 90 年以前的大學聯考（詞彙題）也一併收在指考欄。</p>
+      <p><b>範圍</b>：本題庫自己改寫的練習題不算。指考 90 年以前的大學聯考（詞彙題）也一併收在指考欄。連接詞（because、although、as soon as、both…and 等）另外整理在<a href="conjunctions.html">連接詞</a>。</p>
       <p><b>答對率</b>：這個詞或片語曾當克漏字、文意選填或詞彙題的答案，而且大考中心有公布答對率時，才列出，由低到高排列；沒有公布的試卷就不列。篇章結構的答案是整個句子，答對率不能代表這個詞好不好選，所以不列。</p>
       <p>有些詞只出現在選項，文章裡沒有當轉承用，例如 otherwise、in short，這些會標出「文章 0」。</p>
     </details>
@@ -197,7 +198,7 @@ ul.list details>summary{padding-top:.5rem;padding-bottom:.5rem}
   <ul class="list" id="body"></ul>
 
   <footer class="foot" id="foot">
-    <a href="../">回題庫首頁</a>　·　<a href="fixed-phrases.html">固定用語與插入語</a>　·　<a href="phrasal-verbs.html">片語動詞</a>　·　<a href="verb-prep.html">動詞＋介系詞</a>　·　<a href="adjective-prep.html">形容詞＋介系詞</a>　·　<a href="auxiliaries.html">助動詞</a>　·　<a href="pronouns.html">你所不知道的代名詞</a>　·　<a href="cards/">單字記憶卡</a>　·　<a href="cards/coverage.html">詞彙表覆蓋清單</a>　·　<a href="cohesion.html">讀法練習</a><br>
+    <a href="../">回題庫首頁</a>　·　<a href="conjunctions.html">連接詞</a>　·　<a href="fixed-phrases.html">固定用語與插入語</a>　·　<a href="phrasal-verbs.html">片語動詞</a>　·　<a href="verb-prep.html">動詞＋介系詞</a>　·　<a href="adjective-prep.html">形容詞＋介系詞</a>　·　<a href="auxiliaries.html">助動詞</a>　·　<a href="pronouns.html">你所不知道的代名詞</a>　·　<a href="cards/">單字記憶卡</a>　·　<a href="cards/coverage.html">詞彙表覆蓋清單</a>　·　<a href="cohesion.html">讀法練習</a><br>
     音標為 KK，中文意思參考劍橋英漢（繁體）詞典，並參照 Cambridge、Merriam-Webster 等字典；例句出自學測、指考歷屆試題。資料更新：2026-10-26。免費、無廣告的非營利自學題庫。
 <p class="cc-note">本題庫自己寫的部分（解析、中譯、分類、標註與編排）採用 <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh-hant" target="_blank" rel="license noopener">CC BY-NC 4.0</a>（姓名標示─非商業性）授權：可以分享，但須註明出處，不得用於商業用途。試題來源與完整說明請見<a href="https://staresto-create.github.io/JCEE-vocab-questions/#terms">使用與著作權</a>。</p>
   </footer>
@@ -231,9 +232,10 @@ function hl(sentence,w){
 }
 function ylist(fam,arr){
   if(!arr.length) return '';
-  return '<div>'+fam+'：'+arr.map(function(x){
-    return x[3]?'<a href="'+esc(x[3])+'" target="_blank" rel="noopener" title="'+esc(x[4])+'">'+esc(x[2])+'</a>':'<span title="'+esc(x[4])+'">'+esc(x[2])+'</span>';
-  }).join('、')+'</div>';
+  return '<div>'+fam+'：'+arr.map(function(x,i){
+    var t=x[3]?'<a href="'+esc(x[3])+'" target="_blank" rel="noopener" title="'+esc(x[4])+'">'+esc(x[2])+'</a>':'<span title="'+esc(x[4])+'">'+esc(x[2])+'</span>';
+    return '<span class="y">'+t+(i<arr.length-1?'、':'')+'</span>';
+  }).join('')+'</div>';
 }
 function norm(s){return String(s).toLowerCase().replace(/[\u2018\u2019]/g,"'");}
 var SEGT=['出現在 20 份以上試卷','出現在 10–19 份試卷','出現在 5–9 份試卷','出現在 2–4 份試卷','只出現在 1 份試卷'];
