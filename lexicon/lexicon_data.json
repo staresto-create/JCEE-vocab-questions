@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "note": "字根家族表與字首字尾表共用的單字資料：每個字的級別（lv）、中文釋義（g）、出現過的題目（refs）只存在這裡一份，兩張表的分組檔只放字與拆解（p）。base 是詞彙表沒有另外列的衍生字所依據的原字。 fam 是這個字在字根家族表所屬的家族，aff 是它在字首字尾表所屬的組，兩頁用來互相連結。 音標不放在這裡，統一放在 kk_data.json。",
- "updated": "2026-10-11",
+ "updated": "2026-10-26",
  "words": {
   "Internet": {
    "lv": 2,
@@ -314,7 +314,8 @@
     }
    ],
    "aff": [
-    "ad-（ac-／af-／ag-／al-／an-／ap-／ar-／as-／at-／a-）"
+    "ad-（ac-／af-／ag-／al-／an-／ap-／ar-／as-／at-／a-）",
+    "-ate"
    ]
   },
   "accept": {
@@ -746,7 +747,8 @@
     }
    ],
    "aff": [
-    "ad-（ac-／af-／ag-／al-／an-／ap-／ar-／as-／at-／a-）"
+    "ad-（ac-／af-／ag-／al-／an-／ap-／ar-／as-／at-／a-）",
+    "-ate"
    ]
   },
   "accusation": {
@@ -1204,7 +1206,8 @@
     }
    ],
    "aff": [
-    "ad-（ac-／af-／ag-／al-／an-／ap-／ar-／as-／at-／a-）"
+    "ad-（ac-／af-／ag-／al-／an-／ap-／ar-／as-／at-／a-）",
+    "-ate"
    ]
   },
   "adjust": {
@@ -1333,6 +1336,9 @@
      "t": "中譯英 109(指考) 第126題"
     }
    ],
+   "fam": [
+    "mit / miss"
+   ],
    "aff": [
     "ad-（ac-／af-／ag-／al-／an-／ap-／ar-／as-／at-／a-）",
     "-sion（-ssion）"
@@ -1360,6 +1366,9 @@
      "t": "指考克漏字 107年 第14格",
      "k": "d"
     }
+   ],
+   "fam": [
+    "mit / miss"
    ],
    "aff": [
     "ad-（ac-／af-／ag-／al-／an-／ap-／ar-／as-／at-／a-）"
@@ -1863,6 +1872,9 @@
   "aggression": {
    "lv": 5,
    "g": "n. 朝著別人走過去→侵略；攻擊性",
+   "fam": [
+    "grad / gress"
+   ],
    "aff": [
     "ad-（ac-／af-／ag-／al-／an-／ap-／ar-／as-／at-／a-）",
     "-sion（-ssion）"
@@ -1884,6 +1896,9 @@
      "t": "學測克漏字 112年 第19格",
      "k": "d"
     }
+   ],
+   "fam": [
+    "grad / gress"
    ],
    "aff": [
     "ad-（ac-／af-／ag-／al-／an-／ap-／ar-／as-／at-／a-）",
@@ -2085,6 +2100,9 @@
      "t": "指考克漏字 109年 第11格",
      "k": "d"
     }
+   ],
+   "fam": [
+    "alter"
    ],
    "aff": [
     "-ive"
@@ -2502,6 +2520,9 @@
    ],
    "fam": [
     "cap / capt / cip / cept"
+   ],
+   "aff": [
+    "-ate"
    ]
   },
   "anticipation": {
@@ -2926,7 +2947,8 @@
     }
    ],
    "aff": [
-    "ad-（ac-／af-／ag-／al-／an-／ap-／ar-／as-／at-／a-）"
+    "ad-（ac-／af-／ag-／al-／an-／ap-／ar-／as-／at-／a-）",
+    "-ate"
    ]
   },
   "appreciation": {
@@ -2996,7 +3018,8 @@
     }
    ],
    "aff": [
-    "ad-（ac-／af-／ag-／al-／an-／ap-／ar-／as-／at-／a-）"
+    "ad-（ac-／af-／ag-／al-／an-／ap-／ar-／as-／at-／a-）",
+    "-ate"
    ]
   },
   "approval": {
@@ -3021,6 +3044,9 @@
      "t": "中譯英 73(大學聯考) 第1題"
     }
    ],
+   "fam": [
+    "prob / prov"
+   ],
    "aff": [
     "ad-（ac-／af-／ag-／al-／an-／ap-／ar-／as-／at-／a-）",
     "-al"
@@ -3042,6 +3068,9 @@
      "t": "指考克漏字 104年 第12格",
      "k": "d"
     }
+   ],
+   "fam": [
+    "prob / prov"
    ],
    "aff": [
     "ad-（ac-／af-／ag-／al-／an-／ap-／ar-／as-／at-／a-）"
@@ -4145,6 +4174,9 @@
   "automobile": {
    "lv": 3,
    "g": "n. 自己會動的車→汽車",
+   "fam": [
+    "mov / mot / mob"
+   ],
    "aff": [
     "auto-"
    ]
@@ -5156,6 +5188,7 @@
    "lv": 5,
    "g": "n. 官僚體制",
    "aff": [
+    "-cracy（-crat）",
     "-cy（-acy）"
    ]
   },
@@ -5606,6 +5639,9 @@
   "central": {
    "lv": 2,
    "g": "adj. 中心的、中央的；主要的",
+   "fam": [
+    "centr"
+   ],
    "aff": [
     "-al"
    ]
@@ -6560,6 +6596,9 @@
      "t": "作文字彙表 88學年 work on commission"
     }
    ],
+   "fam": [
+    "mit / miss"
+   ],
    "aff": [
     "con-（com-／col-／cor-／co-）",
     "-sion（-ssion）"
@@ -6588,6 +6627,9 @@
      "k": "a"
     }
    ],
+   "fam": [
+    "mit / miss"
+   ],
    "aff": [
     "con-（com-／col-／cor-／co-）"
    ]
@@ -6615,6 +6657,9 @@
      "k": "d"
     }
    ],
+   "fam": [
+    "mit / miss"
+   ],
    "aff": [
     "con-（com-／col-／cor-／co-）",
     "-ment"
@@ -6630,6 +6675,9 @@
      "t": "93敏督利颱風受災地區考生補救考試 單字Q2",
      "k": "d"
     }
+   ],
+   "fam": [
+    "mit / miss"
    ],
    "aff": [
     "con-（com-／col-／cor-／co-）",
@@ -6697,7 +6745,7 @@
     }
    ],
    "aff": [
-    "con-（com-／col-／cor-／co-）"
+    "-ate"
    ]
   },
   "communication": {
@@ -7010,6 +7058,9 @@
      "k": "d"
     }
    ],
+   "fam": [
+    "pend / pens"
+   ],
    "aff": [
     "con-（com-／col-／cor-／co-）"
    ]
@@ -7017,6 +7068,9 @@
   "compensation": {
    "lv": 5,
    "g": "n. 補償、賠償；賠償金",
+   "fam": [
+    "pend / pens"
+   ],
    "aff": [
     "con-（com-／col-／cor-／co-）",
     "-tion（-ation／-ition）"
@@ -7428,6 +7482,9 @@
      "k": "d"
     }
    ],
+   "fam": [
+    "mit / miss"
+   ],
    "aff": [
     "con-（com-／col-／cor-／co-）"
    ]
@@ -7557,8 +7614,12 @@
      "t": "作文字彙表 95學年 concentrate"
     }
    ],
+   "fam": [
+    "centr"
+   ],
    "aff": [
-    "con-（com-／col-／cor-／co-）"
+    "con-（com-／col-／cor-／co-）",
+    "-ate"
    ]
   },
   "concentration": {
@@ -7583,6 +7644,9 @@
      "t": "98指考參考試卷（99 課綱適用） 單字Q2",
      "k": "d"
     }
+   ],
+   "fam": [
+    "centr"
    ],
    "aff": [
     "con-（com-／col-／cor-／co-）",
@@ -7828,6 +7892,9 @@
      "t": "中譯英 115(學測) 第145題"
     }
    ],
+   "fam": [
+    "duc / duct"
+   ],
    "aff": [
     "con-（com-／col-／cor-／co-）"
    ]
@@ -7835,6 +7902,9 @@
   "conductor": {
    "lv": 4,
    "g": "n. 指揮；列車長、車掌；導體",
+   "fam": [
+    "duc / duct"
+   ],
    "aff": [
     "con-（com-／col-／cor-／co-）",
     "-er（-or／-ar）"
@@ -8147,6 +8217,9 @@
   "congress": {
    "lv": 4,
    "g": "n. 走到一起開會→國會；代表大會",
+   "fam": [
+    "grad / gress"
+   ],
    "aff": [
     "con-（com-／col-／cor-／co-）"
    ]
@@ -8154,6 +8227,9 @@
   "congressman": {
    "lv": 6,
    "g": "n. 國會議員",
+   "fam": [
+    "grad / gress"
+   ],
    "aff": [
     "con-（com-／col-／cor-／co-）",
     "-man（-woman／-person）"
@@ -8162,6 +8238,9 @@
   "congresswoman": {
    "lv": 6,
    "g": "n. 女國會議員",
+   "fam": [
+    "grad / gress"
+   ],
    "aff": [
     "con-（com-／col-／cor-／co-）",
     "-man（-woman／-person）"
@@ -8331,6 +8410,9 @@
   "consecutive": {
    "lv": 5,
    "g": "adj. 一個跟著一個的→連續的",
+   "fam": [
+    "sequ / secu"
+   ],
    "aff": [
     "con-（com-／col-／cor-／co-）",
     "-ive"
@@ -8387,6 +8469,9 @@
      "k": "a"
     }
    ],
+   "fam": [
+    "sequ / secu"
+   ],
    "aff": [
     "con-（com-／col-／cor-／co-）",
     "-ence（-ency）"
@@ -8414,6 +8499,9 @@
      "t": "92指考 單字Q8",
      "k": "d"
     }
+   ],
+   "fam": [
+    "sequ / secu"
    ],
    "aff": [
     "con-（com-／col-／cor-／co-）",
@@ -8726,6 +8814,9 @@
      "k": "d"
     }
    ],
+   "fam": [
+    "struct"
+   ],
    "aff": [
     "con-（com-／col-／cor-／co-）"
    ]
@@ -8753,6 +8844,9 @@
      "k": "d"
     }
    ],
+   "fam": [
+    "struct"
+   ],
    "aff": [
     "con-（com-／col-／cor-／co-）",
     "-tion（-ation／-ition）"
@@ -8774,6 +8868,9 @@
      "t": "108指考 單字Q2",
      "k": "a"
     }
+   ],
+   "fam": [
+    "struct"
    ],
    "aff": [
     "con-（com-／col-／cor-／co-）",
@@ -9702,6 +9799,9 @@
   "convict": {
    "lv": 5,
    "g": "v. 徹底打敗→判有罪；n. 囚犯",
+   "fam": [
+    "vict / vinc"
+   ],
    "aff": [
     "con-（com-／col-／cor-／co-）"
    ]
@@ -9716,6 +9816,9 @@
      "t": "107指考 單字Q4",
      "k": "d"
     }
+   ],
+   "fam": [
+    "vict / vinc"
    ],
    "aff": [
     "con-（com-／col-／cor-／co-）",
@@ -9744,6 +9847,9 @@
      "t": "88推薦甄選 單字Q1",
      "k": "d"
     }
+   ],
+   "fam": [
+    "vict / vinc"
    ],
    "aff": [
     "con-（com-／col-／cor-／co-）"
@@ -9819,6 +9925,9 @@
   "corporation": {
    "lv": 5,
    "g": "n. 公司、企業",
+   "fam": [
+    "corp"
+   ],
    "aff": [
     "-tion（-ation／-ition）"
    ]
@@ -10196,6 +10305,9 @@
   "credibility": {
    "lv": 5,
    "g": "n. 可信度",
+   "fam": [
+    "cred"
+   ],
    "aff": [
     "-ity（-ty）"
    ]
@@ -10210,6 +10322,9 @@
      "t": "101指考 單字Q8",
      "k": "d"
     }
+   ],
+   "fam": [
+    "cred"
    ],
    "aff": [
     "-able（-ible）"
@@ -10642,7 +10757,7 @@
   },
   "deceive": {
    "lv": 5,
-   "g": "v. 設圈套抓人→欺騙",
+   "g": "v. 設下圈套困住人→欺騙",
    "fam": [
     "-ceive / -ceipt / -cept"
    ],
@@ -10842,7 +10957,8 @@
     "dict / dic"
    ],
    "aff": [
-    "de-"
+    "de-",
+    "-ate"
    ]
   },
   "dedication": {
@@ -10859,6 +10975,9 @@
   "deduct": {
    "lv": 6,
    "g": "v. 引出去拿掉→扣除",
+   "fam": [
+    "duc / duct"
+   ],
    "aff": [
     "de-"
    ]
@@ -11124,6 +11243,9 @@
      "t": "作文字彙表 100學年 degree"
     }
    ],
+   "fam": [
+    "grad / gress"
+   ],
    "aff": [
     "de-"
    ]
@@ -11279,6 +11401,7 @@
    "lv": 3,
    "g": "n. 民主；民主國家",
    "aff": [
+    "-cracy（-crat）",
     "-cy（-acy）"
    ]
   },
@@ -11286,7 +11409,7 @@
    "lv": 3,
    "g": "adj. 民主的",
    "aff": [
-    "-ic（-ical）"
+    "-cracy（-crat）"
    ]
   },
   "demonstrate": {
@@ -11313,7 +11436,8 @@
     }
    ],
    "aff": [
-    "de-"
+    "de-",
+    "-ate"
    ]
   },
   "demonstration": {
@@ -11473,6 +11597,9 @@
      "t": "中譯英 94(指考研究用試卷) 第159題"
     }
    ],
+   "fam": [
+    "pend / pens"
+   ],
    "aff": [
     "de-"
    ]
@@ -11486,6 +11613,9 @@
      "id": "106",
      "t": "作文字彙表 106學年 emotionally dependent"
     }
+   ],
+   "fam": [
+    "pend / pens"
    ],
    "aff": [
     "de-",
@@ -11837,7 +11967,8 @@
     }
    ],
    "aff": [
-    "de-"
+    "de-",
+    "-ate"
    ]
   },
   "despise": {
@@ -11950,6 +12081,9 @@
      "k": "d"
     }
    ],
+   "fam": [
+    "struct"
+   ],
    "aff": [
     "de-"
    ]
@@ -11964,6 +12098,9 @@
      "t": "89學測 單字Q7",
      "k": "d"
     }
+   ],
+   "fam": [
+    "struct"
    ],
    "aff": [
     "de-",
@@ -11986,6 +12123,9 @@
      "t": "指考克漏字 91年 第23格",
      "k": "d"
     }
+   ],
+   "fam": [
+    "struct"
    ],
    "aff": [
     "de-",
@@ -12394,7 +12534,8 @@
     "fer"
    ],
    "aff": [
-    "dis-（dif-／di-）"
+    "dis-（dif-／di-）",
+    "-ate"
    ]
   },
   "difficult": {
@@ -12703,6 +12844,9 @@
   "disapprove": {
    "lv": 5,
    "g": "v. 不贊成",
+   "fam": [
+    "prob / prov"
+   ],
    "aff": [
     "dis-（dif-／di-）"
    ]
@@ -13148,6 +13292,9 @@
      "k": "d"
     }
    ],
+   "fam": [
+    "mit / miss"
+   ],
    "aff": [
     "dis-（dif-／di-）"
    ]
@@ -13178,6 +13325,9 @@
      "k": "d"
     }
    ],
+   "fam": [
+    "pend / pens"
+   ],
    "aff": [
     "dis-（dif-／di-）",
     "-able（-ible）"
@@ -13193,6 +13343,9 @@
      "t": "指考克漏字 105年 第15格",
      "k": "d"
     }
+   ],
+   "fam": [
+    "pend / pens"
    ],
    "aff": [
     "dis-（dif-／di-）"
@@ -14120,6 +14273,9 @@
      "k": "d"
     }
    ],
+   "fam": [
+    "centr"
+   ],
    "aff": [
     "-ic（-ical）"
    ]
@@ -14265,9 +14421,13 @@
   },
   "educate": {
    "lv": 3,
-   "g": "v. 把能力引導出來→教育",
+   "g": "v. 教育；培養",
+   "fam": [
+    "duc / duct"
+   ],
    "aff": [
-    "ex-（e-／ef-）"
+    "ex-（e-／ef-）",
+    "-ate"
    ]
   },
   "education": {
@@ -14286,6 +14446,9 @@
      "t": "中譯英 109(指考補考) 第128題"
     }
    ],
+   "fam": [
+    "duc / duct"
+   ],
    "aff": [
     "ex-（e-／ef-）",
     "-tion（-ation／-ition）"
@@ -14294,6 +14457,9 @@
   "educational": {
    "lv": 3,
    "g": "adj. 教育的；有教育意義的",
+   "fam": [
+    "duc / duct"
+   ],
    "aff": [
     "ex-（e-／ef-）",
     "-al"
@@ -14663,7 +14829,7 @@
   },
   "eliminate": {
    "lv": 4,
-   "g": "v. 趕出門檻→消除、淘汰",
+   "g": "v. 趕出門外→消除、淘汰",
    "refs": [
     {
      "s": "gsat",
@@ -14685,7 +14851,8 @@
     }
    ],
    "aff": [
-    "ex-（e-／ef-）"
+    "ex-（e-／ef-）",
+    "-ate"
    ]
   },
   "eloquent": {
@@ -14834,6 +15001,9 @@
   "emission": {
    "lv": 5,
    "g": "n. 排放；排放物",
+   "fam": [
+    "mit / miss"
+   ],
    "aff": [
     "ex-（e-／ef-）",
     "-sion（-ssion）"
@@ -14855,6 +15025,9 @@
      "t": "指考克漏字 98年 第12格",
      "k": "a"
     }
+   ],
+   "fam": [
+    "mov / mot / mob"
    ],
    "aff": [
     "ex-（e-／ef-）",
@@ -14882,6 +15055,9 @@
      "id": "112",
      "t": "作文字彙表 112學年 emotionally"
     }
+   ],
+   "fam": [
+    "mov / mot / mob"
    ],
    "aff": [
     "ex-（e-／ef-）",
@@ -15968,6 +16144,9 @@
   "establishment": {
    "lv": 4,
    "g": "n. 建立；機構",
+   "fam": [
+    "stabl / stabil"
+   ],
    "aff": [
     "-ment"
    ]
@@ -16048,7 +16227,8 @@
     }
    ],
    "aff": [
-    "ex-（e-／ef-）"
+    "ex-（e-／ef-）",
+    "-ate"
    ]
   },
   "evaluation": {
@@ -16248,7 +16428,8 @@
     }
    ],
    "aff": [
-    "ex-（e-／ef-）"
+    "ex-（e-／ef-）",
+    "-ate"
    ]
   },
   "exaggeration": {
@@ -16753,6 +16934,9 @@
      "k": "d"
     }
    ],
+   "fam": [
+    "sequ / secu"
+   ],
    "aff": [
     "ex-（e-／ef-）"
    ]
@@ -16760,6 +16944,9 @@
   "execution": {
    "lv": 5,
    "g": "n. 執行；處決",
+   "fam": [
+    "sequ / secu"
+   ],
    "aff": [
     "ex-（e-／ef-）",
     "-tion（-ation／-ition）"
@@ -16775,6 +16962,9 @@
      "t": "109指考 單字Q1",
      "k": "d"
     }
+   ],
+   "fam": [
+    "sequ / secu"
    ],
    "aff": [
     "ex-（e-／ef-）",
@@ -16852,6 +17042,9 @@
      "k": "d"
     }
    ],
+   "fam": [
+    "habit"
+   ],
    "aff": [
     "ex-（e-／ef-）"
    ]
@@ -16859,6 +17052,9 @@
   "exhibition": {
    "lv": 3,
    "g": "n. 展覽",
+   "fam": [
+    "habit"
+   ],
    "aff": [
     "ex-（e-／ef-）",
     "-tion（-ation／-ition）"
@@ -17021,6 +17217,9 @@
   "expenditure": {
    "lv": 6,
    "g": "n. 支出、開支、花費",
+   "fam": [
+    "pend / pens"
+   ],
    "aff": [
     "ex-（e-／ef-）",
     "-ure"
@@ -17042,6 +17241,9 @@
      "t": "作文字彙表 115學年 at the expense of"
     }
    ],
+   "fam": [
+    "pend / pens"
+   ],
    "aff": [
     "ex-（e-／ef-）"
    ]
@@ -17062,6 +17264,9 @@
      "t": "93指考 單字Q9",
      "k": "d"
     }
+   ],
+   "fam": [
+    "pend / pens"
    ],
    "aff": [
     "ex-（e-／ef-）",
@@ -17356,6 +17561,9 @@
   "export": {
    "lv": 3,
    "g": "v./n. 帶出去→出口",
+   "fam": [
+    "port"
+   ],
    "aff": [
     "ex-（e-／ef-）"
    ]
@@ -18360,6 +18568,9 @@
   "fireproof": {
    "lv": 6,
    "g": "adj. 防火的、耐火的",
+   "fam": [
+    "prob / prov"
+   ],
    "aff": [
     "-proof"
    ]
@@ -19230,6 +19441,9 @@
      "k": "d"
     }
    ],
+   "fam": [
+    "gen"
+   ],
    "aff": [
     "-al"
    ]
@@ -19254,6 +19468,9 @@
      "t": "中譯英 84(大學聯考) 第62題"
     }
    ],
+   "fam": [
+    "gen"
+   ],
    "aff": [
     "-tion（-ation／-ition）"
    ]
@@ -19261,6 +19478,9 @@
   "generator": {
    "lv": 5,
    "g": "n. 發電機",
+   "fam": [
+    "gen"
+   ],
    "aff": [
     "-er（-or／-ar）"
    ]
@@ -19287,6 +19507,9 @@
      "t": "87聯考 單字Q7",
      "k": "a"
     }
+   ],
+   "fam": [
+    "gen"
    ],
    "aff": [
     "-ity（-ty）"
@@ -19315,6 +19538,9 @@
      "k": "d"
     }
    ],
+   "fam": [
+    "gen"
+   ],
    "aff": [
     "-ous"
    ]
@@ -19322,6 +19548,9 @@
   "genetic": {
    "lv": 5,
    "g": "adj. 基因的、遺傳的",
+   "fam": [
+    "gen"
+   ],
    "aff": [
     "-ic（-ical）"
    ]
@@ -19329,6 +19558,9 @@
   "gentleman": {
    "lv": 2,
    "g": "n. 紳士",
+   "fam": [
+    "gen"
+   ],
    "aff": [
     "-man（-woman／-person）"
    ]
@@ -19591,6 +19823,9 @@
      "k": "d"
     }
    ],
+   "fam": [
+    "grad / gress"
+   ],
    "aff": [
     "-al"
    ]
@@ -19615,6 +19850,9 @@
      "id": "94",
      "t": "作文字彙表 94學年 graduation"
     }
+   ],
+   "fam": [
+    "grad / gress"
    ],
    "aff": [
     "-tion（-ation／-ition）"
@@ -19809,6 +20047,9 @@
   "habitual": {
    "lv": 4,
    "g": "adj. 習慣性的",
+   "fam": [
+    "habit"
+   ],
    "aff": [
     "-al"
    ]
@@ -20720,7 +20961,8 @@
     }
    ],
    "aff": [
-    "in-（im-／il-／ir-）"
+    "in-（im-／il-／ir-）",
+    "-ate"
    ]
   },
   "illustration": {
@@ -20813,8 +21055,12 @@
      "k": "a"
     }
    ],
+   "fam": [
+    "medi"
+   ],
    "aff": [
-    "in-（im-／il-／ir-）"
+    "in-（im-／il-／ir-）",
+    "-ate"
    ]
   },
   "immense": {
@@ -21087,6 +21333,9 @@
   "import": {
    "lv": 3,
    "g": "v./n. 帶進來→進口",
+   "fam": [
+    "port"
+   ],
    "aff": [
     "in-（im-／il-／ir-）"
    ]
@@ -21094,6 +21343,9 @@
   "importance": {
    "lv": 2,
    "g": "n. 重要性",
+   "fam": [
+    "port"
+   ],
    "aff": [
     "in-（im-／il-／ir-）",
     "-ance（-ancy）"
@@ -21121,6 +21373,9 @@
      "t": "指考克漏字 98年 第15格",
      "k": "d"
     }
+   ],
+   "fam": [
+    "port"
    ],
    "aff": [
     "in-（im-／il-／ir-）",
@@ -21524,6 +21779,9 @@
   "incorporate": {
    "lv": 5,
    "g": "v. 放進同一個身體→納入、合併",
+   "fam": [
+    "corp"
+   ],
    "aff": [
     "in-（im-／il-／ir-）"
    ]
@@ -21558,6 +21816,9 @@
   "incredible": {
    "lv": 4,
    "g": "adj. 不能相信的→難以置信的；極好的、驚人的",
+   "fam": [
+    "cred"
+   ],
    "aff": [
     "in-（im-／il-／ir-）",
     "-able（-ible）"
@@ -21589,6 +21850,9 @@
      "k": "d"
     }
    ],
+   "fam": [
+    "pend / pens"
+   ],
    "aff": [
     "in-（im-／il-／ir-）",
     "-ence（-ency）"
@@ -21614,6 +21878,9 @@
      "id": "93",
      "t": "作文字彙表 93學年 independent"
     }
+   ],
+   "fam": [
+    "pend / pens"
    ],
    "aff": [
     "in-（im-／il-／ir-）",
@@ -21655,7 +21922,8 @@
     "dict / dic"
    ],
    "aff": [
-    "in-（im-／il-／ir-）"
+    "in-（im-／il-／ir-）",
+    "-ate"
    ]
   },
   "indication": {
@@ -21746,6 +22014,9 @@
   "indigenous": {
    "lv": 5,
    "g": "adj. 在當地生出來的→本土的、原生的；原住民的",
+   "fam": [
+    "gen"
+   ],
    "aff": [
     "in-（im-／il-／ir-）",
     "-ous"
@@ -21789,6 +22060,9 @@
      "id": "96",
      "t": "作文字彙表 96學年 indispensable"
     }
+   ],
+   "fam": [
+    "pend / pens"
    ],
    "aff": [
     "in-（im-／il-／ir-）",
@@ -21844,6 +22118,9 @@
      "id": "94",
      "t": "作文字彙表 94學年 induce"
     }
+   ],
+   "fam": [
+    "duc / duct"
    ],
    "aff": [
     "in-（im-／il-／ir-）"
@@ -22172,6 +22449,9 @@
   "infrastructure": {
    "lv": 5,
    "g": "n. 下層結構→基礎建設",
+   "fam": [
+    "struct"
+   ],
    "aff": [
     "-ure"
    ]
@@ -22192,6 +22472,9 @@
      "t": "中譯英 101(指考) 第192題"
     }
    ],
+   "fam": [
+    "grad / gress"
+   ],
    "aff": [
     "in-（im-／il-／ir-）"
    ]
@@ -22207,6 +22490,9 @@
      "k": "d"
     }
    ],
+   "fam": [
+    "habit"
+   ],
    "aff": [
     "in-（im-／il-／ir-）"
    ]
@@ -22214,6 +22500,9 @@
   "inhabitant": {
    "lv": 6,
    "g": "n. 住在某地的人→居民",
+   "fam": [
+    "habit"
+   ],
    "aff": [
     "in-（im-／il-／ir-）",
     "-ant（-ent）表示人"
@@ -22358,6 +22647,9 @@
   "injure": {
    "lv": 4,
    "g": "v. 做不正當的事→傷害",
+   "fam": [
+    "just / jur / jud"
+   ],
    "aff": [
     "in-（im-／il-／ir-）"
    ]
@@ -22383,6 +22675,9 @@
      "t": "作文字彙表 109學年 an injury"
     }
    ],
+   "fam": [
+    "just / jur / jud"
+   ],
    "aff": [
     "in-（im-／il-／ir-）"
    ]
@@ -22390,6 +22685,9 @@
   "injustice": {
    "lv": 6,
    "g": "n. 不公正、不公平",
+   "fam": [
+    "just / jur / jud"
+   ],
    "aff": [
     "in-（im-／il-／ir-）"
    ]
@@ -22842,6 +23140,9 @@
      "k": "d"
     }
    ],
+   "fam": [
+    "struct"
+   ],
    "aff": [
     "in-（im-／il-／ir-）"
    ]
@@ -22869,6 +23170,9 @@
      "k": "d"
     }
    ],
+   "fam": [
+    "struct"
+   ],
    "aff": [
     "in-（im-／il-／ir-）",
     "-tion（-ation／-ition）"
@@ -22884,6 +23188,9 @@
      "t": "112學測 單字Q3",
      "k": "d"
     }
+   ],
+   "fam": [
+    "struct"
    ],
    "aff": [
     "in-（im-／il-／ir-）",
@@ -22911,6 +23218,9 @@
      "id": "169",
      "t": "中譯英 97(學測) 第169題"
     }
+   ],
+   "fam": [
+    "struct"
    ],
    "aff": [
     "in-（im-／il-／ir-）",
@@ -23413,6 +23723,9 @@
   "intermediate": {
    "lv": 4,
    "g": "adj. 在兩者中間的→中級的",
+   "fam": [
+    "medi"
+   ],
    "aff": [
     "inter-（intel-／enter-）"
    ]
@@ -23634,6 +23947,9 @@
   "introduction": {
    "lv": 2,
    "g": "n. 介紹；引進",
+   "fam": [
+    "duc / duct"
+   ],
    "aff": [
     "-tion（-ation／-ition）"
    ]
@@ -23796,7 +24112,8 @@
    "lv": 3,
    "g": "v. 跟著足跡往裡面找→調查",
    "aff": [
-    "in-（im-／il-／ir-）"
+    "in-（im-／il-／ir-）",
+    "-ate"
    ]
   },
   "investigation": {
@@ -24039,6 +24356,9 @@
   "judgement": {
    "lv": 2,
    "g": "n. 判斷；判決（judgment 的另一種拼法）",
+   "fam": [
+    "just / jur / jud"
+   ],
    "aff": [
     "-ment"
    ]
@@ -24054,6 +24374,9 @@
      "k": "d"
     }
    ],
+   "fam": [
+    "just / jur / jud"
+   ],
    "aff": [
     "-ment"
    ]
@@ -24061,6 +24384,9 @@
   "judicial": {
    "lv": 5,
    "g": "adj. 司法的",
+   "fam": [
+    "just / jur / jud"
+   ],
    "aff": [
     "-al"
    ]
@@ -24101,6 +24427,9 @@
      "t": "指考克漏字 99年 第20格",
      "k": "d"
     }
+   ],
+   "fam": [
+    "just / jur / jud"
    ],
    "aff": [
     "-fy（-ify）"
@@ -25746,6 +26075,9 @@
   "medieval": {
    "lv": 6,
    "g": "adj. 中世紀的",
+   "fam": [
+    "medi"
+   ],
    "aff": [
     "-al"
    ]
@@ -25894,6 +26226,9 @@
      "k": "d"
     }
    ],
+   "fam": [
+    "mit / miss"
+   ],
    "aff": [
     "-age"
    ]
@@ -25901,6 +26236,9 @@
   "messy": {
    "lv": 4,
    "g": "adj. 凌亂的",
+   "fam": [
+    "mit / miss"
+   ],
    "aff": [
     "-y"
    ]
@@ -26236,6 +26574,9 @@
      "k": "d"
     }
    ],
+   "fam": [
+    "mit / miss"
+   ],
    "aff": [
     "-sion（-ssion）"
    ]
@@ -26243,6 +26584,9 @@
   "missionary": {
    "lv": 5,
    "g": "n. 傳教士；adj. 傳教的",
+   "fam": [
+    "mit / miss"
+   ],
    "aff": [
     "-ary（-ory）"
    ]
@@ -26324,6 +26668,9 @@
      "t": "104指考 單字Q8",
      "k": "d"
     }
+   ],
+   "fam": [
+    "mov / mot / mob"
    ],
    "aff": [
     "-ize"
@@ -26628,6 +26975,9 @@
      "k": "d"
     }
    ],
+   "fam": [
+    "mov / mot / mob"
+   ],
    "aff": [
     "-tion（-ation／-ition）"
    ]
@@ -26654,6 +27004,9 @@
      "t": "指考克漏字 94年 第11格",
      "k": "d"
     }
+   ],
+   "fam": [
+    "mov / mot / mob"
    ],
    "aff": [
     "-tion（-ation／-ition）"
@@ -26689,6 +27042,9 @@
      "t": "91指考 單字Q1",
      "k": "d"
     }
+   ],
+   "fam": [
+    "mov / mot / mob"
    ],
    "aff": [
     "-ment"
@@ -27438,6 +27794,7 @@
     }
    ],
    "aff": [
+    "ob-（oc-／of-／op-）",
     "-ence（-ency）"
    ]
   },
@@ -27464,6 +27821,7 @@
     }
    ],
    "aff": [
+    "ob-（oc-／of-／op-）",
     "-ant（-ent）"
    ]
   },
@@ -27491,6 +27849,9 @@
    ],
    "fam": [
     "ject"
+   ],
+   "aff": [
+    "ob-（oc-／of-／op-）"
    ]
   },
   "objection": {
@@ -27520,6 +27881,7 @@
     "ject"
    ],
    "aff": [
+    "ob-（oc-／of-／op-）",
     "-tion（-ation／-ition）"
    ]
   },
@@ -27550,6 +27912,7 @@
     "ject"
    ],
    "aff": [
+    "ob-（oc-／of-／op-）",
     "-ive"
    ]
   },
@@ -27574,6 +27937,7 @@
     "lig"
    ],
    "aff": [
+    "ob-（oc-／of-／op-）",
     "-tion（-ation／-ition）"
    ]
   },
@@ -27582,6 +27946,9 @@
    "g": "v. 把人綁住→迫使；使感激",
    "fam": [
     "lig"
+   ],
+   "aff": [
+    "ob-（oc-／of-／op-）"
    ]
   },
   "observation": {
@@ -27608,6 +27975,7 @@
     }
    ],
    "aff": [
+    "ob-（oc-／of-／op-）",
     "-tion（-ation／-ition）"
    ]
   },
@@ -27615,6 +27983,7 @@
    "lv": 5,
    "g": "n. 觀察者",
    "aff": [
+    "ob-（oc-／of-／op-）",
     "-er（-or／-ar）"
    ]
   },
@@ -27643,6 +28012,9 @@
    ],
    "fam": [
     "tain / ten"
+   ],
+   "aff": [
+    "ob-（oc-／of-／op-）"
    ]
   },
   "obvious": {
@@ -27669,6 +28041,7 @@
     }
    ],
    "aff": [
+    "ob-（oc-／of-／op-）",
     "-ous"
    ]
   },
@@ -27676,6 +28049,7 @@
    "lv": 3,
    "g": "n. 剛好落在一起的時候→場合；時機",
    "aff": [
+    "ob-（oc-／of-／op-）",
     "-sion（-ssion）"
    ]
   },
@@ -27703,6 +28077,7 @@
     }
    ],
    "aff": [
+    "ob-（oc-／of-／op-）",
     "-al"
    ]
   },
@@ -27730,6 +28105,7 @@
     }
    ],
    "aff": [
+    "ob-（oc-／of-／op-）",
     "-tion（-ation／-ition）"
    ]
   },
@@ -27737,6 +28113,7 @@
    "lv": 6,
    "g": "n. 發生；發生的事",
    "aff": [
+    "ob-（oc-／of-／op-）",
     "-ence（-ency）"
    ]
   },
@@ -27766,6 +28143,7 @@
     "fend / fens"
    ],
    "aff": [
+    "ob-（oc-／of-／op-）",
     "-ive"
    ]
   },
@@ -27793,6 +28171,9 @@
    ],
    "fam": [
     "fer"
+   ],
+   "aff": [
+    "ob-（oc-／of-／op-）"
    ]
   },
   "offering": {
@@ -27810,6 +28191,7 @@
     "fer"
    ],
    "aff": [
+    "ob-（oc-／of-／op-）",
     "-ing"
    ]
   },
@@ -27943,6 +28325,7 @@
     "pon / pos"
    ],
    "aff": [
+    "ob-（oc-／of-／op-）",
     "-ant（-ent）表示人"
    ]
   },
@@ -27963,6 +28346,7 @@
     }
    ],
    "aff": [
+    "ob-（oc-／of-／op-）",
     "-ity（-ty）"
    ]
   },
@@ -27991,6 +28375,9 @@
    ],
    "fam": [
     "pon / pos"
+   ],
+   "aff": [
+    "ob-（oc-／of-／op-）"
    ]
   },
   "opposite": {
@@ -28006,6 +28393,9 @@
    ],
    "fam": [
     "pon / pos"
+   ],
+   "aff": [
+    "ob-（oc-／of-／op-）"
    ]
   },
   "opposition": {
@@ -28029,6 +28419,7 @@
     "pon / pos"
    ],
    "aff": [
+    "ob-（oc-／of-／op-）",
     "-tion（-ation／-ition）"
    ]
   },
@@ -28045,6 +28436,9 @@
    ],
    "fam": [
     "press"
+   ],
+   "aff": [
+    "ob-（oc-／of-／op-）"
    ]
   },
   "oppression": {
@@ -28054,6 +28448,7 @@
     "press"
    ],
    "aff": [
+    "ob-（oc-／of-／op-）",
     "-sion（-ssion）"
    ]
   },
@@ -28921,6 +29316,9 @@
    ],
    "fam": [
     "cap / capt / cip / cept"
+   ],
+   "aff": [
+    "-ate"
    ]
   },
   "participation": {
@@ -29120,6 +29518,9 @@
   "pension": {
    "lv": 5,
    "g": "n. 退休金",
+   "fam": [
+    "pend / pens"
+   ],
    "aff": [
     "-sion（-ssion）"
    ]
@@ -29143,6 +29544,9 @@
    ],
    "fam": [
     "-ceive / -ceipt / -cept"
+   ],
+   "aff": [
+    "per-"
    ]
   },
   "percentage": {
@@ -29191,6 +29595,7 @@
     "-ceive / -ceipt / -cept"
    ],
    "aff": [
+    "per-",
     "-tion（-ation／-ition）"
    ]
   },
@@ -29199,6 +29604,9 @@
    "g": "adj. 徹底做完的→完美的；v. 使完美",
    "fam": [
     "fect / fic"
+   ],
+   "aff": [
+    "per-"
    ]
   },
   "perfection": {
@@ -29221,6 +29629,7 @@
     "fect / fic"
    ],
    "aff": [
+    "per-",
     "-tion（-ation／-ition）"
    ]
   },
@@ -29242,6 +29651,7 @@
     }
    ],
    "aff": [
+    "per-",
     "-ance（-ancy）"
    ]
   },
@@ -29257,6 +29667,7 @@
     }
    ],
    "aff": [
+    "per-",
     "-er（-or／-ar）"
    ]
   },
@@ -29284,6 +29695,7 @@
     }
    ],
    "aff": [
+    "per-",
     "-ant（-ent）"
    ]
   },
@@ -29304,7 +29716,11 @@
      "k": "d"
     }
    ],
+   "fam": [
+    "mit / miss"
+   ],
    "aff": [
+    "per-",
     "-able（-ible）"
    ]
   },
@@ -29331,7 +29747,11 @@
      "k": "d"
     }
    ],
+   "fam": [
+    "mit / miss"
+   ],
    "aff": [
+    "per-",
     "-sion（-ssion）"
    ]
   },
@@ -29359,6 +29779,9 @@
    ],
    "fam": [
     "sist"
+   ],
+   "aff": [
+    "per-"
    ]
   },
   "persistence": {
@@ -29368,6 +29791,7 @@
     "sist"
    ],
    "aff": [
+    "per-",
     "-ence（-ency）"
    ]
   },
@@ -29386,6 +29810,7 @@
     "sist"
    ],
    "aff": [
+    "per-",
     "-ant（-ent）"
    ]
   },
@@ -29440,17 +29865,15 @@
      "t": "作文字彙表 93學年 perspective"
     }
    ],
-   "fam": [
-    "spec / spect / spic / spis"
-   ],
    "aff": [
-    "-ive"
+    "per-"
    ]
   },
   "persuasion": {
    "lv": 4,
    "g": "n. 說服",
    "aff": [
+    "per-",
     "-sion（-ssion）"
    ]
   },
@@ -29478,6 +29901,7 @@
     }
    ],
    "aff": [
+    "per-",
     "-ive"
    ]
   },
@@ -29894,6 +30318,9 @@
      "t": "108指考 單字Q5",
      "k": "d"
     }
+   ],
+   "fam": [
+    "port"
    ],
    "aff": [
     "-able（-ible）"
@@ -30478,6 +30905,9 @@
   "prejudice": {
    "lv": 5,
    "g": "n. 還沒看清楚就先下判斷→偏見",
+   "fam": [
+    "just / jur / jud"
+   ],
    "aff": [
     "pre-"
    ]
@@ -30521,6 +30951,9 @@
   "premise": {
    "lv": 5,
    "g": "n. 先擺在前面的話→前提",
+   "fam": [
+    "mit / miss"
+   ],
    "aff": [
     "pre-"
    ]
@@ -31145,6 +31578,9 @@
      "k": "d"
     }
    ],
+   "fam": [
+    "prob / prov"
+   ],
    "aff": [
     "-able（-ible）"
    ]
@@ -31302,6 +31738,9 @@
      "k": "d"
     }
    ],
+   "fam": [
+    "duc / duct"
+   ],
    "aff": [
     "pro-"
    ]
@@ -31309,6 +31748,9 @@
   "producer": {
    "lv": 3,
    "g": "n. 生產者；製作人",
+   "fam": [
+    "duc / duct"
+   ],
    "aff": [
     "pro-",
     "-er（-or／-ar）"
@@ -31337,6 +31779,9 @@
      "k": "d"
     }
    ],
+   "fam": [
+    "duc / duct"
+   ],
    "aff": [
     "pro-"
    ]
@@ -31357,6 +31802,9 @@
      "t": "學測克漏字 99年 第29格",
      "k": "d"
     }
+   ],
+   "fam": [
+    "duc / duct"
    ],
    "aff": [
     "pro-",
@@ -31386,6 +31834,9 @@
      "k": "d"
     }
    ],
+   "fam": [
+    "duc / duct"
+   ],
    "aff": [
     "pro-",
     "-ive"
@@ -31401,6 +31852,9 @@
      "t": "94學測 單字Q4",
      "k": "d"
     }
+   ],
+   "fam": [
+    "duc / duct"
    ],
    "aff": [
     "pro-",
@@ -31578,6 +32032,9 @@
      "k": "d"
     }
    ],
+   "fam": [
+    "grad / gress"
+   ],
    "aff": [
     "pro-"
    ]
@@ -31593,6 +32050,9 @@
      "k": "d"
     }
    ],
+   "fam": [
+    "grad / gress"
+   ],
    "aff": [
     "pro-",
     "-ive"
@@ -31601,6 +32061,9 @@
   "prohibit": {
    "lv": 5,
    "g": "v. 把人擋開→禁止",
+   "fam": [
+    "habit"
+   ],
    "aff": [
     "pro-"
    ]
@@ -31608,6 +32071,9 @@
   "prohibition": {
    "lv": 6,
    "g": "n. 禁止；禁令",
+   "fam": [
+    "habit"
+   ],
    "aff": [
     "pro-",
     "-tion（-ation／-ition）"
@@ -31682,6 +32148,9 @@
      "k": "d"
     }
    ],
+   "fam": [
+    "mit / miss"
+   ],
    "aff": [
     "pro-"
    ]
@@ -31708,6 +32177,9 @@
      "t": "98指考 單字Q2",
      "k": "d"
     }
+   ],
+   "fam": [
+    "mit / miss"
    ],
    "aff": [
     "pro-",
@@ -31737,6 +32209,9 @@
      "k": "d"
     }
    ],
+   "fam": [
+    "mov / mot / mob"
+   ],
    "aff": [
     "pro-"
    ]
@@ -31762,6 +32237,9 @@
      "id": "109",
      "t": "作文字彙表 109學年 a sales promotion / promote a product"
     }
+   ],
+   "fam": [
+    "mov / mot / mob"
    ],
    "aff": [
     "pro-",
@@ -31833,6 +32311,9 @@
      "t": "指考克漏字 93年 第19格",
      "k": "d"
     }
+   ],
+   "fam": [
+    "prob / prov"
    ],
    "aff": [
     "-proof"
@@ -31930,6 +32411,9 @@
   "prosecute": {
    "lv": 6,
    "g": "v. 一路追下去→起訴",
+   "fam": [
+    "sequ / secu"
+   ],
    "aff": [
     "pro-"
    ]
@@ -31937,6 +32421,9 @@
   "prosecution": {
    "lv": 5,
    "g": "n. 起訴",
+   "fam": [
+    "sequ / secu"
+   ],
    "aff": [
     "pro-",
     "-tion（-ation／-ition）"
@@ -33308,6 +33795,9 @@
      "k": "d"
     }
    ],
+   "fam": [
+    "duc / duct"
+   ],
    "aff": [
     "re-"
    ]
@@ -33322,6 +33812,9 @@
      "t": "84聯考 單字Q5",
      "k": "d"
     }
+   ],
+   "fam": [
+    "duc / duct"
    ],
    "aff": [
     "re-",
@@ -34416,6 +34909,9 @@
      "k": "d"
     }
    ],
+   "fam": [
+    "mov / mot / mob"
+   ],
    "aff": [
     "re-"
    ]
@@ -34423,6 +34919,9 @@
   "removal": {
    "lv": 5,
    "g": "n. 移除",
+   "fam": [
+    "mov / mot / mob"
+   ],
    "aff": [
     "re-",
     "-al"
@@ -34450,6 +34949,9 @@
      "t": "96學測 單字Q12",
      "k": "d"
     }
+   ],
+   "fam": [
+    "mov / mot / mob"
    ],
    "aff": [
     "re-"
@@ -34634,6 +35136,9 @@
      "t": "作文字彙表 109學年 report a fault"
     }
    ],
+   "fam": [
+    "port"
+   ],
    "aff": [
     "re-"
    ]
@@ -34647,6 +35152,9 @@
      "id": "88",
      "t": "作文字彙表 88學年 reporter"
     }
+   ],
+   "fam": [
+    "port"
    ],
    "aff": [
     "re-",
@@ -34721,6 +35229,9 @@
   "reproduce": {
    "lv": 6,
    "g": "v. 再生出來→繁殖；複製",
+   "fam": [
+    "duc / duct"
+   ],
    "aff": [
     "re-"
    ]
@@ -36509,6 +37020,9 @@
      "k": "a"
     }
    ],
+   "fam": [
+    "sequ / secu"
+   ],
    "aff": [
     "-ary（-ory）"
    ]
@@ -36544,6 +37058,7 @@
     }
    ],
    "aff": [
+    "se-",
     "-ity（-ty）"
    ]
   },
@@ -36581,6 +37096,9 @@
    ],
    "fam": [
     "lect / leg / lig"
+   ],
+   "aff": [
+    "se-"
    ]
   },
   "selection": {
@@ -36590,6 +37108,7 @@
     "lect / leg / lig"
    ],
    "aff": [
+    "se-",
     "-tion（-ation／-ition）"
    ]
   },
@@ -36608,6 +37127,7 @@
     "lect / leg / lig"
    ],
    "aff": [
+    "se-",
     "-ive"
    ]
   },
@@ -36784,6 +37304,7 @@
    "lv": 3,
    "g": "n. 分開；分居",
    "aff": [
+    "se-",
     "-tion（-ation／-ition）"
    ]
   },
@@ -36803,6 +37324,9 @@
      "t": "指考克漏字 101年 第16格",
      "k": "d"
     }
+   ],
+   "fam": [
+    "sequ / secu"
    ],
    "aff": [
     "-ence（-ency）"
@@ -36915,6 +37439,7 @@
     }
    ],
    "aff": [
+    "se-",
     "-al"
    ]
   },
@@ -37913,7 +38438,7 @@
   },
   "sponsor": {
    "lv": 5,
-   "g": "n. 承諾出錢撐著的人→贊助者、保證人",
+   "g": "n. 承諾出錢支持的人→贊助者、保證人",
    "refs": [
     {
      "s": "zcz",
@@ -37954,6 +38479,9 @@
   "sportsman": {
    "lv": 6,
    "g": "n. 運動員；有運動家精神的人",
+   "fam": [
+    "port"
+   ],
    "aff": [
     "-man（-woman／-person）"
    ]
@@ -37968,6 +38496,9 @@
      "t": "中譯英 106(指考) 第205題"
     }
    ],
+   "fam": [
+    "port"
+   ],
    "aff": [
     "-ship"
    ]
@@ -37975,6 +38506,9 @@
   "sportswoman": {
    "lv": 6,
    "g": "n. 女運動員",
+   "fam": [
+    "port"
+   ],
    "aff": [
     "-man（-woman／-person）"
    ]
@@ -37989,6 +38523,9 @@
      "t": "95指考 單字Q4",
      "k": "d"
     }
+   ],
+   "fam": [
+    "stabl / stabil"
    ],
    "aff": [
     "-ity（-ty）"
@@ -38011,6 +38548,9 @@
      "k": "d"
     }
    ],
+   "fam": [
+    "stabl / stabil"
+   ],
    "aff": [
     "-ize"
    ]
@@ -38025,6 +38565,9 @@
      "t": "105指考 單字Q4",
      "k": "d"
     }
+   ],
+   "fam": [
+    "stabl / stabil"
    ],
    "aff": [
     "-able（-ible）"
@@ -38315,6 +38858,9 @@
   "structural": {
    "lv": 5,
    "g": "adj. 結構上的",
+   "fam": [
+    "struct"
+   ],
    "aff": [
     "-al"
    ]
@@ -38329,6 +38875,9 @@
      "t": "學測克漏字 97年 第19格",
      "k": "d"
     }
+   ],
+   "fam": [
+    "struct"
    ],
    "aff": [
     "-ure"
@@ -38432,6 +38981,9 @@
      "k": "d"
     }
    ],
+   "fam": [
+    "mit / miss"
+   ],
    "aff": [
     "sub-（suc-／suf-／sug-／sum-／sup-／sus-）"
    ]
@@ -38475,6 +39027,9 @@
   "subsequent": {
    "lv": 5,
    "g": "adj. 緊接在後的→後來的",
+   "fam": [
+    "sequ / secu"
+   ],
    "aff": [
     "sub-（suc-／suf-／sug-／sum-／sup-／sus-）",
     "-ant（-ent）"
@@ -38798,6 +39353,9 @@
      "k": "d"
     }
    ],
+   "fam": [
+    "sequ / secu"
+   ],
    "aff": [
     "-able（-ible）"
    ]
@@ -39072,6 +39630,9 @@
      "id": "72",
      "t": "中譯英 86(大學聯考) 第72題"
     }
+   ],
+   "fam": [
+    "port"
    ],
    "aff": [
     "sub-（suc-／suf-／sug-／sum-／sup-／sus-）"
@@ -39420,6 +39981,9 @@
      "k": "d"
     }
    ],
+   "fam": [
+    "pend / pens"
+   ],
    "aff": [
     "sub-（suc-／suf-／sug-／sum-／sup-／sus-）"
    ]
@@ -39435,6 +39999,9 @@
      "k": "a"
     }
    ],
+   "fam": [
+    "pend / pens"
+   ],
    "aff": [
     "sub-（suc-／suf-／sug-／sum-／sup-／sus-）"
    ]
@@ -39442,6 +40009,9 @@
   "suspension": {
    "lv": 6,
    "g": "n. 暫停；停學、停職；懸掛",
+   "fam": [
+    "pend / pens"
+   ],
    "aff": [
     "sub-（suc-／suf-／sug-／sum-／sup-／sus-）",
     "-sion（-ssion）"
@@ -40821,6 +41391,9 @@
   "transmission": {
    "lv": 5,
    "g": "n. 傳送；傳染",
+   "fam": [
+    "mit / miss"
+   ],
    "aff": [
     "trans-（tra-）",
     "-sion（-ssion）"
@@ -40841,6 +41414,9 @@
      "id": "114",
      "t": "中譯英 105(指考) 第114題"
     }
+   ],
+   "fam": [
+    "mit / miss"
    ],
    "aff": [
     "trans-（tra-）"
@@ -40886,6 +41462,9 @@
      "k": "d"
     }
    ],
+   "fam": [
+    "port"
+   ],
    "aff": [
     "trans-（tra-）"
    ]
@@ -40910,6 +41489,9 @@
      "id": "180",
      "t": "中譯英 99(學測) 第180題"
     }
+   ],
+   "fam": [
+    "port"
    ],
    "aff": [
     "trans-（tra-）",
@@ -41280,6 +41862,9 @@
   "undergraduate": {
    "lv": 5,
    "g": "n. 還沒取得學位、排在畢業生下面的學生→大學部學生",
+   "fam": [
+    "grad / gress"
+   ],
    "aff": [
     "under-"
    ]
@@ -42787,6 +43372,9 @@
   "waterproof": {
    "lv": 6,
    "g": "adj. 防水的",
+   "fam": [
+    "prob / prov"
+   ],
    "aff": [
     "-proof"
    ]
@@ -43084,6 +43672,9 @@
    ],
    "fam": [
     "fend / fens"
+   ],
+   "aff": [
+    "ob-（oc-／of-／op-）"
    ]
   },
   "offense": {
@@ -43099,6 +43690,9 @@
    ],
    "fam": [
     "fend / fens"
+   ],
+   "aff": [
+    "ob-（oc-／of-／op-）"
    ]
   },
   "entire": {
@@ -43432,6 +44026,9 @@
    ],
    "fam": [
     "rect / reg"
+   ],
+   "aff": [
+    "-ate"
    ]
   },
   "directory": {
@@ -43604,6 +44201,9 @@
    ],
    "fam": [
     "domin"
+   ],
+   "aff": [
+    "-ate"
    ]
   },
   "domain": {
@@ -43861,6 +44461,973 @@
    ],
    "fam": [
     "act / ag"
+   ]
+  },
+  "messenger": {
+   "lv": 4,
+   "g": "n. 報信者、使者；信差",
+   "refs": [
+    {
+     "s": "zhikao",
+     "id": "ZK0053",
+     "t": "106指考 單字Q3",
+     "k": "d"
+    }
+   ],
+   "fam": [
+    "mit / miss"
+   ]
+  },
+  "mess": {
+   "lv": 3,
+   "g": "n. 髒亂、混亂；v. 弄亂、弄髒",
+   "fam": [
+    "mit / miss"
+   ]
+  },
+  "missile": {
+   "lv": 3,
+   "g": "n. 飛彈；投擲物",
+   "fam": [
+    "mit / miss"
+   ]
+  },
+  "omit": {
+   "lv": 3,
+   "g": "v. 省略、遺漏",
+   "fam": [
+    "mit / miss"
+   ]
+  },
+  "permit": {
+   "lv": 3,
+   "g": "v. 允許、准許；n. 許可證",
+   "refs": [
+    {
+     "s": "gsat",
+     "id": "V0260",
+     "t": "98學測 單字Q5",
+     "k": "d"
+    }
+   ],
+   "fam": [
+    "mit / miss"
+   ],
+   "aff": [
+    "per-"
+   ]
+  },
+  "alter": {
+   "lv": 5,
+   "g": "v. 改變、修改",
+   "fam": [
+    "alter"
+   ]
+  },
+  "alternate": {
+   "lv": 5,
+   "g": "adj. 交替的、輪流的；隔一個的；替代的、備用的；v. 交替、輪流；n. 候補者、替代人選",
+   "fam": [
+    "alter"
+   ]
+  },
+  "center": {
+   "lv": 1,
+   "g": "n. 中心、中央；v. 置中；以…為中心（center on / around）",
+   "fam": [
+    "centr"
+   ]
+  },
+  "corporate": {
+   "lv": 5,
+   "g": "adj. 公司的、企業的；團體的",
+   "fam": [
+    "corp"
+   ],
+   "aff": [
+    "-ate"
+   ]
+  },
+  "corpse": {
+   "lv": 6,
+   "g": "n. 屍體",
+   "fam": [
+    "corp"
+   ]
+  },
+  "credit": {
+   "lv": 3,
+   "g": "n. 功勞、讚揚；信用、賒帳；學分；v. 把…歸功於",
+   "refs": [
+    {
+     "s": "gsat",
+     "id": "V0477",
+     "t": "113學測 單字Q7",
+     "k": "a"
+    },
+    {
+     "s": "zhikao",
+     "id": "ZK0016",
+     "t": "109指考補考 單字Q6",
+     "k": "a"
+    },
+    {
+     "s": "gsat",
+     "id": "V0400",
+     "t": "107學測 單字Q10",
+     "k": "d"
+    }
+   ],
+   "fam": [
+    "cred"
+   ]
+  },
+  "introduce": {
+   "lv": 2,
+   "g": "v. 介紹；引進",
+   "fam": [
+    "duc / duct"
+   ]
+  },
+  "seduce": {
+   "lv": 6,
+   "g": "v. 引誘、誘惑",
+   "fam": [
+    "duc / duct"
+   ],
+   "aff": [
+    "se-"
+   ]
+  },
+  "gene": {
+   "lv": 4,
+   "g": "n. 基因",
+   "fam": [
+    "gen"
+   ]
+  },
+  "genetics": {
+   "lv": 5,
+   "g": "n. 遺傳學",
+   "fam": [
+    "gen"
+   ]
+  },
+  "generate": {
+   "lv": 5,
+   "g": "v. 產生、造成；發（電）",
+   "fam": [
+    "gen"
+   ],
+   "aff": [
+    "-ate"
+   ]
+  },
+  "hydrogen": {
+   "lv": 4,
+   "g": "n. 氫",
+   "fam": [
+    "gen"
+   ]
+  },
+  "oxygen": {
+   "lv": 4,
+   "g": "n. 氧、氧氣",
+   "fam": [
+    "gen"
+   ]
+  },
+  "gender": {
+   "lv": 4,
+   "g": "n. 性別",
+   "fam": [
+    "gen"
+   ]
+  },
+  "genre": {
+   "lv": 5,
+   "g": "n. 類型、體裁",
+   "fam": [
+    "gen"
+   ]
+  },
+  "genius": {
+   "lv": 4,
+   "g": "n. 天才；天賦、才華",
+   "fam": [
+    "gen"
+   ]
+  },
+  "genuine": {
+   "lv": 4,
+   "g": "adj. 真正的、非仿冒的；真誠的",
+   "fam": [
+    "gen"
+   ]
+  },
+  "gentle": {
+   "lv": 2,
+   "g": "adj. 溫和的、溫柔的；輕柔的",
+   "fam": [
+    "gen"
+   ]
+  },
+  "grade": {
+   "lv": 1,
+   "g": "n. 年級、等級；成績；v. 評分、打分數",
+   "fam": [
+    "grad / gress"
+   ]
+  },
+  "upgrade": {
+   "lv": 5,
+   "g": "v. 升級、提升；n. 升級",
+   "fam": [
+    "grad / gress"
+   ]
+  },
+  "graduate": {
+   "lv": 3,
+   "g": "v. 畢業；n. 畢業生",
+   "fam": [
+    "grad / gress"
+   ],
+   "aff": [
+    "-ate"
+   ]
+  },
+  "habit": {
+   "lv": 1,
+   "g": "n. 習慣；（菸、酒等的）癮",
+   "fam": [
+    "habit"
+   ]
+  },
+  "habitat": {
+   "lv": 5,
+   "g": "n. 棲息地、生長環境",
+   "fam": [
+    "habit"
+   ]
+  },
+  "mediate": {
+   "lv": 6,
+   "g": "v. 調解、斡旋",
+   "fam": [
+    "medi"
+   ]
+  },
+  "medium": {
+   "lv": 1,
+   "g": "adj. 中等的、中號的；n. 媒介、方式",
+   "fam": [
+    "medi"
+   ]
+  },
+  "media": {
+   "lv": 1,
+   "g": "n. 媒體",
+   "fam": [
+    "medi"
+   ]
+  },
+  "pending": {
+   "lv": 6,
+   "g": "adj. 待決的、懸而未決的；prep. 在等待…期間",
+   "fam": [
+    "pend / pens"
+   ]
+  },
+  "spend": {
+   "lv": 1,
+   "g": "v. 花費；度過",
+   "fam": [
+    "pend / pens"
+   ]
+  },
+  "porter": {
+   "lv": 6,
+   "g": "n. 搬運工、行李員",
+   "fam": [
+    "port"
+   ]
+  },
+  "portfolio": {
+   "lv": 5,
+   "g": "n. 作品集、學習歷程檔案；投資組合；文件夾",
+   "fam": [
+    "port"
+   ]
+  },
+  "sport": {
+   "lv": 2,
+   "g": "n. 運動；v. 穿戴（顯眼的衣物飾品）、炫耀",
+   "fam": [
+    "port"
+   ]
+  },
+  "prove": {
+   "lv": 2,
+   "g": "v. 證明；結果是、證實為",
+   "fam": [
+    "prob / prov"
+   ]
+  },
+  "probably": {
+   "lv": 1,
+   "g": "adv. 很可能、大概",
+   "refs": [
+    {
+     "s": "gsat",
+     "id": "V0077",
+     "t": "88推薦甄選 單字Q2",
+     "k": "d"
+    }
+   ],
+   "fam": [
+    "prob / prov"
+   ]
+  },
+  "probe": {
+   "lv": 6,
+   "g": "n. 探針、探測器；徹底調查；v. 探查、調查",
+   "fam": [
+    "prob / prov"
+   ]
+  },
+  "pursue": {
+   "lv": 4,
+   "g": "v. 追求、從事；追趕",
+   "refs": [
+    {
+     "s": "gsat",
+     "id": "V0377",
+     "t": "106學測 單字Q2",
+     "k": "a"
+    },
+    {
+     "s": "zhikao",
+     "id": "ZK0051",
+     "t": "106指考 單字Q1",
+     "k": "d"
+    }
+   ],
+   "fam": [
+    "sequ / secu"
+   ]
+  },
+  "pursuit": {
+   "lv": 4,
+   "g": "n. 追求；追趕、追捕；嗜好、消遣",
+   "fam": [
+    "sequ / secu"
+   ]
+  },
+  "sue": {
+   "lv": 4,
+   "g": "v. 控告、對…提告",
+   "fam": [
+    "sequ / secu"
+   ]
+  },
+  "suit": {
+   "lv": 2,
+   "g": "n. 西裝、套裝；訴訟；v. 適合",
+   "fam": [
+    "sequ / secu"
+   ]
+  },
+  "suite": {
+   "lv": 5,
+   "g": "n. 套房；一組、一套",
+   "fam": [
+    "sequ / secu"
+   ]
+  },
+  "suitcase": {
+   "lv": 6,
+   "g": "n. 手提箱、行李箱",
+   "fam": [
+    "sequ / secu"
+   ]
+  },
+  "lawsuit": {
+   "lv": 5,
+   "g": "n. 訴訟",
+   "fam": [
+    "sequ / secu"
+   ]
+  },
+  "swimsuit": {
+   "lv": 2,
+   "g": "n. 泳衣",
+   "fam": [
+    "sequ / secu"
+   ]
+  },
+  "second": {
+   "lv": 1,
+   "g": "adj. 第二的、僅次於第一的；n. 秒、片刻；adv. 第二、其次",
+   "refs": [
+    {
+     "s": "gsat",
+     "id": "V0036",
+     "t": "85推薦甄選 單字Q16",
+     "k": "d"
+    }
+   ],
+   "fam": [
+    "sequ / secu"
+   ]
+  },
+  "establish": {
+   "lv": 4,
+   "g": "v. 建立、設立；確立、證實",
+   "fam": [
+    "stabl / stabil"
+   ]
+  },
+  "victor": {
+   "lv": 6,
+   "g": "n. 勝利者、戰勝者",
+   "fam": [
+    "vict / vinc"
+   ]
+  },
+  "victory": {
+   "lv": 2,
+   "g": "n. 勝利",
+   "fam": [
+    "vict / vinc"
+   ]
+  },
+  "just": {
+   "lv": 1,
+   "g": "adv. 剛剛、正好；只是；adj. 公正的、正當的",
+   "fam": [
+    "just / jur / jud"
+   ]
+  },
+  "justice": {
+   "lv": 2,
+   "g": "n. 正義、公平；司法、審判；法官",
+   "fam": [
+    "just / jur / jud"
+   ]
+  },
+  "jury": {
+   "lv": 5,
+   "g": "n. 陪審團；評審團",
+   "fam": [
+    "just / jur / jud"
+   ]
+  },
+  "judge": {
+   "lv": 2,
+   "g": "n. 法官；評審；v. 判斷、審判；評判",
+   "fam": [
+    "just / jur / jud"
+   ]
+  },
+  "move": {
+   "lv": 1,
+   "g": "v. 移動、搬家；感動",
+   "refs": [
+    {
+     "s": "gsat",
+     "id": "V0211",
+     "t": "95學測 單字Q1",
+     "k": "d"
+    }
+   ],
+   "fam": [
+    "mov / mot / mob"
+   ]
+  },
+  "motive": {
+   "lv": 5,
+   "g": "n. 動機",
+   "fam": [
+    "mov / mot / mob"
+   ]
+  },
+  "motivate": {
+   "lv": 4,
+   "g": "v. 激勵、激發",
+   "refs": [
+    {
+     "s": "gsat",
+     "id": "V0264",
+     "t": "98學測 單字Q9",
+     "k": "d"
+    }
+   ],
+   "fam": [
+    "mov / mot / mob"
+   ],
+   "aff": [
+    "-ate"
+   ]
+  },
+  "motor": {
+   "lv": 3,
+   "g": "n. 馬達、發動機",
+   "fam": [
+    "mov / mot / mob"
+   ]
+  },
+  "motorcycle": {
+   "lv": 2,
+   "g": "n. 機車、摩托車",
+   "fam": [
+    "mov / mot / mob"
+   ]
+  },
+  "mobile": {
+   "lv": 3,
+   "g": "adj. 可移動的、活動式的",
+   "fam": [
+    "mov / mot / mob"
+   ]
+  },
+  "mob": {
+   "lv": 3,
+   "g": "n. 暴民、鬧事的群眾；v. 成群圍住",
+   "fam": [
+    "mov / mot / mob"
+   ]
+  },
+  "democrat": {
+   "lv": 5,
+   "g": "n. 民主主義者；（美國）民主黨員",
+   "aff": [
+    "-cracy（-crat）"
+   ]
+  },
+  "bureaucrat": {
+   "lv": 6,
+   "g": "n. 官僚、官員",
+   "aff": [
+    "-cracy（-crat）"
+   ]
+  },
+  "perfume": {
+   "lv": 4,
+   "g": "n. 香水、香味；v. 使充滿香味",
+   "aff": [
+    "per-"
+   ]
+  },
+  "persuade": {
+   "lv": 3,
+   "g": "v. 說服、勸服",
+   "refs": [
+    {
+     "s": "gsat",
+     "id": "V0206",
+     "t": "94學測 單字Q11",
+     "k": "d"
+    },
+    {
+     "s": "gsat",
+     "id": "V0168",
+     "t": "92學測補考 單字Q3",
+     "k": "d"
+    }
+   ],
+   "aff": [
+    "per-"
+   ]
+  },
+  "perform": {
+   "lv": 3,
+   "g": "v. 表演、演出；執行",
+   "aff": [
+    "per-"
+   ]
+  },
+  "persevere": {
+   "lv": 6,
+   "g": "v. 堅持不懈",
+   "aff": [
+    "per-"
+   ]
+  },
+  "perish": {
+   "lv": 6,
+   "g": "v. 喪生；毀壞、消失",
+   "aff": [
+    "per-"
+   ]
+  },
+  "separate": {
+   "lv": 2,
+   "g": "adj. 分開的、各別的；v. 分開、分離",
+   "refs": [
+    {
+     "s": "zhikao",
+     "id": "ZK0237",
+     "t": "90聯考 單字Q13",
+     "k": "d"
+    }
+   ],
+   "aff": [
+    "se-",
+    "-ate"
+   ]
+  },
+  "secret": {
+   "lv": 2,
+   "g": "adj. 祕密的；n. 祕密、祕訣",
+   "aff": [
+    "se-"
+   ]
+  },
+  "secure": {
+   "lv": 4,
+   "g": "v. 獲得、確保；adj. 安心的、安全的",
+   "refs": [
+    {
+     "s": "zhikao",
+     "id": "ZK0071",
+     "t": "104指考 單字Q1",
+     "k": "a"
+    }
+   ],
+   "aff": [
+    "se-"
+   ]
+  },
+  "estimate": {
+   "lv": 4,
+   "g": "n. 估計、估價；v. 估計、評價",
+   "refs": [
+    {
+     "s": "gsat",
+     "id": "V0356",
+     "t": "104學測 單字Q11",
+     "k": "d"
+    }
+   ],
+   "aff": [
+    "-ate"
+   ]
+  },
+  "hesitate": {
+   "lv": 3,
+   "g": "v. 猶豫、遲疑",
+   "refs": [
+    {
+     "s": "gsat",
+     "id": "V0275",
+     "t": "99學測 單字Q5",
+     "k": "d"
+    },
+    {
+     "s": "gsat",
+     "id": "V0062",
+     "t": "87推薦甄選 單字Q2",
+     "k": "a"
+    }
+   ],
+   "aff": [
+    "-ate"
+   ]
+  },
+  "penetrate": {
+   "lv": 5,
+   "g": "v. 穿透、刺穿",
+   "refs": [
+    {
+     "s": "zhikao",
+     "id": "ZK0078",
+     "t": "104指考 單字Q8",
+     "k": "d"
+    }
+   ],
+   "aff": [
+    "-ate"
+   ]
+  },
+  "create": {
+   "lv": 2,
+   "g": "v. 創造、造成",
+   "aff": [
+    "-ate"
+   ]
+  },
+  "celebrate": {
+   "lv": 1,
+   "g": "v. 慶祝",
+   "aff": [
+    "-ate"
+   ]
+  },
+  "operate": {
+   "lv": 2,
+   "g": "v. 操作、運轉；動手術",
+   "refs": [
+    {
+     "s": "zhikao",
+     "id": "ZK0286",
+     "t": "85聯考 單字Q3",
+     "k": "d"
+    }
+   ],
+   "aff": [
+    "-ate"
+   ]
+  },
+  "tolerate": {
+   "lv": 4,
+   "g": "v. 容忍、忍受",
+   "refs": [
+    {
+     "s": "gsat",
+     "id": "V0244",
+     "t": "97學測 單字Q4",
+     "k": "a"
+    },
+    {
+     "s": "zhikao",
+     "id": "ZK0283",
+     "t": "86聯考 單字Q10",
+     "k": "a"
+    }
+   ],
+   "aff": [
+    "-ate"
+   ]
+  },
+  "negotiate": {
+   "lv": 4,
+   "g": "v. 談判、協商；談妥、商定",
+   "refs": [
+    {
+     "s": "gsat",
+     "id": "V0359",
+     "t": "104學測 單字Q14",
+     "k": "d"
+    },
+    {
+     "s": "zhikao",
+     "id": "ZK0280",
+     "t": "86聯考 單字Q7",
+     "k": "a"
+    }
+   ],
+   "aff": [
+    "-ate"
+   ]
+  },
+  "decorate": {
+   "lv": 3,
+   "g": "v. 裝飾",
+   "refs": [
+    {
+     "s": "zhikao",
+     "id": "ZK0280",
+     "t": "86聯考 單字Q7",
+     "k": "d"
+    }
+   ],
+   "aff": [
+    "-ate"
+   ]
+  },
+  "moderate": {
+   "lv": 4,
+   "g": "adj. 適度的、穩健的",
+   "refs": [
+    {
+     "s": "gsat",
+     "id": "V0458",
+     "t": "111學測 單字Q8",
+     "k": "d"
+    },
+    {
+     "s": "gsat",
+     "id": "V0271",
+     "t": "99學測 單字Q1",
+     "k": "d"
+    },
+    {
+     "s": "zhikao",
+     "id": "ZK0237",
+     "t": "90聯考 單字Q13",
+     "k": "a"
+    }
+   ],
+   "aff": [
+    "-ate"
+   ]
+  },
+  "ultimate": {
+   "lv": 5,
+   "g": "adj. 終極的、最終的、根本的；n. 極致",
+   "refs": [
+    {
+     "s": "gsat",
+     "id": "V0456",
+     "t": "111學測 單字Q6",
+     "k": "d"
+    },
+    {
+     "s": "zhikao",
+     "id": "ZK0009",
+     "t": "110指考 單字Q9",
+     "k": "d"
+    },
+    {
+     "s": "zhikao",
+     "id": "ZK0183",
+     "t": "94指考 單字Q1",
+     "k": "d"
+    }
+   ],
+   "aff": [
+    "-ate"
+   ]
+  },
+  "intimate": {
+   "lv": 4,
+   "g": "adj. 親密的、私人的；n. 密友",
+   "refs": [
+    {
+     "s": "gsat",
+     "id": "V0456",
+     "t": "111學測 單字Q6",
+     "k": "d"
+    },
+    {
+     "s": "gsat",
+     "id": "V0353",
+     "t": "104學測 單字Q8",
+     "k": "a"
+    },
+    {
+     "s": "gsat",
+     "id": "V0245",
+     "t": "97學測 單字Q5",
+     "k": "d"
+    }
+   ],
+   "aff": [
+    "-ate"
+   ]
+  },
+  "fortunate": {
+   "lv": 4,
+   "g": "adj. 幸運的",
+   "refs": [
+    {
+     "s": "gsat",
+     "id": "V0127",
+     "t": "91學測 單字Q7",
+     "k": "d"
+    }
+   ],
+   "aff": [
+    "-ate"
+   ]
+  },
+  "candidate": {
+   "lv": 4,
+   "g": "n. 候選人、應試者",
+   "aff": [
+    "-ate"
+   ]
+  },
+  "obey": {
+   "lv": 2,
+   "g": "v. 服從、遵守",
+   "aff": [
+    "ob-（oc-／of-／op-）"
+   ]
+  },
+  "obstacle": {
+   "lv": 4,
+   "g": "n. 障礙、阻礙",
+   "aff": [
+    "ob-（oc-／of-／op-）"
+   ]
+  },
+  "obstinate": {
+   "lv": 6,
+   "g": "adj. 倔強的、頑固的",
+   "refs": [
+    {
+     "s": "gsat",
+     "id": "V0447",
+     "t": "110學測 單字Q12",
+     "k": "d"
+    },
+    {
+     "s": "zhikao",
+     "id": "ZK0287",
+     "t": "85聯考 單字Q4",
+     "k": "a"
+    }
+   ],
+   "aff": [
+    "ob-（oc-／of-／op-）"
+   ]
+  },
+  "obscure": {
+   "lv": 5,
+   "g": "adj. 模糊的、難懂的；不出名的；v. 使模糊、遮掩",
+   "aff": [
+    "ob-（oc-／of-／op-）"
+   ]
+  },
+  "observe": {
+   "lv": 3,
+   "g": "v. 觀察、注意到；遵守",
+   "refs": [
+    {
+     "s": "gsat",
+     "id": "V0182",
+     "t": "93學測 單字Q2",
+     "k": "a"
+    }
+   ],
+   "aff": [
+    "ob-（oc-／of-／op-）"
+   ]
+  },
+  "obsess": {
+   "lv": 6,
+   "g": "v. 使著迷、使念念不忘",
+   "aff": [
+    "ob-（oc-／of-／op-）"
+   ]
+  },
+  "occur": {
+   "lv": 2,
+   "g": "v. 發生、出現；（念頭）浮現、想到（occur to）",
+   "aff": [
+    "ob-（oc-／of-／op-）"
+   ]
+  },
+  "occupy": {
+   "lv": 4,
+   "g": "v. 占據、占用；使忙於",
+   "refs": [
+    {
+     "s": "gsat",
+     "id": "V0379",
+     "t": "106學測 單字Q4",
+     "k": "d"
+    },
+    {
+     "s": "gsat",
+     "id": "V0303",
+     "t": "101學測 單字Q3",
+     "k": "d"
+    }
+   ],
+   "aff": [
+    "ob-（oc-／of-／op-）"
    ]
   }
  }

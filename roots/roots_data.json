@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "note": "字根家族表。母體為大考中心《高中英文參考詞彙表》（111 學年度起適用）5,992 詞；先定字根，再把整個家族收齊，不分級別。各字依詞彙表級別排序。標「出現過」的是這個字在本題庫實際出現過的地方，只算這個字當過選項（單字題、克漏字）、參考答案（中譯英）或字彙表條目（作文）的題目，出現在題幹和文章內文的不算；同一個字最多列三筆。",
-  "updated": "2026-10-11",
+  "updated": "2026-10-26",
   "groups": [
     {
       "key": "tain / ten",
@@ -34,7 +34,7 @@
         },
         {
           "w": "obtain",
-          "p": "ob 朝向 + tain 握"
+          "p": "ob（可能只是加強語氣）+ tain 握"
         },
         {
           "w": "retain",
@@ -3655,6 +3655,1252 @@
         {
           "list": "enact",
           "why": "是 en + act（演出；制定成法律），但《高中英文參考詞彙表》沒有這個字"
+        }
+      ]
+    },
+    {
+      "key": "mit / miss",
+      "zh": "送、放出去",
+      "note": "拉丁文 mittere「送、放走」，過去分詞是 missus，所以這個家族有 mit 和 miss 兩種拼法。admit 是 ad（朝向）+ mittere，原本指放進來，後來也指承認；commit 是 com（一起）+ mittere，英文最早的意思是交給別人→委託，後來才有犯（罪）、承諾、投入的意思。mission 是被送出去執行的事→任務；message 是送出去的話→訊息，messenger 就是送訊息的人。mess 也來自 missus，原本指端上桌的一份飯菜，後來指給牲口吃的混雜食物，字典認為「一團亂」的意思大概就是從這裡來的，messy 則是它的形容詞。omit 是放掉不管→省略，submit 是放到別人底下→屈服，後來也指交給別人判斷→提交；transmit 是送過去→傳送。dismiss 的拉丁文是 dimittere（送往各處、遣散），英文拼法依照許多 dis- 開頭的動詞改成 dis-，意思是送走→解散、解雇。promise 是 pro（在前）+ mittere，事先把話送出去→承諾；compromise 原本指雙方共同承諾接受仲裁者的決定，後來才有妥協的意思；premise 是 pre（在前）+ mittere，放在前面的命題→前提。要小心的是 miss（錯過）來自古英文 missan，limit、summit、vomit 也只是拼法相似，字源都不同。",
+      "items": [
+        {
+          "w": "admit",
+          "p": "ad 朝向 + mit（拉丁文 mittere 送）"
+        },
+        {
+          "w": "message",
+          "p": "mess（拉丁文 missus，來自 mittere 送）+ -age"
+        },
+        {
+          "w": "promise",
+          "p": "pro 在前 + mise（拉丁文 mittere 送，過去分詞 missus）"
+        },
+        {
+          "w": "committee",
+          "p": "commit 委託 + -ee"
+        },
+        {
+          "w": "mess",
+          "p": "mess（晚期拉丁文 missus 端上桌的一道菜，來自 mittere 放）"
+        },
+        {
+          "w": "mission",
+          "p": "miss（拉丁文 mittere 送）+ -ion"
+        },
+        {
+          "w": "missile",
+          "p": "miss（拉丁文 mittere 送）+ -ile"
+        },
+        {
+          "w": "omit",
+          "p": "o（ob，這裡可能表示加強）+ mit（拉丁文 mittere 放走、送）"
+        },
+        {
+          "w": "permit",
+          "p": "per 通過 + mit（拉丁文 mittere 送）"
+        },
+        {
+          "w": "permission",
+          "p": "per 通過 + miss（拉丁文 mittere 送）+ -ion"
+        },
+        {
+          "w": "admission",
+          "p": "ad 朝向 + miss（拉丁文 mittere 送）+ -ion"
+        },
+        {
+          "w": "commit",
+          "p": "com 一起 + mit（拉丁文 mittere 送）"
+        },
+        {
+          "w": "dismiss",
+          "p": "dis 離開 + miss（拉丁文 mittere 送）"
+        },
+        {
+          "w": "messenger",
+          "p": "message 訊息 + -er 人（中間的 n 是 1300 年前後才加進去的，沒有字源根據）"
+        },
+        {
+          "w": "messy",
+          "p": "mess 雜亂 + -y"
+        },
+        {
+          "w": "promising",
+          "p": "promise（動詞）+ -ing"
+        },
+        {
+          "w": "commitment",
+          "p": "commit 承諾 + -ment"
+        },
+        {
+          "w": "commission",
+          "p": "com 一起 + miss（拉丁文 mittere 送）+ -ion"
+        },
+        {
+          "w": "emission",
+          "p": "e（ex 出）+ miss（拉丁文 mittere 送）+ -ion"
+        },
+        {
+          "w": "missionary",
+          "p": "mission 任務 + -ary"
+        },
+        {
+          "w": "submit",
+          "p": "sub 在下 + mit（拉丁文 mittere 送）"
+        },
+        {
+          "w": "transmission",
+          "p": "trans 穿越 + miss（拉丁文 mittere 送）+ -ion"
+        },
+        {
+          "w": "compromise",
+          "p": "com 一起 + promise 承諾"
+        },
+        {
+          "w": "premise",
+          "p": "pre（prae 在前）+ mise（拉丁文 mittere 送，過去分詞 missus）"
+        },
+        {
+          "w": "permissible",
+          "p": "per 通過 + miss（拉丁文 mittere 送）+ -ible"
+        },
+        {
+          "w": "transmit",
+          "p": "trans 穿越 + mit（拉丁文 mittere 送）"
+        }
+      ],
+      "dropped": [
+        {
+          "list": "miss　missing",
+          "why": "來自古英文 missan「沒打中、失誤」，可以追溯到原始日耳曼語，跟拉丁文 mittere 無關"
+        },
+        {
+          "list": "limit　limitation",
+          "why": "來自拉丁文 limes「邊界」，大概跟 limen「門檻」有關，不是 mittere"
+        },
+        {
+          "list": "summit",
+          "why": "來自古法文 somete「山頂」，是 som「頂端」的指小形，源頭是拉丁文 summus「最高的」，不是 mittere"
+        },
+        {
+          "list": "vomit",
+          "why": "來自拉丁文 vomere「嘔吐」，字尾的 -mit 只是拼法相似"
+        },
+        {
+          "list": "imitate　imitation",
+          "why": "來自拉丁文 imitari「模仿」，跟 image「影像」同源，不是 mittere"
+        },
+        {
+          "list": "primitive",
+          "why": "來自拉丁文 primus「第一的」，字中的 -mit- 不是字根"
+        },
+        {
+          "list": "dormitory",
+          "why": "來自拉丁文 dormire「睡覺」，dormitory 是睡覺的地方，不是 mittere"
+        }
+      ]
+    },
+    {
+      "key": "alter",
+      "zh": "另一個、輪流",
+      "note": "拉丁文 alter「（兩者中的）另一個」。alter 經中古拉丁文 alterare「改變」進入英文，也就是讓事物變成另一個樣子。alternate 來自 alternus「一個接一個、輪流」，所以是交替的、輪流的；alternative 本來指兩者擇一的，當名詞就是可以選的另一個→替代方案、選擇。",
+      "items": [
+        {
+          "w": "alternative",
+          "p": "altern（拉丁文 alternus 輪流）+ -ative"
+        },
+        {
+          "w": "alter",
+          "p": "alter（中古拉丁文 alterare 改變，來自拉丁文 alter 另一個）"
+        },
+        {
+          "w": "alternate",
+          "p": "altern（拉丁文 alternus 輪流）+ -ate"
+        }
+      ],
+      "dropped": [
+        {
+          "list": "falter",
+          "why": "字源不明，可能來自斯堪地那維亞語（可對照古北歐語 faltrask「負擔沉重、猶豫」），也可能是中古英文 falden「折」的反覆形，跟拉丁文 alter 無關"
+        },
+        {
+          "list": "alien　alienate",
+          "why": "來自拉丁文 alienus「屬於別人的」，源頭是 alius「其他的」；它和 alter 雖然可以追溯到同一個原始印歐語字根 al-「超過、另外」，但在拉丁文已經是不同的字，所以不放這組"
+        }
+      ]
+    },
+    {
+      "key": "centr",
+      "zh": "中心",
+      "note": "希臘文 kentron 原指「尖刺」，拉丁文借成 centrum，原本指圓規兩隻腳裡固定不動的那一隻，所以後來指圓心、中心。center 是中心，central 是中心的→中央的。concentrate 是 con（一起）+ centrum，經義大利文 concentrare 進入英文，把東西集中到同一個中心→集中；十九世紀起用在心思上，就是專心。eccentric 來自希臘文 ekkentros，是 ek（出）+ kentron，偏離中心的→古怪的。",
+      "items": [
+        {
+          "w": "center",
+          "p": "center（拉丁文 centrum 中心，來自希臘文 kentron 尖刺）"
+        },
+        {
+          "w": "central",
+          "p": "centr 中心 + -al"
+        },
+        {
+          "w": "concentrate",
+          "p": "con 一起 + centr 中心 + -ate"
+        },
+        {
+          "w": "concentration",
+          "p": "concentrate 集中 + -ion"
+        },
+        {
+          "w": "eccentric",
+          "p": "ec（希臘文 ek 出）+ centr 中心 + -ic"
+        }
+      ],
+      "dropped": []
+    },
+    {
+      "key": "corp",
+      "zh": "身體",
+      "note": "拉丁文 corpus「身體」。corporate 來自 corporare「做成一個身體」的過去分詞 corporatus，指許多人聯合成一個整體、組成法人團體的，所以有公司的意思；corporation 就是公司，也就是法律上視為一個人的組織。incorporate 是 in（進入）+ corpus，放進同一個身體裡→併入、納入。corpse 經古法文 cors 進入英文，原本就指身體，後來才專指屍體；字中的 p 是法文在十四世紀依照拉丁文補回的，英文到十五世紀才跟進。",
+      "items": [
+        {
+          "w": "corporate",
+          "p": "corpor（拉丁文 corpus 身體）+ -ate（拉丁文動詞 corporare 的過去分詞 corporatus，-atus 在英文變成 -ate）"
+        },
+        {
+          "w": "corporation",
+          "p": "corporate 公司的 + -ion"
+        },
+        {
+          "w": "incorporate",
+          "p": "in 進入 + corpor（拉丁文 corpus 身體）+ -ate（晚期拉丁文 incorporare 的過去分詞 incorporatus）"
+        },
+        {
+          "w": "corpse",
+          "p": "corpse（古法文 cors，來自拉丁文 corpus 身體）"
+        }
+      ],
+      "dropped": []
+    },
+    {
+      "key": "cred",
+      "zh": "相信",
+      "note": "拉丁文 credere「相信、信任、託付」。credit 的拉丁文 creditum 原指「託付給別人的東西、借出去的錢」，所以 credit 有信用、賒帳的意思；後來也指名譽、對功勞的肯定，也就是功勞。credible 是 cred + -ible，值得相信的→可信的，credibility 是它的名詞，可信度；incredible 加上否定字首 in-，是不能相信的→令人難以置信的。sacred 雖然字裡也有 cred，卻不是這個家族。",
+      "items": [
+        {
+          "w": "credit",
+          "p": "cred（拉丁文 credere 相信）+ -it"
+        },
+        {
+          "w": "incredible",
+          "p": "in 不 + credible 可信的"
+        },
+        {
+          "w": "credibility",
+          "p": "credible 可信的 + -ity"
+        },
+        {
+          "w": "credible",
+          "p": "cred 相信 + -ible 可…的"
+        }
+      ],
+      "dropped": [
+        {
+          "list": "sacred",
+          "why": "是已經不用的動詞 sacren「使神聖」的過去分詞形容詞，可追溯到拉丁文 sacrare、sacer「神聖的」，字尾的 -ed 是過去分詞字尾，跟 credere 無關"
+        }
+      ]
+    },
+    {
+      "key": "duc / duct",
+      "zh": "引導",
+      "note": "拉丁文 ducere「引導、帶領」，過去分詞是 ductus，所以這個家族有 duc 和 duct 兩種拼法。字首決定帶的方向：produce 是 pro（向前）+ ducere，把東西帶到眼前→生產、製造；reduce 是 re（往回）+ ducere，帶回去→減少；introduce 是 intro（向內）+ ducere，帶進來→介紹；conduct 是 con（一起）+ ducere，帶領大家一起走→引導、指揮、進行，所以 conductor 可以是樂團指揮、車掌或導體。educate 來自拉丁文 educare「養育、教育」，字典說它是 educere（ex 出 + ducere，帶出來）的反覆形，或者以其他方式和 educere 有關，確切是哪一種關係並沒有定論；常見的「教育就是把人的潛能引導出來」這種解釋，Etymonline 引用的 Century Dictionary 認為沒有根據。至於 duck（鴨子）來自古英文 duce，字面上是「會潛水的」，跟 ducere 無關。",
+      "items": [
+        {
+          "w": "produce",
+          "p": "pro 向前 + duce（拉丁文 ducere 引導）"
+        },
+        {
+          "w": "production",
+          "p": "produce 生產 + -tion"
+        },
+        {
+          "w": "introduce",
+          "p": "intro 向內 + duce（拉丁文 ducere 引導）"
+        },
+        {
+          "w": "introduction",
+          "p": "introduce 介紹 + -tion"
+        },
+        {
+          "w": "education",
+          "p": "educate 教育 + -ion"
+        },
+        {
+          "w": "product",
+          "p": "pro 向前 + duct（拉丁文 ductus 引導）"
+        },
+        {
+          "w": "producer",
+          "p": "produce 生產 + -er 人"
+        },
+        {
+          "w": "reduce",
+          "p": "re 往回 + duce（拉丁文 ducere 引導）"
+        },
+        {
+          "w": "educate",
+          "p": "e（ex 出）+ duc（拉丁文 educare 養育，和 educere 帶出來有關）+ -ate"
+        },
+        {
+          "w": "educational",
+          "p": "education 教育 + -al"
+        },
+        {
+          "w": "productive",
+          "p": "produce 生產 + -ive"
+        },
+        {
+          "w": "reduction",
+          "p": "reduce 減少 + -tion"
+        },
+        {
+          "w": "conductor",
+          "p": "conduct 引導、指揮 + -or 人"
+        },
+        {
+          "w": "productivity",
+          "p": "productive 有生產力的 + -ity"
+        },
+        {
+          "w": "conduct",
+          "p": "con 一起 + duct（拉丁文 ductus 引導）"
+        },
+        {
+          "w": "reproduce",
+          "p": "re 再 + produce 生產"
+        },
+        {
+          "w": "induce",
+          "p": "in 進入 + duce（拉丁文 ducere 引導）"
+        },
+        {
+          "w": "seduce",
+          "p": "se 離開 + duce（拉丁文 ducere 引導）"
+        },
+        {
+          "w": "deduct",
+          "p": "de 向下、離開 + duct（拉丁文 ductus 引導）"
+        }
+      ],
+      "dropped": [
+        {
+          "list": "duck",
+          "why": "來自古英文 duce，字面上是「會潛水的」，大概來自古英文動詞 ducan「潛水」，跟拉丁文 ducere 無關，只是拼法巧合"
+        }
+      ]
+    },
+    {
+      "key": "gen",
+      "zh": "出生、產生、種類",
+      "note": "源頭是原始印歐語表示「生育」的字根 gene-，拉丁文有 gignere「生出、產生」和 genus「種族、家族、種類」，希臘文有 genos「種族、出身」和 genesis「起源」。意思沿著三條路延伸：一是「生出來」，generate 是產生；generation 在拉丁文指產生的動作，英文很早就用來指同一時期出生的一群人→世代。gene 來自二十世紀初丹麥科學家用德文造的字 Gen，指基因；genetic 原本指和起源有關的，到二十世紀才有遺傳的意思。indigenous 是古拉丁文 indu（在裡面）+ gignere，生在當地的→原住的、本土的。hydrogen 和 oxygen 的 -gen 是「產生」：hydrogen 遇到氧會形成水，oxygen 則是因為當時以為它是形成酸的必要成分，後來才知道並非如此。二是「同一家族、同一種類」，general 原指屬於整個種類的→一般的，gender 和 genre 都來自 genus，分別指性別、類別。三是「出身」，generous 原指出身高貴，後來引申成大方、慷慨；gentle 和 gentleman 原指出身良好，gentle 到十六世紀才有溫和的意思；genius 原是人出生時就守護他的神靈，後來才指天賦和天才；genuine 是天生、道地的→真正的，字典的主要說法是來自 gignere，另外也列出一種說法，認為它來自 genu「膝蓋」，因為據說古時候父親會把新生兒放在膝上，表示承認是自己的孩子。另外 agent、agenda 來自 agere，intelligence、legend 來自 legere，都只是拼法像，不屬於這個家族。",
+      "items": [
+        {
+          "w": "general",
+          "p": "gener（拉丁文 genus 種類）+ -al"
+        },
+        {
+          "w": "generous",
+          "p": "gener（拉丁文 genus 家族、出身）+ -ous"
+        },
+        {
+          "w": "gentle",
+          "p": "gentle（拉丁文 gentilis 同一家族的，來自 gens 家族）"
+        },
+        {
+          "w": "gentleman",
+          "p": "gentle 出身良好的 + man 人"
+        },
+        {
+          "w": "gene",
+          "p": "gene（德文 Gen，來自希臘文 genea 世代、種族）"
+        },
+        {
+          "w": "generation",
+          "p": "generate 產生 + -ion"
+        },
+        {
+          "w": "hydrogen",
+          "p": "hydro（希臘文 hydor 水）+ -gen（法文 -gène 產生…的東西）"
+        },
+        {
+          "w": "oxygen",
+          "p": "oxy（希臘文 oxys 尖銳、酸）+ -gen（法文 -gène 產生…的東西）"
+        },
+        {
+          "w": "gender",
+          "p": "gender（拉丁文 genus 種類、性別）"
+        },
+        {
+          "w": "generosity",
+          "p": "generous 慷慨的 + -ity"
+        },
+        {
+          "w": "genius",
+          "p": "genius（拉丁文 genius 守護神，來自「生育」的原始印歐語字根 gene-）"
+        },
+        {
+          "w": "genuine",
+          "p": "genuine（拉丁文 genuinus 天生的，主要說法是來自 gignere 生出）"
+        },
+        {
+          "w": "genetic",
+          "p": "genet（仿希臘文 genetikos，來自 genesis 起源）+ -ic"
+        },
+        {
+          "w": "genetics",
+          "p": "genetic 遺傳的 + -ics 學科"
+        },
+        {
+          "w": "generate",
+          "p": "gener（拉丁文 generare 生出，來自 genus 種族、種類）+ -ate"
+        },
+        {
+          "w": "generator",
+          "p": "generate 產生 + -or"
+        },
+        {
+          "w": "indigenous",
+          "p": "indi（古拉丁文 indu 在裡面）+ gen（拉丁文 gignere 生出）+ -ous"
+        },
+        {
+          "w": "genre",
+          "p": "genre（法文，來自拉丁文 genus 種類）"
+        }
+      ],
+      "dropped": [
+        {
+          "list": "agent　agency　agenda",
+          "why": "來自拉丁文 agere「做、驅動」，收在 act / ag 那一組"
+        },
+        {
+          "list": "legend　legendary　diligence　diligent　intelligence　intelligent",
+          "why": "來自拉丁文 legere「挑選、閱讀」，收在 lect / leg / lig 那一組，字中的 -gen- 只是拼法巧合"
+        },
+        {
+          "list": "detergent",
+          "why": "來自拉丁文 detergere「擦掉、清洗」，是 de 離開 + tergere「擦」"
+        },
+        {
+          "list": "urgent　urgency",
+          "why": "來自拉丁文 urgere「推、逼迫」"
+        },
+        {
+          "list": "emergency",
+          "why": "來自拉丁文 emergere「浮出」，是 e 出 + mergere「浸、沉」"
+        }
+      ]
+    },
+    {
+      "key": "grad / gress",
+      "zh": "步、走",
+      "note": "拉丁文 gradus「一步、階梯的一級」與動詞 gradi「走、跨步」（過去分詞 gressus）。gradus 是一步一步往上的階，所以 grade 是等級；gradual 是一階一階來的→逐漸的，副詞 gradually 就是 gradual 加上 -ly；graduate 來自中古拉丁文 graduari「取得學位」，也就是畢業。gradi 的過去分詞詞幹 gress 則是「走」：pro（往前）+ gress 是 progress 往前走→進步，ag（ad 朝向）+ gress 是 aggression 朝對方走過去→攻擊，con（com 一起）+ gress 是 congress，拉丁文原意是「會面」，後來指代表們開的會議→國會。至於 ingredient 和 degree，拼字已經看不太出 grad：ingredient 來自 ingredi「走進去」，指加進混合物裡的東西→成分；degree 經古法文 degré 而來，一般認為是 de（往下）+ gradus，原指階梯的一級，後來才有程度、學位等意思。",
+      "items": [
+        {
+          "w": "grade",
+          "p": "grad（拉丁文 gradus 步、階）→ 等級"
+        },
+        {
+          "w": "gradual",
+          "p": "grad（拉丁文 gradus 步、階）+ -al"
+        },
+        {
+          "w": "degree",
+          "p": "de 往下 + gree 步、階（拉丁文 gradus，經古法文 degré）"
+        },
+        {
+          "w": "progress",
+          "p": "pro 往前 + gress 走（拉丁文 gradi）"
+        },
+        {
+          "w": "graduate",
+          "p": "grad（中古拉丁文 graduari 取得學位，來自拉丁文 gradus 步、階）+ -ate"
+        },
+        {
+          "w": "graduation",
+          "p": "graduate 畢業 + -ion"
+        },
+        {
+          "w": "ingredient",
+          "p": "in 進入 + gred（拉丁文 gradi 走）+ -ient"
+        },
+        {
+          "w": "aggressive",
+          "p": "ag（ad）朝向 + gress 走（拉丁文 gradi）+ -ive"
+        },
+        {
+          "w": "congress",
+          "p": "con（com）一起 + gress 走（拉丁文 gradi）"
+        },
+        {
+          "w": "upgrade",
+          "p": "up 向上 + grade 等級"
+        },
+        {
+          "w": "undergraduate",
+          "p": "under 在…之下 + graduate 畢業生"
+        },
+        {
+          "w": "progressive",
+          "p": "progress 前進 + -ive"
+        },
+        {
+          "w": "aggression",
+          "p": "ag（ad）朝向 + gress 走（拉丁文 gradi）+ -ion"
+        },
+        {
+          "w": "congressman",
+          "p": "congress 國會 + man 人"
+        },
+        {
+          "w": "congresswoman",
+          "p": "congress 國會 + woman 女人"
+        }
+      ],
+      "dropped": []
+    },
+    {
+      "key": "habit",
+      "zh": "擁有；居住",
+      "note": "拉丁文 habere「擁有、持有」，它的反覆形 habitare 意思是「居住」。habere 的過去分詞 habitus 指人的狀態、外表與衣著，所以 habit 最早是修士、修女穿的服裝，後來才指習慣，habitual 就是習慣性的。habitare 帶出居住的意思：in（在…裡）+ habit 是 inhabit 居住於，inhabitant 是居民；habitat 原本是拉丁文的「它居住」，十八世紀用在描述英國動植物的拉丁文書裡，標出物種在哪裡被發現，現在指動植物的棲息地。至於 exhibit 和 prohibit，拼字裡的 habit 變成了 hibit：ex（出）+ hibit 是 exhibit，把東西拿出來給人看→展示，exhibition 是展覽；pro（離開）+ hibit 是 prohibit，拉丁文原意是擋住、阻止，所以是禁止，prohibition 是禁令。",
+      "items": [
+        {
+          "w": "habit",
+          "p": "habit（拉丁文 habitus 狀態、衣著，是 habere 擁有 的過去分詞）"
+        },
+        {
+          "w": "exhibition",
+          "p": "exhibit 展示 + -ion"
+        },
+        {
+          "w": "habitual",
+          "p": "habit 習慣 + -ual"
+        },
+        {
+          "w": "exhibit",
+          "p": "ex 出 + hibit 持有（拉丁文 habere）"
+        },
+        {
+          "w": "habitat",
+          "p": "habitat（拉丁文 habitare 居住 的第三人稱單數現在式，字面是「它居住」）"
+        },
+        {
+          "w": "prohibit",
+          "p": "pro 離開 + hibit 持有（拉丁文 habere）"
+        },
+        {
+          "w": "inhabit",
+          "p": "in 在…裡 + habit（拉丁文 habitare 居住）"
+        },
+        {
+          "w": "inhabitant",
+          "p": "inhabit 居住 + -ant 人"
+        },
+        {
+          "w": "prohibition",
+          "p": "prohibit 禁止 + -ion"
+        }
+      ],
+      "dropped": [
+        {
+          "list": "inhibit",
+          "why": "字源同樣是 habere（in + habere），但大考中心詞彙表未收錄，故不列入"
+        }
+      ]
+    },
+    {
+      "key": "medi",
+      "zh": "中間",
+      "note": "拉丁文 medius「中間的」。immediate 是 im（in 不）+ mediatus，mediatus 是 mediare「位在中間」的過去分詞，合起來是中間沒有隔著任何東西→直接的、立即的，副詞 immediately 就是 immediate 加上 -ly；intermediate 是 inter（之間）+ medius，位在兩者之間→中級的；mediate 來自 mediare，站在中間→居中調解；medium 是 medius 的中性形，指中間的東西→媒介，它的複數 media 從二十世紀起指報紙、廣播、電視等媒體。medieval 是十九世紀用拉丁文 medium（中間）和 aevum（時代）造的字，指歐洲史上夾在古代與近代之間的中世紀。要小心的是，medical、medicine、medication 來自 medicus「醫生」，meditate、meditation 來自 meditari「沉思」，字源都跟 medius 不同。",
+      "items": [
+        {
+          "w": "medium",
+          "p": "medium（拉丁文 medius 中間的）→ 中間的東西"
+        },
+        {
+          "w": "media",
+          "p": "medium 的複數"
+        },
+        {
+          "w": "immediate",
+          "p": "im（in 不）+ medi（拉丁文 medius 中間）+ -ate"
+        },
+        {
+          "w": "intermediate",
+          "p": "inter 之間 + medi（拉丁文 medius 中間）+ -ate"
+        },
+        {
+          "w": "mediate",
+          "p": "medi（拉丁文 medius 中間）+ -ate"
+        },
+        {
+          "w": "medieval",
+          "p": "medi（拉丁文 medium 中間）+ ev（拉丁文 aevum 時代）+ -al"
+        }
+      ],
+      "dropped": [
+        {
+          "list": "medical、medicine、medication",
+          "why": "來自拉丁文 medicus「醫生」，跟 medius「中間」無關；Etymonline 把 medicus 追溯到另一個原始印歐語字根 med-「採取適當措施」"
+        },
+        {
+          "list": "meditate、meditation",
+          "why": "meditation 來自拉丁文 meditari「思考、反覆考慮」，meditate 可能是從 meditation 逆構而來，與 medius 無關；Etymonline 追溯到原始印歐語字根 med-「採取適當措施」"
+        },
+        {
+          "list": "comedian",
+          "why": "來自法文 comédien，源頭是希臘文 komoidia「喜劇」，可能出自 komos「狂歡」+ aoidos「歌者」，字母 medi 只是巧合"
+        }
+      ]
+    },
+    {
+      "key": "pend / pens",
+      "zh": "懸掛；秤重、支付",
+      "note": "拉丁文 pendere 有「懸掛」的意思，也有「秤重、支付」的意思；pensare 是它的反覆形，意思是「秤量」。de（往下）+ pend 是 depend，拉丁文原意是從上面垂掛下來，後來指依賴，dependent 是依賴的，前面再加上 in（不）就是 independent 獨立的；sus（sub 往上）+ pend 是 suspend 吊起來，引申為暫停，suspense 是懸而未決的狀態；pending 也是懸著還沒決定→待決的。ex（出）+ pend 是 expendere「秤出錢、付錢」，所以 expense 是支出、expensive 是花費高的，spend 則來自中古拉丁文 spendere，是 expendere 的縮短形（也可能是 dispendere 的縮短形）；dis（出）+ pens 是 dispense，拉丁文原意是按重量分配→分發，dispensable 是可以省掉的，加上 in 的 indispensable 就是不可或缺的。com（一起）+ pens 是 compensate，把一樣東西拿來和另一樣秤，使兩邊相抵→補償；pension 來自拉丁文 pensio「付款、分期款」，現在指定期領的退休金。要注意的是，respond、correspond 裡的 spond 看起來像 pend，其實來自 spondere「承諾」，屬於 spond / spons 那個家族。",
+      "items": [
+        {
+          "w": "spend",
+          "p": "spend（中古拉丁文 spendere，是拉丁文 expendere 秤出錢 的縮短形，也可能是 dispendere 付出 的縮短形）"
+        },
+        {
+          "w": "expensive",
+          "p": "expense 支出 + -ive"
+        },
+        {
+          "w": "depend",
+          "p": "de 往下 + pend 懸掛（拉丁文 pendere）"
+        },
+        {
+          "w": "independent",
+          "p": "in 不 + dependent 依賴的"
+        },
+        {
+          "w": "independence",
+          "p": "independent 獨立的 + -ence"
+        },
+        {
+          "w": "expense",
+          "p": "ex 出 + pens 秤、付（拉丁文 expendere）"
+        },
+        {
+          "w": "dependent",
+          "p": "depend 依賴 + -ent"
+        },
+        {
+          "w": "suspend",
+          "p": "sus（sub）往上 + pend 懸掛（拉丁文 pendere）"
+        },
+        {
+          "w": "indispensable",
+          "p": "in 不 + dispensable 可免除的"
+        },
+        {
+          "w": "compensate",
+          "p": "com 一起 + pens 秤（拉丁文 pensare）+ -ate"
+        },
+        {
+          "w": "compensation",
+          "p": "compensate 補償 + -ion"
+        },
+        {
+          "w": "pension",
+          "p": "pens 付款（拉丁文 pendere 的過去分詞詞幹）+ -ion"
+        },
+        {
+          "w": "suspense",
+          "p": "sus（sub）往上 + pens 懸掛（拉丁文 suspensus，suspendere 的過去分詞）"
+        },
+        {
+          "w": "suspension",
+          "p": "sus（sub）往上 + pens 懸掛 + -ion（拉丁文 suspensio）"
+        },
+        {
+          "w": "pending",
+          "p": "pend 懸掛 + -ing"
+        },
+        {
+          "w": "expenditure",
+          "p": "ex 出 + pendit 秤、付（中古拉丁文 expenditus，expendere 的過去分詞）+ -ure"
+        },
+        {
+          "w": "dispense",
+          "p": "dis 出 + pens 秤、付（拉丁文 dispensare）"
+        },
+        {
+          "w": "dispensable",
+          "p": "dispense 分發、免除 + -able"
+        }
+      ],
+      "dropped": [
+        {
+          "list": "respond　correspond",
+          "why": "來自拉丁文 spondere「承諾」（respond 是 re 往回 + spondere），跟 pendere 無關；收在 spond / spons 那個家族"
+        }
+      ]
+    },
+    {
+      "key": "port",
+      "zh": "攜帶、搬運",
+      "note": "拉丁文 portare「攜帶、搬運」。support 是 sup（sub 在下）+ portare，從下面托住→支持；import 是 im（in 進入）+ portare，帶進來→進口，important 則來自中古拉丁文 importare「有重要意義」的現在分詞，所以也屬於這個家族；export 是 ex（出）+ portare，帶出去→出口；transport 是 trans（越過）+ portare，從一處運到另一處→運輸；report 是 re（往回）+ portare，帶回來→報告。portable 是可以攜帶的，portfolio 來自義大利文 portafoglio，原指裝著散頁紙張帶著走的夾子。sport 也屬於這個家族：古法文 desporter 是 des（離開）+ porter（攜帶），意思是消遣、娛樂，英文先有 disport，sport 是它的縮短形，dis 只剩下 s，後來才指體育運動。porter 要看詞義：搬運工來自 portare，門房則來自 porta「門」。容易搞錯的是 port 的另外兩個來源：拉丁文 portus「港口」和 porta「門」，拼法雖然一樣，意思卻不是攜帶。opportunity 就是一例，它來自拉丁文 opportunus「合適的、有利的」，出自 ob portum veniens「朝港口吹來」，說的是風，字根是 portus，所以列在下面容易拆錯的字，不算這個家族。",
+      "items": [
+        {
+          "w": "important",
+          "p": "im（in）進入 + port（拉丁文 portare 攜帶）+ -ant"
+        },
+        {
+          "w": "report",
+          "p": "re 往回 + port（拉丁文 portare 攜帶）"
+        },
+        {
+          "w": "reporter",
+          "p": "report 報導 + -er 人"
+        },
+        {
+          "w": "support",
+          "p": "sup（sub）在下 + port（拉丁文 portare 攜帶）"
+        },
+        {
+          "w": "importance",
+          "p": "im（in）進入 + port（拉丁文 portare 攜帶）+ -ance"
+        },
+        {
+          "w": "sport",
+          "p": "s（dis 離開，古法文 des-）+ port（拉丁文 portare 攜帶）；是 disport 去掉字首的縮短形"
+        },
+        {
+          "w": "import",
+          "p": "im（in）進入 + port（拉丁文 portare 攜帶）"
+        },
+        {
+          "w": "export",
+          "p": "ex 出 + port（拉丁文 portare 攜帶）"
+        },
+        {
+          "w": "transport",
+          "p": "trans 越過 + port（拉丁文 portare 攜帶）"
+        },
+        {
+          "w": "transportation",
+          "p": "transport 運輸 + -ation"
+        },
+        {
+          "w": "portable",
+          "p": "port（拉丁文 portare 攜帶）+ -able"
+        },
+        {
+          "w": "portfolio",
+          "p": "port（義大利文 porta 攜帶，來自拉丁文 portare）+ folio 紙張（義大利文 foglio，來自拉丁文 folium 葉子）"
+        },
+        {
+          "w": "porter",
+          "p": "port（拉丁文 portare 攜帶）+ -er 人；指搬運工（指門房時來自 porta「門」）"
+        },
+        {
+          "w": "sportsman",
+          "p": "sports 運動 + man 人"
+        },
+        {
+          "w": "sportswoman",
+          "p": "sports 運動 + woman 女人"
+        },
+        {
+          "w": "sportsmanship",
+          "p": "sportsman 運動員 + -ship"
+        }
+      ],
+      "dropped": [
+        {
+          "list": "opportunity",
+          "why": "來自拉丁文 opportunus「合適的、有利的」，出自 ob portum veniens「朝港口吹來」，原本說的是風，字根是 portus「港口」，不是 portare「攜帶」"
+        },
+        {
+          "list": "port　airport　passport",
+          "why": "port 來自拉丁文 portus「港口」；airport 是 air（空中）+ port，passport 來自古法文 passeport「通過港口的許可」，port 都是港口"
+        },
+        {
+          "list": "portion　proportion",
+          "why": "來自拉丁文 portio「份、部分」，與 pars「部分」有關，跟 portare 無關"
+        },
+        {
+          "list": "portrait　portray",
+          "why": "來自古法文 portraire「描繪」，是 por（拉丁文 pro 往前）+ traire「拉、描」，源自拉丁文 trahere「拉」，跟 portare 無關；portrait 收在 treat / trait 那個家族"
+        }
+      ]
+    },
+    {
+      "key": "prob / prov",
+      "zh": "試驗、證明",
+      "note": "拉丁文 probare「試驗、證明某事是好的」，來自 probus「正直的、好的」。prove 是用事實證明某事成立；proof 是證明的結果→證據，加在名詞後面的 -proof 就是這個 proof，意思是「經得起考驗的」→防…的，所以 waterproof 是防水的、fireproof 是防火的；probe 來自中古拉丁文 proba「檢查」，最早指醫生檢查傷口用的細長探針，後來引申為探測、調查。approve 是 ap（ad 朝向）+ probare，認為是好的→贊成、批准；probable 在拉丁文裡是值得認可、可信的，進入英文後指證據支持多於反對→很可能的。這個家族有 prob 和 prov 兩種拼法（prove、approve 是 prov）。最容易搞錯的是看起來一樣有 prov 的字：provide、provision 是 pro（往前）+ videre「看」，provoke 是 pro + vocare「叫」，proverb 是 pro + verbum「字」，improve 則是 en（使）+ 古法文 prou「利益」，原意是使獲利，拼法後來才受到 -prove 結尾的字影響，這些字都跟 probare 無關。",
+      "items": [
+        {
+          "w": "probably",
+          "p": "probable 很可能的 + -ly"
+        },
+        {
+          "w": "prove",
+          "p": "prov（拉丁文 probare 試驗、證明）+ -e"
+        },
+        {
+          "w": "proof",
+          "p": "proof（晚期拉丁文 proba，由拉丁文 probare 試驗、證明 而來）"
+        },
+        {
+          "w": "approve",
+          "p": "ap（ad）朝向 + prov（拉丁文 probare 試驗、證明）+ -e"
+        },
+        {
+          "w": "probable",
+          "p": "prob（拉丁文 probare 試驗、證明）+ -able"
+        },
+        {
+          "w": "approval",
+          "p": "approve 贊成 + -al"
+        },
+        {
+          "w": "disapprove",
+          "p": "dis 否定 + approve 贊成"
+        },
+        {
+          "w": "fireproof",
+          "p": "fire 火 + proof（-proof 防…的，來自 proof 經得起考驗）"
+        },
+        {
+          "w": "waterproof",
+          "p": "water 水 + proof（-proof 防…的，來自 proof 經得起考驗）"
+        },
+        {
+          "w": "probe",
+          "p": "probe（中古拉丁文 proba 檢查，來自拉丁文 probare 試驗）"
+        }
+      ],
+      "dropped": [
+        {
+          "list": "improve　improvement",
+          "why": "是 en（使）+ 古法文 prou「利益」（來自晚期拉丁文 prode「有利的」），原意是使獲利，拼法後來受 -prove 結尾的字影響才寫成 prove，跟 probare 無關"
+        },
+        {
+          "list": "provide　provision　provisional",
+          "why": "來自拉丁文 providere，是 pro（往前）+ videre「看」，預先看到而準備→供應，跟 probare 無關；收在 vid / vis 那個家族"
+        },
+        {
+          "list": "province　provincial",
+          "why": "來自拉丁文 provincia「羅馬在義大利以外統治的領土」，字源不確定，與 probare 無關"
+        },
+        {
+          "list": "provoke",
+          "why": "來自拉丁文 provocare，是 pro（往前）+ vocare「叫」，叫出來→激起，跟 probare 無關"
+        },
+        {
+          "list": "proverb",
+          "why": "來自拉丁文 proverbium，是 pro（往前）+ verbum「字」，說出來的話→諺語，跟 probare 無關"
+        },
+        {
+          "list": "problem",
+          "why": "來自希臘文 problema，是 pro（往前）+ ballein「丟」，字面是「丟到前面的東西」→提出的問題，跟 probare 無關"
+        }
+      ]
+    },
+    {
+      "key": "sequ / secu",
+      "zh": "跟隨",
+      "note": "拉丁文 sequi「跟隨」，過去分詞詞幹是 secut-，所以這個家族有 sequ 和 secu（secut）兩種拼法，經過古法文還會變成 sue、suit。consequence 是 con（一起）+ sequi，跟著發生的事→結果；subsequent 是 sub（緊接）+ sequi，緊跟在後→隨後的；sequence 是一個接一個跟著的→順序。execute 是 ex（出）+ sequi，拉丁文原意是跟隨到底，引申為完成、執行，十五世紀起也指處決；prosecute 是 pro（往前）+ sequi，往前追→追究，十六世紀起指起訴。sue、suit、pursue 則經過古法文才變形：sue 最早是跟在後面走，後來指把案子在法庭上一路追下去→控告；pursue 是往前追→追求；suit 原指一群跟隨的人，以及這些隨從穿的成套服裝，後來指成套的衣服，也指訴訟，suitcase 就是裝一套衣服的箱子。second 和 secondary 來自拉丁文 secundus「跟在後面的、下一個」，secundus 出自 sequi，所以也屬於這個家族。要小心的是 secure、security 來自 securus（se 免於 + cura 憂慮），issue 來自 exire「出去」，tissue 來自 texere「編織」，字面像但字源不同。",
+      "items": [
+        {
+          "w": "second",
+          "p": "second（拉丁文 secundus 跟在後面的，來自 sequi 跟隨）"
+        },
+        {
+          "w": "suit",
+          "p": "suit（古法文 suite 跟隨，來自拉丁文 sequi 跟隨）"
+        },
+        {
+          "w": "suitable",
+          "p": "suit 適合 + -able"
+        },
+        {
+          "w": "swimsuit",
+          "p": "swim 游泳 + suit 衣服"
+        },
+        {
+          "w": "secondary",
+          "p": "second 第二的 + -ary"
+        },
+        {
+          "w": "consequence",
+          "p": "con 一起 + sequ（拉丁文 sequi 跟隨）+ -ence"
+        },
+        {
+          "w": "consequent",
+          "p": "con 一起 + sequ（拉丁文 sequi 跟隨）+ -ent"
+        },
+        {
+          "w": "pursue",
+          "p": "pur（pro）往前 + sue（拉丁文 sequi 跟隨，經古法文 poursuir）"
+        },
+        {
+          "w": "pursuit",
+          "p": "pursue 追求 的名詞（古法文 porsuite）"
+        },
+        {
+          "w": "sue",
+          "p": "sue（拉丁文 sequi 跟隨，經古法文 suir）"
+        },
+        {
+          "w": "sequence",
+          "p": "sequ（拉丁文 sequi 跟隨）+ -ence"
+        },
+        {
+          "w": "subsequent",
+          "p": "sub 緊接 + sequ（拉丁文 sequi 跟隨）+ -ent"
+        },
+        {
+          "w": "consecutive",
+          "p": "con 一起 + secut（拉丁文 sequi 跟隨）+ -ive"
+        },
+        {
+          "w": "execute",
+          "p": "ex 出 + ecut（secut 跟隨，拉丁文 exsequi 跟隨到底）"
+        },
+        {
+          "w": "execution",
+          "p": "execute 執行 + -ion"
+        },
+        {
+          "w": "executive",
+          "p": "execute 執行 + -ive"
+        },
+        {
+          "w": "prosecution",
+          "p": "prosecute 起訴 + -ion"
+        },
+        {
+          "w": "suite",
+          "p": "suite（法文 suite 跟隨、隨從，來自拉丁文 sequi 跟隨）"
+        },
+        {
+          "w": "lawsuit",
+          "p": "law 法律 + suit 訴訟"
+        },
+        {
+          "w": "prosecute",
+          "p": "pro 往前 + secut（拉丁文 sequi 跟隨）"
+        },
+        {
+          "w": "suitcase",
+          "p": "suit 成套的衣物 + case 箱子"
+        }
+      ],
+      "dropped": [
+        {
+          "list": "secure　security",
+          "why": "來自拉丁文 securus，是 se（免於）+ cura「憂慮」，沒有憂慮→安全的，跟 sequi 無關"
+        },
+        {
+          "list": "issue",
+          "why": "來自拉丁文 exire，是 ex（出）+ ire「去」，出去→發出、議題，跟 sequi 無關"
+        },
+        {
+          "list": "tissue",
+          "why": "來自拉丁文 texere「編織」，原指織成的布，跟 sequi 無關"
+        }
+      ]
+    },
+    {
+      "key": "stabl / stabil",
+      "zh": "站穩、穩固",
+      "note": "拉丁文 stabilis「穩固的、穩定的」，字面意思是「能夠站立的」，可追溯到原始印歐語字根 *sta-「站、使穩固」。stable 是站得穩的→穩定的，stability 是穩定的狀態，stabilize 是使穩定。establish 經古法文 establir 而來，拉丁文是 stabilire「使穩固」，意思是使站穩→建立；開頭的 e 不是拉丁文原有的，也不是字首 ex。establishment 則是建立的結果→機構、建立。",
+      "items": [
+        {
+          "w": "stable",
+          "p": "stabl（拉丁文 stabilis 站得穩的）"
+        },
+        {
+          "w": "establish",
+          "p": "e（不是字首 ex）+ stabl（拉丁文 stabilire 使穩固）+ -ish"
+        },
+        {
+          "w": "establishment",
+          "p": "establish 建立 + -ment"
+        },
+        {
+          "w": "stability",
+          "p": "stable 穩定的 + -ity"
+        },
+        {
+          "w": "stabilize",
+          "p": "stabil（拉丁文 stabilis 穩固的）+ -ize"
+        }
+      ],
+      "dropped": []
+    },
+    {
+      "key": "struct",
+      "zh": "堆砌、建造",
+      "note": "拉丁文 struere「堆疊、建造」，過去分詞是 structus，名詞是 structura。英文 structure 最早可能指建造這件事或建材，到了十七世紀初才指蓋好的建築物，也指各部分的排列方式→結構。字首決定建造的方向：con（一起）+ struct 是把材料堆在一起→建造，construction 是建造的過程或建築物；de（反向、往下）+ struct 是把蓋好的拆下來，所以 destroy 和 destruction 都是破壞；in 在 instruct 裡是「在上面」，拉丁文 instruere 字面是在上面蓋起來，引申為排列、準備，再轉成把知識安排給人→教導、指示，instrument 也出自 instruere，是準備好的用具→工具、器具。至於 infrastructure，則是 infra（在下面）+ structure，指在底下的結構→基礎建設。",
+      "items": [
+        {
+          "w": "instruction",
+          "p": "instruct 教導 + -ion"
+        },
+        {
+          "w": "instrument",
+          "p": "in 在上面 + stru（拉丁文 struere 建造）+ -ment"
+        },
+        {
+          "w": "structure",
+          "p": "struct（拉丁文 struere 堆砌、建造）+ -ure"
+        },
+        {
+          "w": "destroy",
+          "p": "de 反向 + stroy（拉丁文 struere 建造，經古法文 destruire）"
+        },
+        {
+          "w": "construct",
+          "p": "con 一起 + struct 建造"
+        },
+        {
+          "w": "construction",
+          "p": "construct 建造 + -ion"
+        },
+        {
+          "w": "constructive",
+          "p": "construct 建造 + -ive"
+        },
+        {
+          "w": "destruction",
+          "p": "de 反向 + struct 建造 + -ion"
+        },
+        {
+          "w": "instruct",
+          "p": "in 在上面 + struct 建造"
+        },
+        {
+          "w": "instructor",
+          "p": "instruct 教導 + -or 人"
+        },
+        {
+          "w": "structural",
+          "p": "structure 結構 + -al"
+        },
+        {
+          "w": "infrastructure",
+          "p": "infra 在下面 + structure 結構"
+        },
+        {
+          "w": "destructive",
+          "p": "destruct（de 反向 + struct 建造）+ -ive"
+        }
+      ],
+      "dropped": []
+    },
+    {
+      "key": "vict / vinc",
+      "zh": "征服、戰勝",
+      "note": "拉丁文 vincere「征服、戰勝」，過去分詞的字幹是 vict-，所以這個家族有 vinc 和 vict 兩種拼法。victor 是戰勝的人→勝利者，victory 是勝利。convince 是 con + vincere，con 可能是加強語氣；拉丁文 convincere 是徹底壓倒，英文 convince 在十六世紀原本指在爭論中壓倒對方，到了 1600 年前後才變成用論點或證據說服對方→使相信。convict 和 conviction 也來自 convincere：convict 在十四世紀中原本指用論證使人信服、使人認錯，十四世紀後期才有證明有罪、判定有罪的意思；conviction 十五世紀起指定罪，到了十九世紀才多了「堅定的信念」這個意思。要留意 province 和 victim：兩個字都容易被拆成 vinc、vict，但 Etymonline 說它們的字源不確定，所以不算在這個家族。",
+      "items": [
+        {
+          "w": "victory",
+          "p": "vict（拉丁文 vincere 征服）+ -ory"
+        },
+        {
+          "w": "convince",
+          "p": "con（可能是加強語氣）+ vince（拉丁文 vincere 征服）"
+        },
+        {
+          "w": "convict",
+          "p": "con（可能是加強語氣）+ vict（拉丁文 vincere 征服；convictus 是 convincere 的過去分詞）"
+        },
+        {
+          "w": "conviction",
+          "p": "convict 定罪 + -ion"
+        },
+        {
+          "w": "victor",
+          "p": "vict（拉丁文 vincere 征服）+ -or 人"
+        }
+      ],
+      "dropped": [
+        {
+          "list": "province　provincial",
+          "why": "Etymonline 的 province 條目說拉丁文 provincia 字源不確定；常見的 pro 向前 + vincere 征服的拆法和最早的拉丁文用法不合。Etymonline 的字根頁雖然把它列為可能相關，仍沒有定論，所以不放進這個家族；provincial 來自拉丁文 provincialis，是 provincia 的形容詞"
+        },
+        {
+          "list": "victim",
+          "why": "來自拉丁文 victima「祭品、被獻祭的人或動物」，Etymonline 說字源不確定，可能和 vicis「輪替、時機」有關，沒有把它和 vincere 連在一起"
+        }
+      ]
+    },
+    {
+      "key": "just / jur / jud",
+      "zh": "法律、正當",
+      "note": "拉丁文 ius「權利、法律」，形容詞 iustus 是合乎法律、公正的。just 是公正的，justice 是公正、正義；justify 來自 iustus + facere（做），使成為正當→辯護、證明合理；injustice 是 in（不）+ justice→不公平。同一個 ius 另外變出 jur 和 jud 兩種形式：jury 來自 iurare「宣誓」，這個動詞由 ius 而來，陪審團就是宣過誓的一群人；judge 來自 iudex，由 ius 加上 dicere（說）組成，意思是宣布法律的人→法官，judgment、judicial、prejudice 都出自 iudex，其中 prejudice 是 prae（事先）+ iudicium（判決），事先下的判斷→偏見。injury 來自拉丁文 iniuria，是 in（不）+ ius，指不正當、不合法的行為，也指傷害；injure 可能是從 injury 倒推出來的動詞，最早的意思是對人不公、使人受辱。要小心 adjust：它很像 just，但 Etymonline 說它來自拉丁文 iuxta「靠近」，只是後人誤以為和 iustus 有關，形式和意思才受到影響。",
+      "items": [
+        {
+          "w": "just",
+          "p": "just（拉丁文 iustus 公正的，來自 ius 法律）"
+        },
+        {
+          "w": "justice",
+          "p": "just 公正的 + -ice"
+        },
+        {
+          "w": "judge",
+          "p": "jud（拉丁文 iudex 宣布法律的人，由 ius 法律 + dicere 說組成，經古法文 juge）"
+        },
+        {
+          "w": "judgment",
+          "p": "judge 判斷 + -ment"
+        },
+        {
+          "w": "judgement",
+          "p": "judge 判斷 + -ment（judgment 的另一種拼法）"
+        },
+        {
+          "w": "injury",
+          "p": "in 不 + jur（拉丁文 ius 權利、法律）+ -y；拉丁文 iniuria 不正當的事、傷害"
+        },
+        {
+          "w": "injure",
+          "p": "in 不 + jur（拉丁文 ius 權利、法律）；可能是從 injury 倒推出來的動詞"
+        },
+        {
+          "w": "justify",
+          "p": "just 公正的 + -ify 使成為"
+        },
+        {
+          "w": "jury",
+          "p": "jur（拉丁文 iurare 宣誓，來自 ius 法律）+ -y"
+        },
+        {
+          "w": "judicial",
+          "p": "jud（拉丁文 iudicium 判決，來自 iudex 法官）+ -ial"
+        },
+        {
+          "w": "prejudice",
+          "p": "pre（拉丁文 prae）事先 + jud（拉丁文 iudicium 判決）+ -ice"
+        },
+        {
+          "w": "injustice",
+          "p": "in 不 + justice 公正"
+        }
+      ],
+      "dropped": [
+        {
+          "list": "adjust　adjustment",
+          "why": "Etymonline：來自古法文 ajuster，源自晚期拉丁文 adiuxtare「使靠近」，是 ad 朝向 + iuxta 靠近；後人誤以為它是 ad + iustus「公正的」，形式和意思受到影響，其實不同源。adjustment 是 adjust + -ment，或來自法文 ajustement"
+        }
+      ]
+    },
+    {
+      "key": "mov / mot / mob",
+      "zh": "移動",
+      "note": "拉丁文 movere「移動」，過去分詞是 motus，形容詞是 mobilis「可以移動的」，所以這個家族有 mov、mot、mob 三種拼法。move 是移動，motion 是移動的狀態，mobile 是可以移動的→行動的。字首決定移動的方向：e（ex 出）+ movere 是往外移→emotion，原本是騷動、激動，後來才專指情緒；pro（向前）+ movere 是推向前→promote（晉升、促進）；re（往回、離開）+ movere 是移開→remove，remote 是 removere 的過去分詞，離得遠的→遙遠的。motive 與 motivate 是「讓人行動起來」的動機與激勵；motor 是帶動的東西→馬達，motorcycle 是 motor + cycle。mob 是 mobile 的俚語縮短，出自拉丁文 mobile vulgus「善變的群眾」；automobile 則是希臘文 autos（自己）+ mobile，自己會動的車。要留意 moth、motto 和 mother：長得像，但字源不同；motel 和 movie 雖然和 move 有關，卻是拼合或剪短出來的字，都不算在這個家族。",
+      "items": [
+        {
+          "w": "move",
+          "p": "mov（拉丁文 movere 移動）+ -e"
+        },
+        {
+          "w": "movement",
+          "p": "move 移動 + -ment"
+        },
+        {
+          "w": "remove",
+          "p": "re 離開 + move 移動"
+        },
+        {
+          "w": "motion",
+          "p": "mot（拉丁文 movere 移動的過去分詞 motus）+ -ion"
+        },
+        {
+          "w": "emotion",
+          "p": "e（ex）出 + mot（拉丁文 movere 移動）+ -ion"
+        },
+        {
+          "w": "motorcycle",
+          "p": "motor 馬達 + cycle（取自 bicycle 自行車）"
+        },
+        {
+          "w": "remote",
+          "p": "re 離開 + mote（拉丁文 movere 移動的過去分詞 motus）"
+        },
+        {
+          "w": "emotional",
+          "p": "emotion 情緒 + -al"
+        },
+        {
+          "w": "promote",
+          "p": "pro 向前 + mote（拉丁文 movere 移動的過去分詞 motus）"
+        },
+        {
+          "w": "motor",
+          "p": "mot（晚期拉丁文 motor 使東西移動者，來自 movere 移動）+ -or"
+        },
+        {
+          "w": "mobile",
+          "p": "mob（拉丁文 mobilis 可移動的，來自 movere 移動）+ -ile"
+        },
+        {
+          "w": "mob",
+          "p": "mob（mobile「平民」的俚語縮短，出自拉丁文 mobile vulgus 善變的群眾）"
+        },
+        {
+          "w": "automobile",
+          "p": "auto（希臘文 autos 自己）+ mobile 可移動的"
+        },
+        {
+          "w": "promotion",
+          "p": "promote 晉升、促進 + -ion"
+        },
+        {
+          "w": "motivate",
+          "p": "motive 動機 + -ate"
+        },
+        {
+          "w": "motivation",
+          "p": "motivate 激勵 + -ion"
+        },
+        {
+          "w": "removal",
+          "p": "remove 移開 + -al"
+        },
+        {
+          "w": "motive",
+          "p": "mot（中古拉丁文 motivus 推動的，來自 movere 移動）+ -ive"
+        },
+        {
+          "w": "mobilize",
+          "p": "mobile 可移動的 + -ize"
+        }
+      ],
+      "dropped": [
+        {
+          "list": "moth",
+          "why": "來自古英文 moððe，是日耳曼語系的字；Etymonline 說它可能和古英文 maða「蛆」有關，也可能和 midge（蠓）同源，與拉丁文 movere 無關"
+        },
+        {
+          "list": "motto",
+          "why": "來自義大利文 motto，源自晚期拉丁文 muttum「一個字」，再追溯到 muttire「喃喃說話」，與 movere 無關"
+        },
+        {
+          "list": "mother　grandmother　stepmother　motherhood",
+          "why": "mother 來自古英文 modor，可追溯到原始印歐語 mater-「母親」，和拉丁文 mater 同源，與 movere 無關，只是字母 mot 剛好相同；其餘三個字都由 mother 組成"
+        },
+        {
+          "list": "motel",
+          "why": "Etymonline：1925 年由 motor- 和 hotel 拼合而成，原本指給開車旅客住的旅館；字裡只留下 motor 的 mo，Etymonline 的 movere 字根頁也沒有列它，所以不放進這個家族"
+        },
+        {
+          "list": "movie",
+          "why": "Etymonline：1912 年（也許更早，1908 年）由 moving picture「會動的畫面」剪短而成；它和 move 有關，但不是字根加上字首字尾組成的字，Etymonline 的 movere 字根頁也沒有列它，所以不放進這個家族"
         }
       ]
     }

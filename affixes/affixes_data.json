@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated": "2026-10-11",
+  "updated": "2026-10-26",
   "note": "字首字尾表。母體為大考中心《高中英文參考詞彙表》（111 學年度起適用）；詞彙表沒有另外列的衍生字（像 unlikely、impossible），收本站出現過或課本常見的，級別標原本那個字的級別。標「出現過」的是這個字在本題庫實際出現過的地方，只算這個字當過選項（單字題、克漏字）、參考答案（中譯英）或字彙表條目（作文）的題目；同一個字最多列三筆。",
   "groups": [
     {
@@ -2292,7 +2292,7 @@
             },
             {
               "w": "execute",
-              "p": "ex 徹底 + (s)ecute（拉丁文 sequi 跟隨）"
+              "p": "ex 出 + （s）ecute（拉丁文 sequi 跟隨）"
             },
             {
               "w": "execution",
@@ -6635,6 +6635,428 @@
       ]
     },
     {
+      "key": "per-",
+      "zh": "穿過；徹底、完全",
+      "note": "per- 來自拉丁文 per，基本意思是「穿過、經過」，像 permit（讓…通過 → 允許）、permanent（一直留到最後 → 永久的）、perspective（看穿過去 → 看法、透視法）。從「穿過」再延伸，就成了「從頭到尾、徹底」，用來加強語氣：persuade 是用力勸說（suadere 是勸說，它的字根和 sweet 相同，原本有「甜、令人愉快」的意思），perfect 是完全做好 → 完美的，persist 是一直站定不動 → 堅持，perceive 是整個抓住 → 察覺、理解。perform 比較特別，它來自古法文 parfornir，是 par（完全）+ fornir（提供），form 的拼法是後來受 forme（形式）影響才變成這樣。這兩種意思有時候不容易分，查字典時從「穿過」和「徹底」兩個方向去想就夠了。要注意 period、person 等字雖然以 per 開頭，字源不同，percent 的 per 則是單獨的介系詞，例字都列在下面「容易拆錯的字」。",
+      "subs": [
+        {
+          "t": "穿過、經過",
+          "items": [
+            {
+              "w": "permit",
+              "p": "per 穿過 + mit 送（拉丁文 mittere），本義「讓…通過」"
+            },
+            {
+              "w": "permission",
+              "p": "permit 的名詞"
+            },
+            {
+              "w": "permanent",
+              "p": "per 穿過、一直 + man 留下（拉丁文 manere）+ -ent"
+            },
+            {
+              "w": "perfume",
+              "p": "per 穿過 + fume（拉丁文 fumare 冒煙），最早指燃燒時冒出的煙"
+            },
+            {
+              "w": "perspective",
+              "p": "per 穿過 + spect 看（拉丁文 specere）+ -ive"
+            },
+            {
+              "w": "permissible",
+              "p": "permit + -ible，「可以允許的」"
+            }
+          ]
+        },
+        {
+          "t": "徹底、完全（加強語氣）",
+          "items": [
+            {
+              "w": "perfect",
+              "p": "per 完全 + fect 做（拉丁文 facere）"
+            },
+            {
+              "w": "persuade",
+              "p": "per 徹底 + suade 勸說（拉丁文 suadere，與 sweet 出自同一個「甜、愉快」的字根）"
+            },
+            {
+              "w": "perform",
+              "p": "per（古法文 par 完全）+ form（古法文 fornir 提供；拼法受 forme 形式影響）"
+            },
+            {
+              "w": "performance",
+              "p": "perform + -ance"
+            },
+            {
+              "w": "persuasion",
+              "p": "persuade 的名詞"
+            },
+            {
+              "w": "persuasive",
+              "p": "persuade 的形容詞"
+            },
+            {
+              "w": "perfection",
+              "p": "perfect 的名詞"
+            },
+            {
+              "w": "performer",
+              "p": "perform + -er"
+            },
+            {
+              "w": "persist",
+              "p": "per 徹底 + sist 站定（拉丁文 sistere）"
+            },
+            {
+              "w": "perceive",
+              "p": "per 徹底 + ceive 抓、拿（拉丁文 capere）"
+            },
+            {
+              "w": "perception",
+              "p": "perceive 的名詞"
+            },
+            {
+              "w": "persistence",
+              "p": "persist + -ence"
+            },
+            {
+              "w": "persistent",
+              "p": "persist + -ent"
+            },
+            {
+              "w": "persevere",
+              "p": "per 非常 + sever（拉丁文 severus 嚴肅、嚴格的）"
+            },
+            {
+              "w": "perish",
+              "p": "per 穿過、徹底 + 拉丁文 ire 去；拉丁文 perire 字面是「走過去」→ 消失、死亡"
+            }
+          ]
+        }
+      ],
+      "dropped": [
+        {
+          "why": "period：per- 不是這個字首。",
+          "list": "period 來自希臘文 periodos，是 peri（環繞）+ hodos（路），「繞一圈的路程」→ 週期、時期；peri- 跟拉丁文 per- 是不同的字首。"
+        },
+        {
+          "why": "person、personal、personality、personnel：per 是字的一部分。",
+          "list": "person 來自拉丁文 persona（人、角色，原本指演員戴的面具），字源不確定；personal、personality 由它變來，personnel 借自法文 personnel，是法文形容詞「個人的」當名詞用。"
+        },
+        {
+          "why": "per、percent、percentage：per 是單獨的介系詞，不是接在字根前的字首。",
+          "list": "percent 來自現代拉丁文 per centum（按每一百），per 就是「每、按」，單獨用時也是一個字，像 per day。"
+        },
+        {
+          "why": "perhaps：per 是「藉由」，不是字首。",
+          "list": "perhaps 是 per（藉由）+ haps（機會，來自古北歐語 happ），跟 happen 同源。"
+        },
+        {
+          "why": "perch：per- 不是這個字首。",
+          "list": "perch（棲木）來自拉丁文 pertica（竿子），經古法文 perche 進入英文。"
+        },
+        {
+          "why": "peril：per- 不是這個字首。",
+          "list": "peril 來自拉丁文 periculum（嘗試、試驗；危險），本義是「試驗」，所以 peril 的 per 是字根的一部分。"
+        }
+      ]
+    },
+    {
+      "key": "se-",
+      "zh": "分開、離開",
+      "note": "se- 來自拉丁文 se，意思是「分開、離開、在一旁」，像 separate（拉開 → 分開）、select（挑出來 → 選擇）、secret（另外放到一邊 → 祕密）。從「分開」再延伸，就有「沒有、免於」的意思，像 secure 是 se（免於）+ cure（憂慮），「沒有憂慮 → 安全的」；seduce 則是 se（到一旁）+ duce（引導），「帶到旁邊、帶入歧途 → 誘惑」，英文最早指唆使人背棄主人。several 也出自這裡：它經由中古拉丁文 separalis「可分開的」而來，源頭是拉丁文 separ「分開的、不同的」，這個字又是從 separare（分開）倒推出來的，所以英文最早的意思是「各自分開、獨立的」，到了十六世紀才有「幾個」的意思。要注意 se 開頭的字多數不是這個字首，像 sequence、segment、sense、serve 等，例字列在下面「容易拆錯的字」。",
+      "subs": [
+        {
+          "t": "se-",
+          "items": [
+            {
+              "w": "several",
+              "p": "se 分開 + par（拉丁文 separare 分開；經中古拉丁文 separalis 可分開的）"
+            },
+            {
+              "w": "separate",
+              "p": "se 分開 + par 準備（拉丁文 parare）"
+            },
+            {
+              "w": "select",
+              "p": "se 分開 + lect 挑選（拉丁文 legere）"
+            },
+            {
+              "w": "selection",
+              "p": "select + -ion"
+            },
+            {
+              "w": "secret",
+              "p": "se 離開 + cret（拉丁文 cernere 分開），「分開放的」→ 隱藏的"
+            },
+            {
+              "w": "separation",
+              "p": "separate 的名詞"
+            },
+            {
+              "w": "security",
+              "p": "secure + -ity"
+            },
+            {
+              "w": "secure",
+              "p": "se 免於 + cure 憂慮（拉丁文 cura）"
+            },
+            {
+              "w": "selective",
+              "p": "select + -ive"
+            },
+            {
+              "w": "seduce",
+              "p": "se 到一旁 + duce 引導（拉丁文 ducere），「帶到旁邊、帶入歧途」"
+            }
+          ]
+        }
+      ],
+      "dropped": [
+        {
+          "why": "sea、seagull、seafood、seek、search：se 是字的一部分。",
+          "list": "sea 是古英文 sæ，seek 是古英文 secan，都是日耳曼語系的字；search 來自晚期拉丁文 circare（繞著走），源頭是 circus（圓圈），經古法文 cerchier 進入英文，跟 circle 同源。"
+        },
+        {
+          "why": "sequence、second、secondary：se 不是字首。",
+          "list": "sequence 來自中古拉丁文 sequentia（接續），源頭是拉丁文 sequi（跟隨）；second 來自拉丁文 secundus（接著的、第二的），和 sequi 出自同一個「跟隨」的字根，se 都是字根的開頭。"
+        },
+        {
+          "why": "segment、section、sector：se 不是字首。",
+          "list": "segment 來自拉丁文 segmentum（切下來的一塊），源頭是 secare（切），section、sector 同樣出自這個字根。"
+        },
+        {
+          "why": "sense、sensible、sensitive、sensation、sensor、sentence、sentiment、sentimental：se 不是字首。",
+          "list": "sense 來自拉丁文 sensus（感覺），源頭是 sentire（感覺、察覺）；sentence、sentiment 同樣出自 sentire。"
+        },
+        {
+          "why": "serve、servant、server、service、serving、sergeant：se 不是字首。",
+          "list": "serve 來自拉丁文 servire（當僕人），和 servus（奴隸）有關；sergeant 來自中古拉丁文 servientum（僕人），也出自 servire。"
+        },
+        {
+          "why": "series、serial：se 不是字首。",
+          "list": "series 來自拉丁文 series（一排），源頭是 serere（連接、串起）。"
+        },
+        {
+          "why": "session、settle、seat：se 不是字首。",
+          "list": "session 來自拉丁文 sessio（坐著），源頭是 sedere（坐）；settle、seat 則是日耳曼語系的字，和 sedere 出自同一個「坐」的原始印歐語字根。"
+        },
+        {
+          "why": "senior、senator：se 不是字首。",
+          "list": "senior 是拉丁文 senex（老的）的比較級，senator 也來自 senex。"
+        },
+        {
+          "why": "seminar：se 不是字首。",
+          "list": "seminar 來自拉丁文 seminarium（苗圃），源頭是 semen（種子）。"
+        },
+        {
+          "why": "sex、sexual、sexy：se 不是字首。",
+          "list": "sex 來自拉丁文 sexus，字源不確定，常見的說法把它和 secare（切分）連在一起，但還不是定論。"
+        },
+        {
+          "why": "serene、severe：se 不是字首。",
+          "list": "serene 來自拉丁文 serenus（晴朗、平靜的）；severe 來自拉丁文 severus（嚴肅、嚴格的），Etymonline 說字源不確定，沒有把它拆成 se-。"
+        }
+      ]
+    },
+    {
+      "key": "ob-（oc-／of-／op-）",
+      "zh": "朝著、擋在前面；對著、反對",
+      "note": "ob- 來自拉丁文 ob，基本意思是「朝著、在…前面」，像 object（丟到面前的東西 → 物體；丟到面前擋住 → 反對）、obstacle（站在前面擋路的東西 → 障礙）、obvious（擋在路上，一眼就看到 → 明顯的）。站在前面再延伸一步，就成了「對著、反對」，像 oppose（放在對面 → 反對）、offend（打向別人 → 冒犯）、oppress（壓在別人身上 → 壓迫）。有些字的 ob- 看不出特別的方向，可能只是加強語氣，像 obtain（緊緊握住 → 獲得）。ob- 碰到 c、f、p 開頭的字根，b 會變成跟後面一樣的字母，寫成 oc-、of-、op-，像 occur（朝著跑過去 → 發生）、offer（帶到面前 → 提供）、opponent（站在對面的人 → 對手）。opportunity 比較特別，它來自拉丁文片語 ob portum veniens（朝著港口來），原本是說風把船吹向港口，後來才有「合適的時機」的意思，所以這裡的 port 是 portus（港口），不是 portare（攜帶）。要注意 operate、option、office、opinion 這幾個字的 op- 或 of- 不是這個字首，例字列在下面「容易拆錯的字」。",
+      "subs": [
+        {
+          "t": "ob-",
+          "items": [
+            {
+              "w": "object",
+              "p": "ob 朝著、擋在前面 + ject（拉丁文 iacere 丟）"
+            },
+            {
+              "w": "obey",
+              "p": "ob 朝向 + ey（拉丁文 audire 聽）"
+            },
+            {
+              "w": "obvious",
+              "p": "ob 在前面 + vi（拉丁文 via 路）+ -ous"
+            },
+            {
+              "w": "observe",
+              "p": "ob 在前面 + serve（拉丁文 servare 看守）"
+            },
+            {
+              "w": "objective",
+              "p": "object + -ive"
+            },
+            {
+              "w": "objection",
+              "p": "object + -ion"
+            },
+            {
+              "w": "obtain",
+              "p": "ob 可能只是加強語氣（字面是「在前面」）+ tain 握住（拉丁文 tenere）"
+            },
+            {
+              "w": "obedient",
+              "p": "obey 的形容詞"
+            },
+            {
+              "w": "obedience",
+              "p": "obey 的名詞"
+            },
+            {
+              "w": "obstacle",
+              "p": "ob 在前面、擋住 + sta 站（拉丁文 stare）+ -cle（名詞字尾）"
+            },
+            {
+              "w": "observation",
+              "p": "observe + -ation"
+            },
+            {
+              "w": "obligation",
+              "p": "oblige 的名詞"
+            },
+            {
+              "w": "obscure",
+              "p": "ob 在上面 + scure（拉丁文 -scurus 被遮住的）"
+            },
+            {
+              "w": "observer",
+              "p": "observe + -er"
+            },
+            {
+              "w": "oblige",
+              "p": "ob 朝向 + lig（拉丁文 ligare 綁）"
+            },
+            {
+              "w": "obstinate",
+              "p": "ob 靠近 + stin（和拉丁文 stare 站有關）+ -ate"
+            },
+            {
+              "w": "obsess",
+              "p": "ob 對著 + sess（拉丁文 sedere 坐）"
+            }
+          ]
+        },
+        {
+          "t": "oc-（接 c 開頭的字根）",
+          "items": [
+            {
+              "w": "occur",
+              "p": "oc 朝著 + cur 跑（拉丁文 currere）"
+            },
+            {
+              "w": "occasion",
+              "p": "oc 向下 + cas（拉丁文 cadere 落下）+ -ion"
+            },
+            {
+              "w": "occasional",
+              "p": "occasion + -al"
+            },
+            {
+              "w": "occupy",
+              "p": "oc 在上面 + cup（拉丁文 capere 抓）+ -y"
+            },
+            {
+              "w": "occupation",
+              "p": "occupy 的名詞"
+            },
+            {
+              "w": "occurrence",
+              "p": "occur + -ence"
+            }
+          ]
+        },
+        {
+          "t": "of-（接 f 開頭的字根）",
+          "items": [
+            {
+              "w": "offer",
+              "p": "of 朝向 + fer 攜帶（拉丁文 ferre）"
+            },
+            {
+              "w": "offend",
+              "p": "of 對著 + fend 打（拉丁文 -fendere，只出現在複合字裡）"
+            },
+            {
+              "w": "offense",
+              "p": "offend 的名詞"
+            },
+            {
+              "w": "offensive",
+              "p": "offend 的形容詞"
+            },
+            {
+              "w": "offering",
+              "p": "offer + -ing"
+            }
+          ]
+        },
+        {
+          "t": "op-（接 p 開頭的字根）",
+          "items": [
+            {
+              "w": "opposite",
+              "p": "op 對著 + posit 放（拉丁文 ponere）"
+            },
+            {
+              "w": "opportunity",
+              "p": "op 朝著 + portun（拉丁文 opportunus 合適的，來自 portus 港口，不是 portare 攜帶）+ -ity"
+            },
+            {
+              "w": "oppose",
+              "p": "op 在前面、對著 + pose 放（法文 poser，來自拉丁文 pausare 停下，後來借用了拉丁文 ponere 放的意思）"
+            },
+            {
+              "w": "opposition",
+              "p": "op 對著 + posit 放 + -ion"
+            },
+            {
+              "w": "opponent",
+              "p": "op 對著 + pon 放（拉丁文 ponere）+ -ent"
+            },
+            {
+              "w": "oppress",
+              "p": "op 對著 + press 壓（拉丁文 premere）"
+            },
+            {
+              "w": "oppression",
+              "p": "oppress 的名詞"
+            }
+          ]
+        }
+      ],
+      "dropped": [
+        {
+          "why": "operate、operation、operator、operative、operational、opera：op- 不是 ob-。",
+          "list": "這幾個字的 oper- 來自拉丁文 operari（工作），再往前是 opus（作品、工作）；opera 在拉丁文裡是 opus 的複數形，當單數用，意思是「工作、作品」，跟「朝著」無關。"
+        },
+        {
+          "why": "option、opt、optional、opinion：op- 不是 ob-。",
+          "list": "option、opt 來自拉丁文 optare（希望、選擇），optare 的來源不確定；opinion 來自拉丁文 opinari（認為、判斷），一般認為可追溯到表示「選擇」的原始印歐語字根。兩組字的 op- 都是字根本身的一部分，不是 ob- 變來的。"
+        },
+        {
+          "why": "optimism、optimistic：op- 不是 ob-。",
+          "list": "optimism 來自拉丁文 optimus（最好的），經法文 optimisme 進入英文。"
+        },
+        {
+          "why": "office、officer、official：of- 不是 ob-。",
+          "list": "office 來自拉丁文 officium（職責、公務），是 opificium（字面是「做工作」）縮短而成，由 ops（力量、資源，和 opus 工作有關）+ facere（做）組成，of- 不是 ob- 變來的。"
+        },
+        {
+          "why": "of、off、offshore、offspring：of、off 是英文本來就有的字。",
+          "list": "of 和 off 都來自古英文 of（離開），off 原本是 of 加重語氣的寫法；offspring 是古英文 of（離開）+ springan（跳出、生出），字面是「從某人身上生出來的」；offshore 是 off（離開）+ shore（岸）的複合字。"
+        },
+        {
+          "why": "often：of- 是 oft 的一部分。",
+          "list": "often 是古英文 oft 加長而成，不是字首加字根。"
+        },
+        {
+          "why": "ocean、octopus、open：oc-、op- 只是拼字的開頭。",
+          "list": "ocean 來自希臘文 okeanos（環繞大地的大河），再往前的來源不明；octopus 是希臘文 okto（八）+ pous（腳）；open 是古英文 open，跟 up 有關。"
+        }
+      ]
+    },
+    {
       "key": "-able（-ible）",
       "zh": "可以（被）…的；有…性質的",
       "note": "-able 加在動詞後面，意思多半是「可以（被）…的」：accept（接受）加上 -able 是 acceptable（可以接受的），predict（預測）變成 predictable（可以預測的）。加在名詞後面，意思是「有…的、值得…的」，像 comfortable（有舒適感的）、valuable（有價值的）。-ible 跟 -able 是同一個字尾，怎麼拼有個大致的規則：拿掉字尾以後還是一個完整的英文字，多半用 -able（acceptable → accept）；拿掉以後不是一個字，多半用 -ible（visible → vis）。不過也有例外，像 accessible、flexible 拿掉 -ible 還是一個字，所以拼不出來的時候還是要查字典。",
@@ -9559,6 +9981,67 @@
       "kind": "suffix"
     },
     {
+      "key": "-cracy（-crat）",
+      "zh": "統治、政體；統治者",
+      "kind": "suffix",
+      "note": "-cracy 來自希臘文 -kratia，源頭是 kratos（力量、統治），意思是「由…統治的政體」：democracy 是 demos（人民）+ kratos，也就是「人民統治」→ 民主；bureaucracy 是十八世紀一位法國經濟學家仿照 démocratie 造出來的字，bureau（辦公室，本義是書桌）+ -cracy，也就是「由辦公室統治」→ 官僚體制。-crat 來自法文 -crate，是從 -cratie 倒推出來的，Merriam-Webster 把它解釋成某種政體的支持者，或某個統治階層的成員：democrat 是民主主義者，bureaucrat 是官僚。至於形容詞，則寫成 -cratic，像 democratic。要注意 crack、crater 這類 cra 開頭的字，字源和 kratos 沒有關係，例字列在下面「容易拆錯的字」。",
+      "subs": [
+        {
+          "t": "-cracy → 政體、統治方式",
+          "items": [
+            {
+              "w": "democracy",
+              "p": "demo（希臘文 demos 人民）+ -cracy（希臘文 kratos 統治）"
+            },
+            {
+              "w": "bureaucracy",
+              "p": "bureau 辦公室 + -cracy（法文 bureaucratie）"
+            }
+          ]
+        },
+        {
+          "t": "-crat → 支持者、統治階層的成員",
+          "items": [
+            {
+              "w": "democrat",
+              "p": "demo（希臘文 demos 人民）+ -crat；來自法文 démocrate，是從 démocratie 民主 倒推出來的"
+            },
+            {
+              "w": "bureaucrat",
+              "p": "bureau 辦公室 + -crat（法文 bureaucrate）"
+            }
+          ]
+        },
+        {
+          "t": "-cratic → 形容詞",
+          "items": [
+            {
+              "w": "democratic",
+              "p": "demo（希臘文 demos 人民）+ -cratic（希臘文 demokratikos，由 demokratia 民主 變來）"
+            }
+          ]
+        }
+      ],
+      "dropped": [
+        {
+          "why": "crack、cracker、crackdown、firecracker：不是 -cracy 或 -crat。",
+          "list": "crack 來自古英文 cracian（發出尖銳的爆裂聲），Etymonline 說這一組字可能是模仿聲音而來；firecracker 是 fire 加上由 crack 變來的 cracker，crackdown 是 crack + down，跟希臘文 kratos 無關。"
+        },
+        {
+          "why": "crater：不是 -cracy 或 -crat。",
+          "list": "crater 經拉丁文 crater 來自希臘文 krater（盛裝摻水紅酒、端給客人的大碗），十七世紀起才用來指火山口。"
+        },
+        {
+          "why": "lucrative：-crat- 不是字根。",
+          "list": "lucrative 來自拉丁文 lucrum（獲利），跟 kratos 無關。"
+        },
+        {
+          "why": "scratch：cra 只是拼字的一部分。",
+          "list": "scratch 可能是中古英文 scratten 和 crachen 合併而成，兩個字的來源都不確定。"
+        }
+      ]
+    },
+    {
       "key": "-ment",
       "zh": "…的動作、結果、狀態；做…用的東西",
       "note": "-ment 來自拉丁文 -mentum（經由法文），加在動詞後面變成名詞，意思是「…的動作、結果、狀態」，有時候是「做…用的東西」：agree 變成 agreement（協議），pay 變成 payment（付款），equip 變成 equipment（設備）。動詞字尾的 e 通常保留（excite → excitement、move → movement），只有少數去掉，像 argue → argument；judge 加上 -ment 有 judgment 和 judgement 兩種拼法，美式多用 judgment。另外，document、experiment、implement、supplement、complement、compliment 這幾個字也可以當動詞，當動詞時字尾的 -ment 唸 ˌmɛnt，當名詞時唸 mənt。",
@@ -12446,6 +12929,222 @@
       "kind": "suffix"
     },
     {
+      "key": "-ate",
+      "zh": "使…、做…（動詞字尾）；形容詞、名詞字尾",
+      "note": "-ate 來自拉丁文過去分詞的字尾 -atus（原本的動詞字尾是 -are）。當動詞字尾時，意思多半是「使…、做…」：eliminate 是「趕出門外 → 除去」，indicate 是「指向 → 指出」，estimate 是「評價 → 估計」。這類動詞的字根大多直接來自拉丁文，拿掉 -ate 以後常常不是英文字，要從拉丁文原字去記，像 hesitate 的 hesit 是「黏住」，penetrate 的 penetr 是「進入」；只有少數是英文字加 -ate，像 motivate 就是 motive（動機）加 -ate。至於形容詞的 -ate，原本是拉丁文的過去分詞，帶有「已經被…的」意思，像 separate 原本是「被分開的」，moderate 原本是「被控制在範圍內的」；名詞的 -ate 也是從同一個字尾來的，像 candidate 原本是「穿白袍的人」，因為古羅馬想當官的人會穿特別亮白的長袍。也就是說，看到 -ate 結尾要先看詞性，而且同一個字可能兼有兩種用法，像 separate 可以當動詞也可以當形容詞，estimate 可以當動詞也可以當名詞。另外有些字的 -ate 根本不是字尾，像 climate、chocolate，例字列在下面「容易拆錯的字」。",
+      "subs": [
+        {
+          "t": "字根 + -ate → 動詞「使…、做…」",
+          "items": [
+            {
+              "w": "celebrate",
+              "p": "celebr（拉丁文 celeber 人多的）+ -ate"
+            },
+            {
+              "w": "indicate",
+              "p": "in 向 + dic（拉丁文 dicare 宣告）+ -ate"
+            },
+            {
+              "w": "create",
+              "p": "cre（拉丁文 creare 使生長、產生，與 crescere 生長有關）+ -ate"
+            },
+            {
+              "w": "appreciate",
+              "p": "ap 朝向 + preci（拉丁文 pretium 價錢）+ -ate"
+            },
+            {
+              "w": "participate",
+              "p": "part（拉丁文 pars 部分）+ cip（拉丁文 capere 拿）+ -ate"
+            },
+            {
+              "w": "operate",
+              "p": "oper（拉丁文 operari 工作，來自 opus 作品、工作）+ -ate"
+            },
+            {
+              "w": "hesitate",
+              "p": "hesit（拉丁文 haesitare 黏住、猶豫，來自 haerere 黏著）+ -ate"
+            },
+            {
+              "w": "educate",
+              "p": "e 出 + duc（拉丁文 educare 養育，和 educere 引出、ducere 引導有關）+ -ate"
+            },
+            {
+              "w": "communicate",
+              "p": "communic（拉丁文 communicare 分享，字面是「使變成共同的」，來自 communis 共同的）+ -ate"
+            },
+            {
+              "w": "investigate",
+              "p": "in 向 + vestig（拉丁文 vestigium 腳印）+ -ate"
+            },
+            {
+              "w": "graduate",
+              "p": "gradu（拉丁文 gradus 一步、台階）+ -ate"
+            },
+            {
+              "w": "decorate",
+              "p": "decor（拉丁文 decus 裝飾、榮耀）+ -ate"
+            },
+            {
+              "w": "eliminate",
+              "p": "e 出 + limin（拉丁文 limen 門檻）+ -ate"
+            },
+            {
+              "w": "estimate",
+              "p": "estim（拉丁文 aestimare 評價、估價）+ -ate"
+            },
+            {
+              "w": "evaluate",
+              "p": "e 出 + valu（法文 valuer 估價，來自拉丁文 valere 有價值）+ -ate（由 evaluation 倒推出來的動詞）"
+            },
+            {
+              "w": "concentrate",
+              "p": "con 一起 + centr（拉丁文 centrum 中心）+ -ate"
+            },
+            {
+              "w": "motivate",
+              "p": "motive 動機 + -ate"
+            },
+            {
+              "w": "tolerate",
+              "p": "toler（拉丁文 tolerare 忍受）+ -ate"
+            },
+            {
+              "w": "demonstrate",
+              "p": "de 完全 + monstr（拉丁文 monstrare 指出）+ -ate"
+            },
+            {
+              "w": "illustrate",
+              "p": "il（in 向內）+ lustr（拉丁文 lustrare 使明亮）+ -ate"
+            },
+            {
+              "w": "regulate",
+              "p": "regul（拉丁文 regula 規則）+ -ate"
+            },
+            {
+              "w": "negotiate",
+              "p": "negoti（拉丁文 negotium 事務，neg 不 + otium 閒暇）+ -ate"
+            },
+            {
+              "w": "dominate",
+              "p": "domin（拉丁文 dominus 主人）+ -ate"
+            },
+            {
+              "w": "exaggerate",
+              "p": "ex 可能是加強語氣 + agger（拉丁文 agger 一堆）+ -ate"
+            },
+            {
+              "w": "penetrate",
+              "p": "penetr（拉丁文 penetrare 進入）+ -ate"
+            },
+            {
+              "w": "dedicate",
+              "p": "de 離開 + dic（拉丁文 dicare 宣告）+ -ate"
+            },
+            {
+              "w": "generate",
+              "p": "gener（拉丁文 generare 產生，來自 genus 種類）+ -ate"
+            },
+            {
+              "w": "accelerate",
+              "p": "ac 朝向 + celer（拉丁文 celer 快速的）+ -ate"
+            },
+            {
+              "w": "anticipate",
+              "p": "anti（ante 之前）+ cip（拉丁文 capere 拿）+ -ate"
+            },
+            {
+              "w": "differentiate",
+              "p": "拉丁文 differentia 差異（dis 分開 + ferre 攜帶）+ -ate"
+            }
+          ]
+        },
+        {
+          "t": "形容詞、名詞字尾 -ate",
+          "items": [
+            {
+              "w": "separate",
+              "p": "se 分開 + par（拉丁文 parare 準備）+ -ate"
+            },
+            {
+              "w": "accurate",
+              "p": "ac 朝向 + cur（拉丁文 curare 照顧）+ -ate"
+            },
+            {
+              "w": "immediate",
+              "p": "im 不 + medi（拉丁文 medius 中間）+ -ate"
+            },
+            {
+              "w": "moderate",
+              "p": "moder（拉丁文 moderari 控制在範圍內）+ -ate"
+            },
+            {
+              "w": "desperate",
+              "p": "de 沒有 + sper（拉丁文 sperare 希望）+ -ate"
+            },
+            {
+              "w": "adequate",
+              "p": "ad 朝向 + equ（拉丁文 aequus 平等的）+ -ate"
+            },
+            {
+              "w": "intimate",
+              "p": "intim（拉丁文 intimus 最內部的）+ -ate"
+            },
+            {
+              "w": "fortunate",
+              "p": "fortun（拉丁文 fortuna 運氣）+ -ate"
+            },
+            {
+              "w": "candidate",
+              "p": "candid（拉丁文 candidus 白色、發亮的）+ -ate"
+            },
+            {
+              "w": "appropriate",
+              "p": "ap 朝向 + propri（拉丁文 proprius 自己的）+ -ate"
+            },
+            {
+              "w": "corporate",
+              "p": "corpor（拉丁文 corpus 身體）+ -ate"
+            },
+            {
+              "w": "ultimate",
+              "p": "ultim（拉丁文 ultimus 最後的）+ -ate"
+            }
+          ]
+        }
+      ],
+      "dropped": [
+        {
+          "why": "climate：-ate 不是字尾。",
+          "list": "climate 來自希臘文 klima（地帶，字面是「傾斜」），經拉丁文 clima（所有格 climatis）和古法文 climat 進入英文，ate 是詞幹 climat- 的一部分。"
+        },
+        {
+          "why": "estate：不能拆成字根加 -ate。",
+          "list": "estate 經古法文 estat 來自拉丁文 status（狀態、地位），前面的 e 是後來才加上去的。字典雖然把它的結尾算成來自 -atus 的 -ate，但拿掉 -ate 只剩 est，看不出任何意思，所以不放進例字。"
+        },
+        {
+          "why": "classmate、mate：mate 是另一個字，不是字尾。",
+          "list": "mate 來自中古低地德語 mate、gemate，原意是「一起吃飯的人」，後來變成「夥伴」；classmate 是 class（班級）+ mate（夥伴）。"
+        },
+        {
+          "why": "chocolate、pirate：-ate 不是拉丁文字尾。",
+          "list": "chocolate 經墨西哥西班牙文來自阿茲提克人的納瓦特爾語；pirate 來自希臘文 peirates（攻擊的人、海盜），經拉丁文 pirata 和古法文進入英文。"
+        },
+        {
+          "why": "skate、plate：-ate 是字的一部分。",
+          "list": "skate（溜冰鞋）借自荷蘭文 schaats；plate 來自古法文 plate（薄金屬片）。"
+        },
+        {
+          "why": "debate：-bate 不是字尾。",
+          "list": "debate 來自古法文 debatre（原本是「打鬥」），由 de（往下、完全）+ batre（打，來自拉丁文 battuere 打）組成，-ate 是 batre 的一部分，不是「使…、做…」的動詞字尾。"
+        },
+        {
+          "why": "relate、translate：-late 不是 -ate。",
+          "list": "-late 來自拉丁文 latus（被帶著，是 ferre 攜帶的過去分詞）：relate 是 re 回來 + latus，translate 是 trans 越過 + latus，字尾不是 -ate。"
+        }
+      ],
+      "kind": "suffix"
+    },
+    {
       "key": "-ize",
       "zh": "使…化、使成為（動詞字尾）",
       "note": "-ize 加在名詞或形容詞後面，把它變成動詞，意思是「使…化、使成為…、照…去做」：modern（現代的）加上 -ize 是 modernize（使現代化），memory（記憶）變成 memorize（記住、背）。英式英文常常拼成 -ise（organise、realise），意思一樣。看到 -ize，可以先把它拿掉，找出原來的名詞或形容詞，再想「使變成那樣」。至於 -ze 結尾的字，像 amaze、freeze、gaze、squeeze，ze 都不是字尾，例字列在下面「容易拆錯的字」。",
@@ -14031,7 +14730,7 @@
             },
             {
               "w": "genetic",
-              "p": "gene 基因 + -tic"
+              "p": "genet（希臘文 genetikos，來自 genesis 起源）+ -ic"
             },
             {
               "w": "graphic",
