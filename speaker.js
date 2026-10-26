@@ -143,7 +143,9 @@
     '.tts .spkset{display:inline-flex}' +
     '.spkv{display:none;margin-left:0;font-size:.82rem;white-space:nowrap}' +
     '.tts .spkv{display:inline-flex;align-items:center;gap:.35rem}' +
-    '.spkv .spkt{line-height:1.2;font-family:system-ui,-apple-system,"Noto Sans TC","Segoe UI",sans-serif;font-weight:500}';
+    '.spkv .spkt{line-height:1.2;font-family:system-ui,-apple-system,"Noto Sans TC","Segoe UI",sans-serif;font-weight:500}' +
+    '@media screen and (prefers-color-scheme:dark){.spk{background:transparent;color:#E4B6B0;border-color:#4F413A}' +
+    '.spk:hover,.spk.playing{background:#AE3626;border-color:#AE3626;color:#FFFDF7}}';
   var st = document.createElement('style');
   st.setAttribute('data-spk', '1');
   st.textContent = css;
