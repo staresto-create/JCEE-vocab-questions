@@ -17,12 +17,12 @@
   var PICK = ['🍅', '🪻', '🍊', '🥬', '💮', '🌻'];
   var PLANTS = PICK.concat(['🌿', '🍃', '🪴']);
   var INFO = {
-    '🍅': ['番茄', 'tomato', '番茄鐘的名字來自義大利文 pomodoro（番茄）。1980 年代，還是大學生的 Francesco Cirillo 用一個番茄形的廚房計時器管理讀書時間，這個方法就以它命名。'],
+    '🍅': ['番茄', 'tomato', '1980 年代，還是大學生的 Francesco Cirillo 用一個番茄形的廚房計時器管理讀書時間，這個方法就以義大利文的「番茄」pomodoro 命名。'],
     '🪻': ['番茉莉', 'yesterday-today-and-tomorrow', '花剛開時是紫色或淡紫色，幾天內慢慢褪成白色，所以英文俗名叫「昨天、今天和明天」。全株有毒，只看就好，不要摘，也不要吃。'],
     '🍊': ['橘子', 'tangerine', '「橘」和「吉」音近，所以習俗上把橘子當成象徵「大吉大利」的吉祥水果。'],
     '🥬': ['空心菜', 'water spinach', '它能長在水裡，莖是空心的。花是漏斗形，顏色從白色到淡紫色，和牽牛花長得很像。'],
     '💮': ['芭樂', 'guava', '花是白色的，有很多雄蕊。芭樂一年四季都能開花結果，果農還會用修剪調整產期，所以市場上整年都買得到。'],
-    '🌻': ['向日葵', 'sunflower', '還在長的向日葵，白天會跟著太陽轉，開花成熟後就固定朝東。研究發現，朝東的花早上升溫比較快，來訪的授粉昆蟲數量大約是朝西的花的五倍。'],
+    '🌻': ['向日葵', 'sunflower', '還在長的向日葵，白天會跟著太陽轉，開花成熟後就固定朝東。研究發現，朝東的花早上升溫比較快，來訪的授粉昆蟲大約是朝西花朵的五倍。'],
     '🌿': ['牛蒡', 'burdock', '1941 年，瑞士工程師梅斯特拉爾帶狗上山，發現牛蒡的刺果黏在褲子和狗毛上。他用顯微鏡一看，上面有好幾百個小鉤子，後來就發明了魔鬼氈。'],
     '🍃': ['含羞草', 'sensitive plant', '一碰，葉子在幾秒內就會合起來，過一陣子（幾分鐘到半小時左右）又會慢慢打開。2022 年日本埼玉大學的研究發現，這個動作能讓它少被蚱蜢等昆蟲啃食。'],
     '🪴': ['捕蠅草', 'Venus flytrap', '葉子上的感應毛要在大約 20 到 30 秒內被碰到兩次，葉子才會合上，合上只要大約十分之一秒。']
@@ -255,7 +255,7 @@
       var tg = el('span', 'scf-tg');
       sh.appendChild(tg);
       smy.appendChild(sh);
-      var sub = el('p', 'scf-soft', '用番茄鐘（專心 25 分鐘、休息 5 分鐘）練習，完成目標就去兌現自己訂的願望。');
+      var sub = el('p', 'scf-soft', '用番茄鐘計時練習，做完設定的顆數，就去兌現你的願望。');
       sub.style.margin = '2px 0 0';
       smy.appendChild(sub);
       box.appendChild(smy);
@@ -393,18 +393,18 @@
         p.appendChild(el('span', 'scf-wish', st.wish));
         return p;
       }
-      function footer() {
+      function footer(showPrivacy) {
         var f = el('div');
         var lab = el('label', 'scf-snd');
         var cb = el('input'); cb.type = 'checkbox'; cb.checked = soundOn();
         cb.addEventListener('change', function () { setSound(cb.checked); if (cb.checked) { prepAudio(); chime(); } syncUnlock(); });
         lab.appendChild(cb);
-        var lt = el('span', null, '專心或休息時間結束時，');
+        var lt = el('span', null, '專心或休息結束時，');
         lt.appendChild(el('span', 'scf-nw', '播放提示音'));
         lab.appendChild(lt);
         f.appendChild(lab);
-        f.appendChild(note('不用登入，願望和進度只存在這台裝置的這個瀏覽器；清除瀏覽資料、換裝置或用無痕視窗，就會從零開始。站上無法確認你是否專心，一顆算不算，由你自己決定。'));
-        f.appendChild(btn('清除願望與進度', 'scf-link', function () {
+        if (showPrivacy) f.appendChild(note('不用登入，也不會上傳：願望和進度只存在這台裝置的這個瀏覽器，別人看不到；清除瀏覽資料、換裝置或用無痕視窗，就會從零開始。'));
+        f.appendChild(btn('清除願望和進度', 'scf-link', function () {
           if (window.confirm('確定要清除願望和進度嗎？清除後無法復原。')) { wipe(); st = defaults(); render(true); }
         }));
         return f;
@@ -465,22 +465,19 @@
         if (view() !== lastView) { if (lastView) lockUntil = Date.now() + 500; lastView = view(); }
 
         if (phase === 'idle' || breakOver()) {
-          if (breakOver()) {
-            body.appendChild(el('p', 'scf-big', '休息結束，要繼續下一顆嗎？'));
-          }
           var idleNote = null, goBtn = null, previewHost = null;
           var refreshIdle = function () {
-            if (idleNote) idleNote.textContent = '番茄鐘是一種幫助專心的方法：專心做 ' + st.len + ' 分鐘、休息 ' + shortBreak(st.len) + ' 分鐘，合起來稱為一顆。每做完 4 顆，休息會拉長到 ' + longBreak(st.len) + ' 分鐘。專心的這 ' + st.len + ' 分鐘，可以在網站上做題目，也可以把題目印出來寫。' + (st.len === 50 ? '（原始的番茄鐘一顆是 25 分鐘，50 分鐘是加長版。）' : '');
-            if (goBtn) { goBtn.textContent = '開始第 ' + (st.done + 1) + ' 顆'; goBtn.appendChild(el('span', 'scf-nw', '（' + st.len + ' 分鐘）')); }
+            if (idleNote) idleNote.textContent = '番茄鐘是一種幫助專心的讀書方法：專心做一段時間算一顆，每顆之間休息 ' + shortBreak(st.len) + ' 分鐘；每做完 4 顆，休息拉長到 ' + longBreak(st.len) + ' 分鐘' + (st.len === 50 ? '（原始的番茄鐘一顆是 25 分鐘，50 分鐘是加長版）' : '') + '。專心的時候，可以在網站上做題目，也可以把題目印出來寫。';
+            if (goBtn) { goBtn.textContent = '開始第 ' + (st.done + 1) + ' 顆'; if (!idleNote) goBtn.appendChild(el('span', 'scf-nw', '（' + st.len + ' 分鐘）')); } /* 設定畫面上方就有「一顆多久」，不必再寫一次 */
           };
           if (!breakOver() && st.done === 0) {
             idleNote = el('p');
             body.appendChild(idleNote);
-            var lw = el('label', null, '我的願望（自己寫，只有你看得到）');
+            var lw = el('label', null, '我的願望');
             lw.setAttribute('for', 'scf-wish');
             body.appendChild(lw);
             var iw = el('input'); iw.type = 'text'; iw.id = 'scf-wish'; iw.value = st.wish;
-            iw.placeholder = '寫下你的願望';
+            iw.placeholder = '寫下來，或點下面的圖案';
             iw.setAttribute('autocomplete', 'off');
             var prevVal = iw.value;
             var onWish = function (e) {
@@ -544,7 +541,7 @@
               plabel.textContent = '今天要種什麼';
               plabel.appendChild(document.createTextNode('：'));
               plabel.appendChild(el('span', 'scf-pname', st.plant === 'random' ? '🎲 隨機' : show(st.plant) + ' ' + INFO[st.plant][0]));
-              if (st.plant === 'random') preview.appendChild(note('🎲 做完一顆才知道長出什麼。'));
+              if (st.plant === 'random') preview.appendChild(note('做完一顆，才知道會長出什麼。'));
               else preview.appendChild(infoCard(st.plant));
             };
             showPreview();
@@ -582,22 +579,21 @@
           body.appendChild(bars);
           if (previewHost) body.appendChild(previewHost);
           refreshIdle();
-          body.appendChild(footer());
+          body.appendChild(footer(!!idleNote));
         } else if (phase === 'work') {
           body.appendChild(dots());
           clockEl = el('div', 'scf-clock', mmss(st.endsAt - Date.now()));
           clockEl.setAttribute('role', 'timer');
           body.appendChild(clockEl);
-          body.appendChild(note('專心練習這一顆。想停就可以停，這一顆不會計入，也不會有任何懲罰。手機螢幕鎖定時不會響，回到這個頁面會顯示「時間到」；你也可以另外用手機內建的計時器。'));
+          body.appendChild(note('螢幕鎖定時，提示音不會響；回到這個頁面，會顯示「時間到」。需要鈴聲提醒的話，可以另外用手機內建的計時器。'));
           var b1 = el('div', 'scf-btns');
-          b1.appendChild(btn('先停下來', 'scf-alt', function () { st.phase = 'idle'; st.endsAt = 0; save(st); render(true); }));
+          b1.appendChild(btn('停止，這一顆不算', 'scf-alt', function () { st.phase = 'idle'; st.endsAt = 0; save(st); render(true); }));
           body.appendChild(b1);
           body.appendChild(footer());
           startTick();
         } else if (phase === 'workDone') {
-          body.appendChild(el('p', 'scf-big', '時間到。'));
           body.appendChild(dots());
-          body.appendChild(el('p', null, '這 ' + st.len + ' 分鐘，你有專心練習嗎？有的話，按「記下這一顆」。'));
+          body.appendChild(el('p', null, '站上無法確認你是否專心，這一顆算不算，由你自己決定。'));
           var b2 = el('div', 'scf-btns');
           b2.appendChild(btn('記下這一顆', 'scf-go', function () {
             popIdx = st.done;
@@ -617,7 +613,6 @@
           body.appendChild(b2);
           body.appendChild(footer());
         } else if (phase === 'break') {
-          body.appendChild(el('span', 'scf-pill', '休息中'));
           body.appendChild(dots());
           clockEl = el('div', 'scf-clock', mmss(st.endsAt - Date.now()));
           clockEl.setAttribute('role', 'timer');
@@ -635,7 +630,7 @@
           body.appendChild(footer());
           startTick();
         } else if (phase === 'achieved') {
-          body.appendChild(el('p', 'scf-big', '目標完成，你做了 ' + st.goal + ' 顆。'));
+          if (st.wish) { var wp = wishSpan('可以去兌現你的願望了：'); wp.className = 'scf-big'; body.appendChild(wp); }
           body.appendChild(dots());
           if (st.plant === 'random') {
             var names = [];
@@ -643,7 +638,6 @@
             if (names.length) body.appendChild(note('這次長出來的有：' + names.join('、') + '。'));
             if (st.grown.length) body.appendChild(infoCard(st.grown[st.grown.length - 1]));
           } else body.appendChild(infoCard(st.plant));
-          if (st.wish) body.appendChild(wishSpan('可以去兌現你的願望了：'));
           var b4 = el('div', 'scf-btns');
           b4.appendChild(btn('兌現了，訂新的目標', 'scf-go', function () {
             st.phase = 'idle'; st.done = 0; st.endsAt = 0; st.wish = ''; st.grown = []; save(st); render(true);
