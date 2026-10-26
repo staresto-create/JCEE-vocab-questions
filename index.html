@@ -398,6 +398,19 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
   <header>
     <div class="eyebrow">學測 · 指考 · 歷屆考古題</div>
     <h1>高中英文自學題庫</h1>
+    <div class="countdown" id="countdownBox">
+      <div class="cd-tabs" id="cdTabs" role="group" aria-label="選擇學測屆別">
+        <button type="button" class="cd-tab" data-y="116" aria-pressed="true">116 學測</button>
+        <button type="button" class="cd-tab" data-y="117" aria-pressed="false">117 學測</button>
+      </div>
+      <div class="cd-line">
+        <span class="cd-label" id="cdLabel">116 學測倒數</span>
+        <span class="cd-approx" id="cdApprox" hidden>約</span>
+        <span class="cd-val"><span class="num" id="countdownNum">–</span><span class="cd-unit" id="cdUnit">天</span></span>
+      </div>
+      <span class="cd-sum" id="cdSum" hidden></span>
+      <span class="date" id="cdDate">考試日期：2027 年 1 月 22 日（五）起</span>
+    </div>
     <div id="progressHome"></div>
     <script>
     /* 總站首頁的進度總表：題數是各題庫歷屆試題的題數，題庫增減題目時要跟著改 */
@@ -427,17 +440,13 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
       <span class="spot-go">開始貼上文章 →</span>
     </a>
     <aside class="newstrip" aria-label="最新上線">
-      <div class="newstrip-h"><span class="spot-tag">最新上線</span>10 月 25 日</div>
+      <div class="newstrip-h"><span class="spot-tag">最新上線</span>10 月 26 日</div>
       <ul>
-        <li>📖 <a href="howto.html">怎麼使用這個題庫</a>：第一次使用看這一頁。用手機畫面說明單題練習、答案依據句、進度、錯題本、測試模式、列印和題目地圖怎麼用，也提醒哪些地方容易誤會，例如進度只存在這台裝置。</li>
-        <li>🧭 <a href="#start-here">不知道從哪裡開始？</a>選你最近一次模擬考的英文級分（或本校段考成績），看建議的練習順序。老師也能在<a href="https://staresto-create.github.io/JCEE-vocab-questions/cards/teacher.html">老師頁</a>選好級分，把連結貼給學生
-        <li>🔎 <a href="https://staresto-create.github.io/JCEE-vocab-questions/context-vocab.html">上下文裡的單字與片語</a>：閱讀測驗常問「文章裡的某個詞或片語是什麼意思」，混合題的最後一題也常要從文章裡找出符合某個定義的單字或片語。這一頁把歷屆試題中的 68 條整理在一起，每一條附中文意思、考卷裡的原句、出現在哪幾份試卷，以及大考中心公布的答對率。</li>
-        <li>🧩 <a href="https://staresto-create.github.io/JCEE-vocab-questions/phrasal-verbs.html">片語動詞</a>：pick up、come up with、turn out 這類「動詞＋副詞」的組合，每個字都認得，合起來卻常讀不懂。學測、指考的文章和題目裡出現過 274 個，每一條附中文意思、能不能把受詞放中間、考卷原句、出現在哪幾份試卷，並連到原題。</li>
-        <li>👆 <a href="https://staresto-create.github.io/JCEE-vocab-questions/pronouns.html">你所不知道的代名詞</a>：others、one／ones、that of、each other，甚至 do so 的 so，都在代替前面的字詞或句子。這一頁整理了 22 種用法，每個例句都標出「它指的是什麼」，閱讀測驗常問的指涉題可以直接練習。</li>
-        <li>🔗 <a href="https://staresto-create.github.io/JCEE-vocab-questions/verb-prep.html">動詞＋介系詞</a>：depend on、participate in、be based on 這類用法，動詞後面要接哪個介系詞是固定的，接錯就失分。歷屆試題的文章和題目裡出現過 117 條，每一條附中文意思、要記的用法、考卷原句、出現在哪幾份試卷，並附大考中心公布的答對率。</li>
-        <li>🧱 <a href="https://staresto-create.github.io/JCEE-vocab-questions/auxiliaries.html">助動詞</a>：had better、must have 加過去分詞、Not only 後面的倒裝，這類用法中文沒有一一對應的說法，克漏字、詞彙題和中譯英很容易失分。歷屆試題的文章和題目裡出現過 18 條，每一條附中文意思、要記的用法、考卷原句、出現在哪幾份試卷，曾作為題目答案的也附答對率。</li>
-        <li>🧱 <a href="https://staresto-create.github.io/JCEE-vocab-questions/adjective-prep.html">形容詞＋介系詞</a>：be interested in、be familiar with、be different from，形容詞或過去分詞後面接哪一個介系詞是固定的，接錯在克漏字和作文都會失分。歷屆試題的文章和題目裡出現過 32 條，每一條附中文意思、要記的用法、考卷原句、出現在哪幾份試卷。</li>
-        <li>🔖 <a href="https://staresto-create.github.io/JCEE-vocab-questions/fixed-phrases.html">固定用語與插入語</a>：as such、it turns out、let alone 的意思與用法。大考中心公布的答對率，as such 只有 31%，it turns out 是 29%，let alone 是 24%。學測、指考試題裡這類容易誤解的簡短用語，這一頁整理了 89 條，每一條附中文意思、出現在哪幾份試卷，並連到原題。</li>
+        <li>⏳ <a href="#countdownBox" data-cd="117">117 學測倒數</a>：歡迎高二同學一起來拚學測！<span style="white-space:nowrap">倒數</span>可以選 116 或 117 學測。</li>
+        <li>🧷 <a href="https://staresto-create.github.io/JCEE-vocab-questions/conjunctions.html">連接詞</a>：學測、指考出現過的 56 個連接詞全部列出，附中文意思和用法，曾當答案的也附<span style="white-space:nowrap">答對率</span>。</li>
+        <li>🍅 <a href="#focusHome">自己安排的練習</a>：寫下一個小願望，用番茄鐘計時做<span style="white-space:nowrap">題目</span>，做完就兌現<span style="white-space:nowrap">願望</span>。</li>
+        <li>🔀 <a href="https://staresto-create.github.io/JCEE-vocab-questions/transitions.html">轉承詞語</a>：學測、指考出現過的 130 種全部列出，附中文意思和例句，曾當答案的也附<span style="white-space:nowrap">答對率</span>。</li>
+        <li>🔦 <a style="white-space:nowrap" href="https://staresto-create.github.io/passage-completion/">文意選填</a>作答後會標出判斷答案的字詞，<a style="white-space:nowrap" href="https://staresto-create.github.io/mixed-format/">混合題</a>交卷後會標出依據句。</li>
       </ul>
       <a class="more" href="#recent">看全部最近新增 ↓</a>
     </aside>
@@ -445,19 +454,6 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
     <p class="sub" style="line-height:1.9;"><b style="color:var(--ad-x221F1A-fg);">完全免費、不用註冊、沒有廣告。</b><br>十個題庫收錄學測與指考歷屆考古題共 <b style="color:var(--ad-x9C2C1E-fg);">3,713 題</b>。其中克漏字 870 題、篇章結構 167 題、文意選填 560 題、混合題 33 格都有解析，單字題 843 題每一題都有中文詳解，閱讀測驗 959 題每一題都有說明、答案依據句和題型，246 篇也都附了逐段中譯，作文題 63 題也都附了範文，中譯英 218 題也都有解析。<a href="https://staresto-create.github.io/JCEE-vocab-questions/listening/" style="color:var(--ad-x9C2C1E-fg); font-weight:700;">英聽練習</a>收錄參考試卷一卷、試題示例五卷，六卷都有逐題解析，另附<a href="https://staresto-create.github.io/JCEE-vocab-questions/listening/liaison.html" style="color:var(--ad-x9C2C1E-fg); font-weight:700;">英聽連音卡</a>，用官方錄音練連音、消音和弱讀。各題庫的題數與解析範圍，另外標在每張卡片上。<a href="https://staresto-create.github.io/JCEE-vocab-questions/roots/" style="color:var(--ad-x9C2C1E-fg); font-weight:700;">字根家族表</a>、<a href="https://staresto-create.github.io/JCEE-vocab-questions/affixes/" style="color:var(--ad-x9C2C1E-fg); font-weight:700;">字首字尾表</a>、<a href="https://staresto-create.github.io/JCEE-vocab-questions/cards/" style="color:var(--ad-x9C2C1E-fg); font-weight:700;">單字記憶卡</a>、<a href="https://staresto-create.github.io/JCEE-vocab-questions/wordwheel.html" style="color:var(--ad-x9C2C1E-fg); font-weight:700;">單字輪</a>、<a href="https://staresto-create.github.io/JCEE-vocab-questions/cards/suffix.html" style="color:var(--ad-x9C2C1E-fg); font-weight:700;">字尾分組</a>和<a href="https://staresto-create.github.io/JCEE-vocab-questions/cards/prefix.html" style="color:var(--ad-x9C2C1E-fg); font-weight:700;">字首同化</a>是查閱與複習用的工具，不是考古題；英聽沒有考古題，英聽練習收錄的是大考中心公布的參考試卷與試題示例。這些工具，以及<a href="https://staresto-create.github.io/JCEE-vocab-questions/cards/reverse.html" style="color:var(--ad-x9C2C1E-fg); font-weight:700;">單字逆序表</a>、<a href="https://staresto-create.github.io/JCEE-vocab-questions/cards/coverage.html" style="color:var(--ad-x9C2C1E-fg); font-weight:700;">詞彙表覆蓋清單</a>和<a href="https://staresto-create.github.io/JCEE-vocab-questions/cards/freq.html" style="color:var(--ad-x9C2C1E-fg); font-weight:700;">學測全卷用字統計</a>這幾份查閱用的表，都不計入上面的題數。<br>本題庫沿用教學現場的說法：這裡的「克漏字」是大考中心的「綜合測驗」，「單字題」是「詞彙題」。指考英文只考到 110 學年度——111 學年度起指考改制為分科測驗，不考英文，所以指考各題庫的年份停在 110。<br>同一個用法在不同年份反覆出現，解析會告訴你哪幾年還出現過同一件事，點一下就跳得過去——兩題擺在一起看，判斷方式才完整。<br>我是英文老師，第一次用 GitHub 做網站，做得陽春，但題目和解析都是認真整理的，裡面也放了這些年教書、考試和出題累積下來的一點心得。<b style="color:var(--ad-x3E6E52-fg);">歡迎自由分享。</b></p>
   </header>
 
-  <div class="countdown" id="countdownBox">
-    <div class="cd-tabs" id="cdTabs" role="group" aria-label="選擇學測屆別">
-      <button type="button" class="cd-tab" data-y="116" aria-pressed="true">116 學測</button>
-      <button type="button" class="cd-tab" data-y="117" aria-pressed="false">117 學測</button>
-    </div>
-    <div class="cd-line">
-      <span class="cd-label" id="cdLabel">116 學測倒數</span>
-      <span class="cd-approx" id="cdApprox" hidden>約</span>
-      <span class="cd-val"><span class="num" id="countdownNum">–</span><span class="cd-unit" id="cdUnit">天</span></span>
-    </div>
-    <span class="cd-sum" id="cdSum" hidden></span>
-    <span class="date" id="cdDate">考試日期：2027 年 1 月 22 日（五）起</span>
-  </div>
 
   <hr class="rule">
 
