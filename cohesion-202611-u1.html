@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>倒金字塔：社群媒體新聞｜More Countries Move to Limit Teen Social Media Use</title>
+<meta name="description" content="社群媒體新聞也是倒金字塔。這一頁教你從尾巴砍砍看，再認出記者怎麼把判斷交給消息來源。">
+<meta property="og:title" content="倒金字塔：社群媒體新聞｜More Countries Move">
+<meta property="og:description" content="這則新聞裡，記者自己一句判斷都沒有下。那些話是誰說的？">
+<style>
+:root{
+  --ground:#f1f3f2; --ink:#17282f; --teal:#1f6f6a; --teal-soft:#dfeceb;
+  --muted:#77878d; --line:#cdd6d6; --exam:#b4661c; --exam-soft:#fdf4e7;
+  --gen:#4a6a90; --gen-soft:#e0e7f0;
+  --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+  --sans:"PingFang TC","Noto Sans TC","Microsoft JhengHei","Helvetica Neue",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ad-vground-bg);color:var(--ad-vink-fg);font-family:var(--sans);line-height:1.6;-webkit-text-size-adjust:100%}
+.wrap{max-width:44rem;margin:0 auto;padding:1.6rem 1.1rem 4rem}
+h1{font-family:var(--serif);font-weight:600;font-size:1.6rem;line-height:1.3;margin:0 0 .55rem}
+.lede{margin:0 0 1.3rem;color:var(--ad-x3d5059-fg);font-size:.95rem}
+.src{font-size:.8rem;color:var(--ad-vmuted-fg);margin:0 0 1.1rem}
+.resume{font-size:.85rem;color:var(--ad-vteal-fg);background:var(--ad-vtealsoft-bg);border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.resume[hidden],.preview[hidden]{display:none}
+.preview{font-size:.85rem;color:var(--ad-vexam-fg);background:var(--ad-vexamsoft-bg);
+  border:1px dashed var(--exam);border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.resume button{font:inherit;font-size:.82rem;background:var(--ad-xfff-bg);color:var(--ad-vink-fg);border:1px solid var(--ad-vline-border);border-radius:.25rem;padding:.16rem .6rem;margin-left:.5rem;cursor:pointer}
+.resume button:focus-visible{outline:2px solid var(--ad-vteal-border);outline-offset:2px}
+.step{border-top:1px solid var(--ad-vline-border);padding-top:1.15rem;margin-top:1.6rem}
+.step[hidden]{display:none}
+.stepno{font-family:var(--serif);font-size:.82rem;color:var(--ad-vmuted-fg);margin:0 0 .2rem}
+h2{font-family:var(--serif);font-weight:600;font-size:1.2rem;margin:0 0 .5rem;color:var(--ad-vteal-fg)}
+.step p{margin:0 0 .7rem;font-size:.95rem}
+.tag{display:inline-block;font-size:.72rem;font-weight:600;border-radius:.2rem;padding:.08rem .45rem;margin-left:.45rem;vertical-align:.12rem;color:var(--ad-vexam-fg);background:var(--ad-vexamsoft-bg);border:1px solid var(--exam)}
+.tag.b{color:var(--ad-vgen-fg);background:var(--ad-vgensoft-bg);border-color:var(--gen)}
+
+/* 選擇題：中文用 .opts，英文選項加 .en，附小字說明加 .rg */
+.opts{display:flex;flex-direction:column;gap:.45rem;margin:.2rem 0 .8rem}
+.opts button{font:inherit;font-size:.95rem;background:var(--ad-xfff-bg);color:var(--ad-vink-fg);border:1px solid var(--ad-vline-border);border-radius:.3rem;padding:.45rem .85rem;cursor:pointer;text-align:left}
+.opts button:hover{border-color:var(--ad-vteal-border)}
+.opts button:focus-visible{outline:2px solid var(--ad-vteal-border);outline-offset:2px}
+.opts button[data-state="right"]{background:var(--teal);border-color:var(--ad-vteal-border);color:#fff}
+.opts button[data-state="wrong"]{background:var(--ad-vground-bg);color:var(--ad-vmuted-fg)}
+.opts button[disabled]{cursor:default}
+.opts.en button{font-family:var(--serif);font-size:.97rem;line-height:1.6;padding:.55rem .8rem}
+.opts.en button[data-state="right"]{background:var(--ad-vtealsoft-bg);border-color:var(--ad-vteal-border);color:var(--ad-vink-fg)}
+.opts.rg button i{display:block;font-style:normal;font-size:.82rem;color:var(--ad-vmuted-fg);margin-top:.12rem}
+.opts.rg button[data-state="right"] i{color:#dfeceb}
+
+/* 揭曉區塊 */
+.said{background:var(--ad-xfff-bg);border-left:3px solid var(--ad-vteal-border);border-radius:.3rem;padding:.75rem .85rem;margin:.2rem 0 .9rem;font-size:.93rem;color:var(--ad-x3d5059-fg)}
+.said b{color:var(--ad-vink-fg);font-weight:600}
+.said[hidden]{display:none}
+.said.g{border-left-color:var(--gen)}
+.said.e{border-left-color:var(--exam)}
+.said q{quotes:none;font-family:var(--serif)}
+
+.go{font:inherit;font-size:.92rem;background:var(--ad-vink-bg);color:var(--ad-onflip-fg);border:1px solid var(--ad-vink-border);border-radius:.3rem;padding:.42rem 1.05rem;cursor:pointer}
+.go:focus-visible{outline:2px solid var(--ad-vteal-border);outline-offset:2px}
+.go[hidden]{display:none}
+
+/* 第一步的可點標記 */
+.lead{background:var(--ad-xfff-bg);border:1px solid var(--ad-vline-border);border-radius:.4rem;padding:.9rem 1rem;margin:0 0 .7rem;font-family:var(--serif);font-size:1.02rem;line-height:1.95}
+.lead c{cursor:pointer;border-radius:.2rem;padding:.06rem .2rem;background:var(--ad-vexamsoft-bg);box-shadow:inset 0 -2px 0 #ecc9a2}
+.lead c:hover{box-shadow:inset 0 -2px 0 var(--exam)}
+.lead c.got{background:var(--exam);color:#fff;box-shadow:none}
+.lead c b{font-family:var(--sans);font-size:.72rem;font-weight:600;background:var(--ad-xfff-bg);color:var(--ad-vexam-fg);border-radius:.2rem;padding:.02rem .3rem;margin-right:.3rem}
+.score{font-size:.9rem;color:var(--ad-vmuted-fg);margin:0 0 .8rem}
+.score em{font-style:normal;color:var(--ad-vexam-fg);font-weight:600}
+
+/* 第三步的卡片（驗證方法通用容器） */
+.qs{display:flex;flex-direction:column;gap:.5rem;margin:0 0 .8rem}
+.qcard{background:var(--ad-xfff-bg);border:1px solid var(--ad-vline-border);border-radius:.4rem;padding:.6rem .85rem}
+.qcard .hd{display:flex;align-items:center;gap:.6rem;font-size:.95rem}
+.qcard .hd .qt{flex:1 1 auto;font-weight:600}
+.qcard .hd button{font:inherit;font-size:.8rem;background:var(--ad-xfff-bg);color:var(--ad-vink-fg);border:1px solid var(--ad-vline-border);
+  border-radius:.25rem;padding:.18rem .7rem;cursor:pointer;flex:0 0 auto}
+.qcard .hd button:focus-visible{outline:2px solid var(--ad-vteal-border);outline-offset:2px}
+.qcard .bd{display:none;margin-top:.4rem;font-size:.92rem;color:var(--ad-x3d5059-fg);line-height:1.75}
+.qcard.open .bd{display:block}
+.qcard.open .hd button{display:none}
+.qcard .bd .rf{display:block;color:var(--ad-vmuted-fg);font-size:.82rem;margin-top:.25rem}
+.qcard .bd .sw{display:block;font-family:var(--serif);background:var(--ad-vground-bg);border-radius:.3rem;
+  padding:.45rem .6rem;margin:.35rem 0;color:var(--ad-vink-fg);font-size:.93rem;line-height:1.7}
+.qcard .r{display:grid;grid-template-columns:1fr;gap:.1rem;margin-bottom:.4rem}
+@media(min-width:34rem){.qcard .r{grid-template-columns:5.5rem 1fr;gap:.5rem}}
+.qcard .r:last-child{margin-bottom:0}
+.qcard .r .k{font-size:.76rem;font-weight:600;color:var(--ad-vgen-fg)}
+.qcard .r .v em{font-style:normal;color:var(--ad-vmuted-fg);font-size:.82rem;margin-left:.3rem}
+
+/* 圖表容器與通用節點 */
+.fig{background:var(--ad-xfff-bg);border:1px solid var(--ad-vline-border);border-radius:.4rem;padding:.7rem .5rem .4rem;margin:0 0 .7rem}
+.fig[hidden]{display:none}
+.fig svg{display:block;width:100%;height:auto;max-width:27rem;margin:0 auto}
+.fig figcaption{font-size:.85rem;color:var(--ad-x3d5059-fg);margin:.35rem .5rem 0;line-height:1.65}
+.node{cursor:pointer}
+.node rect,.node circle,.node path.bx{fill:#fff;stroke:var(--line);stroke-width:2;stroke-linejoin:round}
+.node text{font-family:var(--sans);font-size:11px;fill:var(--ad-vink-fg);font-weight:600}
+.node tspan.n,.node text.n{font-size:9px;font-weight:400;fill:var(--ad-vmuted-fg)}
+.node.on rect,.node.on circle,.node.on path.bx{fill:var(--exam-soft);stroke:var(--ad-vexam-fg);stroke-width:3}
+.node.on text{fill:var(--ad-vexam-fg)}
+.node.on tspan.n,.node.on text.n{fill:var(--ad-vexam-fg)}
+.guide{stroke:var(--line);stroke-width:2;fill:none;stroke-linejoin:round;stroke-linecap:round}
+.guide.dash{stroke-dasharray:5 4}
+.endlab{font-family:var(--sans);font-size:10.5px;font-weight:600}
+.endlab.l{fill:var(--ad-vteal-fg)}
+.endlab.r{fill:var(--ad-vgen-fg)}
+
+/* 分日分隔框 */
+.daybreak{border:1px dashed var(--exam);background:var(--ad-vexamsoft-bg);border-radius:.4rem;
+  padding:.8rem .95rem;margin:1.6rem 0 0;font-size:.9rem;color:var(--ad-x3d5059-fg);line-height:1.7}
+.daybreak b{display:block;color:var(--ad-vexam-fg);font-family:var(--serif);font-size:1.02rem;margin-bottom:.3rem}
+.daybreak[hidden]{display:none}
+
+/* 課文與線索鏈 */
+.modes{display:flex;gap:.4rem;margin:0 0 .7rem;flex-wrap:wrap}
+.modes button{font:inherit;font-size:.84rem;background:var(--ad-xfff-bg);color:var(--ad-vink-fg);border:1px solid var(--ad-vline-border);border-radius:.3rem;padding:.3rem .8rem;cursor:pointer}
+.modes button[aria-pressed="true"]{background:var(--ad-vink-bg);border-color:var(--ad-vink-border);color:var(--ad-onflip-fg)}
+.modes button:focus-visible{outline:2px solid var(--ad-vteal-border);outline-offset:2px}
+.text{background:var(--ad-xfff-bg);border:1px solid var(--ad-vline-border);border-radius:.4rem;padding:.9rem .6rem 1.1rem;font-family:var(--serif);font-size:1rem;line-height:1.85}
+.text .ttl{font-weight:600;font-size:1.06rem;margin:0 .4rem .7rem 2.6rem;line-height:1.45}
+.ln{display:flex;align-items:baseline;padding:.02rem 0;border-radius:.2rem}
+.ln>i{flex:0 0 2.2rem;text-align:right;padding-right:.55rem;font-family:var(--sans);font-style:normal;font-size:.68rem;color:var(--ad-vmuted-fg);line-height:1.9}
+.ln>span{flex:1 1 auto;overflow-wrap:anywhere}
+.ln.ind>span{padding-left:1.1rem}
+.ln.sub>span{font-weight:600}
+.ln.hl{background:var(--ad-vexamsoft-bg)}
+.ln.pb{margin-top:.55rem}
+.text .split{font-family:var(--sans);font-size:.78rem;color:var(--ad-vexam-fg);
+  border-top:1px dashed var(--exam);margin:.8rem .4rem .7rem 2.6rem;padding-top:.35rem}
+.text m{cursor:pointer;border-radius:.2rem;padding:.02rem .14rem}
+.text m[data-kind="sub"]{background:var(--ad-vtealsoft-bg);box-shadow:inset 0 -2px 0 #a8ccc8}
+.text m[data-kind="gen"]{background:var(--ad-vgensoft-bg);box-shadow:inset 0 -2px 0 #a9bbd0}
+.text m[data-kind="mk"]{border-bottom:2px dotted var(--exam);font-style:italic}
+.text m.lit[data-kind="sub"]{background:var(--teal);color:#fff;box-shadow:none}
+.text m.lit[data-kind="gen"]{background:var(--gen);color:#fff;box-shadow:none}
+.text m.lit[data-kind="mk"]{background:var(--exam);color:#fff;border-bottom:none}
+.text.off-sub m[data-kind="sub"]{background:none;box-shadow:none}
+.text.off-gen m[data-kind="gen"]{background:none;box-shadow:none}
+
+/* 固定在底部的說明面板 */
+.panel{position:sticky;bottom:0;background:var(--ad-xfff-bg);border:1px solid var(--ad-vline-border);border-radius:.4rem;padding:.75rem .9rem;margin-top:.8rem;box-shadow:0 -2px 10px rgba(23,40,47,.07)}
+.panel .k{font-size:.72rem;font-weight:600;border-radius:.2rem;padding:.06rem .42rem;color:var(--ad-vteal-fg);background:var(--ad-vtealsoft-bg);border:1px solid var(--ad-vteal-border)}
+.panel .k.g{color:var(--ad-vgen-fg);background:var(--ad-vgensoft-bg);border-color:var(--gen)}
+.panel .k.e{color:var(--ad-vexam-fg);background:var(--ad-vexamsoft-bg);border-color:var(--exam)}
+.panel .ch{font-family:var(--serif);font-size:1rem;margin:.4rem 0 .3rem;color:var(--ad-vink-fg);line-height:1.75;overflow-wrap:anywhere}
+.panel .ch i{font-style:normal;color:var(--ad-vmuted-fg);padding:0 .28rem}
+.panel .nt{font-size:.88rem;color:var(--ad-x3d5059-fg);margin:0}
+
+/* 舊工具點名複習 */
+.recall{background:var(--ad-xfff-bg);border:1px solid var(--ad-vline-border);border-left:3px solid var(--muted);
+  border-radius:.3rem;padding:.75rem .85rem;margin:1.1rem 0 .9rem;font-size:.92rem;color:var(--ad-x3d5059-fg)}
+.recall b{color:var(--ad-vink-fg)}
+.recall ul{margin:.4rem 0 0;padding-left:1.1rem}
+.recall li{margin-bottom:.35rem}
+
+/* 抽句題 */
+.gap{background:var(--ad-xfff-bg);border:1px solid var(--ad-vline-border);border-radius:.4rem;padding:.9rem 1rem;margin:0 0 .9rem;font-family:var(--serif);font-size:1rem;line-height:1.9}
+.gap .blank{display:inline-block;min-width:9rem;border-bottom:2px solid var(--gen);color:var(--ad-vgen-fg);text-align:center;font-family:var(--sans);font-size:.82rem}
+.gap .blank.filled{border-bottom-color:var(--ad-vteal-border);color:var(--ad-vink-fg);font-family:var(--serif);font-size:1rem;text-align:left;background:var(--ad-vtealsoft-bg);border-radius:.2rem;padding:0 .25rem}
+.gap .lst{font-family:var(--sans);font-size:.85rem;color:var(--ad-vmuted-fg);display:block;margin-top:.5rem}
+.picks{display:flex;flex-direction:column;gap:.45rem;margin:0 0 .9rem}
+.picks button{font:inherit;font-family:var(--serif);font-size:.97rem;line-height:1.6;background:var(--ad-xfff-bg);color:var(--ad-vink-fg);border:1px solid var(--ad-vline-border);border-radius:.3rem;padding:.55rem .8rem;cursor:pointer;text-align:left}
+.picks button:hover{border-color:var(--ad-vteal-border)}
+.picks button:focus-visible{outline:2px solid var(--ad-vteal-border);outline-offset:2px}
+.picks button[data-state="right"]{background:var(--ad-vtealsoft-bg);border-color:var(--ad-vteal-border)}
+.picks button[data-state="wrong"]{background:var(--ad-vground-bg);color:var(--ad-vmuted-fg)}
+.why{font-size:.86rem;color:var(--ad-x3d5059-fg);margin:.35rem 0 0}
+.why[hidden]{display:none}
+
+/* 收尾與頁尾 */
+.close{border-top:1px solid var(--ad-vline-border);margin-top:2rem;padding-top:1.1rem;font-size:.93rem;color:var(--ad-x3d5059-fg)}
+.close[hidden]{display:none}
+.close h2{font-size:1.1rem}
+.close ol{margin:.3rem 0 0;padding-left:1.15rem}
+.close li{margin-bottom:.5rem}
+.more{margin-top:1.5rem;font-size:.88rem}
+.more a{color:var(--ad-vteal-fg)}
+.series{border-top:1px solid var(--ad-vline-border);margin-top:2rem;padding-top:1.1rem;font-size:.9rem;color:var(--ad-x3d5059-fg)}
+.series .back{font-family:var(--serif);font-size:1rem;color:var(--ad-vteal-fg);text-decoration:none}
+.series .back:hover{text-decoration:underline}
+.series .back:focus-visible{outline:2px solid var(--ad-vteal-border);outline-offset:2px}
+.series .note{font-size:.85rem;color:var(--ad-vmuted-fg);margin:.5rem 0 0}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* 本單元：倒三角與砍尾巴 */
+.tier{cursor:pointer}
+.tier path{fill:#fff;stroke:var(--line);stroke-width:2;stroke-linejoin:round}
+.tier text{font-family:var(--sans);font-size:12px;fill:var(--ad-vink-fg);font-weight:600}
+.tier tspan.n{font-size:9.5px;font-weight:400;fill:var(--ad-vmuted-fg)}
+.tier.on path{fill:var(--exam-soft);stroke:var(--ad-vexam-fg);stroke-width:3}
+.tier.on text,.tier.on tspan.n{fill:var(--ad-vexam-fg)}
+.cut{display:flex;flex-direction:column;gap:.5rem;margin:0 0 .8rem}
+.para{background:var(--ad-xfff-bg);border:1px solid var(--ad-vline-border);border-radius:.4rem;padding:.7rem .85rem;font-family:var(--serif);font-size:.97rem;line-height:1.8}
+.para .hd{display:flex;justify-content:space-between;align-items:center;gap:.6rem;font-family:var(--sans);font-size:.78rem;color:var(--ad-vmuted-fg);margin-bottom:.35rem}
+.para .hd button{font:inherit;font-size:.78rem;background:var(--ad-xfff-bg);color:var(--ad-vink-fg);border:1px solid var(--ad-vline-border);border-radius:.25rem;padding:.14rem .6rem;cursor:pointer;flex:0 0 auto}
+.para .hd button:focus-visible{outline:2px solid var(--ad-vteal-border);outline-offset:2px}
+.para.gone{background:var(--ad-vground-bg);border-style:dashed}
+.para.gone .bd{display:none}
+.para .gonemsg{display:none;font-family:var(--sans);font-size:.85rem;color:var(--ad-vmuted-fg)}
+.para.gone .gonemsg{display:block}
+.verdict{border-radius:.3rem;padding:.6rem .8rem;font-size:.9rem;margin:0 0 .8rem;border:1px solid var(--ad-vline-border);background:var(--ad-xfff-bg);color:var(--ad-x3d5059-fg)}
+.verdict.ok{border-color:var(--ad-vteal-border);background:var(--ad-vtealsoft-bg);color:var(--ad-vteal-fg)}
+.verdict.no{border-color:var(--exam);background:var(--ad-vexamsoft-bg);color:var(--ad-vexam-fg)}
+.verdict.warn{border-color:var(--gen);background:var(--ad-vgensoft-bg);color:var(--ad-vgen-fg)}
+#q3w[hidden]{display:none}
+
+/* 深色模式（2026-10-22）：淺色數值與原本相同；只在螢幕、手機或電腦設成深色外觀時生效，列印不受影響。 */
+:root{--ad-onflip-fg:#ffffff;--ad-vexam-bg:var(--exam);--ad-vexam-border:var(--exam);--ad-vexam-fg:var(--exam);--ad-vexamsoft-bg:var(--exam-soft);--ad-vexamsoft-fg:var(--exam-soft);--ad-vgen-bg:var(--gen);--ad-vgen-border:var(--gen);--ad-vgen-fg:var(--gen);--ad-vgensoft-bg:var(--gen-soft);--ad-vground-bg:var(--ground);--ad-vink-bg:var(--ink);--ad-vink-border:var(--ink);--ad-vink-fg:var(--ink);--ad-vline-border:var(--line);--ad-vline-fg:var(--line);--ad-vmuted-border:var(--muted);--ad-vmuted-fg:var(--muted);--ad-vteal-bg:var(--teal);--ad-vteal-border:var(--teal);--ad-vteal-fg:var(--teal);--ad-vtealsoft-bg:var(--teal-soft);--ad-x3d5059-fg:#3d5059;--ad-x8a8278-fg:#8a8278;--ad-xdfeceb-fg:#dfeceb;--ad-xfff-bg:#fff;--ad-xfff-fg:#fff;color-scheme:light}
+@media screen and (prefers-color-scheme: dark){
+ :root{--ad-onflip-fg:#16201F;--ad-vexam-bg:#b4661c;--ad-vexam-border:#b4661c;--ad-vexam-fg:#E7CAAF;--ad-vexamsoft-bg:#2D2821;--ad-vexamsoft-fg:#fdf4e7;--ad-vgen-bg:#4a6a90;--ad-vgen-border:#4a6a90;--ad-vgen-fg:#BBC7D6;--ad-vgensoft-bg:#1E2227;--ad-vground-bg:#1F2020;--ad-vink-bg:#E6EBEE;--ad-vink-border:#E9EFF2;--ad-vink-fg:#E9EFF2;--ad-vline-border:#3F4747;--ad-vline-fg:#cdd6d6;--ad-vmuted-border:#77878d;--ad-vmuted-fg:#BAC0C2;--ad-vteal-bg:#1f6f6a;--ad-vteal-border:#CDEAE9;--ad-vteal-fg:#CDEAE9;--ad-vtealsoft-bg:#1D2524;--ad-x3d5059-fg:#D4DBDF;--ad-x8a8278-fg:#C2BFBB;--ad-xdfeceb-fg:#dfeceb;--ad-xfff-bg:#2D2A25;--ad-xfff-fg:#ffffff;color-scheme:dark}
+}
+
+.step p q,.recall q,.close q{quotes:none;font-family:var(--serif)}
+</style>
+<style id="anti-copy">
+/* 防盜用措施（2026-10-14）：畫面浮水印、列印浮水印、頁尾授權聲明 */
+@media screen{body::before{content:"";position:fixed;top:0;left:0;right:0;bottom:0;z-index:2147483000;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22460%22%20height%3D%22240%22%3E%3Cg%20transform%3D%22rotate%28-20%20230%20120%29%22%20font-family%3D%22Noto%20Sans%20TC%2Csans-serif%22%20fill%3D%22%23D9A400%22%20fill-opacity%3D%22.2%22%20text-anchor%3D%22middle%22%3E%3Ctext%20x%3D%22230%22%20y%3D%22112%22%20font-size%3D%2220%22%3E%E9%AB%98%E4%B8%AD%E8%8B%B1%E6%96%87%E9%A1%8C%E5%BA%AB%3C%2Ftext%3E%3Ctext%20x%3D%22230%22%20y%3D%22140%22%20font-size%3D%2214%22%3Estaresto-create.github.io%2FJCEE-vocab-questions%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E");background-repeat:repeat;}}
+@media print{body::after{content:"高中英文題庫\A staresto-create.github.io/JCEE-vocab-questions\A 免費資源，請勿販售";white-space:pre;position:fixed;top:42%;left:0;right:0;text-align:center;transform:rotate(-25deg);font-family:"Noto Sans TC",sans-serif;font-size:26pt;line-height:1.7;color:#c8c8c8;z-index:2147483000;pointer-events:none;}}
+.cc-note{font-size:12px;line-height:1.8;color:var(--ad-x8a8278-fg);margin:12px auto;max-width:60em;padding:0 1em;}.cc-note a{color:inherit;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>倒金字塔</h1>
+<p class="lede">新聞不保證你會讀到最後，所以記者把最重要的消息放在最前面，越往下越可以砍。這一頁教你認出<b>倒金字塔</b>，也教你一個新工具：這篇新聞裡的判斷，幾乎全是<b>別人說的</b>，記者自己一句都沒下，所以要看清楚「誰說的」。</p>
+<p class="preview" id="pv" hidden>預覽模式：所有步驟、圖表、課文標記都已展開，進度不會存檔。學生拿到的一般連結不受影響。</p>
+<p class="resume" id="rs" hidden>上次做到一半，已經幫你接回來了。<button id="rst">重新開始</button></p>
+<p class="src">ALL+ 互動英語 11 月號 Unit 1（pp. 6–7）　More Countries Move to Limit Teen Social Media Use　全文 36 行　11/2 一天讀完</p>
+
+<!-- ═══ 第一步 ═══ -->
+<section class="step" id="s1">
+  <p class="stepno">第一步</p>
+  <h2>新聞的開頭在做什麼<span class="tag">上層：組織方式</span></h2>
+  <p>新聞的開頭有一個特別的任務：<b>讓只讀得到開頭的人，也知道這則新聞在講什麼。</b>下面是第 1 到 7 行，<b>點三個有底色的地方</b>。</p>
+  <div class="lead" id="ld">
+    <c data-t="a">Growing concern over children’s online safety</c> <c data-t="b">has led more countries to limit their access to social media</c>. <c data-t="c">Australia became the first country to prohibit children under 16</c> from having social media accounts, and other governments have followed suit by announcing similar plans.
+  </div>
+  <p class="score" id="sc">已標出 <em>0</em> / 3</p>
+  <div id="s1b" hidden>
+    <p>三個都標出來了，而且全部擠在前兩句。那麼——<b>記者為什麼把這些放在最前面，而不是留到文章最後？</b></p>
+    <div class="opts" id="q1">
+      <button>先讓讀者好奇澳洲的做法，後面再慢慢揭曉禁令內容</button>
+      <button>先說明擔憂的來源，再一步步推出各國的結論</button>
+      <button data-ok="1">萬一讀者只看開頭，最重要的消息也已經交代完了</button>
+      <button>因為各國做法完全相同，只需要概括說一次就夠了</button>
+    </div>
+    <div class="said e" id="a1" hidden>
+      <b>萬一讀者只看開頭，最重要的消息也已經交代完了。</b>新聞不像故事，沒有人保證你會讀到最後，所以記者先把「為什麼」（<q>Growing concern</q>）、「發生什麼事」（<q>has led more countries to limit</q>）、「最具體的例子」（<q>Australia became the first</q>）全部放進前兩句。只讀這兩句，你就能把這則新聞轉述給別人。
+      <br><br>
+      <b>這種開頭叫「導語」（lead）。</b>它是倒金字塔的第一層，也是最寬的一層：全文最重要的資訊都擠在這裡。
+      <br><br>
+      <b>另外三個為什麼排除：</b>
+      <br><br>
+      「先讓讀者好奇澳洲的做法，後面再揭曉」——<b>方向剛好相反。</b>第 3 行 <q>Australia became</q> 一開口就把澳洲的禁令講完了，第 4 到 5 行連年齡限制都交代了，完全沒有留懸念。
+      <br><br>
+      「先說明擔憂的來源，再推出結論」——<b>這個最容易選</b>，因為第 2 行確實有 <q>has led</q>，看起來是「原因導致結果」。但原因和結果被<b>塞進同一句</b>，結論並不是推到後面才出現。
+      <br><br>
+      「各國做法完全相同，概括說一次就夠」——第 8 行 <q>age-verification</q> 是歐盟準備的年齡驗證，第 10 行 <q>overnight</q> 是英國提議的夜間宵禁，做法並不相同；這個靠讀懂第 1 段的大意就排除得掉。
+    </div>
+    <button class="go" id="g1" hidden>整篇長什麼樣？</button>
+  </div>
+</section>
+
+<!-- ═══ 第二步 ═══ -->
+<section class="step" id="s2" hidden>
+  <p class="stepno">第二步</p>
+  <h2>越上面越重要，越往下越可以砍<span class="tag">上層：怎麼認出來</span></h2>
+  <p>先回答：<b>這篇新聞的推進方式，最接近下列哪一種？</b></p>
+  <div class="opts" id="q2">
+    <button>先按時間順序講澳洲，再講其他國家一個接一個跟進</button>
+    <button data-ok="1">先把最重要的消息講完，再依重要性補上細節和反應</button>
+    <button>先講造成各國行動的原因，再依序推到最後的結果</button>
+    <button>先把兩邊的立場各講一遍，再比較哪一邊比較有道理</button>
+  </div>
+  <div class="said e" id="a2" hidden>
+    <b>先講完最重要的消息，再依重要性往下補。</b>第 1 到 12 行把誰、做什麼、為什麼全部講完；第 13 到 24 行補上第一個後續（澳洲的初步結果）；第 25 到 36 行補上背景和各方的看法。<b>越往下，越不影響你有沒有看懂這則新聞。</b>這就是倒金字塔：最寬的一層放最前面，往下越來越窄。
+    <br><br>
+    <b>另外三個為什麼排除，每一個都是這個系列教過、或會遇到的別種結構：</b>
+    <br><br>
+    「按時間順序講澳洲，再講其他國家跟進」——第 4 行 <q>the first</q> 和第 6 行 <q>followed suit</q> 確實有先後，<b>但那只是第 1 段裡的一個例子</b>。第 13 行 <q>however</q> 轉的是「計畫」到「執行」，不是「接著」；第 25 行以後講的是爭論，三段之間沒有靠日期往前推。這是<b>序列</b>，不是這一篇。
+    <br><br>
+    「講原因再依序推到結果」——因果的箭頭只出現在第 1 到 2 行那一句 <q>has led</q>。第 13 到 24 行和第 25 到 36 行都沒有繼續往下推出新的結果。這是<b>因果</b>，不是這一篇。
+    <br><br>
+    「把兩邊立場各講一遍，再比較」——<b>這個最容易選</b>，因為第 26 到 27 行 <q>Supporters</q> 開始確實有兩邊。但那只是第 25 到 36 行，不是全篇；而且記者也沒有評斷哪一邊有道理，第 36 行 <q>not age limits alone</q> 是「許多人」的看法。這是<b>論說文的多方觀點</b>，只佔這一篇的最後一層。
+    <br><br>
+    下面這張圖就是倒金字塔。<b>點任一層</b>，第四步的課文對應行會亮起來（課文還沒打開的話，先把行號記住就好）。
+  </div>
+  <figure class="fig" id="fig" hidden></figure>
+  <button class="go" id="g2" hidden>怎麼驗證？</button>
+</section>
+
+<!-- ═══ 第三步 ═══ -->
+<section class="step" id="s3" hidden>
+  <p class="stepno">第三步</p>
+  <h2>從尾巴往上砍<span class="tag">上層：怎麼驗證</span></h2>
+  <p>怎麼確定一篇新聞是倒金字塔？<b>從最後一段往前砍，每砍一層，剩下的都還是完整的新聞。</b>每一張卡片先在心裡回答，再按「看答案」。</p>
+  <div class="qs" id="qs"></div>
+  <p class="score" id="sc3">已看 <em>0</em> / <em id="sc3n">0</em></p>
+  <div class="said e" id="a3" hidden>
+    <b>砍到只剩第 1 段，還是一則完整的新聞。這就是倒金字塔。</b>
+    <br><br>
+    <b>怎麼認出一篇是倒金字塔：</b>先看第一段是不是已經把誰、做什麼、為什麼講完；再從最後往前砍，砍了仍然讀得懂，就是倒金字塔。<b>如果砍掉結尾就看不懂，那不是倒金字塔</b>——例如以後會遇到的另一種新聞結構，結尾要回到開頭那個人，一砍就斷了。
+    <br><br>
+    <b>考卷上怎麼考：</b>主旨題，答案在頂層；功能題，問某一段在全文做什麼，最常被問的是最後一層，因為它不是新消息，而是背景和各方看法。
+  </div>
+  <button class="go" id="g3" hidden>看這篇的線索</button>
+</section>
+
+<!-- ═══ 第四步 ═══ -->
+<section class="step" id="s4" hidden>
+  <p class="stepno">第四步</p>
+  <h2>誰說的，用哪個動詞<span class="tag b">下層：消息來源與引述動詞</span></h2>
+  <p>這篇新聞裡，記者自己幾乎沒有下過判斷。每一個判斷都掛在<b>某個消息來源</b>上，而且每一次都配了一個<b>引述動詞</b>：<q>suggest</q>、<q>indicate</q>、<q>say</q>、<q>argue</q>、<q>agree</q>、<q>believe</q>。</p>
+  <p>讀這一類句子，只問兩件事。<b>一、誰說的？</b>是 <q>Reports</q> 這種報導，還是 <q>experts</q>、<q>many</q> 這種籠統的一群人？<b>二、用哪個動詞？</b>動詞挑哪一個，本身就帶著評價（Thompson 和 Ye，1991）：<q>say</q> 只是轉述；<q>argue</q> 是帶著理由提出主張，表示另一邊不同意；<q>agree</q> 是看法一致；<q>believe</q> 說的是信念，不保證是事實；<q>suggest</q>、<q>indicate</q> 是根據證據推出來，語氣比較保留。這種把話歸給某個人或某群人的寫法，語言學稱為 attribution（Hyland，1999 研究過學術寫作裡的歸屬）。</p>
+  <p>它跟十月號教過的「確定程度的語言」是兩層：那個管<b>這句話有多肯定</b>，這個管<b>這句話是誰的</b>。</p>
+  <p>另一色是舊工具再練一次：<b>換字</b>。同一件事，作者換了好幾種說法，點一下就看得到。</p>
+  <p><b>點課文裡有底色的字</b>，同一條的字會一起亮起來。兩色可以各自關掉。</p>
+  <div class="modes">
+    <button id="m1" aria-pressed="true">誰說的、用哪個動詞（青）</button>
+    <button id="m2" aria-pressed="true">換字：限制（藍灰）</button>
+  </div>
+  <div class="text" id="tx"></div>
+  <div class="panel" id="pn">
+    <span class="k" id="pk">線索</span>
+    <div class="ch" id="pc">點圖上的一層，或課文裡有底色的字</div>
+    <p class="nt" id="pt">青色是「誰說的、用哪個動詞」，藍灰是「各國管制措施」的不同說法。</p>
+  </div>
+  <div class="recall">
+    <b>另外兩樣，前面單元教過，這篇自己確認得出來：</b>
+    <ul>
+      <li><b>概括名詞。</b>這篇有一大一小兩個範圍：第 14 行 <q>such policies</q> 只收第 6 到 10 行那一組具體措施（禁令、年齡驗證、夜間宵禁），第 25 行 <q>These developments</q> 收的是前面整整兩段。往前找之前，先確定它收的是一組東西，還是一整片。</li>
+      <li><b>確定程度的語言（十月號第 1 單元）。</b>第 15 行 <q>may prove</q>、第 27 行 <q>could</q>、第 30 行 <q>may</q>，把話從「已經」降成「可能」。跟青色的引述動詞合起來看：先問這句話是誰的，再問他說得有多肯定。</li>
+      <li><b>連接標記與對比標記。</b>第 13 行 <q>however</q> 把「各國的計畫」轉到「澳洲實際執行的情形」，第 21 行 <q>In response</q> 接著講監管單位的反應，第 33 行 <q>However</q> 又從「專家都同意要加強保護」轉到「許多人認為不能只靠年齡限制」。每一個都是換層的地方。</li>
+    </ul>
+  </div>
+  <p style="margin-top:1.1rem"><button class="go" id="g4">考卷怎麼考新聞</button></p>
+</section>
+
+<!-- ═══ 第五步 ═══ -->
+<section class="step" id="s5" hidden>
+  <p class="stepno">第五步</p>
+  <h2>新聞題的兩個考法<span class="tag">上層：考點</span></h2>
+  <p>倒金字塔的題目集中在兩種：</p>
+  <p><b>一、主旨題。</b>答案幾乎一定在頂層。雜誌第 7 頁 Reading Comprehension 的第 1 題就是這個考法：不用讀到最後，第 1 段就夠了。</p>
+  <p><b>二、功能題。</b>問某一段在全文做什麼。底層最常被問，而且最容易錯在<b>歸屬</b>：「許多人認為」被當成「作者主張」。</p>
+  <p>試一題：<b>What is the main function of the last paragraph（第 25 到 36 行）？</b></p>
+  <div class="opts en" id="q5">
+    <button>It explains why some children can still open accounts.</button>
+    <button>It urges adding parental involvement and digital literacy to age limits.</button>
+    <button>It reviews what the European Union and the UK have proposed.</button>
+    <button data-ok="1">It presents how different groups judge these new measures.</button>
+  </div>
+  <div class="said e" id="a5" hidden>
+    <b>最後一句：presents how different groups judge。</b>先注意：<b>它幾乎沒有照抄課文。</b><q>different groups</q> 是把第 26 到 34 行的 Supporters、Critics、experts、many 全部收成一個說法，<q>judge these new measures</q> 是把「他們對新規定的看法」換個說法講。<b>另外三句反而都有課文裡的字</b>，這是大考命題的慣例：正解是改寫，誘答才照抄。
+    <br><br>
+    <b>另外三個為什麼排除：</b>
+    <br><br>
+    <q>explains why some children can still open accounts</q>——<b>範圍錯，把第 2 段的事放到第 3 段。</b>孩子還是開得出帳號是第 17 行 <q>have still managed</q> 的事，第 25 到 36 行完全沒有再提孩子怎麼繞過。
+    <br><br>
+    <q>reviews what the European Union and the UK have proposed</q>——<b>層級錯。</b>歐盟準備的規定和英國提議的宵禁，是第 1 段的內容（第 7 到 9 行 <q>European Union</q>、第 9 行 <q>has proposed</q>）。第 25 到 36 行的主詞是 Supporters、Critics、experts、many，不是政府。
+    <br><br>
+    <q>urges adding parental involvement and digital literacy to age limits</q>——<b>這個最容易選，也是這一課最重要的陷阱：歸屬錯。</b>第 34 到 36 行確實有 parental involvement 和 digital literacy education，看起來像建議。但前面是第 33 到 34 行 <q>many believe</q>：這是「許多人認為」，<b>不是記者在呼籲</b>。記者整段都沒有表態，這正是第四步那個工具要你看出來的。
+  </div>
+  <button class="go" id="g5" hidden>最後一題</button>
+</section>
+
+<!-- ═══ 第六步 ═══ -->
+<section class="step" id="s6" hidden>
+  <p class="stepno">第六步</p>
+  <h2>把一句話放回去</h2>
+  <p>這就是考卷上的<b>篇章結構</b>題。下面把第 13 到 16 行那一句整句抽掉了，四個候選句只有一句放得進去。</p>
+  <div class="gap" id="gp">
+    … The European Union is preparing new age-verification rules, while the UK has proposed a default overnight curfew to stop teenagers from using social media between midnight and 6 a.m.
+    <br><br>
+    <span class="blank" id="bl">（空格）</span> Reports indicate that some children there have still managed to create social media accounts despite the new restrictions, raising questions about whether current age-verification methods are strong enough. In response, regulators have increased pressure on social media companies to strengthen their verification systems.
+  </div>
+  <div class="picks" id="q6">
+    <button data-ok="1">Early results from Australia, however, suggest that putting such policies into practice may prove more difficult than expected.</button>
+    <button>Early results from the UK, however, suggest that overnight curfews may prove more difficult than expected.</button>
+    <button>Supporters of the new rules say they could improve sleep, reduce cyberbullying, and protect children from harmful online content.</button>
+    <button>Early results from Australia, however, suggest that the new age limit has worked as regulators had hoped.</button>
+  </div>
+  <div class="said" id="a6" hidden>
+    <b>四個線索同時指向同一句。</b>這四句單獨看，都像新聞裡會出現的句子。要排除，得靠位置和線索。
+    <br><br>
+    <b>先講一個例外。</b>前面說大考的正解通常是改寫，但<b>抽句題不一樣</b>：被抽掉的就是原文那一句，所以正解一定是原文。這一題要靠的是誘答哪裡接不上，不是比對字面。
+    <br><br>
+    <b>一、四條線索都指向正解。</b>（1）後一句的第 17 行 <q>there</q> 要有一個地點可以指，正解有 <q>Australia</q>；（2）<q>however</q> 把第 1 段「各國的計畫」轉到「執行起來的結果」；（3）<q>such policies</q> 是概括名詞，剛好收第 6 到 10 行那一組措施 <q>similar plans</q>；（4）後一句第 16 行 <q>Reports indicate</q> 是在給證據，證明「比預期困難」。
+    <br><br>
+    <b>另外三個為什麼排除，各有一個明確的依據：</b>
+    <br><br>
+    <b>二、指涉詞。</b><q>Supporters of the new rules say…</q> 沒有任何地點，後一句第 17 行的 <q>there</q> 無處可指。而且「支持者怎麼說」是第 26 行 <q>Supporters</q> 才開始的第 3 層，放在第 1 層和第 2 層之間，層次就亂了。
+    <br><br>
+    <b>三、證據的方向。</b><q>has worked as regulators had hoped</q> 說「成效如預期」，但後一句第 16 到 17 行 <q>Reports indicate</q> 給的卻是反面證據，第 19 到 20 行還說 <q>raising questions</q>。<b>句子要有一個結論，後一句的證據才接得上；結論和證據方向相反，就接不上。</b>
+    <br><br>
+    <b>四、時間與歸屬。這個最容易選：</b>UK 那一句只把 Australia 換成 UK，連句型都照抄。但 <q>Early results</q> 要有已經實施的政策才有「初步結果」。第 3 到 4 行 <q>became the first</q> 說澳洲已經做了，而英國在第 9 行只是 <q>has proposed</q>，歐盟在第 8 行也只是 <q>is preparing</q>。<b>還沒實施，就沒有結果可說。</b>
+  </div>
+  <p class="why" id="w6" hidden>考卷上不會有底色，也不會有行號。但你剛才用的四個線索（指涉詞、轉折、概括名詞、證據的方向），每一篇新聞都有。</p>
+</section>
+
+<!-- ═══ 第七步 ═══ -->
+<section class="close" id="s7" hidden>
+  <h2>帶著走的五句話</h2>
+  <ol>
+    <li><b>倒金字塔的第一段就是全文的縮影。</b>誰、做什麼、為什麼，全部擠在最前面。只讀第一段，你就能轉述整則新聞。</li>
+    <li><b>驗證方法：從最後往前砍。</b>每砍一層，剩下的都還是完整的新聞，就是倒金字塔；砍掉結尾就看不懂，那不是。</li>
+    <li><b>最後一層不是結論，是可以砍的背景。</b>倒金字塔沒有「收尾」這回事，所以最後一段常常只是各方看法，不要把它當成作者的總結。</li>
+    <li><b>誰說的，用哪個動詞。</b>看到 Reports、Critics、many 就問「這是誰的判斷」，再看 suggest、say、argue、agree、believe：動詞本身帶著評價。<q>many believe</q> 是別人的看法，不是記者的主張。</li>
+    <li><b>新聞題最容易錯在歸屬。</b>功能題問某一段在做什麼；把「許多人認為」答成「作者主張」，就掉進誘答。</li>
+  </ol>
+  <p class="more"><a href="https://staresto-create.github.io/JCEE-vocab-questions/wordwheel.html">單字輪：把字拆成部件來記 →</a></p>
+</section>
+
+<nav class="series">
+  <a class="back" href="cohesion.html">← 回讀法練習總表</a>
+  <p class="note">總表上有目前可以做的所有單元，還有你累積到現在的讀法工具。</p>
+</nav>
+
+</div>
+<script>
+(function(){
+"use strict";
+function $(id){return document.getElementById(id);}
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;");}
+
+var KEY="cohesion-202611-u1-v1";
+
+var PREVIEW=false;
+var ST={tags:{},cards:{},q1:0,q2:0,q5:0,q6:0,step:1};
+function save(){ if(PREVIEW) return; try{ localStorage.setItem(KEY, JSON.stringify(ST)); }catch(e){} }
+function load(){ try{ var r=localStorage.getItem(KEY); return r?JSON.parse(r):null; }catch(e){ return null; } }
+function wipe(){ try{ localStorage.removeItem(KEY); }catch(e){} location.reload(); }
+
+var TITLE="More Countries Move to Limit Teen Social Media Use";
+
+var LINES=[
+"Growing concern over children’s online",
+"safety has led more countries to {limit|c-pol|1} their",
+"access to social media. Australia became",
+"the first country to {prohibit|c-pol|2} children under",
+"16 from having social media accounts, and",
+"other governments have followed suit by",
+"announcing similar plans. The European",
+"Union is preparing new age-verification",
+"rules, while the UK has proposed a default",
+"overnight curfew to stop teenagers from",
+"using social media between midnight and",
+"6 a.m.",
+"{Early results|c-att|1} from Australia, however,",
+"{suggest|c-att|1} that putting such policies into",
+"practice may prove more difficult than",
+"expected. {Reports indicate|c-att|2} that some",
+"children there have still managed to create",
+"social media accounts despite the new",
+"{restrictions|c-pol|3}, raising questions about",
+"whether current age-verification methods",
+"are strong enough. In response, regulators",
+"have increased pressure on social media",
+"companies to strengthen their verification",
+"systems.",
+"These developments are now at the",
+"center of a worldwide debate. {Supporters|c-att|3}",
+"of the new {rules|c-pol|4} {say|c-att|3} they could reduce",
+"cyberbullying, improve sleep, and protect",
+"children from harmful content. {Critics|c-att|4}",
+"{argue|c-att|4} they may also {limit|c-pol|5} access to helpful",
+"information and support communities.",
+"{Most experts agree|c-att|5} that children need",
+"stronger online protection. However, {many|c-att|6}",
+"{believe|c-att|6} safety tools, parental involvement,",
+"and digital literacy education should be",
+"part of the solution, not age {limits|c-pol|6} alone."
+];
+
+var INDENT={1:1,13:1,25:1};
+var HEAD={};
+var SPLIT=null;
+var SPLIT_TEXT="";
+
+var CHAINS={
+ "c-att":{k:"sub",n:"誰說的、用哪個動詞。這一篇幾乎沒有一句是記者自己下的判斷：第 13 到 14 行 Early results suggest、第 16 行 Reports indicate，第 26 到 34 行 Supporters say、Critics argue、Most experts agree、many believe。來源從報導換成籠統的一群人，動詞從保留的 suggest、indicate，換成中性的 say、帶主張的 argue，最後是 agree 和 believe。記者只負責轉述，立場全在別人嘴裡。"},
+ "c-pol":{k:"gen",n:"同一件事換了好幾種說法，這是換字。第 2 行 limit、第 4 行 prohibit、第 19 行 restrictions、第 27 行 rules，指的都是各國對青少年使用社群媒體的管制；第 30 行 limit 和第 36 行 limits 又把原來的字請回來，把全篇釘在同一件事上。換字避免單調，輕重也不同：prohibit 是禁止，rules 是規定，restrictions 是限制。另一條小線：children（第 1 行）、teenagers（第 10 行）也是同一群人的換法。"}
+};
+var LB={sub:"誰說的、用哪個動詞",gen:"換字：限制",mk:"標記詞"};
+var CL={sub:"k",gen:"k g",mk:"k e"};
+
+var NODES=[
+ {nm:"頂層",a:1,b:12,n:"第 1 到 12 行。誰、做什麼、為什麼，全部在這一層：各國因為擔憂兒童上網安全而限制青少年使用社群媒體，澳洲最先禁止，歐盟和英國跟進。只讀這一層，就能轉述整則新聞。"},
+ {nm:"第二層",a:13,b:24,n:"第 13 到 24 行。第一個後續：澳洲的初步結果顯示執行有困難，仍有孩子開得出帳號，監管單位因此要求平台加強驗證。去掉這一層，新聞變短，但仍然讀得懂。"},
+ {nm:"底層",a:25,b:36,n:"第 25 到 36 行。背景與各方看法：支持者、批評者、多數專家，還有主張不能只靠年齡限制的人。這是最可以砍的一層，因為它不是新消息，是各方的判斷。"}
+];
+
+var CARDS=[
+ {q:"先找訊號：第 13 行的 however、第 21 行的 In response、第 25 行的 These developments，各自告訴你下一層要談什麼？",
+  a:"however 把話題從「各國宣布的計畫」轉到「澳洲實際執行的情形」；In response 接著上一句的問題，講監管單位的反應；These developments 把前兩段收成一個話題，後面改談「大家怎麼看」。每一個訊號，都是換層的地方。",
+  rf:"第 13 行、第 21 行、第 25 行"},
+ {q:"把全文放進倒三角：三層各裝什麼？",
+  rows:[
+   {k:"頂層",v:"各國因為擔憂兒童上網安全而限制青少年使用社群媒體；澳洲最先禁止十六歲以下，歐盟與英國跟進。",em:"第 1 到 12 行"},
+   {k:"第二層",v:"澳洲的初步結果：仍有孩子開得出帳號，監管單位要求平台加強驗證。",em:"第 13 到 24 行"},
+   {k:"底層",v:"全球爭論：支持者、批評者、多數專家，以及主張不能只靠年齡限制的人。",em:"第 25 到 36 行"}
+  ]},
+ {q:"把最後一段（第 25 到 36 行）整段砍掉，剩下的還是一則完整的新聞嗎？",
+  a:"是。誰、做了什麼、為什麼、澳洲碰到什麼困難，前兩段都講完了。少掉的只是「各方怎麼看」，讀者仍然知道這則新聞的重點。",
+  rf:"留下第 1 到 24 行"},
+ {q:"再把第二段（第 13 到 24 行）也砍掉呢？",
+  a:"還是讀得懂。只剩第 1 段，你仍然知道各國為什麼限制、澳洲做了什麼、其他國家怎麼跟進，只是少了「執行有困難」這個後續。每砍一層，剩下的都還是完整的新聞，這就是倒金字塔的測試。",
+  rf:"留下第 1 到 12 行"},
+ {q:"只用最上面一層，寫出一句摘要。",
+  sw:"各國因為擔心兒童的網路安全，開始限制青少年使用社群媒體，澳洲是第一個禁止十六歲以下兒童擁有帳號的國家。",
+  a:"你寫的句子不用跟這句一樣。檢查三件事：有沒有「誰」（各國、澳洲）、有沒有「做什麼」（限制、禁止）、有沒有「為什麼」（擔心兒童網路安全）。三個都有，就是頂層的摘要。",
+  rf:"根據第 1 到 12 行"}
+];
+
+var TL={a:"原因",b:"重點",c:"最具體的例子"};
+
+/* ---------- 通用：選擇題 ---------- */
+function quiz(qid,aid,gid,tag,after){
+  var done=false;
+  function settle(){
+    done=true;
+    var bs=$(qid).querySelectorAll("button");
+    for(var i=0;i<bs.length;i++){ bs[i].disabled=true; bs[i].dataset.state=bs[i].dataset.ok?"right":"wrong"; }
+    if(aid) $(aid).hidden=false;
+    if(gid) $(gid).hidden=false;
+    if(after) after();
+  }
+  $(qid).addEventListener("click",function(e){
+    var b=e.target.closest("button"); if(!b||done) return;
+    settle(); ST[tag]=1; save();
+  });
+  return settle;
+}
+
+function opener(gid,sid,extra){
+  $(gid).addEventListener("click",function(){
+    var n=parseInt(sid.replace(/\D/g,""),10);
+    if(ST.step<n) ST.step=n; save();
+    $(sid).hidden=false; if(extra) extra();
+    $(sid).scrollIntoView({behavior:"smooth",block:"start"});
+  });
+}
+
+function hlLines(a,b){
+  var rows=$("tx").querySelectorAll(".ln");
+  for(var r=0;r<rows.length;r++){ var n=+rows[r].dataset.n; rows[r].classList.toggle("hl", n>=a&&n<=b); }
+  var ms=$("tx").querySelectorAll("m");
+  for(var k=0;k<ms.length;k++) ms[k].classList.remove("lit");
+  if(rows.length){ var f=$("tx").querySelector('.ln[data-n="'+a+'"]'); if(f) f.scrollIntoView({behavior:"smooth",block:"center"}); }
+}
+
+/* ---------- 第一步 ---------- */
+function tagged(){ var n=0; for(var k in ST.tags) if(ST.tags[k]) n++; return n; }
+function paintTag(c){
+  if(c.classList.contains("got")) return;
+  c.classList.add("got");
+  var b=document.createElement("b"); b.textContent=TL[c.dataset.t]||"";
+  c.insertBefore(b, c.firstChild);
+}
+function afterTags(){
+  $("sc").innerHTML="已標出 <em>"+tagged()+"</em> / 3";
+  if(tagged()===3) $("s1b").hidden=false;
+}
+$("ld").addEventListener("click",function(e){
+  var c=e.target.closest("c"); if(!c) return;
+  if(ST.tags[c.dataset.t]) return;
+  ST.tags[c.dataset.t]=1; save(); paintTag(c); afterTags();
+});
+var set1=quiz("q1","a1","g1","q1");
+opener("g1","s2");
+
+/* ---------- 第二步：倒金字塔 ---------- */
+function drawFig(){
+  if($("fig").firstChild) return;
+  $("fig").hidden=false;
+  var s='<svg viewBox="0 0 420 206" role="img" aria-label="倒金字塔，分三層：頂層最寬，放最重要的消息；第二層放第一個後續；底層最窄，放背景與各方看法">';
+  var polys=[
+    "40,14 380,14 323.3,68 96.7,68",
+    "96.7,68 323.3,68 266.7,122 153.3,122",
+    "153.3,122 266.7,122 210,176"
+  ];
+  var tx=[[210,36,52],[210,90,106],[210,134,146]];
+  for(var i=0;i<NODES.length;i++){
+    var d=NODES[i];
+    s+='<g class="node" data-i="'+i+'" tabindex="0" role="button">';
+    s+='<path class="bx" d="M'+polys[i].replace(/ /g," L")+' Z"/>';
+    s+='<text x="'+tx[i][0]+'" y="'+tx[i][1]+'" text-anchor="middle">'+esc(d.nm)+'</text>';
+    s+='<text x="'+tx[i][0]+'" y="'+tx[i][2]+'" text-anchor="middle"><tspan class="n">第 '+d.a+"–"+d.b+' 行</tspan></text>';
+    s+='</g>';
+  }
+  s+='<text x="210" y="196" text-anchor="middle" style="font-family:var(--sans);font-size:10px;fill:var(--muted)">重要的在上面，越往下越可以砍</text>';
+  s+='</svg><figcaption>倒金字塔的三層：最寬的頂層放全文最重要的消息，往下越來越窄、越來越不影響你有沒有看懂。點任一層，第四步的課文對應行會亮起來。</figcaption>';
+  $("fig").innerHTML=s;
+  function hit(g){
+    var i=+g.dataset.i, d=NODES[i];
+    var gs=$("fig").querySelectorAll(".node");
+    for(var j=0;j<gs.length;j++) gs[j].classList.toggle("on", +gs[j].dataset.i===i);
+    hlLines(d.a,d.b);
+    $("pk").textContent=d.nm; $("pk").className="k e";
+    $("pc").textContent=d.nm; $("pt").textContent=d.n;
+  }
+  $("fig").addEventListener("click",function(e){ var g=e.target.closest(".node"); if(g) hit(g); });
+  $("fig").addEventListener("keydown",function(e){
+    if(e.key!=="Enter"&&e.key!==" ") return;
+    var g=e.target.closest(".node"); if(g){ e.preventDefault(); hit(g); }
+  });
+}
+function afterQ2(){ drawFig(); if($("db")) $("db").hidden=false; }
+var set2=quiz("q2","a2","g2","q2",afterQ2);
+opener("g2","s3",buildCards);
+
+/* ---------- 第三步：從尾巴往上砍 ---------- */
+var builtCards=false;
+function buildCards(){
+  if(builtCards) return; builtCards=true;
+  var h="";
+  for(var i=0;i<CARDS.length;i++){
+    var c=CARDS[i], bd="";
+    if(c.sw) bd+='<span class="sw">'+esc(c.sw)+'</span>';
+    if(c.rows){
+      for(var r=0;r<c.rows.length;r++){
+        var row=c.rows[r];
+        bd+='<div class="r"><span class="k">'+esc(row.k)+'</span><span class="v">'+esc(row.v)+
+            (row.em?'<em>'+esc(row.em)+'</em>':'')+'</span></div>';
+      }
+    } else {
+      bd+=esc(c.a)+(c.rf?'<span class="rf">'+esc(c.rf)+'</span>':'');
+    }
+    h+='<div class="qcard" id="cd'+i+'"><div class="hd"><span class="qt">'+esc(c.q)+'</span>'+
+       '<button data-i="'+i+'">看答案</button></div><div class="bd">'+bd+'</div></div>';
+  }
+  $("qs").innerHTML=h;
+  $("sc3n").textContent=CARDS.length;
+  $("qs").addEventListener("click",function(e){
+    var b=e.target.closest("button"); if(!b) return;
+    ST.cards[b.dataset.i]=1; save(); paintCards();
+  });
+  paintCards();
+}
+function openedCards(){ var n=0; for(var k in ST.cards) if(ST.cards[k]) n++; return n; }
+function paintCards(){
+  for(var i=0;i<CARDS.length;i++){ var el=$("cd"+i); if(el) el.classList.toggle("open",!!ST.cards[i]); }
+  var sc=$("sc3");
+  sc.innerHTML=sc.innerHTML.replace(/<em>\d+<\/em>/, "<em>"+openedCards()+"</em>");
+  if(openedCards()>=CARDS.length){ $("a3").hidden=false; $("g3").hidden=false; }
+}
+opener("g3","s4",function(){ buildText(); drawFig(); });
+
+/* ---------- 第四步：課文與線索鏈 ---------- */
+function renderLine(str){
+  var out="",i=0;
+  while(i<str.length){
+    var a=str.indexOf("{",i);
+    if(a<0){ out+=esc(str.slice(i)); break; }
+    out+=esc(str.slice(i,a));
+    var b=str.indexOf("}",a), p=str.slice(a+1,b).split("|");
+    var id=p[1], it=p[2]||"1", k=CHAINS[id]?CHAINS[id].k:"sub";
+    out+='<m data-c="'+id+'" data-i="'+it+'" data-kind="'+k+'" tabindex="0">'+esc(p[0])+'</m>';
+    i=b+1;
+  }
+  return out;
+}
+var builtText=false;
+function buildText(){
+  if(builtText) return; builtText=true;
+  var h='<p class="ttl">'+renderLine(TITLE)+'</p>';
+  for(var i=0;i<LINES.length;i++){
+    var n=i+1;
+    if(SPLIT && n===SPLIT) h+='<p class="split">'+esc(SPLIT_TEXT)+'</p>';
+    var cls="ln";
+    if(HEAD[n]) cls+=" sub pb";
+    else if(INDENT[n]) cls+=" ind"+(n>1?" pb":"");
+    h+='<div class="'+cls+'" data-n="'+n+'"><i>'+((n%5===0)?n:"")+'</i><span>'+renderLine(LINES[i])+'</span></div>';
+  }
+  $("tx").innerHTML=h;
+}
+function lightChain(id){
+  var ms=$("tx").querySelectorAll("m"), items={}, order=[],i;
+  var gs=$("fig").querySelectorAll(".node");
+  for(i=0;i<gs.length;i++) gs[i].classList.remove("on");
+  var rows=$("tx").querySelectorAll(".ln");
+  for(i=0;i<rows.length;i++) rows[i].classList.remove("hl");
+  for(i=0;i<ms.length;i++){
+    if(ms[i].dataset.c===id){
+      ms[i].classList.add("lit");
+      var key=ms[i].dataset.i;
+      if(!items[key]){ items[key]=[]; order.push(key); }
+      items[key].push(ms[i].textContent);
+    } else ms[i].classList.remove("lit");
+  }
+  var c=CHAINS[id]; if(!c) return;
+  var parts=[];
+  for(var o=0;o<order.length;o++) parts.push(esc(items[order[o]].join(" ")));
+  $("pk").textContent=LB[c.k]; $("pk").className=CL[c.k];
+  $("pc").innerHTML=parts.join('<i>→</i>');
+  $("pt").textContent=c.n;
+}
+$("tx").addEventListener("click",function(e){ var m=e.target.closest("m"); if(m) lightChain(m.dataset.c); });
+$("tx").addEventListener("keydown",function(e){
+  if(e.key!=="Enter"&&e.key!==" ") return;
+  var m=e.target.closest("m"); if(m){ e.preventDefault(); lightChain(m.dataset.c); }
+});
+function toggle(btn,cls){
+  btn.addEventListener("click",function(){
+    var on=btn.getAttribute("aria-pressed")==="true";
+    btn.setAttribute("aria-pressed",on?"false":"true");
+    $("tx").classList.toggle(cls,on);
+  });
+}
+toggle($("m1"),"off-sub");
+toggle($("m2"),"off-gen");
+opener("g4","s5");
+
+/* ---------- 第五步 ---------- */
+var set5=quiz("q5","a5","g5","q5");
+$("g5").addEventListener("click",function(){
+  if(ST.step<6) ST.step=6; save();
+  $("s6").hidden=false;
+  $("s6").scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+/* ---------- 第六步：抽句題 ---------- */
+var done6=false;
+function settle6(){
+  done6=true;
+  var bs=$("q6").querySelectorAll("button");
+  for(var i=0;i<bs.length;i++){
+    bs[i].disabled=true; bs[i].dataset.state=bs[i].dataset.ok?"right":"wrong";
+    if(bs[i].dataset.ok){ $("bl").textContent=bs[i].textContent; $("bl").className="blank filled"; }
+  }
+  $("a6").hidden=false; $("w6").hidden=false; $("s7").hidden=false;
+}
+$("q6").addEventListener("click",function(e){
+  var b=e.target.closest("button"); if(!b||done6) return;
+  settle6(); ST.q6=1; save();
+  $("a6").scrollIntoView({behavior:"smooth",block:"nearest"});
+});
+
+/* ---------- 老師的預覽開關：檔名後面加 ?all ---------- */
+function previewAll(){
+  PREVIEW=true;
+  $("pv").hidden=false;
+  var i,cs=$("ld").querySelectorAll("c");
+  for(i=0;i<cs.length;i++){ ST.tags[cs[i].dataset.t]=1; paintTag(cs[i]); }
+  afterTags(); set1();
+  $("s2").hidden=false; set2();
+  $("s3").hidden=false;
+  for(i=0;i<CARDS.length;i++) ST.cards[i]=1;
+  buildCards();
+  $("s4").hidden=false; buildText(); drawFig();
+  $("s5").hidden=false; set5();
+  $("s6").hidden=false; settle6();
+}
+
+/* ---------- 接回上次的進度 ---------- */
+$("rst").addEventListener("click",wipe);
+(function restore(){
+  if(/(^|[?&])all(=|&|$)/.test(location.search)){ previewAll(); return; }
+  var v=load(); if(!v) return;
+  ST=v;
+  if(!ST.tags) ST.tags={};
+  if(!ST.cards) ST.cards={};
+  if(!ST.step) ST.step=1;
+  if(!(tagged()||ST.step>1)) return;
+  $("rs").hidden=false;
+  var i,cs=$("ld").querySelectorAll("c");
+  for(i=0;i<cs.length;i++) if(ST.tags[cs[i].dataset.t]) paintTag(cs[i]);
+  afterTags();
+  if(ST.q1) set1();
+  if(ST.step>=2){ $("s2").hidden=false; if(ST.q2) set2(); }
+  if(ST.step>=3){ $("s3").hidden=false; buildCards(); }
+  if(ST.step>=4){ $("s4").hidden=false; buildText(); drawFig(); }
+  if(ST.step>=5){ $("s5").hidden=false; if(ST.q5) set5(); }
+  if(ST.step>=6){ $("s6").hidden=false; if(ST.q6) settle6(); }
+  var last=$("s"+(ST.step>=6?6:ST.step));
+  if(last) setTimeout(function(){ last.scrollIntoView({block:"start"}); },60);
+})();
+})();
+</script>
+<p class="cc-note">本題庫自己寫的部分（解析、中譯、分類、標註與編排）採用 <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh-hant" target="_blank" rel="license noopener">CC BY-NC 4.0</a>（姓名標示─非商業性）授權：可以分享，但須註明出處，不得用於商業用途。試題來源與完整說明請見<a href="https://staresto-create.github.io/JCEE-vocab-questions/#terms">使用與著作權</a>。</p>
+</body>
+</html>
