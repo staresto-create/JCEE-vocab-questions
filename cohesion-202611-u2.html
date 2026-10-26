@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>描述：一隻動物，五個面向｜The Little Mammal That Went Viral</title>
+<meta name="description" content="外表普通的岩蹄兔，為什麼叫聲能紅遍網路？這一頁教你認出一個主題分成幾個面向的描述結構，還有貫穿全文的兩條詞彙線索。">
+<meta property="og:title" content="描述：一隻動物，五個面向｜The Little Mammal That Went Viral">
+<meta property="og:description" content="外表平凡，處處出乎意料：岩蹄兔的故事，是怎麼用字一路寫成「明星」的？">
+<style>
+:root{
+  --ground:#f1f3f2; --ink:#17282f; --teal:#1f6f6a; --teal-soft:#dfeceb;
+  --muted:#77878d; --line:#cdd6d6; --exam:#b4661c; --exam-soft:#fdf4e7;
+  --gen:#4a6a90; --gen-soft:#e0e7f0;
+  --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+  --sans:"PingFang TC","Noto Sans TC","Microsoft JhengHei","Helvetica Neue",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ad-vground-bg);color:var(--ad-vink-fg);font-family:var(--sans);line-height:1.6;-webkit-text-size-adjust:100%}
+.wrap{max-width:44rem;margin:0 auto;padding:1.6rem 1.1rem 4rem}
+h1{font-family:var(--serif);font-weight:600;font-size:1.6rem;line-height:1.3;margin:0 0 .55rem}
+.lede{margin:0 0 1.3rem;color:var(--ad-x3d5059-fg);font-size:.95rem}
+.src{font-size:.8rem;color:var(--ad-vmuted-fg);margin:0 0 1.1rem}
+.resume{font-size:.85rem;color:var(--ad-vteal-fg);background:var(--ad-vtealsoft-bg);border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.resume[hidden],.preview[hidden]{display:none}
+.preview{font-size:.85rem;color:var(--ad-vexam-fg);background:var(--ad-vexamsoft-bg);
+  border:1px dashed var(--exam);border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.resume button{font:inherit;font-size:.82rem;background:var(--ad-xfff-bg);color:var(--ad-vink-fg);border:1px solid var(--ad-vline-border);border-radius:.25rem;padding:.16rem .6rem;margin-left:.5rem;cursor:pointer}
+.resume button:focus-visible{outline:2px solid var(--ad-vteal-border);outline-offset:2px}
+.step{border-top:1px solid var(--ad-vline-border);padding-top:1.15rem;margin-top:1.6rem}
+.step[hidden]{display:none}
+.stepno{font-family:var(--serif);font-size:.82rem;color:var(--ad-vmuted-fg);margin:0 0 .2rem}
+h2{font-family:var(--serif);font-weight:600;font-size:1.2rem;margin:0 0 .5rem;color:var(--ad-vteal-fg)}
+.step p{margin:0 0 .7rem;font-size:.95rem}
+.tag{display:inline-block;font-size:.72rem;font-weight:600;border-radius:.2rem;padding:.08rem .45rem;margin-left:.45rem;vertical-align:.12rem;color:var(--ad-vexam-fg);background:var(--ad-vexamsoft-bg);border:1px solid var(--exam)}
+.tag.b{color:var(--ad-vgen-fg);background:var(--ad-vgensoft-bg);border-color:var(--gen)}
+
+/* 選擇題：中文用 .opts，英文選項加 .en，附小字說明加 .rg */
+.opts{display:flex;flex-direction:column;gap:.45rem;margin:.2rem 0 .8rem}
+.opts button{font:inherit;font-size:.95rem;background:var(--ad-xfff-bg);color:var(--ad-vink-fg);border:1px solid var(--ad-vline-border);border-radius:.3rem;padding:.45rem .85rem;cursor:pointer;text-align:left}
+.opts button:hover{border-color:var(--ad-vteal-border)}
+.opts button:focus-visible{outline:2px solid var(--ad-vteal-border);outline-offset:2px}
+.opts button[data-state="right"]{background:var(--teal);border-color:var(--ad-vteal-border);color:#fff}
+.opts button[data-state="wrong"]{background:var(--ad-vground-bg);color:var(--ad-vmuted-fg)}
+.opts button[disabled]{cursor:default}
+.opts.en button{font-family:var(--serif);font-size:.97rem;line-height:1.6;padding:.55rem .8rem}
+.opts.en button[data-state="right"]{background:var(--ad-vtealsoft-bg);border-color:var(--ad-vteal-border);color:var(--ad-vink-fg)}
+.opts.rg button i{display:block;font-style:normal;font-size:.82rem;color:var(--ad-vmuted-fg);margin-top:.12rem}
+.opts.rg button[data-state="right"] i{color:#dfeceb}
+
+/* 揭曉區塊 */
+.said{background:var(--ad-xfff-bg);border-left:3px solid var(--ad-vteal-border);border-radius:.3rem;padding:.75rem .85rem;margin:.2rem 0 .9rem;font-size:.93rem;color:var(--ad-x3d5059-fg)}
+.said b{color:var(--ad-vink-fg);font-weight:600}
+.said[hidden]{display:none}
+.said.g{border-left-color:var(--gen)}
+.said.e{border-left-color:var(--exam)}
+.said q{quotes:none;font-family:var(--serif)}
+
+.go{font:inherit;font-size:.92rem;background:var(--ad-vink-bg);color:var(--ad-onflip-fg);border:1px solid var(--ad-vink-border);border-radius:.3rem;padding:.42rem 1.05rem;cursor:pointer}
+.go:focus-visible{outline:2px solid var(--ad-vteal-border);outline-offset:2px}
+.go[hidden]{display:none}
+
+/* 第一步的可點標記 */
+.lead{background:var(--ad-xfff-bg);border:1px solid var(--ad-vline-border);border-radius:.4rem;padding:.9rem 1rem;margin:0 0 .7rem;font-family:var(--serif);font-size:1.02rem;line-height:1.95}
+.lead c{cursor:pointer;border-radius:.2rem;padding:.06rem .2rem;background:var(--ad-vexamsoft-bg);box-shadow:inset 0 -2px 0 #ecc9a2}
+.lead c:hover{box-shadow:inset 0 -2px 0 var(--exam)}
+.lead c.got{background:var(--exam);color:#fff;box-shadow:none}
+.lead c b{font-family:var(--sans);font-size:.72rem;font-weight:600;background:var(--ad-xfff-bg);color:var(--ad-vexam-fg);border-radius:.2rem;padding:.02rem .3rem;margin-right:.3rem}
+.score{font-size:.9rem;color:var(--ad-vmuted-fg);margin:0 0 .8rem}
+.score em{font-style:normal;color:var(--ad-vexam-fg);font-weight:600}
+
+/* 第三步的卡片（驗證方法通用容器） */
+.qs{display:flex;flex-direction:column;gap:.5rem;margin:0 0 .8rem}
+.qcard{background:var(--ad-xfff-bg);border:1px solid var(--ad-vline-border);border-radius:.4rem;padding:.6rem .85rem}
+.qcard .hd{display:flex;align-items:center;gap:.6rem;font-size:.95rem}
+.qcard .hd .qt{flex:1 1 auto;font-weight:600}
+.qcard .hd button{font:inherit;font-size:.8rem;background:var(--ad-xfff-bg);color:var(--ad-vink-fg);border:1px solid var(--ad-vline-border);
+  border-radius:.25rem;padding:.18rem .7rem;cursor:pointer;flex:0 0 auto}
+.qcard .hd button:focus-visible{outline:2px solid var(--ad-vteal-border);outline-offset:2px}
+.qcard .bd{display:none;margin-top:.4rem;font-size:.92rem;color:var(--ad-x3d5059-fg);line-height:1.75}
+.qcard.open .bd{display:block}
+.qcard.open .hd button{display:none}
+.qcard .bd .rf{display:block;color:var(--ad-vmuted-fg);font-size:.82rem;margin-top:.25rem}
+.qcard .bd .sw{display:block;font-family:var(--serif);background:var(--ad-vground-bg);border-radius:.3rem;
+  padding:.45rem .6rem;margin:.35rem 0;color:var(--ad-vink-fg);font-size:.93rem;line-height:1.7}
+.qcard .r{display:grid;grid-template-columns:1fr;gap:.1rem;margin-bottom:.4rem}
+@media(min-width:34rem){.qcard .r{grid-template-columns:5.5rem 1fr;gap:.5rem}}
+.qcard .r:last-child{margin-bottom:0}
+.qcard .r .k{font-size:.76rem;font-weight:600;color:var(--ad-vgen-fg)}
+.qcard .r .v em{font-style:normal;color:var(--ad-vmuted-fg);font-size:.82rem;margin-left:.3rem}
+
+/* 圖表容器與通用節點 */
+.fig{background:var(--ad-xfff-bg);border:1px solid var(--ad-vline-border);border-radius:.4rem;padding:.7rem .5rem .4rem;margin:0 0 .7rem}
+.fig[hidden]{display:none}
+.fig svg{display:block;width:100%;height:auto;max-width:27rem;margin:0 auto}
+.fig figcaption{font-size:.85rem;color:var(--ad-x3d5059-fg);margin:.35rem .5rem 0;line-height:1.65}
+.node{cursor:pointer}
+.node rect,.node circle,.node path.bx{fill:#fff;stroke:var(--line);stroke-width:2;stroke-linejoin:round}
+.node text{font-family:var(--sans);font-size:11px;fill:var(--ad-vink-fg);font-weight:600}
+.node tspan.n,.node text.n{font-size:9px;font-weight:400;fill:var(--ad-vmuted-fg)}
+.node.on rect,.node.on circle,.node.on path.bx{fill:var(--exam-soft);stroke:var(--ad-vexam-fg);stroke-width:3}
+.node.on text{fill:var(--ad-vexam-fg)}
+.node.on tspan.n,.node.on text.n{fill:var(--ad-vexam-fg)}
+.guide{stroke:var(--line);stroke-width:2;fill:none;stroke-linejoin:round;stroke-linecap:round}
+.guide.dash{stroke-dasharray:5 4}
+.endlab{font-family:var(--sans);font-size:10.5px;font-weight:600}
+.endlab.l{fill:var(--ad-vteal-fg)}
+.endlab.r{fill:var(--ad-vgen-fg)}
+
+/* 分日分隔框 */
+.daybreak{border:1px dashed var(--exam);background:var(--ad-vexamsoft-bg);border-radius:.4rem;
+  padding:.8rem .95rem;margin:1.6rem 0 0;font-size:.9rem;color:var(--ad-x3d5059-fg);line-height:1.7}
+.daybreak b{display:block;color:var(--ad-vexam-fg);font-family:var(--serif);font-size:1.02rem;margin-bottom:.3rem}
+.daybreak[hidden]{display:none}
+
+/* 課文與線索鏈 */
+.modes{display:flex;gap:.4rem;margin:0 0 .7rem;flex-wrap:wrap}
+.modes button{font:inherit;font-size:.84rem;background:var(--ad-xfff-bg);color:var(--ad-vink-fg);border:1px solid var(--ad-vline-border);border-radius:.3rem;padding:.3rem .8rem;cursor:pointer}
+.modes button[aria-pressed="true"]{background:var(--ad-vink-bg);border-color:var(--ad-vink-border);color:var(--ad-onflip-fg)}
+.modes button:focus-visible{outline:2px solid var(--ad-vteal-border);outline-offset:2px}
+.text{background:var(--ad-xfff-bg);border:1px solid var(--ad-vline-border);border-radius:.4rem;padding:.9rem .6rem 1.1rem;font-family:var(--serif);font-size:1rem;line-height:1.85}
+.text .ttl{font-weight:600;font-size:1.06rem;margin:0 .4rem .7rem 2.6rem;line-height:1.45}
+.ln{display:flex;align-items:baseline;padding:.02rem 0;border-radius:.2rem}
+.ln>i{flex:0 0 2.2rem;text-align:right;padding-right:.55rem;font-family:var(--sans);font-style:normal;font-size:.68rem;color:var(--ad-vmuted-fg);line-height:1.9}
+.ln>span{flex:1 1 auto;overflow-wrap:anywhere}
+.ln.ind>span{padding-left:1.1rem}
+.ln.sub>span{font-weight:600}
+.ln.hl{background:var(--ad-vexamsoft-bg)}
+.ln.pb{margin-top:.55rem}
+.text .split{font-family:var(--sans);font-size:.78rem;color:var(--ad-vexam-fg);
+  border-top:1px dashed var(--exam);margin:.8rem .4rem .7rem 2.6rem;padding-top:.35rem}
+.text m{cursor:pointer;border-radius:.2rem;padding:.02rem .14rem}
+.text m[data-kind="sub"]{background:var(--ad-vtealsoft-bg);box-shadow:inset 0 -2px 0 #a8ccc8}
+.text m[data-kind="gen"]{background:var(--ad-vgensoft-bg);box-shadow:inset 0 -2px 0 #a9bbd0}
+.text m[data-kind="mk"]{border-bottom:2px dotted var(--exam);font-style:italic}
+.text m.lit[data-kind="sub"]{background:var(--teal);color:#fff;box-shadow:none}
+.text m.lit[data-kind="gen"]{background:var(--gen);color:#fff;box-shadow:none}
+.text m.lit[data-kind="mk"]{background:var(--exam);color:#fff;border-bottom:none}
+.text.off-sub m[data-kind="sub"]{background:none;box-shadow:none}
+.text.off-gen m[data-kind="gen"]{background:none;box-shadow:none}
+
+/* 固定在底部的說明面板 */
+.panel{position:sticky;bottom:0;background:var(--ad-xfff-bg);border:1px solid var(--ad-vline-border);border-radius:.4rem;padding:.75rem .9rem;margin-top:.8rem;box-shadow:0 -2px 10px rgba(23,40,47,.07)}
+.panel .k{font-size:.72rem;font-weight:600;border-radius:.2rem;padding:.06rem .42rem;color:var(--ad-vteal-fg);background:var(--ad-vtealsoft-bg);border:1px solid var(--ad-vteal-border)}
+.panel .k.g{color:var(--ad-vgen-fg);background:var(--ad-vgensoft-bg);border-color:var(--gen)}
+.panel .k.e{color:var(--ad-vexam-fg);background:var(--ad-vexamsoft-bg);border-color:var(--exam)}
+.panel .ch{font-family:var(--serif);font-size:1rem;margin:.4rem 0 .3rem;color:var(--ad-vink-fg);line-height:1.75;overflow-wrap:anywhere}
+.panel .ch i{font-style:normal;color:var(--ad-vmuted-fg);padding:0 .28rem}
+.panel .nt{font-size:.88rem;color:var(--ad-x3d5059-fg);margin:0}
+
+/* 舊工具點名複習 */
+.recall{background:var(--ad-xfff-bg);border:1px solid var(--ad-vline-border);border-left:3px solid var(--muted);
+  border-radius:.3rem;padding:.75rem .85rem;margin:1.1rem 0 .9rem;font-size:.92rem;color:var(--ad-x3d5059-fg)}
+.recall b{color:var(--ad-vink-fg)}
+.recall ul{margin:.4rem 0 0;padding-left:1.1rem}
+.recall li{margin-bottom:.35rem}
+
+/* 抽句題 */
+.gap{background:var(--ad-xfff-bg);border:1px solid var(--ad-vline-border);border-radius:.4rem;padding:.9rem 1rem;margin:0 0 .9rem;font-family:var(--serif);font-size:1rem;line-height:1.9}
+.gap .blank{display:inline-block;min-width:9rem;border-bottom:2px solid var(--gen);color:var(--ad-vgen-fg);text-align:center;font-family:var(--sans);font-size:.82rem}
+.gap .blank.filled{border-bottom-color:var(--ad-vteal-border);color:var(--ad-vink-fg);font-family:var(--serif);font-size:1rem;text-align:left;background:var(--ad-vtealsoft-bg);border-radius:.2rem;padding:0 .25rem}
+.gap .lst{font-family:var(--sans);font-size:.85rem;color:var(--ad-vmuted-fg);display:block;margin-top:.5rem}
+.picks{display:flex;flex-direction:column;gap:.45rem;margin:0 0 .9rem}
+.picks button{font:inherit;font-family:var(--serif);font-size:.97rem;line-height:1.6;background:var(--ad-xfff-bg);color:var(--ad-vink-fg);border:1px solid var(--ad-vline-border);border-radius:.3rem;padding:.55rem .8rem;cursor:pointer;text-align:left}
+.picks button:hover{border-color:var(--ad-vteal-border)}
+.picks button:focus-visible{outline:2px solid var(--ad-vteal-border);outline-offset:2px}
+.picks button[data-state="right"]{background:var(--ad-vtealsoft-bg);border-color:var(--ad-vteal-border)}
+.picks button[data-state="wrong"]{background:var(--ad-vground-bg);color:var(--ad-vmuted-fg)}
+.why{font-size:.86rem;color:var(--ad-x3d5059-fg);margin:.35rem 0 0}
+.why[hidden]{display:none}
+
+/* 收尾與頁尾 */
+.close{border-top:1px solid var(--ad-vline-border);margin-top:2rem;padding-top:1.1rem;font-size:.93rem;color:var(--ad-x3d5059-fg)}
+.close[hidden]{display:none}
+.close h2{font-size:1.1rem}
+.close ol{margin:.3rem 0 0;padding-left:1.15rem}
+.close li{margin-bottom:.5rem}
+.more{margin-top:1.5rem;font-size:.88rem}
+.more a{color:var(--ad-vteal-fg)}
+.series{border-top:1px solid var(--ad-vline-border);margin-top:2rem;padding-top:1.1rem;font-size:.9rem;color:var(--ad-x3d5059-fg)}
+.series .back{font-family:var(--serif);font-size:1rem;color:var(--ad-vteal-fg);text-decoration:none}
+.series .back:hover{text-decoration:underline}
+.series .back:focus-visible{outline:2px solid var(--ad-vteal-border);outline-offset:2px}
+.series .note{font-size:.85rem;color:var(--ad-vmuted-fg);margin:.5rem 0 0}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+/* 本單元：放射狀網狀圖與第三步的歸格卡片 */
+.fig .lab{font-family:var(--sans);font-size:10px;fill:var(--ad-x3d5059-fg)}
+.fig .lab.s{font-size:9px;fill:var(--ad-vmuted-fg)}
+.fig .spoke{stroke:var(--line);stroke-width:2;fill:none}
+.fig .node.hub rect{stroke:var(--ad-vmuted-fg)}
+.fig .node.hub.on rect{stroke:var(--ad-vexam-fg)}
+.yn{display:flex;gap:.45rem;align-items:center;flex-wrap:wrap;margin-top:.5rem;font-size:.9rem;color:var(--ad-vink-fg);font-weight:600}
+.yn button{font:inherit;font-weight:400;font-size:.82rem;background:var(--ad-xfff-bg);color:var(--ad-vink-fg);border:1px solid var(--ad-vline-border);border-radius:.25rem;padding:.18rem .75rem;cursor:pointer}
+.yn button:hover{border-color:var(--ad-vteal-border)}
+.yn button:focus-visible{outline:2px solid var(--ad-vteal-border);outline-offset:2px}
+.qcard.open .yn{display:none}
+.qcard .bd .vd{display:block;font-weight:600;margin-bottom:.15rem}
+.qcard .bd .vd.ok{color:var(--ad-vteal-fg)}
+.qcard .bd .vd.ng{color:var(--ad-vexam-fg)}
+.qcard .bd q{quotes:none;font-family:var(--serif)}
+#q3w[hidden]{display:none}
+
+/* 深色模式（2026-10-22）：淺色數值與原本相同；只在螢幕、手機或電腦設成深色外觀時生效，列印不受影響。 */
+:root{--ad-onflip-fg:#ffffff;--ad-vexam-bg:var(--exam);--ad-vexam-border:var(--exam);--ad-vexam-fg:var(--exam);--ad-vexamsoft-bg:var(--exam-soft);--ad-vexamsoft-fg:var(--exam-soft);--ad-vgen-bg:var(--gen);--ad-vgen-border:var(--gen);--ad-vgen-fg:var(--gen);--ad-vgensoft-bg:var(--gen-soft);--ad-vground-bg:var(--ground);--ad-vink-bg:var(--ink);--ad-vink-border:var(--ink);--ad-vink-fg:var(--ink);--ad-vline-border:var(--line);--ad-vline-fg:var(--line);--ad-vmuted-border:var(--muted);--ad-vmuted-fg:var(--muted);--ad-vteal-bg:var(--teal);--ad-vteal-border:var(--teal);--ad-vteal-fg:var(--teal);--ad-vtealsoft-bg:var(--teal-soft);--ad-x3d5059-fg:#3d5059;--ad-x8a8278-fg:#8a8278;--ad-xdfeceb-fg:#dfeceb;--ad-xfff-bg:#fff;--ad-xfff-fg:#fff;color-scheme:light}
+@media screen and (prefers-color-scheme: dark){
+ :root{--ad-onflip-fg:#16201F;--ad-vexam-bg:#b4661c;--ad-vexam-border:#b4661c;--ad-vexam-fg:#E7CAAF;--ad-vexamsoft-bg:#2D2821;--ad-vexamsoft-fg:#fdf4e7;--ad-vgen-bg:#4a6a90;--ad-vgen-border:#4a6a90;--ad-vgen-fg:#BBC7D6;--ad-vgensoft-bg:#1E2227;--ad-vground-bg:#1F2020;--ad-vink-bg:#E6EBEE;--ad-vink-border:#E9EFF2;--ad-vink-fg:#E9EFF2;--ad-vline-border:#3F4747;--ad-vline-fg:#cdd6d6;--ad-vmuted-border:#77878d;--ad-vmuted-fg:#BAC0C2;--ad-vteal-bg:#1f6f6a;--ad-vteal-border:#CDEAE9;--ad-vteal-fg:#CDEAE9;--ad-vtealsoft-bg:#1D2524;--ad-x3d5059-fg:#D4DBDF;--ad-x8a8278-fg:#C2BFBB;--ad-xdfeceb-fg:#dfeceb;--ad-xfff-bg:#2D2A25;--ad-xfff-fg:#ffffff;color-scheme:dark}
+}
+
+</style>
+<style id="anti-copy">
+/* 防盜用措施（2026-10-14）：畫面浮水印、列印浮水印、頁尾授權聲明 */
+@media screen{body::before{content:"";position:fixed;top:0;left:0;right:0;bottom:0;z-index:2147483000;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22460%22%20height%3D%22240%22%3E%3Cg%20transform%3D%22rotate%28-20%20230%20120%29%22%20font-family%3D%22Noto%20Sans%20TC%2Csans-serif%22%20fill%3D%22%23D9A400%22%20fill-opacity%3D%22.2%22%20text-anchor%3D%22middle%22%3E%3Ctext%20x%3D%22230%22%20y%3D%22112%22%20font-size%3D%2220%22%3E%E9%AB%98%E4%B8%AD%E8%8B%B1%E6%96%87%E9%A1%8C%E5%BA%AB%3C%2Ftext%3E%3Ctext%20x%3D%22230%22%20y%3D%22140%22%20font-size%3D%2214%22%3Estaresto-create.github.io%2FJCEE-vocab-questions%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E");background-repeat:repeat;}}
+@media print{body::after{content:"高中英文題庫\A staresto-create.github.io/JCEE-vocab-questions\A 免費資源，請勿販售";white-space:pre;position:fixed;top:42%;left:0;right:0;text-align:center;transform:rotate(-25deg);font-family:"Noto Sans TC",sans-serif;font-size:26pt;line-height:1.7;color:#c8c8c8;z-index:2147483000;pointer-events:none;}}
+.cc-note{font-size:12px;line-height:1.8;color:var(--ad-x8a8278-fg);margin:12px auto;max-width:60em;padding:0 1em;}.cc-note a{color:inherit;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>描述：一隻動物，五個面向</h1>
+<p class="lede">岩蹄兔的叫聲在網路上爆紅，這篇文章卻回頭介紹這隻動物本身：牠的腳、出人意料的親戚、叫聲的用途、群體生活，最後才說到人類怎麼注意到牠。這是說明文五種基本結構裡的<b>描述</b>，跟十月號第七、十一單元同一種結構；不過這一篇沒有預告，也沒有小標題，要靠每一段的第一句自己認出新的面向。這一頁也要你留意兩條詞彙線索：一條是「出乎意料」的字，一條是把動物寫成明星的比喻。</p>
+<p class="preview" id="pv" hidden>預覽模式：所有步驟、圖表、課文標記都已展開，進度不會存檔。學生拿到的一般連結不受影響。</p>
+<p class="resume" id="rs" hidden>上次做到一半，已經幫你接回來了。<button id="rst">重新開始</button></p>
+<p class="src">ALL+ 互動英語 11 月號 Unit 2（pp. 8–9）　The Little Mammal That Went Viral　全文 55 行　11/3 讀第 1–24 行，11/4 讀第 25–55 行</p>
+
+<!-- ═══ 第一步 ═══ -->
+<section class="step" id="s1">
+  <p class="stepno">第一步</p>
+  <h2>先講一件事，再丟出一個疑問<span class="tag">上層：組織方式</span></h2>
+  <p>描述文的開頭，要先讓讀者願意往下讀。十月號第七單元的開頭只說有一些策略，第十一單元直接把紀錄的種類列出來；這一篇的前八行都沒有預告，它先講一件讀者可能看過的事，再丟出一個疑問。<b>點三個有底色的地方</b>。</p>
+  <div class="lead" id="ld">
+    <c data-t="t">Have you ever heard an animal scream so loudly that you couldn’t believe your ears?</c> That’s exactly what happened to people around the world when <c data-t="p">the rock hyrax recently became an Internet star</c>. As videos of the small mammal’s dramatic cries quickly spread across social media, they left millions of viewers <c data-t="r">wondering how such an ordinary-looking animal could produce such astonishing sounds</c>.
+  </div>
+  <p class="score" id="sc">已標出 <em>0</em> / 3</p>
+  <div id="s1b" hidden>
+    <p>三個都標出來了。那麼——<b>第 6 到 8 行的 <q>wondering how such an ordinary-looking animal could produce such astonishing sounds</q> 這個疑問，在全文裡負責什麼？</b></p>
+    <div class="opts" id="q1">
+      <button>讓讀者懷疑這些影片是不是真的拍到岩蹄兔</button>
+      <button data-ok="1">提出疑問，後面各段分頭交代牠哪裡不平凡</button>
+      <button>引導讀者去想牠發出大叫聲的身體構造是什麼</button>
+      <button>說明這些影片為什麼能在社群媒體上傳得很快</button>
+    </div>
+    <div class="said e" id="a1" hidden>
+      <b>提出疑問，後面各段分頭交代牠哪裡不平凡。</b>第 6 到 8 行問的是：外表這麼普通的動物，怎麼會發出這麼驚人的聲音？後面沒有哪一段直接回答，而是一格一格交代牠不普通的地方：第 9 到 17 行的腳、第 18 到 24 行的親戚、第 25 到 34 行的叫聲、第 35 到 46 行的群體生活。讀完這幾段，這個疑問才有了答案。
+      <br><br>
+      <b>描述文常這樣起手：</b>先講一件讀者可能已經看過的事當引子，再丟出一個疑問。這一段不屬於後面五格的任何一格，所以第二步的網狀圖會把它畫在中心，當作主題的入口。
+      <br><br>
+      <b>另外三個為什麼排除：</b>
+      <br><br>
+      「引導讀者去想牠發出大叫聲的身體構造」——<b>這個最容易選</b>，因為疑問裡確實有 <q>produce such astonishing sounds</q>，而且第 25 到 34 行也真的講到叫聲。可是那一段講的是叫聲的用途：繁殖季節裡 <q>to attract females and warn away rivals</q>（第 28 行），整篇沒有一個字提到聲音是用什麼器官發出來的。疑問比叫聲大，後面也不只講叫聲，所以範圍錯了。
+      <br><br>
+      「說明這些影片為什麼能在社群媒體上傳得很快」——第 5 到 6 行確實寫了影片 <q>quickly spread across social media</q>，但那是前一句的內容，不是這個疑問的內容。疑問問的是動物，不是影片；從第 9 行起，整篇也沒有再提影片傳得多快。
+      <br><br>
+      「讓讀者懷疑這些影片是不是真的拍到岩蹄兔」——第 2 行有 <q>couldn’t believe your ears</q>，看起來像在懷疑。可是第 6 行寫的是觀眾 <q>wondering how</q>：他們好奇的是「怎麼可能」，沒有人說影片是假的，作者也從來沒有交代影片的真假。
+    </div>
+    <button class="go" id="g1" hidden>整篇怎麼排？</button>
+  </div>
+</section>
+
+<!-- ═══ 第二步 ═══ -->
+<section class="step" id="s2" hidden>
+  <p class="stepno">第二步</p>
+  <h2>一個主題，分成五個面向<span class="tag">上層：怎麼認出來</span></h2>
+  <p>先回答：<b>這篇文章的推進方式，最接近下列哪一種？</b></p>
+  <div class="opts" id="q2">
+    <button>拿岩蹄兔跟大象和天竺鼠比較，找出相同與不同</button>
+    <button>依時間先後，說明牠怎麼一步步成為網路明星</button>
+    <button>先指出牠面臨的威脅，再說明牠怎麼應付</button>
+    <button data-ok="1">先提出一個主題，再分段說明牠的五個面向</button>
+  </div>
+  <div class="said e" id="a2" hidden>
+    <b>先提出一個主題，再分段說明牠的五個面向。</b>這是說明文五種基本結構裡的<b>描述</b>（description）：一個主題，加上它的幾個部分、特徵或例子。主題是第 3 到 4 行的 the rock hyrax，後面五段各管一個面向：外表和腳、親戚、叫聲、群體生活、人類眼中的牠。五個面向之間沒有誰造成誰，也沒有先後的時間。
+    <br><br>
+    <b>跟十月號兩篇描述文比，這一篇少了預告，也少了小標題。</b>十月號第七單元的開頭說有一些策略，第十一單元直接列出紀錄的種類，還用小標題一項一個名字。這一篇兩樣都沒有，要靠每一段的第一句自己報出新的面向：第 9 到 10 行 <q>The furry celebrity behind those unforgettable screams is a fascinating creature</q>（外表和腳）、第 18 行 <q>The hyrax has another secret</q>（親戚）、第 25 到 26 行 <q>The rock hyrax’s famous scream isn’t just for dramatic effect</q>（叫聲）、第 35 到 36 行 <q>Life on the rocks also depends on teamwork</q>（群體生活）、第 47 到 48 行 <q>The rock hyrax has attracted human interest for thousands of years</q>（人類眼中的牠）。
+    <br><br>
+    <b>這一篇的五格不是完全各自獨立。</b>第 18 行的 another 是「又一個」，暗示前面已經有一個，最接近的就是上一格那雙為攀爬設計的腳；第 35 行的 also 是「再加上」，前面講過的有腳，也有叫聲。所以把兩格對調，內容還是成立，可是 another 和 also 得跟著改，不然讀起來會卡住。描述文的面向可以重排，不過作者常用這類字把它們接在一起。
+    <br><br>
+    <b>開頭和結尾互相呼應，這是這一篇才有的框架。</b>第 4 行說牠成了 <q>Internet star</q>，第 54 到 55 行又說牠是 <q>the Internet’s most unexpected wildlife stars</q>；scream 這個字也在第 1、10、25、52 行反覆出現。作者從叫聲開始，也回到叫聲結束，中間五格就是在填這個框。
+    <br><br>
+    <b>另外三個為什麼排除，每一個都是別種結構：</b>
+    <br><br>
+    「拿岩蹄兔跟大象和天竺鼠比較」——這是<b>比較對照</b>，<b>這個最容易選</b>，因為第 20 到 21 行真的拿牠跟大象、老鼠、天竺鼠比：<q>more closely related to elephants than to mice or guinea pigs</q>。可是這個比較只出現在第二格裡，其他四段都沒有拿牠跟任何東西比，而且作者比的只有親戚這一件，沒有比出誰比較好。
+    <br><br>
+    「依時間先後，說明牠怎麼成為網路明星」——這是<b>序列</b>。時間的字只出現在頭尾：第 4 行 recently、第 48 行 <q>thousands of years</q>、第 50 行 <q>not until recently</q>。中間第 9 到 46 行的四個面向裡，沒有任何先後。
+    <br><br>
+    「先指出牠面臨的威脅，再說明牠怎麼應付」——這是<b>問題與解決</b>。威脅確實有：第 17 行 <q>escape predators</q>、第 40 到 41 行 <q>an eagle, leopard, or other predator</q>。可是它們只是第一格和第四格裡的細節；叫聲、親戚、人類關注這三個面向都跟威脅無關，整篇也沒有一個地方把威脅當成「問題」來提。
+    <br><br>
+    下面這張圖是描述文的標準組織圖：<b>放射狀網狀圖</b>，跟十月號第七、十一單元同一個形狀。中間是主題，周圍一個面向一格，格子之間不畫箭頭。<b>點任一格</b>，第四步的課文對應行會亮起來（課文還沒打開的話，先把行號記住就好）。
+  </div>
+  <figure class="fig" id="fig" hidden></figure>
+  <button class="go" id="g2" hidden>把內容放回網狀圖</button>
+</section>
+
+<div class="daybreak" id="db" hidden>
+  <b>11/4 的範圍從這裡開始：第 25–55 行</b>
+  第一、二步用的是 11/3 的第 1–24 行（引子、外表和腳、出人意料的親戚）。第三步以後會用到整篇，包含 11/4 的第 25–55 行（叫聲、群體生活、人類眼中的牠）。如果你今天是 11/3，做到這裡可以先停，明天再接下去。（第二步的說明和圖已經提到後面三格，先看到不影響。）
+</div>
+
+<!-- ═══ 第三步 ═══ -->
+<section class="step" id="s3" hidden>
+  <p class="stepno">第三步</p>
+  <h2>把內容放回網狀圖<span class="tag">上層：怎麼驗證</span></h2>
+  <p>怎麼確定這篇是描述，不是在比較或講過程？<b>先找訊號詞，說出是哪一種結構，再把內容放進網狀圖，最後用一句話說出整篇。</b></p>
+  <p>訊號詞有三種，你在前兩步都看過：主題名詞，從第 4 行的 hyrax 一路換說法換到第 55 行的 stars；每一段開頭報出新面向的第一句；還有接面向的 another（第 18 行）和 also（第 35 行）。三種湊起來，結構就是描述。</p>
+  <p>下面六張卡片寫的是文章提到的細節，<b>都換過說法，也沒有行號</b>。每一張判斷一次：它屬於網狀圖的哪一格？點下去就定了，不能改。</p>
+  <div class="qs" id="qs"></div>
+  <p class="score" id="sc3">已放 <em>0</em> / 6，第一次就放對 <em>0</em> 張</p>
+  <div class="said e" id="a3" hidden>
+    <b>六張都放得回去，而且每一張只放得進一格。這就是描述。</b>描述文裡的每一個細節都屬於某一格；放不進任何一格的句子，就不是這篇在講的事。
+    <br><br>
+    <b>最容易放錯的，是站崗那一張。</b>它講的是警戒叫聲，很像第三格的叫聲。可是第三格講的是繁殖季節雄性的叫聲，警戒叫聲出現在第 35 行 Life on the rocks also depends on teamwork 之後，屬於群體生活。<b>分格看的是這一段的第一句宣布了什麼，不是看句子裡有沒有 call 這個字。</b>另一張「成了網路明星」也同樣：它有 scream，卻是最後一段的句子，屬於人類眼中的牠。
+    <br><br>
+    <b>再注意一件事：五格之間沒有箭頭。</b>五個面向沒有誰造成誰。不過 another 和 also 提醒你，作者是一格一格往上加的，所以對調兩格時，這兩個字要一起改。
+    <br><br>
+    <b>考卷上怎麼考：</b>主旨題的誘答最愛只寫其中一格，或者把開頭和結尾那個框當成整篇。下面試一題摘要題。
+  </div>
+  <div id="q3w" hidden>
+    <p><b>哪一句最適合當這篇文章的一句話摘要？</b></p>
+    <div class="picks" id="q3">
+      <button>Male rock hyraxes produce long, complex calls that grow longer and more varied with age, making experienced singers more attractive to potential mates.</button>
+      <button>Rock hyraxes are larger than the hunters that chase them, so groups of up to eighty animals can safely stand guard in the sun.</button>
+      <button data-ok="1">Although it seems unremarkable, the rock hyrax is full of surprises, from its feet and elephant relatives to its songlike calls and teamwork.</button>
+      <button>Humans have known the rock hyrax for thousands of years, and social media has recently made it an Internet star through videos of its dramatic cries.</button>
+    </div>
+    <div class="said e" id="a3b" hidden>
+      <b>第三句。</b>它把前四格收進一句話：feet 是第一格，elephant relatives 是第二格，songlike calls 是第三格，teamwork 是第四格；前半句的 seems unremarkable 對上第 7 行的 <q>ordinary-looking</q>，後半句的 full of surprises 對上全篇反覆出現的 unexpected。它也沒有照抄課文：第 7 行的 ordinary-looking 換成 unremarkable，第 31 行的 <q>almost like songs</q> 換成 songlike。
+      <br><br>
+      <b>另外三個為什麼排除：</b>
+      <br><br>
+      「Male rock hyraxes produce long, complex calls …」——<b>這個最容易選</b>，因為它幾乎是第 27 到 34 行的原文，句子完整，看起來最紮實。可是它只是叫聲那一格，一格代表不了整篇。<b>範圍錯。</b>
+      <br><br>
+      「Humans have known the rock hyrax for thousands of years …」——這句話把第 47 到 51 行和第 4 到 6 行的內容接在一起，沒有錯，可是它只收了開頭的引子和最後一格，中間講腳、親戚、叫聲、群體生活的四段完全沒有進來。把頭尾的框當成整篇，<b>層級錯</b>。
+      <br><br>
+      「Rock hyraxes are larger than the hunters that chase them …」——第 44 行說 <q>larger hunters cannot easily follow</q>，大的是獵食者；第 19 到 20 行也說牠只有 <q>only a few kilograms</q>。選項把大小的方向弄反了，<b>方向錯</b>。這一個靠讀懂全篇就排除得掉。
+    </div>
+  </div>
+  <button class="go" id="g3" hidden>看兩條詞彙線索</button>
+</section>
+
+<!-- ═══ 第四步 ═══ -->
+<section class="step" id="s4" hidden>
+  <p class="stepno">第四步</p>
+  <h2>兩堆字，一串比喻<span class="tag b">下層：語意場與比喻串</span></h2>
+  <p>這一頁沒有新工具，兩個顏色都是前面教過的，這次練得更深。這篇有兩條線貫穿全文，一條在字義上，一條在比喻上。</p>
+  <p><b>青色：語意場（九月號第六單元）。</b>一組意思相關的字擺在一起，叫做一個語意場。這篇有兩個，而且互相對立：一堆在講平凡和小，例如 ordinary-looking、guinea pig、tiny；另一堆在講出乎意料，例如 astonishing、fascinating、surprising、unexpected。每一格都是同一個寫法：先把這隻動物放進第一堆，再用第二堆的字翻過來。第 11 到 13 行 <q>At first glance, a rock hyrax looks like an oversize guinea pig. But its feet</q> 是最清楚的例子：先說像天竺鼠，一個 But 就轉到第二堆。</p>
+  <p><b>藍灰：比喻串（九月號第十單元）。</b>同一組比喻從頭用到尾：把動物寫成明星。star 和 celebrity 在開頭，songs、performances、singers 在叫聲那一段，stars 在最後。比喻串不只是修辭，它也在告訴你作者怎麼看這隻動物：不是「一隻很吵的動物」，而是「一位會表演的明星」。</p>
+  <p><b>兩條線在最後一句碰頭。</b>第 55 行的 <q>most unexpected wildlife stars</q>：unexpected 是青色，stars 是藍灰，兩條線在同一個詞組裡合起來。</p>
+  <p><b>點課文裡有底色的字</b>，同一條的字會一起亮起來。兩色可以各自關掉。</p>
+  <div class="modes">
+    <button id="m1" aria-pressed="true">語意場（青）</button>
+    <button id="m2" aria-pressed="true">比喻串（藍灰）</button>
+  </div>
+  <div class="text" id="tx"></div>
+  <div class="panel" id="pn">
+    <span class="k" id="pk">線索</span>
+    <div class="ch" id="pc">點圖上的一格，或課文裡有底色的字</div>
+    <p class="nt" id="pt">青色是「平凡」和「出乎意料」兩堆對立的字，藍灰是把動物寫成明星的比喻。</p>
+  </div>
+  <div class="recall">
+    <b>另外三樣，前面單元教過，這篇自己確認得出來：</b>
+    <ul>
+      <li><b>原字重複。</b>九月號第一單元練過。scream 或 screams 出現在第 1、10、25、52 行，頭一段和最後一段各有一個，作者用同一個字把全篇圍起來；unexpected 在第 24 行和第 55 行各出現一次。</li>
+      <li><b>上義詞與下義詞。</b>九月號第二單元教過，十月號第三、第八單元也練過。第 40 到 41 行 <q>an eagle, leopard, or other predator</q>，eagle 和 leopard 是下義詞，predator 是它們的上義詞；第 17 行的 predators 是同一個上義詞，第 44 行的 larger hunters 又換了一種說法。</li>
+      <li><b>讓步與對比標記。</b>十月號第三單元和九月號第八單元練過。第 11 到 13 行 At first glance 對 But、第 19 到 20 行 Although 對 actually、第 50 行 However、第 53 行 though：每一處都先說讀者預期的，再翻成出乎意料的那一面，跟青色那兩堆字說的是同一件事。</li>
+    </ul>
+  </div>
+  <p style="margin-top:1.1rem"><button class="go" id="g4">考卷怎麼考這種文章</button></p>
+</section>
+
+<!-- ═══ 第五步 ═══ -->
+<section class="step" id="s5" hidden>
+  <p class="stepno">第五步</p>
+  <h2>細節題最愛改的範圍字<span class="tag">上層：考點</span></h2>
+  <p>描述文的主旨題，常見的陷阱是一格冒充整篇，第三步已經試過。另一個考點在細節題：描述文每一格底下都是細節，出題的人最愛改的，是限定範圍的字。這篇有三種：</p>
+  <p><b>一、數量的上限。</b>第 36 到 37 行 <q>groups that can include as many as 80 animals</q>：can 是「可以」，as many as 是「最多」。選項寫成 always、every、about 80，就變成每一群都是這個數字。</p>
+  <p><b>二、限定的字。</b>第 19 到 20 行的 <q>only a few kilograms</q>、第 25 到 26 行的 <q>isn’t just for dramatic effect</q>。英語教學語法把 only、just、also、even 這類字叫做焦點副詞（focusing adverbs），它們把句子的某一部分挑出來。選項多加一個 only，或把 just 拿掉，意思就變了。</p>
+  <p><b>三、時間的限定。</b>第 50 行 <q>it was not until recently</q>：說的是「直到最近才」，不是「以前完全沒有」。</p>
+  <p>試一題：<b>根據全文，下列哪一項敘述正確？</b></p>
+  <div class="opts en" id="q5">
+    <button data-ok="1">While some members of a hyrax group look for food or rest, others keep watch for danger.</button>
+    <button>Every rock hyrax group is made up of about 80 animals that live on the same rocks.</button>
+    <button>People did not know the rock hyrax until its scream spread across social media in recent years.</button>
+    <button>Male rock hyraxes use their long, complex calls only to attract females during the breeding season.</button>
+  </div>
+  <div class="said e" id="a5" hidden>
+    <b>第一句。</b>先注意：它沒有照抄課文。第 38 到 39 行的 <q>some members search for food or rest in the sun, others stand guard</q> 換成 look for food or rest 和 keep watch for danger，意思一樣。<b>另外三句反而滿是課文裡的字。</b>大考的正解通常是改寫，照抄課文的選項要特別小心。
+    <br><br>
+    <b>另外三個為什麼排除：</b>
+    <br><br>
+    「People did not know the rock hyrax until …」——<b>這個最難排除</b>，因為 not until 是第 50 行的原字，recent 也在，連社群媒體都對得上。可是同一段第 49 到 50 行說 <q>it is mentioned several times in the Bible</q>，人們早就知道牠；課文說的 <q>not until recently</q> 後面接的是 familiar to many people，指的是「很多人熟悉」，不是「知道」。<b>把時間的方向弄反了。</b>
+    <br><br>
+    「Male rock hyraxes use their long, complex calls only to attract females …」——第 27 到 28 行的原文是 <q>to attract females and warn away rivals</q>，叫聲有兩個用途。選項加了一個 only，把第二個用途擦掉了。<b>範圍錯，錯在限定的字。</b>
+    <br><br>
+    「Every rock hyrax group is made up of about 80 animals …」——第 36 到 37 行的 <q>can include as many as 80 animals</q> 是「最多可以到八十隻」。選項把上限說成每一群都是，而且 about 80 又改成大約的數字。<b>範圍錯，錯在數量的上限。</b>這一個靠讀懂 can 和 as many as 就排除得掉。
+  </div>
+  <button class="go" id="g5" hidden>最後一題</button>
+</section>
+
+<!-- ═══ 第六步 ═══ -->
+<section class="step" id="s6" hidden>
+  <p class="stepno">第六步</p>
+  <h2>把一句話放回去</h2>
+  <p>這就是考卷上的<b>篇章結構</b>題。下面把第 25 到 26 行那一句整句抽掉了，四個候選句只有一句放得進去。</p>
+  <div class="gap" id="gp">
+    DNA studies and body features—including tusk-like front teeth and unusual toenails—reveal one of nature’s most unexpected family connections.
+    <br>
+    <span class="blank" id="bl">（空格）</span> During the breeding season, males produce long, complex calls to attract females and warn away rivals. Scientists have discovered that these calls contain different rhythms and patterns, almost like songs. As males grow older, their performances become longer and more varied, making experienced singers more attractive to potential mates.
+  </div>
+  <div class="picks" id="q6">
+    <button>Life on the rocks also depends on teamwork.</button>
+    <button data-ok="1">The rock hyrax’s famous scream isn’t just for dramatic effect.</button>
+    <button>Scientists have discovered that these calls contain different rhythms and patterns.</button>
+    <button>The rock hyrax’s scream became famous when videos spread online.</button>
+  </div>
+  <div class="said" id="a6" hidden>
+    <b>四個線索同時指向同一句。</b>這四句單獨看都說得通，沒有一句本身是錯的。要排除，得靠位置和線索。
+    <br><br>
+    <b>先講一個例外。</b>前面說大考的正解通常是改寫，但<b>抽句題不一樣</b>：抽掉的那一句就是原文，所以正解一定是原文。這一題要靠的是誘答哪裡接不上，不是比對字面。
+    <br><br>
+    <b>一、isn’t just 要有後文。</b>just 是把句子的一部分挑出來的字（第五步講過），isn’t just for dramatic effect 的意思是「不只是為了效果」，說完以後讀者期待聽到真正的用途。空格後面第 26 到 28 行 <q>During the breeding season, males produce long, complex calls to attract females and warn away rivals</q> 正好給出用途。前面也接得上：第 24 行結束了親戚那一格，famous scream 把話題轉回第 9 到 10 行的 <q>unforgettable screams</q>。
+    <br><br>
+    <b>另外三個為什麼排除，各有一個明確的依據：</b>
+    <br><br>
+    <b>二、問的問題不一樣。</b>「The rock hyrax’s scream became famous when videos spread online」<b>這個最容易選</b>：它有 scream，有 famous，影片的事第 4 到 6 行也寫過。可是它回答的是「為什麼出名」，空格後面的 During the breeding season 回答的卻是「叫聲有什麼用」，兩個問題不同，接不上。
+    <br><br>
+    <b>三、歸屬。</b>「Life on the rocks also depends on teamwork」是第 35 到 36 行的原句，屬於群體生活那一格。空格前面講的是親戚，後面講的是雄性的叫聲，沒有一句提到團隊；also 前面也沒有可以接的東西。這一句放進來，就把別格的第一句搬到了這一格。
+    <br><br>
+    <b>四、指涉落空。</b>「these calls contain different rhythms and patterns」是第 29 到 30 行的原句，these calls 要接在已經提過叫聲的句子後面。空格前面一直到第 24 行都沒有 call 這個字，these calls 沒有可以指的東西。要等到第 27 行的 <q>long, complex calls</q> 出現以後，這句才接得上。
+  </div>
+  <p class="why" id="w6" hidden>考卷上不會有底色，也不會有行號。但你剛才用的線索：前後文的呼應、限定的字、指涉的對象、一段的歸屬，每一篇描述文都找得到。</p>
+</section>
+
+<!-- ═══ 第七步 ═══ -->
+<section class="close" id="s7" hidden>
+  <h2>帶著走的五句話</h2>
+  <ol>
+    <li><b>描述文的開頭不一定預告項目。</b>這一篇的前八行只做兩件事：講一件讀者可能看過的事，再丟出一個疑問。五個面向要靠每一段的第一句認出來：The furry celebrity（第 9 行）、another secret（第 18 行）、famous scream isn’t just（第 25 行）、also depends on（第 35 行）、has attracted human interest（第 47 到 48 行）。</li>
+    <li><b>驗證方法：把內容放回網狀圖。</b>找出訊號詞，說出是描述，中間寫主題、周圍一個面向一格，再用一句話把五格都收進去。一句摘要如果只裝得下其中一格，就是一格冒充整篇；如果只裝得下開頭和結尾的框，就是層級錯。</li>
+    <li><b>細節題最愛改範圍字。</b>can include as many as 80 改成 every group has about 80，calls to attract females and warn away rivals 加一個 only，not until recently 改成 did not know。選項一動這些字，就不是課文的意思。</li>
+    <li><b>語意場：兩堆對立的字。</b>ordinary-looking、guinea pig、tiny 是起點，astonishing、surprising、unexpected 是每一格的落點。主旨題的正解，要把「外表平凡、處處出乎意料」這個落差寫出來。</li>
+    <li><b>比喻串：把動物寫成明星。</b>star、celebrity、dramatic、songs、performances、singers、stars 從第 4 行串到第 55 行。第 55 行的 most unexpected wildlife stars 把青色和藍灰兩條線收在同一個詞組裡。</li>
+  </ol>
+  <p class="more"><a href="https://staresto-create.github.io/JCEE-vocab-questions/wordwheel.html">單字輪：把字拆成部件來記 →</a></p>
+</section>
+
+<nav class="series">
+  <a class="back" href="cohesion.html">← 回讀法練習總表</a>
+  <p class="note">總表上有目前可以做的所有單元，還有你累積到現在的讀法工具。</p>
+</nav>
+
+</div>
+<script>
+(function(){
+"use strict";
+function $(id){return document.getElementById(id);}
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;");}
+
+var KEY="cohesion-202611-u2-v1";
+
+var PREVIEW=false;
+var ST={tags:{},rows:{},q1:0,q2:0,q3:0,q5:0,q6:0,step:1};
+function save(){ if(PREVIEW) return; try{ localStorage.setItem(KEY, JSON.stringify(ST)); }catch(e){} }
+function load(){ try{ var r=localStorage.getItem(KEY); return r?JSON.parse(r):null; }catch(e){ return null; } }
+function wipe(){ try{ localStorage.removeItem(KEY); }catch(e){} location.reload(); }
+
+var TITLE="The Little Mammal That Went Viral";
+
+var LINES=[
+"Have you ever heard an animal scream so loudly",
+"that you couldn’t believe your ears? That’s exactly what",
+"happened to people around the world when the rock",
+"hyrax recently became an Internet {star|c-star|1}. As videos of the",
+"{small|c-sur|1} mammal’s {dramatic|c-star|2} cries quickly spread across",
+"social media, they left millions of viewers wondering how",
+"such an {ordinary-looking|c-sur|1} animal could produce such",
+"{astonishing|c-sur|2} sounds.",
+"The furry {celebrity|c-star|3} behind those {unforgettable|c-sur|2}",
+"screams is a {fascinating|c-sur|2} creature that lives among rocky",
+"hills and cliffs across Africa and the Middle East. At first",
+"glance, a rock hyrax looks like an oversize {guinea pig|c-sur|1}.",
+"But its feet are specially designed for climbing: Their soft,",
+"rubbery pads always stay slightly moist, while powerful",
+"foot muscles form a hollow to act like suction cups. This",
+"lets the animal scale steep cliffs with {surprising|c-sur|2} ease and",
+"escape predators that can’t keep up.",
+"The hyrax has another secret that {surprises|c-sur|2} scientists",
+"and animal lovers alike. Although it weighs {only a few|c-sur|1}",
+"kilograms, it’s actually more closely related to elephants than",
+"to mice or guinea pigs. DNA studies and body",
+"features—including tusk-like front teeth and",
+"unusual toenails—reveal one of nature’s",
+"most {unexpected|c-sur|2} family connections.",
+"The rock hyrax’s famous scream isn’t just",
+"for {dramatic|c-star|4} effect. During the breeding",
+"season, males produce long, complex calls",
+"to attract females and warn away rivals.",
+"Scientists have discovered that these calls",
+"contain different rhythms and patterns,",
+"almost like {songs|c-star|5}. As males grow older,",
+"their {performances|c-star|6} become longer and",
+"more varied, making experienced {singers|c-star|7}",
+"more attractive to potential mates.",
+"Life on the rocks also depends on",
+"teamwork. Hyraxes live in groups that",
+"can include as many as 80 animals. While",
+"some members search for food or rest in",
+"the sun, others stand guard. The moment a",
+"lookout spots an eagle, leopard, or other",
+"predator, it gives a loud alarm call. The",
+"whole group then immediately dashes into",
+"narrow cracks between the rocks, where",
+"larger hunters cannot easily follow. Working",
+"together greatly increases the group’s",
+"chances of survival.",
+"The rock hyrax has attracted human",
+"interest for thousands of years—for",
+"example, it is mentioned several times in",
+"the Bible. However, it was not until recently",
+"that it became familiar to many people.",
+"Thanks to its {unforgettable|c-sur|2} scream and the",
+"power of social media, though, this {tiny|c-sur|1} cliff",
+"climber has become one of the Internet’s",
+"most {unexpected|c-sur|2} wildlife {stars|c-star|8}."
+];
+var INDENT={1:1,9:1,18:1,25:1,35:1,47:1};
+var HEAD={};
+var SPLIT=25;
+var SPLIT_TEXT="以上是 11/3 的第 1–24 行。以下是 11/4 的第 25–55 行。";
+
+var CHAINS={
+ "c-sur":{k:"sub",n:"語意場，十三處，九月號第六單元教過。一組意思相關的字擺在一起，就是一個語意場；這篇有兩個，而且對立。第一堆是平凡和小：第 5 行 small、第 7 行 ordinary-looking、第 12 行 guinea pig、第 19 行 only a few、第 53 行 tiny。第二堆是出乎意料：第 8 行 astonishing、第 9 行 unforgettable、第 10 行 fascinating、第 16 行 surprising、第 18 行 surprises、第 24 行 unexpected，最後回到第 52 行 unforgettable 和第 55 行 unexpected。作者每一格都用同一個寫法：先把動物放進第一堆，再用第二堆的字翻過來。看起來像天竺鼠，腳卻能爬峭壁；只有幾公斤重，親戚卻是大象。第二堆的字就是這篇的主旨，主旨題的正解常用它們的同義說法。"},
+ "c-star":{k:"gen",n:"比喻串，八處，九月號第十單元教過。作者把動物寫成明星：第 4 行 star、第 9 行 celebrity，第 5 行的 dramatic 是演戲的字，第 31 到 33 行的 songs、performances、singers 是舞臺上的字，最後第 55 行的 stars 把整串收回來。有意思的是第 26 行：isn’t just for dramatic effect 說叫聲不只是為了效果，可是同一段馬上又用 performances 和 singers，因為雄性的叫聲真的像表演：年紀越大越長、越多變，越能吸引雌性。所以這串比喻不是裝飾，它替結尾鋪了路：叫聲本來就是一種表演，牠成為明星，是從第 4 行就埋好的線。"}
+};
+var LB={sub:"語意場",gen:"比喻串",mk:"標記詞"};
+var CL={sub:"k",gen:"k g",mk:"k e"};
+
+var NODES=[
+ {nm:"岩蹄兔",en:"the rock hyrax",a:1,b:8,
+  n:"第 1 到 8 行。這是引子，不算五格之一：先說叫聲在網路上爆紅，再丟出一個疑問，這隻外表普通的動物怎麼會發出這麼驚人的聲音。後面五格就是在回答這個疑問。第 52 到 55 行會再回到這裡，用 Internet 的 stars 把全篇圍起來。"},
+ {nm:"外表和腳",en:"a fascinating creature",a:9,b:17,
+  n:"第 9 到 17 行。從 The furry celebrity 開頭，把鏡頭拉到動物本身：乍看像一隻特大號的天竺鼠，可是腳是為攀爬設計的，柔軟的橡膠狀足墊保持微濕，腳部肌肉形成凹陷，作用像吸盤，讓牠輕鬆爬上陡峭的懸崖，躲開追不上的掠食者。"},
+ {nm:"出人意料的親戚",en:"another secret",a:18,b:24,
+  n:"第 18 到 24 行。第 18 行的 another 接在上一格後面：牠只有幾公斤重，親緣關係卻比較接近大象，不是老鼠或天竺鼠；DNA 研究，加上像獠牙的前齒和不尋常的趾甲，都是證據。"},
+ {nm:"叫聲",en:"isn’t just for dramatic effect",a:25,b:34,
+  n:"第 25 到 34 行。這一格回到開頭的叫聲，但說法變了：不只是為了戲劇效果。繁殖季節裡，雄性用又長又複雜的叫聲吸引雌性、警告對手；叫聲有節奏和模式，幾乎像歌，年紀越大，表演越長、越多變。第二天從這一格開始。"},
+ {nm:"群體生活",en:"also depends on teamwork",a:35,b:46,
+  n:"第 35 到 46 行。第 35 行的 also 再加上一個面向：岩石上的生活也要靠團隊合作。一個群體最多可以有八十隻，有的覓食或曬太陽，有的站崗；哨兵一看到掠食者就發出警戒叫聲，全體立刻衝進狹窄的岩縫，較大的獵食者進不去。"},
+ {nm:"人類眼中的牠",en:"human interest",a:47,b:55,
+  n:"第 47 到 55 行。人類注意到岩蹄兔已經好幾千年，《聖經》裡就提過牠，直到最近才為許多人所熟悉。最後一句把全篇圍起來：靠著令人難忘的叫聲和社群媒體的力量，這隻小小的攀岩高手成了網路上最出人意料的野生動物明星之一。"}
+];
+
+var SPOKES=["外表和腳","親戚","叫聲","群體生活","人類眼中"];
+var ROWS=[
+ {f:"腳底的足墊保持微濕，腳部肌肉還會形成一個凹陷，作用像吸盤。",ans:0,
+  note:"第 13 到 15 行。<q>Their soft, rubbery pads always stay slightly moist, while powerful foot muscles form a hollow to act like suction cups</q>。這一段整段都在講外表和腳，從第 9 行 The furry celebrity 開頭。"},
+ {f:"牠只有幾公斤重，親緣關係卻比較接近大象，而不是老鼠。",ans:1,
+  note:"第 19 到 21 行。<q>Although it weighs only a few kilograms, it’s actually more closely related to elephants than to mice or guinea pigs</q>。講到大小和天竺鼠，很容易誤放進第一格；可是這一句在第 18 行的 another secret 之後，講的是親戚，不是外表。"},
+ {f:"年紀越大的雄性，叫聲越長、越多變，對雌性也越有吸引力。",ans:2,
+  note:"第 31 到 34 行。<q>As males grow older, their performances become longer and more varied, making experienced singers more attractive to potential mates</q>。這是繁殖季節雄性的叫聲，用來吸引雌性。"},
+ {f:"有些成員站崗，一看到老鷹或豹，就發出響亮的警戒叫聲。",ans:3,
+  note:"第 39 到 41 行。<q>others stand guard. The moment a lookout spots an eagle, leopard, or other predator, it gives a loud alarm call</q>。這一張最容易放錯，因為它講的是叫聲，很像第三格。可是第三格講的是繁殖季節雄性的叫聲，用來吸引雌性、警告對手；警戒叫聲出現在第 35 行 Life on the rocks also depends on teamwork 之後，是站崗分工的一環，屬於群體生活。分格看的是這一段的第一句宣布了什麼，不是看句子裡有沒有 call 這個字。"},
+ {f:"幾千年前的《聖經》就提過牠，不過直到最近，才有許多人認得牠。",ans:4,
+  note:"第 49 到 51 行。<q>it is mentioned several times in the Bible. However, it was not until recently that it became familiar to many people</q>。這一段從第 47 行開始，講的是人類什麼時候注意到牠。"},
+ {f:"靠著令人難忘的叫聲和社群媒體，這隻小小的攀岩高手成了網路明星。",ans:4,
+  note:"第 52 到 55 行。<q>Thanks to its unforgettable scream and the power of social media, though, this tiny cliff climber has become one of the Internet’s most unexpected wildlife stars</q>。這一張也容易放錯：它有 scream，像第三格；又有 Internet star，像開頭的引子。可是它是最後一段的最後一句，前面第 50 行有 However，第 53 行有 though，這兩個字把它接在「直到最近才為許多人所熟悉」後面：人類眼中的牠，最後是什麼讓牠成了明星。"}
+];
+
+var TL={t:"提問",p:"主題",r:"疑問"};
+
+/* ---------- 通用：選擇題 ---------- */
+function quiz(qid,aid,gid,tag,after){
+  var done=false;
+  function settle(){
+    done=true;
+    var bs=$(qid).querySelectorAll("button");
+    for(var i=0;i<bs.length;i++){ bs[i].disabled=true; bs[i].dataset.state=bs[i].dataset.ok?"right":"wrong"; }
+    if(aid) $(aid).hidden=false;
+    if(gid) $(gid).hidden=false;
+    if(after) after();
+  }
+  $(qid).addEventListener("click",function(e){
+    var b=e.target.closest("button"); if(!b||done) return;
+    settle(); ST[tag]=1; save();
+  });
+  return settle;
+}
+function opener(gid,sid,extra){
+  $(gid).addEventListener("click",function(){
+    var n=parseInt(sid.replace(/\D/g,""),10);
+    if(ST.step<n) ST.step=n; save();
+    $(sid).hidden=false; if(extra) extra();
+    $(sid).scrollIntoView({behavior:"smooth",block:"start"});
+  });
+}
+function hlLines(a,b){
+  var rows=$("tx").querySelectorAll(".ln");
+  for(var r=0;r<rows.length;r++){ var n=+rows[r].dataset.n; rows[r].classList.toggle("hl", n>=a&&n<=b); }
+  var ms=$("tx").querySelectorAll("m");
+  for(var k=0;k<ms.length;k++) ms[k].classList.remove("lit");
+  if(rows.length){ var f=$("tx").querySelector('.ln[data-n="'+a+'"]'); if(f) f.scrollIntoView({behavior:"smooth",block:"center"}); }
+}
+
+/* ---------- 第一步 ---------- */
+function tagged(){ var n=0; for(var k in ST.tags) if(ST.tags[k]) n++; return n; }
+function paintTag(c){
+  if(c.classList.contains("got")) return;
+  c.classList.add("got");
+  var b=document.createElement("b"); b.textContent=TL[c.dataset.t]||"";
+  c.insertBefore(b, c.firstChild);
+}
+function afterTags(){
+  $("sc").innerHTML="已標出 <em>"+tagged()+"</em> / 3";
+  if(tagged()===3) $("s1b").hidden=false;
+}
+$("ld").addEventListener("click",function(e){
+  var c=e.target.closest("c"); if(!c) return;
+  if(ST.tags[c.dataset.t]) return;
+  ST.tags[c.dataset.t]=1; save(); paintTag(c); afterTags();
+});
+var set1=quiz("q1","a1","g1","q1");
+opener("g1","s2");
+
+/* ---------- 第二步：放射狀網狀圖 ---------- */
+function drawFig(){
+  if($("fig").firstChild) return;
+  $("fig").hidden=false;
+  var s='<svg viewBox="0 0 420 300" role="img" aria-label="放射狀網狀圖：中間是岩蹄兔，周圍五格是外表和腳、親戚、叫聲、群體生活、人類眼中的牠">';
+  var C={x:210,y:150};
+  var P=[[210,40],[352,112],[312,250],[108,250],[68,112]];
+  var i,d,x,y;
+  for(i=0;i<5;i++) s+='<path class="spoke" d="M'+C.x+' '+C.y+' L'+P[i][0]+' '+P[i][1]+'"/>';
+  d=NODES[0];
+  s+='<g class="node hub" data-i="0" tabindex="0" role="button">';
+  s+='<rect x="'+(C.x-66)+'" y="'+(C.y-29)+'" width="132" height="58" rx="8"/>';
+  s+='<text x="'+C.x+'" y="'+(C.y-9)+'" text-anchor="middle">'+esc(d.nm)+'</text>';
+  s+='<text class="n" x="'+C.x+'" y="'+(C.y+5)+'" text-anchor="middle">'+esc(d.en)+'</text>';
+  s+='<text class="n" x="'+C.x+'" y="'+(C.y+19)+'" text-anchor="middle">第 '+d.a+'–'+d.b+' 行</text>';
+  s+='</g>';
+  for(i=0;i<5;i++){
+    d=NODES[i+1]; x=P[i][0]; y=P[i][1];
+    s+='<g class="node" data-i="'+(i+1)+'" tabindex="0" role="button">';
+    s+='<rect x="'+(x-64)+'" y="'+(y-24)+'" width="128" height="48" rx="5"/>';
+    s+='<text x="'+x+'" y="'+(y-6)+'" text-anchor="middle">'+esc(d.nm)+'</text>';
+    s+='<text class="n" x="'+x+'" y="'+(y+7)+'" text-anchor="middle">'+esc(d.en)+'</text>';
+    s+='<text class="n" x="'+x+'" y="'+(y+19)+'" text-anchor="middle">第 '+d.a+'–'+d.b+' 行</text>';
+    s+='</g>';
+  }
+  s+='</svg><figcaption>中間是主題，周圍五格是五個面向，照課文出現的順序順時針排。格子裡的英文，是每一段第一句報出新面向的說法：another secret、also depends on 這兩個字還特別把格子接在前一格後面。格子和中間之間只有線，沒有箭頭：五個面向沒有誰造成誰，對調兩格，內容仍然成立。點任一格，第四步的課文對應行會亮起來。</figcaption>';
+  $("fig").innerHTML=s;
+  function hit(g){
+    var i=+g.dataset.i, d=NODES[i];
+    var gs=$("fig").querySelectorAll(".node");
+    for(var j=0;j<gs.length;j++) gs[j].classList.toggle("on", +gs[j].dataset.i===i);
+    hlLines(d.a,d.b);
+    $("pk").textContent=(i===0?"網狀圖的中心":"網狀圖的一格"); $("pk").className="k e";
+    $("pc").textContent=d.nm+"　"+d.en; $("pt").textContent=d.n;
+  }
+  $("fig").addEventListener("click",function(e){ var g=e.target.closest(".node"); if(g) hit(g); });
+  $("fig").addEventListener("keydown",function(e){
+    if(e.key!=="Enter"&&e.key!==" ") return;
+    var g=e.target.closest(".node"); if(g){ e.preventDefault(); hit(g); }
+  });
+}
+function afterQ2(){ drawFig(); $("db").hidden=false; }
+var set2=quiz("q2","a2","g2","q2",afterQ2);
+opener("g2","s3",buildRows);
+
+/* ---------- 第三步：把內容放回網狀圖 ---------- */
+var builtRows=false;
+function buildRows(){
+  if(builtRows) return; builtRows=true;
+  var h="";
+  for(var i=0;i<ROWS.length;i++){
+    var r=ROWS[i], bt="";
+    for(var k=0;k<SPOKES.length;k++) bt+='<button data-i="'+i+'" data-v="'+k+'">'+SPOKES[k]+'</button>';
+    h+='<div class="qcard" id="cd'+i+'"><div class="hd"><span class="qt">'+esc(r.f)+'</span></div>'+
+       '<span class="yn">屬於：'+bt+'</span>'+
+       '<span class="bd" id="bd'+i+'"></span></div>';
+  }
+  $("qs").innerHTML=h;
+  $("qs").addEventListener("click",function(e){
+    var b=e.target.closest("button"); if(!b) return;
+    var i=b.dataset.i; if(ST.rows[i]!==undefined&&ST.rows[i]!==null) return;
+    ST.rows[i]=+b.dataset.v; save(); paintRows();
+  });
+  paintRows();
+}
+function isSet(v){ return typeof v==="number"; }
+function judged(){ var n=0; for(var i=0;i<ROWS.length;i++) if(isSet(ST.rows[i])) n++; return n; }
+function rightRows(){ var n=0; for(var i=0;i<ROWS.length;i++) if(ST.rows[i]===ROWS[i].ans) n++; return n; }
+function paintRows(){
+  for(var i=0;i<ROWS.length;i++){
+    var el=$("cd"+i); if(!el) continue;
+    var v=ST.rows[i], r=ROWS[i];
+    el.classList.toggle("open",isSet(v));
+    if(isSet(v)){
+      var ok=(v===r.ans);
+      var head= ok ? ("放對了：這一張屬於「"+SPOKES[r.ans]+"」那一格。") : ("再看一次：這一張其實屬於「"+SPOKES[r.ans]+"」，不是「"+SPOKES[v]+"」。");
+      $("bd"+i).innerHTML='<span class="vd '+(ok?"ok":"ng")+'">'+head+'</span>'+r.note;
+    }
+  }
+  $("sc3").innerHTML="已放 <em>"+judged()+"</em> / "+ROWS.length+"，第一次就放對 <em>"+rightRows()+"</em> 張";
+  if(judged()>=ROWS.length){ $("a3").hidden=false; $("q3w").hidden=false; }
+}
+var set3=quiz("q3","a3b","g3","q3");
+opener("g3","s4",function(){ buildText(); drawFig(); });
+
+/* ---------- 第四步：課文與線索鏈 ---------- */
+function renderLine(str){
+  var out="",i=0;
+  while(i<str.length){
+    var a=str.indexOf("{",i);
+    if(a<0){ out+=esc(str.slice(i)); break; }
+    out+=esc(str.slice(i,a));
+    var b=str.indexOf("}",a), p=str.slice(a+1,b).split("|");
+    var id=p[1], it=p[2]||"1", k=CHAINS[id]?CHAINS[id].k:"sub";
+    out+='<m data-c="'+id+'" data-i="'+it+'" data-kind="'+k+'" tabindex="0">'+esc(p[0])+'</m>';
+    i=b+1;
+  }
+  return out;
+}
+var builtText=false;
+function buildText(){
+  if(builtText) return; builtText=true;
+  var h='<p class="ttl">'+renderLine(TITLE)+'</p>';
+  for(var i=0;i<LINES.length;i++){
+    var n=i+1;
+    if(SPLIT && n===SPLIT) h+='<p class="split">'+esc(SPLIT_TEXT)+'</p>';
+    var cls="ln";
+    if(HEAD[n]) cls+=" sub pb";
+    else if(INDENT[n]) cls+=" ind"+(n>1&&!HEAD[n-1]?" pb":"");
+    h+='<div class="'+cls+'" data-n="'+n+'"><i>'+((n%5===0)?n:"")+'</i><span>'+renderLine(LINES[i])+'</span></div>';
+  }
+  $("tx").innerHTML=h;
+}
+function lightChain(id){
+  var ms=$("tx").querySelectorAll("m"), items={}, order=[],i;
+  var gs=$("fig").querySelectorAll(".node");
+  for(i=0;i<gs.length;i++) gs[i].classList.remove("on");
+  var rows=$("tx").querySelectorAll(".ln");
+  for(i=0;i<rows.length;i++) rows[i].classList.remove("hl");
+  for(i=0;i<ms.length;i++){
+    if(ms[i].dataset.c===id){
+      ms[i].classList.add("lit");
+      var key=ms[i].dataset.i;
+      if(!items[key]){ items[key]=[]; order.push(key); }
+      items[key].push(ms[i].textContent);
+    } else ms[i].classList.remove("lit");
+  }
+  var c=CHAINS[id]; if(!c) return;
+  var parts=[];
+  for(var o=0;o<order.length;o++) parts.push(esc(items[order[o]].join(" ")));
+  $("pk").textContent=LB[c.k]; $("pk").className=CL[c.k];
+  $("pc").innerHTML=parts.join('<i>\u2192</i>');
+  $("pt").textContent=c.n;
+}
+$("tx").addEventListener("click",function(e){ var m=e.target.closest("m"); if(m) lightChain(m.dataset.c); });
+$("tx").addEventListener("keydown",function(e){
+  if(e.key!=="Enter"&&e.key!==" ") return;
+  var m=e.target.closest("m"); if(m){ e.preventDefault(); lightChain(m.dataset.c); }
+});
+function toggle(btn,cls){
+  btn.addEventListener("click",function(){
+    var on=btn.getAttribute("aria-pressed")==="true";
+    btn.setAttribute("aria-pressed",on?"false":"true");
+    $("tx").classList.toggle(cls,on);
+  });
+}
+toggle($("m1"),"off-sub");
+toggle($("m2"),"off-gen");
+opener("g4","s5");
+
+/* ---------- 第五步 ---------- */
+var set5=quiz("q5","a5","g5","q5");
+$("g5").addEventListener("click",function(){
+  if(ST.step<6) ST.step=6; save();
+  $("s6").hidden=false;
+  $("s6").scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+/* ---------- 第六步 ---------- */
+var done6=false;
+function settle6(){
+  done6=true;
+  var bs=$("q6").querySelectorAll("button");
+  for(var i=0;i<bs.length;i++){
+    bs[i].disabled=true; bs[i].dataset.state=bs[i].dataset.ok?"right":"wrong";
+    if(bs[i].dataset.ok){ $("bl").textContent=bs[i].textContent; $("bl").className="blank filled"; }
+  }
+  $("a6").hidden=false; $("w6").hidden=false; $("s7").hidden=false;
+}
+$("q6").addEventListener("click",function(e){
+  var b=e.target.closest("button"); if(!b||done6) return;
+  settle6(); ST.q6=1; save();
+  $("a6").scrollIntoView({behavior:"smooth",block:"nearest"});
+});
+
+/* ---------- 老師的預覽開關：網址加 ?all ---------- */
+function previewAll(){
+  PREVIEW=true;
+  $("pv").hidden=false;
+  var i,cs=$("ld").querySelectorAll("c");
+  for(i=0;i<cs.length;i++){ ST.tags[cs[i].dataset.t]=1; paintTag(cs[i]); }
+  afterTags(); set1();
+  $("s2").hidden=false; set2();
+  $("s3").hidden=false;
+  for(i=0;i<ROWS.length;i++) ST.rows[i]=ROWS[i].ans;
+  buildRows(); set3();
+  $("s4").hidden=false; buildText(); drawFig();
+  $("s5").hidden=false; set5();
+  $("s6").hidden=false; settle6();
+}
+
+/* ---------- 接回上次的進度 ---------- */
+$("rst").addEventListener("click",wipe);
+(function restore(){
+  if(/(^|[?&])all(=|&|$)/.test(location.search)){ previewAll(); return; }
+  var v=load(); if(!v) return;
+  ST=v;
+  if(!ST.tags) ST.tags={};
+  if(!ST.rows) ST.rows={};
+  if(!ST.step) ST.step=1;
+  if(!(tagged()||ST.step>1)) return;
+  $("rs").hidden=false;
+  var i,cs=$("ld").querySelectorAll("c");
+  for(i=0;i<cs.length;i++) if(ST.tags[cs[i].dataset.t]) paintTag(cs[i]);
+  afterTags();
+  if(ST.q1) set1();
+  if(ST.step>=2){ $("s2").hidden=false; if(ST.q2) set2(); }
+  if(ST.step>=3){ $("s3").hidden=false; buildRows(); if(ST.q3) set3(); }
+  if(ST.step>=4){ $("s4").hidden=false; buildText(); drawFig(); }
+  if(ST.step>=5){ $("s5").hidden=false; if(ST.q5) set5(); }
+  if(ST.step>=6){ $("s6").hidden=false; if(ST.q6) settle6(); }
+  var last=$("s"+(ST.step>=6?6:ST.step));
+  if(last) setTimeout(function(){ last.scrollIntoView({block:"start"}); },60);
+})();
+})();
+</script>
+<p class="cc-note">本題庫自己寫的部分（解析、中譯、分類、標註與編排）採用 <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh-hant" target="_blank" rel="license noopener">CC BY-NC 4.0</a>（姓名標示─非商業性）授權：可以分享，但須註明出處，不得用於商業用途。試題來源與完整說明請見<a href="https://staresto-create.github.io/JCEE-vocab-questions/#terms">使用與著作權</a>。</p>
+</body>
+</html>
