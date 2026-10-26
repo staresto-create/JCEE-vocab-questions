@@ -65,7 +65,25 @@
     display:flex; flex-direction:column; align-items:center; gap:6px;
     box-shadow:var(--shadow);
   }
-  .cd-line{display:flex; align-items:baseline; gap:8px;}
+  .cd-line{display:flex; align-items:baseline; justify-content:center; flex-wrap:wrap; gap:8px;}
+  .cd-approx{font-family:'Noto Serif TC','PingFang TC','Microsoft JhengHei',serif; font-weight:700; font-size:17px;}
+  .cd-val{display:inline-flex; align-items:baseline; gap:8px; white-space:nowrap;}
+  .cd-tabs{display:flex; gap:8px; margin-bottom:6px;}
+  .cd-tabs[hidden]{display:none;}
+  .cd-tab{
+    font-family:'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif; font-size:13px; line-height:1.2;
+    min-height:34px; padding:6px 14px; border-radius:17px; cursor:pointer;
+    background:transparent; color:#C9C3B2; border:1px solid #6B6350;
+  }
+  .cd-tab[aria-pressed="true"]{background:#F0C46B; color:#2D2A25; border-color:#F0C46B; font-weight:700;}
+  .cd-tab:focus-visible{outline:2px solid #F0C46B; outline-offset:2px;}
+  .countdown .date{text-align:center;}
+  .countdown .date.note{font-family:'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif; font-size:12px; line-height:1.6;}
+  .countdown .date .nb{display:inline-block;}
+  .countdown .num.sum{font-size:32px; white-space:nowrap;}
+  .cd-sum{font-family:'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif; font-size:13px; color:#E6DFCB; text-align:center;}
+  .cd-sum[hidden]{display:none;}
+  .cd-sum .nb{display:inline-block;}
   .cd-label{font-family:'Noto Serif TC','PingFang TC','Microsoft JhengHei',serif; font-weight:700; font-size:17px;}
   .countdown .num{
     font-family:'Noto Serif TC','PingFang TC','Microsoft JhengHei',serif; font-weight:900; font-size:40px; line-height:1;
@@ -94,6 +112,7 @@
   }
   .card .tag span{white-space:nowrap;}
   .card.zk .tag{color:var(--ad-vcrimson-fg);}
+  @media (max-width:360px){ .card .tag span.qcount{white-space:normal; display:inline-block; max-width:100%; margin-left:0; margin-top:3px; line-height:1.5;} }
   .tag .qcount{background:var(--ad-xEDE6D3-bg); color:var(--ad-vink-fg); font-family:'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif; font-size:10px; letter-spacing:0; text-transform:none; padding:1px 6px; border-radius:8px; margin-left:4px; vertical-align:middle;}
   .card-title{
     font-family:'Noto Serif TC','PingFang TC','Microsoft JhengHei',serif; font-weight:700; font-size:19px; margin:0 0 6px;
@@ -427,12 +446,17 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
   </header>
 
   <div class="countdown" id="countdownBox">
-    <div class="cd-line">
-      <span class="cd-label">116 學測倒數</span>
-      <span class="num" id="countdownNum">–</span>
-      <span class="cd-unit">天</span>
+    <div class="cd-tabs" id="cdTabs" role="group" aria-label="選擇學測屆別">
+      <button type="button" class="cd-tab" data-y="116" aria-pressed="true">116 學測</button>
+      <button type="button" class="cd-tab" data-y="117" aria-pressed="false">117 學測</button>
     </div>
-    <span class="date">考試日期：2027 年 1 月 22 日（五）起</span>
+    <div class="cd-line">
+      <span class="cd-label" id="cdLabel">116 學測倒數</span>
+      <span class="cd-approx" id="cdApprox" hidden>約</span>
+      <span class="cd-val"><span class="num" id="countdownNum">–</span><span class="cd-unit" id="cdUnit">天</span></span>
+    </div>
+    <span class="cd-sum" id="cdSum" hidden></span>
+    <span class="date" id="cdDate">考試日期：2027 年 1 月 22 日（五）起</span>
   </div>
 
   <hr class="rule">
@@ -525,7 +549,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
     </a>
 
     <a class="card" href="https://staresto-create.github.io/essay-prompts/">
-      <span class="tag">Essay Prompts · GSAT ＋ JCEE <span class="qcount">63 題 · 另有自編題 4 題 · 英寫範文 134 篇（進階級 70、基礎級 64）</span></span>
+      <span class="tag">Essay Prompts · GSAT ＋ JCEE <span class="qcount"><span>63 題</span> · <span>另有自編題 4 題</span> · <span>英寫範文 134 篇</span><span>（進階級 70、基礎級 64）</span></span></span>
       <div class="card-title"><span class="cemoji">🗂️</span>歷屆作文題目索引</div>
       <p class="card-desc">學測與指考的英文作文題目，83 學年度至今 63 題全數收錄，另有 4 題本題庫自編的模擬題，每一題都有基礎級和進階級兩種範文，一共 134 篇；基礎級多半在 170 個單詞左右，用字以一、二級為主，另附升級對照與實用句型。<span class="rest">題目可依年度、文體、主題篩選。28 題附原卷圖片，每張標明出處；補考、參考試卷、試辦考試等 10 題非正式考題明確標示。63 題都附範文與中譯，自編題也有，選項題另外針對其他選項多寫了 6 篇。53 道正式考題依當年的官方評分原則逐項對照；參考試卷、試辦與補考的 10 題裡，7 題另寫了範文，3 題沿用歷屆考題，可以直接跳到原題的範文。另附練習題組，分兩種：63 道歷屆作文題與 4 道自編題都附上單字、片語與字詞搭配——先列出這一題用得到的字詞，再附上中譯英練習，譯不出來可以點開提示，寫完再看參考答案；另有八個題組不綁題目，把動筆前的三件事拆開來各自單獨練：寫出主題句、找出離題的句子、把兩段大綱搭起來。題組陸續增補中。另有三段說明：學測與指考的命題方式差在哪裡、為什麼各種寫作任務都要練習，以及平時怎麼廣泛閱讀。</span> <span class="more-btn" role="button" tabindex="0">看更多</span></p>
       <span class="card-arrow">看題目 →</span>
@@ -1113,19 +1137,77 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
 
 <script>
 (function(){
-  var examDate = new Date('2027-01-22T00:00:00+08:00');
-  var now = new Date();
-  var diffMs = examDate - now;
-  var days = Math.ceil(diffMs / (1000*60*60*24));
-  var el = document.getElementById('countdownNum');
-  if(days > 0){
-    el.textContent = days;
-  } else if(days === 0){
-    document.querySelector('.cd-line').innerHTML = '<span class="cd-label">116 學測</span><span class="num">今天！</span>';
-    document.querySelector('.countdown .date').textContent = '祝考試順利！';
-  } else {
-    document.getElementById('countdownBox').style.display = 'none';
+  /* 倒數：116 為官方日期；117 以 116 日期加一年估算，大考中心公布後把 approx 改 false、日期改正式日期 */
+  var EXAMS = {
+    '116': {date:'2027-01-22T00:00:00+08:00', approx:false, text:'考試日期：2027 年 1 月 22 日（五）起'},
+    '117': {date:'2028-01-22T00:00:00+08:00', approx:true,  text:'預估考試日期：2028 年 1 月中下旬，<span class="nb">正式日期以大考中心公告為準</span>'}
+  };
+  var KEY = 'gsatCountdownYear';
+  var box = document.getElementById('countdownBox');
+  var tabs = document.getElementById('cdTabs');
+  var label = document.getElementById('cdLabel');
+  var approx = document.getElementById('cdApprox');
+  var num = document.getElementById('countdownNum');
+  var unit = document.getElementById('cdUnit');
+  var dateEl = document.getElementById('cdDate');
+  var sumEl = document.getElementById('cdSum');
+  if(!box || !tabs) return;
+
+  function daysTo(y, now){ return Math.ceil((new Date(EXAMS[y].date) - now) / 86400000); }
+  function load(){ try{ var v = localStorage.getItem(KEY); return EXAMS[v] ? v : null; }catch(e){ return null; } }
+  function save(v){ try{ localStorage.setItem(KEY, v); }catch(e){} }
+
+  /* 116 已考完就只剩 117，不再顯示切換 */
+  var t0 = Date.now(); /* 同一次計算共用同一個時間點，避免跨午夜時兩個天數差一天 */
+  var has116 = daysTo('116', t0) >= 0;
+  tabs.hidden = !has116;
+
+  function show(y, now){
+    var d = daysTo(y, now);
+    if(d < 0){ box.style.display = 'none'; return; }
+    var ex = EXAMS[y];
+    Array.prototype.forEach.call(tabs.querySelectorAll('.cd-tab'), function(b){
+      b.setAttribute('aria-pressed', b.getAttribute('data-y') === y ? 'true' : 'false');
+    });
+    if(d === 0){
+      label.textContent = y + ' 學測';
+      approx.hidden = true; unit.hidden = true;
+      num.textContent = '今天！';
+      num.classList.remove('sum'); sumEl.hidden = true;
+      dateEl.textContent = '祝考試順利！';
+      dateEl.classList.remove('note');
+      return;
+    }
+    label.textContent = y + ' 學測倒數';
+    var d116 = daysTo('116', now);
+    var split = (y === '117' && d116 > 0 && d - d116 > 0);
+    approx.hidden = !ex.approx || split;
+    unit.hidden = false;
+    /* 117：116 還沒考完時，顯示「一整年 ＋ 116 剩餘天數」，讓人看到時間一天天減少 */
+    if(split){
+      num.textContent = (d - d116) + ' ＋ ' + d116;
+      num.classList.add('sum');
+      sumEl.innerHTML = '<span class="nb">一年 ＋ 116 學測倒數</span>，<span class="nb">合計約 ' + d + ' 天</span>'; /* d 為程式算出的數字 */
+      sumEl.hidden = false;
+    } else {
+      num.textContent = d;
+      num.classList.remove('sum');
+      sumEl.hidden = true;
+    }
+    dateEl.innerHTML = ex.text; /* 固定字串，無外部輸入 */
+    dateEl.classList.toggle('note', ex.approx);
   }
+
+  var cur = has116 ? (load() || '116') : '117';
+  show(cur, t0);
+
+  tabs.addEventListener('click', function(e){
+    var b = e.target.closest ? e.target.closest('.cd-tab') : null;
+    if(!b) return;
+    var y = b.getAttribute('data-y');
+    if(!EXAMS[y]) return;
+    save(y); show(y, Date.now());
+  });
 })();
 
 /* 從外站帶錨點進來時，自動展開對應的摺疊區並捲到定位 */
