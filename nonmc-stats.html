@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>學測英文非選擇題成績統計</title>
+<meta name="description" content="中譯英、作文、混合題的全國平均分數、得分率、高低分組與鑑別度，並可點選自己的分數，看落在全國考生的哪個位置。資料來自大考中心。">
+<style>
+:root{
+  --bg:#F6F1E4; --card:#FFFDF7; --ink:#221F1A; --sub:#5B5648; --line:#DCD3BB;
+  --gold:#8A6420; --gold-soft:#F1EADA; --es:#3E6E52; --tr:#AE3626; --mx:#8A6420;
+  --good:#3E6E52; --shadow:0 1px 0 rgba(34,31,26,.06),0 8px 24px rgba(34,31,26,.08);
+  --cc-fg:#6F685C; --link:#9C2C1E; --you:#8A6420; --slc-es:#3E6E52; --slc-tr:#AE3626;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#1B1916; --card:#26231F; --ink:#F2F0EE; --sub:#DAD8D3; --line:#514A37;
+    --gold:#E0D1B2; --gold-soft:#2B271E; --es:#CBDDD2; --tr:#E4B6B0; --mx:#E0D1B2;
+    --good:#CBDDD2; --shadow:none; --cc-fg:#C2BFBB; --link:#E8BEB9; --you:#E3B54A; --slc-es:#5E9A76; --slc-tr:#D0584A;
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.7 "Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif}
+.wrap{max-width:700px;margin:0 auto;padding:0 20px 60px}
+header.hero{padding:28px 0 8px}
+.kicker{font-family:'IBM Plex Mono','Noto Sans TC','PingFang TC','Microsoft JhengHei',monospace;font-size:11px;letter-spacing:.16em;color:var(--tr);font-weight:600}
+h1,h2,.tile .big,.sub-h{font-family:'Noto Serif TC','PingFang TC','Microsoft JhengHei',serif}
+h1{font-weight:900;font-size:clamp(24px,5.5vw,30px);line-height:1.35;margin:6px 0 8px}
+.lead{color:var(--sub);margin:0 0 4px}
+h2{font-weight:900;font-size:20px;margin:38px 0 4px;line-height:1.4;scroll-margin-top:12px}
+h2 .tag{font-size:12px;font-weight:600;color:var(--gold);background:var(--gold-soft);border-radius:999px;padding:2px 10px;margin-left:8px;vertical-align:2px;white-space:nowrap}
+.sec-lead{color:var(--sub);margin:0 0 14px;font-size:15px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:16px;box-shadow:var(--shadow)}
+/* 三個大數字 */
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}
+.tile{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:12px 10px;text-align:center;border-top-width:4px}
+.tile.es{border-top-color:var(--es)} .tile.tr{border-top-color:var(--tr)} .tile.mx{border-top-color:var(--mx)}
+.tile .nm{font-size:13px;color:var(--sub)}
+.tile .big{font-size:clamp(28px,8vw,40px);font-weight:900;line-height:1.15;font-variant-numeric:tabular-nums}
+.tile.es .big{color:var(--es)} .tile.tr .big{color:var(--tr)} .tile.mx .big{color:var(--mx)}
+.tile .of{font-size:12px;color:var(--sub)}
+.tile .rt{font-size:13px;margin-top:2px}
+.note{font-size:13px;color:var(--sub);margin:8px 0 0}
+/* 查位置 */
+.ctrl{display:grid;grid-template-columns:1fr;gap:14px}
+.row label{display:flex;justify-content:space-between;align-items:baseline;font-weight:600;margin-bottom:4px}
+.row .val{font-size:22px;font-weight:800;font-variant-numeric:tabular-nums}
+.row.es .val{color:var(--es)} .row.tr .val{color:var(--tr)}
+input[type=range]{width:100%;height:36px;accent-color:var(--gold)}
+select{font:inherit;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:4px;padding:8px 10px;min-height:44px}
+.yr{display:flex;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap}
+.res{margin-top:6px;padding:12px 14px;border-radius:4px;background:var(--gold-soft)}
+.res b{font-variant-numeric:tabular-nums}
+.res .l1{font-size:17px}
+.res .l2{font-size:14px;color:var(--sub);margin-top:2px}
+.hist{width:100%;height:auto;display:block;margin-top:8px}
+.hist text{fill:var(--sub);font-size:11px}
+
+.step{display:flex;gap:10px;align-items:flex-start;font-size:16px;margin:4px 0 10px;line-height:1.5}
+.step .n{flex:none;width:26px;height:26px;border-radius:50%;background:#8A6420;color:#fff;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.step.es b{color:var(--es)} .step.tr b{color:var(--tr)}
+.chips{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.chip{font:inherit;font-weight:700;font-size:17px;min-height:46px;border-radius:4px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;font-variant-numeric:tabular-nums;padding:0}
+.chip:hover{border-color:var(--gold)}
+.chip[aria-pressed="true"]{background:var(--gold);border-color:var(--gold);color:#fff}
+#esChips .chip[aria-pressed="true"]{background:#3E6E52;border-color:#3E6E52;color:#fff}
+#trChips .chip[aria-pressed="true"]{background:#AE3626;border-color:#AE3626;color:#fff}
+.half{display:flex;align-items:center;gap:8px;margin:10px 0 4px;font-size:15px;min-height:44px;cursor:pointer}
+.half input{width:20px;height:20px;accent-color:var(--gold)}
+.res.empty{background:transparent;border:1.5px dashed var(--line);color:var(--sub);font-size:15px}
+#trChips{grid-template-columns:repeat(9,1fr)}
+@media (max-width:520px){#trChips{grid-template-columns:repeat(5,1fr)}}
+.hist[hidden]{display:none}
+
+.subj{margin-top:22px}
+.res.pr{display:flex;gap:10px;align-items:center;background:var(--gold-soft)}
+.res.pr.demo{opacity:.85}
+.prbig{flex:none;text-align:center;line-height:1;min-width:84px}
+.prbig .prl{display:block;font-size:12px;letter-spacing:.14em;color:var(--sub);margin-bottom:2px}
+.prbig b{font-family:'Noto Serif TC','PingFang TC','Microsoft JhengHei',serif;font-weight:900;font-size:clamp(38px,11.5vw,46px);font-variant-numeric:tabular-nums}
+.subj.es .prbig b{color:var(--es)} .subj.tr .prbig b{color:var(--tr)}
+.prtxt{font-size:14.5px;line-height:1.6}
+.prtxt .l1{font-size:15.5px}
+.prtxt .l2{font-size:13px;color:var(--sub);margin-top:3px}
+.hist{width:100%;height:auto;display:block;margin-top:10px}
+.hist text{fill:var(--sub);font-size:11px}
+.hist .lab{font-weight:700}
+input.sl{-webkit-appearance:none;appearance:none;width:100%;height:46px;background:transparent;margin:4px 0 0;cursor:pointer;touch-action:pan-y}
+input.sl.es{--c:var(--slc-es)} input.sl.tr{--c:var(--slc-tr)}
+input.sl::-webkit-slider-runnable-track{height:10px;border-radius:5px;background:linear-gradient(to right,var(--c) var(--p,50%),var(--line) var(--p,50%))}
+input.sl::-moz-range-track{height:10px;border-radius:5px;background:var(--line)}
+input.sl::-moz-range-progress{height:10px;border-radius:5px;background:var(--c)}
+input.sl::-webkit-slider-thumb{-webkit-appearance:none;width:36px;height:36px;border-radius:50%;background:var(--c);border:3px solid #fff;box-shadow:0 1px 5px rgba(0,0,0,.45);margin-top:-13px}
+input.sl::-moz-range-thumb{width:30px;height:30px;border-radius:50%;background:var(--c);border:3px solid #fff;box-shadow:0 1px 5px rgba(0,0,0,.45)}
+input.sl:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+@keyframes thumbPulse{0%{box-shadow:0 0 0 0 rgba(169,129,46,.75)}70%{box-shadow:0 0 0 16px rgba(169,129,46,0)}100%{box-shadow:0 0 0 0 rgba(169,129,46,0)}}
+input.sl.nudge::-webkit-slider-thumb{animation:thumbPulse 1.5s ease-out infinite}
+input.sl.nudge::-moz-range-thumb{animation:thumbPulse 1.5s ease-out infinite}
+@media (prefers-reduced-motion:reduce){input.sl.nudge::-webkit-slider-thumb,input.sl.nudge::-moz-range-thumb{animation:none}}
+.slhint{text-align:center;font-size:13.5px;color:var(--sub);margin:0 0 10px;letter-spacing:.05em}
+.slhint.done{visibility:hidden}
+.chips{margin-top:2px}
+.chip{min-height:42px;font-size:16px}
+.fracs{grid-column:1/-1;display:flex;gap:6px;align-items:center;margin-top:4px}.fracs span{font-size:13.5px;color:var(--sub);flex:none;margin-right:2px}.fracs .chip{flex:1;font-size:14.5px;min-height:40px}.chip:disabled{opacity:.4}
+/* 趨勢圖 */
+.chartbox svg{width:100%;height:auto;display:block}
+.chartbox text{fill:var(--sub);font-size:12px}
+@media (max-width:560px){.chartbox text{font-size:21px}}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--sub);margin-top:6px}
+.legend i{display:inline-block;width:18px;height:0;border-top:3px solid;vertical-align:middle;margin-right:6px}
+.readout{min-height:3.2em;font-size:14px;margin-top:8px}
+.readout b{font-variant-numeric:tabular-nums}
+/* 表 */
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;width:100%;font-size:14.5px;font-variant-numeric:tabular-nums}
+th,td{padding:8px 10px;text-align:center;border-bottom:1px solid var(--line);white-space:nowrap}
+th{font-weight:700;color:var(--sub);font-size:13px;background:transparent}
+tr.cur td{font-weight:700;background:var(--gold-soft)}
+td.k,th.k{text-align:left}
+.sub-h{font-size:16px;margin:22px 0 6px;font-weight:700}
+.sub-h.es{color:var(--es)} .sub-h.tr{color:var(--tr)} .sub-h.mx{color:var(--mx)}
+details{margin-top:10px}
+summary{cursor:pointer;font-weight:600;min-height:44px;display:flex;align-items:center}
+summary::before{content:"▸";margin-right:8px;color:var(--gold);transition:transform .2s}
+details[open]>summary::before{transform:rotate(90deg)}
+summary::-webkit-details-marker{display:none}
+details p{margin:4px 0 10px;font-size:15px}
+.src{font-size:14px;color:var(--sub)}
+.src li{margin-bottom:6px}
+footer{margin-top:36px;padding-top:14px;border-top:1px solid var(--line);font-size:13px;color:var(--sub)}
+@media (max-width:520px){ .tiles{gap:6px} .tile{padding:10px 4px} th,td{padding:7px 6px;font-size:13.5px} h2 .tag{display:inline-block;margin:4px 0 0 0} }
+@media print{
+  :root{--bg:#fff;--card:#fff;--ink:#000;--sub:#333;--line:#bbb}
+  .ctrl,.noprint,.sc-back,.unitbar{display:none!important}
+  .card{box-shadow:none}
+}
+
+.shots{display:grid;grid-template-columns:1fr;gap:14px}
+@media (min-width:700px){.shots{grid-template-columns:1fr 1fr}.shot:first-child{grid-column:1/-1}}
+.shot{margin:0;background:var(--card);border:1px solid var(--line);border-radius:4px;overflow:hidden}
+.shot button{display:block;width:100%;padding:0;border:0;background:#fff;cursor:zoom-in}
+.shot img{display:block;width:100%;height:auto}
+.shot figcaption{padding:10px 12px;font-size:13.5px;color:var(--sub);line-height:1.55}
+.shot figcaption b{color:var(--ink)}
+#lb{position:fixed;inset:0;background:rgba(0,0,0,.86);display:none;align-items:center;justify-content:center;z-index:50;padding:12px}
+#lb.on{display:flex}
+#lb img{max-width:100%;max-height:92vh;background:#fff;border-radius:6px}
+#lb .x{position:absolute;top:10px;right:12px;font:inherit;font-size:15px;color:#fff;background:rgba(255,255,255,.18);border:0;border-radius:999px;min-height:44px;padding:0 18px;cursor:pointer}
+@media print{#lb{display:none!important}.shot button{cursor:default}}
+
+/* 防盜用措施（2026-10-14）：畫面浮水印、列印浮水印、頁尾授權聲明 */
+@media screen{body::before{content:"";position:fixed;top:0;left:0;right:0;bottom:0;z-index:2147483000;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22460%22%20height%3D%22240%22%3E%3Cg%20transform%3D%22rotate%28-20%20230%20120%29%22%20font-family%3D%22Noto%20Sans%20TC%2Csans-serif%22%20fill%3D%22%23D9A400%22%20fill-opacity%3D%22.2%22%20text-anchor%3D%22middle%22%3E%3Ctext%20x%3D%22230%22%20y%3D%22112%22%20font-size%3D%2220%22%3E%E9%AB%98%E4%B8%AD%E8%8B%B1%E6%96%87%E9%A1%8C%E5%BA%AB%3C%2Ftext%3E%3Ctext%20x%3D%22230%22%20y%3D%22140%22%20font-size%3D%2214%22%3Estaresto-create.github.io%2FJCEE-vocab-questions%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E");background-repeat:repeat;}}
+@media print{body::after{content:"高中英文題庫\A staresto-create.github.io/JCEE-vocab-questions\A 免費資源，請勿販售";white-space:pre;position:fixed;top:42%;left:0;right:0;text-align:center;transform:rotate(-25deg);font-family:"Noto Sans TC",sans-serif;font-size:26pt;line-height:1.7;color:#c8c8c8;z-index:2147483000;pointer-events:none;}}
+.cc-note{font-size:12px;line-height:1.8;color:var(--cc-fg);margin:12px auto;max-width:60em;padding:0 1em;}.cc-note a{color:inherit;}
+
+.sc-back{font-size:14px;line-height:1.5;margin:0;padding:14px 0 0}
+.sc-back a{color:var(--link);font-weight:700;text-decoration:underline;text-underline-offset:2px;white-space:nowrap;display:inline-block;padding:6px 0}
+.unitbar{margin:14px 0 4px;font-size:14px;line-height:1.5}
+.unitbar .ubrow{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline}
+.unitbar .ublab{color:var(--sub);font-size:12.5px}
+.unitbar a{color:var(--link);text-decoration:underline;text-underline-offset:2px;padding:8px 0;display:inline-block}
+footer{text-align:center}
+footer .cc-note{text-align:left}
+footer a{color:inherit}
+</style>
+</head>
+<body>
+<div class="wrap">
+<p class="sc-back"><a href="https://staresto-create.github.io/JCEE-vocab-questions/">← 回題庫首頁</a></p>
+
+<header class="hero">
+  <div class="kicker">學測英文 · 非選擇題</div>
+  <h1>全國考生的非選擇題平均分數</h1>
+  <p class="lead">中譯英、作文、混合題的全國平均與分數分布。點選自己的分數，就能看到落在全國考生的哪個位置。</p>
+  <div class="tiles" id="tiles"></div>
+  <p class="note">115 學測全國平均。資料來源：大考中心〈115 學科能力測驗試題研討會議—英文考科〉。</p>
+  <nav class="unitbar" aria-label="本頁單元"><div class="ubrow"><span class="ublab">本頁單元</span><a href="#where">我的位置</a><a href="#trend-sec">近 19 年趨勢</a><a href="#official">官方數字</a><a href="#zero">零分與滿分</a><a href="#src">資料來源</a><a href="#shots">簡報原圖</a></div></nav>
+</header>
+
+<section id="where" aria-labelledby="h-where">
+  <h2 id="h-where">我的分數在全國的位置<span class="tag">百分等級 PR</span></h2>
+  <p class="sec-lead">還沒考學測也能先對照。拖曳滑桿或點選模考的作文與中譯英分數（作文滿分 20 分、中譯英滿分 8 分），就能看到同樣的分數放進學測，大約落在百分等級（PR）多少。</p>
+  <div class="card" style="margin-bottom:12px;background:var(--gold-soft)"><b>先看這一點：</b>各校模考的批改寬嚴不一樣，所以這裡只能看出「大概的位置」，不是學測成績的預測。</div>
+  <div class="card">
+    <div class="step"><span class="n">1</span><span>選一個學年來對照（先選最近一次 115 學年就好）</span></div>
+    <div class="yr"><select id="yrSel" aria-label="對照學年"></select></div>
+
+    <div class="subj es" id="es-score" style="scroll-margin-top:12px">
+      <div class="step es"><span class="n">2</span><span><b>作文</b>（滿分 20 分）：<b>左右拖曳圓點</b>，或點下面的分數（有小數再選「再加」）</span></div>
+      <div id="esRes" class="res pr" aria-live="polite"></div>
+      <svg id="esHist" class="hist" viewBox="0 0 360 170" role="img" aria-label="作文分數分布圖"></svg>
+      <input type="range" id="esIn" class="sl es nudge" min="0" max="20" step="0.25" value="7.5" aria-label="作文分數">
+      <div class="slhint" id="esHint">◀　拖曳圓點　▶</div>
+      <div class="chips" id="esChips" role="group" aria-label="作文分數"></div>
+    </div>
+
+    <div class="subj tr" id="tr-score" style="scroll-margin-top:12px">
+      <div class="step tr"><span class="n">3</span><span><b>中譯英</b>（滿分 8 分）：<b>左右拖曳圓點</b>，或點下面的分數（有小數再選「再加」）</span></div>
+      <div id="trRes" class="res pr" aria-live="polite"></div>
+      <svg id="trHist" class="hist" viewBox="0 0 360 170" role="img" aria-label="中譯英分數分布圖"></svg>
+      <input type="range" id="trIn" class="sl tr nudge" min="0" max="8" step="0.25" value="3.5" aria-label="中譯英分數">
+      <div class="slhint" id="trHint">◀　拖曳圓點　▶</div>
+      <div class="chips" id="trChips" role="group" aria-label="中譯英分數"></div>
+    </div>
+    <p class="note"><b>為什麼分數會有小數？</b>每份答案卷由兩位閱卷委員分別評分，最後成績取兩人給分的平均，所以實際成績可能是 12.25、12.5 這樣的小數。如果兩人的分數相差超過規定的標準（中譯英超過 2 分、作文超過 5 分），會再由第三位委員評閱。出處：大考中心〈115 學年度學科能力測驗英文考科非選擇題閱卷評分原則說明〉（兩位委員評分、取平均、第三閱）；〈國語文寫作能力測驗及英文科非選擇題各題題分及需第三閱差分表〉（115 學年度，差分標準）。</p>
+    <p class="note">百分等級（PR）是指分數比你低的考生佔全部考生的百分比。計算依據是大考中心公布的「英文科非選擇題分數人數統計表」，以一分為一個區間，所以只能算出一個範圍，圖上金黃色的長條就是你所在的區間。</p>
+  </div>
+</section>
+
+<section id="trend-sec" aria-labelledby="h-trend">
+  <h2 id="h-trend">近 19 年的得分率<span class="tag">97–115 學年</span></h2>
+  <p class="sec-lead" id="trendLead"></p>
+  <div class="card chartbox">
+    <svg id="trend" viewBox="0 0 640 300" role="img" aria-label="97 到 115 學年作文與中譯英平均得分率折線圖"></svg>
+    <div class="legend">
+      <span><i style="border-color:var(--es)"></i>作文</span>
+      <span><i style="border-color:var(--tr)"></i>中譯英</span>
+      <span>● 大考中心公布值（111–115）　○ 依公布的分數分布推算（97–110）</span>
+    </div>
+    <div class="readout" id="readout" aria-live="polite">點選圖上的學年，看當年的數字。</div>
+    <details><summary>用表格看 97–115 學年的數字</summary><div class="tw"><table id="tAll"></table></div><p class="note">97–110 學年為依分數人數統計表推算的數字。</p></details>
+  </div>
+</section>
+
+<section id="official" aria-labelledby="h-off">
+  <h2 id="h-off">大考中心公布的數字<span class="tag">111–115 學測</span></h2>
+  <p class="sec-lead">高分組、低分組與鑑別度只在大考中心的研討會議簡報裡公布，這一節的數字都照簡報原樣列出。表中「平均」為平均分數，「高分組」「低分組」為兩組的平均分數。</p>
+  <div class="card">
+    <div class="sub-h">中譯英與作文合計（28 分）</div>
+    <div class="tw"><table id="tTot"></table></div>
+
+    <div class="sub-h es">作文（滿分 20）</div>
+    <div class="tw"><table id="tEs"></table></div>
+
+    <div class="sub-h tr">中譯英（滿分 8）</div>
+    <div class="tw"><table id="tTr"></table></div>
+
+    <div class="sub-h mx">混合題（滿分 10）</div>
+    <div class="tw"><table id="tMx"></table></div>
+
+    <details>
+      <summary>鑑別度是什麼？</summary>
+      <p>鑑別度＝（高分組平均－低分組平均）÷ 該題滿分。高分組與低分組是依英文考科總分分出來的，所以鑑別度越高，代表這一題越能把整份英文考卷表現好的考生與表現較弱的考生分開。例如 115 學測作文：（12.13－3.14）÷ 20 ≈ .45。因為簡報的平均已四捨五入，自己用表中數字代入，個別年度可能差 .01（例如 114 學年中譯英，代入得 .49，簡報列 .50）。</p>
+    </details>
+  </div>
+</section>
+
+<section id="zero" aria-labelledby="h-zero">
+  <h2 id="h-zero">零分與滿分的人數<span class="tag">111–115 學測</span></h2>
+  <div class="card"><div class="sub-h es">作文</div><div class="tw"><table id="tZE"></table></div><div class="sub-h tr">中譯英</div><div class="tw"><table id="tZT"></table></div><p class="note">表中數字照簡報原樣列出。簡報中 115 學年中譯英零分人數（14,657 人）與所列百分比（11.21%）換算略有出入，這裡不自行更動。</p></div>
+</section>
+
+<section id="src" aria-labelledby="h-src">
+  <h2 id="h-src">資料來源與計算方式</h2>
+  <div class="card">
+    <ul class="src">
+      <li><b>111–115 學年</b>：大考中心〈115 學科能力測驗試題研討會議—英文考科〉簡報（115 年 4 月 12 日）。平均分數、得分率、高分組、低分組、鑑別度、零分與滿分人數，皆為簡報公布值。</li>
+      <li><b>97–110 學年</b>：大考中心「學測統計圖表」中的「英文科非選擇題分數人數統計表」，依各分數區間的人數推算平均與得分率。推算方法在 111–115 學年與簡報公布值比對，誤差在 0.02 分以內。這幾年的高分組、低分組與鑑別度沒有公開，所以不列。</li>
+      <li><b>混合題</b>：110 學測起為試辦、111 學測起正式納入，目前只有 111–115 學年的公布值。</li>
+      <li><b>閱卷方式</b>：每份答案卷由兩位委員分別評分、取平均，差分超過標準時送第三閱，出處為大考中心〈115 學年度學科能力測驗英文考科非選擇題閱卷評分原則說明〉。差分標準（中譯英 &gt;2 分、作文 &gt;5 分），出處為〈國語文寫作能力測驗及英文科非選擇題各題題分及需第三閱差分表〉（115 學年度）。</li>
+      <li>得分率＝平均分數 ÷ 該題滿分。各年試題與評分不同，年度之間的比較只能看大致高低。</li>
+    </ul>
+  </div>
+</section>
+
+<section id="shots" aria-labelledby="h-shots">
+  <h2 id="h-shots">簡報原圖<span class="tag">大考中心</span></h2>
+  <p class="sec-lead">表中合計、作文、中譯英的數字，來自這幾張簡報頁面，點一下可以放大。</p>
+  <div class="shots">
+    <figure class="shot"><button type="button" data-k="nonmc" aria-label="放大：非選擇題合計"><img alt="111–115 學測非選擇題平均分數、平均得分率與鑑別度" src="nonmc-stats/slide_total.jpg" width="1000" height="530" loading="lazy" decoding="async"></button>
+      <figcaption><b>非選擇題合計</b>（中譯英＋作文）<br>〈115 學科能力測驗試題研討會議—英文考科〉，大考中心，115 年 4 月</figcaption></figure>
+    <figure class="shot"><button type="button" data-k="tr" aria-label="放大：中譯英"><img alt="中譯英平均分數、平均得分率及鑑別度" src="nonmc-stats/slide_translation.jpg" width="1000" height="594" loading="lazy" decoding="async"></button>
+      <figcaption><b>中譯英</b>：含高分組、低分組平均<br>〈115 學科能力測驗試題研討會議—英文考科〉，大考中心，115 年 4 月</figcaption></figure>
+    <figure class="shot"><button type="button" data-k="es" aria-label="放大：英文作文"><img alt="英文作文平均分數、平均得分率及鑑別度" src="nonmc-stats/slide_essay.jpg" width="1000" height="570" loading="lazy" decoding="async"></button>
+      <figcaption><b>英文作文</b>：含高分組、低分組平均<br>〈115 學科能力測驗試題研討會議—英文考科〉，大考中心，115 年 4 月</figcaption></figure>
+  </div>
+</section>
+
+<div id="lb" role="dialog" aria-modal="true" aria-label="放大檢視"><button type="button" class="x" id="lbx">關閉</button><img id="lbi" alt=""></div>
+
+<footer>
+  © 2026 staresto-create ZZSH · 免費、無廣告的非營利自學題庫
+  <p class="cc-note">本頁資料出自大考中心。本頁自行整理的部分（計算、圖表與編排）採用 <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh-hant" target="_blank" rel="license noopener">CC BY-NC 4.0</a>（姓名標示─非商業性）授權：可以分享，但須註明出處，不得用於商業用途。表中的數字與簡報內容，著作權屬大考中心，引用請標明大考中心與簡報名稱。完整說明請見<a href="https://staresto-create.github.io/JCEE-vocab-questions/#terms">使用與著作權</a>。</p>
+</footer>
+</div>
+
+<script>
+var DATA={"97":{"tr":[[8.0,8.99,2.866],[7.0,7.99,11.198],[6.0,6.99,16.771],[5.0,5.99,16.936],[4.0,4.99,12.963],[3.0,3.99,9.386],[2.0,2.99,7.886],[1.0,1.99,7.944],[0.01,0.99,3.402],[0.0,0.0,10.647]],"tr_n":147085,"es":[[20.0,20.0,0.003],[19.0,19.99,0.016],[18.0,18.99,0.113],[17.0,17.99,0.426],[16.0,16.99,0.959],[15.0,15.99,1.874],[14.0,14.99,3.179],[13.0,13.99,4.352],[12.0,12.99,5.587],[11.0,11.99,6.082],[10.0,10.99,7.154],[9.0,9.99,7.714],[8.0,8.99,8.477],[7.0,7.99,8.35],[6.0,6.99,7.793],[5.0,5.99,6.945],[4.0,4.99,5.838],[3.0,3.99,4.879],[2.0,2.99,4.041],[1.0,1.99,3.398],[0.01,0.99,1.829],[0.0,0.0,10.992]],"es_n":147085,"es_mean":7.09,"tr_mean":4.22,"tr_est":true},"98":{"tr":[[8.0,8.99,0.636],[7.0,7.99,4.508],[6.0,6.99,9.41],[5.0,5.99,12.487],[4.0,4.99,13.797],[3.0,3.99,13.045],[2.0,2.99,12.322],[1.0,1.99,12.106],[0.01,0.99,5.792],[0.0,0.0,15.898]],"tr_n":139512,"es":[[19.0,19.99,0.017],[18.0,18.99,0.121],[17.0,17.99,0.335],[16.0,16.99,0.831],[15.0,15.99,1.516],[14.0,14.99,2.676],[13.0,13.99,3.481],[12.0,12.99,4.474],[11.0,11.99,4.835],[10.0,10.99,5.821],[9.0,9.99,6.351],[8.0,8.99,7.234],[7.0,7.99,7.556],[6.0,6.99,7.601],[5.0,5.99,6.894],[4.0,4.99,6.356],[3.0,3.99,5.32],[2.0,2.99,4.982],[1.0,1.99,4.785],[0.01,0.99,2.712],[0.0,0.0,16.1]],"es_n":139512,"es_mean":6.18,"tr_mean":3.18,"tr_est":true},"99":{"tr":[[8.0,8.99,0.443],[7.0,7.99,3.761],[6.0,6.99,9.007],[5.0,5.99,13.422],[4.0,4.99,16.457],[3.0,3.99,16.485],[2.0,2.99,14.656],[1.0,1.99,11.818],[0.01,0.99,3.128],[0.0,0.0,10.822]],"tr_n":140054,"es":[[20.0,20.0,0.001],[19.0,19.99,0.029],[18.0,18.99,0.161],[17.0,17.99,0.413],[16.0,16.99,0.997],[15.0,15.99,1.968],[14.0,14.99,3.255],[13.0,13.99,4.387],[12.0,12.99,5.616],[11.0,11.99,6.185],[10.0,10.99,7.137],[9.0,9.99,7.719],[8.0,8.99,8.283],[7.0,7.99,8.197],[6.0,6.99,7.765],[5.0,5.99,6.817],[4.0,4.99,5.867],[3.0,3.99,4.872],[2.0,2.99,4.016],[1.0,1.99,3.526],[0.01,0.99,1.704],[0.0,0.0,11.084]],"es_n":140054,"es_mean":7.11,"tr_mean":3.39,"tr_est":true},"100":{"tr":[[8.0,8.99,2.031],[7.0,7.99,12.338],[6.0,6.99,18.081],[5.0,5.99,15.724],[4.0,4.99,12.522],[3.0,3.99,9.878],[2.0,2.99,8.88],[1.0,1.99,7.64],[0.01,0.99,1.982],[0.0,0.0,10.924]],"tr_n":143852,"es":[[20.0,20.0,0.002],[19.0,19.99,0.04],[18.0,18.99,0.201],[17.0,17.99,0.698],[16.0,16.99,1.654],[15.0,15.99,3.257],[14.0,14.99,5.271],[13.0,13.99,6.346],[12.0,12.99,7.146],[11.0,11.99,7.116],[10.0,10.99,7.693],[9.0,9.99,7.759],[8.0,8.99,7.939],[7.0,7.99,7.493],[6.0,6.99,6.389],[5.0,5.99,5.611],[4.0,4.99,4.443],[3.0,3.99,3.83],[2.0,2.99,3.173],[1.0,1.99,2.8],[0.01,0.99,1.478],[0.0,0.0,9.661]],"es_n":143852,"es_mean":8.02,"tr_mean":4.26,"tr_est":true},"101":{"tr":[[8.0,8.99,0.5],[7.0,7.99,3.233],[6.0,6.99,7.278],[5.0,5.99,10.584],[4.0,4.99,12.835],[3.0,3.99,13.847],[2.0,2.99,14.897],[1.0,1.99,16.124],[0.01,0.99,5.967],[0.0,0.0,14.734]],"tr_n":152340,"es":[[20.0,20.0,0.001],[19.0,19.99,0.03],[18.0,18.99,0.259],[17.0,17.99,0.72],[16.0,16.99,1.581],[15.0,15.99,2.892],[14.0,14.99,4.423],[13.0,13.99,5.492],[12.0,12.99,6.521],[11.0,11.99,6.812],[10.0,10.99,7.573],[9.0,9.99,7.745],[8.0,8.99,8.156],[7.0,7.99,7.905],[6.0,6.99,7.219],[5.0,5.99,6.015],[4.0,4.99,5.154],[3.0,3.99,4.049],[2.0,2.99,3.482],[1.0,1.99,2.977],[0.01,0.99,1.449],[0.0,0.0,9.544]],"es_n":152340,"es_mean":7.78,"tr_mean":2.93,"tr_est":true},"102":{"tr":[[8.0,8.99,0.408],[7.0,7.99,6.041],[6.0,6.99,14.143],[5.0,5.99,15.389],[4.0,4.99,13.893],[3.0,3.99,11.109],[2.0,2.99,9.239],[1.0,1.99,8.813],[0.01,0.99,3.388],[0.0,0.0,17.578]],"tr_n":147750,"es":[[20.0,20.0,0.002],[19.0,19.99,0.057],[18.0,18.99,0.349],[17.0,17.99,1.112],[16.0,16.99,2.368],[15.0,15.99,4.048],[14.0,14.99,5.718],[13.0,13.99,6.803],[12.0,12.99,7.255],[11.0,11.99,7.346],[10.0,10.99,7.493],[9.0,9.99,7.628],[8.0,8.99,7.462],[7.0,7.99,7.023],[6.0,6.99,6.235],[5.0,5.99,5.256],[4.0,4.99,4.296],[3.0,3.99,3.452],[2.0,2.99,3.003],[1.0,1.99,2.662],[0.01,0.99,1.249],[0.0,0.0,9.184]],"es_n":147750,"es_mean":8.37,"tr_mean":3.53,"tr_est":true},"103":{"tr":[[8.0,8.99,1.364],[7.0,7.99,8.003],[6.0,6.99,13.172],[5.0,5.99,14.604],[4.0,4.99,14.946],[3.0,3.99,13.647],[2.0,2.99,11.536],[1.0,1.99,9.462],[0.01,0.99,2.305],[0.0,0.0,10.963]],"tr_n":145575,"es":[[20.0,20.0,0.005],[19.0,19.99,0.106],[18.0,18.99,0.471],[17.0,17.99,1.337],[16.0,16.99,2.685],[15.0,15.99,4.163],[14.0,14.99,5.879],[13.0,13.99,6.856],[12.0,12.99,7.403],[11.0,11.99,7.395],[10.0,10.99,7.369],[9.0,9.99,7.404],[8.0,8.99,7.168],[7.0,7.99,6.569],[6.0,6.99,5.884],[5.0,5.99,4.913],[4.0,4.99,4.29],[3.0,3.99,3.503],[2.0,2.99,3.176],[1.0,1.99,3.352],[0.01,0.99,1.656],[0.0,0.0,8.416]],"es_n":145575,"es_mean":8.45,"tr_mean":3.84,"tr_est":true},"104":{"tr":[[8.0,8.99,1.564],[7.0,7.99,11.111],[6.0,6.99,18.303],[5.0,5.99,16.846],[4.0,4.99,12.783],[3.0,3.99,9.321],[2.0,2.99,7.999],[1.0,1.99,7.642],[0.01,0.99,1.569],[0.0,0.0,12.863]],"tr_n":143883,"es":[[20.0,20.0,0.003],[19.0,19.99,0.031],[18.0,18.99,0.253],[17.0,17.99,0.916],[16.0,16.99,2.052],[15.0,15.99,3.766],[14.0,14.99,5.812],[13.0,13.99,7.162],[12.0,12.99,7.725],[11.0,11.99,7.428],[10.0,10.99,7.676],[9.0,9.99,7.245],[8.0,8.99,7.169],[7.0,7.99,6.345],[6.0,6.99,5.723],[5.0,5.99,4.864],[4.0,4.99,4.114],[3.0,3.99,3.583],[2.0,2.99,3.267],[1.0,1.99,3.615],[0.01,0.99,1.874],[0.0,0.0,9.378]],"es_n":143883,"es_mean":8.22,"tr_mean":4.18,"tr_est":true},"105":{"tr":[[8.0,8.99,3.534],[7.0,7.99,11.746],[6.0,6.99,17.684],[5.0,5.99,17.975],[4.0,4.99,14.522],[3.0,3.99,10.557],[2.0,2.99,8.066],[1.0,1.99,5.715],[0.01,0.99,1.112],[0.0,0.0,9.089]],"tr_n":133184,"es":[[20.0,20.99,0.001],[19.0,19.99,0.073],[18.0,18.99,0.47],[17.0,17.99,1.441],[16.0,16.99,2.941],[15.0,15.99,4.838],[14.0,14.99,6.969],[13.0,13.99,7.871],[12.0,12.99,8.385],[11.0,11.99,8.218],[10.0,10.99,7.842],[9.0,9.99,7.389],[8.0,8.99,6.947],[7.0,7.99,5.915],[6.0,6.99,5.042],[5.0,5.99,4.09],[4.0,4.99,3.456],[3.0,3.99,2.827],[2.0,2.99,2.37],[1.0,1.99,2.418],[0.01,0.99,1.096],[0.0,0.0,9.401]],"es_n":133184,"es_mean":8.9,"tr_mean":4.5,"tr_est":true},"106":{"tr":[[8.0,8.99,1.017],[7.0,7.99,5.751],[6.0,6.99,10.17],[5.0,5.99,11.9],[4.0,4.99,12.428],[3.0,3.99,12.775],[2.0,2.99,13.248],[1.0,1.99,15.813],[0.01,0.99,3.476],[0.0,0.0,13.422]],"tr_n":126702,"es":[[20.0,20.99,0.007],[19.0,19.99,0.084],[18.0,18.99,0.355],[17.0,17.99,1.051],[16.0,16.99,2.275],[15.0,15.99,3.662],[14.0,14.99,5.271],[13.0,13.99,6.327],[12.0,12.99,6.721],[11.0,11.99,6.815],[10.0,10.99,7.039],[9.0,9.99,7.166],[8.0,8.99,7.374],[7.0,7.99,7.079],[6.0,6.99,6.886],[5.0,5.99,5.876],[4.0,4.99,4.903],[3.0,3.99,4.177],[2.0,2.99,3.436],[1.0,1.99,3.503],[0.01,0.99,1.608],[0.0,0.0,8.382]],"es_n":126702,"es_mean":8.09,"tr_mean":3.3,"tr_est":true},"107":{"tr":[[8.0,8.99,3.794],[7.0,7.99,13.96],[6.0,6.99,17.051],[5.0,5.99,15.435],[4.0,4.99,13.293],[3.0,3.99,10.719],[2.0,2.99,7.98],[1.0,1.99,5.927],[0.01,0.99,1.464],[0.0,0.0,10.377]],"tr_n":134277,"es":[[20.0,20.0,0.013],[19.0,19.99,0.156],[18.0,18.99,0.635],[17.0,17.99,1.632],[16.0,16.99,3.138],[15.0,15.99,4.902],[14.0,14.99,6.242],[13.0,13.99,6.786],[12.0,12.99,7.22],[11.0,11.99,6.803],[10.0,10.99,6.829],[9.0,9.99,6.641],[8.0,8.99,6.651],[7.0,7.99,6.081],[6.0,6.99,5.542],[5.0,5.99,4.759],[4.0,4.99,4.083],[3.0,3.99,3.465],[2.0,2.99,3.149],[1.0,1.99,3.281],[0.01,0.99,1.467],[0.0,0.0,10.525]],"es_n":134277,"es_mean":8.43,"tr_mean":4.46,"tr_est":true},"108":{"tr":[[8.0,8.99,0.154],[7.0,7.99,3.935],[6.0,6.99,10.233],[5.0,5.99,13.115],[4.0,4.99,13.801],[3.0,3.99,13.229],[2.0,2.99,12.084],[1.0,1.99,14.215],[0.01,0.99,9.001],[0.0,0.0,10.233]],"tr_n":135948,"es":[[20.0,20.0,0.014],[19.0,19.99,0.143],[18.0,18.99,0.529],[17.0,17.99,1.242],[16.0,16.99,2.311],[15.0,15.99,3.569],[14.0,14.99,4.796],[13.0,13.99,5.512],[12.0,12.99,6.171],[11.0,11.99,6.221],[10.0,10.99,6.273],[9.0,9.99,6.484],[8.0,8.99,6.657],[7.0,7.99,6.783],[6.0,6.99,6.44],[5.0,5.99,6.023],[4.0,4.99,5.38],[3.0,3.99,4.725],[2.0,2.99,4.279],[1.0,1.99,4.768],[0.01,0.99,2.033],[0.0,0.0,9.647]],"es_n":135948,"es_mean":7.68,"tr_mean":3.22,"tr_est":true},"109":{"tr":[[8.0,8.99,0.581],[7.0,7.99,6.674],[6.0,6.99,16.096],[5.0,5.99,21.639],[4.0,4.99,19.366],[3.0,3.99,13.489],[2.0,2.99,8.091],[1.0,1.99,4.654],[0.01,0.99,2.259],[0.0,0.0,7.151]],"tr_n":131054,"es":[[20.0,20.0,0.013],[19.0,19.99,0.081],[18.0,18.99,0.341],[17.0,17.99,0.918],[16.0,16.99,1.994],[15.0,15.99,3.342],[14.0,14.99,5.061],[13.0,13.99,6.474],[12.0,12.99,7.134],[11.0,11.99,7.177],[10.0,10.99,7.299],[9.0,9.99,7.32],[8.0,8.99,7.237],[7.0,7.99,6.945],[6.0,6.99,6.16],[5.0,5.99,5.216],[4.0,4.99,4.226],[3.0,3.99,3.704],[2.0,2.99,3.452],[1.0,1.99,4.425],[0.01,0.99,1.703],[0.0,0.0,9.78]],"es_n":131054,"es_mean":7.96,"tr_mean":4.27,"tr_est":true},"110":{"tr":[[8.0,8.99,0.399],[7.0,7.99,6.084],[6.0,6.99,13.889],[5.0,5.99,17.796],[4.0,4.99,17.254],[3.0,3.99,14.095],[2.0,2.99,10.172],[1.0,1.99,7.792],[0.01,0.99,3.926],[0.0,0.0,8.593]],"tr_n":125995,"es":[[20.0,20.0,0.006],[19.0,19.99,0.071],[18.0,18.99,0.321],[17.0,17.99,0.927],[16.0,16.99,1.962],[15.0,15.99,3.62],[14.0,14.99,5.49],[13.0,13.99,6.765],[12.0,12.99,7.313],[11.0,11.99,7.706],[10.0,10.99,7.687],[9.0,9.99,7.572],[8.0,8.99,7.576],[7.0,7.99,7.105],[6.0,6.99,6.19],[5.0,5.99,4.888],[4.0,4.99,4.011],[3.0,3.99,3.318],[2.0,2.99,2.975],[1.0,1.99,3.445],[0.01,0.99,1.513],[0.0,0.0,9.54]],"es_n":125995,"es_mean":8.21,"tr_mean":3.9,"tr_est":true},"111":{"tr":[[8.0,8.99,0.173],[7.0,7.99,4.08],[6.0,6.99,11.357],[5.0,5.99,14.581],[4.0,4.99,14.54],[3.0,3.99,13.288],[2.0,2.99,11.879],[1.0,1.99,9.89],[0.01,0.99,6.036],[0.0,0.0,14.177]],"tr_n":113756,"es":[[20.0,20.99,0.004],[19.0,19.99,0.087],[18.0,18.99,0.44],[17.0,17.99,1.225],[16.0,16.99,2.498],[15.0,15.99,4.018],[14.0,14.99,5.831],[13.0,13.99,6.937],[12.0,12.99,7.51],[11.0,11.99,7.759],[10.0,10.99,7.857],[9.0,9.99,7.76],[8.0,8.99,7.437],[7.0,7.99,6.641],[6.0,6.99,5.711],[5.0,5.99,4.509],[4.0,4.99,3.677],[3.0,3.99,3.139],[2.0,2.99,3.032],[1.0,1.99,3.18],[0.01,0.99,1.012],[0.0,0.0,9.735]],"es_n":113756,"es_mean":8.45,"tr_mean":3.34,"tr_est":false},"112":{"tr":[[8.0,8.99,0.102],[7.0,7.99,2.155],[6.0,6.99,7.641],[5.0,5.99,12.931],[4.0,4.99,15.75],[3.0,3.99,15.043],[2.0,2.99,13.266],[1.0,1.99,12.377],[0.01,0.99,7.72],[0.0,0.0,13.015]],"tr_n":115919,"es":[[20.0,20.99,0.001],[19.0,19.99,0.04],[18.0,18.99,0.274],[17.0,17.99,0.825],[16.0,16.99,1.774],[15.0,15.99,3.209],[14.0,14.99,4.703],[13.0,13.99,6.071],[12.0,12.99,6.889],[11.0,11.99,7.291],[10.0,10.99,7.237],[9.0,9.99,7.347],[8.0,8.99,7.453],[7.0,7.99,7.34],[6.0,6.99,6.639],[5.0,5.99,5.811],[4.0,4.99,4.746],[3.0,3.99,3.924],[2.0,2.99,3.609],[1.0,1.99,3.693],[0.01,0.99,1.364],[0.0,0.0,9.759]],"es_n":115919,"es_mean":7.87,"tr_mean":3.06,"tr_est":false},"113":{"tr":[[8.0,8.99,0.146],[7.0,7.99,3.322],[6.0,6.99,9.098],[5.0,5.99,12.415],[4.0,4.99,13.85],[3.0,3.99,13.938],[2.0,2.99,12.826],[1.0,1.99,10.765],[0.01,0.99,6.054],[0.0,0.0,17.587]],"tr_n":117106,"es":[[20.0,20.99,0.018],[19.0,19.99,0.145],[18.0,18.99,0.496],[17.0,17.99,1.207],[16.0,16.99,2.274],[15.0,15.99,3.842],[14.0,14.99,5.777],[13.0,13.99,6.971],[12.0,12.99,7.467],[11.0,11.99,7.532],[10.0,10.99,7.503],[9.0,9.99,7.383],[8.0,8.99,7.189],[7.0,7.99,6.638],[6.0,6.99,5.835],[5.0,5.99,4.891],[4.0,4.99,3.92],[3.0,3.99,3.281],[2.0,2.99,3.108],[1.0,1.99,3.213],[0.01,0.99,1.236],[0.0,0.0,10.07]],"es_n":117106,"es_mean":8.33,"tr_mean":3.05,"tr_est":false},"114":{"tr":[[8.0,8.99,0.039],[7.0,7.99,0.873],[6.0,6.99,3.965],[5.0,5.99,9.214],[4.0,4.99,13.672],[3.0,3.99,15.535],[2.0,2.99,14.989],[1.0,1.99,14.74],[0.01,0.99,11.699],[0.0,0.0,15.275]],"tr_n":117866,"es":[[20.0,20.99,0.002],[19.0,19.99,0.038],[18.0,18.99,0.257],[17.0,17.99,0.801],[16.0,16.99,1.827],[15.0,15.99,3.371],[14.0,14.99,5.175],[13.0,13.99,6.736],[12.0,12.99,7.616],[11.0,11.99,7.587],[10.0,10.99,7.827],[9.0,9.99,7.626],[8.0,8.99,7.485],[7.0,7.99,7.095],[6.0,6.99,6.321],[5.0,5.99,5.301],[4.0,4.99,4.295],[3.0,3.99,3.389],[2.0,2.99,2.876],[1.0,1.99,2.784],[0.01,0.99,0.976],[0.0,0.0,10.616]],"es_n":117866,"es_mean":8.13,"tr_mean":2.54,"tr_est":false},"115":{"tr":[[8.0,8.99,0.217],[7.0,7.99,5.073],[6.0,6.99,12.29],[5.0,5.99,13.977],[4.0,4.99,12.853],[3.0,3.99,11.769],[2.0,2.99,12.677],[1.0,1.99,13.911],[0.01,0.99,6.026],[0.0,0.0,11.207]],"tr_n":118169,"es":[[20.0,20.99,0.001],[19.0,19.99,0.042],[18.0,18.99,0.267],[17.0,17.99,0.759],[16.0,16.99,1.536],[15.0,15.99,2.716],[14.0,14.99,4.467],[13.0,13.99,5.738],[12.0,12.99,6.757],[11.0,11.99,7.147],[10.0,10.99,7.37],[9.0,9.99,7.422],[8.0,8.99,7.73],[7.0,7.99,7.641],[6.0,6.99,7.152],[5.0,5.99,6.242],[4.0,4.99,4.86],[3.0,3.99,3.757],[2.0,2.99,3.278],[1.0,1.99,3.678],[0.01,0.99,1.442],[0.0,0.0,9.998]],"es_n":118169,"es_mean":7.74,"tr_mean":3.4,"tr_est":false}};
+var ES={115:[7.74,38.7,12.13,3.14,.45],114:[8.13,40.65,12.59,3.32,.46],113:[8.34,41.7,12.97,3.34,.48],112:[7.87,39.35,12.41,3.09,.47],111:[8.46,42.3,13.09,3.50,.48]};
+var TR={115:[3.40,42.50,5.69,1.04,.58],114:[2.54,31.75,4.54,.59,.50],113:[3.05,38.13,5.35,.74,.58],112:[3.06,38.25,5.15,.85,.54],111:[3.34,41.75,5.62,.91,.59]};
+var MX={115:[3.27,32.7,.52],114:[4.19,41.90,.71],113:[4.33,43.30,.61],112:[3.10,31.00,.43],111:[4.34,43.40,.64]};
+var TOT={115:[11.14,39.79,.49],114:[10.67,38.11,.47],113:[11.39,40.67,.51],112:[10.93,39.04,.49],111:[11.8,42.14,.51]};
+var ZT={115:[14657,"11.21",256],114:[18004,"15.27",46],113:[20595,"17.59",171],112:[15087,"13.02",118],111:[16127,"14.18",197]};
+var ZE={115:[11815,"10.00",1],114:[12513,"10.62",2],113:[11793,"10.07",21],112:[11313,"9.76",1],111:[11074,"9.73",4]};
+var YEARS=[];for(var y=115;y>=97;y--)YEARS.push(y);
+var OFF=[115,114,113,112,111];
+function $(i){return document.getElementById(i)}
+function f2(x){return (Math.round(x*100)/100).toFixed(2)}
+function f1(x){return (Math.round(x*10)/10).toFixed(1)}
+function dd(x){return x.toFixed(2).replace(/^0\./,'.')}
+function esMean(y){return ES[y]?ES[y][0]:DATA[y].es_mean}
+function trMean(y){return TR[y]?TR[y][0]:DATA[y].tr_mean}
+function esRate(y){return ES[y]?ES[y][1]:esMean(y)/20*100}
+function trRate(y){return TR[y]?TR[y][1]:trMean(y)/8*100}
+
+/* 大數字 */
+$('tiles').innerHTML=
+ '<div class="tile es"><div class="nm">作文</div><div class="big">'+f2(ES[115][0])+'</div><div class="of">滿分 20</div><div class="rt">得分率 '+f1(ES[115][1])+'%</div></div>'+
+ '<div class="tile tr"><div class="nm">中譯英</div><div class="big">'+f2(TR[115][0])+'</div><div class="of">滿分 8</div><div class="rt">得分率 '+f1(TR[115][1])+'%</div></div>'+
+ '<div class="tile mx"><div class="nm">混合題</div><div class="big">'+f2(MX[115][0])+'</div><div class="of">滿分 10</div><div class="rt">得分率 '+f1(MX[115][1])+'%</div></div>';
+
+/* 查位置 */
+var sel=$('yrSel');YEARS.forEach(function(y){var o=document.createElement('option');o.value=y;o.textContent=y+' 學年'+(y==115?'（最近一次）':'');sel.appendChild(o)});
+function locate(bins,s){
+  var idx=-1;
+  for(var i=0;i<bins.length;i++){var b=bins[i];
+    if(s===0){ if(b[1]===0){idx=i;break} }
+    else if(s>0&&s<1){ if(b[0]===0.01){idx=i;break} }
+    else if(s>=b[0]&&s<=b[1]+0.0001){idx=i;break} }
+  if(idx<0)idx=(s>=bins[0][0]?0:bins.length-1);
+  var cur=bins[idx],below=0,above=0;
+  for(var j=0;j<bins.length;j++){ if(j===idx)continue; if(bins[j][1]<=cur[0]&&bins[j][1]<cur[1]||bins[j][1]<cur[0]||(cur[0]===0.01&&bins[j][1]===0))below+=bins[j][2]; else above+=bins[j][2]; }
+  return {cur:cur,idx:idx,below:below,same:cur[2],above:above};
+}
+function hist(svg,bins,L,color,mean,score,max){
+  var W=360,H=170,pad=8,top=26,bot=22,n=bins.length,bw=(W-2*pad)/n,ch=H-top-bot,mx=0;
+  bins.forEach(function(b){if(b[2]>mx)mx=b[2]});
+  var low=n-1-L.idx,gold=getComputedStyle(document.documentElement).getPropertyValue('--you').trim();
+  var out='';
+  for(var k=0;k<n;k++){var i=n-1-k,b=bins[i],h=Math.max(1.5,(b[2]/mx)*ch);
+    var fill=k<low?color:(k===low?gold:color),op=k<low?0.85:(k===low?1:0.22);
+    out+='<rect x="'+(pad+k*bw+0.8)+'" y="'+(top+ch-h)+'" width="'+(bw-1.6)+'" height="'+h+'" rx="2" fill="'+fill+'" opacity="'+op+'"/>';}
+  var tk=max===20?[0,5,10,15,20]:[0,2,4,6,8];
+  tk.forEach(function(v){out+='<text x="'+(v===0?pad+0.5*bw:pad+(v+1)*bw)+'" y="'+(H-6)+'" text-anchor="middle">'+v+'</text>'});
+  var mxp=pad+(mean+1)*bw;
+  out+='<line x1="'+mxp+'" x2="'+mxp+'" y1="'+(top-4)+'" y2="'+(top+ch)+'" stroke="var(--ink)" stroke-width="1.2" stroke-dasharray="3 3" opacity=".7"/>';
+  var left=mxp>W/2;
+  out+='<text class="lab" x="'+(left?mxp-4:mxp+4)+'" y="'+(top-10)+'" text-anchor="'+(left?'end':'start')+'" style="fill:var(--ink)">全國平均 '+f2(mean)+'</text>';
+  // 你的位置
+  var cur=L.cur,sx=(cur[1]===0||cur[0]===0.01)?pad+(low+0.5)*bw:Math.min(pad+n*bw-2,pad+(score+1)*bw);
+  out+='<line x1="'+sx+'" x2="'+sx+'" y1="'+(top+2)+'" y2="'+(top+ch)+'" stroke="'+gold+'" stroke-width="2.5"/>';
+  out+='<circle cx="'+sx+'" cy="'+(top+2)+'" r="5" fill="'+gold+'"/>';
+  out+='<text class="lab" x="'+(sx>W/2?sx-9:sx+9)+'" y="'+(top+6)+'" text-anchor="'+(sx>W/2?'end':'start')+'" style="fill:'+gold+'">你</text>';
+  svg.innerHTML=out;
+}
+function say(kind,y,full,s){
+  var bins=DATA[y][kind],L=locate(bins,s);
+  var mean=kind==='es'?esMean(y):trMean(y);
+  var lo=L.cur[0],w=Math.max(1,L.cur[1]-lo+0.01);
+  var pr;
+  if(L.cur[1]===0){pr=L.below+L.same/2}
+  else{var fr=L.cur[0]===0.01?0.5:Math.min(1,Math.max(0,(s-lo+0.125)/w));pr=L.below+L.same*fr}
+  var pLo=L.below,pHi=L.below+L.same;
+  var diff=s-mean,w2=diff>=0?'高於':'低於';
+  if(s===0)pr=0;return {pr:Math.min(99,Math.round(pr)),lo:Math.min(99,Math.round(pLo)),hi:Math.min(99,Math.round(pHi)),mean:mean,diff:diff,w2:w2,L:L};
+}
+var S={es:7.5,tr:3.5,t:{es:false,tr:false}};
+var CFG={es:{max:20,label:'作文',color:'--es'},tr:{max:8,label:'中譯英',color:'--tr'}};
+function mkChips(key){
+  var box=$(key+'Chips');box.innerHTML='';
+  for(var i=0;i<=CFG[key].max;i++){(function(i){var b=document.createElement('button');b.type='button';b.className='chip';b.textContent=i;b.setAttribute('aria-pressed','false');
+    b.addEventListener('click',function(){var m=CFG[key].max,f=S.t[key]?S[key]-Math.floor(S[key]):0;setScore(key,i>=m?m:i+f)});box.appendChild(b)})(i)}
+  var w=document.createElement('div');w.className='fracs';w.id=key+'Fr';var lb=document.createElement('span');lb.textContent='再加';w.appendChild(lb);[0,0.25,0.5,0.75].forEach(function(f){var h=document.createElement('button');h.type='button';h.className='chip fr';h.setAttribute('data-f',f);h.textContent=f===0?'整數':'＋'+f;h.setAttribute('aria-pressed','false');h.addEventListener('click',function(){var m=CFG[key].max;setScore(key,Math.min(m,Math.floor(S[key])+(Math.floor(S[key])>=m?0:f)))});w.appendChild(h)});
+  box.appendChild(w);
+}
+function setScore(key,v){S[key]=v;S.t[key]=true;update()}
+function render(key,y){
+  var c=CFG[key],v=S[key],r=say(key,y,c.max,v),touched=S.t[key];
+  var sl=$(key+'In');sl.value=v;sl.style.setProperty('--p',(v/c.max*100)+'%');
+  if(touched){sl.classList.remove('nudge');$(key+'Hint').classList.add('done')}
+  var fl=Math.floor(v),fr=v-fl;Array.prototype.forEach.call($(key+'Chips').children,function(b,i){if(b.className.indexOf('chip')<0&&b.id===key+'Fr'){Array.prototype.forEach.call(b.querySelectorAll('.fr'),function(x){var f=+x.getAttribute('data-f');x.setAttribute('aria-pressed',(touched&&fr===f)?'true':'false');x.disabled=(fl>=c.max&&f>0)});return}if(b.id===key+'Fr'||b.tagName!=='BUTTON')return;b.setAttribute('aria-pressed',(touched&&fl===i)?'true':'false')});
+  var box=$(key+'Res');box.className='res pr'+(touched?'':' demo');
+  var head=touched?'你的'+c.label+'：<b>'+v+' 分</b>':'示範：'+c.label+' <b>'+v+' 分</b>（全國平均四捨五入）';
+  box.innerHTML='<div class="prbig"><span class="prl">百分等級</span><b>PR '+r.pr+'</b></div><div class="prtxt"><div class="l1">'+head+'</div><div class="l1">'+(v===0?'同為 0 分的考生約佔 <b>'+r.hi+'%</b>':'分數高於約 <b>'+r.pr+'%</b> 的考生'+(r.lo===r.hi?'':'<span style="white-space:nowrap">（PR 約 '+r.lo+'–'+r.hi+'）</span>'))+'</div><div class="l2">'+y+' 學年全國平均 '+f2(r.mean)+' 分。'+(touched?'你比平均'+(r.diff>=0?'高 ':'低 ')+f2(Math.abs(r.diff))+' 分。':'拖曳圓點，就能換成你的分數。')+'</div></div>';
+  hist($(key+'Hist'),DATA[y][key],r.L,getComputedStyle(document.documentElement).getPropertyValue(c.color).trim(),r.mean,v,c.max);
+}
+function update(){
+  var y=+sel.value;
+  if(!S.t.es)S.es=Math.max(0,Math.min(20,Math.round(esMean(y)*4)/4));
+  if(!S.t.tr)S.tr=Math.max(0,Math.min(8,Math.round(trMean(y)*4)/4));
+  render('es',y);render('tr',y);
+  try{if(S.t.es||S.t.tr)localStorage.setItem('gsatNonMc3',JSON.stringify({y:y,es:S.es,tr:S.tr,te:S.t.es,tt:S.t.tr}))}catch(e){}
+}
+mkChips('es');mkChips('tr');
+try{var sv=JSON.parse(localStorage.getItem('gsatNonMc3')||'null');if(sv&&DATA[sv.y]){sel.value=sv.y;if(sv.te&&typeof sv.es==='number'&&sv.es>=0&&sv.es<=20){S.es=sv.es;S.t.es=true}if(sv.tt&&typeof sv.tr==='number'&&sv.tr>=0&&sv.tr<=8){S.tr=sv.tr;S.t.tr=true}}}catch(e){}
+sel.addEventListener('change',update);
+['es','tr'].forEach(function(k){$(k+'In').addEventListener('input',function(){setScore(k,+this.value)})});
+if(window.matchMedia){var mq=window.matchMedia('(prefers-color-scheme:dark)');if(mq.addEventListener)mq.addEventListener('change',update)}
+update();
+
+/* 趨勢圖 */
+(function(){
+  var W=640,H=300,L=56,R=84,T=16,B=44,y0=25,y1=60,x0=97,x1=115;
+  function X(y){return L+(y-x0)/(x1-x0)*(W-L-R)} function Y(v){return T+(y1-v)/(y1-y0)*(H-T-B)}
+  var s='';
+  for(var g=y0;g<=y1;g+=10){s+='<line x1="'+L+'" x2="'+(W-R)+'" y1="'+Y(g)+'" y2="'+Y(g)+'" stroke="var(--line)"/><text x="'+(L-6)+'" y="'+(Y(g)+4)+'" text-anchor="end">'+g+'%</text>'}
+  for(var y=97;y<=115;y+=2){s+='<text x="'+X(y)+'" y="'+(H-14)+'" text-anchor="middle">'+y+'</text>'}
+  function line(fn,col,dashFrom){
+    var p=[];for(var y=97;y<=115;y++)p.push((y===97?'M':'L')+X(y)+' '+Y(fn(y)));
+    s+='<path d="'+p.join(' ')+'" fill="none" stroke="'+col+'" stroke-width="2.5" stroke-linejoin="round"/>';
+    for(var y=97;y<=115;y++){var off=y>=111;
+      s+='<circle cx="'+X(y)+'" cy="'+Y(fn(y))+'" r="4" fill="'+(off?col:'var(--card)')+'" stroke="'+col+'" stroke-width="2"/>'}
+  }
+  line(esRate,'var(--es)');line(trRate,'var(--tr)');
+  s+='<text x="'+(X(115)+8)+'" y="'+(Y(esRate(115))+4)+'" style="fill:var(--es);font-weight:700">作文</text>';
+  s+='<text x="'+(X(115)+8)+'" y="'+(Y(trRate(115))+4)+'" style="fill:var(--tr);font-weight:700">中譯英</text>';
+  s+='<line id="cur" x1="0" x2="0" y1="'+T+'" y2="'+(H-B)+'" stroke="var(--gold)" stroke-width="1.5" opacity="0"/>';
+  for(var y=97;y<=115;y++){s+='<rect class="hit" data-y="'+y+'" x="'+(X(y)-16)+'" y="'+T+'" width="32" height="'+(H-T-B)+'" fill="transparent" style="cursor:pointer"/>'}
+  $('trend').innerHTML=s;
+  function show(y){
+    var c=$('cur');c.setAttribute('x1',X(y));c.setAttribute('x2',X(y));c.setAttribute('opacity',1);
+    var est=y<111?'（推算）':'';
+    $('readout').innerHTML='<b>'+y+' 學年</b>'+est+'　作文平均 <b>'+f2(esMean(y))+'</b>（得分率 '+f1(esRate(y))+'%）　中譯英平均 <b>'+f2(trMean(y))+'</b>（得分率 '+f1(trRate(y))+'%）';
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('.hit'),function(r){
+    r.addEventListener('click',function(){show(+r.getAttribute('data-y'))});
+    r.addEventListener('mouseenter',function(){show(+r.getAttribute('data-y'))});
+  });
+  show(115);
+  var eMin=1e9,eMax=-1,tMin=1e9,tMax=-1,eMinY,eMaxY,tMinY,tMaxY;
+  for(var y=97;y<=115;y++){var e=esRate(y),t=trRate(y);
+    if(e<eMin){eMin=e;eMinY=y} if(e>eMax){eMax=e;eMaxY=y} if(t<tMin){tMin=t;tMinY=y} if(t>tMax){tMax=t;tMaxY=y}}
+  $('trendLead').textContent='作文的平均得分率，19 年來都落在 '+f1(eMin)+'%（'+eMinY+' 學年）到 '+f1(eMax)+'%（'+eMaxY+' 學年）之間；中譯英在 '+f1(tMin)+'%（'+tMinY+' 學年）到 '+f1(tMax)+'%（'+tMaxY+' 學年）之間。';
+})();
+
+/* 表格 */
+function table(id,head,rows){
+  var h='<tr>'+head.map(function(x,i){return '<th'+(i===0?' class="k"':'')+'>'+x+'</th>'}).join('')+'</tr>';
+  var b=rows.map(function(r,ri){return '<tr'+(ri===0?' class="cur"':'')+'>'+r.map(function(x,i){return '<td'+(i===0?' class="k"':'')+'>'+x+'</td>'}).join('')+'</tr>'}).join('');
+  $(id).innerHTML=h+b;
+}
+table('tAll',['學年','作文平均','作文得分率（%）','中譯英平均','中譯英得分率（%）'],(function(){var r=[];for(var y=115;y>=97;y--)r.push([y+(y<111?'（推算）':''),f2(esMean(y)),f1(esRate(y)),f2(trMean(y)),f1(trRate(y))]);return r})());
+table('tTot',['學年','平均','得分率（%）','鑑別度'],OFF.map(function(y){var t=TOT[y];return [y,f2(t[0]),f2(t[1]),dd(t[2])]}));
+table('tEs',['學年','平均','得分率（%）','高分組','低分組','鑑別度'],OFF.map(function(y){var t=ES[y];return [y,f2(t[0]),String(t[1]),f2(t[2]),f2(t[3]),dd(t[4])]}));
+table('tTr',['學年','平均','得分率（%）','高分組','低分組','鑑別度'],OFF.map(function(y){var t=TR[y];return [y,f2(t[0]),f2(t[1]),f2(t[2]),f2(t[3]),dd(t[4])]}));
+table('tMx',['學年','平均','得分率（%）','鑑別度'],OFF.map(function(y){var t=MX[y];return [y,f2(t[0]),f2(t[1]),dd(t[2])]}));
+table('tZE',['學年','作文零分','佔考生比例','滿分人數'],OFF.map(function(y){var e=ZE[y];return [y,e[0].toLocaleString()+' 人',e[1]+'%',e[2]+' 人']}));
+table('tZT',['學年','中譯英零分','佔考生比例','滿分人數'],OFF.map(function(y){var t=ZT[y];return [y,t[0].toLocaleString()+' 人',t[1]+'%',t[2].toLocaleString()+' 人']}));
+
+(function(){
+  var lb=$('lb'),li=$('lbi'),lx=$('lbx'),opener=null;
+  function close(){lb.className='';li.removeAttribute('src');if(opener)opener.focus()}
+  Array.prototype.forEach.call(document.querySelectorAll('.shot button'),function(b){
+    b.addEventListener('click',function(){opener=b;li.src=b.querySelector('img').src;li.alt=b.querySelector('img').alt;lb.className='on';lx.focus()});
+  });
+  lb.addEventListener('click',close);
+  document.addEventListener('keydown',function(e){if(lb.className==='on'){if(e.key==='Escape')close();else if(e.key==='Tab'){e.preventDefault();lx.focus()}}});
+})();
+</script>
+</body>
+</html>
