@@ -128,6 +128,16 @@ summary::-webkit-details-marker{display:none}
 details p{margin:4px 0 10px;font-size:15px}
 .src{font-size:14px;color:var(--sub)}
 .src li{margin-bottom:6px}
+table.five td{line-height:1.25;padding:8px 4px;white-space:normal}
+table.five td+td,table.five th+td{border-left:1px solid var(--line)}
+@media (max-width:520px){table.five td{padding:8px 4px}table.five th{padding:7px 3px}}
+table.five td b{display:block;font-size:17px;font-weight:800}
+table.five td .rg{display:block;font-size:12px;color:var(--sub);margin-top:2px}
+table.five td.top{background:var(--gold-soft)}
+table.five td.top b{color:#7A5718}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) table.five td.top{background:#3A3322}:root:not([data-theme="light"]) table.five td.top b{color:#E3B54A}}
+:root[data-theme="dark"] table.five td.top{background:#3A3322}
+:root[data-theme="dark"] table.five td.top b{color:#E3B54A}
 footer{margin-top:36px;padding-top:14px;border-top:1px solid var(--line);font-size:13px;color:var(--sub)}
 @media (max-width:520px){ .tiles{gap:6px} .tile{padding:10px 4px} th,td{padding:7px 6px;font-size:13.5px} h2 .tag{display:inline-block;margin:4px 0 0 0} }
 @media print{
@@ -175,7 +185,7 @@ footer a{color:inherit}
   <p class="lead">中譯英、作文、混合題的全國平均與分數分布。點選自己的分數，就能看到落在全國考生的哪個位置。</p>
   <div class="tiles" id="tiles"></div>
   <p class="note">115 學測全國平均。資料來源：大考中心〈115 學科能力測驗試題研討會議—英文考科〉。</p>
-  <nav class="unitbar" aria-label="本頁單元"><div class="ubrow"><span class="ublab">本頁單元</span><a href="#where">我的位置</a><a href="#trend-sec">近 19 年趨勢</a><a href="#official">官方數字</a><a href="#zero">零分與滿分</a><a href="#src">資料來源</a><a href="#shots">簡報原圖</a></div></nav>
+  <nav class="unitbar" aria-label="本頁單元"><div class="ubrow"><span class="ublab">本頁單元</span><a href="#where">我的位置</a><a href="#trend-sec">近 19 年趨勢</a><a href="#official">官方數字</a><a href="#zero">零分與滿分</a><a href="#five">歷年五標</a><a href="#src">資料來源</a><a href="#shots">簡報原圖</a></div></nav>
 </header>
 
 <section id="where" aria-labelledby="h-where">
@@ -251,6 +261,31 @@ footer a{color:inherit}
   <div class="card"><div class="sub-h es">作文</div><div class="tw"><table id="tZE"></table></div><div class="sub-h tr">中譯英</div><div class="tw"><table id="tZT"></table></div><p class="note">表中的零分、滿分人數與百分比，都是簡報所列的數字。</p></div>
 </section>
 
+<section id="five" aria-labelledby="h-five">
+  <h2 id="h-five">歷年五標與原始總分<span class="tag">104–115 學測</span></h2>
+  <p class="sec-lead">這張表列出英文科每年的頂標、前標、均標、後標、底標各是幾級分，以及這個級分對應的原始總分（選擇題加非選擇題，滿分 100 分）落在哪個區間。每一格上方是級分，下方是原始總分的區間。</p>
+  <div class="card">
+    <div class="tw"><table class="five" aria-label="歷年英文科五標級分與原始總分區間">
+      <thead><tr><th scope="col" class="k">學年</th><th scope="col">頂標</th><th scope="col">前標</th><th scope="col">均標</th><th scope="col">後標</th><th scope="col">底標</th></tr></thead>
+      <tbody>
+<tr><th scope="row" class="k">115</th><td class="top"><b>13</b><span class="rg">73.17–<wbr>79.27</span></td><td><b>11</b><span class="rg">60.97–<wbr>67.07</span></td><td><b>8</b><span class="rg">42.68–<wbr>48.78</span></td><td><b>5</b><span class="rg">24.39–<wbr>30.49</span></td><td><b>3</b><span class="rg">12.19–<wbr>18.29</span></td></tr>
+<tr><th scope="row" class="k">114</th><td class="top"><b>13</b><span class="rg">74.05–<wbr>80.22</span></td><td><b>11</b><span class="rg">61.71–<wbr>67.88</span></td><td><b>8</b><span class="rg">43.19–<wbr>49.37</span></td><td><b>4</b><span class="rg">18.51–<wbr>24.68</span></td><td><b>3</b><span class="rg">12.34–<wbr>18.51</span></td></tr>
+<tr><th scope="row" class="k">113</th><td class="top"><b>13</b><span class="rg">74.35–<wbr>80.55</span></td><td><b>11</b><span class="rg">61.96–<wbr>68.16</span></td><td><b>8</b><span class="rg">43.37–<wbr>49.57</span></td><td><b>5</b><span class="rg">24.78–<wbr>30.98</span></td><td><b>3</b><span class="rg">12.39–<wbr>18.59</span></td></tr>
+<tr><th scope="row" class="k">112</th><td class="top"><b>13</b><span class="rg">73.38–<wbr>79.50</span></td><td><b>11</b><span class="rg">61.15–<wbr>67.27</span></td><td><b>8</b><span class="rg">42.81–<wbr>48.92</span></td><td><b>5</b><span class="rg">24.46–<wbr>30.58</span></td><td><b>4</b><span class="rg">18.35–<wbr>24.46</span></td></tr>
+<tr><th scope="row" class="k">111</th><td class="top"><b>13</b><span class="rg">74.50–<wbr>80.71</span></td><td><b>12</b><span class="rg">68.30–<wbr>74.50</span></td><td><b>8</b><span class="rg">43.46–<wbr>49.67</span></td><td><b>5</b><span class="rg">24.83–<wbr>31.04</span></td><td><b>4</b><span class="rg">18.63–<wbr>24.83</span></td></tr>
+<tr><th scope="row" class="k">110</th><td class="top"><b>13</b><span class="rg">74.77–<wbr>80.99</span></td><td><b>12</b><span class="rg">68.54–<wbr>74.76</span></td><td><b>8</b><span class="rg">43.62–<wbr>49.84</span></td><td><b>5</b><span class="rg">24.93–<wbr>31.15</span></td><td><b>4</b><span class="rg">18.70–<wbr>24.92</span></td></tr>
+<tr><th scope="row" class="k">109</th><td class="top"><b>14</b><span class="rg">82.56–<wbr>88.90</span></td><td><b>12</b><span class="rg">69.86–<wbr>76.20</span></td><td><b>9</b><span class="rg">50.81–<wbr>57.15</span></td><td><b>6</b><span class="rg">31.76–<wbr>38.10</span></td><td><b>4</b><span class="rg">19.06–<wbr>25.40</span></td></tr>
+<tr><th scope="row" class="k">108</th><td class="top"><b>14</b><span class="rg">82.95–<wbr>89.32</span></td><td><b>13</b><span class="rg">76.57–<wbr>82.94</span></td><td><b>10</b><span class="rg">57.43–<wbr>63.80</span></td><td><b>5</b><span class="rg">25.53–<wbr>31.90</span></td><td><b>4</b><span class="rg">19.15–<wbr>25.52</span></td></tr>
+<tr><th scope="row" class="k">107</th><td class="top"><b>14</b><span class="rg">82.43–<wbr>88.76</span></td><td><b>13</b><span class="rg">76.09–<wbr>82.42</span></td><td><b>10</b><span class="rg">57.07–<wbr>63.40</span></td><td><b>6</b><span class="rg">31.71–<wbr>38.04</span></td><td><b>4</b><span class="rg">19.03–<wbr>25.36</span></td></tr>
+<tr><th scope="row" class="k">106</th><td class="top"><b>13</b><span class="rg">75.37–<wbr>81.64</span></td><td><b>11</b><span class="rg">62.81–<wbr>69.08</span></td><td><b>8</b><span class="rg">43.97–<wbr>50.24</span></td><td><b>5</b><span class="rg">25.13–<wbr>31.40</span></td><td><b>4</b><span class="rg">18.85–<wbr>25.12</span></td></tr>
+<tr><th scope="row" class="k">105</th><td class="top"><b>14</b><span class="rg">82.43–<wbr>88.76</span></td><td><b>12</b><span class="rg">69.75–<wbr>76.08</span></td><td><b>9</b><span class="rg">50.73–<wbr>57.06</span></td><td><b>6</b><span class="rg">31.71–<wbr>38.04</span></td><td><b>4</b><span class="rg">19.03–<wbr>25.36</span></td></tr>
+<tr><th scope="row" class="k">104</th><td class="top"><b>14</b><span class="rg">82.17–<wbr>88.48</span></td><td><b>12</b><span class="rg">69.53–<wbr>75.84</span></td><td><b>9</b><span class="rg">50.57–<wbr>56.88</span></td><td><b>6</b><span class="rg">31.61–<wbr>37.92</span></td><td><b>4</b><span class="rg">18.97–<wbr>25.28</span></td></tr>
+      </tbody></table></div>
+    <p class="note">110–115 學年度頂標都是 13 級分，原始總分區間的下限都在 73.17–74.77 之間，六年下來最多只差 1.6 分。至於 104–109 學年度，頂標大多是 14 級分，原始總分要 82 分以上；只有 106 學年度是 13 級分，原始總分 75.37 分以上就能達到。</p>
+    <p class="note">每一級分的分數寬度（級距），是把當年英文原始總分前百分之一考生的平均分數除以 15 算出來的，所以同一個級分在不同年度對應的原始總分會略有不同。區間照大考中心公布的原得總分列出。111 學年度起，對照表寫成「73.17＜X≦79.27」的形式，也就是不含下限、含上限，所以相鄰兩個級分的區間會出現同一個數字；例如 114 學年度原始總分剛好 18.51 分，算的是 3 級分，不是 4 級分。出處：大考中心各學年度學科能力測驗「原得總分與級分對照表」與「各科成績標準一覽表」。</p>
+  </div>
+</section>
+
 <section id="src" aria-labelledby="h-src">
   <h2 id="h-src">資料來源與計算方式</h2>
   <div class="card">
@@ -259,6 +294,7 @@ footer a{color:inherit}
       <li><b>97–110 學年</b>：大考中心「學測統計圖表」中的「英文科非選擇題分數人數統計表」，依各分數區間的人數推算平均與得分率。推算方法在 111–115 學年與簡報公布值比對，誤差在 0.02 分以內。這幾年的高分組、低分組與鑑別度沒有公開，所以不列。</li>
       <li><b>混合題</b>：110 學測起為試辦、111 學測起正式納入，目前只有 111–115 學年的公布值。</li>
       <li><b>閱卷方式</b>：每份答案卷由兩位委員分別評分、取平均，差分超過標準時送第三閱，出處為大考中心〈115 學年度學科能力測驗英文考科非選擇題閱卷評分原則說明〉。差分標準（中譯英 &gt;2 分、作文 &gt;5 分），出處為〈國語文寫作能力測驗及英文科非選擇題各題題分及需第三閱差分表〉（115 學年度）。</li>
+      <li><b>歷年五標與原始總分</b>：104–115 學年，出自大考中心各學年度學科能力測驗統計圖表中的「原得總分與級分對照表」與「各科成績標準一覽表」，區間照公布值列出。</li>
       <li>得分率＝平均分數 ÷ 該題滿分。各年試題與評分不同，年度之間的比較只能看大致高低。</li>
     </ul>
   </div>
