@@ -390,7 +390,7 @@ var DATA = null;
       .replace(/[…]|\.{2,}/g, ' ')
       .replace(/[’‘]/g, "'")
       .replace(/'s\b/g, 's')
-      .replace(/[.,;:!?"“”']/g, '')
+      .replace(/[.,;:!?"“”'()]/g, '')
       .replace(/\s+/g, ' ')
       .trim()
       .split(' ');
