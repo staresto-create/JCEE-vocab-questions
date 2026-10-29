@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>問題與解決：先弄清楚為什麼忍不住，再學會停一下｜Why Deals Are So Hard to Resist</title>
+<meta name="description" content="為什麼特價這麼難抗拒？這一頁教你認出問題與解決的結構，還有貫穿全文的兩條詞彙線索：作者怎麼對讀者說話，以及把購物寫成打獵的比喻。">
+<meta property="og:title" content="問題與解決：先弄清楚為什麼忍不住，再學會停一下｜Why Deals Are So Hard to Resist">
+<meta property="og:description" content="錨定、稀缺、怕錯過：三個原因之後，作者在第 50 行用一個字轉到對策。">
+<style>
+:root{
+  --ground:#f1f3f2; --ink:#17282f; --teal:#1f6f6a; --teal-soft:#dfeceb;
+  --muted:#77878d; --line:#cdd6d6; --exam:#b4661c; --exam-soft:#fdf4e7;
+  --gen:#4a6a90; --gen-soft:#e0e7f0;
+  --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+  --sans:"PingFang TC","Noto Sans TC","Microsoft JhengHei","Helvetica Neue",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ad-vground-bg);color:var(--ad-vink-fg);font-family:var(--sans);line-height:1.6;-webkit-text-size-adjust:100%}
+.wrap{max-width:44rem;margin:0 auto;padding:1.6rem 1.1rem 4rem}
+h1{font-family:var(--serif);font-weight:600;font-size:1.6rem;line-height:1.3;margin:0 0 .55rem}
+.lede{margin:0 0 1.3rem;color:var(--ad-x3d5059-fg);font-size:.95rem}
+.src{font-size:.8rem;color:var(--ad-vmuted-fg);margin:0 0 1.1rem}
+.resume{font-size:.85rem;color:var(--ad-vteal-fg);background:var(--ad-vtealsoft-bg);border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.resume[hidden],.preview[hidden]{display:none}
+.preview{font-size:.85rem;color:var(--ad-vexam-fg);background:var(--ad-vexamsoft-bg);
+  border:1px dashed var(--exam);border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.resume button{font:inherit;font-size:.82rem;background:var(--ad-xfff-bg);color:var(--ad-vink-fg);border:1px solid var(--ad-vline-border);border-radius:.25rem;padding:.16rem .6rem;margin-left:.5rem;cursor:pointer}
+.resume button:focus-visible{outline:2px solid var(--ad-vteal-border);outline-offset:2px}
+.step{border-top:1px solid var(--ad-vline-border);padding-top:1.15rem;margin-top:1.6rem}
+.step[hidden]{display:none}
+.stepno{font-family:var(--serif);font-size:.82rem;color:var(--ad-vmuted-fg);margin:0 0 .2rem}
+h2{font-family:var(--serif);font-weight:600;font-size:1.2rem;margin:0 0 .5rem;color:var(--ad-vteal-fg)}
+.step p{margin:0 0 .7rem;font-size:.95rem}
+.tag{display:inline-block;font-size:.72rem;font-weight:600;border-radius:.2rem;padding:.08rem .45rem;margin-left:.45rem;vertical-align:.12rem;color:var(--ad-vexam-fg);background:var(--ad-vexamsoft-bg);border:1px solid var(--exam)}
+.tag.b{color:var(--ad-vgen-fg);background:var(--ad-vgensoft-bg);border-color:var(--gen)}
+
+/* 選擇題：中文用 .opts，英文選項加 .en，附小字說明加 .rg */
+.opts{display:flex;flex-direction:column;gap:.45rem;margin:.2rem 0 .8rem}
+.opts button{font:inherit;font-size:.95rem;background:var(--ad-xfff-bg);color:var(--ad-vink-fg);border:1px solid var(--ad-vline-border);border-radius:.3rem;padding:.45rem .85rem;cursor:pointer;text-align:left}
+.opts button:hover{border-color:var(--ad-vteal-border)}
+.opts button:focus-visible{outline:2px solid var(--ad-vteal-border);outline-offset:2px}
+.opts button[data-state="right"]{background:var(--teal);border-color:var(--ad-vteal-border);color:#fff}
+.opts button[data-state="wrong"]{background:var(--ad-vground-bg);color:var(--ad-vmuted-fg)}
+.opts button[disabled]{cursor:default}
+.opts.en button{font-family:var(--serif);font-size:.97rem;line-height:1.6;padding:.55rem .8rem}
+.opts.en button[data-state="right"]{background:var(--ad-vtealsoft-bg);border-color:var(--ad-vteal-border);color:var(--ad-vink-fg)}
+.opts.rg button i{display:block;font-style:normal;font-size:.82rem;color:var(--ad-vmuted-fg);margin-top:.12rem}
+.opts.rg button[data-state="right"] i{color:#dfeceb}
+
+/* 揭曉區塊 */
+.said{background:var(--ad-xfff-bg);border-left:3px solid var(--ad-vteal-border);border-radius:.3rem;padding:.75rem .85rem;margin:.2rem 0 .9rem;font-size:.93rem;color:var(--ad-x3d5059-fg)}
+.said b{color:var(--ad-vink-fg);font-weight:600}
+.said[hidden]{display:none}
+.said.g{border-left-color:var(--gen)}
+.said.e{border-left-color:var(--exam)}
+.said q{quotes:none;font-family:var(--serif)}
+
+.go{font:inherit;font-size:.92rem;background:var(--ad-vink-bg);color:var(--ad-onflip-fg);border:1px solid var(--ad-vink-border);border-radius:.3rem;padding:.42rem 1.05rem;cursor:pointer}
+.go:focus-visible{outline:2px solid var(--ad-vteal-border);outline-offset:2px}
+.go[hidden]{display:none}
+
+/* 第一步的可點標記 */
+.lead{background:var(--ad-xfff-bg);border:1px solid var(--ad-vline-border);border-radius:.4rem;padding:.9rem 1rem;margin:0 0 .7rem;font-family:var(--serif);font-size:1.02rem;line-height:1.95}
+.lead c{cursor:pointer;border-radius:.2rem;padding:.06rem .2rem;background:var(--ad-vexamsoft-bg);box-shadow:inset 0 -2px 0 #ecc9a2}
+.lead c:hover{box-shadow:inset 0 -2px 0 var(--exam)}
+.lead c.got{background:var(--exam);color:#fff;box-shadow:none}
+.lead c b{font-family:var(--sans);font-size:.72rem;font-weight:600;background:var(--ad-xfff-bg);color:var(--ad-vexam-fg);border-radius:.2rem;padding:.02rem .3rem;margin-right:.3rem}
+.score{font-size:.9rem;color:var(--ad-vmuted-fg);margin:0 0 .8rem}
+.score em{font-style:normal;color:var(--ad-vexam-fg);font-weight:600}
+
+/* 第三步的卡片（驗證方法通用容器） */
+.qs{display:flex;flex-direction:column;gap:.5rem;margin:0 0 .8rem}
+.qcard{background:var(--ad-xfff-bg);border:1px solid var(--ad-vline-border);border-radius:.4rem;padding:.6rem .85rem}
+.qcard .hd{display:flex;align-items:center;gap:.6rem;font-size:.95rem}
+.qcard .hd .qt{flex:1 1 auto;font-weight:600}
+.qcard .hd button{font:inherit;font-size:.8rem;background:var(--ad-xfff-bg);color:var(--ad-vink-fg);border:1px solid var(--ad-vline-border);
+  border-radius:.25rem;padding:.18rem .7rem;cursor:pointer;flex:0 0 auto}
+.qcard .hd button:focus-visible{outline:2px solid var(--ad-vteal-border);outline-offset:2px}
+.qcard .bd{display:none;margin-top:.4rem;font-size:.92rem;color:var(--ad-x3d5059-fg);line-height:1.75}
+.qcard.open .bd{display:block}
+.qcard.open .hd button{display:none}
+.qcard .bd .rf{display:block;color:var(--ad-vmuted-fg);font-size:.82rem;margin-top:.25rem}
+.qcard .bd .sw{display:block;font-family:var(--serif);background:var(--ad-vground-bg);border-radius:.3rem;
+  padding:.45rem .6rem;margin:.35rem 0;color:var(--ad-vink-fg);font-size:.93rem;line-height:1.7}
+.qcard .r{display:grid;grid-template-columns:1fr;gap:.1rem;margin-bottom:.4rem}
+@media(min-width:34rem){.qcard .r{grid-template-columns:5.5rem 1fr;gap:.5rem}}
+.qcard .r:last-child{margin-bottom:0}
+.qcard .r .k{font-size:.76rem;font-weight:600;color:var(--ad-vgen-fg)}
+.qcard .r .v em{font-style:normal;color:var(--ad-vmuted-fg);font-size:.82rem;margin-left:.3rem}
+
+/* 圖表容器與通用節點 */
+.fig{background:var(--ad-xfff-bg);border:1px solid var(--ad-vline-border);border-radius:.4rem;padding:.7rem .5rem .4rem;margin:0 0 .7rem}
+.fig[hidden]{display:none}
+.fig svg{display:block;width:100%;height:auto;max-width:27rem;margin:0 auto}
+.fig figcaption{font-size:.85rem;color:var(--ad-x3d5059-fg);margin:.35rem .5rem 0;line-height:1.65}
+.node{cursor:pointer}
+.node rect,.node circle,.node path.bx{fill:#fff;stroke:var(--line);stroke-width:2;stroke-linejoin:round}
+.node text{font-family:var(--sans);font-size:11px;fill:var(--ad-vink-fg);font-weight:600}
+.node tspan.n,.node text.n{font-size:9px;font-weight:400;fill:var(--ad-vmuted-fg)}
+.node.on rect,.node.on circle,.node.on path.bx{fill:var(--exam-soft);stroke:var(--ad-vexam-fg);stroke-width:3}
+.node.on text{fill:var(--ad-vexam-fg)}
+.node.on tspan.n,.node.on text.n{fill:var(--ad-vexam-fg)}
+.guide{stroke:var(--line);stroke-width:2;fill:none;stroke-linejoin:round;stroke-linecap:round}
+.guide.dash{stroke-dasharray:5 4}
+.endlab{font-family:var(--sans);font-size:10.5px;font-weight:600}
+.endlab.l{fill:var(--ad-vteal-fg)}
+.endlab.r{fill:var(--ad-vgen-fg)}
+
+/* 分日分隔框 */
+.daybreak{border:1px dashed var(--exam);background:var(--ad-vexamsoft-bg);border-radius:.4rem;
+  padding:.8rem .95rem;margin:1.6rem 0 0;font-size:.9rem;color:var(--ad-x3d5059-fg);line-height:1.7}
+.daybreak b{display:block;color:var(--ad-vexam-fg);font-family:var(--serif);font-size:1.02rem;margin-bottom:.3rem}
+.daybreak[hidden]{display:none}
+
+/* 課文與線索鏈 */
+.modes{display:flex;gap:.4rem;margin:0 0 .7rem;flex-wrap:wrap}
+.modes button{font:inherit;font-size:.84rem;background:var(--ad-xfff-bg);color:var(--ad-vink-fg);border:1px solid var(--ad-vline-border);border-radius:.3rem;padding:.3rem .8rem;cursor:pointer}
+.modes button[aria-pressed="true"]{background:var(--ad-vink-bg);border-color:var(--ad-vink-border);color:var(--ad-onflip-fg)}
+.modes button:focus-visible{outline:2px solid var(--ad-vteal-border);outline-offset:2px}
+.text{background:var(--ad-xfff-bg);border:1px solid var(--ad-vline-border);border-radius:.4rem;padding:.9rem .6rem 1.1rem;font-family:var(--serif);font-size:1rem;line-height:1.85}
+.text .ttl{font-weight:600;font-size:1.06rem;margin:0 .4rem .7rem 2.6rem;line-height:1.45}
+.ln{display:flex;align-items:baseline;padding:.02rem 0;border-radius:.2rem}
+.ln>i{flex:0 0 2.2rem;text-align:right;padding-right:.55rem;font-family:var(--sans);font-style:normal;font-size:.68rem;color:var(--ad-vmuted-fg);line-height:1.9}
+.ln>span{flex:1 1 auto;overflow-wrap:anywhere}
+.ln.ind>span{padding-left:1.1rem}
+.ln.sub>span{font-weight:600}
+.ln.hl{background:var(--ad-vexamsoft-bg)}
+.ln.pb{margin-top:.55rem}
+.text .split{font-family:var(--sans);font-size:.78rem;color:var(--ad-vexam-fg);
+  border-top:1px dashed var(--exam);margin:.8rem .4rem .7rem 2.6rem;padding-top:.35rem}
+.text m{cursor:pointer;border-radius:.2rem;padding:.02rem .14rem}
+.text m[data-kind="sub"]{background:var(--ad-vtealsoft-bg);box-shadow:inset 0 -2px 0 #a8ccc8}
+.text m[data-kind="gen"]{background:var(--ad-vgensoft-bg);box-shadow:inset 0 -2px 0 #a9bbd0}
+.text m[data-kind="mk"]{border-bottom:2px dotted var(--exam);font-style:italic}
+.text m.lit[data-kind="sub"]{background:var(--teal);color:#fff;box-shadow:none}
+.text m.lit[data-kind="gen"]{background:var(--gen);color:#fff;box-shadow:none}
+.text m.lit[data-kind="mk"]{background:var(--exam);color:#fff;border-bottom:none}
+.text.off-sub m[data-kind="sub"]{background:none;box-shadow:none}
+.text.off-gen m[data-kind="gen"]{background:none;box-shadow:none}
+
+/* 固定在底部的說明面板 */
+.panel{position:sticky;bottom:0;background:var(--ad-xfff-bg);border:1px solid var(--ad-vline-border);border-radius:.4rem;padding:.75rem .9rem;margin-top:.8rem;box-shadow:0 -2px 10px rgba(23,40,47,.07)}
+.panel .k{font-size:.72rem;font-weight:600;border-radius:.2rem;padding:.06rem .42rem;color:var(--ad-vteal-fg);background:var(--ad-vtealsoft-bg);border:1px solid var(--ad-vteal-border)}
+.panel .k.g{color:var(--ad-vgen-fg);background:var(--ad-vgensoft-bg);border-color:var(--gen)}
+.panel .k.e{color:var(--ad-vexam-fg);background:var(--ad-vexamsoft-bg);border-color:var(--exam)}
+.panel .ch{font-family:var(--serif);font-size:1rem;margin:.4rem 0 .3rem;color:var(--ad-vink-fg);line-height:1.75;overflow-wrap:anywhere}
+.panel .ch i{font-style:normal;color:var(--ad-vmuted-fg);padding:0 .28rem}
+.panel .nt{font-size:.88rem;color:var(--ad-x3d5059-fg);margin:0}
+
+/* 舊工具點名複習 */
+.recall{background:var(--ad-xfff-bg);border:1px solid var(--ad-vline-border);border-left:3px solid var(--muted);
+  border-radius:.3rem;padding:.75rem .85rem;margin:1.1rem 0 .9rem;font-size:.92rem;color:var(--ad-x3d5059-fg)}
+.recall b{color:var(--ad-vink-fg)}
+.recall ul{margin:.4rem 0 0;padding-left:1.1rem}
+.recall li{margin-bottom:.35rem}
+
+/* 抽句題 */
+.gap{background:var(--ad-xfff-bg);border:1px solid var(--ad-vline-border);border-radius:.4rem;padding:.9rem 1rem;margin:0 0 .9rem;font-family:var(--serif);font-size:1rem;line-height:1.9}
+.gap .blank{display:inline-block;min-width:9rem;border-bottom:2px solid var(--gen);color:var(--ad-vgen-fg);text-align:center;font-family:var(--sans);font-size:.82rem}
+.gap .blank.filled{border-bottom-color:var(--ad-vteal-border);color:var(--ad-vink-fg);font-family:var(--serif);font-size:1rem;text-align:left;background:var(--ad-vtealsoft-bg);border-radius:.2rem;padding:0 .25rem}
+.gap .lst{font-family:var(--sans);font-size:.85rem;color:var(--ad-vmuted-fg);display:block;margin-top:.5rem}
+.picks{display:flex;flex-direction:column;gap:.45rem;margin:0 0 .9rem}
+.picks button{font:inherit;font-family:var(--serif);font-size:.97rem;line-height:1.6;background:var(--ad-xfff-bg);color:var(--ad-vink-fg);border:1px solid var(--ad-vline-border);border-radius:.3rem;padding:.55rem .8rem;cursor:pointer;text-align:left}
+.picks button:hover{border-color:var(--ad-vteal-border)}
+.picks button:focus-visible{outline:2px solid var(--ad-vteal-border);outline-offset:2px}
+.picks button[data-state="right"]{background:var(--ad-vtealsoft-bg);border-color:var(--ad-vteal-border)}
+.picks button[data-state="wrong"]{background:var(--ad-vground-bg);color:var(--ad-vmuted-fg)}
+.why{font-size:.86rem;color:var(--ad-x3d5059-fg);margin:.35rem 0 0}
+.why[hidden]{display:none}
+
+/* 收尾與頁尾 */
+.close{border-top:1px solid var(--ad-vline-border);margin-top:2rem;padding-top:1.1rem;font-size:.93rem;color:var(--ad-x3d5059-fg)}
+.close[hidden]{display:none}
+.close h2{font-size:1.1rem}
+.close ol{margin:.3rem 0 0;padding-left:1.15rem}
+.close li{margin-bottom:.5rem}
+.more{margin-top:1.5rem;font-size:.88rem}
+.more a{color:var(--ad-vteal-fg)}
+.series{border-top:1px solid var(--ad-vline-border);margin-top:2rem;padding-top:1.1rem;font-size:.9rem;color:var(--ad-x3d5059-fg)}
+.series .back{font-family:var(--serif);font-size:1rem;color:var(--ad-vteal-fg);text-decoration:none}
+.series .back:hover{text-decoration:underline}
+.series .back:focus-visible{outline:2px solid var(--ad-vteal-border);outline-offset:2px}
+.series .note{font-size:.85rem;color:var(--ad-vmuted-fg);margin:.5rem 0 0}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+/* 本單元：放射狀網狀圖與第三步的歸格卡片 */
+.fig .lab{font-family:var(--sans);font-size:10px;fill:var(--ad-x3d5059-fg)}
+.fig .lab.s{font-size:9px;fill:var(--ad-vmuted-fg)}
+.fig .spoke{stroke:var(--line);stroke-width:2;fill:none}
+.fig .node.hub rect{stroke:var(--ad-vmuted-fg)}
+.fig .node.hub.on rect{stroke:var(--ad-vexam-fg)}
+.yn{display:flex;gap:.45rem;align-items:center;flex-wrap:wrap;margin-top:.5rem;font-size:.9rem;color:var(--ad-vink-fg);font-weight:600}
+.yn button{font:inherit;font-weight:400;font-size:.82rem;background:var(--ad-xfff-bg);color:var(--ad-vink-fg);border:1px solid var(--ad-vline-border);border-radius:.25rem;padding:.18rem .75rem;cursor:pointer}
+.yn button:hover{border-color:var(--ad-vteal-border)}
+.yn button:focus-visible{outline:2px solid var(--ad-vteal-border);outline-offset:2px}
+.qcard.open .yn{display:none}
+.qcard .bd .vd{display:block;font-weight:600;margin-bottom:.15rem}
+.qcard .bd .vd.ok{color:var(--ad-vteal-fg)}
+.qcard .bd .vd.ng{color:var(--ad-vexam-fg)}
+.qcard .bd q{quotes:none;font-family:var(--serif)}
+#q3w[hidden]{display:none}
+
+.qcard .bd q{quotes:none;font-family:var(--serif)}
+#q3w[hidden]{display:none}
+.fig .zone{fill:none;stroke:var(--line);stroke-width:1.5;stroke-dasharray:5 4}
+.fig .zl{font-family:var(--sans);font-size:10.5px;font-weight:600}
+.fig .zl.l{fill:var(--ad-vteal-fg)}
+.fig .zl.r{fill:var(--ad-vgen-fg)}
+.fig .arr{stroke:var(--ad-vmuted-fg);stroke-width:2;fill:none;stroke-linejoin:round;stroke-linecap:round}
+.fig .pivot{font-family:var(--serif);font-style:italic;font-size:11.5px;fill:var(--ad-vexam-fg)}
+.fig .pn{font-family:var(--sans);font-size:9px;fill:var(--ad-vmuted-fg)}
+
+/* 深色模式（2026-10-22）：淺色數值與原本相同；只在螢幕、手機或電腦設成深色外觀時生效，列印不受影響。 */
+:root{--ad-onflip-fg:#ffffff;--ad-vexam-bg:var(--exam);--ad-vexam-border:var(--exam);--ad-vexam-fg:var(--exam);--ad-vexamsoft-bg:var(--exam-soft);--ad-vexamsoft-fg:var(--exam-soft);--ad-vgen-bg:var(--gen);--ad-vgen-border:var(--gen);--ad-vgen-fg:var(--gen);--ad-vgensoft-bg:var(--gen-soft);--ad-vground-bg:var(--ground);--ad-vink-bg:var(--ink);--ad-vink-border:var(--ink);--ad-vink-fg:var(--ink);--ad-vline-border:var(--line);--ad-vline-fg:var(--line);--ad-vmuted-border:var(--muted);--ad-vmuted-fg:var(--muted);--ad-vteal-bg:var(--teal);--ad-vteal-border:var(--teal);--ad-vteal-fg:var(--teal);--ad-vtealsoft-bg:var(--teal-soft);--ad-x3d5059-fg:#3d5059;--ad-x8a8278-fg:#8a8278;--ad-xdfeceb-fg:#dfeceb;--ad-xfff-bg:#fff;--ad-xfff-fg:#fff;color-scheme:light}
+@media screen and (prefers-color-scheme: dark){
+ :root{--ad-onflip-fg:#16201F;--ad-vexam-bg:#b4661c;--ad-vexam-border:#b4661c;--ad-vexam-fg:#E7CAAF;--ad-vexamsoft-bg:#2D2821;--ad-vexamsoft-fg:#fdf4e7;--ad-vgen-bg:#4a6a90;--ad-vgen-border:#4a6a90;--ad-vgen-fg:#BBC7D6;--ad-vgensoft-bg:#1E2227;--ad-vground-bg:#1F2020;--ad-vink-bg:#E6EBEE;--ad-vink-border:#E9EFF2;--ad-vink-fg:#E9EFF2;--ad-vline-border:#3F4747;--ad-vline-fg:#cdd6d6;--ad-vmuted-border:#77878d;--ad-vmuted-fg:#BAC0C2;--ad-vteal-bg:#1f6f6a;--ad-vteal-border:#CDEAE9;--ad-vteal-fg:#CDEAE9;--ad-vtealsoft-bg:#1D2524;--ad-x3d5059-fg:#D4DBDF;--ad-x8a8278-fg:#C2BFBB;--ad-xdfeceb-fg:#dfeceb;--ad-xfff-bg:#2D2A25;--ad-xfff-fg:#ffffff;color-scheme:dark}
+}
+
+</style>
+<style id="anti-copy">
+/* 防盜用措施（2026-10-14）：畫面浮水印、列印浮水印、頁尾授權聲明 */
+@media screen{body::before{content:"";position:fixed;top:0;left:0;right:0;bottom:0;z-index:2147483000;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22460%22%20height%3D%22240%22%3E%3Cg%20transform%3D%22rotate%28-20%20230%20120%29%22%20font-family%3D%22Noto%20Sans%20TC%2Csans-serif%22%20fill%3D%22%23D9A400%22%20fill-opacity%3D%22.2%22%20text-anchor%3D%22middle%22%3E%3Ctext%20x%3D%22230%22%20y%3D%22112%22%20font-size%3D%2220%22%3E%E9%AB%98%E4%B8%AD%E8%8B%B1%E6%96%87%E9%A1%8C%E5%BA%AB%3C%2Ftext%3E%3Ctext%20x%3D%22230%22%20y%3D%22140%22%20font-size%3D%2214%22%3Estaresto-create.github.io%2FJCEE-vocab-questions%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E");background-repeat:repeat;}}
+@media print{body::after{content:"高中英文題庫\A staresto-create.github.io/JCEE-vocab-questions\A 免費資源，請勿販售";white-space:pre;position:fixed;top:42%;left:0;right:0;text-align:center;transform:rotate(-25deg);font-family:"Noto Sans TC",sans-serif;font-size:26pt;line-height:1.7;color:#c8c8c8;z-index:2147483000;pointer-events:none;}}
+.cc-note{font-size:12px;line-height:1.8;color:var(--ad-x8a8278-fg);margin:12px auto;max-width:60em;padding:0 1em;}.cc-note a{color:inherit;}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>問題與解決：先弄清楚為什麼忍不住，再學會停一下</h1>
+<p class="lede">黑色星期五的購物車，總是比原本打算的更滿。這篇文章先把這個現象變成一個問題，用三個心理效應解釋為什麼會這樣，最後才在第 50 行用 Fortunately 轉到對策。這是說明文五種基本結構裡的<b>問題與解決</b>，跟十月號第八單元同一種結構；不一樣的是，這一篇的問題用一個問句提出來，中間用三個原因回答，轉折的字也不是 However，是 Fortunately。這一頁也要你留意兩條詞彙線索：一條是作者怎麼跟讀者說話（you、we、問句、imagine），一條是把購物寫成打獵的比喻。</p>
+<p class="preview" id="pv" hidden>預覽模式：所有步驟、圖表、課文標記都已展開，進度不會存檔。學生拿到的一般連結不受影響。</p>
+<p class="resume" id="rs" hidden>上次做到一半，已經幫你接回來了。<button id="rst">重新開始</button></p>
+<p class="src">ALL+ 互動英語 11 月號 Unit 5（pp. 20–21）　Why Deals Are So Hard to Resist　全文 59 行　11/10 讀第 1–28 行，11/11 讀第 29–59 行</p>
+
+<!-- ═══ 第一步 ═══ -->
+<section class="step" id="s1">
+  <p class="stepno">第一步</p>
+  <h2>先畫場景，再點出落差，再問問題<span class="tag">上層：組織方式</span></h2>
+  <p>問題與解決的文章，開頭要先讓讀者看見問題。這篇的前八行做了三件事：畫出一個大家都熟悉的場景、點出計畫和結果的落差、把落差變成一個問題。<b>點三個有底色的地方</b>。</p>
+  <div class="lead" id="ld">
+    <c data-t="t">Every November, excited shoppers flood stores and websites on Black Friday, hunting for the best holiday sales.</c> <c data-t="p">Many plan to buy only a few items at most, yet in the end, they often leave with a cart full of new purchases.</c> <c data-t="r">What exactly makes these sales so difficult to resist for so many people?</c>
+  </div>
+  <p class="score" id="sc">已標出 <em>0</em> / 3</p>
+  <div id="s1b" hidden>
+    <p>三個都標出來了。那麼——<b>第 6 到 8 行的問句 <q>What exactly makes these sales so difficult to resist for so many people?</q> 在全文裡負責什麼？</b></p>
+    <div class="opts" id="q1">
+      <button>要讀者回想自己在黑色星期五買過哪些東西</button>
+      <button data-ok="1">把前面的落差問成問題，讓後面段落來回答</button>
+      <button>說明商店為什麼要在十一月推出這麼多特價</button>
+      <button>暗示大部分人買東西以前都沒有認真想過</button>
+    </div>
+    <div class="said e" id="a1" hidden>
+      <b>把前面的落差變成一個問題，後面的段落負責回答。</b>第 3 到 5 行說，許多人原本只打算買一點點，結果卻裝滿了購物車；第 6 到 8 行把這個落差問成一句話：為什麼這些特價這麼難抗拒？第 9 行 <q>The answer lies partly in</q> 就是在回答這個問句：The answer 指的就是前面那個問題的答案，後面三個原因，一個一個接著交代。
+      <br><br>
+      <b>問題與解決的文章常這樣起手：</b>先畫出一個讀者熟悉的場景，再點出計畫和結果的落差，最後用問句把它說成「需要處理的問題」。第 7 行的 difficult to resist 是表示問題的訊號詞。這個問句也是整篇的分水嶺：問句之前是現象，問句之後是解釋，一直到第 50 行才轉到對策。
+      <br><br>
+      <b>另外三個為什麼排除：</b>
+      <br><br>
+      「說明商店為什麼要在十一月推出這麼多特價」——<b>這個最容易選</b>，因為後面三段確實一直在講 Retailers 做了什麼（第 15 行、第 32 行、第 40 行）。可是這個問句問的主詞是 so many people：為什麼「消費者」難以抗拒，不是為什麼「商店」推出特價。作者要解釋的是人的反應，商店的手法只是原因的一部分。把後面段落的主詞接到問句上，這是歸屬錯。
+      <br><br>
+      「暗示大部分人買東西以前都沒有認真想過」——第 3 到 4 行寫的是 <q>Many plan to buy only a few items at most</q>，這些人是有計畫的；落差在計畫和結果之間，不是沒有計畫。這個選項把問題的方向弄反了。這一個靠讀懂第 3 到 5 行就排除得掉。
+      <br><br>
+      「要讀者回想自己在黑色星期五買過哪些東西」——第 1 行確實寫了 Black Friday，問句裡也有 you 的影子，看起來像在邀請讀者回想。可是問句本身沒有要讀者做任何事，也沒有任何一個字叫讀者去回想；它問的是原因，不是經驗。這是範圍錯。
+    </div>
+    <button class="go" id="g1" hidden>整篇怎麼排？</button>
+  </div>
+</section>
+
+<!-- ═══ 第二步 ═══ -->
+<section class="step" id="s2" hidden>
+  <p class="stepno">第二步</p>
+  <h2>先把問題解釋清楚，再轉到對策<span class="tag">上層：怎麼認出來</span></h2>
+  <p>先回答：<b>這篇文章的推進方式，最接近下列哪一種？</b></p>
+  <div class="opts" id="q2">
+    <button>依購物的先後，說明消費者從進店到結帳的每一個步驟</button>
+    <button>比較三種心理效應，說明哪一種對購買行為影響最大</button>
+    <button>從商家的促銷手法出發，一路推出消費者買太多的後果</button>
+    <button data-ok="1">先說明為何難抗拒特價，再提出避免衝動購買的做法</button>
+  </div>
+  <div class="said e" id="a2" hidden>
+    <b>先說明消費者為什麼難以抗拒特價，再提出避免衝動購買的做法。</b>這是說明文五種基本結構裡的<b>問題與解決</b>（problem and solution）。第 1 到 8 行說出問題，第 9 到 49 行用三個原因解釋問題為什麼會發生，到了第 50 到 52 行，<q>Fortunately, recognizing these psychological traps is an excellent way to preserve your hard-earned money</q> 一轉，最後十行講對策和結果。
+    <br><br>
+    <b>這篇跟十月號第八單元（談囤積症的那一篇）比，有三個地方不一樣。</b>第一，問題是用問句提出來的，不是用描述；第二，問題這一邊有三個原因，三個原因的寫法很像：第 9 行 The answer lies partly in、第 29 行 Another powerful factor、第 40 行 Retailers’ limited-time offers 各自報出一個新的原因，所以問題這一邊的內部有點像描述文，一格一格往上加；第三，轉折的字不是 However，是 Fortunately。Fortunately 是作者的評價：他認為這是好消息。轉折的字同時也是作者的態度。
+    <br><br>
+    <b>語言學家 Hoey 把這一類文章的順序整理成「情況、問題、回應、評估」</b>，跟十月號第八單元一樣。這篇也對得上：第 1 到 5 行是情況，第 6 到 8 行是問題，第 50 到 54 行是回應，第 55 到 59 行是評估：<q>make much more rational purchasing decisions</q>，最後的 <q>Your wallet will thank you!</q> 是對結果的評價。中間的三個原因，是在解釋問題為什麼發生，所以放在問題那一邊。
+    <br><br>
+    <b>另外三個為什麼排除，每一個都是別種結構：</b>
+    <br><br>
+    「從商家的促銷手法出發，一路推出消費者買太多的後果」——這是<b>因果</b>，<b>這個最容易選</b>，因為三個原因真的是原因：第 48 到 49 行 <q>The resulting FOMO can drive us to make hasty, impulsive purchases</q>，resulting 就是在講結果。可是純因果的文章會停在後果，這篇到第 49 行還沒有結束，第 50 行 Fortunately 轉到讀者可以做什麼：pause for a moment（第 54 行）。有一個回應問題的對策，這就是問題與解決，不只是因果。
+    <br><br>
+    「依購物的先後」——這是<b>序列</b>。全文沒有 first、then、after that 這類排步驟的字，三個原因的順序可以換，不是依時間排的。第 19 到 22 行的耳機例子是一個情境，不是一個步驟。這一個靠讀懂全篇就排除得掉。
+    <br><br>
+    「比較三種心理效應，說明哪一種影響最大」——這是<b>比較對照</b>。第 29 行 <q>Another powerful factor</q> 確實有 powerful，看起來像在比較大小。可是 Another 是「再加上一個」，不是「比上一個更」；全文沒有任何一處說三個效應哪一個影響最大。
+    <br><br>
+    下面這張圖是問題與解決的標準組織圖：左邊是問題，右邊是解決，中間的箭頭標出轉折的地方。這一篇問題這一邊有四格，是第一格的情況和問題，加上三個原因各一格。<b>點任一格</b>，第四步的課文對應行會亮起來（課文還沒打開的話，先把行號記住就好）。
+  </div>
+  <figure class="fig" id="fig" hidden></figure>
+  <button class="go" id="g2" hidden>把內容放回組織圖</button>
+</section>
+
+<div class="daybreak" id="db" hidden>
+  <b>11/11 的範圍從這裡開始：第 29–59 行</b>
+  第一、二步用的是 11/10 的第 1–28 行（情況、問題、錨定效應）。第三步以後會用到整篇，包含 11/11 的第 29–59 行（稀缺效應、FOMO、對策和結果）。如果你今天是 11/10，做到這裡可以先停，明天再接下去。（第二步的說明和圖已經提到後面的格子，先看到不影響。）
+</div>
+
+<!-- ═══ 第三步 ═══ -->
+<section class="step" id="s3" hidden>
+  <p class="stepno">第三步</p>
+  <h2>把內容放回問題解決圖<span class="tag">上層：怎麼驗證</span></h2>
+  <p>怎麼確定這篇是問題與解決，而不是單純在講原因和後果？<b>先找訊號詞，說出是哪一種結構，再把內容放進組織圖，最後用一句話說出整篇。</b></p>
+  <p>訊號詞分成兩邊。表示問題的：第 7 行 difficult to resist、第 49 行 hasty, impulsive、第 51 行 traps。表示解決的：第 50 行 Fortunately、第 51 到 52 行 an excellent way to preserve、第 54 行 pause、第 57 行 reduce、第 58 行 rational。兩邊之間只有一個轉折：第 50 行的 Fortunately。問題的字集中在前面，解決的字集中在後面，中間有一個明確的轉折，這就是問題與解決。</p>
+  <p>下面六張卡片寫的是文章裡的內容，<b>都換過說法，也沒有行號</b>。每一張判斷一次：它屬於組織圖的哪一格？點下去就定了，不能改。</p>
+  <div class="qs" id="qs"></div>
+  <p class="score" id="sc3">已放 <em>0</em> / 6，第一次就放對 <em>0</em> 張</p>
+  <div class="said e" id="a3" hidden>
+    <b>六張都放得回去，而且問題那一邊的卡片比解決那一邊多。這就是問題與解決。</b>作者要先讓讀者看清問題，解決方法才有意義，所以問題那一邊常常寫得比較長。
+    <br><br>
+    <b>最容易放錯的，是「限時優惠和庫存訊息」那一張。</b>它提到庫存很少，很像稀缺效應；可是第 34 到 35 行的 <q>only three left in stock</q> 是稀缺效應舉的例子，第 40 到 42 行的 <q>limited-time offers and messages about low stock directly trigger our FOMO</q> 說的卻是這些訊息引發怕錯過的感覺。同樣的訊息，稀缺效應講的是「東西少，所以值錢」，FOMO 講的是「別人都在搶，我不能錯過」。<b>分格看的是這一段第一句宣布了什麼，不是看句子裡有沒有 stock。</b>
+    <br><br>
+    <b>再看解決方法對準了哪一格。</b>第 50 到 51 行說要認出的是 these psychological traps，第 55 到 56 行把三個陷阱的名字再說一次：anchors, scarcity, and FOMO。解決方法和三個原因一一對上，兩邊才接得起來。
+    <br><br>
+    <b>考卷上怎麼考：</b>主旨題的誘答最愛只寫一個原因，或者把開頭的場景當成整篇。下面試一題摘要題。
+  </div>
+  <div id="q3w" hidden>
+    <p><b>哪一句最適合當這篇文章的一句話摘要？</b></p>
+    <div class="picks" id="q3">
+      <button data-ok="1">Shoppers who understand three psychological pulls can resist special sales, because knowing these tricks helps them spend more wisely.</button>
+      <button>An original price shown beside a sale price makes the lower price feel like a bargain, even if it is costly.</button>
+      <button>Every November, excited customers crowd stores and websites during Black Friday, searching hard for the very best holiday sales.</button>
+      <button>Retailers use scarcity and fear of missing out to make shoppers feel safe, so customers end up buying less than planned.</button>
+    </div>
+    <div class="said e" id="a3b" hidden>
+      <b>第一句。</b>它把問題和解決兩邊都收進一句話：前半句是對策（understand three psychological pulls 對上第 55 到 56 行的 anchors, scarcity, and FOMO），後半句是結果（spend more wisely 對上第 58 到 59 行的 more rational purchasing decisions）；can resist special sales 也把第 7 行的 difficult to resist 接回來了。而且它沒有照抄課文：第 51 行的 psychological traps 換成 psychological pulls，第 58 行的 rational 換成 wisely。
+      <br><br>
+      <b>另外三個為什麼排除：</b>
+      <br><br>
+      「An original price shown beside a sale price …」——<b>這個最容易選</b>，因為它幾乎就是第 14 到 18 行的原文，句子完整，看起來最紮實。可是它只是第一個原因，一格代表不了整篇。<b>範圍錯。</b>
+      <br><br>
+      「Every November, excited customers crowd stores …」——這是第 1 到 3 行的改寫，是開頭的場景，只是整篇的入口，不是整篇在說的事。把開頭的場景當成全文，<b>層級錯</b>。
+      <br><br>
+      「Retailers use scarcity and fear of missing out to make shoppers feel safe …」——scarcity 和 fear of missing out 都是課文裡的字，可是第 3 到 5 行說的是購物車裝得比原來打算的更滿，第 48 到 49 行也說 FOMO 帶來的是 hasty, impulsive purchases。選項說買得更少，把方向弄反了，<b>方向錯</b>。這一個靠讀懂全篇的落差就排除得掉。
+    </div>
+  </div>
+  <button class="go" id="g3" hidden>看兩條詞彙線索</button>
+</section>
+
+<!-- ═══ 第四步 ═══ -->
+<section class="step" id="s4" hidden>
+  <p class="stepno">第四步</p>
+  <h2>作者怎麼跟讀者說話，一場打獵的比喻<span class="tag b">下層：對讀者說話的語言與比喻串</span></h2>
+  <p>這一篇有一個新工具，青色，還有一個舊工具再練一次，藍灰。兩條線都貫穿全文。</p>
+  <p><b>青色：對讀者說話的語言（新工具）。</b>語言學家 Hyland 2005 年研究學術寫作，把作者拉住讀者的手段叫做 engagement markers，分成五類：讀者代名詞（you、your，還有把讀者算在內的 we）、指令（祈使句和 should 這類字）、問句、訴諸共同知識（of course 這類字），以及插入的個人評論。這篇用到前三類：</p>
+  <p>第一類，問句：第 6 行 <q>What exactly makes</q>，還有第 24 到 26 行引號裡的 <q>Do I genuinely need this?</q> 和 <q>How could I possibly pass up such a deal?</q>。第二類，讀者代名詞：<b>you、your 從第 10 行開始，一直到第 59 行 Your wallet will thank you!</b>，把讀者放進故事裡。第三類，指令：第 19 行 <q>imagine</q> 和第 54 行 <q>pause</q>，作者直接叫讀者去做一件事。</p>
+  <p><b>這篇的人稱有一個規律，跟結構一起走。</b>例子裡，主角是 you：第 10 到 25 行，你看到耳機，你的心態轉變。講原因的兩段，主角換成 we 和 our：第 36 到 48 行 we believe、our desire、our FOMO、drive us，作者把自己也算進去，因為這是人人都有的反應。到了對策，又回到 you：第 52 到 59 行 your hard-earned money、your thought process，還有 pause 這個直接叫你做的指令。一個一個換，是因為作者想說的話不同：例子要你代入，原因要你覺得「大家都這樣」，對策要你自己動手。</p>
+  <p>要留意一點：<b>這裡的 you 沒有先行詞。</b>十月號教的人稱指涉，是 he、she、they 往前指到一個人；這裡的 you 不指前面任何一個人，指的就是正在讀這一行的你。所以選項改寫時，常常把 you 換成 shoppers 或 people，意思不變，只是從跟你說話變成談論別人。</p>
+  <p><b>藍灰：比喻串（九月號第十單元教過）。</b>第 3 行 <q>hunting for</q> 說購物者在「打獵」，要獵特價；到了第 9 到 10 行 psychological trick、第 11 行 locks onto、第 51 行 psychological traps，字變成「詭計」「鎖定」「陷阱」：獵人反而成了被鎖定的對象。<b>同一個場景裡，主詞悄悄換了：你以為你在獵特價，其實是你被設計好的陷阱獵到。</b>這條線不是裝飾，它替第 50 行的 Fortunately 鋪了路：陷阱既然被認出來，就不再有效。</p>
+  <p><b>點課文裡有底色的字</b>，同一條的字會一起亮起來。兩色可以各自關掉。</p>
+  <div class="modes">
+    <button id="m1" aria-pressed="true">對讀者說話（青）</button>
+    <button id="m2" aria-pressed="true">比喻串（藍灰）</button>
+  </div>
+  <div class="text" id="tx"></div>
+  <div class="panel" id="pn">
+    <span class="k" id="pk">線索</span>
+    <div class="ch" id="pc">點圖上的一格，或課文裡有底色的字</div>
+    <p class="nt" id="pt">青色是作者對讀者說話的字：問句、you、we、imagine、pause；藍灰是把購物寫成打獵的比喻。</p>
+  </div>
+  <div class="recall">
+    <b>另外三樣，前面單元教過，這篇自己確認得出來：</b>
+    <ul>
+      <li><b>概括名詞。</b>九月號第三、第四單元教過，十月號第二、第九單元也練過。第 50 到 51 行的 <q>these psychological traps</q> 一個名詞收三個原因：錨定效應、稀缺效應、FOMO；第 43 行的 this feeling 收的是前面那個怕錯過的感覺。它收的是一整片，不是最近的一個名詞。</li>
+      <li><b>定義框。</b>九月號第九單元教過，十月號第五單元的同位語也練過。每個術語第一次出現，後面就跟著它的定義：第 9 到 10 行 <q>a psychological trick called the anchoring effect</q>、第 12 到 13 行 <q>the first piece of information it notices, which is called the anchor</q>、第 42 行 <q>our FOMO, or “fear of missing out.”</q>。called 和 or 都是定義框的標記。</li>
+      <li><b>回指整件事。</b>九月號第三單元教過。第 32 到 33 行 <q>Retailers often use this to their advantage</q> 的 this，指的不是前面某一個詞，而是前一句整件事：人們覺得稀有的東西比較有價值。</li>
+    </ul>
+  </div>
+  <p style="margin-top:1.1rem"><button class="go" id="g4">考卷怎麼考這種文章</button></p>
+</section>
+
+<!-- ═══ 第五步 ═══ -->
+<section class="step" id="s5" hidden>
+  <p class="stepno">第五步</p>
+  <h2>作者為什麼舉這個例子<span class="tag">上層：考點</span></h2>
+  <p>問題與解決的文章，例子很多，考卷最愛問「作者為什麼提到某一個例子」。第三步已經試過主旨題；這一題考的是例子在整篇裡的位置。做法是回到例子所在的段落，先看它屬於組織圖的哪一格，再問它在這一格裡負責什麼。</p>
+  <p>第 19 到 22 行的耳機例子，在第一個原因那一格：從第 9 到 10 行 <q>The answer lies partly in a psychological trick called the anchoring effect</q> 開始，到第 28 行結束。前半段先把原理講完，這個例子才出現，所以它是在示範原理怎麼起作用，不是另外一個原因。</p>
+  <p>試一題：<b>作者在第 19 到 22 行舉出 $299 和 $99 的耳機，目的是什麼？</b></p>
+  <div class="opts en" id="q5">
+    <button>To show that scarcity makes shoppers pay more for goods that seem rare</button>
+    <button data-ok="1">To show how a high original price makes a sale price feel irresistible</button>
+    <button>To prove that stores deliberately mislead shoppers about the original prices they display</button>
+    <button>To suggest that shoppers should buy headphones whenever a discount is large</button>
+  </div>
+  <div class="said e" id="a5" hidden>
+    <b>第四句。</b>先注意：它沒有照抄課文。第 16 到 18 行的 <q>The anchoring effect makes the lower sale price seem especially attractive</q> 換成 can make a sale price feel irresistible，anchor 換成 a high original price。這個例子在示範錨定效應：$299 是錨，$99 因為跟它並排而顯得特別便宜。<b>另外三句反而滿是課文裡的字。</b>
+    <br><br>
+    <b>另外三個為什麼排除：</b>
+    <br><br>
+    「To prove that stores deliberately mislead shoppers about original prices」——<b>這個最容易選</b>，因為 original price 和 deliberately 都是課文的原字，第 15 行還寫了 retailers often deliberately display。可是第 14 到 16 行寫的是 deliberately <q>display</q> 原價，並排放在特價旁邊，沒有說原價是假的；作者也沒有指控商店騙人，整篇只說這個手法會影響我們的判斷。這是把 display 讀成 mislead，範圍錯。
+    <br><br>
+    「To show that scarcity makes shoppers pay more for goods that seem rare」——這是第 29 到 33 行的內容，稀缺效應從第 29 到 30 行 <q>Another powerful factor is the scarcity effect</q> 才開始，是第二個原因。耳機例子在第 19 到 22 行，整段沒有 rare、short supply 或 only three left 這類字，它屬於第一個原因。歸屬錯。
+    <br><br>
+    「To suggest that shoppers should buy headphones whenever a discount is large」——方向剛好相反。第 26 到 28 行寫的是 <q>The large discount makes the savings feel more important than the actual need</q>，作者把這個反應當成問題，不是建議。這一個靠讀懂整篇的立場就排除得掉。
+  </div>
+  <button class="go" id="g5" hidden>最後一題</button>
+</section>
+
+<!-- ═══ 第六步 ═══ -->
+<section class="step" id="s6" hidden>
+  <p class="stepno">第六步</p>
+  <h2>把一句話放回去</h2>
+  <p>這就是考卷上的<b>篇章結構</b>題。下面把第 50 到 52 行那一句整句抽掉了，四個候選句只有一句放得進去。</p>
+  <div class="gap" id="gp">
+    Retailers’ limited-time offers and messages about low stock directly trigger our FOMO, or “fear of missing out.” Online shopping has made this feeling even stronger. Flash sales, countdown timers, and messages like “selling fast” can create the impression that everyone else is taking advantage of a great opportunity. The resulting FOMO can drive us to make hasty, impulsive purchases.
+    <br>
+    <span class="blank" id="bl">（空格）</span> The next time an attention-grabbing discount catches your eye, pause for a moment. By understanding how anchors, scarcity, and FOMO influence your thought process, you can reduce the urge to buy impulsively and make much more rational purchasing decisions. Your wallet will thank you!
+  </div>
+  <div class="picks" id="q6">
+    <button>The large discount makes the savings feel more important than the actual need for the product.</button>
+    <button>People tend to place a higher value on things that seem rare or difficult to obtain.</button>
+    <button data-ok="1">Fortunately, recognizing these psychological traps is an excellent way to preserve your hard-earned money.</button>
+    <button>The next time an attention-grabbing discount catches your eye, pause for a moment.</button>
+  </div>
+  <div class="said" id="a6" hidden>
+    <b>四個線索同時指向同一句。</b>這四句單獨看都說得通，沒有一句本身是錯的。要排除，得靠位置和線索。
+    <br><br>
+    <b>先講一個例外。</b>前面說大考的正解通常是改寫，但<b>抽句題不一樣</b>：抽掉的那一句就是原文，所以正解一定是原文。這一題要靠的是誘答哪裡接不上，不是比對字面。
+    <br><br>
+    <b>一、轉折要轉到對策，而且要收住前面三個原因。</b>空格前一句講的是 hasty, impulsive purchases，是問題的最後一個後果；正解用 Fortunately 轉到好消息，而且 these psychological traps 是概括名詞（第四步複習過），一次收進前面三個效應：錨定、稀缺、FOMO。空格後面的 The next time 和 By understanding how anchors, scarcity, and FOMO 就是在說怎麼認出這些陷阱。這一句還有一個功能：your hard-earned money 第一次說出好處，後面三句才是方法和結果。
+    <br><br>
+    <b>另外三個為什麼排除，各有一個明確的依據：</b>
+    <br><br>
+    <b>二、重複，而且 The next time 沒有前提。</b>「The next time an attention-grabbing discount catches your eye, pause for a moment」<b>這個最容易選</b>：它是對策的口吻，也有 pause 這個指令，跟正解一樣在講怎麼做。可是它就是空格後面第 52 到 54 行的原句，放進空格，同一句話就出現兩次；而且 The next time 是在已經說了「認出陷阱有好處」之後才接得上，空格前面還沒有任何一句講到對策。
+    <br><br>
+    <b>三、歸屬。</b>「People tend to place a higher value on things that seem rare」是第 30 到 32 行的原句，屬於稀缺效應那一格。空格前面已經把三個原因都講完了，再回頭講稀缺，等於把第二格的內容搬過來，後面的 these 也找不到可以指的東西。
+    <br><br>
+    <b>四、指涉落空。</b>「The large discount makes the savings feel more important …」是第 26 到 28 行的原句，屬於耳機例子。the large discount 的 the 要指向一個已經提過的折扣，空格前面講的是 Flash sales、countdown timers，沒有任何一個大折扣可以指；要等到第 21 到 22 行 $299 變成 $99 以後，這一句才接得上。
+  </div>
+  <p class="why" id="w6" hidden>考卷上不會有底色，也不會有行號。但你剛才用的線索：轉折的字、概括名詞、重複、一段的歸屬，每一篇問題與解決的文章都找得到。</p>
+</section>
+
+<!-- ═══ 第七步 ═══ -->
+<section class="close" id="s7" hidden>
+  <h2>帶著走的五句話</h2>
+  <ol>
+    <li><b>問題與解決的文章，開頭先讓讀者看見問題。</b>這一篇先畫場景，再點出計畫和結果的落差，最後用第 6 到 8 行的問句把它變成問題，第 9 行的 The answer lies partly in 接著回答。</li>
+    <li><b>驗證方法：找出從問題轉到解決的那個字。</b>這篇是第 50 行的 Fortunately，之前全是問題和原因，之後才是對策。再檢查對策有沒有對準原因：認出的 these psychological traps，就是前面三個效應。</li>
+    <li><b>三個原因在問題這一邊，不要把問題與解決讀成因果。</b>如果文章在講完後果就結束，是因果；如果後面還有一個回應問題的對策，才是問題與解決。</li>
+    <li><b>下層：對讀者說話的語言（engagement markers）。</b>問句、you、we、imagine、pause。you 沒有先行詞，指的就是正在讀的你；例子用 you，原因用 we，對策又用 you 加指令，人稱跟著結構一起換。</li>
+    <li><b>例子題要先看它在哪一格。</b>耳機例子在錨定效應那一格，是在示範原理，不是另一個原因。誘答最常把別格的內容搬過來，或者把 deliberately display 讀成 mislead。</li>
+  </ol>
+  <p class="more"><a href="https://staresto-create.github.io/JCEE-vocab-questions/wordwheel.html">單字輪：把字拆成部件來記 →</a></p>
+</section>
+
+<nav class="series">
+  <a class="back" href="cohesion.html">← 回讀法練習總表</a>
+  <p class="note">總表上有目前可以做的所有單元，還有你累積到現在的讀法工具。</p>
+</nav>
+</div>
+<script>
+(function(){
+"use strict";
+function $(id){return document.getElementById(id);}
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;");}
+
+var KEY="cohesion-202611-u5-v1";
+
+var PREVIEW=false;
+var ST={tags:{},rows:{},q1:0,q2:0,q3:0,q5:0,q6:0,step:1};
+function save(){ if(PREVIEW) return; try{ localStorage.setItem(KEY, JSON.stringify(ST)); }catch(e){} }
+function load(){ try{ var r=localStorage.getItem(KEY); return r?JSON.parse(r):null; }catch(e){ return null; } }
+function wipe(){ try{ localStorage.removeItem(KEY); }catch(e){} location.reload(); }
+
+var TITLE="Why Deals Are So Hard to Resist";
+
+var LINES=[
+"Every November, excited shoppers",
+"flood stores and websites on Black Friday,",
+"{hunting|c-met|1} for the best holiday sales. Many",
+"plan to buy only a few items at most, yet",
+"in the end, they often leave with a cart full",
+"of new purchases. {What exactly|c-eng|1} makes",
+"these sales so difficult to resist for so many",
+"people?",
+"The answer lies partly in a psychological",
+"{trick|c-met|2} called the anchoring effect. When {you|c-eng|2}",
+"view an item, {your|c-eng|2} brain quickly {locks onto|c-met|3}",
+"the first piece of information it notices,",
+"which is called the anchor. In shopping, the",
+"anchor is often the product’s original price,",
+"which retailers often deliberately display",
+"next to the sale price. The anchoring effect",
+"makes the lower sale price seem especially",
+"attractive, even if the item is still expensive.",
+"For example, {imagine|c-eng|4} finding a pair",
+"of wireless headphones while shopping.",
+"The original price is $299, but {you|c-eng|2} see that",
+"they’re on sale for just $99. At that moment,",
+"{your|c-eng|2} mindset shifts. Instead of asking",
+"{yourself|c-eng|2}, “{Do I|c-eng|1} genuinely need this?” {you|c-eng|2}",
+"start thinking, “{How could I|c-eng|1} possibly pass",
+"up such a deal?” The large discount makes",
+"the savings feel more important than the",
+"actual need for the product.",
+"Another powerful factor is the scarcity",
+"effect. People tend to place a higher value",
+"on things that seem rare or difficult to",
+"obtain. Retailers often use this to their",
+"advantage to create a sense of urgency",
+"by adding messages such as “only three left",
+"in stock” or “sale ends in two hours.” When",
+"{we|c-eng|3} believe a product is rare or in short",
+"supply, {our|c-eng|3} desire to buy it surges because",
+"{we|c-eng|3} naturally hate missing out on special",
+"opportunities.",
+"Retailers’ limited-time offers and",
+"messages about low stock directly trigger",
+"{our|c-eng|3} FOMO, or “fear of missing out.” Online",
+"shopping has made this feeling even",
+"stronger. Flash sales, countdown timers,",
+"and messages like “selling fast” can create",
+"the impression that everyone else is",
+"taking advantage of a great opportunity.",
+"The resulting FOMO can drive {us|c-eng|3} to make",
+"hasty, impulsive purchases.",
+"Fortunately, recognizing these",
+"psychological {traps|c-met|4} is an excellent way to",
+"preserve {your|c-eng|2} hard-earned money. The",
+"next time an attention-grabbing discount",
+"catches {your|c-eng|2} eye, {pause|c-eng|4} for a moment. By",
+"understanding how anchors, scarcity, and",
+"FOMO influence {your|c-eng|2} thought process, {you|c-eng|2}",
+"can reduce the urge to buy impulsively",
+"and make much more rational purchasing",
+"decisions. {Your|c-eng|2} wallet will thank {you|c-eng|2}!"
+];
+var INDENT={1:1,9:1,19:1,29:1,40:1,50:1};
+var HEAD={};
+var SPLIT=29;
+var SPLIT_TEXT="以上是 11/10 的第 1–28 行。以下是 11/11 的第 29–59 行。";
+
+var CHAINS={
+ "c-eng":{k:"sub",n:"對讀者說話的語言（engagement markers），這一篇的新工具。出處：Hyland 2005 年的〈Stance and engagement: a model of interaction in academic discourse〉，把作者拉住讀者的手段分成五類：讀者代名詞、指令、問句、訴諸共同知識、插入的個人評論。這篇用了前三類。問句：第 6 行 What exactly，第 24、25 行的 Do I、How could I。讀者代名詞：you、your 把讀者放進故事，從第 10 行一路到第 59 行；we、our、us 把作者自己也算進去，只出現在第 36 到 48 行講原因的地方。指令：第 19 行 imagine、第 54 行 pause，直接叫讀者去做一件事。人稱跟著結構換：例子裡主角是你，原因裡是大家，對策又回到你。這裡的 you 沒有先行詞，指的就是正在讀的你，跟十月號教的人稱指涉不一樣。"},
+ "c-met":{k:"gen",n:"比喻串，九月號第十單元教過。第 3 行 hunting 說購物者在打獵，要獵特價；第 9 到 10 行 trick（詭計）、第 11 行 locks onto（鎖定）、第 51 行 traps（陷阱）三個字，把同一個場景換了主詞：你以為你在獵特價，其實是你被設計好的陷阱鎖定。這條線替第 50 行的 Fortunately 鋪了路：陷阱既然被認出來，就不再有效。第 51 行的 traps 同時是概括名詞，一個字收進前面三個效應：錨定、稀缺、FOMO。"}
+};
+var LB={sub:"對讀者說話的語言",gen:"比喻串",mk:"標記詞"};
+var CL={sub:"k",gen:"k g",mk:"k e"};
+
+var NODES=[
+ {nm:"狀況與提問",en:"What exactly makes…",a:1,b:8,
+  n:"第 1 到 8 行。先畫出黑色星期五的場景，再點出許多人原本只打算買一點點，結果購物車卻裝得滿滿的，最後用第 6 到 8 行的問句把落差變成問題：為什麼這些特價這麼難抗拒？後面三格就是在回答。"},
+ {nm:"錨定效應",en:"the anchoring effect",a:9,b:28,
+  n:"第 9 到 28 行。第 9 行的 The answer lies partly in 開始回答問句。人的腦會鎖定看到的第一個資訊，也就是錨；購物時，錨常常是原價，商店把它擺在特價旁邊，特價就顯得特別有吸引力。第 19 到 28 行用 $299 變成 $99 的耳機當例子：折扣大，省錢的感覺就壓過真正需不需要。第一天到這裡為止。"},
+ {nm:"稀缺效應",en:"Another powerful factor",a:29,b:39,
+  n:"第 29 到 39 行。第 29 行的 Another 再加上第二個原因。人覺得稀有或難取得的東西比較有價值，商店用 only three left in stock、sale ends in two hours 製造急迫感；我們相信東西少，購買的慾望就上升，因為我們天生討厭錯過好機會。第二天從這一格開始。"},
+ {nm:"FOMO",en:"fear of missing out",a:40,b:49,
+  n:"第 40 到 49 行。限時優惠和庫存訊息直接引發 FOMO，也就是怕錯過。網路購物讓這種感覺更強：快閃特賣、倒數計時、selling fast 這類訊息，讓人覺得別人都在搶這個好機會。結果是我們容易做出倉促的衝動購買。"},
+ {nm:"解決方法",en:"Fortunately… pause",a:50,b:54,
+  n:"第 50 到 54 行。第 50 行的 Fortunately 一轉：認出這些心理陷阱，是保住辛苦賺來的錢的好方法。下次有吸引人的折扣抓住你的眼睛，先停一下。這個方法對準的正是前面三個原因。"},
+ {nm:"結果與評價",en:"more rational decisions",a:55,b:59,
+  n:"第 55 到 59 行。了解錨定、稀缺和 FOMO 怎麼影響你的想法，就能減少衝動購買的慾望，做出更理性的購買決定。最後一句 Your wallet will thank you! 是對結果的評價。"}
+];
+
+var SPOKES=["狀況與提問","錨定效應","稀缺效應","FOMO","解決方法","結果與評價"];
+var ROWS=[
+ {f:"原本只打算買幾樣，結帳時購物車卻裝得滿滿的。",ans:0,
+  note:"第 3 到 6 行。<q>Many plan to buy only a few items at most, yet in the end, they often leave with a cart full of new purchases</q>。這是開頭點出的落差，問題從這裡開始。"},
+ {f:"原價跟特價並排擺著，特價就顯得特別有吸引力，就算東西還是很貴。",ans:1,
+  note:"第 14 到 16 行 <q>the product’s original price, which retailers often deliberately display next to the sale price</q>；第 16 到 18 行 <q>The anchoring effect makes the lower sale price seem especially attractive</q>。這是第一個原因，從第 9 行開始。"},
+ {f:"限時優惠和庫存不多的訊息，會直接引發怕錯過的感覺。",ans:3,
+  note:"第 40 到 42 行。<q>Retailers’ limited-time offers and messages about low stock directly trigger our FOMO</q>。這一張最容易放錯，因為庫存不多也出現在第 34 到 35 行的 <q>only three left in stock</q>，很像稀缺效應。可是稀缺效應講的是「東西少，所以覺得值錢」，這一張講的是訊息引發的「怕錯過」，主詞是第 42 行的 our FOMO，屬於第三個原因。分格看的是這一段的第一句宣布了什麼，不是看句子裡有沒有 stock。"},
+ {f:"人們通常覺得稀有或不容易取得的東西比較有價值。",ans:2,
+  note:"第 30 到 32 行。<q>People tend to place a higher value on things that seem rare or difficult to obtain</q>。這一段從第 29 行的 Another powerful factor 開始，講的是稀缺效應。"},
+ {f:"學會認出這些心理陷阱，下次看到折扣先停一下。",ans:4,
+  note:"第 50 到 51 行 <q>recognizing these psychological traps</q> 是對策的核心，第 54 行 <q>pause for a moment</q> 是具體的做法。這一段從第 50 行的 Fortunately 開始，Fortunately 就是從問題轉到解決的字。"},
+ {f:"了解背後的心理以後，比較能忍住衝動，做出比較理性的決定。",ans:5,
+  note:"第 55 到 59 行。<q>you can reduce the urge to buy impulsively and make much more rational purchasing decisions</q>。這是對策帶來的結果，最後一句 Your wallet will thank you! 是對結果的評價。"}
+];
+
+var TL={t:"場景",p:"落差",r:"問題"};
+
+/* ---------- 通用：選擇題 ---------- */
+function quiz(qid,aid,gid,tag,after){
+  var done=false;
+  function settle(){
+    done=true;
+    var bs=$(qid).querySelectorAll("button");
+    for(var i=0;i<bs.length;i++){ bs[i].disabled=true; bs[i].dataset.state=bs[i].dataset.ok?"right":"wrong"; }
+    if(aid) $(aid).hidden=false;
+    if(gid) $(gid).hidden=false;
+    if(after) after();
+  }
+  $(qid).addEventListener("click",function(e){
+    var b=e.target.closest("button"); if(!b||done) return;
+    settle(); ST[tag]=1; save();
+  });
+  return settle;
+}
+function opener(gid,sid,extra){
+  $(gid).addEventListener("click",function(){
+    var n=parseInt(sid.replace(/\D/g,""),10);
+    if(ST.step<n) ST.step=n; save();
+    $(sid).hidden=false; if(extra) extra();
+    $(sid).scrollIntoView({behavior:"smooth",block:"start"});
+  });
+}
+function hlLines(a,b){
+  var rows=$("tx").querySelectorAll(".ln");
+  for(var r=0;r<rows.length;r++){ var n=+rows[r].dataset.n; rows[r].classList.toggle("hl", n>=a&&n<=b); }
+  var ms=$("tx").querySelectorAll("m");
+  for(var k=0;k<ms.length;k++) ms[k].classList.remove("lit");
+  if(rows.length){ var f=$("tx").querySelector('.ln[data-n="'+a+'"]'); if(f) f.scrollIntoView({behavior:"smooth",block:"center"}); }
+}
+
+/* ---------- 第一步 ---------- */
+function tagged(){ var n=0; for(var k in ST.tags) if(ST.tags[k]) n++; return n; }
+function paintTag(c){
+  if(c.classList.contains("got")) return;
+  c.classList.add("got");
+  var b=document.createElement("b"); b.textContent=TL[c.dataset.t]||"";
+  c.insertBefore(b, c.firstChild);
+}
+function afterTags(){
+  $("sc").innerHTML="已標出 <em>"+tagged()+"</em> / 3";
+  if(tagged()===3) $("s1b").hidden=false;
+}
+$("ld").addEventListener("click",function(e){
+  var c=e.target.closest("c"); if(!c) return;
+  if(ST.tags[c.dataset.t]) return;
+  ST.tags[c.dataset.t]=1; save(); paintTag(c); afterTags();
+});
+var set1=quiz("q1","a1","g1","q1");
+opener("g1","s2");
+
+/* ---------- 第二步：放射狀網狀圖 ---------- */
+function drawFig(){
+  if($("fig").firstChild) return;
+  $("fig").hidden=false;
+  var s='<svg viewBox="0 0 420 292" role="img" aria-label="問題解決圖：左邊問題四格，右邊解決兩格，中間的箭頭是第 50 行的 Fortunately">';
+  s+='<text class="zl l" x="99" y="17" text-anchor="middle">問題 Problem</text>';
+  s+='<text class="zl r" x="334" y="17" text-anchor="middle">解決 Solution</text>';
+  s+='<rect class="zone" x="6" y="25" width="186" height="260" rx="8"/>';
+  s+='<rect class="zone" x="252" y="25" width="164" height="260" rx="8"/>';
+  s+='<path class="arr" d="M196 154 L246 154"/><path class="arr" d="M240 148 L247 154 L240 160"/>';
+  s+='<text class="pivot" x="221" y="143" text-anchor="middle" style="font-size:10px">Fortunately</text>';
+  s+='<text class="pn" x="221" y="174" text-anchor="middle">第 50 行</text>';
+  s+='<path class="arr" d="M334 130 L334 168"/><path class="arr" d="M328 162 L334 169 L340 162"/>';
+  var P=[[99,32],[99,94],[99,156],[99,218],[334,70],[334,170]], W=[168,168,168,168,150,150], H=[54,54,54,54,60,60];
+  for(var i=0;i<NODES.length;i++){
+    var d=NODES[i], x=P[i][0], y=P[i][1], w=W[i], h=H[i];
+    s+='<g class="node" data-i="'+i+'" tabindex="0" role="button">';
+    s+='<rect x="'+(x-w/2)+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="5"/>';
+    s+='<text x="'+x+'" y="'+(y+h/2-10)+'" text-anchor="middle">'+esc(d.nm)+'</text>';
+    s+='<text class="n" x="'+x+'" y="'+(y+h/2+3)+'" text-anchor="middle">'+esc(d.en)+'</text>';
+    s+='<text class="n" x="'+x+'" y="'+(y+h/2+15)+'" text-anchor="middle">'+('第 '+d.a+'–'+d.b+' 行')+'</text>';
+    s+='</g>';
+  }
+  s+='</svg><figcaption>左邊是問題，右邊是解決，中間的箭頭就是第 50 行的 Fortunately：整篇在這裡從問題轉到解決。問題這一邊有四格，比解決那一邊多：第一格說出問題，後面三格是三個原因，因為作者要先讓讀者看清問題。右邊兩格之間有箭頭，表示結果來自對策。點任一格，第四步的課文對應行會亮起來。</figcaption>';
+  $("fig").innerHTML=s;
+  function hit(g){
+    var i=+g.dataset.i, d=NODES[i];
+    var gs=$("fig").querySelectorAll(".node");
+    for(var j=0;j<gs.length;j++) gs[j].classList.toggle("on", +gs[j].dataset.i===i);
+    hlLines(d.a,d.b);
+    $("pk").textContent=(i<4?"問題的一格":"解決的一格"); $("pk").className="k e";
+    $("pc").textContent=d.nm+"　"+d.en; $("pt").textContent=d.n;
+  }
+  $("fig").addEventListener("click",function(e){ var g=e.target.closest(".node"); if(g) hit(g); });
+  $("fig").addEventListener("keydown",function(e){
+    if(e.key!=="Enter"&&e.key!==" ") return;
+    var g=e.target.closest(".node"); if(g){ e.preventDefault(); hit(g); }
+  });
+}
+function afterQ2(){ drawFig(); $("db").hidden=false; }
+var set2=quiz("q2","a2","g2","q2",afterQ2);
+opener("g2","s3",buildRows);
+
+/* ---------- 第三步：把內容放回網狀圖 ---------- */
+var builtRows=false;
+function buildRows(){
+  if(builtRows) return; builtRows=true;
+  var h="";
+  for(var i=0;i<ROWS.length;i++){
+    var r=ROWS[i], bt="";
+    for(var k=0;k<SPOKES.length;k++) bt+='<button data-i="'+i+'" data-v="'+k+'">'+SPOKES[k]+'</button>';
+    h+='<div class="qcard" id="cd'+i+'"><div class="hd"><span class="qt">'+esc(r.f)+'</span></div>'+
+       '<span class="yn">屬於：'+bt+'</span>'+
+       '<span class="bd" id="bd'+i+'"></span></div>';
+  }
+  $("qs").innerHTML=h;
+  $("qs").addEventListener("click",function(e){
+    var b=e.target.closest("button"); if(!b) return;
+    var i=b.dataset.i; if(ST.rows[i]!==undefined&&ST.rows[i]!==null) return;
+    ST.rows[i]=+b.dataset.v; save(); paintRows();
+  });
+  paintRows();
+}
+function isSet(v){ return typeof v==="number"; }
+function judged(){ var n=0; for(var i=0;i<ROWS.length;i++) if(isSet(ST.rows[i])) n++; return n; }
+function rightRows(){ var n=0; for(var i=0;i<ROWS.length;i++) if(ST.rows[i]===ROWS[i].ans) n++; return n; }
+function paintRows(){
+  for(var i=0;i<ROWS.length;i++){
+    var el=$("cd"+i); if(!el) continue;
+    var v=ST.rows[i], r=ROWS[i];
+    el.classList.toggle("open",isSet(v));
+    if(isSet(v)){
+      var ok=(v===r.ans);
+      var head= ok ? ("放對了：這一張屬於「"+SPOKES[r.ans]+"」那一格。") : ("再看一次：這一張其實屬於「"+SPOKES[r.ans]+"」，不是「"+SPOKES[v]+"」。");
+      $("bd"+i).innerHTML='<span class="vd '+(ok?"ok":"ng")+'">'+head+'</span>'+r.note;
+    }
+  }
+  $("sc3").innerHTML="已放 <em>"+judged()+"</em> / "+ROWS.length+"，第一次就放對 <em>"+rightRows()+"</em> 張";
+  if(judged()>=ROWS.length){ $("a3").hidden=false; $("q3w").hidden=false; }
+}
+var set3=quiz("q3","a3b","g3","q3");
+opener("g3","s4",function(){ buildText(); drawFig(); });
+
+/* ---------- 第四步：課文與線索鏈 ---------- */
+function renderLine(str){
+  var out="",i=0;
+  while(i<str.length){
+    var a=str.indexOf("{",i);
+    if(a<0){ out+=esc(str.slice(i)); break; }
+    out+=esc(str.slice(i,a));
+    var b=str.indexOf("}",a), p=str.slice(a+1,b).split("|");
+    var id=p[1], it=p[2]||"1", k=CHAINS[id]?CHAINS[id].k:"sub";
+    out+='<m data-c="'+id+'" data-i="'+it+'" data-kind="'+k+'" tabindex="0">'+esc(p[0])+'</m>';
+    i=b+1;
+  }
+  return out;
+}
+var builtText=false;
+function buildText(){
+  if(builtText) return; builtText=true;
+  var h='<p class="ttl">'+renderLine(TITLE)+'</p>';
+  for(var i=0;i<LINES.length;i++){
+    var n=i+1;
+    if(SPLIT && n===SPLIT) h+='<p class="split">'+esc(SPLIT_TEXT)+'</p>';
+    var cls="ln";
+    if(HEAD[n]) cls+=" sub pb";
+    else if(INDENT[n]) cls+=" ind"+(n>1&&!HEAD[n-1]?" pb":"");
+    h+='<div class="'+cls+'" data-n="'+n+'"><i>'+((n%5===0)?n:"")+'</i><span>'+renderLine(LINES[i])+'</span></div>';
+  }
+  $("tx").innerHTML=h;
+}
+function lightChain(id){
+  var ms=$("tx").querySelectorAll("m"), items={}, order=[],i;
+  var gs=$("fig").querySelectorAll(".node");
+  for(i=0;i<gs.length;i++) gs[i].classList.remove("on");
+  var rows=$("tx").querySelectorAll(".ln");
+  for(i=0;i<rows.length;i++) rows[i].classList.remove("hl");
+  for(i=0;i<ms.length;i++){
+    if(ms[i].dataset.c===id){
+      ms[i].classList.add("lit");
+      var key=ms[i].dataset.i;
+      if(!items[key]){ items[key]=[]; order.push(key); }
+      items[key].push(ms[i].textContent);
+    } else ms[i].classList.remove("lit");
+  }
+  var c=CHAINS[id]; if(!c) return;
+  var parts=[];
+  for(var o=0;o<order.length;o++) parts.push(esc(items[order[o]].join(" ")));
+  $("pk").textContent=LB[c.k]; $("pk").className=CL[c.k];
+  $("pc").innerHTML=parts.join('<i>\u2192</i>');
+  $("pt").textContent=c.n;
+}
+$("tx").addEventListener("click",function(e){ var m=e.target.closest("m"); if(m) lightChain(m.dataset.c); });
+$("tx").addEventListener("keydown",function(e){
+  if(e.key!=="Enter"&&e.key!==" ") return;
+  var m=e.target.closest("m"); if(m){ e.preventDefault(); lightChain(m.dataset.c); }
+});
+function toggle(btn,cls){
+  btn.addEventListener("click",function(){
+    var on=btn.getAttribute("aria-pressed")==="true";
+    btn.setAttribute("aria-pressed",on?"false":"true");
+    $("tx").classList.toggle(cls,on);
+  });
+}
+toggle($("m1"),"off-sub");
+toggle($("m2"),"off-gen");
+opener("g4","s5");
+
+/* ---------- 第五步 ---------- */
+var set5=quiz("q5","a5","g5","q5");
+$("g5").addEventListener("click",function(){
+  if(ST.step<6) ST.step=6; save();
+  $("s6").hidden=false;
+  $("s6").scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+/* ---------- 第六步 ---------- */
+var done6=false;
+function settle6(){
+  done6=true;
+  var bs=$("q6").querySelectorAll("button");
+  for(var i=0;i<bs.length;i++){
+    bs[i].disabled=true; bs[i].dataset.state=bs[i].dataset.ok?"right":"wrong";
+    if(bs[i].dataset.ok){ $("bl").textContent=bs[i].textContent; $("bl").className="blank filled"; }
+  }
+  $("a6").hidden=false; $("w6").hidden=false; $("s7").hidden=false;
+}
+$("q6").addEventListener("click",function(e){
+  var b=e.target.closest("button"); if(!b||done6) return;
+  settle6(); ST.q6=1; save();
+  $("a6").scrollIntoView({behavior:"smooth",block:"nearest"});
+});
+
+/* ---------- 老師的預覽開關：網址加 ?all ---------- */
+function previewAll(){
+  PREVIEW=true;
+  $("pv").hidden=false;
+  var i,cs=$("ld").querySelectorAll("c");
+  for(i=0;i<cs.length;i++){ ST.tags[cs[i].dataset.t]=1; paintTag(cs[i]); }
+  afterTags(); set1();
+  $("s2").hidden=false; set2();
+  $("s3").hidden=false;
+  for(i=0;i<ROWS.length;i++) ST.rows[i]=ROWS[i].ans;
+  buildRows(); set3();
+  $("s4").hidden=false; buildText(); drawFig();
+  $("s5").hidden=false; set5();
+  $("s6").hidden=false; settle6();
+}
+
+/* ---------- 接回上次的進度 ---------- */
+$("rst").addEventListener("click",wipe);
+(function restore(){
+  if(/(^|[?&])all(=|&|$)/.test(location.search)){ previewAll(); return; }
+  var v=load(); if(!v) return;
+  ST=v;
+  if(!ST.tags) ST.tags={};
+  if(!ST.rows) ST.rows={};
+  if(!ST.step) ST.step=1;
+  if(!(tagged()||ST.step>1)) return;
+  $("rs").hidden=false;
+  var i,cs=$("ld").querySelectorAll("c");
+  for(i=0;i<cs.length;i++) if(ST.tags[cs[i].dataset.t]) paintTag(cs[i]);
+  afterTags();
+  if(ST.q1) set1();
+  if(ST.step>=2){ $("s2").hidden=false; if(ST.q2) set2(); }
+  if(ST.step>=3){ $("s3").hidden=false; buildRows(); if(ST.q3) set3(); }
+  if(ST.step>=4){ $("s4").hidden=false; buildText(); drawFig(); }
+  if(ST.step>=5){ $("s5").hidden=false; if(ST.q5) set5(); }
+  if(ST.step>=6){ $("s6").hidden=false; if(ST.q6) settle6(); }
+  var last=$("s"+(ST.step>=6?6:ST.step));
+  if(last) setTimeout(function(){ last.scrollIntoView({block:"start"}); },60);
+})();
+})();
+</script>
+<p class="cc-note">本題庫自己寫的部分（解析、中譯、分類、標註與編排）採用 <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh-hant" target="_blank" rel="license noopener">CC BY-NC 4.0</a>（姓名標示─非商業性）授權：可以分享，但須註明出處，不得用於商業用途。試題來源與完整說明請見<a href="https://staresto-create.github.io/JCEE-vocab-questions/#terms">使用與著作權</a>。</p>
+</body>
+</html>

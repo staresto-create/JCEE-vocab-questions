@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>華爾街日報式的組織圖｜Elle Fanning: From Dakota’s Sister to Hollywood Star</title>
+
+<style>
+:root{
+  --ground:#f1f3f2; --ink:#17282f; --teal:#1f6f6a; --teal-soft:#dfeceb;
+  --muted:#77878d; --line:#cdd6d6; --exam:#b4661c; --exam-soft:#fdf4e7;
+  --ok:#2e6b4f; --ok-soft:#edf4ef;
+  --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+  --sans:"PingFang TC","Noto Sans TC","Microsoft JhengHei","Helvetica Neue",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ad-vground-bg);color:var(--ad-vink-fg);font-family:var(--sans);line-height:1.6;-webkit-text-size-adjust:100%}
+.wrap{max-width:44rem;margin:0 auto;padding:1.6rem 1.1rem 4rem}
+h1{font-family:var(--serif);font-weight:600;font-size:1.6rem;line-height:1.3;margin:0 0 .55rem}
+.lede{margin:0 0 1.1rem;color:var(--ad-x3d5059-fg);font-size:.95rem}
+.src{font-size:.8rem;color:var(--ad-vmuted-fg);margin:0 0 1.1rem}
+.preview{font-size:.85rem;color:var(--ad-vexam-fg);background:var(--ad-vexamsoft-bg);border:1px dashed var(--exam);
+  border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.preview[hidden]{display:none}
+.resume{font-size:.85rem;color:var(--ad-vteal-fg);background:var(--ad-vtealsoft-bg);border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.resume[hidden]{display:none}
+.resume button{font:inherit;font-size:.82rem;background:var(--ad-xfff-bg);color:var(--ad-vink-fg);border:1px solid var(--ad-vline-border);
+  border-radius:.25rem;padding:.16rem .6rem;margin-left:.5rem;cursor:pointer}
+.step{border-top:1px solid var(--ad-vline-border);padding-top:1.15rem;margin-top:1.7rem}
+.step[hidden]{display:none}
+.stepno{font-family:var(--serif);font-size:.82rem;color:var(--ad-vmuted-fg);margin:0 0 .2rem}
+h2{font-family:var(--serif);font-weight:600;font-size:1.2rem;margin:0 0 .5rem;color:var(--ad-vteal-fg)}
+p{margin:0 0 .7rem;font-size:.95rem}
+
+/* 組織圖：三層倒三角，每層兩格 */
+.fig{background:var(--ad-xfff-bg);border:1px solid var(--ad-vline-border);border-radius:.4rem;padding:.7rem .5rem .5rem;margin:.2rem 0 .6rem}
+.fig svg{display:block;width:100%;height:auto;max-width:26rem;margin:0 auto}
+.bx rect{fill:#fff;stroke:var(--line);stroke-width:2}
+.bx text.fn{font-family:var(--sans);font-size:11px;font-weight:600;fill:var(--ad-vink-fg)}
+.bx text.en{font-family:var(--serif);font-size:8.5px;fill:var(--ad-vmuted-fg)}
+.bx text.rf{font-family:var(--sans);font-size:8.5px;fill:var(--ad-vmuted-fg)}
+.bx.aim rect{stroke:var(--ad-vteal-fg);stroke-dasharray:6 4}
+.bx.on rect{fill:var(--ok-soft);stroke:var(--ad-vok-fg);stroke-width:2.5}
+.bx.on text.rf{fill:var(--ad-vok-fg);font-weight:600}
+.bx.sel rect{stroke:var(--ad-vteal-fg);stroke-width:3}
+.lv text{font-family:var(--sans);font-size:9px;fill:var(--ad-vmuted-fg)}
+.cutline{stroke:var(--ad-vexam-fg);stroke-width:2;stroke-dasharray:6 5}
+.frameline{stroke:var(--line);stroke-width:2;stroke-dasharray:5 4;fill:none}
+.cuttag{font-family:var(--sans);font-size:9px;font-weight:600;fill:var(--ad-vexam-fg)}
+
+.panel{background:var(--ad-xfff-bg);border:1px solid var(--ad-vline-border);border-radius:.4rem;padding:.7rem .85rem;margin:0 0 .9rem}
+.panel .k{font-size:.72rem;font-weight:600;border-radius:.2rem;padding:.06rem .42rem;
+  color:var(--ad-vteal-fg);background:var(--ad-vtealsoft-bg);border:1px solid var(--ad-vteal-border)}
+.panel .q{font-family:var(--serif);font-size:.95rem;line-height:1.65;margin:.4rem 0 0;color:var(--ad-x3d5059-fg)}
+
+.pool{display:flex;flex-direction:column;gap:.4rem;margin:0 0 .8rem}
+.pool button{font:inherit;font-family:var(--serif);font-size:.93rem;line-height:1.55;background:var(--ad-xfff-bg);color:var(--ad-vink-fg);
+  border:1px solid var(--ad-vline-border);border-radius:.3rem;padding:.5rem .7rem;cursor:pointer;text-align:left}
+.pool button:hover{border-color:var(--ad-vteal-border)}
+.pool button.pick{border-color:var(--ad-vteal-border);background:var(--ad-vtealsoft-bg)}
+.pool button.gone{display:none}
+.hint{font-size:.85rem;color:var(--ad-vmuted-fg);margin:0 0 .8rem}
+.hint em{font-style:normal;color:var(--ad-vteal-fg);font-weight:600}
+
+.opts{display:flex;flex-direction:column;gap:.45rem;margin:.2rem 0 .8rem}
+.opts button{font:inherit;font-size:.94rem;background:var(--ad-xfff-bg);color:var(--ad-vink-fg);border:1px solid var(--ad-vline-border);
+  border-radius:.3rem;padding:.5rem .8rem;cursor:pointer;text-align:left}
+.opts button:hover{border-color:var(--ad-vteal-border)}
+.opts button[data-state="right"]{background:var(--ad-voksoft-bg);border-color:var(--ad-vok-border)}
+.opts button[data-state="wrong"]{background:var(--ad-vground-bg);color:var(--ad-vmuted-fg)}
+.opts button[disabled]{cursor:default}
+
+.said{background:var(--ad-xfff-bg);border-left:3px solid var(--ad-vteal-border);border-radius:.3rem;padding:.75rem .85rem;
+  margin:.2rem 0 .9rem;font-size:.93rem;color:var(--ad-x3d5059-fg)}
+.said[hidden]{display:none}
+.said b{color:var(--ad-vink-fg)}
+.srcs{margin:.6rem 0 .9rem}
+.srcs .pair{font-family:var(--serif);font-size:.9rem;line-height:1.6;color:var(--ad-x3d5059-fg);
+  border-left:2px solid var(--ad-vline-border);padding:.1rem 0 .1rem .6rem;margin:0 0 .5rem}
+.srcs .pair .t{display:block;font-family:var(--sans);font-size:.76rem;font-weight:600;color:var(--ad-vteal-fg)}
+.go{font:inherit;font-size:.92rem;background:var(--ad-vink-bg);color:var(--ad-onflip-fg);border:1px solid var(--ad-vink-border);
+  border-radius:.3rem;padding:.42rem 1.05rem;cursor:pointer}
+.go[hidden]{display:none}
+
+.prompt{background:var(--ad-vexamsoft-bg);border:1px solid var(--ad-xe8d3b4-border);border-radius:.4rem;padding:.75rem .85rem;
+  margin:0 0 .9rem;font-size:.92rem;color:var(--ad-x3d5059-fg)}
+.prompt b{color:var(--ad-vink-fg)}
+.cell{background:var(--ad-xfff-bg);border:1px solid var(--ad-vline-border);border-radius:.4rem;padding:.6rem .75rem}
+.cell+.cell{margin-top:.6rem}
+.cell .fn{font-size:.78rem;font-weight:600;color:var(--ad-vteal-fg)}
+.cell .fn em{font-style:normal;color:var(--ad-vmuted-fg);font-weight:400;margin-left:.35rem}
+.cell textarea{width:100%;margin-top:.3rem;font-family:inherit;font-size:.93rem;line-height:1.6;
+  padding:.45rem .55rem;border:1px solid var(--ad-vline-border);border-radius:.3rem;background:var(--ad-xfff-bg);color:var(--ad-vink-fg);resize:vertical}
+.bar{display:flex;gap:.5rem;flex-wrap:wrap;margin:.7rem 0}
+.bar button{font:inherit;font-size:.9rem;background:var(--ad-xfff-bg);color:var(--ad-vink-fg);border:1px solid var(--ad-vink-border);
+  border-radius:.3rem;padding:.38rem .9rem;cursor:pointer}
+.bar button.p{background:var(--ad-vink-bg);color:var(--ad-onflip-fg)}
+.bar button[disabled]{border-color:var(--ad-vline-border);color:var(--ad-vmuted-fg);cursor:default;background:var(--ad-xfff-bg)}
+pre.ai{background:var(--ad-xfff-bg);border:1px solid var(--ad-vline-border);border-radius:.3rem;padding:.6rem .7rem;
+  font-size:.8rem;line-height:1.65;white-space:pre-wrap;margin:.4rem 0 0;color:var(--ad-x3d5059-fg)}
+.code{background:var(--ad-vtealsoft-bg);border:1px solid var(--ad-vteal-border);border-radius:.4rem;padding:.7rem .85rem;margin:1.1rem 0 .5rem}
+.code .t{font-size:.8rem;font-weight:600;color:var(--ad-vteal-fg);margin:0 0 .35rem}
+.code .v{font-family:var(--serif);font-size:1.15rem;letter-spacing:.04em;color:var(--ad-vink-fg);margin:0 0 .5rem}
+.series{border-top:1px solid var(--ad-vline-border);margin-top:2.2rem;padding-top:1.1rem;font-size:.9rem}
+.series a{font-family:var(--serif);font-size:1rem;color:var(--ad-vteal-fg);text-decoration:none}
+.series a:hover{text-decoration:underline}
+.toast{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--ad-vink-bg);color:var(--ad-onflip-fg);
+  padding:.45rem 1rem;border-radius:.3rem;font-size:.86rem;opacity:0;transition:opacity .2s;pointer-events:none}
+.toast.on{opacity:1}
+
+/* 深色模式（2026-10-22）：淺色數值與原本相同；只在螢幕、手機或電腦設成深色外觀時生效，列印不受影響。 */
+:root{--ad-onflip-fg:#ffffff;--ad-vexam-border:var(--exam);--ad-vexam-fg:var(--exam);--ad-vexamsoft-bg:var(--exam-soft);--ad-vground-bg:var(--ground);--ad-vink-bg:var(--ink);--ad-vink-border:var(--ink);--ad-vink-fg:var(--ink);--ad-vline-border:var(--line);--ad-vline-fg:var(--line);--ad-vmuted-fg:var(--muted);--ad-vok-border:var(--ok);--ad-vok-fg:var(--ok);--ad-voksoft-bg:var(--ok-soft);--ad-voksoft-fg:var(--ok-soft);--ad-vteal-border:var(--teal);--ad-vteal-fg:var(--teal);--ad-vtealsoft-bg:var(--teal-soft);--ad-x3d5059-fg:#3d5059;--ad-x8a8278-fg:#8a8278;--ad-xe8d3b4-border:#e8d3b4;--ad-xfff-bg:#fff;--ad-xfff-fg:#fff;color-scheme:light}
+@media screen and (prefers-color-scheme: dark){
+ :root{--ad-onflip-fg:#16201F;--ad-vexam-border:#b4661c;--ad-vexam-fg:#E7CAAF;--ad-vexamsoft-bg:#2D2821;--ad-vground-bg:#1F2020;--ad-vink-bg:#E6EBEE;--ad-vink-border:#E9EFF2;--ad-vink-fg:#E9EFF2;--ad-vline-border:#3F4747;--ad-vline-fg:#cdd6d6;--ad-vmuted-fg:#BAC0C2;--ad-vok-border:#CDE4DA;--ad-vok-fg:#CDE4DA;--ad-voksoft-bg:#1F2321;--ad-voksoft-fg:#edf4ef;--ad-vteal-border:#CDEAE9;--ad-vteal-fg:#CDEAE9;--ad-vtealsoft-bg:#1D2524;--ad-x3d5059-fg:#D4DBDF;--ad-x8a8278-fg:#C2BFBB;--ad-xe8d3b4-border:#58482F;--ad-xfff-bg:#2D2A25;--ad-xfff-fg:#ffffff;color-scheme:dark}
+}
+
+</style>
+<style id="anti-copy">
+/* 防盜用措施（2026-10-14）：畫面浮水印、列印浮水印、頁尾授權聲明 */
+@media screen{body::before{content:"";position:fixed;top:0;left:0;right:0;bottom:0;z-index:2147483000;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22460%22%20height%3D%22240%22%3E%3Cg%20transform%3D%22rotate%28-20%20230%20120%29%22%20font-family%3D%22Noto%20Sans%20TC%2Csans-serif%22%20fill%3D%22%23D9A400%22%20fill-opacity%3D%22.2%22%20text-anchor%3D%22middle%22%3E%3Ctext%20x%3D%22230%22%20y%3D%22112%22%20font-size%3D%2220%22%3E%E9%AB%98%E4%B8%AD%E8%8B%B1%E6%96%87%E9%A1%8C%E5%BA%AB%3C%2Ftext%3E%3Ctext%20x%3D%22230%22%20y%3D%22140%22%20font-size%3D%2214%22%3Estaresto-create.github.io%2FJCEE-vocab-questions%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E");background-repeat:repeat;}}
+@media print{body::after{content:"高中英文題庫\A staresto-create.github.io/JCEE-vocab-questions\A 免費資源，請勿販售";white-space:pre;position:fixed;top:42%;left:0;right:0;text-align:center;transform:rotate(-25deg);font-family:"Noto Sans TC",sans-serif;font-size:26pt;line-height:1.7;color:#c8c8c8;z-index:2147483000;pointer-events:none;}}
+.cc-note{font-size:12px;line-height:1.8;color:var(--ad-x8a8278-fg);margin:12px auto;max-width:60em;padding:0 1em;}.cc-note a{color:inherit;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>華爾街日報式的組織圖：人物介紹</h1>
+<p class="lede">上一份單元頁帶你讀完 Elle Fanning 這一篇。這一份把整篇壓成一張圖：上下兩格是同一個標籤，中間夾著四組作品。這個形狀叫<b>故事框</b>，跟十月號第二單元用的是同一張圖，看到它，就知道是華爾街日報式。</p>
+<p class="preview" id="pv" hidden>預覽模式：全部步驟與答案一次展開，進度不存檔。學生拿到的一般連結不受影響。</p>
+<p class="resume" id="rs" hidden>上次做到一半，已經幫你接回來了。<button id="rst">重新開始</button></p>
+<p class="src">ALL+ 互動英語 11 月號 Unit 6（pp. 26–27）　Elle Fanning: From Dakota’s Sister to Hollywood Star　全文 57 行</p>
+
+<!-- 第一步 -->
+<section class="step" id="s1">
+  <p class="stepno">第一步</p>
+  <h2>一個框，框住四組證據</h2>
+  <p>最上面一格是開頭的起點和標籤，下面緊接著一句核心段；中間四格是四組作品，各自拿來證明同一件事；最下面一格回到那個標籤。</p>
+  <p>七個位置各有各的功能。<b>九張句卡，只有七張放得進去</b>，而且都不是原句，是換過字的說法。</p>
+  <p class="hint" id="h1">先點一張句卡，再點圖上的格子。第一次就放對 <em id="n1">0</em> / 7</p>
+
+  <div class="pool" id="pool"></div>
+  <figure class="fig" id="fig"></figure>
+  <div class="panel" id="pn">
+    <span class="k" id="pk">這一格</span>
+    <p class="q" id="pq">點圖上任一個格子，看它裝的是哪一句。</p>
+  </div>
+
+  <div class="said" id="a1" hidden>
+    <b>兩張放不進去的是哪兩張。</b>一張說她演過一個黑暗的角色之後，就只演怪異、有問題的人。它最容易放進「兩部電影」那一格，因為 The Neon Demon 的黑暗角色確實在第 8 到 9 行；可是第 14 到 15 行說得很清楚，作者要證明的是她不被一種角色框住，這一張方向剛好說反。另一張說角色對觀眾是新的，她可以隨意詮釋。第 45 到 47 行寫的是觀眾已經熟悉、界線不是她定的，這一張也是方向錯。
+    <br><br>
+    <b>九張句卡沒有一張跟課文一樣。</b>下面是七個位置的原文與行號，回去對一次。
+    <div class="srcs" id="src6"></div>
+  </div>
+  <button class="go" id="g1" hidden>下一步：把外框拆掉</button>
+</section>
+
+<!-- 第二步 -->
+<section class="step" id="s2" hidden>
+  <p class="stepno">第二步</p>
+  <h2>拆外框測試</h2>
+  <p>怎麼確定外框不是裝飾？<b>把它拆掉，看少了什麼。</b>按下面的按鈕，圖上的外框會真的拆掉。</p>
+  <div class="bar">
+    <button class="p" id="cut1">拆掉外框</button>
+    <button id="undo" hidden>把外框放回去</button>
+  </div>
+  <p class="hint" id="cuth">拆掉之後，剩下的部分還讀得懂嗎？</p>
+  <div id="q2box" hidden>
+    <p>外框拆掉以後，中間四格還是一份讀得懂的作品清單。<b>那麼，少掉的是什麼？</b></p>
+    <div class="opts" id="q2">
+      <button>少了她得到最佳女配角提名的消息</button>
+      <button>少了十一月要演 Effie 的那一段</button>
+      <button data-ok="1">少了標題裡「從妹妹出發」那一半</button>
+      <button>少了她在影集裡演單親角色那一段</button>
+    </div>
+    <div class="said" id="a2" hidden>
+      <b>少了「從妹妹出發」那一半。</b>標題是 From Dakota’s Sister to Hollywood Star。中間四格只證明她後來演得很多樣，可是「從哪裡出發」要靠上框：第 4 到 5 行 known only as Dakota’s little sister，再到下框第 51 到 52 行回頭把它換掉。外框拆掉，主體的每一部作品就沒有一個要超越的東西了。
+      <br><br>
+      <b>另外三個為什麼排除：</b>提名、十一月的新作、影集，這三件事都在中間四格，外框拆掉它們還在。<b>最容易選的是第一個</b>，因為提名是全篇最像「成就」的一件事，感覺少了它最可惜；可是題目問的是拆掉外框少了什麼，它根本不在外框裡。
+    </div>
+  </div>
+  <button class="go" id="g2" hidden>下一步：換成你自己的作文</button>
+</section>
+
+<!-- 第三步 -->
+<section class="step" id="s3" hidden>
+  <p class="stepno">第三步</p>
+  <h2>先寫別人貼的標籤，最後把它換掉</h2>
+  <p>華爾街日報式可以整套搬進作文。學測作文常考「一個人」，與其第一句就寫 He is a special person，不如先寫別人常給他的說法，再用「不是 A，而是 B」把它換掉，中間用兩三件事當證據，最後回到同一個說法收尾。這樣寫有三件事要照這篇學：</p>
+  <p><b>一、標籤要具體。</b>像這篇用 Dakota’s little sister，你可以寫「大家都叫他班上的學霸」。<b>二、證據要證明同一件事。</b>這篇四組作品都在證明「她不只演一種角色」，不是照年份流水帳；你的兩三件事也要證明同一個 B。<b>三、結尾回頭換掉標籤。</b>這篇第 51 到 52 行把標籤再寫一次，才換上新的說法；你的結尾也要回到第一格那個說法。</p>
+  <div class="prompt">
+    <b>試寫的題目：</b>請寫一篇短文，介紹一位常被別人用同一個說法看待的人，例如「某某的弟弟」或「班上的學霸」。第一段說明大家怎麼看他，並用一句話說出他其實不只是這樣；第二段用兩三件事當證據，最後回到開頭那個說法。
+  </div>
+  <p>每一格寫一句中文要點就好，這一步先不寫英文。</p>
+  <div id="mine"></div>
+  <div class="bar">
+    <button class="p" id="cp">複製我寫的內容</button>
+    <button id="sv">存到瀏覽器</button>
+  </div>
+  <p class="hint">這一步沒有標準答案，站上不批改。複製之後貼給老師，或貼給 AI 也可以，下面這段指示會跟著一起複製。</p>
+  <pre class="ai" id="aib"></pre>
+
+  <div class="code">
+    <p class="t">做完了，把這一行貼到 Google Classroom 的作業回覆欄</p>
+    <p class="v" id="cv">—</p>
+    <div class="bar" style="margin:0">
+      <button class="p" id="cc">複製完成碼</button>
+      <button id="rfb">重新產生</button>
+    </div>
+    <p class="hint" style="margin:.5rem 0 0">老師只看這一行，不會看到你寫的內容。你寫的東西只留在這台裝置的瀏覽器裡。</p>
+  </div>
+</section>
+
+<nav class="series">
+  <a href="cohesion.html">← 回讀法練習總表</a>
+</nav>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+"use strict";
+function $(id){return document.getElementById(id);}
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;");}
+
+var KEY="outline-202611-u6-v1";
+var PREVIEW=false;
+var ST={put:{},first:{},miss:{},cut:0,q2:0,mine:{},step:1};
+function save(){ if(PREVIEW) return; try{ localStorage.setItem(KEY,JSON.stringify(ST)); }catch(e){} }
+function load(){ try{ var r=localStorage.getItem(KEY); return r?JSON.parse(r):null; }catch(e){ return null; } }
+function toast(m){ var t=$("toast"); t.textContent=m; t.classList.add("on");
+  setTimeout(function(){ t.classList.remove("on"); },1600); }
+
+/* 七格的位置：上框、核心段、中間四格、下框 */
+var CELLS=[
+ {id:"a",fn:"起點與標籤",en:"the label",     rf:"第 1–5 行",  x:20, y:8,  w:300,h:50,frame:1},
+ {id:"b",fn:"核心段",   en:"the nut graph", rf:"第 6–7 行",  x:70, y:64, w:200,h:50,frame:1},
+ {id:"c",fn:"兩部電影", en:"two films",     rf:"第 8–16 行", x:20, y:136,w:72, h:56},
+ {id:"d",fn:"影集",     en:"TV series",     rf:"第 17–24 行",x:96, y:136,w:72, h:56},
+ {id:"e",fn:"2025 年", en:"in 2025",       rf:"第 25–41 行",x:172,y:136,w:72, h:56},
+ {id:"f",fn:"十一月",   en:"November",      rf:"第 42–48 行",x:248,y:136,w:72, h:56},
+ {id:"g",fn:"回到標籤", en:"the label again",rf:"第 49–57 行",x:20, y:214,w:300,h:50,frame:1}
+];
+
+var SENTS=[
+ {id:"e",t:"A small part in a Norwegian director’s film earned her a first Academy Award nomination, while a big action blockbuster showed she could work in studio productions too."},
+ {id:"x1",t:"After one grim role in a horror film, she became known as an actress who plays only strange, troubled characters."},
+ {id:"a",t:"Her debut part was a younger take on her sister’s character, and she might have stayed known only as that actress’s kid sister."},
+ {id:"d",t:"On television she plays a woman struggling to pay rent, a part far removed from the storybook princesses of her early career, and by design."},
+ {id:"g",t:"Taken as a whole, her work replaces the picture of a kid sister with that of an actress who ranges across genres and keeps changing."},
+ {id:"f",t:"Next comes a role fans already love, which means acting inside limits set by others while still adding a personal take."},
+ {id:"x2",t:"Because audiences have never met her new character, she is free to play the part in any way she likes."},
+ {id:"b",t:"Her path changed not because of one hit role but because of a string of surprising decisions."},
+ {id:"c",t:"One film showed her in a grim, strange part, another in a convincing turn as a bewildered teen, and the pair could hardly be more different."}
+];
+var NOFIT={
+ x1:"這一張最容易放進「兩部電影」那一格，因為 The Neon Demon 的黑暗角色確實在第 8 到 9 行。可是第 14 到 15 行 Her choices showed that she wasn’t limited to one type of character 說得很清楚：作者要證明的是她不被一種角色框住。這一張說她從此只演一種角色，方向錯了，所以哪一格都放不進去。",
+ x2:"這一張看起來屬於「十一月」那一格，可是第 45 到 47 行 Taking on a character that fans already know means working within boundaries she didn’t set：觀眾已經熟悉，界線也不是她定的。這一張說角色對觀眾是新的、她可以隨意詮釋，跟課文剛好相反，所以哪一格都放不進去。"
+};
+var SRCQ=[
+ {fn:"起點與標籤",rf:"第 1–5 行",t:"Elle Fanning’s first film role was not entirely her own. At just three years old, she played a younger version of Dakota Fanning’s character in I Am Sam. The experience could have left her known only as Dakota’s little sister, but it didn’t."},
+ {fn:"核心段",rf:"第 6–7 行",t:"What changed things wasn’t a single breakout performance but a series of unexpected choices."},
+ {fn:"兩部電影",rf:"第 8–16 行",t:"In The Neon Demon, she took on a dark and unusual role that showed audiences a different side of her acting. … The two films are completely different, yet Fanning is convincing in both."},
+ {fn:"影集",rf:"第 17–24 行",t:"In the ongoing TV series Margo’s Got Money Troubles, she plays a young woman scrambling to pay rent and build a better life. The role is a far cry from the fairy-tale princesses she played earlier in her career, and that change is clearly deliberate."},
+ {fn:"2025 年",rf:"第 25–41 行",t:"Fanning’s desire to explore different roles can also be seen in the 2025 film Sentimental Value … it earned Fanning her first Best Supporting Actress nomination at the 98th Academy Awards. That same year, she also appeared in the blockbuster Predator: Badlands"},
+ {fn:"十一月",rf:"第 42–48 行",t:"This November brings another challenge: playing a young Effie Trinket in The Hunger Games: Sunrise on the Reaping. Taking on a character that fans already know means working within boundaries she didn’t set while still bringing her own interpretation to the role."},
+ {fn:"回到標籤",rf:"第 49–57 行",t:"Together, these projects show a career built on variety instead of a single image. From a child actress known mainly as Dakota Fanning’s younger sister to an actress choosing roles across different genres, Elle Fanning has continued to create her own path."}
+];
+
+var MINE=[
+ {id:"m1",fn:"開頭：別人貼的標籤",en:"the label",ph:"大家平常怎麼稱呼他？寫一個具體的說法。"},
+ {id:"m2",fn:"核心句",en:"the nut graph",ph:"用「不是 A，而是 B」一句話：他其實不只是這樣。"},
+ {id:"m3",fn:"主體：證據",en:"the evidence",ph:"兩三件事，每一件都要證明第二格的 B。"},
+ {id:"m4",fn:"收尾：回到標籤",en:"the label again",ph:"怎麼回到第一格那個說法，再把它換掉？"}
+];
+
+var AI=[
+"我是台灣的高中生，正在準備學測英文作文。下面是我列的中文大綱，用的是華爾街日報式：先寫別人給一個人的說法，再用「不是 A，而是 B」把它換掉，中間用事件當證據，最後回到同一個說法。",
+"",
+"請照以下規則給我意見：",
+"1. 先看第一格：我寫的是不是一個具體的說法，還是一句籠統的介紹。",
+"2. 第二格的核心句有沒有真的推翻第一格，A 是不是第一格的說法。",
+"3. 第三格的每一件事是不是都在證明第二格的 B，而不是只照時間流水帳。",
+"4. 第四格的收尾有沒有回到第一格的說法，並換成新的說法，還是另外講了一件新的事。",
+"5. 不要幫我寫英文，也不要幫我補內容。",
+"6. 說明用中文。"
+].join("\n");
+
+
+/* ── 畫圖 ── */
+function drawFig(){
+  var s='<svg viewBox="0 0 340 272" role="img" aria-label="故事框組織圖：上下兩格是同一個標籤，中間四格是四組作品">';
+  s+='<path class="frameline" d="M12 30 L12 240"/><path class="frameline" d="M328 30 L328 240"/>';
+  s+='<g class="lv"><text x="170" y="128" text-anchor="middle">主體：四組作品，各自證明同一件事</text></g>';
+  for(var i=0;i<CELLS.length;i++){
+    var c=CELLS[i]; if(ST.cut && c.frame) continue;
+    var on=ST.put[c.id]?" on":"";
+    s+='<g class="bx'+on+'" data-id="'+c.id+'" tabindex="0" role="button">';
+    s+='<rect x="'+c.x+'" y="'+c.y+'" width="'+c.w+'" height="'+c.h+'" rx="6"/>';
+    s+='<text class="fn" x="'+(c.x+8)+'" y="'+(c.y+18)+'">'+esc(c.fn)+'</text>';
+    s+='<text class="en" x="'+(c.x+8)+'" y="'+(c.y+31)+'">'+esc(c.en)+'</text>';
+    s+='<text class="rf" x="'+(c.x+8)+'" y="'+(c.y+44)+'">'+(ST.put[c.id]?esc(c.rf):"放句卡")+'</text>';
+    s+='</g>';
+  }
+  if(ST.cut){
+    s+='<text class="cuttag" x="170" y="40" text-anchor="middle">上框和核心段拆掉了</text>';
+    s+='<text class="cuttag" x="170" y="240" text-anchor="middle">下框拆掉了</text>';
+  }
+  s+='</svg>';
+  $("fig").innerHTML=s;
+}
+
+var pick=null;
+function drawPool(){
+  var h="";
+  for(var i=0;i<SENTS.length;i++)
+    h+='<button data-i="'+i+'" class="'+(ST.put[SENTS[i].id]?"gone":"")+'">'+esc(SENTS[i].t)+'</button>';
+  $("pool").innerHTML=h;
+}
+function done1(){ var n=0; for(var k in ST.put) if(ST.put[k]) n++; return n; }
+function first1(){ var n=0; for(var k in ST.first) if(ST.first[k]) n++; return n; }
+function showSrc(){
+  if($("src6").innerHTML) return;
+  var h="";
+  for(var i=0;i<SRCQ.length;i++)
+    h+='<div class="pair"><span class="t">'+esc(SRCQ[i].fn)+'　'+esc(SRCQ[i].rf)+'</span>'+esc(SRCQ[i].t)+'</div>';
+  $("src6").innerHTML=h;
+}
+function after1(){
+  if($("n1")) $("n1").textContent=first1();
+  if(done1()===7){
+    $("h1").innerHTML="七格都滿了。第一次就放對 <em id=\"n1\">"+first1()+"</em> / 7";
+    $("a1").hidden=false; $("g1").hidden=false; showSrc();
+  }
+}
+function show(id){
+  var c=null,i;
+  for(i=0;i<CELLS.length;i++) if(CELLS[i].id===id) c=CELLS[i];
+  if(!c) return;
+  var gs=$("fig").querySelectorAll(".bx");
+  for(i=0;i<gs.length;i++) gs[i].classList.toggle("sel", gs[i].dataset.id===id);
+  $("pk").textContent=c.fn+"　"+(ST.put[id]?c.rf:"還沒放");
+  $("pq").textContent=ST.put[id]||"這一格還空著。";
+}
+function aim(on){
+  var gs=$("fig").querySelectorAll(".bx");
+  for(var i=0;i<gs.length;i++) if(!gs[i].classList.contains("on")) gs[i].classList.toggle("aim",on);
+}
+$("pool").addEventListener("click",function(e){
+  var b=e.target.closest("button"); if(!b) return;
+  var bs=$("pool").querySelectorAll("button");
+  for(var i=0;i<bs.length;i++) bs[i].classList.remove("pick");
+  b.classList.add("pick"); pick=+b.dataset.i; aim(true);
+});
+function hit(g){
+  var id=g.dataset.id;
+  if(pick===null || ST.put[id]){ show(id); return; }
+  var s=SENTS[pick];
+  if(NOFIT[s.id]){
+    ST.miss[id]=1; save();
+    $("pk").textContent="這一張沒有位置";
+    $("pq").textContent=NOFIT[s.id];
+    return;
+  }
+  if(s.id!==id){ ST.miss[id]=1; save(); toast("這一格要的不是這一張"); return; }
+  if(!ST.miss[id]) ST.first[id]=1;
+  ST.put[id]=s.t; save(); pick=null;
+  drawFig(); drawPool(); aim(false); show(id); after1();
+}
+$("fig").addEventListener("click",function(e){ var g=e.target.closest(".bx"); if(g) hit(g); });
+$("fig").addEventListener("keydown",function(e){
+  if(e.key!=="Enter"&&e.key!==" ") return;
+  var g=e.target.closest(".bx"); if(g){ e.preventDefault(); hit(g); }
+});
+$("g1").addEventListener("click",function(){
+  if(ST.step<2) ST.step=2; save();
+  $("s2").hidden=false; $("s2").scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+/* ── 第二步：拆外框 ── */
+function paintCut(){
+  drawFig();
+  $("cut1").disabled=!!ST.cut;
+  $("undo").hidden=!ST.cut;
+  if(!ST.cut) $("cuth").textContent="外框還在。按「拆掉外框」，上框、核心段和下框會一起拿掉。";
+  else { $("cuth").textContent="外框拆掉了，只剩中間四格：電影、影集、2025 年、十一月的新作。這還是一份讀得懂的作品清單。"; $("q2box").hidden=false; }
+  if(ST.cutSeen) $("q2box").hidden=false;
+}
+$("undo").addEventListener("click",function(){ ST.cut=0; save(); paintCut(); });
+$("cut1").addEventListener("click",function(){ if(ST.cut) return; ST.cut=1; ST.cutSeen=1; save(); paintCut(); });
+function settle2(){
+  var bs=$("q2").querySelectorAll("button");
+  for(var i=0;i<bs.length;i++){ bs[i].disabled=true; bs[i].dataset.state=bs[i].dataset.ok?"right":"wrong"; }
+  $("a2").hidden=false; $("g2").hidden=false;
+}
+$("q2").addEventListener("click",function(e){
+  var b=e.target.closest("button"); if(!b||ST.q2) return;
+  ST.q2=b.dataset.ok?1:2; save(); settle2();
+});
+$("g2").addEventListener("click",function(){
+  if(ST.step<3) ST.step=3; save();
+  paintCode(); $("s3").hidden=false;
+  $("s3").scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+/* ── 第三步 ── */
+function drawMine(){
+  var h="";
+  for(var i=0;i<MINE.length;i++){
+    var m=MINE[i];
+    h+='<div class="cell"><span class="fn">'+esc(m.fn)+'<em>'+esc(m.en)+'</em></span>'+
+       '<textarea id="'+m.id+'" rows="2" placeholder="'+esc(m.ph)+'"></textarea></div>';
+  }
+  $("mine").innerHTML=h;
+  for(var j=0;j<MINE.length;j++){
+    var el=$(MINE[j].id);
+    if(ST.mine[MINE[j].id]) el.value=ST.mine[MINE[j].id];
+    el.addEventListener("input",function(){ ST.mine[this.id]=this.value; save(); });
+  }
+  $("aib").textContent=AI;
+}
+function mkCode(){
+  var f=first1(), m=0, w=0, i;
+  for(var k in ST.miss) if(ST.miss[k]) m++;
+  for(i=0;i<MINE.length;i++){ var el=$(MINE[i].id); if(el&&el.value.trim()) w++; }
+  var seed=(f*31 + m*7 + w*13 + (ST.q2===1?5:0) + 11*211 + 6*101 + 1777) % 46656;
+  return "11-U6 "+f+"/7 大綱"+w+"/4 "+("000"+seed.toString(36).toUpperCase()).slice(-3);
+}
+function paintCode(){ $("cv").textContent=mkCode(); }
+$("rfb").addEventListener("click",paintCode);
+function copy(t){
+  function fb(){
+    var ta=document.createElement("textarea"); ta.value=t; document.body.appendChild(ta);
+    ta.select(); try{ document.execCommand("copy"); toast("已複製"); }catch(e){ toast("複製失敗，請手動選取"); }
+    document.body.removeChild(ta);
+  }
+  if(navigator.clipboard&&navigator.clipboard.writeText)
+    navigator.clipboard.writeText(t).then(function(){ toast("已複製"); },fb);
+  else fb();
+}
+$("cc").addEventListener("click",function(){ copy(mkCode()); });
+$("sv").addEventListener("click",function(){
+  for(var i=0;i<MINE.length;i++) ST.mine[MINE[i].id]=$(MINE[i].id).value;
+  save(); toast("已存在這台裝置的瀏覽器裡");
+});
+$("cp").addEventListener("click",function(){
+  var t=AI+"\n\n【我的大綱】\n";
+  for(var i=0;i<MINE.length;i++) t+=MINE[i].fn+"："+($(MINE[i].id).value||"（空白）")+"\n";
+  copy(t);
+});
+
+/* ── 預覽 ── */
+function previewAll(){
+  PREVIEW=true; $("pv").hidden=false;
+  for(var i=0;i<SENTS.length;i++) if(!NOFIT[SENTS[i].id]){ ST.put[SENTS[i].id]=SENTS[i].t; ST.first[SENTS[i].id]=1; }
+  drawPool(); drawMine(); after1();
+  $("s2").hidden=false; ST.cut=0; paintCut(); $("q2box").hidden=false; ST.q2=1; settle2();
+  $("s3").hidden=false; paintCode();
+}
+
+/* ── 接回進度 ── */
+$("rst").addEventListener("click",function(){
+  try{ localStorage.removeItem(KEY); }catch(e){} location.reload();
+});
+(function restore(){
+  if(/(^|[?&])all(=|&|$)/.test(location.search)){ previewAll(); return; }
+  var v=load();
+  if(v){
+    ST=v;
+    if(!ST.put) ST.put={};
+    if(!ST.first) ST.first={};
+    if(!ST.miss) ST.miss={};
+    if(!ST.mine) ST.mine={};
+    if(!ST.step) ST.step=1;
+    if(!ST.cut) ST.cut=0;
+  }
+  drawPool(); drawMine(); paintCut();
+  if(done1()||ST.step>1) $("rs").hidden=false;
+  if(ST.step>=2) $("s2").hidden=false;
+  if(ST.q2) settle2();
+  if(ST.step>=3){ $("s3").hidden=false; paintCode(); }
+  after1();
+})();
+})();
+</script>
+<p class="cc-note">本題庫自己寫的部分（解析、中譯、分類、標註與編排）採用 <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh-hant" target="_blank" rel="license noopener">CC BY-NC 4.0</a>（姓名標示─非商業性）授權：可以分享，但須註明出處，不得用於商業用途。試題來源與完整說明請見<a href="https://staresto-create.github.io/JCEE-vocab-questions/#terms">使用與著作權</a>。</p>
+</body>
+</html>

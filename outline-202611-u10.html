@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>問題與解決的組織圖｜A Hero, Hidden</title>
+
+<style>
+:root{
+  --ground:#f1f3f2; --ink:#17282f; --teal:#1f6f6a; --teal-soft:#dfeceb;
+  --muted:#77878d; --line:#cdd6d6; --exam:#b4661c; --exam-soft:#fdf4e7;
+  --ok:#2e6b4f; --ok-soft:#edf4ef;
+  --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+  --sans:"PingFang TC","Noto Sans TC","Microsoft JhengHei","Helvetica Neue",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ad-vground-bg);color:var(--ad-vink-fg);font-family:var(--sans);line-height:1.6;-webkit-text-size-adjust:100%}
+.wrap{max-width:44rem;margin:0 auto;padding:1.6rem 1.1rem 4rem}
+h1{font-family:var(--serif);font-weight:600;font-size:1.6rem;line-height:1.3;margin:0 0 .55rem}
+.lede{margin:0 0 1.1rem;color:var(--ad-x3d5059-fg);font-size:.95rem}
+.src{font-size:.8rem;color:var(--ad-vmuted-fg);margin:0 0 1.1rem}
+.preview{font-size:.85rem;color:var(--ad-vexam-fg);background:var(--ad-vexamsoft-bg);border:1px dashed var(--exam);
+  border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.preview[hidden]{display:none}
+.resume{font-size:.85rem;color:var(--ad-vteal-fg);background:var(--ad-vtealsoft-bg);border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.resume[hidden]{display:none}
+.resume button{font:inherit;font-size:.82rem;background:var(--ad-xfff-bg);color:var(--ad-vink-fg);border:1px solid var(--ad-vline-border);
+  border-radius:.25rem;padding:.16rem .6rem;margin-left:.5rem;cursor:pointer}
+.step{border-top:1px solid var(--ad-vline-border);padding-top:1.15rem;margin-top:1.7rem}
+.step[hidden]{display:none}
+.stepno{font-family:var(--serif);font-size:.82rem;color:var(--ad-vmuted-fg);margin:0 0 .2rem}
+h2{font-family:var(--serif);font-weight:600;font-size:1.2rem;margin:0 0 .5rem;color:var(--ad-vteal-fg)}
+p{margin:0 0 .7rem;font-size:.95rem}
+
+/* 組織圖：多列原因結果表 */
+.fig{background:var(--ad-xfff-bg);border:1px solid var(--ad-vline-border);border-radius:.4rem;padding:.7rem .5rem .5rem;margin:.2rem 0 .6rem}
+.fig svg{display:block;width:100%;height:auto;max-width:26rem;margin:0 auto}
+.bx rect{fill:#fff;stroke:var(--line);stroke-width:2}
+.bx text.fn{font-family:var(--sans);font-size:11px;font-weight:600;fill:var(--ad-vink-fg)}
+.bx text.en{font-family:var(--serif);font-size:8.5px;fill:var(--ad-vmuted-fg)}
+.bx text.rf{font-family:var(--sans);font-size:8.5px;fill:var(--ad-vmuted-fg)}
+.bx.aim rect{stroke:var(--ad-vteal-fg);stroke-dasharray:6 4}
+.bx.on rect{fill:var(--ok-soft);stroke:var(--ad-vok-fg);stroke-width:2.5}
+.bx.on text.rf{fill:var(--ad-vok-fg);font-weight:600}
+.bx.sel rect{stroke:var(--ad-vteal-fg);stroke-width:3}
+.lv text{font-family:var(--sans);font-size:9px;fill:var(--ad-vmuted-fg)}
+.cutline{stroke:var(--ad-vexam-fg);stroke-width:2;stroke-dasharray:6 5}
+.frameline{stroke:var(--line);stroke-width:2;stroke-dasharray:5 4;fill:none}
+.cuttag{font-family:var(--sans);font-size:9px;font-weight:600;fill:var(--ad-vexam-fg)}
+
+.panel{background:var(--ad-xfff-bg);border:1px solid var(--ad-vline-border);border-radius:.4rem;padding:.7rem .85rem;margin:0 0 .9rem}
+.panel .k{font-size:.72rem;font-weight:600;border-radius:.2rem;padding:.06rem .42rem;
+  color:var(--ad-vteal-fg);background:var(--ad-vtealsoft-bg);border:1px solid var(--ad-vteal-border)}
+.panel .q{font-family:var(--serif);font-size:.95rem;line-height:1.65;margin:.4rem 0 0;color:var(--ad-x3d5059-fg)}
+
+.pool{display:flex;flex-direction:column;gap:.4rem;margin:0 0 .8rem}
+.pool button{font:inherit;font-family:var(--serif);font-size:.93rem;line-height:1.55;background:var(--ad-xfff-bg);color:var(--ad-vink-fg);
+  border:1px solid var(--ad-vline-border);border-radius:.3rem;padding:.5rem .7rem;cursor:pointer;text-align:left}
+.pool button:hover{border-color:var(--ad-vteal-border)}
+.pool button.pick{border-color:var(--ad-vteal-border);background:var(--ad-vtealsoft-bg)}
+.pool button.gone{display:none}
+.hint{font-size:.85rem;color:var(--ad-vmuted-fg);margin:0 0 .8rem}
+.hint em{font-style:normal;color:var(--ad-vteal-fg);font-weight:600}
+
+.opts{display:flex;flex-direction:column;gap:.45rem;margin:.2rem 0 .8rem}
+.opts button{font:inherit;font-size:.94rem;background:var(--ad-xfff-bg);color:var(--ad-vink-fg);border:1px solid var(--ad-vline-border);
+  border-radius:.3rem;padding:.5rem .8rem;cursor:pointer;text-align:left}
+.opts button:hover{border-color:var(--ad-vteal-border)}
+.opts button[data-state="right"]{background:var(--ad-voksoft-bg);border-color:var(--ad-vok-border)}
+.opts button[data-state="wrong"]{background:var(--ad-vground-bg);color:var(--ad-vmuted-fg)}
+.opts button[disabled]{cursor:default}
+
+.said{background:var(--ad-xfff-bg);border-left:3px solid var(--ad-vteal-border);border-radius:.3rem;padding:.75rem .85rem;
+  margin:.2rem 0 .9rem;font-size:.93rem;color:var(--ad-x3d5059-fg)}
+.said[hidden]{display:none}
+.said b{color:var(--ad-vink-fg)}
+.srcs{margin:.6rem 0 .9rem}
+.srcs .pair{font-family:var(--serif);font-size:.9rem;line-height:1.6;color:var(--ad-x3d5059-fg);
+  border-left:2px solid var(--ad-vline-border);padding:.1rem 0 .1rem .6rem;margin:0 0 .5rem}
+.srcs .pair .t{display:block;font-family:var(--sans);font-size:.76rem;font-weight:600;color:var(--ad-vteal-fg)}
+.go{font:inherit;font-size:.92rem;background:var(--ad-vink-bg);color:var(--ad-onflip-fg);border:1px solid var(--ad-vink-border);
+  border-radius:.3rem;padding:.42rem 1.05rem;cursor:pointer}
+.go[hidden]{display:none}
+
+.prompt{background:var(--ad-vexamsoft-bg);border:1px solid var(--ad-xe8d3b4-border);border-radius:.4rem;padding:.75rem .85rem;
+  margin:0 0 .9rem;font-size:.92rem;color:var(--ad-x3d5059-fg)}
+.prompt b{color:var(--ad-vink-fg)}
+.cell{background:var(--ad-xfff-bg);border:1px solid var(--ad-vline-border);border-radius:.4rem;padding:.6rem .75rem}
+.cell+.cell{margin-top:.6rem}
+.cell .fn{font-size:.78rem;font-weight:600;color:var(--ad-vteal-fg)}
+.cell .fn em{font-style:normal;color:var(--ad-vmuted-fg);font-weight:400;margin-left:.35rem}
+.cell textarea{width:100%;margin-top:.3rem;font-family:inherit;font-size:.93rem;line-height:1.6;
+  padding:.45rem .55rem;border:1px solid var(--ad-vline-border);border-radius:.3rem;background:var(--ad-xfff-bg);color:var(--ad-vink-fg);resize:vertical}
+.bar{display:flex;gap:.5rem;flex-wrap:wrap;margin:.7rem 0}
+.bar button{font:inherit;font-size:.9rem;background:var(--ad-xfff-bg);color:var(--ad-vink-fg);border:1px solid var(--ad-vink-border);
+  border-radius:.3rem;padding:.38rem .9rem;cursor:pointer}
+.bar button.p{background:var(--ad-vink-bg);color:var(--ad-onflip-fg)}
+.bar button[disabled]{border-color:var(--ad-vline-border);color:var(--ad-vmuted-fg);cursor:default;background:var(--ad-xfff-bg)}
+pre.ai{background:var(--ad-xfff-bg);border:1px solid var(--ad-vline-border);border-radius:.3rem;padding:.6rem .7rem;
+  font-size:.8rem;line-height:1.65;white-space:pre-wrap;margin:.4rem 0 0;color:var(--ad-x3d5059-fg)}
+.code{background:var(--ad-vtealsoft-bg);border:1px solid var(--ad-vteal-border);border-radius:.4rem;padding:.7rem .85rem;margin:1.1rem 0 .5rem}
+.code .t{font-size:.8rem;font-weight:600;color:var(--ad-vteal-fg);margin:0 0 .35rem}
+.code .v{font-family:var(--serif);font-size:1.15rem;letter-spacing:.04em;color:var(--ad-vink-fg);margin:0 0 .5rem}
+.series{border-top:1px solid var(--ad-vline-border);margin-top:2.2rem;padding-top:1.1rem;font-size:.9rem}
+.series a{font-family:var(--serif);font-size:1rem;color:var(--ad-vteal-fg);text-decoration:none}
+.series a:hover{text-decoration:underline}
+.toast{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--ad-vink-bg);color:var(--ad-onflip-fg);
+  padding:.45rem 1rem;border-radius:.3rem;font-size:.86rem;opacity:0;transition:opacity .2s;pointer-events:none}
+.toast.on{opacity:1}
+.spoke{stroke:var(--line);stroke-width:2;fill:none}
+.bx.hub rect{stroke:var(--ad-vmuted-fg)}
+.bx.hub.on rect{stroke:var(--ad-vok-fg)}
+.bx.sw rect,.bx.hub.on.sw rect{stroke:var(--ad-vexam-fg);stroke-width:2.5}
+.bx.sw text.fn{fill:var(--ad-vexam-fg)}
+.warn{font-family:var(--sans);font-size:9.5px;font-weight:600;fill:var(--ad-vexam-fg)}
+.okk{font-family:var(--sans);font-size:9.5px;font-weight:600;fill:var(--ad-vok-fg)}
+.hint ul{margin:.3rem 0 0;padding-left:1.1rem;color:var(--ad-vexam-fg)}
+.hint ul.ok{color:var(--ad-vok-fg)}
+.hint li{margin-bottom:.2rem}
+.fig .zone{fill:none;stroke:var(--line);stroke-width:1.5;stroke-dasharray:5 4}
+.fig .zl{font-family:var(--sans);font-size:10.5px;font-weight:600}
+.fig .zl.l{fill:var(--ad-vteal-fg)}
+.fig .zl.r{fill:var(--ad-x4a6a90-fg)}
+.fig .arr{stroke:var(--ad-vmuted-fg);stroke-width:2;fill:none;stroke-linejoin:round;stroke-linecap:round}
+.fig .pivot{font-family:var(--serif);font-style:italic;font-size:11.5px;fill:var(--ad-vexam-fg)}
+.fig .pn{font-family:var(--sans);font-size:9px;fill:var(--ad-vmuted-fg)}
+.bx.cut rect{fill:var(--ground);stroke:var(--ad-vexam-fg);stroke-dasharray:5 4}
+.bx.cut text.fn{fill:var(--ad-vmuted-fg);text-decoration:line-through}
+.bx.cut text.rf{fill:var(--ad-vexam-fg);font-weight:600}
+
+/* 深色模式（2026-10-22）：淺色數值與原本相同；只在螢幕、手機或電腦設成深色外觀時生效，列印不受影響。 */
+:root{--ad-onflip-fg:#ffffff;--ad-vexam-border:var(--exam);--ad-vexam-fg:var(--exam);--ad-vexamsoft-bg:var(--exam-soft);--ad-vground-bg:var(--ground);--ad-vground-fg:var(--ground);--ad-vink-bg:var(--ink);--ad-vink-border:var(--ink);--ad-vink-fg:var(--ink);--ad-vline-border:var(--line);--ad-vline-fg:var(--line);--ad-vmuted-fg:var(--muted);--ad-vok-border:var(--ok);--ad-vok-fg:var(--ok);--ad-voksoft-bg:var(--ok-soft);--ad-voksoft-fg:var(--ok-soft);--ad-vteal-border:var(--teal);--ad-vteal-fg:var(--teal);--ad-vtealsoft-bg:var(--teal-soft);--ad-x3d5059-fg:#3d5059;--ad-x4a6a90-fg:#4a6a90;--ad-x8a8278-fg:#8a8278;--ad-xe8d3b4-border:#e8d3b4;--ad-xfff-bg:#fff;--ad-xfff-fg:#fff;color-scheme:light}
+@media screen and (prefers-color-scheme: dark){
+ :root{--ad-onflip-fg:#16201F;--ad-vexam-border:#b4661c;--ad-vexam-fg:#E7CAAF;--ad-vexamsoft-bg:#2D2821;--ad-vground-bg:#1F2020;--ad-vground-fg:#f1f3f2;--ad-vink-bg:#E6EBEE;--ad-vink-border:#E9EFF2;--ad-vink-fg:#E9EFF2;--ad-vline-border:#3F4747;--ad-vline-fg:#cdd6d6;--ad-vmuted-fg:#BAC0C2;--ad-vok-border:#CDE4DA;--ad-vok-fg:#CDE4DA;--ad-voksoft-bg:#1F2321;--ad-voksoft-fg:#edf4ef;--ad-vteal-border:#CDEAE9;--ad-vteal-fg:#CDEAE9;--ad-vtealsoft-bg:#1D2524;--ad-x3d5059-fg:#D4DBDF;--ad-x4a6a90-fg:#BBC7D6;--ad-x8a8278-fg:#C2BFBB;--ad-xe8d3b4-border:#58482F;--ad-xfff-bg:#2D2A25;--ad-xfff-fg:#ffffff;color-scheme:dark}
+}
+
+</style>
+<style id="anti-copy">
+/* 防盜用措施（2026-10-14）：畫面浮水印、列印浮水印、頁尾授權聲明 */
+@media screen{body::before{content:"";position:fixed;top:0;left:0;right:0;bottom:0;z-index:2147483000;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22460%22%20height%3D%22240%22%3E%3Cg%20transform%3D%22rotate%28-20%20230%20120%29%22%20font-family%3D%22Noto%20Sans%20TC%2Csans-serif%22%20fill%3D%22%23D9A400%22%20fill-opacity%3D%22.2%22%20text-anchor%3D%22middle%22%3E%3Ctext%20x%3D%22230%22%20y%3D%22112%22%20font-size%3D%2220%22%3E%E9%AB%98%E4%B8%AD%E8%8B%B1%E6%96%87%E9%A1%8C%E5%BA%AB%3C%2Ftext%3E%3Ctext%20x%3D%22230%22%20y%3D%22140%22%20font-size%3D%2214%22%3Estaresto-create.github.io%2FJCEE-vocab-questions%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E");background-repeat:repeat;}}
+@media print{body::after{content:"高中英文題庫\A staresto-create.github.io/JCEE-vocab-questions\A 免費資源，請勿販售";white-space:pre;position:fixed;top:42%;left:0;right:0;text-align:center;transform:rotate(-25deg);font-family:"Noto Sans TC",sans-serif;font-size:26pt;line-height:1.7;color:#c8c8c8;z-index:2147483000;pointer-events:none;}}
+.cc-note{font-size:12px;line-height:1.8;color:var(--ad-x8a8278-fg);margin:12px auto;max-width:60em;padding:0 1em;}.cc-note a{color:inherit;}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>問題與解決的組織圖：兩組問題與回應，一格「？」</h1>
+<p class="lede">上一份單元頁帶你讀完 A Hero, Hidden 這一篇。這一份把整篇整理成一張圖：左邊是問題，右邊是回應，中間用轉折的字接起來。這個形狀叫<b>問題解決圖</b>，是問題與解決這種結構的標準圖，十一月號第五單元用的也是這一張。這一篇有兩個地方不一樣：問題和回應各有兩組，第一個回應造成了第二個問題；最後一格是「？」，因為課文在結果之前停筆。</p>
+<p class="preview" id="pv" hidden>預覽模式：全部步驟與答案一次展開，進度不存檔。學生拿到的一般連結不受影響。</p>
+<p class="resume" id="rs" hidden>上次做到一半，已經幫你接回來了。<button id="rst">重新開始</button></p>
+<p class="src">ALL+ 互動英語 11 月號 Unit 10（pp. 46–47）　A Hero, Hidden　故事 28 行</p>
+
+<!-- 第一步 -->
+<section class="step" id="s1">
+  <p class="stepno">第一步</p>
+  <h2>左邊三格，右邊三格</h2>
+  <p>每一格的名稱已經印好了：左邊是情況和兩個問題，右邊是兩次回應，最後一格是「？」。你要放的是每一格在說什麼。</p>
+  <p>六個位置各有各的內容。<b>八張句卡，只有六張放得進去</b>，而且都不是原句，是換過字的說法。</p>
+  <p class="hint" id="h1">先點一張句卡，再點圖上的格子。第一次就放對 <em id="n1">0</em> / 6</p>
+  <div class="pool" id="pool"></div>
+  <figure class="fig" id="fig"></figure>
+  <div class="panel" id="pn">
+    <span class="k" id="pk">這一格</span>
+    <p class="q" id="pq">點圖上任一個格子，看它裝的是哪一句。</p>
+  </div>
+  <div class="said" id="a1" hidden>
+    <b>兩張放不進去的是哪兩張。</b>一張說阿基里斯自己決定躲到斯基羅斯島，因為他害怕預言。<b>這張最容易放錯</b>，因為原因對了：預言確實是他躲起來的原因，第 11 到 13 行。可是做決定的人錯了：第 14 到 15 行 <q>Determined to protect her son, his mother hid him</q> 是母親決定、母親動手。把對的原因放在錯的人身上，歸屬錯了。另一張說奧德修斯送禮物是為了感謝國王。第 23 到 25 行 <q>Suspecting that Achilles was hidden there, he devised a simple but brilliant plan</q> 說得很清楚，計畫的目的是找出阿基里斯，不是道謝。這一張目的錯了。
+    <br><br>
+    <b>八張句卡沒有一張跟課文一樣。</b>下面是六個位置的原文與行號，回去對一次。
+    <div class="srcs" id="src6"></div>
+  </div>
+  <button class="go" id="g1" hidden>下一步：拿掉一格，或對調兩個回應</button>
+</section>
+
+<!-- 第二步 -->
+<section class="step" id="s2" hidden>
+  <p class="stepno">第二步</p>
+  <h2>拿掉一格，或把兩個回應對調</h2>
+  <p>這一篇的圖有六格：哪一格可以拿掉，哪一格不行？兩個回應能不能對調？<b>按下面的按鈕，圖上的格子會真的拿掉或換位置。</b>三種都試過，才會出題。</p>
+  <div class="bar" id="swbar">
+    <button data-s="1">拿掉「問題一：預言」</button>
+    <button data-s="2">拿掉「結果：？」</button>
+    <button data-s="3">把兩個回應對調</button>
+    <button class="p" id="undo" hidden>換回來</button>
+  </div>
+  <div class="hint" id="swh">六格照原來的位置排著。任選一種試試看。</div>
+  <div id="q2box" hidden>
+    <p>拿掉預言，或把兩個回應對調，故事就不成立；拿掉「？」，故事照樣成立。<b>這說明了什麼？</b></p>
+    <div class="opts" id="q2">
+      <button>最後一格沒有課文，所以這個故事不算完整的問題與解決</button>
+      <button data-ok="1">每個回應都要回頭對準前面的問題，最後一格可以空著</button>
+      <button>兩個回應的寫法很像，所以哪一個放在前面都可以</button>
+      <button>預言只是背景資訊，所以拿掉它故事仍然說得通</button>
+    </div>
+    <div class="said" id="a2" hidden>
+      <b>每個回應都要回頭對準前面的問題，最後一格可以空著。</b>第 14 行 Determined to protect her son 對準的是第 12 到 13 行 he would never return home alive；第 21 行 Everything changed 的 changed 對準的是第 18 到 20 行 they could not find him。兩組問題與回應各自完整，故事就成立；最後一格「？」只是因為課文在第 28 行 <q>Then he sat back and waited...</q> 停筆，沒有課文可以放，拿掉它，沒有一處接不上。<b>問題與解決最不能少的，是問題和回頭對準它的回應；結果可以留白。</b>
+      <br><br>
+      <b>另外三個為什麼排除：</b>「最後一格沒有課文，所以這個故事不算完整的問題與解決」<b>最容易選</b>，因為前面看過的問題解決圖，最後一格都有課文。可是這個故事兩組問題與回應都完整：第 10 到 20 行有兩個問題，第 14 到 18 行和第 21 到 28 行有兩個回應。課文只是在評估之前停筆，沒有說錯什麼，這是把「沒寫結果」誤讀成「沒有結構」，範圍錯。「兩個回應的寫法很像，所以哪一個放在前面都可以」不對：剛才對調以後，第 21 行 Everything changed 前面沒有失敗可以改變，母親的 Determined 也找不到對準的問題。「預言只是背景資訊，所以拿掉它故事仍然說得通」跟你剛才做的相反：拿掉問題一，第 14 行 Determined to protect her son 要保護他不受什麼，沒有了答案，第 6 到 7 行 Yet he almost did not take part in the war 也只剩謎沒有解。
+    </div>
+  </div>
+  <button class="go" id="g2" hidden>下一步：換成你自己的作文</button>
+</section>
+
+<!-- 第三步 -->
+<section class="step" id="s3" hidden>
+  <p class="stepno">第三步</p>
+  <h2>用同一張圖列你的大綱</h2>
+  <p>學測作文常要你說明遇到的一個困擾，怎麼處理。這就是一篇小小的問題與解決。用剛才那張圖列大綱，有三件事要照這篇學：</p>
+  <p><b>一、用轉折詞把問題擺出來。</b>這篇用 Yet、But 說「出了問題」；你可以用 But 或 Yet 寫出「考前越想睡越睡不著」。<b>二、每個回應都要回頭對準問題。</b>像這篇的 Determined to protect her son 對準預言；你的做法，要說清楚它是針對哪一個原因。<b>三、一個回應可能帶出新的問題。</b>這篇的母親把兒子藏好了，卻讓希臘人找不到他；你的做法也許有用，也可能帶來新的麻煩，這時用 Although 或 But 接上去，再寫第二個回應。</p>
+  <div class="prompt">
+    <b>試寫的題目：</b>請寫一篇短文，說明你或同學在考前遇到的一個困擾（例如考前太緊張睡不著）。第一段說明這個問題和原因；第二段說明你試過的第一個做法，它解決了什麼，又帶來什麼新的問題；最後說明你的第二個做法和你的看法。
+  </div>
+  <p>每一格寫一句中文要點就好，這一步先不寫英文。</p>
+  <div id="mine"></div>
+  <div class="bar">
+    <button class="p" id="cp">複製我寫的內容</button>
+    <button id="sv">存到瀏覽器</button>
+  </div>
+  <p class="hint">這一步沒有標準答案，站上不批改。複製之後貼給老師，或貼給 AI 也可以，下面這段指示會跟著一起複製。</p>
+  <pre class="ai" id="aib"></pre>
+  <div class="code">
+    <p class="t">做完了，把這一行貼到 Google Classroom 的作業回覆欄</p>
+    <p class="v" id="cv">—</p>
+    <div class="bar" style="margin:0">
+      <button class="p" id="cc">複製完成碼</button>
+      <button id="rfb">重新產生</button>
+    </div>
+    <p class="hint" style="margin:.5rem 0 0">老師只看這一行，不會看到你寫的內容。你寫的東西只留在這台裝置的瀏覽器裡。</p>
+  </div>
+</section>
+
+<nav class="series">
+  <a href="cohesion.html">← 回讀法練習總表</a>
+</nav>
+</div>
+<div class="toast" id="toast"></div>
+
+
+<script>
+(function(){
+"use strict";
+function $(id){return document.getElementById(id);}
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;");}
+
+var KEY="outline-202611-u10-v1";
+var PREVIEW=false;
+var ST={put:{},first:{},miss:{},sw:0,tr:{},q2:0,mine:{},step:1};
+function save(){ if(PREVIEW) return; try{ localStorage.setItem(KEY,JSON.stringify(ST)); }catch(e){} }
+function load(){ try{ var r=localStorage.getItem(KEY); return r?JSON.parse(r):null; }catch(e){ return null; } }
+function toast(m){ var t=$("toast"); t.textContent=m; t.classList.add("on");
+  setTimeout(function(){ t.classList.remove("on"); },1600); }
+
+/* 六格：左邊情況與兩個問題，右邊兩次回應與「？」 */
+var CELLS=[
+ {id:"s0",fn:"情況：最偉大的戰士",en:"Yet he almost did not take part",rf:"第 1–9 行"},
+ {id:"p1",fn:"問題一：預言",en:"a troubling prophecy",rf:"第 10–13 行"},
+ {id:"r1",fn:"回應一：藏起來",en:"Determined to protect her son",rf:"第 14–18 行"},
+ {id:"p2",fn:"問題二：找不到他",en:"they could not find him",rf:"第 18–20 行"},
+ {id:"r2",fn:"回應二：奧德修斯的計畫",en:"Everything changed when…",rf:"第 21–28 行"},
+ {id:"q",fn:"結果：？",en:"Then he sat back and waited…",rf:"第 28 行"}
+];
+var SAFE2=["第 28 行 Then he sat back and waited... 本來就沒有寫結果，拿掉「？」那一格，課文沒有任何一處接不上。",
+           "課文還在，只是讀者少了一個要自己回答的問題。"];
+var WARN={
+ 1:["第 14 行 Determined to protect her son 要有一個要保護他不受的威脅：第 12 到 13 行 he would never return home alive 不在了，Determined 就沒有東西可以對準。",
+    "第 6 到 7 行 Yet he almost did not take part in the war at all 也失去了答案：他為什麼差點沒有參戰，只剩謎，沒有原因。"],
+ 3:["第 21 行 Everything changed 的 changed 要改變一個「找不到」的局面；回應二排到第一個回應的位置，前面只有預言，沒有失敗可以改變。",
+    "第 14 行 Determined to protect her son 排到第二個回應的位置，它對面變成「找不到他」，母親保護的是預言，不是找不到。"]
+};
+
+var SENTS=[
+ {id:"r2",t:"Odysseus, the sharpest mind among the Greeks, came to the island, guessed where Achilles was, and came up with a clever but simple scheme involving presents."},
+ {id:"x1",t:"Achilles chose to hide on Skyros by himself, because he feared the prophecy."},
+ {id:"s0",t:"The famous fighter seemed born for battle, yet he nearly missed the war entirely."},
+ {id:"r1",t:"Wanting to keep her son safe, his mother sent him to hide at a king’s palace on an island, where he dressed as a girl among the princesses."},
+ {id:"q",t:"With the presents laid out, Odysseus leaned back and waited."},
+ {id:"p2",t:"Even though Greek commanders looked everywhere for their finest fighter, nobody managed to locate him."},
+ {id:"x2",t:"Odysseus offered gifts to the princesses in order to thank King Lycomedes for his kindness."},
+ {id:"p1",t:"A disturbing prediction hung over him: should he go to fight at Troy, he was fated never to come back alive."}
+];
+var NOFIT={
+ x1:"這一張最容易放錯，因為原因是對的：預言確實是他躲起來的原因，第 11 到 13 行。可是做決定的人錯了，第 14 到 15 行 Determined to protect her son, his mother hid him 是母親決定、母親動手。把對的原因放在錯的人身上，歸屬錯了，所以哪一格都放不進去。",
+ x2:"這一張看起來有根據，因為第 25 到 26 行確實寫了 presented the king’s daughters with an array of gifts。可是第 23 到 25 行說計畫是在 Suspecting that Achilles was hidden there 之後想出來的，目的是找出阿基里斯，不是道謝。目的錯了，所以哪一格都放不進去。"
+};
+var SRCQ=[
+ {fn:"情況：最偉大的戰士",rf:"第 1–9 行",t:"Among the greatest myths of ancient Greece is the story of the Trojan War, a conflict that brought many legendary heroes to the battlefield. Perhaps the most famous was Achilles, widely regarded as the greatest warrior of his time. Yet he almost did not take part in the war at all. From an early age, Achilles seemed destined to become a warrior."},
+ {fn:"問題一：預言",rf:"第 10–13 行",t:"But a troubling prophecy overshadowed his future: If he fought at Troy, he would never return home alive."},
+ {fn:"回應一：藏起來",rf:"第 14–18 行",t:"Determined to protect her son, his mother hid him on the island of Skyros at the court of King Lycomedes. Disguised in women’s clothing, Achilles lived among the king’s daughters."},
+ {fn:"問題二：找不到他",rf:"第 18–20 行",t:"Although the Greek leaders searched far and wide for their greatest warrior, they could not find him."},
+ {fn:"回應二：奧德修斯的計畫",rf:"第 21–28 行",t:"Everything changed when Odysseus, the cleverest of the Greeks, arrived on Skyros. Suspecting that Achilles was hidden there, he devised a simple but brilliant plan. He presented the king’s daughters with an array of gifts: fine clothes, jewelry, musical instruments—and a sword and shield."},
+ {fn:"結果：？",rf:"第 28 行",t:"Then he sat back and waited..."}
+];
+
+var MINE=[
+ {id:"m1",fn:"問題與原因",en:"the problem",ph:"用 But 或 Yet 擺出問題，再寫一個原因。"},
+ {id:"m2",fn:"第一個做法",en:"first response",ph:"你試過的第一個做法。要說清楚它是針對哪一個原因。"},
+ {id:"m3",fn:"新的問題",en:"a new problem",ph:"第一個做法解決了什麼？又帶來什麼新的麻煩？用 Although 或 But 接上去。"},
+ {id:"m4",fn:"第二個做法與看法",en:"second response and view",ph:"你的第二個做法，以及用一句話評價它。"}
+];
+
+var AI=[
+"我是台灣的高中生，正在準備學測英文作文。下面是我列的中文大綱，題目要我說明考前遇到的一個困擾：第一段說明問題和原因；第二段說明試過的第一個做法，它解決了什麼，又帶來什麼新的問題；最後說明第二個做法和我的看法。",
+"",
+"請照以下規則給我意見：",
+"1. 先看第一格：有沒有用轉折詞把問題擺出來，並寫出一個原因。",
+"2. 第二格的做法有沒有回頭對準第一格的原因。如果對不上，請指出來。",
+"3. 第三格有沒有說出第一個做法帶來的新問題，而且是第一個做法造成的，不是另一件事。",
+"4. 第四格的第二個做法有沒有對準第三格的新問題，並用一句話評價。",
+"5. 不要幫我寫英文，也不要幫我補內容。",
+"6. 說明用中文。"
+].join("\n");
+
+
+/* ── 畫圖 ── */
+function drawFig(){
+  var sw=ST.sw||0;
+  var Y=[26,96,166,236], LW=172, RW=150, LX=101, RX=331, H=54;
+  var pos={s0:[LX,Y[0],LW],p1:[LX,Y[1],LW],p2:[LX,Y[2],LW],r1:[RX,Y[1],RW],r2:[RX,Y[2],RW],q:[RX,Y[3],RW]};
+  if(sw===3){ pos.r1=[RX,Y[2],RW]; pos.r2=[RX,Y[1],RW]; }
+  var cut=sw===1?"p1":(sw===2?"q":"");
+  var moved=(sw===3)?{r1:1,r2:1}:{};
+  var s='<svg viewBox="0 0 420 316" role="img" aria-label="問題解決圖：左邊情況與兩個問題，右邊兩次回應和一格問號，中間的箭頭是第 14 行的 Determined 和第 21 行的 Everything changed">';
+  s+='<text class="zl l" x="101" y="17" text-anchor="middle">問題 Problem</text>';
+  s+='<text class="zl r" x="331" y="17" text-anchor="middle">回應 Response</text>';
+  s+='<rect class="zone" x="6" y="25" width="190" height="270" rx="8"/>';
+  s+='<rect class="zone" x="246" y="25" width="170" height="270" rx="8"/>';
+  s+='<path class="arr" d="M187 123 L254 123"/><path class="arr" d="M248 117 L254 123 L248 129"/>';
+  s+='<path class="arr" d="M187 193 L254 193"/><path class="arr" d="M248 187 L254 193 L248 199"/>';
+  s+='<text class="pivot" x="221" y="112" text-anchor="middle" style="font-size:9.5px">Determined</text>';
+  s+='<text class="pn" x="221" y="138" text-anchor="middle">第 14 行</text>';
+  s+='<text class="pivot" x="221" y="182" text-anchor="middle" style="font-size:8.5px">Everything changed</text>';
+  s+='<text class="pn" x="221" y="208" text-anchor="middle">第 21 行</text>';
+  for(var i=0;i<CELLS.length;i++){
+    var c=CELLS[i], p=pos[c.id], x=p[0], y=p[1], w=p[2];
+    var cls="bx"+(ST.put[c.id]?" on":"")+(c.id===cut?" cut":"")+(moved[c.id]?" sw":"");
+    s+='<g class="'+cls+'" data-id="'+c.id+'" tabindex="0" role="button">';
+    s+='<rect x="'+(x-w/2)+'" y="'+y+'" width="'+w+'" height="'+H+'" rx="6"'+(c.id==="q"?' stroke-dasharray="5 4"':'')+'/>';
+    s+='<text class="fn" x="'+x+'" y="'+(y+18)+'" text-anchor="middle">'+esc(c.fn)+'</text>';
+    s+='<text class="en" x="'+x+'" y="'+(y+32)+'" text-anchor="middle">'+esc(c.en)+'</text>';
+    s+='<text class="rf" x="'+x+'" y="'+(y+46)+'" text-anchor="middle">'+(c.id===cut?"拿掉了":(ST.put[c.id]?esc(c.rf):"放句卡"))+'</text>';
+    s+='</g>';
+  }
+  if(sw===2) s+='<text class="okk" x="414" y="311" text-anchor="end">拿掉之後照樣成立</text>';
+  if(sw===1) s+='<text class="warn" x="414" y="311" text-anchor="end">Determined 要保護他不受什麼，沒有答案</text>';
+  if(sw===3) s+='<text class="warn" x="414" y="311" text-anchor="end">changed 前面沒有失敗可以改變</text>';
+  s+='</svg>';
+  $("fig").innerHTML=s;
+}
+
+var pick=null;
+function drawPool(){
+  var h="";
+  for(var i=0;i<SENTS.length;i++)
+    h+='<button data-i="'+i+'" class="'+(ST.put[SENTS[i].id]?"gone":"")+'">'+esc(SENTS[i].t)+'</button>';
+  $("pool").innerHTML=h;
+}
+function done1(){ var n=0; for(var k in ST.put) if(ST.put[k]) n++; return n; }
+function first1(){ var n=0; for(var k in ST.first) if(ST.first[k]) n++; return n; }
+function showSrc(){
+  if($("src6").innerHTML) return;
+  var h="";
+  for(var i=0;i<SRCQ.length;i++)
+    h+='<div class="pair"><span class="t">'+esc(SRCQ[i].fn)+'　'+esc(SRCQ[i].rf)+'</span>'+esc(SRCQ[i].t)+'</div>';
+  $("src6").innerHTML=h;
+}
+function after1(){
+  if($("n1")) $("n1").textContent=first1();
+  if(done1()===6){
+    $("h1").innerHTML="六格都滿了。第一次就放對 <em id=\"n1\">"+first1()+"</em> / 6";
+    $("a1").hidden=false; $("g1").hidden=false; showSrc();
+  }
+}
+function cellOf(id){ for(var i=0;i<CELLS.length;i++) if(CELLS[i].id===id) return CELLS[i]; return null; }
+function show(id){
+  var c=cellOf(id),i; if(!c) return;
+  var gs=$("fig").querySelectorAll(".bx");
+  for(i=0;i<gs.length;i++) gs[i].classList.toggle("sel", gs[i].dataset.id===id);
+  $("pk").textContent=c.fn+"　"+(ST.put[id]?c.rf:"還沒放");
+  $("pq").textContent=ST.put[id]||"這一格還空著。";
+}
+function aim(on){
+  var gs=$("fig").querySelectorAll(".bx");
+  for(var i=0;i<gs.length;i++) if(!gs[i].classList.contains("on")) gs[i].classList.toggle("aim",on);
+}
+$("pool").addEventListener("click",function(e){
+  var b=e.target.closest("button"); if(!b) return;
+  var bs=$("pool").querySelectorAll("button");
+  for(var i=0;i<bs.length;i++) bs[i].classList.remove("pick");
+  b.classList.add("pick"); pick=+b.dataset.i; aim(true);
+});
+function hit(g){
+  var id=g.dataset.id;
+  if(pick===null || ST.put[id]){ show(id); return; }
+  var s=SENTS[pick];
+  if(NOFIT[s.id]){
+    ST.miss[id]=1; save();
+    $("pk").textContent="這一張沒有位置";
+    $("pq").textContent=NOFIT[s.id];
+    return;
+  }
+  if(s.id!==id){ ST.miss[id]=1; save(); toast("這一格要的不是這一張"); return; }
+  if(!ST.miss[id]) ST.first[id]=1;
+  ST.put[id]=s.t; save(); pick=null;
+  drawFig(); drawPool(); aim(false); show(id); after1();
+}
+$("fig").addEventListener("click",function(e){ var g=e.target.closest(".bx"); if(g) hit(g); });
+$("fig").addEventListener("keydown",function(e){
+  if(e.key!=="Enter"&&e.key!==" ") return;
+  var g=e.target.closest(".bx"); if(g){ e.preventDefault(); hit(g); }
+});
+$("g1").addEventListener("click",function(){
+  if(ST.step<2) ST.step=2; save();
+  $("s2").hidden=false; $("s2").scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+/* ── 第二步：拿掉與對調 ── */
+function tried(){ return !!(ST.tr[1]&&ST.tr[2]&&ST.tr[3]); }
+function paintSw(){
+  drawFig();
+  var bs=$("swbar").querySelectorAll("button[data-s]");
+  for(var i=0;i<bs.length;i++) bs[i].disabled=!!ST.sw;
+  $("undo").hidden=!ST.sw;
+  var h,k,list,n=0;
+  for(k=1;k<=3;k++) if(ST.tr[k]) n++;
+  if(!ST.sw){
+    if(tried()) h="換回來了。三種都試過了，看下面的題目。";
+    else if(n) h="換回來了。已經試過 "+n+" 種，再試其他的。";
+    else h="六格照原來的位置排著。任選一種試試看。";
+    $("swh").textContent=h;
+  } else {
+    if(ST.sw===2){ h="拿掉之後，沒有一處接不上：<ul class=\"ok\">"; list=SAFE2; }
+    else { h=(ST.sw===1?"拿掉這一格，就不成立了：":"兩個回應一對調，就不成立了：")+"<ul>"; list=WARN[ST.sw]; }
+    for(k=0;k<list.length;k++) h+="<li>"+esc(list[k])+"</li>";
+    $("swh").innerHTML=h+"</ul>";
+  }
+  if(tried()) $("q2box").hidden=false;
+}
+$("swbar").addEventListener("click",function(e){
+  var b=e.target.closest("button[data-s]"); if(!b||ST.sw) return;
+  ST.sw=+b.dataset.s; ST.tr[ST.sw]=1; save(); paintSw();
+});
+$("undo").addEventListener("click",function(){ ST.sw=0; save(); paintSw(); });
+function settle2(){
+  var bs=$("q2").querySelectorAll("button");
+  for(var i=0;i<bs.length;i++){ bs[i].disabled=true; bs[i].dataset.state=bs[i].dataset.ok?"right":"wrong"; }
+  $("a2").hidden=false; $("g2").hidden=false;
+}
+$("q2").addEventListener("click",function(e){
+  var b=e.target.closest("button"); if(!b||ST.q2) return;
+  ST.q2=b.dataset.ok?1:2; save(); settle2();
+});
+$("g2").addEventListener("click",function(){
+  if(ST.step<3) ST.step=3; save();
+  paintCode(); $("s3").hidden=false;
+  $("s3").scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+/* ── 第三步 ── */
+function drawMine(){
+  var h="";
+  for(var i=0;i<MINE.length;i++){
+    var m=MINE[i];
+    h+='<div class="cell"><span class="fn">'+esc(m.fn)+'<em>'+esc(m.en)+'</em></span>'+
+       '<textarea id="'+m.id+'" rows="2" placeholder="'+esc(m.ph)+'"></textarea></div>';
+  }
+  $("mine").innerHTML=h;
+  for(var j=0;j<MINE.length;j++){
+    var el=$(MINE[j].id);
+    if(ST.mine[MINE[j].id]) el.value=ST.mine[MINE[j].id];
+    el.addEventListener("input",function(){ ST.mine[this.id]=this.value; save(); });
+  }
+  $("aib").textContent=AI;
+}
+function mkCode(){
+  var f=first1(), m=0, w=0, i;
+  for(var k in ST.miss) if(ST.miss[k]) m++;
+  for(i=0;i<MINE.length;i++){ var el=$(MINE[i].id); if(el&&el.value.trim()) w++; }
+  var seed=(f*31 + m*7 + w*13 + (ST.q2===1?5:0) + 11*211 + 10*101 + 1777) % 46656;
+  return "11-U10 "+f+"/6 大綱"+w+"/4 "+("000"+seed.toString(36).toUpperCase()).slice(-3);
+}
+function paintCode(){ $("cv").textContent=mkCode(); }
+$("rfb").addEventListener("click",paintCode);
+function copy(t){
+  function fb(){
+    var ta=document.createElement("textarea"); ta.value=t; document.body.appendChild(ta);
+    ta.select(); try{ document.execCommand("copy"); toast("已複製"); }catch(e){ toast("複製失敗，請手動選取"); }
+    document.body.removeChild(ta);
+  }
+  if(navigator.clipboard&&navigator.clipboard.writeText)
+    navigator.clipboard.writeText(t).then(function(){ toast("已複製"); },fb);
+  else fb();
+}
+$("cc").addEventListener("click",function(){ copy(mkCode()); });
+$("sv").addEventListener("click",function(){
+  for(var i=0;i<MINE.length;i++) ST.mine[MINE[i].id]=$(MINE[i].id).value;
+  save(); toast("已存在這台裝置的瀏覽器裡");
+});
+$("cp").addEventListener("click",function(){
+  var t=AI+"\n\n【我的大綱】\n";
+  for(var i=0;i<MINE.length;i++) t+=MINE[i].fn+"："+($(MINE[i].id).value||"（空白）")+"\n";
+  copy(t);
+});
+
+/* ── 預覽 ── */
+function previewAll(){
+  PREVIEW=true; $("pv").hidden=false;
+  for(var i=0;i<SENTS.length;i++) if(!NOFIT[SENTS[i].id]){ ST.put[SENTS[i].id]=SENTS[i].t; ST.first[SENTS[i].id]=1; }
+  drawPool(); drawMine(); after1();
+  $("s2").hidden=false; ST.sw=0; ST.tr={1:1,2:1,3:1}; paintSw(); ST.q2=1; settle2();
+  $("s3").hidden=false; paintCode();
+}
+
+/* ── 接回進度 ── */
+$("rst").addEventListener("click",function(){
+  try{ localStorage.removeItem(KEY); }catch(e){} location.reload();
+});
+(function restore(){
+  if(/(^|[?&])all(=|&|$)/.test(location.search)){ previewAll(); return; }
+  var v=load();
+  if(v){
+    ST=v;
+    if(!ST.put) ST.put={};
+    if(!ST.first) ST.first={};
+    if(!ST.miss) ST.miss={};
+    if(!ST.mine) ST.mine={};
+    if(!ST.tr) ST.tr={};
+    if(!ST.step) ST.step=1;
+    if(!ST.sw) ST.sw=0;
+  }
+  drawPool(); drawMine(); paintSw();
+  if(done1()||ST.step>1) $("rs").hidden=false;
+  if(ST.step>=2) $("s2").hidden=false;
+  if(ST.q2) settle2();
+  if(ST.step>=3){ $("s3").hidden=false; paintCode(); }
+  after1();
+})();
+})();
+</script>
+<p class="cc-note">本題庫自己寫的部分（解析、中譯、分類、標註與編排）採用 <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh-hant" target="_blank" rel="license noopener">CC BY-NC 4.0</a>（姓名標示─非商業性）授權：可以分享，但須註明出處，不得用於商業用途。試題來源與完整說明請見<a href="https://staresto-create.github.io/JCEE-vocab-questions/#terms">使用與著作權</a>。</p>
+</body>
+</html>

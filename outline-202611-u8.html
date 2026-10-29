@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>比較對照的組織圖｜When Musical Instruments Become Cultural Symbols</title>
+
+<style>
+:root{
+  --ground:#f1f3f2; --ink:#17282f; --teal:#1f6f6a; --teal-soft:#dfeceb;
+  --muted:#77878d; --line:#cdd6d6; --exam:#b4661c; --exam-soft:#fdf4e7;
+  --ok:#2e6b4f; --ok-soft:#edf4ef;
+  --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+  --sans:"PingFang TC","Noto Sans TC","Microsoft JhengHei","Helvetica Neue",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ad-vground-bg);color:var(--ad-vink-fg);font-family:var(--sans);line-height:1.6;-webkit-text-size-adjust:100%}
+.wrap{max-width:44rem;margin:0 auto;padding:1.6rem 1.1rem 4rem}
+h1{font-family:var(--serif);font-weight:600;font-size:1.6rem;line-height:1.3;margin:0 0 .55rem}
+.lede{margin:0 0 1.1rem;color:var(--ad-x3d5059-fg);font-size:.95rem}
+.src{font-size:.8rem;color:var(--ad-vmuted-fg);margin:0 0 1.1rem}
+.preview{font-size:.85rem;color:var(--ad-vexam-fg);background:var(--ad-vexamsoft-bg);border:1px dashed var(--exam);
+  border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.preview[hidden]{display:none}
+.resume{font-size:.85rem;color:var(--ad-vteal-fg);background:var(--ad-vtealsoft-bg);border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.resume[hidden]{display:none}
+.resume button{font:inherit;font-size:.82rem;background:var(--ad-xfff-bg);color:var(--ad-vink-fg);border:1px solid var(--ad-vline-border);
+  border-radius:.25rem;padding:.16rem .6rem;margin-left:.5rem;cursor:pointer}
+.step{border-top:1px solid var(--ad-vline-border);padding-top:1.15rem;margin-top:1.7rem}
+.step[hidden]{display:none}
+.stepno{font-family:var(--serif);font-size:.82rem;color:var(--ad-vmuted-fg);margin:0 0 .2rem}
+h2{font-family:var(--serif);font-weight:600;font-size:1.2rem;margin:0 0 .5rem;color:var(--ad-vteal-fg)}
+p{margin:0 0 .7rem;font-size:.95rem}
+
+/* 組織圖：多列原因結果表 */
+.fig{background:var(--ad-xfff-bg);border:1px solid var(--ad-vline-border);border-radius:.4rem;padding:.7rem .5rem .5rem;margin:.2rem 0 .6rem}
+.fig svg{display:block;width:100%;height:auto;max-width:26rem;margin:0 auto}
+.bx rect{fill:#fff;stroke:var(--line);stroke-width:2}
+.bx text.fn{font-family:var(--sans);font-size:11px;font-weight:600;fill:var(--ad-vink-fg)}
+.bx text.en{font-family:var(--serif);font-size:8.5px;fill:var(--ad-vmuted-fg)}
+.bx text.rf{font-family:var(--sans);font-size:8.5px;fill:var(--ad-vmuted-fg)}
+.bx.aim rect{stroke:var(--ad-vteal-fg);stroke-dasharray:6 4}
+.bx.on rect{fill:var(--ok-soft);stroke:var(--ad-vok-fg);stroke-width:2.5}
+.bx.on text.rf{fill:var(--ad-vok-fg);font-weight:600}
+.bx.sel rect{stroke:var(--ad-vteal-fg);stroke-width:3}
+.lv text{font-family:var(--sans);font-size:9px;fill:var(--ad-vmuted-fg)}
+.cutline{stroke:var(--ad-vexam-fg);stroke-width:2;stroke-dasharray:6 5}
+.frameline{stroke:var(--line);stroke-width:2;stroke-dasharray:5 4;fill:none}
+.cuttag{font-family:var(--sans);font-size:9px;font-weight:600;fill:var(--ad-vexam-fg)}
+
+.panel{background:var(--ad-xfff-bg);border:1px solid var(--ad-vline-border);border-radius:.4rem;padding:.7rem .85rem;margin:0 0 .9rem}
+.panel .k{font-size:.72rem;font-weight:600;border-radius:.2rem;padding:.06rem .42rem;
+  color:var(--ad-vteal-fg);background:var(--ad-vtealsoft-bg);border:1px solid var(--ad-vteal-border)}
+.panel .q{font-family:var(--serif);font-size:.95rem;line-height:1.65;margin:.4rem 0 0;color:var(--ad-x3d5059-fg)}
+
+.pool{display:flex;flex-direction:column;gap:.4rem;margin:0 0 .8rem}
+.pool button{font:inherit;font-family:var(--serif);font-size:.93rem;line-height:1.55;background:var(--ad-xfff-bg);color:var(--ad-vink-fg);
+  border:1px solid var(--ad-vline-border);border-radius:.3rem;padding:.5rem .7rem;cursor:pointer;text-align:left}
+.pool button:hover{border-color:var(--ad-vteal-border)}
+.pool button.pick{border-color:var(--ad-vteal-border);background:var(--ad-vtealsoft-bg)}
+.pool button.gone{display:none}
+.hint{font-size:.85rem;color:var(--ad-vmuted-fg);margin:0 0 .8rem}
+.hint em{font-style:normal;color:var(--ad-vteal-fg);font-weight:600}
+
+.opts{display:flex;flex-direction:column;gap:.45rem;margin:.2rem 0 .8rem}
+.opts button{font:inherit;font-size:.94rem;background:var(--ad-xfff-bg);color:var(--ad-vink-fg);border:1px solid var(--ad-vline-border);
+  border-radius:.3rem;padding:.5rem .8rem;cursor:pointer;text-align:left}
+.opts button:hover{border-color:var(--ad-vteal-border)}
+.opts button[data-state="right"]{background:var(--ad-voksoft-bg);border-color:var(--ad-vok-border)}
+.opts button[data-state="wrong"]{background:var(--ad-vground-bg);color:var(--ad-vmuted-fg)}
+.opts button[disabled]{cursor:default}
+
+.said{background:var(--ad-xfff-bg);border-left:3px solid var(--ad-vteal-border);border-radius:.3rem;padding:.75rem .85rem;
+  margin:.2rem 0 .9rem;font-size:.93rem;color:var(--ad-x3d5059-fg)}
+.said[hidden]{display:none}
+.said b{color:var(--ad-vink-fg)}
+.srcs{margin:.6rem 0 .9rem}
+.srcs .pair{font-family:var(--serif);font-size:.9rem;line-height:1.6;color:var(--ad-x3d5059-fg);
+  border-left:2px solid var(--ad-vline-border);padding:.1rem 0 .1rem .6rem;margin:0 0 .5rem}
+.srcs .pair .t{display:block;font-family:var(--sans);font-size:.76rem;font-weight:600;color:var(--ad-vteal-fg)}
+.go{font:inherit;font-size:.92rem;background:var(--ad-vink-bg);color:var(--ad-onflip-fg);border:1px solid var(--ad-vink-border);
+  border-radius:.3rem;padding:.42rem 1.05rem;cursor:pointer}
+.go[hidden]{display:none}
+
+.prompt{background:var(--ad-vexamsoft-bg);border:1px solid var(--ad-xe8d3b4-border);border-radius:.4rem;padding:.75rem .85rem;
+  margin:0 0 .9rem;font-size:.92rem;color:var(--ad-x3d5059-fg)}
+.prompt b{color:var(--ad-vink-fg)}
+.cell{background:var(--ad-xfff-bg);border:1px solid var(--ad-vline-border);border-radius:.4rem;padding:.6rem .75rem}
+.cell+.cell{margin-top:.6rem}
+.cell .fn{font-size:.78rem;font-weight:600;color:var(--ad-vteal-fg)}
+.cell .fn em{font-style:normal;color:var(--ad-vmuted-fg);font-weight:400;margin-left:.35rem}
+.cell textarea{width:100%;margin-top:.3rem;font-family:inherit;font-size:.93rem;line-height:1.6;
+  padding:.45rem .55rem;border:1px solid var(--ad-vline-border);border-radius:.3rem;background:var(--ad-xfff-bg);color:var(--ad-vink-fg);resize:vertical}
+.bar{display:flex;gap:.5rem;flex-wrap:wrap;margin:.7rem 0}
+.bar button{font:inherit;font-size:.9rem;background:var(--ad-xfff-bg);color:var(--ad-vink-fg);border:1px solid var(--ad-vink-border);
+  border-radius:.3rem;padding:.38rem .9rem;cursor:pointer}
+.bar button.p{background:var(--ad-vink-bg);color:var(--ad-onflip-fg)}
+.bar button[disabled]{border-color:var(--ad-vline-border);color:var(--ad-vmuted-fg);cursor:default;background:var(--ad-xfff-bg)}
+pre.ai{background:var(--ad-xfff-bg);border:1px solid var(--ad-vline-border);border-radius:.3rem;padding:.6rem .7rem;
+  font-size:.8rem;line-height:1.65;white-space:pre-wrap;margin:.4rem 0 0;color:var(--ad-x3d5059-fg)}
+.code{background:var(--ad-vtealsoft-bg);border:1px solid var(--ad-vteal-border);border-radius:.4rem;padding:.7rem .85rem;margin:1.1rem 0 .5rem}
+.code .t{font-size:.8rem;font-weight:600;color:var(--ad-vteal-fg);margin:0 0 .35rem}
+.code .v{font-family:var(--serif);font-size:1.15rem;letter-spacing:.04em;color:var(--ad-vink-fg);margin:0 0 .5rem}
+.series{border-top:1px solid var(--ad-vline-border);margin-top:2.2rem;padding-top:1.1rem;font-size:.9rem}
+.series a{font-family:var(--serif);font-size:1rem;color:var(--ad-vteal-fg);text-decoration:none}
+.series a:hover{text-decoration:underline}
+.toast{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--ad-vink-bg);color:var(--ad-onflip-fg);
+  padding:.45rem 1rem;border-radius:.3rem;font-size:.86rem;opacity:0;transition:opacity .2s;pointer-events:none}
+.toast.on{opacity:1}
+.spoke{stroke:var(--line);stroke-width:2;fill:none}
+.bx.hub rect{stroke:var(--ad-vmuted-fg)}
+.bx.hub.on rect{stroke:var(--ad-vok-fg)}
+.bx.sw rect,.bx.hub.on.sw rect{stroke:var(--ad-vexam-fg);stroke-width:2.5}
+.bx.sw text.fn{fill:var(--ad-vexam-fg)}
+.warn{font-family:var(--sans);font-size:9.5px;font-weight:600;fill:var(--ad-vexam-fg)}
+.okk{font-family:var(--sans);font-size:9.5px;font-weight:600;fill:var(--ad-vok-fg)}
+.hint ul{margin:.3rem 0 0;padding-left:1.1rem;color:var(--ad-vexam-fg)}
+.hint ul.ok{color:var(--ad-vok-fg)}
+.hint li{margin-bottom:.2rem}
+.fig .zone{fill:none;stroke:var(--line);stroke-width:1.5;stroke-dasharray:5 4}
+.fig .zl{font-family:var(--sans);font-size:10.5px;font-weight:600}
+.fig .zl.l{fill:var(--ad-vteal-fg)}
+.fig .zl.r{fill:var(--ad-x4a6a90-fg)}
+.fig .arr{stroke:var(--ad-vmuted-fg);stroke-width:2;fill:none;stroke-linejoin:round;stroke-linecap:round}
+.fig .pivot{font-family:var(--serif);font-style:italic;font-size:11.5px;fill:var(--ad-vexam-fg)}
+.fig .pn{font-family:var(--sans);font-size:9px;fill:var(--ad-vmuted-fg)}
+.bx.cut rect{fill:var(--ground);stroke:var(--ad-vexam-fg);stroke-dasharray:5 4}
+.bx.cut text.fn{fill:var(--ad-vmuted-fg);text-decoration:line-through}
+.bx.cut text.rf{fill:var(--ad-vexam-fg);font-weight:600}
+
+/* 深色模式（2026-10-22）：淺色數值與原本相同；只在螢幕、手機或電腦設成深色外觀時生效，列印不受影響。 */
+:root{--ad-onflip-fg:#ffffff;--ad-vexam-border:var(--exam);--ad-vexam-fg:var(--exam);--ad-vexamsoft-bg:var(--exam-soft);--ad-vground-bg:var(--ground);--ad-vground-fg:var(--ground);--ad-vink-bg:var(--ink);--ad-vink-border:var(--ink);--ad-vink-fg:var(--ink);--ad-vline-border:var(--line);--ad-vline-fg:var(--line);--ad-vmuted-fg:var(--muted);--ad-vok-border:var(--ok);--ad-vok-fg:var(--ok);--ad-voksoft-bg:var(--ok-soft);--ad-voksoft-fg:var(--ok-soft);--ad-vteal-border:var(--teal);--ad-vteal-fg:var(--teal);--ad-vtealsoft-bg:var(--teal-soft);--ad-x3d5059-fg:#3d5059;--ad-x4a6a90-fg:#4a6a90;--ad-x8a8278-fg:#8a8278;--ad-xe8d3b4-border:#e8d3b4;--ad-xfff-bg:#fff;--ad-xfff-fg:#fff;color-scheme:light}
+@media screen and (prefers-color-scheme: dark){
+ :root{--ad-onflip-fg:#16201F;--ad-vexam-border:#b4661c;--ad-vexam-fg:#E7CAAF;--ad-vexamsoft-bg:#2D2821;--ad-vground-bg:#1F2020;--ad-vground-fg:#f1f3f2;--ad-vink-bg:#E6EBEE;--ad-vink-border:#E9EFF2;--ad-vink-fg:#E9EFF2;--ad-vline-border:#3F4747;--ad-vline-fg:#cdd6d6;--ad-vmuted-fg:#BAC0C2;--ad-vok-border:#CDE4DA;--ad-vok-fg:#CDE4DA;--ad-voksoft-bg:#1F2321;--ad-voksoft-fg:#edf4ef;--ad-vteal-border:#CDEAE9;--ad-vteal-fg:#CDEAE9;--ad-vtealsoft-bg:#1D2524;--ad-x3d5059-fg:#D4DBDF;--ad-x4a6a90-fg:#BBC7D6;--ad-x8a8278-fg:#C2BFBB;--ad-xe8d3b4-border:#58482F;--ad-xfff-bg:#2D2A25;--ad-xfff-fg:#ffffff;color-scheme:dark}
+}
+
+</style>
+<style id="anti-copy">
+/* 防盜用措施（2026-10-14）：畫面浮水印、列印浮水印、頁尾授權聲明 */
+@media screen{body::before{content:"";position:fixed;top:0;left:0;right:0;bottom:0;z-index:2147483000;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22460%22%20height%3D%22240%22%3E%3Cg%20transform%3D%22rotate%28-20%20230%20120%29%22%20font-family%3D%22Noto%20Sans%20TC%2Csans-serif%22%20fill%3D%22%23D9A400%22%20fill-opacity%3D%22.2%22%20text-anchor%3D%22middle%22%3E%3Ctext%20x%3D%22230%22%20y%3D%22112%22%20font-size%3D%2220%22%3E%E9%AB%98%E4%B8%AD%E8%8B%B1%E6%96%87%E9%A1%8C%E5%BA%AB%3C%2Ftext%3E%3Ctext%20x%3D%22230%22%20y%3D%22140%22%20font-size%3D%2214%22%3Estaresto-create.github.io%2FJCEE-vocab-questions%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E");background-repeat:repeat;}}
+@media print{body::after{content:"高中英文題庫\A staresto-create.github.io/JCEE-vocab-questions\A 免費資源，請勿販售";white-space:pre;position:fixed;top:42%;left:0;right:0;text-align:center;transform:rotate(-25deg);font-family:"Noto Sans TC",sans-serif;font-size:26pt;line-height:1.7;color:#c8c8c8;z-index:2147483000;pointer-events:none;}}
+.cc-note{font-size:12px;line-height:1.8;color:var(--ad-x8a8278-fg);margin:12px auto;max-width:60em;padding:0 1em;}.cc-note a{color:inherit;}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>比較對照的組織圖：兩件樂器，四列對照</h1>
+<p class="lede">上一份單元頁帶你讀完 When Musical Instruments Become Cultural Symbols。這一份把整篇整理成一張表：左欄風笛，右欄三線琴，每一列是同一個面向。這個形狀叫<b>比較表</b>，是比較對照這種結構的標準圖，九月號第十二單元用的也是這一張，要<b>橫著讀</b>。不一樣的是，那一篇的兩邊地位不對等，這一篇兩邊對等，從外觀、用途到遇上危機，一列一列對得整整齊齊。</p>
+<p class="preview" id="pv" hidden>預覽模式：全部步驟與答案一次展開，進度不存檔。學生拿到的一般連結不受影響。</p>
+<p class="resume" id="rs" hidden>上次做到一半，已經幫你接回來了。<button id="rst">重新開始</button></p>
+<p class="src">ALL+ 互動英語 11 月號 Unit 8（pp. 36–37）　When Musical Instruments Become Cultural Symbols　全文 61 行</p>
+
+<!-- 第一步 -->
+<section class="step" id="s1">
+  <p class="stepno">第一步</p>
+  <h2>橫著讀，一列一個面向</h2>
+  <p>每一格的名稱已經印好了：左欄是風笛，右欄是三線琴，四列是外觀、用途、禁令或戰火、今天的意義。你要放的是每一格在說什麼。</p>
+  <p>八個位置各有各的內容。<b>十張句卡，只有八張放得進去</b>，而且都不是原句，是換過字的說法。</p>
+  <p class="hint" id="h1">先點一張句卡，再點圖上的格子。第一次就放對 <em id="n1">0</em> / 8</p>
+  <div class="pool" id="pool"></div>
+  <figure class="fig" id="fig"></figure>
+  <div class="panel" id="pn">
+    <span class="k" id="pk">這一格</span>
+    <p class="q" id="pq">點圖上任一個格子，看它裝的是哪一句。</p>
+  </div>
+  <div class="said" id="a1" hidden>
+    <b>兩張放不進去的是哪兩張。</b>一張說蘇格蘭人的樂器毀於戰火，只好用剩下的錫罐和木頭重做。<b>這張最容易放錯</b>，因為「樂器被毀、重新做新的」確實是課文裡的事，可是第 44 到 50 行寫的是沖繩的三線琴；蘇格蘭的風笛是被禁，不是被毀，第 26 到 27 行。把一邊的遭遇接到另一邊，歸屬錯了。另一張說風笛起源於中東，所以蘇格蘭人從不把它當成自己的文化。第 15 到 17 行 <q>originated in the Middle East</q> 只講來歷，第 29 到 31 行 <q>a proud symbol of Scotland’s history</q> 說得很清楚，它是蘇格蘭的驕傲，方向弄反了。
+    <br><br>
+    <b>十張句卡沒有一張跟課文一樣。</b>下面是八個位置的原文與行號，回去對一次。
+    <div class="srcs" id="src6"></div>
+  </div>
+  <button class="go" id="g1" hidden>下一步：遮一欄，或把兩格對調</button>
+</section>
+
+<!-- 第二步 -->
+<section class="step" id="s2" hidden>
+  <p class="stepno">第二步</p>
+  <h2>遮掉一欄，或把右欄兩格對調</h2>
+  <p>前面幾種結構，拿掉一格，文章可能還是成立。比較對照呢？<b>按下面的按鈕，圖上的格子會真的被遮住或換位置。</b>三種都試過，才會出題。</p>
+  <div class="bar" id="swbar">
+    <button data-s="1">遮住左欄（風笛）</button>
+    <button data-s="2">遮住右欄（三線琴）</button>
+    <button data-s="3">把右欄的「用途」和「戰火」對調</button>
+    <button class="p" id="undo" hidden>換回來</button>
+  </div>
+  <div class="hint" id="swh">八格照原來的位置排著。任選一種試試看。</div>
+  <div id="q2box" hidden>
+    <p>遮掉任何一欄，或只把一欄裡的兩格對調，圖就不成立了。<b>這說明了什麼？</b></p>
+    <div class="opts" id="q2">
+      <button>遮掉一欄之後，剩下那一欄自己就已經講得完整</button>
+      <button data-ok="1">兩欄都要同時在，而且同一列放的是同一個面向</button>
+      <button>兩欄同一列的遭遇必須完全一樣，才能互相比較</button>
+      <button>只要兩欄的格子都在，每一格放在哪一列都可以</button>
+    </div>
+    <div class="said" id="a2" hidden>
+      <b>兩欄都要同時在，而且同一列放的是同一個面向。</b>第 7 到 9 行 <q>Two well-known examples are the Scottish bagpipe and the Okinawan sanshin</q> 預告了兩個例子，所以少了一欄，預告就沒有兌現；右欄第 46 行的 Yet 要對著左欄第 28 行的 Even so，才看得出兩邊遇到危機時是各自怎麼回應。對調右欄的兩格也一樣：同一列對著的已經不是同一個面向。<b>比較對照最不能少的，是兩邊同時在，而且一列一個面向。</b>
+      <br><br>
+      <b>另外三個為什麼排除：</b>「遮掉一欄之後，剩下那一欄自己就已經講得完整」<b>最容易選</b>，因為風笛那一欄單獨讀，第 10 到 31 行本來就是一篇通順的短文，三線琴那一欄也是。可是它們單獨讀完整，不代表比較還成立：沒有對面，第 7 到 9 行的預告兌現不了，第 28 行的 Even so 也沒有對手。這是把「單獨完整」誤讀成「比較成立」，範圍錯。「兩欄同一列的遭遇必須完全一樣」不對，同一列放的是同一個「面向」，不是同一件事：風笛在第 26 到 27 行是被政府禁止，三線琴在第 44 到 45 行是毀於戰火，遭遇不一樣，仍然放在同一列，因為都在回答「遇到危機怎麼辦」。這是歸屬錯。「每一格放在哪一列都可以」跟你剛才做的試驗相反：把右欄兩格對調，Even so 的對面就變成歌舞伴奏，馬上對不上。
+    </div>
+  </div>
+  <button class="go" id="g2" hidden>下一步：換成你自己的作文</button>
+</section>
+
+<!-- 第三步 -->
+<section class="step" id="s3" hidden>
+  <p class="stepno">第三步</p>
+  <h2>用同一張表列你的大綱</h2>
+  <p>學測作文有時要你比較兩樣東西。這就是一篇小小的比較對照。用剛才那張表列大綱，有三件事要照這篇學：</p>
+  <p><b>一、先說共通點，再預告。</b>這篇先說樂器不只是娛樂的工具，再用 Two well-known examples 說好有兩個例子。你可以寫「看線上影片和上補習班，都是想把成績拉起來」，再寫 Two common ways are…。<b>二、一邊講完再換另一邊，而且面向和順序一樣。</b>這篇的面向是外觀、用途、禁令或戰火、今天的意義，兩邊都照這個順序；你的兩種學習方式，也要用同樣的三個面向、同樣的順序。<b>三、兩邊遇到困難的地方，用同一類標記對齊。</b>像這篇的 Even so 和 Yet，你可以用 However 和 Even so，讓讀者一眼看出兩邊是各自怎麼處理的。</p>
+  <div class="prompt">
+    <b>試寫的題目：</b>請寫一篇短文，比較「看線上影片自學」和「到補習班上課」兩種學習方式。第一段說明兩者的共同點，並預告你要比較的兩種方式；第二、三段各寫一種方式，用同樣的三個面向、同樣的順序；最後說出你的看法。
+  </div>
+  <p>每一格寫一句中文要點就好，這一步先不寫英文。</p>
+  <div id="mine"></div>
+  <div class="bar">
+    <button class="p" id="cp">複製我寫的內容</button>
+    <button id="sv">存到瀏覽器</button>
+  </div>
+  <p class="hint">這一步沒有標準答案，站上不批改。複製之後貼給老師，或貼給 AI 也可以，下面這段指示會跟著一起複製。</p>
+  <pre class="ai" id="aib"></pre>
+  <div class="code">
+    <p class="t">做完了，把這一行貼到 Google Classroom 的作業回覆欄</p>
+    <p class="v" id="cv">—</p>
+    <div class="bar" style="margin:0">
+      <button class="p" id="cc">複製完成碼</button>
+      <button id="rfb">重新產生</button>
+    </div>
+    <p class="hint" style="margin:.5rem 0 0">老師只看這一行，不會看到你寫的內容。你寫的東西只留在這台裝置的瀏覽器裡。</p>
+  </div>
+</section>
+
+<nav class="series">
+  <a href="cohesion.html">← 回讀法練習總表</a>
+</nav>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+"use strict";
+function $(id){return document.getElementById(id);}
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;");}
+
+var KEY="outline-202611-u8-v1";
+var PREVIEW=false;
+var ST={put:{},first:{},miss:{},sw:0,tr:{},q2:0,mine:{},step:1};
+function save(){ if(PREVIEW) return; try{ localStorage.setItem(KEY,JSON.stringify(ST)); }catch(e){} }
+function load(){ try{ var r=localStorage.getItem(KEY); return r?JSON.parse(r):null; }catch(e){ return null; } }
+function toast(m){ var t=$("toast"); t.textContent=m; t.classList.add("on");
+  setTimeout(function(){ t.classList.remove("on"); },1600); }
+
+/* 八格：左欄風笛四格，右欄三線琴四格 */
+var CELLS=[
+ {id:"b1",fn:"風笛：外觀",en:"loud, powerful sound",rf:"第 10–13 行"},
+ {id:"b2",fn:"風笛：用途",en:"festivals, ceremonies",rf:"第 13–20 行"},
+ {id:"b3",fn:"風笛：禁令",en:"banned… Even so",rf:"第 21–29 行"},
+ {id:"b4",fn:"風笛：今天",en:"a proud symbol",rf:"第 29–31 行"},
+ {id:"s1",fn:"三線琴：外觀",en:"three strings, python skin",rf:"第 32–36 行"},
+ {id:"s2",fn:"三線琴：用途",en:"songs and dances",rf:"第 36–41 行"},
+ {id:"s3",fn:"三線琴：戰火",en:"destroyed… Yet",rf:"第 42–51 行"},
+ {id:"s4",fn:"三線琴：今天",en:"symbols of hope",rf:"第 52–61 行"}
+];
+var WARN={
+ 1:["第 7 到 9 行預告了兩個例子，左欄遮掉之後，兌現的只有一個。",
+    "右欄第 46 行的 Yet 是對著左欄第 28 行的 Even so 轉折的，左欄不在了，這個呼應就看不出來。"],
+ 2:["第 7 到 9 行預告了兩個例子，右欄遮掉之後，兌現的也只有一個。",
+    "左欄第 28 行的 Even so 要靠右欄第 46 行的 Yet 才看得出兩邊遇到危機時是各自怎麼回應；右欄不在了，只剩風笛這邊的單方說明。"],
+ 3:["第 28 行 Even so 那一格，對面變成三線琴的歌舞伴奏（第 36 到 41 行），兩邊的遭遇對不上。",
+    "風笛的節慶與典禮（第 17 到 20 行），對面變成三線琴的戰火（第 46 行 Yet），同一列放的已經不是同一個面向。"]
+};
+
+var SENTS=[
+ {id:"s3",t:"After the 1945 battle flattened towns and ruined many prized instruments, islanders would not let music vanish and made new ones out of cans, spare timber, and parachute rope left by American camps."},
+ {id:"b2",t:"Though it is usually linked to Scotland, the bagpipe probably came from the Middle East with Roman soldiers, and later it turned into a staple of Highland life at feasts, ceremonies, and military occasions."},
+ {id:"x1",t:"Since fighting wrecked their instruments, many Scots had to make new ones out of leftover tins and spare wood."},
+ {id:"s1",t:"The sanshin is strung with three cords, has a lengthy neck of wood, and is wrapped in snakeskin."},
+ {id:"b4",t:"To this day it is a source of pride that reflects the history, culture, and resolve of Scotland."},
+ {id:"s4",t:"Once people learned to make and play these basic homemade instruments in greater numbers, they came to stand for hope and renewal, reminding Okinawans that culture can outlast even the worst periods."},
+ {id:"b1",t:"The bagpipe produces a big, forceful tone when a player pushes breath into a skin sack linked to a set of tubes."},
+ {id:"b3",t:"Because officials feared that it fueled Scottish defiance, the government outlawed the bagpipe, yet many players carried on in private."},
+ {id:"x2",t:"Because the bagpipe began in the Middle East, Scots have never treated it as truly part of their own culture."},
+ {id:"s2",t:"For more than five centuries, it backed local singing and dancing, and families enjoyed playing it at parties, so its soft tone was part of daily life."}
+];
+var NOFIT={
+ x1:"這一張最容易放錯，因為「樂器被毀、重新做新的」確實是課文裡的事。可是第 44 到 50 行寫得很清楚，毀於戰火、用美軍營地的廢料重做的是沖繩的三線琴；蘇格蘭的風笛是被禁，不是被毀，第 26 到 27 行，他們的做法是第 28 到 29 行 Even so 暗中繼續吹。把一邊的遭遇接到另一邊，歸屬錯了，所以哪一格都放不進去。",
+ x2:"這一張看起來有根據，因為第 15 到 17 行確實說風笛可能起源於中東。可是它從起源直接跳到「蘇格蘭人從沒把它當自己的文化」，第 29 到 31 行 Today, the bagpipe remains a proud symbol 說得剛好相反。方向錯了，所以哪一格都放不進去。"
+};
+var SRCQ=[
+ {fn:"風笛：外觀",rf:"第 10–13 行",t:"The bagpipe is known for its loud, powerful sound, which is made by blowing air into a leather bag connected to several pipes."},
+ {fn:"風笛：用途",rf:"第 13–20 行",t:"Although most people think of Scotland when they hear a bagpipe, the instrument probably originated in the Middle East before being brought to Britain by Roman soldiers. Over time, it became an important part of Scottish Highland life and was played at festivals, ceremonies, and military events."},
+ {fn:"風笛：禁令",rf:"第 21–29 行",t:"Government officials believed that bagpipes encouraged Scottish resistance. As a result, the instrument was banned and was even declared an “instrument of war.” Even so, many Scots continued playing bagpipes in secret."},
+ {fn:"風笛：今天",rf:"第 29–31 行",t:"Today, the bagpipe remains a proud symbol of Scotland’s history, culture, and determination."},
+ {fn:"三線琴：外觀",rf:"第 32–36 行",t:"The Okinawan sanshin tells a profound story of music surviving through hardship. Traditionally, the instrument has three strings, a long wooden neck, and a body covered with python skin."},
+ {fn:"三線琴：用途",rf:"第 36–41 行",t:"For more than 500 years, it was used to accompany local songs and dances. Families played it at celebrations, and its gentle sound became closely connected with everyday life and the culture of Okinawa."},
+ {fn:"三線琴：戰火",rf:"第 42–51 行",t:"However, the instrument’s significance grew even greater due to the Battle of Okinawa in 1945. Heavy fighting destroyed towns, homes, and many treasured sanshin. Yet Okinawans refused to let their music disappear. Using materials left behind by American military camps, they built simple new instruments from tin cans, scrap wood, and parachute cords. These homemade versions became known as kankara sanshin."},
+ {fn:"三線琴：今天",rf:"第 52–61 行",t:"The kankara sanshin provided more than music. … So, as more people learned to build and play these simple instruments, they became symbols of hope and recovery. Even today, they remind Okinawans that culture can survive even the hardest times, so long as people continue to share it with future generations."}
+];
+
+var MINE=[
+ {id:"m1",fn:"開頭：共通點與預告",en:"common ground",ph:"先說兩種方式為什麼可以放在一起，再用一句話預告有兩個，是哪兩個。"},
+ {id:"m2",fn:"第一種：三個面向",en:"first subject",ph:"依序寫：怎麼進行、遇到困難怎麼辦、對你的意義。每個面向一句。"},
+ {id:"m3",fn:"第二種：同樣三個面向",en:"second subject",ph:"用同樣的三個面向、同樣的順序。遇到困難那一項，用一個轉折標記跟第一種對齊。"},
+ {id:"m4",fn:"結尾：你的看法",en:"your view",ph:"兩種各有什麼長處？你會怎麼選？用一句話。"}
+];
+
+var AI=[
+"我是台灣的高中生，正在準備學測英文作文。下面是我列的中文大綱，題目要我比較「看線上影片自學」和「到補習班上課」兩種學習方式：第一段說明共同點並預告要比較的兩種方式；第二、三段各寫一種，用同樣的三個面向、同樣的順序；最後說出我的看法。",
+"",
+"請照以下規則給我意見：",
+"1. 先看第一格：有沒有先說共通點，並預告有兩個、是哪兩個。",
+"2. 第二格和第三格有沒有用同樣的三個面向、同樣的順序。如果兩邊不一樣，請指出哪一個面向對不上。",
+"3. 第三格遇到困難的那一項，有沒有用轉折標記跟第二格對齊。",
+"4. 第四格有沒有說出自己的看法，而不是只重複前面的內容。",
+"5. 不要幫我寫英文，也不要幫我補內容。",
+"6. 說明用中文。"
+].join("\n");
+
+
+/* ── 畫圖 ── */
+function drawFig(){
+  var sw=ST.sw||0;
+  var CX={b:154,s:328}, Y0=30, DY=62, W=164, H=54;
+  var RL=["外觀","用途","禁令／戰火","今天"];
+  var s='<svg viewBox="0 0 420 302" role="img" aria-label="比較表：左欄風笛、右欄三線琴，四列是外觀、用途、禁令或戰火、今天的意義">';
+  s+='<text class="zl l" x="154" y="17" text-anchor="middle">風笛 Scottish bagpipe</text>';
+  s+='<text class="zl r" x="328" y="17" text-anchor="middle">三線琴 Okinawan sanshin</text>';
+  for(var r=0;r<4;r++){
+    s+='<rect class="zone" x="4" y="'+(Y0+r*DY-4)+'" width="412" height="'+(H+8)+'" rx="6"/>';
+    s+='<text class="pn" x="32" y="'+(Y0+r*DY+H/2+3)+'" text-anchor="middle" style="font-size:10px">'+RL[r]+'</text>';
+  }
+  for(var i=0;i<CELLS.length;i++){
+    var c=CELLS[i], col=c.id.charAt(0), row=(+c.id.charAt(1))-1;
+    var moved=(sw===3&&(c.id==="s2"||c.id==="s3"));
+    if(moved) row=(c.id==="s2")?2:1;
+    var cut=(sw===1&&col==="b")||(sw===2&&col==="s");
+    var x=CX[col], y=Y0+row*DY;
+    var cls="bx"+(ST.put[c.id]?" on":"")+(cut?" cut":"")+(moved?" sw":"");
+    s+='<g class="'+cls+'" data-id="'+c.id+'" tabindex="0" role="button">';
+    s+='<rect x="'+(x-W/2)+'" y="'+y+'" width="'+W+'" height="'+H+'" rx="6"/>';
+    s+='<text class="fn" x="'+x+'" y="'+(y+18)+'" text-anchor="middle">'+esc(c.fn)+'</text>';
+    s+='<text class="en" x="'+x+'" y="'+(y+32)+'" text-anchor="middle">'+esc(c.en)+'</text>';
+    s+='<text class="rf" x="'+x+'" y="'+(y+46)+'" text-anchor="middle">'+(cut?"遮住了":(ST.put[c.id]?esc(c.rf):"放句卡"))+'</text>';
+    s+='</g>';
+  }
+  if(sw===1) s+='<text class="warn" x="414" y="296" text-anchor="end">左欄遮住了：預告的兩個例子只兌現一個</text>';
+  if(sw===2) s+='<text class="warn" x="414" y="296" text-anchor="end">右欄遮住了：Even so 沒有對手</text>';
+  if(sw===3) s+='<text class="warn" x="414" y="296" text-anchor="end">Even so 的對面變成歌舞伴奏</text>';
+  s+='</svg>';
+  $("fig").innerHTML=s;
+}
+
+var pick=null;
+function drawPool(){
+  var h="";
+  for(var i=0;i<SENTS.length;i++)
+    h+='<button data-i="'+i+'" class="'+(ST.put[SENTS[i].id]?"gone":"")+'">'+esc(SENTS[i].t)+'</button>';
+  $("pool").innerHTML=h;
+}
+function done1(){ var n=0; for(var k in ST.put) if(ST.put[k]) n++; return n; }
+function first1(){ var n=0; for(var k in ST.first) if(ST.first[k]) n++; return n; }
+function showSrc(){
+  if($("src6").innerHTML) return;
+  var h="";
+  for(var i=0;i<SRCQ.length;i++)
+    h+='<div class="pair"><span class="t">'+esc(SRCQ[i].fn)+'　'+esc(SRCQ[i].rf)+'</span>'+esc(SRCQ[i].t)+'</div>';
+  $("src6").innerHTML=h;
+}
+function after1(){
+  if($("n1")) $("n1").textContent=first1();
+  if(done1()===8){
+    $("h1").innerHTML="八格都滿了。第一次就放對 <em id=\"n1\">"+first1()+"</em> / 8";
+    $("a1").hidden=false; $("g1").hidden=false; showSrc();
+  }
+}
+function cellOf(id){ for(var i=0;i<CELLS.length;i++) if(CELLS[i].id===id) return CELLS[i]; return null; }
+function show(id){
+  var c=cellOf(id),i; if(!c) return;
+  var gs=$("fig").querySelectorAll(".bx");
+  for(i=0;i<gs.length;i++) gs[i].classList.toggle("sel", gs[i].dataset.id===id);
+  $("pk").textContent=c.fn+"　"+(ST.put[id]?c.rf:"還沒放");
+  $("pq").textContent=ST.put[id]||"這一格還空著。";
+}
+function aim(on){
+  var gs=$("fig").querySelectorAll(".bx");
+  for(var i=0;i<gs.length;i++) if(!gs[i].classList.contains("on")) gs[i].classList.toggle("aim",on);
+}
+$("pool").addEventListener("click",function(e){
+  var b=e.target.closest("button"); if(!b) return;
+  var bs=$("pool").querySelectorAll("button");
+  for(var i=0;i<bs.length;i++) bs[i].classList.remove("pick");
+  b.classList.add("pick"); pick=+b.dataset.i; aim(true);
+});
+function hit(g){
+  var id=g.dataset.id;
+  if(pick===null || ST.put[id]){ show(id); return; }
+  var s=SENTS[pick];
+  if(NOFIT[s.id]){
+    ST.miss[id]=1; save();
+    $("pk").textContent="這一張沒有位置";
+    $("pq").textContent=NOFIT[s.id];
+    return;
+  }
+  if(s.id!==id){ ST.miss[id]=1; save(); toast("這一格要的不是這一張"); return; }
+  if(!ST.miss[id]) ST.first[id]=1;
+  ST.put[id]=s.t; save(); pick=null;
+  drawFig(); drawPool(); aim(false); show(id); after1();
+}
+$("fig").addEventListener("click",function(e){ var g=e.target.closest(".bx"); if(g) hit(g); });
+$("fig").addEventListener("keydown",function(e){
+  if(e.key!=="Enter"&&e.key!==" ") return;
+  var g=e.target.closest(".bx"); if(g){ e.preventDefault(); hit(g); }
+});
+$("g1").addEventListener("click",function(){
+  if(ST.step<2) ST.step=2; save();
+  $("s2").hidden=false; $("s2").scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+/* ── 第二步：拿掉與對調 ── */
+function tried(){ return !!(ST.tr[1]&&ST.tr[2]&&ST.tr[3]); }
+function paintSw(){
+  drawFig();
+  var bs=$("swbar").querySelectorAll("button[data-s]");
+  for(var i=0;i<bs.length;i++) bs[i].disabled=!!ST.sw;
+  $("undo").hidden=!ST.sw;
+  var h,k,list,n=0;
+  for(k=1;k<=3;k++) if(ST.tr[k]) n++;
+  if(!ST.sw){
+    if(tried()) h="換回來了。三種都試過了，看下面的題目。";
+    else if(n) h="換回來了。已經試過 "+n+" 種，再試其他的。";
+    else h="八格照原來的位置排著。任選一種試試看。";
+    $("swh").textContent=h;
+  } else {
+    h=(ST.sw===3?"右欄兩格一對調，就對不上了：":"遮掉這一欄，就不成立了：")+"<ul>"; list=WARN[ST.sw];
+    for(k=0;k<list.length;k++) h+="<li>"+esc(list[k])+"</li>";
+    $("swh").innerHTML=h+"</ul>";
+  }
+  if(tried()) $("q2box").hidden=false;
+}
+$("swbar").addEventListener("click",function(e){
+  var b=e.target.closest("button[data-s]"); if(!b||ST.sw) return;
+  ST.sw=+b.dataset.s; ST.tr[ST.sw]=1; save(); paintSw();
+});
+$("undo").addEventListener("click",function(){ ST.sw=0; save(); paintSw(); });
+function settle2(){
+  var bs=$("q2").querySelectorAll("button");
+  for(var i=0;i<bs.length;i++){ bs[i].disabled=true; bs[i].dataset.state=bs[i].dataset.ok?"right":"wrong"; }
+  $("a2").hidden=false; $("g2").hidden=false;
+}
+$("q2").addEventListener("click",function(e){
+  var b=e.target.closest("button"); if(!b||ST.q2) return;
+  ST.q2=b.dataset.ok?1:2; save(); settle2();
+});
+$("g2").addEventListener("click",function(){
+  if(ST.step<3) ST.step=3; save();
+  paintCode(); $("s3").hidden=false;
+  $("s3").scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+/* ── 第三步 ── */
+function drawMine(){
+  var h="";
+  for(var i=0;i<MINE.length;i++){
+    var m=MINE[i];
+    h+='<div class="cell"><span class="fn">'+esc(m.fn)+'<em>'+esc(m.en)+'</em></span>'+
+       '<textarea id="'+m.id+'" rows="2" placeholder="'+esc(m.ph)+'"></textarea></div>';
+  }
+  $("mine").innerHTML=h;
+  for(var j=0;j<MINE.length;j++){
+    var el=$(MINE[j].id);
+    if(ST.mine[MINE[j].id]) el.value=ST.mine[MINE[j].id];
+    el.addEventListener("input",function(){ ST.mine[this.id]=this.value; save(); });
+  }
+  $("aib").textContent=AI;
+}
+function mkCode(){
+  var f=first1(), m=0, w=0, i;
+  for(var k in ST.miss) if(ST.miss[k]) m++;
+  for(i=0;i<MINE.length;i++){ var el=$(MINE[i].id); if(el&&el.value.trim()) w++; }
+  var seed=(f*31 + m*7 + w*13 + (ST.q2===1?5:0) + 11*211 + 8*101 + 1777) % 46656;
+  return "11-U8 "+f+"/8 大綱"+w+"/4 "+("000"+seed.toString(36).toUpperCase()).slice(-3);
+}
+function paintCode(){ $("cv").textContent=mkCode(); }
+$("rfb").addEventListener("click",paintCode);
+function copy(t){
+  function fb(){
+    var ta=document.createElement("textarea"); ta.value=t; document.body.appendChild(ta);
+    ta.select(); try{ document.execCommand("copy"); toast("已複製"); }catch(e){ toast("複製失敗，請手動選取"); }
+    document.body.removeChild(ta);
+  }
+  if(navigator.clipboard&&navigator.clipboard.writeText)
+    navigator.clipboard.writeText(t).then(function(){ toast("已複製"); },fb);
+  else fb();
+}
+$("cc").addEventListener("click",function(){ copy(mkCode()); });
+$("sv").addEventListener("click",function(){
+  for(var i=0;i<MINE.length;i++) ST.mine[MINE[i].id]=$(MINE[i].id).value;
+  save(); toast("已存在這台裝置的瀏覽器裡");
+});
+$("cp").addEventListener("click",function(){
+  var t=AI+"\n\n【我的大綱】\n";
+  for(var i=0;i<MINE.length;i++) t+=MINE[i].fn+"："+($(MINE[i].id).value||"（空白）")+"\n";
+  copy(t);
+});
+
+/* ── 預覽 ── */
+function previewAll(){
+  PREVIEW=true; $("pv").hidden=false;
+  for(var i=0;i<SENTS.length;i++) if(!NOFIT[SENTS[i].id]){ ST.put[SENTS[i].id]=SENTS[i].t; ST.first[SENTS[i].id]=1; }
+  drawPool(); drawMine(); after1();
+  $("s2").hidden=false; ST.sw=0; ST.tr={1:1,2:1,3:1}; paintSw(); ST.q2=1; settle2();
+  $("s3").hidden=false; paintCode();
+}
+
+/* ── 接回進度 ── */
+$("rst").addEventListener("click",function(){
+  try{ localStorage.removeItem(KEY); }catch(e){} location.reload();
+});
+(function restore(){
+  if(/(^|[?&])all(=|&|$)/.test(location.search)){ previewAll(); return; }
+  var v=load();
+  if(v){
+    ST=v;
+    if(!ST.put) ST.put={};
+    if(!ST.first) ST.first={};
+    if(!ST.miss) ST.miss={};
+    if(!ST.mine) ST.mine={};
+    if(!ST.tr) ST.tr={};
+    if(!ST.step) ST.step=1;
+    if(!ST.sw) ST.sw=0;
+  }
+  drawPool(); drawMine(); paintSw();
+  if(done1()||ST.step>1) $("rs").hidden=false;
+  if(ST.step>=2) $("s2").hidden=false;
+  if(ST.q2) settle2();
+  if(ST.step>=3){ $("s3").hidden=false; paintCode(); }
+  after1();
+})();
+})();
+</script>
+<p class="cc-note">本題庫自己寫的部分（解析、中譯、分類、標註與編排）採用 <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh-hant" target="_blank" rel="license noopener">CC BY-NC 4.0</a>（姓名標示─非商業性）授權：可以分享，但須註明出處，不得用於商業用途。試題來源與完整說明請見<a href="https://staresto-create.github.io/JCEE-vocab-questions/#terms">使用與著作權</a>。</p>
+</body>
+</html>

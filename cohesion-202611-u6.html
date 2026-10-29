@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>華爾街日報式：人物介紹｜Elle Fanning: From Dakota’s Sister to Hollywood Star</title>
+<meta name="description" content="開頭立一個標籤，結尾再把它換掉。這一頁教你認出華爾街日報式的標籤框，還有作者怎麼用「不是 A，而是 B」一路推翻別人的看法。">
+<meta property="og:title" content="華爾街日報式：人物介紹｜Elle Fanning: From Dakota’s Sister to Hollywood Star">
+<meta property="og:description" content="標題是 From Dakota’s Sister to Hollywood Star：這篇的框，是一個別人貼的標籤。">
+<style>
+:root{
+  --ground:#f1f3f2; --ink:#17282f; --teal:#1f6f6a; --teal-soft:#dfeceb;
+  --muted:#77878d; --line:#cdd6d6; --exam:#b4661c; --exam-soft:#fdf4e7;
+  --gen:#4a6a90; --gen-soft:#e0e7f0;
+  --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+  --sans:"PingFang TC","Noto Sans TC","Microsoft JhengHei","Helvetica Neue",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ad-vground-bg);color:var(--ad-vink-fg);font-family:var(--sans);line-height:1.6;-webkit-text-size-adjust:100%}
+.wrap{max-width:44rem;margin:0 auto;padding:1.6rem 1.1rem 4rem}
+h1{font-family:var(--serif);font-weight:600;font-size:1.6rem;line-height:1.3;margin:0 0 .55rem}
+.lede{margin:0 0 1.3rem;color:var(--ad-x3d5059-fg);font-size:.95rem}
+.src{font-size:.8rem;color:var(--ad-vmuted-fg);margin:0 0 1.1rem}
+.resume{font-size:.85rem;color:var(--ad-vteal-fg);background:var(--ad-vtealsoft-bg);border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.resume[hidden],.preview[hidden]{display:none}
+.preview{font-size:.85rem;color:var(--ad-vexam-fg);background:var(--ad-vexamsoft-bg);
+  border:1px dashed var(--exam);border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.resume button{font:inherit;font-size:.82rem;background:var(--ad-xfff-bg);color:var(--ad-vink-fg);border:1px solid var(--ad-vline-border);border-radius:.25rem;padding:.16rem .6rem;margin-left:.5rem;cursor:pointer}
+.resume button:focus-visible{outline:2px solid var(--ad-vteal-border);outline-offset:2px}
+.step{border-top:1px solid var(--ad-vline-border);padding-top:1.15rem;margin-top:1.6rem}
+.step[hidden]{display:none}
+.stepno{font-family:var(--serif);font-size:.82rem;color:var(--ad-vmuted-fg);margin:0 0 .2rem}
+h2{font-family:var(--serif);font-weight:600;font-size:1.2rem;margin:0 0 .5rem;color:var(--ad-vteal-fg)}
+.step p{margin:0 0 .7rem;font-size:.95rem}
+.tag{display:inline-block;font-size:.72rem;font-weight:600;border-radius:.2rem;padding:.08rem .45rem;margin-left:.45rem;vertical-align:.12rem;color:var(--ad-vexam-fg);background:var(--ad-vexamsoft-bg);border:1px solid var(--exam)}
+.tag.b{color:var(--ad-vgen-fg);background:var(--ad-vgensoft-bg);border-color:var(--gen)}
+
+/* 選擇題：中文用 .opts，英文選項加 .en，附小字說明加 .rg */
+.opts{display:flex;flex-direction:column;gap:.45rem;margin:.2rem 0 .8rem}
+.opts button{font:inherit;font-size:.95rem;background:var(--ad-xfff-bg);color:var(--ad-vink-fg);border:1px solid var(--ad-vline-border);border-radius:.3rem;padding:.45rem .85rem;cursor:pointer;text-align:left}
+.opts button:hover{border-color:var(--ad-vteal-border)}
+.opts button:focus-visible{outline:2px solid var(--ad-vteal-border);outline-offset:2px}
+.opts button[data-state="right"]{background:var(--teal);border-color:var(--ad-vteal-border);color:#fff}
+.opts button[data-state="wrong"]{background:var(--ad-vground-bg);color:var(--ad-vmuted-fg)}
+.opts button[disabled]{cursor:default}
+.opts.en button{font-family:var(--serif);font-size:.97rem;line-height:1.6;padding:.55rem .8rem}
+.opts.en button[data-state="right"]{background:var(--ad-vtealsoft-bg);border-color:var(--ad-vteal-border);color:var(--ad-vink-fg)}
+.opts.rg button i{display:block;font-style:normal;font-size:.82rem;color:var(--ad-vmuted-fg);margin-top:.12rem}
+.opts.rg button[data-state="right"] i{color:#dfeceb}
+
+/* 揭曉區塊 */
+.said{background:var(--ad-xfff-bg);border-left:3px solid var(--ad-vteal-border);border-radius:.3rem;padding:.75rem .85rem;margin:.2rem 0 .9rem;font-size:.93rem;color:var(--ad-x3d5059-fg)}
+.said b{color:var(--ad-vink-fg);font-weight:600}
+.said[hidden]{display:none}
+.said.g{border-left-color:var(--gen)}
+.said.e{border-left-color:var(--exam)}
+.said q{quotes:none;font-family:var(--serif)}
+
+.go{font:inherit;font-size:.92rem;background:var(--ad-vink-bg);color:var(--ad-onflip-fg);border:1px solid var(--ad-vink-border);border-radius:.3rem;padding:.42rem 1.05rem;cursor:pointer}
+.go:focus-visible{outline:2px solid var(--ad-vteal-border);outline-offset:2px}
+.go[hidden]{display:none}
+
+/* 第一步的可點標記 */
+.lead{background:var(--ad-xfff-bg);border:1px solid var(--ad-vline-border);border-radius:.4rem;padding:.9rem 1rem;margin:0 0 .7rem;font-family:var(--serif);font-size:1.02rem;line-height:1.95}
+.lead c{cursor:pointer;border-radius:.2rem;padding:.06rem .2rem;background:var(--ad-vexamsoft-bg);box-shadow:inset 0 -2px 0 #ecc9a2}
+.lead c:hover{box-shadow:inset 0 -2px 0 var(--exam)}
+.lead c.got{background:var(--exam);color:#fff;box-shadow:none}
+.lead c b{font-family:var(--sans);font-size:.72rem;font-weight:600;background:var(--ad-xfff-bg);color:var(--ad-vexam-fg);border-radius:.2rem;padding:.02rem .3rem;margin-right:.3rem}
+.score{font-size:.9rem;color:var(--ad-vmuted-fg);margin:0 0 .8rem}
+.score em{font-style:normal;color:var(--ad-vexam-fg);font-weight:600}
+
+/* 第三步的卡片（驗證方法通用容器） */
+.qs{display:flex;flex-direction:column;gap:.5rem;margin:0 0 .8rem}
+.qcard{background:var(--ad-xfff-bg);border:1px solid var(--ad-vline-border);border-radius:.4rem;padding:.6rem .85rem}
+.qcard .hd{display:flex;align-items:center;gap:.6rem;font-size:.95rem}
+.qcard .hd .qt{flex:1 1 auto;font-weight:600}
+.qcard .hd button{font:inherit;font-size:.8rem;background:var(--ad-xfff-bg);color:var(--ad-vink-fg);border:1px solid var(--ad-vline-border);
+  border-radius:.25rem;padding:.18rem .7rem;cursor:pointer;flex:0 0 auto}
+.qcard .hd button:focus-visible{outline:2px solid var(--ad-vteal-border);outline-offset:2px}
+.qcard .bd{display:none;margin-top:.4rem;font-size:.92rem;color:var(--ad-x3d5059-fg);line-height:1.75}
+.qcard.open .bd{display:block}
+.qcard.open .hd button{display:none}
+.qcard .bd .rf{display:block;color:var(--ad-vmuted-fg);font-size:.82rem;margin-top:.25rem}
+.qcard .bd .sw{display:block;font-family:var(--serif);background:var(--ad-vground-bg);border-radius:.3rem;
+  padding:.45rem .6rem;margin:.35rem 0;color:var(--ad-vink-fg);font-size:.93rem;line-height:1.7}
+.qcard .r{display:grid;grid-template-columns:1fr;gap:.1rem;margin-bottom:.4rem}
+@media(min-width:34rem){.qcard .r{grid-template-columns:5.5rem 1fr;gap:.5rem}}
+.qcard .r:last-child{margin-bottom:0}
+.qcard .r .k{font-size:.76rem;font-weight:600;color:var(--ad-vgen-fg)}
+.qcard .r .v em{font-style:normal;color:var(--ad-vmuted-fg);font-size:.82rem;margin-left:.3rem}
+
+/* 圖表容器與通用節點 */
+.fig{background:var(--ad-xfff-bg);border:1px solid var(--ad-vline-border);border-radius:.4rem;padding:.7rem .5rem .4rem;margin:0 0 .7rem}
+.fig[hidden]{display:none}
+.fig svg{display:block;width:100%;height:auto;max-width:27rem;margin:0 auto}
+.fig figcaption{font-size:.85rem;color:var(--ad-x3d5059-fg);margin:.35rem .5rem 0;line-height:1.65}
+.node{cursor:pointer}
+.node rect,.node circle,.node path.bx{fill:#fff;stroke:var(--line);stroke-width:2;stroke-linejoin:round}
+.node text{font-family:var(--sans);font-size:11px;fill:var(--ad-vink-fg);font-weight:600}
+.node tspan.n,.node text.n{font-size:9px;font-weight:400;fill:var(--ad-vmuted-fg)}
+.node.on rect,.node.on circle,.node.on path.bx{fill:var(--exam-soft);stroke:var(--ad-vexam-fg);stroke-width:3}
+.node.on text{fill:var(--ad-vexam-fg)}
+.node.on tspan.n,.node.on text.n{fill:var(--ad-vexam-fg)}
+.guide{stroke:var(--line);stroke-width:2;fill:none;stroke-linejoin:round;stroke-linecap:round}
+.guide.dash{stroke-dasharray:5 4}
+.endlab{font-family:var(--sans);font-size:10.5px;font-weight:600}
+.endlab.l{fill:var(--ad-vteal-fg)}
+.endlab.r{fill:var(--ad-vgen-fg)}
+
+/* 分日分隔框 */
+.daybreak{border:1px dashed var(--exam);background:var(--ad-vexamsoft-bg);border-radius:.4rem;
+  padding:.8rem .95rem;margin:1.6rem 0 0;font-size:.9rem;color:var(--ad-x3d5059-fg);line-height:1.7}
+.daybreak b{display:block;color:var(--ad-vexam-fg);font-family:var(--serif);font-size:1.02rem;margin-bottom:.3rem}
+.daybreak[hidden]{display:none}
+
+/* 課文與線索鏈 */
+.modes{display:flex;gap:.4rem;margin:0 0 .7rem;flex-wrap:wrap}
+.modes button{font:inherit;font-size:.84rem;background:var(--ad-xfff-bg);color:var(--ad-vink-fg);border:1px solid var(--ad-vline-border);border-radius:.3rem;padding:.3rem .8rem;cursor:pointer}
+.modes button[aria-pressed="true"]{background:var(--ad-vink-bg);border-color:var(--ad-vink-border);color:var(--ad-onflip-fg)}
+.modes button:focus-visible{outline:2px solid var(--ad-vteal-border);outline-offset:2px}
+.text{background:var(--ad-xfff-bg);border:1px solid var(--ad-vline-border);border-radius:.4rem;padding:.9rem .6rem 1.1rem;font-family:var(--serif);font-size:1rem;line-height:1.85}
+.text .ttl{font-weight:600;font-size:1.06rem;margin:0 .4rem .7rem 2.6rem;line-height:1.45}
+.ln{display:flex;align-items:baseline;padding:.02rem 0;border-radius:.2rem}
+.ln>i{flex:0 0 2.2rem;text-align:right;padding-right:.55rem;font-family:var(--sans);font-style:normal;font-size:.68rem;color:var(--ad-vmuted-fg);line-height:1.9}
+.ln>span{flex:1 1 auto;overflow-wrap:anywhere}
+.ln.ind>span{padding-left:1.1rem}
+.ln.sub>span{font-weight:600}
+.ln.hl{background:var(--ad-vexamsoft-bg)}
+.ln.pb{margin-top:.55rem}
+.text .split{font-family:var(--sans);font-size:.78rem;color:var(--ad-vexam-fg);
+  border-top:1px dashed var(--exam);margin:.8rem .4rem .7rem 2.6rem;padding-top:.35rem}
+.text m{cursor:pointer;border-radius:.2rem;padding:.02rem .14rem}
+.text m[data-kind="sub"]{background:var(--ad-vtealsoft-bg);box-shadow:inset 0 -2px 0 #a8ccc8}
+.text m[data-kind="gen"]{background:var(--ad-vgensoft-bg);box-shadow:inset 0 -2px 0 #a9bbd0}
+.text m[data-kind="mk"]{border-bottom:2px dotted var(--exam);font-style:italic}
+.text m.lit[data-kind="sub"]{background:var(--teal);color:#fff;box-shadow:none}
+.text m.lit[data-kind="gen"]{background:var(--gen);color:#fff;box-shadow:none}
+.text m.lit[data-kind="mk"]{background:var(--exam);color:#fff;border-bottom:none}
+.text.off-sub m[data-kind="sub"]{background:none;box-shadow:none}
+.text.off-gen m[data-kind="gen"]{background:none;box-shadow:none}
+
+/* 固定在底部的說明面板 */
+.panel{position:sticky;bottom:0;background:var(--ad-xfff-bg);border:1px solid var(--ad-vline-border);border-radius:.4rem;padding:.75rem .9rem;margin-top:.8rem;box-shadow:0 -2px 10px rgba(23,40,47,.07)}
+.panel .k{font-size:.72rem;font-weight:600;border-radius:.2rem;padding:.06rem .42rem;color:var(--ad-vteal-fg);background:var(--ad-vtealsoft-bg);border:1px solid var(--ad-vteal-border)}
+.panel .k.g{color:var(--ad-vgen-fg);background:var(--ad-vgensoft-bg);border-color:var(--gen)}
+.panel .k.e{color:var(--ad-vexam-fg);background:var(--ad-vexamsoft-bg);border-color:var(--exam)}
+.panel .ch{font-family:var(--serif);font-size:1rem;margin:.4rem 0 .3rem;color:var(--ad-vink-fg);line-height:1.75;overflow-wrap:anywhere}
+.panel .ch i{font-style:normal;color:var(--ad-vmuted-fg);padding:0 .28rem}
+.panel .nt{font-size:.88rem;color:var(--ad-x3d5059-fg);margin:0}
+
+/* 舊工具點名複習 */
+.recall{background:var(--ad-xfff-bg);border:1px solid var(--ad-vline-border);border-left:3px solid var(--muted);
+  border-radius:.3rem;padding:.75rem .85rem;margin:1.1rem 0 .9rem;font-size:.92rem;color:var(--ad-x3d5059-fg)}
+.recall b{color:var(--ad-vink-fg)}
+.recall ul{margin:.4rem 0 0;padding-left:1.1rem}
+.recall li{margin-bottom:.35rem}
+
+/* 抽句題 */
+.gap{background:var(--ad-xfff-bg);border:1px solid var(--ad-vline-border);border-radius:.4rem;padding:.9rem 1rem;margin:0 0 .9rem;font-family:var(--serif);font-size:1rem;line-height:1.9}
+.gap .blank{display:inline-block;min-width:9rem;border-bottom:2px solid var(--gen);color:var(--ad-vgen-fg);text-align:center;font-family:var(--sans);font-size:.82rem}
+.gap .blank.filled{border-bottom-color:var(--ad-vteal-border);color:var(--ad-vink-fg);font-family:var(--serif);font-size:1rem;text-align:left;background:var(--ad-vtealsoft-bg);border-radius:.2rem;padding:0 .25rem}
+.gap .lst{font-family:var(--sans);font-size:.85rem;color:var(--ad-vmuted-fg);display:block;margin-top:.5rem}
+.picks{display:flex;flex-direction:column;gap:.45rem;margin:0 0 .9rem}
+.picks button{font:inherit;font-family:var(--serif);font-size:.97rem;line-height:1.6;background:var(--ad-xfff-bg);color:var(--ad-vink-fg);border:1px solid var(--ad-vline-border);border-radius:.3rem;padding:.55rem .8rem;cursor:pointer;text-align:left}
+.picks button:hover{border-color:var(--ad-vteal-border)}
+.picks button:focus-visible{outline:2px solid var(--ad-vteal-border);outline-offset:2px}
+.picks button[data-state="right"]{background:var(--ad-vtealsoft-bg);border-color:var(--ad-vteal-border)}
+.picks button[data-state="wrong"]{background:var(--ad-vground-bg);color:var(--ad-vmuted-fg)}
+.why{font-size:.86rem;color:var(--ad-x3d5059-fg);margin:.35rem 0 0}
+.why[hidden]{display:none}
+
+/* 收尾與頁尾 */
+.close{border-top:1px solid var(--ad-vline-border);margin-top:2rem;padding-top:1.1rem;font-size:.93rem;color:var(--ad-x3d5059-fg)}
+.close[hidden]{display:none}
+.close h2{font-size:1.1rem}
+.close ol{margin:.3rem 0 0;padding-left:1.15rem}
+.close li{margin-bottom:.5rem}
+.more{margin-top:1.5rem;font-size:.88rem}
+.more a{color:var(--ad-vteal-fg)}
+.series{border-top:1px solid var(--ad-vline-border);margin-top:2rem;padding-top:1.1rem;font-size:.9rem;color:var(--ad-x3d5059-fg)}
+.series .back{font-family:var(--serif);font-size:1rem;color:var(--ad-vteal-fg);text-decoration:none}
+.series .back:hover{text-decoration:underline}
+.series .back:focus-visible{outline:2px solid var(--ad-vteal-border);outline-offset:2px}
+.series .note{font-size:.85rem;color:var(--ad-vmuted-fg);margin:.5rem 0 0}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* 本單元：倒三角與砍尾巴 */
+.tier{cursor:pointer}
+.tier path{fill:#fff;stroke:var(--line);stroke-width:2;stroke-linejoin:round}
+.tier text{font-family:var(--sans);font-size:12px;fill:var(--ad-vink-fg);font-weight:600}
+.tier tspan.n{font-size:9.5px;font-weight:400;fill:var(--ad-vmuted-fg)}
+.tier.on path{fill:var(--exam-soft);stroke:var(--ad-vexam-fg);stroke-width:3}
+.tier.on text,.tier.on tspan.n{fill:var(--ad-vexam-fg)}
+.cut{display:flex;flex-direction:column;gap:.5rem;margin:0 0 .8rem}
+.para{background:var(--ad-xfff-bg);border:1px solid var(--ad-vline-border);border-radius:.4rem;padding:.7rem .85rem;font-family:var(--serif);font-size:.97rem;line-height:1.8}
+.para .hd{display:flex;justify-content:space-between;align-items:center;gap:.6rem;font-family:var(--sans);font-size:.78rem;color:var(--ad-vmuted-fg);margin-bottom:.35rem}
+.para .hd button{font:inherit;font-size:.78rem;background:var(--ad-xfff-bg);color:var(--ad-vink-fg);border:1px solid var(--ad-vline-border);border-radius:.25rem;padding:.14rem .6rem;cursor:pointer;flex:0 0 auto}
+.para .hd button:focus-visible{outline:2px solid var(--ad-vteal-border);outline-offset:2px}
+.para.gone{background:var(--ad-vground-bg);border-style:dashed}
+.para.gone .bd{display:none}
+.para .gonemsg{display:none;font-family:var(--sans);font-size:.85rem;color:var(--ad-vmuted-fg)}
+.para.gone .gonemsg{display:block}
+.verdict{border-radius:.3rem;padding:.6rem .8rem;font-size:.9rem;margin:0 0 .8rem;border:1px solid var(--ad-vline-border);background:var(--ad-xfff-bg);color:var(--ad-x3d5059-fg)}
+.verdict.ok{border-color:var(--ad-vteal-border);background:var(--ad-vtealsoft-bg);color:var(--ad-vteal-fg)}
+.verdict.no{border-color:var(--exam);background:var(--ad-vexamsoft-bg);color:var(--ad-vexam-fg)}
+.verdict.warn{border-color:var(--gen);background:var(--ad-vgensoft-bg);color:var(--ad-vgen-fg)}
+#q3w[hidden]{display:none}
+
+/* 深色模式（2026-10-22）：淺色數值與原本相同；只在螢幕、手機或電腦設成深色外觀時生效，列印不受影響。 */
+:root{--ad-onflip-fg:#ffffff;--ad-vexam-bg:var(--exam);--ad-vexam-border:var(--exam);--ad-vexam-fg:var(--exam);--ad-vexamsoft-bg:var(--exam-soft);--ad-vexamsoft-fg:var(--exam-soft);--ad-vgen-bg:var(--gen);--ad-vgen-border:var(--gen);--ad-vgen-fg:var(--gen);--ad-vgensoft-bg:var(--gen-soft);--ad-vground-bg:var(--ground);--ad-vink-bg:var(--ink);--ad-vink-border:var(--ink);--ad-vink-fg:var(--ink);--ad-vline-border:var(--line);--ad-vline-fg:var(--line);--ad-vmuted-border:var(--muted);--ad-vmuted-fg:var(--muted);--ad-vteal-bg:var(--teal);--ad-vteal-border:var(--teal);--ad-vteal-fg:var(--teal);--ad-vtealsoft-bg:var(--teal-soft);--ad-x3d5059-fg:#3d5059;--ad-x8a8278-fg:#8a8278;--ad-xdfeceb-fg:#dfeceb;--ad-xfff-bg:#fff;--ad-xfff-fg:#fff;color-scheme:light}
+@media screen and (prefers-color-scheme: dark){
+ :root{--ad-onflip-fg:#16201F;--ad-vexam-bg:#b4661c;--ad-vexam-border:#b4661c;--ad-vexam-fg:#E7CAAF;--ad-vexamsoft-bg:#2D2821;--ad-vexamsoft-fg:#fdf4e7;--ad-vgen-bg:#4a6a90;--ad-vgen-border:#4a6a90;--ad-vgen-fg:#BBC7D6;--ad-vgensoft-bg:#1E2227;--ad-vground-bg:#1F2020;--ad-vink-bg:#E6EBEE;--ad-vink-border:#E9EFF2;--ad-vink-fg:#E9EFF2;--ad-vline-border:#3F4747;--ad-vline-fg:#cdd6d6;--ad-vmuted-border:#77878d;--ad-vmuted-fg:#BAC0C2;--ad-vteal-bg:#1f6f6a;--ad-vteal-border:#CDEAE9;--ad-vteal-fg:#CDEAE9;--ad-vtealsoft-bg:#1D2524;--ad-x3d5059-fg:#D4DBDF;--ad-x8a8278-fg:#C2BFBB;--ad-xdfeceb-fg:#dfeceb;--ad-xfff-bg:#2D2A25;--ad-xfff-fg:#ffffff;color-scheme:dark}
+}
+
+</style>
+<style id="anti-copy">
+/* 防盜用措施（2026-10-14）：畫面浮水印、列印浮水印、頁尾授權聲明 */
+@media screen{body::before{content:"";position:fixed;top:0;left:0;right:0;bottom:0;z-index:2147483000;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22460%22%20height%3D%22240%22%3E%3Cg%20transform%3D%22rotate%28-20%20230%20120%29%22%20font-family%3D%22Noto%20Sans%20TC%2Csans-serif%22%20fill%3D%22%23D9A400%22%20fill-opacity%3D%22.2%22%20text-anchor%3D%22middle%22%3E%3Ctext%20x%3D%22230%22%20y%3D%22112%22%20font-size%3D%2220%22%3E%E9%AB%98%E4%B8%AD%E8%8B%B1%E6%96%87%E9%A1%8C%E5%BA%AB%3C%2Ftext%3E%3Ctext%20x%3D%22230%22%20y%3D%22140%22%20font-size%3D%2214%22%3Estaresto-create.github.io%2FJCEE-vocab-questions%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E");background-repeat:repeat;}}
+@media print{body::after{content:"高中英文題庫\A staresto-create.github.io/JCEE-vocab-questions\A 免費資源，請勿販售";white-space:pre;position:fixed;top:42%;left:0;right:0;text-align:center;transform:rotate(-25deg);font-family:"Noto Sans TC",sans-serif;font-size:26pt;line-height:1.7;color:#c8c8c8;z-index:2147483000;pointer-events:none;}}
+.cc-note{font-size:12px;line-height:1.8;color:var(--ad-x8a8278-fg);margin:12px auto;max-width:60em;padding:0 1em;}.cc-note a{color:inherit;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>華爾街日報式：人物介紹</h1>
+<p class="lede">這篇講 Elle Fanning，開頭先立了一個別人貼給她的標籤：Dakota 的妹妹，結尾又回到這個標籤，把它換掉。這種寫法叫<b>華爾街日報式</b>：用一個人的故事開頭，接著一句話點出整篇要談什麼，中間是主體，結尾再回到開頭那個人。這一頁教你認出這個框，還有作者怎麼靠「不是 A，而是 B」一路推翻別人的看法。</p>
+<p class="preview" id="pv" hidden>預覽模式：所有步驟、圖表、課文標記都已展開，進度不會存檔。學生拿到的一般連結不受影響。</p>
+<p class="resume" id="rs" hidden>上次做到一半，已經幫你接回來了。<button id="rst">重新開始</button></p>
+<p class="src">ALL+ 互動英語 11 月號 Unit 6（pp. 26–27）　Elle Fanning: From Dakota’s Sister to Hollywood Star　全文 57 行　11/12 讀第 1–24 行，11/13 讀第 25–57 行</p>
+
+<!-- ═══ 第一步 ═══ -->
+<section class="step" id="s1">
+  <p class="stepno">第一步</p>
+  <h2>先立一個標籤，再把它推翻<span class="tag">上層：組織方式</span></h2>
+  <p>這篇的標題是 From Dakota’s Sister to Hollywood Star，第一句卻先說她的第一個角色「不完全屬於她」。下面是第 1 到 7 行，<b>點三個有底色的地方</b>。</p>
+  <div class="lead" id="ld">
+    <c data-t="n">Elle Fanning’s first film role was not entirely her own.</c> At just three years old, she played a younger version of Dakota Fanning’s character in I Am Sam. <c data-t="t">The experience could have left her known only as Dakota’s little sister, but it didn’t.</c> <c data-t="g">What changed things wasn’t a single breakout performance but a series of unexpected choices.</c>
+  </div>
+  <p class="score" id="sc">已標出 <em>0</em> / 3</p>
+  <div id="s1b" hidden>
+    <p>三個都標出來了。那麼——<b>第 6 到 7 行 What changed things wasn’t a single breakout performance but a series of unexpected choices 這一句，在文章裡做什麼？</b></p>
+    <div class="opts" id="q1">
+      <button>補充她三歲時在電影裡演出的另一個細節</button>
+      <button data-ok="1">把開頭的標籤轉成全篇的主張：靠一連串選擇</button>
+      <button>預告她接下來會演一部讓她一舉成名的電影</button>
+      <button>說明姐姐 Dakota 如何帶她進入演藝圈</button>
+    </div>
+    <div class="said e" id="a1" hidden>
+      <b>把開頭的標籤轉成全篇的主張：靠一連串選擇。</b>前五行只講了一個起點和一個標籤：她的第一個角色是 Dakota 角色的幼年版，她本來可能一輩子只是「Dakota 的妹妹」。讀者讀到這裡會問：那後來呢？第 6 到 7 行一句話回答：改變一切的不是一部作品，是一連串出人意料的選擇。這種句子在新聞寫作裡叫 <b>nut graph（核心段）</b>，專門回答讀者心裡那一句「這篇到底要說什麼」。
+      <br><br>
+      <b>認的方法：</b>跟十月號 Goodall 那一篇比，那一篇的核心段用 illustrates 把一個學生的故事變成例子；這一篇用的是 <q>wasn’t a single breakout performance but a series of unexpected choices</q>，先否定一種講法，再換上作者要的那一種。看到「不是 A，而是 B」出現在開頭幾行，B 通常就是整篇的主張。
+      <br><br>
+      <b>另外三個為什麼排除：</b>
+      <br><br>
+      「補充她三歲時在電影裡演出的另一個細節」——<b>這個最容易選</b>，因為它緊接在第 2 到 3 行 I Am Sam 的細節後面。可是第 6 到 7 行沒有交代任何一次演出，說的是「什麼改變了她」。細節是起點的一部分，這一句站在起點外面往前看。
+      <br><br>
+      「預告她接下來會演一部讓她一舉成名的電影」——這一句剛好說反了。第 6 到 7 行 <q>wasn’t a single breakout performance</q> 否定的就是「靠一部作品一舉成名」。
+      <br><br>
+      「說明姐姐 Dakota 如何帶她進入演藝圈」——第 2 到 3 行只說她在 I Am Sam 演 Dakota 角色的年輕版本，沒有說是姐姐帶她入行，Dakota 在這裡是被拿來貼標籤的名字，不是推手。
+    </div>
+    <button class="go" id="g1" hidden>整篇是什麼形狀？</button>
+  </div>
+</section>
+
+<!-- ═══ 第二步 ═══ -->
+<section class="step" id="s2" hidden>
+  <p class="stepno">第二步</p>
+  <h2>標籤框夾著一組證據<span class="tag">上層：怎麼認出來</span></h2>
+  <p>先回答：<b>這篇文章的組織方式，最接近下列哪一種？</b></p>
+  <div class="opts" id="q2">
+    <button>序列：依先後順序，從她的童年一路演到最新作品</button>
+    <button>倒金字塔：最重要的消息放最前面，越往後面越次要</button>
+    <button>比較對照：把她和姐姐 Dakota 逐項比較</button>
+    <button data-ok="1">華爾街日報式：開頭立個標籤，結尾回頭把它換掉</button>
+  </div>
+  <div class="said e" id="a2" hidden>
+    <b>華爾街日報式。</b>新聞寫作教科書對這個公式的說法是四個部分：故事開頭、核心段、篇幅較長的主體、最後回到開頭的焦點。這篇四個都在：第 1 到 5 行她的起點和標籤，第 6 到 7 行核心段，第 8 到 48 行一部一部的作品，第 49 到 57 行回到開頭那個標籤。
+    <br><br>
+    <b>另外三個為什麼排除：</b>
+    <br><br>
+    「序列」——<b>這個最容易選</b>，因為主體看起來由舊排到新：第 8 行的 The Neon Demon、第 17 行的影集、第 26 行的 2025 年電影、第 42 行的 This November。可是第 17 行 the ongoing TV series 是「現在進行中」，卻排在第 26 行 2025 年的電影前面，時間並沒有一直往前；段落之間靠的也不是時間，是第 25 到 26 行的 can also be seen、第 42 到 43 行的 another challenge 這種「再加一個證據」的字。序列的主體每一站都要接上前一站，這裡每一組作品都是各自在證明同一件事。
+    <br><br>
+    「倒金字塔」——倒金字塔的第一段就講最重要的消息，後面越來越次要。這篇第 1 到 5 行是一個起點，真正的主張要到第 6 到 7 行才出現，結尾還有兩段收束，不是越寫越次要。
+    <br><br>
+    「比較對照」——作者沒有把她和姐姐逐項比。Dakota 只出現在第 3 行和第 52 行：一次是她演的角色，一次是別人貼的標籤，整篇沒有講 Dakota 的作品。
+    <br><br>
+    這一篇跟十月號 Goodall 那一篇是同一種結構，但有兩個地方不一樣。<b>第一，框裡的人是同一個。</b>Goodall 那篇開頭是學生 Nathan，報導的對象是 Goodall，兩個人；這一篇從頭到尾都是 Elle。<b>第二，主體不是時間線，是一組證據。</b>Goodall 那篇四站照年份排；這篇四組作品各自證明一次「她不只演一種角色」。要注意的是，這一篇的框比較薄：開頭沒有一個場景，只有一個事實和一個標籤，所以認它要靠結尾那一次回頭。下面這張圖就是這個形狀。<b>點任一格</b>，第四步的課文對應行會亮起來（課文還沒打開的話，先把行號記住就好）。
+  </div>
+  <figure class="fig" id="fig" hidden></figure>
+  <button class="go" id="g2" hidden>把外框拆掉看看</button>
+</section>
+
+<div class="daybreak" id="db" hidden>
+  <b>11/13 的範圍從這裡開始：第 25–57 行</b>
+  第一、二步用的是 11/12 的第 1–24 行（起點和標籤、核心段、電影和影集）。第三步以後會用到整篇，包含 11/13 的第 25–57 行（2025 年的兩部電影、十一月的新作、回到開頭）。如果你今天是 11/12，做到這裡可以先停，下一次再接下去。（第二步的圖已經畫出整篇的骨架，先看到不影響。）
+</div>
+
+<!-- ═══ 第三步 ═══ -->
+<section class="step" id="s3" hidden>
+  <p class="stepno">第三步</p>
+  <h2>拆掉外框，再寫一句摘要<span class="tag">上層：怎麼驗證</span></h2>
+  <p>怎麼確定這是華爾街日報式，不是一篇前面多了幾句背景的作品列表？<b>先找訊號，再把外框拆掉看看少了什麼。</b></p>
+  <p>訊號有三個，你在第一步已經點過兩個：開頭是一個人加一個標籤（第 4 到 5 行 Dakota’s little sister），接著一句把標籤換掉（第 6 到 7 行 wasn’t … but …）；第三個在結尾，第 51 到 52 行 known mainly as Dakota Fanning’s younger sister，同一個標籤再出現一次，文章回到開頭。</p>
+  <p>下面三個區塊，按「拆掉」和「放回」，什麼順序都可以。</p>
+  <div class="cut" id="cut"></div>
+  <p class="verdict" id="vd">三個區塊都在，這是完整的文章。</p>
+  <div class="said e" id="a3" hidden>
+    <b>外框拆得掉，但拆掉之後，標題有一半沒有著落。</b>剩下的主體是一份依作品排的片單，內容一樣不少。可是標題說的是 From Dakota’s Sister to Hollywood Star：一頭是她要離開的標籤，一頭是她走到的地方。標籤在上框，走到哪裡在下框；沒有框，「From」這一半就沒有東西可以指。所以這一篇的外框不是裝飾，它負責讓主體的每一部作品都有一個要超越的東西。
+    <br><br>
+    <b>怎麼認出一篇是華爾街日報式：</b>開頭是一個具體的人和一件關於他的事，不是一個抽象的主題；接著有一句把它變成要談的主張；結尾這個人或這件事又出現一次。三個訊號都找到，就是它。
+    <br><br>
+    <b>考卷上怎麼考：</b>主旨題的正解要同時涵蓋外框和主體；只講開頭的起點，或只講主體裡的某一部作品，都是誘答。下面試一題。
+  </div>
+  <div id="q3w" hidden>
+    <p><b>哪一句最適合當這篇文章的一句話摘要？</b></p>
+    <div class="picks" id="q3">
+      <button data-ok="1">Elle Fanning has moved beyond being Dakota’s little sister by taking on a wide mix of very different parts.</button>
+      <button>Elle Fanning played a younger version of Dakota’s character in I Am Sam when she was three years old.</button>
+      <button>Elle Fanning earned her first Best Supporting Actress nomination for a small role in a film by a Norwegian director.</button>
+      <button>Dakota Fanning helped her younger sister become a Hollywood star by passing along the best roles in her own career.</button>
+    </div>
+    <div class="said e" id="a3b" hidden>
+      <b>第一句。</b>它同時收進外框（moved beyond being Dakota’s little sister）和主體（a wide mix of very different parts），還把標題的 From … to … 講出來了。它也沒有照抄課文：a series of unexpected choices 改寫成 taking on a wide mix，different roles 改寫成 very different parts。
+      <br><br>
+      <b>另外三個為什麼排除：</b>
+      <br><br>
+      「Elle Fanning earned her first Best Supporting Actress nomination…」——<b>這個最容易選</b>，因為它是全篇最像「成就」的一件事，第 33 到 36 行寫得清楚。可是它只收了主體裡的一站，沒有外框，也沒有說她離開了什麼標籤。<b>重要的細節還是細節。</b>
+      <br><br>
+      「Elle Fanning played a younger version of Dakota’s character…」——只收了上框，第 2 到 3 行的內容。整篇的主張在後面。
+      <br><br>
+      「Dakota Fanning helped her younger sister…」——歸屬錯。第 14 行 Her choices showed 和第 23 到 24 行 her choices keep proving it 都把功勞放在她自己的選擇上，課文沒有說是姐姐把好角色讓給她。
+    </div>
+  </div>
+  <button class="go" id="g3" hidden>看兩條詞彙線索</button>
+</section>
+
+<!-- ═══ 第四步 ═══ -->
+<section class="step" id="s4" hidden>
+  <p class="stepno">第四步</p>
+  <h2>一破一立：否定與多樣的字<span class="tag b">下層：否定與更正、語意場</span></h2>
+  <p>這一篇有一個新工具，青色，還有一個舊工具再練一次，藍灰。兩條線都貫穿全文，也正好一個負責「破」，一個負責「立」。</p>
+  <p><b>青色：否定與更正（新工具）。</b>語言學家 Halliday 和 Hasan 在 1976 年的 <i>Cohesion in English</i> 把轉折類的銜接手段分成幾種，其中一種叫 correction（更正）：前面的講法被推翻，換上另一種。他們列的標記是 instead、rather、on the contrary。這一篇把同一件事寫在一句話裡：第 6 到 7 行 <q>wasn’t a single breakout performance but a series of unexpected choices</q>、第 12 行 rather than、第 50 行 instead of。（他們列的是句子之間的標記，句內的 not … but … 是這一頁照同一個功能補上的。）</p>
+  <p><b>作者為什麼這樣換。</b>全篇共有八處否定，被推翻的都是一種「單一」的看法：只是妹妹（第 4 到 5 行）、一部突破作（第 6 到 7 行）、只能演一種角色（第 15 行）、一個形象（第 50 行）。換上去的都是「一連串」：series、choices、variety。整篇要證明的是「她不只是 Dakota 的妹妹」，這個主張本身就是一個否定；先把別人的看法寫出來再推翻，讀者才看得出她走了多遠。</p>
+  <p><b>有兩處要小心。</b>第 1 行的 not entirely 和第 55 行的 not just 不是全盤否定，只否定「只有」：她的第一個角色有一部分是別人的，她的故事也確實跟名氣有關，只是不只這樣。</p>
+  <p><b>藍灰：語意場（舊工具，九月號第六單元）。</b>這篇有一堆字在講「不只一種」：unexpected choices（第 7 行）、different（第 9 行）、another direction（第 11 行）、completely different（第 13 行）、expand her range（第 16 行）、a far cry（第 19 行）、explore different（第 25 行）、move between（第 39 行）、variety（第 50 行）、across different genres（第 53 到 54 行）、changing（第 57 行）。青色推翻「單一」，藍灰說出「多樣」，一破一立。</p>
+  <p><b>點課文裡有底色的字</b>，同一條線上的字會一起亮起來。兩色可以各自關掉。</p>
+  <div class="modes">
+    <button id="m1" aria-pressed="true">否定與更正（青）</button>
+    <button id="m2" aria-pressed="true">語意場（藍灰）</button>
+  </div>
+  <div class="text" id="tx"></div>
+  <div class="panel" id="pn">
+    <span class="k" id="pk">線索</span>
+    <div class="ch" id="pc">點圖上的一格，或課文裡有底色的字</div>
+    <p class="nt" id="pt">青色是推翻單一說法的否定與更正；藍灰是說出多樣的字，是同一個語意場。</p>
+  </div>
+  <div class="recall">
+    <b>另外三樣，前面單元教過，這篇自己確認得出來：</b>
+    <ul>
+      <li><b>詞形變化的重複。</b>第 7 行 <q>choices</q>、第 14 行 choices、第 24 行 choices、第 53 行 choosing：同一個字根換了詞性再出現，表示還在講同一件事。跟十月號第五、十三單元練過的一樣，這個字根就是整篇的軸心：她的選擇。</li>
+      <li><b>消息來源。</b>第 22 到 23 行 <q>Fanning has said that she doesn’t want to be boxed in</q>，作者引她自己說的話，替前一句第 21 行的 deliberate（刻意）作證。跟十一月號第一單元練過的一樣，先看是誰說的，再決定這句話有多可信。</li>
+      <li><b>讓步標記。</b>第 29 到 31 行 <q>Although the role was small, she delivered a memorable performance</q>：先退一步承認角色小，真正的重點在逗號後面。跟十月號第三單元練過的一樣，作者的立場在標記的後面。</li>
+    </ul>
+  </div>
+  <p style="margin-top:1.1rem"><button class="go" id="g4">考卷怎麼考這種文章</button></p>
+</section>
+
+<!-- ═══ 第五步 ═══ -->
+<section class="step" id="s5" hidden>
+  <p class="stepno">第五步</p>
+  <h2>人物介紹的兩個陷阱<span class="tag">上層：考點</span></h2>
+  <p>人物介紹的題目，誘答多半出在兩個地方：</p>
+  <p><b>一、問開頭那件事為什麼出現。</b>華爾街日報式的開頭是為了讓後面有東西可以推翻，不是在補細節。選項說它「證明她一出道就很紅」之類，就回第 4 到 5 行看標籤是什麼。（雜誌混合題的第 1 題問的就是這種：先想這個細節在框裡負責什麼。）</p>
+  <p><b>二、否定句的方向。</b>誘答最愛把「不是 A，而是 B」換成「是 A，不是 B」，或者把 not just 讀成 not。看到 not … but、rather than、instead of，先寫下 A 和 B 各是什麼，再對選項。</p>
+  <p>試一題：<b>Which of the following is TRUE according to the passage?</b></p>
+  <div class="opts en" id="q5">
+    <button>Her story is about fame rather than about the courage to keep changing herself.</button>
+    <button>Dakota Fanning once played a much younger version of Elle Fanning’s character in a film.</button>
+    <button data-ok="1">Her story involves fame, but it also concerns her courage to keep trying new things.</button>
+    <button>One breakout performance in The Neon Demon made her a major star almost overnight in Hollywood.</button>
+  </div>
+  <div class="said e" id="a5" hidden>
+    <b>第三句。</b>它對應第 55 到 57 行 <q>Her story is not just about fame; it’s about the courage to keep changing and challenging herself</q>：not just 只否定「只有」，所以名氣還在（involves fame），後面多出來的是勇氣。選項也沒有照抄課文：keep changing and challenging herself 改寫成 keep trying new things。
+    <br><br>
+    <b>另外三個為什麼排除：</b>
+    <br><br>
+    「Her story is about fame rather than about the courage…」——<b>這個最容易選</b>，因為 fame、courage、keep changing 全是課文的字，只是 A 和 B 對調了。第 55 到 57 行寫的是名氣之外還有勇氣，不是用名氣取代勇氣。這就是方向錯。
+    <br><br>
+    「Dakota Fanning once played a much younger version of Elle Fanning’s character…」——歸屬錯。第 2 到 3 行是 Elle 演 Dakota 的角色的年輕版本，不是反過來。
+    <br><br>
+    「One breakout performance in The Neon Demon made her a major star…」——第 8 行確實有 The Neon Demon，可是第 6 到 7 行說得很明白：改變她的不是一部突破作，是一連串的選擇。這一個靠讀懂核心段就排除得掉。
+  </div>
+  <button class="go" id="g5" hidden>最後一題</button>
+</section>
+
+<!-- ═══ 第六步 ═══ -->
+<section class="step" id="s6" hidden>
+  <p class="stepno">第六步</p>
+  <h2>把一句話放回去</h2>
+  <p>這就是考卷上的<b>篇章結構</b>題。下面把第 49 到 50 行那一句整句抽掉了，四個候選句只有一句放得進去。</p>
+  <div class="gap" id="gp">
+    … This November brings another challenge: playing a young Effie Trinket in The Hunger Games: Sunrise on the Reaping. Taking on a character that fans already know means working within boundaries she didn’t set while still bringing her own interpretation to the role.
+    <br><br>
+    <span class="blank" id="bl">（空格）</span> From a child actress known mainly as Dakota Fanning’s younger sister to an actress choosing roles across different genres, Elle Fanning has continued to create her own path. Her story is not just about fame; it’s about the courage to keep changing and challenging herself.
+  </div>
+  <div class="picks" id="q6">
+    <button>Together, these honors show a career built on recognition instead of box-office success alone.</button>
+    <button data-ok="1">Together, these projects show a career built on variety instead of a single image.</button>
+    <button>In short, her story is not just about fame but about the courage to change.</button>
+    <button>Dakota Fanning, meanwhile, has taken on a wider range of roles than her younger sister.</button>
+  </div>
+  <div class="said" id="a6" hidden>
+    <b>四個線索同時指向同一句。</b>這四句單獨看都說得通，沒有一句本身是錯的。要排除，得靠位置和線索。
+    <br><br>
+    <b>先講一個例外。</b>前面說大考的正解通常是改寫，但<b>抽句題不一樣</b>：抽掉的就是原文那一句，所以正解一定是原文。這一題要靠的是另外三句哪裡接不上，不是比對字面。
+    <br><br>
+    <b>一、概括名詞找得到先行內容，而且往後接得上。</b><q>these projects</q> 需要前面已經有幾項作品。空格前正好有：第 8 到 48 行的電影、影集和新作。正解一次把它們收起來，再用 instead of a single image 預告下一句：「單一的形象」就是 known mainly as Dakota Fanning’s younger sister。
+    <br><br>
+    <b>另外三個為什麼排除，各有一個明確的依據：</b>
+    <br><br>
+    <b>二、順序。</b><q>In short, her story is not just about fame but about the courage to change</q> 是全篇的結論，意思跟第 55 到 57 行一樣。<b>這一句最容易選</b>，因為它看起來像總結，而且前面剛講完最後一個作品。可是放在段首，後面的 From a child actress… 就沒有事可做，最後一句又重複一次，這是層級錯。
+    <br><br>
+    <b>三、範圍。</b><q>these honors</q> 找不到先行內容。課文只在第 34 到 36 行提到一次提名，沒有「獎項」可以收；而且這一段講的是作品，不是榮譽。
+    <br><br>
+    <b>四、歸屬。</b>Dakota 在課文裡只是標籤：第 3 行是她演的角色，第 52 行是別人給的稱呼。課文沒有拿兩個人的角色範圍來比，這一句把話題帶到姐姐身上。
+  </div>
+  <p class="why" id="w6" hidden>考卷上不會有底色，也不會有行號。但你剛才用的四個線索，每一篇人物介紹都用得上。</p>
+</section>
+
+<!-- ═══ 第七步 ═══ -->
+<section class="close" id="s7" hidden>
+  <h2>帶著走的五句話</h2>
+  <ol>
+    <li><b>華爾街日報式：一個人的故事開頭，結尾回到同一個人。</b>這一篇框裡是同一個人，主體是一組證據，不是時間線。</li>
+    <li><b>核心段是轉折點。</b>這一篇的核心段不用 illustrates，用「不是 A，而是 B」：先否定一種講法，B 就是整篇的主張。</li>
+    <li><b>驗證方法：拆掉外框。</b>主體還在，但標題的 From 沒有著落，所以外框不是裝飾。主旨題的正解要同時涵蓋外框和主體。</li>
+    <li><b>下層：否定與更正。</b>not … but、rather than、instead of 先推翻一種說法再換上另一種，被推翻的是什麼，常常就是文章要反駁的；not just、not entirely 只否定「只有」，不是全盤否定。</li>
+    <li><b>考卷的陷阱：方向錯和歸屬錯。</b>誘答愛把 A 和 B 對調，或把 not just 讀成 not；看到這類字，先寫下 A 和 B 各是什麼。</li>
+  </ol>
+  <p class="more"><a href="https://staresto-create.github.io/JCEE-vocab-questions/wordwheel.html">單字輪：把字拆成部件來記 →</a></p>
+</section>
+
+<nav class="series">
+  <a class="back" href="cohesion.html">← 回讀法練習總表</a>
+  <p class="note">總表上有目前可以做的所有單元，還有你累積到現在的讀法工具。</p>
+</nav>
+
+</div>
+
+<script>
+(function(){
+"use strict";
+function $(id){return document.getElementById(id);}
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;");}
+var KEY="cohesion-202611-u6-v1";
+var TITLE="Elle Fanning: From Dakota’s Sister to Hollywood Star";
+var LINES=[
+"Elle Fanning’s first film role was {not entirely|c-neg|1} her",
+"own. At just three years old, she played a younger",
+"version of Dakota Fanning’s character in I Am Sam. The",
+"experience could have left her known only as Dakota’s",
+"little sister, {but it didn’t|c-neg|2}.",
+"What changed things {wasn’t|c-neg|3} a single breakout",
+"performance {but|c-neg|3} a series of {unexpected choices|c-var|1}.",
+"In The Neon Demon, she took on a dark and",
+"unusual role that showed audiences a {different|c-var|2}",
+"side of her acting. In 20th Century Women, she",
+"went in {another direction|c-var|3}, playing a teenager",
+"whose confusion felt natural {rather than|c-neg|4} forced.",
+"The two films are {completely different|c-var|4}, yet Fanning",
+"is convincing in both. Her choices showed that",
+"she {wasn’t|c-neg|5} limited to one type of character, and",
+"she has continued to {expand her range|c-var|5}.",
+"In the ongoing TV series Margo’s Got Money",
+"Troubles, she plays a young woman scrambling to",
+"pay rent and build a better life. The role is {a far cry|c-var|6}",
+"from the fairy-tale princesses she played earlier in",
+"her career, and that change is clearly deliberate.",
+"Fanning has said that she {doesn’t|c-neg|6} want to",
+"be boxed in by one kind of role, and her",
+"choices keep proving it.",
+"Fanning’s desire to {explore different|c-var|7}",
+"roles can also be seen in the 2025 film",
+"Sentimental Value, in which she played an",
+"American actress working on a film directed",
+"by a Norwegian filmmaker. Although the",
+"role was small, she delivered a memorable",
+"performance through subtle details,",
+"allowing small gestures and quiet moments",
+"to reveal her character’s emotions. So",
+"captivating was her performance that it",
+"earned Fanning her first Best Supporting",
+"Actress nomination at the 98th Academy",
+"Awards. That same year, she also appeared",
+"in the blockbuster Predator: Badlands,",
+"showing that she can {move between|c-var|8}",
+"serious dramas and major Hollywood",
+"productions.",
+"This November brings another",
+"challenge: playing a young Effie Trinket in",
+"The Hunger Games: Sunrise on the Reaping.",
+"Taking on a character that fans already",
+"know means working within boundaries",
+"she didn’t set while still bringing her own",
+"interpretation to the role.",
+"Together, these projects show a career",
+"built on {variety|c-var|9} {instead of|c-neg|7} a single image.",
+"From a child actress known mainly as",
+"Dakota Fanning’s younger sister to an",
+"actress choosing roles across {different|c-var|10}",
+"{genres|c-var|10}, Elle Fanning has continued to",
+"create her own path. Her story is {not just|c-neg|8}",
+"about fame; {it’s|c-neg|8} about the courage to",
+"keep {changing|c-var|11} and challenging herself."
+];
+var INDENT={1:1,6:1,8:1,17:1,25:1,42:1,49:1};
+var SPLIT=25;
+var SPLIT_TEXT="以上是 11/12 的第 1–24 行。以下是 11/13 的第 25–57 行。";
+var CHAINS={
+ "c-neg":{k:"sub",n:"否定與更正，這一篇的新工具。出處：Halliday 和 Hasan 1976 年的 Cohesion in English，把轉折類的銜接分成幾種，其中一種叫 correction（更正）：前面的講法被推翻，換上另一種。他們列的標記是 instead、rather、on the contrary。這一篇把同一件事寫在一句話裡：第 6 到 7 行 wasn’t … but …、第 12 行 rather than、第 50 行 instead of（他們列的是句子之間的標記，句內的 not … but … 是這一頁照同一個功能補上的）。八處否定，被推翻的都是一種「單一」的看法：只是妹妹（第 4 到 5 行）、一部突破作（第 6 到 7 行）、只能演一種角色（第 15 行）、一個形象（第 50 行）。換上去的都是「一連串」：series、choices、variety。注意第 1 行的 not entirely 和第 55 行的 not just 只否定「只有」，不是全盤否定。"},
+ "c-var":{k:"gen",n:"語意場，九月號第六單元教過。這一篇有一堆字在講「不只一種」：unexpected choices（第 7 行）、different（第 9 行）、another direction（第 11 行）、completely different（第 13 行）、expand her range（第 16 行）、a far cry（第 19 行）、explore different（第 25 行）、move between（第 39 行）、variety（第 50 行）、across different genres（第 53 到 54 行）、changing（第 57 行）。跟青色那一串對起來看：青色負責推翻「單一」，藍灰負責說出「多樣」，一破一立。"}
+};
+var LB={sub:"否定與更正",gen:"語意場"};
+var CL={sub:"k",gen:"k g"};
+var NODES=[
+ {nm:"起點與標籤",a:1,b:5,n:"一個人的起點：Elle Fanning 的第一個角色是 Dakota 角色的幼年版，她本來可能一輩子只是「Dakota 的妹妹」，可是她沒有（but it didn’t）。這是上框，立下一個要被推翻的標籤。"},
+ {nm:"核心段",a:6,b:7,n:"第 6 到 7 行一句話：What changed things wasn’t a single breakout performance but a series of unexpected choices。先否定「靠一部作品成名」，再換上「一連串選擇」，這就是全篇的主張。"},
+ {nm:"兩部不同的電影",a:8,b:16,n:"主體第一組證據：The Neon Demon 是黑暗、不尋常的角色，20th Century Women 是一個困惑很自然的青少年。兩部完全不同，她都演得讓人信服，證明她不限於一種角色。"},
+ {nm:"影集 Margo",a:17,b:24,n:"主體第二組證據：影集裡她演為了房租四處奔波的年輕女子，跟以前的童話公主差很多，而且是刻意的。第 22 到 23 行引她自己說的話為證。第一天到這裡為止。"},
+ {nm:"2025 年兩部電影",a:25,b:41,n:"主體第三組證據：2025 年在 Sentimental Value 演一個小角色卻很難忘，得到第一次最佳女配角提名；同一年又演大製作的 Predator: Badlands，證明她能在嚴肅劇情片和好萊塢大片之間來回。第二天從這一格開始。"},
+ {nm:"十一月新作",a:42,b:48,n:"主體第四組證據：十一月要演年輕版的 Effie Trinket，是一個觀眾已經熟悉的角色，要在別人定好的界線裡演出自己的詮釋。又是另一種挑戰。"},
+ {nm:"回到標籤",a:49,b:57,n:"下框：第 49 到 50 行用 these projects 把前面所有作品收起來，再回到第 51 到 52 行那個標籤 known mainly as Dakota Fanning’s younger sister，把它換成 choosing roles across different genres。最後兩行 it’s about the courage 把意義拉到名氣之外。"}
+];
+var PARAS=[
+ {hd:"上框：起點與標籤（第 1–7 行）",tx:"Elle Fanning’s first film role was not entirely her own. \u2026 The experience could have left her known only as Dakota’s little sister, but it didn’t. What changed things wasn’t a single breakout performance but a series of unexpected choices."},
+ {hd:"主體：一組一組的作品（第 8–48 行）",tx:"In The Neon Demon, she took on a dark and unusual role \u2026 In the ongoing TV series Margo’s Got Money Troubles \u2026 the 2025 film Sentimental Value \u2026 This November brings another challenge: playing a young Effie Trinket \u2026"},
+ {hd:"下框：回到標籤（第 49–57 行）",tx:"Together, these projects show a career built on variety instead of a single image. From a child actress known mainly as Dakota Fanning’s younger sister to an actress choosing roles across different genres, Elle Fanning has continued to create her own path. \u2026"}
+];
+var TL={n:"一個人的起點",t:"被貼上的標籤",g:"核心段"};
+
+var PREVIEW=false;
+var ST={tags:{},cut:{},cutTouched:0,q1:0,q2:0,q3:0,q5:0,q6:0,step:1};
+function save(){ if(PREVIEW) return; try{ localStorage.setItem(KEY, JSON.stringify(ST)); }catch(e){} }
+function load(){ try{ var r=localStorage.getItem(KEY); return r?JSON.parse(r):null; }catch(e){ return null; } }
+function wipe(){ try{ localStorage.removeItem(KEY); }catch(e){} location.reload(); }
+
+function quiz(qid,aid,gid,tag,after){
+  var done=false;
+  function settle(){
+    done=true;
+    var bs=$(qid).querySelectorAll("button");
+    for(var i=0;i<bs.length;i++){ bs[i].disabled=true; bs[i].dataset.state=bs[i].dataset.ok?"right":"wrong"; }
+    if(aid) $(aid).hidden=false;
+    if(gid) $(gid).hidden=false;
+    if(after) after();
+  }
+  $(qid).addEventListener("click",function(e){
+    var b=e.target.closest("button"); if(!b||done) return;
+    settle(); ST[tag]=1; save();
+  });
+  return settle;
+}
+function opener(gid,sid,extra){
+  $(gid).addEventListener("click",function(){
+    var n=parseInt(sid.replace(/\D/g,""),10);
+    if(ST.step<n) ST.step=n; save();
+    $(sid).hidden=false; if(extra) extra();
+    $(sid).scrollIntoView({behavior:"smooth",block:"start"});
+  });
+}
+function hlLines(a,b){
+  var rows=$("tx").querySelectorAll(".ln");
+  for(var r=0;r<rows.length;r++){ var n=+rows[r].dataset.n; rows[r].classList.toggle("hl", n>=a&&n<=b); }
+  var ms=$("tx").querySelectorAll("m");
+  for(var k=0;k<ms.length;k++) ms[k].classList.remove("lit");
+  if(rows.length){ var f=$("tx").querySelector('.ln[data-n="'+a+'"]'); if(f) f.scrollIntoView({behavior:"smooth",block:"center"}); }
+}
+
+/* ---------- 第一步 ---------- */
+function tagged(){ var n=0; for(var k in ST.tags) if(ST.tags[k]) n++; return n; }
+function paintTag(c){
+  if(c.classList.contains("got")) return;
+  c.classList.add("got");
+  var b=document.createElement("b"); b.textContent=TL[c.dataset.t]||"";
+  c.insertBefore(b, c.firstChild);
+}
+function afterTags(){
+  $("sc").innerHTML="\u5df2\u6a19\u51fa <em>"+tagged()+"</em> / 3";
+  if(tagged()===3) $("s1b").hidden=false;
+}
+$("ld").addEventListener("click",function(e){
+  var c=e.target.closest("c"); if(!c) return;
+  if(ST.tags[c.dataset.t]) return;
+  ST.tags[c.dataset.t]=1; save(); paintTag(c); afterTags();
+});
+var set1=quiz("q1","a1","g1","q1");
+opener("g1","s2");
+
+/* ---------- 第二步：故事框夾時間線 ---------- */
+function drawFig(){
+  if($("fig").firstChild) return;
+  $("fig").hidden=false;
+  var s='<svg viewBox="0 0 400 262" role="img" aria-label="華爾街日報式：上下兩框是標籤的出現與回頭，中間是四組作品">';
+  s+='<path class="guide dash" d="M12 34 L12 222"/><path class="guide dash" d="M388 34 L388 222"/>';
+  function box(i,x,y,w,h){
+    var d=NODES[i];
+    var r='<g class="node" data-i="'+i+'" tabindex="0" role="button">';
+    r+='<rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="5"/>';
+    r+='<text x="'+(x+w/2)+'" y="'+(y+h/2-1)+'" text-anchor="middle">'+esc(d.nm)+'</text>';
+    r+='<text x="'+(x+w/2)+'" y="'+(y+h/2+13)+'" text-anchor="middle"><tspan class="n">第 '+d.a+(d.a===d.b?'':'–'+d.b)+' 行</tspan></text></g>';
+    return r;
+  }
+  s+=box(0,20,10,360,44);
+  s+=box(1,120,62,160,40);
+  var xs=[20,112,204,296];
+  for(var i=0;i<4;i++) s+=box(2+i,xs[i],128,84,52);
+  s+='<text x="200" y="120" text-anchor="middle" style="font-family:var(--sans);font-size:9.5px;fill:var(--ad-vmuted-fg)">主體：四組作品，各自證明一次「不只一種角色」</text>';
+  s+=box(6,20,200,360,44);
+  s+='</svg><figcaption>上下兩格是同一個標籤：上面立起來，下面換掉。兩邊的虛線把中間四組作品包起來，這就是標籤框。四組作品之間沒有箭頭，因為它們不是一站接一站，而是各自拿來證明同一件事。點任一格，第四步的課文對應行會亮起來。</figcaption>';
+  $("fig").innerHTML=s;
+  function hit(g){
+    var i=+g.dataset.i, d=NODES[i];
+    var gs=$("fig").querySelectorAll(".node");
+    for(var j=0;j<gs.length;j++) gs[j].classList.toggle("on", +gs[j].dataset.i===i);
+    hlLines(d.a,d.b);
+    $("pk").textContent="框與證據"; $("pk").className="k e";
+    $("pc").textContent=d.nm+"（第 "+d.a+(d.a===d.b?"":"–"+d.b)+" 行）"; $("pt").textContent=d.n;
+  }
+  $("fig").addEventListener("click",function(e){ var g=e.target.closest(".node"); if(g) hit(g); });
+  $("fig").addEventListener("keydown",function(e){
+    if(e.key!=="Enter"&&e.key!==" ") return;
+    var g=e.target.closest(".node"); if(g){ e.preventDefault(); hit(g); }
+  });
+}
+function afterQ2(){ drawFig(); $("db").hidden=false; }
+var set2=quiz("q2","a2","g2","q2",afterQ2);
+opener("g2","s3",buildCut);
+
+/* ---------- 第三步：拆外框＋摘要 ---------- */
+var builtCut=false;
+function buildCut(){
+  if(builtCut) return; builtCut=true;
+  var h="";
+  for(var i=0;i<PARAS.length;i++){
+    var p=PARAS[i];
+    h+='<div class="para" id="p'+i+'"><div class="hd"><span>'+esc(p.hd)+'</span>'+
+       '<button data-i="'+i+'" id="pb'+i+'">\u62c6\u6389</button></div>'+
+       '<div class="bd">'+esc(p.tx)+'</div>'+
+       '<div class="gonemsg">\uff08\u5df2\u62c6\u6389\uff09</div></div>';
+  }
+  $("cut").innerHTML=h;
+  $("cut").addEventListener("click",function(e){
+    var b=e.target.closest("button"); if(!b) return;
+    var i=b.dataset.i;
+    ST.cut[i]=ST.cut[i]?0:1; ST.cutTouched=1; save(); paintCut();
+  });
+  paintCut();
+}
+function paintCut(){
+  var left=[];
+  for(var i=0;i<3;i++){
+    var gone=!!ST.cut[i];
+    $("p"+i).classList.toggle("gone",gone);
+    $("pb"+i).textContent = gone ? "放回" : "拆掉";
+    if(!gone) left.push(i);
+  }
+  var v=$("vd"), msg, cls, T=left.indexOf(0)>=0, B=left.indexOf(1)>=0, K=left.indexOf(2)>=0;
+  if(T&&B&&K){ msg="三個區塊都在，這是完整的文章。"; cls=""; }
+  else if(!B){ msg="主體拆掉了。讀者知道她被貼過「妹妹」的標籤，也被告知改變她的是一連串選擇，卻看不到任何一個選擇。第 8 到 48 行的作品是整篇拿來證明的東西，這一塊不能拆。"; cls="no"; }
+  else if(!T&&!K){ msg="外框拆掉了，剩下第 8 到 48 行，是一份依作品排的片單，內容一樣不少。可是標題 From Dakota’s Sister to Hollywood Star 的 From 沒有著落了：被她超越的那個標籤，就在框裡。"; cls="warn"; }
+  else if(!T){ msg="上框拆掉了。文章直接從 The Neon Demon 講起，讀者到第 51 到 52 行才碰到 Dakota Fanning’s younger sister，結尾回頭的那個標籤，前面從沒出現過。"; cls="warn"; }
+  else { msg="下框拆掉了。文章開頭立了「Dakota 的妹妹」這個標籤，結尾卻沒有回來把它換掉，框只開了頭沒有收。華爾街日報式的結尾一定回到開頭那個人或那件事。"; cls="warn"; }
+  v.textContent=msg; v.className="verdict"+(cls?" "+cls:"");
+  if(ST.cutTouched){ $("a3").hidden=false; $("q3w").hidden=false; }
+}
+var set3=quiz("q3","a3b","g3","q3");
+opener("g3","s4",function(){ buildText(); drawFig(); });
+
+/* ---------- 第四步：課文與線索鏈 ---------- */
+function renderLine(str){
+  var out="",i=0;
+  while(i<str.length){
+    var a=str.indexOf("{",i);
+    if(a<0){ out+=esc(str.slice(i)); break; }
+    out+=esc(str.slice(i,a));
+    var b=str.indexOf("}",a), p=str.slice(a+1,b).split("|");
+    var id=p[1], it=p[2]||"1", k=CHAINS[id]?CHAINS[id].k:"sub";
+    out+='<m data-c="'+id+'" data-i="'+it+'" data-kind="'+k+'" tabindex="0">'+esc(p[0])+'</m>';
+    i=b+1;
+  }
+  return out;
+}
+var builtText=false;
+function buildText(){
+  if(builtText) return; builtText=true;
+  var h='<p class="ttl">'+renderLine(TITLE)+'</p>';
+  for(var i=0;i<LINES.length;i++){
+    var n=i+1;
+    if(SPLIT && n===SPLIT) h+='<p class="split">'+esc(SPLIT_TEXT)+'</p>';
+    var cls="ln"+(INDENT[n]?" ind"+(n>1?" pb":""):"");
+    h+='<div class="'+cls+'" data-n="'+n+'"><i>'+((n%5===0)?n:"")+'</i><span>'+renderLine(LINES[i])+'</span></div>';
+  }
+  $("tx").innerHTML=h;
+}
+function lightChain(id){
+  var ms=$("tx").querySelectorAll("m"), items={}, order=[],i;
+  var gs=$("fig").querySelectorAll(".node");
+  for(i=0;i<gs.length;i++) gs[i].classList.remove("on");
+  var rows=$("tx").querySelectorAll(".ln");
+  for(i=0;i<rows.length;i++) rows[i].classList.remove("hl");
+  for(i=0;i<ms.length;i++){
+    if(ms[i].dataset.c===id){
+      ms[i].classList.add("lit");
+      var key=ms[i].dataset.i;
+      if(!items[key]){ items[key]=[]; order.push(key); }
+      items[key].push(ms[i].textContent);
+    } else ms[i].classList.remove("lit");
+  }
+  var c=CHAINS[id]; if(!c) return;
+  var parts=[];
+  for(var o=0;o<order.length;o++) parts.push(esc(items[order[o]].join(" ")));
+  $("pk").textContent=LB[c.k]; $("pk").className=CL[c.k];
+  $("pc").innerHTML=parts.join('<i>\u2192</i>');
+  $("pt").textContent=c.n;
+}
+$("tx").addEventListener("click",function(e){ var m=e.target.closest("m"); if(m) lightChain(m.dataset.c); });
+$("tx").addEventListener("keydown",function(e){
+  if(e.key!=="Enter"&&e.key!==" ") return;
+  var m=e.target.closest("m"); if(m){ e.preventDefault(); lightChain(m.dataset.c); }
+});
+function toggle(btn,cls){
+  btn.addEventListener("click",function(){
+    var on=btn.getAttribute("aria-pressed")==="true";
+    btn.setAttribute("aria-pressed",on?"false":"true");
+    $("tx").classList.toggle(cls,on);
+  });
+}
+toggle($("m1"),"off-sub");
+toggle($("m2"),"off-gen");
+opener("g4","s5");
+
+/* ---------- 第五步 ---------- */
+var set5=quiz("q5","a5","g5","q5");
+$("g5").addEventListener("click",function(){
+  if(ST.step<6) ST.step=6; save();
+  $("s6").hidden=false;
+  $("s6").scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+/* ---------- 第六步 ---------- */
+var done6=false;
+function settle6(){
+  done6=true;
+  var bs=$("q6").querySelectorAll("button");
+  for(var i=0;i<bs.length;i++){
+    bs[i].disabled=true; bs[i].dataset.state=bs[i].dataset.ok?"right":"wrong";
+    if(bs[i].dataset.ok){ $("bl").textContent=bs[i].textContent; $("bl").className="blank filled"; }
+  }
+  $("a6").hidden=false; $("w6").hidden=false; $("s7").hidden=false;
+}
+$("q6").addEventListener("click",function(e){
+  var b=e.target.closest("button"); if(!b||done6) return;
+  settle6(); ST.q6=1; save();
+  $("a6").scrollIntoView({behavior:"smooth",block:"nearest"});
+});
+
+/* ---------- 老師的預覽開關：網址加 ?all ---------- */
+function previewAll(){
+  PREVIEW=true;
+  $("pv").hidden=false;
+  var i,cs=$("ld").querySelectorAll("c");
+  for(i=0;i<cs.length;i++){ ST.tags[cs[i].dataset.t]=1; paintTag(cs[i]); }
+  afterTags(); set1();
+  $("s2").hidden=false; set2();
+  $("s3").hidden=false; ST.cutTouched=1; buildCut(); set3();
+  $("s4").hidden=false; buildText(); drawFig();
+  $("s5").hidden=false; set5();
+  $("s6").hidden=false; settle6();
+}
+
+/* ---------- 接回上次的進度 ---------- */
+$("rst").addEventListener("click",wipe);
+(function restore(){
+  if(/(^|[?&])all(=|&|$)/.test(location.search)){ previewAll(); return; }
+  var v=load(); if(!v) return;
+  ST=v;
+  if(!ST.tags) ST.tags={};
+  if(!ST.cut) ST.cut={};
+  if(!ST.step) ST.step=1;
+  if(!(tagged()||ST.step>1)) return;
+  $("rs").hidden=false;
+  var i,cs=$("ld").querySelectorAll("c");
+  for(i=0;i<cs.length;i++) if(ST.tags[cs[i].dataset.t]) paintTag(cs[i]);
+  afterTags();
+  if(ST.q1) set1();
+  if(ST.step>=2){ $("s2").hidden=false; if(ST.q2) set2(); }
+  if(ST.step>=3){ $("s3").hidden=false; buildCut(); if(ST.q3) set3(); }
+  if(ST.step>=4){ $("s4").hidden=false; buildText(); drawFig(); }
+  if(ST.step>=5){ $("s5").hidden=false; if(ST.q5) set5(); }
+  if(ST.step>=6){ $("s6").hidden=false; if(ST.q6) settle6(); }
+  var last=$("s"+(ST.step>=6?6:ST.step));
+  if(last) setTimeout(function(){ last.scrollIntoView({block:"start"}); },60);
+})();
+})();
+</script>
+<p class="cc-note">本題庫自己寫的部分（解析、中譯、分類、標註與編排）採用 <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh-hant" target="_blank" rel="license noopener">CC BY-NC 4.0</a>（姓名標示─非商業性）授權：可以分享，但須註明出處，不得用於商業用途。試題來源與完整說明請見<a href="https://staresto-create.github.io/JCEE-vocab-questions/#terms">使用與著作權</a>。</p>
+</body>
+</html>

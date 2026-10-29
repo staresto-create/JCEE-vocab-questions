@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>描述的組織圖｜Beyond Prague: Discovering Czechia</title>
+
+<style>
+:root{
+  --ground:#f1f3f2; --ink:#17282f; --teal:#1f6f6a; --teal-soft:#dfeceb;
+  --muted:#77878d; --line:#cdd6d6; --exam:#b4661c; --exam-soft:#fdf4e7;
+  --ok:#2e6b4f; --ok-soft:#edf4ef;
+  --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+  --sans:"PingFang TC","Noto Sans TC","Microsoft JhengHei","Helvetica Neue",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ad-vground-bg);color:var(--ad-vink-fg);font-family:var(--sans);line-height:1.6;-webkit-text-size-adjust:100%}
+.wrap{max-width:44rem;margin:0 auto;padding:1.6rem 1.1rem 4rem}
+h1{font-family:var(--serif);font-weight:600;font-size:1.6rem;line-height:1.3;margin:0 0 .55rem}
+.lede{margin:0 0 1.1rem;color:var(--ad-x3d5059-fg);font-size:.95rem}
+.src{font-size:.8rem;color:var(--ad-vmuted-fg);margin:0 0 1.1rem}
+.preview{font-size:.85rem;color:var(--ad-vexam-fg);background:var(--ad-vexamsoft-bg);border:1px dashed var(--exam);
+  border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.preview[hidden]{display:none}
+.resume{font-size:.85rem;color:var(--ad-vteal-fg);background:var(--ad-vtealsoft-bg);border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.resume[hidden]{display:none}
+.resume button{font:inherit;font-size:.82rem;background:var(--ad-xfff-bg);color:var(--ad-vink-fg);border:1px solid var(--ad-vline-border);
+  border-radius:.25rem;padding:.16rem .6rem;margin-left:.5rem;cursor:pointer}
+.step{border-top:1px solid var(--ad-vline-border);padding-top:1.15rem;margin-top:1.7rem}
+.step[hidden]{display:none}
+.stepno{font-family:var(--serif);font-size:.82rem;color:var(--ad-vmuted-fg);margin:0 0 .2rem}
+h2{font-family:var(--serif);font-weight:600;font-size:1.2rem;margin:0 0 .5rem;color:var(--ad-vteal-fg)}
+p{margin:0 0 .7rem;font-size:.95rem}
+
+/* 組織圖：多列原因結果表 */
+.fig{background:var(--ad-xfff-bg);border:1px solid var(--ad-vline-border);border-radius:.4rem;padding:.7rem .5rem .5rem;margin:.2rem 0 .6rem}
+.fig svg{display:block;width:100%;height:auto;max-width:26rem;margin:0 auto}
+.bx rect{fill:#fff;stroke:var(--line);stroke-width:2}
+.bx text.fn{font-family:var(--sans);font-size:11px;font-weight:600;fill:var(--ad-vink-fg)}
+.bx text.en{font-family:var(--serif);font-size:8.5px;fill:var(--ad-vmuted-fg)}
+.bx text.rf{font-family:var(--sans);font-size:8.5px;fill:var(--ad-vmuted-fg)}
+.bx.aim rect{stroke:var(--ad-vteal-fg);stroke-dasharray:6 4}
+.bx.on rect{fill:var(--ok-soft);stroke:var(--ad-vok-fg);stroke-width:2.5}
+.bx.on text.rf{fill:var(--ad-vok-fg);font-weight:600}
+.bx.sel rect{stroke:var(--ad-vteal-fg);stroke-width:3}
+.lv text{font-family:var(--sans);font-size:9px;fill:var(--ad-vmuted-fg)}
+.cutline{stroke:var(--ad-vexam-fg);stroke-width:2;stroke-dasharray:6 5}
+.frameline{stroke:var(--line);stroke-width:2;stroke-dasharray:5 4;fill:none}
+.cuttag{font-family:var(--sans);font-size:9px;font-weight:600;fill:var(--ad-vexam-fg)}
+
+.panel{background:var(--ad-xfff-bg);border:1px solid var(--ad-vline-border);border-radius:.4rem;padding:.7rem .85rem;margin:0 0 .9rem}
+.panel .k{font-size:.72rem;font-weight:600;border-radius:.2rem;padding:.06rem .42rem;
+  color:var(--ad-vteal-fg);background:var(--ad-vtealsoft-bg);border:1px solid var(--ad-vteal-border)}
+.panel .q{font-family:var(--serif);font-size:.95rem;line-height:1.65;margin:.4rem 0 0;color:var(--ad-x3d5059-fg)}
+
+.pool{display:flex;flex-direction:column;gap:.4rem;margin:0 0 .8rem}
+.pool button{font:inherit;font-family:var(--serif);font-size:.93rem;line-height:1.55;background:var(--ad-xfff-bg);color:var(--ad-vink-fg);
+  border:1px solid var(--ad-vline-border);border-radius:.3rem;padding:.5rem .7rem;cursor:pointer;text-align:left}
+.pool button:hover{border-color:var(--ad-vteal-border)}
+.pool button.pick{border-color:var(--ad-vteal-border);background:var(--ad-vtealsoft-bg)}
+.pool button.gone{display:none}
+.hint{font-size:.85rem;color:var(--ad-vmuted-fg);margin:0 0 .8rem}
+.hint em{font-style:normal;color:var(--ad-vteal-fg);font-weight:600}
+
+.opts{display:flex;flex-direction:column;gap:.45rem;margin:.2rem 0 .8rem}
+.opts button{font:inherit;font-size:.94rem;background:var(--ad-xfff-bg);color:var(--ad-vink-fg);border:1px solid var(--ad-vline-border);
+  border-radius:.3rem;padding:.5rem .8rem;cursor:pointer;text-align:left}
+.opts button:hover{border-color:var(--ad-vteal-border)}
+.opts button[data-state="right"]{background:var(--ad-voksoft-bg);border-color:var(--ad-vok-border)}
+.opts button[data-state="wrong"]{background:var(--ad-vground-bg);color:var(--ad-vmuted-fg)}
+.opts button[disabled]{cursor:default}
+
+.said{background:var(--ad-xfff-bg);border-left:3px solid var(--ad-vteal-border);border-radius:.3rem;padding:.75rem .85rem;
+  margin:.2rem 0 .9rem;font-size:.93rem;color:var(--ad-x3d5059-fg)}
+.said[hidden]{display:none}
+.said b{color:var(--ad-vink-fg)}
+.srcs{margin:.6rem 0 .9rem}
+.srcs .pair{font-family:var(--serif);font-size:.9rem;line-height:1.6;color:var(--ad-x3d5059-fg);
+  border-left:2px solid var(--ad-vline-border);padding:.1rem 0 .1rem .6rem;margin:0 0 .5rem}
+.srcs .pair .t{display:block;font-family:var(--sans);font-size:.76rem;font-weight:600;color:var(--ad-vteal-fg)}
+.go{font:inherit;font-size:.92rem;background:var(--ad-vink-bg);color:var(--ad-onflip-fg);border:1px solid var(--ad-vink-border);
+  border-radius:.3rem;padding:.42rem 1.05rem;cursor:pointer}
+.go[hidden]{display:none}
+
+.prompt{background:var(--ad-vexamsoft-bg);border:1px solid var(--ad-xe8d3b4-border);border-radius:.4rem;padding:.75rem .85rem;
+  margin:0 0 .9rem;font-size:.92rem;color:var(--ad-x3d5059-fg)}
+.prompt b{color:var(--ad-vink-fg)}
+.cell{background:var(--ad-xfff-bg);border:1px solid var(--ad-vline-border);border-radius:.4rem;padding:.6rem .75rem}
+.cell+.cell{margin-top:.6rem}
+.cell .fn{font-size:.78rem;font-weight:600;color:var(--ad-vteal-fg)}
+.cell .fn em{font-style:normal;color:var(--ad-vmuted-fg);font-weight:400;margin-left:.35rem}
+.cell textarea{width:100%;margin-top:.3rem;font-family:inherit;font-size:.93rem;line-height:1.6;
+  padding:.45rem .55rem;border:1px solid var(--ad-vline-border);border-radius:.3rem;background:var(--ad-xfff-bg);color:var(--ad-vink-fg);resize:vertical}
+.bar{display:flex;gap:.5rem;flex-wrap:wrap;margin:.7rem 0}
+.bar button{font:inherit;font-size:.9rem;background:var(--ad-xfff-bg);color:var(--ad-vink-fg);border:1px solid var(--ad-vink-border);
+  border-radius:.3rem;padding:.38rem .9rem;cursor:pointer}
+.bar button.p{background:var(--ad-vink-bg);color:var(--ad-onflip-fg)}
+.bar button[disabled]{border-color:var(--ad-vline-border);color:var(--ad-vmuted-fg);cursor:default;background:var(--ad-xfff-bg)}
+pre.ai{background:var(--ad-xfff-bg);border:1px solid var(--ad-vline-border);border-radius:.3rem;padding:.6rem .7rem;
+  font-size:.8rem;line-height:1.65;white-space:pre-wrap;margin:.4rem 0 0;color:var(--ad-x3d5059-fg)}
+.code{background:var(--ad-vtealsoft-bg);border:1px solid var(--ad-vteal-border);border-radius:.4rem;padding:.7rem .85rem;margin:1.1rem 0 .5rem}
+.code .t{font-size:.8rem;font-weight:600;color:var(--ad-vteal-fg);margin:0 0 .35rem}
+.code .v{font-family:var(--serif);font-size:1.15rem;letter-spacing:.04em;color:var(--ad-vink-fg);margin:0 0 .5rem}
+.series{border-top:1px solid var(--ad-vline-border);margin-top:2.2rem;padding-top:1.1rem;font-size:.9rem}
+.series a{font-family:var(--serif);font-size:1rem;color:var(--ad-vteal-fg);text-decoration:none}
+.series a:hover{text-decoration:underline}
+.toast{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--ad-vink-bg);color:var(--ad-onflip-fg);
+  padding:.45rem 1rem;border-radius:.3rem;font-size:.86rem;opacity:0;transition:opacity .2s;pointer-events:none}
+.toast.on{opacity:1}
+.spoke{stroke:var(--line);stroke-width:2;fill:none}
+.bx.hub rect{stroke:var(--ad-vmuted-fg)}
+.bx.hub.on rect{stroke:var(--ad-vok-fg)}
+.bx.sw rect,.bx.hub.on.sw rect{stroke:var(--ad-vexam-fg);stroke-width:2.5}
+.bx.sw text.fn{fill:var(--ad-vexam-fg)}
+.warn{font-family:var(--sans);font-size:9.5px;font-weight:600;fill:var(--ad-vexam-fg)}
+.okk{font-family:var(--sans);font-size:9.5px;font-weight:600;fill:var(--ad-vok-fg)}
+.hint ul{margin:.3rem 0 0;padding-left:1.1rem;color:var(--ad-vexam-fg)}
+.hint ul.ok{color:var(--ad-vok-fg)}
+.hint li{margin-bottom:.2rem}
+
+/* 深色模式（2026-10-22）：淺色數值與原本相同；只在螢幕、手機或電腦設成深色外觀時生效，列印不受影響。 */
+:root{--ad-onflip-fg:#ffffff;--ad-vexam-border:var(--exam);--ad-vexam-fg:var(--exam);--ad-vexamsoft-bg:var(--exam-soft);--ad-vground-bg:var(--ground);--ad-vink-bg:var(--ink);--ad-vink-border:var(--ink);--ad-vink-fg:var(--ink);--ad-vline-border:var(--line);--ad-vline-fg:var(--line);--ad-vmuted-fg:var(--muted);--ad-vok-border:var(--ok);--ad-vok-fg:var(--ok);--ad-voksoft-bg:var(--ok-soft);--ad-voksoft-fg:var(--ok-soft);--ad-vteal-border:var(--teal);--ad-vteal-fg:var(--teal);--ad-vtealsoft-bg:var(--teal-soft);--ad-x3d5059-fg:#3d5059;--ad-x8a8278-fg:#8a8278;--ad-xe8d3b4-border:#e8d3b4;--ad-xfff-bg:#fff;--ad-xfff-fg:#fff;color-scheme:light}
+@media screen and (prefers-color-scheme: dark){
+ :root{--ad-onflip-fg:#16201F;--ad-vexam-border:#b4661c;--ad-vexam-fg:#E7CAAF;--ad-vexamsoft-bg:#2D2821;--ad-vground-bg:#1F2020;--ad-vink-bg:#E6EBEE;--ad-vink-border:#E9EFF2;--ad-vink-fg:#E9EFF2;--ad-vline-border:#3F4747;--ad-vline-fg:#cdd6d6;--ad-vmuted-fg:#BAC0C2;--ad-vok-border:#CDE4DA;--ad-vok-fg:#CDE4DA;--ad-voksoft-bg:#1F2321;--ad-voksoft-fg:#edf4ef;--ad-vteal-border:#CDEAE9;--ad-vteal-fg:#CDEAE9;--ad-vtealsoft-bg:#1D2524;--ad-x3d5059-fg:#D4DBDF;--ad-x8a8278-fg:#C2BFBB;--ad-xe8d3b4-border:#58482F;--ad-xfff-bg:#2D2A25;--ad-xfff-fg:#ffffff;color-scheme:dark}
+}
+
+</style>
+<style id="anti-copy">
+/* 防盜用措施（2026-10-14）：畫面浮水印、列印浮水印、頁尾授權聲明 */
+@media screen{body::before{content:"";position:fixed;top:0;left:0;right:0;bottom:0;z-index:2147483000;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22460%22%20height%3D%22240%22%3E%3Cg%20transform%3D%22rotate%28-20%20230%20120%29%22%20font-family%3D%22Noto%20Sans%20TC%2Csans-serif%22%20fill%3D%22%23D9A400%22%20fill-opacity%3D%22.2%22%20text-anchor%3D%22middle%22%3E%3Ctext%20x%3D%22230%22%20y%3D%22112%22%20font-size%3D%2220%22%3E%E9%AB%98%E4%B8%AD%E8%8B%B1%E6%96%87%E9%A1%8C%E5%BA%AB%3C%2Ftext%3E%3Ctext%20x%3D%22230%22%20y%3D%22140%22%20font-size%3D%2214%22%3Estaresto-create.github.io%2FJCEE-vocab-questions%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E");background-repeat:repeat;}}
+@media print{body::after{content:"高中英文題庫\A staresto-create.github.io/JCEE-vocab-questions\A 免費資源，請勿販售";white-space:pre;position:fixed;top:42%;left:0;right:0;text-align:center;transform:rotate(-25deg);font-family:"Noto Sans TC",sans-serif;font-size:26pt;line-height:1.7;color:#c8c8c8;z-index:2147483000;pointer-events:none;}}
+.cc-note{font-size:12px;line-height:1.8;color:var(--ad-x8a8278-fg);margin:12px auto;max-width:60em;padding:0 1em;}.cc-note a{color:inherit;}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>描述的組織圖：一個主題，四個景點</h1>
+<p class="lede">上一份單元頁帶你讀完 Beyond Prague 這一篇。這一份把整篇整理成一張圖：中間是主題，周圍一個景點一格，格子之間不畫箭頭。這個形狀叫<b>放射狀網狀圖</b>，是描述文的標準圖，十月號第七、十一單元和十一月號第二單元用的也是這一張。文章先提出一個主題，再分成幾個部分、特徵或例子來說明時，就用這種圖來整理。</p>
+<p class="preview" id="pv" hidden>預覽模式：全部步驟與答案一次展開，進度不存檔。學生拿到的一般連結不受影響。</p>
+<p class="resume" id="rs" hidden>上次做到一半，已經幫你接回來了。<button id="rst">重新開始</button></p>
+<p class="src">ALL+ 互動英語 11 月號 Unit 3（pp. 12–13）　Beyond Prague: Discovering Czechia　全文 51 行</p>
+
+<!-- 第一步 -->
+<section class="step" id="s1">
+  <p class="stepno">第一步</p>
+  <h2>中間一格，周圍四格</h2>
+  <p>每一格的名稱已經印好了：中間是主題，周圍是四個景點。你要放的是每一格在說什麼。</p>
+  <p>五個位置各有各的內容。<b>七張句卡，只有五張放得進去</b>，而且都不是原句，是換過字的說法。</p>
+  <p class="hint" id="h1">先點一張句卡，再點圖上的格子。第一次就放對 <em id="n1">0</em> / 5</p>
+  <div class="pool" id="pool"></div>
+  <figure class="fig" id="fig"></figure>
+  <div class="panel" id="pn">
+    <span class="k" id="pk">這一格</span>
+    <p class="q" id="pq">點圖上任一個格子，看它裝的是哪一句。</p>
+  </div>
+  <div class="said" id="a1" hidden>
+    <b>兩張放不進去的是哪兩張。</b>一張說電影讓劇場的舞臺機關受到更多人的注意，<b>這張最容易放錯</b>，因為它很像 Český Krumlov 那一格：劇場和舞臺機關確實在第 10 到 12 行。可是電影是第 20 到 21 行國家公園的砂岩拱門才有的故事，課文沒有說劇場因為電影被注意。這一張把兩個景點的細節接在一起，對的東西放錯了地方，所以哪一格都放不進去。另一張說首都已經看完所有東西、其餘地方可以不用去。第 45 到 47 行寫的是 <q>Prague may be where most visitors start, but the rest of Czechia has much more to offer</q>，方向剛好說反。
+    <br><br>
+    <b>七張句卡沒有一張跟課文一樣。</b>下面是五個位置的原文與行號，回去對一次。
+    <div class="srcs" id="src6"></div>
+  </div>
+  <button class="go" id="g1" hidden>下一步：把格子換個位置看看</button>
+</section>
+
+<!-- 第二步 -->
+<section class="step" id="s2" hidden>
+  <p class="stepno">第二步</p>
+  <h2>對調測試</h2>
+  <p>十一月號第二單元的岩蹄兔，周圍兩格對調，照樣成立。這一篇呢？<b>按下面的按鈕，圖上的格子會真的換位置。</b>前兩個按鈕各對調周圍的兩格，第三個按鈕把中心和其中一格互換。三種都試過，才會出題。</p>
+  <div class="bar" id="swbar">
+    <button data-s="1">對調小鎮和國家公園</button>
+    <button data-s="2">對調古城和藏骨堂</button>
+    <button data-s="3">把中心換成國家公園</button>
+    <button class="p" id="undo" hidden>換回來</button>
+  </div>
+  <div class="hint" id="swh">五格照原來的位置排著。任選一種對調。</div>
+  <div id="q2box" hidden>
+    <p>三種對調都試過了。<b>哪一個結論最符合這篇課文？</b></p>
+    <div class="opts" id="q2">
+      <button>周圍的景點全部可以對調，只有中心的主題不能換</button>
+      <button data-ok="1">不靠前一格的景點可以對調，靠前一格掛上去的不行</button>
+      <button>景點是依旅遊路線排的，所以每一格的位置都不能動</button>
+      <button>篇幅最長的景點要排最前面，所以不能隨便對調</button>
+    </div>
+    <div class="said" id="a2" hidden>
+      <b>不靠前一格的景點可以對調，靠前一格掛上去的不行。</b>小鎮和國家公園各自在段首宣布這一格講哪個景點：第 6 行 One of the most visited is Český Krumlov，第 15 到 16 行 No trip to Czechia is complete without a visit to Bohemian Switzerland National Park。兩格都不需要前一段，所以可以對調。藏骨堂不一樣：第 34 到 35 行 <q>Just outside the town is the Sedlec Ossuary</q> 的 the town 指的是上一格的 Kutná Hora，對調以後它前面是別的景點，讀者只能把 the town 當成更前面的 Český Krumlov（第 10 行也有 the town），變成藏骨堂在捷克克倫洛夫旁邊，錯了。中心更不能換：它是整個首都以外的捷克，任何一個景點都只是它的一部分。
+      <br><br>
+      <b>另外三個為什麼排除：</b>「周圍的景點全部可以對調，只有中心的主題不能換」<b>最容易選</b>，因為十一月號第二單元就是這個結論，而且前兩種對調你剛剛也看到成立。可是這一篇第四格掛在第三格旁邊，古城和藏骨堂一對調就出錯，所以不是全部都可以換。「景點是依旅遊路線排的」是把描述誤認成序列：全文沒有 then、next 這類路線的字，第 15 行的 No trip 和第 6 行的 One of 都是各自獨立的開頭。「篇幅最長的景點要排最前面」更不成立：古城和藏骨堂各有 11 行，小鎮是 9 行，國家公園是 8 行，排在最前面的小鎮並不是最長的，課文也沒有任何字依據篇幅排位置。
+    </div>
+  </div>
+  <button class="go" id="g2" hidden>下一步：換成你自己的作文</button>
+</section>
+
+<!-- 第三步 -->
+<section class="step" id="s3" hidden>
+  <p class="stepno">第三步</p>
+  <h2>用同一張圖列你的大綱</h2>
+  <p>學測作文常要你介紹一個地方或一樣東西：先說出它有哪幾方面特別，再說明你的想法。第一段就是一篇小小的描述文。用剛才那張圖列大綱，有三件事要照這篇學：</p>
+  <p><b>一、先承認大家都知道的，再帶讀者去別的地方。</b>這篇第 1 到 2 行先說 Although Prague is Czechia’s best-known destination，一個 many ... lie beyond the capital 就把讀者帶出去。你可以寫「說到我們這座城市，大家都只知道那座最有名的老街，可是……」。<b>二、每一格的第一句，先讓讀者知道換到哪一個地方。</b>這篇用 One of、No trip ... is complete without、Another、Just outside the town 這類開頭，你可以用 Another place worth visiting、Not far from there。<b>三、頭尾呼應。</b>這篇從布拉格開始，也回到布拉格結束；你的結尾也可以回到開頭提到的那個地方。寫完一格，問自己：這一格是不是主題句裡的一項？</p>
+  <div class="prompt">
+    <b>試寫的題目：</b>請寫一篇短文，向外國朋友介紹你居住的城市。第一段說明除了最有名的那個地方以外，還有三個值得去的地方，各有什麼特色，每一個地方舉一個具體的例子；第二段說明你為什麼推薦他們去。
+  </div>
+  <p>每一格寫一句中文要點就好，這一步先不寫英文。</p>
+  <div id="mine"></div>
+  <div class="bar">
+    <button class="p" id="cp">複製我寫的內容</button>
+    <button id="sv">存到瀏覽器</button>
+  </div>
+  <p class="hint">這一步沒有標準答案，站上不批改。複製之後貼給老師，或貼給 AI 也可以，下面這段指示會跟著一起複製。</p>
+  <pre class="ai" id="aib"></pre>
+  <div class="code">
+    <p class="t">做完了，把這一行貼到 Google Classroom 的作業回覆欄</p>
+    <p class="v" id="cv">—</p>
+    <div class="bar" style="margin:0">
+      <button class="p" id="cc">複製完成碼</button>
+      <button id="rfb">重新產生</button>
+    </div>
+    <p class="hint" style="margin:.5rem 0 0">老師只看這一行，不會看到你寫的內容。你寫的東西只留在這台裝置的瀏覽器裡。</p>
+  </div>
+</section>
+
+<nav class="series">
+  <a href="cohesion.html">← 回讀法練習總表</a>
+</nav>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+"use strict";
+function $(id){return document.getElementById(id);}
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;");}
+
+var KEY="outline-202611-u3-v1";
+var PREVIEW=false;
+var ST={put:{},first:{},miss:{},sw:0,tried:{},q2:0,mine:{},step:1};
+function save(){ if(PREVIEW) return; try{ localStorage.setItem(KEY,JSON.stringify(ST)); }catch(e){} }
+function load(){ try{ var r=localStorage.getItem(KEY); return r?JSON.parse(r):null; }catch(e){ return null; } }
+function toast(m){ var t=$("toast"); t.textContent=m; t.classList.add("on");
+  setTimeout(function(){ t.classList.remove("on"); },1600); }
+
+/* 五格：中心加周圍四格 */
+var CELLS=[
+ {id:"h",fn:"中心　主題",en:"beyond the capital",rf:"第 1–5 行"},
+ {id:"k",fn:"Český Krumlov",en:"One of the most visited",rf:"第 6–14 行"},
+ {id:"b",fn:"國家公園",en:"complete without a visit",rf:"第 15–22 行"},
+ {id:"t",fn:"Kutná Hora",en:"Another destination",rf:"第 23–33 行"},
+ {id:"s",fn:"藏骨堂",en:"Just outside the town",rf:"第 34–44 行"}
+];
+/* 位置：0 是中心，1–4 是周圍（順時針：上、右、下、左） */
+var POS=[[200,170],[200,40],[334,170],[200,300],[66,170]];
+/* 每一種狀態下，位置 0–4 放哪一格（CELLS 的索引） */
+var ORDERS={0:[0,1,2,3,4],1:[0,2,1,3,4],2:[0,1,2,4,3],3:[2,1,0,3,4]};
+var SAFE={
+ 1:["第 6 行的段首 One of the most visited is Český Krumlov 和第 15 到 16 行的段首 No trip to Czechia is complete without a visit to Bohemian Switzerland National Park，都在第一句自己宣布這一段講哪個景點，不需要前一段。",
+    "對調以後，No trip 開頭的排在第一，One of 開頭的排在第二：One of 比較像清單的起頭，放在第二格稍微不順，不過句子本身讀得通，後面第 23 行的 Another 也還是接在兩個景點後面。內容一個字都不用改。"]
+};
+var WARN2=["第 34 行的段首 Just outside the town is the Sedlec Ossuary 靠 the town 掛在前一格，它指的是 Kutná Hora。",
+           "對調以後，藏骨堂排在國家公園後面，the town 只能被讀成更前面的 Český Krumlov（第 10 行也有 the town），變成藏骨堂在捷克克倫洛夫旁邊，錯了。"];
+var WARN3=["第 1 到 3 行的主題是首都以外的捷克，整個國家；國家公園只是其中一個景點，當不了整篇的主題。",
+           "小鎮、古城、藏骨堂這三格講的都不是國家公園的內容，收不進「國家公園」那一格底下。原本的主題擠到外圈，只剩一格。"];
+
+var SENTS=[
+ {id:"x1",t:"Thanks to a film, the wooden machinery in the castle theater has drawn wider attention from visitors around the world."},
+ {id:"k",t:"A small town grown around a huge castle keeps a noble family’s rose emblem on its old buildings and a theater from the eighteenth century whose wooden machinery still runs."},
+ {id:"h",t:"Although the capital is the most famous destination, plenty of the nation’s finest sights lie outside it and show visitors its past, its culture, and its scenery."},
+ {id:"b",t:"A national park, named by two painters from Switzerland who were reminded of home, is best known for Europe’s biggest natural stone arch, which became better known through a film."},
+ {id:"x2",t:"Because the capital already shows travelers everything, they can skip the rest of the country, which has little left to offer."},
+ {id:"t",t:"Silver once made this town one of the richest in the kingdom, and a church honoring the miners’ guardian saint and a tour of the old mines still show how trade made it wealthy."},
+ {id:"s",t:"Beside that town stands a church adorned with the remains of some 40,000 people, built to teach visitors that riches and rank fade and that death makes everyone equal."}
+];
+var NOFIT={
+ x1:"這一張最容易放進 Český Krumlov 那一格，因為劇場和舞臺機關確實在第 10 到 12 行。可是電影是第 20 到 21 行國家公園的砂岩拱門才有的故事，課文沒有說劇場因為電影被注意。這一張把兩個景點的細節接在一起，歸屬錯了，所以哪一格都放不進去。",
+ x2:"這一張的方向跟課文相反。第 45 到 47 行寫的是 Prague may be where most visitors start, but the rest of Czechia has much more to offer：其餘的地方還有更多可看，不是沒有東西可看。所以哪一格都放不進去。"
+};
+var SRCQ=[
+ {fn:"中心　主題",rf:"第 1–5 行",t:"Although Prague is Czechia’s best-known destination, many of the country’s greatest attractions lie beyond the capital. From medieval towns to national parks, these places offer visitors a closer look at Czechia’s history, culture, and natural beauty."},
+ {fn:"Český Krumlov",rf:"第 6–12 行",t:"One of the most visited is Český Krumlov, a charming town centered on the second-largest castle complex in Czechia. … Its wooden stage machinery still works much as it did 250 years ago"},
+ {fn:"國家公園",rf:"第 15–21 行",t:"No trip to Czechia is complete without a visit to Bohemian Switzerland National Park. The name comes from two Swiss painters who felt the landscape reminded them of home. … Pravčická Gate, the largest natural sandstone arch in Europe. … it gained wider attention after appearing in the 2005 film"},
+ {fn:"Kutná Hora",rf:"第 23–33 行",t:"Another destination that brings Czechia’s past to life is Kutná Hora. During the Middle Ages, its rich silver mines made it one of the wealthiest cities in the kingdom. … Visitors can also tour parts of the original mines and learn how silver turned Kutná Hora into a major center of trade."},
+ {fn:"藏骨堂",rf:"第 34–41 行",t:"Just outside the town is the Sedlec Ossuary, also known as the Bone Church. Decorated with the bones of around 40,000 people, it may feel unsettling at first. However, it was not built to frighten. Its purpose is to remind visitors that wealth, power, and status all fade with time, and that everyone is equal in the face of death."}
+];
+
+var MINE=[
+ {id:"m1",fn:"中心：主題句",en:"the topic",ph:"先承認大家都知道的那個地方，再用一句話說還有三個值得去的地方。"},
+ {id:"m2",fn:"地方一",en:"place 1",ph:"第一個地方：先說出是哪裡，再給一個具體的例子或數字。"},
+ {id:"m3",fn:"地方二",en:"place 2",ph:"另一個地方，跟地方一不重複；第一句要讓讀者知道換到哪一個地方。"},
+ {id:"m4",fn:"地方三",en:"place 3",ph:"第三個地方。寫完問自己：它是不是主題句列出的項目之一？"}
+];
+
+var AI=[
+"我是台灣的高中生，正在準備學測英文作文。下面是我列的中文大綱，題目要我向外國朋友介紹我居住的城市：第一段說明除了最有名的那個地方以外，還有三個值得去的地方，各有什麼特色，每一個地方舉一個具體的例子；第二段說明我為什麼推薦他們去。",
+"",
+"請照以下規則給我意見：",
+"1. 先看主題句：有沒有先承認大家都知道的那個地方，再說出還有哪三個值得去的地方。",
+"2. 三個地方是不是各講一件事，彼此沒有重複，順序也跟主題句列的一樣。",
+"3. 每一個地方有沒有配一個具體的例子或數字，而不是只寫「很好玩」「很特別」。",
+"4. 每一格的第一句，有沒有讓讀者知道換到哪一個地方。",
+"5. 每一個地方是不是都回到主題句，是主題句列出的項目之一。",
+"6. 不要幫我寫英文，也不要幫我補內容。",
+"7. 說明用中文。"
+].join("\n");
+
+/* ── 畫圖 ── */
+function drawFig(){
+  var sw=ST.sw||0, ord=ORDERS[sw];
+  var s='<svg viewBox="0 0 400 340" role="img" aria-label="放射狀網狀圖：中間是首都以外的捷克，周圍四格是Český Krumlov、國家公園、Kutná Hora、藏骨堂">';
+  var p,c,x,y,w,h,cls;
+  for(p=1;p<5;p++) s+='<path class="spoke" d="M'+POS[0][0]+' '+POS[0][1]+' L'+POS[p][0]+' '+POS[p][1]+'"/>';
+  for(p=0;p<5;p++){
+    c=CELLS[ord[p]]; x=POS[p][0]; y=POS[p][1];
+    w=p===0?116:120; h=p===0?56:48;
+    cls="bx"+(ST.put[c.id]?" on":"")+(p===0?" hub":"")+(sw&&ord[p]!==p?" sw":"");
+    s+='<g class="'+cls+'" data-id="'+c.id+'" tabindex="0" role="button">';
+    s+='<rect x="'+(x-w/2)+'" y="'+(y-h/2)+'" width="'+w+'" height="'+h+'" rx="6"/>';
+    s+='<text class="fn" x="'+x+'" y="'+(y-h/2+17)+'" text-anchor="middle">'+esc(c.fn)+'</text>';
+    s+='<text class="en" x="'+x+'" y="'+(y-h/2+30)+'" text-anchor="middle">'+esc(c.en)+'</text>';
+    s+='<text class="rf" x="'+x+'" y="'+(y-h/2+42)+'" text-anchor="middle">'+(ST.put[c.id]?esc(c.rf):"放句卡")+'</text>';
+    s+='</g>';
+  }
+  if(sw===1) s+='<text class="okk" x="6" y="12">對調之後照樣成立</text>';
+  if(sw===2) s+='<text class="warn" x="6" y="12">the town 指不到 Kutná Hora</text>';
+  if(sw===3) s+='<text class="warn" x="200" y="232" text-anchor="middle">主題？</text><text class="warn" x="6" y="12">其他三格收不進中心</text>';
+  s+='</svg>';
+  $("fig").innerHTML=s;
+}
+
+var pick=null;
+function drawPool(){
+  var h="";
+  for(var i=0;i<SENTS.length;i++)
+    h+='<button data-i="'+i+'" class="'+(ST.put[SENTS[i].id]?"gone":"")+'">'+esc(SENTS[i].t)+'</button>';
+  $("pool").innerHTML=h;
+}
+function done1(){ var n=0; for(var k in ST.put) if(ST.put[k]) n++; return n; }
+function first1(){ var n=0; for(var k in ST.first) if(ST.first[k]) n++; return n; }
+function showSrc(){
+  if($("src6").innerHTML) return;
+  var h="";
+  for(var i=0;i<SRCQ.length;i++)
+    h+='<div class="pair"><span class="t">'+esc(SRCQ[i].fn)+'　'+esc(SRCQ[i].rf)+'</span>'+esc(SRCQ[i].t)+'</div>';
+  $("src6").innerHTML=h;
+}
+function after1(){
+  if($("n1")) $("n1").textContent=first1();
+  if(done1()===5){
+    $("h1").innerHTML="五格都滿了。第一次就放對 <em id=\"n1\">"+first1()+"</em> / 5";
+    $("a1").hidden=false; $("g1").hidden=false; showSrc();
+  }
+}
+function show(id){
+  var c=null,i;
+  for(i=0;i<CELLS.length;i++) if(CELLS[i].id===id) c=CELLS[i];
+  if(!c) return;
+  var gs=$("fig").querySelectorAll(".bx");
+  for(i=0;i<gs.length;i++) gs[i].classList.toggle("sel", gs[i].dataset.id===id);
+  $("pk").textContent=c.fn+"　"+(ST.put[id]?c.rf:"還沒放");
+  $("pq").textContent=ST.put[id]||"這一格還空著。";
+}
+function aim(on){
+  var gs=$("fig").querySelectorAll(".bx");
+  for(var i=0;i<gs.length;i++) if(!gs[i].classList.contains("on")) gs[i].classList.toggle("aim",on);
+}
+$("pool").addEventListener("click",function(e){
+  var b=e.target.closest("button"); if(!b) return;
+  var bs=$("pool").querySelectorAll("button");
+  for(var i=0;i<bs.length;i++) bs[i].classList.remove("pick");
+  b.classList.add("pick"); pick=+b.dataset.i; aim(true);
+});
+function hit(g){
+  var id=g.dataset.id;
+  if(pick===null || ST.put[id]){ show(id); return; }
+  var s=SENTS[pick];
+  if(NOFIT[s.id]){
+    ST.miss[id]=1; save();
+    $("pk").textContent="這一張沒有位置";
+    $("pq").textContent=NOFIT[s.id];
+    return;
+  }
+  if(s.id!==id){ ST.miss[id]=1; save(); toast("這一格要的不是這一張"); return; }
+  if(!ST.miss[id]) ST.first[id]=1;
+  ST.put[id]=s.t; save(); pick=null;
+  drawFig(); drawPool(); aim(false); show(id); after1();
+}
+$("fig").addEventListener("click",function(e){ var g=e.target.closest(".bx"); if(g) hit(g); });
+$("fig").addEventListener("keydown",function(e){
+  if(e.key!=="Enter"&&e.key!==" ") return;
+  var g=e.target.closest(".bx"); if(g){ e.preventDefault(); hit(g); }
+});
+$("g1").addEventListener("click",function(){
+  if(ST.step<2) ST.step=2; save();
+  $("s2").hidden=false; $("s2").scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+/* ── 第二步：對調測試 ── */
+function allTried(){ return ST.tried[1]&&ST.tried[2]&&ST.tried[3]; }
+function paintSw(){
+  drawFig();
+  var bs=$("swbar").querySelectorAll("button[data-s]");
+  for(var i=0;i<bs.length;i++) bs[i].disabled=!!ST.sw;
+  $("undo").hidden=!ST.sw;
+  var h,k,list,n=0;
+  for(k=1;k<=3;k++) if(ST.tried[k]) n++;
+  if(!ST.sw){
+    if(n===3) h="換回來了。三種對調都試過了，看下面的題目。";
+    else if(n===0) h="五格照原來的位置排著。任選一種對調。";
+    else h="換回來了。還有 "+(3-n)+" 種沒試。";
+    $("swh").textContent=h;
+  } else {
+    if(ST.sw===1){ h="對調之後，沒有一處接不上：<ul class=\"ok\">"; list=SAFE[1]; }
+    else if(ST.sw===2){ h="對調之後，有一處接不上：<ul>"; list=WARN2; }
+    else { h="中心一換，就不成立了：<ul>"; list=WARN3; }
+    for(k=0;k<list.length;k++) h+="<li>"+esc(list[k])+"</li>";
+    $("swh").innerHTML=h+"</ul>";
+  }
+  if(allTried()) $("q2box").hidden=false;
+}
+$("swbar").addEventListener("click",function(e){
+  var b=e.target.closest("button[data-s]"); if(!b||ST.sw) return;
+  ST.sw=+b.dataset.s; ST.tried[ST.sw]=1; save(); paintSw();
+});
+$("undo").addEventListener("click",function(){ ST.sw=0; save(); paintSw(); });
+function settle2(){
+  var bs=$("q2").querySelectorAll("button");
+  for(var i=0;i<bs.length;i++){ bs[i].disabled=true; bs[i].dataset.state=bs[i].dataset.ok?"right":"wrong"; }
+  $("a2").hidden=false; $("g2").hidden=false;
+}
+$("q2").addEventListener("click",function(e){
+  var b=e.target.closest("button"); if(!b||ST.q2) return;
+  ST.q2=b.dataset.ok?1:2; save(); settle2();
+});
+$("g2").addEventListener("click",function(){
+  if(ST.step<3) ST.step=3; save();
+  paintCode(); $("s3").hidden=false;
+  $("s3").scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+/* ── 第三步 ── */
+function drawMine(){
+  var h="";
+  for(var i=0;i<MINE.length;i++){
+    var m=MINE[i];
+    h+='<div class="cell"><span class="fn">'+esc(m.fn)+'<em>'+esc(m.en)+'</em></span>'+
+       '<textarea id="'+m.id+'" rows="2" placeholder="'+esc(m.ph)+'"></textarea></div>';
+  }
+  $("mine").innerHTML=h;
+  for(var j=0;j<MINE.length;j++){
+    var el=$(MINE[j].id);
+    if(ST.mine[MINE[j].id]) el.value=ST.mine[MINE[j].id];
+    el.addEventListener("input",function(){ ST.mine[this.id]=this.value; save(); });
+  }
+  $("aib").textContent=AI;
+}
+function mkCode(){
+  var f=first1(), m=0, w=0, i;
+  for(var k in ST.miss) if(ST.miss[k]) m++;
+  for(i=0;i<MINE.length;i++){ var el=$(MINE[i].id); if(el&&el.value.trim()) w++; }
+  var seed=(f*31 + m*7 + w*13 + (ST.q2===1?5:0) + 11*211 + 3*101 + 1777) % 46656;
+  return "11-U3 "+f+"/5 大綱"+w+"/4 "+("000"+seed.toString(36).toUpperCase()).slice(-3);
+}
+function paintCode(){ $("cv").textContent=mkCode(); }
+$("rfb").addEventListener("click",paintCode);
+function copy(t){
+  function fb(){
+    var ta=document.createElement("textarea"); ta.value=t; document.body.appendChild(ta);
+    ta.select(); try{ document.execCommand("copy"); toast("已複製"); }catch(e){ toast("複製失敗，請手動選取"); }
+    document.body.removeChild(ta);
+  }
+  if(navigator.clipboard&&navigator.clipboard.writeText)
+    navigator.clipboard.writeText(t).then(function(){ toast("已複製"); },fb);
+  else fb();
+}
+$("cc").addEventListener("click",function(){ copy(mkCode()); });
+$("sv").addEventListener("click",function(){
+  for(var i=0;i<MINE.length;i++) ST.mine[MINE[i].id]=$(MINE[i].id).value;
+  save(); toast("已存在這台裝置的瀏覽器裡");
+});
+$("cp").addEventListener("click",function(){
+  var t=AI+"\n\n【我的大綱】\n";
+  for(var i=0;i<MINE.length;i++) t+=MINE[i].fn+"："+($(MINE[i].id).value||"（空白）")+"\n";
+  copy(t);
+});
+
+/* ── 預覽 ── */
+function previewAll(){
+  PREVIEW=true; $("pv").hidden=false;
+  for(var i=0;i<SENTS.length;i++) if(!NOFIT[SENTS[i].id]){ ST.put[SENTS[i].id]=SENTS[i].t; ST.first[SENTS[i].id]=1; }
+  drawPool(); drawMine(); after1();
+  $("s2").hidden=false; ST.sw=0; ST.tried={1:1,2:1,3:1}; paintSw(); ST.q2=1; settle2();
+  $("s3").hidden=false; paintCode();
+}
+
+/* ── 接回進度 ── */
+$("rst").addEventListener("click",function(){
+  try{ localStorage.removeItem(KEY); }catch(e){} location.reload();
+});
+(function restore(){
+  if(/(^|[?&])all(=|&|$)/.test(location.search)){ previewAll(); return; }
+  var v=load();
+  if(v){
+    ST=v;
+    if(!ST.put) ST.put={};
+    if(!ST.first) ST.first={};
+    if(!ST.miss) ST.miss={};
+    if(!ST.mine) ST.mine={};
+    if(!ST.tried) ST.tried={};
+    if(!ST.step) ST.step=1;
+    if(!ST.sw) ST.sw=0;
+  }
+  drawPool(); drawMine(); paintSw();
+  if(done1()||ST.step>1) $("rs").hidden=false;
+  if(ST.step>=2) $("s2").hidden=false;
+  if(ST.q2) settle2();
+  if(ST.step>=3){ $("s3").hidden=false; paintCode(); }
+  after1();
+})();
+})();
+</script>
+<p class="cc-note">本題庫自己寫的部分（解析、中譯、分類、標註與編排）採用 <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh-hant" target="_blank" rel="license noopener">CC BY-NC 4.0</a>（姓名標示─非商業性）授權：可以分享，但須註明出處，不得用於商業用途。試題來源與完整說明請見<a href="https://staresto-create.github.io/JCEE-vocab-questions/#terms">使用與著作權</a>。</p>
+</body>
+</html>

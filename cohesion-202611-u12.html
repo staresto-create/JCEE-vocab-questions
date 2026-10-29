@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>比較對照：兩首曲子，一個框｜From Concert Halls to Garbage Trucks</title>
+<meta name="description" content="垃圾車上的〈給愛麗絲〉和〈少女的祈禱〉，為什麼一首晚了半個多世紀才被發現，一首卻一寫成就暢銷？這一頁教你認出比較對照加框的結構，還有換字和對比標記怎麼貫穿全文。">
+<meta property="og:title" content="比較對照：兩首曲子，一個框｜From Concert Halls to Garbage Trucks">
+<meta property="og:description" content="同樣在台灣的垃圾車上響起，兩首曲子的故事卻完全不同：一首被埋沒，一首立刻走紅。">
+<style>
+:root{
+  --ground:#f1f3f2; --ink:#17282f; --teal:#1f6f6a; --teal-soft:#dfeceb;
+  --muted:#77878d; --line:#cdd6d6; --exam:#b4661c; --exam-soft:#fdf4e7;
+  --gen:#4a6a90; --gen-soft:#e0e7f0;
+  --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+  --sans:"PingFang TC","Noto Sans TC","Microsoft JhengHei","Helvetica Neue",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ad-vground-bg);color:var(--ad-vink-fg);font-family:var(--sans);line-height:1.6;-webkit-text-size-adjust:100%}
+.wrap{max-width:44rem;margin:0 auto;padding:1.6rem 1.1rem 4rem}
+h1{font-family:var(--serif);font-weight:600;font-size:1.6rem;line-height:1.3;margin:0 0 .55rem}
+.lede{margin:0 0 1.3rem;color:var(--ad-x3d5059-fg);font-size:.95rem}
+.src{font-size:.8rem;color:var(--ad-vmuted-fg);margin:0 0 1.1rem}
+.resume{font-size:.85rem;color:var(--ad-vteal-fg);background:var(--ad-vtealsoft-bg);border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.resume[hidden],.preview[hidden]{display:none}
+.preview{font-size:.85rem;color:var(--ad-vexam-fg);background:var(--ad-vexamsoft-bg);
+  border:1px dashed var(--exam);border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.resume button{font:inherit;font-size:.82rem;background:var(--ad-xfff-bg);color:var(--ad-vink-fg);border:1px solid var(--ad-vline-border);border-radius:.25rem;padding:.16rem .6rem;margin-left:.5rem;cursor:pointer}
+.resume button:focus-visible{outline:2px solid var(--ad-vteal-border);outline-offset:2px}
+.step{border-top:1px solid var(--ad-vline-border);padding-top:1.15rem;margin-top:1.6rem}
+.step[hidden]{display:none}
+.stepno{font-family:var(--serif);font-size:.82rem;color:var(--ad-vmuted-fg);margin:0 0 .2rem}
+h2{font-family:var(--serif);font-weight:600;font-size:1.2rem;margin:0 0 .5rem;color:var(--ad-vteal-fg)}
+.step p{margin:0 0 .7rem;font-size:.95rem}
+.tag{display:inline-block;font-size:.72rem;font-weight:600;border-radius:.2rem;padding:.08rem .45rem;margin-left:.45rem;vertical-align:.12rem;color:var(--ad-vexam-fg);background:var(--ad-vexamsoft-bg);border:1px solid var(--exam)}
+.tag.b{color:var(--ad-vgen-fg);background:var(--ad-vgensoft-bg);border-color:var(--gen)}
+
+/* 選擇題：中文用 .opts，英文選項加 .en，附小字說明加 .rg */
+.opts{display:flex;flex-direction:column;gap:.45rem;margin:.2rem 0 .8rem}
+.opts button{font:inherit;font-size:.95rem;background:var(--ad-xfff-bg);color:var(--ad-vink-fg);border:1px solid var(--ad-vline-border);border-radius:.3rem;padding:.45rem .85rem;cursor:pointer;text-align:left}
+.opts button:hover{border-color:var(--ad-vteal-border)}
+.opts button:focus-visible{outline:2px solid var(--ad-vteal-border);outline-offset:2px}
+.opts button[data-state="right"]{background:var(--teal);border-color:var(--ad-vteal-border);color:#fff}
+.opts button[data-state="wrong"]{background:var(--ad-vground-bg);color:var(--ad-vmuted-fg)}
+.opts button[disabled]{cursor:default}
+.opts.en button{font-family:var(--serif);font-size:.97rem;line-height:1.6;padding:.55rem .8rem}
+.opts.en button[data-state="right"]{background:var(--ad-vtealsoft-bg);border-color:var(--ad-vteal-border);color:var(--ad-vink-fg)}
+.opts.rg button i{display:block;font-style:normal;font-size:.82rem;color:var(--ad-vmuted-fg);margin-top:.12rem}
+.opts.rg button[data-state="right"] i{color:#dfeceb}
+
+/* 揭曉區塊 */
+.said{background:var(--ad-xfff-bg);border-left:3px solid var(--ad-vteal-border);border-radius:.3rem;padding:.75rem .85rem;margin:.2rem 0 .9rem;font-size:.93rem;color:var(--ad-x3d5059-fg)}
+.said b{color:var(--ad-vink-fg);font-weight:600}
+.said[hidden]{display:none}
+.said.g{border-left-color:var(--gen)}
+.said.e{border-left-color:var(--exam)}
+.said q{quotes:none;font-family:var(--serif)}
+
+.go{font:inherit;font-size:.92rem;background:var(--ad-vink-bg);color:var(--ad-onflip-fg);border:1px solid var(--ad-vink-border);border-radius:.3rem;padding:.42rem 1.05rem;cursor:pointer}
+.go:focus-visible{outline:2px solid var(--ad-vteal-border);outline-offset:2px}
+.go[hidden]{display:none}
+
+/* 第一步的可點標記 */
+.lead{background:var(--ad-xfff-bg);border:1px solid var(--ad-vline-border);border-radius:.4rem;padding:.9rem 1rem;margin:0 0 .7rem;font-family:var(--serif);font-size:1.02rem;line-height:1.95}
+.lead c{cursor:pointer;border-radius:.2rem;padding:.06rem .2rem;background:var(--ad-vexamsoft-bg);box-shadow:inset 0 -2px 0 #ecc9a2}
+.lead c:hover{box-shadow:inset 0 -2px 0 var(--exam)}
+.lead c.got{background:var(--exam);color:#fff;box-shadow:none}
+.lead c b{font-family:var(--sans);font-size:.72rem;font-weight:600;background:var(--ad-xfff-bg);color:var(--ad-vexam-fg);border-radius:.2rem;padding:.02rem .3rem;margin-right:.3rem}
+.score{font-size:.9rem;color:var(--ad-vmuted-fg);margin:0 0 .8rem}
+.score em{font-style:normal;color:var(--ad-vexam-fg);font-weight:600}
+
+/* 第三步的卡片（驗證方法通用容器） */
+.qs{display:flex;flex-direction:column;gap:.5rem;margin:0 0 .8rem}
+.qcard{background:var(--ad-xfff-bg);border:1px solid var(--ad-vline-border);border-radius:.4rem;padding:.6rem .85rem}
+.qcard .hd{display:flex;align-items:center;gap:.6rem;font-size:.95rem}
+.qcard .hd .qt{flex:1 1 auto;font-weight:600}
+.qcard .hd button{font:inherit;font-size:.8rem;background:var(--ad-xfff-bg);color:var(--ad-vink-fg);border:1px solid var(--ad-vline-border);
+  border-radius:.25rem;padding:.18rem .7rem;cursor:pointer;flex:0 0 auto}
+.qcard .hd button:focus-visible{outline:2px solid var(--ad-vteal-border);outline-offset:2px}
+.qcard .bd{display:none;margin-top:.4rem;font-size:.92rem;color:var(--ad-x3d5059-fg);line-height:1.75}
+.qcard.open .bd{display:block}
+.qcard.open .hd button{display:none}
+.qcard .bd .rf{display:block;color:var(--ad-vmuted-fg);font-size:.82rem;margin-top:.25rem}
+.qcard .bd .sw{display:block;font-family:var(--serif);background:var(--ad-vground-bg);border-radius:.3rem;
+  padding:.45rem .6rem;margin:.35rem 0;color:var(--ad-vink-fg);font-size:.93rem;line-height:1.7}
+.qcard .r{display:grid;grid-template-columns:1fr;gap:.1rem;margin-bottom:.4rem}
+@media(min-width:34rem){.qcard .r{grid-template-columns:5.5rem 1fr;gap:.5rem}}
+.qcard .r:last-child{margin-bottom:0}
+.qcard .r .k{font-size:.76rem;font-weight:600;color:var(--ad-vgen-fg)}
+.qcard .r .v em{font-style:normal;color:var(--ad-vmuted-fg);font-size:.82rem;margin-left:.3rem}
+
+/* 圖表容器與通用節點 */
+.fig{background:var(--ad-xfff-bg);border:1px solid var(--ad-vline-border);border-radius:.4rem;padding:.7rem .5rem .4rem;margin:0 0 .7rem}
+.fig[hidden]{display:none}
+.fig svg{display:block;width:100%;height:auto;max-width:27rem;margin:0 auto}
+.fig figcaption{font-size:.85rem;color:var(--ad-x3d5059-fg);margin:.35rem .5rem 0;line-height:1.65}
+.node{cursor:pointer}
+.node rect,.node circle,.node path.bx{fill:#fff;stroke:var(--line);stroke-width:2;stroke-linejoin:round}
+.node text{font-family:var(--sans);font-size:11px;fill:var(--ad-vink-fg);font-weight:600}
+.node tspan.n,.node text.n{font-size:9px;font-weight:400;fill:var(--ad-vmuted-fg)}
+.node.on rect,.node.on circle,.node.on path.bx{fill:var(--exam-soft);stroke:var(--ad-vexam-fg);stroke-width:3}
+.node.on text{fill:var(--ad-vexam-fg)}
+.node.on tspan.n,.node.on text.n{fill:var(--ad-vexam-fg)}
+.guide{stroke:var(--line);stroke-width:2;fill:none;stroke-linejoin:round;stroke-linecap:round}
+.guide.dash{stroke-dasharray:5 4}
+.endlab{font-family:var(--sans);font-size:10.5px;font-weight:600}
+.endlab.l{fill:var(--ad-vteal-fg)}
+.endlab.r{fill:var(--ad-vgen-fg)}
+
+/* 分日分隔框 */
+.daybreak{border:1px dashed var(--exam);background:var(--ad-vexamsoft-bg);border-radius:.4rem;
+  padding:.8rem .95rem;margin:1.6rem 0 0;font-size:.9rem;color:var(--ad-x3d5059-fg);line-height:1.7}
+.daybreak b{display:block;color:var(--ad-vexam-fg);font-family:var(--serif);font-size:1.02rem;margin-bottom:.3rem}
+.daybreak[hidden]{display:none}
+
+/* 課文與線索鏈 */
+.modes{display:flex;gap:.4rem;margin:0 0 .7rem;flex-wrap:wrap}
+.modes button{font:inherit;font-size:.84rem;background:var(--ad-xfff-bg);color:var(--ad-vink-fg);border:1px solid var(--ad-vline-border);border-radius:.3rem;padding:.3rem .8rem;cursor:pointer}
+.modes button[aria-pressed="true"]{background:var(--ad-vink-bg);border-color:var(--ad-vink-border);color:var(--ad-onflip-fg)}
+.modes button:focus-visible{outline:2px solid var(--ad-vteal-border);outline-offset:2px}
+.text{background:var(--ad-xfff-bg);border:1px solid var(--ad-vline-border);border-radius:.4rem;padding:.9rem .6rem 1.1rem;font-family:var(--serif);font-size:1rem;line-height:1.85}
+.text .ttl{font-weight:600;font-size:1.06rem;margin:0 .4rem .7rem 2.6rem;line-height:1.45}
+.ln{display:flex;align-items:baseline;padding:.02rem 0;border-radius:.2rem}
+.ln>i{flex:0 0 2.2rem;text-align:right;padding-right:.55rem;font-family:var(--sans);font-style:normal;font-size:.68rem;color:var(--ad-vmuted-fg);line-height:1.9}
+.ln>span{flex:1 1 auto;overflow-wrap:anywhere}
+.ln.ind>span{padding-left:1.1rem}
+.ln.sub>span{font-weight:600}
+.ln.hl{background:var(--ad-vexamsoft-bg)}
+.ln.pb{margin-top:.55rem}
+.text .split{font-family:var(--sans);font-size:.78rem;color:var(--ad-vexam-fg);
+  border-top:1px dashed var(--exam);margin:.8rem .4rem .7rem 2.6rem;padding-top:.35rem}
+.text m{cursor:pointer;border-radius:.2rem;padding:.02rem .14rem}
+.text m[data-kind="sub"]{background:var(--ad-vtealsoft-bg);box-shadow:inset 0 -2px 0 #a8ccc8}
+.text m[data-kind="gen"]{background:var(--ad-vgensoft-bg);box-shadow:inset 0 -2px 0 #a9bbd0}
+.text m[data-kind="mk"]{border-bottom:2px dotted var(--exam);font-style:italic}
+.text m.lit[data-kind="sub"]{background:var(--teal);color:#fff;box-shadow:none}
+.text m.lit[data-kind="gen"]{background:var(--gen);color:#fff;box-shadow:none}
+.text m.lit[data-kind="mk"]{background:var(--exam);color:#fff;border-bottom:none}
+.text.off-sub m[data-kind="sub"]{background:none;box-shadow:none}
+.text.off-gen m[data-kind="gen"]{background:none;box-shadow:none}
+
+/* 固定在底部的說明面板 */
+.panel{position:sticky;bottom:0;background:var(--ad-xfff-bg);border:1px solid var(--ad-vline-border);border-radius:.4rem;padding:.75rem .9rem;margin-top:.8rem;box-shadow:0 -2px 10px rgba(23,40,47,.07)}
+.panel .k{font-size:.72rem;font-weight:600;border-radius:.2rem;padding:.06rem .42rem;color:var(--ad-vteal-fg);background:var(--ad-vtealsoft-bg);border:1px solid var(--ad-vteal-border)}
+.panel .k.g{color:var(--ad-vgen-fg);background:var(--ad-vgensoft-bg);border-color:var(--gen)}
+.panel .k.e{color:var(--ad-vexam-fg);background:var(--ad-vexamsoft-bg);border-color:var(--exam)}
+.panel .ch{font-family:var(--serif);font-size:1rem;margin:.4rem 0 .3rem;color:var(--ad-vink-fg);line-height:1.75;overflow-wrap:anywhere}
+.panel .ch i{font-style:normal;color:var(--ad-vmuted-fg);padding:0 .28rem}
+.panel .nt{font-size:.88rem;color:var(--ad-x3d5059-fg);margin:0}
+
+/* 舊工具點名複習 */
+.recall{background:var(--ad-xfff-bg);border:1px solid var(--ad-vline-border);border-left:3px solid var(--muted);
+  border-radius:.3rem;padding:.75rem .85rem;margin:1.1rem 0 .9rem;font-size:.92rem;color:var(--ad-x3d5059-fg)}
+.recall b{color:var(--ad-vink-fg)}
+.recall ul{margin:.4rem 0 0;padding-left:1.1rem}
+.recall li{margin-bottom:.35rem}
+
+/* 抽句題 */
+.gap{background:var(--ad-xfff-bg);border:1px solid var(--ad-vline-border);border-radius:.4rem;padding:.9rem 1rem;margin:0 0 .9rem;font-family:var(--serif);font-size:1rem;line-height:1.9}
+.gap .blank{display:inline-block;min-width:9rem;border-bottom:2px solid var(--gen);color:var(--ad-vgen-fg);text-align:center;font-family:var(--sans);font-size:.82rem}
+.gap .blank.filled{border-bottom-color:var(--ad-vteal-border);color:var(--ad-vink-fg);font-family:var(--serif);font-size:1rem;text-align:left;background:var(--ad-vtealsoft-bg);border-radius:.2rem;padding:0 .25rem}
+.gap .lst{font-family:var(--sans);font-size:.85rem;color:var(--ad-vmuted-fg);display:block;margin-top:.5rem}
+.picks{display:flex;flex-direction:column;gap:.45rem;margin:0 0 .9rem}
+.picks button{font:inherit;font-family:var(--serif);font-size:.97rem;line-height:1.6;background:var(--ad-xfff-bg);color:var(--ad-vink-fg);border:1px solid var(--ad-vline-border);border-radius:.3rem;padding:.55rem .8rem;cursor:pointer;text-align:left}
+.picks button:hover{border-color:var(--ad-vteal-border)}
+.picks button:focus-visible{outline:2px solid var(--ad-vteal-border);outline-offset:2px}
+.picks button[data-state="right"]{background:var(--ad-vtealsoft-bg);border-color:var(--ad-vteal-border)}
+.picks button[data-state="wrong"]{background:var(--ad-vground-bg);color:var(--ad-vmuted-fg)}
+.why{font-size:.86rem;color:var(--ad-x3d5059-fg);margin:.35rem 0 0}
+.why[hidden]{display:none}
+
+/* 收尾與頁尾 */
+.close{border-top:1px solid var(--ad-vline-border);margin-top:2rem;padding-top:1.1rem;font-size:.93rem;color:var(--ad-x3d5059-fg)}
+.close[hidden]{display:none}
+.close h2{font-size:1.1rem}
+.close ol{margin:.3rem 0 0;padding-left:1.15rem}
+.close li{margin-bottom:.5rem}
+.more{margin-top:1.5rem;font-size:.88rem}
+.more a{color:var(--ad-vteal-fg)}
+.series{border-top:1px solid var(--ad-vline-border);margin-top:2rem;padding-top:1.1rem;font-size:.9rem;color:var(--ad-x3d5059-fg)}
+.series .back{font-family:var(--serif);font-size:1rem;color:var(--ad-vteal-fg);text-decoration:none}
+.series .back:hover{text-decoration:underline}
+.series .back:focus-visible{outline:2px solid var(--ad-vteal-border);outline-offset:2px}
+.series .note{font-size:.85rem;color:var(--ad-vmuted-fg);margin:.5rem 0 0}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+/* 本單元：放射狀網狀圖與第三步的歸格卡片 */
+.fig .lab{font-family:var(--sans);font-size:10px;fill:var(--ad-x3d5059-fg)}
+.fig .lab.s{font-size:9px;fill:var(--ad-vmuted-fg)}
+.fig .spoke{stroke:var(--line);stroke-width:2;fill:none}
+.fig .node.hub rect{stroke:var(--ad-vmuted-fg)}
+.fig .node.hub.on rect{stroke:var(--ad-vexam-fg)}
+.yn{display:flex;gap:.45rem;align-items:center;flex-wrap:wrap;margin-top:.5rem;font-size:.9rem;color:var(--ad-vink-fg);font-weight:600}
+.yn button{font:inherit;font-weight:400;font-size:.82rem;background:var(--ad-xfff-bg);color:var(--ad-vink-fg);border:1px solid var(--ad-vline-border);border-radius:.25rem;padding:.18rem .75rem;cursor:pointer}
+.yn button:hover{border-color:var(--ad-vteal-border)}
+.yn button:focus-visible{outline:2px solid var(--ad-vteal-border);outline-offset:2px}
+.qcard.open .yn{display:none}
+.qcard .bd .vd{display:block;font-weight:600;margin-bottom:.15rem}
+.qcard .bd .vd.ok{color:var(--ad-vteal-fg)}
+.qcard .bd .vd.ng{color:var(--ad-vexam-fg)}
+.qcard .bd q{quotes:none;font-family:var(--serif)}
+#q3w[hidden]{display:none}
+
+.qcard .bd q{quotes:none;font-family:var(--serif)}
+#q3w[hidden]{display:none}
+.fig .zone{fill:none;stroke:var(--line);stroke-width:1.5;stroke-dasharray:5 4}
+.fig .zl{font-family:var(--sans);font-size:10.5px;font-weight:600}
+.fig .zl.l{fill:var(--ad-vteal-fg)}
+.fig .zl.r{fill:var(--ad-vgen-fg)}
+.fig .arr{stroke:var(--ad-vmuted-fg);stroke-width:2;fill:none;stroke-linejoin:round;stroke-linecap:round}
+.fig .pivot{font-family:var(--serif);font-style:italic;font-size:11.5px;fill:var(--ad-vexam-fg)}
+.fig .pn{font-family:var(--sans);font-size:9px;fill:var(--ad-vmuted-fg)}
+.fig .dot{fill:var(--ad-vteal-fg);stroke:none}
+.fig .node.q rect{stroke-dasharray:5 4}
+
+/* 深色模式（2026-10-22）：淺色數值與原本相同；只在螢幕、手機或電腦設成深色外觀時生效，列印不受影響。 */
+:root{--ad-onflip-fg:#ffffff;--ad-vexam-bg:var(--exam);--ad-vexam-border:var(--exam);--ad-vexam-fg:var(--exam);--ad-vexamsoft-bg:var(--exam-soft);--ad-vexamsoft-fg:var(--exam-soft);--ad-vgen-bg:var(--gen);--ad-vgen-border:var(--gen);--ad-vgen-fg:var(--gen);--ad-vgensoft-bg:var(--gen-soft);--ad-vground-bg:var(--ground);--ad-vink-bg:var(--ink);--ad-vink-border:var(--ink);--ad-vink-fg:var(--ink);--ad-vline-border:var(--line);--ad-vline-fg:var(--line);--ad-vmuted-border:var(--muted);--ad-vmuted-fg:var(--muted);--ad-vteal-bg:var(--teal);--ad-vteal-border:var(--teal);--ad-vteal-fg:var(--teal);--ad-vtealsoft-bg:var(--teal-soft);--ad-x3d5059-fg:#3d5059;--ad-x8a8278-fg:#8a8278;--ad-xdfeceb-fg:#dfeceb;--ad-xfff-bg:#fff;--ad-xfff-fg:#fff;color-scheme:light}
+@media screen and (prefers-color-scheme: dark){
+ :root{--ad-onflip-fg:#16201F;--ad-vexam-bg:#b4661c;--ad-vexam-border:#b4661c;--ad-vexam-fg:#E7CAAF;--ad-vexamsoft-bg:#2D2821;--ad-vexamsoft-fg:#fdf4e7;--ad-vgen-bg:#4a6a90;--ad-vgen-border:#4a6a90;--ad-vgen-fg:#BBC7D6;--ad-vgensoft-bg:#1E2227;--ad-vground-bg:#1F2020;--ad-vink-bg:#E6EBEE;--ad-vink-border:#E9EFF2;--ad-vink-fg:#E9EFF2;--ad-vline-border:#3F4747;--ad-vline-fg:#cdd6d6;--ad-vmuted-border:#77878d;--ad-vmuted-fg:#BAC0C2;--ad-vteal-bg:#1f6f6a;--ad-vteal-border:#CDEAE9;--ad-vteal-fg:#CDEAE9;--ad-vtealsoft-bg:#1D2524;--ad-x3d5059-fg:#D4DBDF;--ad-x8a8278-fg:#C2BFBB;--ad-xdfeceb-fg:#dfeceb;--ad-xfff-bg:#2D2A25;--ad-xfff-fg:#ffffff;color-scheme:dark}
+}
+
+</style>
+<style id="anti-copy">
+/* 防盜用措施（2026-10-14）：畫面浮水印、列印浮水印、頁尾授權聲明 */
+@media screen{body::before{content:"";position:fixed;top:0;left:0;right:0;bottom:0;z-index:2147483000;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22460%22%20height%3D%22240%22%3E%3Cg%20transform%3D%22rotate%28-20%20230%20120%29%22%20font-family%3D%22Noto%20Sans%20TC%2Csans-serif%22%20fill%3D%22%23D9A400%22%20fill-opacity%3D%22.2%22%20text-anchor%3D%22middle%22%3E%3Ctext%20x%3D%22230%22%20y%3D%22112%22%20font-size%3D%2220%22%3E%E9%AB%98%E4%B8%AD%E8%8B%B1%E6%96%87%E9%A1%8C%E5%BA%AB%3C%2Ftext%3E%3Ctext%20x%3D%22230%22%20y%3D%22140%22%20font-size%3D%2214%22%3Estaresto-create.github.io%2FJCEE-vocab-questions%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E");background-repeat:repeat;}}
+@media print{body::after{content:"高中英文題庫\A staresto-create.github.io/JCEE-vocab-questions\A 免費資源，請勿販售";white-space:pre;position:fixed;top:42%;left:0;right:0;text-align:center;transform:rotate(-25deg);font-family:"Noto Sans TC",sans-serif;font-size:26pt;line-height:1.7;color:#c8c8c8;z-index:2147483000;pointer-events:none;}}
+.cc-note{font-size:12px;line-height:1.8;color:var(--ad-x8a8278-fg);margin:12px auto;max-width:60em;padding:0 1em;}.cc-note a{color:inherit;}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>比較對照加框：兩首垃圾車曲子，兩段不同的歷史</h1>
+<p class="lede">〈給愛麗絲〉和〈少女的祈禱〉，每天傍晚都在台灣的垃圾車上響起。作者先用這個畫面開場，中間把兩首曲子各自的歷史一首一首講完，最後又回到同一個畫面收尾。這是說明文五種基本結構裡的<b>比較對照</b>，外面多了一個首尾呼應的<b>框</b>。這一頁也要你留意：這一篇沒有新的詞彙工具，我們把兩條舊的線索練得更深，換字（piece、melody、tune、song、works）和對比標記（though、Meanwhile、Unlike、while、Although）。<b>提醒：這一頁會用到雜誌這個單元題目裡的字句，請先把雜誌的題目做完，再來做這一頁。</b></p>
+<p class="preview" id="pv" hidden>預覽模式：所有步驟、圖表、課文標記都已展開，進度不會存檔。學生拿到的一般連結不受影響。</p>
+<p class="resume" id="rs" hidden>上次做到一半，已經幫你接回來了。<button id="rst">重新開始</button></p>
+<p class="src">ALL+ 互動英語 11 月號 Unit 12（pp. 52–53）　From Concert Halls to Garbage Trucks　全文 60 行　11/26 讀第 1–32 行，11/27 讀第 33–60 行</p>
+
+<!-- ═══ 第一步 ═══ -->
+<section class="step" id="s1">
+  <p class="stepno">第一步</p>
+  <h2>先問共同點，再轉向各自的歷史<span class="tag">上層：組織方式</span></h2>
+  <p>比較對照的文章，開頭要先讓讀者知道「為什麼這兩樣東西可以放在一起」。這篇的前十二行做了三件事：丟出一個問題、說出共同點、再轉去各自的故事。<b>點三個有底色的地方</b>。</p>
+  <div class="lead" id="ld">
+    <c data-t="t">For people in Taiwan, what do the famed piano pieces “Für Elise” and “The Maiden’s Prayer” have in common?</c> Every evening, their familiar melodies tell people it’s time to take out the garbage. <c data-t="p">Visitors to Taiwan are often surprised to hear classical music coming from garbage trucks,</c> but for many Taiwanese, these tunes have been part of everyday life since childhood. <c data-t="r">Long before they became linked with garbage collection, however, both pieces already had interesting histories.</c>
+  </div>
+  <p class="score" id="sc">已標出 <em>0</em> / 3</p>
+  <div id="s1b" hidden>
+    <p>三個都標出來了。那麼——<b>第 9 到 12 行 Long before they became linked with garbage collection, however, both pieces already had interesting histories 這一句，在全文裡做什麼？</b></p>
+    <div class="opts" id="q1">
+      <button>解釋這兩首曲子為什麼會被選來放在垃圾車上</button>
+      <button>說明這兩首曲子都在寫成後不久就走紅</button>
+      <button data-ok="1">從垃圾車的畫面，轉到兩首曲子各自的來歷</button>
+      <button>描述遊客聽到古典樂從垃圾車傳出的驚訝</button>
+    </div>
+    <div class="said e" id="a1" hidden>
+      <b>從垃圾車的畫面，轉到兩首曲子各自的來歷。</b>第 1 到 3 行先問共同點，第 3 到 5 行給了答案：每天傍晚都在垃圾車上響起。到了這一句，however 一轉，時間往前拉（Long before），話題從「現在的共同點」轉到「過去各自的歷史」。後面整整四十多行都在講這兩段歷史，所以這一句是開場和主體之間的轉軸。
+      <br><br>
+      <b>認的方法：</b>看到 Long before 或 however 這類「時間往前拉加轉折」的組合，就知道前面是引子，後面才是主體。
+      <br><br>
+      <b>另外三個為什麼排除：</b>
+      <br><br>
+      「說明這兩首曲子都在寫成後不久就走紅」——<b>這個最容易選</b>，因為 interesting histories 聽起來像是兩首都很成功。可是全文只有〈少女的祈禱〉是這樣，第 33 到 34 行 <q>Unlike “Für Elise,” “The Maiden’s Prayer” became popular shortly after it was written</q>；〈給愛麗絲〉到第 28 行還是 undiscovered。這是歸屬錯。
+      <br><br>
+      「描述遊客聽到古典樂從垃圾車傳出的驚訝」——驚訝寫在第 5 到 7 行，是前面的句子；這一句已經用 however 轉走了。這是層級錯。
+      <br><br>
+      「解釋這兩首曲子為什麼會被選來放在垃圾車上」——全文沒有任何一句交代選曲的原因，第 4 到 5 行只說旋律提醒人們倒垃圾。這個範圍根本不在文章裡，靠讀懂主旨就排除得掉。
+    </div>
+    <button class="go" id="g1" hidden>整篇是什麼形狀？</button>
+  </div>
+</section>
+
+<!-- ═══ 第二步 ═══ -->
+<section class="step" id="s2" hidden>
+  <p class="stepno">第二步</p>
+  <h2>外面一個框，裡面兩邊對照<span class="tag">上層：怎麼認出來</span></h2>
+  <p>先回答：<b>這篇文章的組織方式，最接近下列哪一種？</b></p>
+  <div class="opts" id="q2">
+    <button>描述：說明兩首曲子各有哪些特色</button>
+    <button>序列：依年代說明兩首曲子的演變</button>
+    <button>問題與解決：先提出謎團，再給出解答</button>
+    <button data-ok="1">比較對照：兩首曲子沿同樣面向對照</button>
+  </div>
+  <div class="said e" id="a2" hidden>
+    <b>比較對照。</b>這是說明文五種基本結構裡的<b>比較對照</b>（compare and contrast）。判斷的依據有三個。第一，第 33 行 Unlike 直接宣布了對照：<q>Unlike “Für Elise,” “The Maiden’s Prayer” became popular shortly after it was written</q>。第二，兩首曲子各占一大段（〈給愛麗絲〉是第 13 到 32 行，〈少女的祈禱〉是第 33 到 55 行），一邊整個講完再換另一邊，英文教學上叫 block 式。第三，兩邊都有同樣的面向：誰寫的、哪一年（第 13 到 14 行、第 35 到 36 行）、怎麼流傳（第 26 到 29 行、第 33 到 44 行）、特別之處（第 14 到 25 行、第 45 到 52 行）、評價（第 29 到 32 行、第 53 到 55 行）。
+    <br><br>
+    <b>另外三個為什麼排除：</b>
+    <br><br>
+    「問題與解決」——<b>這個最容易選</b>，因為第 16 行有問題 <q>Who was Elise?</q>，接著第 16 行 The leading theory 像是解答。可是它只出現在左邊一半；右邊的〈少女的祈禱〉完全沒有問題；而且那個「解答」說的是 may have mistaken（第 20 到 21 行），仍然不確定，不是真的解決。整篇的推進靠的是兩邊對照，不是靠問題。
+    <br><br>
+    「序列」——文中的年代出現的順序是 1810（第 14 行）、1867（第 28 行）、1856（第 36 行），不是由早到晚，所以不是照時間在走。
+    <br><br>
+    「描述」——每一首曲子內部確實在描述，可是描述是一個主題向外展開幾個特徵；這篇有兩個主題，而且兩邊的面向一一對應，這就是比較對照了。
+    <br><br>
+    <b>這篇跟十一月號第八單元（風笛和三線琴）比，有三個地方不一樣。</b>第一，那一篇兩邊的順序一模一樣，這一篇兩邊的順序不一樣：左邊先講謎（第 14 到 25 行）再講被發現（第 26 到 29 行），右邊卻是先流傳（第 33 到 44 行）再講設計（第 45 到 52 行），所以不能靠位置對，要靠內容對。第二，那一篇靠開頭預告 Two examples 排順序，這一篇靠第 33 行 Unlike 把對照講明。第三，這一篇外面多了一個框：第 1 到 12 行的垃圾車畫面，第 56 到 60 行又回來。下面這張圖是比較對照的標準組織圖，上下兩個虛線框就是首尾呼應。<b>點任一格</b>，第四步的課文對應行會亮起來（課文還沒打開的話，先把行號記住就好）。
+  </div>
+  <figure class="fig" id="fig" hidden></figure>
+  <button class="go" id="g2" hidden>把內容放回組織圖</button>
+</section>
+
+<div class="daybreak" id="db" hidden>
+  <b>11/27 的範圍從這裡開始：第 33–60 行</b>
+  第一、二步用的是 11/26 的第 1–32 行（開場的框、整段〈給愛麗絲〉）。第三步以後會用到整篇，包含 11/27 的第 33–60 行（整段〈少女的祈禱〉和收尾的框）。如果你今天是 11/26，做到這裡可以先停，明天再接下去。（第二步的說明和圖已經畫出整篇的骨架，先看到不影響。）
+</div>
+
+<!-- ═══ 第三步 ═══ -->
+<section class="step" id="s3" hidden>
+  <p class="stepno">第三步</p>
+  <h2>把內容放回比較表<span class="tag">上層：怎麼驗證</span></h2>
+  <p>怎麼確定這篇是比較對照，而不是兩篇各講各的？<b>先找訊號詞，說出是哪一種結構，再把內容放進組織圖，最後用一句話說出整篇。</b></p>
+  <p>訊號詞有三組。第一組在開頭：第 1 到 3 行 have … in common，點明兩邊可以放在一起。第二組是兩邊同樣的起手：第 13 到 14 行 composed by Ludwig van Beethoven in 1810、第 35 到 36 行 completed the piece in 1856，都先交代誰寫的、哪一年。第三組是對照的字：第 14 行 though、第 23 行 Meanwhile、第 33 行 Unlike、第 47 行 while、第 53 行 Although。</p>
+  <p>下面八張卡片寫的是文章裡的內容，<b>都換過說法，也沒有行號</b>。每一張判斷一次：它屬於比較表的哪一列？點下去就定了，不能改。卡片說的是哪一首曲子，自己從內容看。</p>
+  <div class="qs" id="qs"></div>
+  <p class="score" id="sc3">已放 <em>0</em> / 8，第一次就放對 <em>0</em> 張</p>
+  <div class="said e" id="a3" hidden>
+    <b>八張都放得回去，而且每一列兩邊各有一張。這就是比較對照。</b>如果把右邊一欄遮掉，剩下的就變成一篇介紹〈給愛麗絲〉的文章：第 33 行 Unlike 沒有了對象，整篇的對照也就不成立。兩欄同時在，讀者才看得出：同樣在垃圾車上響起，一首等了半個多世紀才被人發現，一首一寫成就走紅。
+    <br><br>
+    <b>最容易放錯的，是「歷史學家還在爭論寫給誰」那一張。</b>它講到「寫給誰」，很像「誰寫的、哪一年」那一列。可是那一列只放作曲者是誰、哪一年；這一張回答的是一個至今沒有答案的謎，第 14 行的 though 就是在標示「到現在還沒解決」。<b>分列看的是這一句在回答哪一個面向，不是看它有沒有提到同一個人名。</b>
+    <br><br>
+    <b>考卷上怎麼考：</b>主旨題的誘答最愛只寫一邊，或者把開場的細節當成全篇的主題。下面試一題摘要題。
+  </div>
+  <div id="q3w" hidden>
+    <p><b>哪一句最適合當這篇文章的一句話摘要？</b></p>
+    <div class="picks" id="q3">
+      <button data-ok="1">Two pieces on Taiwan’s garbage trucks had different paths: one was found decades late, the other spread quickly.</button>
+      <button>Classical pieces play on Taiwan’s garbage trucks because people there have loved them since they were children.</button>
+      <button>Historians still disagree about who “Für Elise” was written for, and a scholar may have misread Beethoven’s handwriting.</button>
+      <button>Critics have always praised both pieces, so ordinary listeners were quick to fall in love with them.</button>
+    </div>
+    <div class="said e" id="a3b" hidden>
+      <b>第一句。</b>它把兩邊都收進一句話：two pieces 對上開場的框，different paths 對上整篇的對照，found decades late 對上〈給愛麗絲〉（第 26 到 29 行），spread quickly 對上〈少女的祈禱〉（第 33 到 44 行）。它也沒有照抄課文：undiscovered 改寫成 found … late，popular shortly after 改寫成 spread quickly。
+      <br><br>
+      <b>另外三個為什麼排除：</b>
+      <br><br>
+      「Classical pieces play on Taiwan’s garbage trucks because people there have loved them since they were children」——<b>這個最容易選</b>，因為垃圾車是開頭和結尾的畫面，最醒目。可是它只是框，不是主體；而且課文第 7 到 9 行只說這些曲子是日常生活的一部分，沒有說「因為喜愛才拿來放」，這個因果是憑空多出來的。第 9 到 12 行的 however 之後才是全文的重點。<b>層級錯。</b>
+      <br><br>
+      「Historians still disagree about who “Für Elise” was written for…」——只有〈給愛麗絲〉那一邊的細節，第 14 到 22 行，右邊的〈少女的祈禱〉整段不見。<b>範圍錯。</b>
+      <br><br>
+      「Critics have always praised both pieces…」——方向錯。第 53 到 54 行評論家對〈少女的祈禱〉的看法是 too sentimental，不是稱讚；〈給愛麗絲〉那邊根本沒有提到評論家。這一個靠讀懂主旨就排除得掉。
+    </div>
+  </div>
+  <button class="go" id="g3" hidden>看兩條詞彙線索</button>
+</section>
+
+<!-- ═══ 第四步 ═══ -->
+<section class="step" id="s4" hidden>
+  <p class="stepno">第四步</p>
+  <h2>換字換在看的角度，對比標記分好幾層<span class="tag b">下層：換字、對比標記（都是舊工具）</span></h2>
+  <p><b>先告訴你一件事：這一篇沒有新工具。</b>我把課文逐段看過，可以拿來教的新分類，這一篇都沒有明顯的例子，與其硬湊一個，不如把兩個舊工具練得更深。所以這一頁的兩個顏色都是舊工具：青色是換字，藍灰是對比標記。</p>
+  <p><b>青色：換字（piece、melody、tune、song、works）。</b>同樣指這兩首曲子，作者換了五個名詞，而且不是隨便換。談創作、出版、評價的時候用 piece，像第 17 行 dedicated the piece、第 27 行 published the piece；談耳朵聽到、腦子記住的時候用 melody、tune，像第 30 行 recognizable melodies、第 46 行 The tune；談流行的時候用 song，像第 40 行 favorite songs、第 52 行 viral song；談分量的時候用 works，像第 58 行 classic works。<b>看到換字，要問：這一句是從哪一個角度在看它？</b></p>
+  <p><b>藍灰：對比標記（共七個，層級不同）。</b>整篇的軸只有一個：第 33 行 Unlike，把兩首曲子對起來。同一首曲子內部有四個小轉折：第 14 行 though、第 23 行 Meanwhile、第 47 行 while、第 53 行 Although。框的兩個轉折：第 7 行 but、第 11 行 however。<b>看到對比標記，要問兩件事：誰對誰，在哪一層。</b></p>
+  <p><b>點課文裡有底色的字</b>，同一條線上的字會一起亮起來。兩色可以各自關掉。</p>
+  <div class="modes">
+    <button id="m1" aria-pressed="true">換字（青）</button>
+    <button id="m2" aria-pressed="true">對比標記（藍灰）</button>
+  </div>
+  <div class="text" id="tx"></div>
+  <div class="panel" id="pn">
+    <span class="k" id="pk">線索</span>
+    <div class="ch" id="pc">點圖上的一格，或課文裡有底色的字</div>
+    <p class="nt" id="pt">青色是換字：同一對曲子，換五個名詞；藍灰是對比標記：一個大的軸，加上幾個小轉折。</p>
+  </div>
+  <div class="recall">
+    <b>另外三樣，前面單元教過，這篇自己確認得出來：</b>
+    <ul>
+      <li><b>確定程度的語言。</b>第 16 行 <q>The leading theory is that</q>、第 20 到 21 行 <q>may have mistaken</q>、第 29 到 31 行 <q>might never have reached</q>。作者在「不知道」的地方都用了留餘地的字：Elise 到底是誰，沒有人能確定；跟前面單元練過的一樣，看到 may、might、theory，就是作者在告訴你這裡還沒有定論。</li>
+      <li><b>概括名詞。</b>第 26 行 <q>The story</q> 收的是前面第 13 到 25 行整段 Elise 的來歷；第 29 行 <q>that discovery</q> 收的是第 28 行 remained undiscovered until 1867 這件事；第 45 行 <q>Part of its success</q> 收的是第 41 到 44 行的暢銷。跟前面單元練過的一樣，往前找之前，先確定它收的是一樣還是一整片。</li>
+      <li><b>連接標記。</b>第 19 行和第 41 行的 <q>Because</q>、第 39 行的 <q>so</q>、第 49 行的 <q>As a result</q>，都是原因和結果的接口：因為字跡難辨，所以被錯認；因為旋律優美，所以傳遍歐洲。跟前面單元練過的一樣，看到它，前後兩句是因果。</li>
+    </ul>
+  </div>
+  <p style="margin-top:1.1rem"><button class="go" id="g4">考卷怎麼考比較對照</button></p>
+</section>
+
+<!-- ═══ 第五步 ═══ -->
+<section class="step" id="s5" hidden>
+  <p class="stepno">第五步</p>
+  <h2>比較對照的題目問「哪一首」<span class="tag">上層：考點</span></h2>
+  <p>比較對照的題目，誘答多半出在兩個地方：</p>
+  <p><b>一、把一邊的內容接到另一邊頭上。</b>〈給愛麗絲〉被埋沒、〈少女的祈禱〉走紅；選項把它們互換，句子讀起來照樣通順。做法是先在腦中畫那張兩欄表，再回去對。</p>
+  <p><b>二、把「兩邊都有」說成「只有一邊」，或反過來。</b>「兩者皆有」的題目，要兩欄都找得到才算。</p>
+  <p>試一題：<b>According to the passage, how did the two pieces differ in the way they became known?</b></p>
+  <div class="opts en" id="q5">
+    <button>“Für Elise” was an instant hit, while “The Maiden’s Prayer” was found decades after its composer’s death.</button>
+    <button data-ok="1">“Für Elise” stayed unknown for decades, while “The Maiden’s Prayer” spread soon after it was written.</button>
+    <button>“Für Elise” was praised by critics, while “The Maiden’s Prayer” was never judged by them.</button>
+    <button>Both pieces were played in Taiwan before they reached the concert halls of Europe.</button>
+  </div>
+  <div class="said e" id="a5" hidden>
+    <b>第二句。</b>它對應兩邊的同一個位置：〈給愛麗絲〉是第 26 到 29 行 <q>it remained undiscovered until 1867, decades after his death</q>，〈少女的祈禱〉是第 33 到 34 行 <q>became popular shortly after it was written</q>。選項也沒有照抄課文：undiscovered 改寫成 stayed unknown，popular 改寫成 spread。
+    <br><br>
+    <b>另外三個為什麼排除：</b>
+    <br><br>
+    「“Für Elise” was an instant hit, while “The Maiden’s Prayer” was found decades after its composer’s death」——<b>這個最容易選</b>，因為兩個動作都是課文裡的（走紅、死後幾十年才被發現），只是對調了。被埋沒的是〈給愛麗絲〉（第 26 到 29 行），一寫成就走紅的是〈少女的祈禱〉（第 33 到 34 行）。這是歸屬錯。
+    <br><br>
+    「“Für Elise” was praised by critics, while “The Maiden’s Prayer” was never judged by them」——評論家出現在第 53 到 54 行，而且評的是〈少女的祈禱〉（too sentimental）；〈給愛麗絲〉那一邊整段沒有提到評論家。這也是歸屬錯，而且「稱讚」在課文裡找不到落點。
+    <br><br>
+    「Both pieces were played in Taiwan before they reached the concert halls of Europe」——台灣是現在的畫面（第 3 到 4 行 Every evening、第 56 行 Today）；而且第 31 行 concert halls 說的是〈給愛麗絲〉「可能永遠到不了」，不是先到台灣再到歐洲。這一個靠先在腦中畫兩欄表就排除得掉。
+  </div>
+  <button class="go" id="g5" hidden>最後一題</button>
+</section>
+
+<!-- ═══ 第六步 ═══ -->
+<section class="step" id="s6" hidden>
+  <p class="stepno">第六步</p>
+  <h2>把一句話放回去</h2>
+  <p>這就是考卷上的<b>篇章結構</b>題。下面把第 33 到 34 行那一句整句抽掉了，四個候選句只有一句放得進去。</p>
+  <div class="gap" id="gp">
+    Without that discovery, one of the world’s most recognizable melodies might never have reached concert halls—or Taiwan’s garbage trucks.
+    <span class="blank" id="bl">（空格）</span> The Polish composer Tekla Bądarzewska completed the piece in 1856, and it was soon printed in a music magazine in Paris. In those days, there were no recordings or streaming services, so people bought sheet music and played their favorite songs at home.
+  </div>
+  <div class="picks" id="q6">
+    <button>Even so, ordinary listeners never lost their affection for this famous piece.</button>
+    <button>Today, both pieces continue to brighten the streets of Taiwan every evening.</button>
+    <button data-ok="1">Unlike “Für Elise,” “The Maiden’s Prayer” became popular shortly after it was written.</button>
+    <button>Beethoven wrote the piece for a woman he adored and hoped to marry.</button>
+  </div>
+  <div class="said" id="a6" hidden>
+    <b>四個線索同時指向同一句。</b>這四句單獨看都說得通，沒有一句本身是錯的。要排除，得靠位置和線索。
+    <br><br>
+    <b>先講一個例外。</b>前面說大考的正解通常是改寫，但<b>抽句題不一樣</b>：抽掉的就是原文那一句，所以正解一定是原文。這一題要靠的是另外三句哪裡接不上，不是比對字面。
+    <br><br>
+    <b>一、後一句的 the piece 要有人先介紹。</b>空格後面是 <q>The Polish composer Tekla Bądarzewska completed the piece in 1856</q>：the piece 是有定冠詞的，前面一定要先出現過這首曲子。正解在空格裡第一次點名 “The Maiden’s Prayer”，波蘭作曲家完成的就是它。
+    <br><br>
+    <b>二、對照要有對象。</b>前面整段在講〈給愛麗絲〉直到 1867 年才被人發現（第 26 到 29 行），正解的 Unlike 正好接上：不像它，〈少女的祈禱〉不一樣。
+    <br><br>
+    <b>三、時間要接得上。</b>空格裡的 shortly after it was written，和後一句的 soon printed in a music magazine 是同一個意思；一寫成，馬上就被印出來。
+    <br><br>
+    <b>四、段落要換主角。</b>空格前一句以 Taiwan’s garbage trucks 結束，〈給愛麗絲〉的故事到此為止；新的一段需要一句話把主角換過來，正解 Unlike 就是這個換手的句子。
+    <br><br>
+    <b>另外三個為什麼排除，各有一個明確的依據：</b>
+    <br><br>
+    <q>Today, both pieces continue to brighten the streets of Taiwan every evening</q>——<b>這一句最容易選</b>，因為前一句剛好停在 Taiwan’s garbage trucks，接著講台灣的街頭很順。可是它已經是第 56 到 57 行收尾的內容，放在這裡會把全文的結尾搬到中間；而且後面的 In those days 又倒回十九世紀。這是層級錯。
+    <br><br>
+    <q>Beethoven wrote the piece for a woman he adored and hoped to marry</q>——是第 17 到 19 行的內容。放在這裡，後一句的 the piece 就會指貝多芬的曲子，變成波蘭作曲家完成了貝多芬的曲子，不通。這是指涉錯。
+    <br><br>
+    <q>Even so, ordinary listeners never lost their affection for this famous piece</q>——是第 54 到 55 行的意思，屬於一首曲子講完之後的評價，而且它需要前面先有評論家的負面看法（第 53 到 54 行 some music critics thought）才說得通。這是順序錯。
+  </div>
+  <p class="why" id="w6" hidden>考卷上不會有底色，也不會有行號。但你剛才用的線索：定冠詞的指涉、對照的字、時間的呼應、段落的換手，每一篇比較對照的文章都找得到。</p>
+</section>
+
+<!-- ═══ 第七步 ═══ -->
+<section class="close" id="s7" hidden>
+  <h2>帶著走的五句話</h2>
+  <ol>
+    <li><b>比較對照：兩邊沿著同樣的面向，一邊講完再講另一邊。</b>這一篇的面向是誰寫的、怎麼流傳、特別之處、評價，可是兩邊在課文裡的順序不一樣，要靠內容對，不能靠位置對。</li>
+    <li><b>開頭常有共同點，也可能有首尾呼應的框。</b>先說兩者為什麼可以放在一起；結尾回到同一個畫面，這個框裡面才是真正要比的東西。</li>
+    <li><b>驗證方法：把內容放回兩欄表，每一列兩邊都要有。</b>遮掉一欄，Unlike 就沒有了對象，剩下的變成單一主題的說明文。</li>
+    <li><b>下層：換字看角度，對比標記看層級。</b>piece、melody、tune、song、works 是同一對曲子，換的是看它的角度；Unlike 是整篇的軸，though、Meanwhile、while、Although 是各邊內部的小轉折。</li>
+    <li><b>考卷的陷阱：把一邊的內容接到另一邊。</b>被埋沒的是〈給愛麗絲〉，一寫成就走紅的是〈少女的祈禱〉；選項互換的時候，句子仍然通順，所以要先畫兩欄表再對。</li>
+  </ol>
+  <p class="more"><a href="https://staresto-create.github.io/JCEE-vocab-questions/wordwheel.html">單字輪：把字拆成部件來記 →</a></p>
+</section>
+
+<nav class="series">
+  <a class="back" href="cohesion.html">← 回讀法練習總表</a>
+  <p class="note">總表上有目前可以做的所有單元，還有你累積到現在的讀法工具。</p>
+</nav>
+</div>
+<script>
+(function(){
+"use strict";
+function $(id){return document.getElementById(id);}
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;");}
+
+var KEY="cohesion-202611-u12-v1";
+
+var PREVIEW=false;
+var ST={tags:{},rows:{},q1:0,q2:0,q3:0,q5:0,q6:0,step:1};
+function save(){ if(PREVIEW) return; try{ localStorage.setItem(KEY, JSON.stringify(ST)); }catch(e){} }
+function load(){ try{ var r=localStorage.getItem(KEY); return r?JSON.parse(r):null; }catch(e){ return null; } }
+function wipe(){ try{ localStorage.removeItem(KEY); }catch(e){} location.reload(); }
+
+var TITLE="From Concert Halls to Garbage Trucks";
+
+var LINES=[
+"For people in Taiwan, what do the",
+"famed piano {pieces|c-var|1} “Für Elise” and “The",
+"Maiden’s Prayer” have in common? Every",
+"evening, their familiar {melodies|c-var|2} tell people",
+"it’s time to take out the garbage. Visitors to",
+"Taiwan are often surprised to hear classical",
+"music coming from garbage trucks, {but|c-con|3} for",
+"many Taiwanese, these {tunes|c-var|2} have been",
+"part of everyday life since childhood. Long",
+"before they became linked with garbage",
+"collection, {however|c-con|3}, both {pieces|c-var|1} already",
+"had interesting histories.",
+"“Für Elise” was composed by Ludwig",
+"van Beethoven in 1810. To this day, {though|c-con|2},",
+"one question still puzzles music historians:",
+"Who was Elise? The leading theory is that",
+"Beethoven actually dedicated the {piece|c-var|1}",
+"to Therese Malfatti, a woman he adored",
+"and hoped to marry. Because Beethoven’s",
+"handwriting was difficult to read, a music",
+"scholar may have mistaken “Therese”",
+"for “Elise” when preparing the score for",
+"publication. {Meanwhile|c-con|2}, others believe",
+"that the music was written for someone",
+"else entirely.",
+"The story doesn’t stop there. Beethoven",
+"never published the {piece|c-var|1} himself, and it",
+"remained undiscovered until 1867, decades",
+"after his death. Without that discovery, one",
+"of the world’s most recognizable {melodies|c-var|2}",
+"might never have reached concert halls—",
+"or Taiwan’s garbage trucks.",
+"{Unlike|c-con|1} “Für Elise,” “The Maiden’s Prayer”",
+"became popular shortly after it was written.",
+"The Polish composer Tekla Bądarzewska",
+"completed the {piece|c-var|1} in 1856, and it was",
+"soon printed in a music magazine in Paris.",
+"In those days, there were no recordings",
+"or streaming services, so people bought",
+"sheet music and played their favorite {songs|c-var|4}",
+"at home. Because of its graceful melody,",
+"“The Maiden’s Prayer” quickly spread across",
+"Europe and became one of the best-selling",
+"piano {pieces|c-var|1} of the 19th century.",
+"Part of its success came down to",
+"its simple design. The {tune|c-var|2} is easy to",
+"remember, {while|c-con|2} its flowing arpeggios",
+"make it sound more difficult than it really is.",
+"As a result, many amateur pianists were",
+"able to learn it and perform it proudly for",
+"family and friends. In some ways, it was the",
+"19th-century equivalent of a viral {song|c-var|4}.",
+"{Although|c-con|2} some music critics thought",
+"the {piece|c-var|1} was too sentimental, ordinary",
+"listeners never lost their affection for it.",
+"Today, both “The Maiden’s Prayer” and “Für",
+"Elise” continue to brighten Taiwan’s streets",
+"every evening, giving these classic {works|c-var|3}",
+"an unusual but comforting role in everyday",
+"life."
+];
+var INDENT={1:1,13:1,26:1,33:1,45:1,53:1,56:1};
+var HEAD={};
+var SPLIT=33;
+var SPLIT_TEXT="以上是 11/26 的第 1–32 行。以下是 11/27 的第 33–60 行。";
+
+var CHAINS={"c-var": {"k": "sub", "n": "換字，前面教過，這一頁練得更深（這一頁沒有新工具）。同樣指這兩首曲子，作者換了好幾個名詞：piece、melody、tune、work、song。這是對這一篇的觀察：換字不是隨便換，要看這一句是從哪個角度在看它。講創作、出版、批評的時候用 piece：第 17 行 dedicated the piece、第 27 行 published the piece、第 36 行 completed the piece、第 54 行 the piece was too sentimental。講聽到和記住的時候用 melody、tune：第 4 行 familiar melodies、第 8 行 these tunes、第 30 行 most recognizable melodies、第 46 行 The tune is easy to remember。評價它的分量時用 works：第 58 行 classic works。講流行的時候用 song：第 40 行 favorite songs、第 52 行 viral song。"}, "c-con": {"k": "gen", "n": "對比標記，前面教過，這一頁練得更深（這一頁沒有新工具）。這篇有七個對比標記，層級不同：整篇的軸只有一個，第 33 行 Unlike，把兩首曲子對起來；同一首曲子內部有四個小轉折：第 14 行 though（一八一〇年寫成，至今還有謎）、第 23 行 Meanwhile（兩種說法並列）、第 47 行 while（好記，卻聽起來難）、第 53 行 Although（評論家嫌感傷，聽眾仍然喜愛）；框的兩個轉折：第 7 行 but（遊客驚訝，台灣人習慣）、第 11 行 however（從垃圾車轉到曲子的歷史）。看到對比標記，要問兩件事：誰對誰，在哪一層。"}};
+var LB={sub:"換字",gen:"對比標記",mk:"標記詞"};
+var CL={sub:"k",gen:"k g",mk:"k e"};
+
+var NODES=[{"nm": "開場的框", "en": "what do … have in common", "a": 1, "b": 12, "n": "第 1 到 12 行。用問題開場：第 1 到 3 行 what do the famed piano pieces … have in common？答案是每天傍晚都在垃圾車上響起（第 3 到 5 行）；第 5 到 7 行遊客驚訝，第 7 行 but 之後台灣人早已習慣。第 11 行 however 一轉：在變成垃圾車音樂以前，兩首曲子早就各有有趣的歷史。這一格跨兩欄，是框的前半，也是兩邊共同的前提。"}, {"nm": "給愛麗絲：誰寫的、哪一年", "en": "composed … in 1810", "a": 13, "b": 14, "n": "第 13 到 14 行。〈給愛麗絲〉是貝多芬在一八一〇年寫成的。這一格跟右欄的波蘭作曲家和一八五六年放在同一列。"}, {"nm": "給愛麗絲：怎麼流傳", "en": "never published … 1867", "a": 26, "b": 29, "n": "第 26 到 29 行。第 26 行 The story doesn’t stop there，故事還沒完：貝多芬生前從沒出版這首曲子，一直到一八六七年，在他過世幾十年後，才被人發現。這一格對著右欄：一首被埋沒，一首寫好不久就走紅。"}, {"nm": "給愛麗絲：特別之處", "en": "Who was Elise?", "a": 14, "b": 25, "n": "第 14 到 25 行。第 14 行 though 一轉：到今天，歷史學家還在問 Who was Elise？最有力的說法（第 16 行 The leading theory）是貝多芬其實題給 Therese Malfatti，被抄譜的人看錯了；第 23 行 Meanwhile，另一些人認為是寫給別人。這是一個至今沒有定論的謎。"}, {"nm": "給愛麗絲：評價", "en": "most recognizable melodies", "a": 29, "b": 32, "n": "第 29 到 32 行。沒有那次發現，世界上最容易被認出來的旋律之一，可能永遠到不了音樂廳，也到不了台灣的垃圾車。這是對這首曲子分量的評價，跟右欄第 53 到 55 行放在同一列。"}, {"nm": "少女的祈禱：誰寫的、哪一年", "en": "completed the piece in 1856", "a": 35, "b": 36, "n": "第 35 到 36 行。波蘭作曲家 Tekla Bądarzewska 在一八五六年完成〈少女的祈禱〉。這一格跟左欄第 13 到 14 行放在同一列：誰、哪一年。"}, {"nm": "少女的祈禱：怎麼流傳", "en": "popular shortly after", "a": 33, "b": 44, "n": "第 33 到 44 行。第 33 行 Unlike 把整篇對起來：跟〈給愛麗絲〉不一樣，〈少女的祈禱〉寫好不久就受歡迎（第 33 到 34 行 shortly after）。它很快登在巴黎的音樂雜誌上；那時沒有錄音和串流，人們買樂譜回家彈，旋律優美，很快傳遍歐洲，成為十九世紀最暢銷的鋼琴曲之一。"}, {"nm": "少女的祈禱：特別之處", "en": "easy to remember … difficult", "a": 45, "b": 52, "n": "第 45 到 52 行。成功的一部分來自簡單的設計：旋律好記（第 46 到 47 行），流動的琶音卻讓它聽起來比實際難（第 47 到 48 行），所以許多業餘鋼琴家都學得會，彈給家人朋友聽。第 51 到 52 行把它說成十九世紀的 viral song。"}, {"nm": "少女的祈禱：評價", "en": "too sentimental … affection", "a": 53, "b": 55, "n": "第 53 到 55 行。第 53 行 Although：有些音樂評論家認為它太感傷，一般聽眾卻始終喜愛。這是對這首曲子的評價，跟左欄第 29 到 32 行放在同一列。"}, {"nm": "收尾的框", "en": "continue to brighten", "a": 56, "b": 60, "n": "第 56 到 60 行。第 56 行 Today 回到開頭的畫面：兩首曲子每天傍晚繼續在台灣的街上響起，給這些經典作品一個不尋常卻讓人安心的角色。這一格跟第一格呼應，是框的後半。"}];
+
+var SPOKES=["誰寫的、哪一年", "怎麼流傳", "特別之處", "評價"];
+var ROWS=[{"f": "一位波蘭作曲家在一八五六年完成這首曲子。", "ans": 0, "note": "第 35 到 36 行。<q>The Polish composer Tekla Bądarzewska completed the piece in 1856</q>。這是誰寫的、哪一年那一列，跟另一欄的貝多芬和一八一〇年放在同一列。"}, {"f": "曲子寫好不久就登在巴黎的音樂雜誌上，人們買樂譜回家彈，很快傳遍歐洲。", "ans": 1, "note": "第 36 到 43 行。<q>it was soon printed in a music magazine in Paris</q>，接著 <q>people bought sheet music and played their favorite songs at home</q>，最後 <q>quickly spread across Europe</q>。這是怎麼流傳那一列，跟另一欄「沒出版、後來才被發現」對著。"}, {"f": "到今天，歷史學家還在爭論這首曲子究竟是寫給誰的。", "ans": 2, "note": "第 14 到 16 行 <q>To this day, though, one question still puzzles music historians: Who was Elise?</q>，第 23 到 25 行說另一些人認為是寫給別人。<b>這一張最容易放錯</b>，因為「寫給誰」聽起來像是誰寫的那一列。可是那一列只放兩件事：作曲者是誰、哪一年（第 13 到 14 行、第 35 到 36 行）；這一張講的是一個至今沒有答案的謎，第 14 行的 though 就是在標示「到現在還沒解決」，屬於特別之處那一列。"}, {"f": "有些評論家覺得它太感傷，一般聽眾卻始終喜愛。", "ans": 3, "note": "第 53 到 55 行。<q>some music critics thought the piece was too sentimental, ordinary listeners never lost their affection for it</q>。這是評價那一列。"}, {"f": "貝多芬在一八一〇年寫成這首曲子。", "ans": 0, "note": "第 13 到 14 行。<q>“Für Elise” was composed by Ludwig van Beethoven in 1810</q>。這是誰寫的、哪一年那一列。"}, {"f": "旋律容易記，流動的琶音又讓它聽起來比實際難。", "ans": 2, "note": "第 46 到 48 行。<q>The tune is easy to remember, while its flowing arpeggios make it sound more difficult than it really is</q>。這是這首曲子的特別之處，跟另一欄「至今沒有答案的謎」放在同一列：一邊特別在謎，一邊特別在設計。"}, {"f": "它被視為世界上最容易被認出來的旋律之一。", "ans": 3, "note": "第 29 到 31 行。<q>one of the world’s most recognizable melodies</q>。這是對這首曲子分量的評價，跟另一欄「評論家嫌感傷、聽眾仍然喜愛」放在同一列。"}, {"f": "作曲家生前沒有出版它，一直到他過世幾十年後才被人發現。", "ans": 1, "note": "第 26 到 29 行。<q>Beethoven never published the piece himself, and it remained undiscovered until 1867, decades after his death</q>。這是怎麼流傳那一列。"}];
+
+var TL={t:"共通點",p:"驚訝",r:"轉向"};
+
+/* ---------- 通用：選擇題 ---------- */
+function quiz(qid,aid,gid,tag,after){
+  var done=false;
+  function settle(){
+    done=true;
+    var bs=$(qid).querySelectorAll("button");
+    for(var i=0;i<bs.length;i++){ bs[i].disabled=true; bs[i].dataset.state=bs[i].dataset.ok?"right":"wrong"; }
+    if(aid) $(aid).hidden=false;
+    if(gid) $(gid).hidden=false;
+    if(after) after();
+  }
+  $(qid).addEventListener("click",function(e){
+    var b=e.target.closest("button"); if(!b||done) return;
+    settle(); ST[tag]=1; save();
+  });
+  return settle;
+}
+function opener(gid,sid,extra){
+  $(gid).addEventListener("click",function(){
+    var n=parseInt(sid.replace(/\D/g,""),10);
+    if(ST.step<n) ST.step=n; save();
+    $(sid).hidden=false; if(extra) extra();
+    $(sid).scrollIntoView({behavior:"smooth",block:"start"});
+  });
+}
+function hlLines(a,b){
+  var rows=$("tx").querySelectorAll(".ln");
+  for(var r=0;r<rows.length;r++){ var n=+rows[r].dataset.n; rows[r].classList.toggle("hl", n>=a&&n<=b); }
+  var ms=$("tx").querySelectorAll("m");
+  for(var k=0;k<ms.length;k++) ms[k].classList.remove("lit");
+  if(rows.length){ var f=$("tx").querySelector('.ln[data-n="'+a+'"]'); if(f) f.scrollIntoView({behavior:"smooth",block:"center"}); }
+}
+
+/* ---------- 第一步 ---------- */
+function tagged(){ var n=0; for(var k in ST.tags) if(ST.tags[k]) n++; return n; }
+function paintTag(c){
+  if(c.classList.contains("got")) return;
+  c.classList.add("got");
+  var b=document.createElement("b"); b.textContent=TL[c.dataset.t]||"";
+  c.insertBefore(b, c.firstChild);
+}
+function afterTags(){
+  $("sc").innerHTML="已標出 <em>"+tagged()+"</em> / 3";
+  if(tagged()===3) $("s1b").hidden=false;
+}
+$("ld").addEventListener("click",function(e){
+  var c=e.target.closest("c"); if(!c) return;
+  if(ST.tags[c.dataset.t]) return;
+  ST.tags[c.dataset.t]=1; save(); paintTag(c); afterTags();
+});
+var set1=quiz("q1","a1","g1","q1");
+opener("g1","s2");
+
+/* ---------- 第二步：放射狀網狀圖 ---------- */
+function drawFig(){
+  if($("fig").firstChild) return;
+  $("fig").hidden=false;
+  var s='<svg viewBox="0 0 420 384" role="img" aria-label="比較表加框：上方是開場的框，中間兩欄，左欄給愛麗絲、右欄少女的祈禱，四列是誰寫的哪一年、怎麼流傳、特別之處、評價，下方是收尾的框">';
+  s+='<text class="zl l" x="154" y="82" text-anchor="middle">給愛麗絲 Für Elise</text>';
+  s+='<text class="zl r" x="328" y="82" text-anchor="middle">少女的祈禱 The Maiden’s Prayer</text>';
+  var RL=["誰寫的","怎麼流傳","特別之處","評價"];
+  var CX=[154,328], W=164, H=50, Y0=90, DY=56;
+  for(var r=0;r<4;r++){
+    var y=Y0+r*DY;
+    s+='<rect class="zone" x="4" y="'+y+'" width="412" height="'+H+'" rx="6"/>';
+    s+='<text class="pn" x="34" y="'+(y+H/2+3)+'" text-anchor="middle" style="font-size:10px">'+RL[r]+'</text>';
+  }
+    for(var i=0;i<NODES.length;i++){
+    var d=NODES[i], x,y,w,h;
+    var fr=(i===0||i===NODES.length-1);
+    if(i===0){ x=241; y=26; w=330; h=46; }
+    else if(fr){ x=241; y=322; w=330; h=46; }
+    else { var c=i<5?0:1, rr=(i-1)%4; x=CX[c]; y=Y0+rr*DY; w=W; h=H; }
+    s+='<g class="node'+(fr?' q':'')+'" data-i="'+i+'" tabindex="0" role="button">';
+    s+='<rect x="'+(x-w/2)+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="5"/>';
+    s+='<text x="'+x+'" y="'+(y+h/2-9)+'" text-anchor="middle">'+esc(fr?d.nm:d.nm.split('：')[1])+'</text>';
+    s+='<text class="n" x="'+x+'" y="'+(y+h/2+4)+'" text-anchor="middle">'+esc(d.en)+'</text>';
+    s+='<text class="n" x="'+x+'" y="'+(y+h/2+16)+'" text-anchor="middle">'+('第 '+d.a+'–'+d.b+' 行')+'</text>';
+    s+='</g>';
+  }
+  s+='</svg><figcaption>最上和最下的虛線框是同一個畫面：垃圾車的傍晚，首尾呼應，兩欄共用。中間是比較表：左欄〈給愛麗絲〉、右欄〈少女的祈禱〉，每一列是同一個面向。注意兩邊在課文裡的順序不一樣，左欄的謎（第 14 到 25 行）排在被發現（第 26 到 29 行）之前，右欄卻是先流傳（第 33 到 44 行）才講設計（第 45 到 52 行），所以不能靠位置對齊，要靠內容。把其中一欄遮掉，剩下的就不是比較了。點任一格，第四步的課文對應行會亮起來。</figcaption>';
+  $("fig").innerHTML=s;
+  function hit(g){
+    var i=+g.dataset.i, d=NODES[i];
+    var gs=$("fig").querySelectorAll(".node");
+    for(var j=0;j<gs.length;j++) gs[j].classList.toggle("on", +gs[j].dataset.i===i);
+    hlLines(d.a,d.b);
+    $("pk").textContent=((i===0?"框的前半，兩欄共同的前提":(i===9?"框的後半，回到開頭":(i<5?"給愛麗絲那一欄":"少女的祈禱那一欄")))); $("pk").className="k e";
+    $("pc").textContent=d.nm+"　"+d.en; $("pt").textContent=d.n;
+  }
+  $("fig").addEventListener("click",function(e){ var g=e.target.closest(".node"); if(g) hit(g); });
+  $("fig").addEventListener("keydown",function(e){
+    if(e.key!=="Enter"&&e.key!==" ") return;
+    var g=e.target.closest(".node"); if(g){ e.preventDefault(); hit(g); }
+  });
+}
+function afterQ2(){ drawFig(); if($("db")) $("db").hidden=false; }
+var set2=quiz("q2","a2","g2","q2",afterQ2);
+opener("g2","s3",buildRows);
+
+/* ---------- 第三步：把內容放回網狀圖 ---------- */
+var builtRows=false;
+function buildRows(){
+  if(builtRows) return; builtRows=true;
+  var h="";
+  for(var i=0;i<ROWS.length;i++){
+    var r=ROWS[i], bt="";
+    for(var k=0;k<SPOKES.length;k++) bt+='<button data-i="'+i+'" data-v="'+k+'">'+SPOKES[k]+'</button>';
+    h+='<div class="qcard" id="cd'+i+'"><div class="hd"><span class="qt">'+esc(r.f)+'</span></div>'+
+       '<span class="yn">屬於：'+bt+'</span>'+
+       '<span class="bd" id="bd'+i+'"></span></div>';
+  }
+  $("qs").innerHTML=h;
+  $("qs").addEventListener("click",function(e){
+    var b=e.target.closest("button"); if(!b) return;
+    var i=b.dataset.i; if(ST.rows[i]!==undefined&&ST.rows[i]!==null) return;
+    ST.rows[i]=+b.dataset.v; save(); paintRows();
+  });
+  paintRows();
+}
+function isSet(v){ return typeof v==="number"; }
+function judged(){ var n=0; for(var i=0;i<ROWS.length;i++) if(isSet(ST.rows[i])) n++; return n; }
+function rightRows(){ var n=0; for(var i=0;i<ROWS.length;i++) if(ST.rows[i]===ROWS[i].ans) n++; return n; }
+function paintRows(){
+  for(var i=0;i<ROWS.length;i++){
+    var el=$("cd"+i); if(!el) continue;
+    var v=ST.rows[i], r=ROWS[i];
+    el.classList.toggle("open",isSet(v));
+    if(isSet(v)){
+      var ok=(v===r.ans);
+      var head= ok ? ("放對了：這一張屬於「"+SPOKES[r.ans]+"」那一格。") : ("再看一次：這一張其實屬於「"+SPOKES[r.ans]+"」，不是「"+SPOKES[v]+"」。");
+      $("bd"+i).innerHTML='<span class="vd '+(ok?"ok":"ng")+'">'+head+'</span>'+r.note;
+    }
+  }
+  $("sc3").innerHTML="已放 <em>"+judged()+"</em> / "+ROWS.length+"，第一次就放對 <em>"+rightRows()+"</em> 張";
+  if(judged()>=ROWS.length){ $("a3").hidden=false; $("q3w").hidden=false; }
+}
+var set3=quiz("q3","a3b","g3","q3");
+opener("g3","s4",function(){ buildText(); drawFig(); });
+
+/* ---------- 第四步：課文與線索鏈 ---------- */
+function renderLine(str){
+  var out="",i=0;
+  while(i<str.length){
+    var a=str.indexOf("{",i);
+    if(a<0){ out+=esc(str.slice(i)); break; }
+    out+=esc(str.slice(i,a));
+    var b=str.indexOf("}",a), p=str.slice(a+1,b).split("|");
+    var id=p[1], it=p[2]||"1", k=CHAINS[id]?CHAINS[id].k:"sub";
+    out+='<m data-c="'+id+'" data-i="'+it+'" data-kind="'+k+'" tabindex="0">'+esc(p[0])+'</m>';
+    i=b+1;
+  }
+  return out;
+}
+var builtText=false;
+function buildText(){
+  if(builtText) return; builtText=true;
+  var h='<p class="ttl">'+renderLine(TITLE)+'</p>';
+  for(var i=0;i<LINES.length;i++){
+    var n=i+1;
+    if(SPLIT && n===SPLIT) h+='<p class="split">'+esc(SPLIT_TEXT)+'</p>';
+    var cls="ln";
+    if(HEAD[n]) cls+=" sub pb";
+    else if(INDENT[n]) cls+=" ind"+(n>1&&!HEAD[n-1]?" pb":"");
+    h+='<div class="'+cls+'" data-n="'+n+'"><i>'+((n%5===0)?n:"")+'</i><span>'+renderLine(LINES[i])+'</span></div>';
+  }
+  $("tx").innerHTML=h;
+}
+function lightChain(id){
+  var ms=$("tx").querySelectorAll("m"), items={}, order=[],i;
+  var gs=$("fig").querySelectorAll(".node");
+  for(i=0;i<gs.length;i++) gs[i].classList.remove("on");
+  var rows=$("tx").querySelectorAll(".ln");
+  for(i=0;i<rows.length;i++) rows[i].classList.remove("hl");
+  for(i=0;i<ms.length;i++){
+    if(ms[i].dataset.c===id){
+      ms[i].classList.add("lit");
+      var key=ms[i].dataset.i;
+      if(!items[key]){ items[key]=[]; order.push(key); }
+      items[key].push(ms[i].textContent);
+    } else ms[i].classList.remove("lit");
+  }
+  var c=CHAINS[id]; if(!c) return;
+  var parts=[];
+  for(var o=0;o<order.length;o++) parts.push(esc(items[order[o]].join(" ")));
+  $("pk").textContent=LB[c.k]; $("pk").className=CL[c.k];
+  $("pc").innerHTML=parts.join('<i>\u2192</i>');
+  $("pt").textContent=c.n;
+}
+$("tx").addEventListener("click",function(e){ var m=e.target.closest("m"); if(m) lightChain(m.dataset.c); });
+$("tx").addEventListener("keydown",function(e){
+  if(e.key!=="Enter"&&e.key!==" ") return;
+  var m=e.target.closest("m"); if(m){ e.preventDefault(); lightChain(m.dataset.c); }
+});
+function toggle(btn,cls){
+  btn.addEventListener("click",function(){
+    var on=btn.getAttribute("aria-pressed")==="true";
+    btn.setAttribute("aria-pressed",on?"false":"true");
+    $("tx").classList.toggle(cls,on);
+  });
+}
+toggle($("m1"),"off-sub");
+toggle($("m2"),"off-gen");
+opener("g4","s5");
+
+/* ---------- 第五步 ---------- */
+var set5=quiz("q5","a5","g5","q5");
+$("g5").addEventListener("click",function(){
+  if(ST.step<6) ST.step=6; save();
+  $("s6").hidden=false;
+  $("s6").scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+/* ---------- 第六步 ---------- */
+var done6=false;
+function settle6(){
+  done6=true;
+  var bs=$("q6").querySelectorAll("button");
+  for(var i=0;i<bs.length;i++){
+    bs[i].disabled=true; bs[i].dataset.state=bs[i].dataset.ok?"right":"wrong";
+    if(bs[i].dataset.ok){ $("bl").textContent=bs[i].textContent; $("bl").className="blank filled"; }
+  }
+  $("a6").hidden=false; $("w6").hidden=false; $("s7").hidden=false;
+}
+$("q6").addEventListener("click",function(e){
+  var b=e.target.closest("button"); if(!b||done6) return;
+  settle6(); ST.q6=1; save();
+  $("a6").scrollIntoView({behavior:"smooth",block:"nearest"});
+});
+
+/* ---------- 老師的預覽開關：網址加 ?all ---------- */
+function previewAll(){
+  PREVIEW=true;
+  $("pv").hidden=false;
+  var i,cs=$("ld").querySelectorAll("c");
+  for(i=0;i<cs.length;i++){ ST.tags[cs[i].dataset.t]=1; paintTag(cs[i]); }
+  afterTags(); set1();
+  $("s2").hidden=false; set2();
+  $("s3").hidden=false;
+  for(i=0;i<ROWS.length;i++) ST.rows[i]=ROWS[i].ans;
+  buildRows(); set3();
+  $("s4").hidden=false; buildText(); drawFig();
+  $("s5").hidden=false; set5();
+  $("s6").hidden=false; settle6();
+}
+
+/* ---------- 接回上次的進度 ---------- */
+$("rst").addEventListener("click",wipe);
+(function restore(){
+  if(/(^|[?&])all(=|&|$)/.test(location.search)){ previewAll(); return; }
+  var v=load(); if(!v) return;
+  ST=v;
+  if(!ST.tags) ST.tags={};
+  if(!ST.rows) ST.rows={};
+  if(!ST.step) ST.step=1;
+  if(!(tagged()||ST.step>1)) return;
+  $("rs").hidden=false;
+  var i,cs=$("ld").querySelectorAll("c");
+  for(i=0;i<cs.length;i++) if(ST.tags[cs[i].dataset.t]) paintTag(cs[i]);
+  afterTags();
+  if(ST.q1) set1();
+  if(ST.step>=2){ $("s2").hidden=false; if(ST.q2) set2(); }
+  if(ST.step>=3){ $("s3").hidden=false; buildRows(); if(ST.q3) set3(); }
+  if(ST.step>=4){ $("s4").hidden=false; buildText(); drawFig(); }
+  if(ST.step>=5){ $("s5").hidden=false; if(ST.q5) set5(); }
+  if(ST.step>=6){ $("s6").hidden=false; if(ST.q6) settle6(); }
+  var last=$("s"+(ST.step>=6?6:ST.step));
+  if(last) setTimeout(function(){ last.scrollIntoView({block:"start"}); },60);
+})();
+})();
+</script>
+<p class="cc-note">本題庫自己寫的部分（解析、中譯、分類、標註與編排）採用 <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh-hant" target="_blank" rel="license noopener">CC BY-NC 4.0</a>（姓名標示─非商業性）授權：可以分享，但須註明出處，不得用於商業用途。試題來源與完整說明請見<a href="https://staresto-create.github.io/JCEE-vocab-questions/#terms">使用與著作權</a>。</p>
+</body>
+</html>

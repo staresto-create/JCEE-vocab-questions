@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>序列：從手寫筆記到手機，再回到紙本｜Planners</title>
+<meta name="description" content="手機這麼方便，為什麼還有人用紙本手帳？這一頁教你認出序列的結構，還有貫穿全文的兩條詞彙線索：作者把話說滿的字，以及把一整件事收成一個名詞的概括名詞。">
+<meta property="og:title" content="序列：從手寫筆記到手機，再回到紙本｜Planners">
+<meta property="og:description" content="從十七世紀的備忘本、工業革命的行事曆，到今天的手機：一條時間線，一段一段交班。">
+<style>
+:root{
+  --ground:#f1f3f2; --ink:#17282f; --teal:#1f6f6a; --teal-soft:#dfeceb;
+  --muted:#77878d; --line:#cdd6d6; --exam:#b4661c; --exam-soft:#fdf4e7;
+  --gen:#4a6a90; --gen-soft:#e0e7f0;
+  --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+  --sans:"PingFang TC","Noto Sans TC","Microsoft JhengHei","Helvetica Neue",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ad-vground-bg);color:var(--ad-vink-fg);font-family:var(--sans);line-height:1.6;-webkit-text-size-adjust:100%}
+.wrap{max-width:44rem;margin:0 auto;padding:1.6rem 1.1rem 4rem}
+h1{font-family:var(--serif);font-weight:600;font-size:1.6rem;line-height:1.3;margin:0 0 .55rem}
+.lede{margin:0 0 1.3rem;color:var(--ad-x3d5059-fg);font-size:.95rem}
+.src{font-size:.8rem;color:var(--ad-vmuted-fg);margin:0 0 1.1rem}
+.resume{font-size:.85rem;color:var(--ad-vteal-fg);background:var(--ad-vtealsoft-bg);border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.resume[hidden],.preview[hidden]{display:none}
+.preview{font-size:.85rem;color:var(--ad-vexam-fg);background:var(--ad-vexamsoft-bg);
+  border:1px dashed var(--exam);border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.resume button{font:inherit;font-size:.82rem;background:var(--ad-xfff-bg);color:var(--ad-vink-fg);border:1px solid var(--ad-vline-border);border-radius:.25rem;padding:.16rem .6rem;margin-left:.5rem;cursor:pointer}
+.resume button:focus-visible{outline:2px solid var(--ad-vteal-border);outline-offset:2px}
+.step{border-top:1px solid var(--ad-vline-border);padding-top:1.15rem;margin-top:1.6rem}
+.step[hidden]{display:none}
+.stepno{font-family:var(--serif);font-size:.82rem;color:var(--ad-vmuted-fg);margin:0 0 .2rem}
+h2{font-family:var(--serif);font-weight:600;font-size:1.2rem;margin:0 0 .5rem;color:var(--ad-vteal-fg)}
+.step p{margin:0 0 .7rem;font-size:.95rem}
+.tag{display:inline-block;font-size:.72rem;font-weight:600;border-radius:.2rem;padding:.08rem .45rem;margin-left:.45rem;vertical-align:.12rem;color:var(--ad-vexam-fg);background:var(--ad-vexamsoft-bg);border:1px solid var(--exam)}
+.tag.b{color:var(--ad-vgen-fg);background:var(--ad-vgensoft-bg);border-color:var(--gen)}
+
+/* 選擇題：中文用 .opts，英文選項加 .en，附小字說明加 .rg */
+.opts{display:flex;flex-direction:column;gap:.45rem;margin:.2rem 0 .8rem}
+.opts button{font:inherit;font-size:.95rem;background:var(--ad-xfff-bg);color:var(--ad-vink-fg);border:1px solid var(--ad-vline-border);border-radius:.3rem;padding:.45rem .85rem;cursor:pointer;text-align:left}
+.opts button:hover{border-color:var(--ad-vteal-border)}
+.opts button:focus-visible{outline:2px solid var(--ad-vteal-border);outline-offset:2px}
+.opts button[data-state="right"]{background:var(--teal);border-color:var(--ad-vteal-border);color:#fff}
+.opts button[data-state="wrong"]{background:var(--ad-vground-bg);color:var(--ad-vmuted-fg)}
+.opts button[disabled]{cursor:default}
+.opts.en button{font-family:var(--serif);font-size:.97rem;line-height:1.6;padding:.55rem .8rem}
+.opts.en button[data-state="right"]{background:var(--ad-vtealsoft-bg);border-color:var(--ad-vteal-border);color:var(--ad-vink-fg)}
+.opts.rg button i{display:block;font-style:normal;font-size:.82rem;color:var(--ad-vmuted-fg);margin-top:.12rem}
+.opts.rg button[data-state="right"] i{color:#dfeceb}
+
+/* 揭曉區塊 */
+.said{background:var(--ad-xfff-bg);border-left:3px solid var(--ad-vteal-border);border-radius:.3rem;padding:.75rem .85rem;margin:.2rem 0 .9rem;font-size:.93rem;color:var(--ad-x3d5059-fg)}
+.said b{color:var(--ad-vink-fg);font-weight:600}
+.said[hidden]{display:none}
+.said.g{border-left-color:var(--gen)}
+.said.e{border-left-color:var(--exam)}
+.said q{quotes:none;font-family:var(--serif)}
+
+.go{font:inherit;font-size:.92rem;background:var(--ad-vink-bg);color:var(--ad-onflip-fg);border:1px solid var(--ad-vink-border);border-radius:.3rem;padding:.42rem 1.05rem;cursor:pointer}
+.go:focus-visible{outline:2px solid var(--ad-vteal-border);outline-offset:2px}
+.go[hidden]{display:none}
+
+/* 第一步的可點標記 */
+.lead{background:var(--ad-xfff-bg);border:1px solid var(--ad-vline-border);border-radius:.4rem;padding:.9rem 1rem;margin:0 0 .7rem;font-family:var(--serif);font-size:1.02rem;line-height:1.95}
+.lead c{cursor:pointer;border-radius:.2rem;padding:.06rem .2rem;background:var(--ad-vexamsoft-bg);box-shadow:inset 0 -2px 0 #ecc9a2}
+.lead c:hover{box-shadow:inset 0 -2px 0 var(--exam)}
+.lead c.got{background:var(--exam);color:#fff;box-shadow:none}
+.lead c b{font-family:var(--sans);font-size:.72rem;font-weight:600;background:var(--ad-xfff-bg);color:var(--ad-vexam-fg);border-radius:.2rem;padding:.02rem .3rem;margin-right:.3rem}
+.score{font-size:.9rem;color:var(--ad-vmuted-fg);margin:0 0 .8rem}
+.score em{font-style:normal;color:var(--ad-vexam-fg);font-weight:600}
+
+/* 第三步的卡片（驗證方法通用容器） */
+.qs{display:flex;flex-direction:column;gap:.5rem;margin:0 0 .8rem}
+.qcard{background:var(--ad-xfff-bg);border:1px solid var(--ad-vline-border);border-radius:.4rem;padding:.6rem .85rem}
+.qcard .hd{display:flex;align-items:center;gap:.6rem;font-size:.95rem}
+.qcard .hd .qt{flex:1 1 auto;font-weight:600}
+.qcard .hd button{font:inherit;font-size:.8rem;background:var(--ad-xfff-bg);color:var(--ad-vink-fg);border:1px solid var(--ad-vline-border);
+  border-radius:.25rem;padding:.18rem .7rem;cursor:pointer;flex:0 0 auto}
+.qcard .hd button:focus-visible{outline:2px solid var(--ad-vteal-border);outline-offset:2px}
+.qcard .bd{display:none;margin-top:.4rem;font-size:.92rem;color:var(--ad-x3d5059-fg);line-height:1.75}
+.qcard.open .bd{display:block}
+.qcard.open .hd button{display:none}
+.qcard .bd .rf{display:block;color:var(--ad-vmuted-fg);font-size:.82rem;margin-top:.25rem}
+.qcard .bd .sw{display:block;font-family:var(--serif);background:var(--ad-vground-bg);border-radius:.3rem;
+  padding:.45rem .6rem;margin:.35rem 0;color:var(--ad-vink-fg);font-size:.93rem;line-height:1.7}
+.qcard .r{display:grid;grid-template-columns:1fr;gap:.1rem;margin-bottom:.4rem}
+@media(min-width:34rem){.qcard .r{grid-template-columns:5.5rem 1fr;gap:.5rem}}
+.qcard .r:last-child{margin-bottom:0}
+.qcard .r .k{font-size:.76rem;font-weight:600;color:var(--ad-vgen-fg)}
+.qcard .r .v em{font-style:normal;color:var(--ad-vmuted-fg);font-size:.82rem;margin-left:.3rem}
+
+/* 圖表容器與通用節點 */
+.fig{background:var(--ad-xfff-bg);border:1px solid var(--ad-vline-border);border-radius:.4rem;padding:.7rem .5rem .4rem;margin:0 0 .7rem}
+.fig[hidden]{display:none}
+.fig svg{display:block;width:100%;height:auto;max-width:27rem;margin:0 auto}
+.fig figcaption{font-size:.85rem;color:var(--ad-x3d5059-fg);margin:.35rem .5rem 0;line-height:1.65}
+.node{cursor:pointer}
+.node rect,.node circle,.node path.bx{fill:#fff;stroke:var(--line);stroke-width:2;stroke-linejoin:round}
+.node text{font-family:var(--sans);font-size:11px;fill:var(--ad-vink-fg);font-weight:600}
+.node tspan.n,.node text.n{font-size:9px;font-weight:400;fill:var(--ad-vmuted-fg)}
+.node.on rect,.node.on circle,.node.on path.bx{fill:var(--exam-soft);stroke:var(--ad-vexam-fg);stroke-width:3}
+.node.on text{fill:var(--ad-vexam-fg)}
+.node.on tspan.n,.node.on text.n{fill:var(--ad-vexam-fg)}
+.guide{stroke:var(--line);stroke-width:2;fill:none;stroke-linejoin:round;stroke-linecap:round}
+.guide.dash{stroke-dasharray:5 4}
+.endlab{font-family:var(--sans);font-size:10.5px;font-weight:600}
+.endlab.l{fill:var(--ad-vteal-fg)}
+.endlab.r{fill:var(--ad-vgen-fg)}
+
+/* 分日分隔框 */
+.daybreak{border:1px dashed var(--exam);background:var(--ad-vexamsoft-bg);border-radius:.4rem;
+  padding:.8rem .95rem;margin:1.6rem 0 0;font-size:.9rem;color:var(--ad-x3d5059-fg);line-height:1.7}
+.daybreak b{display:block;color:var(--ad-vexam-fg);font-family:var(--serif);font-size:1.02rem;margin-bottom:.3rem}
+.daybreak[hidden]{display:none}
+
+/* 課文與線索鏈 */
+.modes{display:flex;gap:.4rem;margin:0 0 .7rem;flex-wrap:wrap}
+.modes button{font:inherit;font-size:.84rem;background:var(--ad-xfff-bg);color:var(--ad-vink-fg);border:1px solid var(--ad-vline-border);border-radius:.3rem;padding:.3rem .8rem;cursor:pointer}
+.modes button[aria-pressed="true"]{background:var(--ad-vink-bg);border-color:var(--ad-vink-border);color:var(--ad-onflip-fg)}
+.modes button:focus-visible{outline:2px solid var(--ad-vteal-border);outline-offset:2px}
+.text{background:var(--ad-xfff-bg);border:1px solid var(--ad-vline-border);border-radius:.4rem;padding:.9rem .6rem 1.1rem;font-family:var(--serif);font-size:1rem;line-height:1.85}
+.text .ttl{font-weight:600;font-size:1.06rem;margin:0 .4rem .7rem 2.6rem;line-height:1.45}
+.ln{display:flex;align-items:baseline;padding:.02rem 0;border-radius:.2rem}
+.ln>i{flex:0 0 2.2rem;text-align:right;padding-right:.55rem;font-family:var(--sans);font-style:normal;font-size:.68rem;color:var(--ad-vmuted-fg);line-height:1.9}
+.ln>span{flex:1 1 auto;overflow-wrap:anywhere}
+.ln.ind>span{padding-left:1.1rem}
+.ln.sub>span{font-weight:600}
+.ln.hl{background:var(--ad-vexamsoft-bg)}
+.ln.pb{margin-top:.55rem}
+.text .split{font-family:var(--sans);font-size:.78rem;color:var(--ad-vexam-fg);
+  border-top:1px dashed var(--exam);margin:.8rem .4rem .7rem 2.6rem;padding-top:.35rem}
+.text m{cursor:pointer;border-radius:.2rem;padding:.02rem .14rem}
+.text m[data-kind="sub"]{background:var(--ad-vtealsoft-bg);box-shadow:inset 0 -2px 0 #a8ccc8}
+.text m[data-kind="gen"]{background:var(--ad-vgensoft-bg);box-shadow:inset 0 -2px 0 #a9bbd0}
+.text m[data-kind="mk"]{border-bottom:2px dotted var(--exam);font-style:italic}
+.text m.lit[data-kind="sub"]{background:var(--teal);color:#fff;box-shadow:none}
+.text m.lit[data-kind="gen"]{background:var(--gen);color:#fff;box-shadow:none}
+.text m.lit[data-kind="mk"]{background:var(--exam);color:#fff;border-bottom:none}
+.text.off-sub m[data-kind="sub"]{background:none;box-shadow:none}
+.text.off-gen m[data-kind="gen"]{background:none;box-shadow:none}
+
+/* 固定在底部的說明面板 */
+.panel{position:sticky;bottom:0;background:var(--ad-xfff-bg);border:1px solid var(--ad-vline-border);border-radius:.4rem;padding:.75rem .9rem;margin-top:.8rem;box-shadow:0 -2px 10px rgba(23,40,47,.07)}
+.panel .k{font-size:.72rem;font-weight:600;border-radius:.2rem;padding:.06rem .42rem;color:var(--ad-vteal-fg);background:var(--ad-vtealsoft-bg);border:1px solid var(--ad-vteal-border)}
+.panel .k.g{color:var(--ad-vgen-fg);background:var(--ad-vgensoft-bg);border-color:var(--gen)}
+.panel .k.e{color:var(--ad-vexam-fg);background:var(--ad-vexamsoft-bg);border-color:var(--exam)}
+.panel .ch{font-family:var(--serif);font-size:1rem;margin:.4rem 0 .3rem;color:var(--ad-vink-fg);line-height:1.75;overflow-wrap:anywhere}
+.panel .ch i{font-style:normal;color:var(--ad-vmuted-fg);padding:0 .28rem}
+.panel .nt{font-size:.88rem;color:var(--ad-x3d5059-fg);margin:0}
+
+/* 舊工具點名複習 */
+.recall{background:var(--ad-xfff-bg);border:1px solid var(--ad-vline-border);border-left:3px solid var(--muted);
+  border-radius:.3rem;padding:.75rem .85rem;margin:1.1rem 0 .9rem;font-size:.92rem;color:var(--ad-x3d5059-fg)}
+.recall b{color:var(--ad-vink-fg)}
+.recall ul{margin:.4rem 0 0;padding-left:1.1rem}
+.recall li{margin-bottom:.35rem}
+
+/* 抽句題 */
+.gap{background:var(--ad-xfff-bg);border:1px solid var(--ad-vline-border);border-radius:.4rem;padding:.9rem 1rem;margin:0 0 .9rem;font-family:var(--serif);font-size:1rem;line-height:1.9}
+.gap .blank{display:inline-block;min-width:9rem;border-bottom:2px solid var(--gen);color:var(--ad-vgen-fg);text-align:center;font-family:var(--sans);font-size:.82rem}
+.gap .blank.filled{border-bottom-color:var(--ad-vteal-border);color:var(--ad-vink-fg);font-family:var(--serif);font-size:1rem;text-align:left;background:var(--ad-vtealsoft-bg);border-radius:.2rem;padding:0 .25rem}
+.gap .lst{font-family:var(--sans);font-size:.85rem;color:var(--ad-vmuted-fg);display:block;margin-top:.5rem}
+.picks{display:flex;flex-direction:column;gap:.45rem;margin:0 0 .9rem}
+.picks button{font:inherit;font-family:var(--serif);font-size:.97rem;line-height:1.6;background:var(--ad-xfff-bg);color:var(--ad-vink-fg);border:1px solid var(--ad-vline-border);border-radius:.3rem;padding:.55rem .8rem;cursor:pointer;text-align:left}
+.picks button:hover{border-color:var(--ad-vteal-border)}
+.picks button:focus-visible{outline:2px solid var(--ad-vteal-border);outline-offset:2px}
+.picks button[data-state="right"]{background:var(--ad-vtealsoft-bg);border-color:var(--ad-vteal-border)}
+.picks button[data-state="wrong"]{background:var(--ad-vground-bg);color:var(--ad-vmuted-fg)}
+.why{font-size:.86rem;color:var(--ad-x3d5059-fg);margin:.35rem 0 0}
+.why[hidden]{display:none}
+
+/* 收尾與頁尾 */
+.close{border-top:1px solid var(--ad-vline-border);margin-top:2rem;padding-top:1.1rem;font-size:.93rem;color:var(--ad-x3d5059-fg)}
+.close[hidden]{display:none}
+.close h2{font-size:1.1rem}
+.close ol{margin:.3rem 0 0;padding-left:1.15rem}
+.close li{margin-bottom:.5rem}
+.more{margin-top:1.5rem;font-size:.88rem}
+.more a{color:var(--ad-vteal-fg)}
+.series{border-top:1px solid var(--ad-vline-border);margin-top:2rem;padding-top:1.1rem;font-size:.9rem;color:var(--ad-x3d5059-fg)}
+.series .back{font-family:var(--serif);font-size:1rem;color:var(--ad-vteal-fg);text-decoration:none}
+.series .back:hover{text-decoration:underline}
+.series .back:focus-visible{outline:2px solid var(--ad-vteal-border);outline-offset:2px}
+.series .note{font-size:.85rem;color:var(--ad-vmuted-fg);margin:.5rem 0 0}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+/* 本單元：放射狀網狀圖與第三步的歸格卡片 */
+.fig .lab{font-family:var(--sans);font-size:10px;fill:var(--ad-x3d5059-fg)}
+.fig .lab.s{font-size:9px;fill:var(--ad-vmuted-fg)}
+.fig .spoke{stroke:var(--line);stroke-width:2;fill:none}
+.fig .node.hub rect{stroke:var(--ad-vmuted-fg)}
+.fig .node.hub.on rect{stroke:var(--ad-vexam-fg)}
+.yn{display:flex;gap:.45rem;align-items:center;flex-wrap:wrap;margin-top:.5rem;font-size:.9rem;color:var(--ad-vink-fg);font-weight:600}
+.yn button{font:inherit;font-weight:400;font-size:.82rem;background:var(--ad-xfff-bg);color:var(--ad-vink-fg);border:1px solid var(--ad-vline-border);border-radius:.25rem;padding:.18rem .75rem;cursor:pointer}
+.yn button:hover{border-color:var(--ad-vteal-border)}
+.yn button:focus-visible{outline:2px solid var(--ad-vteal-border);outline-offset:2px}
+.qcard.open .yn{display:none}
+.qcard .bd .vd{display:block;font-weight:600;margin-bottom:.15rem}
+.qcard .bd .vd.ok{color:var(--ad-vteal-fg)}
+.qcard .bd .vd.ng{color:var(--ad-vexam-fg)}
+.qcard .bd q{quotes:none;font-family:var(--serif)}
+#q3w[hidden]{display:none}
+
+.qcard .bd q{quotes:none;font-family:var(--serif)}
+#q3w[hidden]{display:none}
+.fig .zone{fill:none;stroke:var(--line);stroke-width:1.5;stroke-dasharray:5 4}
+.fig .zl{font-family:var(--sans);font-size:10.5px;font-weight:600}
+.fig .zl.l{fill:var(--ad-vteal-fg)}
+.fig .zl.r{fill:var(--ad-vgen-fg)}
+.fig .arr{stroke:var(--ad-vmuted-fg);stroke-width:2;fill:none;stroke-linejoin:round;stroke-linecap:round}
+.fig .pivot{font-family:var(--serif);font-style:italic;font-size:11.5px;fill:var(--ad-vexam-fg)}
+.fig .pn{font-family:var(--sans);font-size:9px;fill:var(--ad-vmuted-fg)}
+.fig .dot{fill:var(--ad-vteal-fg);stroke:none}
+
+/* 深色模式（2026-10-22）：淺色數值與原本相同；只在螢幕、手機或電腦設成深色外觀時生效，列印不受影響。 */
+:root{--ad-onflip-fg:#ffffff;--ad-vexam-bg:var(--exam);--ad-vexam-border:var(--exam);--ad-vexam-fg:var(--exam);--ad-vexamsoft-bg:var(--exam-soft);--ad-vexamsoft-fg:var(--exam-soft);--ad-vgen-bg:var(--gen);--ad-vgen-border:var(--gen);--ad-vgen-fg:var(--gen);--ad-vgensoft-bg:var(--gen-soft);--ad-vground-bg:var(--ground);--ad-vink-bg:var(--ink);--ad-vink-border:var(--ink);--ad-vink-fg:var(--ink);--ad-vline-border:var(--line);--ad-vline-fg:var(--line);--ad-vmuted-border:var(--muted);--ad-vmuted-fg:var(--muted);--ad-vteal-bg:var(--teal);--ad-vteal-border:var(--teal);--ad-vteal-fg:var(--teal);--ad-vtealsoft-bg:var(--teal-soft);--ad-x3d5059-fg:#3d5059;--ad-x8a8278-fg:#8a8278;--ad-xdfeceb-fg:#dfeceb;--ad-xfff-bg:#fff;--ad-xfff-fg:#fff;color-scheme:light}
+@media screen and (prefers-color-scheme: dark){
+ :root{--ad-onflip-fg:#16201F;--ad-vexam-bg:#b4661c;--ad-vexam-border:#b4661c;--ad-vexam-fg:#E7CAAF;--ad-vexamsoft-bg:#2D2821;--ad-vexamsoft-fg:#fdf4e7;--ad-vgen-bg:#4a6a90;--ad-vgen-border:#4a6a90;--ad-vgen-fg:#BBC7D6;--ad-vgensoft-bg:#1E2227;--ad-vground-bg:#1F2020;--ad-vink-bg:#E6EBEE;--ad-vink-border:#E9EFF2;--ad-vink-fg:#E9EFF2;--ad-vline-border:#3F4747;--ad-vline-fg:#cdd6d6;--ad-vmuted-border:#77878d;--ad-vmuted-fg:#BAC0C2;--ad-vteal-bg:#1f6f6a;--ad-vteal-border:#CDEAE9;--ad-vteal-fg:#CDEAE9;--ad-vtealsoft-bg:#1D2524;--ad-x3d5059-fg:#D4DBDF;--ad-x8a8278-fg:#C2BFBB;--ad-xdfeceb-fg:#dfeceb;--ad-xfff-bg:#2D2A25;--ad-xfff-fg:#ffffff;color-scheme:dark}
+}
+
+</style>
+<style id="anti-copy">
+/* 防盜用措施（2026-10-14）：畫面浮水印、列印浮水印、頁尾授權聲明 */
+@media screen{body::before{content:"";position:fixed;top:0;left:0;right:0;bottom:0;z-index:2147483000;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22460%22%20height%3D%22240%22%3E%3Cg%20transform%3D%22rotate%28-20%20230%20120%29%22%20font-family%3D%22Noto%20Sans%20TC%2Csans-serif%22%20fill%3D%22%23D9A400%22%20fill-opacity%3D%22.2%22%20text-anchor%3D%22middle%22%3E%3Ctext%20x%3D%22230%22%20y%3D%22112%22%20font-size%3D%2220%22%3E%E9%AB%98%E4%B8%AD%E8%8B%B1%E6%96%87%E9%A1%8C%E5%BA%AB%3C%2Ftext%3E%3Ctext%20x%3D%22230%22%20y%3D%22140%22%20font-size%3D%2214%22%3Estaresto-create.github.io%2FJCEE-vocab-questions%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E");background-repeat:repeat;}}
+@media print{body::after{content:"高中英文題庫\A staresto-create.github.io/JCEE-vocab-questions\A 免費資源，請勿販售";white-space:pre;position:fixed;top:42%;left:0;right:0;text-align:center;transform:rotate(-25deg);font-family:"Noto Sans TC",sans-serif;font-size:26pt;line-height:1.7;color:#c8c8c8;z-index:2147483000;pointer-events:none;}}
+.cc-note{font-size:12px;line-height:1.8;color:var(--ad-x8a8278-fg);margin:12px auto;max-width:60em;padding:0 1em;}.cc-note a{color:inherit;}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>序列：從手寫筆記到手機，再回到紙本</h1>
+<p class="lede">這篇文章先用一個現象開場：手機通知不斷，許多人卻還是回頭用紙。接著作者倒回去，沿著時間一段一段講：十七、十八世紀的備忘本、各地的隨身小本子、工業革命後的行事曆、今天的紙本手帳。這是說明文五種基本結構裡的<b>序列</b>。這一頁也要你留意兩條詞彙線索：一條是作者在關鍵的地方用了哪些把話說滿的字，一條是用一個名詞把前面或後面的整件事收起來。<b>提醒：雜誌這個單元的混合題，會問到這篇文章裡的細節，請先把雜誌的題目做完，再來做這一頁，不然這一頁的卡片和說明會先告訴你答案。</b></p>
+<p class="preview" id="pv" hidden>預覽模式：所有步驟、圖表、課文標記都已展開，進度不會存檔。學生拿到的一般連結不受影響。</p>
+<p class="resume" id="rs" hidden>上次做到一半，已經幫你接回來了。<button id="rst">重新開始</button></p>
+<p class="src">ALL+ 互動英語 11 月號 Unit 9（pp. 40–41）　Planners：紙本手帳歷久不衰的魅力　全文 59 行　11/19 讀第 1–28 行，11/20 讀第 29–59 行</p>
+
+<!-- ═══ 第一步 ═══ -->
+<section class="step" id="s1">
+  <p class="stepno">第一步</p>
+  <h2>先問一句，再轉折，再給數字<span class="tag">上層：組織方式</span></h2>
+  <p>序列的文章，開頭不一定從最早的事講起。這一篇先講「現在」：前八行做了三件事：用問句拉住讀者、用一個轉折說出出人意料的現象、再拿一個數字撐住。<b>點三個有底色的地方</b>。</p>
+  <div class="lead" id="ld">
+    <c data-t="t">Do you ever feel like your phone is exploding with notifications and to-do lists?</c> <c data-t="p">If so, you’re not alone—and yet, many people are still turning back to paper.</c> <c data-t="r">One industry report found that 64 percent of global consumers still use physical planners and journals.</c> When ideas are worth noting, it seems that many of us still prefer to put them down on paper.
+  </div>
+  <p class="score" id="sc">已標出 <em>0</em> / 3</p>
+  <div id="s1b" hidden>
+    <p>三個都標出來了。那麼——<b>第 4 到 6 行 One industry report found that 64 percent of global consumers still use physical planners and journals 在開頭負責什麼？</b></p>
+    <div class="opts" id="q1">
+      <button data-ok="1">用一個數字說明回頭用紙不只是少數人的習慣</button>
+      <button>說明大多數人已經完全不用手機和電腦做記錄</button>
+      <button>比較紙本和電子行事曆，說明哪一種比較有效率</button>
+      <button>預告後面各段會依序講哪幾個時代的筆記本</button>
+    </div>
+    <div class="said e" id="a1" hidden>
+      <b>用一個數字說明回頭用紙不只是少數人的習慣。</b>第 3 到 4 行 <q>many people are still turning back to paper</q> 是一個讓人意外的說法，所以第 4 到 6 行馬上用 <q>64 percent of global consumers</q> 撐住它：這個數字是證據，也是第 4 行 One industry report found 這個消息來源帶來的。序列的文章常這樣開場：先擺出今天的現象，再用後面的段落回頭交代它從哪裡來。
+      <br><br>
+      <b>另外三個為什麼排除：</b>
+      <br><br>
+      「說明大多數人已經完全不用手機和電腦做記錄」——<b>這個最容易選</b>，因為 64 percent 超過一半，讀起來像「大多數」。可是第 1 到 2 行寫的是 your phone is exploding with notifications，手機還在用；第 5 行的 still use 是「也還在用」，不是「全部改用」。「完全不用」是把數字說過頭，這是範圍錯。
+      <br><br>
+      「比較紙本和電子行事曆，說明哪一種比較有效率」——整段只有紙本的數字，沒有電子的數字，也沒有任何一個字在比誰比較有效率，第 4 到 6 行是在說有多少人還在用，不是在比較。
+      <br><br>
+      「預告後面各段會依序講哪幾個時代的筆記本」——這個數字講的是今天的消費者（第 4 到 5 行 global consumers），跟後面各段的年代沒有關係。預告是另一種手法，這一篇的開頭並沒有用。這一個靠讀懂第 4 到 6 行的主詞就排除得掉。
+    </div>
+    <button class="go" id="g1" hidden>整篇是什麼形狀？</button>
+  </div>
+</section>
+
+<!-- ═══ 第二步 ═══ -->
+<section class="step" id="s2" hidden>
+  <p class="stepno">第二步</p>
+  <h2>依時間往前走：用時間詞一段一段交班<span class="tag">上層：怎麼認出來</span></h2>
+  <p>先回答：<b>這篇文章的組織方式，最接近下列哪一種？</b></p>
+  <div class="opts" id="q2">
+    <button>描述：說明紙本手帳有哪些特徵和用途</button>
+    <button>因果：說明工業革命怎樣造成手帳消失</button>
+    <button data-ok="1">序列：依時間說明手寫筆記怎麼一路演變</button>
+    <button>比較對照：紙本和電子手帳沿同樣面向對照</button>
+  </div>
+  <div class="said e" id="a2" hidden>
+    <b>序列。</b>這是說明文五種基本結構裡的<b>序列</b>（sequence，也叫依時間排列）。判斷的依據是：每一段的開頭都用時間詞把話題交給下一個時代。第 9 到 10 行 <q>Long before phones and laptops existed</q> 倒回過去；第 11 到 12 行 <q>In the 17th and 18th centuries</q> 是第一站；第 16 到 17 行 <q>Over time</q> 把時間往前推；第 30 到 31 行 <q>during the Industrial Revolution</q> 是第二站；第 38 到 39 行 <q>As technology continued to advance</q> 和第 40 行 <q>Today</q> 把時間推到現在；第 42 行 <q>Still</q> 再回到今天的另一個面向。
+    <br><br>
+    <b>這一篇有兩個地方，跟一路往前走的序列不一樣。</b>第一，它先講現在（第 1 到 8 行），再用第 9 到 10 行 Long before 倒回去，最後才回到今天，開頭和結尾是同一個時代；第二，第 19 到 28 行不是時間往前，是空間往外：第 19 到 20 行 <q>wasn’t limited to Europe, either</q>，作者從歐洲看到中國和日本，再用第 25 到 26 行 <q>Across cultures and centuries</q> 收起來。這一段是主線上的一個岔路，下一份組織圖會讓你把它拿掉看看。
+    <br><br>
+    <b>另外三個為什麼排除：</b>
+    <br><br>
+    「比較對照」——<b>這個最容易選</b>，因為紙本和手機（第 1 行、第 41 行）在文章裡一直對立。可是比較對照要兩邊沿著同樣的面向一格一格對齊；這一篇沒有一段是在把紙本和電子放在同一列比，手機只出現在交代時代變化的地方（第 40 到 41 行），而且文章的推進靠的是時間詞，不是面向。
+    <br><br>
+    「因果」——第 31 到 34 行 As factories, railways, and businesses began running on strict schedules, managing time carefully became essential 確實是因果，可是它只管這一段。全文也沒有說工業革命讓手帳「消失」：第 42 到 43 行 <q>plenty of people haven’t given up on paper</q> 剛好相反。這一個靠讀懂最後兩段就排除得掉。
+    <br><br>
+    「描述」——每一段確實都在描述某種筆記本，可是描述的各個面向是可以對調的；這篇的段落一對調，Long before、Over time、Today 這些時間詞就接不上。
+    <br><br>
+    下面這張圖是序列的標準組織圖：一條往下的時間線，一站一格。這一篇有六格，第一格是今天的現象，最後兩格是今天的做法和結論。<b>點任一格</b>，第四步的課文對應行會亮起來（課文還沒打開的話，先把行號記住就好）。
+  </div>
+  <figure class="fig" id="fig" hidden></figure>
+  <button class="go" id="g2" hidden>把內容放回時間線</button>
+</section>
+
+<div class="daybreak" id="db" hidden>
+  <b>11/20 的範圍從這裡開始：第 29–59 行</b>
+  第一、二步用的是 11/19 的第 1–28 行（現象、備忘本、各地的筆記本）。第三步以後會用到整篇，包含 11/20 的第 29–59 行（工業革命、數位、今天的紙本、結論）。如果你今天是 11/19，做到這裡可以先停，明天再接下去。（第二步的說明和圖已經畫出整篇的骨架，先看到不影響。）
+</div>
+
+<!-- ═══ 第三步 ═══ -->
+<section class="step" id="s3" hidden>
+  <p class="stepno">第三步</p>
+  <h2>把內容放回時間線<span class="tag">上層：怎麼驗證</span></h2>
+  <p>怎麼確定這篇是序列，而不是一堆各自獨立的筆記本介紹？<b>先找時間詞，說出是哪一種結構，再把內容放進組織圖，最後用一句話說出整篇。</b></p>
+  <p>時間詞有四種：<b>相對的過去</b>，第 9 到 10 行 Long before、第 11 行 already；<b>年代</b>，第 11 到 12 行 In the 17th and 18th centuries、第 30 到 31 行 during the Industrial Revolution；<b>時間的進展</b>，第 16 到 17 行 Over time、第 38 到 39 行 As technology continued to advance、第 39 行 gradually；<b>現在</b>，第 40 行 Today、第 42 行 Still。把這些時間詞圈出來，文章就分成了段。</p>
+  <p>下面六張卡片寫的是文章裡的內容，<b>都換過說法，也沒有行號</b>。每一張判斷一次：它屬於時間線的哪一格？點下去就定了，不能改。</p>
+  <div class="qs" id="qs"></div>
+  <p class="score" id="sc3">已放 <em>0</em> / 6，第一次就放對 <em>0</em> 張</p>
+  <div class="said e" id="a3" hidden>
+    <b>六張都放得回去，而且順序沒有一張可以對調。這就是序列。</b>如果把第四格（工業革命）和第五格（今天）對調，第 29 到 30 行 <q>The role of planners changed dramatically</q> 的 changed 就沒有前面的樣子可以對照，第 42 行的 Still 也沒有什麼可以對著反轉。序列的格子靠時間詞接在一起，順序是結構的一部分。
+    <br><br>
+    <b>最容易放錯的，是「工業革命那一張」。</b>它最後一句講到紙本行事曆慢慢讓位給電子的，第 40 到 41 行 <q>Today, many of us organize our lives on our phones</q> 也在同一段，很像「今天」那一格。可是第 39 到 40 行的 gradually gave way to digital ones 是這個時代的結果，今天那一格從第 42 行的 Still 才開始，講的是有人沒放棄紙本。<b>分格看的是時間詞開頭的位置，不是看它有沒有提到手機。</b>
+    <br><br>
+    <b>考卷上怎麼考：</b>序列的題目常問「某件事發生在什麼之前、什麼之後」，誘答最愛把兩個時代的事接在一起。下面試一題摘要題。
+  </div>
+  <div id="q3w" hidden>
+    <p><b>哪一句最適合當這篇文章的一句話摘要？</b></p>
+    <div class="picks" id="q3">
+      <button data-ok="1">People have long kept notes by hand, and although planners later turned to schedules and screens, many still choose paper today.</button>
+      <button>European scholars filled commonplace books with quotations and poems, and these books later became the model for every planner.</button>
+      <button>Handwriting activates far more of the brain than typing does, which is why many people now choose to use paper planners.</button>
+      <button>Because factories needed strict schedules, people stopped writing down their ideas and used their planners only for appointments and meetings.</button>
+    </div>
+    <div class="said e" id="a3b" hidden>
+      <b>第一句。</b>它把整條時間線收進一句話：long kept notes by hand 對上第 9 到 28 行，turned to schedules and screens 對上第 29 到 41 行，many still choose paper today 對上第 1 到 8 行和第 42 到 52 行。它也沒有照抄課文：taking notes 改成 kept notes，gave way to digital ones 改成 turned to screens。
+      <br><br>
+      <b>另外三個為什麼排除：</b>
+      <br><br>
+      「Handwriting activates far more of the brain than typing does…」——<b>這個最容易選</b>，因為它是第 49 到 52 行的研究，聽起來像全文的結論。可是它只收了最後一段的一個理由，前面的備忘本、工業革命都沒有。<b>範圍錯。</b>
+      <br><br>
+      「European scholars filled commonplace books…」——只收了第一站，而且 every planner 是把「後來的手帳都源自備忘本」說過頭：第 11 到 15 行只說學者用它收集名言和詩，沒有說它是所有手帳的模型。
+      <br><br>
+      「Because factories needed strict schedules, people stopped writing down ideas…」——把一個時代的變化說成全部。第 44 到 46 行 <q>many fill their planners with drawings, stickers, and travel memories</q> 說明人們現在還是用本子記下自己的東西，沒有停。這一個靠讀懂最後兩段就排除得掉。
+    </div>
+  </div>
+  <button class="go" id="g3" hidden>看兩條詞彙線索</button>
+</section>
+
+<!-- ═══ 第四步 ═══ -->
+<section class="step" id="s4" hidden>
+  <p class="stepno">第四步</p>
+  <h2>把話說滿的字，把一整件事收成一個名詞<span class="tag b">下層：加強語氣的字、概括名詞</span></h2>
+  <p>這一篇有一個新工具，青色，還有一個舊工具再練一次，藍灰。兩條線都出現在作者最想讓你接受一件事的地方。</p>
+  <p><b>青色：加強語氣的字（新工具）。</b>語言學家 Hyland 在 1998 年的 <i>Boosting, hedging and the negotiation of academic knowledge</i>（發表在 <i>Text</i> 期刊）研究作者怎麼表示「我有把握」：他把這類字叫 <b>boosters</b>，像 clearly、of course、obviously、show。它們的作用是替作者把話說滿，不留讀者另一種解讀的空間。這一篇有四處：第 9 行 <q>This isn’t actually a new trend</q> 用 actually 反駁讀者「紙本是新潮流」的想法；第 26 行 <q>one thing was clearly shared</q> 用 clearly 替跨文化那一段下結論；第 34 行 essential 把管理時間說成非做不可；第 49 行 <q>Studies show that</q> 用 show 搬出研究。這四個字都出現在作者要你接受的地方，不是一般的敘述。</p>
+  <p><b>跟前面教的確定程度對照。</b>確定程度的另一端是把話說軟的字，這篇也有：第 6 到 7 行 <q>it seems that</q>、第 56 行 <q>Maybe</q>。作者在開頭和結尾，對「大家還是喜歡紙」和「提筆就是我們需要的重新開機」都說得比較客氣；中間有證據的地方，才用 booster 把話說滿。<b>哪裡說滿、哪裡說軟，就是作者最有把握和最沒把握的地方。</b></p>
+  <p><b>藍灰：概括名詞（舊工具）。</b>作者用一個名詞把一整件事收起來：第 9 行 <q>This isn’t actually a new trend</q> 的 trend 收的是前面第 3 到 8 行「人們還在回頭用紙」；第 15 行的 The goal 收的是備忘本的目的，後面 wasn’t to track appointments but to collect ideas 才交代；第 19 行的 This habit 收的是前一段的手寫習慣；第 26 行的 one thing 先說「有一件事」，冒號後面才交出 the urge；第 35 行的 this new mindset 收的是第 31 到 34 行的「管理時間變得必要」。<b>有的往前收，有的往後收，往哪一邊找，要看它有沒有冒號或 that。</b></p>
+  <p><b>點課文裡有底色的字</b>，同一條線上的字會一起亮起來。兩色可以各自關掉。</p>
+  <div class="modes">
+    <button id="m1" aria-pressed="true">加強語氣的字（青）</button>
+    <button id="m2" aria-pressed="true">概括名詞（藍灰）</button>
+  </div>
+  <div class="text" id="tx"></div>
+  <div class="panel" id="pn">
+    <span class="k" id="pk">線索</span>
+    <div class="ch" id="pc">點圖上的一格，或課文裡有底色的字</div>
+    <p class="nt" id="pt">青色是把話說滿的字：actually、clearly、essential、show；藍灰是把一件事收成一個名詞：trend、goal、habit、one thing、mindset。</p>
+  </div>
+  <div class="recall">
+    <b>另外兩樣，前面單元教過，這篇自己確認得出來：</b>
+    <ul>
+      <li><b>消息來源與引述動詞。</b>第 4 行 <q>One industry report found</q>、第 35 到 36 行 <q>he famously advised his son</q>、第 47 到 49 行 <q>fans insist</q> 和 <q>research backs them up</q>、第 49 行 <q>Studies show</q>。跟前面練過的一樣，看動詞：found 是中性的報告，insist 是說話的人很堅持，backs them up 是研究站在他們這邊。</li>
+      <li><b>對立配對。</b>紙本和手機是這篇的一組對立：第 1 行 phone，第 3 到 4 行 paper；第 39 到 40 行 paper planners 對 digital ones；第 55 行 something a phone can’t 對第 56 到 57 行 a pen。跟前面練過的一樣，這組對立貫穿全文，每一個轉折都靠它。</li>
+    </ul>
+  </div>
+  <p style="margin-top:1.1rem"><button class="go" id="g4">考卷怎麼考序列</button></p>
+</section>
+
+<!-- ═══ 第五步 ═══ -->
+<section class="step" id="s5" hidden>
+  <p class="stepno">第五步</p>
+  <h2>序列的題目問「在哪個時代」<span class="tag">上層：考點</span></h2>
+  <p>序列的題目，誘答多半出在兩個地方：</p>
+  <p><b>一、把兩個時代的事接在一起。</b>備忘本是十七、十八世紀的事，行事曆是工業革命以後的事，電子的又更晚；選項把它們換個位置，句子讀起來照樣通順。做法是先在腦中畫那條時間線，再回去對。</p>
+  <p><b>二、把「後來」說成「馬上」或「取代」。</b>第 39 到 40 行寫的是 gradually gave way，是慢慢的；選項如果寫 as soon as 或 completely，就要小心。</p>
+  <p>試一題：<b>According to the passage, how did planners change during the Industrial Revolution?</b></p>
+  <div class="opts en" id="q5">
+    <button>They were replaced by digital planners as soon as the new factories opened.</button>
+    <button data-ok="1">They became tools for managing tight daily schedules rather than for collecting ideas.</button>
+    <button>They spread to China and Japan, where officials kept small notebooks in robes.</button>
+    <button>They lost their purpose because people no longer wanted to write by hand.</button>
+  </div>
+  <div class="said e" id="a5" hidden>
+    <b>第二句。</b>它對應第 29 到 34 行：The role of planners changed dramatically 說角色變了，As factories, railways, and businesses began running on strict schedules, managing time carefully became essential 說變成什麼。對比第 15 到 16 行 <q>The goal wasn’t to track appointments but to collect ideas</q>，之前是收集想法，這時是管理時間。選項也沒有照抄課文：managing time carefully 改寫成 managing tight daily schedules。
+    <br><br>
+    <b>另外三個為什麼排除：</b>
+    <br><br>
+    「They were replaced by digital planners as soon as the new factories opened」——<b>這個最容易選</b>，因為 digital 就在同一段，第 38 到 41 行。可是第 38 到 40 行的 As technology continued to advance、gradually gave way 說電子的是後來慢慢取代的，不是工廠一開就取代。這是時間錯位，也是把「後來」說成「馬上」。
+    <br><br>
+    「They spread to China and Japan…」——中國和日本的小本子是第 20 到 23 行，在工業革命之前的另一個段落，講的是各地都有，不是工業革命讓手帳有了新角色。這是歸屬錯。
+    <br><br>
+    「They lost their purpose because people no longer wanted to write by hand」——方向錯。第 42 到 43 行 plenty of people haven’t given up on paper，人們沒有放棄手寫。這一個靠讀懂全篇就排除得掉。
+  </div>
+  <button class="go" id="g5" hidden>最後一題</button>
+</section>
+
+<!-- ═══ 第六步 ═══ -->
+<section class="step" id="s6" hidden>
+  <p class="stepno">第六步</p>
+  <h2>把一句話放回去</h2>
+  <p>這就是考卷上的<b>篇章結構</b>題。下面把第 9 行那一句整句抽掉了，四個候選句只有一句放得進去。</p>
+  <div class="gap" id="gp">
+    …many of us still prefer to put them down on paper.
+    <span class="blank" id="bl">（空格）</span> Long before phones and laptops existed, people were already taking notes by hand. In the 17th and 18th centuries, many European scholars carried notebooks called “commonplace books,” …
+  </div>
+  <div class="picks" id="q6">
+    <button>Still, plenty of people haven’t given up on paper.</button>
+    <button>Today, most of us use phones.</button>
+    <button>These notebooks looked very different from European ones.</button>
+    <button data-ok="1">This isn’t actually a new trend.</button>
+  </div>
+  <div class="said" id="a6" hidden>
+    <b>四個線索同時指向同一句。</b>這四句單獨看都說得通，沒有一句本身是錯的。要排除，得靠位置和線索。
+    <br><br>
+    <b>先講一個例外。</b>前面說大考的正解通常是改寫，但<b>抽句題不一樣</b>：抽掉的就是原文那一句，所以正解一定是原文。這一題要靠的是另外三句哪裡接不上，不是比對字面。
+    <br><br>
+    <b>一、後一句要靠它才說得通。</b>空格後面是 <q>Long before phones and laptops existed, people were already taking notes by hand</q>：Long before 和 already 都在說「這件事早就有了」，前面必須先有一句說「這是新的嗎？」。正解的 trend 是概括名詞，把前面第 3 到 8 行的「人們回頭用紙」收成一個名詞，接著 actually 否定它是新的；後面的 Long before 再用事實回答。
+    <br><br>
+    <b>另外三個為什麼排除，各有一個明確的依據：</b>
+    <br><br>
+    <b>二、轉折。</b><q>Still, plenty of people haven’t given up on paper</q> 是第 42 到 43 行的原句。<b>這一句最容易選</b>，因為它跟空格前一句的意思最接近，都在說還有人用紙。可是 Still 要對著前面一個「紙本被取代」的說法才轉得起來；空格前面沒有，這個 Still 就沒有東西可以對。它要等到第 38 到 41 行說完紙本讓位給電子以後才出現。
+    <br><br>
+    <b>三、時代。</b>「Today, most of us use phones」把話題拉到現在的手機，跟第 40 到 41 行 <q>Today, many of us organize our lives on our phones</q> 是同一件事。放在這裡，後面的 Long before 就接不上：它說的是「在手機之前」，前面卻剛講完手機。
+    <br><br>
+    <b>四、指涉。</b><q>These notebooks looked very different from the European ones</q> 是第 23 到 24 行的內容。These notebooks 要指前面已經出現過的本子，可是空格前面還沒有任何筆記本，第 12 到 13 行的 commonplace books 才剛要出現。
+  </div>
+  <p class="why" id="w6" hidden>考卷上不會有底色，也不會有行號。但你剛才用的線索：時間詞、概括名詞、轉折的字、一段的歸屬，每一篇序列的文章都找得到。</p>
+</section>
+
+<!-- ═══ 第七步 ═══ -->
+<section class="close" id="s7" hidden>
+  <h2>帶著走的五句話</h2>
+  <ol>
+    <li><b>序列：事件依時間先後排，每一段用時間詞交班。</b>這一篇的時間詞是 Long before、In the 17th and 18th centuries、Over time、during the Industrial Revolution、Today、Still。</li>
+    <li><b>序列不一定從最早講起。</b>這一篇先講今天的現象，再倒回去，最後回到今天；跨文化那一段是空間往外，不是時間往前。</li>
+    <li><b>驗證方法：把內容放回時間線，順序不能換。</b>序列的格子靠時間詞接在一起，對調兩格，後面的 changed、Still 這類字就失去對照。</li>
+    <li><b>下層：加強語氣的字和概括名詞。</b>actually、clearly、essential、show 出現在作者最要你接受的地方；trend、goal、habit 這類名詞把整件事收成一個字。</li>
+    <li><b>考卷的陷阱：把兩個時代的事接在一起，或把「後來」說成「馬上」。</b>先在腦中畫時間線再回去對。</li>
+  </ol>
+  <p class="more"><a href="https://staresto-create.github.io/JCEE-vocab-questions/wordwheel.html">單字輪：把字拆成部件來記 →</a></p>
+</section>
+
+<nav class="series">
+  <a class="back" href="cohesion.html">← 回讀法練習總表</a>
+  <p class="note">總表上有目前可以做的所有單元，還有你累積到現在的讀法工具。</p>
+</nav>
+</div>
+<script>
+(function(){
+"use strict";
+function $(id){return document.getElementById(id);}
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;");}
+
+var KEY="cohesion-202611-u9-v1";
+
+var PREVIEW=false;
+var ST={tags:{},rows:{},q1:0,q2:0,q3:0,q5:0,q6:0,step:1};
+function save(){ if(PREVIEW) return; try{ localStorage.setItem(KEY, JSON.stringify(ST)); }catch(e){} }
+function load(){ try{ var r=localStorage.getItem(KEY); return r?JSON.parse(r):null; }catch(e){ return null; } }
+function wipe(){ try{ localStorage.removeItem(KEY); }catch(e){} location.reload(); }
+
+var TITLE="Planners：紙本手帳歷久不衰的魅力";
+
+var LINES=[
+"Do you ever feel like your phone is exploding",
+"with notifications and to-do lists? If so, you’re not",
+"alone—and yet, many people are still turning back",
+"to paper. One industry report found that 64 percent",
+"of global consumers still use physical planners",
+"and journals. When ideas are worth noting, it seems",
+"that many of us still prefer to put them down on",
+"paper.",
+"This isn’t {actually|c-boo|1} a new {trend|c-gen|1}. Long before",
+"phones and laptops existed, people were",
+"already taking notes by hand. In the 17th and",
+"18th centuries, many European scholars carried",
+"notebooks called “commonplace books,” which",
+"they filled with inspiring quotations and favorite",
+"poems. {The goal|c-gen|2} wasn’t to track appointments",
+"but to collect ideas worth remembering. Over",
+"time, people began adding personal thoughts and",
+"reflections, too.",
+"{This habit|c-gen|3} of writing things down wasn’t limited",
+"to Europe, either. Chinese officials and Japanese",
+"scholars carried small notebooks tucked inside",
+"their robes, ready to jot down a passing thought",
+"before it disappeared. These notebooks looked very",
+"different from the European ones, but they served",
+"the same purpose. Across cultures and",
+"centuries, {one thing|c-gen|4} was {clearly|c-boo|2} shared: the",
+"urge to capture our thoughts before they",
+"slip away.",
+"The role of planners changed",
+"dramatically during the Industrial",
+"Revolution. As factories, railways, and",
+"businesses began running on strict",
+"schedules, managing time carefully became",
+"{essential|c-boo|3}. Lord Chesterfield summed",
+"up this new {mindset|c-gen|5} when he famously",
+"advised his son to “know the true value of",
+"time” and “never put off till tomorrow what",
+"you can do today.” As technology continued",
+"to advance, paper planners gradually gave",
+"way to digital ones. Today, many of us",
+"organize our lives on our phones.",
+"Still, plenty of people haven’t given",
+"up on paper. Instead of just jotting down",
+"appointments and to-do lists, many fill",
+"their planners with drawings, stickers,",
+"and travel memories. These paper-planner",
+"fans insist that writing by hand helps them",
+"remember things better—and research",
+"backs them up. Studies {show|c-boo|4} that",
+"handwriting activates far more of the",
+"brain than typing does, especially in areas",
+"linked to memory.",
+"Whether your notebook is packed with",
+"poetry or covered in stickers, it gives you",
+"something a phone can’t: a quiet space to",
+"slow down and think. Maybe, in a world",
+"that never stops buzzing, picking up a pen",
+"instead of tapping a screen is precisely",
+"the reset our brains need."
+];
+var INDENT={1:1,9:1,19:1,29:1,42:1,53:1};
+var HEAD={};
+var SPLIT=29;
+var SPLIT_TEXT="以上是 11/19 的第 1–28 行。以下是 11/20 的第 29–59 行。";
+
+var CHAINS={"c-boo": {"k": "sub", "n": "加強語氣的字（boosters），這一篇的新工具。出處：Hyland 1998 年的 Boosting, hedging and the negotiation of academic knowledge（Text 期刊）。他把作者表示「我有把握」的字叫 boosters，像 clearly、of course、obviously、show，作用是替作者把話說滿，不留讀者另一種解讀的空間。這一篇有四處：第 9 行 actually 反駁讀者「紙本是新潮流」的想法；第 26 行 clearly 替跨文化那一段下結論；第 34 行 essential 把管理時間說成非做不可；第 49 行 show 搬出研究當證據。這四處都是作者最要你接受的地方。反過來，第 6 到 7 行 it seems that 和第 56 行 Maybe 是把話說軟的字（前面教的確定程度），出現在開頭和結尾比較沒把握的地方。"}, "c-gen": {"k": "gen", "n": "概括名詞，前面單元教過。作者用一個名詞把一整件事收起來：第 9 行 trend 收的是第 3 到 8 行「人們回頭用紙」；第 15 行 The goal 先說有一個目的，後面 wasn’t to track appointments but to collect ideas 才交代；第 19 行 This habit 收的是前一段的手寫習慣；第 26 行 one thing 先說「有一件事」，冒號後面的 the urge 才是內容；第 35 行 mindset 收的是第 31 到 34 行「管理時間變得必要」。有的往前收，有的往後收：看它有沒有冒號或 that，後面接著交代的就是往後收。"}};
+var LB={sub:"加強語氣的字",gen:"概括名詞",mk:"標記詞"};
+var CL={sub:"k",gen:"k g",mk:"k e"};
+
+var NODES=[{"nm": "提出現象", "en": "still turning back to paper", "a": 1, "b": 8, "n": "第 1 到 8 行。先用問句問讀者是不是被手機的通知淹沒，再用 and yet 轉折：許多人還是回頭用紙，並用第 4 到 6 行的數字（64 percent）撐住。這一格是今天的現象，也是全文要解釋的東西：為什麼紙本一直都在。"}, {"nm": "起點：備忘本", "en": "commonplace books", "a": 9, "b": 18, "n": "第 9 到 18 行。第 9 行 This isn’t actually a new trend 說這不是新潮流，Long before 把時間倒回去；十七、十八世紀的歐洲學者帶著備忘本，抄下名言和詩。第 15 到 16 行說它的目的不是記行程，是收集值得記住的想法，後來人們才加進自己的想法。"}, {"nm": "各地都有", "en": "Across cultures and centuries", "a": 19, "b": 28, "n": "第 19 到 28 行。第 19 到 20 行 wasn’t limited to Europe 把視野從歐洲拉到中國和日本：官員和學者把小本子塞在衣袍裡，隨時記下一閃而過的念頭。這一格是空間往外，不是時間往前；第 25 到 26 行 Across cultures and centuries 把它收起來。第一天到這裡為止。"}, {"nm": "工業革命：管理時間", "en": "the Industrial Revolution", "a": 29, "b": 41, "n": "第 29 到 41 行。第 29 行 The role of planners changed 開始，第 30 到 31 行 during the Industrial Revolution：工廠、鐵路和企業照嚴格的時間表運轉，管理時間變得必要；切斯特菲爾德勳爵勸兒子別拖延。第 38 到 41 行技術進步，紙本行事曆慢慢讓位給電子的，今天許多人在手機上安排生活。第二天從這一格開始。"}, {"nm": "今天：紙本仍在", "en": "Still, plenty of people", "a": 42, "b": 52, "n": "第 42 到 52 行。第 42 行 Still 一轉：許多人沒有放棄紙本，行事曆裡不只有行程，還有畫、貼紙和旅行回憶。紙本的愛好者堅持手寫幫助記憶，第 49 到 52 行的研究也站在他們這邊：手寫比打字啟動更多大腦區域，特別是跟記憶有關的區域。"}, {"nm": "結論：安靜的空間", "en": "a quiet space to slow down", "a": 53, "b": 59, "n": "第 53 到 59 行。不管本子裡是詩還是貼紙，它給你手機給不了的東西：一個安靜的空間，讓人慢下來思考。最後一句用 Maybe 把話說軟：提筆比點螢幕，也許正是我們的大腦需要的重新啟動。"}];
+
+var SPOKES=["提出現象", "起點：備忘本", "各地都有", "工業革命：管理時間", "今天：紙本仍在", "結論：安靜的空間"];
+var ROWS=[{"f": "有人在行事曆裡畫圖、貼貼紙、記旅行回憶，也相信手寫幫助記憶。", "ans": 4, "note": "第 44 到 48 行。<q>many fill their planners with drawings, stickers, and travel memories</q>，接著第 47 到 48 行說這些人堅持 <q>writing by hand helps them remember things better</q>。這一格從第 42 行的 Still 開始，是今天紙本的樣子。"}, {"f": "工廠和鐵路讓生活照嚴格的時間表運轉，管理時間變得必要，後來紙本行事曆慢慢讓位給電子的。", "ans": 3, "note": "第 29 到 40 行。<q>managing time carefully became essential</q>（第 33 到 34 行），接著第 38 到 40 行 <q>paper planners gradually gave way to digital ones</q>。這一張最容易放錯，因為最後講到電子的，很像「今天」那一格；可是這是工業革命這個時代的結果，今天那一格從第 42 行的 Still 才開始。分格看的是時間詞開頭的位置，不是看它有沒有提到手機。"}, {"f": "一份調查發現，全球有六成以上的消費者，仍然使用紙本的行事曆和日誌。", "ans": 0, "note": "第 4 到 6 行。<q>64 percent of global consumers still use physical planners and journals</q>。這是開頭用來撐住現象的數字，屬於提出現象這一格。"}, {"f": "十七、十八世紀的歐洲學者，把名言和喜歡的詩抄進備忘本裡。", "ans": 1, "note": "第 11 到 15 行。<q>many European scholars carried notebooks called “commonplace books,”</q> 加上 <q>inspiring quotations and favorite poems</q>。這是序列的第一站，從第 11 行的 In the 17th and 18th centuries 開始。"}, {"f": "不論本子裡寫的是詩還是貼紙，它都給人手機給不了的安靜空間。", "ans": 5, "note": "第 53 到 56 行。<q>it gives you something a phone can’t: a quiet space to slow down and think</q>。這是最後一段的結論，從第 53 行的 Whether 開始。"}, {"f": "中國的官員和日本的學者，也把小本子塞在衣袍裡，隨時記下一閃而過的念頭。", "ans": 2, "note": "第 20 到 23 行。<q>Chinese officials and Japanese scholars carried small notebooks tucked inside their robes</q>。第 19 到 20 行 not limited to Europe 說明這一段是從歐洲往外看。"}];
+
+var TL={t:"提問",p:"轉折",r:"數據"};
+
+/* ---------- 通用：選擇題 ---------- */
+function quiz(qid,aid,gid,tag,after){
+  var done=false;
+  function settle(){
+    done=true;
+    var bs=$(qid).querySelectorAll("button");
+    for(var i=0;i<bs.length;i++){ bs[i].disabled=true; bs[i].dataset.state=bs[i].dataset.ok?"right":"wrong"; }
+    if(aid) $(aid).hidden=false;
+    if(gid) $(gid).hidden=false;
+    if(after) after();
+  }
+  $(qid).addEventListener("click",function(e){
+    var b=e.target.closest("button"); if(!b||done) return;
+    settle(); ST[tag]=1; save();
+  });
+  return settle;
+}
+function opener(gid,sid,extra){
+  $(gid).addEventListener("click",function(){
+    var n=parseInt(sid.replace(/\D/g,""),10);
+    if(ST.step<n) ST.step=n; save();
+    $(sid).hidden=false; if(extra) extra();
+    $(sid).scrollIntoView({behavior:"smooth",block:"start"});
+  });
+}
+function hlLines(a,b){
+  var rows=$("tx").querySelectorAll(".ln");
+  for(var r=0;r<rows.length;r++){ var n=+rows[r].dataset.n; rows[r].classList.toggle("hl", n>=a&&n<=b); }
+  var ms=$("tx").querySelectorAll("m");
+  for(var k=0;k<ms.length;k++) ms[k].classList.remove("lit");
+  if(rows.length){ var f=$("tx").querySelector('.ln[data-n="'+a+'"]'); if(f) f.scrollIntoView({behavior:"smooth",block:"center"}); }
+}
+
+/* ---------- 第一步 ---------- */
+function tagged(){ var n=0; for(var k in ST.tags) if(ST.tags[k]) n++; return n; }
+function paintTag(c){
+  if(c.classList.contains("got")) return;
+  c.classList.add("got");
+  var b=document.createElement("b"); b.textContent=TL[c.dataset.t]||"";
+  c.insertBefore(b, c.firstChild);
+}
+function afterTags(){
+  $("sc").innerHTML="已標出 <em>"+tagged()+"</em> / 3";
+  if(tagged()===3) $("s1b").hidden=false;
+}
+$("ld").addEventListener("click",function(e){
+  var c=e.target.closest("c"); if(!c) return;
+  if(ST.tags[c.dataset.t]) return;
+  ST.tags[c.dataset.t]=1; save(); paintTag(c); afterTags();
+});
+var set1=quiz("q1","a1","g1","q1");
+opener("g1","s2");
+
+/* ---------- 第二步：放射狀網狀圖 ---------- */
+function drawFig(){
+  if($("fig").firstChild) return;
+  $("fig").hidden=false;
+  var s='<svg viewBox="0 0 420 372" role="img" aria-label="時間線：一條往下的線，六格依序是提出現象、起點備忘本、各地都有、工業革命、今天紙本仍在、結論">';
+  s+='<path class="arr" d="M44 14 L44 358"/><path class="arr" d="M38 351 L44 359 L50 351"/>';
+  s+='<text class="pn" x="44" y="10" text-anchor="middle" style="font-size:9px">時間</text>';
+  var H=48, DY=58, Y0=14, X=76, W=334;
+  for(var i=0;i<NODES.length;i++){
+    var d=NODES[i], y=Y0+i*DY;
+    s+='<circle class="dot" cx="44" cy="'+(y+H/2)+'" r="5"/>';
+    s+='<path class="arr" d="M52 '+(y+H/2)+' L'+(X-2)+' '+(y+H/2)+'" style="stroke-width:1.5"/>';
+    s+='<g class="node" data-i="'+i+'" tabindex="0" role="button">';
+    s+='<rect x="'+X+'" y="'+y+'" width="'+W+'" height="'+H+'" rx="5"/>';
+    s+='<text x="'+(X+W/2)+'" y="'+(y+17)+'" text-anchor="middle">'+esc(d.nm)+'</text>';
+    s+='<text class="n" x="'+(X+W/2)+'" y="'+(y+30)+'" text-anchor="middle">'+esc(d.en)+'</text>';
+    s+='<text class="n" x="'+(X+W/2)+'" y="'+(y+42)+'" text-anchor="middle">'+('第 '+d.a+'–'+d.b+' 行')+'</text>';
+    s+='</g>';
+  }
+  s+='</svg><figcaption>一條往下的時間線，一站一格。第一格是今天的現象（第 1 到 8 行），第二格倒回起點；第三格（各地都有）是空間往外，不是時間往前，所以畫在線上卻是一個岔路；後面三格才回到今天。每一格的開頭都有時間詞：Long before、In the 17th and 18th centuries、during the Industrial Revolution、Still。點任一格，第四步的課文對應行會亮起來。</figcaption>';
+  $("fig").innerHTML=s;
+  function hit(g){
+    var i=+g.dataset.i, d=NODES[i];
+    var gs=$("fig").querySelectorAll(".node");
+    for(var j=0;j<gs.length;j++) gs[j].classList.toggle("on", +gs[j].dataset.i===i);
+    hlLines(d.a,d.b);
+    $("pk").textContent="時間線的第 "+(i+1)+" 格"; $("pk").className="k e";
+    $("pc").textContent=d.nm+"　"+d.en; $("pt").textContent=d.n;
+  }
+  $("fig").addEventListener("click",function(e){ var g=e.target.closest(".node"); if(g) hit(g); });
+  $("fig").addEventListener("keydown",function(e){
+    if(e.key!=="Enter"&&e.key!==" ") return;
+    var g=e.target.closest(".node"); if(g){ e.preventDefault(); hit(g); }
+  });
+}
+function afterQ2(){ drawFig(); $("db").hidden=false; }
+var set2=quiz("q2","a2","g2","q2",afterQ2);
+opener("g2","s3",buildRows);
+
+/* ---------- 第三步：把內容放回網狀圖 ---------- */
+var builtRows=false;
+function buildRows(){
+  if(builtRows) return; builtRows=true;
+  var h="";
+  for(var i=0;i<ROWS.length;i++){
+    var r=ROWS[i], bt="";
+    for(var k=0;k<SPOKES.length;k++) bt+='<button data-i="'+i+'" data-v="'+k+'">'+SPOKES[k]+'</button>';
+    h+='<div class="qcard" id="cd'+i+'"><div class="hd"><span class="qt">'+esc(r.f)+'</span></div>'+
+       '<span class="yn">屬於：'+bt+'</span>'+
+       '<span class="bd" id="bd'+i+'"></span></div>';
+  }
+  $("qs").innerHTML=h;
+  $("qs").addEventListener("click",function(e){
+    var b=e.target.closest("button"); if(!b) return;
+    var i=b.dataset.i; if(ST.rows[i]!==undefined&&ST.rows[i]!==null) return;
+    ST.rows[i]=+b.dataset.v; save(); paintRows();
+  });
+  paintRows();
+}
+function isSet(v){ return typeof v==="number"; }
+function judged(){ var n=0; for(var i=0;i<ROWS.length;i++) if(isSet(ST.rows[i])) n++; return n; }
+function rightRows(){ var n=0; for(var i=0;i<ROWS.length;i++) if(ST.rows[i]===ROWS[i].ans) n++; return n; }
+function paintRows(){
+  for(var i=0;i<ROWS.length;i++){
+    var el=$("cd"+i); if(!el) continue;
+    var v=ST.rows[i], r=ROWS[i];
+    el.classList.toggle("open",isSet(v));
+    if(isSet(v)){
+      var ok=(v===r.ans);
+      var head= ok ? ("放對了：這一張屬於「"+SPOKES[r.ans]+"」那一格。") : ("再看一次：這一張其實屬於「"+SPOKES[r.ans]+"」，不是「"+SPOKES[v]+"」。");
+      $("bd"+i).innerHTML='<span class="vd '+(ok?"ok":"ng")+'">'+head+'</span>'+r.note;
+    }
+  }
+  $("sc3").innerHTML="已放 <em>"+judged()+"</em> / "+ROWS.length+"，第一次就放對 <em>"+rightRows()+"</em> 張";
+  if(judged()>=ROWS.length){ $("a3").hidden=false; $("q3w").hidden=false; }
+}
+var set3=quiz("q3","a3b","g3","q3");
+opener("g3","s4",function(){ buildText(); drawFig(); });
+
+/* ---------- 第四步：課文與線索鏈 ---------- */
+function renderLine(str){
+  var out="",i=0;
+  while(i<str.length){
+    var a=str.indexOf("{",i);
+    if(a<0){ out+=esc(str.slice(i)); break; }
+    out+=esc(str.slice(i,a));
+    var b=str.indexOf("}",a), p=str.slice(a+1,b).split("|");
+    var id=p[1], it=p[2]||"1", k=CHAINS[id]?CHAINS[id].k:"sub";
+    out+='<m data-c="'+id+'" data-i="'+it+'" data-kind="'+k+'" tabindex="0">'+esc(p[0])+'</m>';
+    i=b+1;
+  }
+  return out;
+}
+var builtText=false;
+function buildText(){
+  if(builtText) return; builtText=true;
+  var h='<p class="ttl">'+renderLine(TITLE)+'</p>';
+  for(var i=0;i<LINES.length;i++){
+    var n=i+1;
+    if(SPLIT && n===SPLIT) h+='<p class="split">'+esc(SPLIT_TEXT)+'</p>';
+    var cls="ln";
+    if(HEAD[n]) cls+=" sub pb";
+    else if(INDENT[n]) cls+=" ind"+(n>1&&!HEAD[n-1]?" pb":"");
+    h+='<div class="'+cls+'" data-n="'+n+'"><i>'+((n%5===0)?n:"")+'</i><span>'+renderLine(LINES[i])+'</span></div>';
+  }
+  $("tx").innerHTML=h;
+}
+function lightChain(id){
+  var ms=$("tx").querySelectorAll("m"), items={}, order=[],i;
+  var gs=$("fig").querySelectorAll(".node");
+  for(i=0;i<gs.length;i++) gs[i].classList.remove("on");
+  var rows=$("tx").querySelectorAll(".ln");
+  for(i=0;i<rows.length;i++) rows[i].classList.remove("hl");
+  for(i=0;i<ms.length;i++){
+    if(ms[i].dataset.c===id){
+      ms[i].classList.add("lit");
+      var key=ms[i].dataset.i;
+      if(!items[key]){ items[key]=[]; order.push(key); }
+      items[key].push(ms[i].textContent);
+    } else ms[i].classList.remove("lit");
+  }
+  var c=CHAINS[id]; if(!c) return;
+  var parts=[];
+  for(var o=0;o<order.length;o++) parts.push(esc(items[order[o]].join(" ")));
+  $("pk").textContent=LB[c.k]; $("pk").className=CL[c.k];
+  $("pc").innerHTML=parts.join('<i>\u2192</i>');
+  $("pt").textContent=c.n;
+}
+$("tx").addEventListener("click",function(e){ var m=e.target.closest("m"); if(m) lightChain(m.dataset.c); });
+$("tx").addEventListener("keydown",function(e){
+  if(e.key!=="Enter"&&e.key!==" ") return;
+  var m=e.target.closest("m"); if(m){ e.preventDefault(); lightChain(m.dataset.c); }
+});
+function toggle(btn,cls){
+  btn.addEventListener("click",function(){
+    var on=btn.getAttribute("aria-pressed")==="true";
+    btn.setAttribute("aria-pressed",on?"false":"true");
+    $("tx").classList.toggle(cls,on);
+  });
+}
+toggle($("m1"),"off-sub");
+toggle($("m2"),"off-gen");
+opener("g4","s5");
+
+/* ---------- 第五步 ---------- */
+var set5=quiz("q5","a5","g5","q5");
+$("g5").addEventListener("click",function(){
+  if(ST.step<6) ST.step=6; save();
+  $("s6").hidden=false;
+  $("s6").scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+/* ---------- 第六步 ---------- */
+var done6=false;
+function settle6(){
+  done6=true;
+  var bs=$("q6").querySelectorAll("button");
+  for(var i=0;i<bs.length;i++){
+    bs[i].disabled=true; bs[i].dataset.state=bs[i].dataset.ok?"right":"wrong";
+    if(bs[i].dataset.ok){ $("bl").textContent=bs[i].textContent; $("bl").className="blank filled"; }
+  }
+  $("a6").hidden=false; $("w6").hidden=false; $("s7").hidden=false;
+}
+$("q6").addEventListener("click",function(e){
+  var b=e.target.closest("button"); if(!b||done6) return;
+  settle6(); ST.q6=1; save();
+  $("a6").scrollIntoView({behavior:"smooth",block:"nearest"});
+});
+
+/* ---------- 老師的預覽開關：網址加 ?all ---------- */
+function previewAll(){
+  PREVIEW=true;
+  $("pv").hidden=false;
+  var i,cs=$("ld").querySelectorAll("c");
+  for(i=0;i<cs.length;i++){ ST.tags[cs[i].dataset.t]=1; paintTag(cs[i]); }
+  afterTags(); set1();
+  $("s2").hidden=false; set2();
+  $("s3").hidden=false;
+  for(i=0;i<ROWS.length;i++) ST.rows[i]=ROWS[i].ans;
+  buildRows(); set3();
+  $("s4").hidden=false; buildText(); drawFig();
+  $("s5").hidden=false; set5();
+  $("s6").hidden=false; settle6();
+}
+
+/* ---------- 接回上次的進度 ---------- */
+$("rst").addEventListener("click",wipe);
+(function restore(){
+  if(/(^|[?&])all(=|&|$)/.test(location.search)){ previewAll(); return; }
+  var v=load(); if(!v) return;
+  ST=v;
+  if(!ST.tags) ST.tags={};
+  if(!ST.rows) ST.rows={};
+  if(!ST.step) ST.step=1;
+  if(!(tagged()||ST.step>1)) return;
+  $("rs").hidden=false;
+  var i,cs=$("ld").querySelectorAll("c");
+  for(i=0;i<cs.length;i++) if(ST.tags[cs[i].dataset.t]) paintTag(cs[i]);
+  afterTags();
+  if(ST.q1) set1();
+  if(ST.step>=2){ $("s2").hidden=false; if(ST.q2) set2(); }
+  if(ST.step>=3){ $("s3").hidden=false; buildRows(); if(ST.q3) set3(); }
+  if(ST.step>=4){ $("s4").hidden=false; buildText(); drawFig(); }
+  if(ST.step>=5){ $("s5").hidden=false; if(ST.q5) set5(); }
+  if(ST.step>=6){ $("s6").hidden=false; if(ST.q6) settle6(); }
+  var last=$("s"+(ST.step>=6?6:ST.step));
+  if(last) setTimeout(function(){ last.scrollIntoView({block:"start"}); },60);
+})();
+})();
+</script>
+<p class="cc-note">本題庫自己寫的部分（解析、中譯、分類、標註與編排）採用 <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh-hant" target="_blank" rel="license noopener">CC BY-NC 4.0</a>（姓名標示─非商業性）授權：可以分享，但須註明出處，不得用於商業用途。試題來源與完整說明請見<a href="https://staresto-create.github.io/JCEE-vocab-questions/#terms">使用與著作權</a>。</p>
+</body>
+</html>
