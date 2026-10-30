@@ -37,6 +37,7 @@
   .minor-btn{flex:1 1 0; min-width:120px; font:inherit; font-size:14.5px; background:var(--ad-vpapercard-bg);
              color:var(--ad-vink-fg); border:1px solid var(--ad-vrule-border); border-radius:3px; padding:11px; cursor:pointer;}
   .minor-btn.ok{background:var(--ad-vink-bg); color:var(--ad-vpaper-bg); border-color:var(--ad-vink-border);}
+  .minor-btn:disabled{opacity:.45; cursor:default;}
   .big-btn:focus-visible,.minor-btn:focus-visible{outline:2px solid var(--crimson); outline-offset:2px;}
   .row{display:flex; flex-wrap:wrap; gap:7px; margin:0 0 12px;}
   .grp{margin:0 0 10px;}
@@ -130,7 +131,7 @@
       <button class="big-btn" id="startBtn">開始練習</button>
       <p class="stat" id="homeStat"></p>
       <div class="minor-row"><button class="minor-btn" id="statsBtn">練習紀錄</button><button class="minor-btn" id="clearBtn">清除我的進度</button></div>
-      <p class="note" style="margin:14px 0 0;">看中文拼出英文。高二段考新增了手寫文意字彙的題型，單字要自己拼得出來才行。大小寫、標點、冠詞和 his／her 這類代名詞不列入計分，介系詞要求完全正確。進度存在這台裝置裡，換手機不會跟著走。</p>
+      <p class="note" style="margin:14px 0 0;">看中文拼出英文。高二段考新增了手寫文意字彙的題型，單字要自己拼得出來才行。大小寫、標點、冠詞和 his／her 這類代名詞不列入計分，介系詞要求完全正確。字詞搭配卡住時，可以按「多給一點提示」，每按一次多看一個字母；用了提示才拼對的，沒有列入拼對的次數，過幾張會再出現一次。進度存在這台裝置裡，換手機不會跟著走。</p>
     </div>
   </section>
 
@@ -139,11 +140,12 @@
     <div class="card">
       <p class="src" id="srcLbl"></p>
       <p class="prompt" id="prompt"></p>
-      <p class="hint" id="hint"></p>
+      <p class="hint" id="hint" aria-live="polite"></p>
       <div id="typeBox">
         <input id="typed" class="typed" type="text" autocomplete="off" autocorrect="off"
                autocapitalize="off" spellcheck="false" placeholder="輸入英文">
         <div class="minor-row">
+          <button class="minor-btn" id="hintBtn" type="button">多給一點提示</button>
           <button class="minor-btn" id="dunnoBtn">還不會</button>
           <button class="minor-btn ok" id="sendBtn">送出</button>
         </div>
@@ -315,6 +317,39 @@ var DATA = null;
     if (stage === 1) return initials(en);
     return '（' + countOf(en) + unit(en) + '）';
   }
+  // 卡住時多看字母（只用在字詞搭配）：先照原本的順序把提示退回有首字母的那一段，
+  // 再每按一次，從左到右輪流多露出一個字母
+  // N／V／-ing 這類符號寫法（例：prefer N/V-ing to N/V-ing）不是要拼的字，不拿來多給字母
+  function isHole(w, off, s){ return w === 'N' || w === 'V' || (w === 'ing' && s.charAt(off - 1) === '-'); }
+  function hintWords(en){
+    var out = [];
+    en.replace(/[A-Za-z]+/g, function(w, off, s){ if (!isGiven(w) && !isHole(w, off, s)) out.push(w); return w; });
+    return out;
+  }
+  function hiddenCount(en){
+    return hintWords(en).reduce(function(n, w){ return n + w.length - 1; }, 0);
+  }
+  function maskMore(en, extra){
+    var ws = hintWords(en), shown = ws.map(function(){ return 1; }), ptr = 0, left = extra;
+    while (left > 0) {
+      var open = ws.some(function(w, i){ return shown[i] < w.length; });
+      if (!open) break;
+      var i = ptr % ws.length; ptr++;
+      if (shown[i] < ws[i].length) { shown[i]++; left--; }
+    }
+    var j = 0;
+    return en.replace(/[A-Za-z]+/g, function(w, off, str){
+      if (isGiven(w)) return w;
+      if (isHole(w, off, str)) return w.charAt(0) + w.slice(1).replace(/./g, '_');
+      var s = shown[j++];
+      return w.slice(0, s) + w.slice(s).replace(/./g, '_');
+    });
+  }
+  var hintStage = 0, hintExtra = 0, hintUsed = false;
+  function paintHint(en){
+    $('hint').textContent = hintStage > 0 ? hintFor(en, hintStage) : maskMore(en, hintExtra);
+    $('hintBtn').disabled = (hintStage === 0 && hintExtra >= hiddenCount(en));
+  }
 
   function due(pool){
     var t=today(), fresh=[], ready=[], passed=0;
@@ -407,12 +442,22 @@ var DATA = null;
     $('qProgress').textContent = '還有 ' + session.q.length + ' 個';
     $('srcLbl').textContent = labelOf(card);
     $('prompt').textContent = promptOf(card);
-    $('hint').textContent = hintFor(en, Math.min(r.p, 2));
+    hintStage = Math.min(r.p, 2); hintExtra = 0; hintUsed = false;
+    $('hintBtn').style.display = card.t === 'c' ? '' : 'none';
+    paintHint(en);
     $('ansBox').classList.add('hide');
     $('typeBox').classList.remove('hide');
     var box = $('typed');
     box.value = '';
     try { box.focus(); } catch (e) {}
+    $('hintBtn').onpointerdown = function (e) { e.preventDefault(); };  // 手機上按提示時，讓游標和鍵盤留在輸入框
+    $('hintBtn').onclick = function () {
+      if (hintStage > 0) hintStage--;
+      else if (hintExtra < hiddenCount(en)) hintExtra++;
+      else return;
+      hintUsed = true; paintHint(en);
+      try { box.focus(); } catch (e) {}
+    };
     $('sendBtn').onclick = function () { check(card, box.value); };
     $('dunnoBtn').onclick = function () { show(card, box.value, false, true); };
     box.onkeydown = function (e) { if (e.key === 'Enter') { e.preventDefault(); check(card, box.value); } };
@@ -435,22 +480,30 @@ var DATA = null;
     // 音標改讀全站音標表（kk_data.json），與各題庫站一致；片語與表裡沒有的字不顯示
     $('kk').innerHTML = (window.KK && en) ? KK.html(en) : '';
     $('overrideBtn').style.display = ok ? 'none' : '';
-    $('overrideBtn').onclick = function () { grade(card, true); };
-    $('nextBtn').onclick = function () { grade(card, ok); };
+    var hinted = hintUsed;
+    $('overrideBtn').onclick = function () { grade(card, true, hinted); };
+    $('nextBtn').onclick = function () { grade(card, ok, hinted); };
   }
 
-  function grade(card, ok){
+  function grade(card, ok, hinted){
     var k=key(card);
+    if (ok && hinted) { session.hk = session.hk || {}; session.hk[k] = 1; }
     if (session.free) {
-      // 從統計頁出發的練習不計入進度：拼對就放過，拼錯隔幾個再來
+      // 從統計頁出發的練習不計入進度：拼對就放過，拼錯隔幾個再來；用了提示才拼對的，也隔幾個再來一次
       var it0=session.q.shift();
       if (!ok) { session.miss[k]=(session.miss[k]||0)+1; session.q.splice(Math.min(GAP_MISS,session.q.length),0,it0); }
+      else if (hinted) { session.q.splice(Math.min(GAP_MISS,session.q.length),0,it0); }
       next(); return;
     }
     var r=state.w[k]||{p:0,i:0,due:0};
     // 「今天練過的字」用：t 是最後練的日子，m 是當天拼錯的次數（換日歸零）
     if (r.t !== today()) { r.t = today(); r.m = 0; }
     if (!ok) r.m = (r.m||0) + 1;
+    if (ok && hinted) {
+      // 用了「多給一點提示」才拼對：不加拼對的次數，也不算拼錯，隔幾張後再回想一次
+      var it3=session.q.shift(); session.q.splice(Math.min(GAP_MISS,session.q.length),0,it3);
+      state.w[k]=r; saveState(); next(); return;
+    }
     if (ok) {
       r.p=(r.p||0)+1;
       if (r.p>=PASS) { r.i=r.i?Math.min(r.i*2,30):1; r.due=today()+r.i; session.q.shift(); }
@@ -476,8 +529,11 @@ var DATA = null;
     if (session.free) {
       $('doneNote').textContent = '這一輪 '+session.total+' 個練完了。這是從練習紀錄開始的練習，不計入進度。';
     } else {
-      $('doneNote').textContent = m ? ('這一輪 '+session.total+' 個，其中 '+m+' 個卡住過，過幾天會再出現。')
-                                    : ('這一輪 '+session.total+' 個，全部一次就拼出來。');
+      var h = Object.keys(session.hk || {}).length;
+      $('doneNote').textContent = m ? ('這一輪 '+session.total+' 個，其中 '+m+' 個卡住過，過幾天會再出現。' +
+                                       (h ? '看了提示才拼對的共 '+h+' 個，沒有列入拼對的次數。' : ''))
+                                    : h ? ('這一輪 '+session.total+' 個，其中 '+h+' 個是看了提示才拼對的，沒有列入拼對的次數，之後會再練到。')
+                                        : ('這一輪 '+session.total+' 個，全部一次就拼出來。');
     }
     renderHome();
   }
