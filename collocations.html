@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>搭配詞卡 · 學測、指考歷屆試題裡的搭配詞</title>
+<meta name="description" content="從學測、指考歷屆試題裡挑出的搭配詞卡：先看中文，自己想出英文，想不出來再多看一個字母；每張附歷屆試題原句與出現的年份。可依程度、主題選擇。">
+<style>
+:root{
+  --paper:#F6F1E4; --card:#FFFDF7; --ink:#221F1A; --soft:#5B5648; --rule:#DCD3BB;
+  --crimson:#AE3626; --sage:#3E6E52; --sage-soft:#E3E8DD; --gold-soft:#F2E3A5; --btn:#221F1A; --btn-ink:#F6F1E4;
+  --serif:"Times New Roman",Times,"Liberation Serif","Noto Serif","PingFang TC","Noto Sans TC","Microsoft JhengHei",serif;
+  --sans:"PingFang TC","Noto Sans TC","Microsoft JhengHei","Helvetica Neue",system-ui,sans-serif;
+  --mono:ui-monospace,Menlo,Consolas,"DejaVu Sans Mono","Noto Sans TC",monospace;
+  color-scheme:light; --ad-x8a8278-fg:#8a8278;
+}
+@media screen and (prefers-color-scheme:dark){:root{
+  --paper:#1B1916; --card:#26231F; --ink:#F2F0EE; --soft:#DAD8D3; --rule:#514A37;
+  --crimson:#E8A29A; --sage:#CBDDD2; --sage-soft:#2D3529; --gold-soft:#5A4D1E; --btn:#F2F0EE; --btn-ink:#1B1916; --ad-x8a8278-fg:#C2BFBB; color-scheme:dark;}}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
+.wrap{max-width:640px;margin:0 auto;padding:0 16px 56px}
+header{padding:36px 0 6px}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--crimson);text-transform:uppercase}
+h1{font-family:var(--serif);font-weight:900;font-size:28px;line-height:1.35;margin:8px 0 10px}
+.lede{color:var(--soft);font-size:14.5px;margin:0 0 6px}
+.lede b{color:var(--ink)}
+.panel{background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:16px;margin:16px 0}
+.panel h2{font-size:15px;margin:0 0 10px;font-family:var(--sans)}
+.lab{display:block;font-size:13px;color:var(--soft);margin:12px 0 6px}
+.lab:first-of-type{margin-top:0}
+.seg{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font:inherit;font-size:15px;min-height:44px;padding:6px 14px;border-radius:999px;border:1px solid var(--rule);background:var(--card);color:var(--ink);cursor:pointer}
+.chip small{display:block;font-size:11.5px;color:var(--soft);line-height:1.2}
+.chip[aria-pressed="true"]{background:var(--btn);color:var(--btn-ink);border-color:var(--btn)}
+.chip[aria-pressed="true"] small{color:inherit;opacity:.8}
+select{font:inherit;font-size:15px;min-height:44px;padding:6px 10px;border-radius:10px;border:1px solid var(--rule);background:var(--card);color:var(--ink);max-width:100%}
+.big{font:inherit;font-size:17px;font-weight:700;min-height:50px;width:100%;margin-top:16px;border-radius:12px;border:0;background:var(--crimson);color:#fff;cursor:pointer}
+@media screen and (prefers-color-scheme:dark){.big{color:#1B1916}}
+.big:disabled{opacity:.45;cursor:default}
+.count{font-size:13px;color:var(--soft);margin:10px 0 0;text-align:center}
+.btn{font:inherit;font-size:15px;min-height:46px;padding:6px 18px;border-radius:999px;border:1px solid var(--rule);background:var(--card);color:var(--ink);cursor:pointer;flex:1 1 0;min-width:110px}
+.btn.ok{background:var(--btn);color:var(--btn-ink);border-color:var(--btn)}
+.btn:disabled{opacity:.4;cursor:default}
+button:focus-visible,select:focus-visible{outline:3px solid var(--crimson);outline-offset:2px}
+.prog{display:flex;align-items:center;gap:10px;font-size:13.5px;color:var(--soft);margin:6px 0 10px}
+.bar{flex:1;height:8px;border-radius:999px;background:var(--rule);overflow:hidden}.bar i{display:block;height:100%;width:0;background:var(--sage);transition:width .25s}
+.card{background:var(--card);border:1px solid var(--rule);border-radius:14px;padding:20px 18px;min-height:300px;display:flex;flex-direction:column;gap:12px;box-shadow:0 10px 26px -16px rgba(34,31,26,.45)}
+.meta{display:flex;justify-content:space-between;gap:8px;font-size:12.5px;color:var(--soft)}
+.zh{font-size:28px;line-height:1.35;font-weight:700;margin:2px 0 0;text-wrap:balance}
+.sk{font-family:var(--mono);font-size:26px;line-height:1.5;font-weight:700;margin:0;word-break:break-word;letter-spacing:.02em}
+.sk .fn{font-weight:600}
+.hint{font-size:13.5px;color:var(--soft);margin:0}
+.en{font-family:var(--serif);font-size:30px;line-height:1.25;font-weight:700;margin:0;overflow-wrap:anywhere}
+.en .p,.sk .p{color:var(--crimson)}
+.form{font-size:13px;color:var(--soft);margin:0}
+.ex{font-family:var(--serif);font-size:18px;line-height:1.5;margin:0}
+.ex mark{background:var(--gold-soft);color:inherit;padding:0 2px;border-radius:2px}
+.src{font-size:13.5px;margin:0;padding-top:10px;border-top:1px dashed var(--rule);color:var(--soft)}
+.src b{color:var(--sage)}
+.row{display:flex;flex-wrap:wrap;gap:10px;margin-top:auto}
+.note{font-size:12.5px;color:var(--soft);line-height:1.8;margin:12px 0 0}
+.tag{display:inline-block;font-size:11.5px;border:1px solid var(--rule);border-radius:999px;padding:0 8px;margin-left:6px}
+.hide{display:none!important}
+.done h2{font-family:var(--serif);font-size:22px;margin:0 0 8px}
+footer{margin-top:36px;padding-top:16px;border-top:1px solid var(--rule);font-size:12.5px;color:var(--soft);line-height:1.9}
+footer a{color:var(--crimson);display:inline-block;padding:6px 0}
+</style>
+<style id="anti-copy">
+/* 防盜用措施（2026-10-14）：畫面浮水印、列印浮水印、頁尾授權聲明 */
+@media screen{body::before{content:"";position:fixed;top:0;left:0;right:0;bottom:0;z-index:2147483000;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22460%22%20height%3D%22240%22%3E%3Cg%20transform%3D%22rotate%28-20%20230%20120%29%22%20font-family%3D%22Noto%20Sans%20TC%2Csans-serif%22%20fill%3D%22%23D9A400%22%20fill-opacity%3D%22.2%22%20text-anchor%3D%22middle%22%3E%3Ctext%20x%3D%22230%22%20y%3D%22112%22%20font-size%3D%2220%22%3E%E9%AB%98%E4%B8%AD%E8%8B%B1%E6%96%87%E9%A1%8C%E5%BA%AB%3C%2Ftext%3E%3Ctext%20x%3D%22230%22%20y%3D%22140%22%20font-size%3D%2214%22%3Estaresto-create.github.io%2FJCEE-vocab-questions%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E");background-repeat:repeat;}}
+@media print{body::after{content:"高中英文題庫\A staresto-create.github.io/JCEE-vocab-questions\A 免費資源，請勿販售";white-space:pre;position:fixed;top:42%;left:0;right:0;text-align:center;transform:rotate(-25deg);font-family:"Noto Sans TC",sans-serif;font-size:26pt;line-height:1.7;color:#c8c8c8;z-index:2147483000;pointer-events:none;}}
+.cc-note{font-size:12px;line-height:1.8;color:var(--ad-x8a8278-fg);margin:12px auto;max-width:60em;padding:0 1em;}.cc-note a{color:inherit;}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="eyebrow">Collocation Cards</div>
+  <h1>搭配詞卡</h1>
+  <p class="lede">這些是學測、指考歷屆試題裡出現過的搭配詞。每張卡先給中文，請自己想出英文，每個空格先給第一個字母；<b>想不出來再按「多給一點提示」</b>，每按一次多看一個字母。看完答案，再決定記得或不記得，不記得的會再出現。多數卡片附一句歷屆試題原句和出現的年份。</p>
+</header>
+
+<section class="panel" id="setup" aria-label="選擇卡片">
+  <label class="lab" id="l-lv">1　選等級</label>
+  <div class="seg" id="lvSeg" role="group" aria-labelledby="l-lv"></div>
+  <label class="lab" id="l-set">2　選範圍</label>
+  <div class="seg" id="setSeg" role="group" aria-labelledby="l-set"></div>
+  <label class="lab" for="themeSel">3　選主題</label>
+  <select id="themeSel"></select>
+  <label class="lab" id="l-mode">4　卡片正面怎麼看</label>
+  <div class="seg" id="modeSeg" role="group" aria-labelledby="l-mode"></div>
+  <label class="lab" for="sizeSel">5　每輪幾張</label>
+  <select id="sizeSel"><option value="20">20 張</option><option value="40">40 張</option><option value="0">全部</option></select>
+  <button class="big" id="startBtn" type="button">開始</button>
+  <p class="count" id="count" aria-live="polite"></p>
+  <p class="count"><button class="btn hide" id="clearBtn" type="button" style="flex:none;min-height:40px">清除我的進度</button></p>
+  <p class="note">等級是依卡片裡最難的單字推估：基礎適合級分 9 以下，進階適合 10 到 12 級分，挑戰適合 13 級分以上，只是參考，覺得太簡單就往上選。<br>精選是字典查證過、很常用的搭配；完整版另外包含比較少見的搭配，這部分沒有逐張對照字典。<br>進度存在這台裝置裡，換手機不會跟著走。</p>
+</section>
+
+<section id="play" class="hide" aria-label="練習">
+  <div class="prog"><span id="progTxt"></span><div class="bar"><i id="barI"></i></div></div>
+  <div class="card" id="card" aria-live="polite"></div>
+  <div class="row" style="margin-top:12px" id="ctrl"></div>
+  <p class="note"><button class="btn" id="quitBtn" type="button" style="flex:none;min-height:40px">回到選擇畫面</button></p>
+</section>
+
+<section id="done" class="hide panel done" aria-label="完成">
+  <h2>這一輪完成了</h2>
+  <p id="doneTxt"></p>
+  <div class="row"><button class="btn ok" id="againBtn" type="button">再練一輪</button><button class="btn" id="backBtn" type="button">回到選擇畫面</button></div>
+</section>
+
+<footer>
+  <a href="./">回題庫首頁</a>　·　<a href="fixed-phrases.html">固定用語與插入語</a>　·　<a href="phrasal-verbs.html">片語動詞</a>　·　<a href="verb-prep.html">動詞＋介系詞</a>　·　<a href="adjective-prep.html">形容詞＋介系詞</a>　·　<a href="transitions.html">轉承詞語</a>　·　<a href="cards/">單字記憶卡</a><br>
+  例句與年份出自學測、指考歷屆試題原文，年份縮寫：學＝學測，指＝指考，聯＝聯考，甄＝推薦甄選；數字後的「補」＝補考，「參」＝參考試卷，「試」＝試辦考試。精選卡片的中文意思已對照 Longman、Merriam-Webster 字典查證。免費、無廣告的非營利自學題庫。
+<p class="cc-note">本題庫自己寫的部分（解析、中譯、分類、標註與編排）採用 <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh-hant" target="_blank" rel="license noopener">CC BY-NC 4.0</a>（姓名標示─非商業性）授權：可以分享，但須註明出處，不得用於商業用途。試題來源與完整說明請見<a href="https://staresto-create.github.io/JCEE-vocab-questions/#terms">使用與著作權</a>。</p>
+</footer>
+</div>
+<script>
+(function(){
+'use strict';
+var TIERS=[{v:1,n:'基礎',s:'級分 9 以下'},{v:2,n:'進階',s:'級分 10–12'},{v:3,n:'挑戰',s:'級分 13 以上'}];
+var THEMES=['家庭與生活','個人成長與自我探索','人際關係與友誼','社會現象與公共議題','校園與學習','科技與媒體','環境與災害','健康與身心','生涯與職業','文化與認同'];
+var FNS=['銜接與轉折','因果與影響','程度、數量與強調','變化、趨勢與狀態','時間、地點與方式','態度、情緒與評價','論述與資訊','行動、努力與處理問題','描寫與其他'];
+var $=function(i){return document.getElementById(i)};
+var DATA=[], opt={lv:0,set:'sel',theme:'',mode:'both',size:20}, KEY='collocCards.v1';
+var known={}; try{known=JSON.parse(localStorage.getItem(KEY)||'{}')||{}}catch(e){known={}} if(!known||typeof known!=='object'||Array.isArray(known))known={};
+function save(){try{localStorage.setItem(KEY,JSON.stringify(known))}catch(e){}}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function pool(){
+  return DATA.filter(function(c){
+    if(opt.lv&&c.v!==opt.lv)return false;
+    if(opt.set==='sel'&&!c.c)return false;
+    if(opt.theme){var p=opt.theme.split('|'); if(p[0]==='t'){if(c.t!==p[1])return false}else{if(c.t!=='通用'||c.s!==p[1])return false}}
+    return true;});
+}
+function chips(el,items,cur,on){
+  el.innerHTML='';
+  items.forEach(function(it){var b=document.createElement('button');b.type='button';b.className='chip';b.setAttribute('aria-pressed',String(it.k===cur));
+    b.innerHTML=esc(it.t)+(it.s?'<small>'+esc(it.s)+'</small>':'');b.onclick=function(){on(it.k)};el.appendChild(b)});
+}
+function renderSetup(){
+  chips($('lvSeg'),[{k:0,t:'全部等級'}].concat(TIERS.map(function(t){return {k:t.v,t:t.n,s:t.s}})),opt.lv,function(k){opt.lv=k;renderSetup()});
+  chips($('setSeg'),[{k:'sel',t:'精選',s:'最常用'},{k:'all',t:'完整版',s:'含較少見的'}],opt.set,function(k){opt.set=k;renderSetup()});
+  chips($('modeSeg'),[{k:'both',t:'中英並列',s:'看中文和英文骨架'},{k:'zh',t:'只看中文',s:'英文要自己想'}],opt.mode,function(k){opt.mode=k;renderSetup()});
+  var base=DATA.filter(function(c){return (!opt.lv||c.v===opt.lv)&&(opt.set!=='sel'||c.c)});
+  var sel=$('themeSel'),cur=opt.theme; sel.innerHTML='';
+  function add(parent,v,t,n){var o=document.createElement('option');o.value=v;o.textContent=t+'（'+n+'）';parent.appendChild(o)}
+  add(sel,'','全部主題',base.length);
+  var g1=document.createElement('optgroup');g1.label='依主題';
+  THEMES.forEach(function(t){add(g1,'t|'+t,t,base.filter(function(c){return c.t===t}).length)});sel.appendChild(g1);
+  var g2=document.createElement('optgroup');g2.label='通用的搭配（依寫作時的用途）';
+  FNS.forEach(function(f){add(g2,'f|'+f,f,base.filter(function(c){return c.t==='通用'&&c.s===f}).length)});sel.appendChild(g2);
+  sel.value=cur;
+  var n=pool().length, k=pool().filter(function(c){return known[c.i]}).length;
+  $('count').textContent='符合的卡片共 '+n+' 張'+(k&&k<n?'，其中 '+k+' 張你已經記得，這一輪會先略過':(k&&k===n?'，你都已經記得了，這一輪會從頭再練':''));
+  $('clearBtn').classList.toggle('hide',!Object.keys(known).length);
+  $('startBtn').disabled=!n;
+}
+/* ---- 挖空 ---- */
+function parseMask(m){
+  return m.split(' ').map(function(tok){
+    var kind=tok[0]==='*'?'c':tok[0]==='^'?'p':'f', w=kind==='f'?tok:tok.slice(1);
+    return {kind:kind,w:w};
+  });
+}
+function Card(c){
+  this.c=c; this.toks=parseMask(c.m); this.rev=0; this.hint=false; this.ptr=0; this.shown=(opt.mode==='both');
+  this.reveals=[]; // {t, r(run index), pos}
+  var self=this; this.toks.forEach(function(t,ti){ if(t.kind!=='c')return; t.runs=[]; var re=/[A-Za-z]+/g,m;
+    while((m=re.exec(t.w))){ t.runs.push({s:m.index,e:m.index+m[0].length,vis:{}}); }
+    t.runs.forEach(function(r){var L=r.e-r.s; r.vis[0]=1; if(L>=5)r.vis[L-1]=1;});
+  });
+}
+Card.prototype.more=function(){
+  this.hint=true;
+  if(!this.shown){this.shown=true;return}
+  var n=this.toks.length,i;
+  for(i=0;i<n;i++){var ti=(this.ptr+i)%n,t=this.toks[ti]; if(t.kind!=='c'||!t.runs)continue;
+    for(var ri=0;ri<t.runs.length;ri++){var r=t.runs[ri],L=r.e-r.s;
+      for(var p=0;p<L;p++){ if(!r.vis[p]){r.vis[p]=1;this.ptr=(ti+1)%n;return} } } }
+};
+Card.prototype.left=function(){
+  if(!this.shown)return 1; var k=0;
+  this.toks.forEach(function(t){if(t.runs)t.runs.forEach(function(r){var L=r.e-r.s;for(var p=0;p<L;p++)if(!r.vis[p])k++})});return k};
+Card.prototype.skel=function(){
+  return this.toks.map(function(t){
+    if(t.kind!=='c')return '<span class="fn">'+esc(t.w)+'</span>';
+    var out='',last=0,w=t.w;
+    t.runs.forEach(function(r){out+=esc(w.slice(last,r.s));
+      for(var p=r.s;p<r.e;p++)out+=r.vis[p-r.s]?esc(w[p]):'_'; last=r.e});
+    out+=esc(w.slice(last)); return out;
+  }).join(' ');
+};
+Card.prototype.answer=function(){
+  return this.toks.map(function(t){return t.kind==='p'?'<span class="p">'+esc(t.w)+'</span>':esc(t.w)}).join(' ');
+};
+/* ---- 練習流程 ---- */
+var S=null;
+function start(){
+  var p=pool().filter(function(c){return !known[c.i]});
+  if(!p.length)p=pool();
+  for(var i=p.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=p[i];p[i]=p[j];p[j]=t}
+  if(opt.size)p=p.slice(0,opt.size);
+  S={q:p.map(function(c){return new Card(c)}),total:p.length,done:0,hinted:0,flip:false,again:0};
+  $('setup').classList.add('hide');$('done').classList.add('hide');$('play').classList.remove('hide');document.querySelector('header').classList.add('hide');draw();window.scrollTo(0,0);
+}
+function typeLabel(c){var t=TIERS.filter(function(x){return x.v===c.v})[0];return t?t.n:''}
+function draw(){
+  if(!S.q.length){finish();return}
+  var fid=document.activeElement&&document.activeElement.id;
+  var cd=S.q[0],c=cd.c, card=$('card'), ctrl=$('ctrl');
+  $('progTxt').textContent='已完成 '+S.done+' ／ '+S.total;$('barI').style.width=(S.total?100*S.done/S.total:0)+'%';
+  var meta='<div class="meta"><span>'+typeLabel(c)+(c.o?'<span class="tag">作文站也有</span>':'')+'</span><span>'+(c.n?'歷屆試題出現 '+c.n+' 場':'')+'</span></div>';
+  if(!S.flip){
+    var body=meta+'<p class="zh">'+esc(c.z)+'</p>';
+    if(cd.shown)body+='<p class="sk" aria-label="英文骨架">'+cd.skel()+'</p>';
+    body+='<p class="hint">'+(cd.shown?'底線是要自己想的字；先想一想，想不出來再按「多給一點提示」。':'先自己想想看英文怎麼說。想不出來，按「看英文骨架」，之後還可以再按「多給一點提示」。')+'</p>';
+    card.innerHTML=body;
+    ctrl.innerHTML='<button class="btn" id="hintB" type="button">'+(cd.shown?'多給一點提示':'看英文骨架')+'</button><button class="btn ok" id="ansB" type="button">看答案</button>';
+    $('hintB').disabled=cd.shown&&cd.left()===0;
+    $('hintB').onpointerdown=function(e){e.preventDefault()};
+    $('hintB').onclick=function(){cd.more();draw()};
+    $('ansB').onclick=function(){S.flip=true;draw()};
+  }else{
+    var ex=c.x?c.x.replace(/[&<>"]/g,function(ch){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[ch]}).replace(/【/g,'<mark>').replace(/】/g,'</mark>'):'';
+    var b=meta+'<p class="en">'+cd.answer()+'</p><p class="zh" style="font-size:22px">'+esc(c.z)+'</p><p class="form">'+[c.f&&c.f!=='其他'?esc(c.f):'',c.t!=='通用'?esc(c.t):esc(c.s||'')].filter(Boolean).join('　·　')+'</p>';
+    if(ex)b+='<p class="ex">'+ex+'</p>';
+    if(c.y)b+='<p class="src"><b>歷屆出處</b>　'+(c.xl?esc(c.xl)+(c.n>1?'　｜　':''):'')+(c.n>1?'共 '+c.n+' 場：'+esc(c.y):'')+'</p>';
+    card.innerHTML=b;
+    ctrl.innerHTML='<button class="btn" id="noB" type="button">不記得</button><button class="btn ok" id="yesB" type="button">記得</button>';
+    $('noB').onclick=function(){grade(false)};$('yesB').onclick=function(){grade(true)};
+  }
+  if(fid&&(fid==='hintB'||fid==='ansB'||fid==='yesB'||fid==='noB')&&$(fid))$(fid).focus();
+}
+function grade(ok){
+  var cd=S.q.shift(); S.flip=false; var c=cd.c, hinted=cd.hint;
+  var nc=new Card(c);
+  if(ok&&!hinted){S.done++;known[c.i]=1;save()}
+  else if(ok&&hinted){S.hinted++;S.again++;S.q.splice(Math.min(8,S.q.length),0,nc)}   // 用了提示才記得：隔幾張再回想一次
+  else{S.q.splice(Math.min(5,S.q.length),0,nc)}
+  draw();
+}
+function finish(){
+  $('play').classList.add('hide');$('done').classList.remove('hide');
+  $('doneTxt').textContent='這一輪 '+S.total+' 張都記得了'+(S.hinted?'，其中有 '+S.hinted+' 次是看了提示才記得的，那幾張後來有再出現':'')+'。';
+}
+function toSetup(){document.querySelector('header').classList.remove('hide');$('play').classList.add('hide');$('done').classList.add('hide');$('setup').classList.remove('hide');renderSetup();window.scrollTo(0,0)}
+$('themeSel').onchange=function(){opt.theme=this.value;renderSetup()};
+$('sizeSel').onchange=function(){opt.size=+this.value};
+$('clearBtn').onclick=function(){known={};save();renderSetup()};$('startBtn').onclick=start;$('quitBtn').onclick=toSetup;$('backBtn').onclick=toSetup;$('againBtn').onclick=start;
+fetch('collocations_data.json').then(function(r){return r.json()}).then(function(d){DATA=d;renderSetup()}).catch(function(){$('count').textContent='資料讀取失敗，請重新整理頁面。'});
+})();
+</script>
+</body>
+</html>
