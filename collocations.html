@@ -56,6 +56,7 @@ button:focus-visible,select:focus-visible{outline:3px solid var(--crimson);outli
 .en .p,.sk .p{color:var(--crimson)}
 .form{font-size:13px;color:var(--soft);margin:0}
 .ex{font-family:var(--serif);font-size:18px;line-height:1.5;margin:0}
+.warn{font-size:14px;line-height:1.6;margin:0;padding:8px 10px;background:var(--gold-soft);border-radius:6px}.warn s{color:var(--crimson);text-decoration-thickness:2px}
 .ex mark{background:var(--gold-soft);color:inherit;padding:0 2px;border-radius:2px}
 .src{font-size:13.5px;margin:0;padding-top:10px;border-top:1px dashed var(--rule);color:var(--soft)}
 .src b{color:var(--sage)}
@@ -96,7 +97,7 @@ footer a{color:var(--crimson);display:inline-block;padding:6px 0}
   <button class="big" id="startBtn" type="button">開始</button>
   <p class="count" id="count" aria-live="polite"></p>
   <p class="count"><button class="btn hide" id="clearBtn" type="button" style="flex:none;min-height:40px">清除我的進度</button></p>
-  <p class="note">等級是依卡片裡最難的單字推估：基礎適合級分 9 以下，進階適合 10 到 12 級分，挑戰適合 13 級分以上，只是參考，覺得太簡單就往上選。<br>精選是歷屆試題中出現過、很常用的搭配，並用朗文（Longman）或韋氏（Merriam-Webster）字典查證過，字典收成詞條或例句都算；完整版另外包含比較少見的搭配，這部分沒有逐張對照字典。<br>進度存在這台裝置裡，換手機不會跟著走。</p>
+  <p class="note">等級是依卡片裡最難的單字推估：基礎適合級分 9 以下，進階適合 10 到 12 級分，挑戰適合 13 級分以上，只是參考，覺得太簡單就往上選。<br>精選是歷屆試題中出現過、很常用的搭配，並用朗文（Longman）或韋氏（Merriam-Webster）字典查證過，字典收成詞條或例句都算；完整版另外包含比較少見的搭配，這部分沒有逐張對照字典。<br>卡片背面的「不要寫成」，只標有朗文、牛津字典或用法指南明確依據的少數卡片，沒標不代表沒有常見錯誤。<br>進度存在這台裝置裡，換手機不會跟著走。</p>
 </section>
 
 <section id="play" class="hide" aria-label="練習">
@@ -228,6 +229,7 @@ function draw(){
     var ex=c.x?c.x.replace(/[&<>"]/g,function(ch){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[ch]}).replace(/【/g,'<mark>').replace(/】/g,'</mark>'):'';
     var b=meta+'<p class="en">'+cd.answer()+'</p><p class="zh" style="font-size:22px">'+esc(c.z)+'</p><p class="form">'+[c.f&&c.f!=='其他'?esc(c.f):'',c.t!=='通用'?esc(c.t):esc(c.s||'')].filter(Boolean).join('　·　')+'</p>';
     if(ex)b+='<p class="ex">'+ex+'</p>';
+    if(c.w)b+='<p class="warn"><b>不要寫成</b>　<s>'+esc(c.w)+'</s><br>'+esc(c.wy)+'</p>';
     if(c.y)b+='<p class="src"><b>歷屆出處</b>　'+(c.xl?esc(c.xl)+(c.n>1?'　｜　':''):'')+(c.n>1?'共 '+c.n+' 場：'+esc(c.y):'')+'</p>';
     card.innerHTML=b;
     ctrl.innerHTML='<button class="btn" id="noB" type="button">不記得</button><button class="btn ok" id="yesB" type="button">記得</button>';
