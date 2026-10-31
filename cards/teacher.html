@@ -336,7 +336,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
         <b>易混淆字組另有收錄依據。</b>每一組是拼法、字根相近或唸法相同的字，參考台灣升學考試常見的易混淆字整理，所以也收錄了沒出現過的字；出現過的字一律附上當年的句子。
       </p>
       <p>
-        <b>一字多義的字同樣出自歷屆考題。</b>這 277 個字，其中 202 個取自本題庫的詞彙題、克漏字、文意選填和閱讀測驗，選字時也參考了教學圈整理的一字多義清單；另外 75 個是後來依辭典補上的：其中 55 個是逐一比對歷屆考題文章、確認另一個意思真的出現過才收錄，其餘 20 個是日常很常見、考題裡較少考到的字。其中 169 個字有以這個字為答案的考題；其餘 108 個字沒有，其中 42 個的另一個意思出現在考題文章裡，卡片背面附上那一句，另外 66 個附的是依辭典寫的原創例句。
+        <b>一字多義的字大多出自歷屆考題。</b>這 278 個字，其中 217 個取自本題庫的詞彙題、克漏字、文意選填和閱讀測驗，選字時也參考了教學圈整理的一字多義清單：175 個字有以這個字為答案的考題，另外 42 個的另一個意思出現在考題文章裡，卡片背面附上那一句。其餘 61 個是日常很常見的字，沒有以這個字的這個意思為答案的考題，附的是依辭典寫的原創例句。
       </p>
       <p>
         免費、無廣告的非營利自學題庫，歡迎自由分享。
@@ -544,7 +544,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
       setOut('', true);
       if (!poLoading) {
         poLoading = true;
-        fetch('polysemy_data.json?v=9', { cache: 'default' })
+        fetch('polysemy_data.json?v=10', { cache: 'default' })
           .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
           .then(function (d) { PO = d; poLoading = false; if (deck === 'po') refresh(); })
           .catch(function () { poLoading = false; box.innerHTML = '<span class="warn">一字多義載入失敗，請重新整理頁面試試。</span>'; });
