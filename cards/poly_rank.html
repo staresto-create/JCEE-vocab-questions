@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>一字多義答對率排行 · 認得的字，考的卻是另一個意思</title>
+<meta name="description" content="歷屆學測、指考中，認得的字考的卻是另一個意思的題目，依大考中心公布的答對率由低到高排列，每題附原題連結與一字多義卡。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="高中英文自學題庫">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:title" content="一字多義答對率排行 · 認得的字，考的卻是另一個意思">
+<meta property="og:description" content="歷屆學測、指考中，認得的字考的卻是另一個意思的題目，依大考中心公布的答對率由低到高排列。">
+<meta property="og:url" content="https://staresto-create.github.io/JCEE-vocab-questions/cards/poly_rank.html">
+<meta property="og:image" content="https://staresto-create.github.io/JCEE-vocab-questions/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+:root{
+  --paper:#F6F1E4; --card:#FFFDF7; --ink:#221F1A; --soft:#5B5648; --rule:#DCD3BB; --crimson:#AE3626; --blue:#1d3b6b; --chip:#EFE6CF;
+  --serif:"Times New Roman",Times,"Liberation Serif","Noto Serif","PingFang TC","Noto Sans TC","Microsoft JhengHei",serif;
+  --sans:"PingFang TC","Noto Sans TC","Microsoft JhengHei","Helvetica Neue",system-ui,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,Menlo,Consolas,"Noto Sans TC",monospace;
+}
+@media screen and (prefers-color-scheme:dark){
+  :root{--paper:#1C1A17; --card:#25221E; --ink:#F2F0EE; --soft:#CFC9BC; --rule:#4A453C; --crimson:#E4B6B0; --blue:#9DB8E8; --chip:#3A352D}
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.7;-webkit-text-size-adjust:100%}
+.wrap{max-width:48rem;margin:0 auto;padding:1.4rem 1rem 4rem}
+header.top{border-bottom:3px double var(--ink);padding-bottom:.6rem;margin-bottom:1.2rem}
+h1{font-family:var(--serif);font-weight:600;font-size:1.7rem;line-height:1.25;margin:0}
+.sub{font-family:var(--mono);font-size:.75rem;color:var(--soft);margin-top:.2rem}
+.lede{font-size:.95rem;margin:0 0 1rem}
+.lede a,.foot a{color:var(--crimson)}
+.tools{padding:.4rem 0 .6rem;border-bottom:1px solid var(--rule);margin-bottom:.4rem}
+.row{display:flex;flex-wrap:wrap;gap:.3rem;margin:.3rem 0}
+.row .lb{font-size:.8rem;color:var(--soft);align-self:center;margin-right:.2rem;min-width:2.2em}
+.row button{font:inherit;font-size:.82rem;padding:.2rem .55rem;background:var(--card);color:var(--ink);border:1px solid var(--rule);border-radius:3px;cursor:pointer}
+.row button[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+input[type=search]{width:100%;font:inherit;font-size:.92rem;padding:.4rem .6rem;border:1px solid var(--rule);border-radius:3px;background:var(--card);color:var(--ink);margin-top:.3rem}
+button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid var(--crimson);outline-offset:2px}
+.count{font-size:.85rem;color:var(--soft);margin:.5rem 0 .3rem}
+ol.list{list-style:none;margin:0;padding:0}
+ol.list li{background:var(--card);border:1px solid var(--rule);border-radius:3px;padding:.6rem .8rem;margin:0 0 .5rem;display:grid;grid-template-columns:2.2rem 1fr auto;column-gap:.5rem;align-items:baseline}
+.no{font-family:var(--mono);font-size:.8rem;color:var(--soft)}
+.w{font-family:var(--serif);font-weight:700;font-size:1.25rem;color:var(--blue)}
+.w a{color:inherit;text-decoration:none;border-bottom:1px dotted var(--soft)}
+.rate{font-family:var(--mono);font-weight:700;font-size:1.25rem;color:var(--crimson);text-align:right}
+.rate.mid{color:#B7791F}.rate.ok{color:#3E6E52}
+.mean{grid-column:2 / 4;font-size:.92rem}
+.mean .fam{color:var(--soft)}
+.mean .arrow{color:var(--soft);margin:0 .3rem}
+.mean b{font-weight:700}
+.src{grid-column:2 / 4;font-size:.8rem;color:var(--soft)}
+.src a{color:var(--crimson);margin-right:.8rem}
+.empty{color:var(--soft)}
+.foot{margin-top:2rem;font-size:.85rem;color:var(--soft);border-top:1px solid var(--rule);padding-top:.8rem}
+.cc-note{font-size:.78rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1>一字多義答對率排行</h1>
+    <div class="sub">認得的字，考的卻是另一個意思</div>
+  </header>
+
+  <p class="lede" id="lede">載入中…</p>
+
+  <div class="tools" id="tools">
+    <div class="row" id="rRow" role="group" aria-label="依答對率篩選"><span class="lb">答對率</span></div>
+    <div class="row" id="eRow" role="group" aria-label="依考試篩選"><span class="lb">考試</span></div>
+    <input type="search" id="q" placeholder="搜尋單字，例如 award" aria-label="搜尋單字">
+  </div>
+  <p class="count" id="count" aria-live="polite"></p>
+  <ol class="list" id="list"></ol>
+
+  <footer class="foot" id="foot">
+    <a href="../">回題庫首頁</a>　·　<a href="./#deck=po">一字多義卡</a>　·　<a href="./">單字記憶卡</a>　·　<a href="coverage.html">詞彙表覆蓋清單</a>
+    <p class="cc-note">本題庫自己寫的部分（解析、中譯、分類、標註與編排）採用 <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh-hant" target="_blank" rel="license noopener">CC BY-NC 4.0</a>（姓名標示─非商業性）授權：可以分享，但須註明出處，不得用於商業用途。試題來源與完整說明請見<a href="https://staresto-create.github.io/JCEE-vocab-questions/#terms">使用與著作權</a>。</p>
+  </footer>
+</div>
+
+<script>
+(function(){
+'use strict';
+var $=function(s){return document.querySelector(s);};
+var rate=null, exam=null, kw='';
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+function famShort(f){
+  var i=f.indexOf('）'); var t=i>=0?f.slice(i+1):f;
+  t=t.split('；')[0].replace(/（[^）]*）/g,'').trim();
+  return t;
+}
+function examOf(src){return src.indexOf('指考')>=0?'指考':'學測';}
+fetch('polysemy_data.json?v=7',{cache:'default'}).then(function(r){return r.json();}).then(function(P){
+  var rows=P.w.filter(function(x){return x.q1 && typeof x.q1.rate==='number';}).map(function(x){
+    return {w:x.w,fam:famShort(x.fam),m:x.m,rate:x.q1.rate,src:x.q1.src,url:x.q1.url,exam:examOf(x.q1.src)};
+  });
+  rows.sort(function(a,b){return a.rate-b.rate||(a.w<b.w?-1:1);});
+  var n30=rows.filter(function(r){return r.rate<30;}).length;
+  var n50=rows.filter(function(r){return r.rate<50;}).length;
+  $('#lede').innerHTML='認得的字，考題裡用的卻是另一個意思，是詞彙題、克漏字和文意選填容易失分的地方。下面是歷屆學測、指考裡這類字的 '+rows.length+' 題，依大考中心公布的答對率由低到高排列：答對率不到 30% 的有 '+n30+' 題，不到 50% 的有 '+n50+' 題。點單字可以看該字的一字多義卡，點「原題」可以回到題目與解析。';
+  function chips(rowId,items,get,set){
+    var row=$(rowId);
+    items.forEach(function(it,i){
+      var b=document.createElement('button'); b.type='button'; b.textContent=it.label; b.setAttribute('aria-pressed',i===0?'true':'false');
+      b.addEventListener('click',function(){
+        Array.prototype.forEach.call(row.querySelectorAll('button'),function(x){x.setAttribute('aria-pressed','false');});
+        b.setAttribute('aria-pressed','true'); set(it.v); render();
+      });
+      row.appendChild(b);
+    });
+  }
+  chips('#rRow',[{label:'全部',v:null},{label:'30% 以下',v:30},{label:'50% 以下',v:50}],null,function(v){rate=v;});
+  chips('#eRow',[{label:'全部',v:null},{label:'學測',v:'學測'},{label:'指考',v:'指考'}],null,function(v){exam=v;});
+  $('#q').addEventListener('input',function(e){kw=e.target.value.trim().toLowerCase();render();});
+  function render(){
+    var L=rows.filter(function(r){
+      if(rate!==null && r.rate>rate) return false;
+      if(exam && r.exam!==exam) return false;
+      if(kw && r.w.toLowerCase().indexOf(kw)<0) return false;
+      return true;
+    });
+    $('#count').textContent='共 '+L.length+' 題';
+    if(!L.length){$('#list').innerHTML='<li class="empty" style="display:block">沒有符合的題目。</li>';return;}
+    var allIdx={}; rows.forEach(function(r,i){allIdx[r.w]=i+1;});
+    $('#list').innerHTML=L.map(function(r){
+      var cls=r.rate<40?'':(r.rate<60?' mid':' ok');
+      return '<li><span class="no">'+allIdx[r.w]+'</span>'+
+        '<span class="w"><a href="./#deck=po&amp;view='+encodeURIComponent(r.w)+'">'+esc(r.w)+'</a></span>'+
+        '<span class="rate'+cls+'">'+r.rate+'%</span>'+
+        '<span class="mean"><span class="fam">'+esc(r.fam)+'</span><span class="arrow">→</span><b>'+esc(r.m)+'</b></span>'+
+        '<span class="src"><a href="'+esc(r.url)+'">原題</a>'+esc(r.src)+'</span></li>';
+    }).join('');
+  }
+  render();
+}).catch(function(){$('#lede').textContent='資料載入失敗，請重新整理。';});
+})();
+</script>
+</body>
+</html>
