@@ -142,7 +142,7 @@ function glossOf(e){
 function camUrl(w){return 'https://dictionary.cambridge.org/us/search/direct/?datasetsearch=english-chinese-traditional&q='+encodeURIComponent(w);}
 function jget(u){return fetch(BASE+u).then(function(r){if(!r.ok)throw new Error(u+' '+r.status);return r.json();});}
 function load(){
-  if(!loading)loading=Promise.all([jget('cards/reverse_data.json'),jget('cards/polysemy_data.json').catch(function(){return null;}),jget('lexicon/lexicon_data.json').catch(function(){return null;}),jget('lexicon/passage_gloss.json').catch(function(){return null;}),(window.KK&&KK.ready)||null]).then(function(r){
+  if(!loading)loading=Promise.all([jget('cards/reverse_data.json'),jget('cards/polysemy_data.json?v=9').catch(function(){return null;}),jget('lexicon/lexicon_data.json').catch(function(){return null;}),jget('lexicon/passage_gloss.json').catch(function(){return null;}),(window.KK&&KK.ready)||null]).then(function(r){
     D=r[0];setup(D.rows);
     if(r[1])r[1].w.forEach(function(x){POLY[String(x.w).toLowerCase()]=x;});
     if(r[2]){var W=r[2].words;Object.keys(W).forEach(function(k){LEX[k.toLowerCase()]=W[k];});}

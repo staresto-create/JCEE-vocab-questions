@@ -60,6 +60,13 @@ button:focus-visible,select:focus-visible{outline:3px solid var(--crimson);outli
 .ex mark{background:var(--gold-soft);color:inherit;padding:0 2px;border-radius:2px}
 .src{font-size:13.5px;margin:0;padding-top:10px;border-top:1px dashed var(--rule);color:var(--soft)}
 .src b{color:var(--sage)}
+.src.hang{display:grid;grid-template-columns:auto 1fr;column-gap:.8em}
+.src.sense{border-top:none;padding-top:0;color:var(--ink)}
+.src.rate{border-top:none;padding-top:0}
+.src.hang b{white-space:nowrap}
+.src.rate b.n{color:var(--ink);font-weight:700}
+#hfWrap{margin-top:10px;padding-left:12px;border-left:3px solid var(--rule)}
+.btn{min-height:46px}
 .row{display:flex;flex-wrap:wrap;gap:10px;margin-top:auto}
 .note{font-size:12.5px;color:var(--soft);line-height:1.8;margin:12px 0 0}
 .tag{display:inline-block;font-size:11.5px;border:1px solid var(--rule);border-radius:999px;padding:0 8px;margin-left:6px}
@@ -81,24 +88,28 @@ footer a{color:var(--crimson);display:inline-block;padding:6px 0}
   <div class="eyebrow">Collocation Cards</div>
   <h1>搭配詞卡</h1>
   <p class="lede">搭配詞是經常一起出現的字詞組合。中文都說「做」，英文卻要分成 do homework、make a decision；單字都認得，搭配用錯，句子就不自然，也會失分：單題的詞彙、綜合測驗、文意選填，要選出和前後字搭得起來的字；中翻英每個用字錯誤都會扣分；作文評分也有詞彙拼字這一項。這一頁收錄的搭配，在學測、指考歷屆試題中多次出現。想先了解搭配詞為什麼重要，可以讀台大寫作教學中心的〈<a href="https://awec.ntu.edu.tw/unit-6-collocations/?lang=en" target="_blank" rel="noopener">Unit 6 Collocations</a>〉。</p>
-  <p class="lede">這一頁收錄學測、指考歷屆試題裡出現過的搭配詞，多數附一句歷屆試題原句和出現的年份。</p>
+  <p class="lede">這一頁收錄學測、指考歷屆試題裡出現過的搭配詞，共 2,868 張，多數附一句歷屆試題原句和出現的年份。可以選「題目裡的」（考題的選項與空格）、「文章裡的」（閱讀、克漏字等文章中的搭配），或在多場考試反覆出現的「高頻」搭配練習。不用一次練完：先選自己的等級和主題，每輪 20 張，按「記得」的卡片，下一輪會先略過。</p>
 </header>
 
 <section class="panel" id="setup" aria-label="選擇卡片">
   <label class="lab" id="l-lv">1　選等級</label>
   <div class="seg" id="lvSeg" role="group" aria-labelledby="l-lv"></div>
-  <label class="lab" id="l-set">2　選範圍</label>
+  <label class="lab" id="l-src">2　選來源</label>
+  <div class="seg" id="srcSeg" role="group" aria-labelledby="l-src"></div>
+  <div id="hfWrap" class="hide"><label class="lab" id="l-hf">　出現場數</label>
+  <div class="seg" id="hfSeg" role="group" aria-labelledby="l-hf"></div></div>
+  <label class="lab" id="l-set">3　選範圍</label>
   <div class="seg" id="setSeg" role="group" aria-labelledby="l-set"></div>
-  <label class="lab" for="themeSel">3　選主題</label>
+  <label class="lab" for="themeSel">4　選主題</label>
   <select id="themeSel"></select>
-  <label class="lab" id="l-mode">4　卡片正面怎麼看</label>
+  <label class="lab" id="l-mode">5　卡片正面怎麼看</label>
   <div class="seg" id="modeSeg" role="group" aria-labelledby="l-mode"></div>
-  <label class="lab" for="sizeSel">5　每輪幾張</label>
+  <label class="lab" for="sizeSel">6　每輪幾張</label>
   <select id="sizeSel"><option value="20">20 張</option><option value="40">40 張</option><option value="0">全部</option></select>
   <button class="big" id="startBtn" type="button">開始</button>
   <p class="count" id="count" aria-live="polite"></p>
   <p class="count"><button class="btn hide" id="clearBtn" type="button" style="flex:none;min-height:40px">清除我的進度</button></p>
-  <p class="note">等級與級分對應都是本題庫的推估：依卡片裡最難的單字推估，基礎適合級分 9 以下，進階適合 10 到 12 級分，挑戰適合 13 級分以上，只是參考，覺得太簡單就往上選。<br>精選是歷屆試題中出現過的搭配，並用朗文（Longman）或韋氏（Merriam-Webster）字典查證過，字典收成詞條或例句都算；完整版另外包含沒有逐張對照字典的搭配。<br>卡片背面的「不要寫成」，只標有朗文字典明確依據的少數卡片，沒標不代表沒有常見錯誤。<br>進度存在這個瀏覽器裡，換裝置或清除瀏覽資料就不會保留。</p>
+  <p class="note">等級與級分對應都是本題庫的推估：依卡片裡最難的單字推估，基礎適合級分 9 以下，進階適合 10 到 12 級分，挑戰適合 13 級分以上，只是參考，覺得太簡單就往上選。<br>精選是歷屆試題中出現過的搭配，並用朗文（Longman）或韋氏（Merriam-Webster）字典查證過，字典收成詞條或例句都算；完整版另外包含沒有逐張對照字典的搭配。<br>卡片背面的「不要寫成」，只標有朗文字典明確依據的少數卡片，沒標不代表沒有常見錯誤。<br>來源：題目裡的是歷屆考題選項與空格用到的搭配；文章裡的是出現在閱讀測驗、克漏字等文章中的搭配；高頻是在三場以上的考試出現的搭配，場數越多越常考。<br>題目答對率：有公布答對率的題目，卡片背面會標出來。一題可能含多個搭配，答對率不代表單一搭配的難度，僅供參考。<br>進度存在這個瀏覽器裡，換裝置或清除瀏覽資料就不會保留。</p>
 </section>
 
 <section id="play" class="hide" aria-label="練習">
@@ -127,14 +138,22 @@ var TIERS=[{v:1,n:'基礎',s:'級分 9 以下'},{v:2,n:'進階',s:'級分 10–1
 var THEMES=['家庭與生活','個人成長與自我探索','人際關係與友誼','社會現象與公共議題','校園與學習','科技與媒體','環境與災害','健康與身心','生涯與職業','文化與認同'];
 var FNS=['銜接與轉折','因果與影響','程度、數量與強調','變化、趨勢與狀態','時間、地點與方式','態度、情緒與評價','論述與資訊','行動、努力與處理問題','描寫與其他'];
 var $=function(i){return document.getElementById(i)};
-var DATA=[], opt={lv:0,set:'sel',theme:'',mode:'both',size:20}, KEY='collocCards.v1';
+var DATA=[], opt={lv:0,src:'',hf:0,set:'sel',theme:'',mode:'both',size:20}, KEY='collocCards.v1';
 var known={}; try{known=JSON.parse(localStorage.getItem(KEY)||'{}')||{}}catch(e){known={}} if(!known||typeof known!=='object'||Array.isArray(known))known={};
 function save(){try{localStorage.setItem(KEY,JSON.stringify(known))}catch(e){}}
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+var HF=[{k:0,t:'3 場以上',s:'全部高頻',min:3,max:99},{k:1,t:'3–4 場',s:'常考',min:3,max:4},{k:2,t:'5 場以上',s:'最常考',min:5,max:99}];
+function srcOK(c){
+  if(opt.src==='q')return c.k!=='a';
+  if(opt.src==='a')return c.k==='a';
+  if(opt.src==='h'){var h=HF[opt.hf],n=c.n||0;return n>=h.min&&n<=h.max}
+  return true;
+}
 function pool(){
   return DATA.filter(function(c){
     if(opt.lv&&c.v!==opt.lv)return false;
     if(opt.set==='sel'&&!c.c)return false;
+    if(!srcOK(c))return false;
     if(opt.theme){var p=opt.theme.split('|'); if(p[0]==='t'){if(c.t!==p[1])return false}else{if(c.t!=='通用'||c.s!==p[1])return false}}
     return true;});
 }
@@ -145,11 +164,14 @@ function chips(el,items,cur,on){
 }
 function renderSetup(){
   chips($('lvSeg'),[{k:0,t:'全部等級'}].concat(TIERS.map(function(t){return {k:t.v,t:t.n,s:t.s}})),opt.lv,function(k){opt.lv=k;renderSetup()});
+  chips($('srcSeg'),[{k:'',t:'全部來源'},{k:'q',t:'題目裡的',s:'考題的選項與空格'},{k:'a',t:'文章裡的',s:'閱讀、克漏字的文章'},{k:'h',t:'高頻',s:'多場考試都出現'}],opt.src,function(k){opt.src=k;renderSetup()});
+  $('hfWrap').classList.toggle('hide',opt.src!=='h');
+  if(opt.src==='h')chips($('hfSeg'),HF.map(function(h){return {k:h.k,t:h.t,s:h.s}}),opt.hf,function(k){opt.hf=k;renderSetup()});
   chips($('setSeg'),[{k:'sel',t:'精選',s:'最常用'},{k:'all',t:'完整版',s:'含較少見的'}],opt.set,function(k){opt.set=k;renderSetup()});
   chips($('modeSeg'),[{k:'both',t:'中英並列',s:'看中文和英文骨架'},{k:'zh',t:'只看中文',s:'英文要自己想'}],opt.mode,function(k){opt.mode=k;renderSetup()});
-  var base=DATA.filter(function(c){return (!opt.lv||c.v===opt.lv)&&(opt.set!=='sel'||c.c)});
+  var base=DATA.filter(function(c){return (!opt.lv||c.v===opt.lv)&&(opt.set!=='sel'||c.c)&&srcOK(c)});
   var sel=$('themeSel'),cur=opt.theme; sel.innerHTML='';
-  function add(parent,v,t,n){var o=document.createElement('option');o.value=v;o.textContent=t+'（'+n+'）';parent.appendChild(o)}
+  function add(parent,v,t,n){var o=document.createElement('option');o.value=v;o.textContent=t+'（'+n+'）';if(!n&&v!==cur)o.disabled=true;parent.appendChild(o)}
   add(sel,'','全部主題',base.length);
   var g1=document.createElement('optgroup');g1.label='依主題';
   THEMES.forEach(function(t){add(g1,'t|'+t,t,base.filter(function(c){return c.t===t}).length)});sel.appendChild(g1);
@@ -230,7 +252,9 @@ function draw(){
     var ex=c.x?c.x.replace(/[&<>"]/g,function(ch){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[ch]}).replace(/【/g,'<mark>').replace(/】/g,'</mark>'):'';
     var b=meta+'<p class="en">'+cd.answer()+'</p><p class="zh" style="font-size:22px">'+esc(c.z)+'</p><p class="form">'+[c.f&&c.f!=='其他'?esc(c.f):'',c.t!=='通用'?esc(c.t):esc(c.s||'')].filter(Boolean).join('　·　')+'</p>';
     if(ex)b+='<p class="ex">'+ex+'</p>';
+    if(c.d)b+='<p class="src hang sense"><b>一字多義</b><span>'+esc(c.d)+'</span></p>';
     if(c.w)b+='<p class="warn"><b>不要寫成</b>　<s>'+esc(c.w)+'</s><br>'+esc(c.wy)+'</p>';
+    if(c.r){var rp=c.r.split('｜');b+='<p class="src hang rate"><b>題目答對率</b><span><b class="n">'+esc(rp[0])+'%</b>（'+esc(rp[1])+'）</span></p>'}
     if(c.y)b+='<p class="src"><b>歷屆出處</b>　'+(c.xl?esc(c.xl)+(c.n>1?'　｜　':''):'')+(c.n>1?'共 '+c.n+' 場：'+esc(c.y):'')+'</p>';
     card.innerHTML=b;
     ctrl.innerHTML='<button class="btn" id="noB" type="button">不記得</button><button class="btn ok" id="yesB" type="button">記得</button>';
@@ -254,7 +278,7 @@ function toSetup(){document.querySelector('header').classList.remove('hide');$('
 $('themeSel').onchange=function(){opt.theme=this.value;renderSetup()};
 $('sizeSel').onchange=function(){opt.size=+this.value};
 $('clearBtn').onclick=function(){known={};save();renderSetup()};$('startBtn').onclick=start;$('quitBtn').onclick=toSetup;$('backBtn').onclick=toSetup;$('againBtn').onclick=start;
-fetch('collocations_data.json').then(function(r){return r.json()}).then(function(d){DATA=d;renderSetup()}).catch(function(){$('count').textContent='資料讀取失敗，請重新整理頁面。'});
+fetch('collocations_data.json?v=2').then(function(r){return r.json()}).then(function(d){DATA=d;renderSetup()}).catch(function(){$('count').textContent='資料讀取失敗，請重新整理頁面。'});
 })();
 </script>
 </body>

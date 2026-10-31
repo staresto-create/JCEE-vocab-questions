@@ -102,7 +102,7 @@ function famShort(f){
 }
 function shortSrc(src){var m=src.match(/^(\d+) 年(學測|指考)(詞彙題|文意選填|克漏字)/);return m?m[1]+' '+m[2]+({'詞彙題':'詞彙','文意選填':'文意','克漏字':'克漏字'})[m[3]]:src;}
 function examOf(src){return src.indexOf('指考')>=0?'指考':'學測';}
-fetch('polysemy_data.json?v=8',{cache:'default'}).then(function(r){return r.json();}).then(function(P){
+fetch('polysemy_data.json?v=9',{cache:'default'}).then(function(r){return r.json();}).then(function(P){
   var rows=P.w.filter(function(x){return x.q1 && typeof x.q1.rate==='number';}).map(function(x){
     return {n:x.n,w:x.w,fam:famShort(x.fam),m:x.m,rate:x.q1.rate,src:x.q1.src,url:x.q1.url,exam:examOf(x.q1.src)};
   });
