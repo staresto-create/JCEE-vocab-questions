@@ -544,7 +544,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
       setOut('', true);
       if (!poLoading) {
         poLoading = true;
-        fetch('polysemy_data.json?v=6', { cache: 'default' })
+        fetch('polysemy_data.json?v=7', { cache: 'default' })
           .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
           .then(function (d) { PO = d; poLoading = false; if (deck === 'po') refresh(); })
           .catch(function () { poLoading = false; box.innerHTML = '<span class="warn">一字多義載入失敗，請重新整理頁面試試。</span>'; });
