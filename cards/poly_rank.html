@@ -94,7 +94,7 @@ function famShort(f){
 function examOf(src){return src.indexOf('指考')>=0?'指考':'學測';}
 fetch('polysemy_data.json?v=7',{cache:'default'}).then(function(r){return r.json();}).then(function(P){
   var rows=P.w.filter(function(x){return x.q1 && typeof x.q1.rate==='number';}).map(function(x){
-    return {w:x.w,fam:famShort(x.fam),m:x.m,rate:x.q1.rate,src:x.q1.src,url:x.q1.url,exam:examOf(x.q1.src)};
+    return {n:x.n,w:x.w,fam:famShort(x.fam),m:x.m,rate:x.q1.rate,src:x.q1.src,url:x.q1.url,exam:examOf(x.q1.src)};
   });
   rows.sort(function(a,b){return a.rate-b.rate||(a.w<b.w?-1:1);});
   var n30=rows.filter(function(r){return r.rate<30;}).length;
@@ -127,7 +127,7 @@ fetch('polysemy_data.json?v=7',{cache:'default'}).then(function(r){return r.json
     $('#list').innerHTML=L.map(function(r){
       var cls=r.rate<40?'':(r.rate<60?' mid':' ok');
       return '<li><span class="no">'+allIdx[r.w]+'</span>'+
-        '<span class="w"><a href="./#deck=po&amp;view='+encodeURIComponent(r.w)+'">'+esc(r.w)+'</a></span>'+
+        '<span class="w"><a href="./#deck=po&amp;view='+r.n+'">'+esc(r.w)+'</a></span>'+
         '<span class="rate'+cls+'">'+r.rate+'%</span>'+
         '<span class="mean"><span class="fam">'+esc(r.fam)+'</span><span class="arrow">→</span><b>'+esc(r.m)+'</b></span>'+
         '<span class="src"><a href="'+esc(r.url)+'">原題</a>'+esc(r.src)+'</span></li>';
