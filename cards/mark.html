@@ -269,7 +269,7 @@ function sorted(){
 }
 /* 課本單字索引（textbook/tb_index.json）：三民分 Production／Recognition，龍騰同樣分 Production／Recognition；讀不到就不顯示，不影響其他功能 */
 var TB=null;
-var ED={n:'乙版',r:'乙版115改版',o:'舊版'};
+var ED={n:'乙版',r:'乙版115改版',o:'甲版'};
 function tbOf(e){
   if(!TB)return null;
   var ks=[e.key].concat(Object.keys(e.forms||{}).map(function(x){return x.toLowerCase();})),s=[],l=[],seen={};
