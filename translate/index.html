@@ -126,6 +126,8 @@
     border-color:var(--ad-vstamp-border);
     color:#fff;
   }
+  .topic-h{margin:18px 0 6px;font-size:15px;}
+  .year-chip small{margin-left:4px;opacity:.7;font-size:11px;}
   .range-actions{
     margin-top:12px;
     display:flex;
@@ -622,6 +624,9 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
         <a id="selNone">全部取消</a>
         <a id="selWrongOnly">只練錯題本內的年度</a>
       </div>
+      <h3 class="topic-h">依主題挑題（可複選）</h3>
+      <div style="font-size:12px;color:var(--ad-vmuted-fg);margin-bottom:10px;">想練某個主題的句子，就點下面的主題；不點就是全部主題。主題和年度都選時，只出兩邊都符合的題目；只選主題、沒選年度時，會從全部年度裡挑。一個主題下的題目，包含把它當次要主題的題目。</div>
+      <div class="year-grid" id="topicGrid"></div>
       <div class="year-note">
         <b>92 年怎麼沒有題目？</b><br>
         那一年學測考的是簡答題——讀一篇英文短文，再用英文回答問題，不是中譯英；91、92 兩年的指考也都沒有考翻譯。前面 86 到 90 年並沒有缺，那幾年的題目來自當時的大學聯考，每年 5 題。有興趣了解簡答題的同學，可以到<a href="https://staresto-create.github.io/mixed-format/" style="color:var(--ad-x9C2C1E-fg);font-weight:700;">混合題題庫</a>看看——那是 111 學年度起才有的題型，作答方式裡也有簡答。<br>
@@ -973,6 +978,7 @@ async function loadItems(){
     if(r2.ok) ALL_ITEMS = ALL_ITEMS.concat(await r2.json());
   }catch(e){}
   buildYearGrid();
+  buildTopicGrid();
   scrMountStrip();
   renderProgress();
   startFromSetHash() || startFromHash();
@@ -1002,6 +1008,31 @@ function buildYearGrid(){
     chip.addEventListener("click", () => chip.classList.toggle("selected"));
     grid.appendChild(chip);
   });
+}
+
+const TOPICS = ['家庭與日常生活','校園與學習','人際關係','自我成長與心理','健康、醫療與運動','社會議題','商業、經濟與職場','科技與媒體','科學與自然','環境與災害','歷史與文化','文學與藝術','飲食與旅遊'];
+const TW_CHIP = '台灣相關';
+function hasTopic(item, t){ return item.topic === t || item.topic2 === t; }
+function buildTopicGrid(){
+  const grid = document.getElementById("topicGrid");
+  if(!grid) return;
+  grid.innerHTML = "";
+  const mk = (label, key, n) => {
+    const chip = document.createElement("div");
+    chip.className = "year-chip";
+    chip.dataset.topic = key;
+    chip.appendChild(document.createTextNode(label));
+    const sm = document.createElement("small"); sm.textContent = n;
+    chip.appendChild(sm);
+    chip.addEventListener("click", () => chip.classList.toggle("selected"));
+    grid.appendChild(chip);
+  };
+  TOPICS.forEach(t => { const n = ALL_ITEMS.filter(i => hasTopic(i, t)).length; if(n) mk(t, t, n); });
+  const nTw = ALL_ITEMS.filter(i => i.tw).length;
+  if(nTw) mk(TW_CHIP, TW_CHIP, nTw);
+}
+function selectedTopics(){
+  return [...document.querySelectorAll("#topicGrid .year-chip.selected")].map(c => c.dataset.topic);
 }
 
 document.getElementById("selAll").addEventListener("click", ()=>{
@@ -1034,8 +1065,14 @@ function getMode(){
 document.getElementById("startBtn").addEventListener("click", ()=>{
   const selectedYears = [...document.querySelectorAll("#yearGrid .year-chip.selected")]
       .map(c => c.dataset.year === ADAPT ? ADAPT : Number(c.dataset.year));
-  if(selectedYears.length === 0){ alert("請至少選擇一個年度"); return; }
+  const tps = selectedTopics();
+  const tpsReal = tps.filter(t => t !== TW_CHIP), wantTw = tps.includes(TW_CHIP);
+  if(selectedYears.length === 0 && tps.length === 0){ alert("請至少選擇一個年度，或選一個主題"); return; }
+  if(selectedYears.length === 0) ALL_ITEMS.forEach(i => { if(!selectedYears.includes(i.year)) selectedYears.push(i.year); });
   queue = ALL_ITEMS.filter(i => selectedYears.includes(i.year));
+  if(tpsReal.length) queue = queue.filter(i => tpsReal.some(t => hasTopic(i, t)));
+  if(wantTw) queue = queue.filter(i => i.tw);
+  if(queue.length === 0){ alert("這個年度和主題的組合沒有題目，請放寬其中一邊的選擇"); return; }
   if(getMode() === "shuffle"){
     queue = shuffle(queue);
   }
@@ -1044,6 +1081,7 @@ document.getElementById("startBtn").addEventListener("click", ()=>{
       : (selectedYears.length === 1 && selectedYears[0] === ADAPT) ? ADAPT
       : selectedYears.length === 1 ? (selectedYears[0] + " 年")
       : (selectedYears[0] + "–" + selectedYears[selectedYears.length-1] + " 等 " + selectedYears.length + " 個年度");
+  if(tps.length) currentRangeLabel = (currentRangeLabel === "全部年度" ? "" : currentRangeLabel + "・") + "主題：" + tps.join("、");
   qIndex = 0; correctCount = 0; attemptedCount = 0; sessionWrong = [];
   showView("quiz");
   renderQuestion();
