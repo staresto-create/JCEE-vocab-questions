@@ -1,0 +1,657 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>單字健檢：你該先背哪一級</title>
+<meta name="description" content="用約 6 分鐘的選擇題，看大考詞彙表 2 到 6 級各級認得多少，找出該先背哪一級，答錯的字可以加入再複習。">
+<style>
+:root{
+  --bg:#F6F1E4; --card:#FFFDF7; --ink:#221F1A; --sub:#5B5648; --line:#DCD3BB;
+  --gold:#8A6420; --gold-soft:#F1EADA; --es:#3E6E52; --tr:#AE3626; --mx:#8A6420;
+  --good:#3E6E52; --shadow:0 1px 0 rgba(34,31,26,.06),0 8px 24px rgba(34,31,26,.08);
+  --cc-fg:#6F685C; --link:#9C2C1E; --you:#8A6420; --slc-es:#3E6E52; --slc-tr:#AE3626;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#1B1916; --card:#26231F; --ink:#F2F0EE; --sub:#DAD8D3; --line:#514A37;
+    --gold:#E0D1B2; --gold-soft:#2B271E; --es:#CBDDD2; --tr:#E4B6B0; --mx:#E0D1B2;
+    --good:#CBDDD2; --shadow:none; --cc-fg:#C2BFBB; --link:#E8BEB9; --you:#E3B54A; --slc-es:#5E9A76; --slc-tr:#D0584A;
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.7 "Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif}
+.wrap{max-width:700px;margin:0 auto;padding:0 20px 60px}
+header.hero{padding:28px 0 8px}
+.kicker{font-family:'IBM Plex Mono','Noto Sans TC','PingFang TC','Microsoft JhengHei',monospace;font-size:11px;letter-spacing:.16em;color:var(--tr);font-weight:600}
+h1,h2,.tile .big,.sub-h{font-family:'Noto Serif TC','PingFang TC','Microsoft JhengHei',serif}
+h1{font-weight:900;font-size:clamp(24px,5.5vw,30px);line-height:1.35;margin:6px 0 8px}
+.lead{color:var(--sub);margin:0 0 4px}
+h2{font-weight:900;font-size:20px;margin:38px 0 4px;line-height:1.4;scroll-margin-top:12px}
+h2 .tag{font-size:12px;font-weight:600;color:var(--gold);background:var(--gold-soft);border-radius:999px;padding:2px 10px;margin-left:8px;vertical-align:2px;white-space:nowrap}
+.sec-lead{color:var(--sub);margin:0 0 14px;font-size:15px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:16px;box-shadow:var(--shadow)}
+/* 三個大數字 */
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}
+.tile{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:12px 10px;text-align:center;border-top-width:4px}
+.tile.es{border-top-color:var(--es)} .tile.tr{border-top-color:var(--tr)} .tile.mx{border-top-color:var(--mx)}
+.tile .nm{font-size:13px;color:var(--sub)}
+.tile .big{font-size:clamp(28px,8vw,40px);font-weight:900;line-height:1.15;font-variant-numeric:tabular-nums}
+.tile.es .big{color:var(--es)} .tile.tr .big{color:var(--tr)} .tile.mx .big{color:var(--mx)}
+.tile .of{font-size:12px;color:var(--sub)}
+.tile .rt{font-size:13px;margin-top:2px}
+.note{font-size:13px;color:var(--sub);margin:8px 0 0}
+/* 查位置 */
+.ctrl{display:grid;grid-template-columns:1fr;gap:14px}
+.row label{display:flex;justify-content:space-between;align-items:baseline;font-weight:600;margin-bottom:4px}
+.row .val{font-size:22px;font-weight:800;font-variant-numeric:tabular-nums}
+.row.es .val{color:var(--es)} .row.tr .val{color:var(--tr)}
+input[type=range]{width:100%;height:36px;accent-color:var(--gold)}
+select{font:inherit;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:4px;padding:8px 10px;min-height:44px}
+.yr{display:flex;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap}
+.res{margin-top:6px;padding:12px 14px;border-radius:4px;background:var(--gold-soft)}
+.res b{font-variant-numeric:tabular-nums}
+.res .l1{font-size:17px}
+.res .l2{font-size:14px;color:var(--sub);margin-top:2px}
+.hist{width:100%;height:auto;display:block;margin-top:8px}
+.hist text{fill:var(--sub);font-size:11px}
+
+.step{display:flex;gap:10px;align-items:flex-start;font-size:16px;margin:4px 0 10px;line-height:1.5}
+.step .n{flex:none;width:26px;height:26px;border-radius:50%;background:#8A6420;color:#fff;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.step.es b{color:var(--es)} .step.tr b{color:var(--tr)}
+.chips{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.chip{font:inherit;font-weight:700;font-size:17px;min-height:46px;border-radius:4px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;font-variant-numeric:tabular-nums;padding:0}
+.chip:hover{border-color:var(--gold)}
+.chip[aria-pressed="true"]{background:var(--gold);border-color:var(--gold);color:#fff}
+#esChips .chip[aria-pressed="true"]{background:#3E6E52;border-color:#3E6E52;color:#fff}
+#trChips .chip[aria-pressed="true"]{background:#AE3626;border-color:#AE3626;color:#fff}
+.half{display:flex;align-items:center;gap:8px;margin:10px 0 4px;font-size:15px;min-height:44px;cursor:pointer}
+.half input{width:20px;height:20px;accent-color:var(--gold)}
+.res.empty{background:transparent;border:1.5px dashed var(--line);color:var(--sub);font-size:15px}
+#trChips{grid-template-columns:repeat(9,1fr)}
+@media (max-width:520px){#trChips{grid-template-columns:repeat(5,1fr)}}
+.hist[hidden]{display:none}
+
+.subj{margin-top:22px}
+.res.pr{display:flex;gap:10px;align-items:center;background:var(--gold-soft)}
+.res.pr.demo{opacity:.85}
+.prbig{flex:none;text-align:center;line-height:1;min-width:84px}
+.prbig .prl{display:block;font-size:12px;letter-spacing:.14em;color:var(--sub);margin-bottom:2px}
+.prbig b{font-family:'Noto Serif TC','PingFang TC','Microsoft JhengHei',serif;font-weight:900;font-size:clamp(38px,11.5vw,46px);font-variant-numeric:tabular-nums}
+.subj.es .prbig b{color:var(--es)} .subj.tr .prbig b{color:var(--tr)}
+.prtxt{font-size:14.5px;line-height:1.6}
+.prtxt .l1{font-size:15.5px}
+.prtxt .l2{font-size:13px;color:var(--sub);margin-top:3px}
+.hist{width:100%;height:auto;display:block;margin-top:10px}
+.hist text{fill:var(--sub);font-size:11px}
+.hist .lab{font-weight:700}
+input.sl{-webkit-appearance:none;appearance:none;width:100%;height:46px;background:transparent;margin:4px 0 0;cursor:pointer;touch-action:pan-y}
+input.sl.es{--c:var(--slc-es)} input.sl.tr{--c:var(--slc-tr)}
+input.sl::-webkit-slider-runnable-track{height:10px;border-radius:5px;background:linear-gradient(to right,var(--c) var(--p,50%),var(--line) var(--p,50%))}
+input.sl::-moz-range-track{height:10px;border-radius:5px;background:var(--line)}
+input.sl::-moz-range-progress{height:10px;border-radius:5px;background:var(--c)}
+input.sl::-webkit-slider-thumb{-webkit-appearance:none;width:36px;height:36px;border-radius:50%;background:var(--c);border:3px solid #fff;box-shadow:0 1px 5px rgba(0,0,0,.45);margin-top:-13px}
+input.sl::-moz-range-thumb{width:30px;height:30px;border-radius:50%;background:var(--c);border:3px solid #fff;box-shadow:0 1px 5px rgba(0,0,0,.45)}
+input.sl:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+@keyframes thumbPulse{0%{box-shadow:0 0 0 0 rgba(169,129,46,.75)}70%{box-shadow:0 0 0 16px rgba(169,129,46,0)}100%{box-shadow:0 0 0 0 rgba(169,129,46,0)}}
+input.sl.nudge::-webkit-slider-thumb{animation:thumbPulse 1.5s ease-out infinite}
+input.sl.nudge::-moz-range-thumb{animation:thumbPulse 1.5s ease-out infinite}
+@media (prefers-reduced-motion:reduce){input.sl.nudge::-webkit-slider-thumb,input.sl.nudge::-moz-range-thumb{animation:none}}
+.slhint{text-align:center;font-size:13.5px;color:var(--sub);margin:0 0 10px;letter-spacing:.05em}
+.slhint.done{visibility:hidden}
+.chips{margin-top:2px}
+.chip{min-height:42px;font-size:16px}
+.fracs{grid-column:1/-1;display:flex;gap:6px;align-items:center;margin-top:4px}.fracs span{font-size:13.5px;color:var(--sub);flex:none;margin-right:2px}.fracs .chip{flex:1;font-size:14.5px;min-height:40px}.chip:disabled{opacity:.4}
+/* 趨勢圖 */
+.chartbox svg{width:100%;height:auto;display:block}
+.chartbox text{fill:var(--sub);font-size:12px}
+@media (max-width:560px){.chartbox text{font-size:21px}}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--sub);margin-top:6px}
+.legend i{display:inline-block;width:18px;height:0;border-top:3px solid;vertical-align:middle;margin-right:6px}
+.readout{min-height:3.2em;font-size:14px;margin-top:8px}
+.readout b{font-variant-numeric:tabular-nums}
+/* 表 */
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;width:100%;font-size:14.5px;font-variant-numeric:tabular-nums}
+th,td{padding:8px 10px;text-align:center;border-bottom:1px solid var(--line);white-space:nowrap}
+th{font-weight:700;color:var(--sub);font-size:13px;background:transparent}
+tr.cur td{font-weight:700;background:var(--gold-soft)}
+td.k,th.k{text-align:left}
+.sub-h{font-size:16px;margin:22px 0 6px;font-weight:700}
+.sub-h.es{color:var(--es)} .sub-h.tr{color:var(--tr)} .sub-h.mx{color:var(--mx)}
+details{margin-top:10px}
+summary{cursor:pointer;font-weight:600;min-height:44px;display:flex;align-items:center}
+summary::before{content:"▸";margin-right:8px;color:var(--gold);transition:transform .2s}
+details[open]>summary::before{transform:rotate(90deg)}
+summary::-webkit-details-marker{display:none}
+details p{margin:4px 0 10px;font-size:15px}
+.src{font-size:14px;color:var(--sub)}
+.src li{margin-bottom:6px}
+table.five td{line-height:1.25;padding:8px 4px;white-space:normal}
+table.five td+td,table.five th+td{border-left:1px solid var(--line)}
+@media (max-width:520px){table.five td{padding:8px 4px}table.five th{padding:7px 3px}}
+table.five td b{display:block;font-size:17px;font-weight:800}
+table.five td .rg{display:block;font-size:12px;color:var(--sub);margin-top:2px}
+table.five td.top{background:var(--gold-soft)}
+table.five td.top b{color:#7A5718}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) table.five td.top{background:#3A3322}:root:not([data-theme="light"]) table.five td.top b{color:#E3B54A}}
+:root[data-theme="dark"] table.five td.top{background:#3A3322}
+:root[data-theme="dark"] table.five td.top b{color:#E3B54A}
+footer{margin-top:36px;padding-top:14px;border-top:1px solid var(--line);font-size:13px;color:var(--sub)}
+@media (max-width:520px){ .tiles{gap:6px} .tile{padding:10px 4px} th,td{padding:7px 6px;font-size:13.5px} h2 .tag{display:inline-block;margin:4px 0 0 0} }
+@media print{
+  :root{--bg:#fff;--card:#fff;--ink:#000;--sub:#333;--line:#bbb}
+  .ctrl,.noprint,.sc-back,.unitbar{display:none!important}
+  .card{box-shadow:none}
+}
+
+.shots{display:grid;grid-template-columns:1fr;gap:14px}
+@media (min-width:700px){.shots{grid-template-columns:1fr 1fr}.shot:first-child{grid-column:1/-1}}
+.shot{margin:0;background:var(--card);border:1px solid var(--line);border-radius:4px;overflow:hidden}
+.shot button{display:block;width:100%;padding:0;border:0;background:#fff;cursor:zoom-in}
+.shot img{display:block;width:100%;height:auto}
+.shot figcaption{padding:10px 12px;font-size:13.5px;color:var(--sub);line-height:1.55}
+.shot figcaption b{color:var(--ink)}
+#lb{position:fixed;inset:0;background:rgba(0,0,0,.86);display:none;align-items:center;justify-content:center;z-index:50;padding:12px}
+#lb.on{display:flex}
+#lb img{max-width:100%;max-height:92vh;background:#fff;border-radius:6px}
+#lb .x{position:absolute;top:10px;right:12px;font:inherit;font-size:15px;color:#fff;background:rgba(255,255,255,.18);border:0;border-radius:999px;min-height:44px;padding:0 18px;cursor:pointer}
+@media print{#lb{display:none!important}.shot button{cursor:default}}
+
+/* 防盜用措施（2026-10-14）：畫面浮水印、列印浮水印、頁尾授權聲明 */
+@media screen{body::before{content:"";position:fixed;top:0;left:0;right:0;bottom:0;z-index:2147483000;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22460%22%20height%3D%22240%22%3E%3Cg%20transform%3D%22rotate%28-20%20230%20120%29%22%20font-family%3D%22Noto%20Sans%20TC%2Csans-serif%22%20fill%3D%22%23D9A400%22%20fill-opacity%3D%22.2%22%20text-anchor%3D%22middle%22%3E%3Ctext%20x%3D%22230%22%20y%3D%22112%22%20font-size%3D%2220%22%3E%E9%AB%98%E4%B8%AD%E8%8B%B1%E6%96%87%E9%A1%8C%E5%BA%AB%3C%2Ftext%3E%3Ctext%20x%3D%22230%22%20y%3D%22140%22%20font-size%3D%2214%22%3Estaresto-create.github.io%2FJCEE-vocab-questions%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E");background-repeat:repeat;}}
+@media print{body::after{content:"高中英文題庫\A staresto-create.github.io/JCEE-vocab-questions\A 免費資源，請勿販售";white-space:pre;position:fixed;top:42%;left:0;right:0;text-align:center;transform:rotate(-25deg);font-family:"Noto Sans TC",sans-serif;font-size:26pt;line-height:1.7;color:#e2e2e2;z-index:2147483000;pointer-events:none;}}
+.cc-note{font-size:12px;line-height:1.8;color:var(--cc-fg);margin:12px auto;max-width:60em;padding:0 1em;}.cc-note a{color:inherit;}
+
+.sc-back{font-size:14px;line-height:1.5;margin:0;padding:14px 0 0}
+.sc-back a{color:var(--link);font-weight:700;text-decoration:underline;text-underline-offset:2px;white-space:nowrap;display:inline-block;padding:6px 0}
+.unitbar{margin:14px 0 4px;font-size:14px;line-height:1.5}
+.unitbar .ubrow{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline}
+.unitbar .ublab{color:var(--sub);font-size:12.5px}
+.unitbar a{color:var(--link);text-decoration:underline;text-underline-offset:2px;padding:8px 0;display:inline-block}
+footer{text-align:center}
+footer .cc-note{text-align:left}
+footer a{color:inherit}
+
+/* ===== 單字對照兩頁共用 ===== */
+:root{--tx:#2F5B80;--hi:#A0441A;--ctl-line:#9C907A;color-scheme:light dark}
+:root[data-theme="light"]{color-scheme:light}
+[hidden]{display:none!important}
+h1{text-wrap:balance}
+h2 .tag{color:#7A5718;font-family:inherit}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--es:#7FC49A;--mx:#E3B54A;--tr:#F28B7D;--hi:#F0A070;--tx:#8DB8EA;--ctl-line:#7A7360;--sub:#B4AFA6;--cc-fg:#A9A49B}
+:root:not([data-theme="light"]) mark.hl,:root:not([data-theme="light"]) .ex .en b{background:#4A3F22;color:var(--mx)}
+:root:not([data-theme="light"]) mark.hl{box-shadow:0 -2px 0 var(--mx) inset}
+:root:not([data-theme="light"]) .big4.pri,:root:not([data-theme="light"]) .chkcard{background:#3A3322}
+:root:not([data-theme="light"]) h2 .tag{color:var(--gold)}}
+:root[data-theme="dark"]{color-scheme:dark;--hi:#F0A070;--ctl-line:#7A7360;--tx:#8DB8EA;--bg:#1B1916;--card:#26231F;--ink:#F2F0EE;--sub:#B4AFA6;--line:#514A37;--gold:#E0D1B2;--gold-soft:#2B271E;--es:#7FC49A;--tr:#F28B7D;--mx:#E3B54A;--good:#CBDDD2;--shadow:none;--cc-fg:#A9A49B;--link:#E8BEB9}
+:root[data-theme="dark"] mark.hl,:root[data-theme="dark"] .ex .en b{background:#4A3F22;color:var(--mx)}
+:root[data-theme="dark"] mark.hl{box-shadow:0 -2px 0 var(--mx) inset}
+.kicker{color:#7A5718;font-size:12px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .kicker{color:var(--gold)}}
+:root[data-theme="dark"] .kicker{color:var(--gold)}
+/* 防盜浮水印（2026-10-14 決定保留）：只把層級降到單字面板（20）與回到頂端按鈕之下，避免蓋住面板內容 */
+@media screen{body::before{z-index:10}}
+.note{font-size:14px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible,[role=button]:focus-visible,select:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.sc-back a{padding:12px 0}.unitbar a{padding:12px 0}
+th[scope=row]{font-weight:400;text-align:left}
+.pgbar{display:flex;margin:6px 0 0;border:1px solid var(--ctl-line);border-radius:4px;overflow:hidden;background:var(--card)}
+.pgbar a{flex:1 1 0;min-width:0;text-align:center;padding:10px 6px;min-height:46px;display:flex;align-items:center;justify-content:center;text-decoration:none;color:var(--ink);font-weight:600;font-size:15px;line-height:1.35}
+.pgbar a+a{border-left:1px solid var(--ctl-line)}
+.pgbar a[aria-current=page]{background:var(--gold-soft);font-weight:800;box-shadow:inset 0 -3px 0 var(--gold)}
+/* 查單字 */
+.qlab{display:block;font-weight:700;margin:16px 0 6px}
+.qbox::-webkit-search-cancel-button{filter:grayscale(1)}
+.qbox{width:100%;font:inherit;font-size:17px;color:var(--ink);background:var(--card);border:2px solid var(--gold);border-radius:4px;padding:10px 12px;min-height:52px}
+.qhint{font-size:14px;color:var(--sub);margin:6px 0 0}
+#out .m a,.inl .m a{display:inline-flex;align-items:center;min-height:44px}
+#out .inl{margin-top:12px;padding:12px 14px;background:var(--card);border-left:4px solid var(--gold)}
+/* 四個大按鈕 */
+.four{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+.big4{display:flex;flex-direction:column;gap:2px;text-align:left;font:inherit;color:var(--ink);text-decoration:none;background:var(--card);border:1.5px solid var(--ctl-line);border-radius:4px;padding:12px 12px;min-height:80px;cursor:pointer;box-shadow:var(--shadow)}
+.big4 b{font-family:'Noto Serif TC','PingFang TC','Microsoft JhengHei',serif;font-size:17px;line-height:1.35}
+.big4 b::after{content:" ›";color:var(--gold)}
+.big4[aria-expanded] b::after{content:" ▾"}
+.big4[aria-expanded=true] b::after{content:" ▴"}
+.big4 span{font-size:13px;color:var(--sub);line-height:1.5}
+.big4.pri{background:var(--gold-soft);border-color:var(--gold)}
+.big4:hover{border-color:var(--gold)}
+@media (max-width:340px){.four{grid-template-columns:1fr}}
+:root[data-theme="dark"] .big4.pri,:root[data-theme="dark"] .chkcard{background:#3A3322}
+#lvpick{margin-top:10px;padding:12px 0 0;border-top:1px solid var(--line)}
+#lvpick[hidden]{display:none}
+#lvpick .g{margin:0 0 12px}#lvpick .g>b{display:block;font-size:14px;margin-bottom:6px}
+.lvl{display:flex;flex-wrap:wrap;gap:8px}.lvl.six{display:grid;grid-template-columns:repeat(3,1fr)}.lvl.six a{justify-content:center}
+.lvl a{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border:1.5px solid var(--sub);border-radius:999px;background:var(--card);color:var(--ink);text-decoration:none;font-weight:600}
+.lvl a.g1{border-color:var(--es)}.lvl a.g2{border-color:var(--mx)}.lvl a.g3{border-color:var(--hi)}.lvl a.tx{border-color:var(--tx)}
+/* 級別標籤 */
+.bd{display:inline-block;font-size:13px;line-height:1.3;padding:2px 8px;border-radius:999px;border:1px solid var(--sub);color:var(--ink);background:var(--card);white-space:nowrap}
+.bd-g1{border-color:var(--es);color:var(--es);font-weight:700}
+.bd-g2{border-color:var(--mx);color:var(--mx);font-weight:700}
+.bd-g3{border-color:var(--hi);color:var(--hi);font-weight:700}
+.bd-t{border-color:var(--tx);color:var(--tx);font-weight:700}
+.bd-no{border-style:dotted;color:var(--sub)}
+.tiles.t3 .tile.a{border-top-color:var(--es)}.tiles.t3 .tile.a .big{color:var(--es)}
+.tiles.t3 .tile.b{border-top-color:var(--mx)}.tiles.t3 .tile.b .big{color:var(--mx)}
+.tiles.t3 .tile.c{border-top-color:var(--hi)}.tiles.t3 .tile.c .big{color:var(--hi)}
+.ans{background:var(--gold-soft);border-radius:4px;padding:12px 14px;margin:14px 0 0;font-size:15.5px}
+.rs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
+.rs div{border:1px solid var(--line);border-radius:4px;padding:10px 6px;text-align:center;background:var(--card)}
+.rs .k{font-size:12.5px;color:var(--sub)}.rs .v{font-family:'Noto Serif TC',serif;font-weight:900;font-size:19px;line-height:1.3}
+/* 字的小標籤（chips） */
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 0;padding:0;list-style:none}
+.chips li{font-size:14.5px;border:1px solid var(--ctl-line);border-radius:999px;padding:4px 12px;min-height:44px;display:inline-flex;align-items:center;background:var(--card);cursor:pointer}
+.chips li:hover{border-color:var(--sub)}
+.chips li.x{font-weight:700}
+.chips li.cp{border-style:dashed}
+.chips li small{color:var(--sub);font-weight:400;margin-left:4px}
+.chips li.sel{background:var(--gold);color:var(--bg);border-color:var(--gold);font-weight:700}.chips li.sel small{color:inherit}
+.chips li.nc{cursor:default;border-style:dotted;color:var(--sub)}
+.sg{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.sg button{font:inherit;min-height:44px;padding:0 14px;border:1px solid var(--sub);border-radius:999px;background:var(--card);color:var(--ink);cursor:pointer}
+#out b,#out .note,#out li,.wd .w{overflow-wrap:anywhere;word-break:break-word}
+details{margin:10px 0}summary{cursor:pointer;padding:8px 0;font-weight:600;min-height:44px}
+details.fold{background:var(--card);border:1px solid var(--ctl-line);border-radius:4px;padding:0 16px}
+details.fold>summary{font-size:17px;font-family:'Noto Serif TC',serif;font-weight:900;text-wrap:balance}
+details.fold[open]>summary{border-bottom:1px solid var(--line);margin-bottom:10px}
+details.fold>*:last-child{margin-bottom:14px}
+.lk a,.sidelk a,.wd a,#out a,.inl a,.note a,.card a,.sec-lead a,details a{color:var(--link)}
+.seeall{display:inline-flex;align-items:center;min-height:44px;font-weight:700}
+/* 底部面板 */
+.wd{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--card);border-top:2px solid var(--line);box-shadow:0 -4px 16px rgba(0,0,0,.18);padding:14px 16px calc(14px + env(safe-area-inset-bottom))}
+.wd[hidden]{display:none}
+.wd .in{max-width:660px;margin:0 auto;position:relative}
+#wdb{max-height:min(58vh,calc(100vh - 230px));overflow-y:auto;-webkit-overflow-scrolling:touch;outline:0}
+/* 面板內容超出時的提示（捲到底自動隱藏） */
+.morehint{display:block;width:100%;font:inherit;font-size:14px;font-weight:700;color:var(--ink);min-height:40px;margin:2px 0 0;padding:6px 10px;border:1px dashed var(--ctl-line);border-radius:4px;background:var(--gold-soft);cursor:pointer;text-align:center}
+.dw{padding-right:44px}
+@media (max-height:560px){#wdb{max-height:min(50vh,calc(100vh - 200px))}}
+.wd .m a{display:inline-flex;align-items:center;min-height:44px}
+.wd .w{font-family:'Noto Serif TC',serif;font-weight:900;font-size:22px}.wd .p,.dw .p{color:var(--sub);font-size:14px;margin-left:6px}
+.dw .w{font-family:'Noto Serif TC',serif;font-weight:900;font-size:22px}
+.z{font-size:18px;margin:6px 0}
+.bds{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}
+.m{font-size:13.5px;color:var(--sub);line-height:1.7;margin-top:4px}
+.ex,.co{margin-top:10px;font-size:15px}
+.exh{font-size:13.5px;font-weight:700;color:#7A5718;letter-spacing:.06em;margin:12px 0 4px;padding-top:10px;border-top:1px solid var(--line)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .exh{color:var(--gold)}}
+:root[data-theme="dark"] .exh{color:var(--gold)}
+.ex p{margin:0}.ex .en{line-height:1.6}.ex .en b{background:var(--gold-soft);border-radius:2px;padding:0 2px}.ex .zhx{color:var(--sub);font-size:14.5px;margin-top:2px}
+.co ul{margin:0;padding:0;list-style:none}.co li{padding:2px 0;line-height:1.5}.co .ce{font-weight:600}.co li::before{content:'· ';color:var(--sub)}.co .cz{color:var(--sub);font-size:14px;margin-left:4px}
+.wd #wdx{position:absolute;right:0;top:0;min-width:44px;min-height:44px;font-size:24px;background:none;border:0;color:var(--sub);cursor:pointer}
+.wd .nav{display:flex;gap:8px;margin-top:10px}
+.wd .nav button{flex:1;font:inherit;font-size:15px;min-height:44px;border:1px solid var(--ctl-line);border-radius:4px;background:var(--card);color:var(--ink);cursor:pointer}
+.wd .nav button:disabled{opacity:.55}
+.chips li.hid{display:none}
+@media print{.wd{display:none!important}}
+.note.lk{margin-top:14px}
+@media print{.spk,.kkp{display:none!important}#q,#out,.lk,.unitbar,.pgbar,.four,#lvpick,.qlab,.qhint,.chkcard,.noprint{display:none!important}h2{break-after:avoid}table{break-inside:avoid}.chips li{border:0;min-height:0;padding:0 6px 0 0}}
+
+.wd .act{display:grid;grid-template-columns:auto 1fr 1fr 1fr auto;gap:6px;margin-top:8px}
+.wd .act button.nv{min-width:44px;padding:0 10px}
+.wd .act button:disabled{opacity:.45;cursor:default}
+@media (max-width:599px){.wd .act .lt{display:none}.wd{padding-top:10px}.wd .act{gap:5px}.wd .act button{font-size:14px;padding:0 2px;white-space:nowrap;letter-spacing:0}.wd .act button.nv{min-width:40px;padding:0 4px;font-size:20px}}
+.wd .act button{font:inherit;font-size:15px;min-height:44px;border:1px solid var(--ctl-line);border-radius:4px;background:var(--card);color:var(--ink);cursor:pointer;padding:0 6px}
+.wd .act button.on{background:var(--gold);color:var(--bg);border-color:var(--gold);font-weight:700}
+.wd .ms{font-size:12.5px;color:var(--sub);margin:4px 0 0}
+.chips li[data-m="2"]::before{content:"✓";margin-right:5px;font-weight:700}
+.chips li[data-m="1"]::before{content:"↻";margin-right:5px;font-weight:700}
+.mk{display:none;font-size:12.5px;font-weight:700;border:1.5px solid var(--ink);border-radius:999px;padding:1px 8px}
+[data-m="2"] .mk,[data-m="1"] .mk{display:inline-block}
+[data-m="2"] .mk::before{content:"✓ 我會了"}
+[data-m="1"] .mk::before{content:"↻ 再複習"}
+[data-m="1"] .mk{border-style:dashed}
+
+.showz{display:block;font:inherit;font-size:15px;min-height:44px;margin:6px 0;padding:0 14px;border:1.5px solid var(--sub);border-radius:4px;background:var(--card);color:var(--ink);cursor:pointer}
+li.r:focus-visible{outline:2px solid var(--gold);outline-offset:-2px}
+
+.chkcard{display:flex;flex-direction:column;gap:2px;margin-top:14px;text-decoration:none;color:var(--ink);background:var(--gold-soft);border:2px solid var(--gold);border-radius:4px;padding:12px;min-height:64px}
+.chkcard b{font-family:'Noto Serif TC','PingFang TC','Microsoft JhengHei',serif;font-size:17px}.chkcard b::after{content:" ›";color:var(--gold)}
+.chkcard span{font-size:13px;color:var(--sub);line-height:1.5}.chkcard:hover{border-color:var(--gold)}
+.pgbar a{word-break:keep-all}
+
+@media print{:root,:root:not([data-theme="light"]),:root[data-theme="dark"]{--bg:#fff;--card:#fff;--ink:#000;--sub:#333;--line:#bbb;--gold:#7A5718;--gold-soft:#fff;--link:#000;--es:#3E6E52;--mx:#8A6420;--tr:#AE3626;--hi:#8A3A12;--tx:#2F5B80;color-scheme:light}}
+.card2 a{color:var(--link)}
+
+/* 表格在手機上縮小字級與間距，最右欄不被切掉 */
+@media (max-width:520px){table.cmp{font-size:12.5px}table.cmp th,table.cmp td{padding:7px 3px;font-size:12px}.card.tw{padding:12px 10px}}
+.nw{white-space:nowrap}
+.bd.bd-no{border-color:var(--ctl-line)}
+.lnk{font:inherit;color:var(--link);background:none;border:0;text-decoration:underline;text-underline-offset:2px;cursor:pointer;min-height:44px;padding:0 4px}
+
+li.r.sel{padding-left:14px!important}
+.lkl{margin:0;padding-left:1.2em}.lkl li{margin:7px 0;overflow-wrap:anywhere}
+.lkl a{font-weight:600}
+@media(max-width:430px){.pgbar a{font-size:13.5px;padding:10px 2px}}
+
+@media(max-width:350px){.pgbar a{font-size:12.5px;padding:10px 0;letter-spacing:-.02em}}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]) .pgbar a[aria-current=page]{background:#3A3322}}
+:root[data-theme=dark] .pgbar a[aria-current=page]{background:#3A3322}
+
+/* 中文意思裡的詞性小標籤、搜尋詞標示 */
+.nb{white-space:nowrap}
+.pt{font-size:.82em;line-height:1.3;color:var(--sub);border:1px solid var(--ctl-line);border-radius:3px;padding:0 4px;white-space:nowrap;display:inline-block;vertical-align:.05em}
+mark.hl{background:var(--gold-soft);color:inherit;border-radius:2px;box-shadow:0 -1px 0 var(--gold) inset}
+
+/* 被選取的金色小卡：標示與詞性標籤改用小卡自己的文字色，才看得清楚 */
+.chips li.sel mark.hl{background:transparent;color:inherit;box-shadow:none;text-decoration:underline;text-underline-offset:3px}
+.chips li.sel .pt{color:inherit;border-color:currentColor}
+
+.hc{margin-top:14px}
+.hc .card2{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:16px;margin-top:12px}
+.hc h2{font-size:20px;margin:0 0 6px}
+.hc p{margin:8px 0}
+.hbtn{font:inherit;font-size:16px;min-height:48px;padding:0 18px;border:1.5px solid var(--sub);border-radius:4px;background:var(--card);color:var(--ink);cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
+.hbtn.pri{background:var(--gold);color:var(--bg);border-color:var(--gold);font-weight:700}
+.hbtn:disabled{opacity:.45;cursor:default}
+.hrow{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.bkmode{flex-direction:column;gap:2px}.bkmode label{display:block;padding:10px 0;line-height:1.6}.bkmode input{width:20px;height:20px;vertical-align:-4px}
+.qprog{font-size:14px;color:var(--sub);margin:0 0 8px}
+.qw{font-family:'Noto Serif TC',serif;font-weight:900;font-size:32px;line-height:1.3;margin:6px 0 2px;overflow-wrap:anywhere}
+.qpos{font-size:15px;color:var(--sub)}.qw:focus{outline:none}.qw:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+@media (max-width:699px){body.quizzing .kicker,body.quizzing .lead{display:none}body.quizzing h1{font-size:18px;margin:4px 0}body.quizzing .hero{padding-bottom:0;margin-bottom:0}body.quizzing .hc{margin-top:6px}body.quizzing .sc-back{display:none}}
+.spk{font:inherit;font-size:15px;min-height:44px;padding:0 12px;border:1px solid var(--ctl-line);border-radius:4px;background:var(--card);color:var(--ink);cursor:pointer;margin-left:8px}
+.opts{display:grid;gap:8px;margin:12px 0;padding:0;list-style:none}
+.opt{display:flex;gap:10px;align-items:center;width:100%;text-align:left;font:inherit;font-size:17px;min-height:52px;padding:8px 12px;border:1.5px solid var(--ctl-line);border-radius:4px;background:var(--card);color:var(--ink);cursor:pointer}
+.opt .k{flex:none;min-width:30px;display:inline-block;font-size:15px;color:var(--sub);font-variant-numeric:tabular-nums}
+.opt[aria-checked=true]{background:var(--gold-soft);border-color:var(--gold);box-shadow:inset 5px 0 0 var(--gold);font-weight:700}
+.opt[aria-checked=true] .k{color:var(--gold);font-weight:700}
+.gs{display:flex;align-items:center;gap:10px;min-height:48px;padding:0 12px;border:1.5px dashed var(--ctl-line);border-radius:4px;font-size:16px;cursor:pointer}.gs:has(input:checked){background:var(--gold-soft);border-color:var(--gold);border-style:solid;font-weight:700}
+.gs input{width:22px;height:22px;accent-color:var(--gold)}
+.lnk{font:inherit;color:var(--link);background:none;border:0;text-decoration:underline;text-underline-offset:2px;cursor:pointer;min-height:44px;padding:0 4px}
+.lvrow{padding:6px 6px 6px 10px;display:grid;grid-template-columns:4.2em 1fr 9.8em;gap:8px;align-items:center;margin:8px 0;font-size:15.5px}
+.bar{height:14px;background:var(--gold-soft);border:1px solid var(--ctl-line);border-radius:999px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--ctl-line);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.lvrow.gap{background:var(--gold-soft);box-shadow:inset 4px 0 0 var(--gold);border-radius:2px}
+.lvrow.gap .bar i{background:var(--gold);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+@media (hover:none),(max-width:699px){.kbd{display:none}}
+@media print{.hbtn,.gs,#bQuit,.wl2 input,.kbd,.spk,#bAgain,.noprint,#bkup,.morep{display:none!important}.bar{border:1px solid #000;background:#fff}.bar i{background:#000!important}.lvrow.gap{background:none;box-shadow:none;border:1px solid #000}}
+.lvrow .sc{white-space:nowrap}
+.lvrow .tg{font-size:13px;border:1px solid var(--ctl-line);border-radius:999px;padding:1px 8px;margin-left:6px;white-space:nowrap}
+.lvrow.gap .tg{border-color:var(--gold);font-weight:700}
+.big{font-family:'Noto Serif TC',serif;font-weight:900;font-size:24px;line-height:1.4;margin:4px 0 8px}
+.steps{margin:8px 0;padding:0;list-style:none}
+.steps li{padding:10px 0;border-top:1px solid var(--line)}
+.steps li b{display:block;margin-bottom:4px}
+.wl2{margin:8px 0;padding:0;list-style:none;border-top:1px solid var(--line)}
+.wl2 li{display:flex;gap:10px;align-items:flex-start;padding:8px 2px;border-bottom:1px solid var(--line);min-height:48px}
+.wl2 input{width:22px;height:22px;margin-top:2px;accent-color:var(--gold);flex:none}
+.wl2 .w{font-weight:900;font-family:'Noto Serif TC',serif}
+.wl2 .t{font-size:12.5px;color:var(--sub);margin-left:6px}
+.lim{font-size:13.5px;color:var(--sub)}
+.ok2{font-weight:700}
+.ok2.err{color:var(--tr);border-left:4px solid var(--tr);padding:6px 10px;background:var(--gold-soft)}
+.ok2.good{color:var(--es)}
+.fpick{position:relative;display:inline-flex}.fpick input{position:absolute;inset:0;opacity:0;width:100%;cursor:pointer}
+.fname{font-size:14px;color:var(--sub);align-self:center}
+.sub2{font-size:15px;color:var(--sub);margin:32px 0 0;font-weight:700;letter-spacing:.04em}
+@media (max-width:699px){#bNew,#bRes{flex:1 1 100%;margin-top:4px}.hc .hrow.sticky{position:sticky;bottom:0;z-index:5;background:var(--card);padding:8px 0;margin-bottom:-8px;box-shadow:0 -6px 12px -8px rgba(0,0,0,.3)}.hc .opts+.gs{margin-bottom:14px}}
+.prow{display:grid;grid-template-columns:4.2em 1fr;gap:4px 8px;margin:8px 0;font-size:15.5px}
+.prow .bar i{background:var(--sub)}.bar i{background:var(--sub)}.bar{background:var(--bg)}.prow small{grid-column:2;color:var(--sub);font-size:13px;margin-top:-2px}
+.fld{font:inherit;font-size:16px;min-height:44px;padding:0 10px;border:1.5px solid var(--ctl-line);border-radius:4px;background:var(--card);color:var(--ink)}
+.bkt{width:100%;min-height:90px;font:14px/1.5 monospace;color:var(--ink);background:var(--card);border:1px solid var(--sub);border-radius:4px;padding:8px;margin:6px 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+<p class="sc-back"><a href="https://staresto-create.github.io/JCEE-vocab-questions/">← 回題庫首頁</a></p>
+<nav class="pgbar" aria-label="單字對照頁面"><a href="wordlevel.html">單字對照</a><a href="wordlist.html">單字總表</a><a href="wordcheck.html" aria-current="page">單字健檢</a><a href="toeic.html">多益單字</a><a href="bestep.html">培力英檢</a></nav>
+<header class="hero">
+  <div class="kicker">大考・英檢・多益單字</div>
+  <h1>單字健檢</h1>
+  <p class="lead">從大考詞彙表第 2 級往上測，找出該先背哪一級。第 1 級的字多半是國中小學過的，沒有列入題目。題型是四選一的選擇題，結果不計分，多數人約 6 分鐘可以做完。</p>
+</header>
+<main class="hc" id="app" aria-live="off">
+  <noscript><p>這一頁需要開啟 JavaScript 才能使用。</p></noscript>
+  <p class="note">單字資料載入中，請稍候……</p>
+</main>
+<p class="lim wrap2">結果是抽樣的估計：只看你認不認得字義，不代表會用，也不能用來推算學測分數或字彙量。選擇題可以猜，所以結果可能偏高；重測時題目會重新抽，上下差 1 到 2 題屬於正常起伏。健檢紀錄與標記只存在這支手機（或這台電腦）的這個瀏覽器，換裝置或清除瀏覽資料就會消失。</p>
+<p class="sr" id="st" aria-live="polite"></p>
+<footer>
+  © 2026 staresto-create ZZSH · 免費、無廣告的非營利自學題庫
+  <p class="cc-note">本頁其餘自行整理的部分（比對、計算與編排）採用 <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh-hant" target="_blank" rel="license noopener">CC BY-NC 4.0</a>（姓名標示-非商業性）授權：可以分享，但須註明出處，不得用於商業用途。大考詞彙表與英檢字表的原始內容，著作權分屬大考中心與語言訓練測驗中心；多益補充字表（TOEIC Service List 1.2，Browne &amp; Culligan）本身，以及由它計算出的多益欄位與數字，依原授權採用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh-hant" target="_blank" rel="license noopener">CC BY-SA 4.0</a>，不受上述非商業限制。完整說明請見<a href="https://staresto-create.github.io/JCEE-vocab-questions/#terms">使用與著作權</a>。</p>
+</footer>
+
+<script>
+window.__wlFail=function(){if(window.__wlFailed)return;window.__wlFailed=1;var d=document.createElement('div');d.setAttribute('role','alert');d.style.cssText='margin:16px 0;padding:14px 16px;border:1.5px solid var(--tr);border-left-width:5px;border-radius:4px;background:var(--gold-soft);color:var(--ink);font-size:16px;line-height:1.7';d.innerHTML='<b>單字資料沒有載入完成，所以這一頁暫時不能用。</b><br>請確認網路連線正常，再按「重新整理」。如果還是不行，請稍後再試。<br><button type="button" style="margin-top:10px;font:inherit;min-height:48px;padding:0 18px;border:1.5px solid var(--gold);border-radius:4px;background:var(--gold);color:var(--bg);font-weight:700;cursor:pointer" onclick="location.reload()">重新整理</button>';var h=document.querySelector('header');if(h&&h.parentNode)h.parentNode.insertBefore(d,h.nextSibling);else document.body.insertBefore(d,document.body.firstChild)};
+</script>
+<script src="wordlevel-data.js"></script>
+<script src="https://staresto-create.github.io/JCEE-vocab-questions/speaker.js"></script>
+<script src="https://staresto-create.github.io/JCEE-vocab-questions/kk.js"></script>
+<script src="wordlevel-core.js?v=20261102"></script>
+<script>
+(function(){
+if(!window.WLC){if(window.__wlFail)window.__wlFail();return}
+var L=window.WLC,W=L.W,hc=L.hc,esc=L.esc,Z=L.Z;
+var $=function(id){return document.getElementById(id)};
+var app=$('app'),st=$('st');
+var KEY_RUN='wl_hc_run_v1',KEY_LAST='wl_hc_last_v1',KEY_SEEN='wl_hc_seen_v1',KEY_ADD='wl_hc_added_v1';
+var GOALKEY='wl_goal_v1',DEFGOAL='2027-01-22';
+function ld(k,d){try{var v=JSON.parse(localStorage.getItem(k));return v==null?d:v}catch(e){return d}}
+function N(n){return Number(n).toLocaleString('en-US')}
+/* 讀出來的資料型別不對（舊版格式、被擴充功能或手動改壞）就丟掉，不讓整頁失效 */
+function ldArr(k){var v=ld(k,[]);if(Array.isArray(v))return v.filter(function(x){return typeof x==='string'});rm(k);return []}
+function ldObj(k){var v=ld(k,null);if(v&&typeof v==='object'&&!Array.isArray(v))return v;if(v!==null)rm(k);return null}
+function okRun(r){if(!r||typeof r!=='object'||!Array.isArray(r.qs)||!r.qs.length||!Array.isArray(r.stages)||!r.stages.length||!Number.isInteger(r.cur)||r.cur<0||r.cur>r.qs.length||!r.lv||typeof r.lv!=='object')return false;
+ return r.qs.every(function(q){return q&&typeof q.w==='string'&&Array.isArray(q.o)&&q.o.length>=2&&Number.isInteger(q.a)&&q.a>=0&&q.a<q.o.length&&Number.isInteger(q.pk)&&q.pk<q.o.length&&Number.isInteger(q.s)&&q.s>=0&&q.s<r.stages.length&&Number.isInteger(q.l)})}
+function ldRun(){var r=ldObj(KEY_RUN);if(r&&okRun(r))return r;if(r)rm(KEY_RUN);return null}
+function ldLast(){var l=ldObj(KEY_LAST);if(!l)return null;if(typeof l.t!=='string'||(l.lv&&typeof l.lv!=='object')){rm(KEY_LAST);return null}return l}
+function ldGoal(){var g=ldObj(GOALKEY)||{};var o={};if(typeof g.d==='string'&&parseD(g.d))o.d=g.d;if(g.set&&/^[1-6]$/.test(String(g.l)))o.l=+g.l;return o}
+function showDate(t){var m=/^(\d{4})-(\d{2})-(\d{2})$/.exec(t||'');return m?(+m[1])+' 年 '+(+m[2])+' 月 '+(+m[3])+' 日':String(t||'')}
+var saveFailed=false;
+function sv(k,v){try{localStorage.setItem(k,JSON.stringify(v));return true}catch(e){saveFailed=true;return false}}
+function rm(k){try{localStorage.removeItem(k)}catch(e){}}
+/* ---------- 題庫 ---------- */
+var POSOK={'n.':1,'v.':1,'adj.':1};
+function segs(g){var out=[];g=g.replace(/（[^（）]*）|\([^()]*\)/g,'');g.split('；').forEach(function(p){p=p.replace(/^[a-z]+\.(\/[a-z]+\.)*\s*/,'');var i=p.lastIndexOf('→');if(i>=0)p=p.slice(i+1);p.split('、').forEach(function(s){s=s.trim();if(s)out.push(s)})});return out}
+function shuf(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t}return a}
+/* 審定題庫：每題的正解與三個誘答都經過命題老師撰寫、字典查證；程式只負責抽題與打亂選項順序 */
+var BANK=[{"w":"camel","p":"n.","l":2,"a":"駱駝","d":[{"g":"長頸鹿","w":"giraffe"},{"g":"斑馬","w":"zebra"},{"g":"貓熊","w":"panda"}]},{"w":"snail","p":"n.","l":2,"a":"蝸牛","d":[{"g":"蜘蛛","w":"spider"},{"g":"蟑螂","w":"cockroach"},{"g":"瓢蟲","w":"ladybug"}]},{"w":"eagle","p":"n.","l":2,"a":"老鷹","d":[{"g":"烏鴉","w":"crow"},{"g":"鴿子","w":"dove"},{"g":"公雞","w":"rooster"}]},{"w":"garlic","p":"n.","l":2,"a":"大蒜","d":[{"g":"高麗菜","w":"cabbage"},{"g":"玉米","w":"corn"},{"g":"南瓜","w":"pumpkin"}]},{"w":"ketchup","p":"n.","l":2,"a":"番茄醬","d":[{"g":"奶油","w":"cream"},{"g":"可可","w":"cocoa"},{"g":"穀片","w":"cereal"}]},{"w":"pillow","p":"n.","l":2,"a":"枕頭","d":[{"g":"毛毯","w":"blanket"},{"g":"窗簾","w":"curtain"},{"g":"抽屜","w":"drawer"}]},{"w":"ceiling","p":"n.","l":2,"a":"天花板","d":[{"g":"屋頂","w":"roof"},{"g":"陽台","w":"balcony"},{"g":"大廳","w":"hall"}]},{"w":"ankle","p":"n.","l":2,"a":"腳踝","d":[{"g":"臀部","w":"hip"},{"g":"舌頭","w":"tongue"},{"g":"眉毛","w":"eyebrow"}]},{"w":"liver","p":"n.","l":2,"a":"肝臟","d":[{"g":"大腦","w":"brain"},{"g":"骨頭","w":"bone"},{"g":"神經","w":"nerve"}]},{"w":"thief","p":"n.","l":2,"a":"小偷","d":[{"g":"鄰居","w":"neighbor"},{"g":"警衛","w":"guard"},{"g":"嚮導","w":"guide"}]},{"w":"poet","p":"n.","l":2,"a":"詩人","d":[{"g":"舞者","w":"dancer"},{"g":"音樂家","w":"musician"},{"g":"理髮師","w":"barber"}]},{"w":"customer","p":"n.","l":2,"a":"顧客","d":[{"g":"員工","w":"employee"},{"g":"雇主","w":"employer"},{"g":"經理","w":"manager"}]},{"w":"guest","p":"n.","l":2,"a":"客人","d":[{"g":"鄰居","w":"neighbor"},{"g":"夥伴","w":"partner"},{"g":"同學","w":"classmate"}]},{"w":"valley","p":"n.","l":2,"a":"山谷","d":[{"g":"森林","w":"forest"},{"g":"海岸","w":"coast"},{"g":"溪流","w":"stream"}]},{"w":"village","p":"n.","l":2,"a":"村莊","d":[{"g":"城堡","w":"castle"},{"g":"首都","w":"capital"},{"g":"港口","w":"port"}]},{"w":"courage","p":"n.","l":2,"a":"勇氣","d":[{"g":"自豪","w":"pride"},{"g":"恐懼","w":"fear"},{"g":"羞恥","w":"shame"}]},{"w":"wealth","p":"n.","l":2,"a":"財富","d":[{"g":"運氣","w":"luck"},{"g":"自由","w":"freedom"},{"g":"和平","w":"peace"}]},{"w":"appetite","p":"n.","l":2,"a":"食慾","d":[{"g":"心情","w":"mood"},{"g":"記憶","w":"memory"},{"g":"精神","w":"spirit"}]},{"w":"debt","p":"n.","l":2,"a":"債務","d":[{"g":"收入","w":"income"},{"g":"現金","w":"cash"},{"g":"合約","w":"contract"}]},{"w":"victory","p":"n.","l":2,"a":"勝利","d":[{"g":"失敗","w":"failure"},{"g":"戰役","w":"battle"},{"g":"進步","w":"progress"}]},{"w":"custom","p":"n.","l":2,"a":"習俗","d":[{"g":"宗教","w":"religion"},{"g":"流行","w":"fashion"},{"g":"法律","w":"law"}]},{"w":"climate","p":"n.","l":2,"a":"氣候","d":[{"g":"地震","w":"earthquake"},{"g":"颱風","w":"typhoon"},{"g":"土壤","w":"soil"}]},{"w":"puzzle","p":"n.","l":2,"a":"謎題","d":[{"g":"卡通","w":"cartoon"},{"g":"西洋棋","w":"chess"},{"g":"漫畫","w":"comics"}]},{"w":"cancer","p":"n.","l":2,"a":"癌症","d":[{"g":"流感","w":"flu"},{"g":"發燒","w":"fever"},{"g":"傷口","w":"wound"}]},{"w":"fate","p":"n.","l":2,"a":"命運","d":[{"g":"靈魂","w":"soul"},{"g":"天堂","w":"heaven"},{"g":"信念","w":"belief"}]},{"w":"chapter","p":"n.","l":2,"a":"章節","d":[{"g":"標題","w":"title"},{"g":"片語","w":"phrase"},{"g":"對話","w":"dialogue"}]},{"w":"novel","p":"n.","l":2,"a":"小說","d":[{"g":"日記","w":"diary"},{"g":"期刊","w":"journal"},{"g":"雜誌","w":"magazine"}]},{"w":"engine","p":"n.","l":2,"a":"引擎","d":[{"g":"輪子","w":"wheel"},{"g":"電線","w":"wire"},{"g":"螢幕","w":"screen"}]},{"w":"diamond","p":"n.","l":2,"a":"鑽石","d":[{"g":"黃金","w":"gold"},{"g":"硬幣","w":"coin"},{"g":"寶藏","w":"treasure"}]},{"w":"wool","p":"n.","l":2,"a":"羊毛","d":[{"g":"橡膠","w":"rubber"},{"g":"金屬","w":"metal"},{"g":"木頭","w":"wood"}]},{"w":"population","p":"n.","l":2,"a":"人口","d":[{"g":"地區","w":"region"},{"g":"世紀","w":"century"},{"g":"政府","w":"government"}]},{"w":"obey","p":"v.","l":2,"a":"服從","d":[{"g":"拒絕","w":"refuse"},{"g":"否認","w":"deny"},{"g":"原諒","w":"forgive"}]},{"w":"swallow","p":"v.","l":2,"a":"吞嚥","d":[{"g":"摩擦","w":"rub"},{"g":"伸展","w":"stretch"},{"g":"彎曲","w":"bend"}]},{"w":"chase","p":"v.","l":2,"a":"追逐","d":[{"g":"逃脫","w":"escape"},{"g":"滑倒","w":"slip"},{"g":"擺動","w":"swing"}]},{"w":"punish","p":"v.","l":2,"a":"處罰","d":[{"g":"原諒","w":"forgive"},{"g":"鼓勵","w":"encourage"},{"g":"雇用","w":"employ"}]},{"w":"deny","p":"v.","l":2,"a":"否認","d":[{"g":"聲稱","w":"claim"},{"g":"強調","w":"emphasize"},{"g":"提到","w":"mention"}]},{"w":"cancel","p":"v.","l":2,"a":"取消","d":[{"g":"安排","w":"arrange"},{"g":"出席","w":"attend"},{"g":"申請","w":"apply"}]},{"w":"earn","p":"v.","l":2,"a":"賺取","d":[{"g":"浪費","w":"waste"},{"g":"借出","w":"lend"},{"g":"供應","w":"supply"}]},{"w":"ignore","p":"v.","l":2,"a":"忽視","d":[{"g":"欣賞","w":"appreciate"},{"g":"打擾","w":"bother"},{"g":"回應","w":"respond"}]},{"w":"survive","p":"v.","l":2,"a":"存活","d":[{"g":"成功","w":"succeed"},{"g":"結婚","w":"marry"},{"g":"旅行","w":"travel"}]},{"w":"scare","p":"v.","l":2,"a":"驚嚇","d":[{"g":"打擾","w":"bother"},{"g":"鼓勵","w":"encourage"},{"g":"責怪","w":"blame"}]},{"w":"repair","p":"v.","l":2,"a":"修理","d":[{"g":"設計","w":"design"},{"g":"印刷","w":"print"},{"g":"上傳","w":"upload"}]},{"w":"recover","p":"v.","l":2,"a":"恢復","d":[{"g":"維持","w":"maintain"},{"g":"延誤","w":"delay"},{"g":"消失","w":"disappear"}]},{"w":"seek","p":"v.","l":2,"a":"尋找","d":[{"g":"收到","w":"receive"},{"g":"避開","w":"avoid"},{"g":"提供","w":"provide"}]},{"w":"examine","p":"v.","l":2,"a":"檢查","d":[{"g":"複習","w":"review"},{"g":"比較","w":"compare"},{"g":"描述","w":"describe"}]},{"w":"shine","p":"v.","l":2,"a":"照耀","d":[{"g":"燃燒","w":"burn"},{"g":"流動","w":"flow"},{"g":"爆裂","w":"burst"}]},{"w":"govern","p":"v.","l":2,"a":"統治","d":[{"g":"雇用","w":"employ"},{"g":"保護","w":"protect"},{"g":"創造","w":"create"}]},{"w":"dial","p":"v.","l":2,"a":"撥號","d":[{"g":"下載","w":"download"},{"g":"貼上","w":"paste"},{"g":"搜尋","w":"search"}]},{"w":"humble","p":"adj.","l":2,"a":"謙虛的","d":[{"g":"慷慨的","w":"generous"},{"g":"無禮的","w":"rude"},{"g":"害羞的","w":"shy"}]},{"w":"sour","p":"adj.","l":2,"a":"酸的","d":[{"g":"鹹的","w":"salty"},{"g":"美味的","w":"delicious"},{"g":"柔軟的","w":"soft"}]},{"w":"pale","p":"adj.","l":2,"a":"蒼白的","d":[{"g":"醜的","w":"ugly"},{"g":"英俊的","w":"handsome"},{"g":"聾的","w":"deaf"}]},{"w":"narrow","p":"adj.","l":2,"a":"狹窄的","d":[{"g":"寬廣的","w":"broad"},{"g":"平坦的","w":"flat"},{"g":"空的","w":"empty"}]},{"w":"ancient","p":"adj.","l":2,"a":"古代的","d":[{"g":"最近的","w":"recent"},{"g":"先前的","w":"former"},{"g":"每天的","w":"daily"}]},{"w":"curious","p":"adj.","l":2,"a":"好奇的","d":[{"g":"緊張的","w":"nervous"},{"g":"害怕的","w":"scared"},{"g":"有信心的","w":"confident"}]},{"w":"strict","p":"adj.","l":2,"a":"嚴格的","d":[{"g":"溫和的","w":"gentle"},{"g":"頑皮的","w":"naughty"},{"g":"有耐心的","w":"patient"}]},{"w":"obvious","p":"adj.","l":2,"a":"明顯的","d":[{"g":"祕密的","w":"secret"},{"g":"複雜的","w":"complex"},{"g":"突然的","w":"sudden"}]},{"w":"rare","p":"adj.","l":2,"a":"稀有的","d":[{"g":"平常的","w":"ordinary"},{"g":"野生的","w":"wild"},{"g":"巨大的","w":"huge"}]},{"w":"rapid","p":"adj.","l":2,"a":"快速的","d":[{"g":"逐漸的","w":"gradual"},{"g":"平滑的","w":"smooth"},{"g":"遙遠的","w":"distant"}]},{"w":"calm","p":"adj.","l":2,"a":"冷靜的","d":[{"g":"緊張的","w":"nervous"},{"g":"慷慨的","w":"generous"},{"g":"自私的","w":"selfish"}]},{"w":"tiny","p":"adj.","l":2,"a":"極小的","d":[{"g":"巨大的","w":"huge"},{"g":"空的","w":"empty"},{"g":"寬廣的","w":"broad"}]},{"w":"silly","p":"adj.","l":2,"a":"愚蠢的","d":[{"g":"聰明的","w":"clever"},{"g":"慷慨的","w":"generous"},{"g":"害羞的","w":"shy"}]},{"w":"royal","p":"adj.","l":2,"a":"皇家的","d":[{"g":"軍事的","w":"military"},{"g":"商業的","w":"commercial"},{"g":"醫學的","w":"medical"}]},{"w":"alive","p":"adj.","l":2,"a":"活著的","d":[{"g":"缺席的","w":"absent"},{"g":"生病的","w":"ill"},{"g":"沉默的","w":"silent"}]},{"w":"squirrel","p":"n.","l":3,"a":"松鼠","d":[{"g":"鸚鵡","w":"parrot"},{"g":"企鵝","w":"penguin"},{"g":"螃蟹","w":"crab"}]},{"w":"owl","p":"n.","l":3,"a":"貓頭鷹","d":[{"g":"鴿子","w":"pigeon"},{"g":"水牛","w":"buffalo"},{"g":"螃蟹","w":"crab"}]},{"w":"mosquito","p":"n.","l":3,"a":"蚊子","d":[{"g":"甲蟲","w":"beetle"},{"g":"蟋蟀","w":"cricket"},{"g":"蚱蜢","w":"grasshopper"}]},{"w":"dolphin","p":"n.","l":3,"a":"海豚","d":[{"g":"鸚鵡","w":"parrot"},{"g":"驢子","w":"donkey"},{"g":"水牛","w":"buffalo"}]},{"w":"onion","p":"n.","l":3,"a":"洋蔥","d":[{"g":"菠菜","w":"spinach"},{"g":"萵苣","w":"lettuce"},{"g":"蘑菇","w":"mushroom"}]},{"w":"coconut","p":"n.","l":3,"a":"椰子","d":[{"g":"鳳梨","w":"pineapple"},{"g":"櫻桃","w":"cherry"},{"g":"杏仁","w":"almond"}]},{"w":"sausage","p":"n.","l":3,"a":"香腸","d":[{"g":"培根","w":"bacon"},{"g":"餃子","w":"dumpling"},{"g":"鬆餅","w":"pancake"}]},{"w":"flour","p":"n.","l":3,"a":"麵粉","d":[{"g":"醬汁","w":"sauce"},{"g":"香料","w":"spice"},{"g":"小麥","w":"wheat"}]},{"w":"dessert","p":"n.","l":3,"a":"甜點","d":[{"g":"早午餐","w":"brunch"},{"g":"花生","w":"peanut"},{"g":"菠菜","w":"spinach"}]},{"w":"elbow","p":"n.","l":3,"a":"手肘","d":[{"g":"腳跟","w":"heel"},{"g":"臉頰","w":"cheek"},{"g":"拇指","w":"thumb"}]},{"w":"wrist","p":"n.","l":3,"a":"手腕","d":[{"g":"下巴","w":"jaw"},{"g":"拇指","w":"thumb"},{"g":"胸部","w":"chest"}]},{"w":"kidney","p":"n.","l":3,"a":"腎臟","d":[{"g":"肌肉","w":"muscle"},{"g":"拳頭","w":"fist"},{"g":"臉頰","w":"cheek"}]},{"w":"carpenter","p":"n.","l":3,"a":"木匠","d":[{"g":"裁縫師","w":"tailor"},{"g":"牧羊人","w":"shepherd"},{"g":"運動員","w":"athlete"}]},{"w":"ambassador","p":"n.","l":3,"a":"大使","d":[{"g":"市長","w":"mayor"},{"g":"皇帝","w":"emperor"},{"g":"教授","w":"professor"}]},{"w":"scholar","p":"n.","l":3,"a":"學者","d":[{"g":"小說家","w":"novelist"},{"g":"飛行員","w":"pilot"},{"g":"騎士","w":"knight"}]},{"w":"tutor","p":"n.","l":3,"a":"家教","d":[{"g":"助理","w":"assistant"},{"g":"客戶","w":"client"},{"g":"隊長","w":"captain"}]},{"w":"victim","p":"n.","l":3,"a":"受害者","d":[{"g":"公民","w":"citizen"},{"g":"冠軍","w":"champion"},{"g":"間諜","w":"spy"}]},{"w":"monk","p":"n.","l":3,"a":"僧侶","d":[{"g":"修女","w":"nun"},{"g":"騎士","w":"knight"},{"g":"奴隸","w":"slave"}]},{"w":"clown","p":"n.","l":3,"a":"小丑","d":[{"g":"魔術師","w":"magician"},{"g":"新娘","w":"bride"},{"g":"冠軍","w":"champion"}]},{"w":"angel","p":"n.","l":3,"a":"天使","d":[{"g":"魔鬼","w":"devil"},{"g":"怪物","w":"monster"},{"g":"仙子","w":"fairy"}]},{"w":"canyon","p":"n.","l":3,"a":"峽谷","d":[{"g":"草地","w":"meadow"},{"g":"叢林","w":"jungle"},{"g":"海灣","w":"bay"}]},{"w":"lobby","p":"n.","l":3,"a":"大廳","d":[{"g":"地下室","w":"basement"},{"g":"車庫","w":"garage"},{"g":"衣櫥","w":"closet"}]},{"w":"palace","p":"n.","l":3,"a":"宮殿","d":[{"g":"體育場","w":"stadium"},{"g":"診所","w":"clinic"},{"g":"監獄","w":"jail"}]},{"w":"suburb","p":"n.","l":3,"a":"郊區","d":[{"g":"校園","w":"campus"},{"g":"隧道","w":"tunnel"},{"g":"港口","w":"harbor"}]},{"w":"inn","p":"n.","l":3,"a":"小旅館","d":[{"g":"穀倉","w":"barn"},{"g":"工作室","w":"studio"},{"g":"診所","w":"clinic"}]},{"w":"alley","p":"n.","l":3,"a":"巷子","d":[{"g":"大道","w":"avenue"},{"g":"斜坡","w":"slope"},{"g":"山頂","w":"summit"}]},{"w":"cave","p":"n.","l":3,"a":"洞穴","d":[{"g":"瀑布","w":"waterfall"},{"g":"山頂","w":"summit"},{"g":"草地","w":"meadow"}]},{"w":"faucet","p":"n.","l":3,"a":"水龍頭","d":[{"g":"衣架","w":"hanger"},{"g":"拉鍊","w":"zipper"},{"g":"螺絲","w":"screw"}]},{"w":"apron","p":"n.","l":3,"a":"圍裙","d":[{"g":"背心","w":"vest"},{"g":"手帕","w":"handkerchief"},{"g":"長袍","w":"robe"}]},{"w":"shovel","p":"n.","l":3,"a":"鏟子","d":[{"g":"剪刀","w":"scissors"},{"g":"水桶","w":"bucket"},{"g":"磁鐵","w":"magnet"}]},{"w":"helmet","p":"n.","l":3,"a":"安全帽","d":[{"g":"領帶","w":"necktie"},{"g":"靴子","w":"boot"},{"g":"圍巾","w":"scarf"}]},{"w":"receipt","p":"n.","l":3,"a":"收據","d":[{"g":"護照","w":"passport"},{"g":"標籤","w":"label"},{"g":"包裹","w":"parcel"}]},{"w":"cradle","p":"n.","l":3,"a":"搖籃","d":[{"g":"花瓶","w":"vase"},{"g":"凳子","w":"stool"},{"g":"托盤","w":"tray"}]},{"w":"razor","p":"n.","l":3,"a":"刮鬍刀","d":[{"g":"手電筒","w":"flashlight"},{"g":"鍵盤","w":"keyboard"},{"g":"插頭","w":"plug"}]},{"w":"miracle","p":"n.","l":3,"a":"奇蹟","d":[{"g":"謠言","w":"rumor"},{"g":"線索","w":"clue"},{"g":"任務","w":"mission"}]},{"w":"salary","p":"n.","l":3,"a":"薪水","d":[{"g":"折扣","w":"discount"},{"g":"預算","w":"budget"},{"g":"利潤","w":"profit"}]},{"w":"ambition","p":"n.","l":3,"a":"抱負","d":[{"g":"耐心","w":"patience"},{"g":"智慧","w":"wisdom"},{"g":"天分","w":"talent"}]},{"w":"poverty","p":"n.","l":3,"a":"貧窮","d":[{"g":"暴力","w":"violence"},{"g":"民主","w":"democracy"},{"g":"自由","w":"liberty"}]},{"w":"strategy","p":"n.","l":3,"a":"策略","d":[{"g":"理論","w":"theory"},{"g":"趨勢","w":"trend"},{"g":"風險","w":"risk"}]},{"w":"sorrow","p":"n.","l":3,"a":"悲傷","d":[{"g":"恐慌","w":"panic"},{"g":"羨慕","w":"envy"},{"g":"熱情","w":"passion"}]},{"w":"thirst","p":"n.","l":3,"a":"口渴","d":[{"g":"飢餓","w":"hunger"},{"g":"疼痛","w":"ache"},{"g":"寒意","w":"chill"}]},{"w":"leisure","p":"n.","l":3,"a":"休閒","d":[{"g":"例行公事","w":"routine"},{"g":"任務","w":"mission"},{"g":"機會","w":"opportunity"}]},{"w":"glory","p":"n.","l":3,"a":"光榮","d":[{"g":"財富","w":"fortune"},{"g":"好處","w":"benefit"},{"g":"威脅","w":"threat"}]},{"w":"adventure","p":"n.","l":3,"a":"冒險","d":[{"g":"實驗","w":"experiment"},{"g":"遊行","w":"parade"},{"g":"展覽","w":"exhibition"}]},{"w":"tide","p":"n.","l":3,"a":"潮汐","d":[{"g":"閃電","w":"lightning"},{"g":"微風","w":"breeze"},{"g":"洪水","w":"flood"}]},{"w":"dawn","p":"n.","l":3,"a":"黎明","d":[{"g":"十年","w":"decade"},{"g":"一生","w":"lifetime"},{"g":"學期","w":"semester"}]},{"w":"steam","p":"n.","l":3,"a":"蒸氣","d":[{"g":"灰塵","w":"dust"},{"g":"火焰","w":"flame"},{"g":"燃料","w":"fuel"}]},{"w":"rust","p":"n.","l":3,"a":"鐵鏽","d":[{"g":"灰燼","w":"ash"},{"g":"粉末","w":"powder"},{"g":"污垢","w":"dirt"}]},{"w":"leather","p":"n.","l":3,"a":"皮革","d":[{"g":"絲綢","w":"silk"},{"g":"棉花","w":"cotton"},{"g":"黃銅","w":"brass"}]},{"w":"marble","p":"n.","l":3,"a":"大理石","d":[{"g":"黏土","w":"clay"},{"g":"象牙","w":"ivory"},{"g":"竹子","w":"bamboo"}]},{"w":"bacteria","p":"n.","l":3,"a":"細菌","d":[{"g":"維生素","w":"vitamin"},{"g":"物質","w":"substance"},{"g":"汽油","w":"gasoline"}]},{"w":"committee","p":"n.","l":3,"a":"委員會","d":[{"g":"幫派","w":"gang"},{"g":"部落","w":"tribe"},{"g":"軍隊","w":"troop"}]},{"w":"statue","p":"n.","l":3,"a":"雕像","d":[{"g":"噴泉","w":"fountain"},{"g":"燈塔","w":"lighthouse"},{"g":"煙囪","w":"chimney"}]},{"w":"bubble","p":"n.","l":3,"a":"泡泡","d":[{"g":"回聲","w":"echo"},{"g":"影子","w":"shadow"},{"g":"閃光","w":"flash"}]},{"w":"alphabet","p":"n.","l":3,"a":"字母表","d":[{"g":"逗號","w":"comma"},{"g":"定義","w":"definition"},{"g":"摘要","w":"summary"}]},{"w":"vocabulary","p":"n.","l":3,"a":"字彙","d":[{"g":"詩行","w":"verse"},{"g":"逗號","w":"comma"},{"g":"定義","w":"definition"}]},{"w":"pill","p":"n.","l":3,"a":"藥丸","d":[{"g":"珍珠","w":"pearl"},{"g":"子彈","w":"bullet"},{"g":"磚塊","w":"brick"}]},{"w":"agriculture","p":"n.","l":3,"a":"農業","d":[{"g":"地理","w":"geography"},{"g":"政治","w":"politics"},{"g":"汙染","w":"pollution"}]},{"w":"regret","p":"v.","l":3,"a":"後悔","d":[{"g":"猶豫","w":"hesitate"},{"g":"假裝","w":"pretend"},{"g":"欽佩","w":"admire"}]},{"w":"explode","p":"v.","l":3,"a":"爆炸","d":[{"g":"融化","w":"melt"},{"g":"腐爛","w":"rot"},{"g":"下沉","w":"sink"}]},{"w":"starve","p":"v.","l":3,"a":"挨餓","d":[{"g":"溺水","w":"drown"},{"g":"流血","w":"bleed"},{"g":"咳嗽","w":"cough"}]},{"w":"omit","p":"v.","l":3,"a":"省略","d":[{"g":"引用","w":"quote"},{"g":"確認","w":"confirm"},{"g":"打斷","w":"interrupt"}]},{"w":"persuade","p":"v.","l":3,"a":"說服","d":[{"g":"通知","w":"inform"},{"g":"警告","w":"warn"},{"g":"取笑","w":"tease"}]},{"w":"vanish","p":"v.","l":3,"a":"消失","d":[{"g":"漂浮","w":"float"},{"g":"旋轉","w":"spin"},{"g":"滴落","w":"drip"}]},{"w":"hire","p":"v.","l":3,"a":"僱用","d":[{"g":"搶劫","w":"rob"},{"g":"選出","w":"elect"},{"g":"允許","w":"permit"}]},{"w":"weep","p":"v.","l":3,"a":"哭泣","d":[{"g":"尖叫","w":"scream"},{"g":"嘆氣","w":"sigh"},{"g":"咧嘴笑","w":"grin"}]},{"w":"inspect","p":"v.","l":3,"a":"檢查","d":[{"g":"探索","w":"explore"},{"g":"裝飾","w":"decorate"},{"g":"修補","w":"mend"}]},{"w":"wander","p":"v.","l":3,"a":"漫步","d":[{"g":"爬行","w":"crawl"},{"g":"跳躍","w":"leap"},{"g":"溜冰","w":"skate"}]},{"w":"bury","p":"v.","l":3,"a":"埋葬","d":[{"g":"祝福","w":"bless"},{"g":"結婚","w":"wed"},{"g":"擁抱","w":"hug"}]},{"w":"postpone","p":"v.","l":3,"a":"延期","d":[{"g":"預訂","w":"reserve"},{"g":"確認","w":"confirm"},{"g":"取代","w":"replace"}]},{"w":"peel","p":"v.","l":3,"a":"剝皮","d":[{"g":"攪拌","w":"stir"},{"g":"包裝","w":"wrap"},{"g":"擦拭","w":"wipe"}]},{"w":"scrub","p":"v.","l":3,"a":"刷洗","d":[{"g":"噴灑","w":"spray"},{"g":"傾倒","w":"dump"},{"g":"排出","w":"drain"}]},{"w":"afford","p":"v.","l":3,"a":"負擔得起","d":[{"g":"打賭","w":"bet"},{"g":"登廣告","w":"advertise"},{"g":"進口","w":"import"}]},{"w":"arrest","p":"v.","l":3,"a":"逮捕","d":[{"g":"搶劫","w":"rob"},{"g":"調查","w":"investigate"},{"g":"威脅","w":"threaten"}]},{"w":"recognize","p":"v.","l":3,"a":"認出","d":[{"g":"揭露","w":"reveal"},{"g":"決定","w":"determine"},{"g":"依賴","w":"rely"}]},{"w":"shrink","p":"v.","l":3,"a":"縮小","d":[{"g":"腫脹","w":"swell"},{"g":"結冰","w":"freeze"},{"g":"發光","w":"glow"}]},{"w":"heal","p":"v.","l":3,"a":"治癒","d":[{"g":"呼吸","w":"breathe"},{"g":"放鬆","w":"relax"},{"g":"流血","w":"bleed"}]},{"w":"compete","p":"v.","l":3,"a":"競爭","d":[{"g":"溝通","w":"communicate"},{"g":"團結","w":"unite"},{"g":"道歉","w":"apologize"}]},{"w":"restrict","p":"v.","l":3,"a":"限制","d":[{"g":"促進","w":"promote"},{"g":"取代","w":"replace"},{"g":"允許","w":"permit"}]},{"w":"roar","p":"v.","l":3,"a":"吼叫","d":[{"g":"哼歌","w":"hum"},{"g":"咳嗽","w":"cough"},{"g":"啜飲","w":"sip"}]},{"w":"spill","p":"v.","l":3,"a":"灑出","d":[{"g":"摺疊","w":"fold"},{"g":"融化","w":"melt"},{"g":"包裝","w":"wrap"}]},{"w":"hatch","p":"v.","l":3,"a":"孵化","d":[{"g":"漂浮","w":"float"},{"g":"發光","w":"glow"},{"g":"腐爛","w":"rot"}]},{"w":"vacant","p":"adj.","l":3,"a":"空的","d":[{"g":"鬆的","w":"loose"},{"g":"淺的","w":"shallow"},{"g":"陡峭的","w":"steep"}]},{"w":"humid","p":"adj.","l":3,"a":"潮濕的","d":[{"g":"寒冷的","w":"chilly"},{"g":"有霧的","w":"foggy"},{"g":"暴風雨的","w":"stormy"}]},{"w":"stubborn","p":"adj.","l":3,"a":"固執的","d":[{"g":"貪心的","w":"greedy"},{"g":"嫉妒的","w":"jealous"},{"g":"真誠的","w":"sincere"}]},{"w":"vivid","p":"adj.","l":3,"a":"生動的","d":[{"g":"微弱的","w":"faint"},{"g":"浪漫的","w":"romantic"},{"g":"準確的","w":"accurate"}]},{"w":"scarce","p":"adj.","l":3,"a":"稀少的","d":[{"g":"足夠的","w":"sufficient"},{"g":"頻繁的","w":"frequent"},{"g":"額外的","w":"additional"}]},{"w":"awkward","p":"adj.","l":3,"a":"笨拙的","d":[{"g":"熟練的","w":"skillful"},{"g":"樂觀的","w":"optimistic"},{"g":"誠實的","w":"truthful"}]},{"w":"stale","p":"adj.","l":3,"a":"不新鮮的","d":[{"g":"酥脆的","w":"crispy"},{"g":"多汁的","w":"juicy"},{"g":"生的","w":"raw"}]},{"w":"swift","p":"adj.","l":3,"a":"迅速的","d":[{"g":"穩定的","w":"steady"},{"g":"僵硬的","w":"stiff"},{"g":"粗糙的","w":"rough"}]},{"w":"tropical","p":"adj.","l":3,"a":"熱帶的","d":[{"g":"都市的","w":"urban"},{"g":"遙遠的","w":"remote"},{"g":"海外的","w":"overseas"}]},{"w":"wicked","p":"adj.","l":3,"a":"邪惡的","d":[{"g":"無辜的","w":"innocent"},{"g":"神聖的","w":"holy"},{"g":"大膽的","w":"bold"}]},{"w":"slippery","p":"adj.","l":3,"a":"滑的","d":[{"g":"黏的","w":"sticky"},{"g":"陡峭的","w":"steep"},{"g":"空心的","w":"hollow"}]},{"w":"anxious","p":"adj.","l":3,"a":"焦慮的","d":[{"g":"樂觀的","w":"optimistic"},{"g":"嫉妒的","w":"jealous"},{"g":"頭暈的","w":"dizzy"}]},{"w":"ripe","p":"adj.","l":3,"a":"成熟的","d":[{"g":"有機的","w":"organic"},{"g":"美味的","w":"tasty"},{"g":"腐爛的","w":"rotten"}]},{"w":"frank","p":"adj.","l":3,"a":"坦白的","d":[{"g":"愛講話的","w":"talkative"},{"g":"貪心的","w":"greedy"},{"g":"富有的","w":"wealthy"}]},{"w":"precious","p":"adj.","l":3,"a":"珍貴的","d":[{"g":"假的","w":"fake"},{"g":"純的","w":"pure"},{"g":"發亮的","w":"shiny"}]},{"w":"mighty","p":"adj.","l":3,"a":"強大的","d":[{"g":"苗條的","w":"slender"},{"g":"富有的","w":"wealthy"},{"g":"聰明的","w":"intelligent"}]},{"w":"bitter","p":"adj.","l":3,"a":"苦的","d":[{"g":"酥脆的","w":"crispy"},{"g":"黏的","w":"sticky"},{"g":"生的","w":"raw"}]},{"w":"visible","p":"adj.","l":3,"a":"看得見的","d":[{"g":"準確的","w":"accurate"},{"g":"正常的","w":"normal"},{"g":"有效率的","w":"efficient"}]},{"w":"surgeon","p":"n.","l":4,"a":"外科醫生","d":[{"g":"水管工人","w":"plumber"},{"g":"會計師","w":"accountant"},{"g":"圖書館員","w":"librarian"}]},{"w":"diplomat","p":"n.","l":4,"a":"外交官","d":[{"g":"偵探","w":"detective"},{"g":"經濟學家","w":"economist"},{"g":"技工","w":"mechanic"}]},{"w":"burglar","p":"n.","l":4,"a":"竊賊","d":[{"g":"乞丐","w":"beggar"},{"g":"懦夫","w":"coward"},{"g":"孤兒","w":"orphan"}]},{"w":"colleague","p":"n.","l":4,"a":"同事","d":[{"g":"祖先","w":"ancestor"},{"g":"嬰兒","w":"infant"},{"g":"素食者","w":"vegetarian"}]},{"w":"composer","p":"n.","l":4,"a":"作曲家","d":[{"g":"救生員","w":"lifeguard"},{"g":"報信者","w":"messenger"},{"g":"商人","w":"merchant"}]},{"w":"refugee","p":"n.","l":4,"a":"難民","d":[{"g":"百萬富翁","w":"millionaire"},{"g":"目擊者","w":"witness"},{"g":"新生","w":"freshman"}]},{"w":"candidate","p":"n.","l":4,"a":"候選人","d":[{"g":"顧問","w":"consultant"},{"g":"先驅","w":"pioneer"},{"g":"偵探","w":"detective"}]},{"w":"hurricane","p":"n.","l":4,"a":"颶風","d":[{"g":"露水","w":"dew"},{"g":"降雨量","w":"rainfall"},{"g":"濕度","w":"humidity"}]},{"w":"cliff","p":"n.","l":4,"a":"懸崖","d":[{"g":"海灣","w":"gulf"},{"g":"地平線","w":"horizon"},{"g":"陰涼處","w":"shade"}]},{"w":"fossil","p":"n.","l":4,"a":"化石","d":[{"g":"礦物","w":"mineral"},{"g":"原子","w":"atom"},{"g":"基因","w":"gene"}]},{"w":"germ","p":"n.","l":4,"a":"細菌","d":[{"g":"蛋白質","w":"protein"},{"g":"礦物","w":"mineral"},{"g":"原子","w":"atom"}]},{"w":"kettle","p":"n.","l":4,"a":"水壺","d":[{"g":"掃帚","w":"broom"},{"g":"靠墊","w":"cushion"},{"g":"被子","w":"quilt"}]},{"w":"bandage","p":"n.","l":4,"a":"繃帶","d":[{"g":"拐杖","w":"cane"},{"g":"阿斯匹靈","w":"aspirin"},{"g":"香水","w":"perfume"}]},{"w":"telescope","p":"n.","l":4,"a":"望遠鏡","d":[{"g":"雷達","w":"radar"},{"g":"衛星","w":"satellite"},{"g":"直升機","w":"helicopter"}]},{"w":"submarine","p":"n.","l":4,"a":"潛水艇","d":[{"g":"渡輪","w":"ferry"},{"g":"獨木舟","w":"canoe"},{"g":"直升機","w":"helicopter"}]},{"w":"bracelet","p":"n.","l":4,"a":"手鐲","d":[{"g":"口紅","w":"lipstick"},{"g":"長襪","w":"stocking"},{"g":"香水","w":"perfume"}]},{"w":"socket","p":"n.","l":4,"a":"插座","d":[{"g":"圓形把手","w":"knob"},{"g":"電池","w":"battery"},{"g":"水管","w":"hose"}]},{"w":"embassy","p":"n.","l":4,"a":"大使館","d":[{"g":"小屋","w":"cottage"},{"g":"堡壘","w":"fort"},{"g":"實驗室","w":"laboratory"}]},{"w":"aquarium","p":"n.","l":4,"a":"水族館","d":[{"g":"畫廊","w":"gallery"},{"g":"托兒所","w":"nursery"},{"g":"堡壘","w":"fort"}]},{"w":"jealousy","p":"n.","l":4,"a":"嫉妒","d":[{"g":"感激","w":"gratitude"},{"g":"悲痛","w":"grief"},{"g":"盛怒","w":"rage"}]},{"w":"anxiety","p":"n.","l":4,"a":"焦慮","d":[{"g":"厭惡","w":"disgust"},{"g":"好奇心","w":"curiosity"},{"g":"盛怒","w":"rage"}]},{"w":"ignorance","p":"n.","l":4,"a":"無知","d":[{"g":"殘忍","w":"cruelty"},{"g":"勤奮","w":"diligence"},{"g":"忠誠","w":"loyalty"}]},{"w":"modesty","p":"n.","l":4,"a":"謙虛","d":[{"g":"慷慨","w":"generosity"},{"g":"殘忍","w":"cruelty"},{"g":"真誠","w":"sincerity"}]},{"w":"haste","p":"n.","l":4,"a":"匆忙","d":[{"g":"猶豫","w":"hesitation"},{"g":"緊張","w":"tension"},{"g":"困惑","w":"confusion"}]},{"w":"triumph","p":"n.","l":4,"a":"勝利","d":[{"g":"不幸","w":"misfortune"},{"g":"報仇","w":"revenge"},{"g":"犧牲","w":"sacrifice"}]},{"w":"riddle","p":"n.","l":4,"a":"謎語","d":[{"g":"口號","w":"slogan"},{"g":"傳說","w":"legend"},{"g":"食譜","w":"recipe"}]},{"w":"biography","p":"n.","l":4,"a":"傳記","d":[{"g":"小說","w":"fiction"},{"g":"喜劇","w":"comedy"},{"g":"目錄","w":"catalogue"}]},{"w":"tragedy","p":"n.","l":4,"a":"悲劇","d":[{"g":"芭蕾舞","w":"ballet"},{"g":"合唱","w":"chorus"},{"g":"素描","w":"sketch"}]},{"w":"syllable","p":"n.","l":4,"a":"音節","d":[{"g":"段落","w":"paragraph"},{"g":"文法","w":"grammar"},{"g":"成語","w":"idiom"}]},{"w":"allowance","p":"n.","l":4,"a":"津貼","d":[{"g":"貸款","w":"loan"},{"g":"郵資","w":"postage"},{"g":"保險","w":"insurance"}]},{"w":"funeral","p":"n.","l":4,"a":"葬禮","d":[{"g":"盛宴","w":"feast"},{"g":"畢業","w":"graduation"},{"g":"週年紀念","w":"anniversary"}]},{"w":"quarrel","p":"n.","l":4,"a":"爭吵","d":[{"g":"問候","w":"greeting"},{"g":"道歉","w":"apology"},{"g":"告別","w":"farewell"}]},{"w":"concept","p":"n.","l":4,"a":"概念","d":[{"g":"主題","w":"theme"},{"g":"邏輯","w":"logic"},{"g":"方面","w":"aspect"}]},{"w":"evidence","p":"n.","l":4,"a":"證據","d":[{"g":"本能","w":"instinct"},{"g":"名聲","w":"reputation"},{"g":"特權","w":"privilege"}]},{"w":"species","p":"n.","l":4,"a":"物種","d":[{"g":"基因","w":"gene"},{"g":"文明","w":"civilization"},{"g":"世代","w":"generation"}]},{"w":"empire","p":"n.","l":4,"a":"帝國","d":[{"g":"朝代","w":"dynasty"},{"g":"議會","w":"council"},{"g":"憲法","w":"constitution"}]},{"w":"pregnancy","p":"n.","l":4,"a":"懷孕","d":[{"g":"離婚","w":"divorce"},{"g":"退休","w":"retirement"},{"g":"感染","w":"infection"}]},{"w":"inflation","p":"n.","l":4,"a":"通貨膨脹","d":[{"g":"資本主義","w":"capitalism"},{"g":"商業","w":"commerce"},{"g":"福利","w":"welfare"}]},{"w":"orbit","p":"n.","l":4,"a":"軌道","d":[{"g":"濕度","w":"humidity"},{"g":"頻率","w":"frequency"},{"g":"大氣","w":"atmosphere"}]},{"w":"vacancy","p":"n.","l":4,"a":"空缺","d":[{"g":"升遷","w":"promotion"},{"g":"辭職","w":"resignation"},{"g":"輪班","w":"shift"}]},{"w":"diploma","p":"n.","l":4,"a":"畢業證書","d":[{"g":"執照","w":"license"},{"g":"公告","w":"bulletin"},{"g":"草稿","w":"draft"}]},{"w":"penalty","p":"n.","l":4,"a":"處罰","d":[{"g":"回報","w":"reward"},{"g":"特權","w":"privilege"},{"g":"批評","w":"criticism"}]},{"w":"spade","p":"n.","l":4,"a":"鏟子","d":[{"g":"掃帚","w":"broom"},{"g":"鑽孔機","w":"drill"},{"g":"水管","w":"hose"}]},{"w":"raisin","p":"n.","l":4,"a":"葡萄乾","d":[{"g":"醃黃瓜","w":"pickle"},{"g":"李子","w":"plum"},{"g":"義大利麵","w":"pasta"}]},{"w":"idol","p":"n.","l":4,"a":"偶像","d":[{"g":"天才","w":"genius"},{"g":"評論家","w":"critic"},{"g":"業餘者","w":"amateur"}]},{"w":"wizard","p":"n.","l":4,"a":"巫師","d":[{"g":"乞丐","w":"beggar"},{"g":"孤兒","w":"orphan"},{"g":"強盜","w":"robber"}]},{"w":"ingredient","p":"n.","l":4,"a":"材料","d":[{"g":"食譜","w":"recipe"},{"g":"容器","w":"container"},{"g":"裝置","w":"device"}]},{"w":"scold","p":"v.","l":4,"a":"責罵","d":[{"g":"奉承","w":"flatter"},{"g":"吹噓","w":"boast"},{"g":"咯咯笑","w":"giggle"}]},{"w":"frown","p":"v.","l":4,"a":"皺眉","d":[{"g":"眨眼","w":"wink"},{"g":"打呵欠","w":"yawn"},{"g":"跪下","w":"kneel"}]},{"w":"tremble","p":"v.","l":4,"a":"顫抖","d":[{"g":"跪下","w":"kneel"},{"g":"彈跳","w":"bounce"},{"g":"咀嚼","w":"chew"}]},{"w":"surrender","p":"v.","l":4,"a":"投降","d":[{"g":"入侵","w":"invade"},{"g":"救援","w":"rescue"},{"g":"閃避","w":"dodge"}]},{"w":"conquer","p":"v.","l":4,"a":"征服","d":[{"g":"防守","w":"defend"},{"g":"撤退","w":"retreat"},{"g":"談判","w":"negotiate"}]},{"w":"carve","p":"v.","l":4,"a":"雕刻","d":[{"g":"擦亮","w":"polish"},{"g":"研磨","w":"grind"},{"g":"染色","w":"dye"}]},{"w":"resign","p":"v.","l":4,"a":"辭職","d":[{"g":"退休","w":"retire"},{"g":"任命","w":"appoint"},{"g":"登記","w":"register"}]},{"w":"cherish","p":"v.","l":4,"a":"珍惜","d":[{"g":"忽視","w":"neglect"},{"g":"懼怕","w":"dread"},{"g":"容忍","w":"tolerate"}]},{"w":"flee","p":"v.","l":4,"a":"逃走","d":[{"g":"漂流","w":"drift"},{"g":"抓住","w":"seize"},{"g":"等待","w":"await"}]},{"w":"exaggerate","p":"v.","l":4,"a":"誇大","d":[{"g":"誤會","w":"misunderstand"},{"g":"澄清","w":"clarify"},{"g":"總結","w":"summarize"}]},{"w":"insert","p":"v.","l":4,"a":"插入","d":[{"g":"繫緊","w":"fasten"},{"g":"附上","w":"attach"},{"g":"安裝","w":"install"}]},{"w":"digest","p":"v.","l":4,"a":"消化","d":[{"g":"咀嚼","w":"chew"},{"g":"噎住","w":"choke"},{"g":"混合","w":"blend"}]},{"w":"invest","p":"v.","l":4,"a":"投資","d":[{"g":"消耗","w":"consume"},{"g":"分配","w":"distribute"},{"g":"擁有","w":"possess"}]},{"w":"forbid","p":"v.","l":4,"a":"禁止","d":[{"g":"要求","w":"demand"},{"g":"催促","w":"urge"},{"g":"確保","w":"ensure"}]},{"w":"annoy","p":"v.","l":4,"a":"惹惱","d":[{"g":"逗樂","w":"amuse"},{"g":"激勵","w":"inspire"},{"g":"說服","w":"convince"}]},{"w":"sway","p":"v.","l":4,"a":"搖擺","d":[{"g":"彈跳","w":"bounce"},{"g":"搔癢","w":"tickle"},{"g":"偷看","w":"peep"}]},{"w":"oppose","p":"v.","l":4,"a":"反對","d":[{"g":"採用","w":"adopt"},{"g":"奉獻","w":"devote"},{"g":"模仿","w":"imitate"}]},{"w":"abandon","p":"v.","l":4,"a":"拋棄","d":[{"g":"救援","w":"rescue"},{"g":"保存","w":"preserve"},{"g":"取得","w":"acquire"}]},{"w":"collapse","p":"v.","l":4,"a":"倒塌","d":[{"g":"壓碎","w":"crush"},{"g":"發射","w":"launch"},{"g":"出現","w":"emerge"}]},{"w":"translate","p":"v.","l":4,"a":"翻譯","d":[{"g":"出版","w":"publish"},{"g":"修訂","w":"revise"},{"g":"總結","w":"summarize"}]},{"w":"congratulate","p":"v.","l":4,"a":"祝賀","d":[{"g":"侮辱","w":"insult"},{"g":"奉承","w":"flatter"},{"g":"誤導","w":"mislead"}]},{"w":"breed","p":"v.","l":4,"a":"繁殖","d":[{"g":"吸收","w":"absorb"},{"g":"循環","w":"circulate"},{"g":"消耗","w":"consume"}]},{"w":"disguise","p":"v.","l":4,"a":"偽裝","d":[{"g":"描繪","w":"portray"},{"g":"展示","w":"exhibit"},{"g":"登記","w":"register"}]},{"w":"stingy","p":"adj.","l":4,"a":"吝嗇的","d":[{"g":"膽小的","w":"timid"},{"g":"忠誠的","w":"loyal"},{"g":"勤奮的","w":"diligent"}]},{"w":"rural","p":"adj.","l":4,"a":"鄉下的","d":[{"g":"多山的","w":"mountainous"},{"g":"部落的","w":"tribal"},{"g":"泥濘的","w":"muddy"}]},{"w":"fragile","p":"adj.","l":4,"a":"易碎的","d":[{"g":"耐用的","w":"durable"},{"g":"有彈性的","w":"elastic"},{"g":"生鏽的","w":"rusty"}]},{"w":"greasy","p":"adj.","l":4,"a":"油膩的","d":[{"g":"滿是灰塵的","w":"dusty"},{"g":"潮濕的","w":"damp"},{"g":"粗糙的","w":"coarse"}]},{"w":"fierce","p":"adj.","l":4,"a":"兇猛的","d":[{"g":"溫和的","w":"mild"},{"g":"膽小的","w":"timid"},{"g":"狡猾的","w":"cunning"}]},{"w":"drowsy","p":"adj.","l":4,"a":"昏昏欲睡的","d":[{"g":"狂怒的","w":"furious"},{"g":"感激的","w":"grateful"},{"g":"緊張的","w":"tense"}]},{"w":"poisonous","p":"adj.","l":4,"a":"有毒的","d":[{"g":"肥沃的","w":"fertile"},{"g":"人工的","w":"artificial"},{"g":"生鏽的","w":"rusty"}]},{"w":"vast","p":"adj.","l":4,"a":"廣大的","d":[{"g":"濃密的","w":"dense"},{"g":"蛋形的","w":"oval"},{"g":"精確的","w":"precise"}]},{"w":"reluctant","p":"adj.","l":4,"a":"不情願的","d":[{"g":"感激的","w":"grateful"},{"g":"可疑的","w":"suspicious"},{"g":"認真的","w":"earnest"}]},{"w":"urgent","p":"adj.","l":4,"a":"緊急的","d":[{"g":"每年的","w":"annual"},{"g":"永久的","w":"permanent"},{"g":"偶爾的","w":"occasional"}]},{"w":"identical","p":"adj.","l":4,"a":"完全相同的","d":[{"g":"普遍的","w":"universal"},{"g":"部分的","w":"partial"},{"g":"明確的","w":"definite"}]},{"w":"fluent","p":"adj.","l":4,"a":"流暢的","d":[{"g":"謙虛的","w":"modest"},{"g":"精確的","w":"precise"},{"g":"勇敢的","w":"courageous"}]},{"w":"bankrupt","p":"adj.","l":4,"a":"破產的","d":[{"g":"繁榮的","w":"prosperous"},{"g":"有利潤的","w":"profitable"},{"g":"節省的","w":"economical"}]},{"w":"ambiguous","p":"adj.","l":4,"a":"模稜兩可的","d":[{"g":"抽象的","w":"abstract"},{"g":"合乎邏輯的","w":"logical"},{"g":"具體的","w":"concrete"}]},{"w":"messy","p":"adj.","l":4,"a":"凌亂的","d":[{"g":"滿是灰塵的","w":"dusty"},{"g":"泥濘的","w":"muddy"},{"g":"陰涼的","w":"shady"}]},{"w":"fatal","p":"adj.","l":4,"a":"致命的","d":[{"g":"輕微的","w":"slight"},{"g":"潛在的","w":"potential"},{"g":"永久的","w":"permanent"}]},{"w":"pessimistic","p":"adj.","l":4,"a":"悲觀的","d":[{"g":"有雄心的","w":"ambitious"},{"g":"保守的","w":"conservative"},{"g":"被動的","w":"passive"}]},{"w":"volcano","p":"n.","l":5,"a":"火山","d":[{"g":"小溪","w":"creek"},{"g":"運河","w":"canal"},{"g":"水庫","w":"reservoir"}]},{"w":"orchard","p":"n.","l":5,"a":"果園","d":[{"g":"牧場","w":"ranch"},{"g":"墓地","w":"cemetery"},{"g":"倉庫","w":"warehouse"}]},{"w":"attic","p":"n.","l":5,"a":"閣樓","d":[{"g":"門廊","w":"porch"},{"g":"車道","w":"driveway"},{"g":"休息室","w":"lounge"}]},{"w":"corridor","p":"n.","l":5,"a":"走廊","d":[{"g":"套房","w":"suite"},{"g":"電扶梯","w":"escalator"},{"g":"休息室","w":"lounge"}]},{"w":"butcher","p":"n.","l":5,"a":"肉販","d":[{"g":"農民","w":"peasant"},{"g":"主廚","w":"chef"},{"g":"承包商","w":"contractor"}]},{"w":"architect","p":"n.","l":5,"a":"建築師","d":[{"g":"記者","w":"journalist"},{"g":"喜劇演員","w":"comedian"},{"g":"承包商","w":"contractor"}]},{"w":"sibling","p":"n.","l":5,"a":"兄弟姊妹","d":[{"g":"繼承人","w":"heir"},{"g":"保鑣","w":"bodyguard"},{"g":"青少年","w":"adolescent"}]},{"w":"pirate","p":"n.","l":5,"a":"海盜","d":[{"g":"叛徒","w":"traitor"},{"g":"戰士","w":"warrior"},{"g":"先知","w":"prophet"}]},{"w":"hostage","p":"n.","l":5,"a":"人質","d":[{"g":"惡霸","w":"bully"},{"g":"盟友","w":"ally"},{"g":"對手","w":"opponent"}]},{"w":"trophy","p":"n.","l":5,"a":"獎盃","d":[{"g":"架子","w":"rack"},{"g":"公事包","w":"briefcase"},{"g":"假髮","w":"wig"}]},{"w":"mattress","p":"n.","l":5,"a":"床墊","d":[{"g":"尿布","w":"diaper"},{"g":"海綿","w":"sponge"},{"g":"涼鞋","w":"sandal"}]},{"w":"coffin","p":"n.","l":5,"a":"棺材","d":[{"g":"大水壺","w":"jug"},{"g":"火把","w":"torch"},{"g":"盾牌","w":"shield"}]},{"w":"salmon","p":"n.","l":5,"a":"鮭魚","d":[{"g":"橄欖","w":"olive"},{"g":"芥末","w":"mustard"},{"g":"薄荷","w":"mint"}]},{"w":"dough","p":"n.","l":5,"a":"生麵糰","d":[{"g":"燉菜","w":"stew"},{"g":"酥皮點心","w":"pastry"},{"g":"香草","w":"herb"}]},{"w":"skull","p":"n.","l":5,"a":"頭骨","d":[{"g":"大腿","w":"thigh"},{"g":"脊椎","w":"spine"},{"g":"靜脈","w":"vein"}]},{"w":"bruise","p":"n.","l":5,"a":"瘀青","d":[{"g":"疤痕","w":"scar"},{"g":"腫瘤","w":"tumor"},{"g":"過敏","w":"allergy"}]},{"w":"symptom","p":"n.","l":5,"a":"症狀","d":[{"g":"處方","w":"prescription"},{"g":"診斷","w":"diagnosis"},{"g":"藥物","w":"medication"}]},{"w":"epidemic","p":"n.","l":5,"a":"流行病","d":[{"g":"疲勞","w":"fatigue"},{"g":"創傷","w":"trauma"},{"g":"腫瘤","w":"tumor"}]},{"w":"mammal","p":"n.","l":5,"a":"哺乳動物","d":[{"g":"掠食者","w":"predator"},{"g":"棲息地","w":"habitat"},{"g":"有機體","w":"organism"}]},{"w":"galaxy","p":"n.","l":5,"a":"星系","d":[{"g":"分子","w":"molecule"},{"g":"微粒","w":"particle"},{"g":"球體","w":"sphere"}]},{"w":"diameter","p":"n.","l":5,"a":"直徑","d":[{"g":"密度","w":"density"},{"g":"比率","w":"ratio"},{"g":"間隔","w":"interval"}]},{"w":"hypothesis","p":"n.","l":5,"a":"假設","d":[{"g":"方程式","w":"equation"},{"g":"問卷","w":"questionnaire"},{"g":"標本","w":"specimen"}]},{"w":"ballot","p":"n.","l":5,"a":"選票","d":[{"g":"簽證","w":"visa"},{"g":"優惠券","w":"voucher"},{"g":"請願書","w":"petition"}]},{"w":"tuition","p":"n.","l":5,"a":"學費","d":[{"g":"退休金","w":"pension"},{"g":"房屋貸款","w":"mortgage"},{"g":"收入","w":"revenue"}]},{"w":"scandal","p":"n.","l":5,"a":"醜聞","d":[{"g":"暴動","w":"riot"},{"g":"詐欺","w":"fraud"},{"g":"巧合","w":"coincidence"}]},{"w":"drought","p":"n.","l":5,"a":"乾旱","d":[{"g":"煙霧","w":"smog"},{"g":"輻射","w":"radiation"},{"g":"爆炸","w":"blast"}]},{"w":"rehearsal","p":"n.","l":5,"a":"排練","d":[{"g":"典禮","w":"ceremony"},{"g":"研討會","w":"seminar"},{"g":"拍賣","w":"auction"}]},{"w":"carnival","p":"n.","l":5,"a":"嘉年華","d":[{"g":"錦標賽","w":"tournament"},{"g":"研討會","w":"seminar"},{"g":"儀式","w":"ritual"}]},{"w":"superstition","p":"n.","l":5,"a":"迷信","d":[{"g":"神話","w":"myth"},{"g":"偏見","w":"prejudice"},{"g":"宣傳","w":"propaganda"}]},{"w":"compassion","p":"n.","l":5,"a":"同情","d":[{"g":"輕視","w":"contempt"},{"g":"貪婪","w":"greed"},{"g":"無聊","w":"boredom"}]},{"w":"despair","p":"n.","l":5,"a":"絕望","d":[{"g":"敬畏","w":"awe"},{"g":"喜愛","w":"affection"},{"g":"驚訝","w":"astonishment"}]},{"w":"dilemma","p":"n.","l":5,"a":"兩難","d":[{"g":"巧合","w":"coincidence"},{"g":"矛盾","w":"contradiction"},{"g":"諷刺","w":"irony"}]},{"w":"metaphor","p":"n.","l":5,"a":"隱喻","d":[{"g":"方言","w":"dialect"},{"g":"子句","w":"clause"},{"g":"劇本","w":"script"}]},{"w":"treaty","p":"n.","l":5,"a":"條約","d":[{"g":"宣言","w":"declaration"},{"g":"訴訟","w":"lawsuit"},{"g":"裁決","w":"verdict"}]},{"w":"jury","p":"n.","l":5,"a":"陪審團","d":[{"g":"聯盟","w":"alliance"},{"g":"艦隊","w":"fleet"},{"g":"政權","w":"regime"}]},{"w":"defendant","p":"n.","l":5,"a":"被告","d":[{"g":"繼任者","w":"successor"},{"g":"捐贈者","w":"donor"},{"g":"房東","w":"landlord"}]},{"w":"wilderness","p":"n.","l":5,"a":"荒野","d":[{"g":"山脊","w":"ridge"},{"g":"碼頭","w":"pier"},{"g":"競技場","w":"arena"}]},{"w":"cathedral","p":"n.","l":5,"a":"大教堂","d":[{"g":"賭場","w":"casino"},{"g":"豪宅","w":"mansion"},{"g":"度假勝地","w":"resort"}]},{"w":"yacht","p":"n.","l":5,"a":"遊艇","d":[{"g":"接駁車","w":"shuttle"},{"g":"輪椅","w":"wheelchair"},{"g":"電扶梯","w":"escalator"}]},{"w":"fiber","p":"n.","l":5,"a":"纖維","d":[{"g":"水晶","w":"crystal"},{"g":"青銅","w":"bronze"},{"g":"液體","w":"fluid"}]},{"w":"consensus","p":"n.","l":5,"a":"共識","d":[{"g":"立場","w":"stance"},{"g":"動機","w":"motive"},{"g":"門檻","w":"threshold"}]},{"w":"destiny","p":"n.","l":5,"a":"命運","d":[{"g":"本質","w":"essence"},{"g":"錯覺","w":"illusion"},{"g":"前景","w":"prospect"}]},{"w":"shrug","p":"v.","l":5,"a":"聳肩","d":[{"g":"臉紅","w":"blush"},{"g":"啜泣","w":"sob"},{"g":"蹲下","w":"squat"}]},{"w":"shiver","p":"v.","l":5,"a":"發抖","d":[{"g":"喘氣","w":"gasp"},{"g":"嘔吐","w":"vomit"},{"g":"臉紅","w":"blush"}]},{"w":"kidnap","p":"v.","l":5,"a":"綁架","d":[{"g":"背叛","w":"betray"},{"g":"欺騙","w":"deceive"},{"g":"偽造","w":"forge"}]},{"w":"donate","p":"v.","l":5,"a":"捐贈","d":[{"g":"償還","w":"repay"},{"g":"購買","w":"purchase"},{"g":"出價","w":"bid"}]},{"w":"inherit","p":"v.","l":5,"a":"繼承","d":[{"g":"交換","w":"swap"},{"g":"搶奪","w":"snatch"},{"g":"分配","w":"allocate"}]},{"w":"embrace","p":"v.","l":5,"a":"擁抱","d":[{"g":"拍打","w":"slap"},{"g":"猛推","w":"shove"},{"g":"搶奪","w":"snatch"}]},{"w":"wither","p":"v.","l":5,"a":"枯萎","d":[{"g":"溶解","w":"dissolve"},{"g":"爆發","w":"erupt"},{"g":"播種","w":"sow"}]},{"w":"soak","p":"v.","l":5,"a":"浸泡","d":[{"g":"修剪","w":"trim"},{"g":"翻轉","w":"flip"},{"g":"壓扁","w":"squash"}]},{"w":"abolish","p":"v.","l":5,"a":"廢除","d":[{"g":"提名","w":"nominate"},{"g":"修正","w":"amend"},{"g":"作證","w":"testify"}]},{"w":"diagnose","p":"v.","l":5,"a":"診斷","d":[{"g":"注射","w":"inject"},{"g":"感染","w":"infect"},{"g":"開處方","w":"prescribe"}]},{"w":"recite","p":"v.","l":5,"a":"背誦","d":[{"g":"驚叫","w":"exclaim"},{"g":"呻吟","w":"moan"},{"g":"含糊地說","w":"mumble"}]},{"w":"tempt","p":"v.","l":5,"a":"引誘","d":[{"g":"嘲笑","w":"mock"},{"g":"背叛","w":"betray"},{"g":"激怒","w":"provoke"}]},{"w":"browse","p":"v.","l":5,"a":"瀏覽","d":[{"g":"升級","w":"upgrade"},{"g":"切斷","w":"disconnect"},{"g":"開鎖","w":"unlock"}]},{"w":"sneak","p":"v.","l":5,"a":"偷偷溜","d":[{"g":"絆倒","w":"stumble"},{"g":"高飛","w":"soar"},{"g":"跳入","w":"plunge"}]},{"w":"ban","p":"v.","l":5,"a":"禁止","d":[{"g":"背書","w":"endorse"},{"g":"執行","w":"execute"},{"g":"提名","w":"nominate"}]},{"w":"thrive","p":"v.","l":5,"a":"繁榮","d":[{"g":"演化","w":"evolve"},{"g":"下降","w":"decline"},{"g":"延長","w":"prolong"}]},{"w":"recruit","p":"v.","l":5,"a":"招募","d":[{"g":"監督","w":"supervise"},{"g":"協調","w":"coordinate"},{"g":"部署","w":"deploy"}]},{"w":"comprehend","p":"v.","l":5,"a":"理解","d":[{"g":"推測","w":"speculate"},{"g":"沉思","w":"contemplate"},{"g":"預料","w":"anticipate"}]},{"w":"grieve","p":"v.","l":5,"a":"悲傷","d":[{"g":"崇拜","w":"adore"},{"g":"不贊成","w":"disapprove"},{"g":"哀鳴","w":"whine"}]},{"w":"conceal","p":"v.","l":5,"a":"隱藏","d":[{"g":"交換","w":"swap"},{"g":"緊握","w":"grip"},{"g":"代替","w":"substitute"}]},{"w":"accelerate","p":"v.","l":5,"a":"加速","d":[{"g":"減少","w":"diminish"},{"g":"合併","w":"merge"},{"g":"反轉","w":"reverse"}]},{"w":"spicy","p":"adj.","l":5,"a":"辣的","d":[{"g":"有毒的","w":"toxic"},{"g":"含酒精的","w":"alcoholic"},{"g":"惡臭的","w":"foul"}]},{"w":"fiscal","p":"adj.","l":5,"a":"財政的","d":[{"g":"司法的","w":"judicial"},{"g":"聯邦的","w":"federal"},{"g":"農業的","w":"agricultural"}]},{"w":"arrogant","p":"adj.","l":5,"a":"傲慢的","d":[{"g":"天真的","w":"naive"},{"g":"機智的","w":"witty"},{"g":"體貼的","w":"considerate"}]},{"w":"extinct","p":"adj.","l":5,"a":"絕種的","d":[{"g":"本土的","w":"indigenous"},{"g":"海洋的","w":"marine"},{"g":"有毒的","w":"toxic"}]},{"w":"vertical","p":"adj.","l":5,"a":"垂直的","d":[{"g":"平行的","w":"parallel"},{"g":"緊密的","w":"compact"},{"g":"無限的","w":"infinite"}]},{"w":"gloomy","p":"adj.","l":5,"a":"陰沉的","d":[{"g":"壯觀的","w":"spectacular"},{"g":"怪異的","w":"bizarre"},{"g":"寬敞的","w":"spacious"}]},{"w":"chubby","p":"adj.","l":5,"a":"圓胖的","d":[{"g":"肌肉發達的","w":"muscular"},{"g":"非常漂亮的","w":"gorgeous"},{"g":"破爛的","w":"ragged"}]},{"w":"contagious","p":"adj.","l":5,"a":"接觸傳染的","d":[{"g":"慢性的","w":"chronic"},{"g":"致命的","w":"deadly"},{"g":"過敏的","w":"allergic"}]},{"w":"anonymous","p":"adj.","l":5,"a":"匿名的","d":[{"g":"單獨的","w":"solo"},{"g":"傳說中的","w":"legendary"},{"g":"明確的","w":"explicit"}]},{"w":"compulsory","p":"adj.","l":5,"a":"強制的","d":[{"g":"初步的","w":"preliminary"},{"g":"連續的","w":"consecutive"},{"g":"可行的","w":"viable"}]},{"w":"sacred","p":"adj.","l":5,"a":"神聖的","d":[{"g":"永恆的","w":"eternal"},{"g":"荒謬的","w":"absurd"},{"g":"殖民地的","w":"colonial"}]},{"w":"barren","p":"adj.","l":5,"a":"貧瘠的","d":[{"g":"郊區的","w":"suburban"},{"g":"住宅的","w":"residential"},{"g":"大都市的","w":"metropolitan"}]},{"w":"courteous","p":"adj.","l":5,"a":"有禮貌的","d":[{"g":"熱情的","w":"passionate"},{"g":"謹慎的","w":"wary"},{"g":"天真的","w":"naive"}]},{"w":"random","p":"adj.","l":5,"a":"隨機的","d":[{"g":"統計的","w":"statistical"},{"g":"理論的","w":"theoretical"},{"g":"相等的","w":"equivalent"}]},{"w":"sculptor","p":"n.","l":6,"a":"雕刻家","d":[{"g":"收銀員","w":"cashier"},{"g":"電工","w":"electrician"},{"g":"裁判","w":"referee"}]},{"w":"janitor","p":"n.","l":6,"a":"工友","d":[{"g":"學徒","w":"apprentice"},{"g":"房客","w":"tenant"},{"g":"中尉","w":"lieutenant"}]},{"w":"pharmacist","p":"n.","l":6,"a":"藥劑師","d":[{"g":"口譯員","w":"interpreter"},{"g":"發言人","w":"spokesperson"},{"g":"立法者","w":"legislator"}]},{"w":"widow","p":"n.","l":6,"a":"寡婦","d":[{"g":"單身漢","w":"bachelor"},{"g":"繼母","w":"stepmother"},{"g":"少女","w":"maiden"}]},{"w":"novice","p":"n.","l":6,"a":"新手","d":[{"g":"前任","w":"predecessor"},{"g":"同伴","w":"comrade"},{"g":"敵人","w":"foe"}]},{"w":"villain","p":"n.","l":6,"a":"壞人","d":[{"g":"愛國者","w":"patriot"},{"g":"朝聖者","w":"pilgrim"},{"g":"小夥子","w":"lad"}]},{"w":"hypocrite","p":"n.","l":6,"a":"偽君子","d":[{"g":"闖入者","w":"intruder"},{"g":"扒手","w":"pickpocket"},{"g":"移民","w":"emigrant"}]},{"w":"astronaut","p":"n.","l":6,"a":"太空人","d":[{"g":"天文學家","w":"astronomer"},{"g":"收銀員","w":"cashier"},{"g":"裁判","w":"referee"}]},{"w":"octopus","p":"n.","l":6,"a":"章魚","d":[{"g":"蜥蜴","w":"lizard"},{"g":"孔雀","w":"peacock"},{"g":"海鷗","w":"seagull"}]},{"w":"caterpillar","p":"n.","l":6,"a":"毛毛蟲","d":[{"g":"啄木鳥","w":"woodpecker"},{"g":"大猩猩","w":"gorilla"},{"g":"鱒魚","w":"trout"}]},{"w":"crocodile","p":"n.","l":6,"a":"鱷魚","d":[{"g":"黑猩猩","w":"chimpanzee"},{"g":"牡蠣","w":"oyster"},{"g":"小馬","w":"pony"}]},{"w":"sparrow","p":"n.","l":6,"a":"麻雀","d":[{"g":"蛤蜊","w":"clam"},{"g":"蜥蜴","w":"lizard"},{"g":"大猩猩","w":"gorilla"}]},{"w":"celery","p":"n.","l":6,"a":"芹菜","d":[{"g":"核桃","w":"walnut"},{"g":"葡萄柚","w":"grapefruit"},{"g":"栗子","w":"chestnut"}]},{"w":"cucumber","p":"n.","l":6,"a":"小黃瓜","d":[{"g":"蘿蔔","w":"radish"},{"g":"辣椒","w":"chili"},{"g":"香草","w":"vanilla"}]},{"w":"yogurt","p":"n.","l":6,"a":"優格","d":[{"g":"糖漿","w":"syrup"},{"g":"燕麥片","w":"oatmeal"},{"g":"高湯","w":"broth"}]},{"w":"beverage","p":"n.","l":6,"a":"飲料","d":[{"g":"咖哩","w":"curry"},{"g":"茶點","w":"refreshment"},{"g":"沙拉醬","w":"dressing"}]},{"w":"peninsula","p":"n.","l":6,"a":"半島","d":[{"g":"海峽","w":"strait"},{"g":"綠洲","w":"oasis"},{"g":"冰河","w":"glacier"}]},{"w":"swamp","p":"n.","l":6,"a":"沼澤","d":[{"g":"小溪","w":"brook"},{"g":"火山口","w":"crater"},{"g":"郊區","w":"outskirts"}]},{"w":"dormitory","p":"n.","l":6,"a":"宿舍","d":[{"g":"禮堂","w":"auditorium"},{"g":"藥局","w":"pharmacy"},{"g":"孤兒院","w":"orphanage"}]},{"w":"intersection","p":"n.","l":6,"a":"十字路口","d":[{"g":"地下道","w":"underpass"},{"g":"海岸線","w":"coastline"},{"g":"青年旅館","w":"hostel"}]},{"w":"thermometer","p":"n.","l":6,"a":"溫度計","d":[{"g":"羅盤","w":"compass"},{"g":"螺絲起子","w":"screwdriver"},{"g":"擴音器","w":"loudspeaker"}]},{"w":"wardrobe","p":"n.","l":6,"a":"衣櫃","d":[{"g":"梳妝台","w":"dresser"},{"g":"百葉窗","w":"shutter"},{"g":"手提箱","w":"suitcase"}]},{"w":"crutch","p":"n.","l":6,"a":"拐杖","d":[{"g":"牙套","w":"brace"},{"g":"膠囊","w":"capsule"},{"g":"保險絲","w":"fuse"}]},{"w":"stationery","p":"n.","l":6,"a":"文具","d":[{"g":"化妝品","w":"cosmetics"},{"g":"清潔劑","w":"detergent"},{"g":"肥料","w":"fertilizer"}]},{"w":"coupon","p":"n.","l":6,"a":"優惠券","d":[{"g":"徽章","w":"badge"},{"g":"代幣","w":"token"},{"g":"小冊子","w":"booklet"}]},{"w":"encyclopedia","p":"n.","l":6,"a":"百科全書","d":[{"g":"手稿","w":"manuscript"},{"g":"社論","w":"editorial"},{"g":"寓言","w":"fable"}]},{"w":"asthma","p":"n.","l":6,"a":"氣喘","d":[{"g":"肺炎","w":"pneumonia"},{"g":"糖尿病","w":"diabetes"},{"g":"抽筋","w":"cramp"}]},{"w":"nostril","p":"n.","l":6,"a":"鼻孔","d":[{"g":"睫毛","w":"eyelash"},{"g":"眼皮","w":"eyelid"},{"g":"脊椎","w":"backbone"}]},{"w":"vaccine","p":"n.","l":6,"a":"疫苗","d":[{"g":"抗生素","w":"antibiotic"},{"g":"乳液","w":"lotion"},{"g":"膽固醇","w":"cholesterol"}]},{"w":"acne","p":"n.","l":6,"a":"青春痘","d":[{"g":"疹子","w":"rash"},{"g":"皺紋","w":"wrinkle"},{"g":"骨折","w":"fracture"}]},{"w":"tornado","p":"n.","l":6,"a":"龍捲風","d":[{"g":"冰雹","w":"hail"},{"g":"山崩","w":"landslide"},{"g":"漣漪","w":"ripple"}]},{"w":"comet","p":"n.","l":6,"a":"彗星","d":[{"g":"日食","w":"eclipse"},{"g":"臭氧","w":"ozone"},{"g":"冰山","w":"iceberg"}]},{"w":"solitude","p":"n.","l":6,"a":"孤獨","d":[{"g":"虛榮","w":"vanity"},{"g":"怨恨","w":"resentment"},{"g":"毅力","w":"persistence"}]},{"w":"catastrophe","p":"n.","l":6,"a":"大災難","d":[{"g":"挫折","w":"setback"},{"g":"先例","w":"precedent"},{"g":"誓言","w":"oath"}]},{"w":"hospitality","p":"n.","l":6,"a":"好客","d":[{"g":"團結","w":"solidarity"},{"g":"士氣","w":"morale"},{"g":"長壽","w":"longevity"}]},{"w":"endurance","p":"n.","l":6,"a":"耐力","d":[{"g":"聲望","w":"prestige"},{"g":"姿勢","w":"posture"},{"g":"心態","w":"mentality"}]},{"w":"proverb","p":"n.","l":6,"a":"諺語","d":[{"g":"寓言","w":"fable"},{"g":"散文","w":"prose"},{"g":"國歌","w":"anthem"}]},{"w":"curfew","p":"n.","l":6,"a":"宵禁","d":[{"g":"公民投票","w":"referendum"},{"g":"人口普查","w":"census"},{"g":"租約","w":"lease"}]},{"w":"bribe","p":"n.","l":6,"a":"賄賂","d":[{"g":"股息","w":"dividend"},{"g":"支出","w":"expenditure"},{"g":"批發","w":"wholesale"}]},{"w":"conspiracy","p":"n.","l":6,"a":"陰謀","d":[{"g":"派系","w":"faction"},{"g":"起義","w":"uprising"},{"g":"讓步","w":"concession"}]},{"w":"suspense","p":"n.","l":6,"a":"懸疑","d":[{"g":"高潮","w":"climax"},{"g":"節奏","w":"tempo"},{"g":"語調","w":"intonation"}]},{"w":"lullaby","p":"n.","l":6,"a":"搖籃曲","d":[{"g":"交響樂","w":"symphony"},{"g":"口琴","w":"harmonica"},{"g":"首映","w":"premiere"}]},{"w":"mourn","p":"v.","l":6,"a":"哀悼","d":[{"g":"走私","w":"smuggle"},{"g":"排練","w":"rehearse"},{"g":"起訴","w":"prosecute"}]},{"w":"retrieve","p":"v.","l":6,"a":"取回","d":[{"g":"扣除","w":"deduct"},{"g":"移植","w":"transplant"},{"g":"鼓掌","w":"applaud"}]},{"w":"evacuate","p":"v.","l":6,"a":"撤離","d":[{"g":"搶救","w":"salvage"},{"g":"起訴","w":"prosecute"},{"g":"召集","w":"convene"}]},{"w":"assassinate","p":"v.","l":6,"a":"暗殺","d":[{"g":"劫持","w":"hijack"},{"g":"走私","w":"smuggle"},{"g":"恐嚇","w":"intimidate"}]},{"w":"sneeze","p":"v.","l":6,"a":"打噴嚏","d":[{"g":"呻吟","w":"groan"},{"g":"尖叫","w":"shriek"},{"g":"口吃","w":"stutter"}]},{"w":"stroll","p":"v.","l":6,"a":"散步","d":[{"g":"飛奔","w":"gallop"},{"g":"滑行","w":"glide"},{"g":"盤旋","w":"hover"}]},{"w":"nag","p":"v.","l":6,"a":"嘮叨","d":[{"g":"模仿","w":"mimic"},{"g":"偷看","w":"peek"},{"g":"喝采","w":"acclaim"}]},{"w":"despise","p":"v.","l":6,"a":"鄙視","d":[{"g":"同情","w":"sympathize"},{"g":"安撫","w":"soothe"},{"g":"騷擾","w":"harass"}]},{"w":"devour","p":"v.","l":6,"a":"狼吞虎嚥","d":[{"g":"吃草","w":"graze"},{"g":"打瞌睡","w":"doze"},{"g":"漫遊","w":"roam"}]},{"w":"humiliate","p":"v.","l":6,"a":"羞辱","d":[{"g":"激怒","w":"irritate"},{"g":"安慰","w":"console"},{"g":"恐嚇","w":"intimidate"}]},{"w":"inquire","p":"v.","l":6,"a":"詢問","d":[{"g":"斷言","w":"affirm"},{"g":"反駁","w":"contradict"},{"g":"推論","w":"infer"}]},{"w":"subscribe","p":"v.","l":6,"a":"訂閱","d":[{"g":"抵制","w":"boycott"},{"g":"補助","w":"subsidize"},{"g":"捲動","w":"scroll"}]},{"w":"evoke","p":"v.","l":6,"a":"喚起","d":[{"g":"引誘","w":"lure"},{"g":"鎮壓","w":"suppress"},{"g":"放大","w":"magnify"}]},{"w":"illuminate","p":"v.","l":6,"a":"照亮","d":[{"g":"閃爍","w":"twinkle"},{"g":"濃縮","w":"condense"},{"g":"溢出","w":"overflow"}]},{"w":"emigrate","p":"v.","l":6,"a":"移居國外","d":[{"g":"投宿","w":"lodge"},{"g":"逗留","w":"linger"},{"g":"漫遊","w":"roam"}]},{"w":"surpass","p":"v.","l":6,"a":"超越","d":[{"g":"低估","w":"underestimate"},{"g":"動員","w":"mobilize"},{"g":"淨化","w":"purify"}]},{"w":"cultivate","p":"v.","l":6,"a":"耕種","d":[{"g":"收割","w":"reap"},{"g":"屠殺","w":"slaughter"},{"g":"洗牌","w":"shuffle"}]},{"w":"deter","p":"v.","l":6,"a":"嚇阻","d":[{"g":"揭幕","w":"unveil"},{"g":"正式批准","w":"ratify"},{"g":"利用","w":"harness"}]},{"w":"detach","p":"v.","l":6,"a":"拆下","d":[{"g":"塞進","w":"tuck"},{"g":"丟棄","w":"discard"},{"g":"傾斜","w":"tilt"}]},{"w":"vibrate","p":"v.","l":6,"a":"震動","d":[{"g":"旋轉","w":"rotate"},{"g":"傾斜","w":"tilt"},{"g":"滑行","w":"glide"}]},{"w":"certify","p":"v.","l":6,"a":"證明","d":[{"g":"彙編","w":"compile"},{"g":"計算","w":"compute"},{"g":"分發","w":"dispense"}]},{"w":"salute","p":"v.","l":6,"a":"敬禮","d":[{"g":"鼓掌","w":"applaud"},{"g":"打呼","w":"snore"},{"g":"呻吟","w":"groan"}]},{"w":"punctual","p":"adj.","l":6,"a":"準時的","d":[{"g":"草率的","w":"sloppy"},{"g":"古怪的","w":"eccentric"},{"g":"外向的","w":"outgoing"}]},{"w":"mischievous","p":"adj.","l":6,"a":"愛惡作劇的","d":[{"g":"喜怒無常的","w":"moody"},{"g":"容易生氣的","w":"irritable"},{"g":"膽小的","w":"cowardly"}]},{"w":"tedious","p":"adj.","l":6,"a":"冗長乏味的","d":[{"g":"時髦的","w":"stylish"},{"g":"迷信的","w":"superstitious"},{"g":"奢華的","w":"lavish"}]},{"w":"lethal","p":"adj.","l":6,"a":"致命的","d":[{"g":"防水的","w":"waterproof"},{"g":"可以吃的","w":"edible"},{"g":"合成的","w":"synthetic"}]},{"w":"medieval","p":"adj.","l":6,"a":"中世紀的","d":[{"g":"史前的","w":"prehistoric"},{"g":"帝國的","w":"imperial"},{"g":"極地的","w":"polar"}]},{"w":"notorious","p":"adj.","l":6,"a":"惡名昭彰的","d":[{"g":"憤世嫉俗的","w":"cynical"},{"g":"無憂無慮的","w":"carefree"},{"g":"全體一致的","w":"unanimous"}]},{"w":"hoarse","p":"adj.","l":6,"a":"沙啞的","d":[{"g":"鈍的","w":"blunt"},{"g":"破舊的","w":"shabby"},{"g":"體積大的","w":"bulky"}]},{"w":"weary","p":"adj.","l":6,"a":"疲倦的","d":[{"g":"寂寞的","w":"lonesome"},{"g":"憤慨的","w":"indignant"},{"g":"寧靜的","w":"serene"}]},{"w":"versatile","p":"adj.","l":6,"a":"多才多藝的","d":[{"g":"認真負責的","w":"conscientious"},{"g":"倔強的","w":"obstinate"},{"g":"喜歡交際的","w":"sociable"}]},{"w":"feasible","p":"adj.","l":6,"a":"可行的","d":[{"g":"必要的","w":"imperative"},{"g":"暫時的","w":"provisional"},{"g":"主觀的","w":"subjective"}]},{"w":"fragrant","p":"adj.","l":6,"a":"芳香的","d":[{"g":"青翠茂盛的","w":"lush"},{"g":"寧靜的","w":"serene"},{"g":"崎嶇的","w":"rugged"}]},{"w":"concise","p":"adj.","l":6,"a":"簡潔的","d":[{"g":"冗長的","w":"lengthy"},{"g":"表面的","w":"superficial"},{"g":"嚴格的","w":"rigorous"}]},{"w":"reckless","p":"adj.","l":6,"a":"魯莽的","d":[{"g":"狡猾的","w":"sly"},{"g":"熱情的","w":"hearty"},{"g":"莊嚴的","w":"solemn"}]},{"w":"lunar","p":"adj.","l":6,"a":"月球的","d":[{"g":"細胞的","w":"cellular"},{"g":"牙齒的","w":"dental"},{"g":"外科的","w":"surgical"}]},{"w":"cozy","p":"adj.","l":6,"a":"溫馨舒適的","d":[{"g":"有秩序的","w":"orderly"},{"g":"用完即丟的","w":"disposable"},{"g":"風景優美的","w":"scenic"}]}];
+var pool={1:[],2:[],3:[],4:[],5:[],6:[]};
+BANK.forEach(function(b){if(pool[b.l]&&POSOK[b.p])pool[b.l].push({w:b.w,p:b.p,g:b.a,ss:[b.a],ds:b.d,l:b.l,ws:[b.w].concat(b.d.map(function(d){return d.w}))})});
+var seen=new Set(ldArr(KEY_SEEN));
+function free(x,used){for(var i=0;i<x.ws.length;i++)if(used.has(x.ws[i]))return false;return true}
+function take(x,used){x.ws.forEach(function(w){used.add(w)})}
+function pick(l,mix,used){/* mix：{n,v,adj}；同一次健檢裡，正解與誘答的字都不重複 */
+ var out=[];['n.','v.','adj.'].forEach(function(p){var k=mix[p]||0;if(!k)return;
+  var c=pool[l].filter(function(x){return x.p===p}),got=0;
+  var fresh=shuf(c.filter(function(x){return !seen.has(x.w)})),old=shuf(c.filter(function(x){return seen.has(x.w)}));
+  fresh.concat(old).forEach(function(x){if(got<k&&free(x,used)){out.push(x);take(x,used);got++}});
+  if(got<k)fresh.concat(old).forEach(function(x){if(got<k&&out.indexOf(x)<0&&!used.has(x.w)){out.push(x);take(x,used);got++}})});/* 備案：題庫不夠時，至少正解字不重複 */
+ return shuf(out)}
+function mkq(x,stage){
+ var opts=shuf([{g:x.g,ok:1}].concat(x.ds.map(function(d){return {g:d.g,ok:0}})));
+ return {w:x.w,l:x.l,p:x.p,o:opts.map(function(o){return o.g}),a:opts.findIndex(function(o){return o.ok}),pk:-1,gs:0,s:stage,ws:x.ws}}
+/* ---------- 狀態 ---------- */
+var R=null;/* {qs:[], cur:int, stages:[{l,n,kind}], lv:{level:{c,n,ex,pass}}, done, gap, st:int} */
+var MIX={w:{'n.':2,'v.':2,'adj.':1},b:{'n.':5,'v.':3,'adj.':2},x:{'n.':3,'v.':1,'adj.':1}};
+function newRun(){seen=new Set(ldArr(KEY_SEEN));
+ R={qs:[],cur:0,stages:[],lv:{},done:false,gap:0,used:[]};addStage(2,'b');save()}
+function usedSet(){var u=new Set();R.qs.forEach(function(q){(q.ws||[q.w]).forEach(function(w){u.add(w)})});return u}
+function addStage(l,kind){var si=R.stages.length;R.stages.push({l:l,kind:kind});var u=usedSet();
+ var mix=kind==='w'?MIX.w:kind==='b'?MIX.b:MIX.x;
+ var items=pick(l,mix,u);
+ items.forEach(function(x){R.qs.push(mkq(x,si))});
+ R.stageStart=R.qs.length-items.length}
+function save(){sv(KEY_RUN,R)}
+function stageQs(si){return R.qs.filter(function(q){return q.s===si})}
+function nCorrect(qs){return qs.filter(function(q){return q.pk===q.a}).length}
+/* 一個階段做完後判斷下一步；回傳 true 表示全部結束 */
+function evaluate(){var si=R.stages.length-1,sg=R.stages[si],qs=stageQs(si),c=nCorrect(qs),l=sg.l;
+ var rec=R.lv[l]||(R.lv[l]={c:0,n:0,c10:0,n10:0,ex:0,pass:false});
+ if(sg.kind==='w'){var wrong=qs.length-c;rec.c=c;rec.n=qs.length;
+  if(wrong>=2){R.gap=1;rec.pass=false;R.done=true;return true}rec.pass=true;addStage(2,'b');return false}
+ if(sg.kind==='b'){rec.c10=c;rec.n10=qs.length;rec.c=c;rec.n=qs.length;
+  if(c>=9)rec.pass=true;else if(c===8){addStage(l,'x');return false}else{rec.pass=false;R.gap=l;R.done=true;return true}}
+ else{rec.c+=c;rec.n+=qs.length;rec.ex=1;if(rec.c>=13)rec.pass=true;else{rec.pass=false;R.gap=l;R.done=true;return true}}
+ if(l>=6){R.done=true;return true}addStage(l+1,'b');return false}
+/* ---------- 畫面 ---------- */
+function say(t){st.textContent=t}
+function view(h,focusSel){app.innerHTML=h;document.body.classList.toggle('quizzing',!!app.querySelector('.opt'));var f=focusSel&&app.querySelector(focusSel);if(f)f.focus();window.scrollTo(0,0)}
+/* 各級字數：和單字總表用同一組字（總表篩選「大考 N 級」看到的字數），分子分母一致 */
+function levelTotals(){var t={1:0,2:0,3:0,4:0,5:0,6:0};L.rowWords().forEach(function(w){var l=L.levelOf(w);if(l>=1&&l<=6)t[l]++});return t}
+var TOT=null;function getTOT(){return TOT||(TOT=levelTotals())}
+function levelStats(){var a={},b={};for(var l=1;l<=6;l++){a[l]=0;b[l]=0}var m=L.allMarks();Object.keys(m).forEach(function(w){var c=L.levelOf(w);if(c>=1&&c<=6){if(m[w]===2)a[c]++;else if(m[w]===1)b[c]++}});return {a:a,b:b}}
+function pct(a,b){return b?Math.min(100,Math.round(a/b*100)):0}
+function parseD(s){var m=/^(\d{4})-(\d{2})-(\d{2})$/.exec(s||'');if(!m)return null;var d=new Date(+m[1],+m[2]-1,+m[3]);return isNaN(d)?null:d}
+function daysTo(s){var d=parseD(s);if(!d)return null;var n=new Date();n=new Date(n.getFullYear(),n.getMonth(),n.getDate());return Math.round((d-n)/86400000)}
+function suggestLv(){var last=ldLast(),st=levelStats(),tot=L.marked();
+ if(last&&typeof last.gap==='number'&&last.gap>=1&&last.gap<=6)return {l:last.gap,why:'依上次健檢的建議'};
+ if(tot){for(var l=1;l<=6;l++){if(st.a[l]<getTOT()[l]*0.9)return {l:l,why:'依你標記「我會了」的比例'}}return {l:6,why:'依你標記「我會了」的比例'}}
+ return null}
+function myProg(){var st=levelStats(),tot=L.marked(),g=ldGoal(),sg=suggestLv(),cur=g.l||(sg?sg.l:0);
+ var h='<div class="card2 noprint"><h2>我的進度</h2>';
+ if(!tot)h+='<p>還沒有標記任何字。到<a href="wordlist.html">單字總表</a>點一下單字，按「我會了」或「再複習」，這裡就會出現各級的進度。</p>';
+ else{h+='<p class="lim">這裡統計你在單字總表和單字健檢中標記的「我會了」「再複習」。標記只存在這個瀏覽器，是你自己的標記，不是測驗結果。標「我會了」的字，隔幾天可以遮住中文意思再看一次。</p>';
+  h+='<div role="list" aria-label="各級標記進度">';
+  for(var l=1;l<=6;l++){h+='<div class="prow" role="listitem"><span>第 '+l+' 級</span><span class="bar" aria-hidden="true"><i style="width:'+pct(st.a[l],getTOT()[l])+'%"></i></span><small>我會了 '+N(st.a[l])+'／'+N(getTOT()[l])+'；再複習 '+N(st.b[l])+'</small></div>'}
+  h+='</div><p class="lim">各級字數和單字總表篩選「大考 N 級」的字數相同：把 achieve(ment) 這類寫法展開成兩個字，也包含可以歸到這一級的衍生字，所以比大考詞彙表每級約 1,000 個詞條多。</p>'}
+ h+='</div>';
+ h+='<div class="card2 noprint"><h2>每日背誦計畫</h2><p>輸入考試日期，算出每天要看幾個字。預設是 116 學年度學測第一天（2027 年 1 月 22 日）。</p>'+
+ '<div class="hrow" style="margin-top:6px"><label>考試日期　<input type="date" class="fld" id="gdate" min="'+todayISO()+'" value="'+esc(g.d||DEFGOAL)+'"></label><label>要背的級別　<select class="fld" id="glv">'+(cur?'':'<option value="" selected>（請選擇）</option>')+[1,2,3,4,5,6].map(function(l){return '<option value="'+l+'"'+(cur==l?' selected':'')+'>第 '+l+' 級</option>'}).join('')+'</select></label></div>'+
+ (!g.l&&sg?'<p class="lim" id="gwhy">預設級別是'+sg.why+'帶入的，可以自己改。</p>':'')+
+ '<p id="gplan" aria-live="polite"></p><div class="hrow" id="gbtns"></div></div>';
+ return h}
+function todayISO(){var d=new Date();function z(n){return (n<10?'0':'')+n}return d.getFullYear()+'-'+z(d.getMonth()+1)+'-'+z(d.getDate())}
+function saveGoal(){var d=$('gdate').value,l=$('glv').value,o={d:d};if(/^[1-6]$/.test(l)){o.l=+l;o.set=1}sv(GOALKEY,o)}
+function plan(){var d=$('gdate').value,lv=$('glv').value,l=+lv,days=daysTo(d),st=levelStats();
+ var p=$('gplan'),b=$('gbtns');b.innerHTML='';
+ if(!lv){p.innerHTML='還沒做健檢？先做健檢，這裡會自動帶入建議的級別；也可以直接在上面選一個級別。';b.innerHTML='<button type="button" class="lnk" id="bNew2">先做健檢 ›</button>';$('bNew2').onclick=function(){newRun();ask()};return}
+ var left=getTOT()[l]-st.a[l];
+ if(days===null){p.textContent='請輸入考試日期。';return}
+ if(days<0){p.textContent='這個日期已經過了，請改成之後的日期。';return}
+ if(days===0){p.textContent='考試就是今天！今天不必再背新字，複習標成「再複習」的字就好。';b.innerHTML='<a class="hbtn" href="wordlist.html#m=1&amp;h=1&amp;o=r">看我的「再複習」清單（遮住中文意思）</a>';return}
+ if(left<=0){p.textContent='第 '+l+' 級的字你都標成「我會了」了。可以改選其他級別，或遮住中文意思再抽查一次。';return}
+ var per=Math.ceil(left/days);
+ p.innerHTML='距離這個日期還有 <b>'+N(days)+'</b> 天。第 '+l+' 級還有 <b>'+N(left)+'</b> 個字沒有標成「我會了」，平均每天看 <b>'+N(per)+'</b> 個字。'+(per>60?'字數很多，建議先看學測出現份數多的字。':'')+'<br><span class="lim">「學測出現份數」是這個字在 83 到 115 學年度學測（含補考）共 35 份試卷中出現在幾份。下面的連結會把沒有標成「我會了」的字，依學測出現份數從多到少排好，並遮住中文意思；從最上面開始看，看完 '+N(per)+' 個字就是今天的份量。</span>';
+ b.innerHTML='<a class="hbtn pri" href="wordlist.html#c='+l+'&amp;m=3&amp;o=f&amp;h=1">開始今天的第 '+l+' 級（依學測出現份數）</a><a class="hbtn" href="cards/index.html#lv='+l+'">用單字記憶卡練第 '+l+' 級的歷屆試題</a>'}
+function bindProg(){var gd=$('gdate');if(!gd)return;plan();gd.onchange=function(){saveGoal();plan()};$('glv').onchange=function(){saveGoal();var w=$('gwhy');if(w)w.hidden=true;var e=this.querySelector('option[value=""]');if(e&&this.value)e.remove();plan()};
+ var bk=$('bkup');if(!bk)return;
+ function payload(){return JSON.stringify({v:1,t:todayISO(),marks:L.allMarks(),goal:ldObj(GOALKEY)||{}})}
+ function bmsg(t,kind){var m=$('bkMsg');m.textContent=(kind==='err'?'✕ ':kind==='good'?'✓ ':'')+t;m.className='ok2'+(kind?' '+kind:'')}
+ $('bkDl').onclick=function(){var b=new Blob([payload()],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='wordlevel_marks.json';document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);a.remove()},1000);bmsg('已下載備份檔 wordlevel_marks.json（共 '+N(L.marked())+' 個字的標記）。','good')};
+ $('bkCp').onclick=function(){var t=payload();function fb(){var x=$('bkTx');x.value=t;x.focus();x.select();bmsg('這個瀏覽器不能自動複製，備份文字已放進下面的欄位並選取，請直接複製。')}
+  if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(t).then(function(){bmsg('已複製備份文字，可以貼到備忘錄或傳給自己。','good')},fb);else fb()};
+ var staged=null,pendRep=0;/* staged：{txt,src}，src 是 'file' 或 'text'；pendRep：已按過一次「取代全部」，等第二次確認 */
+ function syncBtn(){$('bkRs').disabled=!(staged&&staged.txt.trim())}
+ function resetRep(){pendRep=0;$('bkRs').textContent='還原';syncBtn()}
+ [].forEach.call(document.querySelectorAll('input[name=bkMode]'),function(r){r.onchange=resetRep});
+ function restore(txt,src,confirmed){var file=src==='file',o;
+  if(txt.length>2000000){bmsg(file?'檔案太大，不像是標記備份。':'內容太長，不像是標記備份。','err');return}
+  try{o=JSON.parse(txt)}catch(e){bmsg(file?'無法讀取這個檔案，請確認是從「下載備份檔」得到的 .json 檔。':'無法辨識這段內容，請確認是從「下載備份檔」或「複製備份文字」得到的完整內容。','err');return}
+  if(!o||typeof o!=='object'||Array.isArray(o)||!o.marks||typeof o.marks!=='object'||Array.isArray(o.marks)){bmsg(file?'這個檔案不是標記備份，請改選從「下載備份檔」得到的檔案。':'這段內容不是標記備份，請確認是從「下載備份檔」或「複製備份文字」得到的完整內容。','err');return}
+  if(Object.keys(o.marks).length>20000){bmsg('備份裡的字數太多，不像是標記備份。','err');return}
+  var rep=document.querySelector('input[name=bkMode]:checked');rep=!!rep&&rep.value==='replace';
+  var snap=null;
+  if(rep){if(!confirmed){pendRep=1;$('bkRs').textContent='確定取代（目前 '+N(L.marked())+' 個標記會被清掉）';$('bkRs').disabled=false;bmsg('你選的是「取代全部」：目前這個瀏覽器的 '+N(L.marked())+' 個標記會先清掉，再換成備份的內容。如果確定，請再按一次「確定取代」；想保留現有標記，請改選「合併」。');return}
+   snap=L.allMarks();L.clearMarks()}
+  pendRep=0;$('bkRs').textContent='還原';
+  var n=L.importMarks(o.marks);
+  if(rep&&!n){L.importMarks(snap);start();$('bkup').open=true;bmsg('備份裡沒有可以還原的標記，所以沒有取代，目前的標記都還在。','err');return}
+  if(o.goal&&typeof o.goal==='object'&&typeof o.goal.d==='string'&&parseD(o.goal.d)){var gg={d:o.goal.d};if(/^[1-6]$/.test(String(o.goal.l))&&o.goal.set){gg.l=+o.goal.l;gg.set=1}sv(GOALKEY,gg)}
+  start();$('bkup').open=true;
+  if(!n){bmsg('備份裡沒有可以還原的標記。','err');return}
+  bmsg(rep?'已取代：現在的標記就是備份裡的 '+N(n)+' 個字。':'已還原 '+N(n)+' 個字的標記（同一個字以備份為準，沒有在備份裡的標記不會被刪除）。','good')}
+ $('bkTx').oninput=function(){pendRep=0;$('bkRs').textContent='還原';var t=this.value.trim();staged=t?{txt:t,src:'text'}:null;$('bkFn').textContent=t?'將使用：貼上的文字':'';syncBtn()};
+ syncBtn();
+ $('bkRs').onclick=function(){if(!staged)return;restore(staged.txt,staged.src,pendRep===1)};
+ $('bkFile').onchange=function(){var inp=this,f=inp.files[0];if(!f)return;pendRep=0;$('bkRs').textContent='還原';staged=null;syncBtn();
+  if(f.size>2000000){$('bkFn').textContent='';bmsg('檔案太大，不像是標記備份。','err');inp.value='';return}
+  var r=new FileReader();r.onerror=function(){$('bkFn').textContent='';bmsg('無法讀取這個檔案，請再選一次。','err')};
+  r.onload=function(){staged={txt:String(r.result),src:'file'};$('bkFn').textContent='將使用檔案：'+f.name;bmsg('已選好檔案，請確認上面的還原方式，再按「還原」。');syncBtn()};
+  r.readAsText(f);inp.value=''}}
+var firstStart=true;
+function start(){
+ var run=ldRun(),last=ldLast(),h='';
+ var intro='<div class="card2"><h2>開始前，先說明幾件事</h2><p>題目從第 2 級開始：第 1 級的字多半是國中小學過的，已經排除在題目之外，題目也不會出現教育部國中小基本字彙 1,200 字裡的字。這一級答得穩，就換下一級；答到某一級不穩，就在那一級停止，所以<b>不必做完全部級別</b>。題數依答題情況而定，最少 10 題，最多約 75 題。</p><p>作答過程中<b>不會告訴你對或錯</b>，做完會有一份報告，列出答錯的字和下一步。遇到不認識的字，請選你覺得最有可能的意思；如果是用猜的，<b>請勾選「我是用猜的」</b>，這些字也會列入報告中的「再複習」清單。</p><p>如果你想直接檢查手上一篇英文文章裡有哪些字還不熟，請改用<a href="cards/mark.html">貼整篇文章</a>。</p></div>';
+ h+=intro;
+ if(run&&!run.done){h+='<div class="card2"><h2>有一份還沒做完的健檢</h2><p>上次做到第 '+(Math.min(run.cur,run.qs.length-1)+1)+' 題。</p><div class="hrow"><button class="hbtn pri" id="bRes">繼續上次的健檢</button><button class="hbtn" id="bNew">重新開始</button></div></div>'}
+ else{h+='<div class="hrow"><button class="hbtn pri" id="bNew">開始健檢</button></div>';
+  if(last&&last.t)h+='<p class="lim">上次健檢：'+esc(showDate(last.t))+(typeof last.gap==='number'?'（建議先背第 '+last.gap+' 級）':'（第 2 到第 6 級大致穩定）')+'。</p>'}
+ if(!L.canStore())h+='<p class="lim">這個瀏覽器不能儲存進度，中途離開就要重新開始。</p>';
+ if(run&&run.done)h+='<div class="hrow"><button class="hbtn" id="bRep">再看一次上次的報告</button></div>';
+ h+='<p class="sub2 noprint">做完健檢之後</p>'+myProg()+'<details class="fold" id="bkup" style="margin-top:12px"><summary>備份與還原我的標記</summary><p class="lim">標記只存在這個瀏覽器。如果要換手機、換瀏覽器，或要清除瀏覽資料，請先備份；之後在新的地方還原。</p><div class="hrow"><button class="hbtn" id="bkDl">下載備份檔</button><button class="hbtn" id="bkCp">複製備份文字</button></div><p>還原：選擇備份檔，或把備份文字貼在下面，選好還原方式再按「還原」。</p><div class="hrow bkmode" role="radiogroup" aria-label="還原方式"><label><input type="radio" name="bkMode" value="merge" checked> <b>合併</b>（建議）：備份裡的標記加進來，目前已有、備份裡沒有的標記保留。</label><label><input type="radio" name="bkMode" value="replace"> <b>取代全部</b>：目前所有標記先清掉，完全改成備份的內容。</label></div><div class="hrow"><label class="hbtn fpick">選擇備份檔（.json）<input type="file" id="bkFile" accept=".json,application/json,text/plain"></label><span class="fname" id="bkFn"></span></div><textarea id="bkTx" class="bkt" aria-label="備份文字" placeholder="在這裡貼上備份文字"></textarea><div class="hrow"><button class="hbtn pri" id="bkRs">還原</button></div><p id="bkMsg" aria-live="polite" class="ok2"></p></details>';
+ view(h,firstStart?null:'#bRes,#bNew');firstStart=false;bindProg();
+ if($('bRes'))$('bRes').onclick=function(){R=run;ask()};
+ if($('bRep'))$('bRep').onclick=function(){R=run;report(true)};
+ $('bNew').onclick=function(){if(run&&!run.done&&!this.dataset.arm){this.dataset.arm='1';this.textContent='再按一次，確定放棄上次進度';return}newRun();ask()}}
+function ask(){var q=R.qs[R.cur];if(!q){finishStage();return}
+ var first=R.cur===0||R.qs[R.cur-1].s!==q.s;
+ var sg=R.stages[q.s]||{},sq=stageQs(q.s),k=sq.indexOf(q)+1;
+ var lab='第 '+q.l+' 級'+(sg.kind==='w'?'暖身':sg.kind==='x'?'加測':'')+'・第 '+k+'／'+sq.length+' 題（全部第 '+(R.cur+1)+' 題）';
+ var h='<div class="card2"><p class="qprog" id="qp">'+lab+'</p>'+(saveFailed?'<p class="lim">這個瀏覽器不能儲存進度（儲存空間可能已滿），中途離開就要重新開始。</p>':'')+
+ '<div><span class="qw" id="qw" tabindex="-1">'+esc(q.w)+'</span> <span class="qpos">'+esc(q.p)+'</span>'+(L.canSpeak?'<button type="button" class="spk" id="spk" aria-label="發音">🔊 發音</button>':'')+'</div>'+
+ '<div class="opts" role="radiogroup" aria-labelledby="qw">'+q.o.map(function(t,i){return '<button type="button" class="opt" role="radio" aria-checked="'+(q.pk===i?'true':'false')+'" tabindex="'+((q.pk>=0?q.pk===i:i===0)?'0':'-1')+'" data-i="'+i+'"><span class="k">('+(i+1)+')</span><span>'+esc(t)+'</span></button>'}).join('')+'</div>'+
+ '<label class="gs"><input type="checkbox" id="gs"'+(q.gs?' checked':'')+'>我是用猜的</label>'+
+ '<div class="hrow sticky"><button class="hbtn" id="bPrev"'+(first?' disabled':'')+'>上一題</button><button class="hbtn pri" id="bNext"'+(q.pk<0?' disabled':'')+'>下一題</button></div>'+
+ '<p class="lim kbd">用電腦作答時，可以按數字鍵 1 到 4 選答案，按 Enter 到下一題。</p>'+
+ '<p><button type="button" class="lnk" id="bQuit">先到這裡，稍後再繼續</button></p></div>';
+ view(h,'#qw');say(lab);save();
+ var opts=app.querySelectorAll('.opt');
+ function choose(i){q.pk=i;[].forEach.call(opts,function(o,j){o.setAttribute('aria-checked',j===i?'true':'false');o.tabIndex=j===i?0:-1});$('bNext').disabled=false;opts[i].focus();save()}
+ [].forEach.call(opts,function(o){o.onclick=function(){choose(+o.getAttribute('data-i'))};o.onkeydown=function(e){var i=+o.getAttribute('data-i'),n=opts.length,d=0;if(e.key==='ArrowDown'||e.key==='ArrowRight')d=1;else if(e.key==='ArrowUp'||e.key==='ArrowLeft')d=-1;if(d){choose((i+d+n)%n);e.preventDefault();e.stopPropagation()}}});
+ $('gs').onchange=function(){q.gs=this.checked?1:0;save()};
+ if($('spk'))$('spk').onclick=function(){L.speak(q.w)};
+ $('bPrev').onclick=function(){if(!first){R.cur--;ask()}};
+ $('bNext').onclick=function(){if(q.pk<0)return;R.cur++;var nx=R.qs[R.cur];if(!nx||nx.s!==q.s){finishStage()}else ask()};
+ $('bQuit').onclick=function(){save();start()}}
+function finishStage(){var over=evaluate();save();if(over){report();return}
+ /* 新階段的第一題 */ask()}
+document.addEventListener('keydown',function(e){if(!app.querySelector('.opt')||e.ctrlKey||e.metaKey||e.altKey)return;var t=e.target;if(t&&/^(INPUT|TEXTAREA)$/.test(t.tagName)&&t.type!=='checkbox')return;
+ if(/^[1-4]$/.test(e.key)){var o=app.querySelectorAll('.opt')[+e.key-1];if(o){o.click();e.preventDefault()}}
+ else if(e.key==='Enter'&&t&&(t===document.body||(t.classList.contains('opt')&&t.getAttribute('aria-checked')==='true'))){var n=$('bNext');if(n&&!n.disabled){n.click();e.preventDefault()}}});
+/* ---------- 報告 ---------- */
+function report(replay){var added=null;
+ var wrongs=[],seenNow=[];R.qs.forEach(function(q){seenNow.push(q.w);if(q.pk!==q.a||q.gs)wrongs.push(q)});
+ if(!replay){var seenAll=ldArr(KEY_SEEN);seenAll=seenAll.concat(seenNow);if(seenAll.length>3000)seenAll=seenAll.slice(-3000);sv(KEY_SEEN,seenAll)}
+ var lvs=[2,3,4,5,6].filter(function(l){return R.lv[l]});
+ var gap=R.gap,h='';
+ var good=lvs.filter(function(l){return R.lv[l].pass});
+ var head;
+ if(gap===1)head='建議先背第 1 級';else if(gap)head='建議先背第 '+gap+' 級';else head='第 2 到第 6 級大致穩定';
+ h+='<div class="card2"><h2>你的單字健檢報告</h2><p class="big" id="rh" tabindex="-1">'+head+'</p>';
+ if(gap){var stb=lvs.filter(function(l){return R.lv[l].pass&&!R.lv[l].ex}),shk=lvs.filter(function(l){return R.lv[l].pass&&R.lv[l].ex});h+='<p>'+(stb.length?'第 '+stb.join('、')+' 級大致穩定。':'')+(shk.length?'第 '+shk.join('、')+' 級有點不穩。':'')+'從第 '+gap+' 級開始，還有不穩的字。</p>'}
+ else h+='<p>第 2 到第 6 級都達到過關標準。'+(wrongs.length?'接下來可以把答錯或用猜的字補起來，再看看下面的建議。':'接下來可以看看下面的建議。')+'</p>';
+ h+=(gap===1&&R.lv[1]?'<p>第 1 級（暖身）：答對 '+R.lv[1].c+'／'+R.lv[1].n+' 題。</p>':'')+'<div role="list" aria-label="各級結果">'+lvs.map(function(l){var r=R.lv[l],gp=!r.pass,tag=gp?'不穩':(r.ex?'有點不穩':'大致穩定');
+  return '<div class="lvrow'+(gp?' gap':'')+'" role="listitem"><span>第 '+l+' 級</span><span class="bar" aria-hidden="true"><i style="width:'+pct(r.c,r.n)+'%"></i></span><span class="sc">'+r.c+'／'+r.n+'<span class="tg">'+(gp?'× ':r.ex?'△ ':'✓ ')+tag+'</span></span></div>'}).join('')+'</div>';
+ var last=ldLast(),cmp='';
+ if(last&&last.lv){lvs.forEach(function(l){var a=last.lv[l],b=R.lv[l];if(a&&b&&b.n10&&Math.abs(b.c10-a)>=3)cmp+='<li>第 '+l+' 級：上次 10 題答對 '+a+' 題，這次 10 題答對 '+b.c10+' 題。</li>'})}
+ if(cmp)h+='<p><b>和上次比較</b></p><ul>'+cmp+'</ul>';
+ h+='<p class="lim">第 1 級的字多半是國中小學過的，所以這次沒有測；想看有哪些字，可以到<a href="wordlist.html#c=1">單字總表的第 1 級</a>。</p>';h+=''+(lvs.length?'<p class="lim">這是抽樣估計，只列出各級答對題數，不換算成分數或字彙量；每級題數不多，結果會有起伏。</p>':'')+'</div>';
+ /* 下一步 */
+ var addable=wrongs.length;
+ h+='<div class="card2"><h2>建議的下一步</h2><ul class="steps">';
+ h+='<li><b>今天</b>'+(addable?'這次答錯或用猜的共有 '+addable+' 個字。請先確認下方的清單（不想複習的字可以取消勾選），再按「把勾選的字加入再複習」；加入以後，這裡會出現複習連結。':'這次沒有答錯的字。')+(addable?'<div class="hrow"><a class="hbtn" id="bGoM" hidden href="wordlist.html#m=1&amp;h=1&amp;o=r">看我的「再複習」清單（遮住中文意思）</a></div>':'')+'</li>';
+ if(gap)h+='<li><b>這週</b>第 '+gap+' 級的字，每天隨機看 20 個字，遮住中文意思，想一想意思，會的就標記為「我會了」。<div class="hrow"><a class="hbtn pri" href="wordlist.html#c='+gap+'&amp;h=1&amp;o=r">背第 '+gap+' 級（隨機排序、遮住中文意思）</a></div></li>';
+ if(!gap)h+='<li><b>接下來</b>到<a href="wordlevel.html#gap">英檢補強清單</a>看看在歷屆學測試題中出現過、但不在大考詞彙表內的字，或用<a href="cards/mark.html">貼整篇文章</a>找出文章裡還不熟的字。</li>';
+ h+='<li><b>一週後</b>再做一次健檢。題目會重新抽；如果某一級答對的題數比這次多 3 題以上，才算有明顯進步，差 1 到 2 題屬於正常起伏。<div class="hrow"><button class="hbtn" id="bAgain">重新做一次健檢</button></div></li></ul></div>';
+ /* 加入再複習 */
+ if(addable){var prevM={};
+  h+='<div class="card2"><h2>答錯或用猜的字（'+addable+' 個字）</h2><p>勾選的字會加入「再複習」。答對且沒有勾選「我是用猜的」的字，不會列在這裡。已經標記過「我會了」的字，預設不勾選；如果勾選，會改成「再複習」。</p><ul class="wl2" id="wl2">'+wrongs.map(function(q,i){var m=L.mark(q.w),z=hc(Z,q.w)?Z[q.w]:null;
+   return '<li><input type="checkbox" id="c'+i+'" data-w="'+esc(q.w)+'"'+(m===2?'':' checked')+'><label for="c'+i+'"><span class="w">'+esc(q.w)+'</span> <small>'+esc(q.p)+'</small><span class="t">'+(q.pk!==q.a?'答錯':'用猜的')+(m===2?'；你之前標記過「我會了」':m===1?'；已在「再複習」中':'')+'</span><br>'+esc(z?z[1]:q.o[q.a])+'</label></li>'}).join('')+'</ul>'+
+   '<div class="hrow"><button class="hbtn pri" id="bAdd">把勾選的字加入再複習</button><button class="hbtn" id="bUndo" hidden>復原這次加入</button></div><p id="addmsg" aria-live="polite" class="ok2"></p>'+(L.canStore()?'':'<p class="lim">這個瀏覽器不能儲存標記，關掉頁面後標記會消失。</p>')+'</div>'}
+ /* 逐題對答案 */
+ h+='<details class="fold" style="margin-top:12px"><summary>逐題對答案（共 '+R.qs.length+' 題）</summary><ul class="wl2">'+R.qs.map(function(q){var ok=q.pk===q.a;return '<li><span aria-hidden="true">'+(ok?'✓':'×')+'</span><span><span class="w">'+esc(q.w)+'</span> <small>'+esc(q.p)+'</small><span class="t">第 '+q.l+' 級'+(q.gs?'；你勾選了「我是用猜的」':'')+'</span><br>正確：'+esc(q.o[q.a])+(ok?'':'；你選：'+esc(q.pk>=0?q.o[q.pk]:'（沒選）'))+'</span></li>'}).join('')+'</ul></details>';
+ view(h,'#rh');say(head);
+ /* 存這次結果、結束這份 run */
+ var lv={};lvs.forEach(function(l){if(R.lv[l].n10)lv[l]=R.lv[l].c10});
+ if(!replay){sv(KEY_LAST,{t:todayISO(),gap:gap||'無缺口',lv:lv});R.done=true;save()}
+ $('bAgain').onclick=function(){newRun();ask()};
+ if($('bAdd'))$('bAdd').onclick=function(){
+  var boxes=[].slice.call(app.querySelectorAll('#wl2 input:checked'));var n=0;added=added||{};
+  boxes.forEach(function(b){var w=b.getAttribute('data-w');if(!(w in added))added[w]=L.mark(w);L.setMark(w,1);n++});
+  $('addmsg').textContent=n?(L.canStore()?'已把 '+n+' 個字加入「再複習」。':'已加入「再複習」，但沒有存進瀏覽器（儲存空間可能已滿），關掉頁面後會消失。'):'沒有勾選任何字。';$('bUndo').hidden=!n;$('bGoM')&&($('bGoM').hidden=!n);};
+ if($('bUndo'))$('bUndo').onclick=function(){var a2=added||{};Object.keys(a2).forEach(function(w){if(L.mark(w)===1)L.setMark(w,a2[w]||0)});added=null;$('addmsg').textContent='已復原，這些字的標記回到加入前的樣子。';this.hidden=true;$('bGoM')&&($('bGoM').hidden=true)}}
+var ok=[2,3,4,5,6].every(function(l){return pool[l].length>=40});
+function boot(){start();if(location.hash==='#bkup'){var b=$('bkup');if(b){b.open=true;b.scrollIntoView()}}}
+if(!ok){app.innerHTML='<p>題目載入失敗，請重新整理頁面。</p>'}else{
+ /* 萬一儲存的資料壞到無法辨識，清掉健檢的暫存（不動我的標記）再啟動一次 */
+ try{boot()}catch(e){['wl_hc_run_v1','wl_hc_last_v1','wl_hc_seen_v1','wl_goal_v1'].forEach(rm);try{seen=new Set();boot()}catch(e2){app.innerHTML='<p>頁面載入失敗，請重新整理頁面。</p>'}}}
+window.__hc={pool:pool,get R(){return R}};
+})();
+</script>
+</div>
+</body>
+</html>

@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>培力英檢（BESTEP）：大學生的英檢，題型與官方免費資源</title>
+<meta name="description" content="培力英檢（BESTEP）是給大專校院學生的英語測驗，聽讀說寫都考。整理考試題型、分數與官方免費的例題、模擬試題和備考資源。">
+<style>
+:root{
+  --bg:#F6F1E4; --card:#FFFDF7; --ink:#221F1A; --sub:#5B5648; --line:#DCD3BB;
+  --gold:#8A6420; --gold-soft:#F1EADA; --es:#3E6E52; --tr:#AE3626; --mx:#8A6420;
+  --good:#3E6E52; --shadow:0 1px 0 rgba(34,31,26,.06),0 8px 24px rgba(34,31,26,.08);
+  --cc-fg:#6F685C; --link:#9C2C1E; --you:#8A6420; --slc-es:#3E6E52; --slc-tr:#AE3626;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#1B1916; --card:#26231F; --ink:#F2F0EE; --sub:#DAD8D3; --line:#514A37;
+    --gold:#E0D1B2; --gold-soft:#2B271E; --es:#CBDDD2; --tr:#E4B6B0; --mx:#E0D1B2;
+    --good:#CBDDD2; --shadow:none; --cc-fg:#C2BFBB; --link:#E8BEB9; --you:#E3B54A; --slc-es:#5E9A76; --slc-tr:#D0584A;
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.7 "Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif}
+.wrap{max-width:700px;margin:0 auto;padding:0 20px 60px}
+header.hero{padding:28px 0 8px}
+.kicker{font-family:'IBM Plex Mono','Noto Sans TC','PingFang TC','Microsoft JhengHei',monospace;font-size:11px;letter-spacing:.16em;color:var(--tr);font-weight:600}
+h1,h2,.tile .big,.sub-h{font-family:'Noto Serif TC','PingFang TC','Microsoft JhengHei',serif}
+h1{font-weight:900;font-size:clamp(24px,5.5vw,30px);line-height:1.35;margin:6px 0 8px}
+.lead{color:var(--sub);margin:0 0 4px}
+h2{font-weight:900;font-size:20px;margin:38px 0 4px;line-height:1.4;scroll-margin-top:12px}
+h2 .tag{font-size:12px;font-weight:600;color:var(--gold);background:var(--gold-soft);border-radius:999px;padding:2px 10px;margin-left:8px;vertical-align:2px;white-space:nowrap}
+.sec-lead{color:var(--sub);margin:0 0 14px;font-size:15px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:16px;box-shadow:var(--shadow)}
+/* 三個大數字 */
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}
+.tile{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:12px 10px;text-align:center;border-top-width:4px}
+.tile.es{border-top-color:var(--es)} .tile.tr{border-top-color:var(--tr)} .tile.mx{border-top-color:var(--mx)}
+.tile .nm{font-size:13px;color:var(--sub)}
+.tile .big{font-size:clamp(28px,8vw,40px);font-weight:900;line-height:1.15;font-variant-numeric:tabular-nums}
+.tile.es .big{color:var(--es)} .tile.tr .big{color:var(--tr)} .tile.mx .big{color:var(--mx)}
+.tile .of{font-size:12px;color:var(--sub)}
+.tile .rt{font-size:13px;margin-top:2px}
+.note{font-size:13px;color:var(--sub);margin:8px 0 0}
+/* 查位置 */
+.ctrl{display:grid;grid-template-columns:1fr;gap:14px}
+.row label{display:flex;justify-content:space-between;align-items:baseline;font-weight:600;margin-bottom:4px}
+.row .val{font-size:22px;font-weight:800;font-variant-numeric:tabular-nums}
+.row.es .val{color:var(--es)} .row.tr .val{color:var(--tr)}
+input[type=range]{width:100%;height:36px;accent-color:var(--gold)}
+select{font:inherit;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:4px;padding:8px 10px;min-height:44px}
+.yr{display:flex;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap}
+.res{margin-top:6px;padding:12px 14px;border-radius:4px;background:var(--gold-soft)}
+.res b{font-variant-numeric:tabular-nums}
+.res .l1{font-size:17px}
+.res .l2{font-size:14px;color:var(--sub);margin-top:2px}
+.hist{width:100%;height:auto;display:block;margin-top:8px}
+.hist text{fill:var(--sub);font-size:11px}
+
+.step{display:flex;gap:10px;align-items:flex-start;font-size:16px;margin:4px 0 10px;line-height:1.5}
+.step .n{flex:none;width:26px;height:26px;border-radius:50%;background:#8A6420;color:#fff;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.step.es b{color:var(--es)} .step.tr b{color:var(--tr)}
+.chips{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.chip{font:inherit;font-weight:700;font-size:17px;min-height:46px;border-radius:4px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;font-variant-numeric:tabular-nums;padding:0}
+.chip:hover{border-color:var(--gold)}
+.chip[aria-pressed="true"]{background:var(--gold);border-color:var(--gold);color:#fff}
+#esChips .chip[aria-pressed="true"]{background:#3E6E52;border-color:#3E6E52;color:#fff}
+#trChips .chip[aria-pressed="true"]{background:#AE3626;border-color:#AE3626;color:#fff}
+.half{display:flex;align-items:center;gap:8px;margin:10px 0 4px;font-size:15px;min-height:44px;cursor:pointer}
+.half input{width:20px;height:20px;accent-color:var(--gold)}
+.res.empty{background:transparent;border:1.5px dashed var(--line);color:var(--sub);font-size:15px}
+#trChips{grid-template-columns:repeat(9,1fr)}
+@media (max-width:520px){#trChips{grid-template-columns:repeat(5,1fr)}}
+.hist[hidden]{display:none}
+
+.subj{margin-top:22px}
+.res.pr{display:flex;gap:10px;align-items:center;background:var(--gold-soft)}
+.res.pr.demo{opacity:.85}
+.prbig{flex:none;text-align:center;line-height:1;min-width:84px}
+.prbig .prl{display:block;font-size:12px;letter-spacing:.14em;color:var(--sub);margin-bottom:2px}
+.prbig b{font-family:'Noto Serif TC','PingFang TC','Microsoft JhengHei',serif;font-weight:900;font-size:clamp(38px,11.5vw,46px);font-variant-numeric:tabular-nums}
+.subj.es .prbig b{color:var(--es)} .subj.tr .prbig b{color:var(--tr)}
+.prtxt{font-size:14.5px;line-height:1.6}
+.prtxt .l1{font-size:15.5px}
+.prtxt .l2{font-size:13px;color:var(--sub);margin-top:3px}
+.hist{width:100%;height:auto;display:block;margin-top:10px}
+.hist text{fill:var(--sub);font-size:11px}
+.hist .lab{font-weight:700}
+input.sl{-webkit-appearance:none;appearance:none;width:100%;height:46px;background:transparent;margin:4px 0 0;cursor:pointer;touch-action:pan-y}
+input.sl.es{--c:var(--slc-es)} input.sl.tr{--c:var(--slc-tr)}
+input.sl::-webkit-slider-runnable-track{height:10px;border-radius:5px;background:linear-gradient(to right,var(--c) var(--p,50%),var(--line) var(--p,50%))}
+input.sl::-moz-range-track{height:10px;border-radius:5px;background:var(--line)}
+input.sl::-moz-range-progress{height:10px;border-radius:5px;background:var(--c)}
+input.sl::-webkit-slider-thumb{-webkit-appearance:none;width:36px;height:36px;border-radius:50%;background:var(--c);border:3px solid #fff;box-shadow:0 1px 5px rgba(0,0,0,.45);margin-top:-13px}
+input.sl::-moz-range-thumb{width:30px;height:30px;border-radius:50%;background:var(--c);border:3px solid #fff;box-shadow:0 1px 5px rgba(0,0,0,.45)}
+input.sl:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+@keyframes thumbPulse{0%{box-shadow:0 0 0 0 rgba(169,129,46,.75)}70%{box-shadow:0 0 0 16px rgba(169,129,46,0)}100%{box-shadow:0 0 0 0 rgba(169,129,46,0)}}
+input.sl.nudge::-webkit-slider-thumb{animation:thumbPulse 1.5s ease-out infinite}
+input.sl.nudge::-moz-range-thumb{animation:thumbPulse 1.5s ease-out infinite}
+@media (prefers-reduced-motion:reduce){input.sl.nudge::-webkit-slider-thumb,input.sl.nudge::-moz-range-thumb{animation:none}}
+.slhint{text-align:center;font-size:13.5px;color:var(--sub);margin:0 0 10px;letter-spacing:.05em}
+.slhint.done{visibility:hidden}
+.chips{margin-top:2px}
+.chip{min-height:42px;font-size:16px}
+.fracs{grid-column:1/-1;display:flex;gap:6px;align-items:center;margin-top:4px}.fracs span{font-size:13.5px;color:var(--sub);flex:none;margin-right:2px}.fracs .chip{flex:1;font-size:14.5px;min-height:40px}.chip:disabled{opacity:.4}
+/* 趨勢圖 */
+.chartbox svg{width:100%;height:auto;display:block}
+.chartbox text{fill:var(--sub);font-size:12px}
+@media (max-width:560px){.chartbox text{font-size:21px}}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--sub);margin-top:6px}
+.legend i{display:inline-block;width:18px;height:0;border-top:3px solid;vertical-align:middle;margin-right:6px}
+.readout{min-height:3.2em;font-size:14px;margin-top:8px}
+.readout b{font-variant-numeric:tabular-nums}
+/* 表 */
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;width:100%;font-size:14.5px;font-variant-numeric:tabular-nums}
+th,td{padding:8px 10px;text-align:center;border-bottom:1px solid var(--line);white-space:nowrap}
+th{font-weight:700;color:var(--sub);font-size:13px;background:transparent}
+tr.cur td{font-weight:700;background:var(--gold-soft)}
+td.k,th.k{text-align:left}
+.sub-h{font-size:16px;margin:22px 0 6px;font-weight:700}
+.sub-h.es{color:var(--es)} .sub-h.tr{color:var(--tr)} .sub-h.mx{color:var(--mx)}
+details{margin-top:10px}
+summary{cursor:pointer;font-weight:600;min-height:44px;display:flex;align-items:center}
+summary::before{content:"▸";margin-right:8px;color:var(--gold);transition:transform .2s}
+details[open]>summary::before{transform:rotate(90deg)}
+summary::-webkit-details-marker{display:none}
+details p{margin:4px 0 10px;font-size:15px}
+.src{font-size:14px;color:var(--sub)}
+.src li{margin-bottom:6px}
+table.five td{line-height:1.25;padding:8px 4px;white-space:normal}
+table.five td+td,table.five th+td{border-left:1px solid var(--line)}
+@media (max-width:520px){table.five td{padding:8px 4px}table.five th{padding:7px 3px}}
+table.five td b{display:block;font-size:17px;font-weight:800}
+table.five td .rg{display:block;font-size:12px;color:var(--sub);margin-top:2px}
+table.five td.top{background:var(--gold-soft)}
+table.five td.top b{color:#7A5718}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) table.five td.top{background:#3A3322}:root:not([data-theme="light"]) table.five td.top b{color:#E3B54A}}
+:root[data-theme="dark"] table.five td.top{background:#3A3322}
+:root[data-theme="dark"] table.five td.top b{color:#E3B54A}
+footer{margin-top:36px;padding-top:14px;border-top:1px solid var(--line);font-size:13px;color:var(--sub)}
+@media (max-width:520px){ .tiles{gap:6px} .tile{padding:10px 4px} th,td{padding:7px 6px;font-size:13.5px} h2 .tag{display:inline-block;margin:4px 0 0 0} }
+@media print{
+  :root{--bg:#fff;--card:#fff;--ink:#000;--sub:#333;--line:#bbb}
+  .ctrl,.noprint,.sc-back,.unitbar{display:none!important}
+  .card{box-shadow:none}
+}
+
+.shots{display:grid;grid-template-columns:1fr;gap:14px}
+@media (min-width:700px){.shots{grid-template-columns:1fr 1fr}.shot:first-child{grid-column:1/-1}}
+.shot{margin:0;background:var(--card);border:1px solid var(--line);border-radius:4px;overflow:hidden}
+.shot button{display:block;width:100%;padding:0;border:0;background:#fff;cursor:zoom-in}
+.shot img{display:block;width:100%;height:auto}
+.shot figcaption{padding:10px 12px;font-size:13.5px;color:var(--sub);line-height:1.55}
+.shot figcaption b{color:var(--ink)}
+#lb{position:fixed;inset:0;background:rgba(0,0,0,.86);display:none;align-items:center;justify-content:center;z-index:50;padding:12px}
+#lb.on{display:flex}
+#lb img{max-width:100%;max-height:92vh;background:#fff;border-radius:6px}
+#lb .x{position:absolute;top:10px;right:12px;font:inherit;font-size:15px;color:#fff;background:rgba(255,255,255,.18);border:0;border-radius:999px;min-height:44px;padding:0 18px;cursor:pointer}
+@media print{#lb{display:none!important}.shot button{cursor:default}}
+
+/* 防盜用措施（2026-10-14）：畫面浮水印、列印浮水印、頁尾授權聲明 */
+@media screen{body::before{content:"";position:fixed;top:0;left:0;right:0;bottom:0;z-index:2147483000;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22460%22%20height%3D%22240%22%3E%3Cg%20transform%3D%22rotate%28-20%20230%20120%29%22%20font-family%3D%22Noto%20Sans%20TC%2Csans-serif%22%20fill%3D%22%23D9A400%22%20fill-opacity%3D%22.2%22%20text-anchor%3D%22middle%22%3E%3Ctext%20x%3D%22230%22%20y%3D%22112%22%20font-size%3D%2220%22%3E%E9%AB%98%E4%B8%AD%E8%8B%B1%E6%96%87%E9%A1%8C%E5%BA%AB%3C%2Ftext%3E%3Ctext%20x%3D%22230%22%20y%3D%22140%22%20font-size%3D%2214%22%3Estaresto-create.github.io%2FJCEE-vocab-questions%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E");background-repeat:repeat;}}
+@media print{body::after{content:"高中英文題庫\A staresto-create.github.io/JCEE-vocab-questions\A 免費資源，請勿販售";white-space:pre;position:fixed;top:42%;left:0;right:0;text-align:center;transform:rotate(-25deg);font-family:"Noto Sans TC",sans-serif;font-size:26pt;line-height:1.7;color:#e2e2e2;z-index:2147483000;pointer-events:none;}}
+.cc-note{font-size:12px;line-height:1.8;color:var(--cc-fg);margin:12px auto;max-width:60em;padding:0 1em;}.cc-note a{color:inherit;}
+
+.sc-back{font-size:14px;line-height:1.5;margin:0;padding:14px 0 0}
+.sc-back a{color:var(--link);font-weight:700;text-decoration:underline;text-underline-offset:2px;white-space:nowrap;display:inline-block;padding:6px 0}
+.unitbar{margin:14px 0 4px;font-size:14px;line-height:1.5}
+.unitbar .ubrow{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline}
+.unitbar .ublab{color:var(--sub);font-size:12.5px}
+.unitbar a{color:var(--link);text-decoration:underline;text-underline-offset:2px;padding:8px 0;display:inline-block}
+footer{text-align:center}
+footer .cc-note{text-align:left}
+footer a{color:inherit}
+
+/* ===== 單字對照兩頁共用 ===== */
+:root{--tx:#2F5B80;--hi:#A0441A;--ctl-line:#9C907A;color-scheme:light dark}
+:root[data-theme="light"]{color-scheme:light}
+[hidden]{display:none!important}
+h1{text-wrap:balance}
+h2 .tag{color:#7A5718;font-family:inherit}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--es:#7FC49A;--mx:#E3B54A;--tr:#F28B7D;--hi:#F0A070;--tx:#8DB8EA;--ctl-line:#7A7360;--sub:#B4AFA6;--cc-fg:#A9A49B}
+:root:not([data-theme="light"]) mark.hl,:root:not([data-theme="light"]) .ex .en b{background:#4A3F22;color:var(--mx)}
+:root:not([data-theme="light"]) mark.hl{box-shadow:0 -2px 0 var(--mx) inset}
+:root:not([data-theme="light"]) .big4.pri,:root:not([data-theme="light"]) .chkcard{background:#3A3322}
+:root:not([data-theme="light"]) h2 .tag{color:var(--gold)}}
+:root[data-theme="dark"]{color-scheme:dark;--hi:#F0A070;--ctl-line:#7A7360;--tx:#8DB8EA;--bg:#1B1916;--card:#26231F;--ink:#F2F0EE;--sub:#B4AFA6;--line:#514A37;--gold:#E0D1B2;--gold-soft:#2B271E;--es:#7FC49A;--tr:#F28B7D;--mx:#E3B54A;--good:#CBDDD2;--shadow:none;--cc-fg:#A9A49B;--link:#E8BEB9}
+:root[data-theme="dark"] mark.hl,:root[data-theme="dark"] .ex .en b{background:#4A3F22;color:var(--mx)}
+:root[data-theme="dark"] mark.hl{box-shadow:0 -2px 0 var(--mx) inset}
+.kicker{color:#7A5718;font-size:12px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .kicker{color:var(--gold)}}
+:root[data-theme="dark"] .kicker{color:var(--gold)}
+/* 防盜浮水印（2026-10-14 決定保留）：只把層級降到單字面板（20）與回到頂端按鈕之下，避免蓋住面板內容 */
+@media screen{body::before{z-index:10}}
+.note{font-size:14px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible,[role=button]:focus-visible,select:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.sc-back a{padding:12px 0}.unitbar a{padding:12px 0}
+th[scope=row]{font-weight:400;text-align:left}
+.pgbar{display:flex;margin:6px 0 0;border:1px solid var(--ctl-line);border-radius:4px;overflow:hidden;background:var(--card)}
+.pgbar a{flex:1 1 0;min-width:0;text-align:center;padding:10px 6px;min-height:46px;display:flex;align-items:center;justify-content:center;text-decoration:none;color:var(--ink);font-weight:600;font-size:15px;line-height:1.35}
+.pgbar a+a{border-left:1px solid var(--ctl-line)}
+.pgbar a[aria-current=page]{background:var(--gold-soft);font-weight:800;box-shadow:inset 0 -3px 0 var(--gold)}
+/* 查單字 */
+.qlab{display:block;font-weight:700;margin:16px 0 6px}
+.qbox::-webkit-search-cancel-button{filter:grayscale(1)}
+.qbox{width:100%;font:inherit;font-size:17px;color:var(--ink);background:var(--card);border:2px solid var(--gold);border-radius:4px;padding:10px 12px;min-height:52px}
+.qhint{font-size:14px;color:var(--sub);margin:6px 0 0}
+#out .m a,.inl .m a{display:inline-flex;align-items:center;min-height:44px}
+#out .inl{margin-top:12px;padding:12px 14px;background:var(--card);border-left:4px solid var(--gold)}
+/* 四個大按鈕 */
+.four{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+.big4{display:flex;flex-direction:column;gap:2px;text-align:left;font:inherit;color:var(--ink);text-decoration:none;background:var(--card);border:1.5px solid var(--ctl-line);border-radius:4px;padding:12px 12px;min-height:80px;cursor:pointer;box-shadow:var(--shadow)}
+.big4 b{font-family:'Noto Serif TC','PingFang TC','Microsoft JhengHei',serif;font-size:17px;line-height:1.35}
+.big4 b::after{content:" ›";color:var(--gold)}
+.big4[aria-expanded] b::after{content:" ▾"}
+.big4[aria-expanded=true] b::after{content:" ▴"}
+.big4 span{font-size:13px;color:var(--sub);line-height:1.5}
+.big4.pri{background:var(--gold-soft);border-color:var(--gold)}
+.big4:hover{border-color:var(--gold)}
+@media (max-width:340px){.four{grid-template-columns:1fr}}
+:root[data-theme="dark"] .big4.pri,:root[data-theme="dark"] .chkcard{background:#3A3322}
+#lvpick{margin-top:10px;padding:12px 0 0;border-top:1px solid var(--line)}
+#lvpick[hidden]{display:none}
+#lvpick .g{margin:0 0 12px}#lvpick .g>b{display:block;font-size:14px;margin-bottom:6px}
+.lvl{display:flex;flex-wrap:wrap;gap:8px}.lvl.six{display:grid;grid-template-columns:repeat(3,1fr)}.lvl.six a{justify-content:center}
+.lvl a{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border:1.5px solid var(--sub);border-radius:999px;background:var(--card);color:var(--ink);text-decoration:none;font-weight:600}
+.lvl a.g1{border-color:var(--es)}.lvl a.g2{border-color:var(--mx)}.lvl a.g3{border-color:var(--hi)}.lvl a.tx{border-color:var(--tx)}
+/* 級別標籤 */
+.bd{display:inline-block;font-size:13px;line-height:1.3;padding:2px 8px;border-radius:999px;border:1px solid var(--sub);color:var(--ink);background:var(--card);white-space:nowrap}
+.bd-g1{border-color:var(--es);color:var(--es);font-weight:700}
+.bd-g2{border-color:var(--mx);color:var(--mx);font-weight:700}
+.bd-g3{border-color:var(--hi);color:var(--hi);font-weight:700}
+.bd-t{border-color:var(--tx);color:var(--tx);font-weight:700}
+.bd-no{border-style:dotted;color:var(--sub)}
+.tiles.t3 .tile.a{border-top-color:var(--es)}.tiles.t3 .tile.a .big{color:var(--es)}
+.tiles.t3 .tile.b{border-top-color:var(--mx)}.tiles.t3 .tile.b .big{color:var(--mx)}
+.tiles.t3 .tile.c{border-top-color:var(--hi)}.tiles.t3 .tile.c .big{color:var(--hi)}
+.ans{background:var(--gold-soft);border-radius:4px;padding:12px 14px;margin:14px 0 0;font-size:15.5px}
+.rs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
+.rs div{border:1px solid var(--line);border-radius:4px;padding:10px 6px;text-align:center;background:var(--card)}
+.rs .k{font-size:12.5px;color:var(--sub)}.rs .v{font-family:'Noto Serif TC',serif;font-weight:900;font-size:19px;line-height:1.3}
+/* 字的小標籤（chips） */
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 0;padding:0;list-style:none}
+.chips li{font-size:14.5px;border:1px solid var(--ctl-line);border-radius:999px;padding:4px 12px;min-height:44px;display:inline-flex;align-items:center;background:var(--card);cursor:pointer}
+.chips li:hover{border-color:var(--sub)}
+.chips li.x{font-weight:700}
+.chips li.cp{border-style:dashed}
+.chips li small{color:var(--sub);font-weight:400;margin-left:4px}
+.chips li.sel{background:var(--gold);color:var(--bg);border-color:var(--gold);font-weight:700}.chips li.sel small{color:inherit}
+.chips li.nc{cursor:default;border-style:dotted;color:var(--sub)}
+.sg{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.sg button{font:inherit;min-height:44px;padding:0 14px;border:1px solid var(--sub);border-radius:999px;background:var(--card);color:var(--ink);cursor:pointer}
+#out b,#out .note,#out li,.wd .w{overflow-wrap:anywhere;word-break:break-word}
+details{margin:10px 0}summary{cursor:pointer;padding:8px 0;font-weight:600;min-height:44px}
+details.fold{background:var(--card);border:1px solid var(--ctl-line);border-radius:4px;padding:0 16px}
+details.fold>summary{font-size:17px;font-family:'Noto Serif TC',serif;font-weight:900;text-wrap:balance}
+details.fold[open]>summary{border-bottom:1px solid var(--line);margin-bottom:10px}
+details.fold>*:last-child{margin-bottom:14px}
+.lk a,.sidelk a,.wd a,#out a,.inl a,.note a,.card a,.sec-lead a,details a{color:var(--link)}
+.seeall{display:inline-flex;align-items:center;min-height:44px;font-weight:700}
+/* 底部面板 */
+.wd{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--card);border-top:2px solid var(--line);box-shadow:0 -4px 16px rgba(0,0,0,.18);padding:14px 16px calc(14px + env(safe-area-inset-bottom))}
+.wd[hidden]{display:none}
+.wd .in{max-width:660px;margin:0 auto;position:relative}
+#wdb{max-height:min(58vh,calc(100vh - 230px));overflow-y:auto;-webkit-overflow-scrolling:touch;outline:0}
+/* 面板內容超出時的提示（捲到底自動隱藏） */
+.morehint{display:block;width:100%;font:inherit;font-size:14px;font-weight:700;color:var(--ink);min-height:40px;margin:2px 0 0;padding:6px 10px;border:1px dashed var(--ctl-line);border-radius:4px;background:var(--gold-soft);cursor:pointer;text-align:center}
+.dw{padding-right:44px}
+@media (max-height:560px){#wdb{max-height:min(50vh,calc(100vh - 200px))}}
+.wd .m a{display:inline-flex;align-items:center;min-height:44px}
+.wd .w{font-family:'Noto Serif TC',serif;font-weight:900;font-size:22px}.wd .p,.dw .p{color:var(--sub);font-size:14px;margin-left:6px}
+.dw .w{font-family:'Noto Serif TC',serif;font-weight:900;font-size:22px}
+.z{font-size:18px;margin:6px 0}
+.bds{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}
+.m{font-size:13.5px;color:var(--sub);line-height:1.7;margin-top:4px}
+.ex,.co{margin-top:10px;font-size:15px}
+.exh{font-size:13.5px;font-weight:700;color:#7A5718;letter-spacing:.06em;margin:12px 0 4px;padding-top:10px;border-top:1px solid var(--line)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .exh{color:var(--gold)}}
+:root[data-theme="dark"] .exh{color:var(--gold)}
+.ex p{margin:0}.ex .en{line-height:1.6}.ex .en b{background:var(--gold-soft);border-radius:2px;padding:0 2px}.ex .zhx{color:var(--sub);font-size:14.5px;margin-top:2px}
+.co ul{margin:0;padding:0;list-style:none}.co li{padding:2px 0;line-height:1.5}.co .ce{font-weight:600}.co li::before{content:'· ';color:var(--sub)}.co .cz{color:var(--sub);font-size:14px;margin-left:4px}
+.wd #wdx{position:absolute;right:0;top:0;min-width:44px;min-height:44px;font-size:24px;background:none;border:0;color:var(--sub);cursor:pointer}
+.wd .nav{display:flex;gap:8px;margin-top:10px}
+.wd .nav button{flex:1;font:inherit;font-size:15px;min-height:44px;border:1px solid var(--ctl-line);border-radius:4px;background:var(--card);color:var(--ink);cursor:pointer}
+.wd .nav button:disabled{opacity:.55}
+.chips li.hid{display:none}
+@media print{.wd{display:none!important}}
+.note.lk{margin-top:14px}
+@media print{.spk,.kkp{display:none!important}#q,#out,.lk,.unitbar,.pgbar,.four,#lvpick,.qlab,.qhint,.chkcard,.noprint{display:none!important}h2{break-after:avoid}table{break-inside:avoid}.chips li{border:0;min-height:0;padding:0 6px 0 0}}
+
+.wd .act{display:grid;grid-template-columns:auto 1fr 1fr 1fr auto;gap:6px;margin-top:8px}
+.wd .act button.nv{min-width:44px;padding:0 10px}
+.wd .act button:disabled{opacity:.45;cursor:default}
+@media (max-width:599px){.wd .act .lt{display:none}.wd{padding-top:10px}.wd .act{gap:5px}.wd .act button{font-size:14px;padding:0 2px;white-space:nowrap;letter-spacing:0}.wd .act button.nv{min-width:40px;padding:0 4px;font-size:20px}}
+.wd .act button{font:inherit;font-size:15px;min-height:44px;border:1px solid var(--ctl-line);border-radius:4px;background:var(--card);color:var(--ink);cursor:pointer;padding:0 6px}
+.wd .act button.on{background:var(--gold);color:var(--bg);border-color:var(--gold);font-weight:700}
+.wd .ms{font-size:12.5px;color:var(--sub);margin:4px 0 0}
+.chips li[data-m="2"]::before{content:"✓";margin-right:5px;font-weight:700}
+.chips li[data-m="1"]::before{content:"↻";margin-right:5px;font-weight:700}
+.mk{display:none;font-size:12.5px;font-weight:700;border:1.5px solid var(--ink);border-radius:999px;padding:1px 8px}
+[data-m="2"] .mk,[data-m="1"] .mk{display:inline-block}
+[data-m="2"] .mk::before{content:"✓ 我會了"}
+[data-m="1"] .mk::before{content:"↻ 再複習"}
+[data-m="1"] .mk{border-style:dashed}
+
+.showz{display:block;font:inherit;font-size:15px;min-height:44px;margin:6px 0;padding:0 14px;border:1.5px solid var(--sub);border-radius:4px;background:var(--card);color:var(--ink);cursor:pointer}
+li.r:focus-visible{outline:2px solid var(--gold);outline-offset:-2px}
+
+.chkcard{display:flex;flex-direction:column;gap:2px;margin-top:14px;text-decoration:none;color:var(--ink);background:var(--gold-soft);border:2px solid var(--gold);border-radius:4px;padding:12px;min-height:64px}
+.chkcard b{font-family:'Noto Serif TC','PingFang TC','Microsoft JhengHei',serif;font-size:17px}.chkcard b::after{content:" ›";color:var(--gold)}
+.chkcard span{font-size:13px;color:var(--sub);line-height:1.5}.chkcard:hover{border-color:var(--gold)}
+.pgbar a{word-break:keep-all}
+
+@media print{:root,:root:not([data-theme="light"]),:root[data-theme="dark"]{--bg:#fff;--card:#fff;--ink:#000;--sub:#333;--line:#bbb;--gold:#7A5718;--gold-soft:#fff;--link:#000;--es:#3E6E52;--mx:#8A6420;--tr:#AE3626;--hi:#8A3A12;--tx:#2F5B80;color-scheme:light}}
+.card2 a{color:var(--link)}
+
+/* 表格在手機上縮小字級與間距，最右欄不被切掉 */
+@media (max-width:520px){table.cmp{font-size:12.5px}table.cmp th,table.cmp td{padding:7px 3px;font-size:12px}.card.tw{padding:12px 10px}}
+.nw{white-space:nowrap}
+.bd.bd-no{border-color:var(--ctl-line)}
+.lnk{font:inherit;color:var(--link);background:none;border:0;text-decoration:underline;text-underline-offset:2px;cursor:pointer;min-height:44px;padding:0 4px}
+
+li.r.sel{padding-left:14px!important}
+.lkl{margin:0;padding-left:1.2em}.lkl li{margin:7px 0;overflow-wrap:anywhere}
+.lkl a{font-weight:600}
+@media(max-width:430px){.pgbar a{font-size:13.5px;padding:10px 2px}}
+
+@media(max-width:350px){.pgbar a{font-size:12.5px;padding:10px 0;letter-spacing:-.02em}}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]) .pgbar a[aria-current=page]{background:#3A3322}}
+:root[data-theme=dark] .pgbar a[aria-current=page]{background:#3A3322}
+
+/* 中文意思裡的詞性小標籤、搜尋詞標示 */
+.nb{white-space:nowrap}
+.pt{font-size:.82em;line-height:1.3;color:var(--sub);border:1px solid var(--ctl-line);border-radius:3px;padding:0 4px;white-space:nowrap;display:inline-block;vertical-align:.05em}
+mark.hl{background:var(--gold-soft);color:inherit;border-radius:2px;box-shadow:0 -1px 0 var(--gold) inset}
+
+/* 被選取的金色小卡：標示與詞性標籤改用小卡自己的文字色，才看得清楚 */
+.chips li.sel mark.hl{background:transparent;color:inherit;box-shadow:none;text-decoration:underline;text-underline-offset:3px}
+.chips li.sel .pt{color:inherit;border-color:currentColor}
+
+main a{color:var(--link)}
+.ft .fm{display:block;font-size:14.5px;font-weight:400;color:var(--sub);margin:2px 0 4px;font-variant-numeric:tabular-nums}
+.rgp{font-size:16px;margin:18px 0 4px;color:var(--sub)}
+.rl{list-style:none;margin:0;padding:0}
+.rl li{display:flex;flex-direction:column;gap:2px;border:1px solid var(--line);border-radius:4px;background:var(--card);padding:10px 14px;margin:8px 0;overflow-wrap:anywhere}
+.rl li b{font-size:16.5px}
+.rl li span{font-size:15px;color:var(--sub)}
+.rl.lnk li{position:relative}
+.rl.lnk li a::after{content:"";position:absolute;inset:0}
+.rl.lnk li a::before{content:"↗";float:right;margin-left:8px;color:var(--sub)}
+.rl.ft li{border:0;background:var(--gold-soft)}
+@media(min-width:700px){.rl.ft{display:grid;grid-template-columns:1fr 1fr;gap:0 10px}}
+.lkl{margin:0;padding-left:1.2em}.lkl li{margin:7px 0;overflow-wrap:anywhere}
+</style>
+</head>
+<body>
+<div class="wrap">
+<p class="sc-back"><a href="https://staresto-create.github.io/JCEE-vocab-questions/">← 回題庫首頁</a></p>
+<nav class="pgbar" aria-label="單字對照頁面"><a href="wordlevel.html">單字對照</a><a href="wordlist.html">單字總表</a><a href="wordcheck.html">單字健檢</a><a href="toeic.html">多益單字</a><a href="bestep.html" aria-current="page">培力英檢</a></nav>
+<header class="hero">
+  <div class="kicker">大考・英檢・多益</div>
+  <h1>培力英檢（BESTEP）</h1>
+  <p class="lead">培力英檢是教育部補助/指導、由語言訓練測驗中心（LTTC，辦理全民英檢的單位）研發的英語測驗，<b>對象是大專校院在學學生</b>，聽力、閱讀、口說、寫作都考，程度涵蓋 CEFR A 到 C。高中階段還不能報考，不過上了大學，學校可能辦理校園考試；先認識它，到時就不會陌生。</p>
+</header>
+<main>
+<div class="ans"><b>先看這裡</b><br>準備學測的同學，這一頁先當作認識上大學以後會遇到的英檢就好。想先了解題目，可以直接看<a href="#res">官方免費資源</a>：例題、兩回模擬試題和備考影片都不用登入、不用付費。</div>
+<nav class="unitbar" aria-label="本頁單元"><div class="ubrow"><span class="ublab">本頁單元</span><a href="#what">這是什麼考試</a><a href="#fmt">考什麼</a><a href="#res">官方免費資源</a><a href="#src">資料說明</a></div></nav>
+
+<section id="what" aria-labelledby="h-what">
+  <h2 id="h-what">這是什麼考試</h2>
+  <div class="card"><ul class="lkl">
+    <li><b>測驗對象：</b>專為國內大專校院學生研發，測驗內容以學術英語為主，也涵蓋國際學術或企業職場交流需要的英語溝通能力。</li>
+    <li><b>主辦單位：</b>教育部補助/指導，財團法人語言訓練測驗中心（LTTC）主辦；2023 年 9 月推出口說與寫作，同年 11 月推出聽力與閱讀。</li>
+    <li><b>報名方式：</b>以大專校院辦理的校園專案為主；場次、費用與名額依學校公告，請以培力英檢官網與學校通知為準。</li>
+    <li><b>不分級報考：</b>同一份試卷涵蓋 CEFR A 到 C，成績會對應到 CEFR 級別；聽讀說寫可以分開報考。</li>
+  </ul></div>
+</section>
+
+<section id="fmt" aria-labelledby="h-fmt">
+  <h2 id="h-fmt">考什麼</h2>
+  <ul class="rl ft" aria-label="培力英檢四項測驗的題數、時間與題型">
+    <li><b>聽力<span class="fm">35 題 · 約 35 分鐘 · 總分 140</span></b><span>第一部分問答、第二部分短篇言談、第三部分長篇言談</span></li>
+    <li><b>閱讀<span class="fm">35 題 · 50 分鐘 · 總分 140</span></b><span>第一部分詞彙、第二部分短文閱讀、第三部分長文閱讀</span></li>
+    <li><b>口說<span class="fm">8 題 · 約 15 分鐘 · 總分 360</span></b><span>第一部分回答問題、第二部分表達意見、第三部分摘要報告</span></li>
+    <li><b>寫作<span class="fm">5 題 · 50 分鐘 · 總分 360</span></b><span>第一部分回答問題、第二部分表達意見、第三部分整合式寫作</span></li>
+  </ul>
+  <p class="note">口說在視聽或電腦教室進行，一人一機、多人同步錄音；寫作是紙筆測驗。口說、寫作的作答由兩位以上合格評分老師評閱。</p>
+</section>
+
+<section id="res" aria-labelledby="h-res">
+  <h2 id="h-res">官方免費資源<span class="tag">全部免費</span></h2>
+  <p class="note">以下都是培力英檢官網提供的資源，連結會另開新分頁。模擬試題下載和例題不用登入。</p>
+  <h3 class="rgp">先看這一份</h3><ul class="rl lnk"><li><b><a href="https://bestep.tw/About/page?id=3d633697a4bb4f088c0ffdff1a93d52b" target="_blank" rel="noopener">BESTEP完整攻略</a></b><span>官方整理的備考路線：從認識題型、看例題，到模擬試題和備考影片，一頁就能看完整個流程。</span></li></ul><h3 class="rgp">看例題</h3><ul class="rl lnk"><li><b><a href="https://bestep.tw/Resource/?id=f65ca5bfd43141158c33dfca3ea4b726" target="_blank" rel="noopener">聽力、閱讀的例題與解析</a></b><span>聽力三個部分、閱讀三個部分，每部分都有例題和解析。</span></li><li><b><a href="https://bestep.tw/Resource/?id=623e7e793ad642ca9c43e71fd9721ca7" target="_blank" rel="noopener">口說、寫作的例題與作答樣例</a></b><span>每個部分有例題；口說附考生作答音檔，寫作附作答樣例。</span></li></ul><h3 class="rgp">做整份模擬試題</h3><ul class="rl lnk"><li><b><a href="https://bestep.tw/Resource/detail?id=b5759ac957844e42915f81a51245cb17" target="_blank" rel="noopener">聽讀模擬試題下載（共 2 回）</a></b><span>每回有試題、解答、聽力錄音稿和聽力音檔，可以下載。</span></li><li><b><a href="https://bestep.tw/Resource/detail?id=d18fa405af61467eab0bb80b5250b88f" target="_blank" rel="noopener">說寫模擬試題下載（共 2 回）</a></b><span>每回有口說試題、音檔、參考答案，以及寫作試題、參考答案。</span></li><li><b><a href="https://bestep.tw/exam/" target="_blank" rel="noopener">聽讀線上模擬試題平台</a></b><span>在線上照正式考試的時間作答，做完可以看全部題目的解析；使用前要先登入官網帳號。</span></li></ul><h3 class="rgp">更深入</h3><ul class="rl lnk"><li><b><a href="https://bestep.tw/Resource/detail?id=135d3bea0351429fbd3fbb28a544abec" target="_blank" rel="noopener">官方指南（含聽讀說寫）</a></b><span>題型解析和作答策略，可以下載全文。</span></li><li><b><a href="https://bestep.tw/Resource/detail?id=ceb2cd8db5a54dc4ab68bd054a26275f" target="_blank" rel="noopener">說寫備考短片</a></b><span>口說、寫作的題型準備方向與作答重點。</span></li></ul>
+  <p class="note">培力英檢官網：<a href="https://bestep.tw/" target="_blank" rel="noopener">bestep.tw</a>。報名、考試日期與成績，請看官網的「報名專區」和「常見 Q&amp;A」。</p>
+</section>
+
+<section class="srcs" id="src">
+<h2>資料說明</h2>
+<ul>
+<li>題型、題數、作答時間與分數，來自<a href="https://bestep.tw/About/" target="_blank" rel="noopener">培力英檢官網「關於本測驗」</a>（2026 年 11 月 1 日查閱）；主辦與測驗特色參考 LTTC 的<a href="https://www.lttc.ntu.edu.tw/resources/BESTEP/BESTEP_intro.pdf" target="_blank" rel="noopener">培力英檢簡介</a>。</li>
+<li>考試內容與辦法可能調整，請以官網最新公告為準。</li>
+<li>本頁為個人整理，與教育部、語言訓練測驗中心（LTTC）均無關，也未經其審定；上列資源皆在官方網站，本題庫沒有複製其中的題目。</li>
+</ul>
+</section>
+</main>
+<footer>
+  © 2026 staresto-create ZZSH · 免費、無廣告的非營利自學題庫
+  <p class="cc-note">本頁其餘自行整理的部分（比對、計算與編排）採用 <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh-hant" target="_blank" rel="license noopener">CC BY-NC 4.0</a>（姓名標示-非商業性）授權：可以分享，但須註明出處，不得用於商業用途。大考詞彙表與英檢字表的原始內容，著作權分屬大考中心與語言訓練測驗中心；多益補充字表（TOEIC Service List 1.2，Browne &amp; Culligan）本身，以及由它計算出的多益欄位與數字，依原授權採用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh-hant" target="_blank" rel="license noopener">CC BY-SA 4.0</a>，不受上述非商業限制。完整說明請見<a href="https://staresto-create.github.io/JCEE-vocab-questions/#terms">使用與著作權</a>。</p>
+</footer>
+</div>
+</body>
+</html>
