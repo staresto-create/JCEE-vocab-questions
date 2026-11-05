@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>每週填字遊戲</title>
+<meta name="description" content="每週一份的英文單字填字遊戲，單字取自學測、指考詞彙題的答案。">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600&display=swap">
+<style>
+:root{
+  --bg:#F6F1E4; --card:#FFFDF7; --fg:#221F1A; --muted:#5B5648; --rule:#DCD3BB;
+  --accent:#AE3626; --accent-soft:#D8C6BE; --on-accent:#FFFFFF;
+  --ok:#3E6E52; --ok-bg:#E6EFE4; --bad:#AE3626; --bad-bg:#F7EAE6;
+  --mark:#FFE9A0; --mark-fg:#221F1A; --note-bg:#FBF2DA;
+  --blk:transparent; --cell:#FFFDF7; --cell-line:#8F8468; --hi:#FBEBB5; --cur:#F3D36B;
+  --serif:'Noto Serif TC','PingFang TC','Microsoft JhengHei',serif;
+  --sans:'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif;
+  --mono:'IBM Plex Mono','Noto Sans TC','PingFang TC','Microsoft JhengHei',monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#1B1916; --card:#26231F; --fg:#F2F0EE; --muted:#C2BFBB; --rule:#514A37;
+    --accent:#E4B6B0; --accent-soft:#4F413A; --on-accent:#1B1916;
+    --ok:#CBDDD2; --ok-bg:#25302A; --bad:#E8BEB9; --bad-bg:#4A2B27;
+    --mark:#53471F; --mark-fg:#F2F0EE; --note-bg:#2A2821;
+    --blk:transparent; --cell:#2C2924; --cell-line:#7D735D; --hi:#4A4021; --cur:#7A6420; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#1B1916; --card:#26231F; --fg:#F2F0EE; --muted:#C2BFBB; --rule:#514A37;
+  --accent:#E4B6B0; --accent-soft:#4F413A; --on-accent:#1B1916;
+  --ok:#CBDDD2; --ok-bg:#25302A; --bad:#E8BEB9; --bad-bg:#4A2B27;
+  --mark:#53471F; --mark-fg:#F2F0EE; --note-bg:#2A2821;
+  --blk:transparent; --cell:#2C2924; --cell-line:#7D735D; --hi:#4A4021; --cur:#7A6420; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--fg); font-family:var(--sans); font-size:16px; line-height:1.7;
+  padding-block:20px 56px;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));
+  padding-right:max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap{max-width:640px; margin:0 auto; display:flex; flex-direction:column; gap:16px}
+h1{font-family:var(--serif); font-size:28px; line-height:1.3; margin:0; text-wrap:balance}
+.lead{margin:4px 0 0; color:var(--muted); font-size:15px}
+.top{display:flex; justify-content:space-between; align-items:flex-end; gap:12px; flex-wrap:wrap}
+.meta{display:flex; gap:8px; flex-wrap:wrap; font-family:var(--mono); font-size:13px}
+.chip{border:1px solid var(--rule); border-radius:999px; padding:2px 12px; background:var(--card); white-space:nowrap}
+.chip b{font-weight:500; color:var(--accent)}
+.sample{border:1px dashed var(--rule); border-radius:8px; padding:10px 14px; font-size:14px; color:var(--muted); background:var(--note-bg)}
+.sample strong{color:var(--fg)}
+.sample p{margin:0 0 4px} .sample p:last-child{margin:0}
+details.how{border:1px solid var(--rule); border-radius:10px; background:var(--card); padding:8px 14px; font-size:15px}
+details.how summary{cursor:pointer; font-weight:700; min-height:32px; display:flex; align-items:center}
+details.how ul{margin:6px 0 4px; padding-left:1.2em} details.how li{margin:2px 0}
+
+.bar{
+  position:sticky; top:0; z-index:5; background:var(--card); border:1px solid var(--rule); border-radius:10px;
+  padding:8px 14px; min-height:60px; display:flex; flex-direction:column; justify-content:center; gap:0;
+}
+.bar .k{font-family:var(--mono); font-size:12.5px; color:var(--muted); letter-spacing:.04em}
+.bar .t{font-size:17px; font-weight:500; overflow-wrap:anywhere}
+
+.gridbox{width:100%; max-width:440px; margin:0 auto}
+.grid{
+  display:grid; grid-template-columns:repeat(11, 1fr); gap:1px; padding:1px;
+  border:0; background:transparent;
+  touch-action:manipulation; user-select:none; -webkit-user-select:none;
+}
+.c{
+  position:relative; aspect-ratio:1/1; background:var(--cell); border:0; outline:1px solid var(--cell-line); min-height:0; line-height:1; overflow:hidden;
+  display:flex; align-items:center; justify-content:center; cursor:pointer; min-width:0;
+  font-family:var(--mono); font-weight:500; font-size:clamp(16px, 5.4vw, 24px); color:var(--fg); text-transform:uppercase;
+}
+.c.k{background:transparent; cursor:default; outline:0}
+.c.in{background:var(--hi)}
+.c.cur{background:var(--cur); box-shadow:inset 0 0 0 2.5px var(--accent)}
+.c.bad{background:var(--bad-bg); color:var(--bad)}
+.c.giv{color:var(--muted); font-weight:700}
+.c.bad::after{content:""; position:absolute; left:3px; right:3px; bottom:3px; height:2px; background:var(--bad)}
+.c .n{position:absolute; top:1px; left:2px; font-size:clamp(8.5px, 2.5vw, 11px); line-height:1; font-weight:400; color:var(--muted); text-transform:none}
+.c.cur .n,.c.in .n{color:var(--fg)}
+
+.kbd{display:flex; flex-direction:column; gap:6px; max-width:440px; width:100%; margin:0 auto}
+.kr{display:flex; gap:5px; justify-content:center}
+.key{
+  flex:1 1 0; min-width:0; max-width:44px; height:46px; font:inherit; font-family:var(--mono); font-size:17px; font-weight:500;
+  color:var(--fg); background:var(--card); border:1.5px solid var(--rule); border-radius:8px; cursor:pointer; padding:0;
+  touch-action:manipulation; text-transform:uppercase;
+}
+.key:active{background:var(--hi)}
+.key.wide{flex:1.6 1 0; max-width:72px; font-family:var(--sans); font-size:15px}
+.ctl{display:flex; gap:8px; flex-wrap:wrap; justify-content:center}
+.btn{
+  font:inherit; font-size:15px; color:var(--fg); background:var(--card); border:1.5px solid var(--rule);
+  border-radius:10px; padding:8px 14px; cursor:pointer; min-height:44px; touch-action:manipulation;
+}
+.btn:hover{border-color:var(--accent)}
+.btn.primary{background:var(--accent); border-color:var(--accent); color:var(--on-accent)}
+.btn:focus-visible,.key:focus-visible,.cl:focus-visible,.spk:focus-visible{outline:3px solid var(--accent); outline-offset:2px}
+.status{text-align:center; font-size:14px; color:var(--muted); min-height:1.7em; margin:0}
+.status.ok{color:var(--ok); font-weight:700}
+.status.no{color:var(--bad); font-weight:700}
+
+.clues{display:grid; grid-template-columns:1fr 1fr; gap:16px}
+@media (max-width:560px){ .clues{grid-template-columns:1fr} }
+.clues h2{font-family:var(--mono); font-size:13px; font-weight:500; letter-spacing:.08em; color:var(--muted); margin:0 0 6px; border-bottom:1px solid var(--rule); padding-bottom:4px}
+.clues ol{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:2px}
+.cl{
+  display:flex; gap:10px; align-items:baseline; width:100%; text-align:left; font:inherit; font-size:15.5px; line-height:1.55;
+  color:var(--fg); background:transparent; border:0; border-left:3px solid transparent; padding:6px 8px; cursor:pointer; border-radius:0 6px 6px 0; min-height:40px;
+}
+.cl:hover{background:var(--hi)}
+.cl.act{background:var(--hi); border-left-color:var(--accent)}
+.cl .no{font-family:var(--mono); font-weight:500; color:var(--accent); flex:none; min-width:1.6em}
+.cl .len{font-family:var(--mono); font-size:12.5px; color:var(--muted); white-space:nowrap}
+.cl .tx{min-width:0; overflow-wrap:anywhere}
+.cl.good .tx::after{content:" ✓"; color:var(--ok); font-weight:700}
+
+.panel{background:var(--card); border:1px solid var(--rule); border-radius:12px; padding:20px max(16px,4vw)}
+.panel h2{font-family:var(--serif); font-size:22px; line-height:1.4; margin:0 0 4px}
+.panel .sub{margin:0 0 14px; color:var(--muted); font-size:14.5px}
+.wd{border-top:1px solid var(--rule); padding:14px 0 2px}
+.wd:first-of-type{border-top:0; padding-top:4px}
+.wh{display:flex; gap:10px; align-items:baseline; flex-wrap:wrap}
+.wh .no{font-family:var(--mono); font-size:13px; color:var(--muted)}
+.wh .w{font-family:var(--serif); font-size:21px}
+.wh .kk{font-family:var(--mono); font-size:14px; color:var(--muted)}
+.spk{font:inherit; font-size:15px; background:var(--card); border:1.5px solid var(--rule); border-radius:999px; width:34px; height:34px; cursor:pointer; padding:0; line-height:1}
+.wm{margin:0; font-size:15px; color:var(--muted)}
+.ex{margin:6px 0 0; font-family:var(--serif); font-size:17px; line-height:1.65; overflow-wrap:anywhere}
+.ex b{background:var(--mark); color:var(--mark-fg); padding:0 3px; border-radius:3px; font-weight:700}
+.zh{margin:2px 0 0; font-size:15px; color:var(--muted)}
+.from{margin:4px 0 0; font-size:13.5px; color:var(--muted)}
+.from a{color:var(--accent)}
+.panel .end{margin:16px 0 0; padding-top:12px; border-top:1px solid var(--rule); font-size:14.5px}
+.panel .end a{color:var(--accent)}
+footer.foot{margin-top:6px; padding-top:.9rem; border-top:1px solid var(--rule); font-size:.8rem; color:var(--muted); line-height:1.9}
+footer.foot a{color:var(--accent)}
+.cc-note{font-size:12px; line-height:1.8; margin:8px 0 0}
+.cc-note a{color:inherit}
+.printonly{display:none}
+@media (prefers-reduced-motion:no-preference){ .btn,.key,.c,.cl{transition:background-color .12s, border-color .12s} }
+
+/* 列印：只印空白題目（格子、編號、提示），不印任何字母、答案、例句，也不印按鈕與鍵盤 */
+@media print{
+  @page{size:A4 portrait; margin:12mm}
+  body{background:#fff !important; color:#000 !important; padding:0 !important; font-size:11pt}
+  .wrap{max-width:none; gap:8px}
+  .sample,details.how,.bar,.kbd,.ctl,.status,#panel,.meta,.lead,.screenonly,footer.foot a{display:none !important}
+  .printonly{display:block}
+  h1{font-size:20pt}
+  .top{border-bottom:1px solid #000; padding-bottom:4px}
+  .gridbox{max-width:112mm; margin:0}
+  .grid{border:0 !important; background:transparent !important}
+  .c{background:#fff !important; outline:0.75pt solid #000; font-size:0}
+  .c.giv{font-size:14pt}
+  .c.k{background:transparent !important; outline:0 !important}
+  .c .n{color:#000 !important; font-size:7pt}
+  .c .ch{visibility:hidden}
+  .c.giv .ch{visibility:visible; font-size:14pt; color:#000}
+  .c.in,.c.cur,.c.bad{background:#fff !important; box-shadow:none !important}
+  .c.bad::after{display:none}
+  .clues{grid-template-columns:1fr 1fr; gap:10mm}
+  .cl{padding:2px 0; min-height:0; font-size:10.5pt; line-height:1.45; border:0; color:#000}
+  .cl .no,.cl .len{color:#000}
+  .cl.good .tx::after{content:""}
+  .cl.act{background:none}
+  .cl,.cl:focus,.cl:focus-visible{outline:0}
+  .clues h2{color:#000; border-color:#000}
+  .printonly.pnote{font-size:9pt; margin:0; color:#333}
+  .cc-note{font-size:8pt; color:#444}
+}
+</style>
+<style id="anti-copy">
+/* 防盜用措施（2026-10-14）：畫面浮水印、列印浮水印、頁尾授權聲明——與其他頁相同 */
+__WM__
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div>
+      <h1>每週填字遊戲</h1>
+      <p class="lead">看中文提示，拼出對應的英文單字。這些字都出自歷屆學測、指考詞彙題的答案。</p>
+    </div>
+    <div class="meta">
+      <span class="chip" id="wk"></span>
+      <span class="chip" id="cnt"></span>
+    </div>
+  </div>
+  <p class="printonly pnote">做完後可以到本題庫的「每週填字遊戲」輸入答案，對照每個字的原題與例句。</p>
+
+
+  <details class="how">
+    <summary>玩法</summary>
+    <ul>
+      <li>點一個空格，上方會顯示這一格的提示，同一個字的格子也會標示出來。</li>
+      <li>同一格再點一次，可以在橫向和直向之間切換。</li>
+      <li>用下面的字母鍵輸入，電腦上也可以直接打字。</li>
+      <li>「檢查答案」會標出填錯的字母；「補一個字母」會幫你填好選中的那一格。</li>
+    </ul>
+  </details>
+
+  <div class="bar" id="bar" aria-live="polite"><span class="k" id="barK">提示</span><span class="t" id="barT">點一個格子開始</span></div>
+
+  <div class="gridbox"><div class="grid" id="grid" role="application" aria-label="填字遊戲格子"></div></div>
+
+  <p class="status" id="status" aria-live="polite"></p>
+
+  <div class="kbd" id="kbd" aria-label="字母鍵盤"></div>
+
+  <div class="ctl">
+    <button class="btn primary" type="button" id="bCheck">檢查答案</button>
+    <button class="btn" type="button" id="bHint">補一個字母</button>
+    <button class="btn" type="button" id="bClear">重新開始</button>
+    <button class="btn" type="button" id="bReveal">顯示答案</button>
+    <button class="btn" type="button" id="bPrint">列印空白題目</button>
+  </div>
+
+  <div class="clues">
+    <section><h2>橫向　ACROSS</h2><ol id="clA"></ol></section>
+    <section><h2>直向　DOWN</h2><ol id="clD"></ol></section>
+  </div>
+
+  <section class="panel" id="panel" hidden></section>
+
+  <footer class="foot">
+    <a href="https://staresto-create.github.io/JCEE-vocab-questions/">回題庫首頁</a>　·　<a href="https://staresto-create.github.io/JCEE-vocab-questions/cards/">單字記憶卡</a>
+    <p class="cc-note">本題庫自己寫的部分（解析、中譯、分類、標註與編排）採用 <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh-hant" target="_blank" rel="license noopener">CC BY-NC 4.0</a>（姓名標示─非商業性）授權：可以分享，但須註明出處，不得用於商業用途。</p>
+  </footer>
+</div>
+
+<script>
+var S = 'https://staresto-create.github.io/JCEE-vocab-questions/';
+var ALL = [{"n": 11, "nums": {"0,0": 1, "0,2": 2, "0,10": 3, "1,7": 4, "2,0": 5, "4,2": 6, "4,4": 7, "8,2": 8}, "grid": [[".", ".", ".", ".", ".", "#", "#", "#", "#", "#", "."], [".", "#", ".", "#", "#", "#", "#", ".", "#", "#", "."], [".", ".", ".", ".", ".", "#", "#", ".", "#", "#", "."], [".", "#", ".", "#", "#", "#", "#", ".", "#", "#", "."], [".", "#", ".", ".", ".", ".", ".", ".", ".", ".", "."], [".", "#", ".", "#", ".", "#", "#", ".", "#", "#", "."], ["#", "#", ".", "#", ".", "#", "#", ".", "#", "#", "."], ["#", "#", "#", "#", ".", "#", "#", ".", "#", "#", "."], ["#", "#", ".", ".", ".", ".", ".", ".", ".", ".", "."], ["#", "#", "#", "#", ".", "#", "#", ".", "#", "#", "#"], ["#", "#", "#", "#", ".", "#", "#", "#", "#", "#", "#"]], "words": [{"no": 1, "dir": "A", "r": 0, "c": 0, "len": 5, "a": "ZHJhZnQ=", "clue": "n. 草稿, 草案", "kk": "dræft", "lv": 4, "sent": "Not satisfied with the first <b>draft</b> of her essay, Mary revised it several times before turning it in to the teacher.", "sz": "瑪麗對自己文章的第一份草稿不滿意，在交給老師之前修改了好幾次。", "src": "114 學測詞彙題第 5 題", "qid": "V0485", "st": "gsat"}, {"no": 1, "dir": "D", "r": 0, "c": 0, "len": 6, "a": "ZGlnZXN0", "clue": "v. 消化, 理解", "kk": "（動詞）daɪˈʤɛst　（名詞）ˈdaɪˌʤɛst", "lv": 4, "sent": "Mary is suffering from a stomachache and needs to eat food which is easy to <b>digest</b>.", "sz": "瑪麗胃痛，需要吃容易消化的食物。", "src": "97 學測詞彙題第 3 題", "qid": "V0243", "st": "gsat"}, {"no": 2, "dir": "D", "r": 0, "c": 2, "len": 7, "a": "YW1hdGV1cg==", "clue": "adj. 業餘的", "kk": "ˈæməˌʧɝ", "lv": 4, "sent": "Jane started as an <b>amateur</b> art designer, but now she has a professional studio of her own.", "sz": "珍最初只是個業餘的美術設計師，但現在她擁有自己的專業工作室。", "src": "115 學測詞彙題第 2 題", "qid": "V0492", "st": "gsat"}, {"no": 3, "dir": "D", "r": 0, "c": 10, "len": 9, "a": "ZnJhZ3JhbmNl", "clue": "n. 芬芳, 香味", "kk": "ˈfreɪgrəns", "lv": 6, "sent": "Ann enjoyed going to the flower market. She believed that the <b>fragrance</b> of flowers refreshed her mind.", "sz": "安很喜歡逛花市，她相信花朵的香氣能讓她神清氣爽。", "src": "97 學測詞彙題第 6 題", "qid": "V0246", "st": "gsat"}, {"no": 4, "dir": "D", "r": 1, "c": 7, "len": 9, "a": "cGFyYWNodXRl", "clue": "n. 降落傘", "kk": "ˈpɛrəˌʃut", "lv": 4, "sent": "The skydiver managed to land safely after jumping out of the aircraft, even though her <b>parachute</b> failed to open in midair.", "sz": "這位跳傘者從飛機跳下後，儘管降落傘在半空中未能順利打開，最終仍安全著陸。", "src": "110 學測詞彙題第 5 題", "qid": "V0440", "st": "gsat"}, {"no": 5, "dir": "A", "r": 2, "c": 0, "len": 5, "a": "Z3JhdmU=", "clue": "adj. 嚴重的, 重大的", "kk": "greɪv", "lv": 4, "sent": "Deadly shootings on US campuses have raised <b>grave</b> concerns about how to prevent such tragic incidents from happening again.", "sz": "美國校園致命槍擊事件引發了人們對於如何防止此類悲劇再次發生的嚴重憂慮。", "src": "115 學測詞彙題第 10 題", "qid": "V0500", "st": "gsat"}, {"no": 6, "dir": "A", "r": 4, "c": 2, "len": 9, "a": "ZXNjYWxhdG9y", "clue": "n. 電扶梯", "kk": "ˈɛskəˌleɪtɚ", "lv": 5, "sent": "Elderly shoppers in this store are advised to take the elevator rather than the <b>escalator</b>, which may move too fast for them to keep their balance.", "sz": "建議這間店裡的年長顧客搭電梯而不要搭電扶梯，因為電扶梯的速度可能太快，讓他們難以保持平衡。", "src": "110 學測詞彙題第 2 題", "qid": "V0437", "st": "gsat"}, {"no": 7, "dir": "D", "r": 4, "c": 4, "len": 7, "a": "Y2xhcmlmeQ==", "clue": "v. 澄清, 闡明", "kk": "ˈklɛrəˌfaɪ", "lv": 4, "sent": "It is necessary for you to <b>clarify</b> this point. We simply cannot understand it.", "sz": "你有必要把這一點說清楚，我們實在無法理解。", "src": "91 學測詞彙題第 9 題", "qid": "V0129", "st": "gsat"}, {"no": 8, "dir": "A", "r": 8, "c": 2, "len": 9, "a": "cHJpbWl0aXZl", "clue": "adj. 原始的, 上古的", "kk": "ˈprɪmɪtɪv", "lv": 4, "sent": "People in that remote village feed themselves by hunting and engaging in <b>primitive</b> forms of agriculture. No modern agricultural methods are used.", "sz": "那個偏遠村莊的居民靠打獵和原始的農耕方式維生，並未使用現代農業技術。", "src": "103 學測詞彙題第 13 題", "qid": "V0343", "st": "gsat"}]}, {"n": 11, "nums": {"0,0": 1, "0,1": 2, "0,7": 3, "2,3": 4, "2,4": 5, "4,1": 6, "4,9": 7, "6,6": 8, "9,3": 9}, "grid": [[".", ".", ".", ".", ".", ".", ".", ".", "#", "#", "#"], ["#", ".", "#", "#", "#", "#", "#", ".", "#", "#", "#"], ["#", ".", "#", ".", ".", ".", ".", ".", ".", "#", "#"], ["#", ".", "#", "#", ".", "#", "#", ".", "#", "#", "#"], ["#", ".", ".", ".", ".", ".", ".", ".", ".", ".", "#"], ["#", ".", "#", "#", ".", "#", "#", ".", "#", ".", "#"], ["#", ".", "#", "#", ".", "#", ".", ".", ".", ".", "."], ["#", ".", "#", "#", ".", "#", "#", ".", "#", ".", "#"], ["#", ".", "#", "#", ".", "#", "#", "#", "#", ".", "#"], ["#", "#", "#", ".", ".", ".", ".", ".", ".", ".", "."], ["#", "#", "#", "#", "#", "#", "#", "#", "#", ".", "#"]], "words": [{"no": 1, "dir": "A", "r": 0, "c": 0, "len": 8, "a": "c2luZ3VsYXI=", "clue": "adj. 單一的, 單數的", "kk": "ˈsɪŋgjəlɚ", "lv": 4, "sent": "The problem of illegal drug use is very complex and cannot be traced to merely one <b>singular</b> reason.", "sz": "非法毒品使用的問題非常複雜，不能單純歸咎於單一原因。", "src": "110 學測詞彙題第 13 題", "qid": "V0448", "st": "gsat"}, {"no": 2, "dir": "D", "r": 0, "c": 1, "len": 9, "a": "aW5mbGF0aW9u", "clue": "n. 通貨膨脹, 膨脹", "kk": "ɪnˈfleɪʃən", "lv": 4, "sent": "Due to <b>inflation</b>, prices for daily necessities have gone up and we have to pay more for the same items now.", "sz": "由於通貨膨脹，民生必需品的價格上漲了，我們現在買同樣的東西得花更多錢。", "src": "99 學測詞彙題第 4 題", "qid": "V0274", "st": "gsat"}, {"no": 3, "dir": "D", "r": 0, "c": 7, "len": 8, "a": "cmFuZG9tbHk=", "clue": "adv. 隨機地, 任意地", "kk": "ˈrændəmli", "lv": 5, "sent": "David felt disappointed when he found out that he could not choose his study partners, but would be <b>randomly</b> placed in a study group.", "sz": "大衛發現自己不能選擇讀書夥伴，而是會被隨機分配到一個讀書小組時，感到很失望。", "src": "113 學測詞彙題第 10 題", "qid": "V0480", "st": "gsat"}, {"no": 4, "dir": "A", "r": 2, "c": 3, "len": 6, "a": "bGVnZW5k", "clue": "n. 傳說, 傳奇故事", "kk": "ˈlɛʤənd", "lv": 4, "sent": "The story about Hou-I shooting down nine suns is a well-known Chinese <b>legend</b>, but it may not be a true historical event.", "sz": "后羿射下九個太陽的故事是中國著名的傳說，但這未必是真實的歷史事件。", "src": "101 學測詞彙題第 4 題", "qid": "V0304", "st": "gsat"}, {"no": 5, "dir": "D", "r": 2, "c": 4, "len": 8, "a": "ZXZpZGVuY2U=", "clue": "n. 證據, 證明", "kk": "ˈɛvədəns", "lv": 4, "sent": "The many awards that Professor Wang has won over the years are clear <b>evidence</b> that he is a distinguished scholar.", "sz": "王教授多年來獲得的眾多獎項，清楚證明了他是一位傑出的學者。", "src": "92 學測詞彙題第 8 題", "qid": "V0173", "st": "gsat"}, {"no": 6, "dir": "A", "r": 4, "c": 1, "len": 9, "a": "YW1iaWd1b3Vz", "clue": "adj. 不明確的, 模稜兩可的", "kk": "æmˈbɪgjuəs", "lv": 4, "sent": "The sentence written on the board is <b>ambiguous</b>. It has more than one meaning.", "sz": "寫在黑板上的這句話含意模糊，可以有不只一種解讀。", "src": "88 學測詞彙題第 1 題", "qid": "V0076", "st": "gsat"}, {"no": 7, "dir": "D", "r": 4, "c": 9, "len": 7, "a": "c2NyYXRjaA==", "clue": "v. 抓, 搔", "kk": "skræʧ", "lv": 4, "sent": "It is not easy for old people to <b>scratch</b> their backs, so they need help when their backs itch.", "sz": "老年人要抓自己的背並不容易，所以背癢時需要別人幫忙。", "src": "97 學測詞彙題第 2 題", "qid": "V0242", "st": "gsat"}, {"no": 8, "dir": "A", "r": 6, "c": 6, "len": 5, "a": "YWxlcnQ=", "clue": "n. 警報, 戒備", "kk": "əˈlɝt", "lv": 4, "sent": "The government issued a travel <b>alert</b> for Taiwanese in response to the outbreak of civil war in Syria.", "sz": "政府因應敘利亞爆發內戰，對國人發布了旅遊警示。", "src": "103 學測詞彙題第 14 題", "qid": "V0344", "st": "gsat"}, {"no": 9, "dir": "A", "r": 9, "c": 3, "len": 8, "a": "c2VxdWVuY2U=", "clue": "n. 一連串, 一系列", "kk": "ˈsikwəns", "lv": 5, "sent": "Dancing is basically the repetition of a <b>sequence</b> of steps over and over again. It is not so difficult to learn.", "sz": "跳舞基本上就是不斷重複一連串的步伐，並不難學。", "src": "98 指考詞彙題第 10 題", "qid": "ZK0342", "st": "zhikao"}]}, {"n": 11, "nums": {"0,0": 1, "0,2": 2, "1,8": 3, "2,0": 4, "2,4": 5, "2,6": 6, "6,0": 7, "9,2": 8}, "grid": [[".", ".", ".", ".", ".", ".", ".", ".", "#", "#", "#"], [".", "#", ".", "#", "#", "#", "#", "#", ".", "#", "#"], [".", ".", ".", ".", ".", ".", ".", ".", ".", "#", "#"], [".", "#", ".", "#", ".", "#", ".", "#", ".", "#", "#"], [".", "#", ".", "#", ".", "#", ".", "#", ".", "#", "#"], [".", "#", ".", "#", ".", "#", ".", "#", ".", "#", "#"], [".", ".", ".", ".", ".", ".", ".", ".", ".", "#", "#"], [".", "#", ".", "#", ".", "#", ".", "#", ".", "#", "#"], [".", "#", "#", "#", "#", "#", ".", "#", ".", "#", "#"], ["#", "#", ".", ".", ".", ".", ".", ".", ".", ".", "#"], ["#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#"]], "words": [{"no": 1, "dir": "A", "r": 0, "c": 0, "len": 8, "a": "aW50ZXJhY3Q=", "clue": "v. 互動, 交流", "kk": "ˌɪntɚˈækt", "lv": 4, "sent": "John should <b>interact</b> more often with his friends and family after work, instead of staying in his room to play computer games.", "sz": "約翰下班後應該多和朋友、家人互動，而不是待在房間裡打電腦遊戲。", "src": "104 學測詞彙題第 14 題", "qid": "V0359", "st": "gsat"}, {"no": 1, "dir": "D", "r": 0, "c": 0, "len": 9, "a": "aW50ZW5zaXR5", "clue": "n. 強烈, 緊張", "kk": "ɪnˈtɛnsəti", "lv": 4, "sent": "The <b>intensity</b> of Linda’s love for music made her fly to Vienna to enter a music school.", "sz": "琳達對音樂的熱愛之強烈，使她飛往維也納進入一所音樂學校就讀。", "src": "90 學測詞彙題第 6 題", "qid": "V0111", "st": "gsat"}, {"no": 2, "dir": "D", "r": 0, "c": 2, "len": 8, "a": "dG9sZXJhdGU=", "clue": "v. 容忍, 忍受", "kk": "ˈtɑləˌreɪt", "lv": 4, "sent": "Since our classroom is not air-conditioned, we have to <b>tolerate</b> the heat during the hot summer days.", "sz": "由於教室沒有冷氣，炎熱的夏天我們只能忍受高溫。", "src": "97 學測詞彙題第 4 題", "qid": "V0244", "st": "gsat"}, {"no": 3, "dir": "D", "r": 1, "c": 8, "len": 9, "a": "ZGVwYXJ0dXJl", "clue": "n. 離開, 出發", "kk": "dɪˈpɑrʧɚ", "lv": 4, "sent": "The airport was closed because of the snowstorm, and our <b>departure</b> for Paris had to be delayed until the following day.", "sz": "機場因暴風雪而關閉，我們飛往巴黎的出發時間只好延後到隔天。", "src": "104 學測詞彙題第 5 題", "qid": "V0350", "st": "gsat"}, {"no": 4, "dir": "A", "r": 2, "c": 0, "len": 9, "a": "dG9sZXJhbmNl", "clue": "n. 寬容, 容忍", "kk": "ˈtɑlərəns", "lv": 4, "sent": "The teacher showed <b>tolerance</b> for the noise in the classroom and continued with his lecture as if he had not heard anything.", "sz": "老師對教室裡的吵鬧聲展現了包容，繼續講課，彷彿什麼都沒聽到。", "src": "92 學測詞彙題第 10 題", "qid": "V0175", "st": "gsat"}, {"no": 5, "dir": "D", "r": 2, "c": 4, "len": 6, "a": "cmV3YXJk", "clue": "v. 獎賞, 獎勵", "kk": "rɪˈwɔrd", "lv": 4, "sent": "To teach children right from wrong, some parents will <b>reward</b> their children when they behave well and punish them when they misbehave.", "sz": "為了教導孩子明辨是非，有些父母會在孩子表現良好時給予獎勵，行為不當時就處罰。", "src": "104 學測詞彙題第 2 題", "qid": "V0347", "st": "gsat"}, {"no": 6, "dir": "D", "r": 2, "c": 6, "len": 8, "a": "bnVtZXJvdXM=", "clue": "adj. 很多的, 數目眾多的", "kk": "ˈnumərəs", "lv": 4, "sent": "Most of the area is covered by woods, where bird species are so <b>numerous</b> that it is a paradise for birdwatchers.", "sz": "這個地區大部分被森林覆蓋，鳥類種類繁多，是賞鳥者的天堂。", "src": "105 學測詞彙題第 8 題", "qid": "V0368", "st": "gsat"}, {"no": 7, "dir": "A", "r": 6, "c": 0, "len": 9, "a": "aW50ZXJwcmV0", "clue": "v. 解釋, 理解", "kk": "ɪnˈtɝprɪt", "lv": 4, "sent": "If you want to know what your dreams mean, now there are websites you can visit to help you <b>interpret</b> them.", "sz": "如果你想知道自己的夢境代表什麼意思，現在有網站可以幫你解夢。", "src": "101 學測詞彙題第 14 題", "qid": "V0314", "st": "gsat"}, {"no": 8, "dir": "A", "r": 9, "c": 2, "len": 8, "a": "ZGlzYXN0ZXI=", "clue": "n. 災難, 災禍", "kk": "dɪˈzæstɚ", "lv": 4, "sent": "Typhoon Morakot claimed more than six hundred lives in early August of 2009, making it the most serious natural <b>disaster</b> in Taiwan in recent decades.", "sz": "莫拉克颱風在 2009 年 8 月初奪走超過六百條人命，成為台灣近幾十年來最嚴重的天然災害。", "src": "99 學測詞彙題第 13 題", "qid": "V0283", "st": "gsat"}]}, {"n": 11, "nums": {"0,8": 1, "0,10": 2, "1,2": 3, "1,5": 4, "2,4": 5, "4,0": 6, "4,4": 7, "6,0": 8, "8,0": 9}, "grid": [["#", "#", "#", "#", "#", "#", "#", "#", ".", "#", "."], ["#", "#", ".", "#", "#", ".", "#", "#", ".", "#", "."], ["#", "#", ".", "#", ".", ".", ".", ".", ".", ".", "."], ["#", "#", ".", "#", "#", ".", "#", "#", ".", "#", "."], [".", "#", ".", "#", ".", ".", ".", ".", ".", ".", "."], [".", "#", ".", "#", "#", ".", "#", "#", ".", "#", "."], [".", ".", ".", ".", ".", ".", ".", ".", ".", "#", "."], [".", "#", ".", "#", "#", ".", "#", "#", ".", "#", "#"], [".", ".", ".", ".", ".", ".", "#", "#", ".", "#", "#"], [".", "#", ".", "#", "#", ".", "#", "#", "#", "#", "#"], [".", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#"]], "words": [{"no": 1, "dir": "D", "r": 0, "c": 8, "len": 9, "a": "aW5pdGlhbGx5", "clue": "adv. 最初, 開頭", "kk": "ɪˈnɪʃəli", "lv": 4, "sent": "Designed by a young engineer, the new product has created far more profit than <b>initially</b> expected.", "sz": "這項由年輕工程師設計的新產品，創造出遠超乎最初預期的利潤。", "src": "115 學測詞彙題第 4 題", "qid": "V0494", "st": "gsat"}, {"no": 2, "dir": "D", "r": 0, "c": 10, "len": 7, "a": "cGVuYWx0eQ==", "clue": "n. 處罰, 懲罰", "kk": "ˈpɛnəlti", "lv": 4, "sent": "At the beginning of the semester, the teacher told the students that late assignments would receive a low grade as a <b>penalty</b>.", "sz": "學期初，老師告訴學生遲交作業將以低分作為處罰。", "src": "107 學測詞彙題第 13 題", "qid": "V0403", "st": "gsat"}, {"no": 3, "dir": "D", "r": 1, "c": 2, "len": 9, "a": "cHJvbW90aW9u", "clue": "n. 促銷, 宣傳", "kk": "prəˈmoʊʃən", "lv": 4, "sent": "In order for a new product to sell well, manufacturers often invest a large sum of money on its <b>promotion</b>.", "sz": "為了讓新產品暢銷，製造商常常投入大筆資金在推廣宣傳上。", "src": "89 學測詞彙題第 7 題", "qid": "V0097", "st": "gsat"}, {"no": 4, "dir": "D", "r": 1, "c": 5, "len": 9, "a": "cmVsdWN0YW50", "clue": "adj. 不情願的, 勉強的", "kk": "rɪˈlʌktənt", "lv": 4, "sent": "Betty was <b>reluctant</b> to accept her friend’s suggestion because she thought she could come up with a better idea herself.", "sz": "貝蒂不太願意接受朋友的建議，因為她認為自己能想出更好的點子。", "src": "102 學測詞彙題第 5 題", "qid": "V0320", "st": "gsat"}, {"no": 5, "dir": "A", "r": 2, "c": 4, "len": 7, "a": "dmVyc2lvbg==", "clue": "n. 版本, 說法", "kk": "ˈvɝʒən", "lv": 5, "sent": "Most viewers agreed that the movie was not as good as the book <b>version</b>.", "sz": "大多數觀眾都認為這部電影不如原著小說好看。", "src": "83 學測詞彙題第 9 題", "qid": "V0009", "st": "gsat"}, {"no": 6, "dir": "D", "r": 4, "c": 0, "len": 7, "a": "aW1wdWxzZQ==", "clue": "n. 衝動, 一時的念頭", "kk": "ˈɪmˌpʌls", "lv": 5, "sent": "Jane usually buys things on <b>impulse</b>. Her purchases seem to be driven by some sudden force or desire.", "sz": "珍通常都是一時衝動購物，她的購買行為似乎是受某種突然的衝動驅使。", "src": "93 學測詞彙題第 10 題", "qid": "V0190", "st": "gsat"}, {"no": 7, "dir": "A", "r": 4, "c": 4, "len": 7, "a": "ZnVsZmlsbA==", "clue": "v. 實現, 履行", "kk": "fʊlˈfɪl", "lv": 4, "sent": "If we work hard to <b>fulfill</b> our dreams when we are young, we will not feel that we missed out on something when we get old.", "sz": "如果我們趁年輕努力實現夢想，年老時就不會覺得自己錯過了什麼。", "src": "107 學測詞彙題第 3 題", "qid": "V0393", "st": "gsat"}, {"no": 8, "dir": "A", "r": 6, "c": 0, "len": 9, "a": "cG90ZW50aWFs", "clue": "n. 潛力, 潛能", "kk": "pəˈtɛnʃəl", "lv": 4, "sent": "Wang Chien-ming, the Yankees’ best pitcher last year, already showed his great <b>potential</b> for baseball when he was still a teenager.", "sz": "王建民——去年洋基隊最出色的投手——早在青少年時期就已展現出他在棒球方面的過人潛力。", "src": "96 學測詞彙題第 2 題", "qid": "V0227", "st": "gsat"}, {"no": 9, "dir": "A", "r": 8, "c": 0, "len": 6, "a": "bG9vc2Vu", "clue": "vt. 放鬆, 鬆開", "kk": "ˈlusən", "lv": 4, "sent": "These warm-up exercises are designed to help people <b>loosen</b> their muscles and prevent injuries.", "sz": "這些暖身運動是為了幫助人們放鬆肌肉、預防受傷而設計的。", "src": "103 學測詞彙題第 4 題", "qid": "V0334", "st": "gsat"}]}, {"n": 11, "nums": {"1,4": 1, "1,6": 2, "1,8": 3, "2,1": 4, "3,3": 5, "4,5": 6, "6,1": 7, "8,6": 8, "10,0": 9}, "grid": [["#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#"], ["#", "#", "#", "#", ".", ".", ".", ".", ".", ".", "."], ["#", ".", "#", "#", "#", "#", ".", "#", ".", "#", "#"], ["#", ".", "#", ".", "#", "#", ".", "#", ".", "#", "#"], ["#", ".", "#", ".", "#", ".", ".", ".", ".", ".", "."], ["#", ".", "#", ".", "#", "#", ".", "#", ".", "#", "#"], ["#", ".", ".", ".", ".", ".", ".", ".", ".", ".", "#"], ["#", ".", "#", ".", "#", "#", ".", "#", ".", "#", "#"], ["#", ".", "#", ".", "#", "#", ".", ".", ".", ".", "."], ["#", ".", "#", ".", "#", "#", ".", "#", "#", "#", "#"], [".", ".", ".", ".", ".", ".", "#", "#", "#", "#", "#"]], "words": [{"no": 1, "dir": "A", "r": 1, "c": 4, "len": 7, "a": "YnJvYWRlbg==", "clue": "v. 拓展, 擴大", "kk": "ˈbrɔdən", "lv": 6, "sent": "This TV program will <b>broaden</b> young viewers' understanding of the changing world.", "sz": "這個電視節目將拓展年輕觀眾對這個變動世界的理解。", "src": "86 學測詞彙題第 8 題", "qid": "V0048", "st": "gsat"}, {"no": 2, "dir": "D", "r": 1, "c": 6, "len": 9, "a": "b2JqZWN0aXZl", "clue": "n. 目的, 目標", "kk": "əbˈʤɛktɪv", "lv": 4, "sent": "The main <b>objective</b> of this test is to find out how much you have learned in high school.", "sz": "這個測驗的主要目的是要了解你在高中學到了多少。", "src": "85 學測詞彙題第 1 題", "qid": "V0021", "st": "gsat"}, {"no": 3, "dir": "D", "r": 1, "c": 8, "len": 8, "a": "ZG9taW5hbnQ=", "clue": "adj. 主要的, 佔優勢的", "kk": "ˈdɑmənənt", "lv": 4, "sent": "Buddhism is the <b>dominant</b> religion in Thailand, with 90% of the total population identified as Buddhists.", "sz": "佛教是泰國的主要宗教，全國人口中有 90%信奉佛教。", "src": "100 學測詞彙題第 12 題", "qid": "V0297", "st": "gsat"}, {"no": 4, "dir": "D", "r": 2, "c": 1, "len": 9, "a": "YWdyZWVhYmxl", "clue": "adj. 令人愉快的, 欣然同意的", "kk": "əˈgriəbəl", "lv": 4, "sent": "An <b>agreeable</b> person is usually pleasant and easy to get along with, but don’t expect that he or she will always say “yes” to everything.", "sz": "隨和的人通常討人喜歡、容易相處，但別期待他/她對任何事都會說「好」。", "src": "111 學測詞彙題第 6 題", "qid": "V0456", "st": "gsat"}, {"no": 5, "dir": "D", "r": 3, "c": 3, "len": 8, "a": "cHJlc2VydmU=", "clue": "v. 保存, 保護", "kk": "prɪˈzɝv", "lv": 4, "sent": "The government is doing its best to <b>preserve</b> the cultures of the tribal people for fear that they may soon die out.", "sz": "政府正竭盡全力保存原住民部落的文化，深怕這些文化很快就會消失。", "src": "99 學測詞彙題第 5 題", "qid": "V0275", "st": "gsat"}, {"no": 6, "dir": "A", "r": 4, "c": 5, "len": 6, "a": "cmV2aXNl", "clue": "v. 修改, 修訂", "kk": "rɪˈvaɪz", "lv": 4, "sent": "Students were asked to <b>revise</b> or rewrite their compositions based on the teacher’s comments.", "sz": "學生被要求根據老師的評語修改或重寫作文。", "src": "98 學測詞彙題第 14 題", "qid": "V0269", "st": "gsat"}, {"no": 7, "dir": "A", "r": 6, "c": 1, "len": 9, "a": "ZXNzZW50aWFs", "clue": "adj. 必要的, 不可或缺的", "kk": "ɪˈsɛnʃəl", "lv": 4, "sent": "We human beings may live without clothes, but food and air are <b>essential</b> to our life.", "sz": "人類或許可以沒有衣服生活，但食物和空氣對我們的生命是不可或缺的。", "src": "96 學測詞彙題第 11 題", "qid": "V0236", "st": "gsat"}, {"no": 8, "dir": "A", "r": 8, "c": 6, "len": 5, "a": "dml0YWw=", "clue": "adj. 極其重要的, 必不可少的", "kk": "ˈvaɪtəl", "lv": 4, "sent": "E-mail plays a <b>vital</b> role in modern communication.", "sz": "電子郵件在現代通訊中扮演著至關重要的角色。", "src": "90 學測詞彙題第 7 題", "qid": "V0112", "st": "gsat"}, {"no": 9, "dir": "A", "r": 10, "c": 0, "len": 6, "a": "c2V2ZXJl", "clue": "adj. 嚴重的, 劇烈的", "kk": "səˈvɪr", "lv": 4, "sent": "Since the orange trees suffered <b>severe</b> damage from a storm in the summer, the farmers are expecting a sharp decline in harvests this winter.", "sz": "由於柳橙樹在夏季的暴風中受到嚴重損害，農民預期今年冬天的收成將大幅減少。", "src": "99 學測詞彙題第 12 題", "qid": "V0282", "st": "gsat"}]}];
+var ANCHOR = new Date(2026, 10, 2); /* 第 45 週的星期一 */
+var wkNow = Math.floor((new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate()) - ANCHOR) / 604800000);
+var wkQ = (location.search.match(/[?&]w=(\d+)/) || [])[1];
+if(wkQ){ wkNow = parseInt(wkQ, 10) - 45; }
+var idx = ((wkNow % ALL.length) + ALL.length) % ALL.length;
+var P = ALL[idx];
+var PID = 'xw-' + (45 + wkNow);
+(function(){
+  var s = new Date(ANCHOR.getTime() + wkNow * 604800000), e = new Date(s.getTime() + 6 * 86400000);
+  $w('wk').innerHTML = '第 <b>' + (45 + wkNow) + '</b> 週　' + (s.getMonth()+1) + '/' + s.getDate() + '–' + (e.getMonth()+1) + '/' + e.getDate();
+  $w('cnt').innerHTML = '<b>' + P.words.length + '</b> 個字';
+  function $w(i){ return document.getElementById(i); }
+})();
+var N = P.n;
+var W = P.words.map(function(w){ w.ans = atob(w.a).toUpperCase(); return w; });
+var cells = [], byRC = {};
+var GIVEN = (P.given || []);
+var sel = null, dir = 'A';
+var hints = 0, revealed = false, checked = false;
+
+function store(k, v){ try{ if(v===undefined){ return localStorage.getItem(k); } localStorage.setItem(k, v); }catch(e){ return null; } }
+function $(id){ return document.getElementById(id); }
+function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;'); }
+
+/* 建立格子 */
+(function(){
+  var g = $('grid'), h = '';
+  for(var r=0;r<N;r++) for(var c=0;c<N;c++){
+    var blk = P.grid[r][c] === '#';
+    var cell = {r:r, c:c, blk:blk, ans:'', u:'', num:P.nums[r+','+c] || 0, w:{}};
+    cells.push(cell); byRC[r+','+c] = cell;
+  }
+  W.forEach(function(w, wi){
+    for(var i=0;i<w.len;i++){
+      var rr = w.r + (w.dir==='D' ? i : 0), cc = w.c + (w.dir==='A' ? i : 0);
+      var ce = byRC[rr+','+cc]; ce.ans = w.ans.charAt(i); ce.w[w.dir] = wi;
+    }
+    w.cells = [];
+    for(var j=0;j<w.len;j++) w.cells.push(byRC[(w.r + (w.dir==='D'?j:0))+','+(w.c + (w.dir==='A'?j:0))]);
+  });
+  cells.forEach(function(ce){
+    var d = document.createElement('div');
+    d.className = 'c' + (ce.blk ? ' k' : '');
+    if(!ce.blk){
+      d.setAttribute('role','gridcell');
+      if(ce.num) d.innerHTML = '<span class="n">' + ce.num + '</span>';
+      var sp = document.createElement('span'); sp.className = 'ch'; d.appendChild(sp);
+      d.addEventListener('click', function(){ pick(ce); });
+    } else { d.setAttribute('aria-hidden','true'); }
+    ce.el = d; g.appendChild(d);
+  });
+  GIVEN.forEach(function(k){ var ce = byRC[k]; if(ce && !ce.blk){ ce.g = true; ce.u = ce.ans; } });
+})();
+
+/* 提示清單 */
+(function(){
+  W.forEach(function(w, wi){
+    var li = document.createElement('li');
+    var b = document.createElement('button'); b.type = 'button'; b.className = 'cl';
+    b.innerHTML = '<span class="no">' + w.no + '</span><span class="tx">' + esc(w.clue) + ' <span class="len">（' + w.len + '）</span></span>';
+    b.addEventListener('click', function(){ sel = w.cells[0]; dir = w.dir; for(var i=0;i<w.cells.length;i++){ if(!w.cells[i].u){ sel = w.cells[i]; break; } } draw(); });
+    li.appendChild(b); $(w.dir==='A' ? 'clA' : 'clD').appendChild(li); w.btn = b;
+  });
+})();
+
+/* 字母鍵盤 */
+(function(){
+  var rows = ['QWERTYUIOP','ASDFGHJKL','ZXCVBNM'], k = $('kbd');
+  rows.forEach(function(s, ri){
+    var r = document.createElement('div'); r.className = 'kr';
+    s.split('').forEach(function(ch){
+      var b = document.createElement('button'); b.type = 'button'; b.className = 'key'; b.textContent = ch; b.setAttribute('aria-label', ch);
+      b.addEventListener('mousedown', function(e){ e.preventDefault(); });
+      b.addEventListener('click', function(){ typeLetter(ch); });
+      r.appendChild(b);
+    });
+    if(ri === 2){
+      var d = document.createElement('button'); d.type = 'button'; d.className = 'key wide'; d.textContent = '⌫'; d.setAttribute('aria-label','刪除');
+      d.addEventListener('mousedown', function(e){ e.preventDefault(); });
+      d.addEventListener('click', backspace); r.appendChild(d);
+    }
+    k.appendChild(r);
+  });
+})();
+
+function curWord(){
+  if(!sel) return null;
+  var wi = sel.w[dir];
+  if(wi === undefined){ wi = sel.w[dir==='A' ? 'D' : 'A']; }
+  return wi === undefined ? null : W[wi];
+}
+function pick(ce){
+  if(sel === ce){
+    var other = dir==='A' ? 'D' : 'A';
+    if(ce.w[other] !== undefined) dir = other;
+  } else {
+    sel = ce;
+    if(ce.w[dir] === undefined) dir = dir==='A' ? 'D' : 'A';
+  }
+  draw();
+}
+function setLetter(ce, ch){
+  if(ce.g) return;
+  ce.u = ch; ce.bad = false; checked = false; save();
+}
+function typeLetter(ch){
+  if(!sel) return;
+  setLetter(sel, ch);
+  var w = curWord();
+  if(w){
+    var i = w.cells.indexOf(sel);
+    if(i >= 0 && i < w.cells.length - 1) sel = w.cells[i+1];
+  }
+  draw(); maybeDone();
+}
+function backspace(){
+  if(!sel) return;
+  var w = curWord();
+  if(sel.u){ setLetter(sel, ''); }
+  else if(w){
+    var i = w.cells.indexOf(sel);
+    if(i > 0){ sel = w.cells[i-1]; setLetter(sel, ''); }
+  }
+  draw();
+}
+function move(dr, dc){
+  if(!sel) return;
+  var r = sel.r + dr, c = sel.c + dc;
+  while(r>=0 && c>=0 && r<N && c<N){
+    var ce = byRC[r+','+c];
+    if(!ce.blk){ sel = ce; if(ce.w[dir]===undefined) dir = dir==='A'?'D':'A'; draw(); return; }
+    r += dr; c += dc;
+  }
+}
+document.addEventListener('keydown', function(e){
+  if(e.ctrlKey || e.metaKey || e.altKey) return;
+  var t = e.target && e.target.tagName;
+  if(/^[a-zA-Z]$/.test(e.key) && t !== 'INPUT' && t !== 'TEXTAREA'){ e.preventDefault(); typeLetter(e.key.toUpperCase()); }
+  else if(e.key === 'Backspace'){ e.preventDefault(); backspace(); }
+  else if(e.key === 'ArrowRight'){ e.preventDefault(); dir = 'A'; move(0,1); }
+  else if(e.key === 'ArrowLeft'){ e.preventDefault(); dir = 'A'; move(0,-1); }
+  else if(e.key === 'ArrowDown'){ e.preventDefault(); dir = 'D'; move(1,0); }
+  else if(e.key === 'ArrowUp'){ e.preventDefault(); dir = 'D'; move(-1,0); }
+});
+
+/* 畫面 */
+function filledCount(){ var n = 0; cells.forEach(function(c){ if(!c.blk && c.u) n++; }); return n; }
+function total(){ var n = 0; cells.forEach(function(c){ if(!c.blk) n++; }); return n; }
+function wordRight(w){ return w.cells.every(function(c){ return c.u === c.ans; }); }
+function draw(){
+  var w = curWord();
+  var inW = {}; if(w) w.cells.forEach(function(c){ inW[c.r+','+c.c] = 1; });
+  cells.forEach(function(ce){
+    if(ce.blk) return;
+    var cls = 'c';
+    if(inW[ce.r+','+ce.c]) cls += ' in';
+    if(ce === sel) cls += ' cur';
+    if(ce.bad) cls += ' bad';
+    if(ce.g) cls += ' giv';
+    ce.el.className = cls;
+    ce.el.querySelector('.ch').textContent = ce.u;
+    ce.el.setAttribute('aria-label', '第 ' + (ce.r+1) + ' 列第 ' + (ce.c+1) + ' 欄' + (ce.num ? '，編號 ' + ce.num : '') + '，' + (ce.u ? '已填 ' + ce.u : '空格'));
+  });
+  W.forEach(function(x){
+    x.btn.className = 'cl' + (w === x ? ' act' : '') + (x.good ? ' good' : '');
+  });
+  if(w){
+    $('barK').textContent = w.no + (w.dir==='A' ? ' 橫向' : ' 直向') + '　' + w.len + ' 個字母';
+    $('barT').textContent = w.clue;
+  } else {
+    $('barK').textContent = '提示'; $('barT').textContent = '點一個格子開始';
+  }
+  var st = $('status');
+  if(!st.getAttribute('data-keep')){ st.className = 'status'; st.textContent = '已填 ' + filledCount() + '／' + total() + ' 格' + (hints ? '　已補 ' + hints + ' 個字母' : ''); }
+}
+function say(msg, cls){ var st = $('status'); st.className = 'status ' + (cls||''); st.textContent = msg; st.setAttribute('data-keep','1'); }
+function unsay(){ $('status').removeAttribute('data-keep'); }
+document.addEventListener('click', function(e){ if(!e.target.closest('#bCheck')) { unsay(); } }, true);
+
+/* 檢查、提示、清除、看答案 */
+$('bCheck').addEventListener('click', function(){
+  var wrong = 0, empty = 0;
+  cells.forEach(function(c){ if(c.blk) return; if(!c.u){ empty++; c.bad = false; } else if(c.u !== c.ans){ c.bad = true; wrong++; } else c.bad = false; });
+  W.forEach(function(w){ w.good = wordRight(w); });
+  draw();
+  if(wrong) say('有 ' + wrong + ' 個字母需要修正，已在格子裡標示。', 'no');
+  else if(empty) say('填的字母都對，還有 ' + empty + ' 格沒填。', 'ok');
+  else { say('全部正確。', 'ok'); }
+  maybeDone();
+});
+$('bHint').addEventListener('click', function(){
+  unsay();
+  if(!sel){ say('先點一個格子，再按「補一個字母」。'); return; }
+  if(sel.g || sel.u === sel.ans){ say('這一格已經填對了。'); return; }
+  sel.u = sel.ans; sel.bad = false; hints++; save(); draw(); maybeDone();
+});
+$('bClear').addEventListener('click', function(){
+  var b = $('bClear');
+  if(b.getAttribute('data-arm') !== '1'){ b.setAttribute('data-arm','1'); b.textContent = '再按一次，就會清空重來'; setTimeout(function(){ b.removeAttribute('data-arm'); b.textContent = '重新開始'; }, 3000); return; }
+  b.removeAttribute('data-arm'); b.textContent = '重新開始';
+  cells.forEach(function(c){ if(!c.g) c.u = ''; c.bad = false; }); W.forEach(function(w){ w.good = false; });
+  hints = 0; revealed = false; $('panel').hidden = true; save(); unsay(); draw();
+});
+$('bReveal').addEventListener('click', function(){
+  var b = $('bReveal');
+  if(b.getAttribute('data-arm') !== '1'){ b.setAttribute('data-arm','1'); b.textContent = '再按一次，就會顯示答案'; setTimeout(function(){ b.removeAttribute('data-arm'); b.textContent = '顯示答案'; }, 3000); return; }
+  b.removeAttribute('data-arm'); b.textContent = '顯示答案';
+  cells.forEach(function(c){ if(!c.blk){ c.u = c.ans; c.bad = false; } }); W.forEach(function(w){ w.good = true; });
+  revealed = true; save(); unsay(); draw(); showPanel(true);
+});
+$('bPrint').addEventListener('click', function(){ window.print(); });
+
+function maybeDone(){
+  var all = cells.every(function(c){ return c.blk || c.u === c.ans; });
+  if(all){ W.forEach(function(w){ w.good = true; }); draw(); say('全部正確，做完了。', 'ok'); showPanel(false); }
+}
+
+/* 完成後：每個字的原題與例句 */
+function speakBtn(word){
+  if(!('speechSynthesis' in window)) return '';
+  return '<button class="spk" type="button" data-say="' + word + '" aria-label="聽 ' + word + ' 的發音">🔊</button>';
+}
+function showPanel(gaveUp){
+  var p = $('panel'), h = '';
+  h += '<h2>' + (gaveUp ? '這 ' + W.length + ' 個字的答案' : '做完了。這 ' + W.length + ' 個字在大考中的用法') + '</h2>';
+  h += '<p class="sub">每個字都附上它在歷屆詞彙題中的原句，答案以螢光標示。</p>';
+  var order = W.slice().sort(function(a,b){ return a.no - b.no || (a.dir < b.dir ? -1 : 1); });
+  order.forEach(function(w){
+    var word = w.ans.toLowerCase();
+    var link = S + w.st + '/#q-' + w.qid;
+    h += '<div class="wd"><div class="wh"><span class="no">' + w.no + (w.dir==='A' ? ' 橫' : ' 直') + '</span><span class="w">' + word + '</span><span class="kk">[' + esc(w.kk) + ']</span>' + speakBtn(word) + '</div>';
+    h += '<p class="wm">' + esc(w.clue) + '</p>';
+    h += '<p class="ex">' + w.sent + '</p><p class="zh">' + esc(w.sz) + '</p>';
+    h += '<p class="from">出處：' + esc(w.src) + '　<a href="' + link + '" target="_blank" rel="noopener">看這一題的解析</a></p></div>';
+  });
+  h += '<p class="end">想再複習這幾個字，可以到<a href="' + S + 'cards/" target="_blank" rel="noopener">單字記憶卡</a>。</p>';
+  p.innerHTML = h; p.hidden = false;
+  p.querySelectorAll('.spk').forEach(function(b){
+    b.addEventListener('click', function(){
+      try{ var u = new SpeechSynthesisUtterance(b.getAttribute('data-say')); u.lang = 'en-US'; speechSynthesis.cancel(); speechSynthesis.speak(u); }catch(e){}
+    });
+  });
+  setTimeout(function(){ try{ p.scrollIntoView({behavior:'smooth', block:'start'}); }catch(e){} }, 60);
+}
+
+/* 進度只存在這支裝置的瀏覽器 */
+function save(){
+  var s = cells.map(function(c){ return c.blk ? '#' : (c.u || '.'); }).join('');
+  store('xw-' + PID, JSON.stringify({u:s, h:hints, r:revealed}));
+}
+(function(){
+  var raw = store('xw-' + PID);
+  if(!raw) return;
+  try{
+    var o = JSON.parse(raw);
+    if(typeof o.u === 'string' && o.u.length === cells.length){
+      cells.forEach(function(c, i){ var ch = o.u.charAt(i); if(!c.blk && !c.g && ch !== '.' && ch !== '#') c.u = ch; });
+      hints = o.h || 0; revealed = !!o.r;
+    }
+  }catch(e){}
+})();
+draw();
+if(cells.every(function(c){ return c.blk || c.u === c.ans; })){ W.forEach(function(w){ w.good = true; }); draw(); showPanel(revealed); setTimeout(function(){ window.scrollTo(0,0); }, 120); }
+</script>
+</body>
+</html>

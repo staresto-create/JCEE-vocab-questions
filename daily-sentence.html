@@ -1,0 +1,1086 @@
+<title>每日一句</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600&display=swap">
+<style>
+/* 版面：單欄閱讀，句子在最上面，先判斷、再看原因；色票與字體沿用本題庫首頁 */
+:root{
+  --bg:#F6F1E4; --card:#FFFDF7; --fg:#221F1A; --muted:#5B5648; --rule:#DCD3BB;
+  --accent:#AE3626; --accent-soft:#D8C6BE; --on-accent:#FFFFFF;
+  --ok:#3E6E52; --ok-bg:#E6EFE4; --bad:#AE3626; --bad-bg:#F7EAE6;
+  --mark:#FFE9A0; --mark-fg:#221F1A; --note-bg:#FBF2DA;
+  --serif:'Noto Serif TC','PingFang TC','Microsoft JhengHei',serif;
+  --sans:'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif;
+  --mono:'IBM Plex Mono','Noto Sans TC','PingFang TC','Microsoft JhengHei',monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#1B1916; --card:#26231F; --fg:#F2F0EE; --muted:#C2BFBB; --rule:#514A37;
+    --accent:#E4B6B0; --accent-soft:#4F413A; --on-accent:#1B1916;
+    --ok:#CBDDD2; --ok-bg:#25302A; --bad:#E8BEB9; --bad-bg:#352724;
+    --mark:#53471F; --mark-fg:#F2F0EE; --note-bg:#2A2821; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#1B1916; --card:#26231F; --fg:#F2F0EE; --muted:#C2BFBB; --rule:#514A37;
+  --accent:#E4B6B0; --accent-soft:#4F413A; --on-accent:#1B1916;
+  --ok:#CBDDD2; --ok-bg:#25302A; --bad:#E8BEB9; --bad-bg:#352724;
+  --mark:#53471F; --mark-fg:#F2F0EE; --note-bg:#2A2821; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--fg); font-family:var(--sans); font-size:16px; line-height:1.75;
+  padding-block:20px 48px;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));
+  padding-right:max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap{max-width:640px; margin:0 auto; display:flex; flex-direction:column; gap:16px}
+h1{font-family:var(--serif); font-size:28px; line-height:1.3; margin:0; text-wrap:balance}
+.lead{margin:4px 0 0; color:var(--muted); font-size:15px}
+.top{display:flex; justify-content:space-between; align-items:flex-end; gap:12px; flex-wrap:wrap}
+.meta{display:flex; gap:8px; flex-wrap:wrap; font-family:var(--mono); font-size:13px}
+.chip{border:1px solid var(--rule); border-radius:999px; padding:2px 12px; background:var(--card); white-space:nowrap}
+.chip b{font-weight:500; color:var(--accent)}
+.sample{border:1px dashed var(--rule); border-radius:8px; padding:10px 14px; font-size:14px; color:var(--muted); background:var(--note-bg)}
+.sample strong{color:var(--fg)}
+.card{background:var(--card); border:1px solid var(--rule); border-radius:12px; padding:20px max(16px,4vw)}
+.src{font-family:var(--mono); font-size:13px; color:var(--muted); margin:0 0 10px}
+.sent{font-family:var(--serif); font-size:22px; line-height:1.65; margin:0; overflow-wrap:anywhere}
+mark{background:var(--mark); color:var(--mark-fg); padding:0 3px; border-radius:3px}
+.gap{color:var(--accent); font-weight:700}
+.q{margin:20px 0 10px; font-weight:700}
+.opts{display:flex; flex-direction:column; gap:8px; padding:0; margin:0; list-style:none}
+.opt{
+  width:100%; text-align:left; font:inherit; color:var(--fg); background:var(--card);
+  border:1.5px solid var(--rule); border-radius:10px; padding:10px 14px; cursor:pointer;
+  display:flex; gap:12px; align-items:baseline; min-height:48px;
+}
+.opt:hover:not(:disabled){border-color:var(--accent)}
+.opt:focus-visible,.btn:focus-visible{outline:3px solid var(--accent); outline-offset:2px}
+.opt .l{font-family:var(--mono); color:var(--muted); flex:none}
+.opt .t{font-family:var(--serif); font-size:17px; overflow-wrap:anywhere; min-width:0}
+.opt:disabled{cursor:default}
+.opt.right{border-color:var(--ok); background:var(--ok-bg)}
+.opt.wrong{border-color:var(--bad); background:var(--bad-bg)}
+.why{margin:6px 0 0; font-size:14.5px; color:var(--muted); font-family:var(--sans)}
+.opt .t,.opt .body{flex:1; min-width:0}
+.res{margin-top:20px; display:flex; flex-direction:column; gap:14px; border-top:1px solid var(--rule); padding-top:16px}
+.verdict{margin:0; font-weight:700}
+.verdict.ok{color:var(--ok)} .verdict.no{color:var(--bad)}
+.blk h2{font-size:14px; font-family:var(--mono); font-weight:500; letter-spacing:.06em; color:var(--muted); margin:0 0 4px}
+.blk p{margin:0}
+.en{font-family:var(--serif); font-size:18px; line-height:1.65}
+.nav{display:flex; gap:8px; flex-wrap:wrap; align-items:center}
+.btn{
+  font:inherit; font-size:15px; color:var(--fg); background:var(--card); border:1.5px solid var(--rule);
+  border-radius:10px; padding:8px 16px; cursor:pointer; min-height:44px;
+}
+.btn:hover{border-color:var(--accent)}
+.btn.primary{background:var(--accent); border-color:var(--accent); color:var(--on-accent)}
+.spacer{flex:1}
+.pos{font-family:var(--mono); font-size:13px; color:var(--muted)}
+.pname{font-weight:700; margin:0 0 4px !important}
+.links{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:6px; font-size:15px}
+.links li{display:flex; gap:8px; align-items:baseline; min-width:0}
+.links a{color:var(--accent); overflow-wrap:anywhere; min-width:0}
+.tag{flex:none; font-family:var(--mono); font-size:12px; border:1px solid var(--rule); border-radius:999px; padding:0 8px; color:var(--muted); background:var(--card)}
+@media (prefers-reduced-motion:no-preference){ .opt,.btn{transition:border-color .15s, background-color .15s} }
+</style>
+
+<div class="wrap">
+  <div class="top">
+    <div>
+      <h1>每日一句</h1>
+      <p class="lead">歷屆試題裡的長句，每天一句。先判斷，再看原因。</p>
+    </div>
+    <div class="meta">
+      <span class="chip" id="today"></span>
+      <span class="chip">連續 <b id="streak">0</b> 天</span>
+    </div>
+  </div>
+
+
+  <section class="card" aria-live="polite" id="card"></section>
+
+  <div class="nav">
+    <button class="btn" id="prev" type="button">上一題</button>
+    <button class="btn" id="next" type="button">下一題</button>
+    <span class="pos" id="pos"></span>
+    <span class="spacer"></span>
+    <button class="btn" id="home" type="button">回到今天這題</button>
+  </div>
+</div>
+
+<script>
+var S = 'https://staresto-create.github.io/JCEE-vocab-questions/';
+var CAM = 'https://dictionary.cambridge.org/grammar/british-grammar/';
+var ITEMS = [
+  {
+    src: '100 指考閱讀測驗第 44–47 題的文章',
+    sent: 'The most beautiful and structurally ordered are the orb webs.',
+    after: 'The most beautiful and structurally ordered are <mark>the orb webs</mark>.',
+    q: 'are 的主詞是哪一個？',
+    opts: [
+      {t: 'The most beautiful and structurally ordered', why: '這一串是主詞補語，說明主詞是什麼樣子，不是主詞本身。'},
+      {t: 'are', why: 'are 是動詞，不可能當主詞。'},
+      {t: 'the orb webs', ok: true, why: 'are 配複數主詞，the orb webs 是複數名詞，被放到句尾。'}
+    ],
+    restore: '[<mark>The orb webs</mark>] are [the most beautiful and structurally ordered].',
+    pat: {
+      name: '補語放句首的倒裝（SC + V + S）',
+      rule: [
+        '主詞補語（形容詞或最高級）放到句首，是為了把和上一句相連的部分擺在前面，要介紹的新主詞留到最後。意思和一般語序相同。',
+        'be 動詞要放在主詞前面，單複數看後面的主詞：the orb webs 是複數，所以用 are。主詞是代名詞時不倒裝，例如 Fresh it is.'
+      ],
+      links: [
+        ['本題庫句型頁 D11', S + 'sentence-patterns.html#D11', 'site'],
+        ['LanGeek｜Inversion and Fronting', 'https://langeek.co/en/grammar/course/258/inversion-and-fronting', '英文'],
+        ['NativeCamp 部落格｜倒裝句（C＋V＋S 一節）', 'https://nativecamp.net/zh-tw/blog/10795/', '中文']
+      ]
+    },
+    contrast: ''
+  },
+  {
+    src: '100 指考閱讀測驗第 44–47 題的文章',
+    sent: 'Enclosed in the frame are capture spirals winding round and round from the web center out to the frame.',
+    after: 'Enclosed in the frame are <mark>capture spirals</mark> winding round and round from the web center out to the frame.',
+    q: 'are 的主詞是哪一個？',
+    opts: [
+      {t: 'the frame', why: 'the frame 是介系詞 in 的受詞，屬於句首的 Enclosed in the frame。'},
+      {t: 'capture spirals', ok: true, why: 'are 配複數，capture spirals 是複數名詞，也是被框在裡面的東西。'},
+      {t: 'the web center', why: 'the web center 是 from 的受詞，屬於後面 winding 開頭的修飾語。'}
+    ],
+    restore: '[<mark>Capture spirals</mark>] (winding round and round from the web center out to the frame) are [enclosed in the frame].',
+    pat: {
+      name: '補語放句首的倒裝（SC + V + S）：這一句的補語是過去分詞片語',
+      rule: [
+        '這句把主詞補語（Enclosed in the frame）放到句首，be 動詞放在主詞前面，主詞 capture spirals 放句尾，和第 1 題是同一個句型。這一句的補語剛好是過去分詞片語，表示被框在外框之內的狀態。形容詞、最高級也可以放句首（見第 1 題），但這是書面語的寫法，不是每個補語都能隨意前置。另一個文學色彩較濃的例句是 Gone was all hope.',
+        '這句和分詞構句不同：分詞構句的句首片語後面有逗號，接著是完整的「主詞 + 動詞」；這句沒有逗號，are 就是全句的動詞。主詞是代名詞時不倒裝。'
+      ],
+      links: [
+        ['本題庫句型頁 D11（SC + V + S）', S + 'sentence-patterns.html#D11', 'site'],
+        ['本題庫句型頁 B2（分詞構句，用來對照）', S + 'sentence-patterns.html#B2', 'site'],
+        ['LanGeek｜Inversion and Fronting', 'https://langeek.co/en/grammar/course/258/inversion-and-fronting', '英文']
+      ]
+    },
+    contrast: '同一個字，另一種句型：106 學測第 11 題 Instead of a gift, Tim’s grandmother always <i>enclosed</i> some money in the birthday card she gave him. 這裡 enclosed 是動詞過去式，主詞在前，是一般語序。本題的 Enclosed in the frame 是補語（過去分詞片語），放在句首，所以 are 才會排在主詞前面。'
+  },
+  {
+    src: '89 學測克漏字第 36–40 題的文章',
+    sent: 'The car doors were still locked, the windows tightly shut, and on the back seat were their two jackets.',
+    after: 'The car doors <b>were</b> still locked, the windows <span class="gap">(were)</span> tightly shut, and on the back seat <b>were</b> their two jackets.',
+    q: '把 the windows tightly shut 讀成完整的句子時，windows 後面可以補上哪一個詞？',
+    opts: [
+      {t: 'were', ok: true, why: '前一段已經出現 were，windows 是複數，所以相同的 were 省略。第三段也有 were，可以一起對照。'},
+      {t: 'was', why: 'was 配單數主詞，windows 是複數。'},
+      {t: 'had', why: 'had tightly shut 變成窗戶自己關上，與前一段 were locked 的語意不一致。'},
+      {t: 'being', why: 'being 沒有在前一段出現過，對等結構省略的是前面已經出現的詞。'}
+    ],
+    restore: '[The car doors were still locked], [the windows (were) tightly shut], and [<mark>their two jackets</mark> were on the back seat].',
+    pat: {
+      name: '對等結構中省略相同的動詞；第三段是地方片語放句首的倒裝',
+      rule: [
+        '用 and 連接結構相同的幾段時，後面的段落可以省略和前面相同的動詞，只留下不同的部分。前一段要先有完整的動詞，讀者才知道省略的是什麼。這句三段的動詞都是 were，第二段省略後只剩 the windows tightly shut。另一種分析是把 the windows tightly shut 看成沒有動詞的獨立結構（可以想成省略 being），意思相同；補回 were 是方便對照前一段。',
+        '第三段 on the back seat were their two jackets 是另一個句型：地方片語放句首，動詞放在主詞前面，寫法和第 4 題相同。'
+      ],
+      links: [
+        ['Cambridge Dictionary｜Ellipsis（一般的省略，不限於省略動詞）', CAM + 'ellipsis', '英文'],
+        ['課本：龍騰 B5 L6（Language Highlight：Ellipsis）', '', 'text'],
+        ['第三段：本題庫句型頁 D11', S + 'sentence-patterns.html#D11', 'site']
+      ]
+    },
+    contrast: ''
+  },
+  {
+    src: '108 學測閱讀測驗第 45–48 題的文章',
+    sent: 'Inside the burial box were the remains of the deceased.',
+    after: 'Inside the burial box were <mark>the remains</mark> of the deceased.',
+    q: 'were 的主詞是哪一個？',
+    opts: [
+      {t: 'the remains', ok: true, why: 'were 配複數，the remains 是複數名詞，被放到句尾。'},
+      {t: 'the burial box', why: 'the burial box 是 inside 的受詞，屬於句首的地方片語。'},
+      {t: 'the deceased', why: 'the deceased 是 of 的受詞，用來修飾 the remains。'}
+    ],
+    restore: '[<mark>The remains</mark> of the deceased] were [inside the burial box].',
+    pat: {
+      name: '地方副詞片語放句首的倒裝（Adv. phr. + be／V + S）',
+      rule: [
+        '表示地點或方向的片語放在句首時，動詞直接放到主詞前面，不必加 do、does、did。常見的動詞有 be、stand、lie、sit、come、go。',
+        'be 的單複數看句尾的主詞：the remains 是複數，所以用 were。主詞是代名詞時不倒裝：Here it comes.，不寫 Here comes it.'
+      ],
+      links: [
+        ['本題庫句型頁 D11', S + 'sentence-patterns.html#D11', 'site'],
+        ['課本：三民 B4 U1（Adverbial phrase inversion）', '', 'text'],
+        ['Cambridge Dictionary｜Fronting', CAM + 'fronting', '英文'],
+        ['Grammaring｜Subject-verb inversion after place adverbials', 'https://www.grammaring.com/subject-verb-inversion-after-place-adverbials', '英文']
+      ]
+    },
+    contrast: ''
+  },
+  {
+    src: '95 指考閱讀測驗第 49–52 題的文章',
+    sent: 'Only in the northern woods of Wisconsin, Minnesota, and Michigan could the howl of native gray wolves be heard.',
+    after: 'Only in the northern woods of Wisconsin, Minnesota, and Michigan could <mark>the howl</mark> of native gray wolves be heard.',
+    q: 'could 的主詞是哪一個？',
+    opts: [
+      {t: 'native gray wolves', why: 'native gray wolves 是 of 的受詞，修飾 howl。被聽到的是叫聲，不是狼。'},
+      {t: 'the northern woods of Wisconsin, Minnesota, and Michigan', why: '這一串是 in 的受詞，屬於 Only in 帶出的地方片語。'},
+      {t: 'the howl of native gray wolves', ok: true, why: '助動詞 could 後面接主詞 the howl of native gray wolves，再接 be heard。'}
+    ],
+    restore: '[<mark>The howl of native gray wolves</mark>] could be heard [only in the northern woods of Wisconsin, Minnesota, and Michigan].',
+    pat: {
+      name: 'Only 放句首的倒裝（意思是否定，所以和 Never、Rarely 一樣倒裝）',
+      rule: [
+        'Only 加上地點、時間或方式的片語（或子句）放到句首，整句的意思帶有否定：只有在這個情況才成立，等於其他情況都不成立。所以後面的主要子句要像否定副詞一樣倒裝，把助動詞（或 be 動詞）放在主詞前面，其餘的動詞留在原位，也就是 could + the howl … + be heard。原句沒有助動詞時，要加 do、does、did。',
+        '對照：Only when I am alone can I concentrate.＝我只有自己一個人時才能專心＝我不是一個人就無法專心。這句的意思是：只有北部森林聽得到狼嚎，其他地方都聽不到。',
+        '和第 4 題不同：第 4 題是整個動詞放到主詞前面，這題只有助動詞提前。如果 Only 放在名詞前面修飾主詞（Only Jason knows where the key is kept.），Only 是形容詞，不倒裝。'
+      ],
+      links: [
+        ['本題庫句型頁 D9', S + 'sentence-patterns.html#D9', 'site'],
+        ['本題庫句型頁 D10（否定詞置首倒裝，用來對照）', S + 'sentence-patterns.html#D10', 'site'],
+        ['本題庫字詞用法頁：Only + 副詞 + 助動詞 + 主詞', S + 'auxiliaries.html#only-inv', 'site'],
+        ['課本：龍騰 B4 L8（Only… + be／aux. + S）', '', 'text'],
+        ['Cambridge Dictionary｜Only', CAM + 'only', '英文'],
+        ['British Council LearnEnglish｜Inversion after negative adverbials（例句多為時間用語）', 'https://learnenglish.britishcouncil.org/free-resources/grammar/c1/inversion-after-negative-adverbials', '英文']
+      ]
+    },
+    contrast: ''
+  }
+  ,{
+    src: '時事｜本題庫自編｜2026 諾貝爾物理獎（10/6 公布）',
+    news: true,
+    sent: 'Rarely does a neutrino from deep space interact with matter, so most neutrinos pass through the Antarctic ice without leaving a trace.',
+    after: 'Rarely does <mark>a neutrino from deep space</mark> interact with matter, so most neutrinos pass through the Antarctic ice without leaving a trace.',
+    q: 'does 的主詞是哪一個？',
+    opts: [
+      {t: 'a neutrino from deep space', ok: true, why: '助動詞 does 後面是主詞，再接原形動詞 interact；neutrino 是單數，所以用 does。'},
+      {t: 'Rarely', why: 'Rarely 是副詞，修飾整個動作，不是主詞。'},
+      {t: 'matter', why: 'matter 是 with 的受詞，屬於 interact with matter。'}
+    ],
+    restore: '[<mark>A neutrino from deep space</mark>] rarely interacts with matter, so most neutrinos pass through the Antarctic ice without leaving a trace.',
+    pat: {
+      name: '否定副詞放句首的倒裝（Rarely／Seldom／Never + 助動詞 + 主詞 + 原形動詞）',
+      rule: [
+        'Rarely、Seldom、Never、Hardly 這類帶否定意味的副詞放到句首時，後面要把助動詞放在主詞前面。',
+        '原本的動詞是一般動詞（interacts）時，要借用 do、does、did 來倒裝，動詞回到原形（interact）。這句 Rarely 之後是 does + a neutrino + interact。'
+      ],
+      links: [
+        ['本題庫句型頁 D10', S + 'sentence-patterns.html#D10', 'site'],
+        ['British Council LearnEnglish｜Inversion after negative adverbials（含 never、rarely、seldom）', 'https://learnenglish.britishcouncil.org/free-resources/grammar/c1/inversion-after-negative-adverbials', '英文'],
+        ['LanGeek｜Inversion and Fronting（含 never、seldom、hardly）', 'https://langeek.co/en/grammar/course/258/inversion-and-fronting', '英文']
+      ]
+    },
+    contrast: '',
+    facts: [
+      'Francis Halzen（美國威斯康辛大學麥迪遜分校）因對 IceCube 微中子觀測站的貢獻，獲得 2026 年諾貝爾物理學獎，10 月 6 日公布。',
+      'IceCube 位在南極點，埋在約一立方公里的冰層裡，有 5,000 個以上的感測器。微中子很少與物質作用，多數直接穿過冰層，偶爾才產生一閃微弱的光被感測器偵測到。'
+    ],
+    flinks: [
+      ['NPR（WUNC 轉載）', 'https://www.wunc.org/2026-10-06/the-2026-nobel-prize-in-physics-has-gone-to-a-neutrino-detector-in-antarctica'],
+      ['Laser Focus World', 'https://www.laserfocusworld.com/detectors-imaging/news/55409835/2026-nobel-prize-in-physics-goes-to-francis-halzen-for-icecube-neutrino-observatory'],
+      ['Daily Maverick', 'https://dailymaverick.co.za/article/2026-10-06-francis-halzen-wins-2026-nobel-prize-in-physics']
+    ]
+  },
+  {
+    src: '時事｜本題庫自編｜2026 世界大賽（10/28 結束）',
+    news: true,
+    sent: 'Not only ______ the first World Series title in franchise history, but they did it in just five games against the Tampa Bay Rays.',
+    after: 'Not only <mark>did the Brewers win</mark> the first World Series title in franchise history, but they did it in just five games against the Tampa Bay Rays.',
+    q: '空格要填哪一個？句子的主詞是 the Brewers。',
+    opts: [
+      {t: 'the Brewers won', why: 'Not only 放句首，助動詞要提前；主詞照一般語序留在前面，這一種沒有倒裝。'},
+      {t: 'the Brewers did win', why: '有助動詞 did，但還排在主詞後面，沒有倒裝。'},
+      {t: 'won the Brewers', why: '一般動詞不能單獨提前；要借用 did，動詞回到原形 win。'},
+      {t: 'did the Brewers win', ok: true, why: 'did 放在主詞 the Brewers 前面，動詞回到原形 win。'}
+    ],
+    restore: 'The Brewers <mark>not only won</mark> the first World Series title in franchise history but also did it in just five games against the Tampa Bay Rays.',
+    pat: {
+      name: 'Not only 放句首的倒裝（Not only + 助動詞 + 主詞 + 原形動詞…, but (also)…）',
+      rule: [
+        'Not only 放在子句句首時，那個子句要倒裝：助動詞（或 be 動詞）放在主詞前面。原本的動詞是一般動詞時，借用 do、does、did。',
+        '倒裝的只有 Not only 帶出的前半。but 後面的子句照一般語序：but they did it in just five games。'
+      ],
+      links: [
+        ['本題庫句型頁 D9', S + 'sentence-patterns.html#D9', 'site'],
+        ['British Council LearnEnglish｜Inversion after negative adverbials（含 Not only did he win the match but…）', 'https://learnenglish.britishcouncil.org/free-resources/grammar/c1/inversion-after-negative-adverbials', '英文']
+      ]
+    },
+    contrast: '',
+    facts: [
+      '密爾瓦基釀酒人隊（Milwaukee Brewers）2026 年 10 月 28 日在佛羅里達州聖彼得堡以 4 比 1 擊敗光芒隊（Tampa Bay Rays），第 5 戰就結束系列賽，拿下球團史上第一座世界大賽冠軍。'
+    ],
+    flinks: [
+      ['美聯社報導（KOMO 轉載）', 'https://komonews.com/news/nation-world/brewers-beat-the-rays-4-1-in-game-5-to-win-their-first-world-series-title'],
+      ['theScore', 'https://www.thescore.com/mlb/news/3638139']
+    ]
+  },
+  {
+    src: '時事｜本題庫自編｜2026 里昂插畫節（9/26–27）',
+    news: true,
+    sent: 'The festival’s theme country was Taiwan, its host a French illustration magazine, and its location the city of Lyon.',
+    after: 'The festival’s theme country <b>was</b> Taiwan, its host <span class="gap">(was)</span> a French illustration magazine, and its location <span class="gap">(was)</span> the city of Lyon.',
+    q: 'its host 後面省略了哪一個詞？',
+    opts: [
+      {t: 'is', why: '前一段是過去式 was，省略的詞必須和前面出現的相同，時態也要一致。'},
+      {t: 'was', ok: true, why: '前一段已經出現 was，host 是單數，所以相同的 was 省略。第三段 its location 後面也省略了 was。'},
+      {t: 'were', why: 'were 配複數主詞，host 是單數。'},
+      {t: 'had', why: 'had 沒有在前一段出現過，也會變成「主辦者擁有一本雜誌」，和前一段「是」的意思不同。'}
+    ],
+    restore: '[The festival’s theme country was Taiwan], [its host (was) a French illustration magazine], and [its location (was) the city of Lyon].',
+    pat: {
+      name: '對等結構中省略相同的動詞（A, B and C）',
+      rule: [
+        '用逗號和 and 連接結構相同的幾段時，後面的段落可以省略和前面相同的動詞，只留下不同的部分。前一段要先有完整的動詞，讀者才知道省略的是什麼。',
+        '這句三段的動詞都是 was，第二、三段省略後，只剩 its host a French illustration magazine 和 its location the city of Lyon。'
+      ],
+      links: [
+        ['Cambridge Dictionary｜Ellipsis（一般的省略，不限於省略動詞）', CAM + 'ellipsis', '英文'],
+        ['課本：龍騰 B5 L6（Language Highlight：Ellipsis）', '', 'text']
+      ]
+    },
+    contrast: '和第 3 題同一個句型：那題省略的是 were，這題省略的是 was。',
+    facts: [
+      'IF Illustration Festival 由法國插畫雜誌 Kiblind 主辦，2026 年 9 月 26、27 日在法國里昂舉行；今年第一次設主題國，由台灣擔任。'
+    ],
+    flinks: [
+      ['中央社 Focus Taiwan', 'https://focustaiwan.tw/culture/202609120007'],
+      ['里昂旅遊局（主辦單位、日期）', 'https://en.visiterlyon.com/out-and-about/what-s-on/festivals/illustration-festival-par-kiblind']
+    ]
+  }
+];
+ITEMS = ITEMS.concat([
+  {
+    id: 'e06',
+    src: '107 學測閱讀測驗第 41–44 題的文章',
+    sent: 'It was not until Grover Cleveland’s first presidency that some effective crowd control measures were implemented to address the problem caused by this practice.',
+    after: 'It was not until <mark>Grover Cleveland’s first presidency</mark> that some effective crowd control measures were implemented to address the problem caused by this practice.',
+    q: '這一句的意思，下列哪一個正確？',
+    opts: [
+      {t: '在 Cleveland 擔任總統以前，就已經有有效的人潮管制措施。', why: 'not until 是「直到…才…」，措施是在 Cleveland 第一任總統任期才開始實施，不是在這之前。'},
+      {t: '直到 Cleveland 的第一任總統任期，才開始實施一些有效的人潮管制措施。', ok: true, why: 'It was not until A that … 就是「直到 A 才…」，重點放在 A 這個時間點。'},
+      {t: 'Cleveland 的第一任總統任期內，沒有實施任何人潮管制措施。', why: 'that 後面的動詞是肯定的 were implemented，不是否定；not 是和 until 連在一起，不是否定整個動詞。'},
+      {t: '人潮管制措施造成了問題，所以 Cleveland 取消了這項做法。', why: 'the problem caused by this practice 的 practice 是指造成問題的舊做法，措施是為了處理這個問題才實施的。'}
+    ],
+    restore: 'Some effective crowd control measures <mark>were not implemented until</mark> Grover Cleveland’s first presidency (to address the problem caused by this practice).',
+    pat: {
+      name: '分裂句（It was not until … that …）',
+      rule: [
+        '把一般否定句裡的 not until A 拿出來，夾在 It was 和 that 中間，就是「直到 A 才…」，強調時間點 A。that 後面的子句用肯定句的一般語序。這句的原句是被動語態（Some effective crowd control measures were not implemented until …），主動語態也一樣可以改寫，例如 I did not realize the truth until yesterday. → It was not until yesterday that I realized the truth.',
+        '同樣的意思也可以用 Not until A 放句首，後面主要子句倒裝：Not until Grover Cleveland’s first presidency were some effective crowd control measures implemented. 兩種寫法的差別在於，分裂句後面不倒裝，句首 Not until 的句型後面要倒裝。'
+      ],
+      links: [
+        ['本題庫句型頁 D8（分裂句）', S + 'sentence-patterns.html#D8', 'site'],
+        ['本題庫句型頁 D10（not until 置首的倒裝）', S + 'sentence-patterns.html#D10', 'site']
+      ]
+    },
+    contrast: ''
+  },
+  {
+    id: 'e07',
+    src: '96 學測閱讀測驗第 41–44 題的文章',
+    sent: 'It is not exactly what a child eats that truly matters, but how much time it stays in his mouth.',
+    after: 'It is not exactly <mark>what a child eats</mark> that truly matters, but <mark>how much time it stays in his mouth</mark>.',
+    q: 'but 後面的 how much time it stays in his mouth，和下列哪一部分是對等的？',
+    opts: [
+      {t: 'what a child eats', ok: true, why: '兩者都是名詞子句（what 子句、how much time 子句），not A but B 的 A 和 B 要對稱。'},
+      {t: 'a child', why: 'a child 只是 what a child eats 裡面的主詞，範圍太小。'},
+      {t: 'truly matters', why: 'truly matters 是動詞片語，but 後面是名詞子句，詞性不同，不能對等。'},
+      {t: 'It', why: 'It 是虛主詞（形式上的主詞），真正強調的部分在 It 和 that 中間。'}
+    ],
+    restore: '[<mark>How much time it stays in his mouth</mark>] truly matters, [not exactly what a child eats].',
+    pat: {
+      name: '分裂句 + not A but B',
+      rule: [
+        'It is not A that matters, but B：把 not A 夾在 It is 和 that 中間，but B 補在後面，意思是「重要的不是 A，而是 B」。A 和 B 的詞性要對稱，這句兩邊都是名詞子句。',
+        'not exactly 是「不完全是」，語氣比 not 輕。'
+      ],
+      links: [
+        ['本題庫句型頁 D8（分裂句）', S + 'sentence-patterns.html#D8', 'site'],
+        ['本題庫句型頁 C12（not a but b）', S + 'sentence-patterns.html#C12', 'site']
+      ]
+    },
+    contrast: ''
+  },
+  {
+    id: 'e08',
+    src: '104 學測閱讀測驗第 53–56 題的文章',
+    sent: 'All the time that we spend rooted in the chair is linked to increased risks of so many deadly diseases that experts have named this modern-day health epidemic the “sitting disease.”',
+    after: 'All the time that we spend rooted in the chair is linked to increased risks of <mark>so many deadly diseases that</mark> experts have named this modern-day health epidemic the “sitting disease.”',
+    q: '最後面的 that experts have named … 這個 that，是哪一種 that？',
+    opts: [
+      {t: '關係代名詞，修飾前面的 diseases', why: '關係代名詞在子句裡要當主詞或受詞，但 experts have named this … epidemic the “sitting disease” 已經有主詞 experts 和受詞 this epidemic，沒有缺少任何成分。'},
+      {t: '名詞子句連接詞，當 named 的受詞', why: 'named 的受詞已經是 this modern-day health epidemic，不需要再接 that 子句。'},
+      {t: '同位語連接詞，說明 risks 的內容', why: '同位語的 that 子句要說明 fact、idea、news 這類名詞的內容，這裡的 that 前面不是這種名詞，而是 so many。'},
+      {t: '和 so many 搭配的結果子句連接詞', ok: true, why: 'so + adj. + that + S + V 是「如此…以致於…」，that 子句說明結果：疾病多到專家為這個現象命名。'}
+    ],
+    restore: 'Long sitting is linked to increased risks of <mark>so many</mark> deadly diseases <mark>that</mark> experts have named this modern-day health epidemic the “sitting disease.”',
+    rh: '換個說法',
+    pat: {
+      name: '結果子句（so … that …）',
+      rule: [
+        'so + 形容詞（或副詞）+ that + S + V，表示「如此…以致於…」。so many 修飾名詞 diseases；that 子句說明結果，所以 that 子句本身是完整的句子。',
+        '判斷方法：that 後面的子句如果主詞、受詞都齊全，就不是關係代名詞，而是連接詞。'
+      ],
+      links: [
+        ['本題庫句型頁 C7（so … that、such … that）', S + 'sentence-patterns.html#C7', 'site']
+      ]
+    },
+    contrast: ''
+  },
+  {
+    id: 'e09',
+    src: '101 學測閱讀測驗第 41–44 題的文章',
+    sent: 'A properly made kilt should not be so loose that the wearer can easily twist the kilt around the body, nor should it be so tight that it causes bulging of the fabric where it is buckled.',
+    after: 'A properly made kilt should not be so loose that the wearer can easily twist the kilt around the body, nor <mark>should it</mark> be so tight that it causes bulging of the fabric where it is buckled.',
+    q: 'nor 後面為什麼是 should it，而不是 it should？',
+    opts: [
+      {t: '因為這一段是疑問句。', why: '句尾是句點，也沒有疑問的意思，這是敘述句。'},
+      {t: '因為 so tight that 這個句型要求倒裝。', why: 'so … that 本身不要求倒裝；so 放在句首（So tight was it that…）時才會倒裝，這句的 so 在 be 後面。'},
+      {t: '因為 nor 放在子句前面，後面的助動詞要放到主詞之前。', ok: true, why: 'nor 帶有否定意思（= and not），放在子句開頭時，助動詞 should 要提前，和 never、rarely 放句首的道理相同。'},
+      {t: '因為 it 是代名詞，代名詞要放在動詞後面。', why: '代名詞當主詞時，一般語序也是 it should be，沒有放後面的規定。'}
+    ],
+    restore: '…, and <mark>it should not</mark> be so tight that it causes bulging of the fabric where it is buckled.',
+    pat: {
+      name: 'nor 置首的倒裝（nor + 助動詞 + 主詞）',
+      rule: [
+        'nor 的意思是「也不…」，放在子句開頭時，後面的助動詞（should／can／will／do／does／did）或 be 動詞要放在主詞前面，句型和否定詞放句首相同。前面的子句通常是否定句。',
+        '這句的 should not be so loose … 和 nor should it be so tight … 前後對稱：既不能太鬆，也不能太緊。兩邊各有一個 so … that 的結果子句。'
+      ],
+      links: [
+        ['本題庫句型頁 D10（否定詞置首倒裝，用來對照）', S + 'sentence-patterns.html#D10', 'site'],
+        ['本題庫句型頁 C7（so … that）', S + 'sentence-patterns.html#C7', 'site']
+      ]
+    },
+    contrast: ''
+  },
+  {
+    id: 'e10',
+    src: '106 學測閱讀測驗第 45–48 題的文章',
+    sent: 'It is believed that the martial art was connected with tribal fighting in Africa, in which people fought body to body, without weapons, in order to acquire a bride or desired woman.',
+    after: 'It is believed that the martial art was connected with <mark>tribal fighting</mark> in Africa, in <mark>which</mark> people fought body to body, without weapons, in order to acquire a bride or desired woman.',
+    q: 'in which 的 which，指的是下列哪一個？',
+    opts: [
+      {t: 'the martial art', why: 'martial art（武術）是整句 that 子句的主詞；in which 的先行詞要能當「打鬥發生的場合」，tribal fighting 才合理，武術本身不是場合。'},
+      {t: 'tribal fighting in Africa', ok: true, why: '還原後是 People fought body to body in tribal fighting in Africa，which 取代的是 tribal fighting。'},
+      {t: 'weapons', why: 'weapons 出現在 which 後面，而且原文說他們不用武器。'},
+      {t: 'a bride or desired woman', why: '它出現在 which 子句之後，不是先行詞。'}
+    ],
+    restore: 'It is believed that the martial art was connected with tribal fighting in Africa. People fought body to body in <mark>tribal fighting in Africa</mark>, without weapons, in order to acquire a bride or desired woman.',
+    pat: {
+      name: '介系詞 + 關係代名詞（in which）；It is believed that …',
+      rule: [
+        '關係代名詞在子句裡如果是介系詞的受詞，介系詞可以移到 which 前面：…tribal fighting, in which people fought …。介系詞後面只能用 which 或 whom，不能用 that。',
+        '句首的 It is believed that … 是虛主詞 it 帶 that 子句，意思是「人們認為…」，真正的內容在 that 後面。'
+      ],
+      links: [
+        ['本題庫句型頁 D7（介系詞加關係代名詞）', S + 'sentence-patterns.html#D7', 'site'],
+        ['本題庫句型頁 D4（it is said that）', S + 'sentence-patterns.html#D4', 'site']
+      ]
+    },
+    contrast: ''
+  },
+  {
+    id: 'e11',
+    src: '110 學測閱讀測驗第 41–44 題的文章',
+    sent: 'The area produces 200,000 tons a year of prickly pear cactus—up to 10 tons of which ends up as waste on the floor of the cactus market each day.',
+    after: 'The area produces 200,000 tons a year of <mark>prickly pear cactus</mark>—up to 10 tons of <mark>which</mark> ends up as waste on the floor of the cactus market each day.',
+    q: 'of which 的 which，指的是下列哪一個？',
+    opts: [
+      {t: 'the area', why: 'which 前面的 of 表示「…之中的」，up to 10 tons of the area 不通順：噸數是用來算仙人掌，不是算地區。'},
+      {t: 'waste', why: 'waste 在 which 後面，而且是結果，不是先行詞。'},
+      {t: 'prickly pear cactus（仙人掌）', ok: true, why: '還原後是 Up to 10 tons of the cactus ends up as waste…，which 取代的是剛提到的仙人掌。'},
+      {t: 'the floor of the cactus market', why: '市場地板是堆放廢棄物的地點，不是用噸數計算的東西。'}
+    ],
+    restore: 'The area produces 200,000 tons a year of prickly pear cactus, and up to 10 tons of <mark>it</mark> ends up as waste on the floor of the cactus market each day.',
+    pat: {
+      name: '數量詞 + of which（非限定關係子句）',
+      rule: [
+        '數量詞（up to 10 tons、some、most、many）加 of which／of whom，可以把「其中有…」接在前一個名詞後面。這一句等於 and + 數量詞 + of + it／them，which 同時兼任連接詞和代名詞，所以前面不用再加 and。',
+        '先行詞是物用 which，是人用 whom。原文把 up to 10 tons 當成一個數量，動詞用單數 ends。數量詞放在 of which 前面：some of which、many of whom。'
+      ],
+      links: [
+        ['本題庫句型頁 D7（介系詞加關係代名詞）', S + 'sentence-patterns.html#D7', 'site']
+      ]
+    },
+    contrast: ''
+  },
+  {
+    id: 'e12',
+    src: '100 指考閱讀測驗第 48–51 題的文章',
+    sent: 'The more bright students stay at universities, the better it is for academics.',
+    after: '<mark>The more</mark> bright students stay at universities, <mark>the better</mark> it is for academics.',
+    q: '這一句的意思，下列哪一個正確？',
+    opts: [
+      {t: '留在大學的優秀學生越多，對學者越有利。', ok: true, why: 'the + 比較級, the + 比較級 是「越…，越…」；前半是條件，後半是隨之改變的結果。'},
+      {t: '學者越優秀，留在大學的學生就越多。', why: 'the better 修飾的是 it is for academics 的好處，不是學者的程度；因果方向也相反。'},
+      {t: '優秀學生越聰明，越不想留在大學。', why: 'more 修飾的是 bright students 的數量，不是聰明的程度，也沒有「不想留」的意思。'},
+      {t: '大學越多，優秀學生越容易找到學者。', why: '句中沒有談到大學的數量。'}
+    ],
+    restore: '<mark>As more</mark> bright students stay at universities, it becomes <mark>better</mark> for academics.',
+    rh: '換個說法',
+    pat: {
+      name: '越…越…（the + 比較級, the + 比較級）',
+      rule: [
+        '兩個 the 後面各接一個比較級，前半放變化的原因，後半放跟著變化的結果。the more bright students 的 more 修飾名詞（數量更多），the better 的 better 是補語。',
+        '這句 it is better for academics 裡的 it 是虛主詞，代表「優秀學生留在大學」這整件事。'
+      ],
+      links: [
+        ['本題庫句型頁 E3（the + 比較級, the + 比較級）', S + 'sentence-patterns.html#E3', 'site']
+      ]
+    },
+    contrast: ''
+  },
+  {
+    id: 'e13',
+    src: '109 學測閱讀測驗第 45–48 題的文章',
+    sent: 'The pilot is responsible for not only the safety of the ship but also the protection of the port and the marine environment.',
+    after: 'The pilot is responsible for not only <mark>the safety of the ship</mark> but also <mark>the protection of the port and the marine environment</mark>.',
+    q: 'but also 後面的 the protection of the port and the marine environment，和下列哪一部分對等？',
+    opts: [
+      {t: 'The pilot', why: 'The pilot 是主詞，but also 連接的是 for 後面負責的事項。'},
+      {t: 'the safety of the ship', ok: true, why: 'not only A but also B 的 A、B 要對稱，這裡都是 the + 名詞 + of …，共用前面的 responsible for。'},
+      {t: 'the ship', why: 'the ship 只是 the safety of the ship 裡面 of 的受詞，範圍太小。'},
+      {t: 'responsible', why: '如果對等的是 responsible，but also 後面要接形容詞；這句後面是名詞片語。'}
+    ],
+    restore: 'The pilot is responsible for <mark>the safety of the ship</mark> <mark>and also</mark> for the protection of the port and the marine environment.',
+    pat: {
+      name: 'not only A but also B（A、B 對稱）',
+      rule: [
+        'not only A but also B 的 A 和 B 詞性、結構要相同。這一句 not only 放在 for 後面，A 和 B 都是名詞片語，for 兩邊共用；也可以寫成 not only for A but also for B。',
+        'but also 後面的 the port and the marine environment 是 of 的兩個受詞，and 是它們自己的並列，不是 not only … but also 的一部分。'
+      ],
+      links: [
+        ['本題庫句型頁 C12（not only a but also b）', S + 'sentence-patterns.html#C12', 'site']
+      ]
+    },
+    contrast: '如果 not only 放在句首，後面主要子句要倒裝（Not only is the pilot responsible for …），見本題庫句型頁 D9。<br><br>補充：這句出自 109 學測閱讀測驗第 45–48 題的文章〈引水人的專業〉（The Profession of Marine Pilot）。the pilot 指的是引水人（marine pilot，口語也叫領港員），負責把船引進港口、靠岸停泊，和一般的船長不同。這個職業前幾年才考過，遇到相關的文章，這個詞值得先認得。'
+  },
+  {
+    id: 'e14',
+    src: '115 學測閱讀測驗第 39–42 題的文章',
+    sent: 'Being associated with medieval castles and kings, spiral staircases gradually won popularity in European architecture, with new materials emerging to cope with customers’ needs.',
+    after: 'Being associated with medieval castles and kings, spiral staircases gradually won popularity in European architecture, with <mark>new materials</mark> emerging to cope with customers’ needs.',
+    q: 'with new materials emerging … 裡面，emerging（出現）的動作者是誰？',
+    opts: [
+      {t: 'spiral staircases', why: '螺旋梯是句子的主詞，但 with 後面的受詞才是 emerging 的動作者。'},
+      {t: 'customers', why: 'customers 在 needs 前面，是所有格，不是 emerging 的動作者。'},
+      {t: 'new materials', ok: true, why: 'with + 受詞 + v-ing：受詞 new materials 正在做 emerging 的動作，意思是「新材料出現」。'},
+      {t: 'European architecture', why: 'architecture 是 in 的受詞，在 with 之前。'}
+    ],
+    restore: 'As spiral staircases were associated with medieval castles and kings, they gradually won popularity in European architecture, while <mark>new materials</mark> emerged to cope with customers’ needs.',
+    rh: '換個說法',
+    pat: {
+      name: '附帶狀況（with + 受詞 + v-ing）；句首的分詞構句',
+      rule: [
+        'with + 受詞 + v-ing 表示「在…正在…的情況下」，受詞是 v-ing 的動作者。受詞和動作是主動關係用 v-ing，被動關係用 p.p.（with the door closed）。',
+        '句首的 Being associated with … 是分詞構句，動作者和主句主詞 spiral staircases 相同，所以句首分詞片語後面有逗號，接著是完整的主詞加動詞。'
+      ],
+      links: [
+        ['本題庫句型頁 B4（附帶狀況）', S + 'sentence-patterns.html#B4', 'site'],
+        ['本題庫句型頁 B2（分詞構句）', S + 'sentence-patterns.html#B2', 'site']
+      ]
+    },
+    contrast: ''
+  },
+  {
+    id: 'e15',
+    src: '107 學測閱讀測驗第 53–56 題的文章',
+    sent: 'In addition, the songs are seemingly trying to work some magic—as if, by singing, the mother is saying, “Sadness has already touched this house; no need to come by again.”',
+    after: 'In addition, the songs are seemingly trying to work some magic—as if, <mark>by singing</mark>, <b>the mother</b> is saying, “Sadness has already touched this house; no need to come by again.”',
+    q: 'as if 引導的子句，主詞是哪一個？',
+    opts: [
+      {t: 'the songs', why: 'the songs 是前面主要子句的主詞，as if 後面換了一個主詞。'},
+      {t: 'by singing', why: 'by singing 是介系詞片語，不能當主詞。'},
+      {t: 'sadness', why: 'sadness 在引號裡面，是母親說的話的主詞，不是 as if 子句的主詞。'},
+      {t: 'the mother', ok: true, why: 'as if 後面的結構是 the mother is saying，by singing 是插在中間的修飾語，說明她用什麼方式說。'}
+    ],
+    restore: '…as if the mother is saying, “Sadness has already touched this house; no need to come by again,” <mark>by singing</mark>.',
+    pat: {
+      name: 'as if 子句中的插入語',
+      rule: [
+        '句中常會在逗號之間插入一個修飾語（這句是 by singing），拿掉之後句子仍然完整。找主詞時，可以先把兩個逗號之間的插入語遮起來，剩下 as if the mother is saying 就清楚了。',
+        'as if 後面接直述語氣（is saying）時，說話者不特別否定它的真實性；as if 用 were（見「as if it were」那一題）則強調與事實不符。'
+      ],
+      links: [
+        ['本題庫句型頁 C11（假設語氣，用來對照）', S + 'sentence-patterns.html#C11', 'site']
+      ]
+    },
+    contrast: ''
+  },
+  {
+    id: 'e16',
+    src: '108 指考閱讀測驗第 48–51 題的文章',
+    sent: 'The animal was unknown to the western world until the beginning of the 20th century, and is often described as half-zebra, half-giraffe, as if it were a mixed-breed creature from a Greek legend.',
+    after: 'The animal was unknown to the western world until the beginning of the 20th century, and is often described as half-zebra, half-giraffe, as if it <mark>were</mark> a mixed-breed creature from a Greek legend.',
+    q: 'as if it were … 的 were 為什麼用 were？',
+    opts: [
+      {t: '因為這隻動物是複數。', why: 'The animal 是單數，it 也是單數。'},
+      {t: '因為這是被動語態。', why: '被動語態是 be + p.p.，後面的 a mixed-breed creature 是名詞，不是過去分詞。'},
+      {t: '因為 until 後面要用過去式。', why: 'until 在前半句，和 as if 子句沒有關係。'},
+      {t: '因為 as if 後面描述的是與事實相反的想像，用假設語氣的 were。', ok: true, why: '這隻動物其實不是神話裡的混種生物，所以用假設語氣的 were，主詞 it 也一樣。'}
+    ],
+    restore: '…and is often described as half-zebra, half-giraffe, but <mark>it is not</mark> a mixed-breed creature from a Greek legend.',
+    rh: '換個說法',
+    pat: {
+      name: 'as if + 假設語氣（were）',
+      rule: [
+        'as if（= as though）表示「好像…一樣」，如果內容與事實相反，或說話者認為不可能是真的，動詞用假設語氣：想像的事和主要動詞發生在同一個時間，用過去式（be 動詞不分人稱用 were），想像的事比主要動詞更早，才用 had + p.p.；口語中也常見 was。',
+        '這一句前半句的 was unknown … until … 相當於 was not known until，並列的 is often described 省略了主詞 the animal。'
+      ],
+      links: [
+        ['本題庫句型頁 C11（假設語氣）', S + 'sentence-patterns.html#C11', 'site']
+      ]
+    },
+    contrast: ''
+  },
+  {
+    id: 'e17',
+    src: '89 學測閱讀測驗第 50–53 題的文章',
+    sent: 'In front of each easy chair there was a microphone at head height, with wires leading to a tape-recorder in the middle of the floor.',
+    after: 'In front of each easy chair there was <mark>a microphone</mark> at head height, with <mark>wires leading</mark> to a tape-recorder in the middle of the floor.',
+    q: 'with wires leading to a tape-recorder 的 leading，為什麼用 v-ing？',
+    opts: [
+      {t: '因為 wires 是 lead to 的主詞，兩者是主動關係。', ok: true, why: 'with + 受詞 + v-ing：受詞 wires 做 lead 的動作（通向錄音機），主動用 v-ing。'},
+      {t: '因為電線是被人連接的，所以用被動。', why: '被動要用 p.p.，應該是 led，而且 led 變成「被…帶領」，意思不同。'},
+      {t: '因為 there was 後面一定要接 v-ing。', why: 'there was 後面接名詞（a microphone），沒有規定要接 v-ing。'},
+      {t: '因為 with 後面都要接 v-ing。', why: 'with 後面接名詞受詞，之後的動詞形式看受詞和動作的關係：主動 v-ing、被動 p.p.。'}
+    ],
+    restore: 'There was a microphone at head height in front of each easy chair, and <mark>wires led</mark> to a tape-recorder in the middle of the floor.',
+    pat: {
+      name: 'with + 受詞 + v-ing（附帶狀況）；前半句是 there be 句型（地方片語置首）',
+      rule: [
+        '地方片語 In front of each easy chair 放在句首，後面是 there was + 名詞，表示「…的位置有…」。there be 的 be 動詞單複數看後面的名詞：a microphone 是單數，所以用 was。',
+        '句尾的 with wires leading … 是附帶狀況：with + 名詞 + v-ing，用來補充說明伴隨的情形。這裡 wires 是 lead to 的主詞，電線延伸到錄音機，兩者是主動關係，所以用 v-ing；如果是被動關係，就用 p.p.。'
+      ],
+      links: [
+        ['本題庫句型頁 D11（there be、地方片語置首）', S + 'sentence-patterns.html#D11', 'site'],
+        ['本題庫句型頁 B4（附帶狀況）', S + 'sentence-patterns.html#B4', 'site']
+      ]
+    },
+    contrast: ''
+  },
+  {
+    id: 'e18',
+    src: '98 指考閱讀測驗第 40–43 題的文章',
+    sent: 'In a man it was the expression of his strength, in a woman of her fertility.',
+    after: 'In a man it was the expression of his strength, in a woman <span class="gap">(it was the expression)</span> of her fertility.',
+    q: 'in a woman 和 of her fertility 之間，省略了哪些詞？',
+    opts: [
+      {t: 'it was the expression', ok: true, why: '前半句有完整的 it was the expression of his strength，後半句相同的部分省略，只留下不同的 in a woman 和 of her fertility。'},
+      {t: 'he was the expression', why: '前半句的主詞是 it，不是 he。'},
+      {t: 'it was the strength', why: '前半句的 strength 是 of 的受詞，被省略的是 the expression，不是 the strength。'},
+      {t: 'she was the expression', why: '後半句的 her 是所有格，並不表示主詞是 she；被省略的主詞仍是前半句的 it。'}
+    ],
+    restore: 'In a man it was the expression of his strength, [in a woman it was the expression of her fertility].',
+    pat: {
+      name: '對等結構中省略相同的詞（前半句完整，後半句只留下不同的部分）',
+      rule: [
+        '兩個結構相同的段落並列時，後半句和前半句相同的主詞、動詞、名詞可以省略，只留下不同的部分。這一句前半句 it was the expression of his strength 是完整的，後半句省略 it was the expression，只留下對比的兩個部分：in a woman 和 of her fertility。',
+        '對等省略的條件：前半句必須先完整出現，而且兩半的結構要平行。'
+      ],
+      links: [
+        ['Cambridge Dictionary｜Ellipsis（一般的省略，不限於省略動詞）', CAM + 'ellipsis', '英文'],
+        ['課本：龍騰 B5 L6（Language Highlight：Ellipsis）', '', 'text']
+      ]
+    },
+    contrast: '和「The car doors were still locked, the windows tightly shut…」那一題同一個句型，那題省略的是動詞 were。'
+  },
+  {
+    id: 'e19',
+    src: '102 學測閱讀測驗第 41–44 題的文章',
+    sent: 'However, it seems that “Schweizer Offizier Messer” was too difficult for them to say, so they just called it the Swiss army knife, and that is the name it is now known by all over the world.',
+    after: 'However, it seems that “Schweizer Offizier Messer” was too difficult for them to say, so they just called it the Swiss army knife, and that is <mark>the name</mark> it is now known <mark>by</mark> all over the world.',
+    q: 'the name it is now known by 的 by 後面沒有受詞，為什麼？',
+    opts: [
+      {t: '因為 known by 是被動語態，被動後面不需要受詞。', why: '被動語態的 by 後面一般要有動作者；這裡的 by 是介系詞，它的受詞是 the name。'},
+      {t: '因為 by 的受詞是前面的 the name，關係代名詞 that／which 被省略了。', ok: true, why: '還原後是 the name (that／which) it is now known by；the name 是 by 的受詞，被關係代名詞帶到前面。'},
+      {t: '因為 all over the world 是 by 的受詞。', why: 'all over the world 是地方副詞片語，說明在哪裡被認識，不是 by 的受詞。'},
+      {t: '因為 by 在這裡是多餘的，可以刪掉。', why: '刪掉後 known 不知道是以什麼名字被認識，意思不完整。'}
+    ],
+    restore: 'That is <mark>the name</mark> (that／which) it is now known <mark>by</mark> all over the world.　＝　That is the name <mark>by which</mark> it is now known all over the world.',
+    pat: {
+      name: '受詞關係代名詞的省略；介系詞放在子句尾',
+      rule: [
+        '關係代名詞在子句裡當介系詞的受詞時，可以把介系詞留在子句尾（the name it is known by），並省略關係代名詞；也可以把介系詞移到 which 前面（the name by which it is known），這時 which 不能省略。',
+        '看到名詞後面直接接「主詞 + 動詞」，先檢查動詞（或介系詞）後面少了什麼，就能判斷省略了關係代名詞。'
+      ],
+      links: [
+        ['本題庫句型頁 D6（受詞關係代名詞的省略）', S + 'sentence-patterns.html#D6', 'site'],
+        ['本題庫句型頁 D7（介系詞加關係代名詞）', S + 'sentence-patterns.html#D7', 'site']
+      ]
+    },
+    contrast: ''
+  },
+  {
+    id: 'e20',
+    src: '111 學測閱讀測驗第 35–38 題的文章',
+    sent: 'Standing proud in the savannah with their red blankets and painted shields, the Maasai people are one of the widely known symbols of East Africa.',
+    after: 'Standing proud in the savannah with their red blankets and painted shields, <mark>the Maasai people</mark> are one of the widely known symbols of East Africa.',
+    q: 'Standing proud in the savannah … 這個分詞片語，動作者是誰？',
+    opts: [
+      {t: 'the savannah', why: 'the savannah 是 in 的受詞，草原本身不會站立。'},
+      {t: 'their red blankets', why: 'red blankets 是 with 的受詞，毯子不是站立的人。'},
+      {t: 'East Africa', why: 'East Africa 在句尾，和 Standing 沒有關係。'},
+      {t: 'the Maasai people', ok: true, why: '分詞構句的動作者必須是主要子句的主詞，站得挺直的是馬賽人。'}
+    ],
+    restore: '<mark>The Maasai people</mark> stand proud in the savannah with their red blankets and painted shields, and they are one of the widely known symbols of East Africa.',
+    pat: {
+      name: '分詞構句（句首的 v-ing）',
+      rule: [
+        '句首的 v-ing 片語，動作者一般必須是逗號後面主要子句的主詞。這一句的 Standing proud … 說明馬賽人的樣子，補充背景，不特別強調原因或時間。',
+        '片語裡的 with their red blankets and painted shields 是「帶著、拿著…」的意思，是 with 加名詞的介系詞片語，修飾 Standing，說明站立時的裝扮。'
+      ],
+      links: [
+        ['本題庫句型頁 B2（分詞構句）', S + 'sentence-patterns.html#B2', 'site']
+      ]
+    },
+    contrast: ''
+  }
+], [
+  {
+    id: 'n04',
+    src: '時事｜本題庫自編｜Artemis II 繞月（2026 年 4 月）',
+    news: true,
+    fd: '2026 年 11 月 5 日',
+    sent: 'In April 2026, the Artemis II crew reached a distance of 252,756 miles from Earth, breaking the record that Apollo 13 had set in April 1970.',
+    after: 'In April 2026, the Artemis II crew reached a distance of 252,756 miles from Earth, breaking the record that Apollo 13 <mark>had set</mark> in April 1970.',
+    q: 'Apollo 13 had set 為什麼用過去完成式（had set）？',
+    opts: [
+      {t: '因為創下紀錄的時間，比 Artemis II 打破紀錄的時間更早。', ok: true, why: '1970 年創下紀錄，是在 2026 年之前就已完成的事，所以用 had + p.p. 表示「更早發生」。'},
+      {t: '因為 Apollo 13 的紀錄到現在還沒被打破。', why: '分詞 breaking 的意思就是紀錄已被打破；過去完成式表示的是時間先後，不是紀錄有沒有被打破。'},
+      {t: '因為 record 是複數名詞，要用 had。', why: 'record 在這裡是單數；had 是完成式的助動詞，和名詞單複數無關。'},
+      {t: '因為 that 後面的關係子句一定要用過去完成式。', why: '關係子句的時態看事件的先後，沒有固定要用過去完成式。'}
+    ],
+    restore: 'Apollo 13 set the record in April 1970. In April 2026, the Artemis II crew reached a distance of 252,756 miles from Earth. In doing so, the crew <mark>broke the record</mark>.',
+    rh: '換個說法',
+    pat: {
+      name: '過去完成式（had + p.p.）+ 關係代名詞（that）+ 句尾現在分詞片語',
+      rule: [
+        '要強調某件過去的事比另一件過去的事更早發生時，可以用過去完成式 had + p.p.，較晚發生的事通常用過去式。這句較晚發生的是 2026 年的 reached，較早發生的是 1970 年的 had set。句中若有 in April 1970 這樣明確的時間，已經能交代先後，直接用過去式 set 也可以；用 had set 則是特別強調它比 2026 年更早。',
+        'the record that Apollo 13 had set 的 that 是關係代名詞，在子句裡當 set 的受詞，所以後面的 Apollo 13 had set 少一個受詞，that 也可以省略。逗號後的 breaking … 是分詞，補充說明飛行的結果。'
+      ],
+      links: [
+        ['本題庫句型頁 F3（過去完成式）', S + 'sentence-patterns.html#F3', 'site'],
+        ['本題庫句型頁 D6（受詞關係代名詞）', S + 'sentence-patterns.html#D6', 'site'],
+        ['本題庫句型頁 B3（分詞表結果或伴隨）', S + 'sentence-patterns.html#B3', 'site']
+      ]
+    },
+    contrast: '',
+    facts: [
+      'Artemis II 載著 Reid Wiseman、Victor Glover、Christina Koch 和加拿大的 Jeremy Hansen 四位太空人，4 月 1 日升空，4 月 6 日繞行月球，距離地球最遠 252,756 英里（406,771 公里），超過 Apollo 13 在 1970 年 4 月創下的 248,655 英里（400,171 公里），4 月 10 日在聖地牙哥外海濺落。',
+      '這是 50 多年來第一次載人繞月飛行。'
+    ],
+    flinks: [
+      ['Space.com', 'https://www.space.com/space-exploration/artemis/artemis-2-astronauts-head-toward-earth-record-breaking-moon-flyby'],
+      ['Daily Sabah（機組名單、50 多年來首次繞月）', 'https://www.dailysabah.com/world/americas/nasas-artemis-ii-mission-heads-for-home-after-lunar-fly-by/amp']
+    ]
+  },
+  {
+    id: 'n05',
+    src: '時事｜本題庫自編｜2026 諾貝爾文學獎（10/8 公布）',
+    news: true,
+    fd: '2026 年 11 月 5 日',
+    sent: 'Anne Carson, whose bold and inventive work the Swedish Academy said has created new forms for contemporary literature, won the 2026 Nobel Prize in Literature.',
+    after: 'Anne Carson, whose <mark>bold and inventive work</mark> the Swedish Academy said <b>has created</b> new forms for contemporary literature, won the 2026 Nobel Prize in Literature.',
+    q: 'has created 的主詞是哪一個？',
+    opts: [
+      {t: 'the Swedish Academy', why: 'the Swedish Academy said 是插在中間的「瑞典學院說」，遮起來後句子仍然完整；has created 的主詞不是它。'},
+      {t: 'whose bold and inventive work', ok: true, why: '還原後是 the Swedish Academy said her bold and inventive work has created new forms…；work 單數，配 has created。'},
+      {t: 'new forms', why: 'new forms 是 created 的受詞，不是主詞。'},
+      {t: 'contemporary literature', why: 'contemporary literature 是 for 的受詞，在 has created 之後。'}
+    ],
+    restore: 'Anne Carson won the 2026 Nobel Prize in Literature. The Swedish Academy said <mark>her bold and inventive work</mark> has created new forms for contemporary literature.',
+    pat: {
+      name: '非限定關係子句（whose）+ 插入的報導子句（the Swedish Academy said）',
+      rule: [
+        'whose 是所有格關係代名詞，後面的名詞（work）在關係子句裡當主詞，所以後面接動詞 has created。',
+        'the Swedish Academy said 是插入的主詞加動詞，意思是「瑞典學院說」，拿掉之後句子還是通順：whose bold and inventive work has created new forms…。找關係子句的主詞時，先遮住這種插入語。'
+      ],
+      links: [
+        ['本題庫句型頁 D7（非限定關係子句）', S + 'sentence-patterns.html#D7', 'site'],
+        ['本題庫句型頁 D6（限定的關係詞，用來對照）', S + 'sentence-patterns.html#D6', 'site']
+      ]
+    },
+    contrast: '',
+    facts: [
+      '加拿大詩人、作家 Anne Carson 獲得 2026 年諾貝爾文學獎，10 月 8 日公布。',
+      '瑞典學院的得獎理由是她大膽而富創意的作品，以與古典傳統的趣味對話，為當代文學開創了新的形式。'
+    ],
+    flinks: [
+      ['Devdiscourse', 'https://www.devdiscourse.com/article/international/3989015-canadian-writer-anne-carson-wins-2026-nobel-prize-in-literature'],
+      ['blue News（瑞士）', 'https://www.bluewin.ch/en/lifestyle/nobel-prize-in-literature-awarded-to-canadian-anne-carson-li.3628676']
+    ]
+  },
+  {
+    id: 'n06',
+    src: '時事｜本題庫自編｜2026 諾貝爾和平獎（10/9 公布）',
+    news: true,
+    fd: '2026 年 11 月 5 日',
+    sent: 'It was Navi Pillay, a South African jurist and former UN human rights chief, whom the Norwegian Nobel Committee honored with the 2026 Peace Prize for her efforts to promote peace and international law.',
+    after: 'It was <mark>Navi Pillay, a South African jurist and former UN human rights chief,</mark> whom the Norwegian Nobel Committee honored with the 2026 Peace Prize for her efforts to promote peace and international law.',
+    q: '這一句強調的是哪一部分？',
+    opts: [
+      {t: 'the Norwegian Nobel Committee', why: 'the Norwegian Nobel Committee 在 whom 後面，是 honored 的主詞，不是被強調的部分。'},
+      {t: 'the 2026 Peace Prize', why: 'the 2026 Peace Prize 在 honored with 後面，是頒給對方的東西。'},
+      {t: 'Navi Pillay', ok: true, why: 'It was … whom … 是分裂句，It was 和 whom 中間的 Navi Pillay 就是被強調的部分；whom 在子句裡當 honored 的受詞。'},
+      {t: 'her efforts to promote peace and international law', why: '這是 for 的受詞，說明獲獎原因，在句尾。'}
+    ],
+    restore: 'The Norwegian Nobel Committee honored <mark>Navi Pillay</mark>, a South African jurist and former UN human rights chief, with the 2026 Peace Prize for her efforts to promote peace and international law.',
+    pat: {
+      name: '分裂句（It was + 被強調的人 + whom／who + …）',
+      rule: [
+        '要強調「是誰」時，把那個人放在 It was 和 that（或 who／whom）中間，後面接剩下的部分。強調的人在子句裡是受詞，可用 whom（或 that）；是主詞就用 who（或 that）。',
+        'a South African jurist and former UN human rights chief 是插在人名後面的同位語，說明 Navi Pillay 是誰，前後各有一個逗號。強調的人當受詞時，日常多半用 that 或 who，whom 比較正式。'
+      ],
+      links: [
+        ['本題庫句型頁 D8（分裂句）', S + 'sentence-patterns.html#D8', 'site']
+      ]
+    },
+    contrast: '',
+    facts: [
+      '南非法學家 Navanethem “Navi” Pillay 獲得 2026 年諾貝爾和平獎，10 月 9 日由挪威諾貝爾委員會公布。',
+      '得獎理由是她「促進和平與國際法的努力」（efforts to promote peace and international law）。她曾任聯合國人權事務高級專員，也當過國際刑事法院與盧安達問題國際刑事法庭的法官。'
+    ],
+    flinks: [
+      ['Heart（英國）', 'https://www.heart.co.uk/news/uk-world/former-un-human-rights-chief-navi-pillay-wins/'],
+      ['Khaleej Times', 'https://www.khaleejtimes.com/world/navanethem-navi-pillay-wins-nobel-peace-prize-2026']
+    ]
+  },
+  {
+    id: 'n07',
+    src: '時事｜本題庫自編｜2026 諾貝爾化學獎（10/7 公布）',
+    news: true,
+    fd: '2026 年 11 月 5 日',
+    sent: 'One form of the chemical carvone smells like mint, while the other smells like caraway, which shows why mirror-image molecules matter.',
+    after: 'One form of the chemical carvone smells like mint, while the other smells like caraway, <mark>which</mark> shows why mirror-image molecules matter.',
+    q: 'which shows … 的 which，指的是什麼？',
+    opts: [
+      {t: 'caraway', why: 'which 前面雖然最近的名詞是 caraway，但「show 為什麼鏡像分子重要」的不會是一種植物，而是一件事實。'},
+      {t: 'the other', why: 'the other 只是第二種鏡像形式，單獨一種形式不足以「顯示」道理。'},
+      {t: 'the chemical carvone', why: '逗號後的 which 指的是前面整件事，不是 carvone 這個單一名詞。'},
+      {t: '前面整個子句所說的事（一種形式聞起來像薄荷，另一種像葛縷子）', ok: true, why: '逗號後面的 which 可以指前面整句的內容，後面的動詞用單數 shows。'}
+    ],
+    restore: 'One form of the chemical carvone smells like mint, while the other smells like caraway. <mark>This</mark> shows why mirror-image molecules matter.',
+    pat: {
+      name: '非限定的 which，補充說明前面整件事；one … the other',
+      rule: [
+        '逗號後面的 which 可以指前面一整個子句的內容，意思是「而這件事…」。動詞用單數，因為指的是一件事。',
+        'one … the other 用在只有兩個東西的時候：一個…，另一個…。這句的 while 表示對比。why mirror-image molecules matter 是名詞子句，當 shows 的受詞。'
+      ],
+      links: [
+        ['本題庫句型頁 D7（非限定關係子句）', S + 'sentence-patterns.html#D7', 'site'],
+        ['本題庫句型頁 D3（wh- 引導名詞子句）', S + 'sentence-patterns.html#D3', 'site']
+      ]
+    },
+    contrast: '',
+    facts: [
+      '法國的 Henri B. Kagan 和日本的 Kenso Soai 獲得 2026 年諾貝爾化學獎，10 月 7 日由瑞典皇家科學院公布，得獎理由是發現了不對稱有機合成中的非線性效應與自催化。',
+      'AP 的報導用「鏡像分子」來說明：有些分子有左右手般的兩種形式，化學上相同卻不能重疊；以 carvone 為例，一種形式聞起來像薄荷，另一種像葛縷子（caraway）。藥物設計要選擇用哪一種形式，所以能只製造其中一種很重要。'
+    ],
+    flinks: [
+      ['WUNC（轉載 AP）', 'https://www.wunc.org/2026-10-07/henri-b-kagan-and-kenso-soai-win-nobel-prize-in-chemistry'],
+      ['Khaleej Times（得獎理由）', 'https://www.khaleejtimes.com/world/henri-kagan-kenso-soai-win-2026-nobel-chemistry-prize'],
+      ['Ynetnews（所屬機構）', 'https://www.ynetnews.com/health_science/article/bk2wuc7smx']
+    ]
+  },
+  {
+    id: 'n08',
+    src: '時事｜本題庫自編｜2026 諾貝爾生理醫學獎（10/5 公布）',
+    news: true,
+    fd: '2026 年 11 月 5 日',
+    sent: 'What the three scientists discovered about light-gated ion channels has helped researchers understand how nerve cells can be switched on and off.',
+    after: '<mark>What the three scientists discovered about light-gated ion channels</mark> <b>has helped</b> researchers understand how nerve cells can be switched on and off.',
+    q: 'has helped 的主詞是哪一個？',
+    opts: [
+      {t: 'What the three scientists discovered about light-gated ion channels', ok: true, why: 'what 子句整個當名詞用，視為一件事，所以動詞用單數 has helped。'},
+      {t: 'the three scientists', why: 'the three scientists 是 what 子句裡 discovered 的主詞，只是主詞的一部分。'},
+      {t: 'light-gated ion channels', why: 'light-gated ion channels 是 about 的受詞，在 what 子句裡面。'},
+      {t: 'researchers', why: 'researchers 是 helped 的受詞，在動詞之後。'}
+    ],
+    restore: '<mark>The thing</mark> that the three scientists discovered about light-gated ion channels has helped researchers understand how nerve cells can be switched on and off.',
+    pat: {
+      name: 'what 引導的名詞子句當主詞',
+      rule: [
+        'what = the thing(s) that，what 子句可以當主詞、受詞或補語。當主詞時，通常視為一件事，動詞用單數；如果 what 指的是複數的東西，也可能用複數動詞。',
+        'understand 後面的 how nerve cells can be switched on and off 是另一個 wh- 名詞子句，當受詞，裡面是一般語序（how + 主詞 + 動詞），不是疑問句的倒裝。'
+      ],
+      links: [
+        ['本題庫句型頁 D3（wh- 名詞子句、what）', S + 'sentence-patterns.html#D3', 'site']
+      ]
+    },
+    contrast: '',
+    facts: [
+      'Karl Deisseroth、Peter Hegemann 和 Georg Nagel 共同獲得 2026 年諾貝爾生理醫學獎，10 月 5 日由卡羅林斯卡學院的諾貝爾大會公布，得獎理由是發現光控離子通道與光遺傳學（light-gated ion channels and optogenetics）。',
+      '諾貝爾大會表示，他們的貢獻在於幫助了解控制神經細胞活動的基本機制。'
+    ],
+    flinks: [
+      ['Biotecnika', 'https://www.biotecnika.org/2026/10/2026-nobel-prize-in-medicine-awarded-for-brain-research/'],
+      ['Veranda Race（得獎理由原文）', 'https://verandarace.com/blog/nobel-prize-physiology-medicine-2026-winners']
+    ]
+  },
+  {
+    id: 'n09',
+    src: '時事｜本題庫自編｜第 63 屆金馬獎入圍（10/1 公布）',
+    news: true,
+    fd: '2026 年 11 月 5 日',
+    sent: 'Arrested Memory leads the 63rd Golden Horse Awards with 11 nominations, one more than Girl, the directorial debut of the actress Shu Qi.',
+    after: 'Arrested Memory leads the 63rd Golden Horse Awards with 11 nominations, <mark>one more than Girl</mark>, the directorial debut of the actress Shu Qi.',
+    q: '這句話裡，Girl 有幾項入圍？',
+    opts: [
+      {t: '9 項', why: '9 項比 11 項少 2 項；句子寫的是 one more，只差 1 項。'},
+      {t: '11 項', why: '11 項是 Arrested Memory 的入圍數；one more than Girl 表示 Girl 比 11 少。'},
+      {t: '10 項', ok: true, why: 'Arrested Memory 有 11 項，是「比 Girl 多一項」，所以 Girl 有 10 項。'},
+      {t: '12 項', why: 'Arrested Memory 是領先（leads）的一方，Girl 不可能比它更多。'}
+    ],
+    restore: 'Arrested Memory leads the nominations with 11. Girl, the directorial debut of the actress Shu Qi, has <mark>one fewer</mark>.',
+    rh: '換個說法',
+    pat: {
+      name: '比較級的差距（one more than）；同位語',
+      rule: [
+        '比較時可以把差距放在比較級前面：one more than Girl（比 Girl 多一項）、two years older than me。要算出被比較的對象，用「主詞的數量 − 差距」。',
+        'Girl, the directorial debut of the actress Shu Qi 是同位語：逗號中間的名詞片語說明 Girl 是什麼。'
+      ],
+      links: [
+        ['本題庫句型頁 E2（比較級）', S + 'sentence-patterns.html#E2', 'site']
+      ]
+    },
+    contrast: '',
+    facts: [
+      '第 63 屆金馬獎入圍名單於 2026 年 10 月 1 日公布：《狂忘警探》（Arrested Memory）11 項入圍居首，舒淇的導演處女作《女孩》（Girl）10 項，《雙囍》與《善男信女》各 9 項。',
+      '頒獎典禮訂於 11 月 22 日（日）在台北流行音樂中心舉行。'
+    ],
+    flinks: [
+      ['Focus Taiwan（中央社）', 'https://focustaiwan.tw/culture/202610010022'],
+      ['金馬影展官網（典禮資訊）', 'https://www.goldenhorse.org.tw/awards/ceremony/info/?r=en']
+    ]
+  },
+  {
+    id: 'n10',
+    src: '時事｜本題庫自編｜2026 諾貝爾經濟學獎（10/12 公布）',
+    news: true,
+    fd: '2026 年 11 月 5 日',
+    sent: 'Robert Hall and Michael Woodford were honored for research on how monetary and fiscal policy can better stabilize disruptive economic fluctuations.',
+    after: 'Robert Hall and Michael Woodford were honored for research on <mark>how monetary and fiscal policy can better stabilize</mark> disruptive economic fluctuations.',
+    q: 'on 後面的 how 子句，哪一種語序正確？',
+    opts: [
+      {t: 'how can monetary and fiscal policy better stabilize', why: 'how 子句在句中當 on 的受詞（名詞子句），不是疑問句，不能把 can 提到主詞前面。'},
+      {t: 'how monetary and fiscal policy can better stabilize', ok: true, why: '名詞子句用一般語序：how + 主詞 + 助動詞 + 動詞。'},
+      {t: 'how does monetary and fiscal policy better stabilize', why: '同樣是疑問句語序，不能放在名詞子句裡；而且 does 沒有「能夠」的意思，和原意不同。'},
+      {t: 'how monetary and fiscal policy to better stabilize', why: 'to better stabilize 不是完整的動詞，主詞後面缺少 can 這個助動詞。'}
+    ],
+    restore: 'Hall and Woodford were honored for research. They studied <mark>the way</mark> monetary and fiscal policy can better stabilize disruptive economic fluctuations.',
+    rh: '換個說法',
+    pat: {
+      name: 'wh- 名詞子句（間接問句）的語序',
+      rule: [
+        '疑問句 How can monetary and fiscal policy stabilize …? 放進另一個句子，當介系詞 on 的受詞時，要改成一般語序：how + 主詞 + can + 動詞，助動詞不再提到主詞前面。',
+        'for research on … 的 on 是介系詞，後面可以接名詞，也可以接 wh- 名詞子句。'
+      ],
+      links: [
+        ['本題庫句型頁 D3（wh- 名詞子句）', S + 'sentence-patterns.html#D3', 'site']
+      ]
+    },
+    contrast: '',
+    facts: [
+      '美國經濟學家 Robert E. Hall（史丹佛大學）和 Michael Woodford（哥倫比亞大學）獲得 2026 年諾貝爾經濟學獎，10 月 12 日公布，得獎理由是總體經濟穩定的個體基礎（microeconomic foundations of macroeconomic stabilisation）。',
+      '報導說明他們的研究是貨幣與財政政策如何能更有效地穩定會擾亂經濟的波動。'
+    ],
+    flinks: [
+      ['Gulf News', 'https://gulfnews.com/world/europe/robert-e-hall-and-michael-woodford-win-nobel-prize-in-economics-1.500707393'],
+      ['紐約聯邦準備銀行聲明（10/13，證實得獎）', 'https://www.newyorkfed.org/newsevents/statements/2026/1013-2026']
+    ]
+  }
+]);
+(function(){
+  var ex = ITEMS.filter(function(x){ return !x.news; }), nw = ITEMS.filter(function(x){ return x.news; }), out = [], a = 0, b = 0;
+  while(a < ex.length || b < nw.length){
+    if(a < ex.length) out.push(ex[a++]);
+    if(a < ex.length) out.push(ex[a++]);
+    if(b < nw.length) out.push(nw[b++]);
+  }
+  ITEMS = out;
+})();
+
+var ZH = {"The most beautiful and structurally ": "最美麗、結構也最有條理的，是圓網。", "Enclosed in the frame are capture sp": "外框之內，是從蛛網中心一圈又一圈向外盤繞到外框的捕捉螺旋絲。", "The car doors were still locked, the": "車門仍然鎖著，車窗緊閉，後座上則放著他們的兩件外套。", "Inside the burial box were the remai": "這個葬具裡面放著死者的遺骸。", "Only in the northern woods of Wiscon": "只有在威斯康辛、明尼蘇達和密西根的北部森林裡，才聽得到本地灰狼的嚎叫。", "Rarely does a neutrino from deep spa": "來自深太空的微中子很少與物質作用，所以大多數微中子都穿過南極的冰層，不留一絲痕跡。", "Not only ______ the first World Seri": "密爾瓦基釀酒人隊不只贏得了球團史上第一座世界大賽冠軍，而且只用了五場就擊敗坦帕灣光芒隊。", "The festival’s theme country was Tai": "這屆插畫節的主題國是台灣，主辦單位是一家法國的插畫雜誌，地點則是里昂市。", "It was not until Grover Cleveland’s ": "直到克里夫蘭第一任總統任期，才開始實施一些有效的人潮管制措施，來處理這項做法所造成的問題。", "It is not exactly what a child eats ": "真正重要的，並不完全是孩子吃了什麼，而是食物在他嘴裡停留多久。", "All the time that we spend rooted in": "我們久坐在椅子上的時間，與許多致命疾病的風險上升有關，這些疾病多到讓專家把這種現代健康流行病稱為「久坐病」。", "A properly made kilt should not be s": "做工良好的蘇格蘭裙，不應該鬆到穿的人可以輕易把裙子在身上轉動，也不應該緊到扣環處的布料鼓起來。", "It is believed that the martial art ": "一般認為這種武術與非洲的部落打鬥有關，在那種打鬥中，人們不用武器、近身肉搏，目的是贏得新娘或心儀的女子。", "The area produces 200,000 tons a yea": "這個地區每年生產 20 萬噸的仙人掌，其中每天多達 10 噸最後成了仙人掌市場地上的廢棄物。", "The more bright students stay at uni": "留在大學裡的優秀學生越多，對學者就越有利。", "The pilot is responsible for not onl": "引水人（領港員）負責的不只是船舶的安全，還有港口與海洋環境的保護。", "Being associated with medieval castl": "由於與中世紀的城堡和國王有關聯，螺旋梯逐漸在歐洲建築中受到歡迎，同時新材料也陸續出現，以滿足顧客的需求。", "In addition, the songs are seemingly": "此外，這些歌似乎想施展某種魔法，彷彿母親藉由歌唱在說：「悲傷已經來過這個家了，不必再來。」", "The animal was unknown to the wester": "這種動物直到二十世紀初才為西方世界所知，常被形容為半斑馬、半長頸鹿，彷彿是希臘神話裡的混種生物。", "In front of each easy chair there wa": "每張安樂椅前面都有一支與頭同高的麥克風，並有電線連接到地板中央的錄音機。", "In a man it was the expression of hi": "在男人身上，那是他力量的展現；在女人身上，則是她生育力的展現。", "However, it seems that “Schweizer Of": "然而，「Schweizer Offizier Messer」對他們來說似乎太難念了，所以他們乾脆稱它為瑞士軍刀，這也是它如今在世界各地為人所知的名稱。", "Standing proud in the savannah with ": "馬賽人披著紅毯、帶著彩繪盾牌，驕傲地站在莽原上，是東非最廣為人知的象徵之一。", "In April 2026, the Artemis II crew r": "2026 年 4 月，阿提米絲二號（Artemis II）的太空人飛抵距離地球 252,756 英里處，打破了阿波羅 13 號在 1970 年 4 月創下的紀錄。", "Anne Carson, whose bold and inventiv": "安．卡森獲得 2026 年諾貝爾文學獎；瑞典學院表示，她大膽而富創意的作品，為當代文學開創了新的形式。", "It was Navi Pillay, a South African ": "獲得 2026 年諾貝爾和平獎的，正是南非法學家、前聯合國人權事務高級專員納維．皮萊；挪威諾貝爾委員會藉此表彰她為促進和平與國際法所付出的努力。", "One form of the chemical carvone sme": "化學物質香芹酮（carvone）的一種形式聞起來像薄荷，另一種則像葛縷子，這說明了鏡像分子為什麼重要。", "What the three scientists discovered": "這三位科學家對光控離子通道的發現，幫助研究人員了解神經細胞如何能被開啟和關閉。", "Arrested Memory leads the 63rd Golde": "《狂忘警探》以 11 項入圍領先第 63 屆金馬獎，比女演員舒淇的導演處女作《女孩》多一項。", "Robert Hall and Michael Woodford wer": "羅伯特．霍爾與麥可．伍德福德因研究貨幣與財政政策如何更有效地穩定會擾亂經濟的波動而獲獎。"};
+ITEMS.forEach(function(it){ it.zh = ZH[it.sent.slice(0,35)] || ZH[Object.keys(ZH).filter(function(k){return it.sent.indexOf(k)===0;})[0]]; });
+var XRL = {"The most beautiful and structurally": ["閱讀測驗站｜〈蜘蛛網的構造與絲線特性〉全文（這一句會自動標示）", "https://staresto-create.github.io/reading-comprehension/p/z100p3.html#:~:text=The%20most%20beautiful%20and%20structurally%20ordered%20are%20the%20orb%20webs."], "Enclosed in the frame are capture s": ["閱讀測驗站｜〈蜘蛛網的構造與絲線特性〉全文（這一句會自動標示）", "https://staresto-create.github.io/reading-comprehension/p/z100p3.html#:~:text=Enclosed%20in%20the%20frame%20are%20capture%20spirals%20winding%20round%20and%20round%20from%20the%20web%20center%20out%20to%20the%20frame."], "Inside the burial box were the rema": ["閱讀測驗站｜〈北美原住民的圖騰柱〉全文（這一句會自動標示）", "https://staresto-create.github.io/reading-comprehension/p/g108p2.html#:~:text=Inside%20the%20burial%20box%20were%20the%20remains%20of%20the%20deceased."], "Only in the northern woods of Wisco": ["閱讀測驗站｜〈美國對狼的戰爭〉全文（這一句會自動標示）", "https://staresto-create.github.io/reading-comprehension/p/z95p2.html#:~:text=Only%20in%20the%20northern%20woods%20of%20Wisconsin%2C%20Minnesota%2C%20and%20Michigan%20could%20the%20howl%20of%20native%20gray%20wolves%20be%20heard."], "It was not until Grover Cleveland’s": ["閱讀測驗站｜〈白宮的歷史〉全文（這一句會自動標示）", "https://staresto-create.github.io/reading-comprehension/p/g107p1.html#:~:text=It%20was%20not%20until%20Grover%20Cleveland%E2%80%99s%20first%20presidency%20that%20some%20effective%20crowd%20control%20measures%20were%20implemented%20to%20address%20the%20problem%20caused%20by%20this%20practice."], "It is not exactly what a child eats": ["閱讀測驗站｜〈萬聖節糖果與牙齒健康〉全文（這一句會自動標示）", "https://staresto-create.github.io/reading-comprehension/p/g96p1.html#:~:text=It%20is%20not%20exactly%20what%20a%20child%20eats%20that%20truly%20matters%2C%20but%20how%20much%20time%20it%20stays%20in%20his%20mouth."], "All the time that we spend rooted i": ["閱讀測驗站｜〈「久坐病」的危害〉全文（這一句會自動標示）", "https://staresto-create.github.io/reading-comprehension/p/g104p4.html#:~:text=All%20the%20time%20that%20we%20spend%20rooted%20in%20the%20chair%20is%20linked%20to%20increased%20risks%20of%20so%20many%20deadly%20diseases%20that%20experts%20have%20named%20this%20modern%2Dday%20health%20epidemic%20the%20%E2%80%9Csitting%20disease.%E2%80%9D"], "A properly made kilt should not be ": ["閱讀測驗站｜〈蘇格蘭裙〉全文（這一句會自動標示）", "https://staresto-create.github.io/reading-comprehension/p/g101p1.html#:~:text=A%20properly%20made%20kilt%20should%20not%20be%20so%20loose%20that%20the%20wearer%20can%20easily%20twist%20the%20kilt%20around%20the%20body%2C%20nor%20should%20it%20be%20so%20tight%20that%20it%20causes%20bulging%20of%20the%20fabric%20where%20it%20is%20buckled."], "It is believed that the martial art": ["閱讀測驗站｜〈巴西戰舞卡波耶拉〉全文（這一句會自動標示）", "https://staresto-create.github.io/reading-comprehension/p/g106p2.html#:~:text=It%20is%20believed%20that%20the%20martial%20art%20was%20connected%20with%20tribal%20fighting%20in%20Africa%2C%20in%20which%20people%20fought%20body%20to%20body%2C%20without%20weapons%2C%20in%20order%20to%20acquire%20a%20bride%20or%20desired%20woman."], "The area produces 200,000 tons a ye": ["閱讀測驗站｜〈仙人掌的再生能源應用〉全文（這一句會自動標示）", "https://staresto-create.github.io/reading-comprehension/p/g110p1.html#:~:text=The%20area%20produces%20200%2C000%20tons%20a%20year%20of%20prickly%20pear%20cactus%E2%80%94up%20to%2010%20tons%20of%20which%20ends%20up%20as%20waste%20on%20the%20floor%20of%20the%20cactus%20market%20each%20day."], "The more bright students stay at un": ["閱讀測驗站｜〈博士學位的發展與過剩問題〉全文（這一句會自動標示）", "https://staresto-create.github.io/reading-comprehension/p/z100p4.html#:~:text=The%20more%20bright%20students%20stay%20at%20universities%2C%20the%20better%20it%20is%20for%20academics."], "The pilot is responsible for not on": ["閱讀測驗站｜〈引水人的專業〉全文（這一句會自動標示）", "https://staresto-create.github.io/reading-comprehension/p/g109p2.html#:~:text=The%20pilot%20is%20responsible%20for%20not%20only%20the%20safety%20of%20the%20ship%20but%20also%20the%20protection%20of%20the%20port%20and%20the%20marine%20environment."], "Being associated with medieval cast": ["閱讀測驗站｜〈螺旋梯的歷史與功能演變〉全文（這一句會自動標示）", "https://staresto-create.github.io/reading-comprehension/p/g115p2.html#:~:text=Being%20associated%20with%20medieval%20castles%20and%20kings%2C%20spiral%20staircases%20gradually%20won%20popularity%20in%20European%20architecture%2C%20with%20new%20materials%20emerging%20to%20cope%20with%20customers%E2%80%99%20needs."], "In addition, the songs are seemingl": ["閱讀測驗站｜〈搖籃曲的功能〉全文（這一句會自動標示）", "https://staresto-create.github.io/reading-comprehension/p/g107p4.html#:~:text=In%20addition%2C%20the%20songs%20are%20seemingly%20trying%20to%20work%20some%20magic%E2%80%94as%20if%2C%20by%20singing%2C%20the%20mother%20is%20saying%2C%20%E2%80%9CSadness%20has%20already%20touched%20this%20house%3B%20no%20need%20to%20come%20by%20again.%E2%80%9D"], "The animal was unknown to the weste": ["閱讀測驗站｜〈霍加狓的發現、特徵與保育困境〉全文（這一句會自動標示）", "https://staresto-create.github.io/reading-comprehension/p/z108p4.html#:~:text=The%20animal%20was%20unknown%20to%20the%20western%20world%20until%20the%20beginning%20of%20the%2020th%20century%2C%20and%20is%20often%20described%20as%20half%2Dzebra%2C%20half%2Dgiraffe%2C%20as%20if%20it%20were%20a%20mixed%2Dbreed%20creature%20from%20a%20Greek%20legend."], "In front of each easy chair there w": ["閱讀測驗站｜〈語言學家的錄音詭計〉全文（這一句會自動標示）", "https://staresto-create.github.io/reading-comprehension/p/g89p4.html#:~:text=In%20front%20of%20each%20easy%20chair%20there%20was%20a%20microphone%20at%20head%20height%2C%20with%20wires%20leading%20to%20a%20tape%2Drecorder%20in%20the%20middle%20of%20the%20floor."], "In a man it was the expression of h": ["閱讀測驗站｜〈頭髮的歷史與象徵意義〉全文（這一句會自動標示）", "https://staresto-create.github.io/reading-comprehension/p/z98p2.html#:~:text=In%20a%20man%20it%20was%20the%20expression%20of%20his%20strength%2C%20in%20a%20woman%20of%20her%20fertility."], "However, it seems that “Schweizer O": ["閱讀測驗站｜〈瑞士刀的起源〉全文（這一句會自動標示）", "https://staresto-create.github.io/reading-comprehension/p/g102p1.html#:~:text=However%2C%20it%20seems%20that%20%E2%80%9CSchweizer%20Offizier%20Messer%E2%80%9D%20was%20too%20difficult%20for%20them%20to%20say%2C%20so%20they%20just%20called%20it%20the%20Swiss%20army%20knife%2C%20and%20that%20is%20the%20name%20it%20is%20now%20known%20by%20all%20over%20the%20world."], "Standing proud in the savannah with": ["閱讀測驗站｜〈馬賽人的文化與傳統〉全文（這一句會自動標示）", "https://staresto-create.github.io/reading-comprehension/p/g111p1.html#:~:text=Standing%20proud%20in%20the%20savannah%20with%20their%20red%20blankets%20and%20painted%20shields%2C%20the%20Maasai%20people%20are%20one%20of%20the%20widely%20known%20symbols%20of%20East%20Africa."]};
+var WX = {};
+ITEMS.forEach(function(it){ if(it.news) return; var k = Object.keys(XRL).filter(function(k){ return it.sent.indexOf(k)===0; })[0]; if(k) it.pat.links.push([XRL[k][0], XRL[k][1], '原文']); if(it.id && WX[it.id]) it.pat.links.push([WX[it.id][0], WX[it.id][1], '本題庫']); });
+var WXALL = {"The most beautiful and structurally": [{"w": "order", "lv": "1", "h": [["103 學測 第 8 題", "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0338", false]]}], "Enclosed in the frame are capture s": [{"w": "enclosed", "lv": "4", "h": [["106 學測 第 11 題", "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0386", true], ["112 學測 第 9 題", "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0469", false], ["102 學測 第 3 題", "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0318", false]]}, {"w": "spiral", "lv": "6", "h": [["83 推薦甄選 第 10 題", "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0010", false]]}], "The car doors were still locked, th": [{"w": "tight", "lv": "3", "h": [["115 學測 第 1 題", "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0491", true], ["99 學測 第 7 題", "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0277", true]]}], "Inside the burial box were the rema": [{"w": "remains", "lv": "3", "h": [["85 聯考 第 10 題", "https://staresto-create.github.io/JCEE-vocab-questions/zhikao/#q-ZK0293", false]]}], "Only in the northern woods of Wisco": [{"w": "native", "lv": "3", "h": [["106 學測 第 3 題", "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0378", false]]}], "Rarely does a neutrino from deep sp": [{"w": "rarely", "lv": "2", "h": [["107 指考 第 1 題", "https://staresto-create.github.io/JCEE-vocab-questions/zhikao/#q-ZK0041", true], ["94 學測 第 5 題", "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0200", true]]}, {"w": "interact", "lv": "4", "h": [["104 學測 第 14 題", "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0359", true], ["92 學測補考 第 3 題", "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0168", false]]}, {"w": "trace", "lv": "3", "h": [["106 學測 第 7 題", "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0382", true]]}], "The festival’s theme country was Ta": [{"w": "host", "lv": "2", "h": [["90 聯考 第 1 題", "https://staresto-create.github.io/JCEE-vocab-questions/zhikao/#q-ZK0225", true], ["84 聯考 第 2 題", "https://staresto-create.github.io/JCEE-vocab-questions/zhikao/#q-ZK0295", false]]}, {"w": "location", "lv": "3", "h": [["97 指考 第 1 題", "https://staresto-create.github.io/JCEE-vocab-questions/zhikao/#q-ZK0153", true]]}], "It was not until Grover Cleveland’s": [{"w": "effective", "lv": "2", "h": [["92 學測補考 第 2 題", "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0167", false]]}, {"w": "measures", "lv": "4", "h": [["100 學測 第 10 題", "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0295", false]]}, {"w": "caused", "lv": "2", "h": [["86 推薦甄選 第 18 題", "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0058", true], ["84 聯考 第 9 題", "https://staresto-create.github.io/JCEE-vocab-questions/zhikao/#q-ZK0302", false]]}, {"w": "practice", "lv": "1", "h": [["98 指考參考卷 第 2 題", "https://staresto-create.github.io/JCEE-vocab-questions/zhikao/#q-ZK0335", true], ["89 學測 第 3 題", "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0093", true]]}], "It is not exactly what a child eats": [{"w": "exactly", "lv": "2", "h": [["84 推薦甄選 第 7 題", "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0017", false]]}, {"w": "stay", "lv": "1", "h": [["113 學測 第 5 題", "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0475", false]]}], "All the time that we spend rooted i": [{"w": "increased", "lv": "2", "h": [["84 聯考 第 4 題", "https://staresto-create.github.io/JCEE-vocab-questions/zhikao/#q-ZK0297", false]]}, {"w": "epidemic", "lv": "5", "h": [["94 指考 第 1 題", "https://staresto-create.github.io/JCEE-vocab-questions/zhikao/#q-ZK0183", false]]}], "A properly made kilt should not be ": [{"w": "properly", "lv": "2", "h": [["106 學測 第 1 題", "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0376", true], ["90 學測 第 8 題", "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0113", false]]}, {"w": "easily", "lv": "1", "h": [["92 學測 第 3 題", "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0153", false]]}, {"w": "tight", "lv": "3", "h": [["115 學測 第 1 題", "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0491", true], ["99 學測 第 7 題", "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0277", true]]}, {"w": "cause", "lv": "2", "h": [["85 聯考 第 2 題", "https://staresto-create.github.io/JCEE-vocab-questions/zhikao/#q-ZK0285", false], ["83 推薦甄選 第 4 題", "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0004", false]]}, {"w": "fabric", "lv": "5", "h": [["100 指考 第 1 題", "https://staresto-create.github.io/JCEE-vocab-questions/zhikao/#q-ZK0123", true]]}], "It is believed that the martial art": [{"w": "connected", "lv": "3", "h": [["101 學測 第 9 題", "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0309", false]]}, {"w": "order", "lv": "1", "h": [["103 學測 第 8 題", "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0338", false]]}, {"w": "acquire", "lv": "4", "h": [["107 學測 第 10 題", "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0400", false], ["95 學測 第 10 題", "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0220", false]]}], "The area produces 200,000 tons a ye": [{"w": "produces", "lv": "2", "h": [["94 學測 第 4 題", "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0199", false]]}], "The more bright students stay at un": [{"w": "stay", "lv": "1", "h": [["113 學測 第 5 題", "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0475", false]]}], "The pilot is responsible for not on": [{"w": "responsible", "lv": "2", "h": [["85 推薦甄選 第 14 題", "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0034", false]]}, {"w": "safety", "lv": "2", "h": [["86 推薦甄選 第 2 題", "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0042", true]]}], "Being associated with medieval cast": [{"w": "associated", "lv": "4", "h": [["110 學測 第 14 題", "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0449", false], ["108 學測 第 3 題", "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0408", false]]}, {"w": "spiral", "lv": "6", "h": [["83 推薦甄選 第 10 題", "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0010", false]]}, {"w": "gradually", "lv": "2", "h": [["93 補考 第 12 題", "https://staresto-create.github.io/JCEE-vocab-questions/zhikao/#q-ZK0102", true], ["101 學測 第 2 題", "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0302", false], ["100 學測 第 1 題", "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0286", false], ["87 聯考 第 2 題", "https://staresto-create.github.io/JCEE-vocab-questions/zhikao/#q-ZK0265", false]]}, {"w": "emerging", "lv": "4", "h": [["113 學測 第 2 題", "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0472", true]]}], "The animal was unknown to the weste": [{"w": "legend", "lv": "4", "h": [["101 學測 第 4 題", "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0304", true]]}], "In a man it was the expression of h": [{"w": "strength", "lv": "3", "h": [["95 學測 第 13 題", "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0223", false]]}], "However, it seems that “Schweizer O": [{"w": "called", "lv": "1", "h": [["84 聯考 第 9 題", "https://staresto-create.github.io/JCEE-vocab-questions/zhikao/#q-ZK0302", false]]}], "Standing proud in the savannah with": [{"w": "stand", "lv": "1", "h": [["113 學測 第 5 題", "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0475", true]]}, {"w": "blanket", "lv": "2", "h": [["107 學測 第 11 題", "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0401", true]]}, {"w": "widely", "lv": "1", "h": [["94 學測 第 1 題", "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0196", true]]}], "In April 2026, the Artemis II crew ": [{"w": "crew", "lv": "3", "h": [["84 聯考 第 2 題", "https://staresto-create.github.io/JCEE-vocab-questions/zhikao/#q-ZK0295", false]]}], "Anne Carson, whose bold and inventi": [{"w": "contemporary", "lv": "5", "h": [["93 指考 第 7 題", "https://staresto-create.github.io/JCEE-vocab-questions/zhikao/#q-ZK0199", false]]}], "It was Navi Pillay, a South African": [{"w": "committee", "lv": "3", "h": [["93 補考 第 2 題", "https://staresto-create.github.io/JCEE-vocab-questions/zhikao/#q-ZK0092", false]]}, {"w": "effort", "lv": "2", "h": [["103 學測 第 8 題", "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0338", false]]}, {"w": "promote", "lv": "3", "h": [["104 學測 第 11 題", "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0356", true], ["97 學測 第 4 題", "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0244", false]]}], "One form of the chemical carvone sm": [{"w": "image", "lv": "2", "h": [["81 聯考 第 9 題", "https://staresto-create.github.io/JCEE-vocab-questions/zhikao/#q-ZK0332", true]]}], "What the three scientists discovere": [{"w": "discovered", "lv": "2", "h": [["86 推薦甄選 第 20 題", "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0060", false], ["81 聯考 第 2 題", "https://staresto-create.github.io/JCEE-vocab-questions/zhikao/#q-ZK0325", false]]}, {"w": "channels", "lv": "2", "h": [["91 學測補考 第 3 題", "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0138", true]]}, {"w": "researcher", "lv": "4", "h": [["109 學測 第 3 題", "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0423", false]]}, {"w": "switched", "lv": "2", "h": [["87 推薦甄選 第 9 題", "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0069", false]]}], "Arrested Memory leads the 63rd Gold": [{"w": "arrest", "lv": "3", "h": [["97 學測 第 1 題", "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0241", false]]}], "Robert Hall and Michael Woodford we": [{"w": "economic", "lv": "4", "h": [["101 學測 第 13 題", "https://staresto-create.github.io/JCEE-vocab-questions/gsat/#q-V0313", false]]}]};
+ITEMS.forEach(function(it){ var k = Object.keys(WXALL).filter(function(k){ return it.sent.indexOf(k)===0; })[0]; if(k) it.wx = WXALL[k]; });
+var DAYS = ['日','一','二','三','四','五','六'];
+var now = new Date();
+var todayKey = now.getFullYear() + '-' + String(now.getMonth()+1).padStart(2,'0') + '-' + String(now.getDate()).padStart(2,'0');
+var dayNum = Math.floor(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()) / 86400000);
+var todayIdx = dayNum % ITEMS.length;
+var cur = todayIdx;
+var done = {};
+
+function store(k, v){ try{ if(v===undefined){ return localStorage.getItem(k); } localStorage.setItem(k, v); }catch(e){ return null; } }
+function esc(s){ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;'); }
+
+document.getElementById('today').textContent = (now.getMonth()+1) + ' 月 ' + now.getDate() + ' 日（' + DAYS[now.getDay()] + '）';
+
+function loadStreak(){
+  var s = parseInt(store('ds-streak'),10) || 0, last = store('ds-last');
+  if(last){
+    var d = new Date(last + 'T00:00:00'), gap = Math.round((new Date(todayKey + 'T00:00:00') - d)/86400000);
+    if(gap > 1) s = 0;
+  }
+  document.getElementById('streak').textContent = s;
+}
+function bumpStreak(){
+  var last = store('ds-last'), s = parseInt(store('ds-streak'),10) || 0;
+  if(last === todayKey) return;
+  var gap = last ? Math.round((new Date(todayKey + 'T00:00:00') - new Date(last + 'T00:00:00'))/86400000) : 99;
+  s = (gap === 1) ? s + 1 : 1;
+  store('ds-streak', String(s)); store('ds-last', todayKey);
+  document.getElementById('streak').textContent = s;
+}
+
+function render(){
+  var it = ITEMS[cur], answered = done[cur];
+  var h = '<p class="src">' + esc(it.src) + '</p>';
+  h += '<p class="sent">' + (answered !== undefined ? it.after : esc(it.sent)) + '</p>';
+  h += '<p class="q">' + esc(it.q) + '</p><ul class="opts">';
+  var L = ['A','B','C','D'];
+  it.opts.forEach(function(o,i){
+    var cls = 'opt';
+    if(answered !== undefined){ if(o.ok) cls += ' right'; else if(i === answered) cls += ' wrong'; }
+    h += '<li><button type="button" class="' + cls + '" data-i="' + i + '"' + (answered !== undefined ? ' disabled' : '') + '>'
+      + '<span class="l">(' + L[i] + ')</span><span class="body"><span class="t">' + esc(o.t) + '</span>'
+      + (answered !== undefined ? '<p class="why">' + o.why + '</p>' : '') + '</span></button></li>';
+  });
+  h += '</ul>';
+  if(answered !== undefined){
+    var right = !!it.opts[answered].ok;
+    h += '<div class="res"><p class="verdict ' + (right ? 'ok' : 'no') + '">' + (right ? '答對了' : '再看一次原因') + '</p>';
+    if(it.zh) h += '<div class="blk"><button class="btn" type="button" id="zhbtn" aria-expanded="false">看中譯</button><p class="en" id="zhtxt" hidden style="margin-top:.6rem">' + esc(it.zh) + '</p><p class="why" id="zhnote" hidden>中譯由本題庫自擬，供對照句意，不是官方翻譯。</p></div>';
+    h += '<div class="blk"><h2>' + (it.rh || '還原成一般語序') + '</h2><p class="en">' + it.restore + '</p></div>';
+    h += '<div class="blk"><h2>這是什麼句型</h2><p class="pname">' + it.pat.name + '</p>' + it.pat.rule.map(function(p){ return '<p>' + p + '</p>'; }).join('') + '</div>';
+    h += '<div class="blk"><h2>想看更多</h2><ul class="links">' + it.pat.links.map(function(l){
+      if(l[2] === 'text') return '<li><span class="tag">課本</span>' + esc(l[0].replace(/^課本：/, '')) + '</li>';
+      return '<li><span class="tag">' + (l[2] === 'site' ? '本題庫' : l[2]) + '</span><a href="' + l[1] + '" target="_blank" rel="noopener">' + esc(l[0]) + '</a></li>';
+    }).join('') + '</ul></div>';
+    if(it.wx && it.wx.length) h += '<div class="blk"><h2>這句的單字，在本題庫的其他題</h2><ul class="links">' + it.wx.map(function(w){ return '<li><span class="tag">' + esc(w.w) + '</span>' + '<span style="display:flex;flex-wrap:wrap;gap:.15rem 1rem">' + w.h.map(function(x){ return '<a style="white-space:nowrap" href="' + x[1] + '" target="_blank" rel="noopener">' + (x[2] ? '答案' : '選項') + '：' + esc(x[0]) + '</a>'; }).join('') + '</span></li>'; }).join('') + '</ul></div>';
+    if(it.contrast) h += '<div class="blk"><h2>對照</h2><p>' + it.contrast + '</p></div>';
+    if(it.news) h += '<div class="blk"><h2>事實依據（句子為本題庫自編，不是新聞原文）</h2>' + it.facts.map(function(f){ return '<p>' + esc(f) + '</p>'; }).join('') + '<ul class="links">' + it.flinks.map(function(l){ return '<li><span class="tag">新聞</span><a href="' + l[1] + '" target="_blank" rel="noopener">' + esc(l[0]) + '</a></li>'; }).join('') + '</ul><p class="why">事實查證日期：' + (it.fd || '2026 年 11 月 4 日') + '。</p></div>';
+    h += '</div>';
+  }
+  var card = document.getElementById('card');
+  card.innerHTML = h;
+  var zb = document.getElementById('zhbtn');
+  if(zb) zb.addEventListener('click', function(){ var t = document.getElementById('zhtxt'), n = document.getElementById('zhnote'), open = t.hidden; t.hidden = !open; n.hidden = !open; zb.textContent = open ? '收起中譯' : '看中譯'; zb.setAttribute('aria-expanded', open ? 'true' : 'false'); });
+  card.querySelectorAll('.opt').forEach(function(b){
+    b.addEventListener('click', function(){
+      done[cur] = parseInt(b.getAttribute('data-i'),10);
+      if(cur === todayIdx) bumpStreak();
+      render();
+    });
+  });
+  document.getElementById('pos').textContent = '第 ' + (cur+1) + ' 題／共 ' + ITEMS.length + ' 題' + (cur === todayIdx ? '（今天這題）' : '');
+}
+document.getElementById('prev').addEventListener('click', function(){ cur = (cur + ITEMS.length - 1) % ITEMS.length; render(); });
+document.getElementById('next').addEventListener('click', function(){ cur = (cur + 1) % ITEMS.length; render(); });
+document.getElementById('home').addEventListener('click', function(){ cur = todayIdx; render(); });
+loadStreak(); render();
+</script>
