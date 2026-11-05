@@ -82,6 +82,7 @@ ul.list li{padding:.45rem 0;border-bottom:1px solid var(--ad-vrule-border)}
 .refs a .k{color:var(--ad-vinksoft-fg);font-size:.92em}
 .refs div+div{margin-top:.1rem}
 .empty{padding:1.2rem 0;color:var(--ad-vinksoft-fg)}
+.more[hidden]{display:none}
 .more{display:block;margin:1rem auto 0;font:inherit;font-size:.9rem;padding:.45rem 1.2rem;background:var(--ad-vpapercard-bg);border:1px solid var(--ad-vink-border);border-radius:3px;cursor:pointer}
 footer.foot{margin-top:2.4rem;padding-top:.9rem;border-top:1px solid var(--ad-vrule-border);font-size:.8rem;color:var(--ad-vinksoft-fg);line-height:1.9}
 footer.foot a{color:var(--ad-vcrimson-fg)}
@@ -203,7 +204,7 @@ table.low td:nth-child(3){white-space:nowrap}
 
   <p class="lede">如果正在猶豫接下來要把時間多分給哪一科，可以先查想報考的校系在申請入學時怎麼篩選英文。第一階段，校系會先用<b>檢定標準</b>設門檻，再用<b>篩選倍率</b>決定多少人進入第二階段；116 學年度的 2,240 個校系中，有 <b>1,444 個</b>在第一階段會用到英文成績：設英文檢定、設英文倍率，或是把英文和其他科合併篩選。這一頁依大學甄選入學委員會 11 月 3 日公告的校系分則整理，輸入學校或系名就能查詢，每個校系代碼都連到甄選會的分則原文。</p>
   <p class="lede"><b>篩選倍率不是加權，方向剛好相反：倍率愈小，這一科篩選得愈嚴格。</b>倍率決定第一階段預計留下多少人：招生名額 × 倍率。例如招生名額 10 名、英文倍率 3 倍，英文這一項預計留下 30 人。倍率愈小，預計留下的人愈少，英文成績的通過門檻通常愈高；倍率愈大，預計留下的人愈多，通過門檻通常愈低。如果在篩選邊界遇到同級分，人數可能超過預計；這些同級分的考生，要依分則上的「同級分超額篩選」順序繼續比較其他項目，直到最後一項仍然同分，才會全數通過。校系設有多項篩選時，每一項都要通過，任何一項沒通過，就進不了第二階段。</p>
-  <p class="lede"><b>這一頁整理的是申請入學。</b>申請入學不看英文的校系，在分發入學時還是可能參採學測英文，查法見下方<a href="#h-alloc">分發入學</a>。</p>
+  <p class="lede"><b>這一頁整理的是申請入學。</b>申請入學不看英文的校系，在分發入學時還是可能參採學測英文，可以到下方的<a href="#h-alloc">分發入學</a>查。</p>
   <nav class="unitbar" id="unitbar" aria-label="本頁單元"><div class="ubrow"><span class="ublab">本頁單元</span><a href="#h-sum">總覽</a><a href="#h-find">查詢校系</a><a href="#h-sch">各校統計</a><a href="#h-alloc">分發入學</a><a href="#h-term">名詞說明</a></div></nav>
 
   <section class="card" aria-labelledby="h-sum">
@@ -275,11 +276,28 @@ table.low td:nth-child(3){white-space:nowrap}
     <div class="tbl-wrap"><table class="nm">
 <thead><tr><th>採計科目（分科測驗＋學測）</th><th>116 學年度系組數</th><th>115 學年度系組數</th></tr></thead>
 <tbody><tr><td>公民與社會＋國文、英文</td><td>187</td><td>176</td></tr><tr><td>歷史＋國文、英文</td><td>134</td><td>132</td></tr><tr><td>數學甲＋國文、英文</td><td>106</td><td>99</td></tr><tr><td>數學甲、物理、化學＋國文、英文</td><td>104</td><td>107</td></tr><tr><td>數學乙＋國文、英文</td><td>76</td><td>75</td></tr><tr><td>生物＋國文、英文</td><td>74</td><td>72</td></tr></tbody></table></div>
-    <p class="tnote">1,467 個系組是從官方的<a href="https://www.uac.edu.tw/116data/116uacnote.pdf" target="_blank" rel="noopener">116 學年度大學分發入學採計科目組合統計表 ↗</a>加總而來：一般組 1,735 個系組中有 1,432 個採計英文，術科組 42 個中有 35 個。這份統計只算採計科目，只設英文檢定、沒有採計英文的系組不在內。英聽的 19 個系組見下方的英聽列表。</p>
+    <p class="tnote">1,467 個系組是從官方的<a href="https://www.uac.edu.tw/116data/116uacnote.pdf" target="_blank" rel="noopener">116 學年度大學分發入學採計科目組合統計表 ↗</a>加總而來：一般組 1,735 個系組中有 1,432 個採計英文，術科組 42 個中有 35 個。這份統計只算採計科目，只設英文檢定、沒有採計英文的系組不在內。官方一覽表的參採科目也包含只設英文檢定的系組，所以參採英文的系組數會比 1,467 多一些。英聽的 19 個系組列在下方的表中。</p>
     <p style="margin-top:.7rem"><b>實例：</b>中央大學工學院學士班，申請入學的學測科目是社會、自然，沒有英文；分發入學參採的學測科目則是英文、自然。中正大學化學工程學系也一樣，申請入學只看數學A、自然，分發入學參採國文、英文。所以只看申請入學，會漏看英文被參採的機會。</p>
-    <h3>怎麼查校系在分發入學用不用英文</h3>
+    <h3 id="h-dq">查分發入學參採的學測科目<span>116 學年度 1,777 個系組</span></h3>
+    <p class="tnote" style="margin:.2rem 0 .5rem"><b>輸入學校或系名</b>，寫法和上面的「查詢校系」相同，就能看到這個系組在分發入學參採哪些學測科目。<b>參採科目包含檢定和採計兩種用途，官方這份表沒有分開，也沒有列加權。</b>數學A、數學B 同時列出時，這兩科只設在檢定，考生其中一科達到標準即可。各系組的檢定標準與加權，請看簡章的校系分則。</p>
+    <div class="tools fl">
+      <input type="search" id="dq" placeholder="例如：中央 工學院" autocomplete="off" aria-label="學校或系名">
+      <div class="row" id="dFilt" role="group" aria-labelledby="lbDf"><span class="lb" id="lbDf">英文</span>
+        <button type="button" data-v="all" aria-pressed="true">全部</button><button type="button" data-v="eng">參採英文</button><button type="button" data-v="noeng">不參採英文</button><button type="button" data-v="ear">設有英聽檢定</button>
+      </div>
+    </div>
+    <div class="count" id="dcnt" aria-live="polite"></div>
+    <div id="dres"></div>
+    <button type="button" class="more" id="dmore" hidden>顯示更多</button>
+    <details>
+      <summary>設有英聽檢定的 19 個系組（A 級 9 個、B 級 10 個）</summary>
+      <div class="tbl-wrap"><table class="nm"><thead><tr><th>學校</th><th>系組</th><th>英聽等級</th><th>學測參採科目</th></tr></thead><tbody><tr><td class="sch">國立臺灣大學</td><td class="dp">外國語文學系</td><td>A 級</td><td>國文、英文</td></tr><tr><td class="sch">國立成功大學</td><td class="dp">外國語文學系</td><td>A 級</td><td>國文、英文、數學B</td></tr><tr><td class="sch">國立成功大學</td><td class="dp">機械工程學系(普渡雙聯組)</td><td>A 級</td><td>英文、數學A</td></tr><tr><td class="sch">國立政治大學</td><td class="dp">民族學系</td><td>B 級</td><td>國文、英文、社會</td></tr><tr><td class="sch">國立政治大學</td><td class="dp">外交學系</td><td>A 級</td><td>國文、英文、數學A、數學B</td></tr><tr><td class="sch">國立政治大學</td><td class="dp">創新國際學院學士班</td><td>A 級</td><td>國文、英文、數學B</td></tr><tr><td class="sch">高雄醫學大學</td><td class="dp">生命科學院學士班(英語組)</td><td>B 級</td><td>英文</td></tr><tr><td class="sch">高雄醫學大學</td><td class="dp">醫藥暨應用化學系英語學士班</td><td>B 級</td><td>英文</td></tr><tr><td class="sch">國立清華大學</td><td class="dp">英語教學系</td><td>A 級</td><td>國文、英文、數學B</td></tr><tr><td class="sch">國立清華大學</td><td class="dp">經濟學系第1組</td><td>B 級</td><td>國文、英文</td></tr><tr><td class="sch">國立清華大學</td><td class="dp">經濟學系第2組</td><td>B 級</td><td>國文、英文、數學A</td></tr><tr><td class="sch">中國醫藥大學</td><td class="dp">醫學系</td><td>A 級</td><td>國文</td></tr><tr><td class="sch">國立陽明交通大學</td><td class="dp">牙醫學系</td><td>A 級</td><td>國文、英文</td></tr><tr><td class="sch">國立高雄師範大學</td><td class="dp">英語學系</td><td>B 級</td><td>國文、英文</td></tr><tr><td class="sch">國立中山大學</td><td class="dp">海洋生物科技暨資源學系</td><td>B 級</td><td>英文、數學A、數學B</td></tr><tr><td class="sch">國立臺灣藝術大學</td><td class="dp">廣播電視學系</td><td>B 級</td><td>國文、英文</td></tr><tr><td class="sch">國立臺灣藝術大學</td><td class="dp">戲劇學系(男)</td><td>B 級</td><td>國文、英文</td></tr><tr><td class="sch">國立臺灣藝術大學</td><td class="dp">戲劇學系(女)</td><td>B 級</td><td>國文、英文</td></tr><tr><td class="sch">國立臺北大學</td><td class="dp">應用外語學系</td><td>A 級</td><td>國文、英文、數學B</td></tr></tbody></table></div>
+      <p class="tnote">英聽檢定要求高中英語聽力測驗達到指定等級，來源是<a href="https://www.uac.edu.tw/116data/116EL.pdf" target="_blank" rel="noopener">116 學年度大學分發入學檢定高中英語聽力測驗系組列表 ↗</a>。表中未列出的系組不檢定英聽；如有新增或更名的系組，以招生簡章公告為準。</p>
+      <p class="tnote">中國醫藥大學醫學系的學測參採科目只列國文，但設有英聽檢定，所以上面的查詢結果會同時出現「不參採英文」和「英聽 A 級」。</p>
+    </details>
+    <h3>查詢系組在分發入學是否參採英文</h3>
     <ol class="how">
-      <li>查全部系組：<a href="https://www.uac.edu.tw/116data/116_basic.pdf" target="_blank" rel="noopener">116 學年度分發入學各招生系組參採學測科目一覽表 ↗</a>（PDF），依學校列出每個系組參採的學測科目，包含檢定與採計；沒有列英文的系組，檢定與採計都不用英文。</li>
+      <li>查全部系組：上面的查詢就是整理自官方的<a href="https://www.uac.edu.tw/116data/116_basic.pdf" target="_blank" rel="noopener">116 學年度分發入學各招生系組參採學測科目一覽表 ↗</a>（PDF）；表中沒有列英文的系組，檢定與採計都不用英文。</li>
       <li>利用查詢系統：<a href="https://uac2.ncku.edu.tw/cross_search/" target="_blank" rel="noopener">116 學年度分發入學校系分則查詢系統 ↗</a>先選「依學測考科」並勾選英文，會列出檢定或採計用到英文的校系；若選「依檢定科目」並勾選英文，則只列出設有英文檢定的校系。</li>
       <li>查英聽檢定（部分系組要求高中英語聽力測驗達到指定等級）：<a href="https://www.uac.edu.tw/116data/116EL.pdf" target="_blank" rel="noopener">116 學年度大學分發入學檢定高中英語聽力測驗系組列表 ↗</a>。</li>
       <li>查各校系的檢定標準、採計科目與加權：<a href="https://www.uac.edu.tw/116data/116recruit.pdf" target="_blank" rel="noopener">116 學年度大學分發入學招生簡章 ↗</a>的校系分則。</li>
@@ -318,7 +336,7 @@ table.low td:nth-child(3){white-space:nowrap}
   var AL={};Object.keys(AL0).forEach(function(k){AL[norm(k)]=AL0[k].map(norm)});
   function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
   function num(s){return /^\d+(\.\d+)?$/.test(s)?parseFloat(s):null}
-  function prep(rows){return rows.map(function(r,i){var e=r[6][1].split('|');var sm=r[8]||'--';var m=/^([\d.]+) \((.+)\)$/.exec(sm);return {i:i,sch:r[1],code:r[2],name:r[3],quota:r[4],subj:r[5],ear:r[7],lv:e[0],ra:num(e[1]),eng:r[5].indexOf('英文')>=0,cr:(m&&m[2].indexOf('英')>=0)?num(m[1]):null,cs:m?m[2]:'',key:norm(r[1]+' '+r[3]+' '+r[2])}})}
+  function prep(rows){return rows.map(function(r,i){var e=r[6][1].split('|');var sm=r[8]||'--';var m=/^([\d.]+) \((.+)\)$/.exec(sm);return {i:i,sc:r[0],sch:r[1],code:r[2],name:r[3],quota:r[4],subj:r[5],ear:r[7],lv:e[0],ra:num(e[1]),eng:r[5].indexOf('英文')>=0,cr:(m&&m[2].indexOf('英')>=0)?num(m[1]):null,cs:m?m[2]:'',key:norm(r[1]+' '+r[3]+' '+r[2])}})}
   function tok1(x,tk){if(x.key.indexOf(tk)>=0)return true;var al=AL[tk];if(al)for(var a=0;a<al.length;a++){if(x.key.indexOf(al[a])>=0)return true}return false}
   function tokOK(x,tk){if(tok1(x,tk))return true;for(var p=2;p<=tk.length-2;p++){var L=tk.slice(0,p),Rt=tk.slice(p);if((AL[L]||AL[Rt])&&tok1(x,L)&&tok1(x,Rt))return true}return false}
   function match(x,toks){
@@ -338,12 +356,41 @@ table.low td:nth-child(3){white-space:nowrap}
     var c=(lv==='頂'||lv==='前')?'t0':(lv==='均'?'t1':'t2');
     return '<span class="tag '+c+'">英文'+lv+'標</span>';
   }
+  var DM={},DR=[],dready=false,dfailed=false;
+  var dq=document.getElementById('dq'),dres=document.getElementById('dres'),dcnt=document.getElementById('dcnt'),dmore=document.getElementById('dmore');
+  var dst={f:'all',shown:30};
+  function prepD(rows){return rows.map(function(r,i){var sj=r[3]||'';return {i:i,sc:r[0],sch:r[1],name:r[2],subj:sj,eng:sj.split('、').indexOf('英文')>=0,ear:r[4],key:norm(r[1]+' '+r[2]+' '+r[0])}})}
+  function dcard(x){
+    var t=(x.eng?'<span class="tag t1">參採英文</span>':'<span class="tag t2">不參採英文</span>')+(x.ear?'<span class="tag t1">英聽 '+esc(x.ear)+' 級</span>':'');
+    return '<div class="hit"><div class="t1l"><span class="dn">'+esc(x.name)+'</span></div><div class="t2l">'+esc(x.sch)+'</div><div class="t3l">'+t+'</div><div class="sj">學測參採科目：'+esc(x.subj||'（無）')+'</div></div>';
+  }
+  function dmatch(x,toks){
+    for(var k=0;k<toks.length;k++){if(!tokOK(x,toks[k]))return false}
+    if(dst.f==='eng')return x.eng;
+    if(dst.f==='noeng')return !x.eng;
+    if(dst.f==='ear')return !!x.ear;
+    return true;
+  }
+  function drender(){
+    if(dfailed){dcnt.textContent='資料載入失敗，請重新整理頁面。';return}
+    if(!dready){dcnt.textContent='資料載入中…';return}
+    var toks=norm(dq.value).split(/\s+/).filter(Boolean);
+    var out=DR.filter(function(x){return dmatch(x,toks)});
+    dcnt.textContent='共 '+out.length+' 個系組'+(out.length>dst.shown?'，目前顯示前 '+dst.shown+' 個':'');
+    dres.innerHTML=out.slice(0,dst.shown).map(dcard).join('')||'<div class="empty">沒有符合的系組。可以改用較短的關鍵字，或把英文的條件改成「全部」。</div>';
+    dmore.hidden=out.length<=dst.shown;
+  }
+  document.getElementById('dFilt').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;dst.f=b.getAttribute('data-v');dst.shown=30;pressed(this,b);drender()});
+  dq.addEventListener('input',function(){dst.shown=30;drender()});
+  dmore.addEventListener('click',function(){dst.shown+=30;drender()});
   function card(x){
     var eng=x.subj.indexOf('英文')>=0;
+    var dm=DM[x.sc+'|'+x.name];
     var et=(x.ear&&x.ear!=='--')?'<span class="tag t1">英聽 '+esc(x.ear)+' 級</span>':'';
     var t3=eng?(tagLv(x.lv)+'<span class="tag '+(x.ra===null?'t2':'t1')+'">'+(x.ra===null?'未設倍率':'倍率 '+x.ra+' 倍')+'</span>'+et+(x.cr!==null?'<span class="tag t1">合併篩選 '+x.cr+' 倍（'+esc(x.cs)+'）</span>':'')):'<span class="tag t2">不採計英文</span>';
+    if(dm&&dm.eng&&!eng)t3+='<span class="tag t1">分發入學參採英文</span>';
     return '<div class="hit"><div class="t1l"><span class="dn">'+esc(x.name)+'</span><span class="cd"><a href="'+LINK.replace('%s',x.code)+'" target="_blank" rel="noopener">'+x.code+' ↗</a></span></div>'
-      +'<div class="t2l">'+esc(x.sch)+'　招生 '+esc(x.quota)+' 人</div><div class="t3l">'+t3+'</div><div class="sj">學測科目：'+esc(x.subj)+'</div></div>';
+      +'<div class="t2l">'+esc(x.sch)+'　招生 '+esc(x.quota)+' 人</div><div class="t3l">'+t3+'</div><div class="sj">申請入學學測科目：'+esc(x.subj)+'</div>'+(dm?'<div class="sj">分發入學參採學測科目：'+esc(dm.subj||'（無）')+'</div>':'')+'</div>';
   }
   function render(){
     if(failed){cnt.textContent='資料載入失敗，請重新整理頁面。';return}
@@ -364,7 +411,8 @@ table.low td:nth-child(3){white-space:nowrap}
   function setRt(v){st.rt=v;var box=document.getElementById('fRt');pressed(box,box.querySelector('[data-v="'+v+'"]'))}
   q.addEventListener('input',function(){st.shown=30;if(!st.touched){setRt(q.value.trim()?'all':'3')}render()});
   more.addEventListener('click',function(){st.shown+=30;render()});
-  fetch('data.json').then(function(r){if(!r.ok)throw new Error('http');return r.json()}).then(function(d){R=prep(d.rows);ready=true;render()}).catch(function(){failed=true;render()});render();
+  fetch('dist.json').then(function(r){if(!r.ok)throw new Error('http');return r.json()}).then(function(d){DR=prepD(d.rows);DR.forEach(function(x){DM[x.sc+'|'+x.name]=x});dready=true;drender();if(ready)render()}).catch(function(){dfailed=true;drender()});
+  fetch('data.json').then(function(r){if(!r.ok)throw new Error('http');return r.json()}).then(function(d){R=prep(d.rows);ready=true;render()}).catch(function(){failed=true;render()});render();drender();
   var bar=document.getElementById('unitbar'),to=document.getElementById('toBar');
   if(bar)bar.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href^="#"]');if(!a)return;var t=document.getElementById(a.getAttribute('href').slice(1));if(!t)return;var d=t.tagName==='DETAILS'?t:t.closest('details');if(d)d.open=true});
   if(to){to.addEventListener('click',function(e){e.preventDefault();if(bar)bar.scrollIntoView({block:'center'})});
