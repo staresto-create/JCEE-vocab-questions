@@ -346,6 +346,14 @@
 .spot-tag{font-family:system-ui,sans-serif; font-size:11px; font-weight:700; letter-spacing:.04em; padding:2px 7px; border-radius:999px; background:var(--crimson); color:#fff;}
 .spot p{margin:0 0 8px; font-size:14px; line-height:1.8; color:var(--ad-vinksoft-fg);}
 .spot p b{color:var(--ad-vink-fg);}
+.wsearch{text-align:left; margin:10px 0 4px; padding:12px 14px; border:1px solid var(--ad-vrule-border); border-radius:12px; background:var(--ad-vpapercard-bg);}
+.wsearch label{display:block; font-family:'Noto Serif TC','PingFang TC','Microsoft JhengHei',serif; font-weight:900; font-size:16px; color:var(--ad-vink-fg); margin:0 0 2px;}
+.wsearch .wnote{margin:0 0 8px; font-size:13px; line-height:1.7; color:var(--ad-vinksoft-fg);}
+.wsearch .wrow{display:flex; gap:8px;}
+.wsearch input{flex:1; min-width:0; font:inherit; font-size:16px; padding:9px 11px; border:2px solid var(--ad-vink-fg); border-radius:8px; background:var(--ad-vpapercard-bg); color:var(--ad-vink-fg);}
+.wsearch button{font:inherit; font-size:15px; font-weight:700; padding:9px 18px; border:2px solid var(--crimson); border-radius:8px; background:var(--crimson); color:#fff; cursor:pointer;}
+.wsearch input:focus-visible,.wsearch button:focus-visible{outline:2px solid var(--crimson); outline-offset:2px;}
+@media print{.wsearch{display:none;}}
 .spot-go{display:inline-block; font-size:14px; font-weight:700; color:var(--ad-vsage-fg); text-decoration:underline; text-underline-offset:3px;}
 a.spot:hover .spot-go{text-decoration-thickness:2px;}
 .newstrip{margin:10px 0 4px; padding:12px 14px; border:1px solid var(--crimson); border-left-width:5px; border-radius:10px; background:color-mix(in srgb, var(--crimson) 7%, var(--ad-vpapercard-bg)); text-align:left;}
@@ -482,6 +490,14 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
       <p>字旁還會標出這個字<b>收在龍騰、三民課本的哪一課</b>。也能<b>列印成生字表</b>，中文欄可留空白讓學生自己填。</p>
       <span class="spot-go">開始貼上文章 →</span>
     </a>
+    <form class="wsearch" id="wsearch" role="search" autocomplete="off">
+      <label for="wsq">查一個英文單字</label>
+      <p class="wnote">字典查意思，這裡查它出現在幾份學測試卷。</p>
+      <div class="wrow"><input id="wsq" type="text" lang="en" inputmode="latin" autocapitalize="none" autocorrect="off" spellcheck="false" maxlength="40" placeholder="輸入英文單字，例如 promote" aria-label="輸入英文單字"><button type="submit">查</button></div>
+    </form>
+    <script>
+    document.getElementById('wsearch').addEventListener('submit',function(ev){ev.preventDefault();var v=document.getElementById('wsq').value.trim();if(v)location.href='cards/word.html#w='+encodeURIComponent(v);});
+    </script>
     <div id="focusHome"></div>
     <script src="focus.js"></script>
     <script>
@@ -489,14 +505,15 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
     try{ if(window.SCFocus) SCFocus.mount(document.getElementById('focusHome')); }catch(e){}
     </script>
     <aside class="newstrip" aria-label="最新上線">
-      <div class="newstrip-h"><span class="spot-tag">最新上線</span>11 月 5 日</div>
+      <div class="newstrip-h"><span class="spot-tag">最新上線</span>11 月 6 日</div>
       <ul>
+        <li>🔎 <a href="https://staresto-create.github.io/JCEE-vocab-questions/cards/word.html">查單字</a>：字典查意思，這裡查它出現在幾份學測試卷，以及歷屆試題中用到它的題目。</li>
         <li>📅 <a href="https://staresto-create.github.io/JCEE-vocab-questions/daily-sentence.html">每日一句</a>：讀長句卡住，多半是看不出主詞和動詞在哪裡。30 句輪流，20 句取自歷屆學測、指考的閱讀測驗，10 句是本題庫根據 2026 年 10 月的新聞自編。</li>
         <li>🔠 <a href="https://staresto-create.github.io/JCEE-vocab-questions/crossword.html">每週填字遊戲</a>：選擇題只要認得選項就能作答，填字卻要自己拼出整個單字。每週一份，9 個字都是歷屆學測、指考詞彙題的答案，做完會附上這些字在原題中的句子。</li>
         <li>🧩 <a href="https://staresto-create.github.io/passage-completion/">文意選填：用上下文拼圖</a>：學測 31 回、指考 25 回，每一回都有互動練習，逐格說明空格要填什麼詞性、前後文的線索在哪裡。</li>
         <li>🎯 <a href="https://staresto-create.github.io/JCEE-vocab-questions/apply-english/">申請入學的英文門檻</a>：116 學年度 2,240 個校系中，有 1,444 個在第一階段就會用到英文成績。可以查想報考的校系，英文檢定設哪一個標準、篩選倍率是幾倍。申請入學不看英文的校系，分發入學還是可能採計：1,777 個系組中，有 1,467 個把學測英文列入採計科目。</li>
         <li>🏷️ <a href="https://staresto-create.github.io/JCEE-vocab-questions/wordlevel.html">英檢、多益與大考詞彙表單字對照</a>：單字方面，英檢初級、中級的字九成以上已在大考詞彙表裡。可查一個字屬於哪一級，還有單字總表和單字健檢。</li>
-        <li>🧭 <a href="https://staresto-create.github.io/JCEE-vocab-questions/find.html">找功能</a>：75 項功能一次找，輸入想做的事就列出可以去的頁面。</li>
+        <li>🧭 <a href="https://staresto-create.github.io/JCEE-vocab-questions/find.html">找功能</a>：76 項功能一次找，輸入想做的事就列出可以去的頁面。</li>
         <li>🧩 <a href="https://staresto-create.github.io/JCEE-vocab-questions/collocations.html">搭配詞卡</a>：搭配詞影響詞彙、綜合測驗、文意選填、中翻英和作文的得分。收錄學測、指考歷屆試題出現過的搭配詞，附原句和<span style="white-space:nowrap">年份</span>。</li>
         <li>⏳ <a href="#countdownBox" data-cd="117">117 學測倒數</a>：歡迎高二同學一起來拚學測！<span style="white-space:nowrap">倒數</span>可以選 116 或 117 學測。</li>
       </ul>
@@ -643,6 +660,10 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
     </div>
     <div class="rec-count" aria-live="polite"></div>
     <div class="rec-list">
+    <details class="rec-item" data-cat="word" data-kind="tool" data-d="2026-11-06" open>
+      <summary class="rec-sum"><span class="rec-emoji">🔎</span><span class="rec-main"><span class="rec-name">查單字 <span class="newdot">NEW</span></span><span class="rec-chips"><span class="rec-cat">單字</span><span class="rec-kind k-tool">新工具</span></span></span><span class="rec-side"><span class="rec-date">11/06</span><span class="rec-tog"></span></span></summary>
+      <div class="rec-body"><p>想知道一個字在學測中常不常出現，輸入英文單字就查得到：它出現在幾份學測試卷、共出現幾次，歷屆試題中有哪些題目用到它，以及它是大考詞彙表第幾級、課本、英檢、多益有沒有收。</p><p class="rec-links"><a href="https://staresto-create.github.io/JCEE-vocab-questions/cards/word.html">查單字</a> →</p></div>
+    </details>
     <details class="rec-item" data-cat="word" data-kind="tool" data-d="2026-11-05" open>
       <summary class="rec-sum"><span class="rec-emoji">🔠</span><span class="rec-main"><span class="rec-name">每週填字遊戲 <span class="newdot">NEW</span></span><span class="rec-chips"><span class="rec-cat">單字</span><span class="rec-kind k-tool">新工具</span></span></span><span class="rec-side"><span class="rec-date">11/05</span><span class="rec-tog"></span></span></summary>
       <div class="rec-body"><p>詞彙題只要認得選項就能作答，但作文和中譯英得自己拼對整個字。每週一份填字遊戲，9 個字都是歷屆學測、指考詞彙題的答案，以大考中心詞彙表第四級的字居多，提示是中文詞義。做完後，每個字都附上這個字在原題中的句子、中譯、KK 音標和發音，並連到那一題的解析。也可以列印空白題目。</p><p class="rec-links"><a href="https://staresto-create.github.io/JCEE-vocab-questions/crossword.html">每週填字遊戲</a> →</p></div>
@@ -677,7 +698,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
     </details>
     <details class="rec-item" data-cat="word cloze reading writing listening" data-kind="tool" data-d="2026-11-01" open>
       <summary class="rec-sum"><span class="rec-emoji">🧭</span><span class="rec-main"><span class="rec-name">找功能：找不到想用的，就輸入你想做的事 <span class="newdot">NEW</span></span><span class="rec-chips"><span class="rec-cat">各題庫</span><span class="rec-kind k-tool">新工具</span></span></span><span class="rec-side"><span class="rec-date">11/01</span><span class="rec-tog"></span></span></summary>
-      <div class="rec-body"><p>本題庫的內容很多：歷屆試題、單字、片語、聽力、統計都有。「找功能」把 <b>75 項功能</b>分成練歷屆試題、背單字、練聽力、學片語與用法等九類；輸入「列印」「錯題」「聽力」這類你想做的事，馬上列出可以去的頁面。</p><p class="rec-links"><a href="https://staresto-create.github.io/JCEE-vocab-questions/find.html">找功能</a> →</p></div>
+      <div class="rec-body"><p>本題庫的內容很多：歷屆試題、單字、片語、聽力、統計都有。「找功能」把 <b>76 項功能</b>分成練歷屆試題、背單字、練聽力、學片語與用法等九類；輸入「列印」「錯題」「聽力」這類你想做的事，馬上列出可以去的頁面。</p><p class="rec-links"><a href="https://staresto-create.github.io/JCEE-vocab-questions/find.html">找功能</a> →</p></div>
     </details>
     <details class="rec-item" data-cat="word" data-kind="new" data-d="2026-10-31" open>
       <summary class="rec-sum"><span class="rec-emoji">🔀</span><span class="rec-main"><span class="rec-name">一字多義 <span class="newdot">NEW</span></span><span class="rec-chips"><span class="rec-cat">單字</span><span class="rec-kind k-new">新題目</span></span></span><span class="rec-side"><span class="rec-date">10/31</span><span class="rec-tog"></span></span></summary>

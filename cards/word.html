@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>查單字：級別、學測出現次數、歷屆試題中的題目</title>
+<meta name="description" content="輸入一個英文單字，看它在大考詞彙表第幾級、出現在學測 35 份試卷中的幾份、共幾次、歷屆試題中有哪些題目用到它，以及課本、英檢、多益有沒有收。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="高中英文自學題庫">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:title" content="查單字：級別、學測出現次數、歷屆試題中的題目">
+<meta property="og:description" content="輸入一個英文單字，看它在大考詞彙表第幾級、出現在幾份學測試卷、歷屆試題中有哪些題目用到它，以及課本、英檢、多益有沒有收。">
+<meta property="og:url" content="https://staresto-create.github.io/JCEE-vocab-questions/cards/word.html">
+<meta property="og:image" content="https://staresto-create.github.io/JCEE-vocab-questions/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+:root{
+  --paper:#F6F1E4; --paper-card:#FFFDF7; --ink:#221F1A; --ink-soft:#5B5648; --rule:#DCD3BB;
+  --crimson:#AE3626; --crimson-soft:#D8C6BE; --sage:#3E6E52; --sage-soft:#CBD9C9; --gold:#A9812E; --gold-soft:#EFE3C4;
+  --serif:"Times New Roman",Times,"Liberation Serif","Noto Serif","PingFang TC","Noto Sans TC","Microsoft JhengHei",serif;
+  --sans:"PingFang TC","Noto Sans TC","Microsoft JhengHei","Helvetica Neue",system-ui,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,Menlo,Consolas,"Noto Sans TC",monospace;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ad-vpaper-bg);color:var(--ad-vink-fg);font-family:var(--sans);line-height:1.7;-webkit-text-size-adjust:100%}
+.wrap{max-width:48rem;margin:0 auto;padding:1.4rem 1rem 4rem}
+header.top{border-bottom:3px double var(--ad-vink-border);padding-bottom:.6rem;margin-bottom:1.2rem}
+h1{font-family:var(--serif);font-weight:600;font-size:1.7rem;line-height:1.25;margin:0}
+.sub{font-family:var(--mono);font-size:.75rem;color:var(--ad-vinksoft-fg);margin-top:.2rem}
+.card{background:var(--ad-vpapercard-bg);border:1px solid var(--ad-vrule-border);border-radius:3px;padding:1rem 1rem 1.1rem;margin:0 0 1.4rem;
+  box-shadow:0 1px 0 rgba(34,31,26,.06),0 8px 24px rgba(34,31,26,.08)}
+.lede{font-size:.95rem;margin:0 0 .8rem}
+a{color:var(--ad-vcrimson-fg)}
+summary:focus-visible,button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid var(--ad-vcrimson-border);outline-offset:2px}
+.sbox{display:flex;gap:.5rem}
+.sbox input{flex:1;min-width:0;font:inherit;font-size:1.1rem;padding:.55rem .7rem;border:2px solid var(--ad-vink-border);border-radius:.4rem;background:var(--ad-vpapercard-bg);color:var(--ad-vink-fg)}
+.b{font:inherit;font-size:1rem;font-weight:600;padding:.55rem 1.1rem;border:2px solid var(--ad-vcrimson-border);border-radius:.4rem;background:var(--ad-vcrimson-border);color:#fff;cursor:pointer}
+.b:disabled{opacity:.55;cursor:default}
+.tries{margin:.7rem 0 0;font-size:.9rem;color:var(--ad-vinksoft-fg)}
+.chip{font:inherit;font-size:.9rem;padding:.35rem .8rem;margin:0 .3rem .2rem 0;border:1px solid var(--ad-vrule-border);border-radius:999px;background:var(--ad-vpapercard-bg);color:var(--ad-vcrimson-fg);cursor:pointer}
+.card.compact .lede,.card.compact .tries{display:none}
+.status{margin:.6rem 0 0;font-size:.88rem;color:var(--ad-vinksoft-fg)}
+.hw{display:flex;flex-wrap:wrap;align-items:baseline;gap:.2rem .6rem}
+.hw .w{word-break:break-all;font-family:var(--serif);font-size:2rem;font-weight:600;line-height:1.2}
+.hw .p{font-size:.9rem;color:var(--ad-vinksoft-fg)}
+.zh{font-size:1.05rem;margin:.3rem 0 .5rem}
+.bds{display:flex;flex-wrap:wrap;gap:.35rem}
+.bd{display:inline-block;font-size:.8rem;line-height:1.3;padding:.1rem .55rem;border-radius:999px;border:1px solid var(--ad-vinksoft-fg);color:var(--ad-vink-fg);background:var(--ad-vpapercard-bg);white-space:nowrap}
+.bd-c{border-color:var(--ad-vcrimson-border);color:var(--ad-vcrimson-fg);font-weight:700}
+.bd-g1{border-color:var(--ad-vsage-border);color:var(--ad-vsage-fg);font-weight:700}
+.bd-g2{border-color:var(--ad-vgold-border);color:var(--ad-vink-fg);font-weight:700}
+.bd-g3{border-color:var(--ad-vcrimson-border);color:var(--ad-vcrimson-fg);font-weight:700}
+.bd-t{border-color:var(--ad-vgold-border);color:var(--ad-vink-fg);font-weight:700}
+.bd-no{border-style:dotted;color:var(--ad-vinksoft-fg)}
+.sec{border-top:1px solid var(--ad-vrule-border);margin-top:.9rem;padding-top:.7rem}
+.sec h3{font-family:var(--serif);font-size:1.02rem;font-weight:600;margin:0 0 .3rem}
+.sec p{margin:.3rem 0 0;font-size:.92rem}
+.big{font-size:1rem}
+.big b{font-size:1.25rem;color:var(--ad-vcrimson-fg)}
+.meter{height:.6rem;margin:.45rem 0 .2rem;background:var(--ad-vrule-border);border-radius:999px;overflow:hidden}
+.meter i{display:block;height:100%;background:var(--ad-vsage-border)}
+.tnote{font-size:.82rem;color:var(--ad-vinksoft-fg);margin:.35rem 0 0}
+.refs{margin-top:.4rem;line-height:2}
+.refs a{display:inline-block;font-size:.84rem;line-height:1.5;padding:.38rem .6rem;margin:0 .3rem .2rem 0;border:1px solid var(--ad-vcrimsonsoft-border);border-radius:3px;background:var(--ad-xF7ECE8-bg);color:var(--ad-vink-fg);text-decoration:none}
+.refs a .k{font-weight:700}
+.refs a.ans{border-color:var(--ad-vsage-border)}
+.rl{font-size:.82rem;color:var(--ad-vinksoft-fg);margin:.5rem 0 0}
+dl.kv{margin:.2rem 0 0;font-size:.92rem}
+dl.kv dt{font-size:.8rem;color:var(--ad-vinksoft-fg);margin-top:.45rem}
+dl.kv dd{margin:0}
+.ex .en{margin:.1rem 0 0;font-size:.98rem}
+.ex .en b{background:var(--ad-vgoldsoft-bg)}
+.ex .cz{margin:.1rem 0 0;font-size:.9rem;color:var(--ad-vinksoft-fg)}
+ul.co{margin:.3rem 0 0;padding-left:1.2rem;font-size:.92rem}
+ul.co .cz{color:var(--ad-vinksoft-fg);margin-left:.3rem}
+.empty{color:var(--ad-vinksoft-fg);padding:.4rem 0}
+.notice{margin:.7rem 0 0;padding:.5rem .7rem;border-left:3px solid var(--ad-vgold-border);background:var(--ad-vgoldsoft-bg);font-size:.88rem}
+footer.foot{margin-top:2.4rem;padding-top:.9rem;border-top:1px solid var(--ad-vrule-border);font-size:.8rem;color:var(--ad-vinksoft-fg);line-height:1.9}
+footer.foot a{color:var(--ad-vcrimson-fg)}
+@media (max-width:400px){.card{padding:.8rem .7rem .9rem}.hw .w{font-size:1.7rem}}
+/* 深色模式（2026-10-22）：淺色數值與原本相同；只在螢幕、手機或電腦設成深色外觀時生效，列印不受影響。 */
+:root{--ad-vcrimson-border:var(--crimson);--ad-vcrimson-fg:var(--crimson);--ad-vcrimsonsoft-bg:var(--crimson-soft);--ad-vcrimsonsoft-border:var(--crimson-soft);--ad-vgold-border:var(--gold);--ad-vgoldsoft-bg:var(--gold-soft);--ad-vink-bg:var(--ink);--ad-vink-border:var(--ink);--ad-vink-fg:var(--ink);--ad-vinksoft-fg:var(--ink-soft);--ad-vpaper-bg:var(--paper);--ad-vpapercard-bg:var(--paper-card);--ad-vpapercard-fg:var(--paper-card);--ad-vrule-border:var(--rule);--ad-vsage-border:var(--sage);--ad-vsage-fg:var(--sage);--ad-vsagesoft-bg:var(--sage-soft);--ad-x7A5B18-fg:#7A5B18;--ad-x8a8278-fg:#8a8278;--ad-xE7B5AA-bg:#E7B5AA;--ad-xF1F5EE-bg:#F1F5EE;--ad-xF3D9A4-bg:#F3D9A4;--ad-xF7ECE8-bg:#F7ECE8;--ad-xfff-bg:#fff;color-scheme:light}
+@media screen and (prefers-color-scheme: dark){
+ :root{--ad-vcrimson-border:#ae3626;--ad-vcrimson-fg:#E4B6B0;--ad-vcrimsonsoft-bg:#271D19;--ad-vcrimsonsoft-border:#4F413A;--ad-vgold-border:#a9812e;--ad-vgoldsoft-bg:#352E1D;--ad-vink-bg:#EEEDEC;--ad-vink-border:#F2F0EE;--ad-vink-fg:#F2F0EE;--ad-vinksoft-fg:#DAD8D3;--ad-vpaper-bg:#1B1916;--ad-vpapercard-bg:#26231F;--ad-vpapercard-fg:#fffdf7;--ad-vrule-border:#514A37;--ad-vsage-border:#CBDDD2;--ad-vsage-fg:#CBDDD2;--ad-vsagesoft-bg:#1A2219;--ad-x7A5B18-fg:#EDE1C8;--ad-x8a8278-fg:#C2BFBB;--ad-xE7B5AA-bg:#3C211B;--ad-xF1F5EE-bg:#212320;--ad-xF3D9A4-bg:#483A1D;--ad-xF7ECE8-bg:#282220;--ad-xfff-bg:#2D2A25;color-scheme:dark}
+}
+
+/* fold-cue 2026-10-25：全站可展開的區塊統一提示。標題右側一律是「＋ 展開」，展開後變「－ 收合」；舊的箭頭與各式提示字樣一併取代。 */
+details:not(.sh) > summary{list-style:none; cursor:pointer; position:relative; padding-right:92px !important;}
+details:not(.sh) > summary::-webkit-details-marker{display:none;}
+details:not(.sh) > summary::marker{content:"";}
+details:not(.sh) > summary *::before, details:not(.sh) > summary *::after, details:not(.sh) > summary::before{content:none !important;}
+details:not(.sh) > summary::after{content:"＋ 展開" !important; display:block !important; position:absolute !important; right:10px !important; top:50% !important; transform:translateY(-50%) !important; margin:0 !important; padding:2px 10px !important; border:1px solid currentColor !important; border-radius:999px !important; background:transparent !important; color:inherit !important; opacity:.85; font:400 12.5px/1.5 "Noto Sans TC",system-ui,sans-serif !important; letter-spacing:0 !important; text-transform:none !important; white-space:nowrap !important; text-decoration:none !important; width:auto !important; height:auto !important;}
+details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
+@media print{details:not(.sh) > summary::after{display:none !important;}}
+</style>
+<style id="anti-copy">
+/* 防盜用措施（2026-10-14）：畫面浮水印、列印浮水印、頁尾授權聲明 */
+@media screen{body::before{content:"";position:fixed;top:0;left:0;right:0;bottom:0;z-index:2147483000;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22460%22%20height%3D%22240%22%3E%3Cg%20transform%3D%22rotate%28-20%20230%20120%29%22%20font-family%3D%22Noto%20Sans%20TC%2Csans-serif%22%20fill%3D%22%23D9A400%22%20fill-opacity%3D%22.2%22%20text-anchor%3D%22middle%22%3E%3Ctext%20x%3D%22230%22%20y%3D%22112%22%20font-size%3D%2220%22%3E%E9%AB%98%E4%B8%AD%E8%8B%B1%E6%96%87%E9%A1%8C%E5%BA%AB%3C%2Ftext%3E%3Ctext%20x%3D%22230%22%20y%3D%22140%22%20font-size%3D%2214%22%3Estaresto-create.github.io%2FJCEE-vocab-questions%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E");background-repeat:repeat;}}
+@media print{body::after{content:"高中英文題庫\A staresto-create.github.io/JCEE-vocab-questions\A 免費資源，請勿販售";white-space:pre;position:fixed;top:42%;left:0;right:0;text-align:center;transform:rotate(-25deg);font-family:"Noto Sans TC",sans-serif;font-size:26pt;line-height:1.7;color:#c8c8c8;z-index:2147483000;pointer-events:none;}}
+.cc-note{font-size:12px;line-height:1.8;color:var(--ad-x8a8278-fg);margin:12px auto;max-width:60em;padding:0 1em;}.cc-note a{color:inherit;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1>查單字</h1>
+    <div class="sub">依大考中心高中英文參考詞彙表與歷屆學測、指考試題</div>
+  </header>
+
+  <section class="card" id="sc" aria-labelledby="h-q">
+    <h2 id="h-q" style="position:absolute;left:-9999px">輸入單字</h2>
+    <p class="lede">輸入英文單字，看它出現在幾份學測試卷，以及用到它的有哪些題目。</p>
+    <form class="sbox" id="f" role="search" autocomplete="off">
+      <input id="q" type="text" maxlength="40" lang="en" inputmode="latin" autocapitalize="none" autocorrect="off" spellcheck="false" placeholder="輸入英文單字，例如 promote" aria-label="輸入英文單字">
+      <button class="b" id="go" type="submit" disabled>查</button>
+    </form>
+    <p class="tries">試試看：<button class="chip" type="button" disabled data-w="promote">promote</button><button class="chip" type="button" disabled data-w="elbow">elbow</button><button class="chip" type="button" disabled data-w="tolerate">tolerate</button><button class="chip" type="button" disabled data-w="vivid">vivid</button></p>
+    <p class="status" id="st" role="status" aria-live="polite">資料載入中…</p>
+  </section>
+
+  <section class="card" id="res" hidden></section>
+
+  <footer class="foot" id="foot">
+    <a href="../">回題庫首頁</a>　·　<a href="./">單字記憶卡</a>　·　<a href="mark.html">貼上文章查單字</a>　·　<a href="freq.html">學測全卷用字統計</a>　·　<a href="coverage.html">詞彙表覆蓋清單</a>　·　<a href="../wordlevel.html">英檢、多益與大考詞彙表單字對照</a>
+  <p class="cc-note">本題庫自己寫的部分（解析、中譯、分類、標註與編排）採用 <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh-hant" target="_blank" rel="license noopener">CC BY-NC 4.0</a>（姓名標示─非商業性）授權：可以分享，但須註明出處，不得用於商業用途。試題來源與完整說明請見<a href="https://staresto-create.github.io/JCEE-vocab-questions/#terms">使用與著作權</a>。</p>
+  </footer>
+</div>
+
+<script src="../speaker.js"></script>
+<script src="../kk.js"></script>
+<script src="../passage-vocab.js"></script>
+<script>
+(function(){
+'use strict';
+var $=function(id){return document.getElementById(id);};
+function esc(t){return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+var has=Object.prototype.hasOwnProperty;
+var FREQ=null, FIDX={}, TB=null, COV=null, CF=null, SNI=null, WLOK=false, ready=false;
+var ED={n:'乙版',r:'乙版115改版',o:'甲版'};
+var GN={1:'初級',2:'中級',3:'中高級'};
+var SITE={
+  gsat:{n:'學測單字',base:'../gsat/#q-',suf:''},
+  zhikao:{n:'指考單字',base:'../zhikao/#q-',suf:''},
+  gcz:{n:'學測克漏字',base:'https://staresto-create.github.io/grammar-cloze-test/#set-',suf:'|查單字'},
+  zcz:{n:'指考克漏字',base:'https://staresto-create.github.io/zhikao-cloze-test/#set-',suf:'|查單字'},
+  tr:{n:'中譯英',base:'../translate/#q-',suf:''}
+};
+function jget(u){return fetch(u).then(function(r){if(!r.ok)throw new Error(u+' '+r.status);return r.json();});}
+function soft(p){return p.catch(function(){return null;});}
+function loadWL(){return new Promise(function(res){
+  var s=document.createElement('script');s.src='../wordlevel-data.js';
+  s.onload=function(){res(!!(window.WL&&window.WL.c));};s.onerror=function(){res(false);};document.head.appendChild(s);});}
+
+/* 學測全卷用字統計：「state(ment)」這類寫法，兩種字形都指向同一列 */
+function indexFreq(d){
+  FREQ=d;FIDX={};
+  d.rows.forEach(function(r){
+    var n=String(r[0]).toLowerCase();
+    n.split('/').forEach(function(part){
+      var m=/^([a-z'-]+)\(([a-z'-]+)\)$/.exec(part);
+      if(m){if(!has.call(FIDX,m[1]))FIDX[m[1]]=r;if(!has.call(FIDX,m[1]+m[2]))FIDX[m[1]+m[2]]=r;}else if(!has.call(FIDX,part))FIDX[part]=r;
+    });
+  });
+}
+function load(){
+  return Promise.all([
+    PV.load(),
+    soft(jget('freq_data.json')),
+    soft(jget('../textbook/tb_index.json')),
+    Promise.resolve(null),
+    soft(jget('confusables_data.json')),
+    soft(jget('confusables_sense_index.json')),
+    loadWL()
+  ]).then(function(r){
+    if(r[1])indexFreq(r[1]);
+    TB=r[2];COV=PV.ctx().D&&PV.ctx().D.q?PV.ctx().D:null;CF=r[4];SNI=r[5];WLOK=r[6];
+  });
+}
+
+/* ---------- 各段落 ---------- */
+function badges(key,e){
+  var h='',W=window.WL,c=null,g=0,t=false,k;
+  if(e&&!e.out)c=e.lv;
+  else if(WLOK&&has.call(W.c,key))c=W.c[key];
+  if(WLOK){g=has.call(W.g,key)?W.g[key]:0;t=W.t.indexOf(key)>=0;}
+  h+=c?'<span class="bd bd-c">'+(c===9?'大考附錄字':'大考詞彙表 '+c+' 級')+'</span>':'<span class="bd bd-no">不在大考詞彙表</span>';
+  if(WLOK){
+    h+=g?'<span class="bd bd-g'+g+'">英檢'+GN[g]+'</span>':'<span class="bd bd-no">不在英檢字表</span>';
+    h+=t?'<span class="bd bd-t">多益補充字表</span>':'<span class="bd bd-no">不在多益補充字表</span>';
+  }
+  return h;
+}
+function freqSec(key,typed,lv){
+  var r=FIDX[key]||FIDX[typed];
+  if(!FREQ)return '';
+  var N=FREQ.papers,h='<div class="sec"><h3>學測全卷出現次數</h3>';
+  var how='<p class="tnote">詞彙、克漏字、文意選填、篇章結構、閱讀測驗、混合題的文章、題目和選項都計入；翻譯題、作文題目和英聽沒有計。字形變化算回詞彙表的詞條（例如 went 算 go），專有名詞不算。<a href="freq.html">計算方式與逐字清單</a></p>';
+  if(!r){
+    if(lv===1)return h+'<p>一級字太常見，這份統計沒有逐字列出：一級字占了全部字次的 '+FREQ.cov[0].own+'%。</p>'+how+'</div>';
+    if(!lv)return h+'<p>這份統計對詞彙表以外的字，只列出現在 2 份以上試卷的字，所以沒有查到這個字。</p>'+how+'</div>';
+    return h+'<p>83 到 115 學年度的 '+N+' 份學測試卷中，沒有出現這個字。</p>'+how+'</div>';
+  }
+  h+='<p class="big">'+N+' 份學測試卷中，出現在 <b>'+r[3]+'</b> 份，共 <b>'+r[4]+'</b> 次。</p>';
+  h+='<div class="meter" role="img" aria-label="'+N+' 份試卷中有 '+r[3]+' 份出現這個字"><i style="width:'+Math.max(2,Math.round(r[3]/N*100))+'%"></i></div>';
+  h+='<p class="tnote">出現的年份：'+esc(r[5])+'</p>';
+  if(r[6])h+='<p class="tnote">這個字的出現次數，有一部分來自閱讀測驗的題目（例如 according to the passage）。</p>';
+  return h+how+'</div>';
+}
+function qLink(id,site,label,k,form){
+  var s=SITE[site];if(!s)return '';
+  var h='<a'+(k==='a'?' class="ans"':'')+' href="'+s.base+encodeURIComponent(id)+s.suf+'" title="'+esc(s.n+'　'+label)+'">'+esc(label);
+  if(form)h+='（'+esc(form)+'）';
+  if(k)h+='<span class="k">'+(k==='a'?'　答案':'　誘答')+'</span>';
+  return h+'</a>';
+}
+function refList(key,typed,e){
+  var seen={},items=[],lex=PV.ctx().LEX,L=lex[key]||lex[typed];
+  function add(id,site,label,k,form){if(seen[id])return;seen[id]=1;items.push({id:id,s:site,t:label,k:k,f:form});}
+  if(e&&e.grp&&e.grp.tested&&COV){
+    e.grp.tested.forEach(function(x){(x[1]||[]).forEach(function(q){var c=COV.q[q[0]];if(c)add(q[0],c[0],c[1],q[1],x[0]!==key?x[0]:'');});});
+  }
+  if(L&&L.refs)L.refs.forEach(function(r){add(r.id,r.s,r.t,r.k,'');});
+  return items;
+}
+function refSec(key,typed,e){
+  var items=refList(key,typed,e),h='<div class="sec"><h3>出現過的題目</h3>';
+  if(!items.length)return h+'<p>本題庫沒有查到這個字出現在單字題、克漏字或中譯英的選項或答案裡。</p></div>';
+  var by={};items.forEach(function(x){(by[x.s]=by[x.s]||[]).push(x);});
+  var order=['gsat','zhikao','gcz','zcz','tr'],sum=[];
+  order.forEach(function(s){if(by[s])sum.push(SITE[s].n+' '+by[s].length+(s==='gcz'||s==='zcz'?' 格':' 題'));});
+  var noK=items.some(function(x){return !x.k;});
+  h+='<p>'+sum.join('、')+'。標「答案」，表示這個字是該題的正確答案；標「誘答」，表示它是該題的錯誤選項。'+(noK?'沒有標示的，是這個字出現在該題裡。':'')+'</p>';
+  var LIM=8,html=items.map(function(x){return qLink(x.id,x.s,x.t,x.k,x.f);});
+  h+='<div class="refs">'+html.slice(0,LIM).join('')+'</div>';
+  if(html.length>LIM)h+='<details><summary>還有 '+(html.length-LIM)+' 題</summary><div class="refs">'+html.slice(LIM).join('')+'</div></details>';
+  return h+'</div>';
+}
+function tbSec(key,typed){
+  if(!TB)return '';
+  var t=null,ks=[key];if(typed!==key)ks.push(typed);
+  var s=[],l=[],seen={};
+  ks.forEach(function(k){if(seen[k])return;seen[k]=1;var r=TB.w[k];if(!r)return;(r.s||[]).forEach(function(x){s.push(x);});(r.l||[]).forEach(function(x){l.push(x);});});
+  var h='<div class="sec"><h3>課本有沒有收</h3>';
+  if(!s.length&&!l.length)return h+'<p>龍騰、三民課本的單字表裡沒有查到這個字。</p></div>';
+  var rows=[];
+  [['p','Production'],['r','Recognition'],['','']].forEach(function(kd){
+    var lt=[];
+    l.forEach(function(x){if((x[2]||'')!==kd[0])return;var k=(x[1]>=10)?'B'+x[0]+'R'+(x[1]-9):'B'+x[0]+'L'+x[1];if(lt.indexOf(k)<0)lt.push(k);});
+    if(lt.length)rows.push('龍騰'+(kd[1]?' '+kd[1]:'')+'：'+esc(lt.join('、')));
+  });
+  ['n','r','o'].forEach(function(ed){
+    [['p','Production'],['r','Recognition']].forEach(function(kd){
+      var ls=[];
+      s.forEach(function(x){if(x[0]===ed&&x[3]===kd[0]){var k='B'+x[1]+'U'+x[2];if(ls.indexOf(k)<0)ls.push(k);}});
+      if(ls.length)rows.push('三民'+ED[ed]+' '+kd[1]+'：'+esc(ls.join('、')));
+    });
+  });
+  h+='<p>'+rows.join('<br>')+'</p>';
+  return h+'<details><summary>課本標記怎麼看</summary><p class="tnote">B 是第幾冊，龍騰的 L 是 Lesson、R 是 Review，三民的 U 是 Unit，例如龍騰 B2L5 是第 2 冊 Lesson 5。Production 與 Recognition 是課本單字表的兩種分類。</p></details><p class="tnote"><a href="../textbook/longteng.html">龍騰課本單字</a>　<a href="../textbook/sanmin.html">三民課本單字</a></p></div>';
+}
+function hl(sentence,w){
+  var stem=w.length>4?w.replace(/e$/,''):w;
+  var re=new RegExp('\\b'+stem.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'[a-z]*','ig');
+  var out='',last=0,m;
+  while((m=re.exec(sentence))){out+=esc(sentence.slice(last,m.index))+'<b>'+esc(m[0])+'</b>';last=m.index+m[0].length;if(m[0].length===0)re.lastIndex++;}
+  return out+esc(sentence.slice(last));
+}
+function exSec(key,typed){
+  if(!WLOK)return '';
+  var X=window.WL.ex||{},x=has.call(X,key)?X[key]:(has.call(X,typed)?X[typed]:null);
+  if(!x)return '';
+  var h='<div class="sec ex"><h3>例句與字詞搭配</h3><p class="en" lang="en">'+hl(x.e,key)+'</p><p class="cz">'+esc(x.z)+'</p>';
+  if(x.c&&x.c.length)h+='<ul class="co">'+x.c.map(function(c){return '<li><span lang="en">'+esc(c[0])+'</span><span class="cz">'+esc(c[1])+'</span></li>';}).join('')+'</ul>';
+  return h+'</div>';
+}
+function polySec(key,typed){
+  var P=PV.ctx().POLY,p=P[key]||P[typed];
+  if(!p)return '';
+  var h='<div class="sec"><h3>一字多義</h3><p>這個字有不只一個意思，上方的中文列出了其中幾個意思。</p>';
+  if(p.col)h+='<dl class="kv"><dt>常見搭配</dt><dd lang="en">'+esc(p.col)+'</dd></dl>';
+  return h+'<p class="tnote"><a href="./#deck=po&amp;view='+p.n+'">到一字多義卡看完整說明與歷屆試題 →</a></p></div>';
+}
+function confSec(key,typed){
+  var out=[];
+  function hit(t){return String(t).split('／').some(function(x){x=x.trim().toLowerCase();return x===key||x===typed;});}
+  if(CF&&CF.g)CF.g.forEach(function(g){if(hit(g.t))out.push({n:g.n,t:g.t,kind:'拼字相近'});});
+  if(SNI&&SNI.t)Object.keys(SNI.t).forEach(function(k){if(hit(SNI.t[k]))out.push({n:400+(+k),t:SNI.t[k],kind:'字義相近'});});
+  if(!out.length)return '';
+  var h='<div class="sec"><h3>易混淆字組</h3><p>這個字容易與下列的字混淆：</p><dl class="kv">';
+  out.forEach(function(g){h+='<dt>'+g.kind+'</dt><dd lang="en"><a href="./#deck=cf&amp;view='+g.n+'">'+esc(g.t.replace(/／/g,' ／ '))+'</a></dd>';});
+  return h+'</dl></div>';
+}
+function rootSec(key,typed){
+  var L=PV.ctx().LEX,x=L[key]||L[typed];
+  if(!x||(!(x.fam&&x.fam.length)&&!(x.aff&&x.aff.length)))return '';
+  var w=encodeURIComponent(key==='internet'?'Internet':(L[key]?key:typed)),h='<div class="sec"><h3>字根與字首字尾</h3><dl class="kv">';
+  if(x.fam&&x.fam.length)h+='<dt>字根家族表</dt><dd lang="en"><a href="../roots/#w='+w+'">'+esc(x.fam.join('、'))+'</a></dd>';
+  if(x.aff&&x.aff.length)h+='<dt>字首字尾表</dt><dd lang="en"><a href="../affixes/#w='+w+'">'+esc(x.aff.join('、'))+'</a></dd>';
+  return h+'</dl></div>';
+}
+
+/* ---------- 查詢 ---------- */
+function show(html){var r=$('res');r.innerHTML=html;r.hidden=false;$('sc').classList.add('compact');var h1=r.querySelector('.bds')?r.querySelector('.w'):null;$('st').textContent=h1?'已查到 '+h1.textContent:'';}
+function search(raw,quiet){
+  var toks=String(raw).match(/[A-Za-z][A-Za-z'’-]*/g);
+  if(!toks){show('<p class="empty">請輸入英文單字。</p>');return;}
+  var typed=toks[0].toLowerCase().replace(/[’]/g,"'"),note='';
+  if(toks.length>1)note='<p class="notice">一次只查一個字，這次查的是第一個字 <b lang="en">'+esc(toks[0])+'</b>。</p>';
+  var hy=/-/.test(typed),LX=PV.ctx().LEX,whole=hy&&(has.call(LX,typed)||(WLOK&&(has.call(window.WL.c,typed)||has.call(window.WL.g,typed)||has.call(window.WL.zc,typed))));
+  if(hy&&!whole){show(note+'<div class="hw"><span class="w" lang="en">'+esc(typed)+'</span></div><p class="zh">本題庫沒有收這個字（可能太基本、是專有名詞，或拼錯了）。</p><p class="tnote"><a href="'+PV.camUrl(typed)+'" target="_blank" rel="noopener">到劍橋英漢字典看更多</a></p>');return;}
+  var A=hy?{order:[]}:PV.analyze(toks[0]),e=A.order[0]||null,key=e?e.key:typed;
+  var head='<div class="hw"><span class="w" lang="en">'+esc(key)+'</span>'+
+    (window.SPK?(SPK.html(key,true)||''):'')+(window.KK?KK.html(key):'')+
+    (e&&!e.out&&e.pos?'<span class="p">'+esc(e.pos)+'</span>':'')+'</div>';
+  if(e&&typed!==key)head+='<p class="tnote">你輸入的是 <b lang="en">'+esc(typed)+'</b>，查的是原形 <b lang="en">'+esc(key)+'</b>。</p>';
+  var g=e?PV.glossOf(e):'';
+  if(!g&&WLOK&&has.call(window.WL.zc,key)){var zz=window.WL.zc[key];g=(zz[0]?zz[0]+' ':'')+zz[1];}
+  if(!e&&!g&&PV.ctx().LEX[typed]&&PV.ctx().LEX[typed].g)g=PV.ctx().LEX[typed].g;
+  var cam='<a href="'+PV.camUrl(key)+'" target="_blank" rel="noopener">到劍橋英漢字典看更多</a>';
+  if(!e&&!has.call(PV.ctx().LEX,typed)){
+    show(note+head+'<p class="zh">本題庫沒有收這個字（可能太基本、是專有名詞，或拼錯了）。</p><p class="tnote">'+cam+'</p>');
+    return;
+  }
+  var h=note+head+'<div class="zh">'+(g?esc(g):'這個字的中文意思請看<a href="'+PV.camUrl(key)+'" target="_blank" rel="noopener">劍橋英漢字典</a>。')+'</div><div class="bds">'+badges(key,e)+'</div>';
+  var lvn=(e&&!e.out)?e.lv:0;
+  h+=freqSec(key,typed,lvn)+refSec(key,typed,e)+tbSec(key,typed)+exSec(key,typed)+polySec(key,typed)+confSec(key,typed)+rootSec(key,typed);
+  h+='<div class="sec"><p class="tnote">'+cam+'　·　<a href="../wordlevel.html">英檢、多益與大考詞彙表單字對照</a></p></div>';
+  show(h);
+  if(!quiet){try{history.replaceState(null,'','#w='+encodeURIComponent(key));}catch(x){}}
+}
+function fromHash(){
+  var m=/(?:^|[#&])w=([^&]+)/.exec(location.hash),w='';
+  try{w=m?decodeURIComponent(m[1]):'';}catch(x){w=m?m[1]:'';}
+  if(w){$('q').value=w;search(w,true);}
+}
+$('f').addEventListener('submit',function(ev){ev.preventDefault();var v=$('q').value.trim();if(v)search(v);});
+[].forEach.call(document.querySelectorAll('.chip'),function(b){b.addEventListener('click',function(){var w=b.getAttribute('data-w');$('q').value=w;if(ready)search(w);});});
+window.addEventListener('hashchange',function(){if(ready)fromHash();});
+(window.KK&&KK.ready?KK.ready:Promise.resolve()).then(load).then(function(){
+  ready=true;$('go').disabled=false;[].forEach.call(document.querySelectorAll('.chip'),function(b){b.disabled=false;});$('st').textContent='';fromHash();
+}).catch(function(){$('st').textContent='資料載入失敗，請重新整理頁面試試。';});
+})();
+</script>
+</body>
+</html>

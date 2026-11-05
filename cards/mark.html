@@ -399,6 +399,7 @@ function showPanel(o,key){
     }
   }
   h+='</dl>';
+  h+='<p class="tnote"><a href="word.html#w='+encodeURIComponent(e.key)+'" target="_blank" rel="noopener">看這個字的完整資料 →</a></p>';
   h+='<button class="b hardbtn" type="button" id="hardbtn" data-k="'+esc(e.key)+'" aria-pressed="'+(HARD[e.key]?'true':'false')+'">'+(HARD[e.key]?'已加入「不會」的字':'加入「不會」的字')+'</button>';
   $('pbody').innerHTML=h;
   $('panel').hidden=false;
