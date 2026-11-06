@@ -53,8 +53,8 @@
 <div class="wrap">
   <header class="top"><span class="title">第二次段考進度表</span><span class="sub">高二英文</span></header>
   <div class="tabs" id="tabs"></div>
-  <p class="note" id="upd"><b>最後更新：10/21（三）07:55</b>。如果看到的日期比這個舊，請重新整理頁面。</p>
-  <p class="note">打開會自動跳到今天，今天那一格用紅框標出來。核心字彙的範圍是單字片語表上的編號，括號裡是第一個和最後一個字；10/2,5 這種日期是 ALL+ 雜誌當天的單字表。進度如有調整，以這一頁為準。</p>
+  <p class="note" id="upd"><b>最後更新：11/6（五）14:34</b>。如果看到的日期比這個舊，請重新整理頁面。</p>
+  <p class="note">打開會自動跳到今天，今天那一格用紅框標出來。核心字彙的範圍是單字片語表上的編號，括號裡是第一個和最後一個字；10/2,5 這種日期是 ALL+ 雜誌當天的單字表。小考那一欄底下的連結，會直接打開練習頁，只出那一節的範圍。進度如有調整，以這一頁為準。</p>
   <div id="list"></div>
   <footer>線上練習：<a href="./">段考單字練習</a>（單字卡、字搭卡）・<a href="../wordwheel.html">單字輪</a>・<a href="../cohesion.html">ALL+ 讀法練習</a></footer>
 </div>
@@ -70,6 +70,37 @@
     s = s.replace(/(單字輪 L[456])/g, '<a href="../wordwheel.html">$1</a>');
     s = s.replace(/U(\d+) 圖表組織/g, '<a href="../outline-202610-u$1.html">U$1 圖表組織</a>');
     return s;
+  }
+  // 小考範圍連結：把「小考」欄的文字轉成練習頁的網址（#n=單字編號&c=字搭課別&t=標題）。
+  // DM 是 ALL+ 單字表日期對應的單字編號（取自 exam2.json）；SEC 是課本各課單字片語的編號範圍。
+  var DM = {"10/1":[229,235],"10/2":[236,242],"10/5":[243,249],"10/6":[250,256],"10/7":[257,263],"10/8":[264,268],"10/9":[269,273],"10/12":[274,280],"10/13":[281,285],"10/15":[286,292],"10/16":[293,298],"10/19":[299,304],"10/20":[305,310],"10/21":[311,317],"10/22":[318,324],"10/23":[325,331],"10/26":[332,338],"10/27":[339,344],"10/28":[345,351],"10/29":[352,357],"10/30":[358,363]};
+  var SEC = {L4:[1,30],L5:[31,55],L6:[56,87]};
+  function rangeLink(q, md){
+    if (!q || /大卷/.test(q)) return '';
+    var rs = [], cs = [], m, re;
+    re = /#(\d+)~(\d+)/g;
+    while ((m = re.exec(q))) rs.push([+m[1], +m[2]]);
+    re = /(L[456]) 單字片語全/g;
+    while ((m = re.exec(q))) rs.push(SEC[m[1]]);
+    re = /(\d{1,2})\/(\d{1,2}(?:,\d{1,2})*)/g;
+    while ((m = re.exec(q))) {
+      var mo = m[1];
+      m[2].split(',').forEach(function(d){ if (DM[mo+'/'+d]) rs.push(DM[mo+'/'+d]); });
+    }
+    re = /(L[456]) 字搭全/g;
+    while ((m = re.exec(q))) cs.push(m[1]);
+    if (!rs.length && !cs.length) return '';
+    rs.sort(function(a,b){ return a[0]-b[0]; });
+    var mg = [];
+    rs.forEach(function(r){
+      var last = mg[mg.length-1];
+      if (last && r[0] <= last[1]+1) { if (r[1] > last[1]) last[1] = r[1]; } else mg.push([r[0], r[1]]);
+    });
+    var h = [];
+    if (mg.length) h.push('n=' + mg.map(function(r){ return r[0]===r[1] ? r[0] : r[0]+'-'+r[1]; }).join(','));
+    if (cs.length) h.push('c=' + cs.join(','));
+    h.push('t=' + encodeURIComponent(md + ' 小考範圍'));
+    return '<br><a href="./#' + h.join('&') + '">練習這一節的範圍</a>';
   }
   function todayStr(){ var d=new Date(); return d.getFullYear()+'-'+('0'+(d.getMonth()+1)).slice(-2)+'-'+('0'+d.getDate()).slice(-2); }
   function pick(){
@@ -93,7 +124,7 @@
         return;
       }
       html += '<div class="'+cls+'"'+(tag?' id="now"':'')+'><div class="dh"><span class="md">'+r.md+'</span><span>'+r.wd+'</span>'+(tag?'<span class="tag">'+tag+'</span>':'')+'</div><dl>'
-        + (r.q ? '<dt>小考</dt><dd class="q">'+esc(r.q)+'</dd>' : '')
+        + (r.q ? '<dt>小考</dt><dd class="q">'+esc(r.q)+rangeLink(r.q, r.md)+'</dd>' : '')
         + '<dt>上課</dt><dd>'+esc(r.l)+'</dd>'
         + (r.h ? '<dt>繳交</dt><dd>'+esc(r.h)+'</dd>' : '')
         + (r.w ? '<dt>作業</dt><dd>'+linkify(r.w)+'</dd>' : '')
