@@ -418,6 +418,17 @@
     padding-top:10px;
     border-top:1px dashed var(--ad-vrule-border);
   }
+  .ai-row{display:none;margin-top:14px;padding-top:10px;border-top:1px dashed var(--ad-vrule-border);}
+  .ai-row.show{display:block;}
+  .ai-hint{font-size:12.5px;color:var(--ad-vmuted-fg);margin-top:6px;}
+  @media print{.ai-hint{display:none!important;}}
+  .ai-label{font-size:14px;font-weight:700;margin-bottom:6px;}
+  .ai-row .btn-row{margin-top:8px;}
+  .ai-row .btn{background:var(--ad-xfff-bg);color:inherit;border:1px solid var(--ad-vrule-border);font-size:14px;letter-spacing:0;}
+  .ai-fb{width:100%;box-sizing:border-box;font-size:16px;margin-top:6px;}
+  @media print{.ai-row{display:none!important;}}
+  .ai-msg{font-size:13px;min-height:1.4em;margin-top:6px;color:var(--ad-vmuted-fg);}
+  .ai-note{font-size:12.5px;color:var(--ad-vmuted-fg);margin-top:4px;}
   .self-grade{
     display:none;
     gap:12px;
@@ -560,6 +571,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
 .cc-note{font-size:12px;line-height:1.8;color:var(--ad-x8a8278-fg);margin:12px auto;max-width:60em;padding:0 1em;}.cc-note a{color:inherit;}
 </style>
 <script src="../progress.js"></script>
+<script src="aiprompt.js"></script>
 <script src="../resume.js" defer></script>
 <script src="../start.js" defer></script>
 <style id="print-paper">
@@ -829,6 +841,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
       <div class="flag-box" id="flagBox"></div>
       <div class="zh-text" id="zhText"></div>
       <textarea id="userInput" placeholder="請輸入你的英文翻譯……"></textarea>
+      <div class="ai-hint">寫完答案再按「對答案」，就能複製指令，請 AI 批改你這一題。</div>
       <div class="btn-row">
         <button class="btn btn-reveal" id="revealBtn">對答案</button>
         <button class="btn btn-skip" id="skipBtn">跳過</button>
@@ -860,6 +873,17 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
           <div id="exBody"></div>
         </details>
         <div class="your-answer" id="yourAnswerEcho"></div>
+        <div class="ai-row" id="aiRow">
+          <div class="ai-label">請 AI 批改這一題</div>
+          <div class="ai-note" id="aiEmpty" hidden>這一題你沒有寫答案。想請 AI 批改，先在上面的框裡寫下你的英文，再按「對答案」。</div>
+          <div id="aiBody">
+          <div class="ai-note">按下按鈕，指令會連同這一題的題目和你寫的英文一起複製好，你再到慣用的 AI 對話視窗貼上、送出。剛開始練習，建議先用「只檢查 4 項」。</div>
+          <div class="btn-row"><button type="button" class="btn" id="aiShort">複製指令：只檢查 4 項</button><button type="button" class="btn" id="aiFull">複製指令：完整批改，含估分</button></div>
+          <div class="ai-msg" id="aiMsg" role="status" aria-live="polite"></div>
+          <textarea id="aiFb" class="ai-fb" readonly rows="6" hidden aria-label="指令全文"></textarea>
+          <div class="ai-note">AI 也可能判斷錯誤，分數只是估計。完整批改依大考中心「每個錯誤扣 0.5 分」計算，和上面的分段給分算法不同。詳細說明見<a href="selfcheck.html" id="aiMore" target="_blank" rel="noopener">寫完自我檢查</a>。</div>
+          </div>
+        </div>
       </div>
 
       <div class="self-grade" id="selfGrade">
@@ -1361,6 +1385,10 @@ document.getElementById("revealBtn").addEventListener("click", ()=>{
   document.getElementById("yourAnswerEcho").textContent = yourText
       ? "你的翻譯：" + yourText
       : "（本題未輸入答案）";
+  document.getElementById("aiRow").classList.add("show");
+  document.getElementById("aiBody").hidden = !yourText;
+  document.getElementById("aiEmpty").hidden = !!yourText;
+  document.getElementById("aiMsg").textContent = "";
   document.getElementById("revealBox").classList.add("show");
   document.getElementById("selfGrade").classList.add("show");
 });
@@ -1571,5 +1599,20 @@ function safePrint(){
 }
 </script>
 <!--/safePrint-->
+<script>
+(function(){
+  function go(kind){
+    var q=document.getElementById("zhText").textContent;
+    var ctxBox=document.getElementById("ctxBox");
+    var ctx=ctxBox&&ctxBox.classList.contains("show")?document.getElementById("ctxText").textContent:"";
+    var a=document.getElementById("userInput").value;
+    var msg=document.getElementById("aiMsg");document.getElementById("aiFb").hidden=true;
+    try{document.getElementById("aiMore").href="selfcheck.html?q="+encodeURIComponent(q)+"&a="+encodeURIComponent(a)}catch(e){}
+    window.AIP.copy(window.AIP.build(kind,q,a,ctx),function(){msg.textContent="已複製，可以到 AI 對話視窗貼上了";},function(){var t=window.AIP.build(kind,q,a,ctx),fb=document.getElementById("aiFb");fb.hidden=false;fb.value=t;fb.focus();fb.select();try{fb.setSelectionRange(0,t.length)}catch(e){}msg.textContent="自動複製沒有成功。已幫你選好整段指令，請長按選「拷貝」（電腦按 Ctrl+C），再貼到 AI 對話視窗。";});
+  }
+  document.getElementById("aiShort").addEventListener("click",function(){go("short")});
+  document.getElementById("aiFull").addEventListener("click",function(){go("full")});
+})();
+</script>
 </body>
 </html>
