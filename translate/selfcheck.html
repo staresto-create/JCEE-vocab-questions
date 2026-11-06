@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>中譯英自我檢查清單與請 AI 批改的指令 · 學測中譯英</title>
+<meta name="description" content="學測中譯英寫完後，依大考中心的評分原則逐項自我檢查，並附一段可以直接複製、貼給 AI 批改的指令。">
+<style>
+:root{--bg:#f3f5f8;--surface:#ffffff;--fg:#1b2330;--muted:#566074;--line:#d3dae4;--accent:#0b5cad;--ok:#0b7a4b;--ok-bg:#e3f4ec;--note-bg:#fff6dc;--code-bg:#eef2f7;
+ --zh:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif}
+@media (prefers-color-scheme:dark){:root{--bg:#12161d;--surface:#1a2029;--fg:#e7ebf1;--muted:#9aa5b5;--line:#2c3542;--accent:#7db7f0;--ok:#4cc38a;--ok-bg:#12301f;--note-bg:#2e2a18;--code-bg:#232b37;color-scheme:dark}}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font:17px/1.8 var(--zh);margin:0;padding:0 16px 56px}
+.sitelink{max-width:720px;margin:0 auto;padding:12px 0 0;font-size:.85rem;color:var(--muted)}
+.sitelink a,.foot a{color:var(--fg)}
+.sitelink a{display:inline-block;padding:12px 4px;margin:-12px 0}
+:root{--focus:#0072B2}
+@media (prefers-color-scheme:dark){:root{--focus:#56B4E9}}
+:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.wrap{max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:16px;padding-top:16px}
+h1{font-size:1.55rem;line-height:1.35;margin:0}
+h2{font-size:1.2rem;margin:0 0 8px}
+h3{font-size:1rem;margin:16px 0 4px;color:var(--muted)}
+p{margin:0 0 8px}
+.lead{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px}
+.rule{margin:0;padding-left:1.2em}
+.rule li{margin:4px 0}
+.src{font-size:.85rem;color:var(--muted)}
+.src a,.lead a,.card a{color:var(--accent)}
+ul.chk{list-style:none;margin:0;padding:0}
+ul.chk li{margin:0;border-bottom:1px solid var(--line)}
+ul.chk li:last-child{border-bottom:0}
+ul.chk label{display:flex;gap:12px;align-items:flex-start;padding:10px 4px;cursor:pointer}
+ul.chk input{width:22px;height:22px;flex:none;margin-top:4px;accent-color:var(--ok)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-top:12px;font-size:.95rem}
+.done{color:var(--ok);font-weight:700}
+button{font:inherit;font-size:.95rem;padding:9px 16px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--fg);cursor:pointer;min-height:44px}
+button.main{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:700}
+@media (prefers-color-scheme:dark){button.main{color:#10151c}}
+pre{margin:8px 0;padding:14px;background:var(--code-bg);border:1px solid var(--line);border-radius:8px;white-space:pre-wrap;word-break:break-word;font:15px/1.75 var(--zh)}
+.note{background:var(--note-bg);border-radius:8px;padding:10px 12px;font-size:.92rem;margin-top:10px}
+ol.steps{margin:0 0 8px;padding-left:1.3em}
+ol.steps li{margin:4px 0}
+.foot{max-width:720px;margin:24px auto 0;padding:14px 0 40px;border-top:1px solid var(--line);font-size:.8rem;line-height:1.9;color:var(--muted)}
+</style>
+<style id="anti-copy">
+/* 防盜用措施（2026-10-14）：畫面浮水印、列印浮水印、頁尾授權聲明 */
+@media screen{body::before{content:"";position:fixed;top:0;left:0;right:0;bottom:0;z-index:2147483000;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22460%22%20height%3D%22240%22%3E%3Cg%20transform%3D%22rotate%28-20%20230%20120%29%22%20font-family%3D%22Noto%20Sans%20TC%2Csans-serif%22%20fill%3D%22%23D9A400%22%20fill-opacity%3D%22.2%22%20text-anchor%3D%22middle%22%3E%3Ctext%20x%3D%22230%22%20y%3D%22112%22%20font-size%3D%2220%22%3E%E9%AB%98%E4%B8%AD%E8%8B%B1%E6%96%87%E9%A1%8C%E5%BA%AB%3C%2Ftext%3E%3Ctext%20x%3D%22230%22%20y%3D%22140%22%20font-size%3D%2214%22%3Estaresto-create.github.io%2FJCEE-vocab-questions%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E");background-repeat:repeat;}}
+@media print{body::after{content:"高中英文題庫\A staresto-create.github.io/JCEE-vocab-questions\A 免費資源，請勿販售";white-space:pre;position:fixed;top:42%;left:0;right:0;text-align:center;transform:rotate(-25deg);font-family:"Noto Sans TC",sans-serif;font-size:26pt;line-height:1.7;color:#c8c8c8;z-index:2147483000;pointer-events:none;}}
+.cc-note{font-size:12px;line-height:1.8;color:var(--ad-x8a8278-fg);margin:12px auto;max-width:60em;padding:0 1em;}.cc-note a{color:inherit;}
+</style>
+</head>
+<body>
+<nav class="sitelink" aria-label="站內連結"><a href="../">題庫首頁</a> · <a href="./">中譯英題庫</a> · <a href="structure.html">句子結構練習</a> · <a href="../find.html">找功能</a></nav>
+<main class="wrap">
+<header>
+  <h1>中譯英寫完後，先自己批改一遍</h1>
+  <p class="lead">中譯英兩小題共 8 分，每個錯誤都會扣 0.5 分。寫完先照這一頁逐項檢查，再決定要不要請 AI 幫忙批改。</p>
+</header>
+
+<section class="card" aria-labelledby="h-rule">
+  <h2 id="h-rule">大考中心的評分方式</h2>
+  <ul class="rule">
+    <li>兩小題各 4 分，共 8 分。</li>
+    <li>每個錯誤扣 0.5 分，兩小題分開計算，扣完為止。</li>
+    <li>相同的拼字錯誤或文法錯誤只扣一次。例如同一個字拼錯兩次，只扣 0.5 分；兩個不同的字各拼錯，就扣 1 分。</li>
+    <li>句首沒有大寫扣 0.5 分；標點不妥扣 0.5 分。這兩項各只扣一次。</li>
+    <li>評量的字詞大致以大考中心詞彙表的一到四級為主。這是評量的範圍，不是限制你只能用這四級的字。</li>
+  </ul>
+  <p class="src" style="margin-top:8px">依據：大考中心〈<a href="https://www.ceec.edu.tw/files/file_pool/1/0q054335046832331817/115%e5%ad%b8%e6%b8%ac%e8%8b%b1%e6%96%87%e8%80%83%e7%a7%91%e9%9d%9e%e9%81%b8%e6%93%87%e9%a1%8c%e5%8f%83%e8%80%83%e7%ad%94%e6%a1%88%e8%88%87%e8%a9%95%e5%88%86%e5%8e%9f%e5%89%87.pdf" target="_blank" rel="noopener">115 學年度學科能力測驗英文考科非選擇題滿分參考答案與評分原則</a>〉，以及<a href="https://www.ceec.edu.tw/xcepaper/cont?xsmsid=0J066588036013658199&amp;qperoid=0Q105359543716106563&amp;sid=0Q111569514236767793" target="_blank" rel="noopener">選才電子報第 351 期〈115 學年度學科能力測驗非選擇題評分原則說明〉</a>的考生作答情形。詞彙表一到四級的說明，見大考中心〈<a href="https://www.ceec.edu.tw/files/file_pool/1/0p055378620142741052/03-114%e5%ad%b8%e6%b8%ac%e8%8b%b1%e6%96%87%e8%80%83%e7%a7%91%e9%9d%9e%e9%81%b8%e6%93%87%e9%a1%8c%e5%8f%83%e8%80%83%e7%ad%94%e6%a1%88%e8%88%87%e8%a9%95%e5%88%86%e5%8e%9f%e5%89%87.pdf" target="_blank" rel="noopener">114 學年度學科能力測驗英文考科非選擇題評分原則</a>〉。</p>
+  </section>
+
+<section class="card" aria-labelledby="h-chk">
+  <h2 id="h-chk">自我檢查清單</h2>
+  <p class="lead">一個一個勾。勾完才算檢查完，沒勾的就回去看那一項。</p>
+  <h3>一、句子完整嗎</h3><ul class="chk"><li><label><input type="checkbox" class="ck"><span><b>這個英文句子有主詞，也有一個主要動詞嗎？</b>中文常常連續用好幾個動詞，英文一個子句通常只有一個主要動詞，其他動作改成 V-ing、to V、介系詞片語，或用 and 並列。</span></label></li><li><label><input type="checkbox" class="ck"><span><b>中文句子裡每個意思都翻出來了嗎？</b>有沒有漏掉的詞（115 學測閱卷說明指出，有考生漏譯了「高中」），或是自己多加了原文沒有的內容？</span></label></li></ul><h3>二、時態與動詞</h3><ul class="chk"><li><label><input type="checkbox" class="ck"><span><b>時態對嗎？</b>先看句子的時間關係。描述從過去延續到現在的變化或結果，通常用現在完成式（have / has + p.p.）；說的是已經結束的過去時間（例如去年、2020 年），用過去式；但 since 2020 這種「從過去到現在」，仍用現在完成式。115 學測第 1 題要用現在完成式，閱卷說明指出有考生沒有用。</span></label></li><li><label><input type="checkbox" class="ck"><span><b>主詞是單數還是複數？</b>動詞的 -s 和 be 動詞有跟主詞一致嗎？</span></label></li><li><label><input type="checkbox" class="ck"><span><b>動詞後面接的形式對嗎？</b>例如 enjoy 後面接 V-ing，want 後面接 to V。</span></label></li></ul><h3>三、用字與詞性</h3><ul class="chk"><li><label><input type="checkbox" class="ck"><span><b>每個英文字的意思，真的是中文那個意思嗎？</b>115 學測閱卷說明舉出的用字錯誤：「增加」寫成 raise、「能力」寫成 capability、「組別」寫成 categories、「進行」寫成 hold、「活動」寫成 events，「聽、說」寫成 hearing and talking。這些字在別的句子裡不一定錯，要看那句話的意思和搭配，所以要先確定中文在這句話裡的意思，再選英文字。</span></label></li><li><label><input type="checkbox" class="ck"><span><b>慣用搭配有寫對嗎？</b>例如「分成」是 divide … into …，「依據」是 based on。115 學測有考生把 based on 寫成 base on 或 with，還有考生沒有掌握 the percentage of 的用法。</span></label></li><li><label><input type="checkbox" class="ck"><span><b>詞性對嗎？</b>該用名詞的地方有沒有寫成動詞或形容詞（例如 important 和 importance；115 學測的「百分比」，有考生誤用 percent，依句意應該用 percentage）？</span></label></li></ul><h3>四、拼字</h3><ul class="chk"><li><label><input type="checkbox" class="ck"><span>每個字一個一個看拼法。115 學測閱卷說明舉出的錯字：separate 寫成 seperate、divide 寫成 devide，常見的是中間的母音寫錯或漏掉。即使是常見字也可能拼錯，所以要逐字檢查。</span></label></li><li><label><input type="checkbox" class="ck"><span><b>名詞的複數（-s、-es，以及 child → children 這類不規則）和動詞變化（-ed、-ing）拼對了嗎？</b></span></label></li></ul><h3>五、冠詞、單複數、介系詞</h3><ul class="chk"><li><label><input type="checkbox" class="ck"><span><b>可數名詞前面有 a、the 或其他限定詞（my、this 等），或是用複數形嗎？</b>不可數名詞有沒有誤加 a 或 -s？</span></label></li><li><label><input type="checkbox" class="ck"><span><b>介系詞對嗎？</b>in、on、at、of、for 逐一核對，不要憑中文感覺。</span></label></li></ul><h3>六、最後再檢查一遍</h3><ul class="chk"><li><label><input type="checkbox" class="ck"><span><b>句首有大寫嗎？</b>標點有沒有不妥？句尾句點、專有名詞的大寫也要寫對。評分原則規定，句首未大寫扣 0.5 分，標點不妥扣 0.5 分，這兩項各只扣一次。</span></label></li><li><label><input type="checkbox" class="ck"><span><b>整句念一遍：念起來通順嗎？</b>有沒有哪個地方是猜的？猜的地方先查字典或回頭看詳解。</span></label></li></ul>
+  <div class="bar"><span id="prog" aria-live="polite">已檢查 0 / 14 項</span><button type="button" id="reset">全部取消勾選</button></div>
+</section>
+
+<section class="card" aria-labelledby="h-ai">
+  <h2 id="h-ai">請 AI 批改的指令</h2>
+  <ol class="steps">
+    <li>按下面的「複製指令」。</li>
+    <li>貼到你慣用的 AI 對話視窗，把括號那兩行換成中文題目和你寫的英文。</li>
+    <li>兩小題分開貼，一次批改一題，批改結果會比較準確。</li>
+  </ol>
+  <pre id="prompt">請模擬學測英文科中譯英的閱卷方式，依下面的評分原則，批改我寫的英文翻譯。請先確認我的英文有沒有完整表達中文題目的主要意思，再檢查用字、拼字、文法。
+
+評分原則：
+1. 每一小題 4 分，每個錯誤扣 0.5 分，扣完為止（最低 0 分）。相同的拼字錯誤或文法錯誤只扣一次。句首未大寫或標點不妥，各扣 0.5 分，只扣一次。
+2. 評量重點是用字、拼字、句型與文法，目標是譯成正確、通順、達意的英文。學生用字只要正確達意就不扣分，不因為用了較簡單或較難的字而扣分。
+3. 同一個意思有不同的合理譯法，只要正確就不扣分，不要因為和你心中的參考答案不同而扣分。只針對確實的拼字、文法、用字或語意錯誤扣分。句子文法正確、意思清楚，只是不夠自然，就不扣分，可以另外列成「建議」；但慣用搭配用錯，屬於用字錯誤，要列為錯誤。
+
+請依下面順序回答：
+一、逐一列出我的錯誤。每個錯誤寫出：我寫的原文、錯誤類別（拼字、時態、單複數或主詞動詞一致、冠詞、介系詞、用字或語意、句型結構、漏譯、標點或大小寫）、改正後的寫法，以及一句話說明原因。
+二、相同的拼字錯誤或文法錯誤只算一次，並標出哪些是重複的。同一處錯誤即使符合好幾個類別，也只算一個錯誤。只列出你確定的錯誤；沒把握的地方列為「待確認」，不納入扣分。
+三、算出這一小題的分數：4 分減去「不重複的錯誤數 × 0.5」，最低為 0 分。其中句首未大寫、標點不妥這兩項，各只算一個錯誤，即使有好幾處也一樣。請把算式寫出來（例如：4 − 4 × 0.5 = 2），並確認最後的分數和前面列出的錯誤數一致。並提醒我這個分數只是估計。
+四、給我一個改好的完整句子，盡量保留我原來正確的寫法；如果句構本身有問題，請一併修正並說明原因。最後根據這次的錯誤，提醒我下次寫完可以先檢查的兩個地方。
+
+請用繁體中文（台灣用語）說明，英文部分保留原文。如果你不確定某個地方算不算錯誤，請直接說「不確定」，不要勉強判定。
+
+中文題目：
+（把題目貼在這裡）
+
+我的英文翻譯：
+（把你的答案貼在這裡）</pre>
+  <div class="bar"><button type="button" class="main" id="copy">複製指令</button><span id="copied" class="done" role="status" aria-live="polite"></span></div>
+  <p class="note">AI 也可能判斷錯誤，尤其是「這個字用得對不對」「這個說法自然嗎」這類問題，它給的分數也只是估計，不等於大考的實際給分。另外，大考中心的原文只寫「只扣一次」，沒有說明兩小題是否合計，所以分開批改時，大小寫和標點這一項的估分，可能和實際閱卷差 0.5 分。它指出的錯誤，請對照上面的清單，或查閱本題庫的<a href="./">歷屆中譯英詳解</a>來確認。有疑問就帶去問老師。</p>
+</section>
+
+<section class="card" aria-labelledby="h-go">
+  <h2 id="h-go">接著練習</h2>
+  <ul class="rule">
+    <li><a href="./">歷屆中譯英題庫</a>：大考中心歷屆題目，每題附詳解。</li>
+    <li><a href="structure.html">句子結構練習</a>：先找主要動詞，再選句型。</li>
+    <li><a href="../nonmc-stats.html">非選擇題成績統計</a>：中譯英歷年得分率，看自己的分數落在哪裡。</li>
+  </ul>
+</section>
+</main>
+<footer class="foot">
+  <a href="../">回題庫首頁</a>　·　<a href="./">中譯英題庫</a>　·　<a href="../find.html">找功能</a><br>
+  評分原則出自大考中心歷年閱卷評分原則說明；檢查清單與批改指令為本題庫整理。免費、無廣告的非營利自學題庫。
+  <p class="cc-note">本題庫自己寫的部分採用 <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh-hant" target="_blank" rel="license noopener">CC BY-NC 4.0</a>（姓名標示─非商業性）授權：可以分享，但須註明出處，不得用於商業用途。試題來源與完整說明請見<a href="https://staresto-create.github.io/JCEE-vocab-questions/#terms">使用與著作權</a>。</p>
+</footer>
+<script>
+(function(){
+  var cks=[].slice.call(document.querySelectorAll('.ck')),prog=document.getElementById('prog');
+  function upd(){var k=cks.filter(function(c){return c.checked}).length;prog.textContent='已檢查 '+k+' / '+cks.length+' 項'+(k===cks.length?'，全部檢查完了':'');prog.className=k===cks.length?'done':''}
+  cks.forEach(function(c){c.addEventListener('change',upd)});
+  document.getElementById('reset').addEventListener('click',function(){cks.forEach(function(c){c.checked=false});upd()});
+  var msg=document.getElementById('copied');
+  document.getElementById('copy').addEventListener('click',function(){
+    var txt=document.getElementById('prompt').textContent;
+    function ok(){msg.textContent='已複製，可以貼到 AI 了';setTimeout(function(){msg.textContent=''},4000)}
+    function selPre(){var rg=document.createRange();rg.selectNodeContents(document.getElementById('prompt'));var s=getSelection();s.removeAllRanges();s.addRange(rg);msg.textContent='已幫你選好文字，請按「拷貝」'}
+    function fb(){var ta=document.createElement('textarea');ta.value=txt;ta.setAttribute('readonly','');ta.style.position='fixed';ta.style.top='0';ta.style.left='0';ta.style.fontSize='16px';ta.style.opacity='0';document.body.appendChild(ta);ta.select();ta.setSelectionRange(0,txt.length);var r=false;try{r=document.execCommand('copy')}catch(e){}document.body.removeChild(ta);if(r)ok();else selPre()}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(ok,fb)}else fb();
+  });
+  upd();
+})();
+</script>
+</body>
+</html>
