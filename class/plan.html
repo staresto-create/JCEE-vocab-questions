@@ -53,7 +53,7 @@
 <div class="wrap">
   <header class="top"><span class="title">第二次段考進度表</span><span class="sub">高二英文</span></header>
   <div class="tabs" id="tabs"></div>
-  <p class="note" id="upd"><b>最後更新：11/6（五）14:34</b>。如果看到的日期比這個舊，請重新整理頁面。</p>
+  <p class="note" id="upd"><b>最後更新：11/6（五）14:48</b>。如果看到的日期比這個舊，請重新整理頁面。</p>
   <p class="note">打開會自動跳到今天，今天那一格用紅框標出來。核心字彙的範圍是單字片語表上的編號，括號裡是第一個和最後一個字；10/2,5 這種日期是 ALL+ 雜誌當天的單字表。小考那一欄底下的連結，會直接打開練習頁，只出那一節的範圍。進度如有調整，以這一頁為準。</p>
   <div id="list"></div>
   <footer>線上練習：<a href="./">段考單字練習</a>（單字卡、字搭卡）・<a href="../wordwheel.html">單字輪</a>・<a href="../cohesion.html">ALL+ 讀法練習</a></footer>
@@ -75,9 +75,34 @@
   // DM 是 ALL+ 單字表日期對應的單字編號（取自 exam2.json）；SEC 是課本各課單字片語的編號範圍。
   var DM = {"10/1":[229,235],"10/2":[236,242],"10/5":[243,249],"10/6":[250,256],"10/7":[257,263],"10/8":[264,268],"10/9":[269,273],"10/12":[274,280],"10/13":[281,285],"10/15":[286,292],"10/16":[293,298],"10/19":[299,304],"10/20":[305,310],"10/21":[311,317],"10/22":[318,324],"10/23":[325,331],"10/26":[332,338],"10/27":[339,344],"10/28":[345,351],"10/29":[352,357],"10/30":[358,363]};
   var SEC = {L4:[1,30],L5:[31,55],L6:[56,87]};
+  var CORE = {U13:[88,119],U14:[120,157],U15:[158,192],U16:[193,228]};
+  var ALU = {U1:['10/1'],U2:['10/2','10/5'],U3:['10/6','10/7'],U4:['10/8','10/9'],U5:['10/12','10/13'],U7:['10/15','10/16'],U8:['10/19'],U9:['10/20'],U10:['10/21'],U11:['10/22','10/23'],U12:['10/26','10/27'],U13:['10/28','10/29'],U14:['10/30']};
+  var WTR = {WT1:['10/1','10/9'],WT2:['10/12','10/16'],WT3:['10/19','10/23'],WT4:['10/26','10/30']};
+  function mkLink(rs, cs, title, label){
+    if (!rs.length && !cs.length) return '';
+    rs = rs.slice().sort(function(a,b){ return a[0]-b[0]; });
+    var mg = [];
+    rs.forEach(function(r){
+      var last = mg[mg.length-1];
+      if (last && r[0] <= last[1]+1) { if (r[1] > last[1]) last[1] = r[1]; } else mg.push([r[0], r[1]]);
+    });
+    var h = [];
+    if (mg.length) h.push('n=' + mg.map(function(r){ return r[0]===r[1] ? r[0] : r[0]+'-'+r[1]; }).join(','));
+    if (cs.length) h.push('c=' + cs.join(','));
+    h.push('t=' + encodeURIComponent(title));
+    return '<br><a href="./#' + h.join('&') + '">' + label + '</a>';
+  }
   function rangeLink(q, md){
-    if (!q || /大卷/.test(q)) return '';
+    if (!q) return '';
     var rs = [], cs = [], m, re;
+    if (/大卷/.test(q)) {
+      var parts = q.split('核心'), core = parts[1] || '', al = core.split('ALL+')[1] || '';
+      core = core.split('ALL+')[0];
+      (parts[0].match(/L[456]/g) || []).forEach(function(l){ rs.push(SEC[l]); });
+      (core.match(/U\d+/g) || []).forEach(function(u){ if (CORE[u]) rs.push(CORE[u]); });
+      (al.match(/U\d+/g) || []).forEach(function(u){ (ALU[u] || []).forEach(function(d){ if (DM[d]) rs.push(DM[d]); }); });
+      return mkLink(rs, cs, md + ' 大卷範圍', '練習大卷的範圍');
+    }
     re = /#(\d+)~(\d+)/g;
     while ((m = re.exec(q))) rs.push([+m[1], +m[2]]);
     re = /(L[456]) 單字片語全/g;
@@ -89,18 +114,14 @@
     }
     re = /(L[456]) 字搭全/g;
     while ((m = re.exec(q))) cs.push(m[1]);
-    if (!rs.length && !cs.length) return '';
-    rs.sort(function(a,b){ return a[0]-b[0]; });
-    var mg = [];
-    rs.forEach(function(r){
-      var last = mg[mg.length-1];
-      if (last && r[0] <= last[1]+1) { if (r[1] > last[1]) last[1] = r[1]; } else mg.push([r[0], r[1]]);
-    });
-    var h = [];
-    if (mg.length) h.push('n=' + mg.map(function(r){ return r[0]===r[1] ? r[0] : r[0]+'-'+r[1]; }).join(','));
-    if (cs.length) h.push('c=' + cs.join(','));
-    h.push('t=' + encodeURIComponent(md + ' 小考範圍'));
-    return '<br><a href="./#' + h.join('&') + '">練習這一節的範圍</a>';
+    var out = mkLink(rs, cs, md + ' 小考範圍', '練習這一節的範圍');
+    var w = /WT[1-4]/.exec(q);
+    if (w && WTR[w[0]]) {
+      var d0 = WTR[w[0]][0], d1 = WTR[w[0]][1];
+      out += mkLink([[DM[d0][0], DM[d1][1]]], [], md + ' ' + w[0] + ' 範圍',
+        '練習 ' + w[0] + ' 的範圍（' + d0 + '～' + d1 + '）');
+    }
+    return out;
   }
   function todayStr(){ var d=new Date(); return d.getFullYear()+'-'+('0'+(d.getMonth()+1)).slice(-2)+'-'+('0'+d.getDate()).slice(-2); }
   function pick(){
