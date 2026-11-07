@@ -648,7 +648,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
       <div style="font-size:12px;color:var(--ad-vmuted-fg);margin-bottom:10px;">想專門練某一種句子，就點下面的結構；不點，就是全部都練。<b>簡單句</b>只有一個子句。<b>合句</b>是用 and、but、so 等對等連接詞或分號，把兩個以上的獨立子句連起來。<b>複句</b>是一個主要子句，再加上名詞子句、關係子句或副詞子句。<b>合複句</b>則是合句和複句兩者兼具。</div>
       <div class="year-grid" id="structGrid"></div>
       <h3 class="topic-h">依句型挑題（可複選）</h3>
-      <div style="font-size:12px;color:var(--ad-vmuted-fg);margin-bottom:10px;">想練某個句型，就點下面的句型。目前只有分析過句型的 20 題可以選（學測 84、98 年，以及 106 到 115 年的部分題目），其他題目之後會陸續補上。想知道每個句型的意思和課本課次，請看<a href="../sentence-patterns.html" style="color:var(--ad-vseal-fg);text-decoration:underline;">句型對照</a>；想一步一步找出句子結構，請做<a href="structure.html" style="color:var(--ad-vseal-fg);text-decoration:underline;">句子結構練習</a>。</div>
+      <div style="font-size:12px;color:var(--ad-vmuted-fg);margin-bottom:10px;">想練某個句型，就點下面的句型。目前只有分析過句型的 57 題可以選（學測 83 到 115 年的題目），大學聯考與指考的題目之後會陸續補上。想知道每個句型的意思和課本課次，請看<a href="../sentence-patterns.html" style="color:var(--ad-vseal-fg);text-decoration:underline;">句型對照</a>；想一步一步找出句子結構，請做<a href="structure.html" style="color:var(--ad-vseal-fg);text-decoration:underline;">句子結構練習</a>。</div>
       <div class="year-grid" id="patGrid"></div>
       <div class="year-note">
         <b>92 年怎麼沒有題目？</b><br>
@@ -1070,7 +1070,7 @@ function buildTopicGrid(){
   if(nTw) mk(TW_CHIP, TW_CHIP, nTw);
 }
 const STRUCTS = ["簡單句", "合句", "複句", "合複句", "其他（片段、多句）"];
-const PATNAME = {"A1": "受詞後接不定詞", "A2": "使役動詞", "A3": "感官動詞後接受詞與動詞", "A5": "動詞後接不定詞", "A6": "used to 的三種用法", "A7": "介系詞後接動名詞", "A11": "不定詞表目的", "A12": "動名詞或不定詞片語當主詞、補語", "B1": "分詞片語後置修飾名詞，或分詞當形容詞", "B3": "分詞表結果或伴隨", "B5": "連接詞後省略主詞與 be 的分詞或形容詞", "C1": "讓步連接詞", "C6": "表結果的連接副詞", "C8": "時間副詞子句", "C12": "相關連接詞", "C14": "對等連接詞連接子句，或連接對等的詞、片語", "D1": "that 引導名詞子句", "D6": "限定的關係代名詞、關係副詞", "D7": "非限定關係子句、介系詞加關係代名詞", "D11": "其他倒裝與 There be", "E4": "最高級", "F1": "被動語態與 regard A as B", "F2": "現在完成式、現在完成進行式", "F3": "過去完成式", "F5": "進行式、未來式"};
+const PATNAME = {"A1": "受詞後接不定詞", "A2": "使役動詞", "A3": "感官動詞後接受詞與動詞", "A5": "動詞後接不定詞", "A6": "used to 的三種用法", "A7": "介系詞後接動名詞", "A11": "不定詞表目的", "A12": "動名詞或不定詞片語當主詞、補語", "A13": "完成式不定詞、被動帶不定詞", "A14": "不定詞修飾名詞", "B1": "分詞片語後置修飾名詞，或分詞當形容詞", "B2": "分詞構句", "B3": "分詞表結果或伴隨", "B5": "連接詞後省略主詞與 be 的分詞或形容詞", "C1": "讓步連接詞", "C4": "表原因的連接詞", "C6": "表結果的連接副詞", "C8": "時間副詞子句", "C10": "條件句", "C12": "相關連接詞", "C13": "連接詞性的片語與介系詞片語", "C14": "對等連接詞連接子句，或連接對等的詞、片語", "C15": "表轉折、對比的銜接副詞", "C16": "表附加、類比的銜接副詞", "D1": "that 引導名詞子句", "D3": "wh- 引導名詞子句；what 當複合關係代名詞", "D6": "限定的關係代名詞、關係副詞", "D7": "非限定關係子句、介系詞加關係代名詞", "D11": "其他倒裝與 There be", "E4": "最高級", "F1": "被動語態與 regard A as B", "F2": "現在完成式、現在完成進行式", "F3": "過去完成式", "F5": "進行式、未來式"};
 function buildStructGrid(){
   const grid = document.getElementById("structGrid"); if(!grid) return; grid.innerHTML = "";
   STRUCTS.forEach(t => {
@@ -1137,7 +1137,7 @@ document.getElementById("startBtn").addEventListener("click", ()=>{
   if(wantTw) queue = queue.filter(i => i.tw);
   if(stSel.length) queue = queue.filter(i => stSel.includes(i.structure));
   if(paSel.length) queue = queue.filter(i => (i.patterns || []).some(p => paSel.includes(p)));
-  if(queue.length === 0){ alert("這幾個條件的組合沒有題目，請少選一兩個條件再試。選了句型的話，目前只有已分析過句型的 20 題。"); return; }
+  if(queue.length === 0){ alert("這幾個條件的組合沒有題目，請少選一兩個條件再試。選了句型的話，目前只有已分析過句型的 57 題。"); return; }
   if(getMode() === "shuffle"){
     queue = shuffle(queue);
   }

@@ -3820,7 +3820,12 @@
    ]
   },
   "topic": "飲食與旅遊",
-  "structure": "複句"
+  "structure": "複句",
+  "patterns": [
+   "D3",
+   "E4",
+   "A14"
+  ]
  },
  {
   "id": 94,
@@ -3871,7 +3876,11 @@
    ]
   },
   "topic": "飲食與旅遊",
-  "structure": "複句"
+  "structure": "複句",
+  "patterns": [
+   "A5",
+   "D7"
+  ]
  },
  {
   "id": 95,
@@ -3918,7 +3927,13 @@
    ]
   },
   "topic": "飲食與旅遊",
-  "structure": "複句"
+  "structure": "複句",
+  "patterns": [
+   "C15",
+   "A5",
+   "C4",
+   "C14"
+  ]
  },
  {
   "id": 96,
@@ -3961,7 +3976,12 @@
    ]
   },
   "topic": "飲食與旅遊",
-  "structure": "簡單句"
+  "structure": "簡單句",
+  "patterns": [
+   "A5",
+   "A11",
+   "A2"
+  ]
  },
  {
   "id": 97,
@@ -4001,7 +4021,12 @@
    ]
   },
   "topic": "飲食與旅遊",
-  "structure": "簡單句"
+  "structure": "簡單句",
+  "patterns": [
+   "C15",
+   "A5",
+   "C14"
+  ]
  },
  {
   "id": 98,
@@ -4041,7 +4066,10 @@
    ]
   },
   "topic": "人際關係",
-  "structure": "簡單句"
+  "structure": "簡單句",
+  "patterns": [
+   "A3"
+  ]
  },
  {
   "id": 99,
@@ -4079,7 +4107,12 @@
    ]
   },
   "topic": "人際關係",
-  "structure": "複句"
+  "structure": "複句",
+  "patterns": [
+   "C14",
+   "D3",
+   "F3"
+  ]
  },
  {
   "id": 100,
@@ -4106,7 +4139,13 @@
    ]
   },
   "topic": "人際關係",
-  "structure": "合複句"
+  "structure": "合複句",
+  "patterns": [
+   "D1",
+   "F3",
+   "C14",
+   "A11"
+  ]
  },
  {
   "id": 101,
@@ -4134,7 +4173,12 @@
    ]
   },
   "topic": "人際關係",
-  "structure": "簡單句"
+  "structure": "簡單句",
+  "patterns": [
+   "B2",
+   "A3",
+   "C14"
+  ]
  },
  {
   "id": 102,
@@ -4233,7 +4277,12 @@
    ]
   },
   "topic": "飲食與旅遊",
-  "structure": "複句"
+  "structure": "複句",
+  "patterns": [
+   "F2",
+   "D3",
+   "F5"
+  ]
  },
  {
   "id": 104,
@@ -4316,7 +4365,10 @@
    ]
   },
   "topic": "飲食與旅遊",
-  "structure": "簡單句"
+  "structure": "簡單句",
+  "patterns": [
+   "C16"
+  ]
  },
  {
   "id": 106,
@@ -4364,7 +4416,10 @@
    ]
   },
   "topic": "飲食與旅遊",
-  "structure": "簡單句"
+  "structure": "簡單句",
+  "patterns": [
+   "F1"
+  ]
  },
  {
   "id": 107,
@@ -4477,7 +4532,10 @@
    ]
   },
   "topic": "社會議題",
-  "structure": "簡單句"
+  "structure": "簡單句",
+  "patterns": [
+   "F2"
+  ]
  },
  {
   "id": 109,
@@ -4538,7 +4596,11 @@
    ]
   },
   "topic": "社會議題",
-  "structure": "簡單句"
+  "structure": "簡單句",
+  "patterns": [
+   "F5",
+   "A11"
+  ]
  },
  {
   "id": 110,
@@ -4714,7 +4776,10 @@
    ]
   },
   "topic": "自我成長與心理",
-  "structure": "簡單句"
+  "structure": "簡單句",
+  "patterns": [
+   "B2"
+  ]
  },
  {
   "id": 113,
@@ -4787,7 +4852,11 @@
    ]
   },
   "topic": "自我成長與心理",
-  "structure": "簡單句"
+  "structure": "簡單句",
+  "patterns": [
+   "C15",
+   "B1"
+  ]
  },
  {
   "id": 114,
@@ -6289,7 +6358,10 @@
    ]
   },
   "topic": "科技與媒體",
-  "structure": "簡單句"
+  "structure": "簡單句",
+  "patterns": [
+   "E4"
+  ]
  },
  {
   "id": 143,
@@ -6478,7 +6550,12 @@
    ]
   },
   "topic": "自我成長與心理",
-  "structure": "複句"
+  "structure": "複句",
+  "patterns": [
+   "C1",
+   "C12",
+   "F2"
+  ]
  },
  {
   "id": 147,
@@ -6514,7 +6591,12 @@
    ]
   },
   "topic": "自我成長與心理",
-  "structure": "複句"
+  "structure": "複句",
+  "patterns": [
+   "D1",
+   "C10",
+   "F5"
+  ]
  },
  {
   "id": 148,
@@ -6809,7 +6891,12 @@
    ]
   },
   "topic": "科學與自然",
-  "structure": "合句"
+  "structure": "合句",
+  "patterns": [
+   "C14",
+   "F2",
+   "F1"
+  ]
  },
  {
   "id": 155,
@@ -6854,7 +6941,10 @@
    ]
   },
   "topic": "科學與自然",
-  "structure": "簡單句"
+  "structure": "簡單句",
+  "patterns": [
+   "A1"
+  ]
  },
  {
   "id": 156,
@@ -7084,7 +7174,11 @@
    ]
   },
   "topic": "校園與學習",
-  "structure": "複句"
+  "structure": "複句",
+  "patterns": [
+   "D1",
+   "A12"
+  ]
  },
  {
   "id": 161,
@@ -7131,7 +7225,10 @@
    ]
   },
   "topic": "校園與學習",
-  "structure": "簡單句"
+  "structure": "簡單句",
+  "patterns": [
+   "A1"
+  ]
  },
  {
   "id": 162,
@@ -7290,7 +7387,11 @@
    ]
   },
   "topic": "自我成長與心理",
-  "structure": "複句"
+  "structure": "複句",
+  "patterns": [
+   "C10",
+   "F5"
+  ]
  },
  {
   "id": 165,
@@ -7346,7 +7447,11 @@
    ]
   },
   "topic": "自我成長與心理",
-  "structure": "複句"
+  "structure": "複句",
+  "patterns": [
+   "C8",
+   "F5"
+  ]
  },
  {
   "id": 166,
@@ -7503,7 +7608,11 @@
    ]
   },
   "topic": "文學與藝術",
-  "structure": "複句"
+  "structure": "複句",
+  "patterns": [
+   "A12",
+   "D6"
+  ]
  },
  {
   "id": 169,
@@ -7563,7 +7672,10 @@
    ]
   },
   "topic": "文學與藝術",
-  "structure": "簡單句"
+  "structure": "簡單句",
+  "patterns": [
+   "A12"
+  ]
  },
  {
   "id": 170,
@@ -7956,7 +8068,12 @@
    ]
   },
   "topic": "校園與學習",
-  "structure": "簡單句"
+  "structure": "簡單句",
+  "patterns": [
+   "C13",
+   "A11",
+   "A14"
+  ]
  },
  {
   "id": 178,
@@ -8145,7 +8262,10 @@
    ]
   },
   "topic": "家庭與日常生活",
-  "structure": "簡單句"
+  "structure": "簡單句",
+  "patterns": [
+   "F1"
+  ]
  },
  {
   "id": 181,
@@ -8208,7 +8328,12 @@
    ]
   },
   "topic": "家庭與日常生活",
-  "structure": "簡單句"
+  "structure": "簡單句",
+  "patterns": [
+   "C15",
+   "A12",
+   "F2"
+  ]
  },
  {
   "id": 182,
@@ -8424,7 +8549,12 @@
   "topic": "歷史與文化",
   "topic2": "飲食與旅遊",
   "tw": true,
-  "structure": "簡單句"
+  "structure": "簡單句",
+  "patterns": [
+   "F2",
+   "F1",
+   "A13"
+  ]
  },
  {
   "id": 185,
@@ -8759,7 +8889,11 @@
   "topic": "文學與藝術",
   "topic2": "飲食與旅遊",
   "tw": true,
-  "structure": "簡單句"
+  "structure": "簡單句",
+  "patterns": [
+   "B1",
+   "F2"
+  ]
  },
  {
   "id": 191,
@@ -8835,7 +8969,12 @@
   "topic": "文學與藝術",
   "topic2": "飲食與旅遊",
   "tw": true,
-  "structure": "複句"
+  "structure": "複句",
+  "patterns": [
+   "D6",
+   "F1",
+   "F2"
+  ]
  },
  {
   "id": 192,
@@ -9004,7 +9143,12 @@
    ]
   },
   "topic": "商業、經濟與職場",
-  "structure": "簡單句"
+  "structure": "簡單句",
+  "patterns": [
+   "B1",
+   "A11",
+   "C14"
+  ]
  },
  {
   "id": 195,
@@ -9052,7 +9196,12 @@
    ]
   },
   "topic": "商業、經濟與職場",
-  "structure": "簡單句"
+  "structure": "簡單句",
+  "patterns": [
+   "F2",
+   "B3",
+   "C12"
+  ]
  },
  {
   "id": 196,
@@ -9224,7 +9373,10 @@
    ]
   },
   "topic": "商業、經濟與職場",
-  "structure": "簡單句"
+  "structure": "簡單句",
+  "patterns": [
+   "F1"
+  ]
  },
  {
   "id": 199,
@@ -9284,7 +9436,10 @@
    ]
   },
   "topic": "商業、經濟與職場",
-  "structure": "簡單句"
+  "structure": "簡單句",
+  "patterns": [
+   "A11"
+  ]
  },
  {
   "id": 200,
