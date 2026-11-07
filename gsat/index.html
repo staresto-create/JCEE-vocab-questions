@@ -47,7 +47,7 @@
   .sk-title{font-family:'Noto Serif TC',serif; font-weight:700; font-size:17px; margin:0 0 6px;}
   .sk-intro{color:var(--ink-soft); font-size:13.5px; line-height:1.8; margin:0 0 4px;}
   .sk-ex{margin:16px 0 0; padding-left:11px; border-left:2px solid var(--sage);}
-  .sk-ex .sk-src{font-family:'IBM Plex Mono','Noto Sans TC',monospace; font-size:10.5px; letter-spacing:.08em; color:var(--sage); display:block; margin-bottom:3px;}
+  .sk-ex .sk-src{font-family:'IBM Plex Mono','Noto Sans TC',monospace; font-size:12px; letter-spacing:.08em; color:var(--sage); display:block; margin-bottom:3px;}
     /* 2026-08-22 第一百四十場：窄螢幕上標頭換行時，間隔號被推到次行行首。
        每一段連同其後的間隔號包 inline-block，斷點只能落在段與段之間，
        間隔號因此落在行末。做法同第五十三場的 .coll-seg；不用 white-space:nowrap。 */
@@ -319,6 +319,7 @@ details.skill[open] > summary::after{content:'－ 收合';}
 .unitbar .ubrow + .ubrow{margin-top:8px;}
 .unitbar .ublab{font-size:12px; font-weight:700; letter-spacing:.06em; border:1px solid currentColor; border-radius:12px; padding:2px 10px; opacity:.75; white-space:nowrap;}
 .unitbar a, .unitbar .cur{display:inline-block; border:1px solid rgba(128,128,128,.45); border-radius:14px; padding:3px 11px; white-space:nowrap; font-weight:700; text-decoration:none;}
+@media (max-width:600px){.unitbar a,.unitbar .cur{padding:10px 13px;}.unitbar .ubrow{gap:8px;}}
 .unitbar a{color:var(--crimson);}
 .unitbar a:hover{text-decoration:underline; text-underline-offset:3px;}
 .unitbar .cur{background:rgba(128,128,128,.2);}
