@@ -629,7 +629,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
 
   <!-- ============ SETUP VIEW ============ -->
   <section id="view-setup" class="view active">
-    <nav class="unitbar" id="unitbar" aria-label="本頁單元"><div class="ubrow"><span class="ublab">第一次使用？</span><a href="../howto.html">怎麼使用這個題庫</a><a href="../find.html">找功能</a><a href="structure.html">句子結構練習</a><a href="selfcheck.html">寫完自我檢查</a><a href="../sentence-patterns.html">句型對照</a></div><div class="ubrow"><span class="ublab">本頁單元</span><a href="#u-range">選擇練習範圍</a><a href="#u-stats">全國成績</a><a href="#adapt">改編練習</a><a href="#u-mode">練習模式</a><a href="#u-skel">讀句子的第一步</a><a href="#u-ceec">官方在考什麼</a><a href="#u-how">怎麼下手</a></div></nav>
+    <nav class="unitbar" id="unitbar" aria-label="本頁單元"><div class="ubrow"><span class="ublab">第一次使用？</span><a href="../howto.html">怎麼使用這個題庫</a><a href="../find.html">找功能</a><a href="map/">題目地圖</a><a href="structure.html">句子結構練習</a><a href="selfcheck.html">寫完自我檢查</a><a href="../sentence-patterns.html">句型對照</a></div><div class="ubrow"><span class="ublab">本頁單元</span><a href="#u-range">選擇練習範圍</a><a href="#u-stats">全國成績</a><a href="#adapt">改編練習</a><a href="#u-mode">練習模式</a><a href="#u-skel">讀句子的第一步</a><a href="#u-ceec">官方在考什麼</a><a href="#u-how">怎麼下手</a></div></nav>
     <div data-start-here></div>
     <p class="home-desc print-note" style="margin:0 0 14px;font-size:14px;line-height:1.8;"><b>想用紙本練習？</b>進到題目畫面後，按最上方的「🖨️ 列印成考卷」，會把這一回的中文題目印成一張考卷，每題下面留書寫的橫線，不含參考譯法和解析。手機和電腦都能印（也可以存成 PDF）。</p>
     <div class="card" id="u-range">
@@ -959,7 +959,8 @@ function shuffle(arr){ const a=[...arr]; for(let i=a.length-1;i>0;i--){const j=M
    網址形狀：#set-<題目ID以半形逗號或句點分隔>[|<題組名稱>]
    例：#set-12,45,78|115上第3週U5 */
 function startFromSetHash(){
-  const raw = decodeURIComponent(location.hash || '');
+  let raw = '';
+  try{ raw = decodeURIComponent(location.hash || ''); }catch(e){ return false; }
   const m = raw.match(/^#set-([^|]+)(?:\|(.*))?$/);
   if(!m) return false;
   const ids = m[1].split(/[.,]/).map(s => s.trim()).filter(Boolean);
@@ -1019,7 +1020,56 @@ async function loadItems(){
   buildPatGrid();
   scrMountStrip();
   renderProgress();
-  startFromSetHash() || startFromHash();
+  startFromSetHash() || startFromHash() || startFromSheetHash();
+}
+
+/* #sheet- 列印入口（2026-11-07）：題目地圖的「列印成考卷」「列印錯題考卷」連到這裡。
+   只讀 hash、不寫 hash；載入後用 showSheet() 把指定的題目排成紙本考卷，再呼叫 safePrint()。
+   和其他紙本考卷一樣只印中文題目與書寫橫線，不含參考譯法和解析。
+   一次最多印 30 題（和錯題考卷同一個上限），超過時只印前 30 題，並在畫面上說明。
+   網址形狀：#sheet-<題目ID以半形逗號或句點分隔>[|<考卷名稱>] */
+const SHEET_MAX = 30;
+function startFromSheetHash(){
+  let raw = '';
+  try{ raw = decodeURIComponent(location.hash || ''); }catch(e){ return false; }
+  const m = raw.match(/^#sheet-([^|]+)(?:\|(.*))?$/);
+  if(!m) return false;
+  const ids = [...new Set(m[1].split(/[.,]/).map(s => s.trim()).filter(Boolean))];
+  const byId = {};
+  ALL_ITEMS.forEach(it => { byId[String(it.id)] = it; });
+  const picked = ids.map(id => byId[id]).filter(Boolean);
+  if(picked.length === 0){ alert('這條列印連結裡的題目都不存在，可能是題庫更新過。'); return false; }
+  const name = (m[2] || '').trim().slice(0, 40) || '指定題目';
+  const list = picked.slice(0, SHEET_MAX);
+  const miss = ids.length - picked.length;
+  const sub = (picked.length > SHEET_MAX
+      ? '這一組有 ' + picked.length + ' 題，一次只印前 ' + list.length + ' 題'
+      : '印出這一組的全部 ' + list.length + ' 題')
+    + (miss > 0 ? '（另有 ' + miss + ' 題已不存在，已略過）' : '')
+    + '；空白試卷，不含參考譯法和解析';
+  const build = () => showSheet('歷屆中譯英翻譯練習 · ' + escapeHtml(name), list, sub);
+  const box = document.createElement('div');
+  box.className = 'noPrint home-desc';
+  box.setAttribute('role', 'status');
+  box.style.cssText = 'margin:0 0 16px;padding:12px 14px;border:2px solid currentColor;border-radius:8px;font-size:15px;line-height:1.8;';
+  const t = document.createElement('p');
+  t.style.margin = '0 0 8px';
+  const b = document.createElement('b'); b.textContent = '考卷已排好：' + name;
+  t.appendChild(b);
+  t.appendChild(document.createTextNode('。' + sub + '。如果沒有跳出列印畫面，請按下面的「列印成考卷」。'));
+  const btn = document.createElement('button');
+  btn.type = 'button'; btn.className = 'printBtn'; btn.textContent = '🖨️ 列印成考卷';
+  btn.addEventListener('click', () => { build(); safePrint(); });
+  const back = document.createElement('a');
+  back.href = 'map/'; back.textContent = '回到題目地圖';
+  back.style.cssText = 'margin-left:14px;font-weight:700;color:var(--ad-vseal-fg);text-underline-offset:3px;';
+  box.appendChild(t); box.appendChild(btn); box.appendChild(back);
+  const setup = document.getElementById('view-setup');
+  setup.insertBefore(box, setup.firstChild);
+  build();
+  window.scrollTo(0, 0);
+  safePrint();
+  return true;
 }
 
 /* 完成度：中譯英先看參考答案、再自評「對／錯」才算做過；只算歷屆題目（改編練習不計入） */
@@ -1435,6 +1485,8 @@ document.getElementById("reviewWrongNow").addEventListener("click", ()=>{
 });
 
 /* ---------- localStorage: 錯題本 ---------- */
+/* 用這台裝置的當地日期（台灣時間）記日期；toISOString 是 UTC，早上八點前會變成前一天 */
+function localDateStr(){ const d=new Date(); return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); }
 function getWrongBook(){
   try{ return JSON.parse(localStorage.getItem(LS_WRONG)) || []; }catch(e){ return []; }
 }
@@ -1447,7 +1499,7 @@ function addToWrongBook(item, yourAnswer){
   const entry = {
     id: item.id, year: item.year, yearLabel: item.yearLabel,
     zh: item.zh, en: item.en, yourAnswer: yourAnswer,
-    date: new Date().toISOString().slice(0,10)
+    date: localDateStr()
   };
   if(idx >= 0) list[idx] = entry; else list.push(entry);
   saveWrongBook(list);
@@ -1488,7 +1540,7 @@ function getHistory(){
 function logHistory(rangeLabel, attempted, correct){
   const list = getHistory();
   list.push({
-    date: new Date().toISOString().slice(0,10),
+    date: localDateStr(),
     time: new Date().toTimeString().slice(0,5),
     range: rangeLabel, attempted, correct
   });
