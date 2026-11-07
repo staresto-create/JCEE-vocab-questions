@@ -199,7 +199,7 @@ footer.foot a{color:var(--accent)}
       <li>點一個空格，上方會顯示這一格的提示，同一個字的格子也會標示出來。</li>
       <li>同一格再點一次，可以在橫向和直向之間切換。</li>
       <li>用下面的字母鍵輸入，電腦上也可以直接打字。</li>
-      <li>「檢查答案」會標出填錯的字母；「補一個字母」會幫你填好選中的那一格。</li>
+      <li>「檢查答案」會標出填錯的字母；「提示一個字母」會幫你填好選中的那一格。</li>
     </ul>
   </details>
 
@@ -213,7 +213,7 @@ footer.foot a{color:var(--accent)}
 
   <div class="ctl">
     <button class="btn primary" type="button" id="bCheck">檢查答案</button>
-    <button class="btn" type="button" id="bHint">補一個字母</button>
+    <button class="btn" type="button" id="bHint">提示一個字母</button>
     <button class="btn" type="button" id="bClear">重新開始</button>
     <button class="btn" type="button" id="bReveal">顯示答案</button>
     <button class="btn" type="button" id="bPrint">列印空白題目</button>
@@ -427,7 +427,7 @@ $('bCheck').addEventListener('click', function(){
 });
 $('bHint').addEventListener('click', function(){
   unsay();
-  if(!sel){ say('先點一個格子，再按「補一個字母」。'); return; }
+  if(!sel){ say('先點一個格子，再按「提示一個字母」。'); return; }
   if(sel.g || sel.u === sel.ans){ say('這一格已經填對了。'); return; }
   sel.u = sel.ans; sel.bad = false; hints++; save(); draw(); maybeDone();
 });
