@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>短文點選填空</title>
+<meta name="theme-color" content="#faf8f4" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#171a19" media="(prefers-color-scheme: dark)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="短文點選填空">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" href="icon-192.png">
+<link rel="manifest" href="passage-click.webmanifest">
+<style>
+  :root{--bg:#faf8f4;--card:#fff;--ink:#222;--sub:#667;--line:#e3ded3;--acc:#2f6f5e;--ok:#1d7a4d;--okbg:#e4f4ea;--bad:#b3261e;--badbg:#fbe9e7;}
+  @media (prefers-color-scheme:dark){:root{--bg:#171a19;--card:#202523;--ink:#ecece8;--sub:#a3aaa6;--line:#343b38;--acc:#7cc4ae;--ok:#7fd6a2;--okbg:#1f3a2c;--bad:#ff9d94;--badbg:#42241f;}}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.75 -apple-system,"Noto Sans TC","PingFang TC",sans-serif;}
+  main{max-width:720px;margin:0 auto;padding:20px 16px 60px}
+  h1{font-size:21px;margin:8px 0 4px}
+  .lead{color:var(--sub);font-size:14.5px;margin:0 0 18px}
+  .lead b{color:var(--acc)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 18px 16px;margin:0 0 22px}
+  h2{font-size:18px;margin:0 0 2px}
+  .tag{color:var(--sub);font-size:13px;margin:0 0 12px}
+  .text{font-family:Georgia,"Times New Roman",serif;font-size:18px;line-height:1.9}
+  .blank{font:inherit;display:inline-block;min-width:3.2em;padding:0 8px;margin:0 2px;border:0;border-bottom:2px solid var(--acc);background:rgba(47,111,94,.1);color:var(--acc);border-radius:6px 6px 0 0;cursor:pointer}
+  .blank.on{background:rgba(47,111,94,.28)}
+  .blank.done{background:var(--okbg);color:var(--ok);border-color:var(--ok);font-weight:600}
+  .panel{display:block;margin:8px 0 10px;padding:10px 12px;background:var(--bg);border:1px solid var(--acc);border-radius:10px;line-height:1.6;font-family:-apple-system,"Noto Sans TC","PingFang TC",sans-serif}
+  .panel .hint{color:var(--sub);font-size:14px}
+  .opts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:8px 0}
+  .opt{font:inherit;font-size:16px;line-height:1.35;padding:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:10px;cursor:pointer}
+  .opt:disabled{cursor:default}
+  .opt.wrong{background:var(--badbg);border-color:var(--bad);color:var(--bad)}
+  .opt.right{background:var(--okbg);border-color:var(--ok);color:var(--ok);font-weight:600}
+  .opt.wrong{text-decoration:line-through}
+  .opt.wrong::before{content:"✗ ";text-decoration:none;display:inline-block;margin-right:2px}
+  .opt.right::before{content:"✓ ";display:inline-block;margin-right:2px}
+  .msg{font-size:15px;font-weight:600;margin:6px 0 0}
+  .exp{font-size:14.5px;line-height:1.7;margin:8px 0 0;padding:10px 12px;background:var(--card);border:1px solid var(--line);border-radius:10px}
+  .exp div{margin:2px 0}
+  .score{font-size:14px;color:var(--sub);margin-top:12px;display:flex;justify-content:space-between;align-items:center}
+  .reset{font:inherit;font-size:14px;border:1px solid var(--line);background:var(--card);color:var(--ink);padding:5px 12px;border-radius:8px;cursor:pointer;min-height:44px}
+  .gloss{font-size:14.5px;line-height:1.7;color:var(--ink);margin-top:14px;padding:8px 12px;background:var(--bg);border-left:3px solid var(--acc);border-radius:0 8px 8px 0}
+  .gloss b{color:var(--acc);margin-right:4px}
+  .gloss .gi{display:block;margin:0 0 2px}
+  .gloss b.gt{color:inherit;margin:0}
+  .kk{color:var(--sub);font-size:13px}
+  .gsp{font:inherit;font-size:13px;border:0;background:transparent;padding:6px;margin:0 2px;cursor:pointer;min-width:32px;min-height:32px;vertical-align:middle;line-height:1}
+  .blank.swap{min-width:44px;padding:0 5px;text-align:center;background:none;border-bottom:2px dotted var(--acc);border-radius:0}
+  .blank.swap.on{background:rgba(47,111,94,.2)}
+  .blank.swap.done{background:var(--okbg);border-bottom:2px solid var(--ok)}
+  .arrow{color:var(--ok);font-family:-apple-system,"Noto Sans TC",sans-serif;font-size:15px}
+  .src{font-size:12.5px;color:var(--sub);margin-top:6px}
+  .acts{display:flex;gap:8px;margin-top:10px}
+  .act{font:inherit;font-size:15px;padding:9px 14px;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:10px;cursor:pointer;min-height:44px}
+  .act.next{background:var(--acc);border-color:var(--acc);color:#fff;font-weight:600}
+  @media (prefers-color-scheme:dark){.act.next{color:#10241d}}
+  .reset.warn{background:var(--badbg);border-color:var(--bad);color:var(--bad)}
+  .opts:empty{display:none}
+  .cand{display:inline;border-bottom:2px dashed var(--acc);background:rgba(47,111,94,.12);padding:0 2px;border-radius:4px 4px 0 0;cursor:pointer;-webkit-box-decoration-break:clone;box-decoration-break:clone;-webkit-tap-highlight-color:transparent}
+  .cand.dis{cursor:default}
+  .cand.wrong{background:var(--badbg);border-color:var(--bad);color:var(--bad);text-decoration:line-through}
+  .cand.right,.refans{background:var(--okbg);border-bottom:2px solid var(--ok);color:var(--ok);font-weight:600}
+  .spk{font:inherit;font-size:15px;line-height:1.2;border:1px solid var(--acc);background:var(--card);color:var(--acc);border-radius:22px;padding:2px 12px;margin-left:8px;cursor:pointer;vertical-align:middle;min-height:44px;font-weight:600}
+  .spk.sent{font-size:14px;margin:0 0 6px}
+  .zh{margin-top:10px;font-size:15px;line-height:1.8;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+  .zh summary{cursor:pointer;color:var(--acc);font-weight:600;padding:8px 0}
+  .zh.lock{color:var(--sub);font-size:14px}
+  .nospk .spk,.nospk .gsp{display:none}
+  button,.cand{touch-action:manipulation}
+  .spk,.act,.reset{min-height:44px;min-width:44px}
+  .opt:not(:disabled):active,.act:active,.spk:active,.reset:active,.blank:active{transform:scale(.97);filter:brightness(.95)}
+  button:focus-visible,.cand:focus-visible,.zh summary:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+  @media (prefers-color-scheme:dark){.blank{background:rgba(124,196,174,.13)}.blank.swap{background:none}.blank.on,.blank.swap.on{background:rgba(124,196,174,.32)}.blank.done,.blank.swap.done{background:var(--okbg)}.cand{background:rgba(124,196,174,.14)}}
+</style>
+</head>
+<body>
+<main>
+  <h1>短文點選填空</h1>
+  <p class="lead">點短文裡的空格或底線字，從選項選答案（指涉題則先點代名詞或代替字，再點文中虛線的字句）。答錯或答對後都可以按「重做這題」再試一次，答對後也可以按「下一題」繼續。每篇都附<b>單字註解</b>和<b>完整中譯</b>（<b>🔊</b> 可以朗讀全文），答對後也會說明每個選項為什麼對、為什麼不對。</p>
+  <div id="app"></div>
+</main>
+<script>
+const P = [
+{
+  title:"The Baroness Who Got Her Voice Back (with AI)",
+  tag:"新知・英國上議院議員 Jane Campbell 的故事",
+  text:"Jane Campbell was one year old when doctors told her parents that she would not live to see her second birthday. She had spinal muscular atrophy, a rare inherited {1} that slowly weakens the muscles. Yet she grew up to become a {2} fighter for the rights of disabled people, and in 2007 she joined the House of Lords, the upper house of the UK parliament. As her condition {3} over the years, speaking in public became harder. For a long time, she relied on the {4} of a helper, who read her speeches aloud for her. Then, with special {5} from the House, she became the first lawmaker to give a speech in an AI-generated voice. The AI company needed only a few minutes of her old recordings to copy her voice, and unlike older systems, it did not sound robotic. Campbell's speech was about personal health budgets, and she said she depends on one herself. Taiwan has a story like this too. Musician Tino Bao's daughter died of a rare disease at 22, and he later used AI to rebuild her voice from just a few short recordings.",
+  gloss:"spinal muscular atrophy 脊髓性肌肉萎縮症　House of Lords 英國上議院　lawmaker 立法者、議員　Tino Bao 包小柏",
+  q:{
+    1:{ans:"disease",opts:["disease","infection","injury","addiction"],exp:{disease:"disease：有特定病名、病因的疾病，inherited／heart／infectious disease 都是常見搭配。",infection:"infection：由細菌或病毒引起的感染，不是遺傳來的。",injury:"injury：外傷，與遺傳無關。",addiction:"addiction：成癮，例如藥物成癮，和遺傳性肌肉疾病無關。"}},
+    2:{ans:"leading",opts:["leading","guiding","ruling","driving"],exp:{leading:"leading：形容詞，頂尖的、居領導地位的（a leading expert）。",guiding:"guiding：指引導的，如 guiding principle（指導原則）。",ruling:"ruling：統治的、執政的，如 the ruling party（執政黨），不用來形容爭取權利的人。",driving:"driving：推動的，如 driving force；用來形容人不自然。"}},
+    3:{ans:"worsened",opts:["worsened","improved","recovered","vanished"],exp:{worsened:"worsened：惡化。後面 speaking in public became harder 說明情況變差。",improved:"improved：好轉，和後面的 became harder 方向相反。",recovered:"recovered：康復；這種疾病會逐漸加重，不會康復。",vanished:"vanished：消失，病況不會消失。"}},
+    4:{ans:"assistance",opts:["assistance","assistant","persistence","resistance"],exp:{assistance:"assistance：協助、幫助，不可數。rely on the assistance of … 是「靠……的協助」。",assistant:"assistant：助理，指人。the assistant of a helper 變成「助理的助理」，意思不通。",persistence:"persistence：堅持、毅力，rely on 的是協助，不是毅力。",resistance:"resistance：抵抗，意思相反。"}},
+    5:{ans:"permission",opts:["permission","admission","emission","transmission"],exp:{permission:"permission：許可，with permission from … 是固定用法。",admission:"admission：准許進入、入場費、承認。",emission:"emission：排放（廢氣）。",transmission:"transmission：傳送、傳染、變速箱。"}}
+  }
+},
+{
+  title:"A 700-Year-Old Buddha Gets a Twin",
+  tag:"新知・紐約大都會博物館的〈藥師佛〉壁畫與複製品",
+  text:"At the Metropolitan Museum of Art in New York, a huge wall painting of the Medicine Buddha is on display. It is more than 15 meters wide and about 7.5 meters tall. The painting was made about 700 years ago for a temple in Shanxi, China, but it was later cut off the wall and ended up in the United States. It is made of 274 separate pieces, and some of them do not fit together perfectly. The museum now works with Chinese art experts to study and {1} the damaged painting. A team led by painter Zhang Jian made a full-size copy of it. To do this, they studied detailed digital photos of the {2}. For the wall surface, they used local {3} from the temple site, so the copy would feel like the real thing. The copy has been shown in Beijing, and the two sides are also planning a meeting on how to {4} the painting for the future. Taiwan faces a similar problem. It has more than 1,000 monuments and nearly 1,800 historic buildings, but the craftsmen who can restore them are growing old and hard to find.",
+  gloss:"Medicine Buddha 藥師佛　temple 寺廟　digital 數位的",
+  q:{
+    1:{ans:"repair",opts:["repair","cure","heal","recover"],exp:{repair:"repair：修復（受損的物品、文物）。",cure:"cure：治好（病或病人），對象是人或疾病，不是文物。",heal:"heal：傷口、關係癒合。",recover:"recover：找回、取回（失物），不是修補受損的東西。"}},
+    2:{ans:"original",opts:["original","origin","originality","originator"],exp:{original:"the original：名詞，原件、原作；a copy 的相對詞。",origin:"origin：起源、出身。",originality:"originality：獨創性。",originator:"originator：創始人、發起者，指人。"}},
+    3:{ans:"soil",opts:["soil","ground","land","field"],exp:{soil:"soil：土壤，可以取來使用的泥土。",ground:"ground：地面、場地，不是取用的材料。",land:"land：土地、陸地，指一整塊地。",field:"field：田野、領域。"}},
+    4:{ans:"protect",opts:["protect","protest","detect","project"],exp:{protect:"protect：保護。",protest:"protest：抗議。",detect:"detect：察覺、偵測。",project:"project：投射、規劃。"}}
+  }
+},
+{
+  kind:"swap",
+  title:"Picking a Good Watermelon",
+  tag:"換字題・點底線的字，選出它的同義字或反義字（英文很重視換字，同一個意思常用不同的字來說）",
+  text:"Picking a good watermelon at a night market can feel like a gamble, but a few quick checks improve your odds. First, {1} the skin. A ripe melon usually has a {2}, deep-green surface, while one whose skin gleams was probably picked too early. Next, lift it. A good melon feels {3} for its size. That is because it is {4} juice. Then flip it over and look for the pale patch where it rested on the ground. A creamy yellow patch is a good sign, but a white or greenish one {5} that the fruit needs more time. Finally, knock on it. A hollow sound means it is ready to eat, while a flat thud tells you to put it back.",
+  gloss:"gamble 碰運氣的事　odds 勝算　gleam 閃亮　pale 淺色的　hollow 空心的　thud 悶響",
+  src:"主題參考：wikiHow “Select a Watermelon”（內容為重新撰寫，非原文）",
+  q:{
+    1:{word:"examine",rel:"syn",ans:"inspect",opts:["inspect","see","watch","notice"],exp:{inspect:"inspect：仔細檢查，在這裡和 examine 可以互換（inspect the skin）。",see:"see：自然看到、看見，沒有「仔細查看」的意思。",watch:"watch：注視會動、會變化的東西（watch a game），不是檢查表面。",notice:"notice：注意到、察覺，是自然發現，不是刻意檢查。"}},
+    2:{word:"dull",rel:"ant",ans:"glossy",opts:["glossy","rough","pale","thin"],exp:{glossy:"glossy：有光澤的。dull 在這裡指表面沒有光澤，反義是 glossy 或 shiny；文中的 gleams 也是同一個方向。",rough:"rough：粗糙的，反義是 smooth，講的是觸感，不是光澤。",pale:"pale：色澤淺、不鮮明，和 dull 的這個意思相近，不是反義。",thin:"thin：薄的、瘦的，和光澤無關。"}},
+    3:{word:"heavy",rel:"ant",ans:"light",opts:["light","soft","tiny","loose"],exp:{light:"light：輕的。heavy for its size 是「以大小來說算重」，反義是 light。",soft:"soft：柔軟的，講的是觸感，不是重量。",tiny:"tiny：很小的，講的是大小。",loose:"loose：鬆的、不緊的，與重量無關。"}},
+    4:{word:"packed with",rel:"syn",ans:"full of",opts:["full of","short of","covered with","made of"],exp:{"full of":"full of：裝滿了，packed with 和它同樣指裡面裝了很多東西。","short of":"short of：缺少，意思剛好相反。","covered with":"covered with：覆蓋在表面；果汁在西瓜裡面，不在表面。","made of":"made of：由……製成，講的是材料，不是裝了多少。"}},
+    5:{word:"indicates",rel:"syn",ans:"suggests",opts:["suggests","advises","recommends","requests"],exp:{suggests:"suggests：（事物）顯示、暗示。斑點的顏色是一種跡象，所以 indicates 和 suggests 在這裡意思相近。",advises:"advises：勸告，是人對人說的（advise sb to V），一塊斑點不會勸人。",recommends:"recommends：推薦、建議，同樣是人提出的意見。",requests:"requests：要求，也是人的行為，不能用來說明斑點代表什麼。"}}
+  }
+},
+{
+  kind:"swap",
+  title:"Who Invented Bubble Tea?",
+  tag:"省略補回・功能辨認・點底線的用語作答",
+  text:"Bubble tea is a Taiwanese invention, {1}, two Taiwanese tea shops each say they invented it. Hanlin Tea Room in Tainan says its owner, Tu Tsong-he, came up with the drink in 1986 after he saw white tapioca balls at a local market. Chun Shui Tang in Taichung tells a different story: its product manager, Lin Hsiu-hui, says she poured tapioca balls into her iced tea at a staff meeting, and the new drink soon sold very well. In 2019, a court ruled that the argument over who came first did not matter, because bubble tea was not a patented product. Today, people around the world, {2} where bubble tea comes from, give the same answer: Taiwan. The pearls are made from cassava starch, so they contain little protein, {3}. A fresh cup tastes best soon after it is made; {4}, the melting ice will water it down.",
+  gloss:"tapioca ball 粉圓　cassava 木薯　patented 取得專利的　water down 沖淡",
+  src:"事實出處：Taipei Times（2018/11/13）、Global Voices（2024/5/21）、CNN（2024/10）、USDA FoodData Central。用語依 Longman、Merriam-Webster 查證。",
+  q:{
+    1:{word:"or rather",rel:"func",ans:"to correct or make the point more exact",opts:["to correct or make the point more exact","to give an example","to add another reason","to show a result"]},
+    2:{word:"when asked",rel:"ell",ans:"when they are asked",opts:["when they are asked","when they ask","when it is asked","if they asked"]},
+    3:{word:"if any",rel:"ell",ans:"if there is any",opts:["if there is any","if there is none","if there is much","if there are many"]},
+    4:{word:"otherwise",rel:"mean",ans:"if you do not drink it soon",opts:["if you do not drink it soon","even if you drink it soon","because you drink it soon","as soon as you drink it"]}
+  }
+},
+{
+  kind:"swap",
+  title:"Racing Up Taipei 101: 2005 and Now",
+  tag:"換字題・點底線的字，選出它的同義字或反義字",
+  text:"Taipei 101 is 508 meters tall, yet every year thousands of people try to climb it on foot. The first Taipei 101 Run Up took place in 2005, when Paul Crake of Australia won the men's race in 10 minutes and 29 seconds, a result that was {1} and is still the course record. Back then, the finish line was on the 91st floor, 2,046 steps above the ground. This May, more than 5,000 people took part again, but because of work on the tower's outer walls, the finish line was {2} to the 88th floor. Even so, the climb was still {3}, and some firefighters even made it to the top in full gear. Between the 87th and 92nd floors hangs a golden steel ball that looks {4}, so the runners who reach the 88th floor are almost level with it. This tuned mass damper can {5} the building's movement by up to 40 percent. As a result, the tower stays {6} in strong wind. Visitors can watch the ball from the indoor observation deck.",
+  gloss:"tuned mass damper 調諧質量阻尼器　observation deck 觀景台　run up 登高賽　finish line 終點線　firefighter 消防員",
+  src:"事實出處：Guinness World Records（最大調諧質量阻尼器）、Taiwan News（2024/11/1）、Mothership（2024/4/9）、Taipei Times（2005/11/21）、Towerrunning、Focus Taiwan（2026/5/9）。同義、反義字依 Merriam-Webster 查證。",
+  q:{
+    1:{word:"impressive",rel:"syn",ans:"remarkable",opts:["remarkable","familiar","pleasant","careful"]},
+    2:{word:"lowered",rel:"ant",ans:"raised",opts:["raised","reduced","dropped","cut"]},
+    3:{word:"tough",rel:"syn",ans:"demanding",opts:["demanding","polite","narrow","public"]},
+    4:{word:"enormous",rel:"syn",ans:"massive",opts:["massive","splendid","ancient","slight"]},
+    5:{word:"reduce",rel:"ant",ans:"increase",opts:["increase","repeat","measure","delay"]},
+    6:{word:"steady",rel:"ant",ans:"shaky",opts:["shaky","ordinary","silent","tidy"]}
+  }
+},
+{
+  kind:"swap",
+  title:"Following the Pink Supercar",
+  tag:"轉折語・點底線的轉折語，選出功能相同的說法",
+  text:"Every spring, hundreds of thousands of people walk behind a pink sedan chair across western Taiwan. People call it the pink supercar because it moves quickly and has a pink cover. The chair carries the sea goddess Mazu from Gongtian Temple in Miaoli to Chaotian Temple in Yunlin. Most Mazu processions follow a planned route; the Baishatun one, {1}, has none. At each fork in the road, the carriers ask Mazu which way to go by tossing moon blocks, {2}, a pair of crescent-shaped wooden pieces. There is no timetable either. {3}, nobody can say in advance exactly when the chair will arrive. {4}, a record number of people, about 460,000, signed up for the 2026 pilgrimage, which lasted eight days.",
+  gloss:"pilgrimage 進香　sedan chair 轎　goddess 女神　moon blocks 筊杯　crescent-shaped 新月形的　timetable 時間表",
+  src:"事實出處：Focus Taiwan（2026/2/2、2026/4/20）、TVBS News（2026/3/8）、Taiwan News（筊杯決定路線）；報名人數 463,588 人（廟方統計）：公視新聞網（2026/4/10）、自由時報（2026/4/13）。轉折語功能依 Longman、Merriam-Webster 查證。",
+  q:{
+    1:{word:"however",rel:"tr",ans:"by contrast",opts:["by contrast","likewise","for instance","consequently"]},
+    2:{word:"that is",rel:"tr",ans:"in other words",opts:["in other words","in addition","afterward","similarly"]},
+    3:{word:"As a result",rel:"tr",ans:"therefore",opts:["therefore","on the contrary","besides","otherwise"]},
+    4:{word:"Even so",rel:"tr",ans:"nonetheless",opts:["nonetheless","moreover","instead","meanwhile"]}
+  }
+},
+{
+  kind:"swap",
+  title:"A Fly, a Glass Wall, and the Public Toilet",
+  tag:"轉折語・點底線的轉折語，選出功能相同的說法",
+  text:"Few people think of public toilets as exciting, but two places have tried to change that. At Amsterdam's Schiphol Airport, a picture of a fly is etched into the urinals to give men something to aim at. Aad Kieboom, the manager who introduced it, says that it cut spillage by 80 percent. {1}, he admits that the number was only an estimate, and that no scientific study was ever done. {2}, in Tokyo, a project run by the Nippon Foundation has rebuilt 17 public toilets in Shibuya. Some of them are quite unusual. {3}, architect Shigeru Ban designed two toilets whose glass walls turn opaque once the door is locked. When nobody is inside, the glass is clear, so people can see that the room is clean and free. {4}, they do not need to knock or guess. The foundation says the project aims to change the idea that public toilets are dark, dirty, smelly, and scary.",
+  gloss:"urinal 小便斗　etched 蝕刻的　spillage 濺出　estimate 估計　opaque 不透明的",
+  src:"事實出處：Works That Work（Urinal fly）、NPR（2009/12、2020/8/19）、Lonely Planet、JStories。轉折語功能依 Longman、Merriam-Webster 查證。",
+  q:{
+    1:{word:"In fact",rel:"tr",ans:"actually",opts:["actually","otherwise","in short","likewise"]},
+    2:{word:"Meanwhile",rel:"tr",ans:"at the same time",opts:["at the same time","in the end","in particular","in other words"]},
+    3:{word:"For instance",rel:"tr",ans:"for example",opts:["for example","on the other hand","in conclusion","instead"]},
+    4:{word:"Thus",rel:"tr",ans:"as a result",opts:["as a result","in contrast","besides","nonetheless"]}
+  }
+},
+{
+  kind:"swap",
+  title:"How Does a British Roundabout Work?",
+  tag:"省略補回・功能辨認・點底線的用語作答",
+  text:"In Britain, cars drive on the left, so traffic on a roundabout moves clockwise. The main rule is simple: give way to vehicles already on the roundabout, {1}, to those coming from your right. Swindon's Magic Roundabout, opened in 1972, looks far harder. It has five mini-roundabouts in a ring around a central circle, and the central circle runs counterclockwise, opposite to the five around it. {2}, a first-time driver may panic at the sight of it. {3}, the rule does not change: treat each mini-roundabout as a separate junction and give way to the right. At each one, stop {4} and wait for a gap. If you miss your exit, you can simply go around again.",
+  gloss:"give way 讓路　gap 空隙　counterclockwise 逆時針的　junction 路口",
+  src:"事實出處：英國《公路法規》（Highway Code）第 185 條、Wikipedia〈Magic Roundabout (Swindon)〉、Swindon Post、99% Invisible。用語依 Longman、Merriam-Webster 查證。",
+  q:{
+    1:{word:"that is",rel:"func",ans:"to say the same thing in other words",opts:["to say the same thing in other words","to give a result","to show a contrast","to list another case"]},
+    2:{word:"To be sure",rel:"func",ans:"to admit a point before arguing against it",opts:["to admit a point before arguing against it","to add a similar fact","to sum up","to give a reason"]},
+    3:{word:"Still",rel:"func",ans:"to say something is still true despite that",opts:["to say something is still true despite that","to show the order in time","to give an example","to restate the idea"]},
+    4:{word:"if necessary",rel:"mean",ans:"when you have to",opts:["when you have to","even when you do not have to","only when you want to","unless you have to"]}
+  }
+},
+{
+  kind:"ref",
+  title:"Why Sky Lanterns Still Rise at Pingxi",
+  tag:"指涉題・先點底線的代名詞或代替字，再點文中它指的內容",
+  text:"Long ago, <<a:bandits>> often raided <<h:the villages>> in the hills around Pingxi. <<b:Most villagers>> ran into <<g:the mountains>> to hide, but <<c:a few watchmen>> stayed behind. When the danger was over, {1} sent <<z:lanterns>> into the night sky to tell <<d:the families>> that it was safe to come home. Today, <<f:Pingxi>> is the only place in <<e:Taiwan>> where sky lanterns may be released, so thousands of visitors travel {2} every Lantern Festival. After <<r:the flame goes out>>, <<i:the lanterns fall back onto the mountains>>. {3} is why the government encourages materials that break down more easily, such as <<p:rice paper and bamboo>>. <<j:Some villagers>> believe <<k:the lanterns should be banned>>, but <<l:shop owners>> do not think {4}, because they fear the local economy would suffer.",
+  gloss:"raid 突襲　watchman 守望的人　ban 禁令　break down 分解",
+  src:"事實出處：CNN（2018/8/16）、Wikipedia〈Pingxi Sky Lantern Festival〉、Cathay Pacific、Reuters（ThePrint 轉載）、China Daily（2018/10/9）。",
+  q:{
+    1:{word:"they",rel:"ref",ans:"c",cands:["a","b","c","d"]},
+    2:{word:"there",rel:"ref",ans:"f",cands:["e","f","g","h"]},
+    3:{word:"This",rel:"ref",ans:"i",cands:["i","r","p","z"]},
+    4:{word:"so",rel:"ref",ans:"k",cands:["i","j","k","l"]}
+  }
+},
+{
+  kind:"swap",
+  title:"The Rubber Seeds That Arrived at Kew",
+  tag:"省略補回・功能辨認・點底線的用語作答",
+  text:"In June 1876, a shipment reached Kew Gardens in London: 70,000 rubber seeds from Brazil, listed on the export papers as “academic specimens.” Rubber was worth a fortune. {1}, Brazil supplied almost all of it. The seeds could not wait, because they lose their power to grow within days. {2}, fewer than 4 percent sprouted. {3}, about 2,000 young plants were shipped to Ceylon in August, and their descendants helped start the rubber plantations of Southeast Asia. {4}, Kew studies how plants shape economies and societies. In 2027, it will again offer internships to young people from Taiwan, and one of the four places is for a project on its plant collections.",
+  gloss:"shipment 貨物　specimen 標本　sprout 發芽　plantation 大型農場　internship 實習",
+  src:"事實出處：Wikipedia〈Henry Wickham〉、Sunday Observer（斯里蘭卡，2006/12/24）、Noema、教育部青年百億海外圓夢基金計畫 116 年度公告。用語依 Longman、Merriam-Webster 查證。",
+  q:{
+    1:{word:"What is more",rel:"func",ans:"to add one more point",opts:["to add one more point","to give an example","to restate the idea","to show the time order"]},
+    2:{word:"As it turned out",rel:"func",ans:"to tell what actually happened in the end",opts:["to tell what actually happened in the end","to give a reason","to add a similar fact","to sum up"]},
+    3:{word:"All the same",rel:"func",ans:"to say something is still true despite that",opts:["to say something is still true despite that","to explain more exactly","to list another case","to start a new topic"]},
+    4:{word:"To this day",rel:"mean",ans:"even now",opts:["even now","only in the past","for the first time","on that day only"]}
+  }
+},
+{
+  kind:"swap",
+  title:"Taiwan's Own Pressed Tea",
+  tag:"換字題・點底線的字，選出它的同義字或反義字",
+  text:"Pu'er may be the best-known pressed tea, but Taiwan has one of its own: Hakka sour citrus tea. According to Taiwan Panorama, it is the only pressed tea unique to Taiwan. Long ago, Hakka families living in the mountains kept it at home as a {1} for colds. It is made from the peel of the hutou orange and tea leaves, which are steamed and dried in the sun nine times. The work is {2}, but it changes the tea. Researchers found that the peel loses 70 to 90 percent of two active compounds, yet the taste becomes {3}. For this reason, even people who {4} strong tea may enjoy a cup.",
+  gloss:"pressed tea 緊壓茶　Pu'er 普洱茶　Hakka 客家　hutou orange 虎頭柑　compound 化合物",
+  src:"事實出處：台灣光華雜誌網站（九蒸九曬酸柑茶）、國立中興大學《農林學報》67(4)〈偵測客家酸柑茶中虎頭柑皮的兩個主要黃酮配醣體〉。同義、反義字依 Merriam-Webster 查證。",
+  q:{
+    1:{word:"remedy",rel:"syn",ans:"treatment",opts:["treatment","reward","habit","protection"]},
+    2:{word:"slow",rel:"ant",ans:"quick",opts:["quick","careful","skilled","tiring"]},
+    3:{word:"mellow",rel:"syn",ans:"smooth",opts:["smooth","sharp","sudden","heavy"]},
+    4:{word:"hate",rel:"ant",ans:"love",opts:["love","avoid","fear","forget"]}
+  }
+},
+{
+  kind:"swap",
+  title:"Who Turned Up the Supermarket Freezers?",
+  tag:"換字題・點底線的字，選出它的同義字或反義字",
+  text:"Most shoppers {1} that a supermarket freezer is just a cold box that runs by itself. In fact, many are linked to the internet, so technicians can check and change their settings from a {2} location. On November 2, hackers apparently used that link. Stores in several European countries found that their freezers were heating up instead of cooling down. In one store, the temperature setting {3} to 50°C. Staff had to {4} the frozen food. Reports say the machines had been switched into defrost mode. The freezers' maker blamed {5} software and default passwords in some cases. Belgium has opened a criminal investigation, but no one has claimed responsibility.",
+  gloss:"freezer 冷凍櫃　defrost 除霜　default password 預設密碼　criminal investigation 刑事調查　claim responsibility 宣稱是自己做的（認責）",
+  src:"事實出處：The Hacker News（2026/11/3）、Tom's Hardware（2026/11/2）、BleepingComputer。部分商店的說法不一，並未證實是駭客攻擊，文中只寫已有報導的部分。同義、反義字依 Merriam-Webster 查證。",
+  q:{
+    1:{word:"assume",rel:"syn",ans:"suppose",opts:["suppose","prove","decide","demand"]},
+    2:{word:"remote",rel:"syn",ans:"distant",opts:["distant","hidden","narrow","private"]},
+    3:{word:"climbed",rel:"syn",ans:"rose",opts:["rose","dropped","sank","slid"]},
+    4:{word:"throw out",rel:"syn",ans:"discard",opts:["discard","collect","protect","deliver"]},
+    5:{word:"outdated",rel:"ant",ans:"modern",opts:["modern","costly","foreign","simple"]}
+  }
+},
+{
+  kind:"swap",
+  title:"Two Unusual Museums in Taiwan",
+  tag:"省略補回・功能辨認・點底線的用語作答",
+  text:"Not every museum in Taiwan shows paintings. The Taiwan Stock Museum in Taipei was once a vault for paper share certificates. When trading went paperless, the vault was no longer needed {1}, so it was turned into a museum in 2012. {2}, an empty vault is a safe place for old documents. In Chiayi, the Museum of Old Taiwan Tiles shows about 1,500 restored tiles with raised patterns, {3} those used in Taiwanese homes about a century ago. {4}, historian Kang Nuo-xi says Taiwan has no history of making such tiles: nearly all of those on show were made in Japan between 1915 and 1935.",
+  gloss:"vault 金庫　share certificate 股票　paperless 無紙化的　tile 磁磚　restored 修復過的",
+  src:"事實出處：文化部〈Taiwan Stock Museum〉、Atlas Obscura、Taiwan Today〈Tile Tales〉（2019/7/1，「台灣沒有生產這類磁磚的歷史」是歷史學者 Kang Nuo-xi 的說法）、Spectral Codex。用語依 Longman、Merriam-Webster 查證。",
+  q:{
+    1:{word:"as such",rel:"mean",ans:"as a vault",opts:["as a vault","as a museum","as a bank","as an office"]},
+    2:{word:"After all",rel:"func",ans:"to give a reason that explains the last point",opts:["to give a reason that explains the last point","to show a contrast","to give an example","to sum up"]},
+    3:{word:"in particular",rel:"func",ans:"to point out one part of what was just said",opts:["to point out one part of what was just said","to add something unrelated","to show the order in time","to correct the earlier point"]},
+    4:{word:"Believe it or not",rel:"func",ans:"to introduce a surprising fact",opts:["to introduce a surprising fact","to show the result","to list another case","to restate the idea"]}
+  }
+},
+{
+  title:"Give to a Town, Get a Gift",
+  tag:"新知・日本的「故鄉納稅」",
+  text:"Japan has a tax program that feels a little like online shopping. A taxpayer chooses any town or city in the country, sends it money, and later receives a gift such as rice, fruit, or seafood. The program is called furusato nozei, or “hometown tax,” although donors do not have to give to the place where they grew up. Up to a limit that depends on the donor's income, all but 2,000 yen of a donation is {1} from the donor's residential and income taxes. To keep the gifts from getting out of hand, towns may {2} no more than 30 percent of each donation on them. The program has been a hit. In fiscal 2025, which ended in March, donors gave about 1.33 trillion yen, and the total {3} a new record for the sixth year in a row. Many donors now choose everyday items such as rice and toilet paper, apparently because prices have gone up. Fuji City, a major {4} of toilet paper, moved up seven places to 14th on the list of towns and cities that received the most donations. Big cities are less pleased. When their residents donate elsewhere, they lose tax {5} that would have funded local services.",
+  gloss:"furusato nozei 故鄉納稅（日文ふるさと納税）　fiscal 2025 指 2025 年度（2025 年 4 月到 2026 年 3 月）　residential tax 住民稅（日本的地方稅）　get out of hand 失控　hit 大受歡迎的事物",
+  src:"事實出處：Jiji Press（2026/7/31，刊於 nippon.com 與 Adnkronos：年度總額、連續六年新高、自付 2,000 日圓）、Jiji Press（2026/5/12：回禮成本不得超過捐款額 30%）、共同社日文報導（2026/7/31：富士市升至第 14 名、都市稅收減少）、日本總務省〈ふるさと納税のしくみ〉（控除上限依所得而定）。用語依 Merriam-Webster 查證。",
+  q:{
+    1:{ans:"deducted",opts:["deducted","deduced","reduced","induced"],exp:{deducted:"deducted：扣除。deduct A from B 是固定用法，A 是被扣掉的金額，B 是被扣的稅額。",deduced:"deduced：推論出來。deduce A from B 是由 B 推出結論 A，和金額無關。",reduced:"reduced：減少。reduce 的受詞是被減少的東西（reduce taxes），不用 reduce A from B 來表示「把 A 從 B 扣掉」。",induced:"induced：引起、誘發（induce sleep），不能表示扣除。"}},
+    2:{ans:"spend",opts:["spend","waste","bet","pay"],exp:{spend:"spend：花（錢）。spend A on B 是把 A 花在 B 上，空格後面剛好是 on them。",waste:"waste：浪費。waste A on B 文法上可以，但意思變成「浪費」，和限制回禮成本的規定不合。",bet:"bet：下注。bet A on B 是把錢押在某件事上，不是購買回禮。",pay:"pay：支付。pay … on 是對某物繳稅或付利息（pay tax on goods），不是把錢花在某物上；花錢在某物上要用 spend … on。"}},
+    3:{ans:"set",opts:["set","won","made","kept"],exp:{set:"set：創下。set a (new) record 是固定搭配；打破舊紀錄則說 break the (old) record。",won:"won：贏得（比賽、獎項），不能用來說創下紀錄。",made:"made：中文說「創新紀錄」，容易誤寫成 make a new record；英文不這樣搭配。",kept:"kept：保持、保存。keep a record 是「做紀錄」（keep a record of expenses），不是創下新紀錄。"}},
+    4:{ans:"producer",opts:["producer","product","production","productivity"],exp:{producer:"producer：生產者、生產地。a major producer of … 表示「……的主要產地」。",product:"product：產品，是東西；城市不是產品。",production:"production：生產（這件事）。要說某地是產地，用 producer；production 常見的是 the production of …。",productivity:"productivity：生產力、效率，不能用來說某地是產地。"}},
+    5:{ans:"revenue",opts:["revenue","fee","wage","fare"],exp:{revenue:"revenue：（政府或公司的）收入。tax revenue 是「稅收」的固定說法。",fee:"fee：服務的費用、手續費，不是政府收的稅。",wage:"wage：按時或按日計算的工資。",fare:"fare：交通車資。"}}
+  }
+},
+{
+  title:"A Factory You Can Visit",
+  tag:"新知・台灣的「觀光工廠」",
+  text:"Some factories in Taiwan welcome tourists. The country has 150 of these “tourism factories,” working factories that offer tours, exhibits, and hands-on classes. The government started the program in 2003, when many manufacturers were {1} their production overseas. The aim was to help older factories find a new way to earn money. To get the official label, a factory must pass the government's {2}. Food companies run 69 of the 150 sites, which {3} 46 percent of the total. In 2025, the sites drew about 21.36 million visits and {4} about NT$6.7 billion in output. {5} one person can visit more than once, that number counts visits, not individual people.",
+  gloss:"tourism factory 觀光工廠　hands-on 親自動手做的　label 標章　output 產值　visits 人次（同一個人去幾次就算幾次）",
+  src:"事實出處：今周刊（2026/9/3，引經濟部產業發展署資料：150 家評鑑有效、2025 年 2,136 萬人次、66.95 億元產值）、Taiwan News（2026/9/25，引 Sinotrade 報導：2003 年啟動、製造業外移、通過政府評鑑、食品製造 69 家占 46%）、中央社（2026/9/21：全台約 150 家）。用語依 Merriam-Webster 核對。",
+  q:{
+    1:{ans:"moving",opts:["moving","carrying","passing","turning"],exp:{moving:"moving：移動、遷移。move production overseas 是把生產搬到海外。",carrying:"carrying：搬運、攜帶，指拿著東西走，不用在生產據點的遷移。",passing:"passing：傳遞或經過，不能這樣搭配 production。",turning:"turning：轉動、轉變，turn A into B 才是把 A 變成 B。"}},
+    2:{ans:"evaluation",opts:["evaluation","exhibition","invitation","translation"],exp:{evaluation:"evaluation：評鑑、評估。pass an evaluation 是通過評鑑。",exhibition:"exhibition：展覽，不是審查。",invitation:"invitation：邀請。",translation:"translation：翻譯。"}},
+    3:{ans:"represent",opts:["represent","reduce","require","replace"],exp:{represent:"represent：占（比例）。represent 46 percent 表示占百分之四十六。",reduce:"reduce：減少，意思不對。",require:"require：需要、要求。",replace:"replace：取代。"}},
+    4:{ans:"generated",opts:["generated","spent","saved","owed"],exp:{generated:"generated：創造出（產值、收入）。generate output 是常見搭配。",spent:"spent：花費（錢或時間），方向相反。",saved:"saved：節省、儲蓄。",owed:"owed：欠（錢）。"}},
+    5:{ans:"Since",opts:["Since","Unless","Until","Once"],exp:{Since:"Since：既然、因為，引出後面數字要這樣算的理由。",Unless:"Unless：除非，語意不合。",Until:"Until：直到，語意不合。",Once:"Once：一旦……就，表示條件成立後的情況，語意不合。"}}
+  }
+},
+{
+  title:"The Biggest Creative Market in Taiwan",
+  tag:"新知・台灣文博會（創意市集）",
+  text:"Creative Expo Taiwan is a large fair for creative products, run by Taiwan's Ministry of Culture. It began in 2010, and local brands sell character goods and other creative items there. In 2025, visitors sometimes had to wait about four hours to get in. {1}, the organizers added online booking for the first time in 2026. People made more than 100,000 {2} in advance, and entry became roughly twice as fast as the year before. Sales at the brand exhibition {3} from NT$1.35 billion to about NT$1.65 billion, an increase of 22 percent. The two exhibition areas together {4} more than 670,000 visits. Even so, the lines did not {5} completely, and on the last day some people still waited to enter.",
+  gloss:"character goods 角色周邊商品　brand exhibition 品牌商展　booking 預約　visits 人次（同一個人去幾次就算幾次）",
+  src:"事實出處：民視英文（2026/7/17：2025 年一度排隊約 4 小時、2026 年首度預約制）、ETtoday（2026/8/12，引文化部資料：首度線上預約、逾 10 萬人次預約、入場速度快 1 倍、商展交易額約 16.5 億元，較去年 13.5 億元成長 22%、最後一天仍有人排隊）、Taiwan News 中文版（2025/8/12：2025 年商展交易額 13.5 億元；2026 年報導：文博會 2010 年起舉辦）、中央社訊息平台（2026/9/1，文化部新聞稿：兩大展區合計逾 67 萬人次）。用語依 Merriam-Webster 核對。",
+  q:{
+    1:{ans:"Therefore",opts:["Therefore","However","Otherwise","Besides"],exp:{Therefore:"Therefore：因此。前一句的久候是原因，這句加開預約是結果。",However:"However：然而，表示轉折；但這兩句是因果，不是轉折。",Otherwise:"Otherwise：否則，後面要接「如果不這樣」的情況。",Besides:"Besides：此外，只是再追加一件事，不表示結果。"}},
+    2:{ans:"reservations",opts:["reservations","reserves","reservoirs","resolutions"],exp:{reservations:"reservations：預約。make a reservation 就是預約。",reserves:"reserves：儲備、保護區，不是預約。",reservoirs:"reservoirs：水庫、蓄水池。",resolutions:"resolutions：決心、決議。"}},
+    3:{ans:"rose",opts:["rose","raised","arose","aroused"],exp:{rose:"rose：上升。rise 是不及物動詞，rise from A to B 是由 A 升到 B，不接受詞。",raised:"raised：raise 是及物動詞，後面要接受詞（raise prices 是提高價格），這裡沒有受詞。",arose:"arose：arise 是（問題、情況）出現、發生，不是數字上升。",aroused:"aroused：arouse 是喚起（興趣、懷疑），後面要接受詞。"}},
+    4:{ans:"attracted",opts:["attracted","attended","attached","attempted"],exp:{attracted:"attracted：吸引。attract visitors 是吸引人來，這裡吸引的是人次。",attended:"attended：參加（attend an event），主詞要是人；這裡的主詞是展區。",attached:"attached：附上、貼上。",attempted:"attempted：嘗試。"}},
+    5:{ans:"disappear",opts:["disappear","disagree","deteriorate","depart"],exp:{disappear:"disappear：消失。the lines did not disappear 是排隊的人龍沒有完全消失。",disagree:"disagree：意見不同。",deteriorate:"deteriorate：惡化、變差。",depart:"depart：離開、出發。"}}
+  }
+},
+{
+  title:"Why Taiwan Reads Higashino",
+  tag:"新知・日本推理作家東野圭吾",
+  text:"Keigo Higashino, one of Japan's best-selling mystery writers, died on July 23, 2026, at the age of 68. He worked as an engineer while writing on the side, and in 1985 he won a mystery-writing prize for his debut novel. He {1} 106 books in all, and by 2023 his books had sold more than 100 million copies in Japan alone. When the news reached Taiwan on Monday, July 27, his sales at Books.com.tw, the country's largest online bookseller, {2} the total for the whole month of July up to that point. Five of the site's top ten books that day were his. Books.com.tw says that a new wave of readers under forty is also {3} his work, although his readers have long been mostly in their forties. According to a Taiwanese publisher, a printed book is considered quite successful if it sells 10,000 copies, so selling more than 500,000 copies of The Miracles of the Namiya General Store is {4}. The book also stayed on the site's annual top-ten list for five {5} years after it came out in 2013.",
+  gloss:"mystery 推理小說　debut novel 處女作　bookseller 書店（書商）　printed book 紙本書　annual 每年的",
+  src:"事實出處：日本講談社訃聞（2026/7/27，經中央社、工商時報轉述：7 月 23 日病逝、享壽 68 歲、共 106 部著作、1985 年以《放學後》獲江戶川亂步獎、曾任工程師）、China Daily（2026/7/29：2023 年止日本國內銷量逾 1 億冊）、Focus Taiwan／中央社（2026/7/30）與 Taipei Times（2026/7/31）：博客來暢銷榜前 10 名有 5 本、當天銷量超過 7 月先前整月總和、讀者向來以 40 多歲為主且 40 歲以下增加、《解憂雜貨店》2013 年出版後連 5 年進年度前 10）、工商時報（2026/7/27，引皇冠文化許婷婷：台灣累積逾 50 萬冊、紙本書破萬冊即相當成功）。用語依 Merriam-Webster 核對。",
+  q:{
+    1:{ans:"published",opts:["published","performed","protected","promised"],exp:{published:"published：出版。publish 106 books 是出版了 106 本書。",performed:"performed：表演、執行，受詞不會是書。",protected:"protected：保護。",promised:"promised：答應、承諾。"}},
+    2:{ans:"exceeded",opts:["exceeded","exchanged","excluded","expressed"],exp:{exceeded:"exceeded：超過。exceed the total 是超過總數。",exchanged:"exchanged：交換。",excluded:"excluded：排除在外。",expressed:"expressed：表達。"}},
+    3:{ans:"discovering",opts:["discovering","inventing","avoiding","replacing"],exp:{discovering:"discovering：發現。讀者是第一次接觸到他的作品，所以用 discover。",inventing:"inventing：發明，作品不是讀者發明的。",avoiding:"avoiding：避開，和讀者湧入的方向相反。",replacing:"replacing：取代。"}},
+    4:{ans:"remarkable",opts:["remarkable","ordinary","modest","disappointing"],exp:{remarkable:"remarkable：非常出色、值得注意。賣出 50 萬冊遠超過 1 萬冊的標準。",ordinary:"ordinary：普通的，和遠超標準的銷量不合。",modest:"modest：有限的、不大的，語意相反。",disappointing:"disappointing：令人失望的，語意相反。"}},
+    5:{ans:"straight",opts:["straight","direct","level","flat"],exp:{straight:"straight：連續的。five straight years 是連續五年。",direct:"direct：直接的，不用來表示連續。",level:"level：平的、水平的。",flat:"flat：平坦的。"}}
+  }
+},
+{
+  kind:"swap",
+  title:"A Gold Rush Under Manhattan?",
+  tag:"熟字的另一個意思・點底線的字，選出它在這裡的意思",
+  text:"This year, people in New York City have been filmed lifting manhole {1} at night and climbing down into the sewers. They wear rubber boots, stay underground for hours, and leave before anyone can {2} their faces. In late September, police arrested two men after one such trip. Police say that in several cases, those arrested said they were looking for gold chains, rings, or copper that had washed into the {3}. Is there really gold down there? A U.S. study of sewage sludge from treatment plants found only about a third of a gram of gold in a ton. The lead author said it comes as tiny particles, so nobody can {4} for it the way miners did in the old days. The city warns that sewers hold poisonous gas, flooding, and unstable ground, and that entering them is illegal. The idea of a gold {5} below the streets may sound exciting, but the men arrested in September were charged only with trespassing and conspiracy.",
+  gloss:"manhole 人孔（街上通往下水道的孔）　sewer 下水道　sludge 汙泥　copper 銅　trespassing 未經許可進入　conspiracy 共謀",
+  src:"事實出處：紐約時報（2026/9/25，經 GV Wire 轉載：9/24 逮捕兩人、罪名為侵入與共謀、四個月內至少第六次目擊）、CNN（2026/9/25：警方說這是全市的模式、被捕者在多起案件中說在找金鏈、戒指、銅）、NBC New York（2026/9）、紐約市環保局說明（下水道有毒氣、地基不穩、淹水風險，進入屬違法）、Environmental Science & Technology 研究（2015，亞利桑那州立大學：每公噸汙泥約 0.3 公克金），經 Discover（2015/1/21）、CBC 報導。用語依 Merriam-Webster 核對。",
+  q:{
+    1:{word:"covers",rel:"mean",ans:"lids placed over an opening",opts:["lids placed over an opening","bindings of books","cloths on a bed","new versions of old songs"]},
+    2:{word:"spot",rel:"mean",ans:"to see or notice",opts:["to see or notice","to stain with marks","to hide on purpose","to give a head start to"]},
+    3:{word:"drains",rel:"mean",ans:"pipes that carry liquid away",opts:["pipes that carry liquid away","things that use up money or energy","tubes that remove liquid from a wound","wells that supply drinking water"]},
+    4:{word:"pan",rel:"mean",ans:"to wash gravel in a dish to find gold",opts:["to wash gravel in a dish to find gold","to criticize harshly","to turn a camera sideways","to put something in a pan"]},
+    5:{word:"rush",rel:"mean",ans:"a crowd of people hurrying to a place to get rich",opts:["a crowd of people hurrying to a place to get rich","a burst of speed","a sudden feeling of excitement","a plant that grows in wet ground"]}
+  }
+},
+{
+  kind:"swap",
+  title:"Who Senses Earth's Magnetic Field Better?",
+  tag:"片語動詞・點底線的片語，選出它在這裡的意思",
+  text:"Many birds seem to {1} the Earth's magnetic field and use it as a compass. Scientists cannot yet {2} exactly how they do it. In 2021, a team from Oxford and Oldenburg reported that a protein in the eyes of European robins might {3} this ability, but they said it was not final proof. In May 2026, another team reported that homing pigeons may have iron-rich cells in the liver that {4} magnetic information to the brain. What about people? In a 2019 study, volunteers' brain waves changed when a magnetic field was rotated around them, although they did not notice any change. Researchers say other teams will need to {5} the result, and nobody knows what the brain would use such a signal for.",
+  gloss:"magnetic field 磁場　protein 蛋白質　homing pigeon 信鴿　iron-rich 富含鐵的　brain waves 腦波",
+  src:"事實出處：牛津大學科學部落格（Nature 論文，2021：歐洲知更鳥視網膜的 cryptochrome 4 對磁場敏感，團隊強調這不是決定性證據，實驗用的是離體蛋白質與比地磁更強的磁場）、Popular Science（2026/5/28，Science 論文：信鴿肝臟含鐵免疫細胞，移除後陰天導航受影響）、CORDIS（2026/7/30：機制仍有爭論）、Caltech／東京大學 eNeuro 論文（2019/3/18：磁場旋轉後人腦 alpha 波下降，受試者無感，研究者表示仍不清楚大腦如何、為何使用此訊號）。用語依 Merriam-Webster 核對。",
+  q:{
+    1:{word:"pick up",rel:"mean",ans:"to sense or detect",opts:["to sense or detect","to collect someone in a car","to improve after a slow time","to learn without formal teaching"]},
+    2:{word:"work out",rel:"mean",ans:"to find the answer to",opts:["to find the answer to","to do exercise to stay fit","to end in a good way","to add up to a total"]},
+    3:{word:"account for",rel:"mean",ans:"to explain the reason for",opts:["to explain the reason for","to make up part of a total","to know where someone is","to destroy or kill"]},
+    4:{word:"pass on",rel:"mean",ans:"to send from one to another",opts:["to send from one to another","to refuse a chance","to die","to move past a car ahead"]},
+    5:{word:"check out",rel:"mean",ans:"to look into and make sure it is true",opts:["to look into and make sure it is true","to leave a hotel","to borrow a library book","to pay for goods at a store"]}
+  }
+},
+{"kind":"swap","title":"Blue Helmets, Fewer Missions","tag":"詞性辨認・點底線的字，選出詞性和它相同的用法（同一個字在不同句子裡，可能是名詞、動詞、形容詞或副詞）","text":"UN peacekeeping began in 1948, when a small group of observers was sent to {1} a truce in the Middle East. Some missions last a {2} time, while others are newer. In April 2014, for example, the Security Council created a mission in the Central African Republic. Today, however, peacekeeping is shrinking. A 2026 report found that 78,633 people were serving in peace operations around the world in December 2025, 49 percent fewer than in 2016. One reason is money: in July 2025, UN peacekeeping faced a shortfall of about two billion dollars, and in October the UN said it would {3} its troops and police by about a quarter. Even so, the UN {4} led 18 of the 58 operations active in 2025, with about two thirds of all personnel.","gloss":"peacekeeping 維和　truce 停戰、休戰　Security Council 安全理事會　MINUSCA 聯合國中非穩定團　shortfall 缺口　troops 部隊　personnel 人員","src":"事實出處：聯合國維和部門〈Our history〉（1948 年起）、聯合國中非穩定團（MINUSCA）官網（安理會第 2149 號決議，2014 年 4 月 10 日）、SIPRI 概況報告（2026/5/25：78,633 人、較 2016 年少 49%、58 項行動、聯合國主導 18 項、2025 年 7 月缺口約 20 億美元）、路透社（2025/10/8，經 The Gazette 轉載：聯合國將遣返約四分之一維和部隊與警察）。詞性依 Merriam-Webster 查證。","q":{"1":{"word":"watch","rel":"pos","pn":"動詞","ans":"watch a movie","opts":["watch a movie","the night watch","a gold watch","keep watch at night"]},"2":{"word":"long","rel":"pos","pn":"形容詞","ans":"a long road","opts":["a long road","all night long","long for a rest","didn't stay long"]},"3":{"word":"cut","rel":"pos","pn":"動詞","ans":"cut the cake in half","opts":["cut the cake in half","a cut in pay","a deep cut on her hand","a power cut"]},"4":{"word":"still","rel":"pos","pn":"副詞","ans":"still live in Taipei","opts":["still live in Taipei","a still lake","the still of the night","tried to still her nerves"]}}},
+{"kind":"swap","title":"The Voice Behind the Match","tag":"熟字的另一個意思・點底線的字，選出它在這裡的意思","text":"The League of Legends World Championship is one of the biggest events in esports. The 2025 final, in which T1 beat KT Rolster on November 9, {1} about 6.7 million viewers at its peak. This year, the {2} has 19 teams competing for a $5 million prize pool, and the final will be played at Barclays Center in Brooklyn on November 14. Behind every match are the casters, the commentators who tell viewers what is happening. In an episode released on October 28, a Taiwanese podcast talked with a caster known as ZOD, who has {3} League of Legends matches for more than eight years. The show's host says a good caster must know the game's tactics, the players, and the teams, and must {4} the action in real time. The title of the episode adds that a day on air can {5} as long as twelve hours. Even jokes and current-event memes have to be prepared in advance, the host says.","gloss":"esports 電競　caster 電競賽評　prize pool 總獎金　peak 最高峰（這裡指同時觀看人數的最高值）　tactics 戰術　on air 播出中","src":"事實出處：Esports.gg／Esports Charts（2025 年世界賽決賽 T1 對 KT Rolster，11 月 9 日；尖峰同時觀看人數比 2024 年的 6,856,769 人少 1.7%，約 670 萬）、Esports.gg 與 Inven Global（2026 世界賽 19 隊、總獎金 500 萬美元、決賽 11 月 14 日在布魯克林巴克萊中心）、Podcast《別人的工作最有趣》EP193（10 月 28 日）的標題與節目簡介（賽評需熟悉戰術、選手與隊伍、即時分析戰況、事先準備笑話與時事梗為節目主持人的說法）。字義依 Merriam-Webster 查證。","q":{"1":{"word":"drew","rel":"mean","ans":"to attract","opts":["to attract","to make a picture with a pencil","to end a game with no winner","to pull something toward you"]},"2":{"word":"field","rel":"mean","ans":"all the competitors in a contest","opts":["all the competitors in a contest","an open area of land","an area of study or work","the ground where a sport is played"]},"3":{"word":"covered","rel":"mean","ans":"reported on","opts":["reported on","put something over","was enough to pay for","traveled a distance"]},"4":{"word":"call","rel":"mean","ans":"to announce the action as it happens","opts":["to announce the action as it happens","to telephone someone","to give someone a name","to order someone to come"]},"5":{"word":"run","rel":"mean","ans":"to last","opts":["to last","to move faster than walking","to manage a business","to flow"]}}},
+{"kind":"ref","title":"Is the Earth Really Shaped Like a Potato?","tag":"指涉題・先點底線的代名詞或代替字，再點文中它指的內容","text":"In 2011, <<a:the European Space Agency>> released a colorful picture of <<b:the Earth>> that looked like a lumpy potato. The picture, built from data from <<c:a satellite>>, showed <<d:the geoid>>. Similar images still spread online, and many posts call {1} the true shape of the planet. In fact, the geoid is the surface <<e:the oceans>> would form without tides and currents, and <<f:surveyors>> extend it under the land to get a zero line for measuring height. In <<h:the pictures>>, <<g:the bumps>> are exaggerated thousands of times, because in reality {2} are tiny. <<k:The deepest dip>> lies about 1,200 kilometers southwest of <<i:India>>, where <<l:the sea level>> is about 106 meters below <<j:the global average>>. Since {3} discovery in 1948, scientists have argued about the cause, and a 2023 study pointed to hot, light rock deep inside the Earth. In Taiwan, <<m:heights>> are measured from the mean sea level at Keelung, but GPS gives a height above a smooth, mathematical Earth. <<n:The Ministry of the Interior>> once took <<p:GPS and leveling readings>> at 2,065 first-order benchmarks across <<o:the island>>, and researchers have used {4} to model the gap between the two kinds of height.","gloss":"geoid 大地水準面　GOCE 歐洲太空總署的重力衛星　surveyor 測量人員　exaggerate 誇大　the Indian Ocean geoid low 印度洋大地水準面低區　mathematical 數學上的　leveling 水準測量　first-order benchmark 一等水準點　Keelung 基隆","src":"事實出處：美國海洋暨大氣總署（NOAA）〈What is the geoid?〉（2024/6/16 更新）、EarthSky（歐洲太空總署 GOCE 大地水準面 2011/3/31 發表）、Scientific American 部落格（GOCE 發表後；ESA 影片放大 7,000 倍，且大地水準面是理想化的海平面，不是行星的形狀）、Live Science 與 Advanced Science News（2023/7/12，Pal 與 Ghosh 發表於 Geophysical Research Letters：印度洋大地水準面低區約低 106 公尺、1948 年發現）、黃玉婷等（《台灣土地研究》13(1)，2010/5：台灣高程基準 TWVD2001 共 2,065 個一等水準點）、林老生（《台灣土地研究》15(2)，2012/11：台灣採正高系統，以基隆平均海水面為起算面；內政部在 2,065 個一等水準點實施 GPS 與水準測量，可據以建立大地起伏模型）。","q":{"1":{"word":"it","rel":"ref","ans":"d","cands":["a","b","c","d"]},"2":{"word":"they","rel":"ref","ans":"g","cands":["e","f","g","h"]},"3":{"word":"its","rel":"ref","ans":"k","cands":["k","i","l","j"]},"4":{"word":"them","rel":"ref","ans":"p","cands":["m","n","o","p"]}}}
+];
+
+const ADD = {
+3:{gloss:"gamble 碰運氣的事　odds 勝算　ripe 成熟的　gleam 閃亮　pale 淺色的　rest on 擱在、靠在　hollow 空心的　thud 悶響",zh:"在夜市挑一顆好西瓜，感覺就像賭運氣，不過幾個簡單的檢查就能提高勝算。首先，仔細檢查外皮。熟的西瓜表面通常暗沉、呈深綠色，外皮閃閃發亮的，多半採得太早。接著把它拿起來掂一掂。好西瓜拿在手上，會比外表看起來重，因為裡面裝滿了果汁。然後把西瓜翻過來，找找它躺在地上時留下的淺色斑塊。奶油黃的斑塊是好跡象，白色或偏綠的斑塊則表示果實還需要更多時間。最後，用手指敲一敲。聲音空空的表示可以吃了，聲音悶悶的就表示該放回去。"},
+4:{gloss:"tapioca ball 粉圓　cassava 木薯　invention 發明　rule 裁定　patented 取得專利的　protein 蛋白質　water down 沖淡",zh:"珍珠奶茶是台灣的發明，或者更正確地說，有兩家台灣茶店都說是自己發明的。台南的翰林茶館說，老闆涂宗和在 1986 年看到市場上賣白色的粉圓，因而想出這種飲料。台中的春水堂則有不同的說法：產品經理林秀慧說，她在一次員工會議中把粉圓倒進自己的冰茶裡，這種新飲料很快就賣得很好。2019 年，法院裁定，到底誰先發明並不重要，因為珍珠奶茶沒有申請專利。如今，世界各地的人被問到珍珠奶茶從哪裡來時，答案都一樣：台灣。珍珠是用木薯澱粉做的，所以就算有蛋白質，含量也很少。珍奶剛做好不久的時候最好喝；否則，融化的冰塊會把它沖淡。",exp:{
+1:{"to correct or make the point more exact":"or rather 用來修正或把前面的話講得更精確。這裡先說是台灣的發明，隨即改口，更精確地說是兩家店都說自己發明的。","to give an example":"舉例用的是 for example、for instance。","to add another reason":"追加理由用的是 besides、in addition。","to show a result":"表示結果用的是 as a result、therefore。"},
+2:{"when they are asked":"原句省略了 they are，people 是被問的人，所以補回來是被動的 when they are asked。","when they ask":"主動語態的意思是「他們去問」，但這裡的人是被問的一方。","when it is asked":"it 不對：省略的主詞要和主要子句的主詞 people 相同，所以補回的是 they，不是 it。","if they asked":"if they asked 是主動（他們去問），和被問的語意不合；而且 if 加過去式會變成與現在事實相反的假設，不是原句省略的部分。"},
+3:{"if there is any":"if any 是 if there is any 的省略說法，意思是「就算有的話」。","if there is none":"if there is none 是「如果完全沒有」，和 little（還是有一點）矛盾。","if there is much":"if there is much 是「如果有很多」，和 little 的意思相反。","if there are many":"if there are many 的 many 只能修飾可數名詞，protein 是不可數的。"},
+4:{"if you do not drink it soon":"otherwise 在這裡等於 if not，指「如果不趁早喝的話」。","even if you drink it soon":"otherwise 沒有「即使」的意思。","because you drink it soon":"otherwise 不表示因果。","as soon as you drink it":"這是時間關係，與 otherwise 無關。"}}},
+5:{gloss:"tuned mass damper 調諧質量阻尼器　observation deck 觀景台　run up 登高賽　finish line 終點線　course record 賽道紀錄　outer wall 外牆　firefighter 消防員　gear 裝備",zh:"台北 101 高 508 公尺，但每年仍有數千人嘗試徒步爬上去。第一屆台北 101 登高賽在 2005 年舉行，澳洲的保羅．克雷克（Paul Crake）以 10 分 29 秒贏得男子組，成績令人讚嘆，至今仍是賽道紀錄。當時終點線設在 91 樓，離地面有 2,046 階。今年 5 月，又有超過 5,000 人參賽，不過因為大樓外牆施工，終點線降到了 88 樓。即使如此，這段攀登依然艱難，有些消防員甚至穿著全套裝備登頂。在 87 樓到 92 樓之間懸吊著一顆金色鋼球，看起來十分巨大，所以爬到 88 樓的選手幾乎和它在同一個高度。這個調諧質量阻尼器最多能把大樓的晃動減少 40%。因此，大樓在強風中保持穩定。遊客可以在室內觀景台看到這顆球。",exp:{
+1:{remarkable:"remarkable：出色的、值得注意的，和 impressive 同義。",familiar:"familiar：熟悉的，成績不是用熟不熟悉來形容。",pleasant:"pleasant：令人愉快的，只表示舒服，沒有出色的意思。",careful:"careful：小心的，形容人的做法，不形容成績。"},
+2:{raised:"raised：提高。raise 是 lower 的反義字。",reduced:"reduced：降低、減少，和 lowered 同方向，是近義字。",dropped:"dropped：降下、掉下，和 lowered 同方向。",cut:"cut：削減，和 lowered 同方向。"},
+3:{demanding:"demanding：要求很高、很吃力的，和 tough 在這裡同義。",polite:"polite：有禮貌的，形容人的態度。",narrow:"narrow：狹窄的，講的是寬度。",public:"public：公開的、公眾的，與難易無關。"},
+4:{massive:"massive：巨大的，和 enormous 同義。",splendid:"splendid：壯麗的，強調美，不強調大小。",ancient:"ancient：古老的，講的是年代。",slight:"slight：輕微的，意思和 enormous 相反。"},
+5:{increase:"increase：增加，是 reduce 的反義字。",repeat:"repeat：重複。",measure:"measure：測量。",delay:"delay：延遲。"},
+6:{shaky:"shaky：搖晃的、不穩的，是 steady 的反義字。",ordinary:"ordinary：普通的。",silent:"silent：安靜的。",tidy:"tidy：整齊的。"}}},
+6:{gloss:"procession 遶境　pilgrimage 進香　sedan chair 轎　goddess 女神　fork 岔路　moon blocks 筊杯　crescent-shaped 新月形的　timetable 時間表",zh:"每年春天，數十萬人跟在一頂粉紅色的轎子後面，走過台灣西部。因為它走得很快，又罩著粉紅色的轎罩，人們叫它「粉紅超跑」。這頂轎子載著海上女神媽祖，從苗栗拱天宮前往雲林朝天宮。多數媽祖遶境都有事先規劃好的路線，白沙屯的遶境卻沒有。每到岔路，扛轎的人就擲筊杯，也就是一對新月形的木片，請問媽祖該往哪走。這裡也沒有時間表。因此，沒有人能預先確切說出轎子什麼時候會到。即使如此，2026 年仍有創紀錄的約 46 萬人報名這趟為期八天的進香。",exp:{
+1:{"by contrast":"however 在這裡表示對比：多數遶境有路線，白沙屯卻沒有。by contrast 功能相同。",likewise:"likewise：同樣地，表示相似，不是對比。","for instance":"for instance：舉例。",consequently:"consequently：因此，表示結果。"},
+2:{"in other words":"that is 用來把同一件事換個說法，這裡把 moon blocks 解釋成一對木片，in other words 功能相同。","in addition":"in addition：此外，是追加另一件事。",afterward:"afterward：之後，表示時間先後。",similarly:"similarly：類似地。"},
+3:{therefore:"As a result 表示結果，前面沒有時間表，所以沒人知道何時抵達。therefore 功能相同。","on the contrary":"on the contrary：恰恰相反，用來推翻前面的說法。",besides:"besides：此外，只是追加。",otherwise:"otherwise：否則，要接「如果不這樣」的情況。"},
+4:{nonetheless:"Even so 表示儘管如此。前面說時間不確定，人還是創紀錄地報名。nonetheless 功能相同。",moreover:"moreover：而且，是追加。",instead:"instead：反而、取而代之。",meanwhile:"meanwhile：同時。"}}},
+7:{gloss:"urinal 小便斗　etched 蝕刻的　aim 瞄準　spillage 濺出　estimate 估計　knock 敲門　opaque 不透明的",zh:"很少有人覺得公共廁所很有意思，但有兩個地方試著改變這個印象。在荷蘭阿姆斯特丹的史基浦機場，小便斗裡蝕刻了一隻蒼蠅的圖案，讓男士有個瞄準的目標。引進這個做法的經理阿德．基布姆（Aad Kieboom）說，它讓濺出的尿液減少了 80%。不過，他其實也承認，這個數字只是估計，從來沒有做過科學研究。同一時間，在東京，日本財團推動的一項計畫在澀谷重建了 17 間公共廁所。其中有些相當特別。例如，建築師坂茂設計了兩間廁所，鎖上門之後，玻璃牆會變成不透明。裡面沒有人的時候，玻璃是透明的，大家可以看出這間廁所乾淨又沒人使用。因此，他們不需要敲門，也不必猜。基金會表示，這項計畫的目標，是要改變大家認為公共廁所又暗、又髒、又臭、又可怕的想法。",exp:{
+1:{actually:"In fact 引出實際的情況，和前一句的說法有落差。actually 功能相同。",otherwise:"otherwise：否則。","in short":"in short：簡言之，用來作結。",likewise:"likewise：同樣地。"},
+2:{"at the same time":"Meanwhile 表示另一個地方同時進行的事，at the same time 功能相同。","in the end":"in the end：最後。","in particular":"in particular：特別是。","in other words":"in other words：換句話說，用來重述前面的話，不是同時發生。"},
+3:{"for example":"For instance 用來舉例，for example 功能相同。","on the other hand":"on the other hand：另一方面，表示對比。","in conclusion":"in conclusion：總結。",instead:"instead：反而。"},
+4:{"as a result":"Thus 表示結果：玻璃會顯示有沒有人，所以不用敲門。as a result 功能相同。","in contrast":"in contrast：對比。",besides:"besides：此外。",nonetheless:"nonetheless：儘管如此。"}}},
+8:{gloss:"roundabout 圓環　clockwise 順時針的　give way 讓路　gap 空隙　counterclockwise 逆時針的　junction 路口　panic 驚慌",zh:"在英國，車輛靠左行駛，所以圓環的車流是順時針方向。主要規則很簡單：讓已經在圓環上的車輛先行，也就是讓從你右邊來的車先走。斯文頓（Swindon）的魔法圓環啟用於 1972 年，看起來複雜多了。它有五個小圓環圍成一圈，中間還有一個中央圓環，而中央圓環是逆時針方向，與外圍五個相反。的確，第一次來的駕駛看到它可能會慌張。不過，規則並沒有改變：把每個小圓環當成一個獨立路口，讓右邊的車先行。在每一個小圓環，必要時要停車，等到有空隙再走。如果錯過了出口，只要再繞一圈就好。",exp:{
+1:{"to say the same thing in other words":"that is 用另一種說法重述，這裡把「已在圓環上的車」說成「從你右邊來的車」。","to give a result":"表示結果用 so、as a result。","to show a contrast":"表示對比用 but、however。","to list another case":"另舉一例用 also、in addition。"},
+2:{"to admit a point before arguing against it":"To be sure 先承認一個事實（確實會慌張），後面通常接 but、still 轉折。","to add a similar fact":"追加相似的事實用 likewise、similarly。","to sum up":"總結用 in short、to sum up。","to give a reason":"說明理由用 because、since。"},
+3:{"to say something is still true despite that":"Still 在這裡等於 nevertheless：雖然看起來很複雜，規則仍然不變。","to show the order in time":"表示時間先後用 then、afterward。","to give an example":"舉例用 for example。","to restate the idea":"重述用 in other words。"}
+,4:{"when you have to":"if necessary 是 if it is necessary 的省略，意思是「必要的時候」。","even when you do not have to":"和 if necessary 的意思矛盾。","only when you want to":"necessary 是不得不，不是想不想。","unless you have to":"unless 是「除非」，意思剛好相反。"}}},
+9:{gloss:"raid 突襲　watchman 守望的人　bandit 土匪　lantern 燈籠　flame 火焰　rice paper 宣紙　ban 禁令　break down 分解",zh:"很久以前，土匪經常突襲平溪山區的村莊。大多數村民跑進山裡躲起來，但有幾位守望的人留了下來。危險過去之後，他們放天燈到夜空中，通知各家人可以安心回家了。如今，平溪是台灣唯一可以施放天燈的地方，因此每年元宵節都有成千上萬的遊客前往。火焰熄滅之後，天燈會掉回山上。這就是為什麼政府鼓勵使用比較容易分解的材料，例如宣紙和竹子。有些村民認為應該禁止施放，但店家不這麼認為，因為他們擔心當地經濟會受影響。",exp:{
+1:{a:"bandits（土匪）是來突襲的人，不會放天燈通知家人平安。",b:"Most villagers 跑進山裡躲起來了，留下來放天燈的不是他們。",c:"a few watchmen 留了下來，危險過後放天燈通知家人，所以 they 指他們。",d:"the families 是被通知的對象，不是放天燈的人。"},
+2:{e:"Taiwan：同一句的前半只是說平溪是台灣唯一能放天燈的地方，遊客要去的是平溪，不是整個台灣。",f:"Pingxi：travel there 就是前往平溪。",g:"the mountains：出現在過去的故事裡，是村民躲藏的地方，不是今天遊客去的地點。",h:"the villages：同樣是過去被突襲的村莊，不是今天遊客的目的地。"},
+3:{i:"the lanterns fall back onto the mountains：天燈掉回山上造成垃圾，這就是政府鼓勵易分解材料的原因，所以 This 指這件事。",r:"the flame goes out：只是掉下來之前的時間點，造成問題的是天燈掉在山上。",p:"rice paper and bamboo：這是後面說的解決辦法，不是原因。",z:"lanterns：只指天燈這種東西，不能解釋為什麼要改用易分解的材料。"},
+4:{i:"the lanterns fall back onto the mountains：店家沒有否認這件事，不同意的是要不要禁止。",j:"Some villagers：是人。so 在 do not think so 裡代替一個想法，不代替人。",k:"the lanterns should be banned：do not think so 就是不認為應該禁止，so 代替的是這個想法。",l:"shop owners：是這句的主詞，so 不能代替句子的主詞。"}}},
+10:{gloss:"Kew Gardens 邱園（英國皇家植物園）　shipment 貨物　specimen 標本　fortune 巨額財富　sprout 發芽　descendant 後代　plantation 大型農場　internship 實習",zh:"1876 年 6 月，一批貨物抵達倫敦的邱園（Kew Gardens）：7 萬顆從巴西運來的橡膠種子，出口文件上寫的是「學術標本」。橡膠當時非常值錢。而且，當時幾乎所有橡膠都由巴西供應。這些種子不能等，因為它們幾天內就會失去發芽的能力。結果，發芽的不到 4%。儘管如此，8 月仍有約 2,000 株幼苗運往錫蘭，它們的後代協助開創了東南亞的橡膠園。直到今天，邱園仍在研究植物如何影響經濟與社會。2027 年，邱園將再次提供實習機會給台灣的年輕人，四個名額中有一個是關於植物館藏的專案。",exp:{
+1:{"to add one more point":"What is more 用來再追加一個更進一步的論點：橡膠很值錢，而且幾乎都由巴西供應。","to give an example":"舉例用 for example、for instance。","to restate the idea":"重述用 in other words。","to show the time order":"表示時間先後用 then、afterward。"},
+2:{"to tell what actually happened in the end":"As it turned out 引出事情最後實際的結果：種子只有不到 4% 發芽。","to give a reason":"說明理由用 because、since。","to add a similar fact":"追加相似的事實用 likewise、similarly。","to sum up":"總結用 in short、to sum up。"},
+3:{"to say something is still true despite that":"All the same 等於 nevertheless：發芽率那麼低，還是運了約 2,000 株幼苗到錫蘭。","to explain more exactly":"說得更精確用 or rather、that is。","to list another case":"另舉一例用 also、in addition。","to start a new topic":"轉到新話題用 by the way。"},
+4:{"even now":"To this day 表示從過去一直到現在，所以是「直到今天」。","only in the past":"意思相反：to this day 說的是到現在仍然如此。","for the first time":"to this day 沒有「第一次」的意思。","on that day only":"this day 指現在，不是指某個特定的一天。"}}},
+11:{gloss:"pressed tea 緊壓茶　Pu'er 普洱茶　Hakka 客家　remedy 療方　hutou orange 虎頭柑　peel 果皮　steam 蒸　compound 化合物　mellow 溫潤的",zh:"普洱可能是最有名的緊壓茶，但台灣也有自己的一款：客家酸柑茶。根據《台灣光華》雜誌，它是台灣獨有的緊壓茶。很久以前，住在山區的客家家庭把它放在家裡，當作治感冒的偏方。它是用虎頭柑的果皮和茶葉做成的，要蒸過再放在太陽下曬，一共九次。這道工序很費時，卻改變了茶的風味。研究人員發現，果皮裡兩種有效成分會流失七到九成，但茶的味道變得溫潤。因此，連討厭濃茶的人也可能喜歡喝上一杯。",exp:{
+1:{treatment:"treatment：治療的方法，和 remedy 同義。",reward:"reward：獎賞，和治病無關。",habit:"habit：習慣。",protection:"protection：保護、防護，重點在預防；remedy 是生病之後用的療方。"},
+2:{quick:"quick：快的，是 slow 的反義字。",careful:"careful：仔細的，講的是做事態度，和速度無關。",skilled:"skilled：技術熟練的。",tiring:"tiring：累人的，講的是感受，不是速度。"},
+3:{smooth:"smooth：滑順、不刺激的，和 mellow 同義。",sharp:"sharp：尖銳、刺激的，意思相反。",sudden:"sudden：突然的，不能形容味道。",heavy:"heavy：濃重的，和溫潤相反。"},
+4:{love:"love：喜愛，是 hate 的反義字。",avoid:"avoid：避開，是討厭的人可能會做的事，但不是 hate 的反義字。",fear:"fear：害怕，和 hate 的方向相同。",forget:"forget：忘記，和喜不喜歡無關。"}}},
+12:{gloss:"freezer 冷凍櫃　technician 技術人員　apparently 看來、似乎　defrost 除霜　default password 預設密碼　criminal investigation 刑事調查　claim responsibility 宣稱是自己做的",zh:"多數顧客以為，超市的冷凍櫃只是一個會自己運作的冷箱子。其實，很多冷凍櫃都連上了網路，技術人員可以從遠端檢查並調整設定。11 月 2 日，看來駭客就是利用了這條連線。歐洲好幾個國家的商店發現，他們的冷凍櫃不但沒有降溫，反而愈來愈熱。在其中一家店，溫度設定升到了 50°C。店員只好把冷凍食品丟掉。報導說，這些機器被切換成了除霜模式。冷凍櫃的製造商把問題歸咎於過時的軟體，在某些案例中還有預設密碼。比利時已經展開刑事調查，但沒有人宣稱是自己做的。",exp:{
+1:{suppose:"suppose：以為、推想，和 assume 同義。",prove:"prove：證明，是有證據的，不是以為。",decide:"decide：決定。",demand:"demand：要求。"},
+2:{distant:"distant：遙遠的，和 remote 在這裡同義。",hidden:"hidden：隱藏的，遠不等於藏起來。",narrow:"narrow：狹窄的。",private:"private：私人的，講的是誰能使用，不是距離。"},
+3:{rose:"rose：上升，和 climbed 同義。",dropped:"dropped：下降，方向相反。",sank:"sank：下沉，方向相反。",slid:"slid：滑動，多半指往下滑，用在溫度設定不自然。"},
+4:{discard:"discard：丟棄，和 throw out 同義。",collect:"collect：收集，和丟掉相反。",protect:"protect：保護。",deliver:"deliver：運送。"},
+5:{modern:"modern：現代的、新式的，是 outdated 的反義字。",costly:"costly：昂貴的，與新舊無關。",foreign:"foreign：外國的。",simple:"simple：簡單的。"}}},
+13:{gloss:"vault 金庫　share certificate 股票　paperless 無紙化的　tile 花磚（磁磚）　restored 修復過的　raised pattern 浮雕花紋",zh:"台灣並不是每間博物館都展示畫作。台北的台灣股票博物館原本是存放紙本股票的金庫。交易改成無紙化之後，這個金庫就不再被當作金庫使用，於是在 2012 年改成了博物館。畢竟，空的金庫很適合保存舊文件。在嘉義，台灣花磚博物館展出約 1,500 片修復過的、有浮雕花紋的花磚，特別是約一世紀前台灣住家使用的那些。說來令人意外，歷史學者 Kang Nuo-xi 指出，台灣沒有生產這類磁磚的歷史：展出的幾乎全是 1915 年到 1935 年間在日本製造的。",exp:{
+1:{"as a vault":"as such 的意思是「以那樣的身分」，指剛提到的金庫，所以是不再被當作金庫使用。","as a museum":"museum 是後來才變成的，不是 as such 指的對象。","as a bank":"文中說的是 vault，不是銀行。","as an office":"文中沒有提到辦公室。"},
+2:{"to give a reason that explains the last point":"After all 提出一個理由，說明為什麼前一句合理：空的金庫本來就適合保存舊文件。","to show a contrast":"表示對比用 however、in contrast。","to give an example":"舉例用 for example。","to sum up":"總結用 in short。"},
+3:{"to point out one part of what was just said":"in particular 是在剛說的範圍中，特別指出其中一部分：磁磚中尤其是百年前台灣住家用的。","to add something unrelated":"追加不相干的事用 by the way。","to show the order in time":"表示時間先後用 then、afterward。","to correct the earlier point":"修正前面的說法用 or rather。"},
+4:{"to introduce a surprising fact":"Believe it or not 用來帶出令人意外的事實：台灣沒有生產這類磁磚的歷史。","to show the result":"表示結果用 as a result。","to list another case":"另舉一例用 also、in addition。","to restate the idea":"重述用 in other words。"}}},
+1:{gloss:"spinal muscular atrophy 脊髓性肌肉萎縮症　inherited 遺傳的　condition 病況　House of Lords 英國上議院　lawmaker 立法者、議員　robotic 機器人般的　health budget 個人健康預算　Tino Bao 包小柏",zh:"Jane Campbell 一歲時，醫生告訴她的父母，她活不到兩歲生日。她患有脊髓性肌肉萎縮症，這是一種罕見的遺傳疾病，會使肌肉慢慢衰弱。然而，她長大後成為爭取身心障礙者權利的重要倡議者，並在 2007 年進入英國上議院。隨著病情逐年惡化，她在公開場合說話也越來越困難。很長一段時間，她靠一位協助者幫忙，由對方代她朗讀演講稿。後來，在上議院的特別許可下，她成為第一位用 AI 生成聲音發表演說的議員。AI 公司只需要她幾分鐘的舊錄音就能複製她的聲音，而且不像較舊的系統，聽起來並不像機器人。Campbell 的演說主題是個人健康預算，她說自己也仰賴這項預算。台灣也有類似的故事。音樂人包小柏的女兒二十二歲時因罕見疾病過世，他後來用 AI 只靠幾段簡短的錄音就重建了她的聲音。"},
+2:{gloss:"Medicine Buddha 藥師佛　wall painting 壁畫　on display 展出　temple 寺廟　digital 數位的　copy 複製品　monument 古蹟　craftsman 匠師",zh:"在紐約大都會藝術博物館裡，正展出一幅巨大的藥師佛壁畫。它寬超過 15 公尺，高約 7.5 公尺。這幅畫大約在 700 年前為中國山西的一座寺廟所繪，後來卻從牆上被切了下來，最後流落到美國。它由 274 塊分開的碎片組成，有些碎片無法完全拼合。博物館現在和中國的藝術專家合作，研究並修復這幅受損的畫。畫家 Zhang Jian 帶領的團隊製作了一幅原尺寸的複製品。為此，他們研究了原作的詳細數位照片。在牆面的部分，他們使用寺廟原址的當地泥土，讓複製品更有真跡的質感。這幅複製品已在北京展出，雙方也計畫召開會議，討論未來如何保存這幅畫。台灣也面臨類似的問題。台灣有超過 1,000 處古蹟和近 1,800 棟歷史建築，但能修復它們的匠師正在老去，也越來越難找。"},
+14:{gloss:"furusato nozei 故鄉納稅（日文ふるさと納税）　donation 捐款　donor 捐款人　fiscal 2025 指 2025 年度（2025 年 4 月到 2026 年 3 月）　residential tax 住民稅（日本的地方稅）　get out of hand 失控　hit 大受歡迎的事物",zh:"日本有一項稅收制度，感覺有點像網路購物。納稅人可以選擇全國任何一個城鎮，捐錢給它，之後就會收到禮物，例如米、水果或海鮮。這項制度叫做「故鄉納稅」（furusato nozei），不過捐款人不一定要捐給自己長大的地方。在依捐款人所得而定的上限內，除了 2,000 日圓之外，其餘捐款都可以從捐款人的住民稅和所得稅中扣除。為了避免回禮失控，各城鎮花在回禮上的費用，不得超過每筆捐款的 30%。這項制度大受歡迎。在 3 月結束的 2025 年度，捐款人共捐了約 1.33 兆日圓，總額連續第六年創下新高。許多捐款人現在選擇米和衛生紙這類日常用品，顯然是因為物價上漲。主要衛生紙產地富士市，在獲得最多捐款的城鎮排行榜上前進七名，升到第 14 名。大都市就不那麼高興了。當居民把錢捐給別的地方時，這些城市就會少了原本可以用來支應地方服務的稅收。"},
+15:{gloss:"tourism factory 觀光工廠　manufacturer 製造業者　hands-on 親自動手做的　tour 導覽　label 標章　output 產值　visits 人次（同一個人去幾次就算幾次）",zh:"台灣有些工廠歡迎觀光客。全國有 150 家這樣的「觀光工廠」，這些仍在運作的工廠提供導覽、展覽和手作體驗課程。政府在 2003 年啟動這項計畫，當時許多製造業者正把生產線遷往海外。目的是協助老工廠找到新的賺錢方式。要取得官方標章，工廠必須通過政府的評鑑。食品公司經營 150 處中的 69 處，占總數的 46%。2025 年，這些據點吸引了約 2,136 萬人次參觀，創造出約新台幣 67 億元的產值。由於同一個人可以參觀不只一次，這個數字計算的是人次，不是個別的人數。"},
+16:{gloss:"character goods 角色周邊商品　organizer 主辦單位　brand exhibition 品牌商展　booking 預約　in advance 事先　entry 入場　visits 人次（同一個人去幾次就算幾次）",zh:"台灣文博會是由文化部主辦的大型創意商品展。它從 2010 年開始舉辦，本地品牌在這裡販售角色周邊商品和其他創意商品。2025 年，參觀者有時得等上約四小時才能入場。因此，主辦單位在 2026 年首度加入線上預約。事先預約超過 10 萬人次，入場速度大約比前一年快了一倍。品牌商展的銷售額從新台幣 13.5 億元升到約 16.5 億元，成長了 22%。兩個展區合計吸引了超過 67 萬人次。即使如此，排隊的人龍並沒有完全消失，最後一天仍有人在排隊入場。"},
+17:{gloss:"mystery 推理小說　on the side 利用工餘時間（副業）　debut novel 處女作　bookseller 書店（書商）　copy 一本（冊）　wave 一波　exceed 超過　printed book 紙本書　annual 每年的",zh:"日本最暢銷的推理作家之一東野圭吾，於 2026 年 7 月 23 日過世，享壽 68 歲。他一邊當工程師，一邊在工餘寫作，1985 年憑處女作拿下一項推理文學獎。他一共出版了 106 本書，到 2023 年，光在日本國內，他的書就賣出超過一億冊。消息在 7 月 27 日星期一傳到台灣時，他在台灣最大的網路書店博客來的銷量，超過了 7 月到那天為止整個月的總和。當天書店前十名暢銷書中有五本是他的作品。博客來表示，也有一波四十歲以下的新讀者開始接觸他的作品，雖然他的讀者長期以來多半是四十多歲的人。根據一家台灣出版社的說法，一本紙本書能賣到一萬冊就算相當成功，因此《解憂雜貨店》賣出超過 50 萬冊，可說是非常驚人的成績。這本書在 2013 年出版後，連續五年名列該書店年度前十名。"},
+18:{gloss:"manhole 人孔（街上通往下水道的孔）　gold rush 淘金熱　sewer 下水道　sewage 汙水　sludge 汙泥　copper 銅　trespassing 未經許可進入　conspiracy 共謀",zh:"今年，紐約市有人被拍到在夜晚掀開人孔蓋，爬進下水道。他們穿著橡膠靴，在地下待好幾個小時，並在有人看清他們的臉之前離開。9 月下旬，警方在一次這樣的行動後逮捕了兩名男子。警方說，在幾起案件中，被逮捕的人說他們是在找沖進排水管的金項鍊、戒指或銅。下面真的有黃金嗎？美國一項針對汙水處理廠汙泥的研究發現，每公噸只有約三分之一公克的金。主要作者說，金是以微小顆粒的形式存在，所以沒有人能像過去的礦工那樣用淘洗的方式找金。市政府警告，下水道裡有毒氣、有淹水的危險，地面也不穩固，進入下水道是違法的。街道底下有一場淘金熱的想法聽起來也許令人興奮，但 9 月被逮捕的男子只被控侵入和共謀罪。",exp:{
+1:{"lids placed over an opening":"cover 在這裡是蓋子：manhole cover 就是人孔蓋。","bindings of books":"cover 也可以指書的封面，但人孔不是書。","cloths on a bed":"covers 也可以指床上的被單、被子，但這裡掀開的是街上的人孔。","new versions of old songs":"cover 也可以指翻唱的版本（a cover of an old song），與人孔無關。"},
+2:{"to see or notice":"spot 在這裡是看見、認出：before anyone can spot their faces 是在有人認出他們的臉之前。","to stain with marks":"spot 也可以指弄出汙點（spot a shirt），但臉不是被弄髒。","to hide on purpose":"意思相反：這裡是怕被別人看見。","to give a head start to":"spot 也有讓對手先得若干分的意思（spot someone ten points），與臉無關。"},
+3:{"pipes that carry liquid away":"drains 在這裡是排水管：金鍊、戒指可能被水沖進排水管。","things that use up money or energy":"drain 也可以指持續耗損資源的事物（a drain on resources），但戒指沒有被沖進這樣的東西。","tubes that remove liquid from a wound":"drain 也可以指傷口的引流管，屬於醫療用語。","wells that supply drinking water":"意思相反：drain 是把水排走，不是供水。"},
+4:{"to wash gravel in a dish to find gold":"pan for 是淘洗砂礫找金子，也就是淘金，和同一句後面的 miners 相合。","to criticize harshly":"pan 也可以指嚴厲批評（pan a movie），與找金子無關。","to turn a camera sideways":"pan 也可以指攝影機水平搖鏡，與找金子無關。","to put something in a pan":"pan 也可以指把東西放進平底鍋，與找金子無關。"},
+5:{"a crowd of people hurrying to a place to get rich":"gold rush 是淘金熱，指一大群人趕往某地想要發財。","a burst of speed":"rush 也可以指一陣急忙的活動或速度（the holiday rush），不是淘金熱的意思。","a sudden feeling of excitement":"rush 也可以指一陣興奮的感覺（a rush of adrenaline），與 gold rush 不同。","a plant that grows in wet ground":"rush 也可以指燈心草，是一種長在潮濕地方的草。"}}},
+19:{gloss:"magnetic field 磁場　compass 指南針　protein 蛋白質　robin 知更鳥　homing pigeon 信鴿　iron-rich 富含鐵的　rotate 旋轉　brain waves 腦波",zh:"許多鳥類似乎能感應到地球的磁場，並把它當作指南針來用。科學家目前還無法確切弄清楚這些鳥是怎麼做到的。2021 年，牛津大學與奧登堡大學的一個團隊報告，歐洲知更鳥眼睛裡的一種蛋白質，可能解釋了這項能力，但他們說這還不是決定性的證據。2026 年 5 月，另一個團隊報告，信鴿的肝臟裡可能有富含鐵的細胞，把磁場資訊傳遞給大腦。那人類呢？在 2019 年的一項研究中，當磁場繞著受試者旋轉時，他們的腦波改變了，雖然他們並沒有察覺任何變化。研究人員說，其他團隊還需要查證這項結果，而且沒有人知道大腦會用這種訊號來做什麼。",exp:{
+1:{"to sense or detect":"pick up 在這裡是感應到、偵測到：鳥類能感應到磁場。","to collect someone in a car":"pick up 也可以指開車去接人，與感應磁場無關。","to improve after a slow time":"pick up 也可以指情況好轉（business is picking up），但磁場不是會好轉的東西。","to learn without formal teaching":"pick up 也可以指不經正式教學就學會（pick up a language），與感應無關。"},
+2:{"to find the answer to":"work out 在這裡是想出、弄清楚：科學家還弄不清楚鳥類怎麼做到的。","to do exercise to stay fit":"work out 也可以指運動健身，與研究問題無關。","to end in a good way":"work out 也可以指結果順利（things worked out），但這裡的 exactly how 是要弄清楚的內容。","to add up to a total":"work out 也可以指總數算起來是（the bill works out to $50），但 how they do it 不是算出來的數字。"},
+3:{"to explain the reason for":"account for 在這裡是解釋原因：蛋白質可能解釋了這項能力。","to make up part of a total":"account for 也可以指占某個比例（accounts for 20 percent），但蛋白質並不是占這項能力的百分比。","to know where someone is":"account for 也可以指交代某人的下落（account for all the passengers），與能力無關。","to destroy or kill":"account for 也有消滅、擊敗的意思（accounted for three enemy planes），與能力無關。"},
+4:{"to send from one to another":"pass on 在這裡是傳遞：細胞把磁力資訊傳給大腦。","to refuse a chance":"pass on 也可以指放棄機會（pass on the offer），與傳遞資訊無關。","to die":"pass on 也可以委婉地指去世，與傳遞資訊無關。","to move past a car ahead":"超車的說法是 pass，不加 on；與傳遞資訊無關。"},
+5:{"to look into and make sure it is true":"check out 在這裡是查證：其他團隊需要查證這項結果是否為真。","to leave a hotel":"check out 也可以指退房，與查證結果無關。","to borrow a library book":"check out 也可以指借圖書館的書，與查證結果無關。","to pay for goods at a store":"check out 也可以指在商店結帳，與查證結果無關。"}}},
+20:{gloss:"peacekeeping 維和　observer 觀察員　truce 停戰、休戰　mission 任務　Security Council 安全理事會　shortfall 缺口　troops 部隊　personnel 人員",zh:"聯合國維和行動始於 1948 年，當時派出一小群觀察員去監督中東的一項停戰協議。有些任務持續很長的時間，也有些是比較新的。例如 2014 年 4 月，安理會在中非共和國設立了一項任務。然而，如今維和行動正在縮減。2026 年的一份報告發現，2025 年 12 月，全球有 78,633 人在和平行動中服務，比 2016 年少了 49%。原因之一是經費：2025 年 7 月，聯合國維和行動面臨約 20 億美元的缺口，10 月聯合國表示，將把部隊和警察的人數削減約四分之一。即使如此，聯合國仍主導了 2025 年運作的 58 項行動中的 18 項，人員約占全部的三分之二。",exp:{
+1:{"watch a movie":"動詞，和文中 watch a truce（監督停戰）的詞性相同。","the night watch":"名詞：夜間的守衛、警戒。","a gold watch":"名詞：手錶。","keep watch at night":"名詞：放哨、警戒（keep watch 是固定說法）。"},
+2:{"a long road":"形容詞，修飾名詞 road，和文中 a long time 的 long 詞性相同。","all night long":"副詞：整個晚上（long 放在後面）。","long for a rest":"動詞：渴望（long for）。","didn't stay long":"副詞：久（修飾動詞 stay）。"},
+3:{"cut the cake in half":"動詞，和文中 cut its troops（削減部隊）的詞性相同。","a cut in pay":"名詞：減少、削減。","a deep cut on her hand":"名詞：傷口。","a power cut":"名詞：停電。"},
+4:{"still live in Taipei":"副詞：仍然，和文中 still led 的 still 詞性相同。","a still lake":"形容詞：平靜不動的。","the still of the night":"名詞：寂靜。","tried to still her nerves":"動詞：使平靜下來。"}}},
+21:{gloss:"esports 電競　caster 電競賽評　prize pool 總獎金　viewer 觀眾　peak 最高峰（這裡指同時觀看人數的最高值）　tactics 戰術　in real time 即時地　on air 播出中　meme 迷因（網路梗圖）",zh:"《英雄聯盟》世界大賽是電競界最大的賽事之一。2025 年 11 月 9 日的決賽，T1 擊敗 KT Rolster，同時觀看人數最高時約有 670 萬人。今年有 19 支隊伍爭奪 500 萬美元的總獎金，決賽將於 11 月 14 日在布魯克林的巴克萊中心舉行。每場比賽背後都有賽評，也就是向觀眾說明場上情況的人。10 月 28 日發布的一集台灣 Podcast，訪問了一位名叫 ZOD 的賽評，他播報《英雄聯盟》比賽已經超過八年。節目主持人說，優秀的賽評必須了解遊戲的戰術、選手和隊伍，還要即時播報場上的動態。這一集的標題還說，播報一整天可能長達十二小時。主持人說，連笑話和時事梗都必須事先準備好。",exp:{
+1:{"to attract":"draw 在這裡是吸引：決賽吸引了約 670 萬名觀眾。","to make a picture with a pencil":"draw 也可以指畫圖，但決賽不是在畫畫。","to end a game with no winner":"draw 也可以指比賽打成平手，但這場比賽 T1 贏了。","to pull something toward you":"draw 也可以指拉（draw the curtains），但觀眾不是被拉過來。"},
+2:{"all the competitors in a contest":"field 在這裡指所有參賽者：這屆有 19 支隊伍參賽。","an open area of land":"field 也可以指田野，與比賽的參賽隊伍無關。","an area of study or work":"field 也可以指領域（the field of science），與參賽隊伍無關。","the ground where a sport is played":"field 也可以指球場，但這裡的 19 teams 是人，不是場地。"},
+3:{"reported on":"cover 在這裡是報導、播報：賽評播報比賽已超過八年。","put something over":"cover 也可以指蓋住，與播報比賽無關。","was enough to pay for":"cover 也可以指足以支付（cover the cost），與播報比賽無關。","traveled a distance":"cover 也可以指走過一段距離（cover ten miles），與播報比賽無關。"},
+4:{"to announce the action as it happens":"call 在這裡是現場播報場上動態，賽評的工作就是即時說明正在發生什麼。","to telephone someone":"call 也可以指打電話，但賽評不是在打電話。","to give someone a name":"call 也可以指稱呼、取名，與播報無關。","to order someone to come":"call 也可以指召喚，與播報無關。"},
+5:{"to last":"run 在這裡是持續：一天的播報可以長達十二小時。","to move faster than walking":"run 也可以指跑，但一天不會用跑的。","to manage a business":"run 也可以指經營（run a business），與時間長短無關。","to flow":"run 也可以指流動（the water runs），與時間長短無關。"}}},
+22:{gloss:"geoid 大地水準面　surveyor 測量人員　exaggerate 誇大　deepest dip 最深的凹陷　sea level 海平面　average 平均　mathematical 數學上的　leveling 水準測量　reading 測量讀數　first-order benchmark 一等水準點　Keelung 基隆　gap 差距",zh:"2011 年，歐洲太空總署公布了一張彩色的地球圖片，看起來像一顆凹凸不平的馬鈴薯。這張圖片是根據一顆衛星的資料製成，呈現的是大地水準面。類似的圖片至今仍在網路上流傳，許多貼文把它稱為這個星球的真實形狀。其實，大地水準面是海洋在沒有潮汐和洋流時會形成的表面，測量人員再把它延伸到陸地底下，作為量測高度的零點線。在這些圖片裡，凹凸被誇大了數千倍，因為實際上它們非常微小。最深的凹陷位在印度西南方約 1,200 公里處，那裡的海平面比全球平均低約 106 公尺。自從 1948 年發現它以來，科學家一直在爭論成因，2023 年的一項研究則指出，成因是地球深處又熱又輕的岩石。在台灣，高程是從基隆的平均海水面起算，但 GPS 測得的，則是相對於一個光滑的數學地球模型的高度。內政部曾在全島 2,065 個一等水準點取得 GPS 與水準測量的讀數，研究人員已用這些讀數建立模型，描述這兩種高度之間的差距。",exp:{
+1:{a:"the European Space Agency：是發表圖片的機構，貼文不會把機構稱為星球的形狀。",b:"the Earth：若 it 指地球，句子就變成「把地球稱為地球的真實形狀」，意思不通。",c:"a satellite：衛星是蒐集資料的工具，貼文稱為星球真實形狀的是圖片呈現的東西。",d:"the geoid：圖片呈現的是大地水準面，貼文把它稱為這個星球的真實形狀，所以 it 指 the geoid。"},
+2:{e:"the oceans：這句說的是圖片裡被誇大的凹凸，海洋本身不是微小的東西。",f:"surveyors：是人，不會被誇大，也不會說他們實際上很微小。",g:"the bumps：圖片裡的凹凸被誇大了數千倍，實際上很微小，所以 they 指 the bumps。",h:"the pictures：被誇大的是圖裡的凹凸，不是圖片本身；實際上很小的也不是圖片。"},
+3:{k:"The deepest dip：最深的凹陷是 1948 年被發現的，所以 its discovery 指它的發現。",i:"India：只是用來說明方位的地點，不是 1948 年被發現的東西。",l:"the sea level：海平面不是在 1948 年才被發現的。",j:"the global average：平均值是計算出來的，不是被發現的東西。"},
+4:{m:"heights：兩種高度是被拿來比較的對象，用來建立模型的是測量讀數。",n:"The Ministry of the Interior：是單數的機構，而且 them 是複數，指的是測量讀數而不是機構。",o:"the island：指台灣這座島，是單數，不能用 them 代替。",p:"GPS and leveling readings：研究人員用這些 GPS 和水準測量的讀數來建立模型，所以 them 指它們。"}}},
+/*ADD_END*/
+};
+const KKG={"inherited":"ɪnˈhɛrətɪd","condition":"kənˈdɪʃən","lawmaker":"ˈlɔˌmeɪkɚ","robotic":"roʊˈbɑtɪk","temple":"ˈtɛmpəl","digital":"ˈdɪʤɪtəl","copy":"ˈkɑpi","monument":"ˈmɑnjəmənt","craftsman":"ˈkræftsmən","gamble":"ˈgæmbəl","odds":"ɑdz","ripe":"raɪp","gleam":"glim","pale":"peɪl","hollow":"ˈhɑloʊ","thud":"θʌd","cassava":"kəˈsɑvə","invention":"ɪnˈvɛnʃən","rule":"rul","patented":"ˈpætəntɪd","protein":"ˈproʊˌtin","firefighter":"ˈfaɪɚˌfaɪtɚ","gear":"gɪr","procession":"prəˈsɛʃən","pilgrimage":"ˈpɪlgrəmɪʤ","goddess":"ˈgɑdɪs","fork":"fɔrk","crescent-shaped":"ˈkrɛsənt-ʃeɪpt","timetable":"ˈtaɪmˌteɪbəl","urinal":"ˈjɝənəl","etched":"ɛʧt","aim":"eɪm","spillage":"ˈspɪlɪʤ","estimate":"（動詞）ˈɛstəˌmeɪt　（名詞）ˈɛstəmɪt","knock":"nɑk","opaque":"oʊˈpeɪk","roundabout":"ˈraʊndəˌbaʊt","clockwise":"ˈklɑkˌwaɪz","gap":"gæp","counterclockwise":"ˌkaʊntɚˈklɑkˌwaɪz","junction":"ˈʤʌŋkʃən","panic":"ˈpænɪk","raid":"reɪd","watchman":"ˈwɑʧmən","bandit":"ˈbændɪt","lantern":"ˈlæntɚn","flame":"fleɪm","ban":"bæn","shipment":"ˈʃɪpmənt","specimen":"ˈspɛsəmən","fortune":"ˈfɔrʧən","sprout":"spraʊt","descendant":"dɪˈsɛndənt","plantation":"plænˈteɪʃən","internship":"ˈɪnˌtɝnˌʃɪp","hakka":"ˈhɑkˈkɑ","remedy":"ˈrɛmədi","peel":"pil","steam":"stim","compound":"ˈkɑmˌpaʊnd","mellow":"ˈmɛloʊ","freezer":"ˈfrizɚ","technician":"tɛkˈnɪʃən","apparently":"əˈpɛrəntli","defrost":"dɪˈfrɔst","vault":"vɔlt","paperless":"ˈpeɪpɚləs","tile":"ˈtaɪəl","restored":"rɪˈstɔrd","donation":"doʊˈneɪʃən","donor":"ˈdoʊnɚ","hit":"hɪt","manufacturer":"ˌmænjəˈfækʧərɚ","hands-on":"ˈhændz-ˈɔn","tour":"tʊr","label":"ˈleɪbəl","output":"ˈaʊtˌpʊt","visits":"ˈvɪzɪts","organizer":"ˈɔrgəˌnaɪzɚ","booking":"ˈbʊkɪŋ","entry":"ˈɛntri","mystery":"ˈmɪstəri","bookseller":"ˈbʊkˌsɛlɚ","wave":"weɪv","exceed":"ɪkˈsid","annual":"ˈænjuəl","manhole":"ˈmænˌhoʊl","sewer":"ˈsuɚ","sewage":"ˈsuɪʤ","sludge":"slʌʤ","copper":"ˈkɑpɚ","trespassing":"ˈtrɛsˌpæsɪŋ","conspiracy":"kənˈspɪrəsi","compass":"ˈkʌmpəs","robin":"ˈrɑbən","iron-rich":"ˈaɪɚn-rɪʧ","rotate":"ˈroʊˌteɪt","peacekeeping":"ˈpisˌkipɪŋ","observer":"əbˈzɝvɚ","truce":"trus","mission":"ˈmɪʃən","shortfall":"ˈʃɔrtˌfɔl","troops":"trups","personnel":"ˌpɝsəˈnɛl","esports":"ˈiˌspɔrts","caster":"ˈkæstɚ","viewer":"ˈvjuɚ","peak":"pik","tactics":"ˈtæktɪks","meme":"mim","geoid":"ˈʤiˌɔɪd","surveyor":"sɚˈveɪɚ","exaggerate":"ɪgˈzæʤəˌreɪt","average":"ˈævərɪʤ","mathematical":"ˌmæθəˈmætɪkəl","leveling":"ˈlɛvəlɪŋ","reading":"ˈridɪŋ"};
+function gItem(g){const m=g.match(/^([A-Za-z0-9'’\- ]+?)\s+(?=[^\x00-\x7f])/);if(!m)return `<span class="gi">${g}</span>`;const t=m[1],r=g.slice(m[0].length),k=(t.indexOf(' ')<0)&&KKG[t.toLowerCase()];return `<span class="gi"><b class="gt">${t}</b>${k?` <span class="kk">[${k}]</span>`:''}<button type="button" class="gsp" data-t="${t.replace(/"/g,'')}" aria-label="朗讀 ${t}">🔊</button> ${r}</span>`;}
+P.forEach((p,i)=>{const a=ADD[i+1];if(!a)return;if(a.zh)p.zh=a.zh;if(a.gloss)p.gloss=a.gloss;Object.keys(a.exp||{}).forEach(n=>{if(p.q[n])p.q[n].exp=a.exp[n];});});
+{const ORDER=[8,13,4,10,6,7,9,22,18,21,20,19,3,5,11,12,1,2,14,15,16,17];const P0=P.slice();P.length=0;ORDER.forEach(n=>P.push(P0[n-1]));}
+P.forEach(p=>Object.values(p.q).forEach(q=>{if(!q.opts)return;for(let i=q.opts.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[q.opts[i],q.opts[j]]=[q.opts[j],q.opts[i]];}}));
+function withMarker(t,n){ if(!n) return t; const i=t.indexOf('{'+n+'}'); if(i<0) return t; const m=t.slice(i).match(/[.!?]["')”’]?(?=\s+[A-Z0-9"“({<]|\s*$)/); const e=m? i+m.index+m[0].length : t.length; return t.slice(0,e)+'@@PANEL@@'+t.slice(e); }
+function fullText(p){return p.text.replace(/<<\w:([^>]+)>>/g,'$1').replace(/\{(\d)\}/g,(m,n)=>p.q[n].word||p.q[n].ans);}
+function sentOf(p,n){const raw=p.text.replace(/<<\w:([^>]+)>>/g,'$1');const i=raw.indexOf('{'+n+'}');if(i<0)return fullText(p);const re=/[.!?]["')”’]?(?=\s+[A-Z0-9"“({]|\s*$)/g;let s=0,m;while((m=re.exec(raw))&&m.index<i)s=m.index+m[0].length;const e=m?m.index+m[0].length:raw.length;return raw.slice(s,e).trim().replace(/\{(\d)\}/g,(x,k)=>p.q[k].word||p.q[k].ans);}
+const canSpeak=!!(window.speechSynthesis&&window.SpeechSynthesisUtterance);let enVoice=null,curKey=null,spkQ=[];
+function pickVoice(){const v=speechSynthesis.getVoices();enVoice=v.find(x=>/^en[-_]US/i.test(x.lang))||v.find(x=>/^en/i.test(x.lang))||null;document.documentElement.classList.toggle('nospk',v.length>0&&!enVoice);}
+if(!canSpeak)document.documentElement.classList.add('nospk');else{pickVoice();if(speechSynthesis.addEventListener)speechSynthesis.addEventListener('voiceschanged',pickVoice);else speechSynthesis.onvoiceschanged=pickVoice;addEventListener('pagehide',()=>speechSynthesis.cancel());}
+function stopSpeak(){curKey=null;spkQ=[];if(canSpeak)speechSynthesis.cancel();}
+function speak(t,key){if(!canSpeak)return;const s=speechSynthesis;const same=curKey===key&&(s.speaking||s.pending);stopSpeak();if(same)return;curKey=key;const parts=t.replace(/([.!?]["')”’]?)\s+(?=[A-Z0-9"“(])/g,'$1\n').split('\n').filter(x=>x.trim());spkQ=parts.map((x,i)=>{const u=new SpeechSynthesisUtterance(x);u.lang=enVoice?enVoice.lang:'en-US';if(enVoice)u.voice=enVoice;u.rate=0.9;if(i===0)u.onerror=e=>{if(curKey===key&&e.error!=='interrupted'&&e.error!=='canceled'){curKey=null;alert('這台裝置目前無法朗讀英文。');}};if(i===parts.length-1)u.onend=()=>{if(curKey===key){curKey=null;spkQ=[];}};return u;});spkQ.forEach(u=>s.speak(u));}
+const app = document.getElementById('app');
+P.forEach((p,pi)=>{
+  const card = document.createElement('section'); card.className='card';
+  const state = {done:{},open:null,wrong:{}};
+  const cm = {}; (p.text.match(/<<\w:[^>]+>>/g)||[]).forEach(s=>{const m=s.match(/<<(\w):([^>]+)>>/); cm[m[1]]=m[2];});
+  const total = Object.keys(p.q).length;
+  function render(){
+    let html = withMarker(p.text, state.open).replace(/\{(\d)\}/g,(m,n)=>{
+      const d = state.done[n];
+      if(p.kind==='swap'||p.kind==='ref'){
+        const w = p.q[n].word;
+        return `<button class="blank swap ${d?'done':''} ${state.open==n?'on':''}" data-n="${n}">${w}</button>` + (d?`<span class="arrow">${p.kind==='ref'?'→ '+cm[p.q[n].ans]:(p.q[n].rel==='ant'?'↔':(p.q[n].rel==='func'?'→':(p.q[n].rel==='pos'?'≈':'=')))+' '+p.q[n].ans+(p.q[n].pn?'（'+p.q[n].pn+'）':'')}</span>`:'');
+      }
+      return `<button class="blank ${d?'done':''} ${state.open==n?'on':''}" data-n="${n}">${d?p.q[n].ans:'('+n+')'}</button>`;
+    });
+    html = html.replace(/<<(\w):([^>]+)>>/g,(m,id,t)=>{
+      const o=state.open, oq=o&&p.q[o];
+      if(oq && oq.cands && oq.cands.includes(id)){
+        const w=(state.wrong[o]||[]).includes(id), r=state.done[o]&&id===oq.ans;
+        return `<span role="button" tabindex="0" class="cand ${w?'wrong':''} ${r?'right':''} ${(w||state.done[o])?'dis':''}" data-c="${id}">${t}</span>`;
+      }
+      const hit=Object.keys(state.done).some(k=>p.q[k].ans===id);
+      return hit?`<span class="refans">${t}</span>`:t;
+    });
+    let panel='';
+    const n = state.open;
+    if(n){
+      const q = p.q[n];
+      const done = state.done[n];
+      const hintText = (p.kind==='swap'||p.kind==='ref') ? `第 ${n} 題：${({syn:`找出 <b>${q.word}</b> 的同義字`,ant:`找出 <b>${q.word}</b> 的反義字`,ell:`選出 <b>${q.word}</b> 的完整說法`,func:`選出作者用 <b>${q.word}</b> 做什麼`,mean:`選出 <b>${q.word}</b> 在這裡的意思`,tr:`選出和 <b>${q.word}</b> 功能相同的轉折語`,ref:`點一下文中 <b>${q.word}</b> 指的是什麼（虛線的字句就是選項）`,pos:`選出詞性和 <b>${q.word}</b> 在這裡相同的用法`})[q.rel]}` : `第 ${n} 題：選出最適合填入空格的字`;
+      panel = `<div class="panel"><div class="hint">${hintText}</div><button class="spk sent" aria-label="朗讀這句">🔊 聽這句</button><div class="opts">` +
+        (q.opts||[]).map(o=>{
+          const w = (state.wrong[n]||[]).includes(o);
+          const r = done && o===q.ans;
+          return `<button class="opt ${w?'wrong':''} ${r?'right':''}" data-o="${o}" ${(w||done)?'disabled':''}>${o}</button>`;
+        }).join('') + `</div>`;
+      if(done){const ex=q.exp?(q.opts||q.cands).map(o=>q.exp[o]).filter(Boolean):[]; panel += `<div class="msg" style="color:var(--ok)">答對了！</div>` + (ex.length?`<div class="exp">${ex.map(x=>`<div>${x}</div>`).join('')}</div>`:'');}
+      
+      else if((state.wrong[n]||[]).length){
+        panel += `<div class="msg" style="color:var(--bad)">不對，再試一次。</div>`;
+        
+      }
+      if(done || (state.wrong[n]||[]).length){
+        const nextN = done && Object.keys(p.q).find(k=>!state.done[k]);
+        panel += `<div class="acts"><button class="act redo1">重做這題</button>` + (nextN?`<button class="act next">下一題 ▶</button>`:'') + `</div>`;
+      }
+      panel += `</div>`;
+    }
+    const cnt = Object.keys(state.done).length;
+    card.innerHTML = `<h2>${p.title}<button class="spk full" aria-label="朗讀全文">🔊 朗讀</button></h2><div class="tag">${p.tag}</div><div class="text">${html.replace('@@PANEL@@',()=>panel)}</div><div class="gloss"><b>📘 單字註解</b> ${p.gloss.split('　').map(gItem).join('')}</div>${p.zh?((p.kind||cnt===total)?`<details class="zh"${state.zh?' open':''}><summary>📖 顯示完整中譯</summary>${p.zh}</details>`:`<div class="zh lock">🔒 完整中譯：全部答完後可以看</div>`):''}${p.src?`<div class="src">${p.src}</div>`:''}<div class="score"><span>完成 ${cnt} / ${total}${cnt===total?'　全部完成！':''}</span><button class="reset ${state.confirm?'warn':''}">${state.confirm?'再按一次，確定重做整篇':'重做整篇'}</button></div>`;
+    card.querySelectorAll('.blank').forEach(b=>b.onclick=()=>{state.open=b.dataset.n;state.confirm=false;render();});
+    card.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{
+      const o=b.dataset.o; state.confirm=false;
+      if(o===p.q[n].ans){state.done[n]=true;} else {(state.wrong[n]=state.wrong[n]||[]).push(o);}
+      render();
+    });
+    card.querySelectorAll('.cand').forEach(b=>b.onclick=()=>{
+      if(b.classList.contains('dis')) return;
+      const c=b.dataset.c; state.confirm=false;
+      if(c===p.q[n].ans){state.done[n]=true;} else {(state.wrong[n]=state.wrong[n]||[]).push(c);}
+      render();
+    });
+    card.querySelectorAll('.spk').forEach(b=>{b.type='button';b.onclick=()=>{const sent=b.classList.contains('sent');speak(sent?sentOf(p,state.open):fullText(p),sent?pi+'-'+state.open:pi+'-all');};});
+    card.querySelectorAll('.gsp').forEach(b=>{b.onclick=()=>speak(b.dataset.t,'g-'+pi+'-'+b.dataset.t);});
+    const r1=card.querySelector('.redo1'); if(r1) r1.onclick=()=>{state.confirm=false; delete state.done[n]; state.wrong[n]=[]; const qo=p.q[n].opts; if(qo){for(let i=qo.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[qo[i],qo[j]]=[qo[j],qo[i]];}} render();};
+    const nx=card.querySelector('.next'); if(nx) nx.onclick=()=>{state.open=Object.keys(p.q).find(k=>!state.done[k]); render();};
+    const dz=card.querySelector('details.zh'); if(dz) dz.ontoggle=()=>{state.zh=dz.open;};
+    if(state.open){const pe=card.querySelector('.panel'); if(pe) pe.scrollIntoView({block:'nearest',behavior:'smooth'});}
+    card.querySelector('.reset').onclick=()=>{ if(!state.confirm && cnt>0){state.confirm=true;state.confirmAt=Date.now();render();return;} if(state.confirm&&Date.now()-state.confirmAt<600)return; stopSpeak();state.done={};state.open=null;state.wrong={};state.confirm=false;render();};
+  }
+  render(); app.appendChild(card);
+});
+</script>
+</body>
+</html>
