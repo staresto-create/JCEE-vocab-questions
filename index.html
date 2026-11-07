@@ -4,6 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>高中英文題庫入口 · 學測／指考</title>
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<meta name="apple-mobile-web-app-title" content="英文題庫">
+<meta name="application-name" content="英文題庫">
+<meta name="theme-color" content="#F6F1E4" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1B1916" media="(prefers-color-scheme: dark)">
 <!--OG-S-->
 <meta name="description" content="十個題庫、3,713 題學測與指考歷屆考古題。克漏字、篇章結構、文意選填、混合題 33 格與閱讀測驗 959 題全部附解析，閱讀測驗每篇另附逐段中譯與主旨句，多數題目收錄大考中心公布的官方答對率。免費、免註冊，點進去就可以開始練習。">
 <meta property="og:type" content="website">
@@ -437,6 +443,46 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
 <script src="progress.js"></script>
 <script src="resume.js" defer></script>
 <script src="start.js" defer></script>
+<style id="hs-card-css">
+/* 加到手機主畫面說明卡 */
+.hs-card{margin:12px 0;
+  --hs-card:#fffdf8;--hs-ink:#1f1b16;--hs-sub:#5b534a;--hs-red:#b03a2e;--hs-gold:#b08d3c;--hs-line:#e3d7bf;--hs-on-red:#fff;
+  background:var(--hs-card);color:var(--hs-ink);border:1.5px solid var(--hs-gold);border-radius:14px;overflow:hidden;line-height:1.7;text-align:left
+}
+@media (prefers-color-scheme:dark){
+  .hs-card{--hs-card:#26211b;--hs-ink:#f3ebdd;--hs-sub:#bfb4a2;--hs-red:#e0705f;--hs-gold:#d2ad5a;--hs-line:#3d352b;--hs-on-red:#1c1814}
+}
+.hs-card summary{display:block;list-style:none;cursor:pointer;padding:14px 16px;min-height:58px}
+.hs-card summary::-webkit-details-marker{display:none}
+.hs-card .hs-sum{display:flex;align-items:center;gap:12px}
+.hs-card .hs-ic{flex:none;color:var(--hs-red)}
+.hs-card .hs-nw{white-space:nowrap}
+.hs-card .hs-title{font-family:"Noto Serif TC","PingFang TC","Microsoft JhengHei",serif;font-weight:900;font-size:16px;line-height:1.4}
+@media (max-width:380px){.hs-card summary{padding:14px 12px}.hs-card .hs-sum{gap:8px}.hs-card .hs-ic{width:26px;height:26px}}
+.hs-card .hs-body{padding:2px 16px 16px;border-top:1px dashed var(--hs-line)}
+.hs-card .hs-why{margin:12px 0 4px;font-size:15px}
+.hs-card .hs-tabs{display:none;gap:8px;margin:12px 0 10px}
+.hs-card.hs-js .hs-tabs{display:flex}
+.hs-card .hs-tab{flex:1;min-height:48px;text-align:center;padding:6px;border:1.5px solid var(--hs-gold);border-radius:10px;font-weight:700;font-size:15px;line-height:1.3;cursor:pointer;background:transparent;color:var(--hs-ink);font-family:inherit}
+.hs-card .hs-tab small{display:block;font-weight:500;font-size:12px}
+.hs-card .hs-tab[aria-pressed="true"]{background:var(--hs-red);border-color:var(--hs-red);color:var(--hs-on-red)}
+.hs-card .hs-os{margin:14px 0 2px;font-weight:700;font-size:14px;color:var(--hs-red)}
+.hs-card.hs-js .hs-os{display:none}
+.hs-card ol{margin:0;padding:0;list-style:none;counter-reset:hs-item}
+.hs-card ol li{display:flex;gap:12px;padding:9px 0;font-size:15px;counter-increment:hs-item}
+.hs-card ol li::before{content:counter(hs-item);flex:none;width:26px;height:26px;border-radius:50%;background:var(--hs-red);color:var(--hs-on-red);font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.hs-card b{font-weight:700}
+.hs-card .hs-chip{display:inline-block;border:1px solid var(--hs-gold);border-radius:6px;padding:0 6px;font-size:13px;background:rgba(176,141,60,.12);white-space:nowrap}
+.hs-card .hs-warn{margin-top:8px;padding:10px 12px;border-left:4px solid var(--hs-red);border-radius:0 6px 6px 0;background:rgba(176,141,60,.18);font-size:14px}
+.hs-card .hs-ok{margin-top:8px;font-size:14px;color:var(--hs-sub)}
+.hs-card .hs-result{margin-top:12px;padding:12px;border-radius:10px;background:transparent;border:1px dashed var(--hs-line);font-size:14px;color:var(--hs-sub);display:flex;align-items:center;gap:12px}
+.hs-card .hs-inapp{margin:8px 0 0;font-size:14px;color:var(--hs-sub)}
+.hs-card .hs-pc{display:none;margin:8px 0 0;font-size:14px;color:var(--hs-sub)}
+@media (hover:hover) and (pointer:fine){.hs-card .hs-pc{display:block}}
+.hs-card [hidden]{display:none}
+.hs-card summary:focus-visible{outline:2px solid var(--hs-red);outline-offset:-4px;border-radius:12px}
+@media print{.hs-card{display:none !important}}
+</style>
 </head>
 <body>
 <div class="wrap">
@@ -468,6 +514,70 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
     document.getElementById('admitBox').addEventListener('submit',function(ev){ev.preventDefault();var v=document.getElementById('asq').value.trim();location.href='apply-english/'+(v?'?q='+encodeURIComponent(v):'')+'#h-find';});
     </script>
     <div data-start-here data-open="1" id="start-here"></div>
+    <details class="hs-card" id="hs-card">
+      <summary><span class="hs-sum">
+        <svg class="hs-ic" width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><rect x="7" y="2" width="16" height="26" rx="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="15" cy="23.5" r="1.4" fill="currentColor"/><path d="M15 8v8m-3-3 3 3 3-3" stroke="#b08d3c" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="hs-title">加到主畫面，<span class="hs-nw">一點就能進站</span></span>
+      </span></summary>
+      <div class="hs-body">
+        <p class="hs-why">只要設定一次，之後就能像 App 一樣從主畫面的圖示開啟本站，不必每次重新找網址。</p>
+        <p class="hs-inapp">如果你是從 Threads、LINE、Instagram 等 App 裡點連結進來的，練習進度會另外存，和 Safari、Chrome 裡的不相通。請先改用瀏覽器開啟本站（iPhone 用 Safari，Android 用 Chrome），再照下面的步驟做。</p>
+        <div class="hs-tabs">
+          <button type="button" class="hs-tab" data-t="ios" aria-controls="hs-ios" aria-pressed="true">iPhone<small>Safari</small></button>
+          <button type="button" class="hs-tab" data-t="and" aria-controls="hs-and" aria-pressed="false">Android<small>Chrome</small></button>
+        </div>
+    
+        <div id="hs-ios">
+          <p class="hs-os">iPhone（Safari）</p>
+          <ol role="list">
+            <li><span>用 <b>Safari</b> 開啟本站首頁（其他瀏覽器的步驟不一樣）</span></li>
+            <li><span>點網址列旁的 <b>⋯</b>，再點 <b>分享</b> <span class="hs-chip" aria-label="分享圖示">□↑</span>（如果畫面下方直接有分享按鈕，就點它）</span></li>
+            <li><span>往下滑，點 <b>加入主畫面</b>（找不到的話，滑到最下面點「編輯動作」，把它加進來）</span></li>
+            <li><span>畫面中間有 <b>打開為網頁 App</b> 的開關，預設是開啟的，請先把它<b>關閉</b>，再點右上角的 <b>加入</b></span></li>
+          </ol>
+          <div class="hs-warn">iPhone 的「網頁 App」會另外存資料，你在 Safari 裡累積的練習進度與錯題本不會消失，但也不會出現在裡面。關閉那個開關，圖示就會改用 Safari 開啟本站，進度才會接得上。</div>
+        </div>
+    
+        <div id="hs-and">
+          <p class="hs-os">Android（Chrome）</p>
+          <ol role="list">
+            <li><span>用 <b>Chrome</b> 開啟本站首頁</span></li>
+            <li><span>點網址列右側的 <b>⋮</b>（更多）</span></li>
+            <li><span>點 <b>安裝並建立捷徑</b>（舊版 Chrome 顯示為 <b>加到主畫面</b>）</span></li>
+            <li><span>如果出現兩個選項，點 <b>建立捷徑</b>，再依畫面確認，主畫面就會出現本站圖示</span></li>
+          </ol>
+          <div class="hs-ok">選「建立捷徑」的話，圖示會用 Chrome 開啟本站，原本的練習進度與錯題本會繼續保留。</div>
+        </div>
+    
+        <div class="hs-result">
+          <img src="apple-touch-icon.png" width="34" height="34" alt="" style="border-radius:8px;flex:none">
+          <span>完成後，主畫面會出現這樣的圖示，點一下就能直接進站。</span>
+        </div>
+        <p class="hs-pc">用電腦的話，直接把本站加入書籤就可以；這張卡是給手機用的。</p>
+      </div>
+    </details>
+    <script>
+    (function(){
+      var card = document.getElementById('hs-card');
+      if(!card) return;
+      var btns = card.querySelectorAll('.hs-tab');
+      var ios = document.getElementById('hs-ios');
+      var and = document.getElementById('hs-and');
+      if(!btns.length || !ios || !and) return;
+      card.classList.add('hs-js');
+      function show(k){
+        for(var i=0;i<btns.length;i++){
+          btns[i].setAttribute('aria-pressed', btns[i].getAttribute('data-t')===k ? 'true' : 'false');
+        }
+        ios.hidden = (k!=='ios');
+        and.hidden = (k!=='and');
+      }
+      for(var i=0;i<btns.length;i++){
+        btns[i].addEventListener('click', function(){ show(this.getAttribute('data-t')); });
+      }
+      show(/android/i.test(navigator.userAgent) ? 'and' : 'ios');
+    })();
+    </script>
     <div class="countdown" id="countdownBox">
       <div class="cd-tabs" id="cdTabs" role="group" aria-label="選擇學測屆別">
         <button type="button" class="cd-tab" data-y="116" aria-pressed="true">116 學測</button>
