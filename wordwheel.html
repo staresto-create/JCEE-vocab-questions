@@ -226,16 +226,16 @@ function draw(){
   hub.innerHTML = d.k + '<span>' + d.zh + '</span>';
   note.textContent = d.note;
 
-  const n = d.items.length, R = 128, S = 340, c = S/2, NR = n > 12 ? 28 : 34, FS = n > 12 ? 10 : 11;
+  const n = d.items.length, R0 = 128, S = 340, c = S/2, NR = n > 12 ? 29 : 34, FS = n > 12 ? 9.5 : 11, rOf = i => n > 12 ? ((n%2 && i===n-1) ? 114 : (i%2 ? 90 : 138)) : R0;
   let s = `<svg viewBox="0 0 ${S} ${S}" role="img" aria-label="${d.k} 的單字輪">`;
   d.items.forEach((it,i)=>{
     const a = -Math.PI/2 + i*2*Math.PI/n;
-    const x = c + R*Math.cos(a), y = c + R*Math.sin(a);
+    const R = rOf(i), x = c + R*Math.cos(a), y = c + R*Math.sin(a);
     s += `<line class="spoke" x1="${c+46*Math.cos(a)}" y1="${c+46*Math.sin(a)}" x2="${x}" y2="${y}"/>`;
   });
   d.items.forEach((it,i)=>{
     const a = -Math.PI/2 + i*2*Math.PI/n;
-    const x = c + R*Math.cos(a), y = c + R*Math.sin(a);
+    const R = rOf(i), x = c + R*Math.cos(a), y = c + R*Math.sin(a);
     const exam = inR(it);
     const short = it.w.length > 9 ? it.w.slice(0,8)+'…' : it.w;
     s += `<g class="node ${exam?'exam':''} ${sel===i?'on':''}" data-i="${i}" tabindex="0" role="button" aria-label="${it.w}">`

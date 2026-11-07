@@ -111,6 +111,7 @@
     flex-wrap:wrap;
     gap:8px;
   }
+  @media (max-width:600px){.year-grid .year-chip{padding:11px 13px;}}
   .year-chip{
     padding:7px 13px;
     border:1px solid var(--ad-vrule-border);
@@ -552,10 +553,12 @@ details.skill[open] > summary::after{content:'－ 收合';}
 .unitbar .cur{background:rgba(128,128,128,.2);}
 @media print{.unitbar, .toBar{display:none!important;}}
 /* 開始練習按鈕固定在畫面下緣（2026-10-25）：選年度、選場次時不必滑到最底；下方留空間給右下角「↑ 單元列」。 */
-#startBtn,.startRow{position:sticky; bottom:60px; z-index:25;}
-.startRow #startBtn{position:static;}
+#startBtn,.startRow{position:static;}
+/* 一進頁面時按鈕不浮在畫面底部，免得蓋住「選擇練習範圍」卡片的開頭；往下捲一點之後才固定在底部 */
+body.pin-start #startBtn,body.pin-start .startRow{position:sticky; bottom:60px; z-index:25;}
+.startRow #startBtn,body.pin-start .startRow #startBtn{position:static;}
 #startBtn{box-shadow:0 6px 18px rgba(0,0,0,.28);}
-@media print{#startBtn,.startRow{position:static;}}
+@media print{#startBtn,.startRow,body.pin-start #startBtn,body.pin-start .startRow{position:static !important;}}
 /* fold-cue 2026-10-25：全站可展開的區塊統一提示。標題右側一律是「＋ 展開」，展開後變「－ 收合」；舊的箭頭與各式提示字樣一併取代。 */
 details:not(.sh) > summary{list-style:none; cursor:pointer; position:relative; padding-right:92px !important;}
 details:not(.sh) > summary::-webkit-details-marker{display:none;}
@@ -775,15 +778,15 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
     </div>
     <div class="card" id="u-posts">
       <h2>📝 想看老師怎麼評中譯英</h2>
-      <div class="sk-intro">蘇正隆教授在臉書公開的學測、指考試題簡評與英文用法貼文，以及奚永慧老師的中翻英貼文，這裡只整理連結，內容請到原貼文閱讀。</div>
+      <div class="sk-intro">蘇正隆教授在臉書公開的學測、指考試題簡評與英文用法貼文，以及奚永慧老師的中譯英貼文，這裡只整理連結，內容請到原貼文閱讀。</div>
       <ul style="margin:8px 0 0;padding-left:1.2em;line-height:1.9;font-size:14px;">
-        <li><a href="posts.html">蘇正隆教授的試題簡評、中譯英與英文用法貼文，以及奚老師的中翻英 →</a></li>
+        <li><a href="posts.html">蘇正隆教授的試題簡評、中譯英與英文用法貼文，以及奚老師的中譯英 →</a></li>
         <li><a href="https://staresto-create.github.io/essay-prompts/posts.html">奚永慧老師的作文貼文索引（作文站）→</a></li>
       </ul>
     </div>
     <div class="card" id="u-video">
-      <h2>▶ 想先聽老師講中翻英</h2>
-      <div class="sk-intro">余綺芳教授在 YouTube 公開的影片，依影片原標題列出，點了會到 YouTube 觀看。上面 21 支直接講中翻英，下面 12 支講句型與文法，寫中翻英的時候用得到。</div>
+      <h2>▶ 想先聽老師講中譯英</h2>
+      <div class="sk-intro">余綺芳教授在 YouTube 公開的影片，依影片原標題列出，點了會到 YouTube 觀看。上面 21 支直接講中譯英，下面 12 支講句型與文法，寫中譯英的時候用得到。</div>
       <ul style="margin:8px 0 0;padding-left:1.2em;line-height:1.9;font-size:14px;">
         <li><a href="https://www.youtube.com/watch?v=uhJw-dm3pf8" target="_blank" rel="noopener">大學學測中翻英試題分析 ↗</a></li>
         <li><a href="https://www.youtube.com/watch?v=KaE4RIp5ZlU" target="_blank" rel="noopener">大學學測中翻英句型介紹  （1） ↗</a></li>
@@ -911,7 +914,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
       <div id="reviewCount" style="font-size:13px;color:var(--ad-vmuted-fg);"></div>
     </div>
     <div class="printBar noPrint"><button type="button" class="printBtn" onclick="printWrong()">🖨️ 列印錯題考卷</button><span class="printSub" id="printSubWrong">把錯題本裡的中文題目印成考卷，每題下面留書寫橫線，不含參考譯法和你上次的答案</span><div class="printMobile">手機上按鈕沒有反應時，也可以：iPhone 點「分享」（沒看到就先點「⋯」）→往下滑點「列印」；<span style="white-space:nowrap">Android（Chrome）</span>點「⋮」→「分享」→「列印」。</div></div>
-    <div class="home-desc" style="font-size:12.5px;line-height:1.8;margin:0 0 12px;opacity:.85;">錯題本只存在這台裝置的這個瀏覽器裡，換手機或電腦、清除瀏覽紀錄都會不見。在紙上重做之後，網站不會知道結果；要回到練習畫面把這一題再做一次，按「我答對了 / 差不多」，才會從錯題本移除。</div>
+    <div class="home-desc" style="font-size:12.5px;line-height:1.8;margin:0 0 12px;opacity:.85;">錯題本只存在這台裝置的這個瀏覽器裡，換手機或電腦、清除瀏覽紀錄都會不見。在紙上重做之後，本題庫不會知道結果；要回到練習畫面把這一題再做一次，按「我答對了 / 差不多」，才會從錯題本移除。</div>
     <div id="reviewList"></div>
     <div class="clear-link" id="clearWrongLink">清空錯題本</div>
   </section>
@@ -1174,6 +1177,7 @@ function getMode(){
   return active ? active.dataset.mode : "order";
 }
 
+(function(){var tick=false;function upd(){tick=false;document.body.classList.toggle("pin-start",window.scrollY>200);}window.addEventListener("scroll",function(){if(!tick){tick=true;requestAnimationFrame(upd);}},{passive:true});upd();})();
 document.getElementById("startBtn").addEventListener("click", ()=>{
   const selectedYears = [...document.querySelectorAll("#yearGrid .year-chip.selected")]
       .map(c => c.dataset.year === ADAPT ? ADAPT : Number(c.dataset.year));
@@ -1273,6 +1277,14 @@ function printWrong(){
 }
 function printSet(){ buildPrintSheet(); safePrint(); }
 
+/* 用瀏覽器選單列印時，也要印出目前這一題起的考卷（不只按頁內「列印成考卷」才更新） */
+window.addEventListener('beforeprint',function(){
+  var v=document.querySelector('section.view.active'); if(!v) return;
+  var n=v.id.replace('view-','');
+  if(n==='quiz') buildPrintSheet();
+  else if(n==='review') buildWrongSheet();
+  else if(n==='finish' && queue.length && queue.length<=30) buildPrintSheet();
+});
 function showView(name){
   document.querySelectorAll("section.view").forEach(s=>s.classList.remove("active"));
   document.getElementById("view-"+name).classList.add("active");

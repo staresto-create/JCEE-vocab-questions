@@ -2,7 +2,7 @@
    學生自己寫一個願望、選今天要種什麼、自己定要完成幾顆；做完就可以去兌現。
    只用 localStorage，資料只留在這台裝置的這個瀏覽器，不用登入、不上傳。
    讀不到或寫不進去（無痕視窗、瀏覽器擋掉儲存）時，仍可在這次開啟的頁面中使用，只是重新整理後不會保留。
-   不做連續天數、排行榜、徽章、稀有度；沒做也不扣什麼。站上無法確認學生是否專心，一顆算不算由學生自己決定。
+   不做連續天數、排行榜、徽章、稀有度；沒做也不扣什麼。本題庫無法確認學生是否專心，一顆算不算由學生自己決定。
    計時用「結束時間」與現在時間相減，手機螢幕鎖定或切換分頁再回來，時間也不會算錯。
    儲存格式：鍵 scFocusV1 → {v,wish,goal,len,done,phase,endsAt,plant,grown}；鍵 scFocusSound（'0' 為關）、scFocusOpen（'1' 為展開）
    phase：idle（還沒開始）、work（專心中）、workDone（時間到，等學生確認）、break（休息中）、achieved（目標完成）
@@ -467,7 +467,7 @@
         if (phase === 'idle' || breakOver()) {
           var idleNote = null, goBtn = null, previewHost = null;
           var refreshIdle = function () {
-            if (idleNote) idleNote.textContent = '番茄鐘是一種幫助專心的讀書方法：專心做一段時間算一顆，每顆之間休息 ' + shortBreak(st.len) + ' 分鐘；每做完 4 顆，休息拉長到 ' + longBreak(st.len) + ' 分鐘' + (st.len === 50 ? '（原始的番茄鐘一顆是 25 分鐘，50 分鐘是加長版）' : '') + '。專心的時候，可以在網站上做題目，也可以把題目印出來寫。';
+            if (idleNote) idleNote.textContent = '番茄鐘是一種幫助專心的讀書方法：專心做一段時間算一顆，每顆之間休息 ' + shortBreak(st.len) + ' 分鐘；每做完 4 顆，休息拉長到 ' + longBreak(st.len) + ' 分鐘' + (st.len === 50 ? '（原始的番茄鐘一顆是 25 分鐘，50 分鐘是加長版）' : '') + '。專心的時候，可以在本題庫做題目，也可以把題目印出來寫。';
             if (goBtn) { goBtn.textContent = '開始第 ' + (st.done + 1) + ' 顆'; if (!idleNote) goBtn.appendChild(el('span', 'scf-nw', '（' + st.len + ' 分鐘）')); } /* 設定畫面上方就有「一顆多久」，不必再寫一次 */
           };
           if (!breakOver() && st.done === 0) {
@@ -593,7 +593,7 @@
           startTick();
         } else if (phase === 'workDone') {
           body.appendChild(dots());
-          body.appendChild(el('p', null, '站上無法確認你是否專心，這一顆算不算，由你自己決定。'));
+          body.appendChild(el('p', null, '本題庫無法確認你是否專心，這一顆算不算，由你自己決定。'));
           var b2 = el('div', 'scf-btns');
           b2.appendChild(btn('記下這一顆', 'scf-go', function () {
             popIdx = st.done;
