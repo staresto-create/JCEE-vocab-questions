@@ -57,6 +57,40 @@
     return String(g == null ? '' : g).replace(/[A-Za-z][A-Za-z' -]*（(名詞|動詞|形容詞|副詞)）/g, function (m, p) { return T[p] + ' '; }).replace(/\s+/g, ' ').trim();
   }
 
+  /* 大考中心詞彙表的字沒有自己的中文欄，中文取自單字總表用的字表（wordlevel-data.js，約 0.9 MB，用到才載入）。
+   * 回傳 Promise，內容是一個函式：給它一個詞條（可能是 arrange(ment)、waiter/waitress 這種合併寫法），
+   * 回傳 [{w, d}]，每個寫法各一筆；查不到中文的寫法不放。載入失敗時回傳 null。 */
+  function zhLoader(base) {
+    return new Promise(function (ok) {
+      function make() {
+        var Z = Object.assign({}, window.WL.zc || {}, window.WL.z || {});
+        function has(k) { return Object.prototype.hasOwnProperty.call(Z, k); }
+        return function (head) {
+          var cands = [];
+          String(head).split('/').forEach(function (part) {
+            var m = /^(.+?)\((.+)\)$/.exec(part.trim());
+            if (m) cands.push(m[1], m[1] + m[2], m[2]); else cands.push(part.trim());
+          });
+          var out = [], seen = {};
+          cands.forEach(function (w) {
+            var k = w.toLowerCase().replace(/[’‘]/g, "'");
+            if (!w || seen[k] || !has(k)) return;
+            seen[k] = 1;
+            var z = Z[k];
+            out.push({ w: w, d: (z[0] ? z[0] + ' ' : '') + z[1] });
+          });
+          return out;
+        };
+      }
+      if (window.WL && window.WL.zc) { ok(make()); return; }
+      var s = document.createElement('script');
+      s.src = (base || '') + 'wordlevel-data.js';
+      s.onload = function () { ok(window.WL ? make() : null); };
+      s.onerror = function () { ok(null); };
+      document.head.appendChild(s);
+    });
+  }
+
   function kkPref() { try { return localStorage.getItem('ve_kk') !== '0'; } catch (e) { return true; } }
   function setKkPref(on) { try { localStorage.setItem('ve_kk', on ? '1' : '0'); } catch (e) {} }
 
@@ -160,5 +194,5 @@
   }
 
   addCss();
-  window.VE = { bar: bar, mount: mount, line: line, plain: plain, pol: pol, kkText: kkText, kkPref: kkPref, setKkPref: setKkPref };
+  window.VE = { bar: bar, mount: mount, line: line, plain: plain, pol: pol, zhLoader: zhLoader, kkText: kkText, kkPref: kkPref, setKkPref: setKkPref };
 })();

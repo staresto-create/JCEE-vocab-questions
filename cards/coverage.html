@@ -167,6 +167,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
     <input type="search" id="q" placeholder="搜尋單字，例如 abrupt" aria-label="搜尋單字">
   </div>
   <p class="count" id="count" aria-live="polite"></p>
+  <div id="veBox"></div>
   <div id="body"><p class="empty">載入清單中…</p></div>
 
   <footer class="foot" id="foot">
@@ -177,6 +178,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
 
 <script src="../speaker.js"></script>
 <script src="../kk.js"></script>
+<script src="../vocab-export.js"></script>
 <script>
 (function(){
 'use strict';
@@ -185,6 +187,7 @@ var ST=['出現過原形','只出現過其他字形','未出現過'];
 var PAGE=400;                       // 一次畫出的字數，其餘按「再顯示」
 var D=null, state={lv:0, st:-1, q:'', o:0}, limit=PAGE;
 
+var LAST=null;
 function fmt(n){return n.toLocaleString('en-US');}
 function pct(a,b){return (Math.round(1000*a/b)/10).toFixed(1)+'%';}
 
@@ -275,6 +278,7 @@ function render(){
     // 依出現過的次數：次數多的在前，次數一樣的照原本的級別、字母順序
     rows=rows.map(function(r,i){return [r,i];}).sort(function(a,b){return (nq(b[0])-nq(a[0]))||(a[1]-b[1]);}).map(function(x){return x[0];});
   }
+  LAST=rows;
   var cnt='符合的詞條 '+fmt(rows.length)+' 個'+(state.o?'，依出現過的次數排列':'');
   if(!state.lv&&state.st<0&&!q)cnt='第二到第六級共 '+fmt(rows.length)+' 個詞條，'+(state.o?'依出現過的次數排列，次數一樣的依級別再依字母':'依級別再依字母排列');
   $('#count').textContent=cnt;
@@ -327,6 +331,10 @@ function render(){
 
 KK.ready.then(function(){return fetch('coverage_data.json');}).then(function(r){if(!r.ok)throw new Error(r.status);return r.json();}).then(function(d){
   D=d;
+  if(window.VE)VE.zhLoader('../').then(function(zf){
+    if(!zf)return;
+    VE.mount($('#veBox'),function(){var o=[];(LAST||[]).forEach(function(r){zf(r[0]).forEach(function(x){o.push(x);});});return o;},{scope:'畫面上目前符合條件的全部詞條（用上面的篩選或搜尋縮小範圍後，只匯出留下來的）',file:'coverage'});
+  });
   var g=d.scope.gsat, z=d.scope.zhikao;
   $('#scopeText').textContent='範圍是兩個單字題庫：學測 '+g[0]+' 到 '+g[1]+' 年共 '+g[2]+' 題，指考（含早年的聯考）'+z[0]+' 到 '+z[1]+' 年共 '+z[2]+' 題。只要這個字出現在四個選項裡，不論是答案還是誘答，都算出現過；片語不算，題幹與文章裡出現的字也不算。';
   $('#lede').textContent='大考中心《高中英文參考詞彙表》第二到第六級共 5,007 個詞條，這份清單逐一標出哪些字在學測、指考的詞彙題出現過：學測 '+g[0]+' 到 '+g[1]+' 年、指考 '+z[0]+' 到 '+z[1]+' 年，一共 '+fmt(g[2]+z[2])+' 題。出現過的字附上題號，點下去就是原題與解析。';
