@@ -67,6 +67,7 @@ ul.list li{padding:.4rem 0;border-bottom:1px solid var(--ad-vrule-border)}
 .lv{font-size:.76rem;color:var(--ad-vinksoft-fg);margin-left:.5rem;white-space:nowrap}
 .more-info{margin-left:var(--wcol);font-size:.85rem;color:var(--ad-vinksoft-fg);line-height:1.6}
 .gl{color:var(--ad-vink-fg)}
+.glnote{font-size:.82rem;color:var(--ad-vinksoft-fg)}
 .ent{font-family:var(--mono);font-size:.8rem}
 .refs{margin-top:.15rem;font-size:.78rem;line-height:1.6}
 .refs .fm{font-family:var(--mono);font-size:.82rem;font-weight:600;color:var(--ad-vink-fg);margin-right:.3rem}
@@ -255,6 +256,15 @@ function render(){
     if(r[5]||r[6]||r[4].length){
       var mi=document.createElement('div'); mi.className='more-info';
       if(r[5]){var g2=document.createElement('div'); g2.className='gl'; g2.textContent=r[5]; mi.appendChild(g2);}
+      if(r[5]){
+        /* 試題裡的詞性不在詞彙表列的詞性之內時，說明兩邊為什麼不同 */
+        var gm=/^(vt|vi|v|n|adj|adv|prep|conj|pron|aux)\./.exec(r[5]);
+        if(gm){
+          var gp=(gm[1]==='vt'||gm[1]==='vi')?'v':gm[1];
+          var offi=r[2].replace(/[()]/g,'').split('/').map(function(x){return x.replace('.','');});
+          if(offi.indexOf(gp)<0){var gn=document.createElement('div'); gn.className='glnote'; gn.textContent='大考中心詞彙表對這個字只列 '+r[2]+'；上面的中文是試題裡 '+gp+'. 的用法。'; mi.appendChild(gn);}
+        }
+      }
       if(r[6]){var en2=document.createElement('div'); en2.append('詞彙表寫作 '); var s=document.createElement('span'); s.className='ent'; s.textContent=r[6]; en2.appendChild(s); mi.appendChild(en2);}
       if(r[4].length){
         var rf=document.createElement('div'); rf.className='refs';

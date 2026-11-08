@@ -679,11 +679,15 @@ function buildPrint(){
 window.addEventListener('beforeprint',buildPrint);
 $('bPrint').addEventListener('click',function(){buildPrint();window.print()});
 var typed=q.value.trim();
-if(window.KK)KK.ready.then(function(){render()});
+/* 網址帶 e=1（例如從英檢、多益頁連過來）：直接打開匯出區，並說明匯出的是哪一份 */
+var wantExp=/(^|&)e=1(&|$)/.test(location.hash.replace(/^#/,''));
+function expMsg(){if(!wantExp)return;var ca=condText().map(function(x){return x.replace(/<[^>]*>/g,'')});var what=(S.c==='0'&&S.t==='1'&&ca.length===2)?'多益補充字表中，不在大考詞彙表內的字':(ca.length?'「'+ca.join('、')+'」':'全部的字');msg('要匯出的是'+what+(ca.length&&what.charAt(0)==='「'?'這一份':'')+'，共 '+N(cur.length)+' 字。按上面的按鈕就能複製或下載。')}
+if(window.KK)KK.ready.then(function(){render();expMsg()});
 load();
 if(!S.q&&typed){S.q=typed;S.l='';q.value=typed}
 render();save();
-$('fd').open=!!(S.c||S.g||S.t||S.f||S.m||S.l||S.o);$('td').open=false;
+$('fd').open=!!(S.c||S.g||S.t||S.f||S.m||S.l||S.o);$('td').open=wantExp;
+if(wantExp){expMsg();setTimeout(function(){$('td').scrollIntoView({block:'start'})},0)}
 $('goTd').addEventListener('click',function(e){e.preventDefault();var t=$('td');t.open=true;t.scrollIntoView({block:'start'});var s=t.querySelector('summary');if(s)s.focus()})
 })();
 </script>
