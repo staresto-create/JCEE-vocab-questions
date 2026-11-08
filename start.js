@@ -1,4 +1,4 @@
-/* 「不知道從哪裡開始？」依最近一次英文級分，顯示建議的練習順序（2026-10-25）
+/* 「不知道從哪裡開始？」依最近一次模考級分，顯示建議的練習順序（2026-10-25）
    各題庫站共用這一份，四段路線的內容只在這裡寫一次。
    用法：頁面放 <div data-start-here></div>，再載入這支程式（defer）。
    選擇只存在這台裝置的這個瀏覽器（localStorage），不用登入、不上傳；讀不到或寫不進去時，頁面照常運作。
@@ -121,7 +121,7 @@
     var d = el('details', 'sh');
     if (urlTier || (!cur && host.getAttribute('data-open'))) d.open = true;
     var sum = el('summary');
-    var tag = el('span', 'sh-tag', '從這裡開始');
+    var tag = el('span', 'sh-tag', '依模考級分');
     var main = el('span', 'sh-main', '不知道從哪裡開始？');
     var sub = el('span', 'sh-sub');
     var tl = el('div'); tl.appendChild(tag); sum.appendChild(tl); sum.appendChild(main); sum.appendChild(sub);
@@ -185,7 +185,7 @@
     body.appendChild(el('p', 'sh-foot', '級分和段考成績都只是參考，每一類題型你都可以自己挑著練。選擇只存在這台裝置。'));
     d.appendChild(body);
 
-    if (cur) show(cur, urlTier ? 'm' : loadSrc()); else sub.textContent = '選你最近的英文級分或段考成績，看建議的練習順序';
+    if (cur) show(cur, urlTier ? 'm' : loadSrc()); else sub.textContent = '選你最近一次模考的英文級分或段考成績，看建議的練習順序';
     host.appendChild(d);
   }
 

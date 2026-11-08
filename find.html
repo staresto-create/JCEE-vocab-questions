@@ -485,7 +485,7 @@ function home(){
  var ft=findByHref('puzzle/y115.html');
  if(ft>=0)h+='<a class="fd-feat" href="'+esc(D[ft][2])+'"><span class="k">特色功能</span><span class="n">'+esc(D[ft][1])+'</span><span class="d">'+esc(D[ft][3])+'</span></a>';
  var hw=findByHref('howto.html');
- if(hw>=0)h+='<a class="fd-start" href="'+esc(D[hw][2])+'"><span class="e" aria-hidden="true">👋</span><span><b>第一次來？先看這一頁</b><span class="s">'+esc(D[hw][3])+'</span></span></a>';
+ if(hw>=0)h+='<a class="fd-start" href="'+esc(D[hw][2])+'"><span class="e" aria-hidden="true">👋</span><span><b>第一次使用？先看這一頁</b><span class="s">'+esc(D[hw][3])+'</span></span></a>';
  var tl=PIN.map(function(p){var x=findByHref(p[0]);return x<0?'':'<li><a href="'+esc(D[x][2])+'"><span class="e" aria-hidden="true">'+p[1]+'</span>'+esc(D[x][1])+'</a></li>'}).join('');
  if(tl)h+='<section class="fd-sec" aria-labelledby="hpin"><h2 id="hpin">最常用</h2><ul class="fd-tiles">'+tl+'</ul></section>';
  h+='<section class="fd-sec" aria-labelledby="hall"><h2 id="hall">全部功能<small>點分類展開</small></h2>'+allCats().map(catHTML).join('')+'</section>';
