@@ -470,7 +470,7 @@ ol.wl.hz li.r:not(.rv) .rz.none::before{content:"（沒有中文意思）";borde
     <li>匯出的是<b>目前篩選出來的全部字</b>，不只是畫面上目前顯示的。複製與 Anki 匯入檔不含沒有中文意思的字，CSV 則全部包含。字太多時，先用上方的級別或字母篩選，分批匯出。</li>
     <li><b>CSV</b> 可用 Excel、Google 試算表開啟，欄位是單字、詞性、中文意思、大考級別、英檢級別、多益補充字表。檔案只含單字、詞性、級別與本題庫自編的中文意思；官方字表請看頁尾連結。</li>
     <li><b>學測出現份數</b>：這個字（字形變化併入原形計算）出現在 83 到 115 學年度學測（含補考）共 35 份試卷中的幾份，文章、題目和選項都算。排序時份數多的在前面，份數一樣再依字母；沒有標份數的字，表示這 35 份試卷裡沒有出現。細節請見<a href="https://staresto-create.github.io/JCEE-vocab-questions/cards/freq.html">學測全卷用字統計</a>。</li>
-    <li><b>列印</b>是三欄排版，只印單字、詞性和中文意思，不印例句。勾選「中文意思留白」，中文欄會變成空白底線，可以拿來默寫。</li>
+    <li><b>列印</b>是三欄排版，只印單字、詞性和中文意思，不印例句。勾選「列印時中文意思留白」，中文欄會變成空白底線，可以拿來默寫。</li>
    </ul></details>
   <p class="sidelk">想用卡片練習？請到<a href="https://staresto-create.github.io/JCEE-vocab-questions/cards/index.html">單字記憶卡</a>。點單字開啟面板後，可按「再複習」或「我會了」標記。標記只存在這個瀏覽器，換手機或清除瀏覽資料就會消失，請先到<a href="wordcheck.html#bkup">單字健檢頁備份</a>。</p>
   <p class="sidelk" id="clrrow" hidden><span id="clrask" hidden>確定清除全部 <b id="clrn"></b> 字的標記？清除後不能復原，建議先到<a href="wordcheck.html#bkup">單字健檢頁備份</a>。 <button type="button" class="tb" id="bClrY">確定清除</button> <button type="button" class="tb" id="bClrN">取消</button></span><button type="button" class="lnk" id="bClrM" style="color:var(--sub);font-size:13.5px"></button></p>
@@ -661,7 +661,7 @@ function msg(t){tm.textContent=t}
 function dl(name,text,type){var b=new Blob([text],{type:type}),a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=name;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);a.remove()},1000)}
 $('bCopy').addEventListener('click',function(){
  var text=cur.filter(function(r){return r.z}).map(tsv).join('\n'),n=cur.filter(function(r){return r.z}).length,skip=cur.length-n;
- var tail=skip?'（另有 '+N(skip)+' 字沒有中文意思，沒有複製）':'';
+ var tail=skip?'（另有 '+N(skip)+' 字沒有中文意思，沒有放進去）':'';
  function fb(){var b=$('cpbox');b.hidden=false;b.value=text;b.focus();b.select();try{b.setSelectionRange(0,b.value.length);if(document.execCommand&&document.execCommand('copy')){msg('已複製 '+N(n)+' 字，請到 Quizlet 的匯入欄貼上。'+tail);return}}catch(e){}msg('這個瀏覽器不能自動複製，內容已全部選取，請直接按手機或電腦的「複製」。'+tail)}
  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(function(){msg('已複製 '+N(n)+' 字，請到 Quizlet 的匯入欄貼上。'+tail)},fb)}else fb()});
 $('bAnki').addEventListener('click',function(){

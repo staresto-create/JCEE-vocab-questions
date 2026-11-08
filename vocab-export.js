@@ -101,19 +101,19 @@
     var helpUrl = opt.help === undefined ? HELP : opt.help;
     var scope = opt.scope ? '匯出的是' + opt.scope + '。' : '';
     var help = helpUrl ? '<li>第一次用？請看 <a href="' + helpUrl + '">Quizlet、Anki 的使用說明</a>。</li>' : '';
-    return '<div class="veBar" data-ve data-ve-file="' + (opt.file || 'vocab') + '">' +
-      '<p class="veT">複製到 Quizlet、Anki 背單字</p>' +
+    return '<div class="veBar" data-ve data-ve-file="' + (opt.file || 'vocab') + '" data-ve-unit="' + (opt.unit || '字') + '">' +
+      '<p class="veT">' + (opt.title || '複製到 Quizlet、Anki 背單字') + '</p>' +
       '<div class="veRow">' +
       '<button type="button" class="veB" data-ve-do="copy">複製（貼到 Quizlet）</button>' +
       '<button type="button" class="veB" data-ve-do="anki">下載 Anki 匯入檔</button>' +
-      '<label class="veCk"><input type="checkbox" data-ve-kk' + (kkPref() ? ' checked' : '') + '> 附音標</label>' +
+      (opt.kk === false ? '' : '<label class="veCk"><input type="checkbox" data-ve-kk' + (kkPref() ? ' checked' : '') + '> 附音標</label>') +
       '</div>' +
       '<p class="veMsg" data-ve-msg aria-live="polite"></p>' +
-      '<textarea class="veBox" data-ve-box hidden readonly aria-label="已選好的單字清單，請複製"></textarea>' +
+      '<textarea class="veBox" data-ve-box hidden readonly aria-label="已選好的清單，請複製"></textarea>' +
       '<details class="veHow"><summary>匯入 Quizlet、Anki 的方法</summary><ul>' +
-      '<li><b>Quizlet</b>（要用網頁版，電腦或手機的瀏覽器都可以）：按「複製」，到 Quizlet 網站建立學習集，按「Import」，把內容貼進去。每個字一行，英文和後面的音標、詞性、中文之間用 Tab 分開。</li>' +
-      '<li><b>Anki</b>：按「下載 Anki 匯入檔」，在電腦版 Anki 選匯入，選這個 .txt 檔。</li>' +
-      '<li>' + scope + '沒有中文意思的字不會放進去。字太多時，先縮小範圍再匯出。</li>' + help +
+      '<li><b>Quizlet</b>（要用網頁版，電腦或手機的瀏覽器都可以）：按「複製」，到 Quizlet 網站建立學習集，按「Import」，把內容貼進去。' + (opt.kk === false ? '一行一張卡，英文和中文之間用 Tab 分開。' : '每個字一行，英文和後面的音標、詞性、中文之間用 Tab 分開。') + '</li>' +
+      '<li><b>Anki</b>：按「下載 Anki 匯入檔」，在電腦版 Anki 選「檔案」>「匯入」，選這個 .txt 檔。</li>' +
+      '<li>' + scope + (opt.unit === '條' ? '沒有中文意思的條目不會放進去。條目太多時' : '沒有中文意思的字不會放進去。字太多時') + '，先縮小範圍再匯出。</li>' + help +
       '</ul></details></div>';
   }
 
@@ -150,31 +150,32 @@
   function act(bar_, what) {
     var msg = bar_.querySelector('[data-ve-msg]');
     var box = bar_.querySelector('[data-ve-box]');
-    var withKk = bar_.querySelector('[data-ve-kk]').checked;
+    var kkEl = bar_.querySelector('[data-ve-kk]'), withKk = kkEl ? kkEl.checked : false;
     function say(t) { msg.textContent = t; }
     var go = function () {
       var items;
       if (bar_.__veGet) items = bar_.__veGet();
       else { var root = bar_.closest('[data-ve-root]'); items = root ? itemsFromDom(root) : []; }
       var r = build(items, withKk);
-      if (!r.rows.length) { say('目前沒有可匯出的字。'); return; }
-      var tail = r.skip ? '（另有 ' + N(r.skip) + ' 字沒有中文意思，沒有放進去）' : '';
+      var U = bar_.getAttribute('data-ve-unit') || '字';
+      if (!r.rows.length) { say(U === '條' ? '目前沒有可匯出的條目。' : '目前沒有可匯出的字。'); return; }
+      var tail = r.skip ? '（另有 ' + N(r.skip) + ' ' + U + '沒有中文意思，沒有放進去）' : '';
       var text = r.rows.join('\n');
       if (what === 'anki') {
         download((bar_.getAttribute('data-ve-file') || 'vocab') + '_anki.txt', '#separator:Tab\n#html:false\n' + text + '\n');
-        say('已下載 ' + N(r.rows.length) + ' 字的 Anki 匯入檔' + tail + '。如果沒有跳出下載，請改用「複製」，或用 Safari、Chrome 開啟這一頁。');
+        say('已下載 ' + N(r.rows.length) + ' ' + U + '的 Anki 匯入檔' + tail + '。如果沒有跳出下載，請改用「複製」，或用 Safari、Chrome 開啟這一頁。');
         return;
       }
       function fb() {
         box.hidden = false; box.value = text; box.focus(); box.select();
         try {
           box.setSelectionRange(0, box.value.length);
-          if (document.execCommand && document.execCommand('copy')) { say('已複製 ' + N(r.rows.length) + ' 字，請到 Quizlet 的匯入欄貼上。' + tail); return; }
+          if (document.execCommand && document.execCommand('copy')) { say('已複製 ' + N(r.rows.length) + ' ' + U + '，請到 Quizlet 的匯入欄貼上。' + tail); return; }
         } catch (e) {}
         say('這個瀏覽器不能自動複製，內容已全部選取，請直接按手機或電腦的「複製」。' + tail);
       }
       if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(text).then(function () { say('已複製 ' + N(r.rows.length) + ' 字，請到 Quizlet 的匯入欄貼上。' + tail); box.hidden = true; }, fb);
+        navigator.clipboard.writeText(text).then(function () { say('已複製 ' + N(r.rows.length) + ' ' + U + '，請到 Quizlet 的匯入欄貼上。' + tail); box.hidden = true; }, fb);
       } else fb();
     };
     if (window.KK && KK.ready) KK.ready.then(go, go); else go();
