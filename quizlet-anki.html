@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>把單字匯入 Quizlet、Anki 背誦</title>
+<meta name="description" content="本題庫的單字總表可以一鍵複製或下載，貼進 Quizlet 或 Anki 變成單字卡。這一頁一步一步教你怎麼做，兩個都可以免費使用。">
+<style>
+:root{color-scheme:light dark;--bg:#F6F1E4;--card:#FFFDF7;--ink:#221F1A;--sub:#5B5648;--line:#DCD3BB;--gold:#8A6420;--gold-soft:#F1EADA;--tr:#AE3626;--link:#9C2C1E;--shadow:0 1px 0 rgba(34,31,26,.06),0 8px 24px rgba(34,31,26,.08)}
+@media screen and (prefers-color-scheme:dark){:root{--bg:#1B1916;--card:#26231F;--ink:#F2F0EE;--sub:#DAD8D3;--line:#514A37;--gold:#E0D1B2;--gold-soft:#2B271E;--tr:#E4B6B0;--link:#E8BEB9;--shadow:none}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.75 "Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif}
+.wrap{max-width:700px;margin:0 auto;padding:0 20px 60px}
+header.hero{padding:28px 0 8px}
+.kicker{font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:.16em;color:var(--tr);font-weight:600}
+h1,h2,h3{font-family:'Noto Serif TC','PingFang TC','Microsoft JhengHei',serif}
+h1{font-weight:900;font-size:clamp(24px,5.5vw,30px);line-height:1.35;margin:6px 0 8px}
+h2{font-weight:900;font-size:20px;margin:38px 0 6px;line-height:1.4;scroll-margin-top:12px}
+h3{font-size:16.5px;margin:18px 0 4px}
+.lead{color:var(--sub);margin:0 0 4px}
+a{color:var(--link);text-underline-offset:2px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:16px;box-shadow:var(--shadow);margin:12px 0}
+.pick{display:grid;grid-template-columns:1fr;gap:10px;margin-top:14px}
+@media(min-width:560px){.pick{grid-template-columns:1fr 1fr}}
+.pick a{display:block;text-decoration:none;color:var(--ink);background:var(--gold-soft);border:2px solid var(--gold);border-radius:4px;padding:12px;min-height:64px}
+.pick b{font-family:'Noto Serif TC',serif;font-size:17px}.pick b::after{content:" ›";color:var(--gold)}
+.pick span{display:block;font-size:14.5px;color:var(--sub);line-height:1.55}
+ol.st{margin:8px 0;padding-left:1.4em}ol.st li{margin:8px 0}
+.tip{font-size:14.5px;color:var(--sub);background:var(--gold-soft);border-radius:4px;padding:10px 12px;margin:10px 0}
+kbd{display:inline-block;font:600 .9em/1.4 monospace;border:1px solid var(--sub);border-bottom-width:2px;border-radius:3px;padding:1px 5px;background:var(--card)}
+details{margin:8px 0}summary{cursor:pointer;font-weight:600;min-height:44px;display:flex;align-items:center;list-style:none}summary::-webkit-details-marker{display:none}summary::before{content:"▸ ";color:var(--gold);margin-right:6px}details[open]>summary::before{content:"▾ "}
+figure{margin:10px 0}figure img{max-width:100%;height:auto;border:1px solid var(--line);border-radius:4px}figcaption{font-size:13.5px;color:var(--sub)}
+.cta{display:inline-block;margin-top:6px;font-weight:600}
+.foot{margin-top:2rem;padding-top:1rem;border-top:1px solid var(--line);font-size:.8rem;color:var(--sub)}.foot .cc-note{margin:.6rem 0 0}</style>
+</head>
+<body>
+<div class="wrap">
+<header class="hero">
+<div class="kicker">使用說明</div>
+<h1>把單字匯入 Quizlet、Anki 背誦</h1>
+<p class="lead">單字總表、課本字彙、字根家族表、單字記憶卡等頁面，都有「複製（貼到 Quizlet）」和「下載 Anki 匯入檔」兩個按鈕；多益、英檢頁面的連結，會直接帶你到單字總表的匯出區。按下去之後，單字會整理成單字卡的格式，貼進 Quizlet，或匯入 Anki，就能翻卡、測驗。兩個都可以免費使用。</p>
+</header>
+
+<h2>先選一個</h2>
+<div class="pick">
+<a href="#quizlet"><b>Quizlet</b><span>不用安裝軟體，用瀏覽器貼上就完成，之後也能用手機 App 背。</span></a>
+<a href="#anki"><b>Anki</b><span>要先在電腦安裝軟體。它會依你記得的程度安排複習時間，適合長期背大量單字。</span></a>
+</div>
+<p class="tip">想用手機背的同學，建議選 Quizlet：Anki 的 iPhone 版要付費，本頁只介紹免費的電腦版。</p>
+
+<h2 id="quizlet">方法一：Quizlet</h2>
+<p class="lead">貼上這一步要在<b>網頁版</b>（用電腦或手機的瀏覽器開 quizlet.com）做，App 裡沒有匯入功能。做完之後，用 App 背也可以。</p>
+<h3>1. 複製單字</h3>
+<ol class="st">
+<li>到<a href="wordlist.html">單字總表</a>，先用上面的級別或字母篩出要背的字（在課本字彙等其他頁面，直接按該頁的同名按鈕即可）。</li>
+<li>往下找到「複製、下載、列印」那一區，按「複製（貼到 Quizlet）」。</li>
+<li>看到「已複製 ○○ 字」就成功了。</li>
+</ol>
+<h3>2. 在 Quizlet 建立學習集</h3>
+<p>以下用英文介面說明；如果畫面是中文，找意思相同的按鈕即可。</p>
+<ol class="st">
+<li>開 <a href="https://quizlet.com">quizlet.com</a>，按「Sign up」註冊（可以直接用 Google 帳號），已經有帳號就登入。</li>
+<li>按上方的「Create」，選「Flashcard set」。</li>
+<li>標題自己取，例如「多益單字」。</li>
+<li>按「Import」，在跳出的框裡貼上剛才複製的內容（電腦按 <kbd>Ctrl</kbd>+<kbd>V</kbd>，Mac 按 <kbd>⌘</kbd>+<kbd>V</kbd>，手機長按選「貼上」）。</li>
+<li>下方會出現預覽，每個字一張卡，正面是英文，背面是詞性和中文（有勾「附音標」的話，最前面還有音標）。</li>
+<li>確認沒問題，先按「Import」匯入，再按「Create」存起來。</li>
+</ol>
+<p class="tip">Quizlet 新建的學習集預設是公開的，別人搜尋得到。不想公開的話，請在學習集的設定裡，把「Visible to」改成「Just me」。</p>
+<h3>3. 開始背</h3>
+<p>建好之後，用手機下載 Quizlet App、登入同一個帳號，就能找到這個學習集，用翻卡（Flashcards）、學習（Learn）、測驗（Test）背誦。翻卡沒有次數限制；學習和測驗模式，免費帳號有使用次數的限制。</p>
+
+<h2 id="anki">方法二：Anki</h2>
+<p class="lead">Anki 要裝在電腦上（Windows、Mac、Linux 都有，免費）。本頁只介紹電腦版。</p>
+<h3>1. 下載匯入檔</h3>
+<ol class="st">
+<li>到<a href="wordlist.html">單字總表</a>，篩出要背的字（在課本字彙等其他頁面，直接按該頁的同名按鈕即可）。</li>
+<li>在「複製、下載、列印」那一區按「下載 Anki 匯入檔」，會得到一個 .txt 檔。</li>
+</ol>
+<h3>2. 安裝並匯入</h3>
+<ol class="st">
+<li>到 <a href="https://apps.ankiweb.net">apps.ankiweb.net</a> 下載並安裝 Anki 電腦版，第一次開啟時語言選「繁體中文」。</li>
+<li>想把單字另外放成一組，先按主畫面下方的「建立牌組」取個名字；沒有另外建立，就會用預設牌組。</li>
+<li>主畫面上方選「檔案」，再選「匯入」（英文版是 File &gt; Import），選剛才下載的 .txt 檔。</li>
+<li>跳出的設定視窗中，「欄位分隔符號」應該已經是 Tab（繁體中文介面顯示為「分頁」），預覽會看到兩欄：英文，以及音標、詞性和中文。在「牌組」欄選好要放的牌組，確認沒問題，按「匯入」。</li>
+<li>回到主畫面，按這個牌組，就能開始學習。</li>
+</ol>
+
+<p class="tip">其他頁面的「複製到 Quizlet、Anki 背單字」區塊，用法也一樣，在原頁按按鈕就好，不用回單字總表。</p>
+
+<h2>常見問題</h2>
+<details><summary>為什麼有些字沒有複製進去？</summary>
+<p>複製和 Anki 匯入檔只放有中文意思的字。沒有中文意思的字會被略過，按完按鈕後，畫面上會告訴你略過了幾個字。</p></details>
+<details><summary>卡片背面最前面的 [ ] 是什麼？</summary>
+<p>那是 KK 音標。不想要的話，把勾選取消，再按複製或下載。勾選框在單字總表叫「複製、Anki 附音標」，其他頁面叫「附音標」。</p></details>
+<details><summary>按了「複製」沒有反應？</summary>
+<p>有些瀏覽器不允許自動複製。這時畫面會出現一個文字框，裡面的內容已經全部選好：電腦按 <kbd>Ctrl</kbd>+<kbd>C</kbd>，手機長按後選「複製」（iPhone 顯示「拷貝」），再貼進 Quizlet 就可以了。</p></details>
+<details><summary>字太多，一次背不完？</summary>
+<p>先用單字總表的級別、字母篩選縮小範圍，分幾批匯出，每批建一個學習集（Anki 是一個牌組）。</p></details>
+
+<p style="margin-top:30px"><a class="cta" href="wordlist.html">回單字總表 ›</a>　<a class="cta" href="index.html">回首頁 ›</a></p>
+  <footer class="foot">
+    <a href="./">回題庫首頁</a><br>
+    staresto-create ZZSH　·　免費、無廣告的非營利自學題庫。
+    <p class="cc-note">本題庫自己寫的部分（解析、中譯、分類、標註與編排）採用 <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh-hant" target="_blank" rel="license noopener">CC BY-NC 4.0</a>（姓名標示─非商業性）授權：可以分享，但須註明出處，不得用於商業用途。試題來源與完整說明請見<a href="./#terms">使用與著作權</a>。</p>
+  </footer>
+</div>
+</body>
+</html>

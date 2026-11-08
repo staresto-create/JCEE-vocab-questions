@@ -448,12 +448,14 @@ ol.wl.hz li.r:not(.rv) .rz.none::before{content:"（沒有中文意思）";borde
   <div id="emp"></div>
   <button type="button" class="moreb" id="more" hidden></button>
   <div class="after">
-  <details id="td" open><summary>複製、下載、列印（Quizlet、Anki、CSV）</summary>
-  <div class="tools" role="group" aria-label="匯出與列印">
+  <details id="td" open><summary>複製、下載、列印</summary>
+  <div class="tools" role="group" aria-label="匯出">
     <button type="button" class="tb" id="bCopy">複製（貼到 Quizlet）</button>
     <button type="button" class="tb" id="bAnki">下載 Anki 匯入檔</button>
-    <label class="chk"><input type="checkbox" id="ckKk"> 複製、Anki 附音標</label>
     <button type="button" class="tb" id="bCsv">下載 CSV</button>
+  </div>
+  <div class="tools" role="group" aria-label="匯出選項"><label class="chk"><input type="checkbox" id="ckKk"> 複製、Anki 附音標</label></div>
+  <div class="tools" role="group" aria-label="列印">
     <button type="button" class="tb" id="bPrint">列印</button>
     <label class="chk"><input type="checkbox" id="blank">列印時中文意思留白（自己默寫）</label><span class="lim" id="blnote" hidden>目前已遮住中文意思，列印時也會留白，不會印出答案。</span>
     <label class="chk" id="answ" hidden><input type="checkbox" id="ans">後面附解答頁（印出中文意思）</label>
@@ -462,8 +464,9 @@ ol.wl.hz li.r:not(.rv) .rz.none::before{content:"（沒有中文意思）";borde
   <textarea id="cpbox" hidden readonly aria-label="已選好的單字清單，請複製"></textarea>
   <details><summary>匯入 Quizlet、Anki 的方法</summary>
    <ul style="margin:4px 0 0;padding-left:1.2em;font-size:14.5px">
-    <li><b>Quizlet</b>（要用電腦或手機的瀏覽器網頁版）：按「複製」，到 Quizlet 網站建立學習集，選「匯入」，把內容貼進去。每個字一行，字和中文之間用 Tab 分開。</li>
-    <li><b>Anki</b>：按「下載 Anki 匯入檔」，在電腦版 Anki 選匯入，選這個 .txt 檔（UTF-8，檔案開頭已註明用 Tab 分欄）。</li>
+    <li>第一次用？請看 <a href="quizlet-anki.html">Quizlet、Anki 的使用說明</a>。</li>
+    <li><b>Quizlet</b>（要用網頁版，電腦或手機的瀏覽器都可以）：按「複製」，到 Quizlet 網站建立學習集，按「Import」，把內容貼進去。每個字一行，英文和後面的音標、詞性、中文之間用 Tab 分開。</li>
+    <li><b>Anki</b>：按「下載 Anki 匯入檔」，在電腦版 Anki 選匯入，選這個 .txt 檔。</li>
     <li>匯出的是<b>目前篩選出來的全部字</b>，不只是畫面上目前顯示的。複製與 Anki 匯入檔不含沒有中文意思的字，CSV 則全部包含。字太多時，先用上方的級別或字母篩選，分批匯出。</li>
     <li><b>CSV</b> 可用 Excel、Google 試算表開啟，欄位是單字、詞性、中文意思、大考級別、英檢級別、多益補充字表。檔案只含單字、詞性、級別與本題庫自編的中文意思；官方字表請看頁尾連結。</li>
     <li><b>學測出現份數</b>：這個字（字形變化併入原形計算）出現在 83 到 115 學年度學測（含補考）共 35 份試卷中的幾份，文章、題目和選項都算。排序時份數多的在前面，份數一樣再依字母；沒有標份數的字，表示這 35 份試卷裡沒有出現。細節請見<a href="https://staresto-create.github.io/JCEE-vocab-questions/cards/freq.html">學測全卷用字統計</a>。</li>

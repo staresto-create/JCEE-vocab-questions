@@ -12,6 +12,8 @@
 (function () {
   'use strict';
   if (window.VE) return;
+  /* 說明頁與本檔放在同一層；用本檔自己的網址推出來，各層資料夾的頁面都能連到 */
+  var HELP = (function () { var c = document.currentScript; var u = c && c.src ? c.src.slice(0, c.src.lastIndexOf('/') + 1) : ''; return u ? u + 'quizlet-anki.html' : ''; })();
 
   var CSS = '.veBar{margin:.8rem 0;padding:.6rem .8rem;border:1px solid rgba(128,128,128,.35);border-radius:.4rem;font-size:.92rem;line-height:1.7}' +
     '.veBar .veT{font-weight:700;margin:0 0 .3rem}' +
@@ -96,8 +98,9 @@
 
   function bar(opt) {
     opt = opt || {};
+    var helpUrl = opt.help === undefined ? HELP : opt.help;
     var scope = opt.scope ? '匯出的是' + opt.scope + '。' : '';
-    var help = opt.help ? '<li>第一次用？<a href="' + opt.help + '">看 Quizlet、Anki 的使用說明</a>。</li>' : '';
+    var help = helpUrl ? '<li>第一次用？請看 <a href="' + helpUrl + '">Quizlet、Anki 的使用說明</a>。</li>' : '';
     return '<div class="veBar" data-ve data-ve-file="' + (opt.file || 'vocab') + '">' +
       '<p class="veT">複製到 Quizlet、Anki 背單字</p>' +
       '<div class="veRow">' +
@@ -108,8 +111,8 @@
       '<p class="veMsg" data-ve-msg aria-live="polite"></p>' +
       '<textarea class="veBox" data-ve-box hidden readonly aria-label="已選好的單字清單，請複製"></textarea>' +
       '<details class="veHow"><summary>匯入 Quizlet、Anki 的方法</summary><ul>' +
-      '<li><b>Quizlet</b>（要用電腦或手機的瀏覽器網頁版）：按「複製」，到 Quizlet 網站建立學習集，選「匯入」，把內容貼進去。每個字一行，字和中文之間用 Tab 分開。</li>' +
-      '<li><b>Anki</b>：按「下載 Anki 匯入檔」，在電腦版 Anki 選匯入，選這個 .txt 檔（UTF-8，檔案開頭已註明用 Tab 分欄）。</li>' +
+      '<li><b>Quizlet</b>（要用網頁版，電腦或手機的瀏覽器都可以）：按「複製」，到 Quizlet 網站建立學習集，按「Import」，把內容貼進去。每個字一行，英文和後面的音標、詞性、中文之間用 Tab 分開。</li>' +
+      '<li><b>Anki</b>：按「下載 Anki 匯入檔」，在電腦版 Anki 選匯入，選這個 .txt 檔。</li>' +
       '<li>' + scope + '沒有中文意思的字不會放進去。字太多時，先縮小範圍再匯出。</li>' + help +
       '</ul></details></div>';
   }
