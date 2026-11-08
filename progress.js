@@ -213,7 +213,7 @@
         a.href = r.href;
         var top = el('div', 'scp-rt');
         top.appendChild(el('span', null, r.label));
-        top.appendChild(el('span', null, n + '／' + r.total + ' 題'));
+        top.appendChild(el('span', null, n.toLocaleString('en-US') + '／' + r.total.toLocaleString('en-US') + ' 題'));
         a.appendChild(top);
         var track = el('div', 'scp-track');
         track.setAttribute('role', 'progressbar');
@@ -230,11 +230,11 @@
       });
       var sum = el('p', 'scp-sum');
       sum.appendChild(document.createTextNode('歷屆試題共 ' + tt.toLocaleString('en-US') + ' 題（不含作文 63 題，因為作文沒有作答功能），你已經做了 '));
-      sum.appendChild(el('b', null, String(tn)));
+      sum.appendChild(el('b', null, tn.toLocaleString('en-US')));
       sum.appendChild(document.createTextNode(' 題（' + pctText(tn, tt) + '）。' + (tn === 0 ? '從下面任何一個題庫寫完一題，這裡就會開始計算。' : '點題庫名稱可以直接回去接著寫。')));
       var sh = el('div', 'scp-sh');
       sh.appendChild(el('h2', null, '你的練習進度'));
-      sh.appendChild(el('span', 'scp-tg', '已做 ' + tn + '／' + tt + ' 題・看各題庫'));
+      sh.appendChild(el('span', 'scp-tg', '已做 ' + tn.toLocaleString('en-US') + '／' + tt.toLocaleString('en-US') + ' 題・看各題庫'));
       smy.appendChild(sh);
       var ov = el('div', 'scp-track scp-ov');
       var ovf = el('div', 'scp-fill');
@@ -246,10 +246,10 @@
       inner.appendChild(ul);
       inner.appendChild(el('p', 'scp-note', '每題只算一次，答錯也算做過；整篇型的題庫要交卷才計入。不用登入，紀錄只存在這台裝置的這個瀏覽器，換裝置或用無痕視窗就會從零開始。'));
       box.appendChild(inner);
-      /* 手機預設收合；寬螢幕預設展開；讀者自己開關過就照他的選擇 */
+      /* 預設收合（手機與電腦一樣，讓重點功能早點出現）；讀者自己開關過就照他的選擇 */
       var pref = null;
       try { pref = window.localStorage.getItem('scProgressHomeOpen'); } catch (e) {}
-      box.open = pref === '1' ? true : pref === '0' ? false : (window.innerWidth >= 900);
+      box.open = pref === '1';
       box.addEventListener('toggle', function () {
         try { window.localStorage.setItem('scProgressHomeOpen', box.open ? '1' : '0'); } catch (e) {}
       });

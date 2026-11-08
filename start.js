@@ -90,14 +90,14 @@
       '.sh>summary{list-style:none;cursor:pointer;padding:14px 16px;font-weight:700;font-size:18px;min-height:44px;background:var(--sh-band);color:#fff}' +
       '.sh>summary::-webkit-details-marker{display:none}' +
       '.sh-tag{display:inline-block;font-family:system-ui,sans-serif;font-size:11px;font-weight:700;letter-spacing:.04em;padding:2px 8px;border-radius:999px;background:#fff;color:#9C2C1E;margin-bottom:4px}' +
-      '.sh-main::after{content:"＋ 展開";display:inline-block;margin-left:8px;padding:1px 9px;border:1px solid rgba(255,255,255,.75);border-radius:999px;font-size:12.5px;font-weight:400;color:#fff;white-space:nowrap;vertical-align:2px}' +
-      '.sh[open] .sh-main::after{content:"－ 收合"}' +
+      '.sh>summary::after{content:"＋ 展開";display:block;width:fit-content;margin:10px 0 2px;padding:8px 22px;min-height:40px;box-sizing:border-box;border:2px solid #fff;border-radius:999px;background:#fff;color:#2F5742;font-size:15px;font-weight:700;line-height:1.5;white-space:nowrap}' +
+      '.sh[open]>summary::after{content:"－ 收合"}' +
       '.sh-sub{display:block;font-weight:400;font-size:13.5px;color:rgba(255,255,255,.88)}' +
       '.sh-body{padding:14px 16px 14px}' +
       '.sh-q{margin:0 0 8px;font-size:14px;color:var(--sh-soft)}' +
       '.sh-q.sh-q2{margin-top:12px}' +
-      '.sh-tiers{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}' +
-      '.sh-tiers button{font:inherit;font-size:15px;min-height:44px;padding:8px 6px;border:1px solid var(--sh-rule);border-radius:10px;background:var(--sh-bg2);color:var(--sh-fg);cursor:pointer}' +
+      '.sh-tiers{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:10px}' +
+      '.sh-tiers button{font:inherit;font-size:13px;line-height:1.35;min-height:48px;padding:6px 2px;word-break:keep-all;border:1px solid var(--sh-rule);border-radius:10px;background:var(--sh-bg2);color:var(--sh-fg);cursor:pointer}' +
       '.sh-tiers button[aria-pressed="true"]{border-color:var(--sh-green);background:var(--sh-sel);font-weight:700}' +
       '.sh-r h3{margin:4px 0 2px;font-size:16px;color:var(--sh-red)}' +
       '.sh-r p{margin:0 0 8px;font-size:14px;color:var(--sh-soft)}' +
@@ -182,7 +182,7 @@
     });
     body.appendChild(grid2);
     body.appendChild(route);
-    body.appendChild(el('p', 'sh-foot', '級分和段考成績都只是參考，各校試題的難易不同，每一類題型你都可以自己挑著練。這個選擇只留在你這台裝置的瀏覽器裡。'));
+    body.appendChild(el('p', 'sh-foot', '級分和段考成績都只是參考，每一類題型你都可以自己挑著練。選擇只存在這台裝置。'));
     d.appendChild(body);
 
     if (cur) show(cur, urlTier ? 'm' : loadSrc()); else sub.textContent = '選你最近的英文級分或段考成績，看建議的練習順序';
