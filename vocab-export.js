@@ -48,6 +48,15 @@
     return clean(w) + '\t' + (k ? k + ' ' : '') + clean(d);
   }
 
+  /* 站上的釋義有時寫成「握在一起→包含」，卡片背面只要詞性加最後的意思 */
+  function plain(g) { return String(g == null ? '' : g).replace(/(^|；)\s*((?:[a-z]+\.(?:\/[a-z]+\.)*\s*)?)[^；→]*→/g, '$1$2'); }
+
+  /* 一字多義的寫法「book（名詞）書；book（動詞）預訂」，卡片背面改成「n. 書；v. 預訂」 */
+  function pol(g) {
+    var T = { '名詞': 'n.', '動詞': 'v.', '形容詞': 'adj.', '副詞': 'adv.' };
+    return String(g == null ? '' : g).replace(/[A-Za-z][A-Za-z' -]*（(名詞|動詞|形容詞|副詞)）/g, function (m, p) { return T[p] + ' '; }).replace(/\s+/g, ' ').trim();
+  }
+
   function kkPref() { try { return localStorage.getItem('ve_kk') !== '0'; } catch (e) { return true; } }
   function setKkPref(on) { try { localStorage.setItem('ve_kk', on ? '1' : '0'); } catch (e) {} }
 
@@ -151,5 +160,5 @@
   }
 
   addCss();
-  window.VE = { bar: bar, mount: mount, line: line, kkText: kkText, kkPref: kkPref, setKkPref: setKkPref };
+  window.VE = { bar: bar, mount: mount, line: line, plain: plain, pol: pol, kkText: kkText, kkPref: kkPref, setKkPref: setKkPref };
 })();

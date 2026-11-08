@@ -143,6 +143,8 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
 
 <div class="jump" id="unitbar"><a href="#same">考同一個用法 <span class="n">48 個字</span></a><a href="#shift">換了詞性或意思 <span class="n">12 個字</span></a><a href="#stems">題目原文 <span class="n">125 題</span></a><a href="#u-how">這份名單怎麼來的</a></div>
 
+<div id="veBox"></div>
+
 <div class="card" id="same"><h2>考同一個用法　48 個字</h2>
 <p class="lead">同一個意思考第二次、第三次，有幾組連搭配的字都一樣。這些是可以直接記起來的。<b>點題號可看題目原文。</b></p>
 <ul class="wlist">
@@ -235,6 +237,8 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
 <p class="cc-note">本題庫自己寫的部分（解析、中譯、分類、標註與編排）採用 <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh-hant" target="_blank" rel="license noopener">CC BY-NC 4.0</a>（姓名標示─非商業性）授權：可以分享，但須註明出處，不得用於商業用途。試題來源與完整說明請見<a href="https://staresto-create.github.io/JCEE-vocab-questions/#terms">使用與著作權</a>。</p>
 <script src="../speaker.js"></script>
 <script src="../kk.js"></script>
+<script src="../passage-vocab.js"></script>
+<script src="../vocab-export.js"></script>
 <script>SPK.attach('.wlist .w');
 if(window.KK) KK.ready.then(function(){
   var ds=document.querySelectorAll('.wlist .w, .sw');
@@ -250,6 +254,37 @@ if(window.KK) KK.ready.then(function(){
     }
   }
 });</script>
+<script>
+/* 匯出：這一頁的字不附中文。中文意思優先用「這個字原本出現的那一題」的選項釋義（單字記憶卡用的同一份）；
+   那份裡沒有的字，才用「這一篇的生字表」的來源，而且只收原形剛好就是這個字的；片語沒有中文，匯出時略過 */
+if(window.PV&&window.VE)Promise.all([PV.load(),fetch('../cards/cards_data.json').then(function(r){return r.json()})]).then(function(r){
+  var W=r[1].w,Q=r[1].q;
+  function fromCards(w){
+    var e=W[w];if(!e||!e.oc||!e.oc.length)return '';
+    var pre=(e.pos&&e.pos!=='片語')?e.pos+' ':'';
+    var o=e.oc[0],q=Q[o[0]],g=(q.gs&&q.gs[o[1]])||(q.g&&q.g[o[1]])||'';
+    if(/^[a-z]+\.\s/.test(g)||/^片語/.test(g))pre='';
+    g=String(g).replace(/^片語\s*/,'').trim();return g?pre+g:'';
+  }
+  VE.mount(document.getElementById('veBox'),function(){
+    var out=[];
+    [].forEach.call(document.querySelectorAll('li[id^="w-"]'),function(li){
+      var w=li.id.slice(2),d=fromCards(w);
+      if(!d){
+        var a=PV.analyze(w),e=a&&a.order&&a.order[0];
+        if(e&&e.key===w){
+          var g=VE.pol(PV.glossOf(e)||''),m=/^((?:[a-z]+\.\/?)+)\s/.exec(g),ok=true,ep=String(e.pos||'').replace(/v[ti]\./g,'v.');
+          /* 釋義開頭的詞性要在這個字的詞性裡，否則是別的字（例如 amaze 的詞組釋義其實是 amazement 的）就不放 */
+          if(m&&ep)m[1].replace(/[a-z]+\./g,function(t){if(ep.indexOf(t.replace(/v[ti]\./,'v.'))<0)ok=false;return t;});
+          if(g&&ok)d=((!e.out&&e.pos&&!m)?e.pos+' ':'')+g;
+        }
+      }
+      out.push({w:w,d:d});
+    });
+    return out;
+  },{scope:'這一頁的 60 個字（沒有中文意思的字不會放進去）',file:'repeats'});
+});
+</script>
 <a class="toBar" id="toBar" href="#unitbar" hidden>↑ 單元列</a>
 <script>
 /* 單元列：連到收合區塊的錨點會先展開；「↑ 單元列」在單元列捲出畫面後才出現 */

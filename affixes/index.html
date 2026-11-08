@@ -116,6 +116,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
     <div class="lv" id="lv" role="group" aria-label="依級別篩選"></div>
   </div>
   <p class="count" id="count"></p>
+  <div id="veBox"></div>
 
   <nav id="nav" aria-label="字首與字尾"></nav>
   <div id="body"></div>
@@ -125,12 +126,14 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
 
 <script src="../speaker.js"></script>
 <script src="../kk.js"></script>
+<script src="../vocab-export.js"></script>
 <script>
 const $=s=>document.querySelector(s);
 let DATA=null, state={q:'', lv:new Set(), examOnly:false, tbOnly:false, w:''};
-let LEX={}, OTHER=null, otherLoading=false;
+let LEX={}, OTHER=null, otherLoading=false, SHOWN=[];
 
 function render(){
+  SHOWN=[];
   const nav=$('#nav'), body=$('#body');
   nav.innerHTML=''; body.innerHTML='';
   if(state.w){const o=document.createElement('p');o.className='only';o.append('只顯示 '+state.w+' 這個字出現的組');
@@ -155,7 +158,7 @@ function render(){
     const cnt=subs.reduce((a,sb)=>a+sb.items.length,0);
     const ffs=q?(g.dropped||[]).filter(ffHit):(g.dropped||[]);
     if(!cnt && !(q && ffs.length)) return;
-    subs.forEach(sb=>sb.items.forEach(it=>shownW.add(it.w))); if(q) ffShown+=ffs.length;
+    subs.forEach(sb=>sb.items.forEach(it=>{shownW.add(it.w);SHOWN.push(it);})); if(q) ffShown+=ffs.length;
     const kind=g.kind==='suffix'?'suffix':'prefix';
     if(kind!==lastKind){
       if(lastKind){const br=document.createElement('span');br.className='navbr';nav.appendChild(br);}
@@ -275,6 +278,7 @@ Promise.all([fetch('affixes_data.json').then(r=>r.json()),fetch('../lexicon/lexi
   d.groups.forEach(g=>g.subs.forEach(sb=>sb.items.forEach(m)));
   DATA=d;
   buildLv();
+  VE.mount($('#veBox'),()=>SHOWN.map(it=>({w:it.w,d:VE.plain(it.g)})),{scope:'畫面上目前列出的全部字（用上面的搜尋或級別篩選後，只匯出留下來的字）',file:'affixes'});
   $('#q').addEventListener('input',e=>{state.q=e.target.value;state.w='';render();});
   readHash(); window.addEventListener('hashchange',()=>{readHash();render();jumpKind();});
   $('#foot').textContent=d.note+' 資料更新：'+d.updated+'。「出現」那一行的連結可以點進本題庫，看這個字出現的那一題；拆解與中文說明是本題庫整理的，字源依 Online Etymology Dictionary 查證；詞彙表著作權屬財團法人大學入學考試中心基金會，本表只供非營利教學使用。';

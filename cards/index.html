@@ -379,6 +379,8 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
         <button id="resetBtn" class="minor-btn">清除我的進度</button>
       </div>
 
+      <div id="veBox"></div>
+
       <p class="note">
         進度存在這台裝置的瀏覽器裡，換手機或換電腦不會跟著走，清除瀏覽器資料也會一起消失。
       </p>
@@ -469,6 +471,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
 </div>
 <script src="../speaker.js"></script>
 <script src="../kk.js"></script>
+<script src="../vocab-export.js"></script>
 <script>
 /* 單字記憶卡 · 引擎
    資料：cards_data.json（同資料夾）；單字卡的詞彙選擇題另放 practice_data.json
@@ -1658,6 +1661,18 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
     $('scopeLine').textContent = (scope.label ? scope.label + '　·　' : '') + scopeText() +
       '　·　' + pool.length + (isCF() ? ' 組' : ' 字');
 
+    /* 匯出到 Quizlet、Anki：單字、一字多義兩副卡；易混淆字組是一組一組的，不匯出 */
+    if (isCF()) { $('veBox').innerHTML = ''; }
+    else if (window.VE) {
+      var wasPO = isPO(), sc0 = scope;
+      VE.mount($('veBox'), function () {
+        return buildPool(sc0).map(function (k) {
+          if (wasPO) return { w: POW[k].w, d: VE.pol([POW[k].fam, POW[k].test].filter(Boolean).join('；')) };
+          var p = W[k].pos ? W[k].pos + ' ' : '';
+          return { w: k, d: p + glossShort(k) };
+        });
+      }, { scope: '目前選的範圍（' + scopeText() + '）裡的 ' + pool.length + ' 個字', file: wasPO ? 'cards_polysemy' : 'cards_words' });
+    }
     $('tabW').classList.toggle('on', !isCF() && !isPO());
     $('tabC').classList.toggle('on', isCF());
     $('tabP').classList.toggle('on', isPO());
