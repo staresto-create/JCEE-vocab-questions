@@ -121,11 +121,14 @@ function analyze(text){
   var by={},order=[];
   for(i=0;i<toks.length;i++){
     o2=toks[i]; if(o2.kind!=='list'&&o2.kind!=='out')continue;
-    var key=o2.kind==='list'?o2.lm:((EX[o2.w.toLowerCase()]&&EX[o2.w.toLowerCase()].b)||o2.w.toLowerCase());
+    var lw=o2.w.toLowerCase();
+    /* s=1：這個字形在詞彙表裡算在原字底下（級數照原字），但意思和原字不同（scanner 不是 scan、unfortunately 不是 fortunate），
+       所以自成一列、用補充字表的中文，不借原字的釋義 */
+    var key=o2.kind==='list'?((EX[lw]&&EX[lw].s)?lw:o2.lm):((EX[lw]&&EX[lw].b)||lw);
     var e=by[key];
     if(!e){
       e={key:key,out:o2.kind==='out',n:0,forms:{},first:i};
-      if(!e.out){var r=look(key);e.lv=r[1];e.pos=r[2];e.row=r;e.grp=GROUP[r[6]||r[0]];}
+      if(!e.out){var r=look(o2.lm);e.lv=r[1];e.pos=r[2];e.row=r;e.grp=GROUP[r[6]||r[0]];}
       by[key]=e;order.push(e);
     }
     e.n++; e.forms[o2.w.toLowerCase()]=1; o2.e=e; o2.fi=i;
