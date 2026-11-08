@@ -136,8 +136,10 @@ function glossOf(e){
   if(e.out){var le=LEX[e.key];if(le&&le.g&&!le.tb)return plain(le.g);var xg=exGloss(exOf(e));if(xg)return xg;return (le&&le.g)?plain(le.g):'';}
   var p=POLY[e.key]; if(p)return p.fam&&p.test?p.fam+'；'+p.test:(p.fam||p.test||'');
   if(LEX[e.key]&&LEX[e.key].g)return plain(LEX[e.key].g);
+  /* 補充字表是逐字查證的，詞性不同的字（例如 amaze 與 amazement 同組）要優先用它，不能借同組字的釋義 */
+  var xg2=exGloss(EX[e.key]);if(xg2)return xg2;
   if(e.grp&&e.grp.gloss)return plain(e.grp.gloss);
-  return exGloss(EX[e.key]);
+  return '';
 }
 function camUrl(w){return 'https://dictionary.cambridge.org/us/search/direct/?datasetsearch=english-chinese-traditional&q='+encodeURIComponent(w);}
 function jget(u){return fetch(BASE+u).then(function(r){if(!r.ok)throw new Error(u+' '+r.status);return r.json();});}
