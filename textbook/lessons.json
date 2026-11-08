@@ -1,6 +1,6 @@
 {
  "v": 1,
- "updated": "2026-11-01",
+ "updated": "2026-11-09",
  "note": "課的登記表：一課一筆。pub=lt 龍騰／smA 三民甲版／smB 三民乙版；no=L（課）、R（龍騰與乙版的閱讀課）、U（單元）；vers 只用於三民乙版（2023 原版／115 改版）；check=true 表示主題還待核對；sub 尚未逐課標定。",
  "pubs": {
   "lt": "龍騰",
@@ -884,12 +884,12 @@
    "book": 2,
    "no": "U3",
    "title": "One Box, Many Solutions",
-   "topic": "自我成長與心理",
-   "topic2": "",
+   "topic": "環境與災害",
+   "topic2": "自我成長與心理",
    "sub": "",
    "tw": false,
-   "basis": "三民 Theme：Problem-Solving",
-   "check": true,
+   "basis": "三民課本課文（學習平台課本PDF）",
+   "check": false,
    "note": ""
   },
   {
@@ -902,8 +902,8 @@
    "topic2": "歷史與文化",
    "sub": "",
    "tw": false,
-   "basis": "三民 Theme：Multiculture",
-   "check": true,
+   "basis": "三民課本課文（學習平台課本PDF）",
+   "check": false,
    "note": ""
   },
   {
@@ -986,8 +986,8 @@
    "topic2": "",
    "sub": "",
    "tw": false,
-   "basis": "三民 Theme：Leading Figures",
-   "check": true,
+   "basis": "三民課本課文（學習平台課本PDF）",
+   "check": false,
    "note": ""
   },
   {
@@ -997,11 +997,11 @@
    "no": "U1",
    "title": "Wrestling with Cultural Differences",
    "topic": "歷史與文化",
-   "topic2": "人際關係",
+   "topic2": "",
    "sub": "",
    "tw": false,
-   "basis": "三民 Theme：Multiculture",
-   "check": true,
+   "basis": "三民課本課文（學習平台課本PDF）",
+   "check": false,
    "note": ""
   },
   {
@@ -1024,12 +1024,12 @@
    "book": 3,
    "no": "U3",
    "title": "Dying to Be Attractive",
-   "topic": "自我成長與心理",
-   "topic2": "健康、醫療與運動",
+   "topic": "健康、醫療與運動",
+   "topic2": "自我成長與心理",
    "sub": "",
    "tw": false,
-   "basis": "三民 Theme：Psychology",
-   "check": true,
+   "basis": "三民課本課文（學習平台課本PDF）",
+   "check": false,
    "note": ""
   },
   {
@@ -1040,10 +1040,10 @@
    "title": "A Quest for Taiwan's Freedom",
    "topic": "歷史與文化",
    "topic2": "社會議題",
-   "sub": "",
+   "sub": "人權與法治",
    "tw": true,
-   "basis": "三民 Theme：Leading Figures",
-   "check": true,
+   "basis": "三民課本課文（學習平台課本PDF）",
+   "check": false,
    "note": ""
   },
   {
@@ -1070,8 +1070,8 @@
    "topic2": "",
    "sub": "",
    "tw": false,
-   "basis": "三民 Theme：Science",
-   "check": true,
+   "basis": "三民課本課文（學習平台課本PDF）",
+   "check": false,
    "note": ""
   },
   {
@@ -1168,8 +1168,8 @@
    "topic2": "社會議題",
    "sub": "",
    "tw": false,
-   "basis": "三民 Theme：Science",
-   "check": true,
+   "basis": "三民課本課文（學習平台課本PDF）",
+   "check": false,
    "note": ""
   },
   {
@@ -1182,8 +1182,8 @@
    "topic2": "",
    "sub": "",
    "tw": false,
-   "basis": "三民 Theme：Literature",
-   "check": true,
+   "basis": "三民課本課文（學習平台課本PDF）",
+   "check": false,
    "note": ""
   },
   {
@@ -1220,12 +1220,12 @@
    "book": 4,
    "no": "U7",
    "title": "Living Together for the Greater Good",
-   "topic": "社會議題",
-   "topic2": "",
+   "topic": "家庭與日常生活",
+   "topic2": "社會議題",
    "sub": "",
    "tw": false,
-   "basis": "三民 Theme：Problem-Solving",
-   "check": true,
+   "basis": "三民課本課文（學習平台課本PDF）",
+   "check": false,
    "note": ""
   },
   {
@@ -1280,8 +1280,8 @@
    "topic2": "科技與媒體",
    "sub": "",
    "tw": false,
-   "basis": "三民 Theme：Energy",
-   "check": true,
+   "basis": "三民課本課文（學習平台課本PDF）",
+   "check": false,
    "note": ""
   },
   {
@@ -1336,8 +1336,8 @@
    "topic2": "校園與學習",
    "sub": "",
    "tw": false,
-   "basis": "三民 Theme：Reading Literacy",
-   "check": true,
+   "basis": "三民課本課文（學習平台課本PDF）",
+   "check": false,
    "note": "語言文字"
   },
   {
@@ -1377,12 +1377,12 @@
    "book": 1,
    "no": "U2",
    "title": "I See You, Taiwan",
-   "topic": "歷史與文化",
+   "topic": "飲食與旅遊",
    "topic2": "",
    "sub": "",
    "tw": true,
-   "basis": "三民乙版標示：Self-awareness；#my_second_home",
-   "check": true,
+   "basis": "三民乙版課文（學習平台課本PDF）",
+   "check": false,
    "note": "",
    "vers": [
     "2023",
@@ -1448,11 +1448,11 @@
    "no": "U5",
    "title": "Diversity Matters in Medical Science",
    "topic": "健康、醫療與運動",
-   "topic2": "",
-   "sub": "",
+   "topic2": "社會議題",
+   "sub": "人權與法治",
    "tw": false,
-   "basis": "三民乙版標示：Diversity；#diversity_in_medicine",
-   "check": true,
+   "basis": "三民乙版課文（學習平台課本PDF）",
+   "check": false,
    "note": "",
    "vers": [
     "2023"
@@ -1483,11 +1483,11 @@
    "no": "R2",
    "title": "The Chinese Marie Curie",
    "topic": "科學與自然",
-   "topic2": "",
-   "sub": "",
+   "topic2": "社會議題",
+   "sub": "性別平等",
    "tw": false,
-   "basis": "三民乙版標示：Diversity",
-   "check": true,
+   "basis": "三民乙版課文（學習平台課本PDF）",
+   "check": false,
    "note": "",
    "vers": [
     "2023"
@@ -1603,12 +1603,12 @@
    "book": 1,
    "no": "U5",
    "title": "Creative Traffic Signals Around the World",
-   "topic": "社會議題",
-   "topic2": "",
+   "topic": "歷史與文化",
+   "topic2": "社會議題",
    "sub": "",
    "tw": false,
-   "basis": "三民乙版標示：Diversity",
-   "check": true,
+   "basis": "三民乙版課文（學習平台課本PDF）",
+   "check": false,
    "note": "",
    "vers": [
     "115"
@@ -1637,12 +1637,12 @@
    "book": 2,
    "no": "U1",
    "title": "Reviving the Dream in Dust",
-   "topic": "科技與媒體",
+   "topic": "歷史與文化",
    "topic2": "環境與災害",
    "sub": "",
    "tw": false,
-   "basis": "三民乙版標示：Adaptation；#transportation_adaptation",
-   "check": true,
+   "basis": "三民乙版課文（學習平台課本PDF）",
+   "check": false,
    "note": "",
    "vers": [
     "2023"
@@ -1675,8 +1675,8 @@
    "topic2": "",
    "sub": "",
    "tw": false,
-   "basis": "三民乙版標示：Adaptation",
-   "check": true,
+   "basis": "三民乙版課文（學習平台課本PDF）",
+   "check": false,
    "note": "",
    "vers": [
     "2023"
@@ -1792,10 +1792,10 @@
    "title": "Freeing Morocco's Tree-Climbing Goats",
    "topic": "社會議題",
    "topic2": "環境與災害",
-   "sub": "",
+   "sub": "動物權益",
    "tw": false,
-   "basis": "三民乙版標示：Vision；#vision_for_animal_welfare",
-   "check": true,
+   "basis": "三民乙版課文（學習平台課本PDF）",
+   "check": false,
    "note": "",
    "vers": [
     "2023"
@@ -1811,8 +1811,8 @@
    "topic2": "環境與災害",
    "sub": "",
    "tw": false,
-   "basis": "三民乙版標示：Vision；#vision_of_agriculture",
-   "check": true,
+   "basis": "三民乙版課文（學習平台課本PDF）",
+   "check": false,
    "note": "",
    "vers": [
     "2023"
@@ -1824,12 +1824,12 @@
    "book": 2,
    "no": "R3",
    "title": "It's Not Too Late . . . Yet",
-   "topic": "",
+   "topic": "環境與災害",
    "topic2": "",
    "sub": "",
    "tw": false,
-   "basis": "三民乙版標示：Vision",
-   "check": true,
+   "basis": "三民乙版課文（學習平台課本PDF）",
+   "check": false,
    "note": "只有課名，尚無依據，待查",
    "vers": [
     "2023"
@@ -1845,8 +1845,8 @@
    "topic2": "環境與災害",
    "sub": "",
    "tw": false,
-   "basis": "三民乙版標示：Development；#city_planning",
-   "check": true,
+   "basis": "三民乙版課文（學習平台課本PDF）",
+   "check": false,
    "note": "",
    "vers": [
     "2023"
@@ -1876,11 +1876,11 @@
    "no": "U3",
    "title": "Standing Up for What Is Right",
    "topic": "社會議題",
-   "topic2": "自我成長與心理",
-   "sub": "",
+   "topic2": "",
+   "sub": "性別平等",
    "tw": false,
-   "basis": "三民乙版標示：Development",
-   "check": true,
+   "basis": "三民乙版課文（學習平台課本PDF）",
+   "check": false,
    "note": "",
    "vers": [
     "2023"
@@ -1909,12 +1909,12 @@
    "book": 3,
    "no": "U4",
    "title": "A Journey of Redemption",
-   "topic": "自我成長與心理",
-   "topic2": "人際關係",
+   "topic": "文學與藝術",
+   "topic2": "自我成長與心理",
    "sub": "",
    "tw": false,
-   "basis": "三民乙版標示：Equality；#forgive_to_grow_equal",
-   "check": true,
+   "basis": "三民乙版課文（學習平台課本PDF）",
+   "check": false,
    "note": "",
    "vers": [
     "2023"
@@ -1944,11 +1944,11 @@
    "no": "U6",
    "title": "The True Face of a Favela: My Time in Rocinha",
    "topic": "社會議題",
-   "topic2": "歷史與文化",
-   "sub": "",
+   "topic2": "",
+   "sub": "全球議題",
    "tw": false,
-   "basis": "三民乙版標示：Equality；#unity_equals_strength",
-   "check": true,
+   "basis": "三民乙版課文（學習平台課本PDF）",
+   "check": false,
    "note": "",
    "vers": [
     "2023"
@@ -1960,12 +1960,12 @@
    "book": 3,
    "no": "R2",
    "title": "Live on Surprise!",
-   "topic": "",
-   "topic2": "",
+   "topic": "文學與藝術",
+   "topic2": "自我成長與心理",
    "sub": "",
    "tw": false,
-   "basis": "三民乙版標示：Equality",
-   "check": true,
+   "basis": "三民乙版課文（學習平台課本PDF）",
+   "check": false,
    "note": "只有課名，尚無依據，待查",
    "vers": [
     "2023"
@@ -2028,12 +2028,12 @@
    "book": 3,
    "no": "R3",
    "title": "Discovering How Cultures Mix at Haneda Airport",
-   "topic": "歷史與文化",
-   "topic2": "飲食與旅遊",
+   "topic": "飲食與旅遊",
+   "topic2": "歷史與文化",
    "sub": "",
    "tw": false,
-   "basis": "三民乙版標示：Integration",
-   "check": true,
+   "basis": "三民乙版課文（學習平台課本PDF）",
+   "check": false,
    "note": "",
    "vers": [
     "2023"
@@ -2079,12 +2079,12 @@
    "book": 4,
    "no": "U3",
    "title": "From Judgment to Reflection",
-   "topic": "文學與藝術",
+   "topic": "校園與學習",
    "topic2": "人際關係",
    "sub": "",
    "tw": false,
-   "basis": "三民乙版標示：Growth；#growing_empathy",
-   "check": true,
+   "basis": "三民乙版課文（學習平台課本PDF）",
+   "check": false,
    "note": "",
    "vers": [
     "2023"
@@ -2164,12 +2164,12 @@
    "book": 4,
    "no": "R2",
    "title": "Tides of Courage",
-   "topic": "",
-   "topic2": "",
+   "topic": "文學與藝術",
+   "topic2": "自我成長與心理",
    "sub": "",
    "tw": false,
-   "basis": "三民乙版標示：Application",
-   "check": true,
+   "basis": "三民乙版課文（學習平台課本PDF）",
+   "check": false,
    "note": "只有課名，尚無依據，待查",
    "vers": [
     "2023"
@@ -2202,8 +2202,8 @@
    "topic2": "",
    "sub": "",
    "tw": false,
-   "basis": "三民乙版標示：Interaction；#interaction_between_humans_and_animals",
-   "check": true,
+   "basis": "三民乙版課文（學習平台課本PDF）",
+   "check": false,
    "note": "人與動物的互動（動物溝通師與寵物）；歸類依寵物規則，待核對",
    "vers": [
     "2023"
@@ -2284,11 +2284,11 @@
    "no": "R1",
    "title": "A Pound of Flesh or a Heart of Mercy?",
    "topic": "文學與藝術",
-   "topic2": "社會議題",
+   "topic2": "",
    "sub": "",
    "tw": false,
-   "basis": "三民乙版標示：Investment",
-   "check": true,
+   "basis": "三民乙版課文（學習平台課本PDF）",
+   "check": false,
    "note": "",
    "vers": [
     "2023"
@@ -2336,10 +2336,10 @@
    "title": "Doctors for the Whole World",
    "topic": "社會議題",
    "topic2": "健康、醫療與運動",
-   "sub": "",
+   "sub": "全球議題",
    "tw": false,
-   "basis": "三民乙版標示：Competency",
-   "check": true,
+   "basis": "三民乙版課文（學習平台課本PDF）",
+   "check": false,
    "note": "",
    "vers": [
     "2023"
@@ -2355,8 +2355,8 @@
    "topic2": "",
    "sub": "",
    "tw": false,
-   "basis": "三民乙版標示：Future；#cherish_the_gift_of_life",
-   "check": true,
+   "basis": "三民乙版課文（學習平台課本PDF）",
+   "check": false,
    "note": "",
    "vers": [
     "2023"
@@ -2368,12 +2368,12 @@
    "book": 5,
    "no": "U6",
    "title": "Hooked on the Fishing Life",
-   "topic": "自我成長與心理",
-   "topic2": "家庭與日常生活",
+   "topic": "商業、經濟與職場",
+   "topic2": "自我成長與心理",
    "sub": "",
    "tw": false,
-   "basis": "三民乙版標示：Future；#never_give_up_on_ones_passions",
-   "check": true,
+   "basis": "三民乙版課文（學習平台課本PDF）",
+   "check": false,
    "note": "嗜好",
    "vers": [
     "2023"
