@@ -452,6 +452,7 @@ ol.wl.hz li.r:not(.rv) .rz.none::before{content:"（沒有中文意思）";borde
   <div class="tools" role="group" aria-label="匯出與列印">
     <button type="button" class="tb" id="bCopy">複製（貼到 Quizlet）</button>
     <button type="button" class="tb" id="bAnki">下載 Anki 匯入檔</button>
+    <label class="chk"><input type="checkbox" id="ckKk"> 複製、Anki 附音標</label>
     <button type="button" class="tb" id="bCsv">下載 CSV</button>
     <button type="button" class="tb" id="bPrint">列印</button>
     <label class="chk"><input type="checkbox" id="blank">列印時中文意思留白（自己默寫）</label><span class="lim" id="blnote" hidden>目前已遮住中文意思，列印時也會留白，不會印出答案。</span>
@@ -496,6 +497,7 @@ window.__wlFail=function(){if(window.__wlFailed)return;window.__wlFailed=1;var d
 <script src="wordlevel-data.js"></script>
 <script src="https://staresto-create.github.io/JCEE-vocab-questions/speaker.js"></script>
 <script src="https://staresto-create.github.io/JCEE-vocab-questions/kk.js"></script>
+<script src="vocab-export.js"></script>
 <script src="wordlevel-core.js?v=20261102"></script>
 <script>
 (function(){
@@ -650,7 +652,8 @@ L.rove(rowsEl,'li.r',function(go){P.open(words(),+go.getAttribute('data-i'),sel,
 /* 匯出 */
 function lvC(r){return r.c?(r.c===9?'大考附錄字':'大考 '+r.c+' 級'):'不在大考詞彙表'}
 function lvG(r){return r.g?L.GN[r.g]:'不在英檢字表'}
-function tsv(r){return r.w+'\t'+((r.p?r.p+' ':'')+r.z).replace(/[\t\r\n]+/g,' ')}
+function tsv(r){return VE.line(r.w,(r.p?r.p+' ':'')+r.z,$('ckKk').checked)}
+$('ckKk').checked=VE.kkPref();$('ckKk').addEventListener('change',function(){VE.setKkPref(this.checked)});
 function msg(t){tm.textContent=t}
 function dl(name,text,type){var b=new Blob([text],{type:type}),a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=name;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);a.remove()},1000)}
 $('bCopy').addEventListener('click',function(){

@@ -188,11 +188,12 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
     <div class="row" id="sortRow" role="group" aria-label="排列方式"><span class="lb">排列</span></div>
     <div class="row"><label class="ck"><input type="checkbox" id="onlyHard"> 只列我打勾「不會」的字</label></div>
     <div class="row">
-      <button class="b" id="copyW" type="button">複製單字</button>
+      <button class="b" id="copyW" type="button">只複製單字（一行一字）</button>
       <button class="b" id="printB" type="button">列印生字表</button>
       <label class="ck"><input type="checkbox" id="blankZh"> 列印時中文欄留空白，讓學生自己填</label>
     </div>
     <p class="tnote" id="copyMsg" aria-live="polite"></p>
+    <div id="veBox"></div>
     <div id="wlist"></div>
   </section>
 
@@ -207,6 +208,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
 
 <script src="../speaker.js"></script>
 <script src="../kk.js"></script>
+<script src="../vocab-export.js"></script>
 <script src="../passage-vocab.js"></script>
 <script>
 (function(){
@@ -506,6 +508,7 @@ function init(){
     var l=exportList();if(!l.length){$('copyMsg').textContent='目前沒有可複製的字。';return;}
     copyText(l.map(function(e){return e.key;}).join('\n'),'已複製 '+l.length+' 個單字，一行一個，可以貼到字典 App 查。');
   });
+  VE.mount($('veBox'),function(){return exportList().map(function(e){var g=glossOf(e);return {w:e.key,d:g?((!e.out&&e.pos&&!/^[a-z.\/]+\.\s/.test(g))?e.pos+' ':'')+g:''};});},{scope:'目前列出的全部字（有勾「只列我打勾『不會』的字」就只匯出那些）',file:'article_vocab'});
   $('printB').addEventListener('click',function(){if(!exportList().length){$('copyMsg').textContent='目前沒有可列印的字。';return;}doPrint();});
   $('text').addEventListener('click',function(ev){
     var w=ev.target.closest('.wd');if(!w)return;showPanel(A.toks[+w.getAttribute('data-i')]);

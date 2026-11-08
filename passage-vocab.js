@@ -141,8 +141,12 @@ function glossOf(e){
 }
 function camUrl(w){return 'https://dictionary.cambridge.org/us/search/direct/?datasetsearch=english-chinese-traditional&q='+encodeURIComponent(w);}
 function jget(u){return fetch(BASE+u).then(function(r){if(!r.ok)throw new Error(u+' '+r.status);return r.json();});}
+function loadVE(){
+  if(window.VE)return null;
+  return new Promise(function(ok){var t=document.createElement('script');t.src=BASE+'vocab-export.js';t.onload=ok;t.onerror=ok;document.head.appendChild(t);});
+}
 function load(){
-  if(!loading)loading=Promise.all([jget('cards/reverse_data.json'),jget('cards/polysemy_data.json?v=10').catch(function(){return null;}),jget('lexicon/lexicon_data.json').catch(function(){return null;}),jget('lexicon/passage_gloss.json').catch(function(){return null;}),(window.KK&&KK.ready)||null]).then(function(r){
+  if(!loading)loading=Promise.all([jget('cards/reverse_data.json'),jget('cards/polysemy_data.json?v=10').catch(function(){return null;}),jget('lexicon/lexicon_data.json').catch(function(){return null;}),jget('lexicon/passage_gloss.json').catch(function(){return null;}),(window.KK&&KK.ready)||null,loadVE()]).then(function(r){
     D=r[0];setup(D.rows);
     if(r[1])r[1].w.forEach(function(x){POLY[String(x.w).toLowerCase()]=x;});
     if(r[2]){var W=r[2].words;Object.keys(W).forEach(function(k){LEX[k.toLowerCase()]=W[k];});}
@@ -156,7 +160,8 @@ var css='.pvBox{margin:1rem 0;border:1px solid rgba(128,128,128,.35);border-left
 function addCss(){if(document.getElementById('pv-css'))return;var s=document.createElement('style');s.id='pv-css';s.textContent=css;document.head.appendChild(s);}
 function li(e){
   var g=glossOf(e), f=Object.keys(e.forms).filter(function(x){return x!==e.key;}).join('、');
-  var h='<li><span class="pvW" lang="en">'+esc(e.key)+'</span>'+(window.SPK?SPK.html(e.key,true):'')+(window.KK?KK.html(e.key):'');
+  var vd=g?((!e.out&&e.pos&&!/^[a-z.\/]+\.\s/.test(g))?e.pos+' ':'')+g:'';
+  var h='<li data-ve-w="'+esc(e.key)+'" data-ve-d="'+esc(vd)+'"><span class="pvW" lang="en">'+esc(e.key)+'</span>'+(window.SPK?SPK.html(e.key,true):'')+(window.KK?KK.html(e.key):'');
   h+='<span class="pvMeta">'+(e.out?'':e.lv+' 級'+(/^[a-z.\/]+\.\s/.test(g)?'':'　'+esc(e.pos||'')))+(f?(e.out?'':'　')+'文中：<span lang="en">'+esc(f)+'</span>':'')+'</span>';
   h+=g?'<span class="pvZh">'+esc(g)+'</span>':'<span class="pvZh pvNo"><a href="'+camUrl(e.key)+'" target="_blank" rel="noopener">查劍橋英漢 →</a></span>';
   return h+'</li>';
@@ -169,8 +174,9 @@ function html(text,opt){
     var A=analyze(String(text));
     var ins=A.order.filter(function(e){return !e.out&&e.lv>=th;}).sort(function(a,b){return a.first-b.first;});
     var out=A.order.filter(function(e){return e.out;}).sort(function(a,b){return a.first-b.first;});
-    var h='<details class="pvBox"><summary>這一篇的生字表 <small>（詞彙表第 '+th+' 級以上 '+ins.length+' 個'+(out.length?'、詞彙表以外 '+out.length+' 個':'')+'）</small><span class="pvHint">點開看：每個字都有發音、音標和中文</span></summary>'+
+    var h='<details class="pvBox" data-ve-root><summary>這一篇的生字表 <small>（詞彙表第 '+th+' 級以上 '+ins.length+' 個'+(out.length?'、詞彙表以外 '+out.length+' 個':'')+'）</small><span class="pvHint">點開看：每個字都有發音、音標和中文</span></summary>'+
       '<div class="pvNote">依文章出現的順序排列。級數依大考中心《高中英文參考詞彙表》（111 學年度起適用），中文意思與音標和本題庫的單字記憶卡一致。複數、過去式這類變化，列的是原形；文中的寫法標在「文中」。</div>';
+    if(window.VE)h+=VE.bar({scope:'這一篇生字表裡的全部字',file:'passage_vocab'});
     h+=ins.length?'<ul class="pvList">'+ins.map(li).join('')+'</ul>':'<p class="pvNote">這一篇沒有第 '+th+' 級以上的字。</p>';
     if(out.length)h+='<h3 class="pvHd">詞彙表以外<small>不在大考中心詞彙表裡，所以沒有級數；中文意思與音標對照 Merriam-Webster</small></h3><ul class="pvList">'+out.map(li).join('')+'</ul>';
     return h+'</details>';
