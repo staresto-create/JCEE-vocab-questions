@@ -95,6 +95,7 @@ details:not(.sh) > summary *::before, details:not(.sh) > summary *::after, detai
 details:not(.sh) > summary::after{content:"＋ 展開" !important; display:block !important; position:absolute !important; right:10px !important; top:50% !important; transform:translateY(-50%) !important; margin:0 !important; padding:2px 10px !important; border:1px solid currentColor !important; border-radius:999px !important; background:transparent !important; color:inherit !important; opacity:.85; font:400 12.5px/1.5 "Noto Sans TC",system-ui,sans-serif !important; letter-spacing:0 !important; text-transform:none !important; white-space:nowrap !important; text-decoration:none !important; width:auto !important; height:auto !important;}
 details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
 @media print{details:not(.sh) > summary::after{display:none !important;}}
+.veFold{margin:.6rem 0}.veFold>summary{min-height:44px;display:flex;align-items:center;cursor:pointer;font-weight:700;font-size:.95rem}@media print{.veFold{display:none!important}}
 </style>
 <style id="anti-copy">
 /* 防盜用措施（2026-10-14）：畫面浮水印、列印浮水印、頁尾授權聲明 */
@@ -122,6 +123,7 @@ li .kkp{font-size:.8rem;color:var(--ad-vinksoft-fg);margin-left:.4rem}
 .hl{background:var(--ad-vgoldsoft-bg);padding:0 .15em}
 </style>
 <script src="https://staresto-create.github.io/JCEE-vocab-questions/speaker.js"></script>
+<script src="vocab-export.js"></script>
 <style id="print-ref">
 @media print{
 #tools,.mbar,.spk,.spkset{display:none !important}
@@ -167,6 +169,8 @@ a{color:inherit;text-decoration:none}
     <input type="search" id="q" placeholder="搜尋，例如 vicariously 或 庇護" aria-label="搜尋單字與片語">
   </div>
   <p class="count" id="count" aria-live="polite"></p>
+  <details class="veFold"><summary>複製到 Quizlet、Anki 背單字</summary>
+  <div id="veBox" data-ve-root></div></details>
   <ul class="list" id="body"></ul>
 
   <footer class="foot" id="foot">
@@ -209,6 +213,9 @@ function hl(sentence,key){
 function rates(e){return e.occ.filter(function(o){return o.rate!==null;});}
 function avg(e){var r=rates(e); if(!r.length) return 999; return r.reduce(function(a,o){return a+o.rate;},0)/r.length;}
 function ol(o){return o.ex+' '+o.lab+' 第 '+o.no+' 題';}
+var LAST=[];
+function veTxt(t){return String(t==null?'':t).replace(/\s+/g,' ').trim();}
+if(window.VE)VE.mount(document.getElementById('veBox'),function(){return LAST.filter(function(e){return e.tag==='單字'||e.tag==='片語';}).map(function(e){return {w:e.head,d:veTxt(e.zh)};});},{unit:'條',scope:'畫面上目前列出的單字與片語（用上面的類型或搜尋篩選後，只匯出留下來的）。句子、指代與專有名詞不放進去',file:'context-vocab',kk:false,title:'選擇匯出方式'});
 function render(){
   var q=state.q.trim().toLowerCase();
   var list=DATA.filter(function(e){
@@ -223,6 +230,7 @@ function render(){
   else if(state.o==='n') list=list.slice().sort(function(a,b){return b.occ.length-a.occ.length||cmpA(a,b);});
   else list=list.slice().sort(function(a,b){return TORD[a.tag]-TORD[b.tag]||b.occ.length-a.occ.length||cmpA(a,b);});
   $('#count').textContent='共 '+list.length+' 條';
+  LAST=list;
   if(!list.length){ $('#body').innerHTML='<li class="empty">沒有符合的條目。</li>'; return; }
   $('#body').innerHTML=list.map(function(e){
     var h='<li id="'+e.id+'"><span class="w">'+esc(e.head)+'</span>'+((window.SPK&&e.tag!=='句子')?(SPK.html(e.head)||''):'')+'<span class="tag tn">'+esc(e.tag)+'</span>';

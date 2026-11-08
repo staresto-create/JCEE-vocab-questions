@@ -95,6 +95,7 @@ details:not(.sh) > summary *::before, details:not(.sh) > summary *::after, detai
 details:not(.sh) > summary::after{content:"＋ 展開" !important; display:block !important; position:absolute !important; right:10px !important; top:50% !important; transform:translateY(-50%) !important; margin:0 !important; padding:2px 10px !important; border:1px solid currentColor !important; border-radius:999px !important; background:transparent !important; color:inherit !important; opacity:.85; font:400 12.5px/1.5 "Noto Sans TC",system-ui,sans-serif !important; letter-spacing:0 !important; text-transform:none !important; white-space:nowrap !important; text-decoration:none !important; width:auto !important; height:auto !important;}
 details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
 @media print{details:not(.sh) > summary::after{display:none !important;}}
+.veFold{margin:.6rem 0}.veFold>summary{min-height:44px;display:flex;align-items:center;cursor:pointer;font-weight:700;font-size:.95rem}@media print{.veFold{display:none!important}}
 </style>
 <style id="anti-copy">
 /* 防盜用措施（2026-10-14）：畫面浮水印、列印浮水印、頁尾授權聲明 */
@@ -128,6 +129,8 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
   </div>
   <p class="note" id="anote" hidden>標 ★ 的是這次段考範圍的 ALL+ 單元，時間不夠先背這幾天。點「看這天的大意」可以快速回想那天讀的內容。</p>
 
+  <details class="veFold"><summary>複製到 Quizlet、Anki 背單字</summary>
+  <div id="veBox" data-ve-root></div></details>
   <div id="list"></div>
   <p class="empty" id="empty">這一區全部勾完了！</p>
 
@@ -139,6 +142,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
 </div>
 
 <script src="../kk.js"></script>
+<script src="../vocab-export.js"></script>
 <script>
 (function(){ var __go=function(){
 "use strict";
@@ -218,6 +222,11 @@ document.getElementById("reset").addEventListener("click", function(){
   Array.prototype.forEach.call(list.querySelectorAll("input[data-k]"), function(i){ i.checked = false; i.closest("li").classList.remove("on"); });
   counts();
 });
+if (window.VE) VE.mount(document.getElementById("veBox"), function(){
+  var out = [];
+  DATA.forEach(function(s){ if (s.g === cur) s.items.forEach(function(it){ out.push({w: it.w, d: it.g}); }); });
+  return out;
+}, {scope: "目前分頁（龍騰課本、核心字彙或 ALL+ 其中之一）列出的全部單字，不論有沒有勾選，也不受「只看還沒勾的」影響", file: "checklist", title: "選擇匯出方式"});
 show("L");
 }; if (window.KK) KK.ready.then(__go); else __go(); })();
 </script>
