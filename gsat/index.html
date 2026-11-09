@@ -591,13 +591,13 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
       <div class="row" style="margin-top:14px;">
         <button class="ghost-btn" id="reviewWrongBtn" style="flex:1;" onclick="reviewWrongBook()">複習錯題本</button>
       </div>
-      <button class="ghost-btn" style="margin-top:8px; width:100%;" onclick="if(confirm('確定要清除錯題本嗎？此動作無法復原（學習歷程統計不會被清除）。')){localStorage.removeItem(LS_WRONG);location.reload();}">清除錯題本</button>
+      <button class="ghost-btn" style="margin-top:8px; width:100%;" onclick="if(confirm('確定要清除錯題本嗎？此動作無法復原（學習歷程統計不會被清除）。')){setWrongBook([]);location.reload();}">清除錯題本</button>
     </div>
 
     <div class="card" style="padding:24px 26px;">
       <div class="sec-title">學習歷程</div>
       <div id="historyBox"></div>
-      <button class="ghost-btn" style="margin-top:12px;" onclick="if(confirm('確定要清除學習歷程統計嗎？此動作無法復原（錯題本不會被清除）。')){localStorage.removeItem(LS_HISTORY);location.reload();}">清除學習歷程統計</button>
+      <button class="ghost-btn" style="margin-top:12px;" onclick="if(confirm('確定要清除學習歷程統計嗎？此動作無法復原（錯題本不會被清除）。')){clearMyHistory();location.reload();}">清除學習歷程統計</button>
     </div>
   </div>
 
@@ -711,10 +711,16 @@ let session = { list: [], idx: 0, correctCount: 0, wrongIds: [], mode: '', timer
 const LS_WRONG = 'gswVocabWrongBook';
 const LS_HISTORY = 'gswVocabHistory';
 
-function getWrongBook(){ try{ return JSON.parse(localStorage.getItem(LS_WRONG)) || []; }catch(e){ return []; } }
-function setWrongBook(arr){ try{ localStorage.setItem(LS_WRONG, JSON.stringify(arr)); }catch(e){} }
-function getHistory(){ try{ return JSON.parse(localStorage.getItem(LS_HISTORY)) || []; }catch(e){ return []; } }
-function pushHistory(entry){ try{ const h = getHistory(); h.unshift(entry); localStorage.setItem(LS_HISTORY, JSON.stringify(h.slice(0,20))); }catch(e){} }
+const SITE_TAG = 'gsat';
+const isMyId = id => /^V\d/.test(String(id));
+/* 學測與指考共用同一個儲存鍵，所以只讀寫本站題號，另一站的紀錄原樣保留 */
+function readAllWrong(){ try{ const a = JSON.parse(localStorage.getItem(LS_WRONG)); return Array.isArray(a) ? a : []; }catch(e){ return []; } }
+function getWrongBook(){ return readAllWrong().filter(isMyId); }
+function setWrongBook(arr){ try{ const others = readAllWrong().filter(id=>!isMyId(id)); localStorage.setItem(LS_WRONG, JSON.stringify(others.concat((arr||[]).filter(isMyId)))); }catch(e){} }
+function readAllHistory(){ try{ const a = JSON.parse(localStorage.getItem(LS_HISTORY)); return Array.isArray(a) ? a : []; }catch(e){ return []; } }
+function getHistory(){ return readAllHistory().filter(e=>e && (!e.s || e.s===SITE_TAG)); }
+function pushHistory(entry){ try{ entry.s = SITE_TAG; const all = readAllHistory(); const others = all.filter(e=>e && e.s && e.s!==SITE_TAG).slice(0,20); const mine = [entry].concat(all.filter(e=>e && (!e.s || e.s===SITE_TAG))).slice(0,20); localStorage.setItem(LS_HISTORY, JSON.stringify(mine.concat(others))); }catch(e){} }
+function clearMyHistory(){ try{ localStorage.setItem(LS_HISTORY, JSON.stringify(readAllHistory().filter(e=>e && e.s && e.s!==SITE_TAG))); }catch(e){} }
 
 const byId = id => QUESTIONS.find(q => q.id === id);
 function shuffle(arr){ const a=[...arr]; for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]];} return a; }
@@ -774,7 +780,7 @@ function renderHistory(){
   box.innerHTML = h.slice(0,8).map(e=>{
     const d = new Date(e.date);
     const ds = (d.getMonth()+1)+'/'+d.getDate()+' '+String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0');
-    return '<div class="stat-line"><span>'+ds+' · '+e.mode+'</span><span>'+e.correct+' / '+e.total+'</span></div>';
+    return '<div class="stat-line"><span>'+ds+' · '+escapeHtml(e.mode)+'</span><span>'+e.correct+' / '+e.total+'</span></div>';
   }).join('');
 }
 
@@ -1121,7 +1127,7 @@ function goHome(){
    網址形狀：#set-<題目ID以半形逗號或句點分隔>[|<題組名稱>]
    例：#set-V0321,V0455,V0777|115上第3週U5 */
 function startFromSetHash(){
-  const raw = decodeURIComponent(location.hash || '');
+  let raw = ''; try{ raw = decodeURIComponent(location.hash || ''); }catch(e){ raw = ''; }
   const m = raw.match(/^#set-([^|]+)(?:\|(.*))?$/);
   if(!m) return false;
   const ids = m[1].split(/[.,]/).map(s => s.trim()).filter(Boolean);
