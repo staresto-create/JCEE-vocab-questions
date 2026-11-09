@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>我的弱點｜高中英文自學題庫</title>
+<meta name="color-scheme" content="light dark">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#F6F1E4;--paper-card:#FFFDF7;--ink:#221F1A;--ink-soft:#5B5648;--rule:#DCD3BB;--crimson:#AE3626;--sage:#3E6E52;--gold:#A9812E;--tint-sage:#F2F7F1;--tint-crimson:#FBF1EE;--tint-gold:#FBF6E9;--link-crimson:#9C2C1E;color-scheme:light}
+@media (prefers-color-scheme:dark){:root{--paper:#1B1916;--paper-card:#26231F;--ink:#EDE7D8;--ink-soft:#B8B0A0;--rule:#4C463B;--crimson:#E57B68;--sage:#82C09C;--gold:#DDA94F;--tint-sage:#1F2D25;--tint-crimson:#3A2420;--tint-gold:#342C18;--link-crimson:#E57B68;color-scheme:dark}}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:'Noto Sans TC',system-ui,-apple-system,'PingFang TC',sans-serif;line-height:1.7}
+main{max-width:660px;margin:0 auto;padding:18px 14px 56px}
+h1{font-family:'Noto Serif TC',serif;font-size:24px;margin:6px 0 4px}
+.lead{color:var(--ink-soft);font-size:14px;margin:0 0 14px}
+.demo{background:var(--tint-crimson);border-left:4px solid var(--crimson);padding:8px 12px;border-radius:4px;font-size:13px;margin:0 0 14px}
+.card{background:var(--paper-card);border:1px solid var(--rule);border-radius:6px;padding:14px;margin:0 0 12px}
+.card h2{font-size:17px;margin:0 0 2px;font-family:'Noto Serif TC',serif}
+.sum{display:flex;flex-wrap:wrap;gap:2px 16px;align-items:baseline;font-size:14px}
+.sum b{font-family:'Noto Serif TC',serif;font-size:20px;margin:0 2px}
+.few{font-size:12px;color:var(--ink-soft)}
+.bar{height:12px;background:var(--rule);border-radius:6px;overflow:hidden;margin:8px 0 4px}
+.bar i{display:block;height:100%;background:var(--sage);border-radius:6px}
+.bar i.hi{background:var(--crimson)}
+.acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.go,.tg{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:8px 16px;border-radius:22px;font:inherit;font-size:14px;font-weight:700;text-decoration:none;cursor:pointer}
+.go{border:1px solid var(--crimson);color:var(--link-crimson);background:transparent}
+.tg{border:1px solid var(--rule);background:var(--paper-card);color:var(--ink)}
+.tg[aria-expanded=true]{background:var(--ink);color:var(--paper-card);border-color:var(--ink)}
+.sub{margin-top:12px;border-top:1px solid var(--rule);padding-top:10px}
+.say{background:var(--tint-sage);border-left:4px solid var(--sage);padding:10px 12px;border-radius:4px;margin:0 0 10px;font-size:15px}
+.hint{font-size:12px;color:var(--ink-soft);margin:0 0 6px}
+.row{display:grid;grid-template-columns:112px 1fr auto;gap:2px 8px;align-items:center;padding:8px 0;border-top:1px solid var(--rule)}
+.hint+.row{border-top:0}
+.lv{font-weight:700;font-size:14px}
+.row .bar{margin:0}
+.meta{font-size:12px;color:var(--ink-soft);grid-column:2/4}
+.empty{font-size:14px;color:var(--ink-soft);margin:6px 0 0}
+.note{font-size:12px;color:var(--ink-soft);margin-top:14px}
+footer{margin-top:26px;text-align:center;font-size:12px;color:var(--ink-soft)}
+footer a{color:var(--link-crimson);font-weight:700}
+@media (max-width:420px){.row{grid-template-columns:92px 1fr auto}}
+@media print{.acts,.go,.tg{display:none}}
+</style>
+</head>
+<body>
+<main>
+<h1>我的弱點</h1>
+<p class="lead">看你做過的題目裡，哪一類還沒答對。作答紀錄只存在這台裝置的這個瀏覽器，不用登入，也不會上傳。</p>
+<div id="demoBar"></div>
+<div id="out" aria-busy="true"><p class="few">載入中…</p></div>
+<p class="note">計算方式：「做過」是你在練習頁作答過的題目（答對答錯都算，同一題只算一次），從 2026 年 10 月 25 日才開始記錄，在那之前答對的題目不在內，所以還沒答對的比例可能偏高；「還沒答對」是目前仍留在錯題本的題目，之後在練習頁再做同一題並答對，就會從錯題本移除。所以這裡顯示的是「目前還沒答對的題目」，不是「累計答錯的次數」；如果你清除過錯題本，清除的題目就當成已答對。單字題的字級依大考中心《高中英文參考詞彙表》，以該題正確答案的字級為準；正確答案不在詞彙表的題目，歸在「片語」或「無級數的單字」兩列，各列加起來等於題庫總題數。克漏字的分類是本題庫解析頁標示的題型，改編練習的題目不計入。</p>
+<footer><a href="./">← 回題庫首頁</a><br>© 2026 staresto-create ZZSH · 免費、無廣告的非營利自學題庫</footer>
+</main>
+<script>
+(function(){
+'use strict';
+/* 各題型：資料路徑、站代號、錯題本鍵名，都照各站現行寫法。 */
+var SITES=[
+ {key:'vocab-gsat',name:'學測單字',kind:'vocab',data:'gsat/data.js',path:'gsat/',wrongKey:'gswVocabWrongBook',unit:'級'},
+ {key:'vocab-zhikao',name:'指考單字',kind:'vocab',data:'zhikao/data.js',path:'zhikao/',wrongKey:'gswVocabWrongBook',unit:'級'},
+ {key:'gsat-cloze',name:'學測克漏字',kind:'cloze',data:'../grammar-cloze-test/grammar_items.json',path:'../grammar-cloze-test/',wrongKey:'grammar_cloze_wrong_ids_v1',unit:'類'},
+ {key:'zhikao-cloze',name:'指考克漏字',kind:'cloze',data:'../zhikao-cloze-test/zhikao_grammar_items.json',path:'../zhikao-cloze-test/',wrongKey:'zhikao_cloze_wrong_ids_v1',unit:'類'}
+];
+var MIN=5; /* 某一列做過的題數少於這個數字，先不下判斷 */
+var TIERS=['1','2','3','4','5','6','phrase','unlisted'];
+var TIER_NAME={'1':'第 1 級','2':'第 2 級','3':'第 3 級','4':'第 4 級','5':'第 5 級','6':'第 6 級',phrase:'片語（無級數）',unlisted:'無級數的單字'};
+/* 只有網址帶 ?demo 才會用示範資料；分布照兩站現有題庫的實際數字。 */
+var DEMO_DIST={
+ 'vocab-gsat':{'1':17,'2':73,'3':122,'4':178,'5':39,'6':9,phrase:56,unlisted:6},
+ 'vocab-zhikao':{'1':5,'2':34,'3':34,'4':94,'5':101,'6':47,phrase:10,unlisted:18},
+ 'gsat-cloze':{'字彙選義':252,'慣用語／片語':142,'分詞／動狀詞':38,'連接詞／轉折詞':34,'介系詞':29,'句型結構':18,'時態／語態':17,'語意連貫':11,'關係子句／疑問詞':9,'比較級':9,'代名詞／指示詞':6},
+ 'zhikao-cloze':{'字彙選義':116,'慣用語／片語':60,'連接詞／轉折詞':37,'介系詞':31,'分詞／動狀詞':18,'關係子句／疑問詞':12,'句型結構':10,'時態／語態':10,'代名詞／指示詞':6,'比較級':5}
+};
+var DEMO=/[?&]demo(?:[=&]|$)/.test(location.search)||window.WEAKNESS_PREVIEW===true;
+var state={banks:{},open:{}};
+
+function readLS(k){try{var r=localStorage.getItem(k);return r?JSON.parse(r):null}catch(e){return null}}
+function tierOf(q){
+  var v=String((q.l||{})[q.a]||'').trim(),m=/^([1-6])\*?$/.exec(v);
+  if(m)return m[1];
+  var w=String((q.o&&q.o[q.a])||'').trim();
+  return (w.indexOf(' ')>=0||w.indexOf('-')>=0)?'phrase':'unlisted';
+}
+/* 每題整理成 {id, g:分類代號}；分類代號對單字是字級列，對克漏字是題型。 */
+var ID_OK=/^[A-Za-z0-9_-]{1,40}$/;
+function uniq(list){var seen=Object.create(null);return list.filter(function(q){if(seen[q.id])return false;seen[q.id]=1;return true;});}
+function normVocab(arr){return uniq(arr.filter(function(q){return q&&typeof q.id==='string'&&ID_OK.test(q.id)&&q.o}).map(function(q){return {id:q.id,g:tierOf(q)};}));}
+function normCloze(arr){return uniq(arr.filter(function(q){return q&&typeof q.id==='string'&&ID_OK.test(q.id)}).map(function(q){return {id:q.id,g:(typeof q.category==='string'&&q.category)?q.category:'（未分類）'};}));}
+
+function loadBank(site){
+  return fetch(site.data).then(function(r){if(!r.ok)throw new Error('http');return r.text();}).then(function(s){
+    if(site.kind==='vocab'){
+      var m=/=\s*(\[[\s\S]*\])\s*;?\s*$/.exec(s);
+      if(!m)throw new Error('format');
+      var arr=JSON.parse(m[1]);
+      if(!Array.isArray(arr))throw new Error('format');
+      return normVocab(arr);
+    }
+    var j=JSON.parse(s);
+    if(!Array.isArray(j))throw new Error('format');
+    return normCloze(j);
+  }).then(function(list){if(!list.length)throw new Error('empty');state.banks[site.key]=list;})
+  .catch(function(){state.banks[site.key]=null;});
+}
+function demoBank(site){
+  var d=DEMO_DIST[site.key],list=[],n=0,pre=site.key==='vocab-gsat'?'V':site.key==='vocab-zhikao'?'ZK':site.key==='gsat-cloze'?'G':'Z';
+  Object.keys(d).forEach(function(g){for(var i=0;i<d[g];i++){list.push({id:pre+('0000'+(++n)).slice(-4),g:g});}});
+  return list;
+}
+function demoRecords(site,bank){
+  var seed=7,done=[],wrong=[];
+  function rnd(){seed=(seed*9301+49297)%233280;return seed/233280;}
+  var rate=Object.assign(Object.create(null),{'1':.05,'2':.12,'3':.2,'4':.42,'5':.5,'6':.6,phrase:.45,unlisted:.3,'字彙選義':.4,'慣用語／片語':.5,'連接詞／轉折詞':.2,'介系詞':.35,'分詞／動狀詞':.55});
+  bank.forEach(function(q){if(rnd()<.55){done.push(q.id);if(rnd()<(rate[q.g]||.25))wrong.push(q.id);}});
+  return {done:done,wrong:wrong};
+}
+/* 讀進度與錯題本。格式不對（不是陣列、v 不是 1 等）一律當成空的。 */
+function realRecords(site){
+  var p=readLS('scProgressV1'),done=[];
+  if(p&&typeof p==='object'&&p.v===1&&p.s&&typeof p.s==='object'&&Array.isArray(p.s[site.key]))done=p.s[site.key];
+  var w=readLS(site.wrongKey),wrong=Array.isArray(w)?w:[];
+  return {done:done,wrong:wrong};
+}
+
+function analyse(site){
+  var bank=state.banks[site.key];if(!bank)return null;
+  var rec=DEMO?demoRecords(site,bank):realRecords(site);
+  var byId=Object.create(null),groups=Object.create(null),order=[];
+  bank.forEach(function(q){byId[q.id]=q;if(!groups[q.g]){groups[q.g]={all:0,done:0,wrong:0,ids:[]};order.push(q.g);}groups[q.g].all++;});
+  var doneSet=Object.create(null),wrongSet=Object.create(null);
+  rec.done.forEach(function(id){if(typeof id==='string'&&byId[id])doneSet[id]=1;});
+  rec.wrong.forEach(function(id){if(typeof id==='string'&&byId[id]){wrongSet[id]=1;doneSet[id]=1;}}); /* 錯題一定算做過 */
+  var total=0,wr=0,allWrong=[];
+  bank.forEach(function(q){
+    if(!doneSet[q.id])return;
+    total++;var g=groups[q.g];g.done++;
+    if(wrongSet[q.id]){wr++;g.wrong++;g.ids.push(q.id);allWrong.push(q.id);}
+  });
+  if(site.kind==='vocab')order=TIERS.filter(function(t){return groups[t];});
+  else order.sort(function(a,b){return groups[b].all-groups[a].all;});
+  return {total:total,wrong:wr,all:bank.length,groups:groups,order:order,allWrong:allWrong};
+}
+
+function el(t,c,x){var n=document.createElement(t);if(c)n.className=c;if(x!=null)n.textContent=x;return n;}
+function pct(a,b){return b?Math.round(a/b*100):0;}
+function pctText(a,b){if(!b||a<=0)return '0%';var p=Math.round(a/b*100);return p<1?'不到 1%':p+'%';}
+function gname(site,g){return site.kind==='vocab'?TIER_NAME[g]:g;}
+function setHref(site,ids,label){return site.path+'#set-'+ids.join(',')+'|'+encodeURIComponent(label);}
+
+function worstOf(r){
+  var w=null;
+  r.order.forEach(function(g){var x=r.groups[g];if(x.done>=MIN&&x.wrong>0&&(w===null||x.wrong/x.done>r.groups[w].wrong/r.groups[w].done))w=g;});
+  return w;
+}
+
+function renderSite(site){
+  var card=el('section','card');card.setAttribute('aria-labelledby','h-'+site.key);
+  var h=el('h2',null,site.name);h.id='h-'+site.key;card.appendChild(h);
+  if(state.banks[site.key]===undefined){card.appendChild(el('p','few','載入中…'));return card;}
+  var r=analyse(site);
+  if(!r){card.appendChild(el('p','empty','暫時讀不到這個題庫的題目資料，請稍後再試。'));return card;}
+  var sum=el('div','sum');
+  var s1=el('span');s1.appendChild(document.createTextNode('做過'));s1.appendChild(el('b',null,r.total));s1.appendChild(document.createTextNode('題'));
+  var s2=el('span');s2.appendChild(document.createTextNode('還沒答對'));s2.appendChild(el('b',null,r.wrong));s2.appendChild(document.createTextNode('題'));
+  sum.appendChild(s1);sum.appendChild(s2);sum.appendChild(el('span','few','（題庫共 '+r.all+' 題）'));
+  card.appendChild(sum);
+  var bar=el('div','bar');bar.setAttribute('role','progressbar');bar.setAttribute('aria-valuemin','0');bar.setAttribute('aria-valuemax','100');
+  bar.setAttribute('aria-valuenow',String(pct(r.total,r.all)));bar.setAttribute('aria-label',site.name+'：做過 '+r.total+' 題，題庫共 '+r.all+' 題');
+  var bi=el('i');bi.style.width=pct(r.total,r.all)+'%';bar.appendChild(bi);card.appendChild(bar);card.appendChild(el('div','few','長條：做過的比例'));
+  if(!r.total){card.appendChild(el('p','empty','這個題型你還沒做過題目，所以還看不出弱點。'));
+    var acts0=el('div','acts');var a0=el('a','go','去練「'+site.name+'」');a0.href=site.path;acts0.appendChild(a0);card.appendChild(acts0);return card;}
+  var acts=el('div','acts');
+  if(r.wrong>0){var a=el('a','go','練這 '+r.wrong+' 題');a.href=setHref(site,r.allWrong,site.name+'還沒答對');acts.appendChild(a);}
+  var tg=el('button','tg',state.open[site.key]?'收起分類':'看各'+(site.kind==='vocab'?'字級':'類')+'的狀況');tg.type='button';
+  tg.setAttribute('aria-expanded',state.open[site.key]?'true':'false');tg.setAttribute('aria-controls','sub-'+site.key);
+  tg.onclick=function(){state.open[site.key]=!state.open[site.key];render();var again=document.getElementById('h-'+site.key);var b=again&&again.parentNode.querySelector('.tg');if(b)b.focus();};
+  acts.appendChild(tg);card.appendChild(acts);
+  var sub=el('div','sub');sub.id='sub-'+site.key;sub.hidden=!state.open[site.key];
+  if(state.open[site.key]){
+    var worst=worstOf(r),say=el('div','say'),anyQ=r.order.some(function(g){return r.groups[g].done>=MIN;});
+    if(worst!==null){var x=r.groups[worst];say.textContent='目前最需要加強的是「'+gname(site,worst)+'」：做過 '+x.done+' 題，其中 '+x.wrong+' 題還沒答對（'+pctText(x.wrong,x.done)+'）。';}
+    else if(r.wrong===0){say.textContent='做過的題目都已答對。繼續往下做，看看更多題。';}
+    else if(anyQ){say.textContent='做過 '+MIN+' 題以上的各'+site.unit+'都已答對；還沒答對的題目，在做過不到 '+MIN+' 題的'+site.unit+'，先多做幾題再看。';}
+    else{say.textContent='每一'+site.unit+'做過的題目都還不到 '+MIN+' 題，先多做幾題，這裡才看得出哪一'+site.unit+'比較弱。';}
+    sub.appendChild(say);
+    sub.appendChild(el('p','hint','長條是還沒答對的比例，紅色標出最需要加強的一'+site.unit+'；做過不到 '+MIN+' 題的先不判斷。'));
+    r.order.forEach(function(g){
+      var x=r.groups[g],row=el('div','row'),nm=gname(site,g);
+      row.appendChild(el('span','lv',nm+(g===worst?'（最需加強）':'')));
+      var b=el('div','bar');b.setAttribute('role','progressbar');b.setAttribute('aria-valuemin','0');b.setAttribute('aria-valuemax','100');
+      b.setAttribute('aria-valuenow',String(x.done?pct(x.wrong,x.done):0));
+      b.setAttribute('aria-label',nm+'：做過 '+x.done+' 題，還沒答對 '+x.wrong+' 題');
+      var i=el('i',g===worst?'hi':'');i.style.width=(x.done?pct(x.wrong,x.done):0)+'%';b.appendChild(i);row.appendChild(b);
+      if(x.wrong>0){var l=el('a','go','練這 '+x.wrong+' 題');l.href=setHref(site,x.ids,nm+'還沒答對');row.appendChild(l);}
+      else row.appendChild(el('span','few',x.done?'都已答對':'—'));
+      row.appendChild(el('div','meta',x.done<MIN?(x.done?'做過 '+x.done+' 題，題數還少，先不判斷（題庫共 '+x.all+' 題）':'還沒做過（題庫共 '+x.all+' 題）'):'做過 '+x.done+' 題，還沒答對 '+x.wrong+' 題（'+pctText(x.wrong,x.done)+'）；題庫共 '+x.all+' 題'));
+      sub.appendChild(row);
+    });
+  }
+  card.appendChild(sub);
+  return card;
+}
+
+function render(){
+  var out=document.getElementById('out');out.textContent='';
+  SITES.forEach(function(s){
+    var c;try{c=renderSite(s);}catch(e){c=el('section','card');c.appendChild(el('h2',null,s.name));c.appendChild(el('p','empty','暫時讀不到這個題庫的題目資料，請稍後再試。'));}
+    out.appendChild(c);
+  });
+  out.removeAttribute('aria-busy');
+}
+function demoBar(){
+  var h=document.getElementById('demoBar');h.textContent='';
+  if(DEMO)h.appendChild(el('div','demo','目前顯示的是示範資料，不是你的紀錄。'));
+}
+demoBar();render();
+Promise.all(SITES.map(function(s){
+  if(DEMO){state.banks[s.key]=demoBank(s);return Promise.resolve();}
+  return loadBank(s);
+})).then(render).catch(render);
+window.addEventListener('pageshow',function(e){if(e.persisted)render();});
+})();
+</script>
+</body>
+</html>
