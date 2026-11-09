@@ -176,7 +176,7 @@ let cur = 0, sel = -1;
 
 // ---- 範圍：累進／只看某一次（期末考之後，在 EXAMS、RANGES 各加一行就好）----
 const EXAMS = {1:'第一次段考', 2:'第二次段考'}, EXS = {1:'一考', 2:'二考'};
-const RANGES = [['all','累進',[1,2]], ['2','只看第二次',[2]], ['1','只看第一次',[1]]];
+const RANGES = [['all','累進',[1,2]], ['2','只看第二次段考範圍',[2]], ['1','只看第一次段考範圍',[1]]];
 let range = 'all';
 try{
   const q = /[?&]range=(all|1|2)\b/.exec(location.search);
