@@ -751,7 +751,7 @@ function renderHistory(){
   box.innerHTML = h.slice(0,8).map(e=>{
     const d = new Date(e.date);
     const ds = (d.getMonth()+1)+'/'+d.getDate()+' '+String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0');
-    return '<div class="stat-line"><span>'+ds+' · '+escapeHtml(e.mode)+'</span><span>'+e.correct+' / '+e.total+'</span></div>';
+    return '<div class="stat-line"><span>'+ds+' · '+escapeHtml(e.mode)+'</span><span>'+(Number(e.correct)||0)+' / '+(Number(e.total)||0)+'</span></div>';
   }).join('');
 }
 

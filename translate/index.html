@@ -1501,7 +1501,7 @@ document.getElementById("reviewWrongNow").addEventListener("click", ()=>{
 /* 用這台裝置的當地日期（台灣時間）記日期；toISOString 是 UTC，早上八點前會變成前一天 */
 function localDateStr(){ const d=new Date(); return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); }
 function getWrongBook(){
-  try{ return JSON.parse(localStorage.getItem(LS_WRONG)) || []; }catch(e){ return []; }
+  try{ const a = JSON.parse(localStorage.getItem(LS_WRONG)); return Array.isArray(a) ? a.filter(w => w && typeof w === 'object') : []; }catch(e){ return []; }
 }
 function saveWrongBook(list){
   try{ localStorage.setItem(LS_WRONG, JSON.stringify(list)); }catch(e){}
@@ -1531,8 +1531,8 @@ function renderReview(){
   }
   box.innerHTML = list.slice().reverse().map(w => `
     <div class="review-item">
-      <div class="meta">${w.yearLabel} · 存入日期 ${w.date}</div>
-      <div class="zh">${w.zh}</div>
+      <div class="meta">${escapeHtml(w.yearLabel)} · 存入日期 ${escapeHtml(w.date)}</div>
+      <div class="zh">${escapeHtml(w.zh)}</div>
       ${w.yourAnswer ? `<div class="yours">你的翻譯：${escapeHtml(w.yourAnswer)}</div>` : ""}
       <div class="model">參考譯法：${escapeHtml(w.en)}</div>
     </div>
@@ -1548,7 +1548,7 @@ document.getElementById("clearWrongLink").addEventListener("click", ()=>{
 
 /* ---------- localStorage: 學習歷程 ---------- */
 function getHistory(){
-  try{ return JSON.parse(localStorage.getItem(LS_HISTORY)) || []; }catch(e){ return []; }
+  try{ const a = JSON.parse(localStorage.getItem(LS_HISTORY)); return Array.isArray(a) ? a.filter(h => h && typeof h === 'object') : []; }catch(e){ return []; }
 }
 function logHistory(rangeLabel, attempted, correct){
   const list = getHistory();
@@ -1568,8 +1568,8 @@ function renderHistory(){
   }
   box.innerHTML = list.map(h => `
     <div class="history-row">
-      <span>${h.date} ${h.time}　${h.range}</span>
-      <span>${h.correct} / ${h.attempted}</span>
+      <span>${escapeHtml(h.date)} ${escapeHtml(h.time)}　${escapeHtml(h.range)}</span>
+      <span>${Number(h.correct) || 0} / ${Number(h.attempted) || 0}</span>
     </div>
   `).join("");
 }
@@ -1592,7 +1592,7 @@ function linkMarks(escaped){
 }
 
 function escapeHtml(s){
-  return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")
+  return String(s == null ? "" : s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")
           .replace(/"/g,"&quot;").replace(/'/g,"&#39;");
 }
 
