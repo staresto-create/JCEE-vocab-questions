@@ -333,7 +333,7 @@ KK.ready.then(function(){return fetch('coverage_data.json');}).then(function(r){
   D=d;
   if(window.VE)VE.zhLoader('../').then(function(zf){
     if(!zf)return;
-    VE.mount($('#veBox'),function(){var o=[];(LAST||[]).forEach(function(r){zf(r[0]).forEach(function(x){o.push(x);});});return o;},{scope:'畫面上目前符合條件的全部詞條（用上面的篩選或搜尋縮小範圍後，只匯出留下來的）',file:'coverage'});
+    VE.mount($('#veBox'),function(){var o=[];(LAST||[]).forEach(function(r){zf(r[0]).forEach(function(x){o.push(x);});});return o;},{scope:'畫面上目前符合條件的全部字（用上面的篩選或搜尋縮小範圍後，只匯出留下來的）',file:'coverage'});
   });
   var g=d.scope.gsat, z=d.scope.zhikao;
   $('#scopeText').textContent='範圍是兩個單字題庫：學測 '+g[0]+' 到 '+g[1]+' 年共 '+g[2]+' 題，指考（含早年的聯考）'+z[0]+' 到 '+z[1]+' 年共 '+z[2]+' 題。只要這個字出現在四個選項裡，不論是答案還是誘答，都算出現過；片語不算，題幹與文章裡出現的字也不算。';

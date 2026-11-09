@@ -292,7 +292,7 @@ fetch('reverse_data.json').then(function(r){if(!r.ok)throw new Error(r.status);r
   D=d; d.rows.forEach(function(r){r.k=key(r[0]);});
   if(window.VE)VE.zhLoader('../').then(function(zf){
     if(!zf)return;
-    VE.mount($('#veBox'),function(){var o=[];(LAST||[]).forEach(function(r){zf(r[0]).forEach(function(x){o.push(x);});});return o;},{scope:'畫面上目前符合條件的全部詞條（用上面的篩選或搜尋縮小範圍後，只匯出留下來的）',file:'reverse'});
+    VE.mount($('#veBox'),function(){var o=[];(LAST||[]).forEach(function(r){zf(r[0]).forEach(function(x){o.push(x);});});return o;},{scope:'畫面上目前符合條件的全部字（用上面的篩選或搜尋縮小範圍後，只匯出留下來的）',file:'reverse'});
   });
   var g=d.scope.gsat, z=d.scope.zhikao, tot=0, tt=0;
   Object.keys(d.stats).forEach(function(l){tot+=d.stats[l].n; tt+=d.stats[l].t;});

@@ -215,7 +215,7 @@ function avg(e){var r=rates(e); if(!r.length) return 999; return r.reduce(functi
 function ol(o){return o.ex+' '+o.lab+' 第 '+o.no+' 題';}
 var LAST=[];
 function veTxt(t){return String(t==null?'':t).replace(/\s+/g,' ').trim();}
-if(window.VE)VE.mount(document.getElementById('veBox'),function(){return LAST.filter(function(e){return e.tag==='單字'||e.tag==='片語';}).map(function(e){return {w:e.head,d:veTxt(e.zh)};});},{unit:'條',scope:'畫面上目前列出的單字與片語（用上面的類型或搜尋篩選後，只匯出留下來的）。句子、指代與專有名詞不放進去',file:'context-vocab',kk:false,title:'選擇匯出方式'});
+if(window.VE)VE.mount(document.getElementById('veBox'),function(){return LAST.filter(function(e){return e.tag==='單字'||e.tag==='片語';}).map(function(e){return {w:e.head,d:veTxt(e.zh)};});},{unit:'條',scope:'畫面上目前列出的單字與片語（用上面的類型或搜尋篩選後，只匯出留下來的；句子、指代與專有名詞不匯出）',file:'context-vocab',kk:false,title:'選擇匯出方式'});
 function render(){
   var q=state.q.trim().toLowerCase();
   var list=DATA.filter(function(e){

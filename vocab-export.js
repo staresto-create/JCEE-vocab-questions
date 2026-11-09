@@ -15,15 +15,28 @@
   /* 說明頁與本檔放在同一層；用本檔自己的網址推出來，各層資料夾的頁面都能連到 */
   var HELP = (function () { var c = document.currentScript; var u = c && c.src ? c.src.slice(0, c.src.lastIndexOf('/') + 1) : ''; return u ? u + 'quizlet-anki.html' : ''; })();
 
-  var CSS = '.veBar{margin:.8rem 0;padding:.6rem .8rem;border:1px solid rgba(128,128,128,.35);border-radius:.4rem;font-size:.92rem;line-height:1.7}' +
+  /* 樣式全放在這裡，各頁不必自己加。顏色不跟著各頁的主色走：按鈕用固定的緋紅（淺色）與較亮的緋紅（深色），
+   * 白字對比 6.3:1 與 4.7:1，按鈕和頁面底色的對比都在 3:1 以上；說明文字一律用本區塊的文字色，不被各頁的 summary 樣式改淡。 */
+  var CSS = '.veBar{--ve-a:#AE3626;--ve-af:#fff;--ve-ring:#17282f;margin:.8rem 0;padding:.6rem .8rem;border:1px solid rgba(128,128,128,.35);border-radius:.4rem;font-size:.92rem;line-height:1.7}' +
+    '@media (prefers-color-scheme:dark){.veBar{--ve-a:#C0503F;--ve-ring:#F2F0EE}}' +
     '.veBar .veT{font-weight:700;margin:0 0 .3rem}' +
-    '.veRow{display:flex;flex-wrap:wrap;gap:.45rem;align-items:center;margin:.3rem 0}' +
-    '.veB{font:inherit;font-size:.92rem;min-height:44px;padding:0 .9rem;border:1.5px solid currentColor;border-radius:4px;background:transparent;color:inherit;cursor:pointer}' +
-    '.veB:disabled{opacity:.45;cursor:default}' +
-    '.veCk{display:inline-flex;align-items:center;gap:.35rem;cursor:pointer;min-height:44px}' +
+    '.veRow{margin:.3rem 0}' +
+    '.veBtns{display:grid;grid-template-columns:repeat(auto-fit,minmax(10.5rem,1fr));gap:.5rem;max-width:30rem}' +
+    '.veB{font:inherit;font-size:.95rem;font-weight:700;min-height:44px;padding:.35rem .9rem;border:1.5px solid var(--ve-a);border-radius:6px;background:var(--ve-a);color:var(--ve-af);cursor:pointer;text-align:center;line-height:1.35;box-sizing:border-box}' +
+    '.veB:hover{filter:brightness(1.12)}.veB:active{transform:translateY(1px);filter:brightness(.92)}' +
+    '.veB:disabled{opacity:.45;cursor:default;filter:none;transform:none}' +
+    '.veB:focus-visible,.veCk input:focus-visible,.veHow summary:focus-visible{outline:2px solid var(--ve-ring);outline-offset:2px}' +
+    '.veCk{display:inline-flex;align-items:center;gap:.5rem;cursor:pointer;min-height:44px}' +
+    '.veCk input{width:1.25rem;height:1.25rem;margin:0;accent-color:var(--ve-a)}' +
     '.veMsg{margin:.2rem 0 0;font-size:.88rem;opacity:.85}' +
-    '.veHow{margin-top:.4rem;font-size:.88rem}.veHow summary{cursor:pointer}.veHow ul{margin:.3rem 0 0;padding-left:1.2rem}.veHow li{margin:.25rem 0}' +
-    '.veBox{width:100%;min-height:6rem;font:inherit;font-size:.85rem;margin-top:.4rem}' +
+    '.veBar .veHow{margin-top:.4rem;font-size:.88rem}' +
+    '.veBar .veHow summary{color:inherit;font-weight:600;cursor:pointer;display:flex;align-items:center;min-height:44px;padding-top:0!important;padding-bottom:0!important;padding-left:0!important;list-style:none}' +
+    '.veBar .veHow summary::-webkit-details-marker{display:none}.veBar .veHow summary::marker{content:""}' +
+    '.veBar .veHow summary::before{content:"▸";margin-right:.5rem;transition:transform .15s}' +
+    '.veBar .veHow[open]>summary::before{transform:rotate(90deg)}' +
+    '.veHow ul{margin:.3rem 0 0;padding-left:1.2rem}.veHow li{margin:.25rem 0}' +
+    '.veBar a{color:inherit;text-decoration:underline;text-underline-offset:2px}' +
+    '.veBox{box-sizing:border-box;width:100%;min-height:6rem;padding:.4rem .5rem;border:1px solid rgba(128,128,128,.5);border-radius:6px;background:transparent;color:inherit;font:inherit;font-size:.85rem;margin-top:.4rem}' +
     '@media print{.veBar{display:none!important}}';
 
   function addCss() {
@@ -99,21 +112,23 @@
   function bar(opt) {
     opt = opt || {};
     var helpUrl = opt.help === undefined ? HELP : opt.help;
+    /* 說明裡稱呼清單內容的名詞跟著 unit 走：單字頁叫「字」，片語、用法頁叫「條目」，同一段說明前後一致 */
+    var noun = opt.unit === '條' ? '條目' : '字';
     var scope = opt.scope ? '匯出的是' + opt.scope + '。' : '';
     var help = helpUrl ? '<li>第一次用？請看 <a href="' + helpUrl + '">Quizlet、Anki 的使用說明</a>。</li>' : '';
     return '<div class="veBar" data-ve data-ve-file="' + (opt.file || 'vocab') + '" data-ve-unit="' + (opt.unit || '字') + '">' +
       '<p class="veT">' + (opt.title || '複製到 Quizlet、Anki 背單字') + '</p>' +
-      '<div class="veRow">' +
+      '<div class="veRow veBtns">' +
       '<button type="button" class="veB" data-ve-do="copy">複製（貼到 Quizlet）</button>' +
       '<button type="button" class="veB" data-ve-do="anki">下載 Anki 匯入檔</button>' +
-      (opt.kk === false ? '' : '<label class="veCk"><input type="checkbox" data-ve-kk' + (kkPref() ? ' checked' : '') + '> 附音標</label>') +
       '</div>' +
+      (opt.kk === false ? '' : '<div class="veRow"><label class="veCk"><input type="checkbox" data-ve-kk' + (kkPref() ? ' checked' : '') + '> 複製、Anki 附音標</label></div>') +
       '<p class="veMsg" data-ve-msg aria-live="polite"></p>' +
       '<textarea class="veBox" data-ve-box hidden readonly aria-label="已選好的清單，請複製"></textarea>' +
       '<details class="veHow"><summary>匯入 Quizlet、Anki 的方法</summary><ul>' +
-      '<li><b>Quizlet</b>（要用網頁版，電腦或手機的瀏覽器都可以）：按「複製」，到 Quizlet 網站建立學習集，按「Import」，把內容貼進去。' + (opt.kk === false ? '一行一張卡，英文和中文之間用 Tab 分開。' : '每個字一行，英文和後面的音標、詞性、中文之間用 Tab 分開。') + '</li>' +
+      '<li><b>Quizlet</b>（要用網頁版，電腦或手機的瀏覽器都可以）：按「複製」，到 Quizlet 網站建立學習集，按「Import」，把內容貼進去。' + (opt.kk === false ? '每個' + noun + '一行，英文和中文之間用 Tab 分開。' : '每個' + noun + '一行，英文和後面的音標、詞性、中文之間用 Tab 分開。') + '</li>' +
       '<li><b>Anki</b>：按「下載 Anki 匯入檔」，在電腦版 Anki 選「檔案」>「匯入」，選這個 .txt 檔。</li>' +
-      '<li>' + scope + (opt.unit === '條' ? '沒有中文意思的條目不會放進去。條目太多時' : '沒有中文意思的字不會放進去。字太多時') + '，先縮小範圍再匯出。</li>' + help +
+      '<li>' + scope + '沒有中文意思的' + noun + '不會放進去。</li>' + help +
       '</ul></details></div>';
   }
 
@@ -162,6 +177,7 @@
       var tail = r.skip ? '（另有 ' + N(r.skip) + ' ' + U + '沒有中文意思，沒有放進去）' : '';
       var text = r.rows.join('\n');
       if (what === 'anki') {
+        box.hidden = true;
         download((bar_.getAttribute('data-ve-file') || 'vocab') + '_anki.txt', '#separator:Tab\n#html:false\n' + text + '\n');
         say('已下載 ' + N(r.rows.length) + ' ' + U + '的 Anki 匯入檔' + tail + '。如果沒有跳出下載，請改用「複製」，或用 Safari、Chrome 開啟這一頁。');
         return;
@@ -170,7 +186,7 @@
         box.hidden = false; box.value = text; box.focus(); box.select();
         try {
           box.setSelectionRange(0, box.value.length);
-          if (document.execCommand && document.execCommand('copy')) { say('已複製 ' + N(r.rows.length) + ' ' + U + '，請到 Quizlet 的匯入欄貼上。' + tail); return; }
+          if (document.execCommand && document.execCommand('copy')) { say('已複製 ' + N(r.rows.length) + ' ' + U + '，請到 Quizlet 的匯入欄貼上。' + tail); box.hidden = true; var cb = bar_.querySelector('[data-ve-do="copy"]'); if (cb) cb.focus(); return; }
         } catch (e) {}
         say('這個瀏覽器不能自動複製，內容已全部選取，請直接按手機或電腦的「複製」。' + tail);
       }

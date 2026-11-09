@@ -226,7 +226,7 @@ if (window.VE) VE.mount(document.getElementById("veBox"), function(){
   var out = [];
   DATA.forEach(function(s){ if (s.g === cur) s.items.forEach(function(it){ out.push({w: it.w, d: it.g}); }); });
   return out;
-}, {scope: "目前分頁（龍騰課本、核心字彙或 ALL+ 其中之一）列出的全部單字，不論有沒有勾選，也不受「只看還沒勾的」影響", file: "checklist", title: "選擇匯出方式"});
+}, {scope: "目前分頁（龍騰課本、核心字彙或 ALL+ 其中之一）列出的全部字，不論有沒有勾選，也不受「只看還沒勾的」影響", file: "checklist", title: "選擇匯出方式"});
 show("L");
 }; if (window.KK) KK.ready.then(__go); else __go(); })();
 </script>
