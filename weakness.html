@@ -310,7 +310,7 @@ function renderSite(site,pre){
     if(worst!==null){var x=r.groups[worst];say.appendChild(document.createTextNode('目前最需要加強的是「'));say.appendChild(el('b',null,gname(site,worst)));say.appendChild(document.createTextNode('」：做過 '+x.done+' 題，其中 '+x.wrong+' 題還沒答對（'+pctText(x.wrong,x.done)+'）。'));}
     else if(r.wrong===0){say.textContent='你做過的題目目前都已答對，可以去練還沒做過的題目。';}
     else if(anyQ){say.textContent='做過 '+MIN+' 題以上的'+u2+'，題目都已答對；還沒答對的題目，都在做過不到 '+MIN+' 題的'+u2+'裡。這些'+u2+'再多做幾題，才看得出是不是需要加強。';}
-    else{say.textContent='每個'+u2+'做過的題目都還不到 '+MIN+' 題，先多做幾題，這裡才看得出哪個'+u2+'比較弱。';}
+    else{say.textContent='每個'+u2+'做過的題目都還不到 '+MIN+' 題，先多做幾題，這裡才看得出哪個'+u2+'需要加強。';}
     sub.appendChild(say);
     sub.appendChild(el('p','hint','各列長條：還沒答對的題目占做過題數的比例。'+(worst!==null?'紅色斜紋的那一列最需要加強；':'')+'做過不到 '+MIN+' 題的那幾列先不判斷。'+(r.multi?'一題可以同時屬於多個分類，所以各列的題數加起來可能比歷屆試題的總題數多。':'')));
     r.order.forEach(function(g){
