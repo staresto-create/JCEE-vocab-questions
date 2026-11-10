@@ -25,28 +25,64 @@ figure{margin:0 0 18px;background:var(--card);border:1px solid var(--rule);borde
 figure img{display:block;width:100%;height:auto;background:#fff;}
 figcaption{font-size:13px;color:var(--soft);text-align:center;padding-top:4px;}
 a{color:var(--link);}
+.spkrow{display:none;flex-wrap:wrap;align-items:center;gap:6px 8px;padding:8px 4px 4px;border-top:1px dashed var(--rule);margin-top:6px}
+.tts .spkrow{display:flex}
+.spkrow .spkl{font-size:13px;color:var(--soft);margin-right:2px}
+.spkrow .chip{display:inline-flex;align-items:center;gap:2px;font-size:15px}
+.spkrow .chip .w{font-family:Georgia,'Times New Roman',serif;font-weight:700}
+.spkrow .spk{margin-left:.3rem;min-height:40px;min-width:44px;padding:.3rem .6rem;border-radius:6px;font-size:16px;align-items:center;justify-content:center}
+.spkrow .spkset{margin:0}
+.spkrow .spkv{min-height:40px;padding:.3rem .7rem;border-radius:6px}
 </style>
 </head>
 <body>
 <div class="wrap">
 <h1>龍騰 B3 L4 課文講義</h1>
-<p class="note">共 15 頁。生字畫底線，並標出詞性、字首字尾字根與句子結構。請把筆記抄到課本上，抄好的人可以加分。手機可以用兩指放大看細部。</p>
+<p class="note">共 15 頁。生字畫底線，並標出詞性、字首字尾字根與句子結構。請把筆記抄到課本上，抄好的人可以加分。手機可以用兩指放大看細部。每頁圖片下方列出本頁生字，點喇叭可以聽發音。</p>
 <div class="pages"><a href="#p1">1</a><a href="#p2">2</a><a href="#p3">3</a><a href="#p4">4</a><a href="#p5">5</a><a href="#p6">6</a><a href="#p7">7</a><a href="#p8">8</a><a href="#p9">9</a><a href="#p10">10</a><a href="#p11">11</a><a href="#p12">12</a><a href="#p13">13</a><a href="#p14">14</a><a href="#p15">15</a></div>
-<figure id="p1"><img src="L4/L4_01.png" alt="L4 課文講義第 1 頁" loading="eager"><figcaption>第 1 頁／共 15 頁</figcaption></figure>
-<figure id="p2"><img src="L4/L4_02.png" alt="L4 課文講義第 2 頁" loading="eager"><figcaption>第 2 頁／共 15 頁</figcaption></figure>
-<figure id="p3"><img src="L4/L4_03.png" alt="L4 課文講義第 3 頁" loading="lazy"><figcaption>第 3 頁／共 15 頁</figcaption></figure>
-<figure id="p4"><img src="L4/L4_04.png" alt="L4 課文講義第 4 頁" loading="lazy"><figcaption>第 4 頁／共 15 頁</figcaption></figure>
-<figure id="p5"><img src="L4/L4_05.png" alt="L4 課文講義第 5 頁" loading="lazy"><figcaption>第 5 頁／共 15 頁</figcaption></figure>
-<figure id="p6"><img src="L4/L4_06.png" alt="L4 課文講義第 6 頁" loading="lazy"><figcaption>第 6 頁／共 15 頁</figcaption></figure>
-<figure id="p7"><img src="L4/L4_07.png" alt="L4 課文講義第 7 頁" loading="lazy"><figcaption>第 7 頁／共 15 頁</figcaption></figure>
-<figure id="p8"><img src="L4/L4_08.png" alt="L4 課文講義第 8 頁" loading="lazy"><figcaption>第 8 頁／共 15 頁</figcaption></figure>
-<figure id="p9"><img src="L4/L4_09.png" alt="L4 課文講義第 9 頁" loading="lazy"><figcaption>第 9 頁／共 15 頁</figcaption></figure>
-<figure id="p10"><img src="L4/L4_10.png" alt="L4 課文講義第 10 頁" loading="lazy"><figcaption>第 10 頁／共 15 頁</figcaption></figure>
-<figure id="p11"><img src="L4/L4_11.png" alt="L4 課文講義第 11 頁" loading="lazy"><figcaption>第 11 頁／共 15 頁</figcaption></figure>
-<figure id="p12"><img src="L4/L4_12.png" alt="L4 課文講義第 12 頁" loading="lazy"><figcaption>第 12 頁／共 15 頁</figcaption></figure>
-<figure id="p13"><img src="L4/L4_13.png" alt="L4 課文講義第 13 頁" loading="lazy"><figcaption>第 13 頁／共 15 頁</figcaption></figure>
-<figure id="p14"><img src="L4/L4_14.png" alt="L4 課文講義第 14 頁" loading="lazy"><figcaption>第 14 頁／共 15 頁</figcaption></figure>
-<figure id="p15"><img src="L4/L4_15.png" alt="L4 課文講義第 15 頁" loading="lazy"><figcaption>第 15 頁／共 15 頁</figcaption></figure>
+<figure id="p1"><img src="L4/L4_01.png" alt="L4 課文講義第 1 頁" loading="eager"><div class="spkrow" data-w="[[&quot;deceased&quot;, &quot;&quot;], [&quot;loved one&quot;, &quot;&quot;], [&quot;accompany&quot;, &quot;&quot;], [&quot;celebration&quot;, &quot;&quot;]]"><span class="spkl">本頁生字</span></div><figcaption>第 1 頁／共 15 頁</figcaption></figure>
+<figure id="p2"><img src="L4/L4_02.png" alt="L4 課文講義第 2 頁" loading="eager"><div class="spkrow" data-w="[[&quot;essential&quot;, &quot;&quot;], [&quot;concept&quot;, &quot;&quot;], [&quot;mourn&quot;, &quot;&quot;], [&quot;sorrow&quot;, &quot;&quot;]]"><span class="spkl">本頁生字</span></div><figcaption>第 2 頁／共 15 頁</figcaption></figure>
+<figure id="p3"><img src="L4/L4_03.png" alt="L4 課文講義第 3 頁" loading="lazy"><div class="spkrow" data-w="[[&quot;joyous&quot;, &quot;&quot;], [&quot;occasion&quot;, &quot;&quot;], [&quot;reunion&quot;, &quot;&quot;], [&quot;afterlife&quot;, &quot;&quot;], [&quot;originate&quot;, &quot;&quot;], [&quot;the Aztecs&quot;, &quot;&quot;]]"><span class="spkl">本頁生字</span></div><figcaption>第 3 頁／共 15 頁</figcaption></figure>
+<figure id="p4"><img src="L4/L4_04.png" alt="L4 課文講義第 4 頁" loading="lazy"><div class="spkrow" data-w="[[&quot;passionately&quot;, &quot;&quot;], [&quot;honor&quot;, &quot;&quot;], [&quot;departed&quot;, &quot;&quot;], [&quot;focus&quot;, &quot;&quot;]]"><span class="spkl">本頁生字</span></div><figcaption>第 4 頁／共 15 頁</figcaption></figure>
+<figure id="p5"><img src="L4/L4_05.png" alt="L4 課文講義第 5 頁" loading="lazy"><div class="spkrow" data-w="[[&quot;soul&quot;, &quot;&quot;], [&quot;living&quot;, &quot;&quot;]]"><span class="spkl">本頁生字</span></div><figcaption>第 5 頁／共 15 頁</figcaption></figure>
+<figure id="p6"><img src="L4/L4_06.png" alt="L4 課文講義第 6 頁" loading="lazy"><div class="spkrow" data-w="[[&quot;spirit&quot;, &quot;&quot;], [&quot;anticipate&quot;, &quot;&quot;], [&quot;arrival&quot;, &quot;&quot;], [&quot;purchase&quot;, &quot;&quot;], [&quot;marigold&quot;, &quot;&quot;], [&quot;decorated&quot;, &quot;&quot;], [&quot;sugar skull&quot;, &quot;&quot;], [&quot;bear&quot;, &quot;&quot;]]"><span class="spkl">本頁生字</span></div><figcaption>第 6 頁／共 15 頁</figcaption></figure>
+<figure id="p7"><img src="L4/L4_07.png" alt="L4 課文講義第 7 頁" loading="lazy"><div class="spkrow" data-w="[[&quot;tidy&quot;, &quot;&quot;], [&quot;restore&quot;, &quot;&quot;], [&quot;grave&quot;, &quot;&quot;], [&quot;cemetery&quot;, &quot;&quot;], [&quot;bury&quot;, &quot;&quot;], [&quot;assemble&quot;, &quot;&quot;], [&quot;altar&quot;, &quot;&quot;], [&quot;returning&quot;, &quot;&quot;]]"><span class="spkl">本頁生字</span></div><figcaption>第 7 頁／共 15 頁</figcaption></figure>
+<figure id="p8"><img src="L4/L4_08.png" alt="L4 課文講義第 8 頁" loading="lazy"><div class="spkrow" data-w="[[&quot;beverage&quot;, &quot;&quot;], [&quot;dish&quot;, &quot;&quot;], [&quot;preference&quot;, &quot;&quot;]]"><span class="spkl">本頁生字</span></div><figcaption>第 8 頁／共 15 頁</figcaption></figure>
+<figure id="p9"><img src="L4/L4_09.png" alt="L4 課文講義第 9 頁" loading="lazy"><div class="spkrow" data-w="[[&quot;reception&quot;, &quot;&quot;], [&quot;cemetery&quot;, &quot;&quot;], [&quot;decorate&quot;, &quot;&quot;], [&quot;light&quot;, &quot;&quot;]]"><span class="spkl">本頁生字</span></div><figcaption>第 9 頁／共 15 頁</figcaption></figure>
+<figure id="p10"><img src="L4/L4_10.png" alt="L4 課文講義第 10 頁" loading="lazy"><div class="spkrow" data-w="[[&quot;cheerful&quot;, &quot;&quot;], [&quot;merry&quot;, &quot;&quot;], [&quot;feast&quot;, &quot;&quot;], [&quot;dawn&quot;, &quot;&quot;], [&quot;transform&quot;, &quot;&quot;], [&quot;horrifying&quot;, &quot;&quot;], [&quot;graveyard&quot;, &quot;&quot;], [&quot;venue&quot;, &quot;&quot;]]"><span class="spkl">本頁生字</span></div><figcaption>第 10 頁／共 15 頁</figcaption></figure>
+<figure id="p11"><img src="L4/L4_11.png" alt="L4 課文講義第 11 頁" loading="lazy"><div class="spkrow" data-w="[[&quot;throughout&quot;, &quot;&quot;], [&quot;representation&quot;, &quot;&quot;], [&quot;skeleton&quot;, &quot;&quot;], [&quot;skull&quot;, &quot;&quot;]]"><span class="spkl">本頁生字</span></div><figcaption>第 11 頁／共 15 頁</figcaption></figure>
+<figure id="p12"><img src="L4/L4_12.png" alt="L4 課文講義第 12 頁" loading="lazy"><div class="spkrow" data-w="[[&quot;costume&quot;, &quot;&quot;], [&quot;resemble&quot;, &quot;&quot;], [&quot;performance&quot;, &quot;&quot;], [&quot;parade&quot;, &quot;&quot;], [&quot;mock&quot;, &quot;&quot;]]"><span class="spkl">本頁生字</span></div><figcaption>第 12 頁／共 15 頁</figcaption></figure>
+<figure id="p13"><img src="L4/L4_13.png" alt="L4 課文講義第 13 頁" loading="lazy"><div class="spkrow" data-w="[[&quot;inevitable&quot;, &quot;&quot;], [&quot;cycle&quot;, &quot;&quot;], [&quot;embrace&quot;, &quot;&quot;], [&quot;ignore&quot;, &quot;&quot;]]"><span class="spkl">本頁生字</span></div><figcaption>第 13 頁／共 15 頁</figcaption></figure>
+<figure id="p14"><img src="L4/L4_14.png" alt="L4 課文講義第 14 頁" loading="lazy"><div class="spkrow" data-w="[[&quot;pleasure&quot;, &quot;&quot;], [&quot;annual&quot;, &quot;&quot;], [&quot;guest of honor&quot;, &quot;&quot;]]"><span class="spkl">本頁生字</span></div><figcaption>第 14 頁／共 15 頁</figcaption></figure>
+<figure id="p15"><img src="L4/L4_15.png" alt="L4 課文講義第 15 頁" loading="lazy"><div class="spkrow" data-w="[[&quot;fact of life&quot;, &quot;&quot;], [&quot;await&quot;, &quot;&quot;], [&quot;escape&quot;, &quot;&quot;]]"><span class="spkl">本頁生字</span></div><figcaption>第 15 頁／共 15 頁</figcaption></figure>
 </div>
+<script src="../../speaker.js"></script>
+<script>
+(function(){
+  var rows=document.querySelectorAll('.spkrow');
+  rows.forEach(function(r){
+    var data=JSON.parse(r.getAttribute('data-w'));
+    data.forEach(function(it){
+      var label=it[0],say=it[1],only=it[2];
+      var chip=document.createElement('span');chip.className='chip';
+      var h=window.SPK&&SPK.het(label);
+      if(h){
+        var tmp=document.createElement('span');tmp.innerHTML=SPK.html(label,true);
+        if(only){tmp.querySelectorAll('.spkv').forEach(function(b){if(only.indexOf(b.getAttribute('data-w'))<0)b.parentNode.removeChild(b);});}
+        var set=tmp.firstChild; if(!set)return;
+        chip.appendChild(set);
+      }else{
+        var b=window.SPK&&SPK.el(say||label);
+        if(!b)return;
+        b.setAttribute('aria-label','聽 '+label+' 的發音');
+        var w=document.createElement('span');w.className='w';w.textContent=label;
+        chip.appendChild(w);chip.appendChild(b);
+      }
+      r.appendChild(chip);
+    });
+    if(!r.querySelector('.chip')) r.parentNode.removeChild(r);
+  });
+})();
+</script>
 </body>
 </html>
