@@ -79,13 +79,13 @@ footer a{display:inline-flex;align-items:center;min-height:44px;padding:0 12px;c
 <body>
 <main>
 <h1>我的待加強題型</h1>
-<p class="lead">這一頁依你做過的題目，找出哪一類還沒答對的比例最高。作答紀錄只存在這台裝置的這個瀏覽器，不用登入，也不會上傳。</p>
-<p class="few">做過的題目從 2026 年 10 月下旬起才陸續開始記錄，在那之前答對的題目不會算進做過的題數，所以還沒答對的比例可能偏高。</p>
+<p class="lead">這一頁依你做過的題目，找出哪一類答錯的比例最高。作答紀錄只存在這台裝置的這個瀏覽器，不用登入，也不會上傳。</p>
+<p class="few">做過的題目從 2026 年 10 月下旬起才陸續開始記錄，在那之前答對的題目不會算進做過的題數，所以答錯的比例可能偏高。</p>
 <div id="demoBar"></div>
 <div id="out" aria-busy="true" aria-live="polite"><p class="few">載入中…</p></div>
 <details class="note"><summary>計算方式（點開看）</summary>
 <p><b>(1) 做過：</b>你在練習頁作答過的題目，答對答錯都算，同一題只算一次；中譯英要看完參考答案並自評才算。整篇練習交卷時沒作答的空格或題目，會算答錯、收進錯題本，所以這一頁也把這些題目算成做過。這一點和總站首頁的「你的練習進度」、各題庫首頁的進度列不同：進度不計入沒作答的題目。</p>
-<p><b>(2) 還沒答對：</b>目前仍留在錯題本的題目。之後在練習頁再做同一題並答對，這一題就會從錯題本移除；你自己清除錯題本時，原本在裡面的題目，這裡也會當成已答對。所以這裡顯示的是「目前還沒答對的題目」，不是「累計答錯的次數」。中譯英是看完參考答案後自評，選「我需要加強」的題目算還沒答對；混合題以「格」計，沒拿到滿分的格算還沒答對。</p>
+<p><b>(2) 答錯：</b>目前仍留在錯題本的題目。之後在練習頁再做同一題並答對，這一題就會從錯題本移除；你自己清除錯題本時，原本在裡面的題目，這裡也會當成已答對。也就是說，答錯後又重做答對的題目不算；同一題答錯好幾次，也只算一題，不是累計答錯的次數。至於中譯英，是看完參考答案後自評，選「我需要加強」的題目算答錯；混合題則以「格」計，沒拿到滿分的格算答錯。</p>
 <p><b>(3) 分類：</b>單字依大考中心《高中英文參考詞彙表》分級，以該題正確答案的字級為準；正確答案不在詞彙表內的題目，歸在「片語」或「詞彙表外的單字」。克漏字依文法點分，文意選填依本題庫的分類，篇章結構依測驗目標，閱讀測驗依題型，中譯英依主題。文意選填和中譯英的一題可以同時屬於多個分類，所以各列的題數加起來可能比歷屆試題的總題數多。</p>
 <p><b>(4) 不計入：</b>改編練習和混合題的考試說明示範題都不計入，所以各題庫錯題本的題數可能比這裡多。</p>
 </details>
@@ -263,7 +263,7 @@ function goBtn(site){var acts=el('div','acts');var a=el('a','go','去練「'+sit
 function reloadBtn(){var acts=el('div','acts');var b=el('button','go','重新整理');b.type='button';b.onclick=function(){location.reload();};acts.appendChild(b);return acts;}
 function metaOf(x){
   var m=el('div','meta');
-  var t=x.done<MIN?(x.done?'做過 '+x.done+' 題，題數還少，先不判斷':'還沒做過'):'做過 '+x.done+' 題，還沒答對 '+x.wrong+' 題（'+pctText(x.wrong,x.done)+'）';
+  var t=x.done<MIN?(x.done?'做過 '+x.done+' 題，題數還少，先不判斷':'還沒做過'):'做過 '+x.done+' 題，答錯 '+x.wrong+' 題（'+pctText(x.wrong,x.done)+'）';
   m.textContent=t+'・歷屆試題共 '+x.all+' 題';
   return m;
 }
@@ -280,7 +280,7 @@ function renderSite(site,pre){
   var worst=worstOf(r);
   var sum=el('div','sum');
   var s1=el('span');s1.appendChild(document.createTextNode('做過 '));s1.appendChild(el('b',null,r.total));s1.appendChild(document.createTextNode(' '+uw));
-  var s2=el('span','bad');s2.appendChild(document.createTextNode('還沒答對 '));s2.appendChild(el('b',null,r.wrong));s2.appendChild(document.createTextNode(' '+uw+'（'+pctText(r.wrong,r.total)+'）'));
+  var s2=el('span','bad');s2.appendChild(document.createTextNode('答錯 '));s2.appendChild(el('b',null,r.wrong));s2.appendChild(document.createTextNode(' '+uw+'（'+pctText(r.wrong,r.total)+'）'));
   sum.appendChild(s1);sum.appendChild(s2);
   card.appendChild(sum);
   var bar=el('div','bar');bar.setAttribute('role','progressbar');bar.setAttribute('aria-valuemin','0');bar.setAttribute('aria-valuemax','100');
@@ -290,13 +290,13 @@ function renderSite(site,pre){
   if(worst!==null&&!site.noSub&&!state.open[site.key]){
     var xw=r.groups[worst],tw=el('p','topweak');
     tw.appendChild(document.createTextNode('目前最需要加強：'));tw.appendChild(el('b',null,gname(site,worst)));
-    tw.appendChild(document.createTextNode('（做過 '+xw.done+' 題，還沒答對 '+pctText(xw.wrong,xw.done)+'）'));
+    tw.appendChild(document.createTextNode('（做過 '+xw.done+' 題，答錯 '+xw.wrong+' 題，'+pctText(xw.wrong,xw.done)+'）'));
     card.appendChild(tw);
   }
   var acts=el('div','acts');
   if(r.wrong>0){
     var a;
-    if(site.setOk){a=el('a','go','練這 '+r.wrong+' 題');a.href=setHref(site,r.allWrong,site.name+'：還沒答對的題目');}
+    if(site.setOk){a=el('a','go','練這 '+r.wrong+' 題');a.href=setHref(site,r.allWrong,site.name+'：答錯的題目');}
     else{a=el('a','go','去錯題本複習');a.href=site.path+'#u-hist';}
     acts.appendChild(a);}
   else{var a2=el('a','go','去練「'+site.name+'」');a2.href=site.path;acts.appendChild(a2);}
@@ -307,20 +307,20 @@ function renderSite(site,pre){
   var sub=el('div','sub');sub.id='sub-'+site.key;sub.hidden=!state.open[site.key];
   if(state.open[site.key]){
     var u2=site.kind==='vocab'?'字級':'分類',say=el('div','say'),anyQ=r.order.some(function(g){return r.groups[g].done>=MIN;});
-    if(worst!==null){var x=r.groups[worst];say.appendChild(document.createTextNode('目前最需要加強的是「'));say.appendChild(el('b',null,gname(site,worst)));say.appendChild(document.createTextNode('」：做過 '+x.done+' 題，其中 '+x.wrong+' 題還沒答對（'+pctText(x.wrong,x.done)+'）。'));}
+    if(worst!==null){var x=r.groups[worst];say.appendChild(document.createTextNode('目前最需要加強的是「'));say.appendChild(el('b',null,gname(site,worst)));say.appendChild(document.createTextNode('」：做過 '+x.done+' 題，其中答錯 '+x.wrong+' 題（'+pctText(x.wrong,x.done)+'）。'));}
     else if(r.wrong===0){say.textContent='你做過的題目目前都已答對，可以去練還沒做過的題目。';}
-    else if(anyQ){say.textContent='做過 '+MIN+' 題以上的'+u2+'，題目都已答對；還沒答對的題目，都在做過不到 '+MIN+' 題的'+u2+'裡。這些'+u2+'再多做幾題，才看得出是不是需要加強。';}
+    else if(anyQ){say.textContent='做過 '+MIN+' 題以上的'+u2+'，題目都已答對；答錯的題目，都在做過不到 '+MIN+' 題的'+u2+'裡。這些'+u2+'再多做幾題，才看得出是不是需要加強。';}
     else{say.textContent='每個'+u2+'做過的題目都還不到 '+MIN+' 題，先多做幾題，這裡才看得出哪個'+u2+'需要加強。';}
     sub.appendChild(say);
-    sub.appendChild(el('p','hint','各列長條：還沒答對的題目占做過題數的比例。'+(worst!==null?'紅色斜紋的那一列最需要加強；':'')+'做過不到 '+MIN+' 題的那幾列先不判斷。'+(r.multi?'一題可以同時屬於多個分類，所以各列的題數加起來可能比歷屆試題的總題數多。':'')));
+    sub.appendChild(el('p','hint','各列長條：答錯的題目占做過題數的比例。'+(worst!==null?'紅色斜紋的那一列最需要加強；':'')+'做過不到 '+MIN+' 題的那幾列先不判斷。'+(r.multi?'一題可以同時屬於多個分類，所以各列的題數加起來可能比歷屆試題的總題數多。':'')));
     r.order.forEach(function(g){
       var x=r.groups[g],row=el('div','row'),nm=gname(site,g);
       var lv=el('span','lv',nm);if(g===worst)lv.appendChild(el('span','flag','最需要加強'));row.appendChild(lv);
       var b=el('div',x.done<MIN?'bar few0':'bar');b.setAttribute('role','progressbar');b.setAttribute('aria-valuemin','0');b.setAttribute('aria-valuemax','100');
       b.setAttribute('aria-valuenow',String(x.done>=MIN?pct(x.wrong,x.done):0));
-      b.setAttribute('aria-label',nm+'：做過 '+x.done+' 題，還沒答對 '+x.wrong+' 題');
+      b.setAttribute('aria-label',nm+'：做過 '+x.done+' 題，答錯 '+x.wrong+' 題');
       var i=el('i',g===worst?'hi':'');i.style.width=(x.done>=MIN?pct(x.wrong,x.done):0)+'%';b.appendChild(i);row.appendChild(b);
-      if(x.wrong>0&&site.setOk){var l=el('a',g===worst?'go solid':'go link','練這 '+x.wrong+' 題');l.href=setHref(site,x.ids,nm+'：還沒答對的題目');row.appendChild(l);}
+      if(x.wrong>0&&site.setOk){var l=el('a',g===worst?'go solid':'go link','練這 '+x.wrong+' 題');l.href=setHref(site,x.ids,nm+'：答錯的題目');row.appendChild(l);}
       else if(x.wrong>0)row.appendChild(el('span','few',''));
       else row.appendChild(el('span','few',x.done?'都已答對':'—'));
       row.appendChild(metaOf(x));
@@ -336,7 +336,7 @@ function render(){
   var out=document.getElementById('out');out.textContent='';
   if(!DEMO&&SITES.every(function(s){return state.banks[s.key]==='none';})){
     var c0=el('section','card');c0.appendChild(el('h2',null,'還沒有作答紀錄'));
-    c0.appendChild(el('p','empty','做過題目之後，這裡才會顯示哪一類還沒答對的比例最高。請先到下面任一題型練習幾題。'));
+    c0.appendChild(el('p','empty','做過題目之後，這裡才會顯示哪一類答錯的比例最高。請先到下面任一題型練習幾題。'));
     var g=el('div','start-grid');
     SITES.forEach(function(s){var a=el('a','go',s.name);a.href=s.path;g.appendChild(a);});
     c0.appendChild(g);out.appendChild(c0);out.removeAttribute('aria-busy');return;
@@ -347,11 +347,11 @@ function render(){
     try{pre=(state.banks[s.key]&&state.banks[s.key]!=='none')?analyse(s):null;c=renderSite(s,pre);}
     catch(e){pre=null;c=el('section','card');c.id='card-'+s.key;c.appendChild(el('h2',null,s.name));c.appendChild(el('p','empty',LOADFAIL));c.appendChild(reloadBtn());}
     var ch=el('a','chip',s.name);ch.href='#card-'+s.key;
-    if(pre&&pre.wrong>0){anyWrong=true;ch.appendChild(el('b',null,pre.wrong));var lb=s.name+'：還沒答對 '+pre.wrong+' '+(s.u||'題');ch.setAttribute('aria-label',lb);ch.title=lb;}
+    if(pre&&pre.wrong>0){anyWrong=true;ch.appendChild(el('b',null,pre.wrong));var lb=s.name+'：答錯 '+pre.wrong+' '+(s.u||'題');ch.setAttribute('aria-label',lb);ch.title=lb;}
     ov.appendChild(ch);out.appendChild(c);
   });
   out.insertBefore(ov,out.firstChild);
-  if(anyWrong)out.insertBefore(el('p','ov-cap','各題型後面的紅色數字，是還沒答對的題數。'),ov);
+  if(anyWrong)out.insertBefore(el('p','ov-cap','各題型後面的紅色數字，是答錯的題數。'),ov);
   out.removeAttribute('aria-busy');
 }
 function demoBar(){
