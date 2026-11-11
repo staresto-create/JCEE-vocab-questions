@@ -1302,7 +1302,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
         g.w.forEach(function (w, i) { if (cfSame(ans, w.w)) target = i; });
       }
     } else if (g.k === 'sn') {
-      var fw = g.f[+parts[1]].w;          // 字義相近：題目不是一個字一題，靠答案字找回組內的字
+      var fw = g.f[+parts[1]].w;          // 字義相近：題目不是一個字一題，靠正確選項找回組內的字
       g.w.forEach(function (w, i) { if (w.w === fw) target = i; });
     } else {
       target = +parts[1];
