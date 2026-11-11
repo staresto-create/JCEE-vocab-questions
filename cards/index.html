@@ -579,7 +579,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
     }
     var st = (p.st === 'gsat' || p.st === 'zhikao') ? p.st : 'both';
 
-    var lv = null;                       // null = 全部字級
+    var lv = null;                       // null = 全部級別
     if (p.lv) {
       lv = { n: {}, p: false, x: false };
       p.lv.split(',').forEach(function (tok) {
@@ -598,7 +598,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
     }
 
     // 易混淆字組：#deck=cf，可加 g=1-20,45,51 指定組號（範圍與單一組號以逗號隔開），view=12 直接看第 12 組
-    // 一字多義：#deck=po，可加 lv=1-4 指定字級，view=12 直接看第 12 張卡
+    // 一字多義：#deck=po，可加 lv=1-4 指定級別，view=12 直接看第 12 張卡
     var deck = p.deck === 'cf' ? 'cf' : p.deck === 'po' ? 'po' : 'w';
     var gs = null;                       // null = 全部的組
     if (p.g) {
@@ -717,7 +717,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
                  .map(function (g) { return String(g.n); });
     }
     if (sc.deck === 'po') {
-      // 新卡先出字級低的：學生熟悉的字先練，五、六級留給進階的學生
+      // 新卡先出級別低的：學生熟悉的字先練，五、六級留給進階的學生
       return PO.w.filter(function (x) { return !sc.lv || sc.lv.n[x.lv]; })
                  .sort(function (a, b) { return (a.lv - b.lv) || (a.n - b.n); })
                  .map(function (x) { return String(x.n); });
@@ -1620,7 +1620,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
       var tl = document.createElement('a');
       tl.className = 'rg'; tl.setAttribute('href', 'teacher.html#po'); tl.textContent = '出題範圍與連結';
       box.appendChild(tl);
-      box.appendChild(document.createTextNode('勾選字級，產生自己的練習連結。'));
+      box.appendChild(document.createTextNode('勾選級別，產生自己的練習連結。'));
       return;
     }
     if (scope.tb) {
@@ -1629,7 +1629,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
       var ta = document.createElement('a');
       ta.className = 'rg'; ta.setAttribute('href', './'); ta.textContent = '單字記憶卡首頁';
       box.appendChild(ta);
-      box.appendChild(document.createTextNode('；想再限定年份或字級，可以到'));
+      box.appendChild(document.createTextNode('；想再限定年份或級別，可以到'));
       var tb2 = document.createElement('a');
       tb2.className = 'rg'; tb2.setAttribute('href', 'teacher.html'); tb2.textContent = '出題範圍與連結';
       box.appendChild(tb2);
@@ -1850,7 +1850,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
     var shown = ws.slice(0, statsShown);
     var h = '<div class="wl">';
     h += '<p class="wl-note">「' + L.name + '」共 ' + ws.length + (isCF() ? ' 組' : ' 個字') +
-         (statsOpen === 'new' ? (isCF() ? '，照組號排' : isPO() ? '，字級低的排前面' : '，出現越多次的排越前面') : '，答錯次數多、比較久沒碰到的排前面') +
+         (statsOpen === 'new' ? (isCF() ? '，照組號排' : isPO() ? '，級別低的排前面' : '，出現越多次的排越前面') : '，答錯次數多、比較久沒碰到的排前面') +
          (isCF() ? '。點組號可以看整組。</p>' : isPO() ? '。點字可以看整張卡。</p>' : '。點字可以看原題。</p>');
     h += '<ul class="wl-list">' + shown.map(function (k) {
       var s = state.w[k];

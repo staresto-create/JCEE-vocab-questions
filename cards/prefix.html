@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>字首同化 · 為什麼這個字母要寫兩次</title>
-<meta name="description" content="7 組字首、223 個字：字首和字根相接處連寫兩個相同字母的字放在一起記，附字級、音標、中文，再用「補字首」練習。">
+<meta name="description" content="7 組字首、223 個字：字首和字根相接處連寫兩個相同字母的字放在一起記，附級別、音標、中文，再用「補字首」練習。">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="高中英文自學題庫">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:title" content="字首同化 · 為什麼這個字母要寫兩次">
-<meta property="og:description" content="7 組字首、223 個字：字首和字根相接處連寫兩個相同字母的字放在一起記，附字級、音標、中文，再用「補字首」練習。">
+<meta property="og:description" content="7 組字首、223 個字：字首和字根相接處連寫兩個相同字母的字放在一起記，附級別、音標、中文，再用「補字首」練習。">
 <meta property="og:url" content="https://staresto-create.github.io/JCEE-vocab-questions/cards/prefix.html">
 <meta property="og:image" content="https://staresto-create.github.io/JCEE-vocab-questions/og-cover.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -144,7 +144,7 @@ td.sp b{color:var(--ad-vink-fg)}
       <span><span class="dbl">紅色底線</span>＝連寫的兩個字母</span>
       <span><b style="color:var(--ad-vcrimson-fg)">&#712;</b>＝重音</span>
       <span>灰色的字母＝雙寫字首前面另外加的字首</span>
-      <span>音節切分與重音依 Merriam-Webster；字級是大考中心《高中英文參考詞彙表》</span>
+      <span>音節切分與重音依 Merriam-Webster；級別是大考中心《高中英文參考詞彙表》</span>
       <span>字首與字根的拆法依 Merriam-Webster 的字源；Merriam-Webster 沒有標出字首的字，另外對照 Etymonline</span>
     </div>
   </section>
@@ -163,7 +163,7 @@ td.sp b{color:var(--ad-vink-fg)}
     <button type="button" id="tabB" aria-pressed="true">看字表</button>
     <button type="button" id="tabP" aria-pressed="false">做練習</button>
   </div>
-  <div class="row" id="lvRow" role="group" aria-label="依字級篩選"><span class="lb">字級</span></div>
+  <div class="row" id="lvRow" role="group" aria-label="依級別篩選"><span class="lb">級別</span></div>
 
   <div id="browseSec">
   <div class="row" id="nav" aria-label="跳到各組"><span class="lb">跳到</span></div>
@@ -236,7 +236,7 @@ function table(list){
   var r=list.filter(lvOK).map(function(e){
     return '<tr><td class="lv">'+e.lv+'</td><td><span class="w">'+wordHTML(e)+'</span>'+spkBtn(e.w)+'<span class="kkm">'+kkCell(e)+'</span><span class="spm">'+splitHTML(e)+'</span></td><td class="kk">'+kkCell(e)+'</td><td class="sp">'+splitHTML(e)+'</td><td>'+e.g+'</td></tr>';
   }).join('');
-  if(!r) r='<tr><td colspan="5" class="empty-msg">這個字級沒有符合的字。</td></tr>';
+  if(!r) r='<tr><td colspan="5" class="empty-msg">這個級別沒有符合的字。</td></tr>';
   return '<div class="tw"><table><thead><tr><th>級</th><th>單字</th><th class="kk">音標</th><th class="sp">拆解</th><th>中文</th></tr></thead><tbody>'+r+'</tbody></table></div>';
 }
 function count(g){var c=0;g.sections.forEach(function(s){c+=s.words.filter(lvOK).length;});return c;}
@@ -287,7 +287,7 @@ function ansText(e){
 function practice(){
   var box=$('practice');
   if(!pool.length){
-    box.innerHTML='<p class="empty-msg">這個字級沒有符合的題目。</p>';
+    box.innerHTML='<p class="empty-msg">這個級別沒有符合的題目。</p>';
     $('moreRow').classList.add('hidden');return;
   }
   if(pos0>=pool.length){pool=shuffle(pool);pos0=0;}
@@ -301,7 +301,7 @@ function practice(){
     up+='<div class="qc">'+e.w.slice(e.i+e.fl)+'</div>';
     return '<div class="q">'
       +'<div class="qrow">'+up+'</div>'
-      +'<div class="meta"><span class="kkq">'+kkCell(e)+'</span><span class="zh">'+e.g+'</span><span>第 '+(idx+1)+' 題，字級 '+e.lv+'</span></div>'
+      +'<div class="meta"><span class="kkq">'+kkCell(e)+'</span><span class="zh">'+e.g+'</span><span>第 '+(idx+1)+' 題，級別 '+e.lv+'</span></div>'
       +'<div class="hint hidden"><div class="meta"><span>'+hintText(e)+'</span></div></div>'
       +'<div class="btns"><button class="btn hintbtn" type="button">給我提示</button><button class="btn ansbtn" type="button">看答案</button></div>'
       +'<div class="meta hidden ans"><span class="w">'+wordHTML(e)+'</span>'+spkBtn(e.w)+'<span>'+ansText(e)+'</span></div>'
@@ -334,8 +334,8 @@ function renderPg(){
 function renderAll(){
   renderGroups();renderNav();renderPg();newPool();practice();
 }
-/* 複製到 Quizlet、下載 Anki 匯入檔：匯出目前字級篩選後列出的全部字（共用 vocab-export.js，格式與單字總表相同） */
-VE.mount($('veBox'),function(){var out=[];DATA.groups.forEach(function(g){g.sections.forEach(function(s){s.words.filter(lvOK).forEach(function(e){out.push({w:e.w,d:VE.plain(e.g)});});});});return out;},{scope:'目前列出的全部字（有選字級就只匯出那幾級）',file:'prefix_words'});
+/* 複製到 Quizlet、下載 Anki 匯入檔：匯出目前級別篩選後列出的全部字（共用 vocab-export.js，格式與單字總表相同） */
+VE.mount($('veBox'),function(){var out=[];DATA.groups.forEach(function(g){g.sections.forEach(function(s){s.words.filter(lvOK).forEach(function(e){out.push({w:e.w,d:VE.plain(e.g)});});});});return out;},{scope:'目前列出的全部字（有選級別就只匯出那幾級）',file:'prefix_words'});
 var lvRow=$('lvRow');
 LEVELS.forEach(function(l){
   var b=document.createElement('button');

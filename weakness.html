@@ -86,7 +86,7 @@ footer a{display:inline-flex;align-items:center;min-height:44px;padding:0 12px;c
 <details class="note"><summary>計算方式（點開看）</summary>
 <p><b>(1) 做過：</b>你在練習頁作答過的題目，答對答錯都算，同一題只算一次；中譯英要看完參考答案並自評才算。整篇練習交卷時沒作答的空格或題目，會算答錯、收進錯題本，所以這一頁也把這些題目算成做過。這一點和總站首頁的「你的練習進度」、各題庫首頁的進度列不同：進度不計入沒作答的題目。</p>
 <p><b>(2) 答錯：</b>目前仍留在錯題本的題目。之後在練習頁再做同一題並答對，這一題就會從錯題本移除；你自己清除錯題本時，原本在裡面的題目，這裡也會當成已答對。也就是說，答錯後又重做答對的題目不算；同一題答錯好幾次，也只算一題，不是累計答錯的次數。至於中譯英，是看完參考答案後自評，選「我需要加強」的題目算答錯；混合題則以「格」計，沒拿到滿分的格算答錯。</p>
-<p><b>(3) 分類：</b>單字依大考中心《高中英文參考詞彙表》分級，以該題正確答案的字級為準；正確答案不在詞彙表內的題目，歸在「片語」或「詞彙表外的單字」。克漏字依文法點分，文意選填依本題庫的分類，篇章結構依測驗目標，閱讀測驗依題型，中譯英依主題。文意選填和中譯英的一題可以同時屬於多個分類，所以各列的題數加起來可能比歷屆試題的總題數多。</p>
+<p><b>(3) 分類：</b>單字依大考中心《高中英文參考詞彙表》分級，以該題正確選項的級別為準；正確答案不在詞彙表內的題目，歸在「片語」或「詞彙表外的單字」。克漏字依文法點分，文意選填依本題庫的分類，篇章結構依測驗目標，閱讀測驗依題型，中譯英依主題。文意選填和中譯英的一題可以同時屬於多個分類，所以各列的題數加起來可能比歷屆試題的總題數多。</p>
 <p><b>(4) 不計入：</b>改編練習和混合題的考試說明示範題都不計入，所以各題庫錯題本的題數可能比這裡多。</p>
 </details>
 <footer><a href="./">← 回題庫首頁</a><br>© 2026 staresto-create ZZSH · 免費、無廣告的非營利自學題庫</footer>
@@ -258,7 +258,7 @@ function noRec(site){
   else if(site.kind!=='vocab')t+='整篇練習要交卷才會記錄，測試模式的作答不會記錄。';
   return t;
 }
-function tgLabel(site,open){return (open?'收合':'展開')+(site.kind==='vocab'?'各字級':'各分類')+'分析 '+(open?'▴':'▾');}
+function tgLabel(site,open){return (open?'收合':'展開')+(site.kind==='vocab'?'各級別':'各分類')+'分析 '+(open?'▴':'▾');}
 function goBtn(site){var acts=el('div','acts');var a=el('a','go','去練「'+site.name+'」');a.href=site.path;acts.appendChild(a);return acts;}
 function reloadBtn(){var acts=el('div','acts');var b=el('button','go','重新整理');b.type='button';b.onclick=function(){location.reload();};acts.appendChild(b);return acts;}
 function metaOf(x){
@@ -306,7 +306,7 @@ function renderSite(site,pre){
   if(site.noSub){card.appendChild(el('p','few','混合題沒有再分類，只看總數。'));return card;}
   var sub=el('div','sub');sub.id='sub-'+site.key;sub.hidden=!state.open[site.key];
   if(state.open[site.key]){
-    var u2=site.kind==='vocab'?'字級':'分類',say=el('div','say'),anyQ=r.order.some(function(g){return r.groups[g].done>=MIN;});
+    var u2=site.kind==='vocab'?'級別':'分類',say=el('div','say'),anyQ=r.order.some(function(g){return r.groups[g].done>=MIN;});
     if(worst!==null){var x=r.groups[worst];say.appendChild(document.createTextNode('目前最需要加強的是「'));say.appendChild(el('b',null,gname(site,worst)));say.appendChild(document.createTextNode('」：做過 '+x.done+' 題，其中答錯 '+x.wrong+' 題（'+pctText(x.wrong,x.done)+'）。'));}
     else if(r.wrong===0){say.textContent='你做過的題目目前都已答對，可以去練還沒做過的題目。';}
     else if(anyQ){say.textContent='做過 '+MIN+' 題以上的'+u2+'，題目都已答對；答錯的題目，都在做過不到 '+MIN+' 題的'+u2+'裡。這些'+u2+'再多做幾題，才看得出是不是需要加強。';}

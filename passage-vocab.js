@@ -122,7 +122,7 @@ function analyze(text){
   for(i=0;i<toks.length;i++){
     o2=toks[i]; if(o2.kind!=='list'&&o2.kind!=='out')continue;
     var lw=o2.w.toLowerCase();
-    /* s=1：這個字形在詞彙表裡算在原字底下（級數照原字），但意思和原字不同（scanner 不是 scan、unfortunately 不是 fortunate），
+    /* s=1：這個字形在詞彙表裡算在原字底下（級別照原字），但意思和原字不同（scanner 不是 scan、unfortunately 不是 fortunate），
        所以自成一列、用補充字表的中文，不借原字的釋義 */
     var key=o2.kind==='list'?((EX[lw]&&EX[lw].s)?lw:o2.lm):((EX[lw]&&EX[lw].b)||lw);
     var e=by[key];
@@ -185,10 +185,10 @@ function html(text,opt){
     var ins=A.order.filter(function(e){return !e.out&&e.lv>=th;}).sort(function(a,b){return a.first-b.first;});
     var out=A.order.filter(function(e){return e.out;}).sort(function(a,b){return a.first-b.first;});
     var h='<details class="pvBox" data-ve-root><summary>這一篇的生字表 <small>（詞彙表第 '+th+' 級以上 '+ins.length+' 個'+(out.length?'、詞彙表以外 '+out.length+' 個':'')+'）</small><span class="pvHint">點開看：每個字都有發音、音標和中文</span></summary>'+
-      '<div class="pvNote">依文章出現的順序排列。級數依大考中心《高中英文參考詞彙表》（111 學年度起適用），中文意思與音標和本題庫的單字記憶卡一致。複數、過去式這類變化，列的是原形；文中的寫法標在「文中」。</div>';
+      '<div class="pvNote">依文章出現的順序排列。級別依大考中心《高中英文參考詞彙表》（111 學年度起適用），中文意思與音標和本題庫的單字記憶卡一致。複數、過去式這類變化，列的是原形；文中的寫法標在「文中」。</div>';
     if(window.VE)h+=VE.bar({scope:'這一篇生字表裡的全部字',file:'passage_vocab'});
     h+=ins.length?'<ul class="pvList">'+ins.map(li).join('')+'</ul>':'<p class="pvNote">這一篇沒有第 '+th+' 級以上的字。</p>';
-    if(out.length)h+='<h3 class="pvHd">詞彙表以外<small>不在大考中心詞彙表裡，所以沒有級數；中文意思與音標對照 Merriam-Webster</small></h3><ul class="pvList">'+out.map(li).join('')+'</ul>';
+    if(out.length)h+='<h3 class="pvHd">詞彙表以外<small>不在大考中心詞彙表裡，所以沒有級別；中文意思與音標對照 Merriam-Webster</small></h3><ul class="pvList">'+out.map(li).join('')+'</ul>';
     return h+'</details>';
   });
 }

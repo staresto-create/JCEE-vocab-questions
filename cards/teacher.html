@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>單字記憶卡 · 出題範圍與連結產生器</title>
-<meta name="description" content="勾選年份、題庫與字級，或指定易混淆字組的組號，產生一條指定範圍的記憶卡連結，貼給學生就能用。免費、無廣告。">
+<meta name="description" content="勾選年份、題庫與級別，或指定易混淆字組的組號，產生一條指定範圍的記憶卡連結，貼給學生就能用。免費、無廣告。">
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -210,9 +210,9 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
 
       <div id="poFields" style="display:none;">
         <div class="field">
-          <span class="flabel">字級</span>
+          <span class="flabel">級別</span>
           <div class="chips" id="poLvChips"></div>
-          <p class="fhint">字級依大考中心《高中英文參考詞彙表》（111 學年度起適用）。五、六級的字，學生連常見的意思都不一定熟悉，再練另一個意思，比較適合程度較好的學生；只勾一到四級，就有 252 個字。全部勾選等於不設限。</p>
+          <p class="fhint">級別依大考中心《高中英文參考詞彙表》（111 學年度起適用）。五、六級的字，學生連常見的意思都不一定熟悉，再練另一個意思，比較適合程度較好的學生；只勾一到四級，就有 252 個字。全部勾選等於不設限。</p>
         </div>
         <details class="glist" id="poList"><summary>看包含哪些字</summary><ol></ol></details>
       </div>
@@ -235,9 +235,9 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
       </div>
 
       <div class="field">
-        <span class="flabel">字級</span>
+        <span class="flabel">級別</span>
         <div class="chips" id="lvChips"></div>
-        <p class="fhint">字級依大考中心《高中英文參考詞彙表》（111 學年度起適用）。片語與超出詞彙表的字沒有級別，另外列。全部勾選等於不設限。</p>
+        <p class="fhint">級別依大考中心《高中英文參考詞彙表》（111 學年度起適用）。片語與超出詞彙表的字沒有級別，另外列。全部勾選等於不設限。</p>
       </div>
 
       <div class="field">
@@ -249,7 +249,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
       <div class="field">
         <span class="flabel">課本</span>
         <div class="chips" id="tbChips"></div>
-        <p class="fhint">「三版皆有」是龍騰版、三民乙版（含 115 改版）和三民甲版的課本單字裡都出現的字，不管學生用哪一版課本都會學到。只出這些字的話，上面的年份、題庫、字級和出現幾次照樣可以一起選，例如「三版皆有、4 級、出現 2 次以上」。課本裡的字如果出現在歷屆學測、指考詞彙題的選項裡，就用當年的原題練；其餘的字沒有大考原題，改用依大考詞彙題題型編寫的詞彙選擇題，這些字不受年份和題庫的限制。</p>
+        <p class="fhint">「三版皆有」是龍騰版、三民乙版（含 115 改版）和三民甲版的課本單字裡都出現的字，不管學生用哪一版課本都會學到。只出這些字的話，上面的年份、題庫、級別和出現幾次照樣可以一起選，例如「三版皆有、4 級、出現 2 次以上」。課本裡的字如果出現在歷屆學測、指考詞彙題的選項裡，就用當年的原題練；其餘的字沒有大考原題，改用依大考詞彙題題型編寫的詞彙選擇題，這些字不受年份和題庫的限制。</p>
       </div>
       </div>
 
@@ -279,7 +279,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
         其中 206 個字另有依大考題型編寫的詞彙選擇題，讓學生換一個句子練習這個字的用法；學生做過這個字一次之後才會出，卡片上會標明不是大考原題。
       </p>
       <p>
-        翻到背面有 KK 音標、字級、完整意思，還有當年那一整句和中譯，以及那一題的字詞搭配。
+        翻到背面有 KK 音標、級別、完整意思，還有當年那一整句和中譯，以及那一題的字詞搭配。
         要是這個字當年是誘答，背面會說明正解是哪一個、句子裡為什麼看不到這個字，點一下就跳回原題看解析。
       </p>
       <p>
@@ -287,7 +287,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
       </p>
       <p>
         選「易混淆字組」的話，一張卡就是一組字。每次從組裡挑一個字出題，題型有中文選英文、英文選中文和詞彙選擇題；組裡有幾個字當年出現在同一題的，就先出那一題大考原題。
-        翻到背面是整組的字，每個字都有 KK 音標、字級和中文，還有記憶點和怎麼分；出現過的字附上當年那一句，點一下就跳回原題。答對的組往後推，答錯的組當場再來一次。
+        翻到背面是整組的字，每個字都有 KK 音標、級別和中文，還有記憶點和怎麼分；出現過的字附上當年那一句，點一下就跳回原題。答對的組往後推，答錯的組當場再來一次。
       </p>
       <p>
         選「一字多義」的話，一張卡就是一個字。這些字學生多半只熟悉一種意思或詞性，大考考的卻是另一種，例如 grace 當動詞是「光臨，使（場合）增光」。
@@ -325,7 +325,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
         <b>課本三版皆有的字有兩種練法。</b>在歷屆詞彙題的選項裡出現過的字，先用當年的原題；沒有大考原題的字，只出依大考詞彙題題型編寫的詞彙選擇題，卡片上會標明不是大考原題。這些字不受年份和題庫的限制，「出現幾次」選 2 次以上時，只留下在歷屆詞彙題的選項裡出現過那麼多次的字。
       </p>
       <p>
-        <b>學生也可以自己用。</b>易混淆字組和一字多義的首頁都有一行連到這一頁，學生想只練其中幾組或某些字級，可以自己選好範圍，產生練習連結。
+        <b>學生也可以自己用。</b>易混淆字組和一字多義的首頁都有一行連到這一頁，學生想只練其中幾組或某些級別，可以自己選好範圍，產生練習連結。
       </p>
       <p>
         <b>單字卡的字源是歷屆考題。</b>全部取自本題庫學測 500 題、指考 343 題詞彙題的所有選項，共 2,113 個字。
@@ -556,7 +556,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
     var nq = ws.filter(function (x) { return x.q1; }).length;
     if (!ws.length) {
       box.className = 'count zero';
-      box.innerHTML = '<span class="warn">這個範圍一個字也沒有，學生點進去會是空的。請至少勾一個字級。</span>';
+      box.innerHTML = '<span class="warn">這個範圍一個字也沒有，學生點進去會是空的。請至少勾一個級別。</span>';
     } else {
       box.className = 'count';
       box.innerHTML = '共 <b>' + ws.length + '</b> 個字，其中 <b>' + nq + '</b> 個有大考原題。' +
@@ -627,11 +627,11 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
     var box = $('count');
     if (c.w === 0) {
       box.className = 'count zero';
-      box.innerHTML = '<span class="warn">這個範圍一個字也沒有，學生點進去會是空的。請放寬年份、題庫或字級。</span>';
+      box.innerHTML = '<span class="warn">這個範圍一個字也沒有，學生點進去會是空的。請放寬年份、題庫或級別。</span>';
     } else {
       box.className = 'count';
       box.innerHTML = '取自 <b>' + c.q + '</b> 題，共 <b>' + c.w + '</b> 個字。' +
-        '<br><span class="sub2">記憶卡以字為單位，學生做的是這 ' + c.w + ' 個字；題數是這些字的出處，不受字級和出現過次數的篩選影響。' +
+        '<br><span class="sub2">記憶卡以字為單位，學生做的是這 ' + c.w + ' 個字；題數是這些字的出處，不受級別和出現過次數的篩選影響。' +
         (tb ? '課本三版皆有的字，有大考原題的字形各算一張，沒有大考原題的字也列入。' : '') + '</span>' +
         (c.w < 20 ? '<br><span class="warn">字數偏少，學生大概幾分鐘就練完了。</span>' : '');
     }
