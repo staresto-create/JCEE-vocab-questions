@@ -8,14 +8,14 @@
 'use strict';
 var BASE=(function(){var s=document.currentScript&&document.currentScript.src;return s?s.slice(0,s.lastIndexOf('/')+1):'';})();
 function esc(t){return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
-var D=null, IDX={}, ROWS=[], GROUP={}, POLY={}, LEX={}, EX={}, loading=null;
+var D=null, IDX={}, ROWS=[], GROUP={}, POLY={}, LEX={}, EX={}, TB=null, CV=null, loading=null;
 /* 不規則變化 */
 var IRR={was:'be',were:'be',been:'be',being:'be',am:'be',is:'be',are:'be',had:'have',has:'have',having:'have',did:'do',done:'do',does:'do',doing:'do',went:'go',gone:'go',goes:'go',going:'go',made:'make',said:'say',took:'take',taken:'take',came:'come',saw:'see',seen:'see',got:'get',gotten:'get',gave:'give',given:'give',knew:'know',known:'know',thought:'think',found:'find',told:'tell',felt:'feel',left:'leave',kept:'keep',began:'begin',begun:'begin',brought:'bring',bought:'buy',built:'build',caught:'catch',chose:'choose',chosen:'choose',drew:'draw',drawn:'draw',drove:'drive',driven:'drive',ate:'eat',eaten:'eat',fell:'fall',fallen:'fall',flew:'fly',flown:'fly',forgot:'forget',forgotten:'forget',grew:'grow',grown:'grow',heard:'hear',held:'hold',lay:'lie',lain:'lie',led:'lead',lost:'lose',meant:'mean',met:'meet',paid:'pay',ran:'run',rode:'ride',ridden:'ride',rose:'rise',risen:'rise',sang:'sing',sung:'sing',sat:'sit',slept:'sleep',spoke:'speak',spoken:'speak',spent:'spend',stood:'stand',swam:'swim',swum:'swim',taught:'teach',threw:'throw',thrown:'throw',understood:'understand',woke:'wake',woken:'wake',wore:'wear',worn:'wear',wrote:'write',written:'write',broke:'break',broken:'break',hid:'hide',hidden:'hide',shook:'shake',shaken:'shake',stole:'steal',stolen:'steal',sold:'sell',sent:'send',shot:'shoot',sought:'seek',lent:'lend',bent:'bend',dealt:'deal',dug:'dig',fed:'feed',fought:'fight',hung:'hang',laid:'lay',lit:'light',won:'win',wound:'wind',men:'man',women:'woman',children:'child',people:'person',feet:'foot',teeth:'tooth',mice:'mouse',geese:'goose',better:'good',best:'good',worse:'bad',worst:'bad',more:'much',most:'much',less:'little',least:'little',farther:'far',further:'far',elder:'old',eldest:'old',lives:'life',wives:'wife',knives:'knife',wolves:'wolf',leaves:'leaf',halves:'half',shelves:'shelf',thieves:'thief',loaves:'loaf',selves:'self',analyses:'analysis',crises:'crisis',phenomena:'phenomenon',criteria:'criterion',data:'datum',bacteria:'bacterium',became:'become',ripest:'ripe',riper:'ripe',bred:'breed',blown:'blow',blew:'blow',drank:'drink',drunk:'drink',shown:'show',torn:'tear',tore:'tear',sprung:'spring',sprang:'spring',struck:'strike',undone:'undo',undid:'undo',frozen:'freeze',froze:'freeze',withdrawn:'withdraw',withdrew:'withdraw',cannot:'can',sped:'speed',strung:'string',overthrew:'overthrow',burnt:'burn',arose:'arise',arisen:'arise',bitten:'bite',borne:'bear',born:'bear',bled:'bleed',burst:'burst',clung:'cling',crept:'creep',dwelt:'dwell',fled:'flee',flung:'fling',forbade:'forbid',forbidden:'forbid',foresaw:'foresee',foreseen:'foresee',forgave:'forgive',forgiven:'forgive',knelt:'kneel',leapt:'leap',overcame:'overcome',rang:'ring',rebuilt:'rebuild',retold:'retell',rewrote:'rewrite',rewritten:'rewrite',sank:'sink',sunk:'sink',shone:'shine',shrank:'shrink',shrunk:'shrink',slid:'slide',stuck:'stick',stung:'sting',swept:'sweep',swore:'swear',sworn:'swear',swung:'swing',undertook:'undertake',undertaken:'undertake',wove:'weave',woven:'weave',wept:'weep',wrung:'wring',overtook:'overtake',overtaken:'overtake',awoke:'awake',awoken:'awake',strove:'strive',strode:'stride'};
 var PLACE={};'taiwan taiwanese france paris germany berlin italy rome spain madrid portugal britain england english london scotland ireland wales netherlands dutch belgium switzerland swiss austria vienna sweden swedish norway norwegian denmark danish finland finnish iceland russia russian moscow ukraine ukrainian poland polish greece greek turkey turkish egypt egyptian israel iran iraq syria lebanon india indian pakistan bangladesh nepal tibet china chinese beijing shanghai taipei taichung kaohsiung tainan hsinchu taoyuan keelung hualien taitung penghu kinmen matsu hongkong macau japan japanese tokyo osaka kyoto korea korean seoul vietnam vietnamese thailand thai bangkok singapore malaysia malaysian indonesia indonesian jakarta philippines filipino manila cambodia laos myanmar mongolia mongolian asia asian europe european africa african america american canada canadian toronto vancouver mexico mexican brazil brazilian argentina chile peru colombia cuba australia australian sydney melbourne oceania zealand antarctica arctic pacific atlantic mediterranean nigeria kenya ethiopia morocco ghana california texas florida hawaii alaska york chicago boston seattle washington francisco angeles vegas'.split(' ').forEach(function(x){PLACE[x]=1;});
 var BASIC={};'one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty thirty forty fifty sixty seventy eighty ninety fourth fifth sixth seventh eighth ninth tenth could might should would ought does did monday tuesday wednesday thursday friday saturday sunday january february april june july august september october november december according mr mrs ms dr ok oh hi bye ones tens hundreds thousands cm kg km mm ml co non anti pre pro th st nd rd'.split(' ').forEach(function(w){BASIC[w]=1;});
 var SKIP={};
 /* 詞彙表沒有單獨收的常用片語字（according to），不要還原成第 5 級的 accord */
-var NOLEM={according:1};
+var NOLEM={according:1,insure:1,discord:1};
 /* 文章裡的人名（Saint Phalle、Foster’s rule 等），不當一般單字 */
 var NAMES=/Saint Phalle|J\. Bristol Foster|Foster['’]s rule|Mrs\. Tuck|Grace Wambui/g;
 var DBL=/([b-df-hj-np-tv-z])\1$/;
@@ -59,13 +59,24 @@ function cands(t){
 function lemma0(t){
   if(look(t))return t;
   var c=cands(t);
-  for(var i=0;i<c.length;i++)if(c[i].length>1&&look(c[i]))return c[i];
+  for(var i=0;i<c.length;i++)if(okBase(t,c[i],c))return c[i];
   return null;
+}
+/* 字形還原的把關：-ly 只接形容詞或副詞（belly 不是 bell、heavenly 不是 heaven）；-s 不拆 ss 結尾的字（hiss 不是 his）；
+   -er、-est 只接形容詞或副詞（比較級、最高級：finer 是 fine）；-er 結尾的人物名詞（developer、explorer）詞彙表依〈編輯原則〉(11) 另外列入，沒列的就不併到動詞。 */
+function okBase(t,c,cs){
+  var r=look(c);if(!r||c.length<2)return false;
+  var adj=/adj|adv/.test(r[2]);
+  if(/ly$/.test(t)&&!adj)return false;
+  if(/ss$/.test(t)&&c===t.slice(0,-1))return false;
+  if(/(er|est)$/.test(t)&&!adj&&!IRR[t])return false;
+  return true;
 }
 function lemma(t){
   if(look(t))return t;
   var c=cands(t);
-  for(var i=0;i<c.length;i++)if(c[i].length>1&&look(c[i]))return c[i];
+  for(var i=0;i<c.length;i++)if(okBase(t,c[i],c))return c[i];
+  if(NOLEM[t]||c.some(function(x){return NOLEM[x];}))return null;
   /* 否定字首：依詞彙表〈編輯原則〉算回原字；un-、in-、im-、il-、ir-、non- 只接形容詞或副詞，dis- 不限詞性 */
   var P=['un','in','im','il','ir','non','dis'];
   for(var j=0;j<P.length;j++){
@@ -149,11 +160,77 @@ function glossOf(e){
   if(e.grp&&e.grp.gloss)return plain(e.grp.gloss);
   return '';
 }
+/* 教材標記：龍騰、三民課本單字表（textbook/tb_index.json）與核心字彙（cards/corevocab_data.json）。
+   寫法和單字卡、貼上文章查單字（cards/mark.html）完全相同；兩份資料讀不到就不顯示，不影響生字表。 */
+function tbKeys(e){var ks=[e.key].concat(Object.keys(e.forms||{})),o=[],seen={};ks.forEach(function(k){k=String(k).toLowerCase();if(!seen[k]){seen[k]=1;o.push(k);}});return o;}
+/* 教材標記（簡式）：圖例說明一次，每個字只列編號。龍＝龍騰、乙＝三民乙版、乙115＝三民乙版 115 改版、甲＝三民甲版、核＝核心字彙；
+   編號後面有 △ 表示列在 Words for Recognition。單字卡、貼上文章查單字與各題庫的生字表都用這一組寫法（PV.tb）。 */
+function tbGather(keys,tb,cv){
+  var s=[],l=[],c=[];
+  keys.forEach(function(k){
+    k=String(k).toLowerCase();
+    if(tb&&tb.w&&tb.w[k]){(tb.w[k].s||[]).forEach(function(x){s.push(x);});(tb.w[k].l||[]).forEach(function(x){l.push(x);});}
+    if(cv&&cv.w&&cv.w[k])cv.w[k].forEach(function(x){if(c.indexOf(x)<0)c.push(x);});
+  });
+  return {s:s,l:l,c:c};
+}
+function tbCodes(items){
+  var seen={},order=[];
+  items.forEach(function(it){
+    var o=seen[it[0]];
+    if(!o){o=seen[it[0]]={p:false,r:false};order.push(it[0]);}
+    if(it[1])o.r=true;else o.p=true;
+  });
+  function key(c){var m=/^B(\d+)([LRU])(\d+)$/.exec(c);return m?[+m[1],'LUR'.indexOf(m[2]),+m[3]]:[99,0,0];}
+  order.sort(function(x,y){var a=key(x),b=key(y);return (a[0]-b[0])||(a[1]-b[1])||(a[2]-b[2]);});
+  return order.map(function(k){return seen[k].p?k:k+'△';}).join('、');
+}
+function tbLine1(k,tb,cv){
+  var g=tbGather([k],tb,cv),out=[];
+  var lt=g.l.map(function(x){return [(x[1]>=10)?'B'+x[0]+'R'+(x[1]-9):'B'+x[0]+'L'+x[1],x[2]==='r'];});
+  if(lt.length)out.push('龍 '+tbCodes(lt));
+  [['n','乙'],['r','乙115'],['o','甲']].forEach(function(ed){
+    var it=[];g.s.forEach(function(x){if(x[0]===ed[0])it.push(['B'+x[1]+'U'+x[2],x[3]==='r']);});
+    if(it.length)out.push(ed[1]+' '+tbCodes(it));
+  });
+  var cc=[];g.c.forEach(function(t){var m=/^L(\d+)U(\d+)$/.exec(t);var q=m?'B'+m[1]+'U'+m[2]:t;if(cc.indexOf(q)<0)cc.push(q);});
+  cc.sort(function(x,y){var a=/^B(\d+)U(\d+)$/.exec(x),b=/^B(\d+)U(\d+)$/.exec(y);return a&&b?(a[1]-b[1])||(a[2]-b[2]):0;});
+  if(cc.length)out.push('核 '+cc.join('、'));
+  return out.join('　');
+}
+/* keys[0] 是要查的字（生字表列出的原形）。課本或核心字彙收的是其他字形時（fortunately 之於 fortunate），
+   依大考中心《高中英文參考詞彙表》〈編輯原則〉，規則變化的 -ly 副詞不另列入，所以仍然列出，但在標記前面寫明課本收的是哪個字形。 */
+function tbLine(keys,tb,cv){
+  var out=[],seen={},done={};
+  keys.forEach(function(k,idx){
+    k=String(k).toLowerCase();
+    if(done[k])return;done[k]=1;
+    var gs=tbLine1(k,tb,cv).split('\u3000').filter(function(x){return x&&!seen[x];});
+    if(!gs.length)return;
+    gs.forEach(function(x){seen[x]=1;});
+    out.push(idx===0?gs.join('\u3000'):k+'：'+gs.join('\u3000'));
+  });
+  /* 第一個字沒有資料、只有其他字形有：標記前仍寫明字形 */
+  return out;
+}
+function tbLegend(opt){
+  return '教材標記：龍＝龍騰、乙＝三民乙版、乙115＝三民乙版 115 改版、甲＝三民甲版、核＝《核心字彙》。B 後面是冊數，L 是 Lesson，R 是 Review，U 是 Unit，例如龍 B2L5 是龍騰第 2 冊 Lesson 5，龍 B3R2 是龍騰第 3 冊 Review 2，乙 B1U3 是三民乙版第 1 冊 Unit 3；核 B3U12 是《核心字彙》第 3 冊 Unit 12。編號後面有 △ 的，列在 Words for Recognition；沒有 △ 的，列在 Words for Production，或是那本書的單字表沒有分這兩類（例如《核心字彙》）。'+((opt&&opt.form)?'標記前面寫著另一個字（例如 fortunately：龍 B1L1），表示課本或《核心字彙》收錄的是那個字形。大考中心詞彙表沒有另外列出這個字形，所以一併列在原字這裡。':'')+((opt&&opt.none)?'沒有教材標記的字，表示龍騰、三民課本和《核心字彙》都沒有收錄。':'');
+}
+function tbRows(e){return tbLine(tbKeys(e),TB,CV);}
 function camUrl(w){return 'https://dictionary.cambridge.org/us/search/direct/?datasetsearch=english-chinese-traditional&q='+encodeURIComponent(w);}
 function jget(u){return fetch(BASE+u).then(function(r){if(!r.ok)throw new Error(u+' '+r.status);return r.json();});}
 function loadVE(){
   if(window.VE)return null;
   return new Promise(function(ok){var t=document.createElement('script');t.src=BASE+'vocab-export.js';t.onload=ok;t.onerror=ok;document.head.appendChild(t);});
+}
+/* 教材標記的兩份資料只在產生生字表（PV.html）時才下載，不拖慢其他用到 PV.load() 的頁面 */
+var tbLoading=null;
+function loadTb(){
+  if(!tbLoading)tbLoading=Promise.all([jget('textbook/tb_index.json').catch(function(){return null;}),jget('cards/corevocab_data.json').catch(function(){return null;})]).then(function(r){
+    if(r[0]&&r[0].w)TB=r[0];
+    if(r[1]&&r[1].w)CV=r[1];
+  });
+  return tbLoading;
 }
 function load(){
   if(!loading)loading=Promise.all([jget('cards/reverse_data.json'),jget('cards/polysemy_data.json?v=10').catch(function(){return null;}),jget('lexicon/lexicon_data.json').catch(function(){return null;}),jget('lexicon/passage_gloss.json').catch(function(){return null;}),(window.KK&&KK.ready)||null,loadVE()]).then(function(r){
@@ -166,7 +243,7 @@ function load(){
 }
 var css='.pvBox{margin:1rem 0;border:1px solid rgba(128,128,128,.35);border-left:4px solid var(--crimson,#9b2c1f);border-radius:.4rem;padding:.2rem .8rem;background:rgba(155,44,31,.05)}.pvBox summary{cursor:pointer;font-weight:700;padding:.5rem 0}.pvHint{display:block;font-weight:400;font-size:.82em;opacity:.8;margin-top:.15rem}'+
  '.pvNote{font-size:.85em;opacity:.8;margin:.2rem 0 .6rem;line-height:1.7}.pvList{list-style:none;margin:0 0 .8rem;padding:0}.pvList li{padding:.45rem 0;border-top:1px dashed rgba(128,128,128,.35);line-height:1.6}'+
- '.pvW{font-weight:700;margin-right:.3rem}.pvMeta{font-size:.82em;opacity:.75;margin-left:.4rem}.pvZh{display:block}.pvHd{font-size:.95em;margin:.8rem 0 .2rem}.pvHd small{font-weight:400;opacity:.75;margin-left:.4rem}.pvNo a{font-size:.85em}';
+ '.pvW{font-weight:700;margin-right:.3rem}.pvMeta{font-size:.82em;opacity:.75;margin-left:.4rem}.pvZh{display:block}.pvHd{font-size:.95em;margin:.8rem 0 .2rem}.pvHd small{font-weight:400;opacity:.75;margin-left:.4rem}.pvNo a{font-size:.85em}.pvTb{display:block;font-size:.82em;opacity:.85;line-height:1.7;margin-top:.1rem}';
 function addCss(){if(document.getElementById('pv-css'))return;var s=document.createElement('style');s.id='pv-css';s.textContent=css;document.head.appendChild(s);}
 function li(e){
   var g=glossOf(e), f=Object.keys(e.forms).filter(function(x){return x!==e.key;}).join('、');
@@ -174,23 +251,26 @@ function li(e){
   var h='<li data-ve-w="'+esc(e.key)+'" data-ve-d="'+esc(vd)+'"><span class="pvW" lang="en">'+esc(e.key)+'</span>'+(window.SPK?SPK.html(e.key,true):'')+(window.KK?KK.html(e.key):'');
   h+='<span class="pvMeta">'+(e.out?'':e.lv+' 級'+(/^[a-z.\/]+\.\s/.test(g)?'':'　'+esc(e.pos||'')))+(f?(e.out?'':'　')+'文中：<span lang="en">'+esc(f)+'</span>':'')+'</span>';
   h+=g?'<span class="pvZh">'+esc(g)+'</span>':'<span class="pvZh pvNo"><a href="'+camUrl(e.key)+'" target="_blank" rel="noopener">查劍橋英漢 →</a></span>';
+  var tr=tbRows(e);
+  if(tr.length)h+='<span class="pvTb">教材　'+tr.map(esc).join('；')+'</span>';
   return h+'</li>';
 }
 function html(text,opt){
   var th=(opt&&opt.th)||4;
   if(Array.isArray(text))text=text.join('\n');
-  return load().then(function(){
+  return load().then(loadTb).then(function(){
     addCss();
     var A=analyze(String(text));
     var ins=A.order.filter(function(e){return !e.out&&e.lv>=th;}).sort(function(a,b){return a.first-b.first;});
     var out=A.order.filter(function(e){return e.out;}).sort(function(a,b){return a.first-b.first;});
     var h='<details class="pvBox" data-ve-root><summary>這一篇的生字表 <small>（詞彙表第 '+th+' 級以上 '+ins.length+' 個'+(out.length?'、詞彙表以外 '+out.length+' 個':'')+'）</small><span class="pvHint">點開看：每個字都有發音、音標和中文</span></summary>'+
-      '<div class="pvNote">依文章出現的順序排列。級別依大考中心《高中英文參考詞彙表》（111 學年度起適用），中文意思與音標和本題庫的單字記憶卡一致。複數、過去式這類變化，列的是原形；文中的寫法標在「文中」。</div>';
+      '<div class="pvNote">依文章出現的順序排列。級別依大考中心《高中英文參考詞彙表》（111 學年度起適用），中文意思與音標和本題庫的單字記憶卡一致。複數、過去式這類變化，列的是原形；文中的寫法標在「文中」。'+((TB||CV)?'<br>'+esc(tbLegend({none:!!(TB&&CV),form:ins.concat(out).some(function(e){return tbHasForm(tbRows(e));})})):'')+'</div>';
     if(window.VE)h+=VE.bar({scope:'這一篇生字表裡的全部字',file:'passage_vocab'});
     h+=ins.length?'<ul class="pvList">'+ins.map(li).join('')+'</ul>':'<p class="pvNote">這一篇沒有第 '+th+' 級以上的字。</p>';
     if(out.length)h+='<h3 class="pvHd">詞彙表以外<small>不在大考中心詞彙表裡，所以沒有級別；中文意思與音標對照 Merriam-Webster</small></h3><ul class="pvList">'+out.map(li).join('')+'</ul>';
     return h+'</details>';
   });
 }
-window.PV={html:html,load:load,analyze:analyze,glossOf:glossOf,exOf:exOf,camUrl:camUrl,ctx:function(){return {D:D,POLY:POLY,LEX:LEX,EX:EX};}};
+function tbHasForm(lines){return lines.some(function(r){return /：/.test(r);});}
+window.PV={tb:{line:tbLine,legend:tbLegend,hasForm:tbHasForm},html:html,load:load,analyze:analyze,glossOf:glossOf,exOf:exOf,camUrl:camUrl,ctx:function(){return {D:D,POLY:POLY,LEX:LEX,EX:EX};}};
 })();

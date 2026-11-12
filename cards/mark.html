@@ -73,7 +73,6 @@ ul.wl .gl.none{color:var(--ad-vinksoft-fg)}
 .tag{display:inline-block;font-size:.72rem;line-height:1.5;border-radius:.9rem;padding:0 .5rem;border:1px solid}
 .t0{color:var(--ad-vsage-fg);border-color:var(--ad-vsage-border);background:var(--ad-vsagesoft-bg)}
 .t1{color:var(--ad-x7A5B18-fg);border-color:var(--gold);background:var(--ad-vgoldsoft-bg)}
-.tl{color:var(--ad-vinksoft-fg);border-color:var(--ad-vrule-border)}
 h3{font-family:var(--serif);font-size:1.05rem;font-weight:600;margin:1.2rem 0 .1rem}
 h3 span{font-family:var(--sans);font-size:.82rem;color:var(--ad-vinksoft-fg);font-weight:400;margin-left:.4rem}
 .tnote{font-size:.85rem;color:var(--ad-vinksoft-fg);margin:.4rem 0 0}
@@ -145,7 +144,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
     <ol class="steps">
       <li>把英文文章貼進下面的方框，再按「標出生字」。用手機的話，可以先在文章頁面按「拷貝」或「複製文字」，再回到這裡貼上。</li>
       <li>文章裡的字會依級別標上顏色，字的右上角小數字就是級別。程度愈弱的人，「從幾級開始標」可以設得愈小，標出來的字就愈多。</li>
-      <li>點一下標出來的字，畫面下方會出現這個字的音標、發音、中文，學測、指考出現過它的題目，以及它在龍騰、三民課本哪一課出現過。三民課本另外把單字分成 Words for Production 與 Words for Recognition，字旁也會標出來。</li>
+      <li>點一下標出來的字，畫面下方會出現這個字的音標、發音、中文，學測、指考出現過它的題目，以及它收在龍騰、三民課本或《核心字彙》的哪一冊、哪一課或哪個單元。教材標記怎麼看，說明寫在生字表上方。</li>
       <li>往下捲就是這篇文章的生字表。把不會的字打勾，就可以只複製或只列印那些字。</li>
     </ol>
     <div class="priv">貼上的文章只在你自己的手機或電腦上處理，不會傳到任何地方。</div>
@@ -209,7 +208,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
 <script src="../speaker.js"></script>
 <script src="../kk.js"></script>
 <script src="../vocab-export.js"></script>
-<script src="../passage-vocab.js"></script>
+<script src="../passage-vocab.js?v=20261112"></script>
 <script>
 (function(){
 'use strict';
@@ -269,57 +268,19 @@ function sorted(){
   else l.sort(function(a,b){return a.key<b.key?-1:1;});
   return l;
 }
-/* 課本單字索引（textbook/tb_index.json）：三民分 Production／Recognition，龍騰同樣分 Production／Recognition；讀不到就不顯示，不影響其他功能 */
+/* 課本單字索引（textbook/tb_index.json）與核心字彙：標記寫法見 passage-vocab.js 的 PV.tb；讀不到就不顯示，不影響其他功能 */
 var TB=null, CV=null;
-function cvFmt(t){var m=/^L(\d+)U(\d+)$/.exec(t);return m?'第'+m[1]+'冊 U'+m[2]:t;}
-function cvOf(e){
-  if(!CV||!CV.w)return [];
-  var ks=[e.key].concat(Object.keys(e.forms||{}).map(function(x){return x.toLowerCase();})),o=[],seen={};
-  ks.forEach(function(k){if(seen[k])return;seen[k]=1;(CV.w[k]||[]).forEach(function(x){if(o.indexOf(x)<0)o.push(x);});});
-  return o;
-}
-var ED={n:'乙版',r:'乙版115改版',o:'甲版'};
-function tbOf(e){
-  if(!TB)return null;
-  var ks=[e.key].concat(Object.keys(e.forms||{}).map(function(x){return x.toLowerCase();})),s=[],l=[],seen={};
-  ks.forEach(function(k){
-    if(seen[k])return;seen[k]=1;var r=TB.w[k];if(!r)return;
-    (r.s||[]).forEach(function(x){s.push(x);});(r.l||[]).forEach(function(x){l.push(x);});
-  });
-  return (s.length||l.length)?{s:s,l:l}:null;
+function tbLineOf(e){
+  var ks=[e.key].concat(Object.keys(e.forms||{}).map(function(x){return x.toLowerCase();}));
+  return PV.tb.line(ks,TB,CV);
 }
 function tbTag(e){
-  var t=tbOf(e);if(!t)return '';
-  var h='',hasP=t.s.some(function(x){return x[3]==='p';}),hasR=t.s.some(function(x){return x[3]==='r';});
-  var lp=t.l.some(function(x){return x[2]==='p';}),lr=t.l.some(function(x){return x[2]==='r';}),lu=t.l.some(function(x){return !x[2];});
-  if(lp)h+='<span class="tag tl" title="龍騰課本把這個字列在 Words for Production">龍騰 Production</span> ';
-  if(lr)h+='<span class="tag tl" title="龍騰課本把這個字列在 Words for Recognition">龍騰 Recognition</span> ';
-  if(lu)h+='<span class="tag tl" title="龍騰課本單字表有這個字">龍騰</span> ';
-  if(hasP)h+='<span class="tag t0" title="三民課本把這個字列在 Words for Production">三民 Production</span> ';
-  if(hasR)h+='<span class="tag t1" title="三民課本把這個字列在 Words for Recognition">三民 Recognition</span> ';
-  return h;
+  var r=tbLineOf(e);
+  return r.length?'<span class="tnote">教材　'+esc(r.join('；'))+'</span>':'';
 }
 function tbPanel(e){
-  var t=tbOf(e),cv=cvOf(e);if(!t&&!cv.length)return '';
-  var rows=[];
-  if(!t)t={s:[],l:[]};
-  var noKind=false;
-  [['p','Production'],['r','Recognition'],['','']].forEach(function(kd){
-    var lt=[];t.l.forEach(function(x){if((x[2]||'')!==kd[0])return;var k=(x[1]>=10)?'B'+x[0]+'R'+(x[1]-9):'B'+x[0]+'L'+x[1];if(lt.indexOf(k)<0)lt.push(k);});
-    if(!lt.length)return;
-    if(kd[0])rows.push('龍騰 '+kd[1]+'：'+esc(lt.join('、')));else{rows.push('龍騰：'+esc(lt.join('、')));noKind=true;}
-  });
-  ['n','r','o'].forEach(function(ed){
-    [['p','Production'],['r','Recognition']].forEach(function(kd){
-      var ls=[];
-      t.s.forEach(function(x){if(x[0]===ed&&x[3]===kd[0]){var k='B'+x[1]+'U'+x[2];if(ls.indexOf(k)<0)ls.push(k);}});
-      if(ls.length)rows.push('三民'+ED[ed]+' '+kd[1]+'：'+esc(ls.join('、')));
-    });
-  });
-  if(cv.length)rows.push('核心字彙：'+esc(cv.map(cvFmt).join('、')));
-  var cvn=cv.length?'核心字彙的標記是冊別與單元（Unit），例如「第3冊 U12」。':'';
-  var tbn=(t.s.length||t.l.length)?'B 是冊，龍騰的 L 是 Lesson、R 是 Review，三民的 U 是 Unit，例如龍騰 B2L5 是第 2 冊 Lesson 5，龍騰 B3R2 是第 3 冊 Review 2，三民 B2U1 是第 2 冊 Unit 1。Production 與 Recognition 是課本單字表的兩種分類。':'';
-  return '<dt>課本</dt><dd>'+rows.join('<br>')+'<br><span class="tnote">'+tbn+(tbn&&cvn?'':'')+cvn+'</span></dd>';
+  var r=tbLineOf(e);if(!r.length)return '';
+  return '<dt>教材</dt><dd>'+esc(r.join('；'))+'<br><span class="tnote">'+esc(PV.tb.legend({form:PV.tb.hasForm(r)}))+'</span></dd>';
 }
 function wordLi(e){
   var f=Object.keys(e.forms).filter(function(x){return x!==e.key;}).join('、');
@@ -346,6 +307,7 @@ function renderList(){
   var l=sorted(),box=$('wlist');box.innerHTML='';
   if(!l.length){box.innerHTML='<p class="empty">'+($('onlyHard').checked?'還沒有打勾「不會」的字。':'這個條件下沒有字。可以把「從幾級開始標」調小。')+'</p>';return;}
   var ins=l.filter(function(e){return !e.out;}), out=l.filter(function(e){return e.out;});
+  if(TB||CV){var lg=document.createElement('p');lg.className='tnote';lg.textContent=PV.tb.legend({none:!!(TB&&CV),form:l.some(function(e){return PV.tb.hasForm(tbLineOf(e));})});box.appendChild(lg);}
   if(ins.length){
     var ul=document.createElement('ul');ul.className='wl';
     ins.forEach(function(e){ul.appendChild(wordLi(e));});box.appendChild(ul);
@@ -548,7 +510,7 @@ PV.load().then(function(){
   var c=PV.ctx();
   D=c.D;QMAP=D.q;SITES=D.sites;POLY=c.POLY;LEX=c.LEX;
   $('go').disabled=false;$('sample').disabled=false;
-  fetch('corevocab_data.json').then(function(r){return r.ok?r.json():null;}).then(function(j){if(j&&j.w){CV=j;}}).catch(function(){});
+  fetch('corevocab_data.json').then(function(r){return r.ok?r.json():null;}).then(function(j){if(j&&j.w){CV=j;if(A&&A.order)renderList();}}).catch(function(){});
   fetch('../textbook/tb_index.json').then(function(r){return r.ok?r.json():null;}).then(function(j){if(j&&j.w){TB=j;if(A&&A.order)renderList();}}).catch(function(){});
   window.__mk={ready:true};
 }).catch(function(){

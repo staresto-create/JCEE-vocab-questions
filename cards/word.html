@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>查單字：級別、學測出現次數、歷屆試題中的題目</title>
-<meta name="description" content="輸入一個英文單字，看它在大考詞彙表第幾級、出現在學測 35 份試卷中的幾份、共幾次、歷屆試題中有哪些題目用到它，以及課本、英檢、多益有沒有收。">
+<meta name="description" content="輸入一個英文單字，看它在大考詞彙表第幾級、出現在學測 35 份試卷中的幾份、共幾次、歷屆試題中有哪些題目用到它，以及教材、英檢、多益有沒有收。">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="高中英文自學題庫">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:title" content="查單字：級別、學測出現次數、歷屆試題中的題目">
-<meta property="og:description" content="輸入一個英文單字，看它在大考詞彙表第幾級、出現在幾份學測試卷、歷屆試題中有哪些題目用到它，以及課本、英檢、多益有沒有收。">
+<meta property="og:description" content="輸入一個英文單字，看它在大考詞彙表第幾級、出現在幾份學測試卷、歷屆試題中有哪些題目用到它，以及教材、英檢、多益有沒有收。">
 <meta property="og:url" content="https://staresto-create.github.io/JCEE-vocab-questions/cards/word.html">
 <meta property="og:image" content="https://staresto-create.github.io/JCEE-vocab-questions/og-cover.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -128,7 +128,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
 
 <script src="../speaker.js"></script>
 <script src="../kk.js"></script>
-<script src="../passage-vocab.js"></script>
+<script src="../passage-vocab.js?v=20261112"></script>
 <script>
 (function(){
 'use strict';
@@ -136,7 +136,6 @@ var $=function(id){return document.getElementById(id);};
 function esc(t){return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
 var has=Object.prototype.hasOwnProperty;
 var FREQ=null, FIDX={}, TB=null, CV=null, COV=null, CF=null, SNI=null, WLOK=false, ready=false;
-var ED={n:'乙版',r:'乙版115改版',o:'甲版'};
 var GN={1:'初級',2:'中級',3:'中高級'};
 var SITE={
   gsat:{n:'學測單字',base:'../gsat/#q-',suf:''},
@@ -236,34 +235,20 @@ function refSec(key,typed,e){
   if(html.length>LIM)h+='<details><summary>還有 '+(html.length-LIM)+' 題</summary><div class="refs">'+html.slice(LIM).join('')+'</div></details>';
   return h+'</div>';
 }
-function cvFmt(t){var m=/^L(\d+)U(\d+)$/.exec(t);return m?'第'+m[1]+'冊 U'+m[2]:t;}
 function tbSec(key,typed){
-  if(!TB)return '';
-  var t=null,ks=[key];if(typed!==key)ks.push(typed);
-  var s=[],l=[],seen={};
-  ks.forEach(function(k){if(seen[k])return;seen[k]=1;var r=TB.w[k];if(!r)return;(r.s||[]).forEach(function(x){s.push(x);});(r.l||[]).forEach(function(x){l.push(x);});});
-  var h='<div class="sec"><h3>課本有沒有收</h3>';
-  var cv=[];
-  if(CV&&CV.w)ks.forEach(function(k){(CV.w[k.toLowerCase()]||[]).forEach(function(x){if(cv.indexOf(x)<0)cv.push(x);});});
-  var cvRow=cv.length?'核心字彙：'+esc(cv.map(cvFmt).join('、')):'';
-  var cvNote='<details><summary>核心字彙標記怎麼看</summary><p class="tnote">核心字彙的標記是冊別與單元（Unit），例如「第3冊 U12」。</p></details>';
-  if(!s.length&&!l.length)return h+'<p>龍騰、三民課本的單字表裡沒有查到這個字。'+(cvRow?'<br>'+cvRow:'')+'</p>'+(cvRow?cvNote:'')+'</div>';
-  var rows=[];
-  [['p','Production'],['r','Recognition'],['','']].forEach(function(kd){
-    var lt=[];
-    l.forEach(function(x){if((x[2]||'')!==kd[0])return;var k=(x[1]>=10)?'B'+x[0]+'R'+(x[1]-9):'B'+x[0]+'L'+x[1];if(lt.indexOf(k)<0)lt.push(k);});
-    if(lt.length)rows.push('龍騰'+(kd[1]?' '+kd[1]:'')+'：'+esc(lt.join('、')));
-  });
-  ['n','r','o'].forEach(function(ed){
-    [['p','Production'],['r','Recognition']].forEach(function(kd){
-      var ls=[];
-      s.forEach(function(x){if(x[0]===ed&&x[3]===kd[0]){var k='B'+x[1]+'U'+x[2];if(ls.indexOf(k)<0)ls.push(k);}});
-      if(ls.length)rows.push('三民'+ED[ed]+' '+kd[1]+'：'+esc(ls.join('、')));
-    });
-  });
-  if(cvRow)rows.push(cvRow);
-  h+='<p>'+rows.join('<br>')+'</p>';
-  return h+'<details><summary>課本標記怎麼看</summary><p class="tnote">B 是第幾冊，龍騰的 L 是 Lesson、R 是 Review，三民的 U 是 Unit，例如龍騰 B2L5 是第 2 冊 Lesson 5。Production 與 Recognition 是課本單字表的兩種分類。'+(cvRow?'核心字彙的標記是冊別與單元（Unit），例如「第3冊 U12」。':'')+'</p></details><p class="tnote"><a href="../textbook/longteng.html">龍騰課本單字</a>　<a href="../textbook/sanmin.html">三民課本單字</a></p></div>';
+  if(!TB&&!CV)return '';
+  var ks=[key];if(typed!==key)ks.push(typed);
+  var seen={},kk=[];ks.forEach(function(k){if(!seen[k]){seen[k]=1;kk.push(k);}});
+  var rows=PV.tb.line(kk,TB,CV);
+  var h='<div class="sec"><h3>教材有沒有收</h3>';
+  var legend='<details><summary>教材標記怎麼看</summary><p class="tnote">'+esc(PV.tb.legend({form:PV.tb.hasForm(rows)}))+'</p></details>';
+  var hasTb=rows.some(function(r){return /(^|：)(龍|乙|甲)/.test(r);});
+  if(!hasTb){
+    var miss=TB?((rows.length||!CV)?'龍騰、三民課本的單字表裡沒有查到這個字。'+(rows.length?'<br>':''):'龍騰、三民課本和《核心字彙》的單字表裡沒有查到這個字。'):'';
+    if(!miss&&!rows.length)return '';
+    return h+'<p>'+miss+esc(rows.join('；'))+'</p>'+(rows.length?legend:'')+'</div>';
+  }
+  return h+'<p>'+esc(rows.join('；'))+'</p>'+legend+'<p class="tnote"><a href="../textbook/longteng.html">龍騰課本單字</a>　<a href="../textbook/sanmin.html">三民課本單字</a></p></div>';
 }
 function hl(sentence,w){
   var stem=w.length>4?w.replace(/e$/,''):w;
