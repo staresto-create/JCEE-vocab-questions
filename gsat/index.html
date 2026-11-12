@@ -356,6 +356,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
 <script src="../progress.js"></script>
 <script src="../resume.js" defer></script>
 <script src="../start.js" defer></script>
+<script src="../tb-line.js" defer></script>
 <style id="print-paper">
 /* 紙本列印版面（2026-10-24）：只影響列印，畫面不變。單字題一次只顯示一題，所以印的是「這一回的全部題目」：
    題目、選項依字母排好，不印答案、解析、選項中譯、單字分級、答對率、鑑別度。內容由題庫資料直接產生，不是翻印畫面，
@@ -619,6 +620,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
         <div class="level-note">＊未標示級別 [ ] 的有三類，<b>沒有級別不等於這個字很難</b>：<b>片語</b>（詞彙表只收錄單詞，不收錄片語，<code>on the whole</code>、<code>come across</code> 都在這一類）、<b>單字的變化形</b>（如 -ly 副詞、-ness 名詞，詞彙表因變化規則固定而不另外收錄，<code>faulty</code> 未收錄，但 <code>fault</code> 是第 2 級），以及<b>確實未收錄的字</b>。這三類都不是資料缺漏。<br>＊83–90 年與 91、92 學年度學測補考未顯示答對率，是因為大考中心沒有公布這些場次的逐題答對率統計，不是資料缺漏。<br>＊<b>不是每一題都有字詞搭配欄</b>：大考中心的考試說明把詞彙題的測驗目標寫成構詞、語意、字詞搭配三項，本題庫 500 題中 430 題附上這一欄，其餘 70 題的測驗重點落在前兩項，留白不是資料缺漏。</div>
         <div class="acc-tag" id="qAccTag"></div>
         <div class="span-tag" id="qSpanTag"></div>
+        <div class="tb-box" id="qTbBox"></div>
         <div class="coll-box" id="qCollBox"></div>
         <div class="note-box" id="qNoteBox"></div>
         <div class="ctx-box" id="qCtxBox"></div>
@@ -934,6 +936,7 @@ function renderQuestion(){
   document.getElementById('qCtxBox').classList.remove('show');
   document.getElementById('qCollBox').classList.remove('show');
   document.getElementById('qCollBox').textContent = '';
+  const tbBox0 = document.getElementById('qTbBox'); if(tbBox0){ tbBox0.classList.remove('show'); tbBox0.textContent = ''; tbBox0._qid = null; }
   document.getElementById('qNoteBox').classList.remove('show');
   document.getElementById('qNoteBox').innerHTML = '';
   document.getElementById('qDiscBox').classList.remove('show');
@@ -1008,6 +1011,8 @@ function selectAnswer(letter, q){
     ctxBox.textContent = '';
     ctxBox.classList.remove('show');
   }
+
+  if(window.TBLINE) TBLINE.fill(q, document.getElementById('qTbBox'));
 
   const collBox = document.getElementById('qCollBox');
   if(q.collocation){
