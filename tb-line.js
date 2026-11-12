@@ -5,7 +5,7 @@
 (function(){
 'use strict';
 var BASE=(function(){var s=document.currentScript&&document.currentScript.src;return s?s.slice(0,s.lastIndexOf('/')+1):'';})();
-var LEGEND='教材標記：龍＝龍騰、乙＝三民乙版、乙115＝三民乙版 115 改版、甲＝三民甲版、核＝《核心字彙》。B 後面是冊數，L 是 Lesson，R 是 Review，U 是 Unit，例如龍 B2L5 是龍騰第 2 冊 Lesson 5，龍 B3R2 是龍騰第 3 冊 Review 2，乙 B1U3 是三民乙版第 1 冊 Unit 3；核 B3U12 是《核心字彙》第 3 冊 Unit 12。編號後面有 △ 的，列在 Words for Recognition；沒有 △ 的，列在 Words for Production，或是那本書的單字表沒有分這兩類（例如《核心字彙》）。只比對各單字表的標題字。答案是變化形或衍生字時，答案後面的括號會寫明教材收的是哪個字，例如 disturbs（原形 disturb）、deliberately（由 deliberate 衍生）；答案本身和原形都有收錄時，會分段寫，例如 recently：乙 B2U3　recent：龍 B5L4。「教材未收」表示龍騰、三民課本和《核心字彙》都沒有收錄這個字；後面有括號的，括號內是大考中心詞彙表的級別，沒有括號的表示大考中心詞彙表也沒有收錄。片語和句型不列標記，因為教材的單字表只收單字。※ 表示教材單字表列的意思和這題考的意思不同。';
+var LEGEND='教材標記：龍＝龍騰、乙＝三民乙版、乙115＝三民乙版 115 改版、甲＝三民甲版、核＝《核心字彙》。B 後面是冊數，L 是 Lesson，R 是 Review，U 是 Unit，例如龍 B2L5 是龍騰第 2 冊 Lesson 5，龍 B3R2 是龍騰第 3 冊 Review 2，乙 B1U3 是三民乙版第 1 冊 Unit 3；核 B3U12 是《核心字彙》第 3 冊 Unit 12。編號後面有 △ 的，列在 Words for Recognition；沒有 △ 的，列在 Words for Production，或是那本書的單字表沒有分這兩類（例如《核心字彙》）。只比對各單字表的標題字。答案是變化形或衍生字時，答案後面的括號會寫明教材收的是哪個字，例如 disturbs（原形 disturb）、deliberately（由 deliberate 衍生）；答案本身和原形都有收錄時，會分段寫，例如 recently：乙 B2U3　recent：龍 B5L4。「教材未收」表示龍騰、三民課本和《核心字彙》都沒有收錄這個字；後面有括號的，括號內是大考中心詞彙表的級別，沒有括號的表示大考中心詞彙表也沒有收錄。片語和句型不列標記，標記只比對單字表的單字，三民列在標題字底下的衍生字也不比對。※ 表示教材單字表列的意思和這題考的意思不同。';
 var data=null, loading=null;
 function load(){
   if(!loading)loading=fetch(BASE+'textbook/vocab_lines.json').then(function(r){return r.ok?r.json():null;}).then(function(j){data=(j&&j.lines)||{};}).catch(function(){data={};});
