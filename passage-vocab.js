@@ -69,7 +69,7 @@ function okBase(t,c,cs){
   var adj=/adj|adv/.test(r[2]);
   if(/ly$/.test(t)&&!adj)return false;
   if(/ss$/.test(t)&&c===t.slice(0,-1))return false;
-  if(/(er|est)$/.test(t)&&!adj&&!IRR[t])return false;
+  if(/(er|est)$/.test(t)&&!adj&&!IRR[t]&&!(EX[t]&&EX[t].s))return false;  /* s=1 是人工確認過「詞彙表裡算在原字底下」的字（scanner、bidder），不受這條限制 */
   return true;
 }
 function lemma(t){
