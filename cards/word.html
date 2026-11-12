@@ -313,7 +313,8 @@ function search(raw,quiet){
     show(note+head+'<p class="zh">本題庫沒有收這個字（可能太基本、是專有名詞，或拼錯了）。</p><p class="tnote">'+cam+'</p>');
     return;
   }
-  var h=note+head+'<div class="zh">'+(g?esc(g):'這個字的中文意思請看<a href="'+PV.camUrl(key)+'" target="_blank" rel="noopener">劍橋英漢字典</a>。')+'</div><div class="bds">'+badges(key,e)+'</div>';
+  var h=note+head+'<div class="zh">'+(g?esc(g):'這個字的中文意思請看<a href="'+PV.camUrl(key)+'" target="_blank" rel="noopener">劍橋英漢字典</a>。')+'</div><div class="bds">'+badges(key,e)+'</div>'+
+    (key==='measure'?'<p class="tnote">大考詞彙表把這個字分成兩條：動詞 measure(ment)「測量」在第 2 級，名詞 measure(s)「措施」在第 4 級，上方顯示的是動詞的級別。</p>':'');
   var lvn=(e&&!e.out)?e.lv:0;
   h+=freqSec(key,typed,lvn)+refSec(key,typed,e)+tbSec(key,typed)+exSec(key,typed)+polySec(key,typed)+confSec(key,typed)+rootSec(key,typed);
   h+='<div class="sec"><p class="tnote">'+cam+'　·　<a href="../wordlevel.html">英檢、多益與大考詞彙表單字對照</a></p></div>';
