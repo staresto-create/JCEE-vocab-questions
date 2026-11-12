@@ -499,5 +499,6 @@ function save(){
 draw();
 if(cells.every(function(c){ return c.blk || c.u === c.ans; })){ W.forEach(function(w){ w.good = true; }); draw(); showPanel(revealed); setTimeout(function(){ window.scrollTo(0,0); }, 120); }
 </script>
+<script src="backbar.js" defer></script>
 </body>
 </html>

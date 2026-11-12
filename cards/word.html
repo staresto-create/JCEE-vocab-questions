@@ -128,7 +128,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
 
 <script src="../speaker.js"></script>
 <script src="../kk.js"></script>
-<script src="../passage-vocab.js?v=20261112"></script>
+<script src="../passage-vocab.js?v=20261112b"></script>
 <script>
 (function(){
 'use strict';
@@ -210,7 +210,7 @@ function qLink(id,site,label,k,form){
   var s=SITE[site];if(!s)return '';
   var h='<a'+(k==='a'?' class="ans"':'')+' href="'+s.base+encodeURIComponent(id)+s.suf+'" title="'+esc(s.n+'　'+label)+'">'+esc(label);
   if(form)h+='（'+esc(form)+'）';
-  if(k)h+='<span class="k">'+(k==='a'?'　答案':'　誘答')+'</span>';
+  if(k)h+='<span class="k">'+(k==='a'?'　正確選項':'　誘答')+'</span>';
   return h+'</a>';
 }
 function refList(key,typed,e){
@@ -229,7 +229,7 @@ function refSec(key,typed,e){
   var order=['gsat','zhikao','gcz','zcz','tr'],sum=[];
   order.forEach(function(s){if(by[s])sum.push(SITE[s].n+' '+by[s].length+(s==='gcz'||s==='zcz'?' 格':' 題'));});
   var noK=items.some(function(x){return !x.k;});
-  h+='<p>'+sum.join('、')+'。標「答案」，表示這個字是該題的正確答案；標「誘答」，表示它是該題的錯誤選項。'+(noK?'沒有標示的，是這個字出現在該題裡。':'')+'</p>';
+  h+='<p>'+sum.join('、')+'。標「正確選項」，表示這個字是該題的正確選項；標「誘答」，表示它是該題的錯誤選項。'+(noK?'沒有標示的，是這個字出現在該題裡。':'')+'</p>';
   var LIM=8,html=items.map(function(x){return qLink(x.id,x.s,x.t,x.k,x.f);});
   h+='<div class="refs">'+html.slice(0,LIM).join('')+'</div>';
   if(html.length>LIM)h+='<details><summary>還有 '+(html.length-LIM)+' 題</summary><div class="refs">'+html.slice(LIM).join('')+'</div></details>';
@@ -333,5 +333,6 @@ window.addEventListener('hashchange',function(){if(ready)fromHash();});
 }).catch(function(){$('st').textContent='資料載入失敗，請重新整理頁面試試。';});
 })();
 </script>
+<script src="../backbar.js" defer></script>
 </body>
 </html>

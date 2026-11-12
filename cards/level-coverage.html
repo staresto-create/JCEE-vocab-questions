@@ -453,5 +453,6 @@ details.lvd[open]>summary{position:sticky;top:0;z-index:5;background:var(--ad-vp
 function op(){var h=(location.hash||'').slice(1);var d=h&&document.getElementById(h);if(d&&d.tagName==='DETAILS')d.open=true}
 op();window.addEventListener('hashchange',op);var tt=document.getElementById('totop'),ch=document.getElementById('h-cum');function sc(){var any=document.querySelector('details.lvd[open]');tt.hidden=!(any&&window.scrollY>ch.getBoundingClientRect().bottom+window.scrollY);}window.addEventListener('scroll',sc,{passive:true});document.addEventListener('toggle',sc,true);tt.addEventListener('click',function(){ch.scrollIntoView({block:'start'})})})();
 </script>
+<script src="../backbar.js" defer></script>
 </body>
 </html>

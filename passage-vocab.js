@@ -135,7 +135,7 @@ function analyze(text){
     var lw=o2.w.toLowerCase();
     /* s=1：這個字形在詞彙表裡算在原字底下（級別照原字），但意思和原字不同（scanner 不是 scan、unfortunately 不是 fortunate），
        所以自成一列、用補充字表的中文，不借原字的釋義 */
-    var key=o2.kind==='list'?((EX[lw]&&EX[lw].s)?lw:o2.lm):((EX[lw]&&EX[lw].b)||lw);
+    var key=o2.kind==='list'?((EX[lw]&&EX[lw].s)?lw:o2.lm):((EX[lw]&&EX[lw].b)||exSing(lw)||lw);
     var e=by[key];
     if(!e){
       e={key:key,out:o2.kind==='out',n:0,forms:{},first:i};
@@ -149,6 +149,14 @@ function analyze(text){
 }
 
 function plain(g){return String(g).replace(/(^|；)\s*((?:[a-z]+\.(?:\/[a-z]+\.)*\s*)?)[^；→]*→/g,'$1$2');}
+/* 詞彙表以外的名詞，補充字表只收單數時，複數形（developers）併到單數那一列，沿用單數的中文 */
+function exSing(w){
+  if(EX[w]||LEX[w]||w.length<4||!/s$/.test(w))return null;
+  var b=/ies$/.test(w)?w.slice(0,-3)+'y':(/(s|x|z|ch|sh)es$/.test(w)?w.slice(0,-2):w.slice(0,-1)),x=EX[b],l=LEX[b];
+  if(x&&!x.b&&!x.x&&/^n\./.test(x.p||''))return b;
+  if(!x&&l&&/^n\./.test(l.g||''))return b;
+  return null;
+}
 function exOf(e){var x=EX[e.key];if(x)return x;var k=Object.keys(e.forms);for(var i=0;i<k.length;i++)if(EX[k[i]])return EX[k[i]];return null;}
 function exGloss(x){return x&&x.z?((x.p&&!/^[a-z.\/]+\.\s/.test(x.z))?x.p+' ':'')+x.z:'';}
 function glossOf(e){

@@ -282,5 +282,6 @@ $('clearBtn').onclick=function(){known={};save();renderSetup()};$('startBtn').on
 fetch('collocations_data.json?v=2').then(function(r){return r.json()}).then(function(d){DATA=d;renderSetup()}).catch(function(){$('count').textContent='資料讀取失敗，請重新整理頁面。'});
 })();
 </script>
+<script src="backbar.js" defer></script>
 </body>
 </html>
