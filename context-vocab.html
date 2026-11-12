@@ -236,7 +236,7 @@ function render(){
     var h='<li id="'+e.id+'"><span class="w">'+esc(e.head)+'</span>'+((window.SPK&&e.tag!=='句子')?(SPK.html(e.head)||''):'')+'<span class="tag tn">'+esc(e.tag)+'</span>';
     h+='<div class="gl">'+esc(e.zh)+'</div>';
     if(e.note) h+='<div class="gnote">'+esc(e.note)+'</div>';
-    if(e.en.length) h+='<div class="cnt">'+(e.occ[0].src==='混合題'?'題目給的定義':'正確選項')+'：'+e.en.map(esc).join(' ／ ')+'</div>';
+    if(e.en.length) h+='<div class="cnt">'+(e.occ[0].src==='混合題'?'題目給的定義':'答案')+'：'+e.en.map(esc).join(' ／ ')+'</div>';
     var r=rates(e);
     h+='<div class="cnt">出現在 <b>'+e.occ.length+'</b> 份試卷'+(r.length?'　答對率 '+r.map(function(o){return '<b>'+o.rate+'%</b>（'+esc(o.lab)+'）';}).join('、'):'')+'</div>';
     if(e.ctx) h+='<div class="ex">'+hl(e.ctx,e.key)+'<span class="src"><a href="'+e.occ[0].url+'" target="_blank" rel="noopener">'+esc(ol(e.occ[0]))+'（'+esc(e.occ[0].src)+'）</a></span></div>';
