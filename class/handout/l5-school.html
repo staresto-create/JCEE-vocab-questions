@@ -20,7 +20,7 @@ body{background:var(--bg);color:var(--ink);font-family:"Noto Sans TC","Microsoft
 h1{font-size:21px;margin:18px 0 6px;}
 .note{color:var(--soft);font-size:14.5px;margin:4px 0 10px;}
 .pages{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 16px;}
-.pages a{min-width:2.4em;text-align:center;padding:3px 8px;border:1px solid var(--rule);border-radius:3px;background:var(--card);color:var(--link);text-decoration:none;font-weight:700;}
+.pages a{min-width:2.4em;min-height:44px;display:inline-flex;align-items:center;justify-content:center;text-align:center;padding:3px 8px;border:1px solid var(--rule);border-radius:3px;background:var(--card);color:var(--link);text-decoration:none;font-weight:700;}
 figure{margin:0 0 18px;background:var(--card);border:1px solid var(--rule);border-radius:3px;padding:6px;}
 figure img{display:block;width:100%;height:auto;background:#fff;}
 figcaption{font-size:13px;color:var(--soft);text-align:center;padding-top:4px;}
@@ -30,13 +30,16 @@ a{color:var(--link);}
 .spkrow .spkl{font-size:13px;color:var(--soft);margin-right:2px}
 .spkrow .chip{display:inline-flex;align-items:center;gap:2px;font-size:15px}
 .spkrow .chip .w{font-family:Georgia,'Times New Roman',serif;font-weight:700}
-.spkrow .spk{margin-left:.3rem;min-height:40px;min-width:44px;padding:.3rem .6rem;border-radius:6px;font-size:16px;align-items:center;justify-content:center}
+.spkrow .spk{margin-left:.3rem;min-height:44px;min-width:44px;padding:.3rem .6rem;border-radius:6px;font-size:16px;align-items:center;justify-content:center}
 .spkrow .spkset{margin:0}
-.spkrow .spkv{min-height:40px;padding:.3rem .7rem;border-radius:6px}
+.spkrow .spkv{min-height:44px;padding:.3rem .7rem;border-radius:6px}
+.nav{display:flex;justify-content:space-between;gap:8px;margin:14px 0;font-size:15px;}
+.nav a{display:inline-flex;align-items:center;min-height:44px;padding:0 8px}
 </style>
 </head>
 <body>
 <div class="wrap">
+<div class="nav"><a href="l4-school.html">← L4</a><a href="b3-school.html">B3 講義總表</a><a href="l6-school.html">L6 →</a></div>
 <h1>龍騰 B3 L5 課文講義</h1>
 <p class="note">共 20 頁。生字畫底線，並標出詞性、字首字尾字根與句子結構。請把筆記抄到課本上，抄好的人可以加分。手機可以用兩指放大看細部。每頁圖片下方列出本頁生字，點喇叭可以聽發音。</p>
 <div class="pages"><a href="#p1">1</a><a href="#p2">2</a><a href="#p3">3</a><a href="#p4">4</a><a href="#p5">5</a><a href="#p6">6</a><a href="#p7">7</a><a href="#p8">8</a><a href="#p9">9</a><a href="#p10">10</a><a href="#p11">11</a><a href="#p12">12</a><a href="#p13">13</a><a href="#p14">14</a><a href="#p15">15</a><a href="#p16">16</a><a href="#p17">17</a><a href="#p18">18</a><a href="#p19">19</a><a href="#p20">20</a></div>
@@ -60,6 +63,7 @@ a{color:var(--link);}
 <figure id="p18"><img src="L5/L5_18.png" alt="L5 課文講義第 18 頁" loading="lazy"><div class="spkrow" data-w="[[&quot;deliberate&quot;, &quot;&quot;, [&quot;very deliberate&quot;]]]"><span class="spkl">本頁生字</span></div><figcaption>第 18 頁／共 20 頁</figcaption></figure>
 <figure id="p19"><img src="L5/L5_19.png" alt="L5 課文講義第 19 頁" loading="lazy"><div class="spkrow" data-w="[[&quot;must-see&quot;, &quot;&quot;], [&quot;destination&quot;, &quot;&quot;]]"><span class="spkl">本頁生字</span></div><figcaption>第 19 頁／共 20 頁</figcaption></figure>
 <figure id="p20"><img src="L5/L5_20.png" alt="L5 課文講義第 20 頁" loading="lazy"><figcaption>第 20 頁／共 20 頁</figcaption></figure>
+<div class="nav"><a href="l4-school.html">← L4</a><a href="b3-school.html">B3 講義總表</a><a href="l6-school.html">L6 →</a></div>
 </div>
 <script src="../../speaker.js"></script>
 <script>
