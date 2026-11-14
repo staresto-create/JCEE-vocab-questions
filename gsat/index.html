@@ -354,6 +354,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
 .cc-note{font-size:12px;line-height:1.8;color:var(--foot-note);margin:12px auto;max-width:60em;padding:0 1em;}.cc-note a{color:inherit;}
 </style>
 <script src="../progress.js"></script>
+<script src="../idiom-link.js" defer></script>
 <script src="../resume.js" defer></script>
 <script src="../start.js" defer></script>
 <script src="../tb-line.js" defer></script>
@@ -1073,6 +1074,7 @@ function selectAnswer(letter, q){
     discBox.classList.remove('show');
   }
 
+  if(window.IDIOMLINK)IDIOMLINK.run([collBox,noteBox,ctxBox,discBox]);
   document.getElementById('qExplain').classList.add('show');
   document.getElementById('nextBtn').style.display = 'inline-block';
   document.getElementById('nextBtn').textContent = (session.idx < session.list.length-1) ? '下一題 →' : '看結果 →';
