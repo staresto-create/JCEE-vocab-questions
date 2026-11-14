@@ -122,7 +122,8 @@ details#scope[open]>summary{margin-bottom:.5rem}
 .lvb{font-size:.72rem;color:var(--ad-vinksoft-fg);border:1px solid var(--ad-vrule-border);border-radius:999px;padding:0 .45rem;white-space:nowrap}
 .kkr{font-family:var(--mono);font-size:.8rem;color:var(--ad-vinksoft-fg)}
 .kkv{margin-right:.5rem}
-.wz{font-size:.95rem;margin-top:.1rem;font-weight:600}
+.wz,.wk{display:inline-block;vertical-align:baseline}
+.wz{font-size:.95rem;margin:.1rem .5rem 0 0;font-weight:600}
 .wk{font-size:.8rem;margin-top:.1rem}
 .wk a{color:var(--ad-vcrimson-fg);display:inline-block;padding:.5rem .3rem .5rem 0;min-height:32px}
 .q .qw{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem .6rem;outline:none}
@@ -141,18 +142,22 @@ details#scope[open]>summary{margin-bottom:.5rem}
 .toBar{position:fixed;right:12px;bottom:14px;z-index:20;font-size:.85rem;font-weight:700;color:var(--ad-vcrimson-fg);background:var(--ad-vpapercard-bg);border:1px solid currentColor;border-radius:999px;padding:.55rem .9rem;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.18)}
 .toBar[hidden]{display:none}
 .card a,.note a{color:var(--ad-vcrimson-fg)}
-@media (min-width:900px){
+@media (min-width:720px){
   .plist{display:grid;grid-template-columns:1fr 1fr;column-gap:2rem}
   .pr{padding:.7rem .2rem}
+  .wz,.wk{display:block}.wz{margin-right:0}
   .pr.pd{margin:.3rem 0}
 }
 @media (max-width:520px){
-  .pr{grid-template-columns:1fr 1.9rem 1fr;gap:.25rem;padding:.65rem .1rem}
+  .pr{grid-template-columns:1fr 1.9rem 1fr;gap:.2rem;padding:.4rem .1rem}
+  .wk a{padding:.3rem .3rem .3rem 0}
   .pr.pd{padding:.55rem .55rem}
   .wl .w{font-size:1rem}
   .lvb{font-size:.74rem}
 }
 @media (prefers-color-scheme:dark){
+  #lvRow button,#posRow button{background:transparent;color:#C9C6C0;border:1px dashed #8A857D}
+  #lvRow button[aria-pressed=true],#posRow button[aria-pressed=true]{background:#3a352f;color:#F2F0EE;border:1px solid #F2F0EE}
   button:focus-visible,a:focus-visible,summary:focus-visible{outline-color:#E4B6B0}
   .opt.ok{background:#25392d;color:#E9F2EA;border-color:#8FBF9F}
   .opt.no{border-color:#E4B6B0}
@@ -169,6 +174,8 @@ details#scope[open]>summary{margin-bottom:.5rem}
 
 html{scroll-padding-top:4.8rem}
 #lvRow{scroll-margin-top:0}
+
+@media (prefers-color-scheme:light){body .cc-note{color:#6B645B}}
 </style>
 <style id="anti-copy">
 /* 防盜用措施（2026-10-14）：畫面浮水印、列印浮水印、頁尾授權聲明 */
@@ -236,7 +243,7 @@ html{scroll-padding-top:4.8rem}
     <div id="practice"></div>
   </div>
 
-  <a class="toBar" id="toBar" href="#nav" hidden>↑ 回到上方</a>
+  <a class="toBar" id="toBar" href="#lvRow" hidden>↑ 回到上方</a>
   <footer class="foot" id="foot">
     <a href="../">回題庫首頁</a>　·　<a href="./">單字記憶卡</a>　·　<a href="word.html">查單字</a>　·　<a href="../affixes/">字首字尾表</a>　·　<a href="../roots/">字根家族表</a>
   <p class="cc-note">本題庫自己寫的部分（解析、中譯、分類、標註與編排）採用 <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh-hant" target="_blank" rel="license noopener">CC BY-NC 4.0</a>（姓名標示─非商業性）授權：可以分享，但須註明出處，不得用於商業用途。試題來源與完整說明請見<a href="https://staresto-create.github.io/JCEE-vocab-questions/#terms">使用與著作權</a>。</p>
@@ -346,14 +353,14 @@ $('q').addEventListener('input',function(){
 function setMode(m,noscroll){
   $('browseSec').classList.toggle('hidden',m!=='b');$('pracSec').classList.toggle('hidden',m!=='p');
   $('tabB').setAttribute('aria-pressed',m==='b'?'true':'false');$('tabP').setAttribute('aria-pressed',m==='p'?'true':'false');
-  if(m==='p')newPool();
+  if(m==='p'&&poolSig!==sigNow())newPool();
   if(!noscroll){var t=$('lvRow');if(t&&t.scrollIntoView)t.scrollIntoView();}
 }
 $('tabB').addEventListener('click',function(){setMode('b');});
 $('tabP').addEventListener('click',function(){if($('pracSec').classList.contains('hidden'))setMode('p');});
 document.addEventListener('click',function(ev){var a=ev.target.closest&&ev.target.closest('a.gopr');if(a){ev.preventDefault();setMode('p');}});
 /* ---- 練習 ---- */
-var SIM=[['small','little','tiny','miniature','minute','compact','petite'],['big','large','huge','enormous','giant','great','vast','massive'],['begin','start','commence'],['end','finish','stop','halt','conclude','complete','close','quit'],['leave','depart','go','exit'],['stay','remain'],['bold','brave','courageous','confident','daring'],['cowardly','timid','fearful','shy','afraid'],['kind','gentle','nice','friendly','generous','tender'],['cruel','mean','nasty','harsh','rude','unkind'],['true','real','genuine','authentic'],['false','fake','artificial','untrue'],['inner','internal','inside','interior'],['outer','external','exterior','outside'],['ill','sick','unhealthy'],['well','healthy','fit'],['glad','happy','joyful','cheerful','pleased'],['sad','sorrowful','unhappy','miserable','upset'],['hot','warm'],['cold','cool','chilly'],['fast','quick','rapid','swift'],['slow','gradual'],['strong','powerful','tough','sturdy'],['weak','feeble','frail'],['rich','wealthy','affluent'],['poor','needy'],['clean','pure','neat','tidy'],['dirty','filthy','messy'],['wise','smart','clever','intelligent'],['foolish','stupid','silly'],['increase','rise','grow','raise','expand'],['decrease','reduce','lower','drop','fall','decline','shrink','subtract','lessen'],['lose','miss'],['find','discover'],['win','succeed'],['fail','lose'],['accept','receive','admit'],['refuse','reject','deny','decline'],['allow','permit','let'],['forbid','prohibit','ban'],['agree','accept'],['oppose','object'],['hard','difficult','tough'],['easy','simple'],['soft','gentle'],['rough','harsh','coarse'],['happy','glad'],['proud','arrogant'],['calm','quiet','peaceful'],['noisy','loud'],['bright','shining','brilliant'],['dark','dim','gloomy'],['thick','fat'],['thin','slim','slender','skinny'],['wide','broad'],['narrow','tight'],['near','close','nearby'],['far','distant','remote'],['early','premature'],['late','delayed'],['rare','scarce','uncommon'],['frequent','common','usual'],['old','ancient','aged','elderly'],['new','modern','fresh'],['young','juvenile','youthful'],['major','main','chief','primary'],['minor','secondary','trivial'],['important','significant','vital'],['trivial','unimportant','petty'],['safe','secure'],['dangerous','risky','hazardous'],['praise','compliment','admire'],['insult','offend','criticize'],['friend','ally'],['enemy','foe','rival'],['rise','ascend','climb'],['fall','descend','sink','drop'],['create','build','make'],['destroy','ruin','demolish','wreck'],['arrive','reach'],['approach','near'],['boring','dull'],['warm','friendly'],['wrong','false'],['smart','bright','sharp'],['busy','active'],['mild','harsh','strong'],['profound','deep','shallow'],['superficial','deep','shallow'],['delicate','strong','tough','solid','firm'],['reduction','decline'],['improvement','increase','gain','advance'],['foul','stormy','cloudy','fair'],['plain','simple','fancy'],['defeat','loss'],['hope','optimism'],['reassure','soothe','comfort'],['outdoors','outside','out'],['indoors','inside','in'],['positive','constructive'],['superior','better'],['international','national','domestic'],['male','masculine'],['female','feminine'],['stop','go'],['open','shut','closed','close'],['ahead','forward','forwards','onward'],['back','behind','backward','backwards'],['much','more','most'],['little','less','least'],['optimism','hope'],['pessimism','despair'],['intense','harsh','severe','extreme'],['ascend','climb','rise'],['decline','descend','fall'],['enemy','foe','stranger'],['stingy','mean','cheap','close','tight'],['generous','liberal'],['senior','superior'],['junior','inferior','subordinate'],['domestic','internal'],['foul','nasty'],['cloudy','dull'],['clear','bright'],['failure','loss'],['create','build','repair','fix'],['shorten','reduce','decrease'],['lengthen','expand','extend'],['hope','joy'],['arrival','entrance','entry'],['concrete','physical','real','actual'],['actual','real','true'],['certain','clear','sure'],['stupid','slow','thick','dull'],['good','nice','polite','fine'],['fat','heavy'],['white','bright','light','pale'],['tame','domestic'],['naive','innocent','green','simple'],['poverty','luxury'],['criticism','encouragement'],['success','loss']];
+var SIM=[['small','little','tiny','miniature','minute','compact','petite'],['big','large','huge','enormous','giant','great','vast','massive'],['begin','start','commence'],['end','finish','stop','halt','conclude','complete','close','quit'],['leave','depart','go','exit'],['stay','remain'],['bold','brave','courageous','confident','daring'],['cowardly','timid','fearful','shy','afraid'],['kind','gentle','nice','friendly','generous','tender'],['cruel','mean','nasty','harsh','rude','unkind'],['true','real','genuine','authentic'],['false','fake','artificial','untrue'],['inner','internal','inside','interior'],['outer','external','exterior','outside'],['ill','sick','unhealthy'],['well','healthy','fit'],['glad','happy','joyful','cheerful','pleased'],['sad','sorrowful','unhappy','miserable','upset'],['hot','warm'],['cold','cool','chilly'],['fast','quick','rapid','swift'],['slow','gradual'],['strong','powerful','tough','sturdy'],['weak','feeble','frail'],['rich','wealthy','affluent'],['poor','needy'],['clean','pure','neat','tidy'],['dirty','filthy','messy'],['wise','smart','clever','intelligent'],['foolish','stupid','silly'],['increase','rise','grow','raise','expand'],['decrease','reduce','lower','drop','fall','decline','shrink','subtract','lessen'],['lose','miss'],['find','discover'],['win','succeed'],['fail','lose'],['accept','receive','admit'],['refuse','reject','deny','decline'],['allow','permit','let'],['forbid','prohibit','ban'],['agree','accept'],['oppose','object'],['hard','difficult','tough'],['easy','simple'],['soft','gentle'],['rough','harsh','coarse'],['happy','glad'],['proud','arrogant'],['calm','quiet','peaceful'],['noisy','loud'],['bright','shining','brilliant'],['dark','dim','gloomy'],['thick','fat'],['thin','slim','slender','skinny'],['wide','broad'],['narrow','tight'],['near','close','nearby'],['far','distant','remote'],['early','premature'],['late','delayed'],['rare','scarce','uncommon'],['frequent','common','usual'],['old','ancient','aged','elderly'],['new','modern','fresh'],['young','juvenile','youthful'],['major','main','chief','primary'],['minor','secondary','trivial'],['important','significant','vital'],['trivial','unimportant','petty'],['safe','secure'],['dangerous','risky','hazardous'],['praise','compliment','admire'],['insult','offend','criticize'],['friend','ally'],['enemy','foe','rival'],['rise','ascend','climb'],['fall','descend','sink','drop'],['create','build','make'],['destroy','ruin','demolish','wreck'],['arrive','reach'],['approach','near'],['boring','dull'],['warm','friendly'],['wrong','false'],['smart','bright','sharp'],['busy','active'],['mild','harsh','strong'],['profound','deep','shallow'],['superficial','deep','shallow'],['delicate','strong','tough','solid','firm'],['reduction','decline'],['improvement','increase','gain','advance'],['foul','stormy','cloudy','fair'],['plain','simple','fancy'],['defeat','loss'],['hope','optimism'],['reassure','soothe','comfort'],['outdoors','outside','out'],['indoors','inside','in'],['positive','constructive'],['superior','better'],['international','national','domestic'],['male','masculine'],['female','feminine'],['stop','go'],['open','shut','closed','close'],['ahead','forward','forwards','onward'],['back','behind','backward','backwards'],['much','more','most'],['little','less','least'],['optimism','hope'],['pessimism','despair'],['intense','harsh','severe','extreme'],['ascend','climb','rise'],['decline','descend','fall'],['enemy','foe','stranger'],['stingy','mean','cheap','close','tight'],['generous','liberal'],['senior','superior'],['junior','inferior','subordinate'],['domestic','internal'],['foul','nasty'],['cloudy','dull'],['clear','bright'],['failure','loss'],['create','build','repair','fix'],['shorten','reduce','decrease'],['lengthen','expand','extend'],['hope','joy'],['arrival','entrance','entry'],['concrete','physical','real','actual'],['actual','real','true'],['certain','clear','sure'],['stupid','slow','thick','dull'],['good','nice','polite','fine'],['fat','heavy'],['white','bright','light','pale'],['tame','domestic'],['naive','innocent','green','simple'],['poverty','luxury'],['criticism','encouragement'],['success','loss'],['cry','weep','laugh','smile','grin','giggle'],['frown','smile','laugh','grin'],['potential','actual','true','real'],['bad','poor','good','best','better','fine','worst'],['bright','light'],['dull','light'],['ahead','forward','back','behind','upstairs','downstairs'],['fair','dark','black'],['clear','fine'],['well','healthy','fit','fine'],['arrive','enter','come'],['criticism','insult'],['upstairs','up'],['downstairs','down'],['give','take','keep','receive','hold'],['weak','feeble','ill','sick','healthy'],['dull','fine','sunny'],['above','over','up'],['below','under','down']];
 var simOf={};
 SIM.forEach(function(c){c.forEach(function(w){(simOf[w]=simOf[w]||[]).push(c);});});
 function zseg(zh){
@@ -391,9 +398,11 @@ function excluded(pos,t,ans){
 }
 function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
 var RN=10,pool=[],pi=0,score=0,done=0,roundLen=0,wrong=[],cur=null,readyAt=0,answered=false;
+var poolSig='';
+function sigNow(){return [Array.from(onL).sort().join(),Array.from(onP).sort().join(),query].join('|');}
 function newPool(){
-  var items=[];
-  vis(DATA.pairs).forEach(function(p){items.push({t:p.a,ans:p.b,pos:p.pos});items.push({t:p.b,ans:p.a,pos:p.pos});});
+  var items=[];poolSig=sigNow();
+  vis(DATA.pairs).forEach(function(p){if(onL.has(p.a.lv))items.push({t:p.a,ans:p.b,pos:p.pos});if(onL.has(p.b.lv))items.push({t:p.b,ans:p.a,pos:p.pos});});
   pool=shuffle(items);pi=0;startRound(pool.slice(0,RN));
 }
 var round=[];
@@ -480,6 +489,7 @@ if(location.hash==='#practice-h')setMode('p',true);
 renderGroups();
 /* 自我檢測：網址加 ?selftest 才會執行，檢查全部題目的誘答 */
 window.__antDistract=distract;
+window.__antState=function(){return {pool:pool,done:done,score:score,cur:cur,onL:Array.from(onL)};};
 window.__antSelfTest=function(n){
   var bad=[],cnt=0;
   DATA.pairs.forEach(function(p){[[p.a,p.b],[p.b,p.a]].forEach(function(x){

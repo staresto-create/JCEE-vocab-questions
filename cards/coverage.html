@@ -336,7 +336,7 @@ KK.ready.then(function(){return fetch('coverage_data.json');}).then(function(r){
     VE.mount($('#veBox'),function(){var o=[];(LAST||[]).forEach(function(r){zf(r[0]).forEach(function(x){o.push(x);});});return o;},{scope:'畫面上目前符合條件的全部字（用上面的篩選或搜尋縮小範圍後，只匯出留下來的）',file:'coverage'});
   });
   var g=d.scope.gsat, z=d.scope.zhikao;
-  $('#scopeText').textContent='範圍是兩個單字題庫：學測 '+g[0]+' 到 '+g[1]+' 年共 '+g[2]+' 題，指考（含早年的聯考）'+z[0]+' 到 '+z[1]+' 年共 '+z[2]+' 題。只要這個字出現在四個選項裡，不論是答案還是誘答，都算出現過；片語不算，題幹與文章裡出現的字也不算。';
+  $('#scopeText').textContent='範圍是本題庫的詞彙題：學測 '+g[0]+' 到 '+g[1]+' 年共 '+g[2]+' 題，指考（含早年的聯考）'+z[0]+' 到 '+z[1]+' 年共 '+z[2]+' 題。只要這個字出現在四個選項裡，不論是答案還是誘答，都算出現過；片語不算，題幹與文章裡出現的字也不算。';
   $('#lede').textContent='大考中心《高中英文參考詞彙表》第二到第六級共 5,007 個詞條，這份清單逐一標出哪些字在學測、指考的詞彙題出現過：學測 '+g[0]+' 到 '+g[1]+' 年、指考 '+z[0]+' 到 '+z[1]+' 年，一共 '+fmt(g[2]+z[2])+' 題。出現過的字附上題號，點下去就是原題與解析。';
   buildTable();
   // 最常考的字：算出出現三次以上的詞條數與次數最多的字，寫在開頭說明後面；「依出現過的次數排列」做成連結

@@ -296,7 +296,7 @@ fetch('reverse_data.json').then(function(r){if(!r.ok)throw new Error(r.status);r
   });
   var g=d.scope.gsat, z=d.scope.zhikao, tot=0, tt=0;
   Object.keys(d.stats).forEach(function(l){tot+=d.stats[l].n; tt+=d.stats[l].t;});
-  $('#scopeText').textContent='字表取自大考中心《高中英文參考詞彙表》（111 學年度起適用）第一到第六級全部 6,012 個詞條，拆開不同寫法以後一共 '+fmt(tot)+' 個字。出現過與否看的是本題庫兩個單字題庫：學測 '+g[0]+' 到 '+g[1]+' 年共 '+g[2]+' 題，指考（含早年的聯考）'+z[0]+' 到 '+z[1]+' 年共 '+z[2]+' 題，其中出現過或出現過其他字形的字有 '+fmt(tt)+' 個。';
+  $('#scopeText').textContent='字表取自大考中心《高中英文參考詞彙表》（111 學年度起適用）第一到第六級全部 6,012 個詞條，拆開不同寫法以後一共 '+fmt(tot)+' 個字。出現過與否看的是本題庫的詞彙題：學測 '+g[0]+' 到 '+g[1]+' 年共 '+g[2]+' 題，指考（含早年的聯考）'+z[0]+' 到 '+z[1]+' 年共 '+z[2]+' 題，其中出現過或出現過其他字形的字有 '+fmt(tt)+' 個。';
   SUF.forEach(function(s){var b=mkBtn($('#sufRow'),'-'+s,function(){state.q=(clean(state.q)===s)?'':s;$('#q').value=state.q;go();});b.setAttribute('data-v',s);});
   [1,2,3,4,5,6].forEach(function(l){var b=mkBtn($('#lvRow'),'第 '+l+' 級',function(){
     var i=state.lv.indexOf(l); if(i>=0){if(state.lv.length>1)state.lv.splice(i,1);}else state.lv.push(l); go();});b.setAttribute('data-v',l);});
