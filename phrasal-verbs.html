@@ -69,6 +69,8 @@ ul.list li{padding:.45rem 0;border-bottom:1px solid var(--ad-vrule-border)}
 .w{font-family:var(--serif);font-size:1.05rem;font-weight:600}
 .pos{font-family:var(--mono);font-size:.78rem;color:var(--ad-vinksoft-fg);margin-left:.4rem}
 .tag.tn{border-color:var(--ad-vrule-border);color:var(--ad-vinksoft-fg);background:transparent}
+.tnote b{white-space:nowrap}
+.tag .ico,.sn .ico,#catRow button .ico,.tnote b .ico{width:.95em;height:.95em;vertical-align:-.15em;margin-right:.25em;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
 .refs{margin-top:.2rem;font-size:.8rem;line-height:1.6}
 .refs .fm{font-family:var(--serif);font-size:.92rem;font-weight:600;margin-right:.3rem}
 .refs a{display:inline-block;color:var(--ad-vcrimson-fg);background:var(--ad-xF7ECE8-bg);border:1px solid var(--ad-vcrimsonsoft-border);border-radius:3px;padding:0 .35rem;margin:.1rem .25rem .1rem 0;text-decoration:none}
@@ -149,7 +151,7 @@ a{color:inherit;text-decoration:none}
 
   <section class="card" aria-labelledby="h-how">
     <h2 id="h-how">分類與計算方式</h2>
-    <p class="tnote" style="margin-top:0"><b>可分離</b>：受詞可以放在動詞和副詞中間，例如 pick up the box 也可以寫成 pick the box up；受詞是代名詞時，一定要放中間，要寫 pick <b>it</b> up，不能寫 pick up it。<b>不可分離</b>：受詞只能放在後面，例如 look after the children。<b>不及物</b>：後面不接受詞，例如 The machine broke down。<b>視詞義而定</b>：不同的意思用法不同，請看每一條的中文意思與例句。</p>
+    <p class="tnote" style="margin-top:0"><b><svg class="ico" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M1.5 8h3.5M11 8h3.5"/><circle cx="8" cy="8" r="2"/></svg>可分離</b>：受詞可以放在動詞和副詞中間，例如 pick up the box 也可以寫成 pick the box up；受詞是代名詞時，一定要放中間，要寫 pick <b>it</b> up，不能寫 pick up it。<b><svg class="ico" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M1.5 8h8"/><circle cx="12.5" cy="8" r="2"/></svg>不可分離</b>：受詞只能放在後面，例如 look after the children。<b><svg class="ico" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M1.5 8h9M12.5 4.5v7"/></svg>不及物</b>：後面不接受詞，例如 The machine broke down。<b>視詞義而定</b>：不同的意思用法不同，請看每一條的中文意思與例句。</p>
     <details>
       <summary>收錄範圍與「出現在幾份試卷」的計算方式</summary>
       <p>範圍是學測、指考（含補考、參考試卷、試辦和研究用試卷）的克漏字、文意選填、篇章結構、閱讀測驗、混合題和詞彙題。本題庫自己改編的練習題不算。</p>
@@ -188,7 +190,7 @@ function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').repl
 function mkBtns(host,arr,key){
   arr.forEach(function(p){
     var v=Array.isArray(p)?p[0]:p, t=Array.isArray(p)?p[1]:p;
-    var b=document.createElement('button'); b.type='button'; b.textContent=t; b.setAttribute('data-v',v);
+    var b=document.createElement('button'); b.type='button'; b.innerHTML=(key==='c'?tico(v):'')+esc(t); b.setAttribute('data-v',v);
     b.addEventListener('click',function(){state[key]=v; sync(); render();});
     host.appendChild(b);
   });
@@ -214,6 +216,8 @@ function ylist(fam,arr){
     return x[3]?'<a href="'+x[3]+'" target="_blank" rel="noopener" title="'+esc(x[4])+'">'+esc(x[2])+'</a>':'<span title="'+esc(x[4])+'">'+esc(x[2])+'</span>';
   }).join('、')+'</div>';
 }
+var TICO={"可分離": "<path d=\"M1.5 8h3.5M11 8h3.5\"/><circle cx=\"8\" cy=\"8\" r=\"2\"/>", "不可分離": "<path d=\"M1.5 8h8\"/><circle cx=\"12.5\" cy=\"8\" r=\"2\"/>", "不及物": "<path d=\"M1.5 8h9M12.5 4.5v7\"/>"};
+function tico(c){return TICO[c]?'<svg class="ico" viewBox="0 0 16 16" aria-hidden="true" focusable="false">'+TICO[c]+'</svg>':''}
 function render(){
   var q=state.q.trim().toLowerCase();
   var list=DATA.filter(function(e){
@@ -228,7 +232,7 @@ function render(){
   var max=DATA.reduce(function(m,e){return Math.max(m,e.n);},1);
   if(!list.length){ $('#body').innerHTML='<li class="empty">沒有符合的條目。</li>'; return; }
   $('#body').innerHTML=list.map(function(e){
-    var h='<li id="'+e.id+'"><span class="w">'+esc(e.w)+'</span>'+(window.SPK?(SPK.html(e.hl[0])||''):'')+'<span class="tag tn">'+esc(e.cat)+'</span>';
+    var h='<li id="'+e.id+'"><span class="w">'+esc(e.w)+'</span>'+(window.SPK?(SPK.html(e.hl[0])||''):'')+'<span class="tag tn">'+tico(e.cat)+esc(e.cat)+'</span>';
     h+='<div class="gl">'+esc(e.gloss)+'</div>';
     if(e.note) h+='<div class="gnote">'+esc(e.note)+'</div>';
     h+='<div class="cnt">出現在 <b>'+e.n+'</b> 份試卷<span class="mbar" style="width:'+Math.max(3,Math.round(e.n/max*100))+'%"></span></div>';
