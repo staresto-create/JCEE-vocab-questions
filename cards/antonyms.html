@@ -30,7 +30,7 @@ h1{font-family:var(--serif);font-weight:600;font-size:1.7rem;line-height:1.25;ma
 .card{background:var(--ad-vpapercard-bg);border:1px solid var(--ad-vrule-border);border-radius:3px;padding:1rem 1rem 1.1rem;margin:0 0 1.4rem;
   box-shadow:0 1px 0 rgba(34,31,26,.06),0 8px 24px rgba(34,31,26,.08)}
 h2{font-family:var(--serif);font-size:1.25rem;font-weight:600;margin:2rem 0 .4rem;padding-top:.8rem;border-top:1px solid var(--ad-vrule-border)}
-a.up{font-family:var(--sans);font-size:.8rem;font-weight:400;color:var(--ad-vinksoft-fg);text-decoration:none;margin-left:.4rem}
+a.up{display:inline-flex;align-items:center;justify-content:center;min-width:40px;min-height:40px;margin:-3px 0 -3px .1rem;font-family:var(--sans);font-size:1rem;font-weight:400;color:var(--ad-vinksoft-fg);text-decoration:none;vertical-align:middle;white-space:nowrap}
 h3{font-family:var(--serif);font-size:1.02rem;font-weight:600;margin:1.2rem 0 .3rem}
 .card h2{margin-top:0;border-top:0;padding-top:0}
 .card p{margin:.45rem 0 0;font-size:.93rem}
@@ -108,8 +108,8 @@ footer.foot a{color:var(--ad-vcrimson-fg)}
 details#scope>summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:.5rem}
 details#scope>summary::-webkit-details-marker{display:none}
 details#scope>summary h2{margin:0;flex:1}
-details#scope>summary::after{content:"展開";font-size:.82rem;color:var(--ad-vinksoft-fg);border:1px solid var(--ad-vrule-border);border-radius:999px;padding:.15rem .7rem}
-details#scope[open]>summary::after{content:"收合"}
+details#scope>summary::after{content:"＋ 展開";font-size:.82rem;color:var(--ad-vinksoft-fg);border:1px solid var(--ad-vrule-border);border-radius:999px;padding:.15rem .7rem}
+details#scope[open]>summary::after{content:"－ 收合"}
 details#scope[open]>summary{margin-bottom:.5rem}
 .plist{display:block}
 .pr{display:grid;grid-template-columns:1fr 2rem 1fr;gap:.3rem;align-items:start;background:transparent;border:0;border-bottom:1px solid var(--ad-vrule-border);border-radius:0;padding:.75rem .2rem;margin:0}
@@ -125,7 +125,7 @@ details#scope[open]>summary{margin-bottom:.5rem}
 .wz,.wk{display:inline-block;vertical-align:baseline}
 .wz{font-size:.95rem;margin:.1rem .5rem 0 0;font-weight:600}
 .wk{font-size:.8rem;margin-top:.1rem}
-.wk a{color:var(--ad-vcrimson-fg);display:inline-block;padding:.5rem .3rem .5rem 0;min-height:32px}
+.wk a{color:var(--ad-vcrimson-fg);display:inline-flex;align-items:center;min-height:40px;padding:0 .3rem 0 0;margin:-.25rem 0}
 .q .qw{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem .6rem;outline:none}
 .q .qw .w{font-size:1.6rem;font-weight:700}
 .q h3{font-size:1.15rem;margin:.2rem 0 .6rem;outline:none}
@@ -141,6 +141,8 @@ details#scope[open]>summary{margin-bottom:.5rem}
 .btns .btn{min-height:44px;padding:.4rem 1.1rem}
 .toBar{position:fixed;right:12px;bottom:14px;z-index:20;font-size:.85rem;font-weight:700;color:var(--ad-vcrimson-fg);background:var(--ad-vpapercard-bg);border:1px solid currentColor;border-radius:999px;padding:.55rem .9rem;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.18)}
 .toBar[hidden]{display:none}
+@media (max-width:520px){.toBar{width:44px;height:44px;padding:0;display:flex;align-items:center;justify-content:center;font-size:0;bottom:10px;opacity:.92}.toBar::before{content:"↑";font-size:1.25rem;line-height:1}}
+details#scope>summary{min-height:44px}details#scope>summary::after{border-color:#8a8278}
 .card a,.note a{color:var(--ad-vcrimson-fg)}
 @media (min-width:720px){
   .plist{display:grid;grid-template-columns:1fr 1fr;column-gap:2rem}
@@ -150,7 +152,7 @@ details#scope[open]>summary{margin-bottom:.5rem}
 }
 @media (max-width:520px){
   .pr{grid-template-columns:1fr 1.9rem 1fr;gap:.2rem;padding:.4rem .1rem}
-  .wk a{padding:.3rem .3rem .3rem 0}
+  .wk a{padding:0 .3rem 0 0}
   .pr.pd{padding:.55rem .55rem}
   .wl .w{font-size:1rem}
   .lvb{font-size:.74rem}
@@ -164,7 +166,7 @@ details#scope[open]>summary{margin-bottom:.5rem}
 }
 @media print{
   #pracSec,.tabs,#veBox,.sbar,#nav,.toBar,#lvRow,#posRow{display:none!important}
-  .wk,details#scope>summary::after{display:none!important}
+  .wk,a.up,details#scope>summary::after{display:none!important}
   .plist{display:grid!important;grid-template-columns:1fr 1fr;column-gap:1.2rem}
   .pr{padding:.3rem 0!important;break-inside:avoid}
   .pr .w{font-size:11pt!important}
@@ -193,7 +195,7 @@ html{scroll-padding-top:4.8rem}
 
   <section class="card" aria-labelledby="h-why">
     <h2 id="h-why">為什麼要成對背</h2>
-    <p>意思相反的字<b>放在一起背</b>，看到其中一個，就容易想起另一個，例如 abundant（豐富的）和 scarce（稀少的）。歷屆詞彙題裡，也有用前後一正一反的對比當線索的：86 年推薦甄選詞彙題第 4 題，前一句說大家聽到的都是 negative criticism（負面的批評），空格要填方向相反的 <a href="word.html#w=constructive">constructive</a>（建設性的）；103 年學測詞彙題第 13 題，後一句說 No modern agricultural methods are used（沒有使用現代農業技術），空格要填和 modern 相反的 <a href="word.html#w=primitive">primitive</a>（原始的）。每個字旁邊的「查單字」，可以點進去看這個字在歷屆學測出現過幾次；如果它在詞彙題、克漏字或中譯英裡出現過，也會列出是哪幾題。</p>
+    <p>意思相反的字<b>放在一起背</b>，看到其中一個，就容易想起另一個，例如 abundant（豐富的）和 scarce（稀少的）。歷屆詞彙題裡，也有用前後一正一反的對比當線索的：86 年推薦甄選詞彙題第 4 題，前一句說大家聽到的都是 negative criticism（負面的批評），空格要填方向相反的 <a href="word.html#w=constructive">constructive</a>（建設性的）；103 年學測詞彙題第 13 題，後一句說 No modern agricultural methods are used（沒有使用現代農業技術），空格要填和 modern 相反的 <a href="word.html#w=primitive">primitive</a>（原始的）。每個字旁邊的「查單字」，可以點進去看這個字在歷屆學測出現過幾次；如果它在學測或指考的詞彙題、克漏字或中譯英裡出現過，也會列出是哪幾題。</p>
   </section>
 
   <section class="card" aria-labelledby="h-use">
@@ -201,6 +203,7 @@ html{scroll-padding-top:4.8rem}
     <ol>
       <li><span class="k">先看中文意思。</span>很多字不只一個意思，兩個字通常只在<b>某一個意思</b>上相反。每個字下面的中文，就是這一組相反的那個意思。</li>
       <li><span class="k">聽發音。</span>如果單字旁邊有喇叭按鈕，按下去會唸出整個字（美式發音）。聲音來自你的手機或電腦內建的語音，不同裝置唸得好不好差很多，個別字也可能唸得不準，所以請以音標為準。唸法會因詞性或意思而不同的字（例如 live），只列出這一組用到的唸法。要是看不到喇叭，表示這個裝置或瀏覽器沒有英文語音，其他功能不受影響。</li>
+      <li><span class="k">查單字。</span>每個字旁邊的「查單字」，可以點進去看這個字在歷屆學測出現過幾次；如果它在學測或指考的詞彙題、克漏字或中譯英裡出現過，也會列出是哪幾題。</li>
       <li><span class="k">縮小範圍。</span>可以依級別、詞性篩選，也可以直接輸入英文或中文搜尋。</li>
       <li><span class="k">做練習。</span>切換到<a href="#practice-h" class="gopr">「做練習」</a>，每題給你一個字和它的意思，請從四個選項中選出它的反義字。</li>
     </ol>
@@ -243,9 +246,9 @@ html{scroll-padding-top:4.8rem}
     <div id="practice"></div>
   </div>
 
-  <a class="toBar" id="toBar" href="#lvRow" hidden>↑ 回到上方</a>
+  <a class="toBar" id="toBar" href="#lvRow" aria-label="回到上方" hidden>↑ 回到上方</a>
   <footer class="foot" id="foot">
-    <a href="../">回題庫首頁</a>　·　<a href="./">單字記憶卡</a>　·　<a href="word.html">查單字</a>　·　<a href="../affixes/">字首字尾表</a>　·　<a href="../roots/">字根家族表</a>
+    <a href="../">回題庫首頁</a>　·　<a href="./">單字記憶卡</a>　·　<a href="synonyms.html">同義字</a>　·　<a href="word.html">查單字</a>　·　<a href="../affixes/">字首字尾表</a>　·　<a href="../roots/">字根家族表</a>
   <p class="cc-note">本題庫自己寫的部分（解析、中譯、分類、標註與編排）採用 <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh-hant" target="_blank" rel="license noopener">CC BY-NC 4.0</a>（姓名標示─非商業性）授權：可以分享，但須註明出處，不得用於商業用途。試題來源與完整說明請見<a href="https://staresto-create.github.io/JCEE-vocab-questions/#terms">使用與著作權</a>。</p>
   </footer>
 </div>
@@ -314,7 +317,7 @@ function renderGroups(){
     var L=vis(DATA.pairs.filter(function(p){return p.pos===P[0];}));
     if(!L.length)return;
     total+=L.length;var id='p-'+P[0].replace('.','');ids.push([id,P[1],L.length]);
-    h+='<h2 id="'+id+'">'+P[1]+'（'+L.length+' 組）</h2><div class="plist">'+L.map(pairRow).join('')+'</div>';
+    h+='<h2 id="'+id+'">'+P[1]+'（'+L.length+' 組）&nbsp;<a class="up" href="#nav" aria-label="回到跳轉列">↑</a></h2><div class="plist">'+L.map(pairRow).join('')+'</div>';
   });
   var pd=vis(DATA.paired);
   if(pd.length){
@@ -399,10 +402,10 @@ function excluded(pos,t,ans){
 function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
 var RN=10,pool=[],pi=0,score=0,done=0,roundLen=0,wrong=[],cur=null,readyAt=0,answered=false;
 var poolSig='';
-function sigNow(){return [Array.from(onL).sort().join(),Array.from(onP).sort().join(),query].join('|');}
+function sigNow(){return [Array.from(onL).sort().join(),Array.from(onP).sort().join()].join('|');}
 function newPool(){
   var items=[];poolSig=sigNow();
-  vis(DATA.pairs).forEach(function(p){if(onL.has(p.a.lv))items.push({t:p.a,ans:p.b,pos:p.pos});if(onL.has(p.b.lv))items.push({t:p.b,ans:p.a,pos:p.pos});});
+  DATA.pairs.filter(function(p){return lvOK(p)&&posOK(p);}).forEach(function(p){if(onL.has(p.a.lv))items.push({t:p.a,ans:p.b,pos:p.pos});if(onL.has(p.b.lv))items.push({t:p.b,ans:p.a,pos:p.pos});});
   pool=shuffle(items);pi=0;startRound(pool.slice(0,RN));
 }
 var round=[];
@@ -514,6 +517,14 @@ window.__antSelfTest=function(n){
 });
 })();
 
+</script>
+<script>
+/* 列印前展開「收錄範圍」說明，列印後還原 */
+(function(){var d=document.getElementById('scope'),was=false,printing=false;
+function on(){if(printing)return;printing=true;if(d){was=d.open;d.open=true;}}
+function off(){if(!printing)return;printing=false;if(d){d.open=was;}}
+window.addEventListener('beforeprint',on);window.addEventListener('afterprint',off);
+if(window.matchMedia){var mq=window.matchMedia('print');if(mq.addEventListener)mq.addEventListener('change',function(e){e.matches?on():off();});}})();
 </script>
 <script src="../backbar.js" defer></script>
 </body>
