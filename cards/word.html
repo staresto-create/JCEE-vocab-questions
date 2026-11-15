@@ -183,7 +183,7 @@ function badges(key,e){
   if(e&&!e.out)c=e.lv;
   else if(WLOK&&has.call(W.c,key))c=W.c[key];
   if(WLOK){g=has.call(W.g,key)?W.g[key]:0;t=W.t.indexOf(key)>=0;}
-  h+=c?'<span class="bd bd-c">'+(c===9?'大考附錄字':'大考詞彙表 '+c+' 級')+'</span>':'<span class="bd bd-no">不在大考詞彙表</span>';
+  h+=c?'<span class="bd bd-c">'+(c===9?'大考附錄字':'大考詞彙表第 '+c+' 級')+'</span>':'<span class="bd bd-no">不在大考詞彙表</span>';
   if(WLOK){
     h+=g?'<span class="bd bd-g'+g+'">英檢'+GN[g]+'</span>':'<span class="bd bd-no">不在英檢字表</span>';
     h+=t?'<span class="bd bd-t">多益補充字表</span>':'<span class="bd bd-no">不在多益補充字表</span>';

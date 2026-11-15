@@ -301,7 +301,7 @@ function practice(){
     up+='<div class="qc">'+e.w.slice(e.i+e.fl)+'</div>';
     return '<div class="q">'
       +'<div class="qrow">'+up+'</div>'
-      +'<div class="meta"><span class="kkq">'+kkCell(e)+'</span><span class="zh">'+e.g+'</span><span>第 '+(idx+1)+' 題，級別 '+e.lv+'</span></div>'
+      +'<div class="meta"><span class="kkq">'+kkCell(e)+'</span><span class="zh">'+e.g+'</span><span>第 '+(idx+1)+' 題，第 '+e.lv+' 級</span></div>'
       +'<div class="hint hidden"><div class="meta"><span>'+hintText(e)+'</span></div></div>'
       +'<div class="btns"><button class="btn hintbtn" type="button">給我提示</button><button class="btn ansbtn" type="button">看答案</button></div>'
       +'<div class="meta hidden ans"><span class="w">'+wordHTML(e)+'</span>'+spkBtn(e.w)+'<span>'+ansText(e)+'</span></div>'
@@ -339,7 +339,7 @@ VE.mount($('veBox'),function(){var out=[];DATA.groups.forEach(function(g){g.sect
 var lvRow=$('lvRow');
 LEVELS.forEach(function(l){
   var b=document.createElement('button');
-  b.type='button';b.textContent=l+' 級';b.setAttribute('aria-pressed','true');
+  b.type='button';b.textContent='第 '+l+' 級';b.setAttribute('aria-pressed','true');
   b.addEventListener('click',function(){
     if(on.has(l)) on.delete(l); else on.add(l);
     b.setAttribute('aria-pressed',on.has(l)?'true':'false');

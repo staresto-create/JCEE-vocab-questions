@@ -269,7 +269,7 @@ function practice(){
     var diff=(a.tail!==e.tail)?'　拼法不同：'+a.w+' 拼 <b>'+a.tail+'</b>，這個字拼 <b>'+e.tail+'</b>。':'';
     return '<div class="q">'
       +'<div class="qrow">'+up+'</div>'
-      +'<div class="meta"><span class="kkq">'+kkCell(e,g.kkt)+'</span><span class="zh">'+e.g+'</span><span>第 '+(idx+1)+' 題，級別 '+e.lv+'</span></div>'
+      +'<div class="meta"><span class="kkq">'+kkCell(e,g.kkt)+'</span><span class="zh">'+e.g+'</span><span>第 '+(idx+1)+' 題，第 '+e.lv+' 級</span></div>'
       +'<div class="hint hidden"><div class="meta"><span>提示：<span class="hw">'+a.w+'</span> <span class="kkq">'+kkCell(a,g.kkt)+'</span> '+a.g.split('；')[0]+'</span></div></div>'
       +'<div class="btns"><button class="btn hintbtn" type="button">給我提示</button><button class="btn ansbtn" type="button">看答案</button></div>'
       +'<div class="meta hidden ans"><span class="w">'+sylHTML(e)+'</span>'+spkBtn(e.w)+'<span>字尾 <b>'+e.tail+'</b> 唸 ['+g.kkt+']，和 '+a.w+' 一樣。'+diff+'</span></div>'
@@ -307,7 +307,7 @@ VE.mount($('veBox'),function(){var out=[];DATA.groups.forEach(function(g){g.anch
 var lvRow=$('lvRow');
 LEVELS.forEach(function(l){
   var b=document.createElement('button');
-  b.type='button';b.textContent=l+' 級';b.setAttribute('aria-pressed','true');
+  b.type='button';b.textContent='第 '+l+' 級';b.setAttribute('aria-pressed','true');
   b.addEventListener('click',function(){
     if(on.has(l)) on.delete(l); else on.add(l);
     b.setAttribute('aria-pressed',on.has(l)?'true':'false');

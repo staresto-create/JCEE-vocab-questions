@@ -572,7 +572,7 @@ $("c1").addEventListener("click",function(e){
 });
 $("sk1").addEventListener("click",reveal1);
 $("g1").addEventListener("click",function(){
-  ST.step=2; save(); $("s2").hidden=false; $("s2").scrollIntoView({behavior:"smooth",block:"start"});
+  if(!(ST.step>=2)) ST.step=2; save(); $("s2").hidden=false; $("s2").scrollIntoView({behavior:"smooth",block:"start"});
 });
 
 /* ---------- generic one-shot quiz ---------- */
@@ -606,7 +606,7 @@ function settle(qid,aid,gid,after){
 /* ---------- step 2 ---------- */
 quiz("q2","a2","g2","q2");
 $("g2").addEventListener("click",function(){
-  ST.step=3; save();
+  if(!(ST.step>=3)) ST.step=3; save();
   $("db").hidden=false; $("s3").hidden=false;
   $("db").scrollIntoView({behavior:"smooth",block:"start"});
 });
@@ -650,7 +650,7 @@ $("tl").addEventListener("keydown",function(e){
   var g=e.target.closest(".pt"); if(g){ e.preventDefault(); showLines(g.id); }
 });
 $("g3").addEventListener("click",function(){
-  ST.step=4; save(); $("s4").hidden=false; $("s4").scrollIntoView({behavior:"smooth",block:"start"});
+  if(!(ST.step>=4)) ST.step=4; save(); $("s4").hidden=false; $("s4").scrollIntoView({behavior:"smooth",block:"start"});
 });
 
 /* ---------- step 4 ---------- */
@@ -661,7 +661,7 @@ $("g4a").addEventListener("click",function(){
 });
 quiz("q4b","a4b","g4","q4b");
 $("g4").addEventListener("click",function(){
-  ST.step=5; save(); $("s5").hidden=false;
+  if(!(ST.step>=5)) ST.step=5; save(); $("s5").hidden=false;
   build(); $("s5").scrollIntoView({behavior:"smooth",block:"start"});
 });
 
@@ -745,7 +745,7 @@ function fillBlank(){
   $("bl").className="blank filled";
 }
 $("g5").addEventListener("click",function(){
-  ST.step=6; save();
+  if(!(ST.step>=6)) ST.step=6; save();
   $("s6").hidden=false; $("s7").hidden=false;
   $("s6").scrollIntoView({behavior:"smooth",block:"start"});
 });

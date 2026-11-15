@@ -229,7 +229,7 @@
         ul.appendChild(li);
       });
       var sum = el('p', 'scp-sum');
-      sum.appendChild(document.createTextNode('歷屆試題共 ' + tt.toLocaleString('en-US') + ' 題（不含作文 63 題，因為作文沒有作答功能），你已經做了 '));
+      sum.appendChild(document.createTextNode('各題庫可作答的題目共 ' + tt.toLocaleString('en-US') + ' 題（含慣用語庫的片語練習；作文沒有作答功能，不計入），你已經做了 '));
       sum.appendChild(el('b', null, tn.toLocaleString('en-US')));
       sum.appendChild(document.createTextNode(' 題（' + pctText(tn, tt) + '）。' + (tn === 0 ? '從下面任何一個題庫寫完一題，這裡就會開始計算。' : '點題庫名稱可以直接回去接著寫。')));
       var sh = el('div', 'scp-sh');

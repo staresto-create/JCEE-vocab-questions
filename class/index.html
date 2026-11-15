@@ -258,7 +258,7 @@
       <p class="prompt" id="prompt"></p>
       <p class="hint" id="hint" aria-live="polite"></p>
       <div id="typeBox">
-        <input id="typed" class="typed" type="text" autocomplete="off" autocorrect="off"
+        <input id="typed" class="typed" type="text" aria-label="輸入英文答案" autocomplete="off" autocorrect="off"
                autocapitalize="off" spellcheck="false" placeholder="輸入英文">
         <div class="minor-row">
           <button class="minor-btn" id="hintBtn" type="button">多給一點提示</button>
@@ -304,7 +304,7 @@
     </div>
   </section>
 
-  <footer>範圍由老師給的連結決定。級別標在括號裡，(超) 表示超出參考詞彙表。<p class="cc-note">本題庫自己寫的部分（解析、中譯、分類、標註與編排）採用 <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh-hant" target="_blank" rel="license noopener">CC BY-NC 4.0</a>（姓名標示─非商業性）授權：可以分享，但須註明出處，不得用於商業用途。試題來源與完整說明請見<a href="https://staresto-create.github.io/JCEE-vocab-questions/#terms">使用與著作權</a>。</p>
+  <footer>範圍由老師給的連結決定。題目上方標的是大考中心參考詞彙表的級別。<p class="cc-note">本題庫自己寫的部分（解析、中譯、分類、標註與編排）採用 <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh-hant" target="_blank" rel="license noopener">CC BY-NC 4.0</a>（姓名標示─非商業性）授權：可以分享，但須註明出處，不得用於商業用途。試題來源與完整說明請見<a href="https://staresto-create.github.io/JCEE-vocab-questions/#terms">使用與著作權</a>。</p>
 </footer>
 </div>
 <script src="../speaker.js"></script>
@@ -412,7 +412,7 @@ var DATA = null;
   function promptOf(card){ var r=rec(card); return card.t==='w' ? r.z : r.z; }
   function labelOf(card){
     var r=rec(card);
-    return card.t==='w' ? (r.s+'　#'+r.n+(r.v?'　'+r.v+'級':'')) : ('龍騰 '+r.l+'　字詞搭配');
+    return card.t==='w' ? (r.s+'　#'+r.n+(r.v?'　'+(r.v==='超'?'超出參考詞彙表':'第 '+r.v+' 級'):'')) : ('龍騰 '+r.l+'　字詞搭配');
   }
 
   // 提示：每個字母串留首字母，其餘蓋掉；標點與省略號原樣保留
@@ -429,6 +429,7 @@ var DATA = null;
   }
   function isPhrase(en){ return /[\s…]/.test(en) || /\.{2,}/.test(en); }
   function countOf(en){
+    en = String(en).split(/\s+\/\s+/)[0];
     return isPhrase(en) ? en.split(/[\s…]+|\.{2,}/).filter(Boolean).length
                         : en.replace(/[^A-Za-z]/g,'').length;
   }
@@ -551,6 +552,8 @@ var DATA = null;
       if (DROP.indexOf(x) >= 0) return;
       if (BE.indexOf(x) >= 0) { out.push('be'); return; }
       if (SB.indexOf(x) >= 0) { out.push('sb'); return; }
+      // sb's/sth's 這種「某人或某事物」並列的寫法，視同 sb（與 exam2p.html 相同）
+      if (x.indexOf('/') >= 0 && x.split('/').every(function (p) { return SB.indexOf(p) >= 0; })) { out.push('sb'); return; }
       out.push(x);
     });
     return out.join(' ');

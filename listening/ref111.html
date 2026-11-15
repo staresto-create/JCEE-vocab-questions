@@ -125,7 +125,7 @@ details:not(.sh) > summary *::before, details:not(.sh) > summary *::after, detai
 details:not(.sh) > summary::after{content:"＋ 展開" !important; display:block !important; position:absolute !important; right:10px !important; top:50% !important; transform:translateY(-50%) !important; margin:0 !important; padding:2px 10px !important; border:1px solid currentColor !important; border-radius:999px !important; background:transparent !important; color:inherit !important; opacity:.85; font:400 12.5px/1.5 "Noto Sans TC",system-ui,sans-serif !important; letter-spacing:0 !important; text-transform:none !important; white-space:nowrap !important; text-decoration:none !important; width:auto !important; height:auto !important;}
 details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
 @media print{details:not(.sh) > summary::after{display:none !important;}}
-</style>
+.warn{color:#a4161a;font-weight:700;margin:.4rem 0}@media(prefers-color-scheme:dark){.warn{color:#ff9aa0}}</style>
 <style id="anti-copy">
 /* 防盜用措施（2026-10-14）：畫面浮水印、列印浮水印、頁尾授權聲明 */
 @media screen{body::before{content:"";position:fixed;top:0;left:0;right:0;bottom:0;z-index:2147483000;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22460%22%20height%3D%22240%22%3E%3Cg%20transform%3D%22rotate%28-20%20230%20120%29%22%20font-family%3D%22Noto%20Sans%20TC%2Csans-serif%22%20fill%3D%22%23D9A400%22%20fill-opacity%3D%22.2%22%20text-anchor%3D%22middle%22%3E%3Ctext%20x%3D%22230%22%20y%3D%22112%22%20font-size%3D%2220%22%3E%E9%AB%98%E4%B8%AD%E8%8B%B1%E6%96%87%E9%A1%8C%E5%BA%AB%3C%2Ftext%3E%3Ctext%20x%3D%22230%22%20y%3D%22140%22%20font-size%3D%2214%22%3Estaresto-create.github.io%2FJCEE-vocab-questions%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E");background-repeat:repeat;}}
@@ -177,8 +177,8 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
 var KEY=META.key;
 var PREVIEW=/[?&]all\b/.test(location.search);
 var state={a:{},r:{}};
-if(!PREVIEW){try{var s=localStorage.getItem(KEY);if(s)state=JSON.parse(s)||state;}catch(e){}}
-state.a=state.a||{};state.r=state.r||{};
+if(!PREVIEW){try{var s=localStorage.getItem(KEY);if(s)var _p=JSON.parse(s);if(_p&&typeof _p==='object'&&!Array.isArray(_p))state=_p;}catch(e){}}
+if(!state.a||typeof state.a!=='object'||Array.isArray(state.a))state.a={};if(!state.r||typeof state.r!=='object'||Array.isArray(state.r))state.r={};for(var _k in state.a)if(typeof state.a[_k]!=='string'||!/^[A-D]{0,2}$/.test(state.a[_k]))delete state.a[_k];
 function save(){if(PREVIEW)return;try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}}
 function esc(t){return String(t).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
 var L=['A','B','C','D'];
@@ -259,18 +259,19 @@ function tally(){
   for(var k in UNITS){if(!state.r[k])continue;UNITS[k].qs.forEach(function(q){done++;var p=(state.a[q.n]||'').split('').sort().join('');if(p===q.ans)right++;});}
   document.getElementById('tally').textContent=done?('已對答案 '+done+' 題，答對 '+right+' 題'):'還沒有對過答案';
 }
+var WARN='';function showWarn(){document.querySelectorAll('.warn').forEach(function(x){x.remove();});if(!WARN)return;var p=WARN.split('|'),u=document.getElementById(p[0]);WARN='';if(!u)return;var w=u.querySelector('.warn');if(!w){w=document.createElement('p');w.className='warn';w.setAttribute('role','alert');var a=u.querySelector('.actions');a.parentNode.insertBefore(w,a);}w.textContent=p[1];}
 root.addEventListener('click',function(e){
   var b=e.target.closest('.opt');
   if(b&&!b.disabled){
     var n=b.getAttribute('data-n'),l=b.getAttribute('data-l'),q=qOf(n),cur=state.a[n]||'';
-    if(q.multi){ if(cur.indexOf(l)>=0) cur=cur.replace(l,''); else { if(cur.length>=2) cur=cur.slice(1); cur+=l; } }
+    if(q.multi){ if(cur.indexOf(l)>=0) cur=cur.replace(l,''); else { if(cur.length>=2){ cur=cur.slice(1); WARN=b.closest('.unit').id+'|最多選兩個，已取消最先選的那一個。'; } cur+=l; } }
     else cur=(cur===l)?'':l;
-    state.a[n]=cur;save();paint(b.closest('.unit').id);return;
+    state.a[n]=cur;save();paint(b.closest('.unit').id);showWarn();return;
   }
   var c=e.target.closest('[data-check]');
-  if(c){var id=c.getAttribute('data-check');state.r[id]=1;save();paint(id);return;}
+  if(c){var id=c.getAttribute('data-check');var lack=null;UNITS[id].qs.forEach(function(q){if(q.multi&&(state.a[q.n]||'').length<2&&(lack===null||(state.a[q.n]||'').length<lack))lack=(state.a[q.n]||'').length;});if(lack!==null){WARN=id+'|'+(lack===0?'這一題要選兩個答案，請先選好再對答案。':'這一題要選兩個答案，請再選一個再對答案。');showWarn();return;}WARN='';showWarn();state.r[id]=1;save();paint(id);return;}
   var r=e.target.closest('[data-redo]');
-  if(r){var id2=r.getAttribute('data-redo');UNITS[id2].qs.forEach(function(q){delete state.a[q.n];});delete state.r[id2];save();paint(id2);}
+  if(r){var id2=r.getAttribute('data-redo');WARN='';showWarn();UNITS[id2].qs.forEach(function(q){delete state.a[q.n];});delete state.r[id2];save();paint(id2);}
 });
 document.getElementById('resetAll').addEventListener('click',function(){
   if(!confirm('要清除這一卷所有的作答紀錄，從頭開始嗎？'))return;
@@ -329,5 +330,5 @@ if(PREVIEW){var pb=document.createElement('p');pb.className='crumb';pb.textConte
   }
 })();
 </script>
-</body>
+<script>document.addEventListener('play',function(e){document.querySelectorAll('audio').forEach(function(a){if(a!==e.target)a.pause();});},true);</script></body>
 </html>

@@ -249,7 +249,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
       <div class="field">
         <span class="flabel">課本</span>
         <div class="chips" id="tbChips"></div>
-        <p class="fhint">「三版皆有」是龍騰版、三民乙版（含 115 改版）和三民甲版的課本單字裡都出現的字，不管學生用哪一版課本都會學到。只出這些字的話，上面的年份、題庫、級別和出現幾次照樣可以一起選，例如「三版皆有、4 級、出現 2 次以上」。課本裡的字如果出現在歷屆學測、指考詞彙題的選項裡，就用當年的原題練；其餘的字沒有大考原題，改用依大考詞彙題題型編寫的詞彙選擇題，這些字不受年份和題庫的限制。</p>
+        <p class="fhint">「三版皆有」是龍騰版、三民乙版（含 115 改版）和三民甲版的課本單字裡都出現的字，不管學生用哪一版課本都會學到。只出這些字的話，上面的年份、題庫、級別和出現幾次照樣可以一起選，例如「三版皆有、第 4 級、出現 2 次以上」。課本裡的字如果出現在歷屆學測、指考詞彙題的選項裡，就用當年的原題練；其餘的字沒有大考原題，改用依大考詞彙題題型編寫的詞彙選擇題，這些字不受年份和題庫的限制。</p>
       </div>
       </div>
 
@@ -564,7 +564,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
     }
     var ol = $('poList').querySelector('ol');
     ol.innerHTML = ws.map(function (x) {
-      return '<li><span class="no">' + esc(x.w) + '</span>' + esc(x.m) + '（' + x.lv + ' 級）</li>';
+      return '<li><span class="no">' + esc(x.w) + '</span>' + esc(x.m) + '（第 ' + x.lv + ' 級）</li>';
     }).join('');
     $('poList').querySelector('summary').textContent = '看包含哪些字（' + ws.length + ' 個）';
     var p = ['deck=po'], lp = poParam();
@@ -576,7 +576,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
   function drawPOLevels() {
     var box = $('poLvChips'); box.innerHTML = '';
     for (var i = 1; i <= 6; i++) (function (n) {
-      box.appendChild(chip(n + ' 級', !!poLv[n], function () {
+      box.appendChild(chip('第 ' + n + ' 級', !!poLv[n], function () {
         if (poLv[n]) delete poLv[n]; else poLv[n] = 1;
         drawPOLevels(); refresh();
       }, true));
@@ -657,7 +657,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
   function drawLevels() {
     var box = $('lvChips'); box.innerHTML = '';
     for (var i = 1; i <= 6; i++) (function (n) {
-      box.appendChild(chip(n + ' 級', !!lv.n[n], function () {
+      box.appendChild(chip('第 ' + n + ' 級', !!lv.n[n], function () {
         if (lv.n[n]) delete lv.n[n]; else lv.n[n] = 1;
         drawLevels(); refresh();
       }, true));
