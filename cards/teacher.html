@@ -237,6 +237,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
       <div class="field">
         <span class="flabel">級別</span>
         <div class="chips" id="lvChips"></div>
+        <p class="fhint" id="lvEx"></p>
         <p class="fhint">級別依大考中心《高中英文參考詞彙表》（111 學年度起適用）。片語與超出詞彙表的字沒有級別，另外列。全部勾選等於不設限。</p>
       </div>
 
@@ -667,6 +668,31 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
     box.appendChild(chip('全選', false, function () {
       lv = { n: {1:1,2:1,3:1,4:1,5:1,6:1}, p: true, x: true }; drawLevels(); refresh();
     }, true));
+    drawLvEx();
+  }
+  // 勾選級別時，顯示每一級幾個考過最多次的字當例子，讓老師知道這一級大概是什麼程度
+  var lvExCache = null;
+  function lvExamples() {
+    if (lvExCache) return lvExCache;
+    if (!W) return { 1: [], 2: [], 3: [], 4: [], 5: [], 6: [], p: [], x: [] };
+    var by = { 1: [], 2: [], 3: [], 4: [], 5: [], 6: [], p: [], x: [] }, k, w, key;
+    for (k in W) {
+      w = W[k];
+      if (!w.c) continue;
+      key = w.kd === '片語' ? 'p' : w.kd === '超綱' ? 'x' : (w.kd === '字級' && w.lv ? +w.lv : null);
+      if (key && by[key]) by[key].push(k);
+    }
+    for (key in by) by[key].sort(function (a, b) { return (W[b].oc.length - W[a].oc.length) || (a < b ? -1 : 1); });
+    lvExCache = by;
+    return by;
+  }
+  function drawLvEx() {
+    var box = $('lvEx'); if (!box) return;
+    var by = lvExamples(), parts = [], n;
+    for (n = 1; n <= 6; n++) if (lv.n[n] && by[n].length) parts.push('第 ' + n + ' 級：' + by[n].slice(0, 3).join('、'));
+    if (lv.p && by.p.length) parts.push('片語：' + by.p.slice(0, 2).join('、'));
+    if (lv.x && by.x.length) parts.push('超出詞彙表：' + by.x.slice(0, 3).join('、'));
+    box.textContent = parts.length ? '字例（各級考過最多次的字）　' + parts.join('　') : '';
   }
   function drawTb() {
     var box = $('tbChips'); box.innerHTML = '';

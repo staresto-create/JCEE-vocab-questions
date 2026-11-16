@@ -1616,6 +1616,11 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
         box.appendChild(el);
       });
       box.appendChild(document.createElement('br'));
+      var exLow = PO.w.filter(function (x) { return x.lv <= 4; }).slice(0, 3).map(function (x) { return x.w; });
+      var exHigh = PO.w.filter(function (x) { return x.lv >= 5; }).sort(function (a, b) { return (a.lv - b.lv) || (a.n - b.n); }).slice(0, 3).map(function (x) { return x.w; });
+      box.appendChild(document.createElement('br'));
+      box.appendChild(document.createTextNode('字例　一到四級：' + exLow.join('、') + '　五、六級：' + exHigh.join('、')));
+      box.appendChild(document.createElement('br'));
       box.appendChild(document.createTextNode('想只練某幾級的字，可以到'));
       var tl = document.createElement('a');
       tl.className = 'rg'; tl.setAttribute('href', 'teacher.html#po'); tl.textContent = '出題範圍與連結';
@@ -1646,6 +1651,12 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
       el.textContent = r.label + ' ' + n;
       box.appendChild(el);
     });
+    // 目前範圍裡考過最多次的字，讓學生看得出這個範圍大概是什麼程度
+    var cur = buildPool();
+    if (cur.length) {
+      box.appendChild(document.createElement('br'));
+      box.appendChild(document.createTextNode('這個範圍考過最多次的字：' + cur.slice(0, 4).join('、')));
+    }
   }
 
   /* ---------------- 首頁 ---------------- */
