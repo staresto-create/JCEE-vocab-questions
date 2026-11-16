@@ -166,7 +166,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
 <main id="app"></main>
 
 <footer class="foot">
-  <p>本頁的題目、選項、錄音內容與解析都是本題庫自編，是「模擬」題（圖片聽解的八組圖片是用 AI 繪圖工具生成後，由本題庫編修並轉為黑白，與大考的黑白印刷一致；出處標在各圖下方），不是大考中心的試題；話題的方向，參考考生回憶的近期英聽主題。錄音由「酷英」的語音工具合成，旁白與說話者的聲音都不是真人。</p>
+  <p>本頁的題目、選項、錄音內容與解析都是本題庫自編，是「模擬」題（圖片聽解的八組圖片是用 AI 繪圖工具生成後，由本題庫編修並轉為黑白，與大考中心試卷的黑白印刷一致；出處標在各圖下方），不是大考中心的試題；話題的方向，參考考生回憶的近期英聽主題。錄音由「酷英」的語音工具合成，旁白與說話者的聲音都不是真人。</p>
   <p>作答紀錄只存在你自己這台裝置的瀏覽器裡。</p>
   <p><a href="./">← 回英聽練習總表</a></p>
 <p class="cc-note">本題庫自己寫的部分（解析、中譯、分類、標註與編排）採用 <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh-hant" target="_blank" rel="license noopener">CC BY-NC 4.0</a>（姓名標示─非商業性）授權：可以分享，但須註明出處，不得用於商業用途。完整說明請見<a href="https://staresto-create.github.io/JCEE-vocab-questions/#terms">使用與著作權</a>。</p>
@@ -198,7 +198,7 @@ DATA.forEach(function(sec){
   html+='<div class="script-body">'+scriptHTML(ex.script)+'</div></details>';}
   sec.units.forEach(function(u){
     html+='<article class="unit" id="'+u.id+'" data-u="'+u.id+'"><h3>'+esc(u.label)+'</h3>';if(u.audio)html+='<audio controls preload="none" src="audio/'+u.audio+'">你的瀏覽器無法播放音檔。</audio>';
-    (u.img||[]).forEach(function(im,i){html+=fig(im,u.alt[i]);});if(u.table){html+='<div class="ntabbox"><p class="ntabcap"><b>筆記表</b>　邊聽邊把重點寫在自己的紙上；答案要對完才會顯示。</p><table class="ntab">'+u.table.map(function(r){return '<tr><th>'+esc(r[0])+'</th><td>'+ntcell(r[1],esc)+'</td></tr>';}).join('')+'</table></div>';}
+    (u.img||[]).forEach(function(im,i){html+=fig(im,Array.isArray(u.alt)?u.alt[i]:u.alt);});if(u.table){html+='<div class="ntabbox"><p class="ntabcap"><b>筆記表</b>　邊聽邊把重點寫在自己的紙上；答案要對完才會顯示。</p><table class="ntab">'+u.table.map(function(r){return '<tr><th>'+esc(r[0])+'</th><td>'+ntcell(r[1],esc)+'</td></tr>';}).join('')+'</table></div>';}
     u.qs.forEach(function(q){
       var single=u.qs.length===1;
       html+='<div class="q" data-n="'+q.n+'">';
