@@ -251,7 +251,7 @@
     font-size:12px; color:var(--ad-vinksoft-fg); line-height:1.9;
   }
   footer.foot a{color:var(--ad-vcrimson-fg);}
-  .loading{text-align:center; padding:60px 0; color:var(--ad-vinksoft-fg); font-size:14px;}
+  .loading{text-align:center; padding:60px 0; min-height:100vh; box-sizing:border-box; color:var(--ad-vinksoft-fg); font-size:14px;}
 
   /* ---------- 考試倒數規劃 ---------- */
   #plan .card{padding:22px 22px 22px; margin-bottom:16px;}
@@ -977,7 +977,31 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
   }
 
   /* ---------------- 開始一輪 ---------------- */
+  // 「上一頁」：開啟練習、統計、規劃頁時多記一筆瀏覽紀錄，按瀏覽器或手機的上一頁就回到記憶卡首頁，不會直接離開
+  var subHref = '', leaving = false, pendingFocus = '', homeGuardUntil = 0;
+  function subOpen() {
+    try { if (!(history.state && history.state.sub)) history.pushState({ sub: 1 }, '', location.href); subHref = location.href; } catch (e) { /* 略過 */ }
+  }
+  function stripParam(re) {   // re 形如 /(^#|&)plan(=1)?(&|$)/；拿掉該參數，其他參數保留
+    try {
+      if (!re.test(location.hash)) return;
+      var h = location.hash.replace(re, function (m, a, b, c) { return a === '#' ? '#' : c; });
+      if (h === '#') h = '';
+      history.replaceState(history.state, '', location.pathname + location.search + h);
+    } catch (e) { /* 略過 */ }
+  }
+  function stripPlanParam() { stripParam(/(^#|&)plan(=1)?(&|$)/); }
+  function leaveSub(focusId) {
+    if (leaving) return;
+    homeGuardUntil = Date.now() + 450;   // 連點「回到首頁」時，第二下不要點穿到首頁同一位置的按鈕
+    if (history.state && history.state.sub) { leaving = true; pendingFocus = focusId || ''; history.back(); return; }
+    stripPlanParam(); renderHome();
+    if (focusId && $(focusId)) { try { $(focusId).focus(); } catch (e) { /* 略過 */ } }
+  }
+  function guarded() { return Date.now() < homeGuardUntil; }
+
   function startSession(free, custom) {
+    subOpen();
     var pool = buildPool();
     if (custom && custom.length) {
       session = {
@@ -1916,7 +1940,8 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
   }
   var WEEK = ['日', '一', '二', '三', '四', '五', '六'];
   function renderPlan(keep) {
-    keep = keep === true;   // 只是改日期重算時，不動輸入框、不捲動、不移焦點
+    keep = keep === true;
+    if (!keep) subOpen();   // 只是改日期重算時，不動輸入框、不捲動、不移焦點
     var p = planNums(), u = unitWord(), t = today(), h = '';
     var cf = isCF(), uu = cf ? '字組' : '字';
     $('planTitle').textContent = cf ? '每天該背幾組新的字組？' : '每天該背幾個新字？';
@@ -2131,6 +2156,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
   }
 
   function renderStats() {
+    subOpen();
     var pool = buildPool();
     $('statsScope').textContent = (scope.label ? scope.label + '　·　' : '') + scopeText() +
       '　·　' + pool.length + (isCF() ? ' 組' : ' 字');
@@ -2232,13 +2258,14 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
     hide('loading');
     if (scope.view && isPO()) { renderPOView(); return; }
     if (scope.view) { renderGroupView(); return; }
-    if (first && scope.free) { startSession(true); return; }
-    if (first && /(^#|&)plan(=1)?(&|$)/.test(location.hash)) { renderPlan(); return; }   // 從「最近新增」「找功能」直接連到倒數規劃
+    if (first && scope.free) { stripParam(/(^#|&)mode=(free)(&|$)/); startSession(true); return; }
+    if (/(^#|&)plan(=1)?(&|$)/.test(location.hash)) { renderPlan(); return; }   // 從「最近新增」「找功能」直接連到倒數規劃
     renderHome();
   }
 
   function wire() {
-    $('startBtn').addEventListener('click', function () { startSession(false); });
+    try { if (history.state && history.state.sub) history.replaceState(null, '', location.href); } catch (e) { /* 略過 */ }
+    $('startBtn').addEventListener('click', function () { if (guarded()) return; startSession(false); });
     $('freeBtn').addEventListener('click', function () { startSession(true); });
     $('quitBtn').addEventListener('click', function () {
       hide('quiz');
@@ -2249,13 +2276,12 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
       var hasWork = pool.some(function (k) { var s = state.w[k]; return !s || s.d <= t; });
       startSession(!hasWork);
     });
-    $('homeBtn').addEventListener('click', renderHome);
+    $('homeBtn').addEventListener('click', function () { leaveSub(); });
     $('statsBtn').addEventListener('click', function () { statsOpen = null; renderStats(); });
     $('doneStatsBtn').addEventListener('click', function () { statsOpen = null; renderStats(); });
-    $('statsBack').addEventListener('click', renderHome);
+    $('statsBack').addEventListener('click', function () { leaveSub(); });
     $('planBack').addEventListener('click', function () {
-      try { if (/(^#|&)plan(=1)?(&|$)/.test(location.hash)) history.replaceState(null, '', location.pathname + location.search + (location.hash.replace(/(^#|&)plan(=1)?(?=&|$)/, '$1').replace(/^#&/, '#').replace(/&$/, '').replace(/^#$/, ''))); } catch (e) { /* 略過 */ }
-      renderHome(); var o = $('planOpen'); if (o) { try { o.focus(); } catch (e) { /* 略過 */ } } });
+      leaveSub('planOpen'); });
     $('planStart').addEventListener('click', function () { startSession(false); });
     $('examDate').addEventListener('change', function () {
       var v = $('examDate').value;
@@ -2274,15 +2300,18 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
     // 切換兩副卡：記住單字卡原本的網址（老師的指定連結），切回來時還原
     var lastWHash = '';
     $('tabW').addEventListener('click', function () {
+      if (guarded()) return;
       if (!isCF() && !isPO()) return;
       location.hash = lastWHash || '#';
     });
     $('tabC').addEventListener('click', function () {
+      if (guarded()) return;
       if (isCF()) return;
       if (!isPO()) lastWHash = location.hash;
       location.hash = '#deck=cf';
     });
     $('tabP').addEventListener('click', function () {
+      if (guarded()) return;
       if (isPO()) return;
       if (!isCF()) lastWHash = location.hash;
       location.hash = '#deck=po';
@@ -2297,6 +2326,20 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
       state = states[storeKey()] = { v: 1, w: {}, day: today(), done: 0 };
       saveState();
       renderHome();
+    });
+    window.addEventListener('popstate', function (ev) {
+      var wasLeaving = leaving; leaving = false;
+      var home = $('home');
+      if (ev.state && ev.state.sub) {
+        // 前進鍵回到子畫面的紀錄，但畫面其實是首頁：直接再退一步，避免下一次上一頁沒反應
+        if (home && !home.classList.contains('hide') && !wasLeaving) { try { history.back(); } catch (e) { /* 略過 */ } }
+        return;
+      }
+      if (!wasLeaving && location.href !== subHref) return;   // 改網址列的 hash：交給 hashchange 處理
+      if (!home.classList.contains('hide') || !$('loading').classList.contains('hide') || !$('gview').classList.contains('hide')) return;
+      subHref = ''; stripPlanParam(); renderHome();
+      if (pendingFocus && $(pendingFocus)) { try { $(pendingFocus).focus(); } catch (e) { /* 略過 */ } }
+      pendingFocus = '';
     });
     window.addEventListener('hashchange', function () {
       scope = parseScope();
