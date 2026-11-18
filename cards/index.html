@@ -273,6 +273,7 @@
   .plan-big{margin:20px 0 4px; font-family:'Noto Serif TC',serif; font-weight:700; font-size:22px; line-height:1.6; color:var(--ad-vink-fg);}
   .plan-big b{font-family:'IBM Plex Mono','Noto Sans TC',monospace; color:var(--ad-vcrimson-fg); font-size:34px; line-height:1; vertical-align:-2px; margin:0 2px;}
   #plan .st-title{font-size:16px;}
+  #planTitle:focus{outline:none;}
   .plan-line .lk:focus-visible, .bar .quit:focus-visible, .plan-date input:focus-visible, .recap-more summary:focus-visible{outline:2px solid var(--ad-vcrimson-fg); outline-offset:2px;}
   .plan-sub{margin:6px 0 0; font-size:13px; line-height:1.9; color:var(--ad-vinksoft-fg);}
   .plan-facts{margin:16px 0 0; padding:12px 0 0; border-top:1px dashed var(--ad-vrule-border); font-size:13px; line-height:1.9; color:var(--ad-vinksoft-fg);}
@@ -919,9 +920,10 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
     var gap = t - L.d;
     if (gap > 14) return;                       // 隔太久，回顧已經沒有參考價值
     var inPool = {}; buildPool().forEach(function (k) { inPool[k] = 1; });
-    var ok = [], miss = [], dueMiss = 0;
+    var ok = [], miss = [], dueMiss = 0, outside = 0;
     Object.keys(L.r).forEach(function (k) {
-      if (!recapKnown(k) || !inPool[k]) return;
+      if (!recapKnown(k)) return;
+      if (!inPool[k]) { outside++; return; }
       if (L.r[k] === 1) ok.push(k);
       else if (L.r[k] === 0) { miss.push(k); if (state.w[k] && state.w[k].d <= t) dueMiss++; }
     });
@@ -936,7 +938,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
       return g + '</ul>';
     }
     var note = '<p class="recap-s">每個' + (cf ? '字組' : '字') + '只算當天第一次作答的結果；同一天先答錯、後來才答對，仍然算還不熟。</p>';
-    var h = '<div class="recap"><p class="recap-t">' + when + '複習的 <span class="nw"><b>' + n + '</b> ' + (cf ? '組' : '個字') + '</span>，' +
+    var h = '<div class="recap"><p class="recap-t">' + when + '複習的' + (outside ? '（目前範圍內）' : '') + ' <span class="nw"><b>' + n + '</b> ' + (cf ? '組' : '個字') + '</span>，' +
             (miss.length ? '答對 <span class="nw"><b>' + ok.length + '</b> ' + (cf ? '組' : '個') + '</span>' : '全部答對') + '</p>';
     if (miss.length) {
       h += '<p class="recap-g">還不熟的 ' + cntU(miss.length) + '（答錯或按了「剛才是猜的」）' +
@@ -1869,7 +1871,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
   function validStr(v) {
     if (!/^\d{4}-\d{2}-\d{2}$/.test(v || '')) return false;
     var m = v.split('-'), d = new Date(Date.UTC(+m[0], +m[1] - 1, +m[2]));
-    return d.getUTCFullYear() === +m[0] && d.getUTCMonth() === +m[1] - 1 && d.getUTCDate() === +m[2] && +m[0] >= 2026 && +m[0] <= 2035;
+    return d.getUTCFullYear() === +m[0] && d.getUTCMonth() === +m[1] - 1 && d.getUTCDate() === +m[2] && +m[0] >= 2026 && +m[0] <= new Date().getUTCFullYear() + 5;
   }
   function examStr() {
     var v = examMem;
@@ -1904,7 +1906,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
     var el = $(elId), p = planNums(), cf = isCF(), lead, link;
     if (p.D > 0) {
       lead = '<span class="nw">' + (examStr() === EXAM_DEFAULT ? '離 116 學測英文科（1/23）還有' : '離考試還有') + ' <b>' + p.D + '</b> 天</span>';
-      link = p.fresh && p.D < 7 ? '考試倒數規劃 →' : (cf ? '每天該背幾組新的字組 →' : '每天該背幾個新字 →');
+      link = !p.total || (p.fresh && p.D < 14) ? '考試倒數規劃 →' : (cf ? '每天該背幾組新的字組 →' : '每天該背幾個新字 →');
     } else {
       lead = '<span>' + (p.D === 0 ? '今天就是考試日' : '考試日期已經過了') + '</span>';
       link = '重新設定考試日期 →';
@@ -1913,14 +1915,15 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
     $(openId).addEventListener('click', renderPlan);
   }
   var WEEK = ['日', '一', '二', '三', '四', '五', '六'];
-  function renderPlan() {
+  function renderPlan(keep) {
+    keep = keep === true;   // 只是改日期重算時，不動輸入框、不捲動、不移焦點
     var p = planNums(), u = unitWord(), t = today(), h = '';
     var cf = isCF(), uu = cf ? '字組' : '字';
     $('planTitle').textContent = cf ? '每天該背幾組新的字組？' : '每天該背幾個新字？';
     $('planDesc').textContent = cf ? '選好考試日期，這一頁就會依你還沒看過的字組數，算出每天要背幾組新的字組；以後每次打開，都會依最新的進度和日期重新計算。' : '選好考試日期，這一頁就會依你還沒看過的字數，算出每天要背幾個新字；以後每次打開，都會依最新的進度和日期重新計算。';
     var ex = $('examDate');
-    ex.min = isoOf(t); ex.max = (new Date(t * 86400000).getUTCFullYear() + 5) + '-12-31';
-    ex.value = examStr();
+    if (!keep) { ex.min = isoOf(t); ex.max = (new Date(t * 86400000).getUTCFullYear() + 5) + '-12-31'; }
+    if (!keep) ex.value = examStr();
     var ed = dayOfStr(examStr());
     $('examHint').innerHTML = '<b>' + dayText(ed, true) + '（' + WEEK[new Date(ed * 86400000).getUTCDay()] + '）</b>' +
       (p.D > 0 ? '　·　還有 ' + p.D + ' 天' : (p.D === 0 ? '　·　就是今天' : '　·　已經過了'));
@@ -1935,13 +1938,13 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
     } else if (!p.fresh) {
       h += '<p class="plan-big">這個範圍的' + uu + '你都看過了</p>' +
            '<p class="plan-sub">離考試還有 ' + p.D + ' 天，接下來每天只要把排到當天要複習的' + uu + '做完就可以了。</p>';
-    } else if (p.D < 7) {
+    } else if (p.D < 14) {
       if (p.learned) {
         h += '<p class="plan-big">先複習還不熟的' + uu + '</p>' +
-             '<p class="plan-key">離考試只剩 ' + p.D + ' 天，現在背' + nw + '已經來不及複習，建議先把已經看過的' + uu + '再複習一次，尤其是還不熟的。如果想挑重點背' + nw + '，可以打開首頁的「不知道從哪裡開始？」，依模考級分看建議的練習順序。</p>';
+             '<p class="plan-key">離考試只剩 ' + p.D + ' 天，要把範圍裡的' + nw + '全背完再複習已經來不及，建議先把已經看過的' + uu + '再複習一次，尤其是還不熟的。如果想挑重點背' + nw + '，可以打開首頁的「不知道從哪裡開始？」，依模考級分看建議的練習順序。</p>';
       } else {
         h += '<p class="plan-big">先挑重點背</p>' +
-             '<p class="plan-key">離考試只剩 ' + p.D + ' 天，已經來不及把範圍裡的' + nw + '都背完再複習。可以打開首頁的「不知道從哪裡開始？」，依模考級分看建議的練習順序。</p>';
+             '<p class="plan-key">離考試只剩 ' + p.D + ' 天，要把範圍裡的' + nw + '全背完再複習已經來不及。可以打開首頁的「不知道從哪裡開始？」，依模考級分看建議的練習順序。</p>';
       }
     } else {
       // 只複習的天數：最多 REVIEW_DAYS，離考試不到兩倍時隨剩餘天數縮短（至少讓新字有 1 天可看）
@@ -1965,6 +1968,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
     $('planBody').innerHTML = h;
     $('planStart').textContent = '開始複習';
     $('planStart').disabled = !p.total;
+    if (keep) return;
     hide('home'); hide('quiz'); hide('done'); hide('stats'); hide('gview'); hide('loading'); show('plan'); window.scrollTo(0, 0);
     var pt = $('planTitle'); pt.setAttribute('tabindex', '-1'); try { pt.focus({ preventScroll: true }); } catch (e) { /* 略過 */ }
   }
@@ -2249,13 +2253,20 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
     $('statsBtn').addEventListener('click', function () { statsOpen = null; renderStats(); });
     $('doneStatsBtn').addEventListener('click', function () { statsOpen = null; renderStats(); });
     $('statsBack').addEventListener('click', renderHome);
-    $('planBack').addEventListener('click', function () { renderHome(); var o = $('planOpen'); if (o) { try { o.focus(); } catch (e) { /* 略過 */ } } });
+    $('planBack').addEventListener('click', function () {
+      try { if (/(^#|&)plan(=1)?(&|$)/.test(location.hash)) history.replaceState(null, '', location.pathname + location.search + (location.hash.replace(/(^#|&)plan(=1)?(?=&|$)/, '$1').replace(/^#&/, '#').replace(/&$/, '').replace(/^#$/, ''))); } catch (e) { /* 略過 */ }
+      renderHome(); var o = $('planOpen'); if (o) { try { o.focus(); } catch (e) { /* 略過 */ } } });
     $('planStart').addEventListener('click', function () { startSession(false); });
     $('examDate').addEventListener('change', function () {
       var v = $('examDate').value;
-      if (!validStr(v) || +v.slice(0, 4) < new Date(today() * 86400000).getUTCFullYear()) return;   // 逐位輸入年份時的中間值不存
+      if (!validStr(v)) { $('examHint').textContent = '請選一個考試日期。'; return; }
+      if (+v.slice(0, 4) < new Date(today() * 86400000).getUTCFullYear()) return;   // 逐位輸入年份時的中間值不存
       examMem = v; try { localStorage.setItem(EXAM_KEY, v); } catch (e) { /* 略過 */ }
-      renderPlan();
+      renderPlan(true);
+    });
+    $('examDate').addEventListener('blur', function () {
+      if (validStr($('examDate').value) && $('examDate').value === examStr()) return;
+      $('examDate').value = examStr(); renderPlan(true);
     });
     $('gvBack').addEventListener('click', function () {
       location.hash = isPO() ? poHomeHash : cfHomeHash;   // 回到點進來之前的範圍（老師指定的組號與作業名稱都保留）
