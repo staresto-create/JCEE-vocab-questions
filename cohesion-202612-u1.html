@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>倒金字塔｜Lunar Rocket Crash Raises Concerns About Space Junk</title>
+<meta name="description" content="新聞的第一句幾乎已經把整件事說完了。這一頁教你認出倒金字塔，還有把動作壓成名詞的名詞化。">
+<meta property="og:title" content="倒金字塔｜Lunar Rocket Crash">
+<meta property="og:description" content="最重要的放最前面，愈後面愈次要。從最後一段往上砍，砍到只剩第一句，還講得通嗎？">
+<style>
+
+:root{
+  --ground:#f1f3f2; --ink:#17282f; --teal:#1f6f6a; --teal-soft:#dfeceb;
+  --muted:#77878d; --line:#cdd6d6; --exam:#b4661c; --exam-soft:#fdf4e7;
+  --gen:#4a6a90; --gen-soft:#e0e7f0;
+  --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+  --sans:"PingFang TC","Noto Sans TC","Microsoft JhengHei","Helvetica Neue",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ad-vground-bg);color:var(--ad-vink-fg);font-family:var(--sans);line-height:1.6;-webkit-text-size-adjust:100%}
+.wrap{max-width:44rem;margin:0 auto;padding:1.6rem 1.1rem 4rem}
+h1{font-family:var(--serif);font-weight:600;font-size:1.6rem;line-height:1.3;margin:0 0 .55rem}
+.lede{margin:0 0 1.3rem;color:var(--ad-x3d5059-fg);font-size:.95rem}
+.src{font-size:.8rem;color:var(--ad-vmuted-fg);margin:0 0 1.1rem}
+.resume{font-size:.85rem;color:var(--ad-vteal-fg);background:var(--ad-vtealsoft-bg);border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.resume[hidden]{display:none}
+.preview{font-size:.85rem;color:var(--ad-vexam-fg);background:var(--ad-vexamsoft-bg);border:1px dashed var(--ad-vexam-border);border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .9rem}
+.preview[hidden]{display:none}
+.resume button{font:inherit;font-size:.82rem;background:var(--ad-xfff-bg);color:var(--ad-vink-fg);border:1px solid var(--ad-vline-border);border-radius:.25rem;padding:.16rem .6rem;margin-left:.5rem;cursor:pointer}
+.resume button:focus-visible{outline:2px solid var(--ad-vteal-border);outline-offset:2px}
+.step{border-top:1px solid var(--ad-vline-border);padding-top:1.15rem;margin-top:1.6rem}
+.step[hidden]{display:none}
+.stepno{font-family:var(--serif);font-size:.82rem;color:var(--ad-vmuted-fg);margin:0 0 .2rem}
+h2{font-family:var(--serif);font-weight:600;font-size:1.2rem;margin:0 0 .5rem;color:var(--ad-vteal-fg)}
+.step p{margin:0 0 .7rem;font-size:.95rem}
+.tag{display:inline-block;font-size:.72rem;font-weight:600;border-radius:.2rem;padding:.08rem .45rem;margin-left:.45rem;vertical-align:.12rem;color:var(--ad-vexam-fg);background:var(--ad-vexamsoft-bg);border:1px solid var(--ad-vexam-border)}
+.tag.b{color:var(--ad-vgen-fg);background:var(--ad-vgensoft-bg);border-color:var(--ad-vgen-border)}
+.tag.a{color:var(--ad-vteal-fg);background:var(--ad-vtealsoft-bg);border-color:var(--ad-vteal-border)}
+.opts{display:flex;flex-direction:column;gap:.45rem;margin:.2rem 0 .8rem}
+.opts button{font:inherit;font-size:.95rem;background:var(--ad-xfff-bg);color:var(--ad-vink-fg);border:1px solid var(--ad-vline-border);border-radius:.3rem;padding:.45rem .85rem;cursor:pointer;text-align:left}
+.opts button:hover{border-color:var(--ad-vteal-border)}
+.opts button:focus-visible{outline:2px solid var(--ad-vteal-border);outline-offset:2px}
+.opts button[data-state="right"]{background:var(--ad-vteal-bg);border-color:var(--ad-vteal-border);color:var(--ad-onflip-fg)}
+.opts button[data-state="wrong"]{background:var(--ad-vground-bg);color:var(--ad-vmuted-fg)}
+.opts button[disabled]{cursor:default}
+.opts.en button{font-family:var(--serif);font-size:.97rem;line-height:1.6;padding:.55rem .8rem}
+.opts.en button[data-state="right"]{background:var(--ad-vtealsoft-bg);border-color:var(--ad-vteal-border);color:var(--ad-vink-fg)}
+.said{background:var(--ad-xfff-bg);border-left:3px solid var(--ad-vteal-border);border-radius:.3rem;padding:.75rem .85rem;margin:.2rem 0 .9rem;font-size:.93rem;color:var(--ad-x3d5059-fg)}
+.said b{color:var(--ad-vink-fg);font-weight:600}
+.said[hidden]{display:none}
+.said.g{border-left-color:var(--ad-vgen-border)}
+.said.e{border-left-color:var(--ad-vexam-border)}
+.said q{quotes:none;font-family:var(--serif)}
+.go{font:inherit;font-size:.92rem;background:var(--ad-vink-bg);color:var(--ad-onflip-fg);border:1px solid var(--ad-vink-border);border-radius:.3rem;padding:.42rem 1.05rem;cursor:pointer}
+.go:focus-visible{outline:2px solid var(--ad-vteal-border);outline-offset:2px}
+.go[hidden]{display:none}
+.lead{background:var(--ad-xfff-bg);border:1px solid var(--ad-vline-border);border-radius:.4rem;padding:.9rem 1rem;margin:0 0 .7rem;font-family:var(--serif);font-size:1.02rem;line-height:1.95}
+.lead c{cursor:pointer;border-radius:.2rem;padding:.06rem .2rem;background:var(--ad-vexamsoft-bg);box-shadow:inset 0 -2px 0 #ecc9a2}
+.lead c:hover{box-shadow:inset 0 -2px 0 var(--ad-vexam-border)}
+.lead c.got{background:var(--ad-vexam-bg);color:var(--ad-onflip-fg);box-shadow:none}
+.lead c b{font-family:var(--sans);font-size:.72rem;font-weight:600;background:var(--ad-xfff-bg);color:var(--ad-vexam-fg);border-radius:.2rem;padding:.02rem .3rem;margin-right:.3rem}
+.score{font-size:.9rem;color:var(--ad-vmuted-fg);margin:0 0 .8rem}
+.score em{font-style:normal;color:var(--ad-vexam-fg);font-weight:600}
+.fig{background:var(--ad-xfff-bg);border:1px solid var(--ad-vline-border);border-radius:.4rem;padding:.7rem .5rem .4rem;margin:0 0 .7rem}
+.fig svg{display:block;width:100%;height:auto;max-width:27rem;margin:0 auto}
+.fig figcaption{font-size:.85rem;color:var(--ad-x3d5059-fg);margin:.35rem .5rem 0;line-height:1.65}
+.fig[hidden]{display:none}
+.node{cursor:pointer}
+.node path,.node rect,.node polygon{fill:var(--ad-xfff-bg);stroke:var(--ad-vline-border);stroke-width:2;stroke-linejoin:round}
+.node text{font-family:var(--sans);font-size:11px;fill:var(--ad-vink-fg);font-weight:600}
+.node tspan.n{font-size:9px;font-weight:400;fill:var(--ad-vmuted-fg)}
+.node.on path,.node.on rect,.node.on polygon{fill:var(--ad-vexamsoft-bg);stroke:var(--ad-vexam-border)}
+.node.on text{fill:var(--ad-vexam-fg)}
+.node.on tspan.n{fill:var(--ad-vexam-fg)}
+.node:focus-visible{outline:none}
+.node:focus-visible polygon,.node:focus-visible rect,.side:focus-visible rect{stroke:var(--ad-vteal-border);stroke-width:3}
+.arrow{stroke:var(--ad-vline-border);stroke-width:2;fill:none}
+.divline{stroke:var(--ad-vink-border);stroke-width:2;stroke-dasharray:5 4}
+.side{cursor:pointer}
+.side rect{fill:var(--ad-xfff-bg);stroke:var(--ad-vline-border);stroke-width:2}
+.side.l rect{fill:var(--ad-vtealsoft-bg);stroke:#a8ccc8}
+.side.r rect{fill:var(--ad-vgensoft-bg);stroke:#a9bbd0}
+.side text{font-family:var(--serif);font-size:10.5px;fill:var(--ad-vink-fg)}
+.side.on rect{stroke:var(--ad-vexam-border);stroke-width:3}
+.mk text{font-family:var(--serif);font-size:10px;fill:var(--ad-vexam-fg);font-style:italic}
+.hdlab{font-family:var(--sans);font-size:10.5px;font-weight:600}
+.hdlab.l{fill:var(--ad-vteal-bg)}
+.hdlab.r{fill:var(--ad-vgen-bg)}
+.ladder{display:flex;flex-direction:column;gap:.5rem;margin:0 0 .8rem}
+.rung{background:var(--ad-xfff-bg);border:1px solid var(--ad-vline-border);border-radius:.4rem;padding:.65rem .85rem}
+.rung .qz{font-size:.95rem;font-weight:600;margin-bottom:.4rem}
+.rung .qz span{color:var(--ad-vexam-fg)}
+.rung button{font:inherit;font-size:.86rem;background:var(--ad-xfff-bg);color:var(--ad-vink-fg);border:1px solid var(--ad-vline-border);border-radius:.25rem;padding:.22rem .8rem;cursor:pointer}
+.rung button:focus-visible{outline:2px solid var(--ad-vteal-border);outline-offset:2px}
+.rung .an{display:none;font-size:.92rem;color:var(--ad-x3d5059-fg);line-height:1.75}
+.rung.open .an{display:block}
+.rung.open button{display:none}
+.rung .an i{font-style:normal;color:var(--ad-vmuted-fg);font-size:.82rem;margin-left:.3rem}
+.rung[hidden]{display:none}
+.daybreak{border:1px dashed var(--ad-vexam-border);background:var(--ad-vexamsoft-bg);border-radius:.4rem;padding:.8rem .95rem;margin:1.6rem 0 0;font-size:.9rem;color:var(--ad-x3d5059-fg);line-height:1.7}
+.daybreak b{display:block;color:var(--ad-vexam-fg);font-family:var(--serif);font-size:1.02rem;margin-bottom:.3rem}
+.daybreak[hidden]{display:none}
+.modes{display:flex;gap:.4rem;margin:0 0 .7rem;flex-wrap:wrap}
+.modes button{font:inherit;font-size:.84rem;background:var(--ad-xfff-bg);color:var(--ad-vink-fg);border:1px solid var(--ad-vline-border);border-radius:.3rem;padding:.3rem .8rem;cursor:pointer}
+.modes button[aria-pressed="true"]{background:var(--ad-vink-bg);border-color:var(--ad-vink-border);color:var(--ad-onflip-fg)}
+.modes button:focus-visible{outline:2px solid var(--ad-vteal-border);outline-offset:2px}
+.text{background:var(--ad-xfff-bg);border:1px solid var(--ad-vline-border);border-radius:.4rem;padding:.9rem .6rem 1.1rem;font-family:var(--serif);font-size:1rem;line-height:1.85}
+.text .ttl{font-weight:600;font-size:1.06rem;margin:0 .4rem .7rem 2.6rem;line-height:1.45}
+.ln{display:flex;align-items:baseline;padding:.02rem 0;border-radius:.2rem}
+.ln>i{flex:0 0 2.2rem;text-align:right;padding-right:.55rem;font-family:var(--sans);font-style:normal;font-size:.68rem;color:var(--ad-vmuted-fg);line-height:1.9}
+.ln>span{flex:1 1 auto;overflow-wrap:anywhere}
+.ln.ind>span{padding-left:1.1rem}
+.ln.hl{background:var(--ad-vexamsoft-bg)}
+.ln.pb{margin-top:.55rem}
+.text .split{font-family:var(--sans);font-size:.78rem;color:var(--ad-vexam-fg);border-top:1px dashed var(--ad-vexam-border);margin:.8rem .4rem .7rem 2.6rem;padding-top:.35rem}
+.text m{cursor:pointer;border-radius:.2rem;padding:.02rem .14rem}
+.text m[data-kind="sub"]{background:var(--ad-vtealsoft-bg);box-shadow:inset 0 -2px 0 #a8ccc8}
+.text m[data-kind="gen"]{background:var(--ad-vgensoft-bg);box-shadow:inset 0 -2px 0 #a9bbd0}
+.text m[data-kind="mk"]{border-bottom:2px dotted var(--ad-vexam-border);font-style:italic}
+.text m.lit[data-kind="sub"]{background:var(--ad-vteal-bg);color:var(--ad-onflip-fg);box-shadow:none}
+.text m.lit[data-kind="gen"]{background:var(--ad-vgen-bg);color:var(--ad-onflip-fg);box-shadow:none}
+.text m.lit[data-kind="mk"]{background:var(--ad-vexam-bg);color:var(--ad-onflip-fg);border-bottom:none}
+.text.off-sub m[data-kind="sub"]{background:none;box-shadow:none}
+.text.off-gen m[data-kind="gen"]{background:none;box-shadow:none}
+.panel{position:sticky;bottom:0;background:var(--ad-xfff-bg);border:1px solid var(--ad-vline-border);border-radius:.4rem;padding:.75rem .9rem;margin-top:.8rem;box-shadow:0 -2px 10px rgba(23,40,47,.07)}
+.panel .k{font-size:.72rem;font-weight:600;border-radius:.2rem;padding:.06rem .42rem;color:var(--ad-vteal-fg);background:var(--ad-vtealsoft-bg);border:1px solid var(--ad-vteal-border)}
+.panel .k.g{color:var(--ad-vgen-fg);background:var(--ad-vgensoft-bg);border-color:var(--ad-vgen-border)}
+.panel .k.e{color:var(--ad-vexam-fg);background:var(--ad-vexamsoft-bg);border-color:var(--ad-vexam-border)}
+.panel .ch{font-family:var(--serif);font-size:1rem;margin:.4rem 0 .3rem;color:var(--ad-vink-fg);line-height:1.75;overflow-wrap:anywhere}
+.panel .ch i{font-style:normal;color:var(--ad-vmuted-fg);padding:0 .28rem}
+.panel .nt{font-size:.88rem;color:var(--ad-x3d5059-fg);margin:0}
+.recall{background:var(--ad-xfff-bg);border:1px solid var(--ad-vline-border);border-left:3px solid var(--ad-vmuted-border);border-radius:.3rem;padding:.75rem .85rem;margin:1.1rem 0 .9rem;font-size:.92rem;color:var(--ad-x3d5059-fg)}
+.recall b{color:var(--ad-vink-fg)}
+.recall ul{margin:.4rem 0 0;padding-left:1.1rem}
+.recall li{margin-bottom:.35rem}
+.gap{background:var(--ad-xfff-bg);border:1px solid var(--ad-vline-border);border-radius:.4rem;padding:.9rem 1rem;margin:0 0 .9rem;font-family:var(--serif);font-size:1rem;line-height:1.9}
+.gap .blank{display:inline-block;min-width:9rem;border-bottom:2px solid var(--ad-vgen-border);color:var(--ad-vgen-fg);text-align:center;font-family:var(--sans);font-size:.82rem}
+.gap .blank.filled{border-bottom-color:var(--ad-vteal-border);color:var(--ad-vink-fg);font-family:var(--serif);font-size:1rem;text-align:left;background:var(--ad-vtealsoft-bg);border-radius:.2rem;padding:0 .25rem}
+.picks{display:flex;flex-direction:column;gap:.45rem;margin:0 0 .9rem}
+.picks button{font:inherit;font-family:var(--serif);font-size:.97rem;line-height:1.6;background:var(--ad-xfff-bg);color:var(--ad-vink-fg);border:1px solid var(--ad-vline-border);border-radius:.3rem;padding:.55rem .8rem;cursor:pointer;text-align:left}
+.picks button:hover{border-color:var(--ad-vteal-border)}
+.picks button:focus-visible{outline:2px solid var(--ad-vteal-border);outline-offset:2px}
+.picks button[data-state="right"]{background:var(--ad-vtealsoft-bg);border-color:var(--ad-vteal-border)}
+.picks button[data-state="wrong"]{background:var(--ad-vground-bg);color:var(--ad-vmuted-fg)}
+.why{font-size:.86rem;color:var(--ad-x3d5059-fg);margin:.35rem 0 0}
+.why[hidden]{display:none}
+.close{border-top:1px solid var(--ad-vline-border);margin-top:2rem;padding-top:1.1rem;font-size:.93rem;color:var(--ad-x3d5059-fg)}
+.close[hidden]{display:none}
+.close h2{font-size:1.1rem}
+.close ol{margin:.3rem 0 0;padding-left:1.15rem}
+.close li{margin-bottom:.5rem}
+.series{border-top:1px solid var(--ad-vline-border);margin-top:2rem;padding-top:1.1rem;font-size:.9rem;color:var(--ad-x3d5059-fg)}
+.series .back{font-family:var(--serif);font-size:1rem;color:var(--ad-vteal-fg);text-decoration:none}
+.series .back:hover{text-decoration:underline}
+.series .back:focus-visible{outline:2px solid var(--ad-vteal-border);outline-offset:2px}
+.series .note{font-size:.85rem;color:var(--ad-vmuted-fg);margin:.5rem 0 0}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* 深色模式（2026-10-22）：淺色數值與原本相同；只在螢幕、手機或電腦設成深色外觀時生效，列印不受影響。 */
+:root{--ad-onflip-fg:#ffffff;--ad-vexam-bg:var(--exam);--ad-vexam-border:var(--exam);--ad-vexam-fg:var(--exam);--ad-vexamsoft-bg:var(--exam-soft);--ad-vexamsoft-fg:var(--exam-soft);--ad-vgen-bg:var(--gen);--ad-vgen-border:var(--gen);--ad-vgen-fg:var(--gen);--ad-vgensoft-bg:var(--gen-soft);--ad-vground-bg:var(--ground);--ad-vink-bg:var(--ink);--ad-vink-border:var(--ink);--ad-vink-fg:var(--ink);--ad-vline-border:var(--line);--ad-vline-fg:var(--line);--ad-vmuted-border:var(--muted);--ad-vmuted-fg:var(--muted);--ad-vteal-bg:var(--teal);--ad-vteal-border:var(--teal);--ad-vteal-fg:var(--teal);--ad-vtealsoft-bg:var(--teal-soft);--ad-x3d5059-fg:#3d5059;--ad-x8a8278-fg:#8a8278;--ad-xdfeceb-fg:#dfeceb;--ad-xfff-bg:#fff;--ad-xfff-fg:#fff;color-scheme:light}
+@media screen and (prefers-color-scheme: dark){
+ :root{--ad-onflip-fg:#16201F;--ad-vexam-bg:#b4661c;--ad-vexam-border:#b4661c;--ad-vexam-fg:#E7CAAF;--ad-vexamsoft-bg:#2D2821;--ad-vexamsoft-fg:#fdf4e7;--ad-vgen-bg:#4a6a90;--ad-vgen-border:#4a6a90;--ad-vgen-fg:#BBC7D6;--ad-vgensoft-bg:#1E2227;--ad-vground-bg:#1F2020;--ad-vink-bg:#E6EBEE;--ad-vink-border:#E9EFF2;--ad-vink-fg:#E9EFF2;--ad-vline-border:#3F4747;--ad-vline-fg:#cdd6d6;--ad-vmuted-border:#77878d;--ad-vmuted-fg:#BAC0C2;--ad-vteal-bg:#1f6f6a;--ad-vteal-border:#CDEAE9;--ad-vteal-fg:#CDEAE9;--ad-vtealsoft-bg:#1D2524;--ad-x3d5059-fg:#D4DBDF;--ad-x8a8278-fg:#C2BFBB;--ad-xdfeceb-fg:#dfeceb;--ad-xfff-bg:#2D2A25;--ad-xfff-fg:#ffffff;color-scheme:dark}
+}
+
+.step p q,.recall q,.close q{quotes:none;font-family:var(--serif)}
+</style>
+<style id="anti-copy">
+/* 防盜用措施（2026-10-14）：畫面浮水印、列印浮水印、頁尾授權聲明 */
+@media screen{body::before{content:"";position:fixed;top:0;left:0;right:0;bottom:0;z-index:2147483000;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22460%22%20height%3D%22240%22%3E%3Cg%20transform%3D%22rotate%28-20%20230%20120%29%22%20font-family%3D%22Noto%20Sans%20TC%2Csans-serif%22%20fill%3D%22%23D9A400%22%20fill-opacity%3D%22.2%22%20text-anchor%3D%22middle%22%3E%3Ctext%20x%3D%22230%22%20y%3D%22112%22%20font-size%3D%2220%22%3E%E9%AB%98%E4%B8%AD%E8%8B%B1%E6%96%87%E9%A1%8C%E5%BA%AB%3C%2Ftext%3E%3Ctext%20x%3D%22230%22%20y%3D%22140%22%20font-size%3D%2214%22%3Estaresto-create.github.io%2FJCEE-vocab-questions%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E");background-repeat:repeat;}}
+@media print{body::after{content:"高中英文題庫\A staresto-create.github.io/JCEE-vocab-questions\A 免費資源，請勿販售";white-space:pre;position:fixed;top:42%;left:0;right:0;text-align:center;transform:rotate(-25deg);font-family:"Noto Sans TC",sans-serif;font-size:26pt;line-height:1.7;color:#c8c8c8;z-index:2147483000;pointer-events:none;}}
+.cc-note{font-size:12px;line-height:1.8;color:var(--ad-x8a8278-fg);margin:12px auto;max-width:60em;padding:0 1em;}.cc-note a{color:inherit;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>倒金字塔</h1>
+<p class="lede">新聞的第一句，幾乎已經把整件事說完了。這一頁教你認出新聞最常用的組織方式：<b>倒金字塔</b>——最重要的放最前面，愈往後愈次要。</p>
+<p class="preview" id="pv" hidden>預覽模式：所有步驟、圖表、課文標記都已展開，進度不會存檔。學生拿到的一般連結不受影響。</p>
+<p class="resume" id="rs" hidden>上次做到一半，已經幫你接回來了。<button id="rst">重新開始</button></p>
+<p class="src">ALL+ 互動英語 12 月號 Unit 1（p. 6）　Lunar Rocket Crash Raises Concerns About Space Junk　全文 31 行　12/1 一天讀完</p>
+
+<!-- STEP 1 -->
+<section class="step" id="s1">
+  <p class="stepno">第一步</p>
+  <h2>第一句裡藏了什麼<span class="tag">上層：組織方式</span></h2>
+  <p>新聞的開頭，通常一句話就交代三件事：<b>發生什麼事、什麼時候、為什麼值得報。</b>下面是第 1 到 5 行的第一句，<b>點三個有底色的地方</b>。</p>
+  <div class="lead" id="ld">
+    An abandoned upper stage from a SpaceX Falcon 9 rocket <c data-t="p">crashed into the Moon</c> <c data-t="n">on August 5</c>, creating a new crater and <c data-t="c">drawing attention from scientists around the world</c>.
+  </div>
+  <p class="score" id="sc">已標出 <em>0</em> / 3</p>
+  <div id="s1b" hidden>
+    <p>三個都標出來了。那麼——<b>作者為什麼把這三件事全擠進第一句，而不是先從一月的發射講起？</b></p>
+    <div class="opts" id="q1">
+      <button>因為作者想照時間先後，從發射一路寫到撞擊</button>
+      <button data-ok="1">因為讀者可能只讀開頭，最重要的事要先講完</button>
+      <button>因為科學家的研究結果最重要，所以要先預告</button>
+      <button>因為作者想先賣關子，最後才揭曉撞擊的原因</button>
+    </div>
+    <div class="said e" id="a1" hidden>
+      <b>因為讀者可能只讀開頭。</b>新聞的讀者常常看了第一兩句就決定要不要讀下去，所以記者把「什麼事、何時、為什麼重要」全擠進第一句。就算讀者只讀這一句，也不會漏掉最重要的部分。這就是<b>倒金字塔的第一層：導言</b>。
+      <br><br>
+      <b>另外三個為什麼排除：</b>
+      <br><br>
+      「照時間先後，從發射寫到撞擊」——<b>這是最容易選的一個</b>，因為我們讀故事都習慣這樣。但第 6 到 7 行才補上發射，第一句先講結果，過程是回頭補的。<b>新聞不是在講故事，是在報結果。</b>
+      <br><br>
+      「科學家的研究結果最重要」——科學家出現在第 24 到 25 行，而且寫的是 <q>are now studying</q>，還在研究，沒有任何結果。<b>後面才出現的細節，被當成開頭的重點。</b>
+      <br><br>
+      「最後才揭曉撞擊的原因」——原因在第 8 到 9 行就給了：<q>gravity gradually pulled it</q>。文章沒有賣關子，反而是<b>把答案先講完，再補細節</b>。
+    </div>
+    <button class="go" id="g1" hidden>那整篇的形狀是什麼？</button>
+  </div>
+</section>
+
+<!-- STEP 2 -->
+<section class="step" id="s2" hidden>
+  <p class="stepno">第二步</p>
+  <h2>一個倒過來的金字塔<span class="tag">上層：怎麼認出來</span></h2>
+  <p>先回答：<b>這篇文章的推進方式，最接近下列哪一種？</b></p>
+  <div class="opts" id="q2">
+    <button data-ok="1">先講最重要的結果，再補細節，愈往後愈次要</button>
+    <button>先寫一月的發射，再依時間順序寫到八月的撞擊</button>
+    <button>先提出太空垃圾的問題，再說明已有的解決辦法</button>
+    <button>先寫撞擊的結果，再一階一階追出完整的成因</button>
+  </div>
+  <div class="said e" id="a2" hidden>
+    <b>先講最重要的結果，再往下補，愈後面愈次要。</b>第 1 到 5 行把事件講完；第 6 到 12 行補過程；第 13 到 23 行講為什麼重要；第 24 到 31 行是最後的研究與展望。<b>每往下一段，資訊的分量就輕一點。</b>這就是倒金字塔。
+    <br><br>
+    <b>另外三個為什麼排除，每一個都是這個系列教過的別種結構：</b>
+    <br><br>
+    「依時間順序寫到八月的撞擊」——這是<b>序列</b>。但這篇的第一個時間點就是撞擊（第 3 行的 <q>on August 5</q>），一月的發射反而排在第 6 到 7 行。<b>時間是倒著出現的，沒有往前推進。</b>
+    <br><br>
+    「說明已有的解決辦法」——這是<b>問題與解決</b>，而且這一個最容易選，因為第 13 到 23 行確實在講太空垃圾這個問題。但整篇沒有任何一個已經存在的辦法：第 29 到 31 行只說 <q>better ways to track and manage space debris will become increasingly important</q>，是「需要更好的辦法」，不是「已經有辦法」。
+    <br><br>
+    「一階一階追出完整的成因」——這是<b>因果鏈</b>。成因只出現在第 8 到 12 行，一次講完，後面第 13 到 31 行都在講影響與後續。<b>沒有第二階、第三階可以往回問。</b>
+    <br><br>
+    下面這張圖就是這個形狀。<b>點任一層</b>，課文對應行會亮起來。
+  </div>
+  <figure class="fig" id="fig1" hidden></figure>
+  <button class="go" id="g2" hidden>怎麼驗證？</button>
+</section>
+
+<!-- STEP 3 -->
+<section class="step" id="s3" hidden>
+  <p class="stepno">第三步</p>
+  <h2>從最底下開始砍<span class="tag">上層：怎麼驗證</span></h2>
+  <p>怎麼確定一篇新聞真的是倒金字塔？<b>編輯要縮短新聞時，就是從最後面一段一段砍掉，剩下的仍然讀得懂。</b>（這是新聞寫作教材的標準說法，例如佛羅里達大學 IFAS Extension 的 EDIS 教材。）我們照樣砍一次，看每砍一層會少什麼。</p>
+  <div class="ladder" id="ladder"></div>
+  <p class="score" id="sc3">已完成 <em>0</em> / 4</p>
+  <div class="said e" id="a3" hidden>
+    <b>四層砍完，順序剛好跟重要性相反，這就是倒金字塔。</b>
+    <br><br>
+    <b>怎麼認出一篇是倒金字塔：</b>(1) 找訊號：第一句同時出現「什麼事、何時、何處」；(2) 說出結構：愈後面愈次要；(3) 砍砍看：從最後面砍，砍到只剩第一句還講得通。<b>如果砍掉最後一段，整篇就讀不懂了，那就不是倒金字塔，是把重點放在最後的別種結構。</b>
+    <br><br>
+    <b>最後再用導言寫一句摘要：</b>只用第一句，就能寫出整篇的摘要：「一個被丟棄的火箭殘骸在 8 月 5 日撞上月球，引起全球科學家的注意。」其餘的段落都是在這句話底下補細節。
+  </div>
+  <button class="go" id="g3" hidden>看撐住這個形狀的字</button>
+</section>
+
+<!-- STEP 4 -->
+<section class="step" id="s4" hidden>
+  <p class="stepno">第四步</p>
+  <h2>動詞變成名詞<span class="tag a">下層：名詞化</span><span class="tag b">舊工具：上義詞與下義詞</span></h2>
+  <p>倒金字塔靠上層的順序，把最重要的放在前面；撐住全篇的是下層的詞彙線索。這篇有一個新工具：<b>名詞化</b>。作者先用動詞說一件事（<q>crashed into the Moon</q>），之後把這件事壓成名詞（<q>The impact</q>、<q>the crash site</q>），這樣下一句就可以拿它當主詞，繼續往下講後果。</p>
+  <p>名詞化是 Halliday 功能語法裡「語法隱喻」（grammatical metaphor）最主要的做法：把原本用動詞說的過程，改用名詞說（Halliday & Matthiessen, <i>An Introduction to Functional Grammar</i>）。</p>
+  <p><b>點圖上任一格</b>，課文對應行會亮起來。</p>
+  <figure class="fig" id="fig2"></figure>
+  <p><b>也可以直接點課文裡有底色的字。</b>青色是這篇的新工具，藍灰是舊工具再練一次，兩種都可以各自關掉。</p>
+  <div class="modes">
+    <button id="m1" aria-pressed="true">名詞化（青）</button>
+    <button id="m2" aria-pressed="true">上義詞與下義詞（藍灰）</button>
+  </div>
+  <div class="text" id="tx"></div>
+  <div class="panel" id="pn">
+    <span class="k" id="pk">線索</span>
+    <div class="ch" id="pc">點圖上的一格，或課文裡有底色的字</div>
+    <p class="nt" id="pt">青色是動詞變名詞的線，藍灰是從 space junk 往下拆的線。</p>
+  </div>
+  <div class="recall">
+    <b>另外兩樣，前面單元教過，這篇自己確認得出來：</b>
+    <ul>
+      <li><b>人稱指涉。</b>這篇有四個 it，各指不同的東西：第 8 行和第 11 行的 <q>it</q> 指 the rocket stage，第 14 行的 <q>it</q> 指 The impact，第 20 行的 <q>It</q> 指 such debris。找指涉對象的方法跟以前一樣：先往回找最近、而且意思講得通的名詞。</li>
+      <li><b>詞形變化的重複。</b>Moon 這個字在第 3 行、第 10 行出現，之後變成形容詞 lunar：第 11 行的 <q>lunar surface</q>、第 25 行的 <q>lunar collisions</q>。字形換了，指的還是同一個地方。</li>
+    </ul>
+  </div>
+  <p style="margin-top:1.1rem"><button class="go" id="g4">考卷怎麼考倒金字塔</button></p>
+</section>
+
+<!-- STEP 5 -->
+<section class="step" id="s5" hidden>
+  <p class="stepno">第五步</p>
+  <h2>倒金字塔題的兩個陷阱<span class="tag">上層：考點</span></h2>
+  <p>倒金字塔類文章的主旨題，誘答幾乎都出在兩個地方：</p>
+  <p><b>一、拿最底下的細節當主旨。</b>愈後面愈次要，所以最後一段的研究、拍照，都只是補充。</p>
+  <p><b>二、拿過程背景當主旨。</b>怎麼發射、怎麼飄、什麼速度，是第二層的補充，不是整篇要說的事。</p>
+  <p>試一題：<b>What is the main idea of the article?</b></p>
+  <div class="opts en" id="q5">
+    <button>Scientists around the world are now studying the crash site to learn more about lunar collisions.</button>
+    <button>A SpaceX rocket stage launched in January 2025 slowly drifted until gravity pulled it toward the Moon.</button>
+    <button>A South Korean spacecraft has captured images, while NASA plans to make its own observations.</button>
+    <button data-ok="1">A discarded rocket piece hit the Moon, stirring fresh worries about the growing clutter in space.</button>
+  </div>
+  <div class="said e" id="a5" hidden>
+    <b>第四句。</b>先注意：<b>它沒有照抄課文裡的字。</b><q>discarded rocket piece</q> 是 abandoned upper stage 的改寫，<q>hit the Moon</q> 是 crashed into the Moon，<q>stirring fresh worries</q> 是 raised concerns。把第 1 到 5 行的導言，和第 13 到 14 行的 concerns 合在一起，就是整篇的主旨。<b>另外三句反而滿是課文裡的字。</b>
+    <br><br>
+    <b>另外三個為什麼排除：</b>
+    <br><br>
+    第一句（Scientists around the world…）——<b>這是最容易選的一個</b>，因為 scientists、crash site、lunar collisions 全是課文裡的字。但 around the world 在課文裡形容的是「受到關注」（第 4 到 5 行），不是「在研究」。而且 are now studying 在第 24 到 25 行，是最底層的後續。<b>把兩個地方的字接在一起，成了課文沒有說過的話。</b>
+    <br><br>
+    第二句（A SpaceX rocket stage launched…）——這是第 6 到 9 行的過程。每一個字都對，但它回答的是「怎麼撞上去的」，不是「發生了什麼事、為什麼有人在乎」。<b>把第二層的細節當成主旨。</b>
+    <br><br>
+    第三句（A South Korean spacecraft…）——第 26 到 28 行的後續動作，只是最後一層的例子，而且整句沒有出現撞擊這件事。<b>光看主旨就能排除。</b>
+  </div>
+  <button class="go" id="g5" hidden>最後一題</button>
+</section>
+
+<!-- STEP 6 -->
+<section class="step" id="s6" hidden>
+  <p class="stepno">第六步</p>
+  <h2>把一句話放回去</h2>
+  <p>這就是考卷上的<b>篇章結構</b>題。下面把第 17 到 20 行的整句抽掉了，四個候選句只有一句放得進去。</p>
+  <div class="gap" id="gp">
+    … but it raised concerns about the growing amount of space junk, which includes old satellites, spent rocket parts, and other debris left behind after missions.
+    <br><br>
+    <span class="blank" id="bl">（空格）</span> It can collide with active satellites, resulting in even more fragments and making space travel more difficult and risky.
+  </div>
+  <div class="picks" id="q6">
+    <button>Traveling at roughly 8,700 kilometers per hour, the stage struck the lunar surface near the crater.</button>
+    <button>Scientists are now studying the crash site to learn more about lunar collisions.</button>
+    <button data-ok="1">As more countries and private companies send missions into space, such debris continues to accumulate.</button>
+    <button>A South Korean spacecraft has already captured images of the area around the crater.</button>
+  </div>
+  <div class="said" id="a6" hidden>
+    <b>四個線索同時指向同一句。</b>這四句單獨看都說得通，沒有一句本身是錯的。要排除，得靠位置和線索。
+    <br><br>
+    <b>先講一個例外。</b>前面說大考的正解通常是改寫，但<b>抽句題不一樣</b>：被抽掉的就是原文那一句，所以正解一定是原文。這一題要靠的是誘答哪裡接不上，不是比對字面。
+    <br><br>
+    <b>一、概括名詞找得到先行內容。</b>正解裡的 <q>such debris</q> 往回收第 15 到 17 行的 old satellites、spent rocket parts、other debris。下一句的 <q>It</q> 又指這個 debris，而且 <q>even more fragments</q> 的 even more，要前面先有碎片在累積才說得通。<b>四句裡只有它把前後兩句都接上。</b>
+    <br><br>
+    <b>另外三個為什麼排除，各有一個明確的依據：</b>
+    <br><br>
+    <b>二、層級。</b>「Scientists are now studying the crash site…」是第 24 到 25 行的內容，屬於最底層的後續。放在這裡，等於越級跳過了「垃圾愈來愈多」這一層。
+    <br><br>
+    <b>三、重複與順序。</b>「Traveling at roughly 8,700 kilometers…」是第 10 到 11 行的過程，前面已經講過了。倒金字塔只往下講，不會回頭重講。
+    <br><br>
+    <b>四、範圍。</b>「A South Korean spacecraft…」是第 26 到 27 行的後續。這一段在談太空垃圾，換成談某一艘太空船拍了什麼，主題就換了。<b>最容易選的是第二句（Scientists…）</b>，因為 scientists、crash site 都是前面出現過的字，看起來很熟。
+    <br><br>
+    再補一條詞彙鏈：正解的 <q>missions</q> 接得回第 17 行（debris left behind after missions），<q>debris</q> 接得回 other debris，<b>前後就是靠這兩個字扣起來的。</b>
+  </div>
+  <p class="why" id="w6" hidden>考卷上不會有底色，也不會有行號。但你剛才用的四個線索，每一篇新聞都有。</p>
+</section>
+
+<!-- CLOSE -->
+<section class="close" id="s7" hidden>
+  <h2>帶著走的五句話</h2>
+  <ol>
+    <li><b>倒金字塔：最重要的放第一句，愈往後愈次要。</b>第一句通常同時有「什麼事、何時、為什麼值得報」。</li>
+    <li><b>驗證方法：從最後面砍。</b>砍到只剩第一句還講得通，就是倒金字塔；砍掉最後一段整篇就讀不懂，那是別的結構。</li>
+    <li><b>新工具是名詞化。</b>crashed 變成 The impact、the crash site，動作被壓成名詞，下一句才能拿它當主詞接著談後果。</li>
+    <li><b>舊工具是上義詞與下義詞。</b>space junk 底下拆成 old satellites、spent rocket parts、other debris，之後用 debris 代稱，不再重複。</li>
+    <li><b>考卷怎麼考：</b>主旨題的正解長得像第一句的改寫；誘答常拿最底層的細節（研究、拍照）或過程背景（發射、速度）來充數，而且滿是課文裡的字。</li>
+  </ol>
+</section>
+
+
+<nav class="series">
+  <a class="back" href="cohesion.html">← 回讀法練習總表</a>
+  <p class="note">總表上有目前可以做的所有單元，還有你累積到現在的讀法工具。</p>
+</nav>
+
+</div>
+<script>
+(function(){
+"use strict";
+function $(id){return document.getElementById(id);}
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;");}
+var ST={tags:{},rungs:0,q1:0,q2:0,q5:0,q6:0,step:1};
+function save(){ try{ localStorage.setItem(KEY, JSON.stringify(ST)); }catch(e){} }
+function load(){ try{ var r=localStorage.getItem(KEY); return r?JSON.parse(r):null; }catch(e){ return null; } }
+function wipe(){ try{ localStorage.removeItem(KEY); }catch(e){} location.reload(); }
+
+
+var KEY="cohesion-202612-u1-v1";
+var TITLE="Lunar Rocket Crash Raises Concerns About Space Junk";
+var LINES=["An abandoned upper stage from a","SpaceX Falcon 9 rocket {crashed|c-nom|1} into the","Moon on August 5, creating a new crater","and drawing attention from scientists","around the world. The rocket stage had","been left drifting in space after being","launched on a mission in January 2025.","Over time, gravity gradually pulled it onto","an unplanned collision course with the","Moon. Traveling at roughly 8,700 kilometers","per hour, it {struck|c-nom|2} the lunar surface near the","Einstein Crater.","{The impact|c-nom|3} posed no danger to Earth,","but it raised concerns about the growing","amount of {space junk|c-hyp|1}, which includes {old|c-hyp|2}","{satellites, spent rocket parts, and other|c-hyp|2}","{debris|c-hyp|2} left behind after missions. As more","countries and private companies send","missions into space, {such debris|c-hyp|3} continues","to accumulate. It can collide with","active satellites, resulting in even more","{fragments|c-hyp|4} and making space travel more","difficult and risky.","Scientists are now studying {the crash|c-nom|4}","{site|c-nom|4} to learn more about {lunar collisions|c-nom|5}.","A South Korean spacecraft has already","captured images of the area, while NASA","plans to make its own observations. As","space exploration expands, better ways to","track and manage {space debris|c-hyp|5} will become","increasingly important."];
+var INDENT={1:1,13:1,24:1};
+var SPLIT=0, SPLITNOTE="";
+var TL={p:"\u767c\u751f\u4ec0\u9ebc\u4e8b",n:"\u4f55\u6642",c:"\u70ba\u4f55\u53d7\u77da\u76ee"};
+var RUNGBTN="\u780d\u6389";
+var CHAINS={
+ "c-nom":{k:"sub",n:"同一件事，作者先用動詞說兩次：第 2 行的 crashed、第 11 行的 struck。到了第 13 行，他把這件事壓成一個名詞 The impact，後面又換成 the crash site、lunar collisions。為什麼這樣換？動詞是在報告「發生了什麼」；改成名詞以後，這件事就變成大家已經知道的東西，可以拿來當下一句的主詞，接著談後果與後續。"},
+ "c-hyp":{k:"gen",n:"上義詞是 space junk（第 15 行）。第 15 到 17 行把它拆成三樣下義詞：old satellites、spent rocket parts、other debris。往後作者不再重複 space junk，改用比較短的 debris 當整體的代稱（第 19 行、第 30 行）；第 22 行的 fragments 則是撞壞之後產生的碎片，是下義詞的一種。"}
+};
+var LB={sub:"\u540d\u8a5e\u5316",gen:"\u4e0a\u7fa9\u8a5e\u8207\u4e0b\u7fa9\u8a5e"};
+var CL={sub:"k",gen:"k g"};
+var NODES=[
+ {a:1,b:5,t:"導言：發生了什麼",s:"第 1–5 行"},
+ {a:6,b:12,t:"過程細節",s:"第 6–12 行"},
+ {a:13,b:23,t:"為什麼重要",s:"第 13–23 行"},
+ {a:24,b:31,t:"後續與展望",s:"第 24–31 行"}
+];
+var ROWS=[
+ {a:2,b:3,t:"動詞：crashed into the Moon",s:"第 2–3 行",n:"最初的說法，用動詞，直接報告：火箭殘骸撞上了月球。"},
+ {a:10,b:11,t:"動詞：struck the lunar surface",s:"第 10–11 行",n:"還是動詞，這一次補上速度與地點，細節比第 2 行多。"},
+ {a:13,b:13,t:"名詞：The impact",s:"第 13 行",n:"動作被壓成名詞，成了這一句的主詞：The impact posed no danger to Earth。上面兩次動詞已經把事情講完，這裡不必重講。"},
+ {a:24,b:25,t:"名詞：the crash site / lunar collisions",s:"第 24–25 行",n:"到了最後一段，作者說 the crash site 和 lunar collisions，只用名詞指這件事，接著談科學家的研究。"}
+];
+var RUNGS=[{"q": "先砍掉最底下的第 24 到 31 行（後續研究與展望）。", "a": "剩下的第 1 到 23 行仍然是一則完整的新聞：事件、經過、影響都在，只少了「接下來會怎樣」。", "r": "剩第 1–23 行"}, {"q": "再砍掉第 13 到 23 行（為什麼重要）。", "a": "剩下第 1 到 12 行，還知道撞了、何時撞、怎麼撞。但讀者不知道這件事為什麼有人在乎，新聞價值少了一半。", "r": "剩第 1–12 行"}, {"q": "再砍掉第 6 到 12 行（過程細節）。", "a": "只剩導言那一句。它仍然說得清「什麼事、何時、為什麼受矚目」，這就是倒金字塔最上面那一層的力量。", "r": "剩第一句"}, {"q": "最後，連導言也砍掉。", "a": "什麼都不剩。這就是為什麼編輯要縮短新聞時，永遠從最後面砍，最後才輪到第一句。", "r": "全部砍完"}];
+
+function drawFig1(){
+  if($("fig1").firstChild) return;
+  $("fig1").hidden=false;
+  var W=[400,330,260,190,120], s='<svg viewBox="0 0 420 236" role="img" aria-label="\u5012\u91d1\u5b57\u5854\uff0c\u56db\u5c64\uff0c\u6700\u5bec\u7684\u4e00\u5c64\u5728\u4e0a\u9762">';
+  for(var i=0;i<4;i++){
+    var y=10+i*54, h=50, x0=210-W[i]/2, x1=210+W[i]/2, x2=210+W[i+1]/2, x3=210-W[i+1]/2, n=NODES[i];
+    s+='<g class="node" data-i="'+i+'" tabindex="0" role="button">';
+    s+='<polygon points="'+x0+','+y+' '+x1+','+y+' '+x2+','+(y+h)+' '+x3+','+(y+h)+'"/>';
+    s+='<text x="210" y="'+(y+22)+'" text-anchor="middle">'+esc(n.t)+'</text>';
+    s+='<text x="210" y="'+(y+38)+'" text-anchor="middle"><tspan class="n">'+esc(n.s)+'</tspan></text></g>';
+  }
+  s+='</svg><figcaption>最寬的一層放在最上面，代表最重要；愈往下愈窄，愈次要。點任一層，下面課文裡對應的行會亮起來（課文還沒打開的話，先記住行號就好）。第 5 行後半已經開始講過程，所以第一層以第 5 行為界。</figcaption>';
+  $("fig1").innerHTML=s;
+  function hit(g){
+    var i=+g.dataset.i, n=NODES[i];
+    var gs=$("fig1").querySelectorAll(".node");
+    for(var j=0;j<gs.length;j++) gs[j].classList.toggle("on", +gs[j].dataset.i===i);
+    clearOn("#fig2 .side");
+    if($("tx").firstChild) hlLines(n.a,n.b);
+    $("pk").textContent="\u91d1\u5b57\u5854\u7684\u4e00\u5c64"; $("pk").className="k e";
+    $("pc").textContent=n.t; $("pt").textContent=n.s+"\u3002\u8ab2\u6587\u9019\u5e7e\u884c\u5df2\u7d93\u4eae\u8d77\u4f86\u4e86\u3002";
+  }
+  $("fig1").addEventListener("click",function(e){ var g=e.target.closest(".node"); if(g) hit(g); });
+  $("fig1").addEventListener("keydown",function(e){
+    if(e.key!=="Enter"&&e.key!==" ") return;
+    var g=e.target.closest(".node"); if(g){ e.preventDefault(); hit(g); }
+  });
+}
+function drawFig2(){
+  if($("fig2").firstChild) return;
+  var s='<svg viewBox="0 0 420 268" role="img" aria-label="\u540c\u4e00\u4ef6\u4e8b\u5f9e\u52d5\u8a5e\u8b8a\u6210\u540d\u8a5e\u7684\u56db\u683c">';
+  var ys=[10,64,150,204];
+  for(var i=0;i<4;i++){
+    var r=ROWS[i], y=ys[i], cls=(i<2?"side l":"side r");
+    s+='<g class="'+cls+'" data-i="'+i+'" tabindex="0" role="button">';
+    s+='<rect x="50" y="'+y+'" width="320" height="48" rx="5"/>';
+    s+='<text x="210" y="'+(y+20)+'" text-anchor="middle">'+esc(r.t)+'</text>';
+    s+='<text x="210" y="'+(y+37)+'" text-anchor="middle" style="font-family:var(--sans);font-size:9px;fill:var(--ad-vmuted-fg)">'+esc(r.s)+'</text></g>';
+  }
+  s+='';
+  s+='<path class="divline" d="M30 133 L390 133" fill="none"/>';
+  s+='<text x="210" y="127" text-anchor="middle" style="font-family:var(--sans);font-size:10px;fill:var(--ad-vexam-fg)">\u5f9e\u9019\u88e1\u8d77\uff0c\u4f5c\u8005\u6539\u7528\u540d\u8a5e</text>';
+  s+='<text x="210" y="145" text-anchor="middle" style="font-family:var(--sans);font-size:9px;fill:var(--ad-vmuted-fg)">\u2193</text>';
+  s+='</svg><figcaption>虛線以上是動詞，虛線以下是名詞。同一件事被說了四次，作者從第 13 行開始只用名詞指它。點任一格，課文對應行會亮起來。</figcaption>';
+  $("fig2").innerHTML=s;
+  function hit(g){
+    var i=+g.dataset.i, r=ROWS[i];
+    var gs=$("fig2").querySelectorAll(".side");
+    for(var j=0;j<gs.length;j++) gs[j].classList.toggle("on", +gs[j].dataset.i===i);
+    clearOn("#fig1 .node");
+    hlLines(r.a,r.b);
+    $("pk").textContent="\u540d\u8a5e\u5316"; $("pk").className="k";
+    $("pc").textContent=r.t;
+    $("pt").textContent=r.n;
+  }
+  $("fig2").addEventListener("click",function(e){ var g=e.target.closest(".side"); if(g) hit(g); });
+  $("fig2").addEventListener("keydown",function(e){
+    if(e.key!=="Enter"&&e.key!==" ") return;
+    var g=e.target.closest(".side"); if(g){ e.preventDefault(); hit(g); }
+  });
+}
+
+
+function quiz(qid,aid,gid,tag,after){
+  var done=false;
+  function settle(){
+    done=true;
+    var bs=$(qid).querySelectorAll("button");
+    for(var i=0;i<bs.length;i++){ bs[i].disabled=true; bs[i].dataset.state=bs[i].dataset.ok?"right":"wrong"; }
+    if(aid) $(aid).hidden=false;
+    if(gid) $(gid).hidden=false;
+    if(after) after();
+  }
+  $(qid).addEventListener("click",function(e){
+    var b=e.target.closest("button"); if(!b||done) return;
+    settle(); ST[tag]=1; save();
+  });
+  return settle;
+}
+function opener(gid,sid,extra){
+  $(gid).addEventListener("click",function(){
+    var n=parseInt(sid.replace(/\D/g,""),10);
+    if(ST.step<n) ST.step=n; save();
+    $(sid).hidden=false; if(extra) extra();
+    $(sid).scrollIntoView({behavior:"smooth",block:"start"});
+  });
+}
+function clearOn(sel){ var g=document.querySelectorAll(sel); for(var i=0;i<g.length;i++) g[i].classList.remove("on"); }
+function hlLines(a,b){
+  var rows=$("tx").querySelectorAll(".ln");
+  for(var r=0;r<rows.length;r++){ var n=+rows[r].dataset.n; rows[r].classList.toggle("hl", n>=a&&n<=b); }
+  var ms=$("tx").querySelectorAll("m");
+  for(var k=0;k<ms.length;k++) ms[k].classList.remove("lit");
+  if(rows.length){ var f=$("tx").querySelector('.ln[data-n="'+a+'"]'); if(f) f.scrollIntoView({behavior:"smooth",block:"center"}); }
+}
+
+/* step 1 */
+function tagged(){ var n=0; for(var k in ST.tags) if(ST.tags[k]) n++; return n; }
+function paintTag(c){
+  if(c.classList.contains("got")) return;
+  c.classList.add("got");
+  var b=document.createElement("b"); b.textContent=TL[c.dataset.t];
+  c.insertBefore(b, c.firstChild);
+}
+function afterTags(){
+  $("sc").innerHTML="已標出 <em>"+tagged()+"</em> / 3";
+  if(tagged()===3) $("s1b").hidden=false;
+}
+$("ld").addEventListener("click",function(e){
+  var c=e.target.closest("c"); if(!c) return;
+  if(ST.tags[c.dataset.t]) return;
+  ST.tags[c.dataset.t]=1; save(); paintTag(c); afterTags();
+});
+var set1=quiz("q1","a1","g1","q1");
+opener("g1","s2");
+
+/* step 2 : upper-layer figure (drawn by unit data) */
+function afterQ2(){ drawFig1(); if($("db")) $("db").hidden=false; }
+var set2=quiz("q2","a2","g2","q2",afterQ2);
+opener("g2","s3",buildLadder);
+
+/* step 3 : ladder */
+var builtLadder=false;
+function buildLadder(){
+  if(builtLadder) return; builtLadder=true;
+  var h="";
+  for(var i=0;i<RUNGS.length;i++){
+    var r=RUNGS[i];
+    h+='<div class="rung" id="rg'+i+'" hidden><div class="qz"><span>→</span> '+esc(r.q)+'</div>'+
+       '<button data-i="'+i+'">'+esc(RUNGBTN)+'</button>'+
+       '<div class="an">'+esc(r.a)+'<i>'+esc(r.r)+'</i></div></div>';
+  }
+  $("ladder").innerHTML=h;
+  $("ladder").addEventListener("click",function(e){
+    var b=e.target.closest("button"); if(!b) return;
+    var i=+b.dataset.i;
+    if(ST.rungs<i+1){ ST.rungs=i+1; save(); }
+    paintLadder();
+  });
+  paintLadder();
+}
+function paintLadder(){
+  for(var i=0;i<RUNGS.length;i++){
+    var el=$("rg"+i); if(!el) continue;
+    el.hidden=(i>ST.rungs);
+    el.classList.toggle("open", i<ST.rungs);
+  }
+  $("sc3").innerHTML="已完成 <em>"+ST.rungs+"</em> / "+RUNGS.length;
+  if(ST.rungs>=RUNGS.length){ $("a3").hidden=false; $("g3").hidden=false; }
+}
+opener("g3","s4",function(){ buildText(); drawFig2(); });
+
+/* step 4 : passage and chains */
+function renderLine(str){
+  var out="",i=0;
+  while(i<str.length){
+    var a=str.indexOf("{",i);
+    if(a<0){ out+=esc(str.slice(i)); break; }
+    out+=esc(str.slice(i,a));
+    var b=str.indexOf("}",a), p=str.slice(a+1,b).split("|");
+    var id=p[1], it=p[2]||"1", k=CHAINS[id]?CHAINS[id].k:"sub";
+    out+='<m data-c="'+id+'" data-i="'+it+'" data-kind="'+k+'" tabindex="0">'+esc(p[0])+'</m>';
+    i=b+1;
+  }
+  return out;
+}
+var builtText=false;
+function buildText(){
+  if(builtText) return; builtText=true;
+  var h='<p class="ttl">'+esc(TITLE)+'</p>';
+  for(var i=0;i<LINES.length;i++){
+    var n=i+1;
+    if(SPLIT&&n===SPLIT) h+='<p class="split">'+esc(SPLITNOTE)+'</p>';
+    var cls="ln"+(INDENT[n]?" ind"+(n>1?" pb":""):"");
+    h+='<div class="'+cls+'" data-n="'+n+'"><i>'+((n%5===0)?n:"")+'</i><span>'+renderLine(LINES[i])+'</span></div>';
+  }
+  $("tx").innerHTML=h;
+}
+function lightChain(id){
+  var ms=$("tx").querySelectorAll("m"), items={}, order=[], i;
+  clearOn("#fig1 .node"); clearOn("#fig2 .side,#fig2 .node");
+  var rows=$("tx").querySelectorAll(".ln");
+  for(i=0;i<rows.length;i++) rows[i].classList.remove("hl");
+  for(i=0;i<ms.length;i++){
+    if(ms[i].dataset.c===id){
+      ms[i].classList.add("lit");
+      var key=ms[i].dataset.i;
+      if(!items[key]){ items[key]=[]; order.push(key); }
+      items[key].push(ms[i].textContent);
+    } else ms[i].classList.remove("lit");
+  }
+  var c=CHAINS[id]; if(!c) return;
+  var parts=[];
+  for(var o=0;o<order.length;o++) parts.push(esc(items[order[o]].join(" ")));
+  $("pk").textContent=LB[c.k]; $("pk").className=CL[c.k];
+  $("pc").innerHTML=parts.join('<i>→</i>');
+  $("pt").textContent=c.n;
+}
+$("tx").addEventListener("click",function(e){ var m=e.target.closest("m"); if(m) lightChain(m.dataset.c); });
+$("tx").addEventListener("keydown",function(e){
+  if(e.key!=="Enter"&&e.key!==" ") return;
+  var m=e.target.closest("m"); if(m){ e.preventDefault(); lightChain(m.dataset.c); }
+});
+function toggle(btn,cls){
+  btn.addEventListener("click",function(){
+    var on=btn.getAttribute("aria-pressed")==="true";
+    btn.setAttribute("aria-pressed",on?"false":"true");
+    $("tx").classList.toggle(cls,on);
+  });
+}
+toggle($("m1"),"off-sub");
+toggle($("m2"),"off-gen");
+opener("g4","s5");
+
+/* step 5 */
+var set5=quiz("q5","a5","g5","q5");
+$("g5").addEventListener("click",function(){
+  if(ST.step<6) ST.step=6; save();
+  $("s6").hidden=false;
+  $("s6").scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+/* step 6 */
+var done6=false;
+function settle6(){
+  done6=true;
+  var bs=$("q6").querySelectorAll("button");
+  for(var i=0;i<bs.length;i++){
+    bs[i].disabled=true; bs[i].dataset.state=bs[i].dataset.ok?"right":"wrong";
+    if(bs[i].dataset.ok){ $("bl").textContent=bs[i].textContent; $("bl").className="blank filled"; }
+  }
+  $("a6").hidden=false; $("w6").hidden=false; $("s7").hidden=false;
+}
+$("q6").addEventListener("click",function(e){
+  var b=e.target.closest("button"); if(!b||done6) return;
+  settle6(); ST.q6=1; save();
+  $("a6").scrollIntoView({behavior:"smooth",block:"nearest"});
+});
+
+/* teacher preview: ?all */
+function previewAll(){
+  $("pv").hidden=false;
+  var i,cs=$("ld").querySelectorAll("c");
+  for(i=0;i<cs.length;i++){ ST.tags[cs[i].dataset.t]=1; paintTag(cs[i]); }
+  afterTags(); set1();
+  $("s2").hidden=false; set2();
+  $("s3").hidden=false; ST.rungs=RUNGS.length; buildLadder();
+  $("s4").hidden=false; buildText(); drawFig2();
+  $("s5").hidden=false; set5();
+  $("s6").hidden=false; settle6();
+}
+
+/* restore */
+$("rst").addEventListener("click",wipe);
+(function restore(){
+  if(/(^|[?&])all(=|&|$)/.test(location.search)){ previewAll(); return; }
+  var v=load(); if(!v) return;
+  ST=v;
+  if(!ST.tags) ST.tags={};
+  if(typeof ST.rungs!=="number") ST.rungs=0;
+  if(!ST.step) ST.step=1;
+  if(!(tagged()||ST.step>1)) return;
+  $("rs").hidden=false;
+  var i,cs=$("ld").querySelectorAll("c");
+  for(i=0;i<cs.length;i++) if(ST.tags[cs[i].dataset.t]) paintTag(cs[i]);
+  afterTags();
+  if(ST.q1) set1();
+  if(ST.step>=2){ $("s2").hidden=false; if(ST.q2) set2(); }
+  if(ST.step>=3){ $("s3").hidden=false; buildLadder(); }
+  if(ST.step>=4){ $("s4").hidden=false; buildText(); drawFig2(); }
+  if(ST.step>=5){ $("s5").hidden=false; if(ST.q5) set5(); }
+  if(ST.step>=6){ $("s6").hidden=false; if(ST.q6) settle6(); }
+  var last=$("s"+(ST.step>=6?6:ST.step));
+  if(last) setTimeout(function(){ last.scrollIntoView({block:"start"}); },60);
+})();
+})();
+</script>
+<p class="cc-note">本題庫自己寫的部分（解析、中譯、分類、標註與編排）採用 <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh-hant" target="_blank" rel="license noopener">CC BY-NC 4.0</a>（姓名標示─非商業性）授權：可以分享，但須註明出處，不得用於商業用途。試題來源與完整說明請見<a href="https://staresto-create.github.io/JCEE-vocab-questions/#terms">使用與著作權</a>。</p>
+<script src="backbar.js" defer></script>
+</body>
+</html>
