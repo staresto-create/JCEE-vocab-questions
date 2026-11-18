@@ -93,6 +93,18 @@
     font-size:13px; color:var(--ad-vinksoft-fg); line-height:1.9;
   }
   .home-stat b{color:var(--ad-vcrimson-fg); font-family:'IBM Plex Mono','Noto Sans TC',monospace; font-size:14px;}
+  .recap{margin:0 0 18px; padding:12px 14px 12px; border:1px solid var(--ad-vrule-border); border-left:4px solid var(--ad-vcrimson-fg); border-radius:3px; background:var(--ad-vpaper-bg);}
+  .recap-t{margin:0; font-family:'Noto Serif TC',serif; font-size:16px; line-height:1.6; font-weight:700; color:var(--ad-vink-fg);}
+  .recap-t .nw{white-space:nowrap;}
+  .recap-t b{font-family:'IBM Plex Mono','Noto Sans TC',monospace; font-size:20px; font-weight:600; margin:0 1px; color:var(--ad-vcrimson-fg);}
+  .recap-g{margin:10px 0 0; font-size:13px; line-height:1.75; color:var(--ad-vinksoft-fg);}
+  .recap-s{margin:10px 0 0; font-size:13px; line-height:1.75; color:var(--ad-vinksoft-fg);}
+  .recap-chips{display:flex; flex-wrap:wrap; gap:6px; margin:4px 0 0; padding:0; list-style:none;}
+  .recap-chips li{font-family:'IBM Plex Mono','Noto Sans TC',monospace; font-size:12.5px; line-height:1.6; padding:2px 8px; border-radius:999px; border:0; background:var(--ad-xF1EADA-bg); color:var(--ad-vinksoft-fg);}
+  .recap-chips li.x{background:transparent; color:var(--ad-vcrimson-fg); font-weight:600; box-shadow:inset 0 0 0 1px currentColor;}
+  .recap-chips li.more{background:none; padding-left:2px; font-weight:400;}
+  .recap-more{margin-top:8px;}
+  .recap-more summary{cursor:pointer; font-size:13px; color:var(--ad-vinksoft-fg); min-height:44px; display:flex; align-items:center;}
   .range-row{
     margin-top:10px; font-family:'IBM Plex Mono','Noto Sans TC',monospace; font-size:11.5px;
     color:var(--ad-vinksoft-fg); line-height:2; letter-spacing:.02em;
@@ -118,7 +130,7 @@
     margin-bottom:10px; flex-wrap:wrap; line-height:1.7;
   }
   .bar .quit{flex:0 0 auto;}
-  .bar .quit{cursor:pointer; text-decoration:underline; color:var(--ad-vcrimson-fg); background:none; border:none; font:inherit; padding:0;}
+  .bar .quit{cursor:pointer; text-decoration:underline; color:var(--ad-vcrimson-fg); background:none; border:none; font:inherit; padding:0 4px; min-height:44px; display:inline-flex; align-items:center;}
   .track{height:3px; background:var(--ad-vrule-bg); border-radius:2px; overflow:hidden; margin-bottom:16px;}
   .track span{display:block; height:100%; background:var(--sage); width:0; transition:width .25s ease;}
 
@@ -241,6 +253,30 @@
   footer.foot a{color:var(--ad-vcrimson-fg);}
   .loading{text-align:center; padding:60px 0; color:var(--ad-vinksoft-fg); font-size:14px;}
 
+  /* ---------- 考試倒數規劃 ---------- */
+  #plan .card{padding:22px 22px 22px; margin-bottom:16px;}
+  .plan-line{margin:10px 0 0; padding:6px 12px; flex-direction:column; align-items:flex-start; border:1px solid var(--ad-vrule-border); border-left:4px solid var(--ad-vcrimson-fg); border-radius:3px; background:var(--ad-xF1EADA-bg); font-size:13.5px; line-height:1.7; color:var(--ad-vink-fg); display:flex; gap:0;}
+  .plan-line:empty{display:none;}
+  #planLine{margin:0 0 16px;}
+  #donePlan{margin:0 0 16px;}
+  .plan-line b{color:var(--ad-vcrimson-fg); font-family:'IBM Plex Mono','Noto Sans TC',monospace; font-size:20px; font-weight:700;}
+  .plan-line .lk{background:none; border:0; padding:0; font:inherit; font-weight:600; color:var(--ad-vcrimson-fg); text-decoration:underline; text-underline-offset:3px; cursor:pointer; display:inline-flex; align-items:center; min-height:44px; white-space:nowrap;}
+  .plan-date span{font-weight:700;}
+  .plan-hint{margin:2px 0 0; font-size:13px; line-height:1.8; color:var(--ad-vinksoft-fg);}
+  .plan-hint b{color:var(--ad-vink-fg); font-weight:600;}
+  .plan-warn{margin:12px 0 0; padding:10px 12px; border-left:4px solid var(--ad-vcrimson-fg); background:var(--ad-xF1EADA-bg); font-size:14px; line-height:1.8; color:var(--ad-vink-fg);}
+  .plan-key{margin:8px 0 0; font-size:14px; line-height:1.9; color:var(--ad-vink-fg);}
+  .nw{white-space:nowrap;}
+  .plan-date{display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin:10px 0 4px; font-size:14px;}
+  .plan-date input{font:inherit; font-size:16px; padding:6px 10px; border:1px solid var(--ad-vinksoft-fg); border-radius:3px; background:var(--ad-vpaper-bg); color:var(--ad-vink-fg); min-height:44px; min-width:11em; -webkit-appearance:none; appearance:none; text-align:left;}
+  .plan-date input::-webkit-date-and-time-value{text-align:left;}
+  .plan-big{margin:20px 0 4px; font-family:'Noto Serif TC',serif; font-weight:700; font-size:22px; line-height:1.6; color:var(--ad-vink-fg);}
+  .plan-big b{font-family:'IBM Plex Mono','Noto Sans TC',monospace; color:var(--ad-vcrimson-fg); font-size:34px; line-height:1; vertical-align:-2px; margin:0 2px;}
+  #plan .st-title{font-size:16px;}
+  .plan-line .lk:focus-visible, .bar .quit:focus-visible, .plan-date input:focus-visible, .recap-more summary:focus-visible{outline:2px solid var(--ad-vcrimson-fg); outline-offset:2px;}
+  .plan-sub{margin:6px 0 0; font-size:13px; line-height:1.9; color:var(--ad-vinksoft-fg);}
+  .plan-facts{margin:16px 0 0; padding:12px 0 0; border-top:1px dashed var(--ad-vrule-border); font-size:13px; line-height:1.9; color:var(--ad-vinksoft-fg);}
+  .plan-facts b{color:var(--ad-vcrimson-fg); font-family:'IBM Plex Mono','Noto Sans TC',monospace;}
   /* ---------- STATS ---------- */
   #stats .card{padding:22px 22px 22px; margin-bottom:16px;}
   .st-head{display:flex; align-items:baseline; justify-content:space-between; gap:10px; flex-wrap:wrap; margin:0 0 4px;}
@@ -362,6 +398,8 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
     </div>
     <div data-start-here data-open="1"></div>
     <div class="card">
+      <div id="recapBox"></div>
+      <div id="planLine" class="plan-line"></div>
       <p id="homeLead" class="home-lead">用出現過的字複習，不是背字典</p>
       <p id="homeDesc" class="home-desc">
         每一張卡片的字都真的在學測或指考詞彙題出現過，四個選項也是當年那一題的四個，三個錯的就是當年那三個。其中 206 個字另有詞彙選擇題，做過一次之後才會出，卡片上會標明不是大考原題。
@@ -387,7 +425,9 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
       <details class="note how">
         <summary>記憶卡怎麼決定一個字什麼時候再出現？</summary>
         <p>每答對一次，這個字下一次出現的時間就往後推，而且越推越遠：第一次答對隔 2 天，第二次隔 4 天，之後間隔大約每次乘上 2.5 倍，變成隔 10 天、隔 27 天，最長隔一年。答錯的字，這一輪隔幾張就會再出現一次，隔天也會再排一次；常答錯的字，之後間隔也拉長得比較慢。這樣排是故意的：快要忘記的時候再考一次，記得最牢，所以答對的字過幾天又出現，並不是出錯。</p>
-        <p>單字和一字多義一輪最多帶 24 個到期的字和 12 個新字，易混淆字組一輪最多帶 24 組到期的和 8 組新的；做完按「繼續練」就是下一輪，要做幾輪由你決定。三副卡用同一套規則，進度分開記。</p>
+        <p>單字和一字多義一輪最多 24 個到期的字和 12 個新字，易混淆字組一輪最多 24 組到期的和 8 組新的；做完按「繼續練」就是下一輪，要做幾輪由你決定。三副卡用同一套規則，進度分開記。</p>
+        <p>「考試倒數規劃」的計算方式：考前最後 21 天不背新字，只做複習；在這之前，範圍裡還沒看過的字平均分配到每一天。這樣排，是因為答對的字會在第一次出現後的第 2、6、16 天再出現（也就是前面說的隔 2、4、10 天）；最後一批新字在考前第 22 天背，這三次複習都來得及在考前做完。離考試不到六週時，只複習的天數會縮短為剩餘天數的一半。</p>
+        <p>首頁的複習回顧（「昨天複習的……」或「11/17 複習的……」）只統計上次練習那一天排到要複習的字，而且每個字只算當天第一次作答的結果。新字是第一次出現，還無從判斷記不記得，所以不算在內；要是按了「剛才是猜的」，這個字就算還不熟。</p>
         <p>這些都由你的瀏覽器自己計算，不用註冊，作答紀錄也不會傳到網路上，所以換手機、換瀏覽器或用無痕模式，進度不會跟著走。</p>
       </details>
     </div>
@@ -416,11 +456,29 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
     <div class="card">
       <p class="done-lead" id="doneLead"></p>
       <p class="done-stat" id="doneStat"></p>
+      <div id="donePlan" class="plan-line"></div>
       <button id="againBtn" class="big-btn">繼續練</button>
       <div class="minor-row">
         <button id="homeBtn" class="minor-btn">回到首頁</button>
         <button id="doneStatsBtn" class="minor-btn">練習紀錄</button>
       </div>
+    </div>
+  </section>
+
+  <!-- ================= PLAN ================= -->
+  <section id="plan" class="hide">
+    <div class="bar">
+      <span>考試倒數規劃</span>
+      <button id="planBack" class="quit">回到首頁</button>
+    </div>
+    <div class="card">
+      <p id="planTitle" class="st-title">每天該背幾個新字？</p>
+      <p id="planDesc" class="st-desc">選好考試日期，這一頁就會依你還沒看過的字數，算出每天要背幾個新字；以後每次打開，都會依最新的進度和日期重新計算。</p>
+      <label class="plan-date" for="examDate"><span>考試日期</span><input id="examDate" type="date" min="2026-01-01" max="2031-12-31"></label>
+      <p id="examHint" class="plan-hint"></p>
+      <p class="plan-hint">預設是 116 學測英文科的考試日（學測於 1 月 22 日至 24 日舉行，英文排在第二天）。高一、高二的同學，請改成自己高三那年的日期；要配合模擬考，也可以改成模擬考當天。日期只存在這台裝置的瀏覽器裡。</p>
+      <div id="planBody"></div>
+      <button id="planStart" class="big-btn" style="margin-top:18px;">開始複習</button>
     </div>
   </section>
 
@@ -556,6 +614,8 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
     try { s = JSON.parse(localStorage.getItem(storeKey())); } catch (e) { s = null; }
     if (!s || s.v !== 1 || typeof s.w !== 'object' || !s.w) s = { v: 1, w: {}, day: today(), done: 0 };
     if (s.day !== today()) { s.day = today(); s.done = 0; }
+    if (s.log && (typeof s.log !== 'object' || !s.log.r || typeof s.log.r !== 'object')) delete s.log;
+    if (s.prev && (typeof s.prev !== 'object' || !s.prev.r || typeof s.prev.r !== 'object')) delete s.prev;
     return s;
   }
   function saveState() {
@@ -821,6 +881,74 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
     if (s.vv.length > VAR_MEMORY) s.vv = s.vv.slice(-VAR_MEMORY);
   }
 
+  /* ---------------- 上次練習回顧 ----------------
+     只記「到期複習」的字、各字當天第一次作答的結果：
+     1 記得、0 沒記住（答錯，或按了「剛才是猜的」）、2 新字（第一次出現是從選項挑，不算回顧）。
+     state.log 是最近一個練習日，state.prev 是再前一個練習日；
+     今天練習前的首頁顯示 state.log，今天練習後顯示 state.prev。 */
+  function hasReview(L) { return !!(L && L.r && Object.keys(L.r).some(function (k) { return L.r[k] !== 2; })); }
+  function logFirst(word, ok, isNew) {
+    var t = today();
+    if (!state.log || state.log.d !== t) {
+      if (hasReview(state.log)) state.prev = state.log;
+      state.log = { d: t, r: {} };
+    }
+    if (state.log.r[word] === undefined) state.log.r[word] = isNew ? 2 : (ok ? 1 : 0);
+  }
+  function lastLog() {
+    var L = state.log, t = today();
+    if (L && L.d < t && hasReview(L)) return L;
+    if (state.prev && state.prev.d < t && hasReview(state.prev)) return state.prev;
+    return null;
+  }
+  function recapKnown(k) {
+    if (isCF()) return !!(CFG && Object.prototype.hasOwnProperty.call(CFG, k) && (CFG[k].k === 'sn') === (scope.kind === 'sn'));
+    if (isPO()) return !!(POW && Object.prototype.hasOwnProperty.call(POW, k));
+    return !!(W && Object.prototype.hasOwnProperty.call(W, k));
+  }
+  function recapLabel(k) {
+    if (isCF()) return '第 ' + gnum(CFG[k]) + ' 組 ' + String(CFG[k].t || '').split('／').slice(0, 2).join('／');
+    if (isPO()) return POW[k].w;
+    return displayWord(k, primaryOcc(k)[0]);
+  }
+  function cntU(n) { return isCF() ? n + ' 組' : n + ' 個字'; }
+  function renderRecap() {
+    var box = $('recapBox'), L = lastLog(), t = today();
+    box.innerHTML = '';
+    if (!L || !L.r) return;
+    var gap = t - L.d;
+    if (gap > 14) return;                       // 隔太久，回顧已經沒有參考價值
+    var inPool = {}; buildPool().forEach(function (k) { inPool[k] = 1; });
+    var ok = [], miss = [], dueMiss = 0;
+    Object.keys(L.r).forEach(function (k) {
+      if (!recapKnown(k) || !inPool[k]) return;
+      if (L.r[k] === 1) ok.push(k);
+      else if (L.r[k] === 0) { miss.push(k); if (state.w[k] && state.w[k].d <= t) dueMiss++; }
+    });
+    var n = ok.length + miss.length;
+    if (!n) return;
+    var when = gap === 1 ? '昨天' : dayText(L.d) + ' ';
+    var MISS_MAX = 5, OK_MAX = 18, cf = isCF();
+    function chips(list, max, cls) {
+      var g = '<ul class="recap-chips">';
+      list.slice(0, max).forEach(function (k) { g += '<li class="' + cls + '">' + esc(recapLabel(k)) + '</li>'; });
+      if (list.length > max) g += '<li class="more">… 另外 ' + cntU(list.length - max) + '</li>';
+      return g + '</ul>';
+    }
+    var note = '<p class="recap-s">每個' + (cf ? '字組' : '字') + '只算當天第一次作答的結果；同一天先答錯、後來才答對，仍然算還不熟。</p>';
+    var h = '<div class="recap"><p class="recap-t">' + when + '複習的 <span class="nw"><b>' + n + '</b> ' + (cf ? '組' : '個字') + '</span>，' +
+            (miss.length ? '答對 <span class="nw"><b>' + ok.length + '</b> ' + (cf ? '組' : '個') + '</span>' : '全部答對') + '</p>';
+    if (miss.length) {
+      h += '<p class="recap-g">還不熟的 ' + cntU(miss.length) + '（答錯或按了「剛才是猜的」）' +
+           (dueMiss === miss.length ? '，今天都會再出現' : (dueMiss ? '，其中有 ' + cntU(dueMiss) + '今天會再出現' : '')) + '</p>' + chips(miss, MISS_MAX, 'x');
+    }
+    if (ok.length) {
+      h += '<details class="recap-more"><summary>答對的 ' + cntU(ok.length) + '</summary>' + chips(ok, OK_MAX, 'o') + note + '</details>';
+    } else { h += note; }
+    h += '</div>';
+    box.innerHTML = h;
+  }
+
   /* ---------------- 排程（簡化 SM-2） ---------------- */
   function grade(word, ok) {
     var s = state.w[word];
@@ -855,7 +983,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
         total: custom.length, answered: 0, right: 0,
         newSeen: 0, pool: pool, current: null, miss: {}
       };
-      hide('home'); hide('done'); hide('stats'); hide('gview'); show('quiz');
+      hide('home'); hide('done'); hide('stats'); hide('plan'); hide('gview'); show('quiz');
       nextCard();
       return;
     }
@@ -883,7 +1011,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
       total: queue.length, answered: 0, right: 0,
       newSeen: 0, pool: pool, current: null, miss: {}
     };
-    hide('home'); hide('done'); hide('stats'); hide('gview'); show('quiz');
+    hide('home'); hide('done'); hide('stats'); hide('plan'); hide('gview'); show('quiz');
     nextCard();
   }
 
@@ -1138,6 +1266,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
     if (c.isNew) session.newSeen++;
 
     if (!session.free) {
+      logFirst(c.word, c.ok, c.isNew);
       grade(c.word, c.ok);
       rememberVariant(c.word, c.variant);
       state.done = (state.done || 0) + 1;
@@ -1163,6 +1292,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
     var c = session.current;
     if (session.free) { requeue(c.word); }
     else {
+      if (state.log && state.log.d === today() && state.log.r[c.word] === 1) state.log.r[c.word] = 0;
       grade(c.word, false);
       saveState();
       requeue(c.word);
@@ -1324,7 +1454,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
     if (!g) { scope.view = 0; renderHome(); return; }
     $('gvScope').textContent = g.k === 'sn' ? '字義相近　·　第 ' + g.dn + ' 組' : '易混淆字組　·　第 ' + g.n + ' 組';
     $('gvCard').innerHTML = groupHTML(g, -1, -1, false);
-    hide('home'); hide('quiz'); hide('done'); hide('stats'); hide('loading'); show('gview');
+    hide('home'); hide('quiz'); hide('done'); hide('stats'); hide('plan'); hide('loading'); show('gview');
     window.scrollTo(0, 0);
   }
 
@@ -1360,7 +1490,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
     if (!x) { scope.view = 0; renderHome(); return; }
     $('gvScope').textContent = '一字多義　·　' + x.w;
     $('gvCard').innerHTML = poHTML(x, '');
-    hide('home'); hide('quiz'); hide('done'); hide('stats'); hide('loading'); show('gview');
+    hide('home'); hide('quiz'); hide('done'); hide('stats'); hide('plan'); hide('loading'); show('gview');
     window.scrollTo(0, 0);
   }
 
@@ -1560,7 +1690,8 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
     $('doneLead').textContent = lead;
     $('doneStat').innerHTML = stat;
     $('againBtn').textContent = (answered === 0 && newLeft === 0) ? '自由練習' : '繼續練';
-    hide('quiz'); hide('home'); hide('stats'); hide('gview'); show('done');
+    renderPlanLine('donePlan', 'donePlanOpen');
+    hide('quiz'); hide('home'); hide('stats'); hide('plan'); hide('gview'); show('done');
     window.scrollTo(0, 0);
   }
 
@@ -1717,10 +1848,125 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
       h += '<br>累計已經看過 ' + cnt(learned) + '。';
     }
     $('homeStat').innerHTML = h;
+    renderRecap();
+    renderPlanLine();
     renderRanges();
     $('startBtn').disabled = pool.length === 0;
     $('startBtn').textContent = pool.length === 0 ? (isCF() ? '這個範圍沒有字組' : '這個範圍沒有字') : '開始複習';
-    hide('quiz'); hide('done'); hide('stats'); hide('gview'); hide('loading'); show('home');
+    hide('quiz'); hide('done'); hide('stats'); hide('plan'); hide('gview'); hide('loading'); show('home');
+  }
+
+  /* ---------------- 考試倒數規劃 ----------------
+     離考試最後 REVIEW_DAYS 天不看新字、只複習；之前的日子把「範圍裡還沒看過的」平均分到每天。
+     REVIEW_DAYS = 21：答對的新字依排程在第 2、4、10 天（累計第 2、6、16 天）回來複習，
+     最後一個新字在考前第 22 天看，三次複習都在考前完成（考前第 20、16、6 天）。
+     用 buildPool() 與目前這副卡的進度算，所以做得越多，每天的份量越少。 */
+  var EXAM_KEY = 'jcee_cards_exam_v1';
+  var EXAM_DEFAULT = '2027-01-23';   // 116 學測英文科考試日：學測 1/22–24 三天，歷年英文都排第二天（111、114、115 皆然）
+  var REVIEW_DAYS = 21;
+  var BIG_PER_DAY = 20;              // 每天新字超過這個數，提示縮小範圍
+  var examMem = null;                // 無痕模式寫不進 localStorage 時，這一次開啟期間仍以這裡為準
+  function validStr(v) {
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(v || '')) return false;
+    var m = v.split('-'), d = new Date(Date.UTC(+m[0], +m[1] - 1, +m[2]));
+    return d.getUTCFullYear() === +m[0] && d.getUTCMonth() === +m[1] - 1 && d.getUTCDate() === +m[2] && +m[0] >= 2026 && +m[0] <= 2035;
+  }
+  function examStr() {
+    var v = examMem;
+    if (!v) { try { v = localStorage.getItem(EXAM_KEY); } catch (e) { v = null; } }
+    return validStr(v) ? v : EXAM_DEFAULT;
+  }
+  function dayOfStr(str) {
+    var m = str.split('-');
+    return Math.floor(Date.UTC(+m[0], +m[1] - 1, +m[2]) / 86400000);
+  }
+  function dayText(day, withYear) {
+    var d = new Date(day * 86400000);
+    return (withYear ? d.getUTCFullYear() + '/' : '') + (d.getUTCMonth() + 1) + '/' + d.getUTCDate();
+  }
+  function dayTextY(day) {   // 跨年才寫年份
+    return dayText(day, new Date(day * 86400000).getUTCFullYear() !== new Date(today() * 86400000).getUTCFullYear());
+  }
+  function isoOf(day) { return new Date(day * 86400000).toISOString().slice(0, 10); }
+  function planNums() {
+    var pool = buildPool(), t = today(), learned = 0, due = 0;
+    pool.forEach(function (k) {
+      var s = state.w[k];
+      if (!s) return;
+      learned++;
+      if (s.d <= t) due++;
+    });
+    return { total: pool.length, learned: learned, fresh: pool.length - learned, due: due,
+             D: dayOfStr(examStr()) - t, perRound: isCF() ? CF_NEW_PER_ROUND : NEW_PER_ROUND };
+  }
+  function renderPlanLine(elId, openId) {
+    elId = elId || 'planLine'; openId = openId || 'planOpen';
+    var el = $(elId), p = planNums(), cf = isCF(), lead, link;
+    if (p.D > 0) {
+      lead = '<span class="nw">' + (examStr() === EXAM_DEFAULT ? '離 116 學測英文科（1/23）還有' : '離考試還有') + ' <b>' + p.D + '</b> 天</span>';
+      link = p.fresh && p.D < 7 ? '考試倒數規劃 →' : (cf ? '每天該背幾組新的字組 →' : '每天該背幾個新字 →');
+    } else {
+      lead = '<span>' + (p.D === 0 ? '今天就是考試日' : '考試日期已經過了') + '</span>';
+      link = '重新設定考試日期 →';
+    }
+    el.innerHTML = lead + '<button type="button" class="lk" id="' + openId + '">' + link + '</button>';
+    $(openId).addEventListener('click', renderPlan);
+  }
+  var WEEK = ['日', '一', '二', '三', '四', '五', '六'];
+  function renderPlan() {
+    var p = planNums(), u = unitWord(), t = today(), h = '';
+    var cf = isCF(), uu = cf ? '字組' : '字';
+    $('planTitle').textContent = cf ? '每天該背幾組新的字組？' : '每天該背幾個新字？';
+    $('planDesc').textContent = cf ? '選好考試日期，這一頁就會依你還沒看過的字組數，算出每天要背幾組新的字組；以後每次打開，都會依最新的進度和日期重新計算。' : '選好考試日期，這一頁就會依你還沒看過的字數，算出每天要背幾個新字；以後每次打開，都會依最新的進度和日期重新計算。';
+    var ex = $('examDate');
+    ex.min = isoOf(t); ex.max = (new Date(t * 86400000).getUTCFullYear() + 5) + '-12-31';
+    ex.value = examStr();
+    var ed = dayOfStr(examStr());
+    $('examHint').innerHTML = '<b>' + dayText(ed, true) + '（' + WEEK[new Date(ed * 86400000).getUTCDay()] + '）</b>' +
+      (p.D > 0 ? '　·　還有 ' + p.D + ' 天' : (p.D === 0 ? '　·　就是今天' : '　·　已經過了'));
+    function amount(n) { return '<b>' + n + '</b> ' + (cf ? '組' : '個新字'); }
+    var nw = cf ? '新的字組' : '新字', unit1 = cf ? '組' : '個';
+    if (p.D === 0) {
+      h += '<p class="plan-big">今天就是考試日</p><p class="plan-sub">祝你考試順利。如果要為下一次考試做規劃，請選新的日期。</p>';
+    } else if (p.D < 0) {
+      h += '<p class="plan-big">這個日期已經過了</p><p class="plan-sub">請選一個還沒到的考試日期。</p>';
+    } else if (!p.total) {
+      h += '<p class="plan-big">這個範圍裡沒有' + uu + '</p><p class="plan-sub">請回到首頁換一個範圍。</p>';
+    } else if (!p.fresh) {
+      h += '<p class="plan-big">這個範圍的' + uu + '你都看過了</p>' +
+           '<p class="plan-sub">離考試還有 ' + p.D + ' 天，接下來每天只要把排到當天要複習的' + uu + '做完就可以了。</p>';
+    } else if (p.D < 7) {
+      if (p.learned) {
+        h += '<p class="plan-big">先複習還不熟的' + uu + '</p>' +
+             '<p class="plan-key">離考試只剩 ' + p.D + ' 天，現在背' + nw + '已經來不及複習，建議先把已經看過的' + uu + '再複習一次，尤其是還不熟的。如果想挑重點背' + nw + '，可以打開首頁的「不知道從哪裡開始？」，依模考級分看建議的練習順序。</p>';
+      } else {
+        h += '<p class="plan-big">先挑重點背</p>' +
+             '<p class="plan-key">離考試只剩 ' + p.D + ' 天，已經來不及把範圍裡的' + nw + '都背完再複習。可以打開首頁的「不知道從哪裡開始？」，依模考級分看建議的練習順序。</p>';
+      }
+    } else {
+      // 只複習的天數：最多 REVIEW_DAYS，離考試不到兩倍時隨剩餘天數縮短（至少讓新字有 1 天可看）
+      var rv = Math.min(REVIEW_DAYS, Math.floor(p.D / 2)), nd = p.D - rv, per = Math.ceil(p.fresh / nd);
+      h += '<p class="plan-big">每天約 ' + amount(per) + '</p>';
+      h += '<p class="plan-key">從今天到 ' + dayTextY(t + nd - 1) + '（共 ' + nd + ' 天），每天背' + nw +
+           '；' + dayTextY(t + nd) + ' 起到考前的 ' + rv + ' 天不再背' + nw + '，只做複習。' +
+           (rv < REVIEW_DAYS ? '因為離考試不到六週，只複習的天數從 ' + REVIEW_DAYS + ' 天縮短成剩下天數的一半。' : '') + '</p>';
+      if (per > BIG_PER_DAY) {
+        h += '<p class="plan-warn">照目前的範圍，每天要背 ' + per + ' ' + unit1 + nw + '，還要複習之前背過的字，份量很大。你可以回到首頁縮小範圍，也可以打開首頁的「不知道從哪裡開始？」，依模考級分看建議的練習順序。</p>';
+      }
+      h += '<details class="recap-more"><summary>為什麼這樣排？</summary>' +
+           '<p class="plan-sub">一輪最多 ' + p.perRound + ' ' + unit1 + nw + '；如果每天的' + nw + '比一輪多，做完按「繼續練」再做一輪。上面算出的每天份量，是考前背完目前範圍的最低份量；多做幾輪就能提早背完，之後只要複習。</p>' +
+           '<p class="plan-sub">除了' + nw + '，之前看過的' + uu + '也會陸續排進複習：答對的' + uu + '會在第一次出現後的第 2、6、16、43 天再出現，所以進度越往後，每天要複習的' + uu + '越多。' +
+           (nd >= 16 ? '以每天 ' + per + ' ' + unit1 + nw + '來算，全部答對的話，從第三週起每天大約還要複習 ' + (per * 3) + ' ' + unit1 + (cf ? '' : '字') + '；答錯越多，要複習的越多。' : '') + '</p></details>';
+    }
+    h += '<p class="plan-facts">目前範圍：' + esc(scopeText()) + '，共 <b>' + p.total + '</b>&nbsp;' + (cf ? '組' : '個字') +
+         '；你看過 <b>' + p.learned + '</b>&nbsp;' + (cf ? '組' : '個') + '，還沒看過 <b>' + p.fresh + '</b>&nbsp;' + (cf ? '組' : '個') + '。' +
+         (p.learned ? '今天要複習的有 <b>' + p.due + '</b>&nbsp;' + (cf ? '組' : '個') + '。' : '') +
+         '<br>以上是推算出來的參考值，每天實際背多少，由你自己決定。</p>';
+    $('planBody').innerHTML = h;
+    $('planStart').textContent = '開始複習';
+    $('planStart').disabled = !p.total;
+    hide('home'); hide('quiz'); hide('done'); hide('stats'); hide('gview'); hide('loading'); show('plan'); window.scrollTo(0, 0);
+    var pt = $('planTitle'); pt.setAttribute('tabindex', '-1'); try { pt.focus({ preventScroll: true }); } catch (e) { /* 略過 */ }
   }
 
   /* ---------------- 練習紀錄 ---------------- */
@@ -1890,7 +2136,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
       unitWord() + '；答錯次數多、比較久沒碰到的' + unitWord() + '排在前面。';
     renderToday(pool);
     renderDist(pool);
-    hide('home'); hide('quiz'); hide('done'); hide('gview'); show('stats');
+    hide('home'); hide('quiz'); hide('done'); hide('gview'); hide('plan'); show('stats');
     window.scrollTo(0, 0);
   }
 
@@ -1909,7 +2155,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
     if (CF) { done(); return; }
     if (cfLoading) return;
     cfLoading = true;
-    hide('home'); hide('stats'); hide('gview'); show('loading');
+    hide('home'); hide('stats'); hide('plan'); hide('gview'); show('loading');
     $('loading').textContent = '載入易混淆字組中…';
     fetch('confusables_data.json?v=2', { cache: 'default' })
       .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
@@ -1931,7 +2177,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
     if (SN) { done(); return; }
     if (snLoading) return;
     snLoading = true;
-    hide('home'); hide('stats'); hide('gview'); show('loading');
+    hide('home'); hide('stats'); hide('plan'); hide('gview'); show('loading');
     $('loading').textContent = '載入字義相近中…';
     fetch('confusables_sense_data.json?v=8', { cache: 'default' })
       .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
@@ -1953,7 +2199,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
     if (PO) { done(); return; }
     if (poLoading) return;
     poLoading = true;
-    hide('home'); hide('stats'); hide('gview'); show('loading');
+    hide('home'); hide('stats'); hide('plan'); hide('gview'); show('loading');
     $('loading').textContent = '載入一字多義中…';
     fetch('polysemy_data.json?v=10', { cache: 'default' })
       .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
@@ -1983,6 +2229,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
     if (scope.view && isPO()) { renderPOView(); return; }
     if (scope.view) { renderGroupView(); return; }
     if (first && scope.free) { startSession(true); return; }
+    if (first && /(^#|&)plan(=1)?(&|$)/.test(location.hash)) { renderPlan(); return; }   // 從「最近新增」「找功能」直接連到倒數規劃
     renderHome();
   }
 
@@ -2002,6 +2249,14 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
     $('statsBtn').addEventListener('click', function () { statsOpen = null; renderStats(); });
     $('doneStatsBtn').addEventListener('click', function () { statsOpen = null; renderStats(); });
     $('statsBack').addEventListener('click', renderHome);
+    $('planBack').addEventListener('click', function () { renderHome(); var o = $('planOpen'); if (o) { try { o.focus(); } catch (e) { /* 略過 */ } } });
+    $('planStart').addEventListener('click', function () { startSession(false); });
+    $('examDate').addEventListener('change', function () {
+      var v = $('examDate').value;
+      if (!validStr(v) || +v.slice(0, 4) < new Date(today() * 86400000).getUTCFullYear()) return;   // 逐位輸入年份時的中間值不存
+      examMem = v; try { localStorage.setItem(EXAM_KEY, v); } catch (e) { /* 略過 */ }
+      renderPlan();
+    });
     $('gvBack').addEventListener('click', function () {
       location.hash = isPO() ? poHomeHash : cfHomeHash;   // 回到點進來之前的範圍（老師指定的組號與作業名稱都保留）
     });
