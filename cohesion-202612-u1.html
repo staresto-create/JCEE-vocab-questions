@@ -277,10 +277,11 @@ h2{font-family:var(--serif);font-weight:600;font-size:1.2rem;margin:0 0 .5rem;co
     <p class="nt" id="pt">青色是動詞變名詞的線，藍灰是從 space junk 往下拆的線。</p>
   </div>
   <div class="recall">
-    <b>另外兩樣，前面單元教過，這篇自己確認得出來：</b>
+    <b>另外三樣，前面單元教過，這篇自己確認得出來：</b>
     <ul>
       <li><b>人稱指涉。</b>這篇有四個 it，各指不同的東西：第 8 行和第 11 行的 <q>it</q> 指 the rocket stage，第 14 行的 <q>it</q> 指 The impact，第 20 行的 <q>It</q> 指 such debris。找指涉對象的方法跟以前一樣：先往回找最近、而且意思講得通的名詞。</li>
       <li><b>詞形變化的重複。</b>Moon 這個字在第 3 行、第 10 行出現，之後變成形容詞 lunar：第 11 行的 <q>lunar surface</q>、第 25 行的 <q>lunar collisions</q>。字形換了，指的還是同一個地方。</li>
+      <li><b>表示因果的動詞與使役結構。</b>第 5 到 6 行的 <q>had been left drifting</q>（leave + O + OC 的被動，意思是被留在漂浮的狀態），和第 22 到 23 行的 <q>making space travel more difficult and risky</q>（make + O + OC，使…變得），都是「讓某個東西處於某種狀態」的結構。看到動詞後面接受詞再接補語，就往這個意思想。</li>
     </ul>
   </div>
   <p style="margin-top:1.1rem"><button class="go" id="g4">考卷怎麼考倒金字塔</button></p>
@@ -382,13 +383,13 @@ function wipe(){ try{ localStorage.removeItem(KEY); }catch(e){} location.reload(
 
 var KEY="cohesion-202612-u1-v1";
 var TITLE="Lunar Rocket Crash Raises Concerns About Space Junk";
-var LINES=["An abandoned upper stage from a","SpaceX Falcon 9 rocket {crashed|c-nom|1} into the","Moon on August 5, creating a new crater","and drawing attention from scientists","around the world. The rocket stage had","been left drifting in space after being","launched on a mission in January 2025.","Over time, gravity gradually pulled it onto","an unplanned collision course with the","Moon. Traveling at roughly 8,700 kilometers","per hour, it {struck|c-nom|2} the lunar surface near the","Einstein Crater.","{The impact|c-nom|3} posed no danger to Earth,","but it raised concerns about the growing","amount of {space junk|c-hyp|1}, which includes {old|c-hyp|2}","{satellites, spent rocket parts, and other|c-hyp|2}","{debris|c-hyp|2} left behind after missions. As more","countries and private companies send","missions into space, {such debris|c-hyp|3} continues","to accumulate. It can collide with","active satellites, resulting in even more","{fragments|c-hyp|4} and making space travel more","difficult and risky.","Scientists are now studying {the crash|c-nom|4}","{site|c-nom|4} to learn more about {lunar collisions|c-nom|5}.","A South Korean spacecraft has already","captured images of the area, while NASA","plans to make its own observations. As","space exploration expands, better ways to","track and manage {space debris|c-hyp|5} will become","increasingly important."];
+var LINES=["An abandoned upper stage from a","SpaceX Falcon 9 rocket {crashed|c-nom|1} into the","Moon on August 5, creating a new crater","and drawing attention from scientists","around the world. The rocket stage had","been left drifting in space after being","launched on a mission in January 2025.","Over time, gravity gradually pulled it onto","an unplanned collision course with the","Moon. Traveling at roughly 8,700 kilometers","per hour, it {struck|c-nom|2} the lunar surface near the","Einstein Crater.","{The impact|c-nom|3} posed no danger to Earth,","but it raised concerns about the growing","amount of {space junk|c-hyp|1}, which includes {old|c-hyp|2}","{satellites, spent rocket parts, and other|c-hyp|2}","{debris|c-hyp|2} left behind after missions. As more","countries and private companies send","missions into space, {such debris|c-hyp|3} continues","to accumulate. It can {collide with|c-nom|4}","active satellites, resulting in even more","{fragments|c-hyp|4} and making space travel more","difficult and risky.","Scientists are now studying {the crash|c-nom|5}","{site|c-nom|5} to learn more about {lunar collisions|c-nom|6}.","A South Korean spacecraft has already","captured images of the area, while NASA","plans to make its own observations. As","space exploration expands, better ways to","track and manage {space debris|c-hyp|5} will become","increasingly important."];
 var INDENT={1:1,13:1,24:1};
 var SPLIT=0, SPLITNOTE="";
 var TL={p:"\u767c\u751f\u4ec0\u9ebc\u4e8b",n:"\u4f55\u6642",c:"\u70ba\u4f55\u53d7\u77da\u76ee"};
 var RUNGBTN="\u780d\u6389";
 var CHAINS={
- "c-nom":{k:"sub",n:"同一件事，作者先用動詞說兩次：第 2 行的 crashed、第 11 行的 struck。到了第 13 行，他把這件事壓成一個名詞 The impact，後面又換成 the crash site、lunar collisions。為什麼這樣換？動詞是在報告「發生了什麼」；改成名詞以後，這件事就變成大家已經知道的東西，可以拿來當下一句的主詞，接著談後果與後續。"},
+ "c-nom":{k:"sub",n:"同一件事，作者先用動詞說兩次：第 2 行的 crashed、第 11 行的 struck。到了第 13 行，他把這件事壓成一個名詞 The impact。後面第 20 行再用一次動詞 collide with，最後一段則換成 the crash site、lunar collisions：collide 變成了 collisions，是同一個字根的動詞變名詞。為什麼這樣換？動詞是在報告「發生了什麼」；改成名詞以後，這件事就變成大家已經知道的東西，可以拿來當下一句的主詞，接著談後果與後續。"},
  "c-hyp":{k:"gen",n:"上義詞是 space junk（第 15 行）。第 15 到 17 行把它拆成三樣下義詞：old satellites、spent rocket parts、other debris。往後作者不再重複 space junk，改用比較短的 debris 當整體的代稱（第 19 行、第 30 行）；第 22 行的 fragments 則是撞壞之後產生的碎片，是下義詞的一種。"}
 };
 var LB={sub:"\u540d\u8a5e\u5316",gen:"\u4e0a\u7fa9\u8a5e\u8207\u4e0b\u7fa9\u8a5e"};
@@ -402,7 +403,7 @@ var NODES=[
 var ROWS=[
  {a:2,b:3,t:"動詞：crashed into the Moon",s:"第 2–3 行",n:"最初的說法，用動詞，直接報告：火箭殘骸撞上了月球。"},
  {a:10,b:11,t:"動詞：struck the lunar surface",s:"第 10–11 行",n:"還是動詞，這一次補上速度與地點，細節比第 2 行多。"},
- {a:13,b:13,t:"名詞：The impact",s:"第 13 行",n:"動作被壓成名詞，成了這一句的主詞：The impact posed no danger to Earth。上面兩次動詞已經把事情講完，這裡不必重講。"},
+ {a:13,b:13,t:"名詞：The impact",s:"第 13 行",n:"動作被壓成名詞，成了這一句的主詞：The impact posed no danger to Earth。上面兩次動詞已經把事情講完，這裡不必重講。impact 的字面意思是衝撞，也常用來比喻「影響」；這裡是字面的意思。"},
  {a:24,b:25,t:"名詞：the crash site / lunar collisions",s:"第 24–25 行",n:"到了最後一段，作者說 the crash site 和 lunar collisions，只用名詞指這件事，接著談科學家的研究。"}
 ];
 var RUNGS=[{"q": "先砍掉最底下的第 24 到 31 行（後續研究與展望）。", "a": "剩下的第 1 到 23 行仍然是一則完整的新聞：事件、經過、影響都在，只少了「接下來會怎樣」。", "r": "剩第 1–23 行"}, {"q": "再砍掉第 13 到 23 行（為什麼重要）。", "a": "剩下第 1 到 12 行，還知道撞了、何時撞、怎麼撞。但讀者不知道這件事為什麼有人在乎，新聞價值少了一半。", "r": "剩第 1–12 行"}, {"q": "再砍掉第 6 到 12 行（過程細節）。", "a": "只剩導言那一句。它仍然說得清「什麼事、何時、為什麼受矚目」，這就是倒金字塔最上面那一層的力量。", "r": "剩第一句"}, {"q": "最後，連導言也砍掉。", "a": "什麼都不剩。這就是為什麼編輯要縮短新聞時，永遠從最後面砍，最後才輪到第一句。", "r": "全部砍完"}];
