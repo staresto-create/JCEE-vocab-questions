@@ -655,6 +655,111 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
       show(/android/i.test(navigator.userAgent) ? 'and' : 'ios');
     })();
     </script>
+    <section class="today3" id="today3" aria-labelledby="t3h" hidden>
+      <div class="t3-h"><h2 id="t3h">今天的三件事</h2><span class="t3-d" id="t3d"></span></div>
+      <ul class="t3-list">
+        <li><a class="t3-row" id="t3w" href="cards/"><span class="t3-ic" aria-hidden="true">🗂️</span><span class="t3-tx"><b id="t3wb"></b><span id="t3ws"></span></span><span class="t3-st" id="t3wst" aria-hidden="true">→</span></a></li>
+        <li><a class="t3-row" id="t3s" href="daily-sentence.html"><span class="t3-ic" aria-hidden="true">📖</span><span class="t3-tx"><b id="t3sb"></b><span id="t3ss"></span></span><span class="t3-st" id="t3sst" aria-hidden="true">→</span></a></li>
+        <li><a class="t3-row" id="t3p" href="cards/#plan"><span class="t3-ic" aria-hidden="true">⏳</span><span class="t3-tx"><b id="t3pb"></b><span id="t3ps"></span></span><span class="t3-st" aria-hidden="true">→</span></a></li>
+      </ul>
+    </section>
+    <style>
+    .today3{margin:14px 0 8px;padding:12px 14px 6px;border:1px solid var(--ad-vrule-border);border-left:4px solid var(--ad-vsage-border);border-radius:10px;background:var(--ad-vpapercard-bg);text-align:left}
+    .today3[hidden]{display:none}
+    .t3-h{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin:0 0 2px}
+    .t3-h h2{margin:0;font-family:'Noto Serif TC','PingFang TC','Microsoft JhengHei',serif;font-size:17px;font-weight:900;line-height:1.4;color:var(--ad-vink-fg)}
+    .t3-d{font-size:13px;color:var(--ad-vinksoft-fg);font-variant-numeric:tabular-nums}
+    .t3-list{margin:0;padding:0;list-style:none}
+    .t3-list li{border-top:1px dashed var(--ad-vrule-border)}
+    .t3-list li:first-child{border-top:none}
+    .t3-row{position:relative;display:flex;align-items:center;gap:10px;min-height:56px;padding:8px 0;text-decoration:none;color:inherit}
+    .t3-row:focus-visible{outline:2px solid var(--ad-vsage-fg);outline-offset:2px;border-radius:6px}
+    .t3-ic{flex:none;font-size:22px;width:30px;text-align:center}
+    .t3-tx{flex:1;min-width:0;text-wrap:pretty;display:flex;flex-direction:column;gap:1px;font-size:13px;line-height:1.5;color:var(--ad-vinksoft-fg)}
+    .t3-tx b{font-size:15px;font-weight:800;color:var(--ad-vink-fg);line-height:1.4}
+    .t3-st{flex:none;min-width:28px;text-align:center;font-weight:900;color:var(--ad-vsage-fg);font-size:16px}
+    .t3-row.is-done .t3-tx b{font-weight:700;color:var(--ad-vinksoft-fg)}
+    .t3-row.is-done .t3-st{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:var(--sage);color:#fff;font-size:15px;box-shadow:0 0 0 1px var(--ad-vsage-border)}
+    .t3-vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+    .t3-n{white-space:nowrap}
+    </style>
+    <script>
+    /* 今天的三件事：只讀這台裝置瀏覽器裡的紀錄，不傳到任何地方 */
+    (function(){
+      var box = document.getElementById('today3'); if(!box) return;
+      var moved = false;
+      function $(i){ return document.getElementById(i); }
+      function rd(k){ try{ return localStorage.getItem(k); }catch(e){ return null; } }
+      function js(k){ try{ return JSON.parse(rd(k)); }catch(e){ return null; } }
+      function canStore(){ try{ localStorage.setItem('t3_probe','1'); localStorage.removeItem('t3_probe'); return true; }catch(e){ return false; } }
+      function set(id, bText, sText, done){
+        var b = $(id+'b'); b.textContent = bText;
+        if(done){ var v = document.createElement('span'); v.className = 't3-vh'; v.textContent = '（已完成）'; b.appendChild(v); }
+        $(id+'s').textContent = sText;
+        $(id).classList.toggle('is-done', !!done);
+        var st = $(id+'st'); if(st){ st.textContent = done ? '✓' : '→'; }
+      }
+      function render(){
+        try{
+          var n = new Date(), DAYS = ['日','一','二','三','四','五','六'];
+          var dayNum = Math.floor(Date.UTC(n.getFullYear(), n.getMonth(), n.getDate()) / 86400000);
+          var key = n.getFullYear() + '-' + String(n.getMonth()+1).padStart(2,'0') + '-' + String(n.getDate()).padStart(2,'0');
+          $('t3d').textContent = (n.getMonth()+1) + ' 月 ' + n.getDate() + ' 日（' + DAYS[n.getDay()] + '）';
+
+          /* 1. 記憶卡：單字、易混淆字組、一字多義三副卡合起來看 */
+          var learned = 0, doneToday = 0, doneWord = 0;
+          ['jcee_cards_v1','jcee_cards_cf_v1','jcee_cards_po_v1'].forEach(function(k){
+            var st = js(k);
+            if(st && st.v === 1 && st.w && typeof st.w === 'object'){
+              learned += Object.keys(st.w).length;
+              if(st.day === dayNum && st.done > 0){ doneToday += st.done; if(k === 'jcee_cards_v1') doneWord = st.done; }
+            }
+          });
+          var sm = js('jcee_cards_sum_v1'), due = (sm && sm.day === dayNum && typeof sm.due === 'number') ? sm.due : null;
+          if(doneWord > 0 && due === 0) set('t3w', '記憶卡：今天要複習的字都做完了', '今天練習了 ' + doneWord + ' 張；要背新字，可以再按「開始複習」。', true);
+          else if(doneToday > 0 && due > 0) set('t3w', '記憶卡：還有 ' + due + ' 個字要複習', '今天已練習 ' + doneToday + ' 張，按進去把剩下的字複習完。', false);
+          else if(doneToday > 0) set('t3w', '記憶卡：今天已經練習 ' + doneToday + ' 張', '按進去可以繼續複習。', false);
+          else if(due > 0) set('t3w', '記憶卡：有 ' + due + ' 個字要複習', '按進去，會先出要複習的字，再出新字。', false);
+          else if(due === 0 && learned > 0) set('t3w', '記憶卡：今天沒有要複習的字', '按進去就從新字開始。', false);
+          else if(learned > 0) set('t3w', '記憶卡：看看今天有哪些字要複習', '按進去，會先出要複習的字，再出新字。', false);
+          else set('t3w', '記憶卡：還沒開始背', canStore() ? '按進去就能開始背。進度只存在這台裝置的瀏覽器裡。' : '按進去就能開始背。這個瀏覽器無法儲存進度，關掉頁面後不會保留。', false);
+
+          /* 2. 每日一句（作答後才算完成） */
+          if(rd('ds-last') === key) set('t3s', '每日一句：今天這題已經做過了', '要多練，可以接著做其他題。', true);
+          else set('t3s', '每日一句：讀一個長句', '歷屆試題的長句，先判斷結構。', false);
+
+          /* 3. 考試日期：學生自己設定過才算天數；沒設定就不重複上面的學測倒數 */
+          var ex = rd('jcee_cards_exam_v1'), ok = false, y, m, d;
+          if(ex && /^\d{4}-\d{2}-\d{2}$/.test(ex)){
+            y = +ex.slice(0,4); m = +ex.slice(5,7); d = +ex.slice(8,10);
+            var t = new Date(Date.UTC(y, m-1, d));
+            ok = t.getUTCFullYear() === y && t.getUTCMonth() === m-1 && t.getUTCDate() === d && y >= 2026 && y <= n.getFullYear() + 5;
+          }
+          if(!ok) set('t3p', '每天該背幾個新字？', '按進去選考試日期，看每天背幾個。', false);
+          else {
+            var D = Math.round((Date.UTC(y, m-1, d) / 86400000) - dayNum);
+            if(D > 0){
+              set('t3p', '離考試日期（' + m + '/' + d + '）還有 ' + D + ' 天', '按進去看每天該背幾個新字。', false);
+            } else if(D === 0) set('t3p', '今天就是你設定的考試日期', '考完以後，可以重新設定下一次的考試日期。', false);
+            else set('t3p', '你設定的考試日期已經過了', '按進去重新設定考試日期。', false);
+          }
+
+          /* 有紀錄的同學每天回來：把這張卡移到「我要找」下面，第一屏就看得到；第一次來的維持原位 */
+          var has = learned > 0 || !!rd('ds-last') || !!rd('jcee_cards_exam_v1');
+          if(has && !moved){
+            var fb = document.querySelector('.findbar');
+            if(fb && fb.parentNode){ fb.parentNode.insertBefore(box, fb.nextSibling); moved = true; }
+          }
+          box.hidden = false;
+        }catch(e){ /* 出錯就不顯示這張卡，不影響首頁其他部分 */ }
+      }
+      render();
+      (function tick(){ var n = new Date(), ms = new Date(n.getFullYear(), n.getMonth(), n.getDate() + 1, 0, 0, 5) - n; setTimeout(function(){ render(); tick(); }, Math.max(ms, 1000)); })();
+      window.addEventListener('pageshow', function(e){ if(e.persisted) render(); });
+      document.addEventListener('visibilitychange', function(){ if(!document.hidden) render(); });
+      window.addEventListener('storage', function(e){ if(!e.key || /^(jcee_cards_|ds-last)/.test(e.key)) render(); });
+    })();
+    </script>
     <div class="countdown" id="countdownBox">
       <div class="cd-tabs" id="cdTabs" role="group" aria-label="選擇學測屆別">
         <button type="button" class="cd-tab" data-y="116" aria-pressed="true">116 學測</button>

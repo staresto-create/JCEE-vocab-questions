@@ -624,9 +624,10 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
   }
 
   /* ---------------- 範圍參數 ---------------- */
-  function parseScope() {
+  function parseScope(rawOverride) {
     var raw = '';
-    try { raw = decodeURIComponent((location.hash || '').replace(/^#/, '')); } catch (e) { raw = (location.hash || '').replace(/^#/, ''); }
+    if (typeof rawOverride === 'string') raw = rawOverride;
+    else try { raw = decodeURIComponent((location.hash || '').replace(/^#/, '')); } catch (e) { raw = (location.hash || '').replace(/^#/, ''); }
     var p = {};
     raw.split('&').forEach(function (kv) {
       var i = kv.indexOf('=');
@@ -1295,8 +1296,10 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
       logFirst(c.word, c.ok, c.isNew);
       grade(c.word, c.ok);
       rememberVariant(c.word, c.variant);
+      if (state.day !== today()) { state.day = today(); state.done = 0; }   // 跨過午夜還在練的，算進新的一天
       state.done = (state.done || 0) + 1;
       saveState();
+      writeSum();
     }
     if (!c.ok) requeue(c.word);
 
@@ -1321,6 +1324,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
       if (state.log && state.log.d === today() && state.log.r[c.word] === 1) state.log.r[c.word] = 0;
       grade(c.word, false);
       saveState();
+      writeSum();
       requeue(c.word);
     }
     var row = $('actRow');
@@ -1817,6 +1821,16 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
   }
 
   /* ---------------- 首頁 ---------------- */
+  // 給總站首頁「今天的三件事」讀的摘要：只在預設範圍的單字卡寫入，數字才會和這一頁一致
+  function writeSum() {
+    try {
+      if (isCF() || isPO()) return;
+      // 一律用預設範圍計算：任何單字範圍共用同一份進度，這樣總站首頁的數字才會和預設範圍的記憶卡首頁一致
+      var t = today(), due = 0, learned = 0;
+      buildPool(parseScope('')).forEach(function (k) { var w = state.w[k]; if (w) { learned++; if (w.d <= t) due++; } });
+      localStorage.setItem('jcee_cards_sum_v1', JSON.stringify({ day: t, due: due, learned: learned }));
+    } catch (e) { /* 略過 */ }
+  }
   function renderHome() {
     var pool = buildPool();
     var t = today(), due = 0, fresh = 0, learned = 0;
@@ -1826,6 +1840,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
       learned++;
       if (s.d <= t) due++;
     });
+    writeSum();
     $('scopeLine').textContent = (scope.label ? scope.label + '　·　' : '') + scopeText() +
       '　·　' + pool.length + (isCF() ? ' 組' : ' 字');
 
