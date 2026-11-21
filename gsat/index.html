@@ -338,6 +338,76 @@ details:not(.sh) > summary::after{content:"＋ 展開" !important; display:block
 details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
 @media print{details:not(.sh) > summary::after{display:none !important;}}
 </style>
+<style id="fam-css">
+/* 2026-11-21 「同一個結構還有這些」區塊（.fam-box）
+   放在 gsat/index.html 的 #qExplain 裡、#qCollBox 之後。只用站上既有的色彩變數，
+   深色模式跟著 :root 的 prefers-color-scheme 變數自動切換，不必另寫一套。
+   作答前整個 #qExplain 不顯示；列印時整個 #quiz 不印，這裡再加一道 @media print 保險。 */
+.fam-box{
+  display:none; margin-top:10px; padding:14px 14px 6px;
+  background:var(--paper-card); border:1px solid var(--rule); border-radius:3px;
+  color:var(--ink); overflow-wrap:anywhere;
+}
+.fam-box.show{display:block;}
+.fam-box *{box-sizing:border-box;}
+
+/* 區塊標題：字體、粗細、顏色比照 .note-sec b（深入解析的小標） */
+.fam-title{
+  margin:0 0 4px; font-family:'Noto Serif TC',serif; font-weight:700;
+  font-size:15px; line-height:1.55; color:var(--sage);
+}
+/* 導入句：比照其他解析框的內文 */
+.fam-lead{margin:0 0 6px; font-size:13.5px; line-height:1.8; color:var(--ink-soft);}
+.note-ln{display:block;margin-top:.5em}.note-ln:first-child{margin-top:0}.note-opt{padding-left:2.2em;text-indent:-2.2em}.note-optw{font-weight:700}.note-sub{margin-left:2.2em;margin-top:.35em}
+.fam-exam{margin:8px 0 0;font-size:.86em;line-height:1.7;color:var(--ink-soft)}.fam-exam-row{margin:0}.fam-exam-label{display:inline-block;margin-right:.4em;padding:0 .55em;background:var(--sage-soft);color:var(--ink);border-radius:4px;font-size:.9em;font-weight:700}.fam-exam-src{display:block;padding:8px 0 0;color:inherit}.fam-exam a.fam-exam-src{color:var(--sage);text-decoration:underline;text-underline-offset:2px}.fam-exam-q{display:block;padding:0 0 6px}
+.fam-lead .fam-frame{
+  font-family:'Times New Roman',Times,'Liberation Serif','Noto Serif',serif;
+  font-size:15px; color:var(--ink); overflow-wrap:anywhere;
+}
+
+/* 分組小標：只有一組時不輸出這一行 */
+.fam-group + .fam-group{margin-top:6px;}
+.fam-glabel{
+  display:flex; align-items:center; gap:8px; margin:12px 0 2px;
+  font-size:13px; font-weight:700; line-height:1.5; color:var(--ink-soft);
+}
+.fam-glabel::before{content:""; width:12px; height:2px; background:var(--sage); flex:none;}
+.fam-glabel::after{content:""; flex:1; height:1px; background:var(--rule);}
+
+/* 每一筆：片語行＋例句。筆與筆之間用站上慣用的虛線分隔 */
+.fam-list{list-style:none; margin:0; padding:0;}
+.fam-item{padding:10px 0 11px; border-top:1px dashed var(--rule);}
+.fam-group .fam-list .fam-item:first-child{border-top:none;}
+
+/* 片語行：英文片語粗體、中文意思放括號緊接在後 */
+.fam-head{margin:0; line-height:1.55;}
+.fam-phrase{
+  font-family:'Times New Roman',Times,'Liberation Serif','Noto Serif',serif;
+  font-weight:700; font-size:17px; color:var(--ink);
+}
+.fam-mean{font-size:14px; color:var(--ink-soft);}
+.fam-mean .fam-mean-seg{display:inline-block;}   /* 括號內容整段換行，不從中間切開（同 .coll-seg 做法） */
+.fam-ans{
+  display:inline-block; margin-left:6px; padding:0 7px; vertical-align:2px;
+  font-size:12px; font-weight:700; line-height:1.6; white-space:nowrap;
+  color:var(--crimson); border:1px solid var(--crimson); border-radius:9px;
+}
+
+/* 例句：縮排＋左側細線，比照站上 .sk-ex 例句的做法 */
+.fam-ex{margin:6px 0 0 4px; padding-left:11px; border-left:2px solid var(--sage);}
+.fam-en{
+  margin:0; font-family:'Times New Roman',Times,'Liberation Serif','Noto Serif',serif;
+  font-size:16px; line-height:1.5; color:var(--ink);
+}
+.fam-en b{font-weight:700;}
+.fam-ezh{margin:2px 0 0; font-size:13.5px; line-height:1.7; color:var(--ink-soft);}
+
+@media (min-width:600px){
+  .fam-box{padding:16px 18px 8px;}
+}
+@media print{ .fam-box{display:none !important;} }
+
+</style>
 <style id="map-entry-css">
 /* 題目地圖入口（2026-10-22 新增，對應 map/）：樣式比照文意選填站的難題入口 */
 .map-entry{display:block; text-decoration:none; border:1.5px solid var(--crimson);
@@ -623,6 +693,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
         <div class="span-tag" id="qSpanTag"></div>
         <div class="tb-box" id="qTbBox"></div>
         <div class="coll-box" id="qCollBox"></div>
+        <section class="fam-box" id="qFamBox" aria-labelledby="qFamTitle"></section>
         <div class="note-box" id="qNoteBox"></div>
         <div class="ctx-box" id="qCtxBox"></div>
         <div class="disc-box" id="qDiscBox"></div>
@@ -685,6 +756,19 @@ function readMoreHtml(rm){
     + escapeHtml(rm.label || '延伸閱讀') + ' ↗</a></div>';
   return html;
 }
+function noteBodyHtml(body){
+  // 單行：維持原樣。多行：每行各自成區塊；(A)(B)(D) 選項行懸掛縮排、代號與選項字加粗；
+  // 「第一，」「第二，」「那 …」等補充行縮排到選項文字的位置，才看得出屬於上一個選項。
+  if(body.indexOf('\n') < 0) return escNote(body);
+  return body.split('\n').map(function(l){
+    const t = l.trim();
+    if(!t) return '';
+    const m = t.match(/^(\([A-E]\)\s*[A-Za-z][A-Za-z\u2019'-]*)([\s\S]*)$/);
+    if(m) return '<span class="note-ln note-opt"><strong class="note-optw">'+escNote(m[1])+'</strong>'+escNote(m[2])+'</span>';
+    const sub = /^(第[一二三四五六七八九十]，|那 )/.test(t);
+    return '<span class="note-ln'+(sub?' note-sub':'')+'">'+escNote(t)+'</span>';
+  }).join('');
+}
 function noteSecHtml(str){
   // 依【小標】切段：小標獨立一行、每段各自一個區塊。
   // 2026-08-10 第三十四場：小標由行內粗體加全形空格改為獨立一行（CSS .note-sec b）。
@@ -699,7 +783,7 @@ function noteSecHtml(str){
   for(let i=1;i<parts.length;i+=2){
     const body = (parts[i+1]||'').trim();
     if(body) out.push('<div class="note-sec"><b>'+escNote(parts[i])+'</b>'
-                      +'<span class="note-txt">'+escNote(body).replace(/\n/g,'<br>')+'</span></div>');
+                      +'<span class="note-txt">'+noteBodyHtml(body)+'</span></div>');
   }
   return out.join('');
 }
@@ -903,6 +987,81 @@ function startQuiz(ids, label){
   buildPrintSheet();
 }
 
+/* 「同一個結構還有這些」：全程用 createElement／textContent，不經 innerHTML（同 coll-box 的做法） */
+function renderFamily(q, box){
+  box.textContent = '';
+  box.classList.remove('show');
+  const fam = q && q.family;
+  if(!fam || !Array.isArray(fam.groups) || !fam.groups.length) return;
+  const el = (tag, cls, txt) => { const e = document.createElement(tag); if(cls) e.className = cls; if(txt != null) e.textContent = txt; return e; };
+  const ansWord = String((q.o && q.o[q.a]) || '').toLowerCase();
+
+  const h = el('h3', 'fam-title', '同一個結構還有這些');
+  h.id = 'qFamTitle';
+  box.appendChild(h);
+
+  const lead = el('p', 'fam-lead');
+  if(fam.lead){ lead.textContent = fam.lead; }
+  else if(fam.frame){
+    lead.appendChild(document.createTextNode('看到 '));
+    const fr = el('span', 'fam-frame', fam.frame); fr.lang = 'en';
+    lead.appendChild(fr);
+    lead.appendChild(document.createTextNode('，可以一起記：'));
+  }
+  if(lead.textContent) box.appendChild(lead);
+
+  fam.groups.forEach(g => {
+    if(!g || typeof g !== 'object') return;
+    const wrap = el('div', 'fam-group');
+    if(g.label){ wrap.appendChild(el('h4', 'fam-glabel', g.label)); }
+    const ul = el('ul', 'fam-list');
+    (Array.isArray(g.items) ? g.items : []).forEach(it => {
+      if(!it || it.p == null || it.p === '') return;
+      const li = el('li', 'fam-item');
+      const head = el('p', 'fam-head');
+      const ph = el('span', 'fam-phrase', it.p); ph.lang = 'en';
+      head.appendChild(ph);
+      if(it.zh){
+        const m = el('span', 'fam-mean');
+        m.appendChild(el('span', 'fam-mean-seg', '（' + it.zh + '）'));
+        head.appendChild(m);
+      }
+      const isAns = it.ans === true || (it.ans !== false && ansWord && String(it.p).split(/\s+/)[0].toLowerCase() === ansWord);
+      if(isAns) head.appendChild(el('span', 'fam-ans', '本題答案'));
+      li.appendChild(head);
+      if(it.en){
+        const ex = el('div', 'fam-ex');
+        const en = el('p', 'fam-en'); en.lang = 'en';
+        String(it.en).split(/@@(.+?)@@/).forEach((part, i) => {
+          if(!part) return;
+          en.appendChild(i % 2 ? el('b', null, part) : document.createTextNode(part));
+        });
+        ex.appendChild(en);
+        if(it.ezh) ex.appendChild(el('p', 'fam-ezh', it.ezh));
+        li.appendChild(ex);
+      }
+      if(Array.isArray(it.exam) && it.exam.length){
+        const exw = el('div', 'fam-exam');
+        exw.appendChild(el('span', 'fam-exam-label', '歷屆試題'));
+        it.exam.forEach(x => {
+          if(!x || !x.t) return;
+          const row = el('p', 'fam-exam-row');
+          if(x.u && String(x.u).indexOf('https://staresto-create.github.io/') === 0){
+            const a = el('a', 'fam-exam-src', x.t); a.href = x.u; row.appendChild(a);
+          } else { row.appendChild(el('span', 'fam-exam-src', x.t)); }
+          if(x.q){ row.appendChild(el('span', 'fam-exam-q', x.q)); }
+          exw.appendChild(row);
+        });
+        li.appendChild(exw);
+      }
+      ul.appendChild(li);
+    });
+    wrap.appendChild(ul);
+    box.appendChild(wrap);
+  });
+  if(box.querySelector('.fam-item')) box.classList.add('show'); else box.textContent = '';
+}
+
 function renderQuestion(){
   let q = byId(session.list[session.idx]);
   while(!q && session.idx < session.list.length){
@@ -937,6 +1096,7 @@ function renderQuestion(){
   document.getElementById('qCtxBox').classList.remove('show');
   document.getElementById('qCollBox').classList.remove('show');
   document.getElementById('qCollBox').textContent = '';
+  const famBox0 = document.getElementById('qFamBox'); if(famBox0){ famBox0.classList.remove('show'); famBox0.textContent = ''; }
   const tbBox0 = document.getElementById('qTbBox'); if(tbBox0){ tbBox0.classList.remove('show'); tbBox0.textContent = ''; tbBox0._qid = null; }
   document.getElementById('qNoteBox').classList.remove('show');
   document.getElementById('qNoteBox').innerHTML = '';
@@ -1074,6 +1234,8 @@ function selectAnswer(letter, q){
     discBox.classList.remove('show');
   }
 
+  try{ renderFamily(q, document.getElementById('qFamBox')); }
+  catch(e){ const fb = document.getElementById('qFamBox'); fb.textContent = ''; fb.classList.remove('show'); }
   if(window.IDIOMLINK)IDIOMLINK.run([collBox,noteBox,ctxBox,discBox]);
   document.getElementById('qExplain').classList.add('show');
   document.getElementById('nextBtn').style.display = 'inline-block';
