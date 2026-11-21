@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>龍騰課文彩色筆記總覽（校內版）</title>
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../icon-192.png">
+<meta name="apple-mobile-web-app-title" content="課文彩色筆記總覽">
+<meta name="application-name" content="課文彩色筆記總覽">
+<meta name="theme-color" content="#E9EEF3" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#131922" media="(prefers-color-scheme: dark)">
+<style>
+:root{--bg:#E9EEF3;--surface:#fff;--fg:#1C2431;--muted:#566274;--line:#C9D2DD;--ac:#A8520F;--link:#1F5F8B;--hl:#FFF3C4;--shadow:0 1px 0 rgba(28,36,49,.05),0 12px 28px -16px rgba(28,36,49,.35)}
+@media (prefers-color-scheme:dark){:root{--bg:#131922;--surface:#1C2430;--fg:#E8EDF3;--muted:#A4AFBE;--line:#3A475A;--ac:#F0AB66;--link:#8FC4E8;--hl:#4A4220;--shadow:0 12px 28px -16px rgba(0,0,0,.75)}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;font-size:16px;line-height:1.65;padding:16px max(16px,env(safe-area-inset-right)) 40px max(16px,env(safe-area-inset-left));-webkit-text-size-adjust:100%}
+.app{max-width:640px;margin:0 auto;display:flex;flex-direction:column;gap:14px}
+h1{margin:0;font-size:21px;line-height:1.3}
+.how{margin:4px 0 0;color:var(--muted);font-size:14.5px}
+.card{background:var(--surface);border:1px solid var(--line);border-top:5px solid var(--ac);border-radius:12px;box-shadow:var(--shadow);padding:16px 18px 18px;display:flex;flex-direction:column;gap:10px}
+.card h2{margin:0;font-size:18px}
+.sub{margin:0;font-size:13.5px;color:var(--muted)}
+.list{display:flex;flex-direction:column;gap:8px}
+.list a,.btns a,.chips button{display:flex;align-items:center;min-height:48px;padding:8px 14px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--fg);text-decoration:none;font-size:16px}
+.list a{justify-content:space-between;gap:12px}
+.list b{margin-right:6px;white-space:nowrap}
+.list .n{color:var(--muted);font-size:13px;white-space:nowrap}
+.btns{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px}
+.btns a{justify-content:center}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips button{font:inherit;cursor:pointer;min-height:44px}
+.chips button[aria-pressed=true]{background:var(--ac);color:#fff;border-color:var(--ac)}
+@media (prefers-color-scheme:dark){.chips button[aria-pressed=true]{color:#131922}}
+input[type=search]{width:100%;min-height:48px;padding:8px 14px;border:1px solid var(--line);border-radius:12px;background:var(--surface);color:var(--fg);font:inherit}
+.words{display:flex;flex-direction:column}
+.w{padding:10px 0;border-top:1px solid var(--line)}
+.w:first-child{border-top:0}
+.w .h{display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px}
+.w .en{font-family:Georgia,'Times New Roman',serif;font-weight:700;font-size:18px}
+.w .pos{color:var(--muted);font-size:14px}
+.w .zh{margin-top:2px}
+.refs{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.refs a{display:inline-flex;align-items:center;min-height:44px;padding:4px 12px;border:1px solid var(--line);border-radius:999px;color:var(--link);text-decoration:none;font-size:15px;white-space:nowrap}
+.none{color:var(--muted);padding:8px 0}
+details{border-top:1px solid var(--line);padding:6px 0}
+details:first-of-type{border-top:0}
+summary{cursor:pointer;min-height:44px;display:flex;align-items:center;flex-wrap:wrap;row-gap:0;font-weight:700;list-style:none}
+summary::-webkit-details-marker{display:none}
+summary::before{content:"▸";margin-right:8px;color:var(--ac)}
+details[open] summary::before{content:"▾"}
+.s{padding:8px 0;border-top:1px dashed var(--line)}
+.s .no{display:inline-block;min-width:3.2em;color:var(--ac);font-weight:700}
+.s .t{font-family:Georgia,'Times New Roman',serif;font-size:17px}
+.s .ln{display:flex;align-items:center;min-height:44px;color:var(--link);font-size:14px;margin-left:4px}
+.src{color:var(--muted);font-size:12.5px}
+a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible{outline:3px solid var(--ac);outline-offset:2px}
+.spk{margin-left:.2rem;min-height:44px;min-width:44px;border-radius:6px;font-size:16px;align-items:center;justify-content:center}
+.spkset{margin:0}
+.spkv{min-height:44px;padding:.3rem .7rem;border-radius:6px}
+
+.jump{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px;margin-top:10px}
+.jump button{font:inherit;cursor:pointer;min-height:44px;padding:8px 14px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--fg)}
+.s:target{background:var(--hl)}
+.s{scroll-margin-top:12px}
+.sum2{display:block;font-weight:400;font-size:13.5px;color:var(--muted)}
+mark{background:var(--hl);color:inherit;border-radius:3px}
+</style>
+</head>
+<body>
+<div class="app">
+<div><h1>龍騰課文彩色筆記總覽（校內版）</h1>
+<p class="how" id="how"></p>
+<div class="jump"><button type="button" onclick="document.getElementById('scopeCard').scrollIntoView()">考試範圍</button><button type="button" onclick="document.getElementById('wordCard').scrollIntoView()">查單字</button><button type="button" onclick="document.getElementById('textCard').scrollIntoView()">課文原文</button><button type="button" onclick="document.getElementById('volCard').scrollIntoView()">各冊課文講義</button></div></div>
+
+<section class="card" id="scopeCard"><h2>考試範圍</h2>
+<p class="sub" id="scopeNote"></p>
+<div class="chips" id="scopeChips"></div>
+<div class="list" id="lessonList"></div></section>
+
+<section class="card" id="wordCard"><h2>查單字</h2>
+<p class="sub">可以輸入英文或中文；喇叭可以聽發音。[C] 是可數名詞，[U] 是不可數名詞，sing. 是只用單數（常加 a 或 the）。</p>
+<input type="search" id="q" placeholder="輸入英文或中文" aria-label="查單字" autocomplete="off" autocapitalize="off" spellcheck="false">
+<p class="sub" id="count"></p>
+<div class="words" id="words"></div></section>
+
+<section class="card" id="textCard"><h2>課文原文</h2>
+<p class="sub">每一句都有編號，可以對照上面的「L4 句 7」。點課名展開課文；點「看筆記第 N 頁」開啟那一句所在的彩色筆記頁。</p>
+<div id="texts"></div>
+<p class="src">課文出自龍騰版高中英文第三冊，版權屬龍騰文化所有；本頁免費、非商業，僅供學習參考。</p></section>
+
+<section class="card" id="volCard"><h2>各冊課文講義</h2>
+<p class="sub">彩色課文講義，可以切換冊次。</p>
+<div class="list"><a href="b1-school.html"><span><b>第一冊</b></span><span class="n">L1–L9</span></a><a href="b2-school.html"><span><b>第二冊</b></span><span class="n">L1–L9</span></a><a href="b3-school.html"><span><b>第三冊</b></span><span class="n">L4–L6</span></a></div></section>
+
+<div class="list"><a href="school.html"><span>← 回到龍騰課本講義與練習</span></a></div>
+</div>
+<script src="../../speaker.js"></script>
+<script>
+(function(){
+var DATA={"lessons":{"L4":{"title":"Day of the Dead: A Joyous Celebration of Death","pages":15,"url":"l4-school.html","sents":[{"n":1,"p":1,"en":"Have you ever thought about what it would be like to have a deceased loved one return and accompany you to a holiday celebration?","v":[["deceased","adj.","已故的"],["loved one","n.","[C] 摯愛的人（親人）"],["accompany","vt.","陪伴"],["celebration","n.","[C, U] 慶典"]]},{"n":2,"p":2,"en":"The idea may scare you to death or at least make your hair stand on end, but this is the essential concept behind the Mexican festival called the Day of the Dead, when people celebrate death with joy and humor rather than mourn it with sorrow.","v":[["essential","adj.","本質的；基本的"],["concept","n.","[C] 概念"],["mourn","vt.","哀悼"],["sorrow","n.","[U] 悲傷"]]},{"n":3,"p":3,"en":"On this joyous occasion, family members gather for a reunion in honor of those who have moved on to the afterlife.","v":[["joyous","adj.","令人愉快的"],["occasion","n.","[C] 場合"],["reunion","n.","[C] 團聚"],["afterlife","n. sing.","死後的世界"]]},{"n":4,"p":3,"en":"The Day of the Dead is thought to have originated centuries ago with the Aztecs.","v":[["originate","vi.","起源；源自"],["Aztec","n.","[C] 阿茲特克人（墨西哥的古老民族）"]]},{"n":5,"p":4,"en":"Nowadays, it is celebrated passionately throughout Mexico on November 1 and 2.","v":[["passionately","adv.","熱情地"]]},{"n":6,"p":4,"en":"Traditionally, deceased children are honored on Nov. 1, while Nov. 2 is the day when departed adults are the main focus.","v":[["honor","vt.","紀念；向……致敬"],["departed","adj.","已逝的"],["focus","n.","[C] 焦點"]]},{"n":7,"p":5,"en":"During these two days, the souls of the dead are believed to return to earth to visit the living members of their family.","v":[["soul","n.","[C] 靈魂"],["living","adj.","活著的；在世的"]]},{"n":8,"p":6,"en":"Instead of fearing these spirits, Mexicans anticipate their arrival and prepare for it by purchasing necessary items in local markets in advance.","v":[["spirit","n.","[C] 亡靈；靈魂"],["anticipate","vt.","期盼"],["arrival","n.","[U] 到來"],["purchase","vt.","購買"]]},{"n":9,"p":6,"en":"These include marigolds, candles, decorated sugar skulls bearing the names of departed family members, and “bread of the dead.”","v":[["marigold","n.","[C] 萬壽菊"],["decorated","adj.","裝飾過的"],["sugar skull","n.","[C] 糖骷髏頭"],["bear","vt.","帶有；刻有"]]},{"n":10,"p":7,"en":"Families also tidy and restore the graves and cemeteries where their family members are buried to welcome the souls home.","v":[["tidy","vt.","整理"],["restore","vt.","修復"],["grave","n.","[C] 墳墓"],["cemetery","n.","[C] 墓地"],["bury","vt.","埋葬"]]},{"n":11,"p":7,"en":"On the Day of the Dead, families assemble colorful altars in their homes to welcome returning spirits.","v":[["assemble","vt.","架設；組裝"],["altar","n.","[C] 祭壇"],["returning","adj.","歸來的"]]},{"n":12,"p":8,"en":"On the altars, they place photographs of their deceased loved ones as well as beverages and dishes that those family members had a preference for while alive.","v":[["beverage","n.","[C] 飲料"],["dish","n.","[C] 菜餚"],["preference","n. sing.","偏愛"]]},{"n":13,"p":9,"en":"After this warm reception for the souls at home, it is usually late in the evening, and families head to the cemetery, where they decorate the graves of their loved ones and light one candle for each dead person.","v":[["reception","n. sing.","歡迎；接待"],["cemetery","n.","[C] 墓地"],["decorate","vt.","裝飾"],["light","vt.","點燃"]]},{"n":14,"p":10,"en":"Cheerful and merry, they feast with the honored souls and pray till dawn, transforming the normally horrifying graveyard into a venue of joy and celebration for the entire night.","v":[["cheerful","adj.","興高采烈的"],["merry","adj.","歡樂的"],["feast","vi.","盡情享用"],["dawn","n.","[U] 黎明"],["transform","vt.","使轉變；使變成"],["horrifying","adj.","令人恐懼的"],["graveyard","n.","[C] 墓地"],["venue","n.","[C] 場所"]]},{"n":15,"p":11,"en":"Throughout the festival, colorful, cartoon-like representations of the dead can be seen everywhere.","v":[["throughout","prep.","自始至終；整個……期間"],["representation","n.","[C, U] 代表物；形象"]]},{"n":16,"p":11,"en":"These include skeleton and skull cookies, candies, flags, and toys.","v":[["skeleton","n.","[C] 骷髏；骨骼"],["skull","n.","[C] 頭骨"]]},{"n":17,"p":12,"en":"Many people also dress up in skeleton costumes, paint their faces to resemble skulls, and participate in performances and street parades.","v":[["costume","n.","[C, U] 服裝；戲服"],["resemble","vt.","看起來像"],["performance","n.","[C] 表演"],["parade","n.","[C] 遊行"]]},{"n":18,"p":12,"en":"While doing so, Mexicans aren’t mocking death.","v":[["mock","vt.","嘲弄"]]},{"n":19,"p":13,"en":"Instead, they are recognizing it as an inevitable part of the natural cycle and would rather embrace it than ignore it.","v":[["inevitable","adj.","不可避免的"],["cycle","n.","[C] 循環"],["embrace","vt.","擁抱；欣然接受"],["ignore","vt.","忽視"]]},{"n":20,"p":14,"en":"By inviting the dead to return and sharing the pleasures of life with them, Mexicans are celebrating the cycle of life itself.","v":[["pleasure","n.","[C, U] 樂趣；愉快"]]},{"n":21,"p":14,"en":"The Mexican Day of the Dead is an annual national event that brings together living hosts and non-living guests of honor.","v":[["annual","adj.","每年的"],["guest of honor","n.","[C] 貴賓"]]},{"n":22,"p":15,"en":"Hopefully, this tradition will never die out, since it helps people accept a fact of life that awaits us all.","v":[["fact of life","n.","[C] 無法改變的現實"],["await","vt.","等待"]]},{"n":23,"p":15,"en":"If we cannot escape death, why not celebrate it?","v":[["escape","vt.","避免（同 avoid）"]]}]},"L5":{"title":"Kyoto: The Heart of Japan","pages":20,"url":"l5-school.html","sents":[{"n":1,"p":1,"en":"Kyoto, like a beauty in a bright and colorful kimono, delights tourists throughout the year.","v":[["Kyoto","n.","京都"],["kimono","n.","[C] 和服"]]},{"n":2,"p":2,"en":"In spring romance is in the air as the city is filled with a sea of pink cherry blossoms.","v":[["cherry","n.","[C] 櫻桃；櫻桃樹（cherry blossom＝櫻花）"],["blossom","n.","[C, U] 花朵；開花"]]},{"n":3,"p":3,"en":"In summer, green leaves can be heard rustling in the wind and seen sparkling in the sunshine.","v":[["rustle","vi.","沙沙作響"]]},{"n":4,"p":4,"en":"Maple leaves in autumn set the landscape on fire with orange and red colors.","v":[["maple","n.","[C] 楓樹"],["landscape","n.","[C] 景色；風景（通常用單數）"]]},{"n":5,"p":4,"en":"Then, when winter comes, white snow turns the whole city into a magic, silver kingdom.","v":[]},{"n":6,"p":5,"en":"Apart from its natural splendor, Kyoto has so much more to feast one's eyes on.","v":[["splendor","n.","[U] 壯麗；雄偉"]]},{"n":7,"p":6,"en":"Having previously been the capital of Japan for over a thousand years, the city boasts a large number of historic shrines and temples.","v":[["previously","adv.","以前；先前"],["capital","n.","[C] 首都"],["boast","vt.","以……為傲；擁有"],["historic","adj.","歷史悠久的；歷史上著名的"],["shrine","n.","[C] 神社"]]},{"n":8,"p":7,"en":"No visit to Kyoto would be complete without seeing one of the most photographed landmarks: the Kinkaku-ji, or the Golden Pavilion Temple in English.","v":[["Kinkaku-ji","n.","金閣寺"],["Golden Pavilion Temple","n.","金閣寺（Kinkaku-ji 的英文名稱）"]]},{"n":9,"p":8,"en":"With giant, leafy maple trees leading up to its main entrance, what comes into view is this magnificent three-story pavilion.","v":[["entrance","n.","[C] 大門；入口"],["magnificent","adj.","壯麗的；雄偉的"]]},{"n":10,"p":9,"en":"Rising up behind a crystal-clear pond, it is covered in sparkling gold leaf and crowned with a large bronze phoenix on its shimmering roof.","v":[["crystal-clear","adj.","清澈的"],["bronze","adj.","青銅（製）的"],["phoenix","n.","[C] 鳳凰"],["shimmering","adj.","閃閃發光的"]]},{"n":11,"p":10,"en":"The reflection of the pavilion on the glassy surface of the pond is a breathtaking sight.","v":[["breathtaking","adj.","驚人的；極為美麗的"]]},{"n":12,"p":11,"en":"Visitors can take a leisurely walk through the surrounding gardens and enjoy many stunning views of this beautiful structure.","v":[["leisurely","adj.","悠閒的"],["stunning","adj.","撼動人心的；令人驚豔的"]]},{"n":13,"p":12,"en":"Another unforgettable Kyoto sight involves coming face to face with one of the old capital's very special \"persons of art,\" or geishas.","v":[["geisha","n.","[C] 藝妓"]]},{"n":14,"p":13,"en":"These are women dressed in delicate kimonos with silk sleeves.","v":[["delicate","adj.","精美的"]]},{"n":15,"p":14,"en":"Their distinctive white makeup, bright red lipstick, and elegant hairpins also make them easy to recognize.","v":[["distinctive","adj.","獨特的"],["lipstick","n.","[U] 口紅"],["elegant","adj.","雅致的"],["hairpin","n.","[C] 髮簪；髮夾"]]},{"n":16,"p":15,"en":"And it's not just their unique appearance that makes geishas stand out from the crowd.","v":[["appearance","n.","[C] 外表"]]},{"n":17,"p":16,"en":"These highly skilled entertainers spend years mastering different musical instruments, songs, and literature.","v":[["literature","n.","[U] 文學；文學作品"]]},{"n":18,"p":17,"en":"Of course, no \"person of art\" could be a true geisha without being able to perform the traditional kyomai dance.","v":[["kyomai","n.","京舞"]]},{"n":19,"p":18,"en":"This ancient art combines slow music with very deliberate movements and often expresses very deep emotion.","v":[["deliberate","adj.","（動作等）小心翼翼的"]]},{"n":20,"p":18,"en":"In Kyoto, culture and natural beauty flow together like the graceful motions of kyomai.","v":[]},{"n":21,"p":19,"en":"Regardless of the season, the city is a must-see destination for tourists seeking an authentic local experience.","v":[["must-see","adj.","必看的；不可錯過的"],["destination","n.","[C] 目的地"]]},{"n":22,"p":20,"en":"Those who visit are likely to end up falling in love with the heart of Japan.","v":[]}]},"L6":{"title":"The Country of the Blind","pages":27,"url":"l6-school.html","sents":[{"n":1,"p":1,"en":"Nuñez, an experienced mountaineer, was climbing up one of Ecuador's highest mountains when he lost his footing.","v":[["mountaineer","n.","[C] 登山家"],["Ecuador","n.","厄瓜多（位於南美洲西北部的國家）"],["lose one's footing","","失足；跌倒"]]},{"n":2,"p":2,"en":"He slid down a snowy slope and fell over a cliff edge, tumbling a great distance.","v":[["slope","n.","[C] 斜坡；坡地"],["cliff","n.","[C] 懸崖"],["tumble","vi.","滾落"]]},{"n":3,"p":2,"en":"Bruised and dazed, he found himself in a place cut off from the world.","v":[["bruised","adj.","瘀傷的；碰傷的"],["dazed","adj.","暈眩的"]]},{"n":4,"p":3,"en":"Despite his injuries, Nuñez struggled to his feet and set off to explore.","v":[["set off","","出發；啟程"]]},{"n":5,"p":4,"en":"As he made his way through the unfamiliar land, he came upon an unusual village.","v":[["come upon","","偶然遇到；偶然發現"]]},{"n":6,"p":5,"en":"The houses were unevenly painted, and all the roads leading to the houses had low walls alongside them.","v":[["unevenly","adv.","不均勻地；不規則地"],["alongside","prep.","在……旁邊"]]},{"n":7,"p":6,"en":"It didn't take long for Nuñez to realize that every villager was blind.","v":[]},{"n":8,"p":7,"en":"Feeling superior to these sightless people, he thought to himself, “In the country of the blind, the one-eyed man is king.”","v":[["superior","adj.","優於；更好的（後面接 to）"],["sightless","adj.","看不見的；眼盲的"]]},{"n":9,"p":8,"en":"However, after spending time with the locals, he was amazed at their great knowledge.","v":[]},{"n":10,"p":8,"en":"Though blind, they knew their mountain kingdom intimately.","v":[["intimately","adv.","了如指掌地；密切地"]]},{"n":11,"p":9,"en":"The villagers skillfully farmed and moved around by using their keen senses of hearing, touch, and smell.","v":[["skillfully","adv.","熟練地"]]},{"n":12,"p":9,"en":"They also employed effective techniques for growing crops and caring for animals.","v":[["crop","n.","[C] 作物；農作物"],["care for","","照顧；照料（同 look after、take care of）"]]},{"n":13,"p":10,"en":"The paths, lined with low walls, had been specially built to help them navigate safely.","v":[["path","n.","[C] 小路；小徑"],["navigate","vi.","（人）行走、確認方向；（船隻、車輛等）航行"]]},{"n":14,"p":11,"en":"Among the villagers, a respected elder named Yacob put the outsider to work and began teaching him their ways.","v":[["outsider","n.","[C] 外人；外來者"]]},{"n":15,"p":12,"en":"Gradually, Nuñez adapted to their way of life, but he clung to the reality of sight.","v":[["adapt","vi. vt.","（使）適應；（使）適合"],["cling","vi.","抓緊；緊握（cling — clung — clung）"],["cling to","","堅持；堅信"]]},{"n":16,"p":13,"en":"To him, vision was as real as the air he breathed.","v":[]},{"n":17,"p":14,"en":"Although he tried to explain what he saw, he failed to make them understand what it meant to have vision.","v":[]},{"n":18,"p":15,"en":"The more he spoke of high mountains and twinkling stars, the more the villagers pitied him.","v":[["twinkle","vi.","閃耀；閃爍"],["pity","vt.","憐憫；同情"]]},{"n":19,"p":16,"en":"Nuñez felt frustrated at the villagers' lack of awe for his precious gift of sight.","v":[["awe","n.","[U] 敬畏"]]},{"n":20,"p":17,"en":"It wasn't until he first laid eyes on Yacob's daughter, Medina-saroté, that he began to feel better.","v":[["lay eyes on","","看見；注意到"]]},{"n":21,"p":18,"en":"No one else admired Medina's beauty, as she had well-defined features that lacked the smoothness the villagers valued.","v":[["well-defined","adj.","輪廓分明的"],["smoothness","n.","[U] 平滑；細緻"]]},{"n":22,"p":19,"en":"Furthermore, her weak voice was neither powerful nor pleasing enough to meet their standards.","v":[]},{"n":23,"p":19,"en":"Nuñez alone recognized her beauty, and he soon fell in love with her.","v":[]},{"n":24,"p":20,"en":"Yet as their relationship blossomed, their desire to marry faced fierce opposition from the other villagers, who viewed Nuñez's “sight” as a dangerous delusion that needed to be “cured.”","v":[["opposition","n.","[U] 反對；反抗"],["delusion","n.","[C] 妄想；幻覺"]]},{"n":25,"p":21,"en":"Worst of all, even Medina herself agreed with them.","v":[["worst of all","","最糟的是"]]},{"n":26,"p":21,"en":"She persuaded Nuñez to remove the peculiar orbs on either side of his nose.","v":[["peculiar","adj.","奇怪的；不尋常的"],["orb","n.","[C] 球狀物（此處指眼球）"]]},{"n":27,"p":22,"en":"That way, he could stop daydreaming and truly become one of them.","v":[["daydream","vi.","做白日夢"]]},{"n":28,"p":22,"en":"In return for Nuñez's great sacrifice, she agreed to marry him.","v":[["in return (for)","","作為（對……的）回報、交換"]]},{"n":29,"p":23,"en":"Nuñez was confronted with a dilemma: he had to choose either to lose his eyes or to end their relationship.","v":[["confront","vt.","面臨；面對"],["dilemma","n.","[C] 進退兩難的困境"]]},{"n":30,"p":23,"en":"Eventually, he agreed to give up his eyes for Medina's sake.","v":[["for sb.'s sake","","為了某人；看在某人份上（同 for the sake of sb.）"]]},{"n":31,"p":24,"en":"Nevertheless, it wasn't until the day of his surgery that he realized he was making a huge mistake.","v":[["nevertheless","adv.","儘管如此；然而（同 nonetheless、however）"]]},{"n":32,"p":25,"en":"That morning, he once again beheld the splendor of the sunrise.","v":[["behold","vt.","注視；看著（behold — beheld — beheld）"]]},{"n":33,"p":26,"en":"Gazing at the beautiful surrounding landscape and envisioning all that he might still see in the future, Nuñez saw that he had to escape.","v":[["gaze","vi.","凝視；注視（gaze at ...；強調帶有情感地看）"],["envision","vt.","想像；嚮往"]]},{"n":34,"p":27,"en":"Driven by the desire to save his sight, he fled the country of the blind.","v":[["flee","vt.","逃離；逃跑（flee — fled — fled）"]]}]}},"scopes":[{"id":"b3-2","name":"第三冊 L4–L6","lessons":["L4","L5","L6"]}],"order":["L4","L5","L6"]};
+var L=DATA.lessons,ORDER=DATA.order,SC=DATA.scopes;
+var cur=SC.length-1;
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function inScope(l){return SC[cur].lessons.indexOf(l)>=0}
+function lessonsNow(){return ORDER.filter(inScope)}
+// 單字索引
+var idx={};
+ORDER.forEach(function(l){L[l].sents.forEach(function(s){s.v.forEach(function(v){
+  var k=v[0].toLowerCase().replace(/[\u2018\u2019]/g,"'");
+  var e=idx[k]||(idx[k]={w:v[0],pos:v[1],zh:v[2],refs:[]});
+  e.refs.push({l:l,n:s.n,p:s.p});
+});});});
+var keys=Object.keys(idx).sort(function(a,b){return a.localeCompare(b,'en')});
+function spk(label,pos){
+  if(!(window.SPK&&SPK.html))return '';
+  var v=SPK.het&&SPK.het(label);
+  if(v){
+    var p=(pos||'').replace(/[^a-z]/g,'');
+    var m=v.filter(function(x){var l=x.lab.replace(/[^a-z\/]/g,'').split('/');return l.some(function(a){return a&&p.indexOf(a)===0})});
+    if(m.length===1){var say=esc(m[0].say);var ib=SPK.html(m[0].say)||'';if(ib)return ib.replace('class="spk"','class="spk spkv"').replace('</button>','<span class="spkt">'+say+'</span></button>');}
+  }
+  return SPK.html(label,true)||'';
+}
+function renderScope(){
+  var c=document.getElementById('scopeChips');
+  var one=SC.length<2;
+  document.getElementById('how').textContent='這一頁收齊'+(one?SC[0].name:'各考試範圍')+'的課文彩色筆記。'+(one?'':'先選考試範圍，再')+'輸入單字，就會標出它出現在哪一課、哪一句；點「L4 句 7」這類連結，就能直接開啟那一句的筆記頁。';
+  c.style.display=one?'none':'';
+  document.getElementById('scopeNote').textContent=one?('目前範圍：'+SC[0].name+'。點下面的課次，就能開啟那一課的彩色筆記。'):'點下面的課次，就能開啟那一課的彩色筆記。';
+  c.innerHTML=SC.map(function(s,i){return '<button type="button" data-i="'+i+'" aria-pressed="'+(i===cur)+'">'+esc(s.name)+'</button>'}).join('');
+  Array.prototype.forEach.call(c.querySelectorAll('button'),function(b){b.onclick=function(){cur=+b.getAttribute('data-i');renderAll()}});
+  document.getElementById('lessonList').innerHTML=lessonsNow().map(function(l){return '<a href="'+L[l].url+'"><span><b>'+l+'</b>'+esc(L[l].title)+'</span><span class="n">'+L[l].pages+' 頁</span></a>'}).join('');
+}
+function hi(text,q){
+  if(!q)return esc(text);
+  var i=text.toLowerCase().indexOf(q);
+  if(i<0)return esc(text);
+  return esc(text.slice(0,i))+'<mark>'+esc(text.slice(i,i+q.length))+'</mark>'+esc(text.slice(i+q.length));
+}
+function renderWords(){
+  var qraw=document.getElementById('q').value.trim();var q=qraw.toLowerCase().replace(/[\u2018\u2019]/g,"'");
+  var now=lessonsNow(),out=[],n=0,shown={};
+  keys.forEach(function(k){
+    var e=idx[k];
+    var refs=e.refs.filter(function(r){return now.indexOf(r.l)>=0});
+    if(!refs.length)return;
+    if(q&&k.indexOf(q)<0&&e.zh.indexOf(q)<0)return;
+    n++;shown[k]=refs;
+    out.push('<div class="w"><div class="h"><span class="en">'+hi(e.w,q)+'</span>'+'<span class="pos">'+esc(e.pos)+'</span>'+spk(e.w,e.pos)+'</div><div class="zh">'+hi(e.zh,q)+'</div><div class="refs">'+
+      refs.map(function(r){return '<a href="'+L[r.l].url+'#p'+r.p+'" title="開啟 '+r.l+' 筆記第 '+r.p+' 頁">'+r.l+' 句 '+r.n+'</a>'}).join('')+'</div></div>');
+  });
+  var extra='';
+  var m=0;
+  if(q&&q.length>=2&&/^[a-z' -]+$/.test(q)){
+    var hits=[];
+    now.forEach(function(l){L[l].sents.forEach(function(s){
+      var t=s.en.toLowerCase().replace(/[\u2018\u2019]/g,"'");var i=t.indexOf(q);
+      if(i>=0&&(i===0||!/[a-z]/.test(t.charAt(i-1))))if(!Object.keys(shown).some(function(k){return shown[k].some(function(r){return r.l===l&&r.n===s.n})}))hits.push({l:l,s:s});
+    });});
+    m=hits.length;if(hits.length)extra='<div class="w"><div class="h"><b>課文裡有 '+hits.length+' 句出現「'+esc(qraw)+'」</b></div><div class="refs">'+hits.map(function(h){return '<a href="'+L[h.l].url+'#p'+h.s.p+'">'+h.l+' 句 '+h.s.n+'</a>'}).join('')+'</div></div>';
+  }
+  document.getElementById('words').innerHTML=(out.join('')+extra)||'<div class="none">找不到符合的單字。這一頁只收第三冊 L4–L6 的生字與課文，可以改輸入原形，或改用中文查。</div>';
+  document.getElementById('count').textContent=q?('符合 '+n+' 個單字與片語'+(m?'、'+m+' 句課文':'')):('共 '+n+' 個單字與片語');
+}
+function renderTexts(){
+  document.getElementById('texts').innerHTML=lessonsNow().map(function(l){
+    return '<details id="'+l.toLowerCase()+'"><summary>'+l+'　'+esc(L[l].title)+'<span style="flex-basis:100%;padding-left:20px;font-weight:400;font-size:13.5px;color:var(--muted)">共 '+L[l].sents.length+' 句</span></summary>'+
+      L[l].sents.map(function(s){return '<div class="s" id="'+l.toLowerCase()+'-s'+s.n+'"><span class="no">句 '+s.n+'</span><span class="t">'+esc(s.en)+'</span><a class="ln" href="'+L[l].url+'#p'+s.p+'">看筆記第 '+s.p+' 頁</a></div>'}).join('')+'</details>';
+  }).join('');
+  openHash();
+}
+function openHash(){
+  var h=location.hash.slice(1);if(!h)return;
+  var el=document.getElementById(h);if(!el)return;
+  var d=el.tagName==='DETAILS'?el:el.closest('details');if(d)d.open=true;
+  el.scrollIntoView();
+}
+function renderAll(){renderScope();renderWords();renderTexts()}
+document.getElementById('q').addEventListener('input',renderWords);
+window.addEventListener('hashchange',openHash);
+renderAll();
+})();
+</script>
+</body>
+</html>
