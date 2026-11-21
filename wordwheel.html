@@ -56,7 +56,7 @@ svg{display:block;width:100%;height:auto;margin:0 auto 1.3rem;max-width:30rem}
 .core circle{fill:var(--teal-soft);stroke:var(--ad-vteal-fg);stroke-width:2.2}
 .core text{text-anchor:middle;font-family:Georgia,"PingFang TC","Noto Sans TC","Microsoft JhengHei",serif;font-size:15px;fill:var(--ad-vteal-fg)}
 
-ol{list-style:none;margin:0;padding:0}
+ol{list-style:none;margin:0;padding:0;--wcol:7rem}
 li{border-top:1px solid var(--ad-vline-border);padding:.72rem .1rem}
 li:last-child{border-bottom:1px solid var(--ad-vline-border)}
 li.on{background:var(--ad-xfff-bg);border-radius:.3rem;box-shadow:inset 3px 0 0 var(--teal);padding-left:.65rem}
@@ -118,6 +118,12 @@ footer{margin-top:2.2rem;padding-top:1rem;border-top:1px solid var(--ad-vline-bo
  :root{--ad-onflip-fg:#16201F;--ad-vexam-border:#b4661c;--ad-vexam-fg:#E7CAAF;--ad-vexamsoft-bg:#2D2821;--ad-vexamsoft-fg:#fdf4e7;--ad-vground-bg:#1F2020;--ad-vink-bg:#E6EBEE;--ad-vink-border:#E9EFF2;--ad-vink-fg:#E9EFF2;--ad-vline-border:#3F4747;--ad-vline-fg:#cdd6d6;--ad-vmuted-fg:#BAC0C2;--ad-vteal-bg:#1f6f6a;--ad-vteal-border:#CDEAE9;--ad-vteal-fg:#CDEAE9;--ad-vtealsoft-bg:#1D2524;--ad-vtealsoft-fg:#dfeceb;--ad-x1f2f37-fg:#E5EBEE;--ad-x3d5059-fg:#D4DBDF;--ad-x8a8278-fg:#C2BFBB;--ad-x8c342c-fg:#E3C2BF;--ad-xc0554a-border:#c0554a;--ad-xfdeceb-bg:#2B2221;--ad-xfff-bg:#2D2A25;--ad-xfff-fg:#ffffff;color-scheme:dark}
 }
 
+/* 單字、喇叭、音標排法（2026-11-20）：沒有喇叭的字放同寬空位，音標不縮排、不從中間斷行，標籤不斷開 */
+.spk-ph{display:none}.tts .spk-ph{display:inline-block;width:calc(1em + .76rem + 2px);margin-left:.45rem;vertical-align:middle;flex:none}
+@media print{.spk-ph{display:none!important}}
+.wcol + .spk,.wcol + .spk-ph{margin-right:.5rem}
+.spk + .kkp,.spk-ph + .kkp,.spkset + .kkp{margin-left:0}
+.tag{white-space:nowrap}
 </style>
 <style id="anti-copy">
 /* 防盜用措施（2026-10-14）：畫面浮水印、列印浮水印、頁尾授權聲明 */
@@ -133,7 +139,7 @@ footer{margin-top:2.2rem;padding-top:1rem;border-top:1px solid var(--ad-vline-bo
   <p class="lede howto"><b>怎麼用：</b>「<b>看輪子</b>」是把整個字族攤開來比較；「<b>考自己</b>」有五種題型：拆解、詞性轉換、同字首不同義、猜字義、真假字首，每題會標出被考的字屬於哪裡。<b>段考前先顧橘色的字</b>，想只練段考範圍，就勾選「<b>只做目前範圍內的字</b>」；白色的字是同一個構詞的家人，考完再慢慢看。「<b>範圍</b>」可以切換：累進是到目前為止出現過的全部，也可以只看某一次。完整的段考範圍請看單字片語表。</p>
   <p class="lede howto"><b>聽發音：</b>每個字都附 KK 音標和喇叭，按下去聽美式發音。聲音來自手機或電腦內建的語音，請以音標為準；沒有英文語音的裝置不會顯示喇叭。唸法會因詞性或意思而不同的字（例如 contest），兩種唸法分別列出音標，各配一個喇叭，按鈕上寫著唸的短語（a contest、to contest）。</p>
   <p class="legend">
-    <span><span class="swatch"></span><b>橘色是目前選的範圍</b>　標來源：課本 L、核心字彙 U、雜誌單字表日期；累進時前面標「一考」「二考」</span>
+    <span><span class="swatch"></span><b>橘色是目前選的範圍</b>　標來源：課本 L、《核心字彙》U、雜誌單字表日期；累進時前面標「一考」「二考」</span>
     <span><span class="swatch sup"></span><b>白色是範圍外的補充字</b>　不在目前選的範圍裡，是同一個字首、字尾或字根的家人，也是大考中心參考詞彙表的字，標第幾級</span>
   </p>
 
@@ -160,7 +166,7 @@ footer{margin-top:2.2rem;padding-top:1rem;border-top:1px solid var(--ad-vline-bo
   <div id="veBox"></div>
   <ol id="list"></ol>
 
-  <footer>63 個構詞輪、552 個字（累進段考範圍 341 個：第一次 73 個、第二次 285 個，兩次重複 17 個；其餘為大考中心參考詞彙表補充）。段考範圍是本校的進度。分成字首、字尾、字根、其他四組，同一組內大致由常見的構詞排在前面。<p class="cc-note">本題庫自己寫的部分（解析、中譯、分類、標註與編排）採用 <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh-hant" target="_blank" rel="license noopener">CC BY-NC 4.0</a>（姓名標示─非商業性）授權：可以分享，但須註明出處，不得用於商業用途。試題來源與完整說明請見<a href="https://staresto-create.github.io/JCEE-vocab-questions/#terms">使用與著作權</a>。</p>
+  <footer>63 個構詞輪、552 個字（累進段考範圍 341 個：第一次 73 個、第二次 285 個，兩次重複 17 個；其餘為大考中心參考詞彙表補充）。學測詞彙表單字的字首、字根、字尾拆解，請見<a href="wordwheel-gsat.html">單字輪：學測用字拆解</a>。段考範圍是本校的進度。分成字首、字尾、字根、其他四組，同一組內大致由常見的構詞排在前面。<p class="cc-note">本題庫自己寫的部分（解析、中譯、分類、標註與編排）採用 <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh-hant" target="_blank" rel="license noopener">CC BY-NC 4.0</a>（姓名標示─非商業性）授權：可以分享，但須註明出處，不得用於商業用途。試題來源與完整說明請見<a href="https://staresto-create.github.io/JCEE-vocab-questions/#terms">使用與著作權</a>。</p>
 </footer>
 </div>
 
@@ -257,7 +263,7 @@ function draw(){
   list.innerHTML = d.items.map((it,i)=>{
     const [tg, exam] = tagOf(it);
     return `<li class="${sel===i?'on':''}"><span class="tag ${exam?'':'sup'}">${tg}</span>`
-         + `<div class="w">${it.w}${SPK.html(it.w,true)}${KK.html(it.w)}</div><div class="p">${it.p}</div><div class="g">${it.g}</div></li>`;
+         + `<div class="w"><span class="wcol">${it.w}</span>${SPK.html(it.w,true)||'<span class="spk-ph" aria-hidden="true"></span>'}${KK.html(it.w)}</div><div class="p">${it.p}</div><div class="g">${it.g}</div></li>`;
   }).join('');
 }
 
