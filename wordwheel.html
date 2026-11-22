@@ -231,7 +231,7 @@ li.empty{color:var(--ad-x3d5059-fg);font-size:.92rem}
     <button id="mMix" aria-pressed="false">範圍混合考 20 題</button>
   </div>
   <details class="tabsd" id="tabsd"><summary><span class="tsl">選輪子（共 67 輪）</span> <b id="curk"></b></summary>
-  <p class="dimnote">共 67 輪，依「字首 → 字尾 → 字根 → 其他」排列。按鈕前面的號碼是第幾輪，後面的「N 字」是目前範圍內的單字數；淡色的輪子表示這一輪沒有目前範圍內的單字。</p>
+  <p class="dimnote">共 67 輪，依「字首 → 字根 → 字尾 → 其他」排列。按鈕前面的號碼是第幾輪，後面的「N 字」是目前範圍內的單字數；淡色的輪子表示這一輪沒有目前範圍內的單字。</p>
   <nav id="tabs" aria-label="選擇單字輪"></nav></details>
   <div class="search"><input id="sq" type="search" maxlength="40" enterkeyhint="search" spellcheck="false" autocorrect="off" placeholder="查單字在哪一輪，例如 confront" aria-label="查單字在哪一輪" autocomplete="off" autocapitalize="off"><button type="button" id="sgo">查詢</button></div>
   <p class="qmsg" id="smsg" role="status"></p>
@@ -254,7 +254,7 @@ li.empty{color:var(--ad-x3d5059-fg);font-size:.92rem}
   <div id="veBox"></div>
   <button class="toWheel" id="toWheel" hidden>↑ 回到輪子選單</button>
 
-  <footer>共 67 個單字輪、1199 個單字。累進範圍有 526 個（一段 73 個、二段 285 個、期末考 200 個；同一個單字出現在不同範圍只算一次），龍騰課本另有 B1 117 個、B2 68 個、B4 264 個、B5 165 個，其餘是從大考中心參考詞彙表補充的單字。學測詞彙表單字的字首、字根、字尾拆解，請見<a href="wordwheel-gsat.html">單字輪：學測用字拆解</a>。段考範圍是本校的進度。輪子分成字首、字尾、字根、其他四組，各組大致把比較常見的排在前面。<p class="cc-note">本題庫自己寫的部分（解析、中譯、分類、標註與編排）採用 <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh-hant" target="_blank" rel="license noopener">CC BY-NC 4.0</a>（姓名標示─非商業性）授權：可以分享，但須註明出處，不得用於商業用途。試題來源與完整說明請見<a href="https://staresto-create.github.io/JCEE-vocab-questions/#terms">使用與著作權</a>。</p>
+  <footer>共 67 個單字輪、1199 個單字。累進範圍有 526 個（一段 73 個、二段 285 個、期末考 200 個；同一個單字出現在不同範圍只算一次），龍騰課本另有 B1 117 個、B2 68 個、B4 264 個、B5 165 個，其餘是從大考中心參考詞彙表補充的單字。學測詞彙表單字的字首、字根、字尾拆解，請見<a href="wordwheel-gsat.html">單字輪：學測用字拆解</a>。段考範圍是本校的進度。輪子分成字首、字根、字尾、其他四組。<p class="cc-note">本題庫自己寫的部分（解析、中譯、分類、標註與編排）採用 <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh-hant" target="_blank" rel="license noopener">CC BY-NC 4.0</a>（姓名標示─非商業性）授權：可以分享，但須註明出處，不得用於商業用途。試題來源與完整說明請見<a href="https://staresto-create.github.io/JCEE-vocab-questions/#terms">使用與著作權</a>。</p>
 </footer>
 </div>
 
@@ -304,8 +304,8 @@ function tagFor(w, stored){
 
 const GROUPS = [
   ["字首", ["con- / com-（一起）", "con- / com-（徹底）", "re-（再一次）", "re-（往回、加強）", "dis-", "de-", "ex- / e-", "ad- / ac- / ap-", "in- / im- / il-", "sub-", "pre- / pro-", "trans- / inter- / super-", "en- / mis- / be-", "contra- / counter-", "un-（不）"]],
-  ["字尾", ["-ation（動詞 + -ation）", "-ate → -ation", "-ion / -sion（動詞變形）", "-tion / -sion（字根 + 字尾）", "-al", "-ive", "-able / -ible", "-ous", "-ful / -less", "-ance / -ence", "-ity / -ment / -ness / -cy", "-er / -or / -ist / -ian", "-ly", "-ic / -ical", "-ize / -fy", "-ate（動詞）", "-ate（形容詞）", "-ing / -ed（形容詞）", "-ing（名詞、介系詞）", "-ary / -ery / -ure / -age", "-ant / -ent（形容詞）", "-al（拉丁字根 + -al）", "-y（名詞 + -y）", "-ism（主義、現象）"]],
   ["字根", ["cap / cept / ceive", "fac / fect / fic", "lect / leg / lig", "spec / spect / spic", "pon / pos", "vid / vis", "gen / gener", "tain / ten / tend", "rupt / fract", "sta / sist / stit", "tract / duct", "ced / cess", "form", "fer", "act / ag", "press", "leg / legis（法律）", "speci（種類）", "scend / scan（爬）", "vers / vert（轉）", "dict / dic（說）", "scrib / script（寫）", "sens / sent（感覺）", "ject（丟）", "spond / spons（承諾）", "just / jur / jud（法律、公正）"]],
+  ["字尾", ["-ation（動詞 + -ation）", "-ate → -ation", "-ion / -sion（動詞變形）", "-tion / -sion（字根 + 字尾）", "-al", "-ive", "-able / -ible", "-ous", "-ful / -less", "-ance / -ence", "-ity / -ment / -ness / -cy", "-er / -or / -ist / -ian", "-ly", "-ic / -ical", "-ize / -fy", "-ate（動詞）", "-ate（形容詞）", "-ing / -ed（形容詞）", "-ing（名詞、介系詞）", "-ary / -ery / -ure / -age", "-ant / -ent（形容詞）", "-al（拉丁字根 + -al）", "-y（名詞 + -y）", "-ism（主義、現象）"]],
   ["其他", ["複合詞", "希臘字根"]],
 ];
 let seq = 0;
