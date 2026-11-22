@@ -48,10 +48,12 @@ button:focus-visible,a:focus-visible,summary:focus-visible{outline:2px solid var
 .tabs{display:flex;flex-wrap:wrap;gap:.4rem;margin:0 0 1.1rem}
 .tabhint{margin:0 0 .4rem;font-size:.85rem;color:var(--sub)}
 .tabs button{flex:none}
-.tabs button{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:0;padding:.25rem .7rem;text-align:left;font-size:.9rem}
+.tabs button{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:0;padding:.15rem .6rem;text-align:left;font-size:.88rem;min-height:40px}
 .tabs button small{font-size:.72rem;color:var(--sub);font-family:"IBM Plex Mono","Noto Sans TC",monospace;line-height:1.3}
-.tabs button[aria-selected="true"]{background:var(--ink);border-color:var(--ink);color:var(--bg)}
-.tabs button[aria-selected="true"] small{color:var(--bg);opacity:.85}
+.tg{flex:0 0 auto;align-self:center;font-size:.78rem;font-weight:700;color:var(--crimson);border-left:3px solid var(--crimson);padding-left:.35rem;margin-left:.1rem;line-height:1.2}
+.tn{font-family:"IBM Plex Mono",monospace;margin-right:.15rem}
+.tabs button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.tabs button[aria-pressed="true"] small{color:var(--bg);opacity:.85}
 
 /* 一輪 */
 .wheel{display:none}
@@ -157,6 +159,10 @@ footer a{color:var(--accent)}
 }
 @media screen{body::before{content:"";position:fixed;top:0;left:0;right:0;bottom:0;z-index:2147483000;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22460%22%20height%3D%22240%22%3E%3Cg%20transform%3D%22rotate%28-20%20230%20120%29%22%20font-family%3D%22Noto%20Sans%20TC%2Csans-serif%22%20fill%3D%22%23D9A400%22%20fill-opacity%3D%22.2%22%20text-anchor%3D%22middle%22%3E%3Ctext%20x%3D%22230%22%20y%3D%22112%22%20font-size%3D%2220%22%3E%E9%AB%98%E4%B8%AD%E8%8B%B1%E6%96%87%E9%A1%8C%E5%BA%AB%3C%2Ftext%3E%3Ctext%20x%3D%22230%22%20y%3D%22140%22%20font-size%3D%2214%22%3Estaresto-create.github.io%2FJCEE-vocab-questions%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E");background-repeat:repeat;}}
 @media print{body::after{content:"高中英文題庫\A staresto-create.github.io/JCEE-vocab-questions\A 免費資源，請勿販售";white-space:pre;position:fixed;top:42%;left:0;right:0;text-align:center;transform:rotate(-25deg);font-family:"Noto Sans TC",sans-serif;font-size:26pt;line-height:1.7;color:#c8c8c8;z-index:2147483000;pointer-events:none;}}
+
+.toWheel{position:fixed;right:.9rem;bottom:1rem;z-index:20;font:inherit;font-size:.88rem;background:var(--crimson);color:#fff;border:0;border-radius:999px;padding:.55rem 1rem;box-shadow:0 2px 8px rgba(0,0,0,.25);cursor:pointer}
+.toWheel[hidden]{display:none}
+@media print{.toWheel{display:none!important}}
 </style>
 </head>
 <body>
@@ -164,7 +170,7 @@ footer a{color:var(--accent)}
   <h1>單字輪<em>｜</em>學測用字拆解</h1>
   <p class="lede">英文單字常常是幾個部分合起來的：字首、字根、字尾。這一頁把本題庫詞彙表第 1 到 6 級的 178 個單字，按共同的字首、字根或字尾分成 17 輪，每個單字拆開來看，例如 rebuild = re（再一次）+ build（建造）。<b>同一種顏色，就是同一個字首、字根或字尾。</b></p>
   <details class="info"><summary>這一頁怎麼編的（收錄範圍、拆解依據、發音）</summary>
-    <p><b>收錄範圍：</b>每一輪列出詞彙表裡用這個字首、字根或字尾的單字。gen、volve、serv、mov、astro、ob-、op-、en- 這幾輪收得比較齊；其他各輪（re-、in-、de-、ad-、con-、cap / tain / sist、fac / duct / pos / fer / act 和兩個字尾輪）只收部分單字。有些單字會出現在兩輪（例如 observe 同時有 ob- 和 serv），方便從不同的字首、字根互相對照。輪的圖例旁標有<span class="newbadge">本頁新增</span>的，是只有這一頁才用的字首、字根標籤。單字比較多的輪會分成幾段，點「跳到」的按鈕就可以直接去看。</p>
+    <p><b>收錄範圍：</b>每一輪列出詞彙表裡用這個字首、字根或字尾的單字。en-、ob-、op-、gen、volve、serv、mov、astro 這幾輪收得比較齊；其他各輪（re-、in-、de-、ad-、con-、cap / tain / sist、fac / duct / pos / fer / act 和兩個字尾輪）只收部分單字。有些單字會出現在兩輪以上（例如 observe 同時有 ob- 和 serv），方便從不同的字首、字根互相對照。輪的圖例旁標有<span class="newbadge">本頁新增</span>的，是只有這一頁才用的字首、字根標籤。單字比較多的輪會分成幾段，點「跳到」的按鈕就可以直接去看。</p>
     <p><b>拆解依據：</b>每個拆解都用字源辭典 etymonline 查過，再用 Merriam-Webster（部分單字加用 Wiktionary）交叉核對。括號裡是各部分的字面意思，合起來不一定剛好等於中文意思。如果拆解只有一個來源、兩個來源說法不完全一致，或這個單字是由另一個單字加字尾變成的衍生字，都會在該單字下面寫明。字首有時會變形（例如 ad- 變成 ac-），也會寫在拆解下面。</p>
     <p><b>聽發音：</b>每個單字都附 KK 音標，大多數也附喇叭，按下去聽美式發音。聲音來自手機或電腦內建的語音，請以音標為準；沒有英文語音的裝置不會顯示喇叭。</p>
   </details>
@@ -184,8 +190,8 @@ footer a{color:var(--accent)}
     <button type="button" class="btn" id="closeAll">全部再蓋住</button>
   </div>
 
-  <p class="tabhint">共 17 輪，依「字首 → 字根 → 字尾」排列。點一個，就切換到那一輪。</p>
-  <div class="tabs" id="tabs" role="tablist" aria-label="選擇一輪"></div>
+  <p class="tabhint"><b>選一輪：</b>共 17 輪，依「字首 → 字根 → 字尾」排列，每個按鈕前面的數字就是第幾輪。點一個，就切換到那一輪。</p>
+  <div class="tabs" id="tabs" role="group" aria-label="選擇一輪"></div>
   <div id="wheels"></div>
 
   <footer>
@@ -253,16 +259,16 @@ function wheelHtml(wh, wi){
 }
 
 function render(){
-  $('#tabs').innerHTML = WHEELS.map((wh,i) => '<button type="button" role="tab" aria-selected="' + (i===cur) + '" data-go="' + i + '">' + esc(wh.name) + '<small>' + esc(wh.aff) + '</small></button>').join('');
+  const GL = {0:'字首<br>1–8', 8:'字根<br>9–15', 15:'字尾<br>16–17'};
+  $('#tabs').innerHTML = WHEELS.map((wh,i) => (GL[i] ? '<span class="tg">' + GL[i] + '</span>' : '') + '<button type="button" aria-pressed="' + (i===cur) + '" data-go="' + i + '"><span><b class="tn">' + (i+1) + '</b> ' + esc(wh.name) + '</span><small>' + esc(wh.aff) + '</small></button>').join('');
   $('#wheels').innerHTML = WHEELS.map(wheelHtml).join('');
   show(cur, true);
 }
 function show(i, first, keepHash){
   cur = i;
   [...document.querySelectorAll('.wheel')].forEach((s,k) => s.classList.toggle('on', k===i));
-  [...document.querySelectorAll('#tabs button')].forEach((b,k) => b.setAttribute('aria-selected', k===i));
+  [...document.querySelectorAll('#tabs button')].forEach((b,k) => b.setAttribute('aria-pressed', k===i));
   if (!keepHash) { try{ history.replaceState(null,'','#r=' + (i+1)); }catch(e){} }
-  { const tb = document.getElementById('tabs'), tt = tb && tb.querySelector('[aria-selected="true"]'); if (tb && tt) tb.scrollLeft += tt.getBoundingClientRect().left - tb.getBoundingClientRect().left - (tb.clientWidth - tt.offsetWidth)/2; }
   if (mode === 'match') buildMatch(i);
   if (!first) { const h = document.getElementById('h' + i); window.scrollTo({top: h.getBoundingClientRect().top + window.scrollY - 70}); }
 }
@@ -365,6 +371,7 @@ function goHash(first, hh){
   }
   const m = /[#&]r=(\d+)/.exec(h);
   if (m && +m[1] >= 1 && +m[1] <= WHEELS.length) show(+m[1] - 1, first);
+  else if (m || mw) show(cur, first);
 }
 (function(){
   const m = /[#&]r=(\d+)/.exec(location.hash);
@@ -376,5 +383,11 @@ function goHash(first, hh){
 })();
 </script>
 <script src="backbar.js" defer></script>
+<button type="button" class="toWheel" id="toWheel" hidden>↑ 回到輪子選單</button>
+<script>
+(function(){var b=document.getElementById('toWheel'),t=document.getElementById('tabs');if(!b||!t)return;
+b.addEventListener('click',function(){t.scrollIntoView({block:'start',behavior:'smooth'});});function chk(){var r=t.getBoundingClientRect();b.hidden=r.bottom>0&&r.top<innerHeight;}window.addEventListener('scroll',chk,{passive:true});window.addEventListener('resize',chk);setInterval(chk,300);chk();
+if('IntersectionObserver' in window){new IntersectionObserver(function(e){b.hidden=e[0].isIntersecting;},{threshold:0}).observe(t);}})();
+</script>
 </body>
 </html>
