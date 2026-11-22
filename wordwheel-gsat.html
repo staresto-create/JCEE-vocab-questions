@@ -99,7 +99,7 @@ h2 .nw{white-space:nowrap}
 .ex{margin:.35rem 0 0;font-family:var(--serif);font-size:.98rem;line-height:1.6;color:var(--ink);padding-left:.7rem;border-left:3px solid var(--line)}
 .ex b{font-weight:700;color:var(--accent)}
 .meta.fy{margin-top:.1rem;line-height:1.5}
-.meta a{color:var(--accent);display:inline-block;padding:.35rem .25rem;margin:-.35rem 0}
+.meta a{position:relative;color:var(--accent);display:inline-block;padding:.7rem .3rem;margin:-.7rem 0}
 .meta{margin:.35rem 0 0;font-size:.78rem;color:var(--sub)}
 .meta span+span{margin-left:.9rem}
 .rv{display:none;width:100%;margin:.4rem 0 0;min-height:44px;font:inherit;font-size:.92rem;border:1.5px dashed var(--sub);background:transparent;color:var(--accent);border-radius:.4rem;cursor:pointer;align-items:center;justify-content:center}
@@ -177,7 +177,7 @@ footer a{color:var(--accent)}
     <p><b>拆解依據：</b>每個拆解都用字源辭典 etymonline 查過，再用 Merriam-Webster（部分單字加用 Wiktionary）交叉核對。括號裡是各部分的字面意思，合起來不一定剛好等於中文意思。如果拆解只有一個來源、兩個來源說法不完全一致，或這個單字是由另一個單字加字尾變成的衍生字，都會在該單字下面寫明。字首有時會變形（例如 ad- 變成 ac-），也會寫在拆解下面。</p>
     <p><b>聽發音：</b>每個單字都附 KK 音標，大多數也附喇叭，按下去聽美式發音。聲音來自手機或電腦內建的語音，請以音標為準；沒有英文語音的裝置不會顯示喇叭。</p>
   </details>
-  <p class="legend"><span><b>級別</b>：大考中心《高中英文參考詞彙表》的級別。</span><span><b>學測份數</b>：算的是「份」，不是「次」：一個單字在同一份試卷出現 3 次，仍只算 1 份。「學測 7 份」就是 35 份學測試卷中有 7 份看得到它，沒有出現過的寫 0。「看份數表」可以看到它在試卷裡一共出現幾次。學測用字份數表不列第 1 級單字，所以第 1 級的單字沒有標份數。</span><span><b>＊</b>：這個單字的份數，是原形和衍生字（或縮寫）合併計算，清單見頁尾。</span></p>
+  <p class="legend"><span><b>級別</b>：大考中心《高中英文參考詞彙表》的級別。</span><span><b>學測份數</b>：算的是「份」，不是「次」：一個單字在同一份試卷出現 3 次，仍只算 1 份。「學測 7 份」就是 35 份學測試卷中有 7 份看得到它，沒有出現過的寫 0。「看份數表」可以看到它在試卷裡一共出現幾次。「查單字」可以看到它出現在哪些歷屆詞彙題、克漏字和中譯英，以及教材有沒有收。學測用字份數表不列第 1 級單字，所以第 1 級的單字沒有標份數。</span><span><b>＊</b>：這個單字的份數，是原形和衍生字（或縮寫）合併計算，清單見頁尾。</span></p>
 
   <div class="modes" role="group" aria-label="練習方式">
     <button type="button" id="mLook" aria-pressed="true">看輪子</button>
@@ -238,6 +238,7 @@ function wheelHtml(wh, wi){
     const kk = (window.KK && KK.html(it.w)) || '';
     const cnt = it.n === null ? '份數表不列這一級' : '學測 ' + it.n + ' 份' + (it.mg ? '＊' : '');
     const fy = FQY[it.w] ? ' <a href="cards/freq.html#w=' + encodeURIComponent(FQY[it.w][1]) + '">看份數表</a>' : '';
+    const wl = ' <a href="cards/word.html#w=' + encodeURIComponent(it.w) + '" title="看這個單字的級別、歷屆試題和教材">查單字</a>';
     const fyr = FQY[it.w] ? '<div class="meta fy">學年度：' + FQY[it.w][0] + '</div>' : '';
     const sv = it.sv === 'one' ? '<span>字源：只有一個來源</span>' : (it.sv === 'der' ? '<span>字源：衍生字，依原來的單字拆解</span>' : '');
     return '<li class="wd" data-w="' + it.w + '"><div class="wrow"><span class="wcol">' + esc(it.w) + '</span>' + sp + kk + '</div>' +
@@ -246,7 +247,7 @@ function wheelHtml(wh, wi){
       '<div class="zh"><span class="pos">' + esc(it.pos) + '</span>' + esc(it.zh) + '</div>' +
       '<button type="button" class="rv">點一下看答案</button>' +
       '<div class="ex">' + exHtml(it.ex) + '</div>' +
-      '<div class="meta"><span>第 ' + it.lv + ' 級</span><span>' + cnt + fy + '</span></div>' + fyr + (sv ? '<div class="meta">' + sv + '</div>' : '') + '</li>';
+      '<div class="meta"><span>第 ' + it.lv + ' 級</span><span>' + cnt + fy + wl + '</span></div>' + fyr + (sv ? '<div class="meta">' + sv + '</div>' : '') + '</li>';
   };
   let body = '', segnav = '';
   if (wh.segs && wh.segs.length > 1){

@@ -146,7 +146,7 @@ footer{margin-top:2.2rem;padding-top:1rem;border-top:1px solid var(--ad-vline-bo
 .tabsd summary{border:1.5px solid var(--ad-vteal-fg);border-radius:.4rem;padding:.55rem .8rem!important;font-weight:700}
 .tabsd summary .tsl{color:var(--ad-vteal-fg)}
 .tabsd summary b{font-family:var(--serif);color:var(--ad-vteal-fg)}
-.fq{font-size:.8rem;color:var(--ad-vmuted-fg);margin-top:.12rem}.fq a{color:var(--ad-vteal-fg);display:inline-block;padding:.35rem .25rem;margin:-.35rem 0 -.35rem .1rem}.fy{display:block;color:var(--ad-vmuted-fg);line-height:1.5}
+.fq{font-size:.8rem;color:var(--ad-vmuted-fg);margin-top:.12rem}.fq a{position:relative;color:var(--ad-vteal-fg);display:inline-block;padding:.7rem .3rem;margin:-.7rem 0 -.7rem .1rem}.fqleg div{margin:.25rem 0}.fy{display:block;color:var(--ad-vmuted-fg);line-height:1.5}
 .fq b{color:var(--ad-x3d5059-fg);font-weight:700}
 .fqleg{margin:0 0 .8rem;font-size:.8rem;color:var(--ad-vmuted-fg);line-height:1.6}
 .fqlist{font-size:.78rem;color:var(--ad-vmuted-fg);line-height:1.7;margin:.3rem 0 0}
@@ -220,7 +220,7 @@ li.empty{color:var(--ad-x3d5059-fg);font-size:.92rem}
   <h1>單字輪</h1>
   <p class="lede">龍騰版高中英文第一到第五冊（B1–B5）的課本單字，依字首、字根、字尾排成輪狀（共 67 輪），拆開來看每個單字為什麼是這個意思。預設顯示龍騰高二第三冊（B3）的一段、二段、期末考累進範圍。</p>
   <p class="legend1"><span><span class="swatch"></span><b>橘色</b>是目前範圍內的單字</span><span><span class="swatch sup"></span><b>白色</b>是範圍外的單字</span></p>
-  <p class="fqleg"><b>這裡算的是「份」，不是「次」：</b>一個單字在同一份試卷出現 3 次，仍只算 1 份；「學測出現 7 份」，就是 35 份試卷（83 到 115 學年度學測，含補考）中有 7 份看得到它，文章、題目和選項都算。出現過的字旁邊有「看份數表」，可以看到它在試卷裡一共出現幾次；詞彙表裡的字，還能再連到詞彙表覆蓋清單，看它有沒有當過詞彙題的選項。大考中心詞彙表第 2 到 6 級的單字，沒有出現過就寫 0；第 1 級單字份數表不列，所以寫「份數表不列這一級」；不在詞彙表、份數表也找不到的單字，沒有標份數（份數表只列出現 2 份以上的，衍生字也可能算在原形底下）。標有＊的單字，份數是它和原形、衍生字（或縮寫）合併計算，合併計算的清單在頁尾。</p>
+  <div class="fqleg"><div><b>學測出現 7 份</b>：35 份學測試卷（83 到 115 學年度，含補考）中，有 7 份出現這個單字；文章、題目和選項都算。同一份試卷出現好幾次，也只算 1 份。</div><div><b>看份數表</b>：看這個單字在試卷裡一共出現幾次；有「詞彙題 →」的字，還能再連到詞彙表覆蓋清單。</div><div><b>查單字</b>：看這個單字的級別、出現在哪些歷屆詞彙題、克漏字和中譯英（點了就能作答），以及教材有沒有收。</div><div><b>份數的寫法</b>：第 2 到 6 級的單字沒有出現過就寫 0；第 1 級寫「份數表不列這一級」；不在詞彙表、份數表也找不到的單字，不標份數。</div><div><b>＊</b>：份數是這個單字和原形、衍生字（或縮寫）合併計算，清單在頁尾。</div></div>
   <details class="use"><summary>使用說明與標籤說明</summary>
     <p><b>看輪子：</b>同一輪的單字放在一起比較，每個單字都拆成字首、字根、字尾。</p>
     <p><b>考自己：</b>題型有五種，分別是拆解、詞性轉換、字義辨析、猜字義、真假字首字尾。每一題都會標出題目裡的單字屬於哪個範圍。「範圍混合考」是從目前範圍內所有輪子的題目裡隨機抽出 20 題。</p>
@@ -339,13 +339,17 @@ const allTabs = () => [...tabs.querySelectorAll('button')];
 function showTop(el){ const r = el.getBoundingClientRect(); if(r.top < 0 || r.top > window.innerHeight*0.45) el.scrollIntoView({block:'start'}); }
 function clearHash(){ if(location.hash || /[?&]range=/.test(location.search)) try{ history.replaceState(null,'',location.pathname); }catch(e){} }
 
+const NOLOOK = new Set(["Egyptian", "Icelandic", "Nordic", "antipodal", "breathtaking", "exalt", "eye-catching", "harmoniously", "hibernate", "invitingly", "mercilessly", "onset", "overtourism", "spray-paint"]);
+function wlink(w){
+  return NOLOOK.has(w) ? '' : '<a href="cards/word.html#w=' + encodeURIComponent(w) + '" title="看這個單字的級別、歷屆試題和教材">查單字</a>';
+}
 function fqHtml(w){
-  const v = FQ[w];
-  if(v === undefined) return '';
+  const v = FQ[w], wl = wlink(w);
+  if(v === undefined) return wl ? '<div class="fq">' + wl + '</div>' : '';
   const n = Array.isArray(v) ? v[0] : v;
-  if(n === null) return '<div class="fq">份數表不列這一級</div>';
-  if(!Array.isArray(v)) return '<div class="fq">學測出現 <b>' + n + '</b> 份</div>';
-  return '<div class="fq">學測出現 <b>' + n + '</b> 份' + (v[1] ? '＊' : '') + '　<a href="cards/freq.html#w=' + encodeURIComponent(v[3]) + '">看份數表</a><span class="fy">學年度：' + v[2] + '</span></div>';
+  if(n === null) return '<div class="fq">份數表不列這一級' + (wl ? '　' + wl : '') + '</div>';
+  if(!Array.isArray(v)) return '<div class="fq">學測出現 <b>' + n + '</b> 份' + (wl ? '　' + wl : '') + '</div>';
+  return '<div class="fq">學測出現 <b>' + n + '</b> 份' + (v[1] ? '＊' : '') + '　<a href="cards/freq.html#w=' + encodeURIComponent(v[3]) + '">看份數表</a>' + (wl ? '　' + wl : '') + '<span class="fy">學年度：' + v[2] + '</span></div>';
 }
 function draw(){
   allTabs().forEach(b=>{ b.setAttribute('aria-pressed', +b.dataset.i===cur);

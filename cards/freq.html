@@ -95,7 +95,7 @@ footer.foot a{color:var(--ad-vcrimson-fg)}
 .meta{display:block;font-size:.82rem;color:var(--ad-vinksoft-fg);margin-top:.15rem}
 .meta b{font-family:var(--mono);color:var(--ad-vink-fg);font-weight:600}
 .yrs{display:block;font-size:.8rem;color:var(--ad-vinksoft-fg);margin-top:.1rem;line-height:1.55}
-.cv{font-size:.8rem;color:var(--ad-vcrimson-fg);margin-left:.5rem;white-space:nowrap}
+.cv{position:relative;font-size:.8rem;color:var(--ad-vcrimson-fg);margin-left:.5rem;white-space:nowrap;display:inline-block;padding:.7rem .15rem;margin-top:-.7rem;margin-bottom:-.7rem}
 .tag.tq{color:var(--ad-vcrimson-fg);border-color:var(--ad-vcrimsonsoft-border);background:var(--ad-xF7ECE8-bg)}
 
 /* 深色模式（2026-10-22）：淺色數值與原本相同；只在螢幕、手機或電腦設成深色外觀時生效，列印不受影響。 */
@@ -275,6 +275,7 @@ function render(){
     if(r[2]){var p=document.createElement('span'); p.className='pos'; p.textContent=r[2]; top.appendChild(p);}
     if(r[6]){var t=document.createElement('span'); t.className='tag tq'; t.textContent='題目用語'; top.appendChild(t);}
     if(r[1]){var a=document.createElement('a'); a.className='cv'; a.href='coverage.html#q='+encodeURIComponent(r[0]); a.textContent='詞彙題 →'; a.title='看這個字在覆蓋清單上的那一列'; top.appendChild(a);}
+    var wq=r[0].split(/[\/(]/)[0].replace(/\)$/,''); if(/^[A-Za-z']+$/.test(wq)){var wa=document.createElement('a'); wa.className='cv'; wa.href='word.html#w='+encodeURIComponent(wq); wa.textContent='查單字 →'; wa.title='看這個單字的級別、歷屆試題和教材'; top.appendChild(wa);}
     li.appendChild(top);
     var m=document.createElement('span'); m.className='meta';
     m.innerHTML='出現在 <b>'+r[3]+'</b> 份試卷，一共 <b>'+fmt(r[4])+'</b> 次';
@@ -302,7 +303,12 @@ KK.ready.then(function(){return fetch('freq_data.json');}).then(function(r){if(!
   var tm=null;
   $('#q').addEventListener('input',function(e){clearTimeout(tm);tm=setTimeout(function(){state.w='';state.q=e.target.value;limit=PAGE;render();writeHash();},150);});
   window.addEventListener('hashchange',function(){readHash();$('#q').value=state.q;syncButtons();limit=PAGE;render();});
+  document.addEventListener('click',function(ev){var a=ev.target.closest&&ev.target.closest('a[href*="word.html#w="]');if(!a)return;try{sessionStorage.setItem('sy:'+location.pathname+location.hash,JSON.stringify({y:window.scrollY,l:limit}));}catch(e){}},true);
+  var svp=null;try{svp=JSON.parse(sessionStorage.getItem('sy:'+location.pathname+location.hash)||'null');sessionStorage.removeItem('sy:'+location.pathname+location.hash);}catch(e){}
+  if(svp&&svp.l>limit)limit=svp.l;
+  try{history.scrollRestoration='manual';}catch(e){}
   render();
+  if(svp){window.scrollTo(0,svp.y);setTimeout(function(){window.scrollTo(0,svp.y);},500);}
   var f=$('#foot');
   f.appendChild(document.createElement('br'));
   f.appendChild(document.createTextNode('資料更新：'+d.updated+'。試題著作權屬財團法人大學入學考試中心基金會，本統計只供非營利教學使用。免費、無廣告的非營利自學題庫。'));

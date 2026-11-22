@@ -92,6 +92,10 @@ details:not(.sh) > summary *::before, details:not(.sh) > summary *::after, detai
 details:not(.sh) > summary::after{content:"＋ 展開" !important; display:block !important; position:absolute !important; right:10px !important; top:50% !important; transform:translateY(-50%) !important; margin:0 !important; padding:2px 10px !important; border:1px solid currentColor !important; border-radius:999px !important; background:transparent !important; color:inherit !important; opacity:.85; font:400 12.5px/1.5 "Noto Sans TC",system-ui,sans-serif !important; letter-spacing:0 !important; text-transform:none !important; white-space:nowrap !important; text-decoration:none !important; width:auto !important; height:auto !important;}
 details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
 @media print{details:not(.sh) > summary::after{display:none !important;}}
+
+.btnl{display:flex;align-items:center;min-height:44px;margin:.4rem 0 0;padding:.4rem .8rem;border:1px solid var(--ad-vcrimsonsoft-border);border-radius:3px;background:var(--ad-xF7ECE8-bg);color:var(--ad-vink-fg);text-decoration:none;font-size:.92rem;line-height:1.4}
+.sgs{display:flex;flex-wrap:wrap;gap:.4rem;margin:.4rem 0 0}
+.sgs a{display:inline-flex;align-items:center;min-height:44px;padding:.4rem 1rem;border:1px solid var(--ad-vcrimsonsoft-border);border-radius:999px;background:var(--ad-xF7ECE8-bg);color:var(--ad-vink-fg);text-decoration:none;font-size:1rem}
 </style>
 <style id="anti-copy">
 /* 防盜用措施（2026-10-14）：畫面浮水印、列印浮水印、頁尾授權聲明 */
@@ -135,7 +139,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
 var $=function(id){return document.getElementById(id);};
 function esc(t){return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
 var has=Object.prototype.hasOwnProperty;
-var FREQ=null, FIDX={}, TB=null, CV=null, COV=null, CF=null, SNI=null, WLOK=false, ready=false;
+var HASFREQ=false, FREQ=null, FIDX={}, TB=null, CV=null, COV=null, CF=null, SNI=null, WLOK=false, ready=false;
 var GN={1:'初級',2:'中級',3:'中高級'};
 var SITE={
   gsat:{n:'學測單字',base:'../gsat/#q-',suf:''},
@@ -193,16 +197,17 @@ function badges(key,e){
 function freqSec(key,typed,lv){
   var r=FIDX[key]||FIDX[typed];
   if(!FREQ)return '';
-  var N=FREQ.papers,h='<div class="sec"><h3>學測全卷出現次數</h3>';
+  HASFREQ=false;var N=FREQ.papers,h='<div class="sec"><h3>學測全卷出現次數</h3>';
   var how='<p class="tnote">詞彙、克漏字、文意選填、篇章結構、閱讀測驗、混合題的文章、題目和選項都計入；翻譯題、作文題目和英聽沒有計。字形變化算回詞彙表的詞條（例如 went 算 go），專有名詞不算。<a href="freq.html">計算方式與逐字清單</a></p>';
   if(!r){
     if(lv===1)return h+'<p>一級字太常見，這份統計沒有逐字列出：一級字占了全部字次的 '+FREQ.cov[0].own+'%。</p>'+how+'</div>';
     if(!lv)return h+'<p>這份統計對詞彙表以外的字，只列出現在 2 份以上試卷的字，所以沒有查到這個字。</p>'+how+'</div>';
     return h+'<p>83 到 115 學年度的 '+N+' 份學測試卷中，沒有出現這個字。</p>'+how+'</div>';
   }
-  h+='<p class="big">'+N+' 份學測試卷中，出現在 <b>'+r[3]+'</b> 份，共 <b>'+r[4]+'</b> 次。</p>';
+  HASFREQ=true;h+='<p class="big">'+N+' 份學測試卷中，出現在 <b>'+r[3]+'</b> 份，共 <b>'+r[4]+'</b> 次。</p>';
   h+='<div class="meter" role="img" aria-label="'+N+' 份試卷中有 '+r[3]+' 份出現這個字"><i style="width:'+Math.max(2,Math.round(r[3]/N*100))+'%"></i></div>';
   h+='<p class="tnote">出現的年份：'+esc(r[5])+'</p>';
+  if(r[0])h+='<a class="btnl" href="freq.html#w='+encodeURIComponent(r[0])+'">到學測份數表看這個字的那一列 →</a>';
   if(r[6])h+='<p class="tnote">這個字的出現次數，有一部分來自閱讀測驗的題目（例如 according to the passage）。</p>';
   return h+how+'</div>';
 }
@@ -230,6 +235,14 @@ function refSec(key,typed,e){
   order.forEach(function(s){if(by[s])sum.push(SITE[s].n+' '+by[s].length+(s==='gcz'||s==='zcz'?' 格':' 題'));});
   var noK=items.some(function(x){return !x.k;});
   h+='<p>'+sum.join('、')+'。標「答案」，表示這個字是該題的答案；標「誘答」，表示它是該題的錯誤選項。'+(noK?'沒有標示的，是這個字出現在該題裡。':'')+'</p>';
+  var allL=[];
+  ['gsat','zhikao','tr'].forEach(function(st){
+    if(!by[st]||by[st].length<2)return;
+    var ids=by[st].map(function(x){return x.id;}).join(',');
+    allL.push('<a class="btnl" href="'+SITE[st].base.replace('#q-','#set-')+ids+'|'+encodeURIComponent(key+' 的歷屆題目')+'">'+esc(SITE[st].n)+'這 '+by[st].length+' 題，一次做完 →</a>');
+  });
+  h+=allL.join('');
+  if(HASFREQ)h+='<p class="tnote">這裡的題數和上面的份數算法不同：份數只算學測試卷，文章、題目和選項都算；這裡列的是本題庫詞彙題、克漏字和中譯英（學測、指考都有）裡用到這個字的題目。</p>';
   var LIM=8,html=items.map(function(x){return qLink(x.id,x.s,x.t,x.k,x.f);});
   h+='<div class="refs">'+html.slice(0,LIM).join('')+'</div>';
   if(html.length>LIM)h+='<details><summary>還有 '+(html.length-LIM)+' 題</summary><div class="refs">'+html.slice(LIM).join('')+'</div></details>';
@@ -293,24 +306,54 @@ function rootSec(key,typed){
 
 /* ---------- 查詢 ---------- */
 function show(html){var r=$('res');r.innerHTML=html;r.hidden=false;$('sc').classList.add('compact');var h1=r.querySelector('.bds')?r.querySelector('.w'):null;$('st').textContent=h1?'已查到 '+h1.textContent:'';}
+function suggest(t){
+  var pool={},out=[],lim=t.length>=7?2:1,W=window.WL;
+  function osa(a,b){
+    if(Math.abs(a.length-b.length)>lim)return 9;
+    var d=[],i,j;for(i=0;i<=a.length;i++){d[i]=[i];}for(j=0;j<=b.length;j++)d[0][j]=j;
+    for(i=1;i<=a.length;i++)for(j=1;j<=b.length;j++){
+      var c=a[i-1]===b[j-1]?0:1;d[i][j]=Math.min(d[i-1][j]+1,d[i][j-1]+1,d[i-1][j-1]+c);
+      if(i>1&&j>1&&a[i-1]===b[j-2]&&a[i-2]===b[j-1])d[i][j]=Math.min(d[i][j],d[i-2][j-2]+1);
+    }
+    return d[a.length][b.length];
+  }
+  try{Object.keys(PV.ctx().LEX||{}).forEach(function(w){pool[w]=1;});}catch(x){}
+  Object.keys(FIDX).forEach(function(w){pool[w]=1;});
+  if(WLOK){Object.keys(W.c).forEach(function(w){pool[w]=1;});Object.keys(W.g).forEach(function(w){pool[w]=1;});Object.keys(W.zc).forEach(function(w){pool[w]=1;});}
+  if(FREQ)FREQ.rows.forEach(function(r){if(r[7])String(r[7]).split(/[、,，\s]+/).forEach(function(w){w=w.trim().toLowerCase();if(w)pool[w]=1;});});
+  Object.keys(pool).forEach(function(w){if(/^[a-z]+$/.test(w)){var d=osa(t,w);if(d>0&&d<=lim){var lv=(WLOK&&has.call(W.c,w))?W.c[w]:(has.call(W.g,w)?W.g[w]:9);out.push([d,lv,w]);}}});
+  out.sort(function(a,b){return a[0]-b[0]||a[1]-b[1]||a[2].localeCompare(b[2]);});
+  return out.slice(0,5).map(function(x){return x[2];});
+}
+function missHtml(t,cam){
+  var sg=/^[a-z]+$/.test(t)?suggest(t):[],h='';
+  if(sg.length)h+='<p class="zh">你是不是要找：</p><div class="sgs">'+sg.map(function(w){return '<a href="#w='+encodeURIComponent(w)+'" data-sg="'+esc(w)+'" lang="en">'+esc(w)+'</a>';}).join('')+'</div>';
+  return h+'<p class="tnote">'+cam+'　·　<a href="../wordlevel.html">英檢、多益與大考詞彙表單字對照</a>　·　<a href="freq.html">學測份數表</a></p>';
+}
 function search(raw,quiet){
   var toks=String(raw).match(/[A-Za-z][A-Za-z'’-]*/g);
   if(!toks){show('<p class="empty">請輸入英文單字。</p>');return;}
   var typed=toks[0].toLowerCase().replace(/[’]/g,"'"),note='';
   if(toks.length>1)note='<p class="notice">一次只查一個字，這次查的是第一個字 <b lang="en">'+esc(toks[0])+'</b>。</p>';
   var hy=/-/.test(typed),LX=PV.ctx().LEX,whole=hy&&(has.call(LX,typed)||(WLOK&&(has.call(window.WL.c,typed)||has.call(window.WL.g,typed)||has.call(window.WL.zc,typed))));
-  if(hy&&!whole){show(note+'<div class="hw"><span class="w" lang="en">'+esc(typed)+'</span></div><p class="zh">本題庫沒有收這個字（可能太基本、是專有名詞，或拼錯了）。</p><p class="tnote"><a href="'+PV.camUrl(typed)+'" target="_blank" rel="noopener">到劍橋英漢字典看更多</a></p>');return;}
+  if(hy&&!whole){show(note+'<div class="hw"><span class="w" lang="en">'+esc(typed)+'</span></div><p class="zh">本題庫沒有收這個字（可能太基本、是專有名詞，或拼錯了）。</p>'+missHtml(typed,'<a href="'+PV.camUrl(typed)+'" target="_blank" rel="noopener">到劍橋英漢字典看更多</a>'));return;}
   var A=hy?{order:[]}:PV.analyze(toks[0]),e=A.order[0]||null,key=e?e.key:typed;
-  var head='<div class="hw"><span class="w" lang="en">'+esc(key)+'</span>'+
-    (window.SPK?(SPK.html(key,true)||''):'')+(window.KK?KK.html(key):'')+
-    (e&&!e.out&&e.pos?'<span class="p">'+esc(e.pos)+'</span>':'')+'</div>';
-  if(e&&typed!==key)head+='<p class="tnote">你輸入的是 <b lang="en">'+esc(typed)+'</b>，查的是原形 <b lang="en">'+esc(key)+'</b>。</p>';
-  var g=e?PV.glossOf(e):'';
-  if(!g&&WLOK&&has.call(window.WL.zc,key)){var zz=window.WL.zc[key];g=(zz[0]?zz[0]+' ':'')+zz[1];}
+  function isDer(t,k){return t!==k&&(t.indexOf(k)>0||(t.indexOf(k.replace(/[ye]$/,''))===0&&/(ly|ily|ally|ness|ment|ful|less|ity)$/.test(t)));}
+  var der=!!(e&&typed!==key&&isDer(typed,key)),hw=der?typed:key;
+  var head='<div class="hw"><span class="w" lang="en">'+esc(hw)+'</span>'+
+    (window.SPK?(SPK.html(hw,true)||''):'')+(window.KK?KK.html(hw):'')+
+    (e&&!e.out&&e.pos&&!der?'<span class="p">'+esc(e.pos)+'</span>':'')+'</div>';
+  if(e&&typed!==key)head+=der?'<p class="tnote">大考詞彙表沒有單獨列 <b lang="en">'+esc(typed)+'</b>，依詞彙表編輯原則算到 <b lang="en">'+esc(key)+'</b>；下面的級別、份數和題目，是 <b lang="en">'+esc(key)+'</b> 的資料。</p>':'<p class="tnote">你輸入的是 <b lang="en">'+esc(typed)+'</b>，查的是原形 <b lang="en">'+esc(key)+'</b>。</p>';
+  var g=der?'':(e?PV.glossOf(e):'');
+  if(der&&WLOK&&has.call(window.WL.zc,typed)){var z0=window.WL.zc[typed];g=(z0[0]?z0[0]+' ':'')+z0[1];}
+  if(!g&&!der&&WLOK&&has.call(window.WL.zc,key)){var zz=window.WL.zc[key];g=(zz[0]?zz[0]+' ':'')+zz[1];}
   if(!e&&!g&&PV.ctx().LEX[typed]&&PV.ctx().LEX[typed].g)g=PV.ctx().LEX[typed].g;
   var cam='<a href="'+PV.camUrl(key)+'" target="_blank" rel="noopener">到劍橋英漢字典看更多</a>';
-  if(!e&&!has.call(PV.ctx().LEX,typed)){
-    show(note+head+'<p class="zh">本題庫沒有收這個字（可能太基本、是專有名詞，或拼錯了）。</p><p class="tnote">'+cam+'</p>');
+  var W0=window.WL||{},LX0=PV.ctx().LEX||{};
+  var known=(e&&!e.out)||has.call(LX0,key)||has.call(LX0,typed)||has.call(FIDX,key)||has.call(FIDX,typed)||(WLOK&&(has.call(W0.c,key)||has.call(W0.g,key)||has.call(W0.zc,key)||W0.t.indexOf(key)>=0));
+  if(!known){
+    if(!quiet){try{history.replaceState(null,'','#w='+encodeURIComponent(typed));}catch(x){}}
+    show(note+'<div class="hw"><span class="w" lang="en">'+esc(toks[0])+'</span></div>'+'<p class="zh">本題庫沒有收這個字（可能太基本、是專有名詞，或拼錯了）。</p>'+missHtml(typed,cam));
     return;
   }
   var h=note+head+'<div class="zh">'+(g?esc(g):'這個字的中文意思請看<a href="'+PV.camUrl(key)+'" target="_blank" rel="noopener">劍橋英漢字典</a>。')+'</div><div class="bds">'+badges(key,e)+'</div>'+
@@ -326,6 +369,7 @@ function fromHash(){
   try{w=m?decodeURIComponent(m[1]):'';}catch(x){w=m?m[1]:'';}
   if(w){$('q').value=w;search(w,true);}
 }
+$('res').addEventListener('click',function(ev){var a=ev.target.closest&&ev.target.closest('a[data-sg]');if(a){ev.preventDefault();$('q').value=a.getAttribute('data-sg');search(a.getAttribute('data-sg'));}});
 $('f').addEventListener('submit',function(ev){ev.preventDefault();var v=$('q').value.trim();if(v)search(v);});
 [].forEach.call(document.querySelectorAll('.chip'),function(b){b.addEventListener('click',function(){var w=b.getAttribute('data-w');$('q').value=w;if(ready)search(w);});});
 window.addEventListener('hashchange',function(){if(ready)fromHash();});
