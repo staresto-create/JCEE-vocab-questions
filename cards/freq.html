@@ -184,7 +184,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
 'use strict';
 var $=function(s){return document.querySelector(s);};
 var PAGE=400;
-var D=null, state={lv:-1, p:0, t:0, q:''}, limit=PAGE;
+var D=null, state={lv:-1, p:0, t:0, q:'', w:''}, limit=PAGE;
 var PF={0:function(){return true;},10:function(n){return n>=10;},5:function(n){return n>=5;},24:function(n){return n>=2&&n<=4;},1:function(n){return n===1;}};
 function fmt(n){return n.toLocaleString('en-US');}
 function lvName(l){return l?'第 '+l+' 級':'詞彙表沒收錄的字';}
@@ -195,14 +195,15 @@ function readHash(){
   var lv=+p.lv; state.lv=(p.lv!==undefined&&(lv===0||(lv>=2&&lv<=6)))?lv:-1;
   state.p=PF.hasOwnProperty(p.p)?+p.p:0;
   state.t=p.t==='1'?1:0;
-  state.q=p.q||'';
+  state.w=p.w||''; state.q=p.q||p.w||'';
 }
 function writeHash(){
   var a=[];
   if(state.lv>=0)a.push('lv='+state.lv);
   if(state.p)a.push('p='+state.p);
   if(state.t)a.push('t=1');
-  if(state.q.trim())a.push('q='+encodeURIComponent(state.q.trim()));
+  if(state.w)a.push('w='+encodeURIComponent(state.w));
+  else if(state.q.trim())a.push('q='+encodeURIComponent(state.q.trim()));
   var h=a.length?'#'+a.join('&'):location.pathname+location.search;
   try{history.replaceState(null,'',h);}catch(e){}
 }
@@ -224,7 +225,7 @@ function buildTables(){
   var d5=D.dist[3], d6=D.dist[4];
   $('#distNote').textContent='「5 份以上」包含 10 份以上的字。四級以上的字很少每年都出現：五級出現過的 '+fmt(d5.n)+' 個字裡，'+fmt(d5.p1)+' 個只出現在一份試卷；六級出現過的 '+fmt(d6.n)+' 個字裡，'+fmt(d6.p1)+' 個只出現一次。一級字詞彙表收 '+fmt(D.size1)+' 個，試卷裡出現過 '+fmt(D.lv1)+' 個，所以清單不列一級字。點級別可以看那一級的字。';
   Array.prototype.forEach.call(document.querySelectorAll('#distTable a[data-lv]'),function(a){
-    a.addEventListener('click',function(e){e.preventDefault();state.lv=+a.getAttribute('data-lv');state.p=0;state.t=0;state.q='';$('#q').value='';
+    a.addEventListener('click',function(e){e.preventDefault();state.lv=+a.getAttribute('data-lv');state.p=0;state.t=0;state.q='';state.w='';$('#q').value='';
       syncButtons();limit=PAGE;render();writeHash();$('#tools').scrollIntoView({behavior:'smooth'});});
   });
 }
@@ -242,6 +243,7 @@ function syncButtons(){
   });
 }
 function match(r,q){
+  if(state.w)return r[0]===state.w;
   if(!q)return true;
   if(r[0].toLowerCase().indexOf(q)>=0)return true;
   return r[7]&&r[7].toLowerCase().indexOf(q)>=0;
@@ -298,7 +300,7 @@ KK.ready.then(function(){return fetch('freq_data.json');}).then(function(r){if(!
   mkBtns($('#tRow'),[[0,'全部'],[1,'只看題目用語']],'t');
   readHash(); $('#q').value=state.q; syncButtons();
   var tm=null;
-  $('#q').addEventListener('input',function(e){clearTimeout(tm);tm=setTimeout(function(){state.q=e.target.value;limit=PAGE;render();writeHash();},150);});
+  $('#q').addEventListener('input',function(e){clearTimeout(tm);tm=setTimeout(function(){state.w='';state.q=e.target.value;limit=PAGE;render();writeHash();},150);});
   window.addEventListener('hashchange',function(){readHash();$('#q').value=state.q;syncButtons();limit=PAGE;render();});
   render();
   var f=$('#foot');
