@@ -79,6 +79,7 @@
   HET["subject"] = [{lab:"n./adj.",say:"a subject"},{lab:"v.",say:"to subject"}];
   HET["suspect"] = [{lab:"v.",say:"to suspect"},{lab:"n./adj.",say:"a suspect"}];
   HET["transfer"] = [{lab:"v.",say:"to transfer"},{lab:"n.",say:"a transfer"}];
+  HET["document"] = [{lab:"n.",say:"a document"},{lab:"v.",say:"to document"}];
   /*HET-END*/
   function normw(word) { return String(word == null ? '' : word).trim().toLowerCase(); }
   function het(word) { var v = HET[normw(word)]; return v ? v.slice() : null; }
