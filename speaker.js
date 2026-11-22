@@ -145,6 +145,12 @@
     '.spkv{display:none;margin-left:0;font-size:.82rem;white-space:nowrap}' +
     '.tts .spkv{display:inline-flex;align-items:center;gap:.35rem}' +
     '.spkv .spkt{line-height:1.2;font-family:system-ui,-apple-system,"Noto Sans TC","Segoe UI",sans-serif;font-weight:500}' +
+    '.spk-help{display:none;margin:.7rem 0;padding:.6rem .85rem;border:1px solid rgba(128,110,80,.35);border-radius:6px;background:rgba(128,110,80,.08);font-size:.92rem;line-height:1.7}' +
+    'body.spk-ready:not(.tts) .spk-help{display:block}' +
+    '.spk-help summary{cursor:pointer;font-weight:600}' +
+    '.spk-help ul{margin:.5rem 0 .3rem;padding-left:1.3rem}' +
+    '.spk-help p{margin:.3rem 0 0}' +
+    '@media print{.spk-help{display:none !important}}' +
     '@media screen and (prefers-color-scheme:dark){.spk{background:transparent;color:#E4B6B0;border-color:#4F413A}' +
     '.spk:hover,.spk.playing{background:#AE3626;border-color:#AE3626;color:#FFFDF7}}';
   var st = document.createElement('style');
@@ -179,6 +185,29 @@
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
+
+  /* 沒有英文語音時的說明：頁面放 <div data-spk-help></div>，裝置沒有英文語音才會顯示（預設收合）。
+   * 文字只寫在這裡，改一處全站同步。等 1.5 秒再判斷，避免語音還沒載入就先閃出說明。 */
+  var HELP_HTML = '<details><summary>這台裝置沒有英文語音，所以沒有喇叭。怎麼安裝？</summary>' +
+    '<ul>' +
+    '<li><b>iPhone：</b>設定 → 輔助使用 → 朗讀內容 → 聲音，點「英文」，下載一個聲音。</li>' +
+    '<li><b>Android：</b>設定 → 無障礙 → 文字轉語音輸出，點引擎旁邊的設定圖示，選「安裝語音資料」，下載英文。三星手機在 設定 → 一般管理 → 文字轉語音。</li>' +
+    '<li><b>Windows：</b>設定 → 時間與語言 → 語音，在「管理語音」按「新增語音」，選英文（美國）。</li>' +
+    '</ul>' +
+    '<p>裝好後重新整理本頁，喇叭就會出現。各品牌和系統版本的選單名稱略有不同。</p>' +
+    '</details>';
+  function helpInit() {
+    try {
+      var hs = document.querySelectorAll('[data-spk-help]');
+      for (var i = 0; i < hs.length; i++) {
+        hs[i].className = (hs[i].className ? hs[i].className + ' ' : '') + 'spk-help';
+        hs[i].innerHTML = HELP_HTML;
+      }
+      setTimeout(function () { if (document.body) document.body.classList.add('spk-ready'); }, 1500);
+    } catch (err) {}
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', helpInit);
+  else helpInit();
 
   document.addEventListener('click', function (ev) {
     var b = ev.target.closest && ev.target.closest('.spk');
