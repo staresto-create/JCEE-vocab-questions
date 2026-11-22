@@ -219,6 +219,8 @@ Card.prototype.skel=function(){
     out+=esc(w.slice(last)); return out;
   }).join(' ');
 };
+function spkP(w){if(!window.SPK)return'';var t=String(w).replace(/\([^)]*\)/g,' ').replace(/\b(sb|sth|sb's|one's|oneself|someone|something|somebody)\b/gi,' ').replace(/[\u2019]/g,"'").replace(/\s+/g,' ').trim();if(!t||/[^A-Za-z' -]/.test(t))return'';return SPK.html(t,true)}
+Card.prototype.say=function(){return this.toks.filter(function(t){return t.kind!=='p'}).map(function(t){return t.w}).join(' ').replace(/[.,;:!?]/g,' ')};
 Card.prototype.answer=function(){
   return this.toks.map(function(t){return t.kind==='p'?'<span class="p">'+esc(t.w)+'</span>':esc(t.w)}).join(' ');
 };
@@ -251,7 +253,7 @@ function draw(){
     $('ansB').onclick=function(){S.flip=true;draw()};
   }else{
     var ex=c.x?c.x.replace(/[&<>"]/g,function(ch){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[ch]}).replace(/【/g,'<mark>').replace(/】/g,'</mark>'):'';
-    var b=meta+'<p class="en">'+cd.answer()+'</p><p class="zh" style="font-size:22px">'+esc(c.z)+'</p><p class="form">'+[c.f&&c.f!=='其他'?esc(c.f):'',c.t!=='通用'?esc(c.t):esc(c.s||'')].filter(Boolean).join('　·　')+'</p>';
+    var b=meta+'<p class="en">'+cd.answer()+'</p>'+(spkP(cd.say())?'<p style="margin:.2rem 0 0">'+spkP(cd.say())+'</p>':'')+'<p class="zh" style="font-size:22px">'+esc(c.z)+'</p><p class="form">'+[c.f&&c.f!=='其他'?esc(c.f):'',c.t!=='通用'?esc(c.t):esc(c.s||'')].filter(Boolean).join('　·　')+'</p>';
     if(ex)b+='<p class="ex">'+ex+'</p>';
     if(c.d)b+='<p class="src hang sense"><b>一字多義</b><span>'+esc(c.d)+'</span></p>';
     if(c.w)b+='<p class="warn"><b>不要寫成</b>　<s>'+esc(c.w)+'</s><br>'+esc(c.wy)+'</p>';
@@ -282,6 +284,7 @@ $('clearBtn').onclick=function(){known={};save();renderSetup()};$('startBtn').on
 fetch('collocations_data.json?v=2').then(function(r){return r.json()}).then(function(d){DATA=d;renderSetup()}).catch(function(){$('count').textContent='資料讀取失敗，請重新整理頁面。'});
 })();
 </script>
+<script src="speaker.js"></script>
 <script src="backbar.js" defer></script>
 </body>
 </html>
