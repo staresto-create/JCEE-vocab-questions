@@ -131,6 +131,10 @@
 
   /* ---- QUIZ ---- */
   #quiz{display:none;}
+  .backMap{display:inline-flex; align-items:center; min-height:44px; margin:0 0 6px; font-size:14px; font-weight:700; color:var(--crimson); text-decoration:none;}
+  .backMap:hover{text-decoration:underline; text-underline-offset:3px;}
+  #backMap[hidden]{display:none;}
+  @media print{#backMap{display:none !important;}}
   .quiz-meta{
     display:flex; justify-content:space-between; align-items:center;
     font-family:'IBM Plex Mono','Noto Sans TC',monospace; font-size:12px; color:var(--ink-soft); margin-bottom:10px;
@@ -327,6 +331,7 @@ details.skill[open] > summary::after{content:'－ 收合';}
 /* sticky-go 2026-10-25 */
 .stickyGo{position:sticky; bottom:60px; z-index:25; background:var(--paper-card); padding:10px 0 8px; box-shadow:0 -10px 12px -6px var(--paper-card);}
 .stickyGo .ghost-btn{background:var(--ink); color:var(--paper-card); font-weight:700;}
+.stickyGo .poolInfo{flex:1 0 100%; font-size:13px; color:var(--ink-soft); line-height:1.5; margin:-4px 0 -4px;}
 @media print{.stickyGo{position:static; box-shadow:none;}}
 
 /* fold-cue 2026-10-25：全站可展開的區塊統一提示。標題右側一律是「＋ 展開」，展開後變「－ 收合」；舊的箭頭與各式提示字樣一併取代。 */
@@ -539,8 +544,8 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
       <div class="sec-title">依難易度篩選<span class="diff-hint">（選填，可複選，跟上方範圍條件一起套用；不選則不限難易度）</span></div>
       <div class="cat-grid" id="diffGrid"></div>
       <div class="diff-note">
-        <b>難易度</b>依大考中心公布的「全體考生答對率」（P 值）分成三級：<b>難</b>（≤25%）／<b>中</b>（25~75%）／<b>易</b>（＞75%）。切點取 25% 與 75%，是因為四選一的題目就算完全用猜的，期望答對率也有 25%；低於這條線，代表全體考生的表現並不比亂猜好，75% 則取對稱的另一端。大考中心沒有公布分級的切點百分比，官方評述各年試題時用的是「難、中偏難、中偏易、易」四級用語，和本題庫的三級不是同一套，不要互相對照。<br>
-        <b>特殊</b>這一級看的不是難易度，而是<b>鑑別度</b>（D 值）。大考中心把原始得分前三分之一的考生定為高分組、後三分之一定為低分組，D 值就是兩組答對率的差；官方說明指出「良好試題的鑑別度應大於 0」，若為負值，代表低分組考生答對率反而高於高分組。這類題目特別適合拿來討論、練習。<b>「特殊」與「難」互斥</b>：D 為負的題目一律歸入「特殊」，即使答對率也在 25% 以下，也不會出現在「難」裡面。<br>
+        <b>難易度</b>依大考中心公布的「全體考生答對率」（P 值）分成三級：<b>難</b>（25% 以下）／<b>中</b>（26–75%）／<b>易</b>（76% 以上）；大考中心公布的答對率都是整數。切點取 25% 與 75%，是因為四選一的題目就算完全用猜的，期望答對率也有 25%；低於這條線，代表全體考生的表現並不比亂猜好，75% 則取對稱的另一端。大考中心沒有公布分級的切點百分比，官方評述各年試題時用的是「難、中偏難、中偏易、易」四級用語，和本題庫的三級不是同一套，不要互相對照。<br>
+        <b>特殊</b>看的不是難易度，而是<b>鑑別度</b>（D 值）。大考中心把原始得分前三分之一的考生定為高分組、後三分之一定為低分組，D 值就是兩組答對率的差；官方說明指出「良好試題的鑑別度應該要大於0」，若為負值，代表低分組考生答對率反而高於高分組。這類題目特別適合拿來討論、練習。鑑別度為負的題目也照答對率歸在難、中、易其中一級，所以勾「難」時，答對率 25% 以下的這類題目一樣會選到。<br>
         兩點提醒：本題庫 500 題中有 150 題沒有官方答對率（原因見作答頁說明），<b>只要勾選任何一個難易度，這 150 題就會被排除</b>；另外，作答頁把答對率低於 35% 的數字標成紅色，那是提醒「這題偏難」的另一條線，與上面的 25／75 分級是兩回事。<br>
         資料來源：逐題答對率與鑑別度取自大考中心<a href="https://www.ceec.edu.tw/xmdoc?xsmsid=0J018604485538810196" target="_blank" rel="noopener">學科能力測驗統計資料↗</a>各年度統計圖表；名詞說明見<a href="https://www.ceec.edu.tw/xcepaper/cont?xsmsid=0J066588036013658199&amp;qunit=0J066614378153514816&amp;sid=0K042343829406896328" target="_blank" rel="noopener">《一起來認識學測與指考的試題答對率》↗</a>、<a href="https://www.ceec.edu.tw/xcepaper/cont?xsmsid=0J066588036013658199&amp;qunit=0J066614378153514816&amp;sid=0K073687789378174143" target="_blank" rel="noopener">《一起來認識學測與指考的試題鑑別度》↗</a>（選才電子報「數字真相」專欄）。
       </div>
@@ -555,6 +560,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
       </div>
 
       <div class="row stickyGo" style="margin-top:12px;">
+        <div class="poolInfo" id="poolInfo" aria-live="polite"></div>
         <button class="ghost-btn" onclick="startRangePractice()" style="flex:1;">開始練習</button>
       </div>
       </div>
@@ -569,6 +575,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
           <button class="ghost-btn" onclick="startMock()" style="width:100%;">開始作答這份試題</button>
         </div>
       </div>
+      <div class="diff-note">學測從 83 年開始舉辦，最早是為「推薦甄選」入學管道設計的考試。83 到 90 年的題目都標示為學測。</div>
     </div>
 
     <div class="card" style="padding:24px 26px;">
@@ -674,6 +681,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
   </div>
 
   <!-- QUIZ -->
+  <a class="backMap noPrint" id="backMap" href="map/?back" hidden>← 回題目地圖</a>
   <div id="quiz">
     <div class="printBar noPrint"><button type="button" class="printBtn" onclick="printSet()">🖨️ 列印成考卷</button><span class="printSub" id="printSub">空白試卷，不含答案、解析和提示</span><div class="printMobile">手機上按鈕沒有反應時，也可以：iPhone 點「分享」（沒看到就先點「⋯」）→往下滑點「列印」；<span style="white-space:nowrap">Android（Chrome）</span>點「⋮」→「分享」→「列印」。</div></div>
     <div class="quiz-meta">
@@ -730,7 +738,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
 
   <div id="printSheet" aria-hidden="true"></div>
 
-  <footer><div style="font-family:'Noto Sans TC',sans-serif; font-size:13px; line-height:2; margin-bottom:12px;"><a href="https://staresto-create.github.io/JCEE-vocab-questions/" style="color:var(--link-crimson); font-weight:700; text-decoration:underline; text-underline-offset:2px; white-space:nowrap;">← 回題庫首頁</a><span style="padding:0 8px; opacity:.5;">·</span><a href="https://staresto-create.github.io/JCEE-vocab-questions/#rules" style="color:var(--link-crimson); font-weight:700; text-decoration:underline; text-underline-offset:2px; white-space:nowrap;">🧩 五個詞：拼圖的規則</a></div>資料來源：83–115 年學測、推薦甄選與學測補考詞彙題（大考中心公布），分級依《高中英文參考詞彙表》<br>© 2026 staresto-create ZZSH · 免費、無廣告的非營利自學題庫 · <a href="https://staresto-create.github.io/JCEE-vocab-questions/#terms" style="color:var(--link-crimson); font-weight:700; text-decoration:underline; text-underline-offset:2px; white-space:nowrap;">📖 使用與著作權</a><p class="cc-note">本題庫自己寫的部分（解析、中譯、分類、標註與編排）採用 <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh-hant" target="_blank" rel="license noopener">CC BY-NC 4.0</a>（姓名標示─非商業性）授權：可以分享，但須註明出處，不得用於商業用途。試題來源與完整說明請見<a href="https://staresto-create.github.io/JCEE-vocab-questions/#terms">使用與著作權</a>。</p>
+  <footer><div style="font-family:'Noto Sans TC',sans-serif; font-size:13px; line-height:2; margin-bottom:12px;"><a href="https://staresto-create.github.io/JCEE-vocab-questions/" style="color:var(--link-crimson); font-weight:700; text-decoration:underline; text-underline-offset:2px; white-space:nowrap;">← 回題庫首頁</a><span style="padding:0 8px; opacity:.5;">·</span><a href="https://staresto-create.github.io/JCEE-vocab-questions/#rules" style="color:var(--link-crimson); font-weight:700; text-decoration:underline; text-underline-offset:2px; white-space:nowrap;">🧩 五個詞：拼圖的規則</a></div>資料來源：83–115 年學測與學測補考詞彙題（大考中心公布），分級依《高中英文參考詞彙表》<br>© 2026 staresto-create ZZSH · 免費、無廣告的非營利自學題庫 · <a href="https://staresto-create.github.io/JCEE-vocab-questions/#terms" style="color:var(--link-crimson); font-weight:700; text-decoration:underline; text-underline-offset:2px; white-space:nowrap;">📖 使用與著作權</a><p class="cc-note">本題庫自己寫的部分（解析、中譯、分類、標註與編排）採用 <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh-hant" target="_blank" rel="license noopener">CC BY-NC 4.0</a>（姓名標示─非商業性）授權：可以分享，但須註明出處，不得用於商業用途。試題來源與完整說明請見<a href="https://staresto-create.github.io/JCEE-vocab-questions/#terms">使用與著作權</a>。</p>
 </footer>
 </div>
 
@@ -836,6 +844,7 @@ function initHome(){
   mockYear.value = combos[0].y+'|'+combos[0].t;   // 預設最新年度
   buildDiffChips();
   buildLevelChips();
+  initPoolInfo();
   renderWrongBook();
   renderHistory();
   renderProgress();
@@ -872,8 +881,9 @@ function renderHistory(){
 }
 
 /* ---------- Question selection ---------- */
+/* 鑑別度為負是另外一個標記，不是第四級：這類題照樣依答對率歸入難、中、易（和題目地圖一致） */
+function isSpecialQ(q){ return typeof q.discrimination === 'number' && q.discrimination < 0; }
 function getDiffTier(q){
-  if(q.discrimination !== undefined && q.discrimination < 0) return 'special';
   if(typeof q.accuracyRate !== 'number') return null;
   if(q.accuracyRate <= 25) return 'hard';
   if(q.accuracyRate <= 75) return 'mid';
@@ -881,9 +891,9 @@ function getDiffTier(q){
 }
 let selectedDiffs = new Set();
 function buildDiffChips(){
-  const labels = {hard:'難（≤25%）', mid:'中（25~75%）', easy:'易（＞75%）', special:'特殊（鑑別度為負）'};
+  const labels = {hard:'難（25% 以下）', mid:'中（26–75%）', easy:'易（76% 以上）', special:'特殊：鑑別度為負'};
   const counts = {hard:0, mid:0, easy:0, special:0};
-  QUESTIONS.forEach(q => { const t = getDiffTier(q); if(t) counts[t]++; });
+  QUESTIONS.forEach(q => { const t = getDiffTier(q); if(t) counts[t]++; if(isSpecialQ(q)) counts.special++; });
   const grid = document.getElementById('diffGrid');
   selectedDiffs = new Set();
   grid.innerHTML = ['hard','mid','easy','special'].map(t =>
@@ -894,6 +904,7 @@ function toggleDiff(el){
   const t = el.dataset.diff;
   if(selectedDiffs.has(t)){ selectedDiffs.delete(t); el.classList.remove('on'); }
   else{ selectedDiffs.add(t); el.classList.add('on'); }
+  updatePoolInfo();
 }
 
 function getLevelTier(q){
@@ -920,17 +931,46 @@ function toggleLevel(el){
   const k = el.dataset.level;
   if(selectedLevels.has(k)){ selectedLevels.delete(k); el.classList.remove('on'); }
   else{ selectedLevels.add(k); el.classList.add('on'); }
+  updatePoolInfo();
 }
 
 function randomTen(){ return shuffle(QUESTIONS).slice(0,10).map(q=>q.id); }
+
+/* 範圍練習的題目池：年份範圍＋難易度＋級別 */
+function rangePool(){
+  const yFrom = +document.getElementById('yFrom').value;
+  const yTo = +document.getElementById('yTo').value;
+  const diffOk = q => selectedDiffs.size===0 || selectedDiffs.has(getDiffTier(q)) || (selectedDiffs.has('special') && isSpecialQ(q));
+  const levelOk = q => selectedLevels.size===0 || selectedLevels.has(getLevelTier(q));
+  return QUESTIONS.filter(q => q.y >= Math.min(yFrom,yTo) && q.y <= Math.max(yFrom,yTo) && diffOk(q) && levelOk(q));
+}
+/* 題數防呆（2026-11-24）：勾了難易度或級別、符合的題目又不超過 60 題時，題數自動改成全部（例如「難」有幾題就練幾題）；
+   學生自己改過題數，就照學生填的。按鈕上方隨時顯示「符合條件共幾題、這一回練幾題」。 */
+let numQTouched = false;
+function updatePoolInfo(){
+  const inp = document.getElementById('numQ'), info = document.getElementById('poolInfo');
+  if(!inp || !info) return;
+  const pool = rangePool();
+  const filtered = selectedDiffs.size > 0 || selectedLevels.size > 0;
+  if(!numQTouched) inp.value = (filtered && pool.length > 0 && pool.length <= 60) ? pool.length : 10;
+  const n = Math.max(1, Math.min(60, +inp.value || 10));
+  if(pool.length === 0){ info.textContent = '目前的條件沒有符合的題目，請放寬條件。'; return; }
+  const m = Math.min(n, pool.length);
+  info.textContent = '符合條件共 ' + pool.length + ' 題，這一回練 ' + m + ' 題' + (m === pool.length ? '（全部，順序打亂）' : '（隨機抽出）');
+}
+function initPoolInfo(){
+  const inp = document.getElementById('numQ');
+  inp.oninput = () => { numQTouched = true; updatePoolInfo(); };
+  document.getElementById('yFrom').onchange = updatePoolInfo;
+  document.getElementById('yTo').onchange = updatePoolInfo;
+  updatePoolInfo();
+}
 
 function startRangePractice(){
   const yFrom = +document.getElementById('yFrom').value;
   const yTo = +document.getElementById('yTo').value;
   const n = Math.max(1, Math.min(60, +document.getElementById('numQ').value || 10));
-  const diffOk = q => selectedDiffs.size===0 || selectedDiffs.has(getDiffTier(q));
-  const levelOk = q => selectedLevels.size===0 || selectedLevels.has(getLevelTier(q));
-  const pool = QUESTIONS.filter(q => q.y >= Math.min(yFrom,yTo) && q.y <= Math.max(yFrom,yTo) && diffOk(q) && levelOk(q));
+  const pool = rangePool();
   if(pool.length === 0){ alert('這個範圍或難易度篩選條件下沒有題目'); return; }
   startQuiz(shuffle(pool).slice(0,n).map(q=>q.id), '範圍練習 '+Math.min(yFrom,yTo)+'–'+Math.max(yFrom,yTo)+'年');
 }
@@ -1274,6 +1314,8 @@ function finishQuiz(){
 }
 
 function goHome(){
+  try{ sessionStorage.removeItem('jgFromMap'); sessionStorage.removeItem('jgMapState'); }catch(e){}
+  var bm = document.getElementById('backMap'); if(bm) bm.hidden = true;
   document.getElementById('printSheet').innerHTML=''; document.body.classList.remove('hasSheet');
   scrMountStrip();
   document.getElementById('result').style.display='none';
@@ -1338,6 +1380,8 @@ function scrSaveQ(q){
 scrMountStrip();
 initHome();
 startFromSetHash() || startFromHash();
+/* 從題目地圖點進來（地圖會留一個一次性的記號）才顯示「← 回題目地圖」；記號讀到就清掉 */
+try{ var fm = sessionStorage.getItem('jgFromMap'); sessionStorage.removeItem('jgFromMap'); if(fm && /^#q-/.test(location.hash || '')){ var bm0 = document.getElementById('backMap'); if(bm0) bm0.hidden = false; } }catch(e){}
 </script>
 <script>
 /* 單元列：連到收合區塊的錨點會先展開；「↑ 單元列」在單元列捲出畫面後才出現 */

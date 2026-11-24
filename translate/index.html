@@ -615,6 +615,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
 .printMobile{flex:0 0 100%;font-size:12.5px;line-height:1.7;opacity:.8;}
 @media print{.printBar{display:none !important;}}
 </style>
+<style>#backMap[hidden]{display:none !important;}@media print{#backMap{display:none !important;}}</style>
 </head>
 <body>
 
@@ -657,7 +658,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
       <div class="year-note">
         <b>92 年怎麼沒有題目？</b><br>
         那一年學測考的是簡答題——讀一篇英文短文，再用英文回答問題，不是中譯英；91、92 兩年的指考也都沒有考翻譯。前面 86 到 90 年並沒有缺，那幾年的題目來自當時的大學聯考，每年 5 題。有興趣了解簡答題的同學，可以到<a href="https://staresto-create.github.io/mixed-format/" style="color:var(--ad-x9C2C1E-fg);font-weight:700;">混合題題庫</a>看看——那是 111 學年度起才有的題型，作答方式裡也有簡答。<br>
-        年度列表裡的 <b>91</b> 只有 6 題，全部來自大考中心的「英文寫作能力研究用試卷」，不是正式考試的題目，說明見下方「91 年那 6 題是什麼」。97 年另有 5 題來自大考中心另一份英文寫作能力研究用試卷，也在同一段說明。<br>
+        年度列表裡的 <b>91</b> 只有 6 題，全部來自大考中心的「英文寫作能力研究用試卷」，屬研究性質、成績不採計入學，說明見下方「91 年那 6 題是什麼」。97 年另有 5 題來自大考中心另一份英文寫作能力研究用試卷，也在同一段說明。<br>
         本題庫收錄 73–115 年、共 218 題。<br>
         <b>「改編練習」是什麼？</b><br>
         年度列表最後的「改編練習」不是大考中心的試題，是本題庫照現行學測中譯英的版面擬的 30 組、60 題：一組兩句、前後相連，主題取自歷屆學測、指考閱讀測驗的文章或新聞，也有一部分由本題庫自擬，參考譯法與解析由本題庫撰寫，沒有官方評分原則，也不算進上面的 218 題。按下對答案之後，會多出一欄「分段給分」，可以照段替自己算分。
@@ -830,6 +831,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
   </section>
 
   <!-- ============ QUIZ VIEW ============ -->
+  <a class="backMap noPrint" id="backMap" href="map/?back" hidden style="display:inline-flex;align-items:center;min-height:44px;margin:0 0 6px;font-weight:700;text-decoration:underline;text-underline-offset:3px">← 回題目地圖</a>
   <section id="view-quiz" class="view">
     <div class="printBar noPrint"><button type="button" class="printBtn" onclick="printSet()">🖨️ 列印成考卷</button><span class="printSub" id="printSub">空白試卷，不含參考譯法和解析</span><div class="printMobile">手機上按鈕沒有反應時，也可以：iPhone 點「分享」（沒看到就先點「⋯」）→往下滑點「列印」；<span style="white-space:nowrap">Android（Chrome）</span>點「⋮」→「分享」→「列印」。</div></div>
     <div class="stats-strip">
@@ -1025,6 +1027,8 @@ async function loadItems(){
   scrMountStrip();
   renderProgress();
   startFromSetHash() || startFromHash() || startFromSheetHash();
+  /* 從題目地圖按「做這一題」「開始練習」等進來（地圖會留一個一次性的記號）才顯示「← 回題目地圖」；記號讀到就清掉 */
+  try{ const fm = sessionStorage.getItem('jtFromMap'); sessionStorage.removeItem('jtFromMap'); if(fm && /^#set-/.test(location.hash || '')){ const bm = document.getElementById('backMap'); if(bm) bm.hidden = false; } }catch(e){}
 }
 
 /* #sheet- 列印入口（2026-11-07）：題目地圖的「列印成考卷」「列印錯題考卷」連到這裡。
@@ -1066,7 +1070,7 @@ function startFromSheetHash(){
   btn.addEventListener('click', () => { build(); safePrint(); });
   const back = document.createElement('a');
   back.href = 'map/'; back.textContent = '回到題目地圖';
-  back.style.cssText = 'margin-left:14px;font-weight:700;color:var(--ad-vseal-fg);text-underline-offset:3px;';
+  back.style.cssText = 'display:inline-flex;align-items:center;min-height:44px;margin-left:14px;font-weight:700;color:var(--ad-vseal-fg);text-underline-offset:3px;';
   box.appendChild(t); box.appendChild(btn); box.appendChild(back);
   const setup = document.getElementById('view-setup');
   setup.insertBefore(box, setup.firstChild);
@@ -1287,6 +1291,7 @@ window.addEventListener('beforeprint',function(){
   else if(n==='finish' && queue.length && queue.length<=30) buildPrintSheet();
 });
 function showView(name){
+  if(name !== "quiz" && name !== "finish"){ const bm = document.getElementById("backMap"); if(bm) bm.hidden = true; }
   document.querySelectorAll("section.view").forEach(s=>s.classList.remove("active"));
   document.getElementById("view-"+name).classList.add("active");
   if(name === "quiz") buildPrintSheet();

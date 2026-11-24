@@ -127,6 +127,10 @@
 
   /* ---- QUIZ ---- */
   #quiz{display:none;}
+  .backMap{display:inline-flex; align-items:center; min-height:44px; margin:0 0 6px; font-size:14px; font-weight:700; color:var(--crimson); text-decoration:none;}
+  .backMap:hover{text-decoration:underline; text-underline-offset:3px;}
+  #backMap[hidden]{display:none;}
+  @media print{#backMap{display:none !important;}}
   .quiz-meta{
     display:flex; justify-content:space-between; align-items:center;
     font-family:'IBM Plex Mono','Noto Sans TC',monospace; font-size:12px; color:var(--ink-soft); margin-bottom:10px;
@@ -322,6 +326,7 @@ details.skill[open] > summary::after{content:'－ 收合';}
 /* sticky-go 2026-10-25 */
 .stickyGo{position:sticky; bottom:60px; z-index:25; background:var(--paper-card); padding:10px 0 8px; box-shadow:0 -10px 12px -6px var(--paper-card);}
 .stickyGo .ghost-btn{background:var(--ink); color:var(--paper-card); font-weight:700;}
+.stickyGo .poolInfo{flex:1 0 100%; font-size:13px; color:var(--ink-soft); line-height:1.5; margin:-4px 0 -4px;}
 @media print{.stickyGo{position:static; box-shadow:none;}}
 
 /* fold-cue 2026-10-25：全站可展開的區塊統一提示。標題右側一律是「＋ 展開」，展開後變「－ 收合」；舊的箭頭與各式提示字樣一併取代。 */
@@ -439,8 +444,8 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
       <div class="sec-title">依難易度篩選<span class="diff-hint">（選填，可複選，跟上方範圍條件一起套用；不選則不限難易度）</span></div>
       <div class="cat-grid" id="diffGrid"></div>
       <div class="diff-note">
-        <b>難易度</b>依大考中心公布的「全體考生答對率」（P 值）分成三級：<b>難</b>（≤25%）／<b>中</b>（25~75%）／<b>易</b>（＞75%）。切點取 25% 與 75%，是因為四選一的題目就算完全用猜的，期望答對率也有 25%；低於這條線，代表全體考生的表現並不比亂猜好，75% 則取對稱的另一端。大考中心沒有公布分級的切點百分比，官方評述各年試題時用的是「難、中偏難、中偏易、易」四級用語，和本題庫的三級不是同一套，不要互相對照。<br>
-        <b>特殊</b>量的不是難易度，而是<b>鑑別度</b>（D 值）。大考中心把原始得分前三分之一的考生定為高分組、後三分之一定為低分組，D 值就是兩組答對率的差；官方說明指出「良好試題的鑑別度應大於 0」，若為負值，代表低分組考生答對率反而高於高分組。<b>本題庫收錄的 202 筆指考鑑別度資料，沒有一題是負值</b>，因此這一格目前是 0；保留它是為了與學測單字題庫體例一致，日後若補入的年度出現負值也不必改版面。另請注意，D 為負的題目一律歸入「特殊」而不歸「難」，兩者互斥。<br>
+        <b>難易度</b>依大考中心公布的「全體考生答對率」（P 值）分成三級：<b>難</b>（25% 以下）／<b>中</b>（26–75%）／<b>易</b>（76% 以上）；大考中心公布的答對率都是整數。切點取 25% 與 75%，是因為四選一的題目就算完全用猜的，期望答對率也有 25%；低於這條線，代表全體考生的表現並不比亂猜好，75% 則取對稱的另一端。大考中心沒有公布分級的切點百分比，官方評述各年試題時用的是「難、中偏難、中偏易、易」四級用語，和本題庫的三級不是同一套，不要互相對照。<br>
+        <b>鑑別度</b>（D 值）看的不是難易度，而是題目能不能分出程度高低。大考中心把原始得分前三分之一的考生定為高分組、後三分之一定為低分組，D 值就是兩組答對率的差；官方說明指出「良好試題的鑑別度應該要大於0」，若為負值，代表低分組考生答對率反而高於高分組。<b>本題庫收錄的 202 筆指考鑑別度資料，沒有一題是負值</b>。<br>
         兩點提醒：本題庫 343 題中有 141 題沒有官方答對率（原因見作答頁說明），<b>只要勾選任何一個難易度，這 141 題就會被排除</b>；另外，作答頁把答對率低於 35% 的數字標成紅色，那是提醒「這題偏難」的另一條線，與上面的 25／75 分級是兩回事。<br>
         資料來源：逐題答對率與鑑別度取自大考中心<a href="https://www.ceec.edu.tw/xmdoc?xsmsid=0J018611000723433352" target="_blank" rel="noopener">分科測驗（110 前指考）統計資料↗</a>各年度統計圖表；名詞說明見<a href="https://www.ceec.edu.tw/xcepaper/cont?xsmsid=0J066588036013658199&amp;qunit=0J066614378153514816&amp;sid=0K042343829406896328" target="_blank" rel="noopener">《一起來認識學測與指考的試題答對率》↗</a>、<a href="https://www.ceec.edu.tw/xcepaper/cont?xsmsid=0J066588036013658199&amp;qunit=0J066614378153514816&amp;sid=0K073687789378174143" target="_blank" rel="noopener">《一起來認識學測與指考的試題鑑別度》↗</a>（選才電子報「數字真相」專欄）。
       </div>
@@ -455,6 +460,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
       </div>
 
       <div class="row stickyGo" style="margin-top:12px;">
+        <div class="poolInfo" id="poolInfo" aria-live="polite"></div>
         <button class="ghost-btn" onclick="startRangePractice()" style="flex:1;">開始練習</button>
       </div>
       </div>
@@ -575,6 +581,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
   </div>
 
   <!-- QUIZ -->
+  <a class="backMap noPrint" id="backMap" href="map/?back" hidden>← 回題目地圖</a>
   <div id="quiz">
     <div class="printBar noPrint"><button type="button" class="printBtn" onclick="printSet()">🖨️ 列印成考卷</button><span class="printSub" id="printSub">空白試卷，不含答案、解析和提示</span><div class="printMobile">手機上按鈕沒有反應時，也可以：iPhone 點「分享」（沒看到就先點「⋯」）→往下滑點「列印」；<span style="white-space:nowrap">Android（Chrome）</span>點「⋮」→「分享」→「列印」。</div></div>
     <div class="quiz-meta">
@@ -589,7 +596,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
       <div class="explain" id="qExplain">
         <div class="zh" id="explainZh"></div>
         <div id="explainGloss"></div>
-        <div class="level-note">＊未標示級別 [ ] 的有三類，<b>沒有級別不等於這個字很難</b>：<b>片語</b>（詞彙表只收錄單詞，不收錄片語，<code>at least</code>、<code>stand out</code> 都在這一類）、<b>單字的變化形</b>（如 -ly 副詞、-ed 形容詞，詞彙表因變化規則固定而不另外收錄，<code>bankruptcy</code> 未收錄，但 <code>bankrupt</code> 是第 4 級），以及<b>確實未收錄的字</b>。這三類都不是資料缺漏。<br>＊81–90 年大學聯考，以及 93 年敏督利颱風受災地區考生補救考試、98 指考參考試卷、109 年補考未顯示答對率，是因為大考中心沒有公布這些場次的逐題答對率統計，不是資料缺漏。<br>＊<b>不是每個字都有字詞搭配</b>：大考中心的考試說明把詞彙題的測驗目標寫成構詞、語意、字詞搭配三項，本題庫 343 題中 320 題附上這一欄，其餘 23 題的測驗重點落在前兩項，留白不是資料缺漏。</div>
+        <div class="level-note">＊未標示級別 [ ] 的有三類，<b>沒有級別不等於這個字很難</b>：<b>片語</b>（詞彙表只收錄單詞，不收錄片語，<code>at least</code>、<code>stand out</code> 都在這一類）、<b>單字的變化形</b>（如 -ly 副詞、-ed 形容詞，詞彙表因變化規則固定而不另外收錄，<code>bankruptcy</code> 未收錄，但 <code>bankrupt</code> 是第 4 級），以及<b>確實未收錄的字</b>。這三類都不是資料缺漏。<br>＊81–90 年大學聯考，以及 93 年敏督利颱風受災地區考生補救考試、95 課綱指考參考試卷（98 年施測）、109 年補考未顯示答對率，是因為大考中心沒有公布這些場次的逐題答對率統計，不是資料缺漏。<br>＊<b>不是每個字都有字詞搭配</b>：大考中心的考試說明把詞彙題的測驗目標寫成構詞、語意、字詞搭配三項，本題庫 343 題中 320 題附上這一欄，其餘 23 題的測驗重點落在前兩項，留白不是資料缺漏。</div>
         <div class="acc-tag" id="qAccTag"></div>
         <div class="span-tag" id="qSpanTag"></div>
         <div class="tb-box" id="qTbBox"></div>
@@ -638,6 +645,8 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
 <script src="../kk.js"></script>
 <script src="data.js"></script>
 <script>
+/* 試卷的顯示名稱：指考參考試卷寫成「95 課綱指考參考試卷（98 年施測）」，和題目地圖一致（資料裡的 t 不動） */
+function ytLabel(y, t){ return t === '指考參考試卷（95 課綱適用，98 年施測）' ? '95 課綱指考參考試卷（98 年施測）' : y + '年 ' + t; }
 function escNote(s){
   return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }
@@ -718,11 +727,12 @@ function initHome(){
   });
   const combos = [...comboMap.values()].sort((a,b)=> b.y-a.y || a.t.localeCompare(b.t));   // 年度新→舊
   combos.forEach(c=>{
-    mockYear.appendChild(new Option(c.y+'年 '+c.t, c.y+'|'+c.t));
+    mockYear.appendChild(new Option(ytLabel(c.y, c.t), c.y+'|'+c.t));
   });
   mockYear.value = combos[0].y+'|'+combos[0].t;   // 預設最新年度
   buildDiffChips();
   buildLevelChips();
+  initPoolInfo();
   renderWrongBook();
   renderHistory();
   renderProgress();
@@ -759,8 +769,9 @@ function renderHistory(){
 }
 
 /* ---------- Question selection ---------- */
+/* 鑑別度為負是另外一個標記，不是第四級：這類題照樣依答對率歸入難、中、易（和題目地圖一致） */
+function isSpecialQ(q){ return typeof q.discrimination === 'number' && q.discrimination < 0; }
 function getDiffTier(q){
-  if(q.discrimination !== undefined && q.discrimination < 0) return 'special';
   if(typeof q.accuracyRate !== 'number') return null;
   if(q.accuracyRate <= 25) return 'hard';
   if(q.accuracyRate <= 75) return 'mid';
@@ -768,12 +779,12 @@ function getDiffTier(q){
 }
 let selectedDiffs = new Set();
 function buildDiffChips(){
-  const labels = {hard:'難（≤25%）', mid:'中（25~75%）', easy:'易（＞75%）', special:'特殊（鑑別度為負）'};
+  const labels = {hard:'難（25% 以下）', mid:'中（26–75%）', easy:'易（76% 以上）', special:'特殊：鑑別度為負'};
   const counts = {hard:0, mid:0, easy:0, special:0};
-  QUESTIONS.forEach(q => { const t = getDiffTier(q); if(t) counts[t]++; });
+  QUESTIONS.forEach(q => { const t = getDiffTier(q); if(t) counts[t]++; if(isSpecialQ(q)) counts.special++; });
   const grid = document.getElementById('diffGrid');
   selectedDiffs = new Set();
-  grid.innerHTML = ['hard','mid','easy','special'].map(t =>
+  grid.innerHTML = ['hard','mid','easy','special'].filter(t => t!=='special' || counts.special>0).map(t =>
     `<div class="cat-chip" data-diff="${t}" onclick="toggleDiff(this)"${counts[t]?'':' aria-disabled="true" style="opacity:.4;pointer-events:none"'}>${labels[t]} <span class="chip-count">(${counts[t]})</span></div>`
   ).join('');
 }
@@ -781,6 +792,7 @@ function toggleDiff(el){
   const t = el.dataset.diff;
   if(selectedDiffs.has(t)){ selectedDiffs.delete(t); el.classList.remove('on'); }
   else{ selectedDiffs.add(t); el.classList.add('on'); }
+  updatePoolInfo();
 }
 
 function getLevelTier(q){
@@ -807,17 +819,46 @@ function toggleLevel(el){
   const k = el.dataset.level;
   if(selectedLevels.has(k)){ selectedLevels.delete(k); el.classList.remove('on'); }
   else{ selectedLevels.add(k); el.classList.add('on'); }
+  updatePoolInfo();
 }
 
 function randomTen(){ return shuffle(QUESTIONS).slice(0,10).map(q=>q.id); }
+
+/* 範圍練習的題目池：年份範圍＋難易度＋級別 */
+function rangePool(){
+  const yFrom = +document.getElementById('yFrom').value;
+  const yTo = +document.getElementById('yTo').value;
+  const diffOk = q => selectedDiffs.size===0 || selectedDiffs.has(getDiffTier(q)) || (selectedDiffs.has('special') && isSpecialQ(q));
+  const levelOk = q => selectedLevels.size===0 || selectedLevels.has(getLevelTier(q));
+  return QUESTIONS.filter(q => q.y >= Math.min(yFrom,yTo) && q.y <= Math.max(yFrom,yTo) && diffOk(q) && levelOk(q));
+}
+/* 題數防呆（2026-11-24）：勾了難易度或級別、符合的題目又不超過 60 題時，題數自動改成全部（例如「難」有幾題就練幾題）；
+   學生自己改過題數，就照學生填的。按鈕上方隨時顯示「符合條件共幾題、這一回練幾題」。 */
+let numQTouched = false;
+function updatePoolInfo(){
+  const inp = document.getElementById('numQ'), info = document.getElementById('poolInfo');
+  if(!inp || !info) return;
+  const pool = rangePool();
+  const filtered = selectedDiffs.size > 0 || selectedLevels.size > 0;
+  if(!numQTouched) inp.value = (filtered && pool.length > 0 && pool.length <= 60) ? pool.length : 10;
+  const n = Math.max(1, Math.min(60, +inp.value || 10));
+  if(pool.length === 0){ info.textContent = '目前的條件沒有符合的題目，請放寬條件。'; return; }
+  const m = Math.min(n, pool.length);
+  info.textContent = '符合條件共 ' + pool.length + ' 題，這一回練 ' + m + ' 題' + (m === pool.length ? '（全部，順序打亂）' : '（隨機抽出）');
+}
+function initPoolInfo(){
+  const inp = document.getElementById('numQ');
+  inp.oninput = () => { numQTouched = true; updatePoolInfo(); };
+  document.getElementById('yFrom').onchange = updatePoolInfo;
+  document.getElementById('yTo').onchange = updatePoolInfo;
+  updatePoolInfo();
+}
 
 function startRangePractice(){
   const yFrom = +document.getElementById('yFrom').value;
   const yTo = +document.getElementById('yTo').value;
   const n = Math.max(1, Math.min(60, +document.getElementById('numQ').value || 10));
-  const diffOk = q => selectedDiffs.size===0 || selectedDiffs.has(getDiffTier(q));
-  const levelOk = q => selectedLevels.size===0 || selectedLevels.has(getLevelTier(q));
-  const pool = QUESTIONS.filter(q => q.y >= Math.min(yFrom,yTo) && q.y <= Math.max(yFrom,yTo) && diffOk(q) && levelOk(q));
+  const pool = rangePool();
   if(pool.length === 0){ alert('這個範圍、難易度或級別篩選條件下沒有題目'); return; }
   startQuiz(shuffle(pool).slice(0,n).map(q=>q.id), '範圍練習 '+Math.min(yFrom,yTo)+'–'+Math.max(yFrom,yTo)+'年');
 }
@@ -884,7 +925,7 @@ function renderQuestion(){
   scrSaveQ(q);
   document.getElementById('quizProgress').textContent = (session.idx+1)+' / '+session.list.length;
   document.getElementById('progressFill').style.width = ((session.idx)/session.list.length*100)+'%';
-  document.getElementById('qTag').textContent = q.y+'年 '+q.t+' · 第'+q.q+'題';
+  document.getElementById('qTag').textContent = ytLabel(q.y, q.t)+' · 第'+q.q+'題';
   document.getElementById('qSentence').innerHTML = q.s.replace(/_{3,}/g, '<span class="blank">______</span>');
 
   const optsBox = document.getElementById('qOptions');
@@ -1081,6 +1122,8 @@ function finishQuiz(){
 }
 
 function goHome(){
+  try{ sessionStorage.removeItem('jzFromMap'); sessionStorage.removeItem('jzMapState'); }catch(e){}
+  var bm = document.getElementById('backMap'); if(bm) bm.hidden = true;
   document.getElementById('printSheet').innerHTML=''; document.body.classList.remove('hasSheet');
   scrMountStrip();
   document.getElementById('result').style.display='none';
@@ -1123,7 +1166,7 @@ function startFromHash(){
   if(!target) return false;
   const pool = QUESTIONS.filter(q => q.y === target.y && q.t === target.t).sort((a,b) => a.q - b.q);
   const idx = pool.findIndex(q => q.id === target.id);
-  startQuiz(pool.map(q => q.id), target.y + '年 ' + target.t + ' 歷屆試題');
+  startQuiz(pool.map(q => q.id), ytLabel(target.y, target.t) + ' 歷屆試題');
   if(idx > 0){ session.idx = idx; renderQuestion(); }
   return true;
 }
@@ -1139,12 +1182,14 @@ function scr(f){
 }
 function scrMountStrip(){ scr(function(R){ R.mountStrip(document.getElementById('home'), 'vocab-zhikao'); }); }
 function scrSaveQ(q){
-  scr(function(R){ R.save('vocab-zhikao', q.y + ' 年 ' + q.t + ' 第 ' + q.q + ' 題', '#q-' + q.id); });
+  scr(function(R){ R.save('vocab-zhikao', ytLabel(q.y, q.t).replace(/^(\d+)年 /, '$1 年 ') + ' 第 ' + q.q + ' 題', '#q-' + q.id); });
 }
 
 scrMountStrip();
 initHome();
 startFromSetHash() || startFromHash();
+/* 從題目地圖點進來（地圖會留一個一次性的記號）才顯示「← 回題目地圖」；記號讀到就清掉 */
+try{ var fm = sessionStorage.getItem('jzFromMap'); sessionStorage.removeItem('jzFromMap'); if(fm && /^#q-/.test(location.hash || '')){ var bm0 = document.getElementById('backMap'); if(bm0) bm0.hidden = false; } }catch(e){}
 </script>
 <script>
 /* 單元列：連到收合區塊的錨點會先展開；「↑ 單元列」在單元列捲出畫面後才出現 */

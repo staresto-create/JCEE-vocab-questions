@@ -373,6 +373,14 @@ button{cursor:pointer}
   .tile[data-s="wrong"]::after{background:#000 !important;color:#fff !important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 }
 
+/* 2026-11-23 比照文意選填站的題目地圖：可以點的地方都至少 44px 高，手機上比較好按 */
+.tile{height:44px}
+.chip,.seg button,.clear,.cond{min-height:44px}
+nav.unitbar a,nav.unitbar .cur{min-height:44px;display:inline-flex;align-items:center;box-sizing:border-box}
+nav.pgnav a{min-height:44px;display:inline-flex;align-items:center;box-sizing:border-box}
+.crumb a,.foot a,.desc .link,.nodiff .link{display:inline-block;padding:12px 0}
+@media print{.tile[data-dim="true"]{opacity:.25}}
+.head .unitbar{margin:4px 0 16px}
 </style>
 </head>
 <body>
@@ -391,10 +399,10 @@ button{cursor:pointer}
   var PATNAME = {"A1": "受詞後接不定詞", "A2": "使役動詞", "A3": "感官動詞後接受詞與動詞", "A4": "動詞後接動名詞", "A5": "動詞後接不定詞", "A6": "used to 的三種用法", "A7": "介系詞後接動名詞", "A8": "虛主詞 it 帶不定詞", "A11": "不定詞表目的", "A12": "動名詞或不定詞片語當主詞、補語", "A13": "完成式不定詞、被動帶不定詞", "A14": "不定詞修飾名詞", "B1": "分詞片語後置修飾名詞，或分詞當形容詞", "B2": "分詞構句", "B3": "分詞表結果或伴隨", "B5": "連接詞後省略主詞與 be 的分詞或形容詞", "C1": "讓步連接詞", "C3": "不論…", "C4": "表原因的連接詞", "C6": "表結果的連接副詞", "C7": "結果子句、目的子句", "C8": "時間副詞子句", "C10": "條件句", "C12": "相關連接詞", "C13": "連接詞性的片語與介系詞片語", "C14": "對等連接詞連接子句，或連接對等的詞、片語", "C15": "表轉折、對比的銜接副詞", "C16": "表附加、類比的銜接副詞", "C17": "表舉例、換句話說、總結的銜接副詞", "D1": "that 引導名詞子句", "D2": "whether／if 引導名詞子句", "D3": "wh- 引導名詞子句；what 當複合關係代名詞", "D6": "限定的關係代名詞、關係副詞", "D7": "非限定關係子句、介系詞加關係代名詞", "D8": "分裂句、強調句", "D9": "only／not only 置首的倒裝", "D10": "否定詞置首倒裝", "D11": "其他倒裝與 There be", "E2": "比較級", "E3": "越…越…", "E4": "最高級", "F1": "被動語態與 regard A as B", "F2": "現在完成式、現在完成進行式", "F3": "過去完成式", "F5": "進行式、未來式"};
   var SITE = 'vocab-translate';
   var LS_WRONG = 'translate_wrongbook_v1';
-  var SHORT = { '學測': '學測', '指考': '指考', '大學聯考': '聯考', '指考補考': '補考', '指考補救考試': '補救', '試辦考試': '試辦', '指考研究用試卷': '指研', '英文寫作能力研究用試卷': '寫研' };
-  var EXO = { '學測': 0, '指考': 1, '指考補考': 2, '指考補救考試': 3, '試辦考試': 4, '指考研究用試卷': 5, '英文寫作能力研究用試卷': 6, '大學聯考': 7 };
+  var SHORT = { '學測': '學測', '指考': '指考', '大學聯考': '聯考', '指考補考': '補考', '指考補救考試': '補救', '學測試辦考試': '試辦', '指考研究用試卷': '指研', '英文寫作能力研究用試卷': '寫研' };
+  var EXO = { '學測': 0, '指考': 1, '指考補考': 2, '指考補救考試': 3, '學測試辦考試': 4, '指考研究用試卷': 5, '英文寫作能力研究用試卷': 6, '大學聯考': 7 };
   var examOf = function (l) { return l === '學測' ? 'G' : l === '大學聯考' ? 'J' : (l === '指考' || l === '指考補考' || l === '指考補救考試') ? 'A' : 'O'; };
-  var EXAMS = [['G', '學測'], ['A', '指考（含補考、補救考試）'], ['J', '大學聯考'], ['O', '研究用試卷、試辦考試']];
+  var EXAMS = [['G', '學測'], ['A', '指考（含補考、補救考試）'], ['J', '大學聯考'], ['O', '研究用試卷、學測試辦考試']];
   var STRUCTS = ['簡單句', '複句', '合句', '合複句', '其他（片段、多句）'];
   var PROG = [['todo', '還沒做'], ['done', '做過，不在錯題本'], ['wrong', '在錯題本裡']];
   var SN = { todo: '還沒做', done: '做過，不在錯題本', wrong: '在錯題本裡' };
@@ -439,8 +447,10 @@ button{cursor:pointer}
   var ROWS = [], BYID = {}, YEARS = [], PCODES = [], PN = {}, INFO = {};
   function prepare(items) {
     var rows = items.filter(function (it) { return it && typeof it.year === 'number' && it.zh; }).map(function (it) {
-      return { id: it.id, label: it.label, short: SHORT[it.label] || it.label, year: it.year, t1: it.topic || '', t2: it.topic2 || '',
-        st: it.structure || '', pats: Array.isArray(it.patterns) ? it.patterns.slice() : [], zh: it.zh, tw: !!it.tw, ex: examOf(it.label),
+      /* 資料裡的「試辦考試」是 110 年學測試辦考試，地圖上寫出考別 */
+      var lab = it.label === '試辦考試' ? '學測試辦考試' : it.label;
+      return { id: it.id, label: lab, short: SHORT[lab] || lab, year: it.year, t1: it.topic || '', t2: it.topic2 || '',
+        st: it.structure || '', pats: Array.isArray(it.patterns) ? it.patterns.slice() : [], zh: it.zh, tw: !!it.tw, ex: examOf(lab),
         paper: paperOf(it.yearLabel), yearLabel: it.yearLabel, en: it.en, no: 0 };
     });
     var seen = {};
@@ -507,8 +517,57 @@ button{cursor:pointer}
 
   /* ---------- 前往作答、列印 ---------- */
   function setName(name) { return encodeURIComponent(String(name).replace(/\|/g, '／')); }
-  function goSet(ids, name) { location.href = '../index.html#set-' + ids.join(',') + '|' + setName(name); }
-  function goSheet(ids, name) { location.href = '../index.html#sheet-' + ids.join(',') + '|' + setName(name); }
+  /* 離開地圖前記下條件、排法與捲動位置；按題目頁的「← 回題目地圖」回來時還原（30 分鐘內、只用一次） */
+  function saveMapState(fromMap) {
+    try {
+      if (fromMap) sessionStorage.setItem('jtFromMap', '1'); else sessionStorage.removeItem('jtFromMap');
+      sessionStorage.setItem('jtMapState', JSON.stringify({ dy: window.scrollY - mapBase(), t: Date.now(), sel: app.state.sel, view: app.state.view, showAll: app.state.showAll }));
+    } catch (e) {}
+  }
+  function goSet(ids, name) { saveMapState(true); location.href = '../index.html#set-' + ids.join(',') + '|' + setName(name); }
+  function goSheet(ids, name) { saveMapState(false); location.href = '../index.html#sheet-' + ids.join(',') + '|' + setName(name); }
+  /* 捲動位置存的是「離題目一覽（#map）頂端多遠」，還原時加回當下 #map 的位置：
+     頁首導覽列（backbar.js）比較晚出現、或根本沒載入，#map 位置會差一列，用相對距離就不受影響。
+     還原後 5 秒內，若 #map 又被推動而使用者還沒自己捲動，就再對準一次。 */
+  function mapBase() { var o = document.getElementById('map'); return o ? o.getBoundingClientRect().top + window.scrollY : 0; }
+  function holdScroll(getY) {
+    var de = document.documentElement, sb = de.style.scrollBehavior, moved = false, t0 = Date.now(), timer;
+    var go = function () { de.style.scrollBehavior = 'auto'; window.scrollTo(0, Math.max(0, Math.round(getY()))); de.style.scrollBehavior = sb; };
+    var stop = function () { moved = true; };
+    ['wheel', 'touchstart', 'keydown', 'mousedown'].forEach(function (ev) { window.addEventListener(ev, stop, { once: true, passive: true }); });
+    setTimeout(go, 0);
+    timer = setInterval(function () {
+      if (moved || Date.now() - t0 > 5000) { clearInterval(timer); return; }
+      if (Math.abs(window.scrollY - Math.round(getY())) > 1) go();
+    }, 100);
+  }
+  /* 只有「按題目頁的『← 回題目地圖』（網址帶 ?back）」或「瀏覽器上一頁」回來才還原；從其他入口進來一律不還原 */
+  function cameBack() {
+    var back = false;
+    try { var nv = performance.getEntriesByType && performance.getEntriesByType('navigation')[0]; if (nv && nv.type === 'back_forward') back = true; } catch (e) {}
+    if (/(^|&)back(=|&|$)/.test((location.search || '').slice(1))) {
+      back = true;
+      try { history.replaceState(null, '', location.pathname + location.hash); } catch (e) {}
+    }
+    return back;
+  }
+  /* 載入後：從題目頁回來、且有剛存的狀態就還原；網址帶錨點（例如 #h-wrong）就捲到那裡。存的狀態讀到就清掉 */
+  function restoreOrScroll() {
+    var s = null;
+    try { s = JSON.parse(sessionStorage.getItem('jtMapState') || 'null'); sessionStorage.removeItem('jtMapState'); } catch (e) { s = null; }
+    var back = cameBack();
+    var h = ''; try { h = decodeURIComponent((location.hash || '').slice(1)); } catch (e) { h = ''; }
+    if (back && !h && s && s.sel && typeof s.t === 'number' && Date.now() - s.t <= 30 * 60 * 1000) {
+      var ok = { p: PCODES, t: TOPICS, s: STRUCTS, x: EXAMS.map(function (e) { return e[0]; }), g: PROG.map(function (e) { return e[0]; }), w: ['TW'] };
+      var sel = EMPTY_SEL();
+      GKEYS.forEach(function (g) { if (Array.isArray(s.sel[g])) sel[g] = s.sel[g].filter(function (k) { return ok[g].indexOf(k) >= 0; }); });
+      app.setState({ sel: sel, view: ['year', 'topic', 'pattern'].indexOf(s.view) >= 0 ? s.view : 'year', showAll: !!s.showAll, openTile: '' });
+      var dy = typeof s.dy === 'number' ? s.dy : null, y = s.y || 0;
+      holdScroll(function () { return dy === null ? y : mapBase() + dy; });
+      return;
+    }
+    if (h) { var t = document.getElementById(h); if (t) holdScroll(function () { var t2 = document.getElementById(h) || t; return t2.getBoundingClientRect().top + window.scrollY; }); }
+  }
 
   /* ---------- 畫面 ---------- */
   var H = [];
@@ -610,7 +669,7 @@ button{cursor:pointer}
     };
     var keep = function (g) { if (!anySel || st.showAll || g.hits > 0) return true; hiddenN++; return false; };
     /* 依年度檢視的時期分段；最新一段的年份由資料算出 */
-    var PERIODS = [[111, 9999, '111–' + INFO.maxY + ' 年', '學測'], [91, 110, '91–110 年', '學測、指考（含補考、補救考試）、研究用試卷與試辦考試'], [0, 90, INFO.minY + '–90 年', '大學聯考，83–85 年另有學測']];
+    var PERIODS = [[111, 9999, '111–' + INFO.maxY + ' 年', '學測'], [91, 110, '91–110 年', '學測、指考（含補考、補救考試）、研究用試卷與學測試辦考試'], [0, 90, INFO.minY + '–90 年', '大學聯考，83–85 年另有學測']];
     if (st.view === 'year') {
       V.secs = PERIODS.map(function (p) { return { hasHead: true, name: p[2], note: p[3], groups: raw.filter(function (g) { return g.year >= p[0] && g.year <= p[1]; }).map(mk).filter(keep) }; }).filter(function (s) { return s.groups.length; });
     } else {
@@ -618,7 +677,7 @@ button{cursor:pointer}
     }
     var unit = st.view === 'year' ? '個年度' : st.view === 'topic' ? '個主題' : '個句型組';
     var noun = st.view === 'year' ? '年度' : st.view === 'topic' ? '主題' : '句型組';
-    V.viewNote = st.view === 'year' ? '由新到舊排列；同一年先排學測，再排指考與其他考試。' + (INFO.has92 ? '' : '92 年學測考的是簡答題，沒有中譯英，所以地圖上沒有 92 年。')
+    V.viewNote = st.view === 'year' ? '由新到舊排列；同一年先排學測，再排指考與其他考試。' + (INFO.has92 ? '' : '92 年學測考簡答題、指考只考作文，都沒有中譯英，所以地圖上沒有 92 年。')
       : st.view === 'topic' ? '依每一題的主要主題分組。一題若也屬於第二個主題，用左邊的主題篩選時一樣找得到。'
       : '依句型分成' + CN[INFO.nGroups] + '組，最後一組是沒有用到清單中句型的 ' + INFO.nNoPat + ' 題。一題用到不同組的句型，會在每一組各出現一次。';
     V.hasHidden = anySel && n > 0 && (hiddenN > 0 || st.showAll);
@@ -776,13 +835,13 @@ button{cursor:pointer}
   function viewHtml() {
     H = [];
     var st = app.state;
-    var top = '<p class="crumb"><a href="../">中譯英題庫</a> ／ 題目地圖</p>'
-      + '<nav class="unitbar" id="unitbar" aria-label="本頁單元"><div class="ubrow"><span class="ublab">同一題庫</span><a href="../">開始練習</a><span class="cur" aria-current="page">題目地圖</span><a href="../selfcheck.html">寫完自我檢查</a><a href="../structure.html">句子結構練習</a><a href="../../sentence-patterns.html">句型對照</a></div>'
+    var top = '<p class="crumb"><a href="../">中譯英題庫</a> ／ 題目地圖</p>';
+    var ubar = '<nav class="unitbar" id="unitbar" aria-label="本頁單元"><div class="ubrow"><span class="ublab">同一題庫</span><a href="../">開始練習</a><span class="cur" aria-current="page">題目地圖</span><a href="../selfcheck.html">寫完自我檢查</a><a href="../structure.html">句子結構練習</a><a href="../../sentence-patterns.html">句型對照</a></div>'
       + '<div class="ubrow"><span class="ublab">本頁單元</span><a href="#map">題目地圖</a><a href="#h-round">直接出一回</a><a href="#h-wrong">錯題本</a><a href="#h-bk">備份進度</a></div></nav>';
     var lead = st.loaded
       ? '本題庫收錄的 ' + INFO.n + ' 題歷屆中譯英（' + INFO.minY + '–' + INFO.maxY + ' 年，不含改編練習）都排在這張圖上，一格一題，點一下就能看到題目。可以依年度、主題或句型排列，也可以先選條件，只看符合的題目。'
       : '本題庫收錄的歷屆中譯英（不含改編練習）都排在這張圖上，一格一題，點一下就能看到題目。可以依年度、主題或句型排列，也可以先選條件，只看符合的題目。';
-    var h = top + '<header class="head"><h1>中譯英題目地圖</h1><p class="lead">' + lead + '</p>'
+    var h = top + '<header class="head"><h1>中譯英題目地圖</h1>' + ubar + '<p class="lead">' + lead + '</p>'
       + (STORE_OK ? '' : '<p class="storenote">這個瀏覽器目前不能儲存紀錄（例如無痕視窗），所以地圖上不會標出做過的題目，錯題本和備份進度也不能使用；題目照樣可以瀏覽和練習。</p>')
       + '</header>';
     if (st.loadErr) return h + '<p class="status" role="alert">題目沒有載入成功。請檢查網路後重新整理這一頁，或先回到<a href="../">中譯英題庫</a>練習。</p>' + footHtml();
@@ -891,12 +950,12 @@ button{cursor:pointer}
     h += '</div>';
     var shorts = []; var seenS = {};
     Object.keys(SHORT).forEach(function (l) { if (SHORT[l] !== l && ROWS.some(function (r) { return r.label === l; }) && !seenS[l]) { seenS[l] = 1; shorts.push([SHORT[l], l]); } });
-    var order = ['大學聯考', '指考補考', '指考補救考試', '試辦考試', '指考研究用試卷', '英文寫作能力研究用試卷'];
+    var order = ['大學聯考', '指考補考', '指考補救考試', '學測試辦考試', '指考研究用試卷', '英文寫作能力研究用試卷'];
     shorts.sort(function (a, b) { return order.indexOf(a[1]) - order.indexOf(b[1]); });
     h += '<div class="foot-notes"><p class="viewnote">' + esc(V.viewNote) + '</p>'
       + '<p class="mapnote">對完答案後，按下「我答對了 / 差不多」或「我需要加強」，這一題才算已做。</p>'
       + (shorts.length ? '<p class="mapnote">格子上的簡稱：' + shorts.map(function (x) { return x[0] + '＝' + x[1]; }).join('、') + '。</p>' : '')
-      + '<p class="nodiff">大考中心沒有公布中譯英每一題的全國答對率，所以這張圖不標難易。歷年全國平均分數，請看<a class="link" href="../../nonmc-stats.html#tr-score">〈學測英文非選擇題成績統計〉</a>。</p></div>';
+      + '<p class="nodiff">大考中心沒有公布中譯英每一題的全體考生答對率，所以這張圖不標難易。歷年全國平均分數，請看<a class="link" href="../../nonmc-stats.html#tr-score">〈學測英文非選擇題成績統計〉</a>。</p></div>';
     if (V.pk) {
       var pk = V.pk;
       h += '<div class="peek" id="peek" role="region" aria-label="題目預覽"><div class="peek-top"><div><p class="peek-src">' + esc(pk.src) + '</p><span class="peek-tag" data-s="' + pk.s + '">' + pk.stat + '</span></div>'
@@ -1108,13 +1167,14 @@ button{cursor:pointer}
       if (mq.addEventListener) mq.addEventListener('change', onMq); else if (mq.addListener) mq.addListener(onMq);
     }
     /* 從作答畫面按「上一頁」回來時，重新讀一次紀錄 */
-    window.addEventListener('pageshow', function (e) { if (e.persisted && app.state.loaded) { readRecords(); app.render(); } });
+    window.addEventListener('pageshow', function (e) { if (e.persisted && app.state.loaded) { try { sessionStorage.removeItem('jtMapState'); } catch (x) {} readRecords(); app.render(); } });
     window.addEventListener('storage', function (e) { if (app.state.loaded && (e.key === LS_WRONG || e.key === 'scProgressV1' || e.key === null)) { readRecords(); app.render(); } });
     app.render();
     fetch('../quiz_items.json').then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); }).then(function (items) {
       prepare(Array.isArray(items) ? items : []);
       if (!ROWS.length) throw new Error('empty');
       app.setState({ loaded: true });
+      restoreOrScroll();
       loadExtras();
     }).catch(function () { app.setState({ loadErr: true }); });
   }
