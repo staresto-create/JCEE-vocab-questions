@@ -134,7 +134,7 @@ details>summary{list-style:none}details>summary::-webkit-details-marker{display:
 .lede{font-size:10.5pt}
 a{color:inherit;text-decoration:none}
 .ynote{display:none !important}
-#count::after{content:"　年度標示：補＝補考、參＝參考試卷、辦＝試辦、研＝研究用試卷";color:#666}
+#count::after{content:"　年度標示：補＝補考、辦＝試辦、研＝研究用試卷、參＝參考試卷（98參＝95 課綱、102參＝99 課綱，98、102 是施測年；107參＝107 年起施測；111參、115參＝111、115 學年度起適用）。";color:#666}
 }
 </style>
 </head>
@@ -234,7 +234,7 @@ function render(){
     h+='<div class="cnt">出現在 <b>'+e.n+'</b> 份試卷<span class="mbar" style="width:'+Math.max(3,Math.round(e.n/max*100))+'%"></span></div>';
     if(e.rates&&e.rates.length) h+='<div class="cnt">曾作為題目答案：'+e.rates.map(function(r){return '<a href="'+r[2]+'" target="_blank" rel="noopener">'+esc(r[0])+'</a> 答對率 <b>'+r[1]+'%</b>';}).join('；')+'</div>';
     if(e.ex) h+='<div class="ex">'+hl(e.ex,e.hl)+'<span class="src">'+(e.exurl?'<a href="'+e.exurl+'" target="_blank" rel="noopener">'+esc(e.exsrc)+'</a>':esc(e.exsrc))+'</span></div>';
-    h+='<details><summary>出現在哪些試卷</summary><div class="yrs">'+ylist('學測',e.yl['學測'])+ylist('指考',e.yl['指考'])+'<div class="ynote">數字是年度；補＝補考、參＝參考試卷、辦＝試辦、研＝研究用試卷。有底線的年度可以點，會連到那份試卷裡出現這一條用法的那一題或那一篇（連到閱讀測驗的，會把這一條用法標成黃底）。</div></div></details>';
+    h+='<details><summary>出現在哪些試卷</summary><div class="yrs">'+ylist('學測',e.yl['學測'])+ylist('指考',e.yl['指考'])+'<div class="ynote">數字是年度；補＝補考、辦＝試辦、研＝研究用試卷、參＝參考試卷（98參＝95 課綱、102參＝99 課綱，98、102 是施測年；107參＝107 年起施測；111參、115參＝111、115 學年度起適用）。有底線的年度可以點，會連到那份試卷裡出現這一條用法的那一題或那一篇（連到閱讀測驗的，會把這一條用法標成黃底）。</div></div></details>';
     return h+'</li>';
   }).join('');
   if(!window.__hashDone){ window.__hashDone=true; var id=decodeURIComponent((location.hash||'').slice(1)); var el=id&&document.getElementById(id); if(el){ el.style.background='var(--ad-vgoldsoft-bg)'; el.scrollIntoView(); } }
