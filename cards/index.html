@@ -1246,9 +1246,13 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
     var L = letterOf(word, qid);
     return (qid && L && Q[qid].o[L]) ? Q[qid].o[L] : word;
   }
+  // 試卷名稱已含課綱與施測年（例如「95 課綱…（98 年施測）」）時，不再重複加「98年」
+  function ytLabel(q) {
+    return /年施測/.test(q.t) ? q.t : q.y + '年 ' + q.t;
+  }
   function yearTag(qid) {
     var q = Q[qid];
-    return q.y + '年 ' + q.t;   // 與兩個字彙站的寫法一致
+    return ytLabel(q);   // 與兩個字彙站的寫法一致
   }
   var POS_RE = /^\s*((?:(?:adj|adv|n|v|vt|vi|prep|conj|pron|int|aux|art|abbr)\.\s*)+)/;
   // 從一段釋義取出詞性標記
@@ -1592,7 +1596,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
 
     // 例句
     h += '<div class="bk-sec">';
-    h += '<span class="bk-src"><span class="seg">' + esc(q.y + '年 ' + q.t) + '</span>　<span class="seg">第 ' + q.n + ' 題</span></span>';
+    h += '<span class="bk-src"><span class="seg">' + esc(ytLabel(q)) + '</span>　<span class="seg">第 ' + q.n + ' 題</span></span>';
     h += '<p class="bk-en">' + stemHTML(q) + '</p>';
     if (q.sz) h += '<p class="bk-zh">' + esc(q.sz) + '</p>';
     var mk = markedWord(q);

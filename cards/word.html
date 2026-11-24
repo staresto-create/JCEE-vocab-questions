@@ -229,7 +229,7 @@ function refList(key,typed,e){
 }
 function refSec(key,typed,e){
   var items=refList(key,typed,e),h='<div class="sec"><h3>出現過的題目</h3>';
-  if(!items.length)return h+'<p>本題庫沒有查到這個字出現在單字題、克漏字或中譯英的選項或答案裡。</p></div>';
+  if(!items.length)return h+'<p>本題庫沒有查到這個字出現在詞彙題、克漏字或中譯英的選項或答案裡。</p></div>';
   var by={};items.forEach(function(x){(by[x.s]=by[x.s]||[]).push(x);});
   var order=['gsat','zhikao','gcz','zcz','tr'],sum=[];
   order.forEach(function(s){if(by[s])sum.push(SITE[s].n+' '+by[s].length+(s==='gcz'||s==='zcz'?' 格':' 題'));});

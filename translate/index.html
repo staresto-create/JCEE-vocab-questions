@@ -615,7 +615,13 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
 .printMobile{flex:0 0 100%;font-size:12.5px;line-height:1.7;opacity:.8;}
 @media print{.printBar{display:none !important;}}
 </style>
-<style>#backMap[hidden]{display:none !important;}@media print{#backMap{display:none !important;}}</style>
+<style>#backMap[hidden],#backMapEnd[hidden]{display:none !important;}@media print{#backMap,#backMapEnd{display:none !important;}}
+.backMap{display:inline-flex;align-items:center;min-height:44px;margin:0 0 6px;font-size:14px;font-weight:700;color:var(--crimson,var(--ad-xAE3626-fg));text-decoration:none;}.backMap:hover{text-decoration:underline;text-underline-offset:3px;}
+.mapEnd{display:flex; align-items:center; justify-content:center; min-height:44px; box-sizing:border-box; margin:14px 0 0; border:1.5px solid var(--ad-vrule-border,var(--rule)); border-radius:4px; font-size:14px; font-weight:700; color:var(--crimson,var(--ad-xAE3626-fg)); text-decoration:none;}
+.mapEnd:hover{border-color:var(--crimson,var(--ad-xAE3626-fg));}
+@media screen and (prefers-color-scheme: dark){.backMap,.mapEnd{color:#E57B68;}.mapEnd:hover{border-color:#E57B68;}}
+.mapEnd[hidden]{display:none;}
+@media print{.mapEnd{display:none !important;}}</style>
 </head>
 <body>
 
@@ -729,7 +735,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
           <p class="sk-core">➜ Don't read articles and don't look up a new word. <em>（不要讀文章，也不要查生字。）</em></p>
           <p class="sk-tip">💡 祈使句沒有寫出主詞，被省略的主詞是 you。which are too difficult for you 修飾 articles，the moment you see it 是時間副詞子句，兩塊都是修飾。</p>
         </div>
-        <div class="sk-more">這種長句在每一種題型裡都會遇到——克漏字、文意選填、單字題，哪一種都避不開。完整說明和其他題庫的例句在<a href="https://staresto-create.github.io/JCEE-vocab-questions/" target="_blank" rel="noopener">題庫入口頁</a>。</div>
+        <div class="sk-more">這種長句在每一種題型裡都會遇到——克漏字、文意選填、詞彙題，哪一種都避不開。完整說明和其他題庫的例句在<a href="https://staresto-create.github.io/JCEE-vocab-questions/" target="_blank" rel="noopener">題庫入口頁</a>。</div>
       </div>
       <span class="sk-toggle" onclick="var m=document.getElementById('skelMore'); m.style.display = m.style.display==='none' ? 'block' : 'none';">🔍 展開／收合：再看四句</span>
     </details>
@@ -831,7 +837,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
   </section>
 
   <!-- ============ QUIZ VIEW ============ -->
-  <a class="backMap noPrint" id="backMap" href="map/?back" hidden style="display:inline-flex;align-items:center;min-height:44px;margin:0 0 6px;font-weight:700;text-decoration:underline;text-underline-offset:3px">← 回題目地圖</a>
+  <a class="backMap noPrint" id="backMap" href="map/?back" hidden>← 回題目地圖</a>
   <section id="view-quiz" class="view">
     <div class="printBar noPrint"><button type="button" class="printBtn" onclick="printSet()">🖨️ 列印成考卷</button><span class="printSub" id="printSub">空白試卷，不含參考譯法和解析</span><div class="printMobile">手機上按鈕沒有反應時，也可以：iPhone 點「分享」（沒看到就先點「⋯」）→往下滑點「列印」；<span style="white-space:nowrap">Android（Chrome）</span>點「⋮」→「分享」→「列印」。</div></div>
     <div class="stats-strip">
@@ -897,6 +903,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
         <button class="grade-btn grade-good" id="gradeGood">我答對了 / 差不多 ✓</button>
         <button class="grade-btn grade-bad" id="gradeBad">我需要加強 ✗</button>
       </div>
+      <a class="mapEnd noPrint" id="backMapEnd" href="map/?back" hidden>← 回題目地圖</a>
     </div>
   </section>
 
@@ -1028,7 +1035,7 @@ async function loadItems(){
   renderProgress();
   startFromSetHash() || startFromHash() || startFromSheetHash();
   /* 從題目地圖按「做這一題」「開始練習」等進來（地圖會留一個一次性的記號）才顯示「← 回題目地圖」；記號讀到就清掉 */
-  try{ const fm = sessionStorage.getItem('jtFromMap'); sessionStorage.removeItem('jtFromMap'); if(fm && /^#set-/.test(location.hash || '')){ const bm = document.getElementById('backMap'); if(bm) bm.hidden = false; } }catch(e){}
+  try{ const fm = sessionStorage.getItem('jtFromMap'); sessionStorage.removeItem('jtFromMap'); if(fm && /^#set-/.test(location.hash || '')){ const bm = document.getElementById('backMap'); if(bm) bm.hidden = false; const bme = document.getElementById('backMapEnd'); if(bme) bme.hidden = false; } }catch(e){}
 }
 
 /* #sheet- 列印入口（2026-11-07）：題目地圖的「列印成考卷」「列印錯題考卷」連到這裡。
@@ -1291,7 +1298,7 @@ window.addEventListener('beforeprint',function(){
   else if(n==='finish' && queue.length && queue.length<=30) buildPrintSheet();
 });
 function showView(name){
-  if(name !== "quiz" && name !== "finish"){ const bm = document.getElementById("backMap"); if(bm) bm.hidden = true; }
+  if(name !== "quiz" && name !== "finish"){ const bm = document.getElementById("backMap"); if(bm) bm.hidden = true; const bme = document.getElementById("backMapEnd"); if(bme) bme.hidden = true; }
   document.querySelectorAll("section.view").forEach(s=>s.classList.remove("active"));
   document.getElementById("view-"+name).classList.add("active");
   if(name === "quiz") buildPrintSheet();

@@ -134,6 +134,10 @@
   .backMap{display:inline-flex; align-items:center; min-height:44px; margin:0 0 6px; font-size:14px; font-weight:700; color:var(--crimson); text-decoration:none;}
   .backMap:hover{text-decoration:underline; text-underline-offset:3px;}
   #backMap[hidden]{display:none;}
+  .mapEnd{display:flex; align-items:center; justify-content:center; min-height:44px; box-sizing:border-box; margin:14px 0 0; border:1.5px solid var(--rule); border-radius:4px; font-size:14px; font-weight:700; color:var(--crimson); text-decoration:none;}
+  .mapEnd:hover{border-color:var(--crimson);}
+  .mapEnd[hidden]{display:none;}
+  @media print{.mapEnd{display:none !important;}}
   @media print{#backMap{display:none !important;}}
   .quiz-meta{
     display:flex; justify-content:space-between; align-items:center;
@@ -434,7 +438,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
 <script src="../start.js" defer></script>
 <script src="../tb-line.js" defer></script>
 <style id="print-paper">
-/* 紙本列印版面（2026-10-24）：只影響列印，畫面不變。單字題一次只顯示一題，所以印的是「這一回的全部題目」：
+/* 紙本列印版面（2026-10-24）：只影響列印，畫面不變。詞彙題一次只顯示一題，所以印的是「這一回的全部題目」：
    題目、選項依字母排好，不印答案、解析、選項中譯、單字分級、答對率、鑑別度。內容由題庫資料直接產生，不是翻印畫面，
    所以不論畫面上答了沒有，印出來都是空白試卷。浮水印改成頁尾一行小字，保留授權聲明。 */
 #printSheet{display:none;}
@@ -586,7 +590,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
 
     <details class="skill card" id="skelCard" style="padding:24px 26px;">
       <summary><div class="sk-title">🔍 讀句子的第一步：先找「什麼」和「怎麼了」</div></summary>
-      <p class="sk-intro">主詞不一定是人，可以是一個動作、一種物質、一個現象。找到主詞和動詞就抓到<b>骨幹</b>了，其餘的介系詞片語、分詞片語、關係子句、同位語，都是掛在骨幹上的修飾。單字題的句子雖然只有一句，修飾語照樣會把主詞和動詞隔開——先抓骨幹，空格該填什麼詞性就清楚了。</p>
+      <p class="sk-intro">主詞不一定是人，可以是一個動作、一種物質、一個現象。找到主詞和動詞就抓到<b>骨幹</b>了，其餘的介系詞片語、分詞片語、關係子句、同位語，都是掛在骨幹上的修飾。詞彙題的句子雖然只有一句，修飾語照樣會把主詞和動詞隔開——先抓骨幹，空格該填什麼詞性就清楚了。</p>
         <div id="skelMore" style="display:none;">
         <div class="sk-ex">
           <span class="sk-src"><span class="sk-seg">106 年 ·</span> <span class="sk-seg">學測單字</span></span>
@@ -655,7 +659,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
           <span class="sk-src"><span class="sk-seg">111 學年度起適用 ·</span> <span class="sk-seg">115 學年度起適用 ·</span> <span class="sk-seg">兩份文件文字相同</span></span>
           <p class="sk-en">對高中常用實詞詞彙（content words）的構詞、語意、字詞搭配（collocation）的理解與運用能力。</p>
         </div>
-        <p class="sk-core" style="margin-top:14px;">➜ collocation 的中文，官方兩個詞都在用，各有各的位置：講這個現象、這個題型時寫「字詞搭配」，講與某個字搭在一起的那一個字時寫「搭配詞」——115 學年度參考試卷的官方解析裡，同一份文件兩者並用。本題庫的「字詞搭配」欄，收的就是這一類資訊。</p>
+        <p class="sk-core" style="margin-top:14px;">➜ collocation 的中文，官方兩個詞都在用，各有各的位置：講這個現象、這個題型時寫「字詞搭配」，講與某個字搭在一起的那一個字時寫「搭配詞」——115 學年度起適用學測參考試卷的官方解析裡，同一份文件兩者並用。本題庫的「字詞搭配」欄，收的就是這一類資訊。</p>
         <p class="sk-core" style="margin-top:14px;">➜ 這一欄裡有兩種東西，用途不一樣。一種是<b>哪兩個字配在一起</b>：turn down an offer（婉拒提議）、grave concerns（嚴重的憂慮）——換一個意思相近的字就不自然，要整組記起來。另一種是<b>這個字後面要接什麼</b>，欄裡寫成公式：be determined to + V（決心要做…）、have an impact on + N（對…造成影響）——記住接法，這個字你才用得出來，不會只是看得懂。前者叫字詞搭配（collocation），後者就是這個字的用法（colligation）；名稱不必背，看得出這一格寫的是「配對」還是「接法」就夠了。<b>第二種在課堂上最常因為時間不夠被跳過</b>，這一欄補的正是它。</p>
         <div class="home-desc" style="margin-top:14px;">不是每一題都有這一欄。只有當兩個字真的合成一個單位、值得整組記下來時才寫；換個同類的字照樣通順的組合（例如 an old book、a senior accountant）一律不收錄，寧可整格不顯示，也不放湊數的組合分散你的注意力。</div>
         <div class="home-desc" style="margin-top:14px;">詞彙題考的從來不只是「這個字什麼意思」。四個選項都認得的時候，不要急著比字義：先看空格前後那一個字，問自己「哪一個選項是它的老搭檔」，再回頭確認整句語意通不通。深入解析上方的「字詞搭配」欄就是為了這一步而寫的，答完題順手看一遍。</div>
@@ -713,6 +717,7 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
       <div class="next-row">
         <button class="ghost-btn" id="nextBtn" style="display:none;" onclick="nextQuestion()">下一題 →</button>
       </div>
+      <a class="mapEnd noPrint" id="backMapEnd" href="map/?back" hidden>← 回題目地圖</a>
     </div>
   </div>
 
@@ -1315,7 +1320,7 @@ function finishQuiz(){
 
 function goHome(){
   try{ sessionStorage.removeItem('jgFromMap'); sessionStorage.removeItem('jgMapState'); }catch(e){}
-  var bm = document.getElementById('backMap'); if(bm) bm.hidden = true;
+  var bm = document.getElementById('backMap'); if(bm) bm.hidden = true; var bme = document.getElementById('backMapEnd'); if(bme) bme.hidden = true;
   document.getElementById('printSheet').innerHTML=''; document.body.classList.remove('hasSheet');
   scrMountStrip();
   document.getElementById('result').style.display='none';
@@ -1381,7 +1386,7 @@ scrMountStrip();
 initHome();
 startFromSetHash() || startFromHash();
 /* 從題目地圖點進來（地圖會留一個一次性的記號）才顯示「← 回題目地圖」；記號讀到就清掉 */
-try{ var fm = sessionStorage.getItem('jgFromMap'); sessionStorage.removeItem('jgFromMap'); if(fm && /^#q-/.test(location.hash || '')){ var bm0 = document.getElementById('backMap'); if(bm0) bm0.hidden = false; } }catch(e){}
+try{ var fm = sessionStorage.getItem('jgFromMap'); sessionStorage.removeItem('jgFromMap'); if(fm && /^#q-/.test(location.hash || '')){ var bm0 = document.getElementById('backMap'); if(bm0) bm0.hidden = false; var bm1 = document.getElementById('backMapEnd'); if(bm1) bm1.hidden = false; } }catch(e){}
 </script>
 <script>
 /* 單元列：連到收合區塊的錨點會先展開；「↑ 單元列」在單元列捲出畫面後才出現 */

@@ -308,7 +308,7 @@ fetch('reverse_data.json').then(function(r){if(!r.ok)throw new Error(r.status);r
   render();
   var f=$('#foot');
   f.appendChild(document.createElement('br'));
-  f.appendChild(document.createTextNode('資料更新：'+d.updated+'。中文意思只附在出現過的字上，取自本題庫單字題的選項說明。詞彙表著作權屬財團法人大學入學考試中心基金會，本表只供非營利教學使用。免費、無廣告的非營利自學題庫。'));
+  f.appendChild(document.createTextNode('資料更新：'+d.updated+'。中文意思只附在出現過的字上，取自本題庫詞彙題的選項說明。詞彙表著作權屬財團法人大學入學考試中心基金會，本表只供非營利教學使用。免費、無廣告的非營利自學題庫。'));
 }).catch(function(){
   $('#body').innerHTML='<p class="empty">讀不到 reverse_data.json。這個頁面要跟資料檔放在同一個資料夾。</p>';
 });
