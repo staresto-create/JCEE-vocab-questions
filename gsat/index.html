@@ -145,6 +145,26 @@
   }
   .progress-bar{height:4px; background:var(--rule); border-radius:2px; overflow:hidden; margin-bottom:20px;}
   .progress-fill{height:100%; background:var(--crimson); transition:width .25s ease;}
+  /* 分段進度條（2026-11-28 樣本）：一題一段，段上方標 ✓／✕（✕ 與答題後選項上的叉同一個字）。對錯不只靠顏色：答對＝實心，答錯＝斜線加外框，紅綠色盲和黑白列印都分得出來。題數超過 20 題時段會太窄，改用上面那條連續進度條。 */
+  .qseg{display:flex; gap:4px; margin-bottom:20px;}
+  .qseg[hidden]{display:none;}
+  .qseg .sg{flex:1; min-width:0; display:flex; flex-direction:column; align-items:center;}
+  .qseg .mk{height:22px; line-height:22px; font-size:15px; font-weight:900; font-family:system-ui,'Noto Sans TC',sans-serif;}
+  .qseg .bar{display:block; width:100%; height:8px; border-radius:4px; background:var(--rule);}
+  .qseg .sg.cur .bar{height:10px; margin-top:-1px; background:var(--ink);}
+  .qseg .sg.ok .mk{color:var(--sage);} .qseg .sg.ok .bar{background:var(--sage);}
+  .qseg .sg.no .mk{color:var(--crimson);}
+  .qseg .sg.no .bar{background:repeating-linear-gradient(-45deg,var(--crimson) 0 2px,var(--surface) 2px 4px); box-shadow:inset 0 0 0 1.5px var(--crimson);}
+  .qseg .sg.cur.ok .bar, .qseg .sg.cur.no .bar{height:10px; outline:1.5px solid var(--ink); outline-offset:1px;}
+  /* Windows 高對比模式：系統會把底色和外框清掉，改用系統色，仍靠實心、斜線、外框區分 */
+  @media (forced-colors:active){
+    .qseg .bar{forced-color-adjust:none; border:1px solid CanvasText; background:Canvas;}
+    .qseg .sg.ok .bar{background:Highlight;}
+    .qseg .sg.no .bar{background:repeating-linear-gradient(-45deg,CanvasText 0 2px,Canvas 2px 4px); box-shadow:none;}
+    .qseg .sg.cur .bar{background:CanvasText;}
+    .qseg .sg.cur.ok .bar{background:Highlight;} .qseg .sg.cur.no .bar{background:repeating-linear-gradient(-45deg,CanvasText 0 2px,Canvas 2px 4px);}
+    .qseg .mk{color:CanvasText;}
+  }
   .q-card{padding:26px 26px 22px;}
   .q-tag{
     font-family:'IBM Plex Mono','Noto Sans TC',monospace; font-size:12px; color:var(--ink-soft);
@@ -692,7 +712,8 @@ details[open]:not(.sh) > summary::after{content:"－ 收合" !important;}
       <span id="quizModeLabel"></span>
       <span id="quizProgress"></span>
     </div>
-    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="progress-bar" id="progressBarOld"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="qseg noPrint" id="qSeg" role="img" aria-label="題目進度" hidden></div>
     <div class="card q-card">
       <div class="q-tag" id="qTag"></div>
       <div class="q-sentence" id="qSentence"></div>
@@ -807,7 +828,7 @@ function toggleClamp(el){
   el.textContent = clamped ? '展開全文 ▾' : '收合 ▴';
 }
 /* ---------- State ---------- */
-let session = { list: [], idx: 0, correctCount: 0, wrongIds: [], mode: '', timerId: null, startTime: 0 };
+let session = { list: [], idx: 0, correctCount: 0, wrongIds: [], results: [], mode: '', timerId: null, startTime: 0 };
 const LS_WRONG = 'gswVocabWrongBook';
 const LS_HISTORY = 'gswVocabHistory';
 
@@ -1023,7 +1044,7 @@ function printSet(){ buildPrintSheet(); safePrint(); }
 
 function startQuiz(ids, label){
   if(!ids || ids.length===0){ alert('沒有可用題目'); return; }
-  session = { list: ids, idx: 0, correctCount: 0, wrongIds: [], mode: label || '隨機練習' };
+  session = { list: ids, idx: 0, correctCount: 0, wrongIds: [], results: ids.map(()=>null), mode: label || '隨機練習' };
   document.getElementById('home').style.display='none';
   document.getElementById('result').style.display='none';
   document.getElementById('quiz').style.display='block';
@@ -1111,12 +1132,14 @@ function renderQuestion(){
   let q = byId(session.list[session.idx]);
   while(!q && session.idx < session.list.length){
     session.list.splice(session.idx,1);
+    if(session.results) session.results.splice(session.idx,1);
     q = byId(session.list[session.idx]);
   }
   if(!q){ alert('這回合的題目已不存在，回到首頁'); goHome(); return; }
   scrSaveQ(q);
   document.getElementById('quizProgress').textContent = (session.idx+1)+' / '+session.list.length;
   document.getElementById('progressFill').style.width = ((session.idx)/session.list.length*100)+'%';
+  drawQSeg();
   document.getElementById('qTag').textContent = q.y+'年 '+q.t+' · 第'+q.q+'題';
   document.getElementById('qSentence').innerHTML = q.s
     .replace(/_{3,}/g, '<span class="blank">______</span>')
@@ -1149,6 +1172,28 @@ function renderQuestion(){
   document.getElementById('qDiscBox').innerHTML = '';
 }
 
+/* 分段進度條：每題一段。20 題以內顯示分段，超過就用原本的連續進度條 */
+function drawQSeg(){
+  const box = document.getElementById('qSeg'), old = document.getElementById('progressBarOld');
+  if(!box || !old) return;
+  const n = session.list.length, res = session.results || [];
+  if(n < 2 || n > 20){ box.hidden = true; old.style.display = ''; return; }
+  old.style.display = 'none'; box.hidden = false;
+  box.textContent = '';
+  let ok = 0, no = 0;
+  for(let i = 0; i < n; i++){
+    const st = res[i] || '';
+    if(st === 'ok') ok++; else if(st === 'no') no++;
+    const sg = document.createElement('span');
+    sg.className = 'sg' + (st ? ' ' + st : '') + (i === session.idx ? ' cur' : '');
+    const mk = document.createElement('span'); mk.className = 'mk'; mk.setAttribute('aria-hidden','true');
+    mk.textContent = st === 'ok' ? '✓' : st === 'no' ? '✕' : '';
+    const bar = document.createElement('span'); bar.className = 'bar'; bar.setAttribute('aria-hidden','true');
+    sg.appendChild(mk); sg.appendChild(bar); box.appendChild(sg);
+  }
+  box.setAttribute('aria-label', '第 ' + (session.idx + 1) + ' 題，共 ' + n + ' 題，目前答對 ' + ok + ' 題、答錯 ' + no + ' 題');
+}
+
 function selectAnswer(letter, q){
   const opts = document.querySelectorAll('#qOptions .opt');
   if(opts[0].classList.contains('locked')) return; // already answered
@@ -1162,6 +1207,8 @@ function selectAnswer(letter, q){
     else if(L === letter && !correct){ o.classList.add('wrong'); o.querySelector('.mark').textContent = '✕'; }
   });
 
+  if(session.results) session.results[session.idx] = correct ? 'ok' : 'no';
+  drawQSeg();
   if(correct){ session.correctCount++; }
   else { session.wrongIds.push(q.id); const wb = getWrongBook(); if(!wb.includes(q.id)){ wb.push(q.id); setWrongBook(wb); } }
 
